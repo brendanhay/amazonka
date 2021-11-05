@@ -1,0 +1,415 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaTailor.Types.PrefetchSchedule</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaTailor.Types.PrefetchSchedule</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PrefetchConsumption.html"><span class="hs-identifier">Network.AWS.MediaTailor.Types.PrefetchConsumption</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PrefetchRetrieval.html"><span class="hs-identifier">Network.AWS.MediaTailor.Types.PrefetchRetrieval</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | A complex type that contains prefetch schedule information.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newPrefetchSchedule' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679266752"><span id="local-6989586621679266753"></span></span><span class="hs-keyword">data</span><span> </span><span id="PrefetchSchedule"><span class="annot"><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#PrefetchSchedule"><span class="hs-identifier hs-var">PrefetchSchedule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PrefetchSchedule%27"><span class="annot"><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#PrefetchSchedule%27"><span class="hs-identifier hs-var">PrefetchSchedule'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An optional stream identifier that you can specify in order to prefetch</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- for multiple streams that use the same playback configuration.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AstreamId%3APrefetchSchedule%27"><span class="annot"><span class="annottext">PrefetchSchedule -&gt; Maybe Text
+</span><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#%24sel%3AstreamId%3APrefetchSchedule%27"><span class="hs-identifier hs-var hs-var">streamId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | A complex type that contains settings for prefetch retrieval from the ad</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- decision server (ADS).</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aretrieval%3APrefetchSchedule%27"><span class="annot"><span class="annottext">PrefetchSchedule -&gt; PrefetchRetrieval
+</span><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#%24sel%3Aretrieval%3APrefetchSchedule%27"><span class="hs-identifier hs-var hs-var">retrieval</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PrefetchRetrieval.html#PrefetchRetrieval"><span class="hs-identifier hs-type">PrefetchRetrieval</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Consumption settings determine how, and when, MediaTailor places the</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- prefetched ads into ad breaks. Ad consumption occurs within a span of</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- time that you define, called a /consumption window/. You can designate</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- which ad breaks that MediaTailor fills with prefetch ads by setting</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- avail matching criteria.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Aconsumption%3APrefetchSchedule%27"><span class="annot"><span class="annottext">PrefetchSchedule -&gt; PrefetchConsumption
+</span><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#%24sel%3Aconsumption%3APrefetchSchedule%27"><span class="hs-identifier hs-var hs-var">consumption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PrefetchConsumption.html#PrefetchConsumption"><span class="hs-identifier hs-type">PrefetchConsumption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the prefetch schedule.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Aarn%3APrefetchSchedule%27"><span class="annot"><span class="annottext">PrefetchSchedule -&gt; Text
+</span><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#%24sel%3Aarn%3APrefetchSchedule%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The name of the playback configuration to create the prefetch schedule</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- for.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AplaybackConfigurationName%3APrefetchSchedule%27"><span class="annot"><span class="annottext">PrefetchSchedule -&gt; Text
+</span><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#%24sel%3AplaybackConfigurationName%3APrefetchSchedule%27"><span class="hs-identifier hs-var hs-var">playbackConfigurationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The name of the prefetch schedule. The name must be unique among all</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- prefetch schedules that are associated with the specified playback</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3Aname%3APrefetchSchedule%27"><span class="annot"><span class="annottext">PrefetchSchedule -&gt; Text
+</span><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#%24sel%3Aname%3APrefetchSchedule%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679266741"><span id="local-6989586621679266743"><span class="annot"><span class="annottext">PrefetchSchedule -&gt; PrefetchSchedule -&gt; Bool
+(PrefetchSchedule -&gt; PrefetchSchedule -&gt; Bool)
+-&gt; (PrefetchSchedule -&gt; PrefetchSchedule -&gt; Bool)
+-&gt; Eq PrefetchSchedule
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PrefetchSchedule -&gt; PrefetchSchedule -&gt; Bool
+$c/= :: PrefetchSchedule -&gt; PrefetchSchedule -&gt; Bool
+== :: PrefetchSchedule -&gt; PrefetchSchedule -&gt; Bool
+$c== :: PrefetchSchedule -&gt; PrefetchSchedule -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266732"><span id="local-6989586621679266734"><span id="local-6989586621679266736"><span id="local-6989586621679266738"><span class="annot"><span class="annottext">ReadPrec [PrefetchSchedule]
+ReadPrec PrefetchSchedule
+Int -&gt; ReadS PrefetchSchedule
+ReadS [PrefetchSchedule]
+(Int -&gt; ReadS PrefetchSchedule)
+-&gt; ReadS [PrefetchSchedule]
+-&gt; ReadPrec PrefetchSchedule
+-&gt; ReadPrec [PrefetchSchedule]
+-&gt; Read PrefetchSchedule
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PrefetchSchedule]
+$creadListPrec :: ReadPrec [PrefetchSchedule]
+readPrec :: ReadPrec PrefetchSchedule
+$creadPrec :: ReadPrec PrefetchSchedule
+readList :: ReadS [PrefetchSchedule]
+$creadList :: ReadS [PrefetchSchedule]
+readsPrec :: Int -&gt; ReadS PrefetchSchedule
+$creadsPrec :: Int -&gt; ReadS PrefetchSchedule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266725"><span id="local-6989586621679266727"><span id="local-6989586621679266729"><span class="annot"><span class="annottext">Int -&gt; PrefetchSchedule -&gt; ShowS
+[PrefetchSchedule] -&gt; ShowS
+PrefetchSchedule -&gt; String
+(Int -&gt; PrefetchSchedule -&gt; ShowS)
+-&gt; (PrefetchSchedule -&gt; String)
+-&gt; ([PrefetchSchedule] -&gt; ShowS)
+-&gt; Show PrefetchSchedule
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PrefetchSchedule] -&gt; ShowS
+$cshowList :: [PrefetchSchedule] -&gt; ShowS
+show :: PrefetchSchedule -&gt; String
+$cshow :: PrefetchSchedule -&gt; String
+showsPrec :: Int -&gt; PrefetchSchedule -&gt; ShowS
+$cshowsPrec :: Int -&gt; PrefetchSchedule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PrefetchSchedule -&gt; Rep PrefetchSchedule x)
+-&gt; (forall x. Rep PrefetchSchedule x -&gt; PrefetchSchedule)
+-&gt; Generic PrefetchSchedule
+forall x. Rep PrefetchSchedule x -&gt; PrefetchSchedule
+forall x. PrefetchSchedule -&gt; Rep PrefetchSchedule x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PrefetchSchedule x -&gt; PrefetchSchedule
+$cfrom :: forall x. PrefetchSchedule -&gt; Rep PrefetchSchedule x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Create a value of 'PrefetchSchedule' with all optional fields omitted.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'streamId', 'prefetchSchedule_streamId' - An optional stream identifier that you can specify in order to prefetch</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for multiple streams that use the same playback configuration.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'retrieval', 'prefetchSchedule_retrieval' - A complex type that contains settings for prefetch retrieval from the ad</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- decision server (ADS).</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'consumption', 'prefetchSchedule_consumption' - Consumption settings determine how, and when, MediaTailor places the</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- prefetched ads into ad breaks. Ad consumption occurs within a span of</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- time that you define, called a /consumption window/. You can designate</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- which ad breaks that MediaTailor fills with prefetch ads by setting</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- avail matching criteria.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'arn', 'prefetchSchedule_arn' - The Amazon Resource Name (ARN) of the prefetch schedule.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'playbackConfigurationName', 'prefetchSchedule_playbackConfigurationName' - The name of the playback configuration to create the prefetch schedule</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- for.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'name', 'prefetchSchedule_name' - The name of the prefetch schedule. The name must be unique among all</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- prefetch schedules that are associated with the specified playback</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#newPrefetchSchedule"><span class="hs-identifier hs-type">newPrefetchSchedule</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-comment">-- | 'retrieval'</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PrefetchRetrieval.html#PrefetchRetrieval"><span class="hs-identifier hs-type">PrefetchRetrieval</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-comment">-- | 'consumption'</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PrefetchConsumption.html#PrefetchConsumption"><span class="hs-identifier hs-type">PrefetchConsumption</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-comment">-- | 'arn'</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-comment">-- | 'playbackConfigurationName'</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#PrefetchSchedule"><span class="hs-identifier hs-type">PrefetchSchedule</span></a></span><span>
+</span><span id="line-96"></span><span id="newPrefetchSchedule"><span class="annot"><span class="annottext">newPrefetchSchedule :: PrefetchRetrieval
+-&gt; PrefetchConsumption -&gt; Text -&gt; Text -&gt; Text -&gt; PrefetchSchedule
+</span><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#newPrefetchSchedule"><span class="hs-identifier hs-var hs-var">newPrefetchSchedule</span></a></span></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679266719"><span class="annot"><span class="annottext">PrefetchRetrieval
+</span><a href="#local-6989586621679266719"><span class="hs-identifier hs-var">pRetrieval_</span></a></span></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679266718"><span class="annot"><span class="annottext">PrefetchConsumption
+</span><a href="#local-6989586621679266718"><span class="hs-identifier hs-var">pConsumption_</span></a></span></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679266717"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266717"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679266716"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266716"><span class="hs-identifier hs-var">pPlaybackConfigurationName_</span></a></span></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679266715"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266715"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">PrefetchSchedule' :: Maybe Text
+-&gt; PrefetchRetrieval
+-&gt; PrefetchConsumption
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; PrefetchSchedule
+</span><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#PrefetchSchedule%27"><span class="hs-identifier hs-type">PrefetchSchedule'</span></a></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:streamId:PrefetchSchedule' :: Maybe Text
+</span><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#%24sel%3AstreamId%3APrefetchSchedule%27"><span class="hs-identifier hs-var">streamId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">$sel:retrieval:PrefetchSchedule' :: PrefetchRetrieval
+</span><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#%24sel%3Aretrieval%3APrefetchSchedule%27"><span class="hs-identifier hs-var">retrieval</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PrefetchRetrieval
+</span><a href="#local-6989586621679266719"><span class="hs-identifier hs-var">pRetrieval_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">$sel:consumption:PrefetchSchedule' :: PrefetchConsumption
+</span><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#%24sel%3Aconsumption%3APrefetchSchedule%27"><span class="hs-identifier hs-var">consumption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PrefetchConsumption
+</span><a href="#local-6989586621679266718"><span class="hs-identifier hs-var">pConsumption_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">$sel:arn:PrefetchSchedule' :: Text
+</span><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#%24sel%3Aarn%3APrefetchSchedule%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266717"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">$sel:playbackConfigurationName:PrefetchSchedule' :: Text
+</span><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#%24sel%3AplaybackConfigurationName%3APrefetchSchedule%27"><span class="hs-identifier hs-var">playbackConfigurationName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266716"><span class="hs-identifier hs-var">pPlaybackConfigurationName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:PrefetchSchedule' :: Text
+</span><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#%24sel%3Aname%3APrefetchSchedule%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266715"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | An optional stream identifier that you can specify in order to prefetch</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- for multiple streams that use the same playback configuration.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#prefetchSchedule_streamId"><span class="hs-identifier hs-type">prefetchSchedule_streamId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#PrefetchSchedule"><span class="hs-identifier hs-type">PrefetchSchedule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="prefetchSchedule_streamId"><span class="annot"><span class="annottext">prefetchSchedule_streamId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PrefetchSchedule -&gt; f PrefetchSchedule
+</span><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#prefetchSchedule_streamId"><span class="hs-identifier hs-var hs-var">prefetchSchedule_streamId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PrefetchSchedule -&gt; Maybe Text)
+-&gt; (PrefetchSchedule -&gt; Maybe Text -&gt; PrefetchSchedule)
+-&gt; Lens PrefetchSchedule PrefetchSchedule (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#PrefetchSchedule%27"><span class="hs-identifier hs-type">PrefetchSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266711"><span class="annot"><span class="annottext">Maybe Text
+streamId :: Maybe Text
+$sel:streamId:PrefetchSchedule' :: PrefetchSchedule -&gt; Maybe Text
+</span><a href="#local-6989586621679266711"><span class="hs-identifier hs-var hs-var">streamId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266711"><span class="hs-identifier hs-var">streamId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266710"><span class="annot"><span class="annottext">s :: PrefetchSchedule
+</span><a href="#local-6989586621679266710"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#PrefetchSchedule%27"><span class="hs-identifier hs-type">PrefetchSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266709"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266709"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PrefetchSchedule
+</span><a href="#local-6989586621679266710"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamId:PrefetchSchedule' :: Maybe Text
+</span><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#%24sel%3AstreamId%3APrefetchSchedule%27"><span class="hs-identifier hs-var">streamId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266709"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#PrefetchSchedule"><span class="hs-identifier hs-type">PrefetchSchedule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | A complex type that contains settings for prefetch retrieval from the ad</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- decision server (ADS).</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#prefetchSchedule_retrieval"><span class="hs-identifier hs-type">prefetchSchedule_retrieval</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#PrefetchSchedule"><span class="hs-identifier hs-type">PrefetchSchedule</span></a></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PrefetchRetrieval.html#PrefetchRetrieval"><span class="hs-identifier hs-type">PrefetchRetrieval</span></a></span><span>
+</span><span id="line-120"></span><span id="prefetchSchedule_retrieval"><span class="annot"><span class="annottext">prefetchSchedule_retrieval :: (PrefetchRetrieval -&gt; f PrefetchRetrieval)
+-&gt; PrefetchSchedule -&gt; f PrefetchSchedule
+</span><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#prefetchSchedule_retrieval"><span class="hs-identifier hs-var hs-var">prefetchSchedule_retrieval</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PrefetchSchedule -&gt; PrefetchRetrieval)
+-&gt; (PrefetchSchedule -&gt; PrefetchRetrieval -&gt; PrefetchSchedule)
+-&gt; Lens
+     PrefetchSchedule
+     PrefetchSchedule
+     PrefetchRetrieval
+     PrefetchRetrieval
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#PrefetchSchedule%27"><span class="hs-identifier hs-type">PrefetchSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266707"><span class="annot"><span class="annottext">PrefetchRetrieval
+retrieval :: PrefetchRetrieval
+$sel:retrieval:PrefetchSchedule' :: PrefetchSchedule -&gt; PrefetchRetrieval
+</span><a href="#local-6989586621679266707"><span class="hs-identifier hs-var hs-var">retrieval</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PrefetchRetrieval
+</span><a href="#local-6989586621679266707"><span class="hs-identifier hs-var">retrieval</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266706"><span class="annot"><span class="annottext">s :: PrefetchSchedule
+</span><a href="#local-6989586621679266706"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#PrefetchSchedule%27"><span class="hs-identifier hs-type">PrefetchSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266705"><span class="annot"><span class="annottext">PrefetchRetrieval
+</span><a href="#local-6989586621679266705"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PrefetchSchedule
+</span><a href="#local-6989586621679266706"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retrieval:PrefetchSchedule' :: PrefetchRetrieval
+</span><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#%24sel%3Aretrieval%3APrefetchSchedule%27"><span class="hs-identifier hs-var">retrieval</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PrefetchRetrieval
+</span><a href="#local-6989586621679266705"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#PrefetchSchedule"><span class="hs-identifier hs-type">PrefetchSchedule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | Consumption settings determine how, and when, MediaTailor places the</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- prefetched ads into ad breaks. Ad consumption occurs within a span of</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- time that you define, called a /consumption window/. You can designate</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- which ad breaks that MediaTailor fills with prefetch ads by setting</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- avail matching criteria.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#prefetchSchedule_consumption"><span class="hs-identifier hs-type">prefetchSchedule_consumption</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#PrefetchSchedule"><span class="hs-identifier hs-type">PrefetchSchedule</span></a></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PrefetchConsumption.html#PrefetchConsumption"><span class="hs-identifier hs-type">PrefetchConsumption</span></a></span><span>
+</span><span id="line-128"></span><span id="prefetchSchedule_consumption"><span class="annot"><span class="annottext">prefetchSchedule_consumption :: (PrefetchConsumption -&gt; f PrefetchConsumption)
+-&gt; PrefetchSchedule -&gt; f PrefetchSchedule
+</span><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#prefetchSchedule_consumption"><span class="hs-identifier hs-var hs-var">prefetchSchedule_consumption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PrefetchSchedule -&gt; PrefetchConsumption)
+-&gt; (PrefetchSchedule -&gt; PrefetchConsumption -&gt; PrefetchSchedule)
+-&gt; Lens
+     PrefetchSchedule
+     PrefetchSchedule
+     PrefetchConsumption
+     PrefetchConsumption
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#PrefetchSchedule%27"><span class="hs-identifier hs-type">PrefetchSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266703"><span class="annot"><span class="annottext">PrefetchConsumption
+consumption :: PrefetchConsumption
+$sel:consumption:PrefetchSchedule' :: PrefetchSchedule -&gt; PrefetchConsumption
+</span><a href="#local-6989586621679266703"><span class="hs-identifier hs-var hs-var">consumption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PrefetchConsumption
+</span><a href="#local-6989586621679266703"><span class="hs-identifier hs-var">consumption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266702"><span class="annot"><span class="annottext">s :: PrefetchSchedule
+</span><a href="#local-6989586621679266702"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#PrefetchSchedule%27"><span class="hs-identifier hs-type">PrefetchSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266701"><span class="annot"><span class="annottext">PrefetchConsumption
+</span><a href="#local-6989586621679266701"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PrefetchSchedule
+</span><a href="#local-6989586621679266702"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumption:PrefetchSchedule' :: PrefetchConsumption
+</span><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#%24sel%3Aconsumption%3APrefetchSchedule%27"><span class="hs-identifier hs-var">consumption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PrefetchConsumption
+</span><a href="#local-6989586621679266701"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#PrefetchSchedule"><span class="hs-identifier hs-type">PrefetchSchedule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the prefetch schedule.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#prefetchSchedule_arn"><span class="hs-identifier hs-type">prefetchSchedule_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#PrefetchSchedule"><span class="hs-identifier hs-type">PrefetchSchedule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-132"></span><span id="prefetchSchedule_arn"><span class="annot"><span class="annottext">prefetchSchedule_arn :: (Text -&gt; f Text) -&gt; PrefetchSchedule -&gt; f PrefetchSchedule
+</span><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#prefetchSchedule_arn"><span class="hs-identifier hs-var hs-var">prefetchSchedule_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PrefetchSchedule -&gt; Text)
+-&gt; (PrefetchSchedule -&gt; Text -&gt; PrefetchSchedule)
+-&gt; Lens PrefetchSchedule PrefetchSchedule Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#PrefetchSchedule%27"><span class="hs-identifier hs-type">PrefetchSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266699"><span class="annot"><span class="annottext">Text
+arn :: Text
+$sel:arn:PrefetchSchedule' :: PrefetchSchedule -&gt; Text
+</span><a href="#local-6989586621679266699"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266699"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266698"><span class="annot"><span class="annottext">s :: PrefetchSchedule
+</span><a href="#local-6989586621679266698"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#PrefetchSchedule%27"><span class="hs-identifier hs-type">PrefetchSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266697"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266697"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PrefetchSchedule
+</span><a href="#local-6989586621679266698"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:PrefetchSchedule' :: Text
+</span><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#%24sel%3Aarn%3APrefetchSchedule%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266697"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#PrefetchSchedule"><span class="hs-identifier hs-type">PrefetchSchedule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The name of the playback configuration to create the prefetch schedule</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- for.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#prefetchSchedule_playbackConfigurationName"><span class="hs-identifier hs-type">prefetchSchedule_playbackConfigurationName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#PrefetchSchedule"><span class="hs-identifier hs-type">PrefetchSchedule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-137"></span><span id="prefetchSchedule_playbackConfigurationName"><span class="annot"><span class="annottext">prefetchSchedule_playbackConfigurationName :: (Text -&gt; f Text) -&gt; PrefetchSchedule -&gt; f PrefetchSchedule
+</span><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#prefetchSchedule_playbackConfigurationName"><span class="hs-identifier hs-var hs-var">prefetchSchedule_playbackConfigurationName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PrefetchSchedule -&gt; Text)
+-&gt; (PrefetchSchedule -&gt; Text -&gt; PrefetchSchedule)
+-&gt; Lens PrefetchSchedule PrefetchSchedule Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#PrefetchSchedule%27"><span class="hs-identifier hs-type">PrefetchSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266695"><span class="annot"><span class="annottext">Text
+playbackConfigurationName :: Text
+$sel:playbackConfigurationName:PrefetchSchedule' :: PrefetchSchedule -&gt; Text
+</span><a href="#local-6989586621679266695"><span class="hs-identifier hs-var hs-var">playbackConfigurationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266695"><span class="hs-identifier hs-var">playbackConfigurationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266694"><span class="annot"><span class="annottext">s :: PrefetchSchedule
+</span><a href="#local-6989586621679266694"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#PrefetchSchedule%27"><span class="hs-identifier hs-type">PrefetchSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266693"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266693"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PrefetchSchedule
+</span><a href="#local-6989586621679266694"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:playbackConfigurationName:PrefetchSchedule' :: Text
+</span><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#%24sel%3AplaybackConfigurationName%3APrefetchSchedule%27"><span class="hs-identifier hs-var">playbackConfigurationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266693"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#PrefetchSchedule"><span class="hs-identifier hs-type">PrefetchSchedule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The name of the prefetch schedule. The name must be unique among all</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- prefetch schedules that are associated with the specified playback</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#prefetchSchedule_name"><span class="hs-identifier hs-type">prefetchSchedule_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#PrefetchSchedule"><span class="hs-identifier hs-type">PrefetchSchedule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-143"></span><span id="prefetchSchedule_name"><span class="annot"><span class="annottext">prefetchSchedule_name :: (Text -&gt; f Text) -&gt; PrefetchSchedule -&gt; f PrefetchSchedule
+</span><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#prefetchSchedule_name"><span class="hs-identifier hs-var hs-var">prefetchSchedule_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PrefetchSchedule -&gt; Text)
+-&gt; (PrefetchSchedule -&gt; Text -&gt; PrefetchSchedule)
+-&gt; Lens PrefetchSchedule PrefetchSchedule Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#PrefetchSchedule%27"><span class="hs-identifier hs-type">PrefetchSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266691"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:PrefetchSchedule' :: PrefetchSchedule -&gt; Text
+</span><a href="#local-6989586621679266691"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266691"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266690"><span class="annot"><span class="annottext">s :: PrefetchSchedule
+</span><a href="#local-6989586621679266690"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#PrefetchSchedule%27"><span class="hs-identifier hs-type">PrefetchSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266689"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266689"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PrefetchSchedule
+</span><a href="#local-6989586621679266690"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:PrefetchSchedule' :: Text
+</span><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#%24sel%3Aname%3APrefetchSchedule%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266689"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#PrefetchSchedule"><span class="hs-identifier hs-type">PrefetchSchedule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266686"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#PrefetchSchedule"><span class="hs-identifier hs-type">PrefetchSchedule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679266684"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PrefetchSchedule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser PrefetchSchedule)
+-&gt; Value
+-&gt; Parser PrefetchSchedule
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;PrefetchSchedule&quot;</span></span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679266681"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266681"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-150"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; PrefetchRetrieval
+-&gt; PrefetchConsumption
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; PrefetchSchedule
+</span><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#PrefetchSchedule%27"><span class="hs-identifier hs-var">PrefetchSchedule'</span></a></span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; PrefetchRetrieval
+ -&gt; PrefetchConsumption
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; PrefetchSchedule)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (PrefetchRetrieval
+      -&gt; PrefetchConsumption -&gt; Text -&gt; Text -&gt; Text -&gt; PrefetchSchedule)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266681"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StreamId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (PrefetchRetrieval
+   -&gt; PrefetchConsumption -&gt; Text -&gt; Text -&gt; Text -&gt; PrefetchSchedule)
+-&gt; Parser PrefetchRetrieval
+-&gt; Parser
+     (PrefetchConsumption -&gt; Text -&gt; Text -&gt; Text -&gt; PrefetchSchedule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266681"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser PrefetchRetrieval
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Retrieval&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (PrefetchConsumption -&gt; Text -&gt; Text -&gt; Text -&gt; PrefetchSchedule)
+-&gt; Parser PrefetchConsumption
+-&gt; Parser (Text -&gt; Text -&gt; Text -&gt; PrefetchSchedule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266681"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser PrefetchConsumption
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Consumption&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; Text -&gt; PrefetchSchedule)
+-&gt; Parser Text -&gt; Parser (Text -&gt; Text -&gt; PrefetchSchedule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266681"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; PrefetchSchedule)
+-&gt; Parser Text -&gt; Parser (Text -&gt; PrefetchSchedule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266681"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PlaybackConfigurationName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; PrefetchSchedule)
+-&gt; Parser Text -&gt; Parser PrefetchSchedule
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266681"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266674"><span id="local-6989586621679266676"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#PrefetchSchedule"><span class="hs-identifier hs-type">PrefetchSchedule</span></a></span></span></span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266671"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.PrefetchSchedule.html#PrefetchSchedule"><span class="hs-identifier hs-type">PrefetchSchedule</span></a></span></span><span>
+</span><span id="line-162"></span></pre></body></html>

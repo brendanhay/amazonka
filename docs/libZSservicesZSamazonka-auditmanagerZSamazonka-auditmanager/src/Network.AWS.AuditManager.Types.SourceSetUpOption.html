@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AuditManager.Types.SourceSetUpOption</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AuditManager.Types.SourceSetUpOption</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SourceSetUpOption.html#SourceSetUpOption"><span class="hs-identifier">SourceSetUpOption</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SourceSetUpOption.html#SourceSetUpOption_Procedural_Controls_Mapping"><span class="hs-identifier">SourceSetUpOption_Procedural_Controls_Mapping</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SourceSetUpOption.html#SourceSetUpOption_System_Controls_Mapping"><span class="hs-identifier">SourceSetUpOption_System_Controls_Mapping</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679296658"><span id="local-6989586621679296659"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SourceSetUpOption"><span class="annot"><a href="Network.AWS.AuditManager.Types.SourceSetUpOption.html#SourceSetUpOption"><span class="hs-identifier hs-var">SourceSetUpOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SourceSetUpOption%27"><span class="annot"><a href="Network.AWS.AuditManager.Types.SourceSetUpOption.html#SourceSetUpOption%27"><span class="hs-identifier hs-var">SourceSetUpOption'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSourceSetUpOption"><span class="annot"><span class="annottext">SourceSetUpOption -&gt; Text
+</span><a href="Network.AWS.AuditManager.Types.SourceSetUpOption.html#fromSourceSetUpOption"><span class="hs-identifier hs-var hs-var">fromSourceSetUpOption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679296650"><span id="local-6989586621679296652"><span id="local-6989586621679296654"><span class="annot"><span class="annottext">Int -&gt; SourceSetUpOption -&gt; ShowS
+[SourceSetUpOption] -&gt; ShowS
+SourceSetUpOption -&gt; String
+(Int -&gt; SourceSetUpOption -&gt; ShowS)
+-&gt; (SourceSetUpOption -&gt; String)
+-&gt; ([SourceSetUpOption] -&gt; ShowS)
+-&gt; Show SourceSetUpOption
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SourceSetUpOption] -&gt; ShowS
+$cshowList :: [SourceSetUpOption] -&gt; ShowS
+show :: SourceSetUpOption -&gt; String
+$cshow :: SourceSetUpOption -&gt; String
+showsPrec :: Int -&gt; SourceSetUpOption -&gt; ShowS
+$cshowsPrec :: Int -&gt; SourceSetUpOption -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679296641"><span id="local-6989586621679296643"><span id="local-6989586621679296645"><span id="local-6989586621679296647"><span class="annot"><span class="annottext">ReadPrec [SourceSetUpOption]
+ReadPrec SourceSetUpOption
+Int -&gt; ReadS SourceSetUpOption
+ReadS [SourceSetUpOption]
+(Int -&gt; ReadS SourceSetUpOption)
+-&gt; ReadS [SourceSetUpOption]
+-&gt; ReadPrec SourceSetUpOption
+-&gt; ReadPrec [SourceSetUpOption]
+-&gt; Read SourceSetUpOption
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SourceSetUpOption]
+$creadListPrec :: ReadPrec [SourceSetUpOption]
+readPrec :: ReadPrec SourceSetUpOption
+$creadPrec :: ReadPrec SourceSetUpOption
+readList :: ReadS [SourceSetUpOption]
+$creadList :: ReadS [SourceSetUpOption]
+readsPrec :: Int -&gt; ReadS SourceSetUpOption
+$creadsPrec :: Int -&gt; ReadS SourceSetUpOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679296636"><span id="local-6989586621679296638"><span class="annot"><span class="annottext">SourceSetUpOption -&gt; SourceSetUpOption -&gt; Bool
+(SourceSetUpOption -&gt; SourceSetUpOption -&gt; Bool)
+-&gt; (SourceSetUpOption -&gt; SourceSetUpOption -&gt; Bool)
+-&gt; Eq SourceSetUpOption
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SourceSetUpOption -&gt; SourceSetUpOption -&gt; Bool
+$c/= :: SourceSetUpOption -&gt; SourceSetUpOption -&gt; Bool
+== :: SourceSetUpOption -&gt; SourceSetUpOption -&gt; Bool
+$c== :: SourceSetUpOption -&gt; SourceSetUpOption -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679296620"><span id="local-6989586621679296622"><span id="local-6989586621679296624"><span id="local-6989586621679296626"><span id="local-6989586621679296628"><span id="local-6989586621679296630"><span id="local-6989586621679296632"><span class="annot"><span class="annottext">Eq SourceSetUpOption
+Eq SourceSetUpOption
+-&gt; (SourceSetUpOption -&gt; SourceSetUpOption -&gt; Ordering)
+-&gt; (SourceSetUpOption -&gt; SourceSetUpOption -&gt; Bool)
+-&gt; (SourceSetUpOption -&gt; SourceSetUpOption -&gt; Bool)
+-&gt; (SourceSetUpOption -&gt; SourceSetUpOption -&gt; Bool)
+-&gt; (SourceSetUpOption -&gt; SourceSetUpOption -&gt; Bool)
+-&gt; (SourceSetUpOption -&gt; SourceSetUpOption -&gt; SourceSetUpOption)
+-&gt; (SourceSetUpOption -&gt; SourceSetUpOption -&gt; SourceSetUpOption)
+-&gt; Ord SourceSetUpOption
+SourceSetUpOption -&gt; SourceSetUpOption -&gt; Bool
+SourceSetUpOption -&gt; SourceSetUpOption -&gt; Ordering
+SourceSetUpOption -&gt; SourceSetUpOption -&gt; SourceSetUpOption
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: SourceSetUpOption -&gt; SourceSetUpOption -&gt; SourceSetUpOption
+$cmin :: SourceSetUpOption -&gt; SourceSetUpOption -&gt; SourceSetUpOption
+max :: SourceSetUpOption -&gt; SourceSetUpOption -&gt; SourceSetUpOption
+$cmax :: SourceSetUpOption -&gt; SourceSetUpOption -&gt; SourceSetUpOption
+&gt;= :: SourceSetUpOption -&gt; SourceSetUpOption -&gt; Bool
+$c&gt;= :: SourceSetUpOption -&gt; SourceSetUpOption -&gt; Bool
+&gt; :: SourceSetUpOption -&gt; SourceSetUpOption -&gt; Bool
+$c&gt; :: SourceSetUpOption -&gt; SourceSetUpOption -&gt; Bool
+&lt;= :: SourceSetUpOption -&gt; SourceSetUpOption -&gt; Bool
+$c&lt;= :: SourceSetUpOption -&gt; SourceSetUpOption -&gt; Bool
+&lt; :: SourceSetUpOption -&gt; SourceSetUpOption -&gt; Bool
+$c&lt; :: SourceSetUpOption -&gt; SourceSetUpOption -&gt; Bool
+compare :: SourceSetUpOption -&gt; SourceSetUpOption -&gt; Ordering
+$ccompare :: SourceSetUpOption -&gt; SourceSetUpOption -&gt; Ordering
+$cp1Ord :: Eq SourceSetUpOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. SourceSetUpOption -&gt; Rep SourceSetUpOption x)
+-&gt; (forall x. Rep SourceSetUpOption x -&gt; SourceSetUpOption)
+-&gt; Generic SourceSetUpOption
+forall x. Rep SourceSetUpOption x -&gt; SourceSetUpOption
+forall x. SourceSetUpOption -&gt; Rep SourceSetUpOption x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SourceSetUpOption x -&gt; SourceSetUpOption
+$cfrom :: forall x. SourceSetUpOption -&gt; Rep SourceSetUpOption x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679296612"><span id="local-6989586621679296614"><span class="annot"><span class="annottext">Int -&gt; SourceSetUpOption -&gt; Int
+SourceSetUpOption -&gt; Int
+(Int -&gt; SourceSetUpOption -&gt; Int)
+-&gt; (SourceSetUpOption -&gt; Int) -&gt; Hashable SourceSetUpOption
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: SourceSetUpOption -&gt; Int
+$chash :: SourceSetUpOption -&gt; Int
+hashWithSalt :: Int -&gt; SourceSetUpOption -&gt; Int
+$chashWithSalt :: Int -&gt; SourceSetUpOption -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679296609"><span class="annot"><span class="annottext">SourceSetUpOption -&gt; ()
+(SourceSetUpOption -&gt; ()) -&gt; NFData SourceSetUpOption
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: SourceSetUpOption -&gt; ()
+$crnf :: SourceSetUpOption -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679296606"><span class="annot"><span class="annottext">Text -&gt; Either String SourceSetUpOption
+(Text -&gt; Either String SourceSetUpOption)
+-&gt; FromText SourceSetUpOption
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String SourceSetUpOption
+$cfromText :: Text -&gt; Either String SourceSetUpOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679296603"><span class="annot"><span class="annottext">SourceSetUpOption -&gt; Text
+(SourceSetUpOption -&gt; Text) -&gt; ToText SourceSetUpOption
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: SourceSetUpOption -&gt; Text
+$ctoText :: SourceSetUpOption -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679296600"><span class="annot"><span class="annottext">SourceSetUpOption -&gt; ByteString
+(SourceSetUpOption -&gt; ByteString) -&gt; ToByteString SourceSetUpOption
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: SourceSetUpOption -&gt; ByteString
+$ctoBS :: SourceSetUpOption -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679296597"><span class="annot"><span class="annottext">SourceSetUpOption -&gt; ByteStringBuilder
+(SourceSetUpOption -&gt; ByteStringBuilder) -&gt; ToLog SourceSetUpOption
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: SourceSetUpOption -&gt; ByteStringBuilder
+$cbuild :: SourceSetUpOption -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679296594"><span class="annot"><span class="annottext">HeaderName -&gt; SourceSetUpOption -&gt; [Header]
+(HeaderName -&gt; SourceSetUpOption -&gt; [Header])
+-&gt; ToHeader SourceSetUpOption
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; SourceSetUpOption -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; SourceSetUpOption -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679296591"><span class="annot"><span class="annottext">SourceSetUpOption -&gt; QueryString
+(SourceSetUpOption -&gt; QueryString) -&gt; ToQuery SourceSetUpOption
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: SourceSetUpOption -&gt; QueryString
+$ctoQuery :: SourceSetUpOption -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679296586"><span id="local-6989586621679296588"><span class="annot"><span class="annottext">Value -&gt; Parser [SourceSetUpOption]
+Value -&gt; Parser SourceSetUpOption
+(Value -&gt; Parser SourceSetUpOption)
+-&gt; (Value -&gt; Parser [SourceSetUpOption])
+-&gt; FromJSON SourceSetUpOption
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [SourceSetUpOption]
+$cparseJSONList :: Value -&gt; Parser [SourceSetUpOption]
+parseJSON :: Value -&gt; Parser SourceSetUpOption
+$cparseJSON :: Value -&gt; Parser SourceSetUpOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679296581"><span id="local-6989586621679296583"><span class="annot"><span class="annottext">FromJSONKeyFunction [SourceSetUpOption]
+FromJSONKeyFunction SourceSetUpOption
+FromJSONKeyFunction SourceSetUpOption
+-&gt; FromJSONKeyFunction [SourceSetUpOption]
+-&gt; FromJSONKey SourceSetUpOption
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [SourceSetUpOption]
+$cfromJSONKeyList :: FromJSONKeyFunction [SourceSetUpOption]
+fromJSONKey :: FromJSONKeyFunction SourceSetUpOption
+$cfromJSONKey :: FromJSONKeyFunction SourceSetUpOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679296572"><span id="local-6989586621679296574"><span id="local-6989586621679296576"><span id="local-6989586621679296578"><span class="annot"><span class="annottext">[SourceSetUpOption] -&gt; Encoding
+[SourceSetUpOption] -&gt; Value
+SourceSetUpOption -&gt; Encoding
+SourceSetUpOption -&gt; Value
+(SourceSetUpOption -&gt; Value)
+-&gt; (SourceSetUpOption -&gt; Encoding)
+-&gt; ([SourceSetUpOption] -&gt; Value)
+-&gt; ([SourceSetUpOption] -&gt; Encoding)
+-&gt; ToJSON SourceSetUpOption
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [SourceSetUpOption] -&gt; Encoding
+$ctoEncodingList :: [SourceSetUpOption] -&gt; Encoding
+toJSONList :: [SourceSetUpOption] -&gt; Value
+$ctoJSONList :: [SourceSetUpOption] -&gt; Value
+toEncoding :: SourceSetUpOption -&gt; Encoding
+$ctoEncoding :: SourceSetUpOption -&gt; Encoding
+toJSON :: SourceSetUpOption -&gt; Value
+$ctoJSON :: SourceSetUpOption -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679296567"><span id="local-6989586621679296569"><span class="annot"><span class="annottext">ToJSONKeyFunction [SourceSetUpOption]
+ToJSONKeyFunction SourceSetUpOption
+ToJSONKeyFunction SourceSetUpOption
+-&gt; ToJSONKeyFunction [SourceSetUpOption]
+-&gt; ToJSONKey SourceSetUpOption
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [SourceSetUpOption]
+$ctoJSONKeyList :: ToJSONKeyFunction [SourceSetUpOption]
+toJSONKey :: ToJSONKeyFunction SourceSetUpOption
+$ctoJSONKey :: ToJSONKeyFunction SourceSetUpOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679296564"><span class="annot"><span class="annottext">[Node] -&gt; Either String SourceSetUpOption
+([Node] -&gt; Either String SourceSetUpOption)
+-&gt; FromXML SourceSetUpOption
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String SourceSetUpOption
+$cparseXML :: [Node] -&gt; Either String SourceSetUpOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679296561"><span class="annot"><span class="annottext">SourceSetUpOption -&gt; XML
+(SourceSetUpOption -&gt; XML) -&gt; ToXML SourceSetUpOption
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: SourceSetUpOption -&gt; XML
+$ctoXML :: SourceSetUpOption -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SourceSetUpOption.html#SourceSetUpOption_Procedural_Controls_Mapping"><span class="hs-identifier hs-type">SourceSetUpOption_Procedural_Controls_Mapping</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SourceSetUpOption.html#SourceSetUpOption"><span class="hs-identifier hs-type">SourceSetUpOption</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSourceSetUpOption_Procedural_Controls_Mapping"><span id="%24mSourceSetUpOption_Procedural_Controls_Mapping"><span id="SourceSetUpOption_Procedural_Controls_Mapping"><span class="annot"><span class="annottext">$bSourceSetUpOption_Procedural_Controls_Mapping :: SourceSetUpOption
+$mSourceSetUpOption_Procedural_Controls_Mapping :: forall r. SourceSetUpOption -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AuditManager.Types.SourceSetUpOption.html#%24bSourceSetUpOption_Procedural_Controls_Mapping"><span class="hs-identifier hs-var hs-var hs-var">SourceSetUpOption_Procedural_Controls_Mapping</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SourceSetUpOption.html#SourceSetUpOption%27"><span class="hs-identifier hs-type">SourceSetUpOption'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Procedural_Controls_Mapping&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SourceSetUpOption.html#SourceSetUpOption_System_Controls_Mapping"><span class="hs-identifier hs-type">SourceSetUpOption_System_Controls_Mapping</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SourceSetUpOption.html#SourceSetUpOption"><span class="hs-identifier hs-type">SourceSetUpOption</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSourceSetUpOption_System_Controls_Mapping"><span id="%24mSourceSetUpOption_System_Controls_Mapping"><span id="SourceSetUpOption_System_Controls_Mapping"><span class="annot"><span class="annottext">$bSourceSetUpOption_System_Controls_Mapping :: SourceSetUpOption
+$mSourceSetUpOption_System_Controls_Mapping :: forall r. SourceSetUpOption -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AuditManager.Types.SourceSetUpOption.html#%24bSourceSetUpOption_System_Controls_Mapping"><span class="hs-identifier hs-var hs-var hs-var">SourceSetUpOption_System_Controls_Mapping</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SourceSetUpOption.html#SourceSetUpOption%27"><span class="hs-identifier hs-type">SourceSetUpOption'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;System_Controls_Mapping&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SourceSetUpOption.html#SourceSetUpOption_Procedural_Controls_Mapping"><span class="hs-pragma hs-type">SourceSetUpOption_Procedural_Controls_Mapping</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SourceSetUpOption.html#SourceSetUpOption_System_Controls_Mapping"><span class="hs-pragma hs-type">SourceSetUpOption_System_Controls_Mapping</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.AuditManager.Types.SourceSetUpOption.html#SourceSetUpOption%27"><span class="hs-pragma hs-type">SourceSetUpOption'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

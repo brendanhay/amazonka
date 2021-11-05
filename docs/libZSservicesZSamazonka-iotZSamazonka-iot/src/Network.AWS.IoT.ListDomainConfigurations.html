@@ -57,7 +57,7 @@
 </span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newListDomainConfigurations' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679825441"><span id="local-6989586621679825442"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDomainConfigurations"><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurations"><span class="hs-identifier hs-var">ListDomainConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDomainConfigurations%27"><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurations%27"><span class="hs-identifier hs-var">ListDomainConfigurations'</span></a></span></span><span>
+</span><span id="line-60"></span><span id="local-6989586621679825450"><span id="local-6989586621679825451"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDomainConfigurations"><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurations"><span class="hs-identifier hs-var">ListDomainConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDomainConfigurations%27"><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurations%27"><span class="hs-identifier hs-var">ListDomainConfigurations'</span></a></span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The marker for the next set of results.</span><span>
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3Amarker%3AListDomainConfigurations%27"><span class="annot"><span class="annottext">ListDomainConfigurations -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.ListDomainConfigurations.html#%24sel%3Amarker%3AListDomainConfigurations%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -68,7 +68,7 @@
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3ApageSize%3AListDomainConfigurations%27"><span class="annot"><span class="annottext">ListDomainConfigurations -&gt; Maybe Natural
 </span><a href="Network.AWS.IoT.ListDomainConfigurations.html#%24sel%3ApageSize%3AListDomainConfigurations%27"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679825433"><span id="local-6989586621679825435"><span class="annot"><span class="annottext">ListDomainConfigurations -&gt; ListDomainConfigurations -&gt; Bool
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679825442"><span id="local-6989586621679825444"><span class="annot"><span class="annottext">ListDomainConfigurations -&gt; ListDomainConfigurations -&gt; Bool
 (ListDomainConfigurations -&gt; ListDomainConfigurations -&gt; Bool)
 -&gt; (ListDomainConfigurations -&gt; ListDomainConfigurations -&gt; Bool)
 -&gt; Eq ListDomainConfigurations
@@ -77,7 +77,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListDomainConfigurations -&gt; ListDomainConfigurations -&gt; Bool
 == :: ListDomainConfigurations -&gt; ListDomainConfigurations -&gt; Bool
 $c== :: ListDomainConfigurations -&gt; ListDomainConfigurations -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679825424"><span id="local-6989586621679825426"><span id="local-6989586621679825428"><span id="local-6989586621679825430"><span class="annot"><span class="annottext">ReadPrec [ListDomainConfigurations]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679825433"><span id="local-6989586621679825435"><span id="local-6989586621679825437"><span id="local-6989586621679825439"><span class="annot"><span class="annottext">ReadPrec [ListDomainConfigurations]
 ReadPrec ListDomainConfigurations
 Int -&gt; ReadS ListDomainConfigurations
 ReadS [ListDomainConfigurations]
@@ -97,7 +97,7 @@ readList :: ReadS [ListDomainConfigurations]
 $creadList :: ReadS [ListDomainConfigurations]
 readsPrec :: Int -&gt; ReadS ListDomainConfigurations
 $creadsPrec :: Int -&gt; ReadS ListDomainConfigurations
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679825417"><span id="local-6989586621679825419"><span id="local-6989586621679825421"><span class="annot"><span class="annottext">Int -&gt; ListDomainConfigurations -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679825426"><span id="local-6989586621679825428"><span id="local-6989586621679825430"><span class="annot"><span class="annottext">Int -&gt; ListDomainConfigurations -&gt; ShowS
 [ListDomainConfigurations] -&gt; ShowS
 ListDomainConfigurations -&gt; String
 (Int -&gt; ListDomainConfigurations -&gt; ShowS)
@@ -176,16 +176,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurations%27"><span class="hs-identifier hs-type">ListDomainConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679825411"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurations%27"><span class="hs-identifier hs-type">ListDomainConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679825420"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:ListDomainConfigurations' :: ListDomainConfigurations -&gt; Maybe Text
-</span><a href="#local-6989586621679825411"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679825411"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679825410"><span class="annot"><span class="annottext">s :: ListDomainConfigurations
-</span><a href="#local-6989586621679825410"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurations%27"><span class="hs-identifier hs-type">ListDomainConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679825409"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679825409"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDomainConfigurations
-</span><a href="#local-6989586621679825410"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListDomainConfigurations' :: Maybe Text
+</span><a href="#local-6989586621679825420"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679825420"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679825419"><span class="annot"><span class="annottext">s :: ListDomainConfigurations
+</span><a href="#local-6989586621679825419"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurations%27"><span class="hs-identifier hs-type">ListDomainConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679825418"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679825418"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDomainConfigurations
+</span><a href="#local-6989586621679825419"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListDomainConfigurations' :: Maybe Text
 </span><a href="Network.AWS.IoT.ListDomainConfigurations.html#%24sel%3Amarker%3AListDomainConfigurations%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679825409"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurations"><span class="hs-identifier hs-type">ListDomainConfigurations</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679825418"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurations"><span class="hs-identifier hs-type">ListDomainConfigurations</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | The type of service delivered by the endpoint.</span><span>
 </span><span id="line-97"></span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#listDomainConfigurations_serviceType"><span class="hs-identifier hs-type">listDomainConfigurations_serviceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurations"><span class="hs-identifier hs-type">ListDomainConfigurations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ServiceType.html#ServiceType"><span class="hs-identifier hs-type">ServiceType</span></a></span><span class="hs-special">)</span><span>
@@ -200,16 +200,16 @@ $sel:marker:ListDomainConfigurations' :: ListDomainConfigurations -&gt; Maybe Te
      (Maybe ServiceType)
      (Maybe ServiceType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurations%27"><span class="hs-identifier hs-type">ListDomainConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679825408"><span class="annot"><span class="annottext">Maybe ServiceType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurations%27"><span class="hs-identifier hs-type">ListDomainConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679825417"><span class="annot"><span class="annottext">Maybe ServiceType
 serviceType :: Maybe ServiceType
 $sel:serviceType:ListDomainConfigurations' :: ListDomainConfigurations -&gt; Maybe ServiceType
-</span><a href="#local-6989586621679825408"><span class="hs-identifier hs-var hs-var">serviceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceType
-</span><a href="#local-6989586621679825408"><span class="hs-identifier hs-var">serviceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679825407"><span class="annot"><span class="annottext">s :: ListDomainConfigurations
-</span><a href="#local-6989586621679825407"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurations%27"><span class="hs-identifier hs-type">ListDomainConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679825406"><span class="annot"><span class="annottext">Maybe ServiceType
-</span><a href="#local-6989586621679825406"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDomainConfigurations
-</span><a href="#local-6989586621679825407"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceType:ListDomainConfigurations' :: Maybe ServiceType
+</span><a href="#local-6989586621679825417"><span class="hs-identifier hs-var hs-var">serviceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceType
+</span><a href="#local-6989586621679825417"><span class="hs-identifier hs-var">serviceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679825416"><span class="annot"><span class="annottext">s :: ListDomainConfigurations
+</span><a href="#local-6989586621679825416"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurations%27"><span class="hs-identifier hs-type">ListDomainConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679825415"><span class="annot"><span class="annottext">Maybe ServiceType
+</span><a href="#local-6989586621679825415"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDomainConfigurations
+</span><a href="#local-6989586621679825416"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceType:ListDomainConfigurations' :: Maybe ServiceType
 </span><a href="Network.AWS.IoT.ListDomainConfigurations.html#%24sel%3AserviceType%3AListDomainConfigurations%27"><span class="hs-identifier hs-var">serviceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceType
-</span><a href="#local-6989586621679825406"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurations"><span class="hs-identifier hs-type">ListDomainConfigurations</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679825415"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurations"><span class="hs-identifier hs-type">ListDomainConfigurations</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | The result page size.</span><span>
 </span><span id="line-101"></span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#listDomainConfigurations_pageSize"><span class="hs-identifier hs-type">listDomainConfigurations_pageSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurations"><span class="hs-identifier hs-type">ListDomainConfigurations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -224,30 +224,30 @@ $sel:serviceType:ListDomainConfigurations' :: ListDomainConfigurations -&gt; May
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurations%27"><span class="hs-identifier hs-type">ListDomainConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679825405"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurations%27"><span class="hs-identifier hs-type">ListDomainConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679825414"><span class="annot"><span class="annottext">Maybe Natural
 pageSize :: Maybe Natural
 $sel:pageSize:ListDomainConfigurations' :: ListDomainConfigurations -&gt; Maybe Natural
-</span><a href="#local-6989586621679825405"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679825405"><span class="hs-identifier hs-var">pageSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679825404"><span class="annot"><span class="annottext">s :: ListDomainConfigurations
-</span><a href="#local-6989586621679825404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurations%27"><span class="hs-identifier hs-type">ListDomainConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679825403"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679825403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDomainConfigurations
-</span><a href="#local-6989586621679825404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageSize:ListDomainConfigurations' :: Maybe Natural
+</span><a href="#local-6989586621679825414"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679825414"><span class="hs-identifier hs-var">pageSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679825413"><span class="annot"><span class="annottext">s :: ListDomainConfigurations
+</span><a href="#local-6989586621679825413"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurations%27"><span class="hs-identifier hs-type">ListDomainConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679825412"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679825412"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDomainConfigurations
+</span><a href="#local-6989586621679825413"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageSize:ListDomainConfigurations' :: Maybe Natural
 </span><a href="Network.AWS.IoT.ListDomainConfigurations.html#%24sel%3ApageSize%3AListDomainConfigurations%27"><span class="hs-identifier hs-var">pageSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679825403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurations"><span class="hs-identifier hs-type">ListDomainConfigurations</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679825412"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurations"><span class="hs-identifier hs-type">ListDomainConfigurations</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurations"><span class="hs-identifier hs-type">ListDomainConfigurations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679825399"><span class="annot"><span class="annottext">page :: ListDomainConfigurations
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679825408"><span class="annot"><span class="annottext">page :: ListDomainConfigurations
 -&gt; AWSResponse ListDomainConfigurations
 -&gt; Maybe ListDomainConfigurations
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679825397"><span class="annot"><span class="annottext">ListDomainConfigurations
-</span><a href="#local-6989586621679825397"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679825396"><span class="annot"><span class="annottext">AWSResponse ListDomainConfigurations
-</span><a href="#local-6989586621679825396"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679825406"><span class="annot"><span class="annottext">ListDomainConfigurations
+</span><a href="#local-6989586621679825406"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679825405"><span class="annot"><span class="annottext">AWSResponse ListDomainConfigurations
+</span><a href="#local-6989586621679825405"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-106"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-107"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListDomainConfigurations
 ListDomainConfigurationsResponse
-</span><a href="#local-6989586621679825396"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679825405"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">ListDomainConfigurationsResponse
 -&gt; Getting (First Text) ListDomainConfigurationsResponse Text
 -&gt; Maybe Text
@@ -277,7 +277,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-113"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListDomainConfigurations
 ListDomainConfigurationsResponse
-</span><a href="#local-6989586621679825396"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679825405"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">ListDomainConfigurationsResponse
 -&gt; Getting
      (First [DomainConfigurationSummary])
@@ -339,7 +339,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">ListDomainConfigurations
-</span><a href="#local-6989586621679825397"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679825406"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">ListDomainConfigurations
 -&gt; (ListDomainConfigurations -&gt; ListDomainConfigurations)
 -&gt; ListDomainConfigurations
@@ -360,7 +360,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListDomainConfigurations
 ListDomainConfigurationsResponse
-</span><a href="#local-6989586621679825396"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679825405"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">ListDomainConfigurationsResponse
 -&gt; Getting (First Text) ListDomainConfigurationsResponse Text
 -&gt; Maybe Text
@@ -386,13 +386,13 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-127"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-128"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurations"><span class="hs-identifier hs-type">ListDomainConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurationsResponse"><span class="hs-identifier hs-type">ListDomainConfigurationsResponse</span></a></span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679825386"><span class="annot"><span class="annottext">request :: ListDomainConfigurations -&gt; Request ListDomainConfigurations
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679825395"><span class="annot"><span class="annottext">request :: ListDomainConfigurations -&gt; Request ListDomainConfigurations
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; ListDomainConfigurations -&gt; Request ListDomainConfigurations
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679825382"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679825391"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListDomainConfigurations
 -&gt; ClientResponse ClientBody
@@ -418,10 +418,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679825379"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679825379"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679825378"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679825378"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679825377"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679825377"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679825388"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679825388"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679825387"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679825387"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679825386"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679825386"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">Maybe [DomainConfigurationSummary]
 -&gt; Maybe Text -&gt; Int -&gt; ListDomainConfigurationsResponse
 </span><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurationsResponse%27"><span class="hs-identifier hs-var">ListDomainConfigurationsResponse'</span></a></span><span>
@@ -432,7 +432,7 @@ MonadResource m =&gt;
      String (Maybe Text -&gt; Int -&gt; ListDomainConfigurationsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679825377"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679825386"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either String (Maybe (Maybe [DomainConfigurationSummary]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
@@ -452,7 +452,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; ListDomainConfigurationsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679825377"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679825386"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextMarker&quot;</span></span><span class="hs-special">)</span><span>
@@ -465,15 +465,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679825379"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679825388"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679825368"><span id="local-6989586621679825370"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurations"><span class="hs-identifier hs-type">ListDomainConfigurations</span></a></span></span></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679825377"><span id="local-6989586621679825379"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurations"><span class="hs-identifier hs-type">ListDomainConfigurations</span></a></span></span></span><span>
 </span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679825365"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurations"><span class="hs-identifier hs-type">ListDomainConfigurations</span></a></span></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679825374"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurations"><span class="hs-identifier hs-type">ListDomainConfigurations</span></a></span></span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurations"><span class="hs-identifier hs-type">ListDomainConfigurations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679825361"><span class="annot"><span class="annottext">toHeaders :: ListDomainConfigurations -&gt; ResponseHeaders
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679825370"><span class="annot"><span class="annottext">toHeaders :: ListDomainConfigurations -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListDomainConfigurations -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -481,15 +481,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurations"><span class="hs-identifier hs-type">ListDomainConfigurations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679825356"><span class="annot"><span class="annottext">toPath :: ListDomainConfigurations -&gt; ByteString
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679825365"><span class="annot"><span class="annottext">toPath :: ListDomainConfigurations -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListDomainConfigurations -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/domainConfigurations&quot;</span></span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurations"><span class="hs-identifier hs-type">ListDomainConfigurations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679825352"><span class="annot"><span class="annottext">toQuery :: ListDomainConfigurations -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurations%27"><span class="hs-identifier hs-type">ListDomainConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679825348"><span id="local-6989586621679825349"><span id="local-6989586621679825350"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679825361"><span class="annot"><span class="annottext">toQuery :: ListDomainConfigurations -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurations%27"><span class="hs-identifier hs-type">ListDomainConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679825357"><span id="local-6989586621679825358"><span id="local-6989586621679825359"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe ServiceType
 pageSize :: Maybe Natural
@@ -498,7 +498,7 @@ marker :: Maybe Text
 $sel:pageSize:ListDomainConfigurations' :: ListDomainConfigurations -&gt; Maybe Natural
 $sel:serviceType:ListDomainConfigurations' :: ListDomainConfigurations -&gt; Maybe ServiceType
 $sel:marker:ListDomainConfigurations' :: ListDomainConfigurations -&gt; Maybe Text
-</span><a href="#local-6989586621679825348"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679825357"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -506,21 +506,21 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679825350"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679825359"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-156"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;serviceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe ServiceType -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe ServiceType
-</span><a href="#local-6989586621679825349"><span class="hs-identifier hs-var">serviceType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679825358"><span class="hs-identifier hs-var">serviceType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;pageSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679825348"><span class="hs-identifier hs-var">pageSize</span></a></span><span>
+</span><a href="#local-6989586621679825357"><span class="hs-identifier hs-var">pageSize</span></a></span><span>
 </span><span id="line-158"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- | /See:/ 'newListDomainConfigurationsResponse' smart constructor.</span><span>
-</span><span id="line-161"></span><span id="local-6989586621679825345"><span id="local-6989586621679825346"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDomainConfigurationsResponse"><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurationsResponse"><span class="hs-identifier hs-var">ListDomainConfigurationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDomainConfigurationsResponse%27"><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurationsResponse%27"><span class="hs-identifier hs-var">ListDomainConfigurationsResponse'</span></a></span></span><span>
+</span><span id="line-161"></span><span id="local-6989586621679825354"><span id="local-6989586621679825355"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDomainConfigurationsResponse"><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurationsResponse"><span class="hs-identifier hs-var">ListDomainConfigurationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDomainConfigurationsResponse%27"><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurationsResponse%27"><span class="hs-identifier hs-var">ListDomainConfigurationsResponse'</span></a></span></span><span>
 </span><span id="line-162"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of objects that contain summary information about the user\'s</span><span>
 </span><span id="line-163"></span><span>    </span><span class="hs-comment">-- domain configurations.</span><span>
 </span><span id="line-164"></span><span>    </span><span id="%24sel%3AdomainConfigurations%3AListDomainConfigurationsResponse%27"><span class="annot"><span class="annottext">ListDomainConfigurationsResponse
@@ -533,7 +533,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-168"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListDomainConfigurationsResponse%27"><span class="annot"><span class="annottext">ListDomainConfigurationsResponse -&gt; Int
 </span><a href="Network.AWS.IoT.ListDomainConfigurations.html#%24sel%3AhttpStatus%3AListDomainConfigurationsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-169"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-170"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679825338"><span id="local-6989586621679825340"><span class="annot"><span class="annottext">ListDomainConfigurationsResponse
+</span><span id="line-170"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679825347"><span id="local-6989586621679825349"><span class="annot"><span class="annottext">ListDomainConfigurationsResponse
 -&gt; ListDomainConfigurationsResponse -&gt; Bool
 (ListDomainConfigurationsResponse
  -&gt; ListDomainConfigurationsResponse -&gt; Bool)
@@ -549,7 +549,7 @@ $c/= :: ListDomainConfigurationsResponse
 -&gt; ListDomainConfigurationsResponse -&gt; Bool
 $c== :: ListDomainConfigurationsResponse
 -&gt; ListDomainConfigurationsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679825330"><span id="local-6989586621679825332"><span id="local-6989586621679825334"><span id="local-6989586621679825336"><span class="annot"><span class="annottext">ReadPrec [ListDomainConfigurationsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679825339"><span id="local-6989586621679825341"><span id="local-6989586621679825343"><span id="local-6989586621679825345"><span class="annot"><span class="annottext">ReadPrec [ListDomainConfigurationsResponse]
 ReadPrec ListDomainConfigurationsResponse
 Int -&gt; ReadS ListDomainConfigurationsResponse
 ReadS [ListDomainConfigurationsResponse]
@@ -569,7 +569,7 @@ readList :: ReadS [ListDomainConfigurationsResponse]
 $creadList :: ReadS [ListDomainConfigurationsResponse]
 readsPrec :: Int -&gt; ReadS ListDomainConfigurationsResponse
 $creadsPrec :: Int -&gt; ReadS ListDomainConfigurationsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679825324"><span id="local-6989586621679825326"><span id="local-6989586621679825328"><span class="annot"><span class="annottext">Int -&gt; ListDomainConfigurationsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679825333"><span id="local-6989586621679825335"><span id="local-6989586621679825337"><span class="annot"><span class="annottext">Int -&gt; ListDomainConfigurationsResponse -&gt; ShowS
 [ListDomainConfigurationsResponse] -&gt; ShowS
 ListDomainConfigurationsResponse -&gt; String
 (Int -&gt; ListDomainConfigurationsResponse -&gt; ShowS)
@@ -626,8 +626,8 @@ ListDomainConfigurationsResponse
 </span><span id="line-188"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-189"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurationsResponse"><span class="hs-identifier hs-type">ListDomainConfigurationsResponse</span></a></span><span>
 </span><span id="line-190"></span><span id="newListDomainConfigurationsResponse"><span class="annot"><span class="annottext">newListDomainConfigurationsResponse :: Int -&gt; ListDomainConfigurationsResponse
-</span><a href="Network.AWS.IoT.ListDomainConfigurations.html#newListDomainConfigurationsResponse"><span class="hs-identifier hs-var hs-var">newListDomainConfigurationsResponse</span></a></span></span><span> </span><span id="local-6989586621679825321"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679825321"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.ListDomainConfigurations.html#newListDomainConfigurationsResponse"><span class="hs-identifier hs-var hs-var">newListDomainConfigurationsResponse</span></a></span></span><span> </span><span id="local-6989586621679825330"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679825330"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-191"></span><span>  </span><span class="annot"><span class="annottext">ListDomainConfigurationsResponse' :: Maybe [DomainConfigurationSummary]
 -&gt; Maybe Text -&gt; Int -&gt; ListDomainConfigurationsResponse
 </span><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurationsResponse%27"><span class="hs-identifier hs-type">ListDomainConfigurationsResponse'</span></a></span><span>
@@ -642,7 +642,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListDomainConfigurationsResponse' :: Int
 </span><a href="Network.AWS.IoT.ListDomainConfigurations.html#%24sel%3AhttpStatus%3AListDomainConfigurationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679825321"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679825330"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-196"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- | A list of objects that contain summary information about the user\'s</span><span>
@@ -661,17 +661,17 @@ forall a. Maybe a
      ListDomainConfigurationsResponse
      (Maybe [DomainConfigurationSummary])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurationsResponse%27"><span class="hs-identifier hs-type">ListDomainConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679825320"><span class="annot"><span class="annottext">Maybe [DomainConfigurationSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurationsResponse%27"><span class="hs-identifier hs-type">ListDomainConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679825329"><span class="annot"><span class="annottext">Maybe [DomainConfigurationSummary]
 domainConfigurations :: Maybe [DomainConfigurationSummary]
 $sel:domainConfigurations:ListDomainConfigurationsResponse' :: ListDomainConfigurationsResponse
 -&gt; Maybe [DomainConfigurationSummary]
-</span><a href="#local-6989586621679825320"><span class="hs-identifier hs-var hs-var">domainConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DomainConfigurationSummary]
-</span><a href="#local-6989586621679825320"><span class="hs-identifier hs-var">domainConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679825319"><span class="annot"><span class="annottext">s :: ListDomainConfigurationsResponse
-</span><a href="#local-6989586621679825319"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurationsResponse%27"><span class="hs-identifier hs-type">ListDomainConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679825318"><span class="annot"><span class="annottext">Maybe [DomainConfigurationSummary]
-</span><a href="#local-6989586621679825318"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDomainConfigurationsResponse
-</span><a href="#local-6989586621679825319"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainConfigurations:ListDomainConfigurationsResponse' :: Maybe [DomainConfigurationSummary]
+</span><a href="#local-6989586621679825329"><span class="hs-identifier hs-var hs-var">domainConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DomainConfigurationSummary]
+</span><a href="#local-6989586621679825329"><span class="hs-identifier hs-var">domainConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679825328"><span class="annot"><span class="annottext">s :: ListDomainConfigurationsResponse
+</span><a href="#local-6989586621679825328"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurationsResponse%27"><span class="hs-identifier hs-type">ListDomainConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679825327"><span class="annot"><span class="annottext">Maybe [DomainConfigurationSummary]
+</span><a href="#local-6989586621679825327"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDomainConfigurationsResponse
+</span><a href="#local-6989586621679825328"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainConfigurations:ListDomainConfigurationsResponse' :: Maybe [DomainConfigurationSummary]
 </span><a href="Network.AWS.IoT.ListDomainConfigurations.html#%24sel%3AdomainConfigurations%3AListDomainConfigurationsResponse%27"><span class="hs-identifier hs-var">domainConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DomainConfigurationSummary]
-</span><a href="#local-6989586621679825318"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurationsResponse"><span class="hs-identifier hs-type">ListDomainConfigurationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DomainConfigurationSummary]
+</span><a href="#local-6989586621679825327"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurationsResponse"><span class="hs-identifier hs-type">ListDomainConfigurationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DomainConfigurationSummary]
   -&gt; f (Maybe [DomainConfigurationSummary]))
  -&gt; ListDomainConfigurationsResponse
  -&gt; f ListDomainConfigurationsResponse)
@@ -715,16 +715,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
     -&gt; Maybe Text -&gt; ListDomainConfigurationsResponse)
 -&gt; Lens' ListDomainConfigurationsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurationsResponse%27"><span class="hs-identifier hs-type">ListDomainConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679825315"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurationsResponse%27"><span class="hs-identifier hs-type">ListDomainConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679825324"><span class="annot"><span class="annottext">Maybe Text
 nextMarker :: Maybe Text
 $sel:nextMarker:ListDomainConfigurationsResponse' :: ListDomainConfigurationsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679825315"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679825315"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679825314"><span class="annot"><span class="annottext">s :: ListDomainConfigurationsResponse
-</span><a href="#local-6989586621679825314"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurationsResponse%27"><span class="hs-identifier hs-type">ListDomainConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679825313"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679825313"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDomainConfigurationsResponse
-</span><a href="#local-6989586621679825314"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListDomainConfigurationsResponse' :: Maybe Text
+</span><a href="#local-6989586621679825324"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679825324"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679825323"><span class="annot"><span class="annottext">s :: ListDomainConfigurationsResponse
+</span><a href="#local-6989586621679825323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurationsResponse%27"><span class="hs-identifier hs-type">ListDomainConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679825322"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679825322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDomainConfigurationsResponse
+</span><a href="#local-6989586621679825323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListDomainConfigurationsResponse' :: Maybe Text
 </span><a href="Network.AWS.IoT.ListDomainConfigurations.html#%24sel%3AnextMarker%3AListDomainConfigurationsResponse%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679825313"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurationsResponse"><span class="hs-identifier hs-type">ListDomainConfigurationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679825322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurationsResponse"><span class="hs-identifier hs-type">ListDomainConfigurationsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>
 </span><span id="line-207"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-208"></span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#listDomainConfigurationsResponse_httpStatus"><span class="hs-identifier hs-type">listDomainConfigurationsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurationsResponse"><span class="hs-identifier hs-type">ListDomainConfigurationsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -740,18 +740,18 @@ $sel:nextMarker:ListDomainConfigurationsResponse' :: ListDomainConfigurationsRes
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurationsResponse%27"><span class="hs-identifier hs-type">ListDomainConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679825312"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurationsResponse%27"><span class="hs-identifier hs-type">ListDomainConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679825321"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListDomainConfigurationsResponse' :: ListDomainConfigurationsResponse -&gt; Int
-</span><a href="#local-6989586621679825312"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679825312"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679825311"><span class="annot"><span class="annottext">s :: ListDomainConfigurationsResponse
-</span><a href="#local-6989586621679825311"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurationsResponse%27"><span class="hs-identifier hs-type">ListDomainConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679825310"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679825310"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDomainConfigurationsResponse
-</span><a href="#local-6989586621679825311"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListDomainConfigurationsResponse' :: Int
+</span><a href="#local-6989586621679825321"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679825321"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679825320"><span class="annot"><span class="annottext">s :: ListDomainConfigurationsResponse
+</span><a href="#local-6989586621679825320"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurationsResponse%27"><span class="hs-identifier hs-type">ListDomainConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679825319"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679825319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDomainConfigurationsResponse
+</span><a href="#local-6989586621679825320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListDomainConfigurationsResponse' :: Int
 </span><a href="Network.AWS.IoT.ListDomainConfigurations.html#%24sel%3AhttpStatus%3AListDomainConfigurationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679825310"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurationsResponse"><span class="hs-identifier hs-type">ListDomainConfigurationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679825319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurationsResponse"><span class="hs-identifier hs-type">ListDomainConfigurationsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-210"></span><span>
 </span><span id="line-211"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-212"></span><span>  </span><span id="local-6989586621679825308"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621679825317"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-213"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListDomainConfigurations.html#ListDomainConfigurationsResponse"><span class="hs-identifier hs-type">ListDomainConfigurationsResponse</span></a></span></span><span>
 </span><span id="line-214"></span></pre></body></html>

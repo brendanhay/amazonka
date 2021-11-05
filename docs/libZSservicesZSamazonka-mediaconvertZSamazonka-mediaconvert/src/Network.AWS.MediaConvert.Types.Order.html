@@ -32,10 +32,10 @@
 </span><span id="line-32"></span><span class="hs-comment">-- | Optional. When you request lists of resources, you can specify whether</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- they are sorted in ASCENDING or DESCENDING order. Default varies by</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- resource.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679998939"><span id="local-6989586621679998940"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Order"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Order.html#Order"><span class="hs-identifier hs-var">Order</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Order%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Order.html#Order%27"><span class="hs-identifier hs-var">Order'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromOrder"><span class="annot"><span class="annottext">Order -&gt; Text
+</span><span id="line-35"></span><span id="local-6989586621679998948"><span id="local-6989586621679998949"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Order"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Order.html#Order"><span class="hs-identifier hs-var">Order</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Order%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Order.html#Order%27"><span class="hs-identifier hs-var">Order'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromOrder"><span class="annot"><span class="annottext">Order -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.Order.html#fromOrder"><span class="hs-identifier hs-var hs-var">fromOrder</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679998931"><span id="local-6989586621679998933"><span id="local-6989586621679998935"><span class="annot"><span class="annottext">Int -&gt; Order -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679998940"><span id="local-6989586621679998942"><span id="local-6989586621679998944"><span class="annot"><span class="annottext">Int -&gt; Order -&gt; ShowS
 [Order] -&gt; ShowS
 Order -&gt; String
 (Int -&gt; Order -&gt; ShowS)
@@ -49,7 +49,7 @@ $cshow :: Order -&gt; String
 showsPrec :: Int -&gt; Order -&gt; ShowS
 $cshowsPrec :: Int -&gt; Order -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679998922"><span id="local-6989586621679998924"><span id="local-6989586621679998926"><span id="local-6989586621679998928"><span class="annot"><span class="annottext">ReadPrec [Order]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679998931"><span id="local-6989586621679998933"><span id="local-6989586621679998935"><span id="local-6989586621679998937"><span class="annot"><span class="annottext">ReadPrec [Order]
 ReadPrec Order
 Int -&gt; ReadS Order
 ReadS [Order]
@@ -70,7 +70,7 @@ $creadList :: ReadS [Order]
 readsPrec :: Int -&gt; ReadS Order
 $creadsPrec :: Int -&gt; ReadS Order
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679998917"><span id="local-6989586621679998919"><span class="annot"><span class="annottext">Order -&gt; Order -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679998926"><span id="local-6989586621679998928"><span class="annot"><span class="annottext">Order -&gt; Order -&gt; Bool
 (Order -&gt; Order -&gt; Bool) -&gt; (Order -&gt; Order -&gt; Bool) -&gt; Eq Order
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Order -&gt; Order -&gt; Bool
@@ -78,7 +78,7 @@ $c/= :: Order -&gt; Order -&gt; Bool
 == :: Order -&gt; Order -&gt; Bool
 $c== :: Order -&gt; Order -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679998901"><span id="local-6989586621679998903"><span id="local-6989586621679998905"><span id="local-6989586621679998907"><span id="local-6989586621679998909"><span id="local-6989586621679998911"><span id="local-6989586621679998913"><span class="annot"><span class="annottext">Eq Order
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679998910"><span id="local-6989586621679998912"><span id="local-6989586621679998914"><span id="local-6989586621679998916"><span id="local-6989586621679998918"><span id="local-6989586621679998920"><span id="local-6989586621679998922"><span class="annot"><span class="annottext">Eq Order
 Eq Order
 -&gt; (Order -&gt; Order -&gt; Ordering)
 -&gt; (Order -&gt; Order -&gt; Bool)
@@ -128,7 +128,7 @@ $cfrom :: forall x. Order -&gt; Rep Order x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679998893"><span id="local-6989586621679998895"><span class="annot"><span class="annottext">Int -&gt; Order -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679998902"><span id="local-6989586621679998904"><span class="annot"><span class="annottext">Int -&gt; Order -&gt; Int
 Order -&gt; Int
 (Int -&gt; Order -&gt; Int) -&gt; (Order -&gt; Int) -&gt; Hashable Order
 forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
@@ -137,49 +137,49 @@ $chash :: Order -&gt; Int
 hashWithSalt :: Int -&gt; Order -&gt; Int
 $chashWithSalt :: Int -&gt; Order -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679998890"><span class="annot"><span class="annottext">Order -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679998899"><span class="annot"><span class="annottext">Order -&gt; ()
 (Order -&gt; ()) -&gt; NFData Order
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Order -&gt; ()
 $crnf :: Order -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679998887"><span class="annot"><span class="annottext">Text -&gt; Either String Order
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679998896"><span class="annot"><span class="annottext">Text -&gt; Either String Order
 (Text -&gt; Either String Order) -&gt; FromText Order
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Order
 $cfromText :: Text -&gt; Either String Order
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679998884"><span class="annot"><span class="annottext">Order -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679998893"><span class="annot"><span class="annottext">Order -&gt; Text
 (Order -&gt; Text) -&gt; ToText Order
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Order -&gt; Text
 $ctoText :: Order -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679998881"><span class="annot"><span class="annottext">Order -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679998890"><span class="annot"><span class="annottext">Order -&gt; ByteString
 (Order -&gt; ByteString) -&gt; ToByteString Order
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Order -&gt; ByteString
 $ctoBS :: Order -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679998878"><span class="annot"><span class="annottext">Order -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679998887"><span class="annot"><span class="annottext">Order -&gt; ByteStringBuilder
 (Order -&gt; ByteStringBuilder) -&gt; ToLog Order
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Order -&gt; ByteStringBuilder
 $cbuild :: Order -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679998875"><span class="annot"><span class="annottext">HeaderName -&gt; Order -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679998884"><span class="annot"><span class="annottext">HeaderName -&gt; Order -&gt; [Header]
 (HeaderName -&gt; Order -&gt; [Header]) -&gt; ToHeader Order
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Order -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Order -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679998872"><span class="annot"><span class="annottext">Order -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679998881"><span class="annot"><span class="annottext">Order -&gt; QueryString
 (Order -&gt; QueryString) -&gt; ToQuery Order
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Order -&gt; QueryString
 $ctoQuery :: Order -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679998867"><span id="local-6989586621679998869"><span class="annot"><span class="annottext">Value -&gt; Parser [Order]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679998876"><span id="local-6989586621679998878"><span class="annot"><span class="annottext">Value -&gt; Parser [Order]
 Value -&gt; Parser Order
 (Value -&gt; Parser Order)
 -&gt; (Value -&gt; Parser [Order]) -&gt; FromJSON Order
@@ -190,7 +190,7 @@ $cparseJSONList :: Value -&gt; Parser [Order]
 parseJSON :: Value -&gt; Parser Order
 $cparseJSON :: Value -&gt; Parser Order
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679998862"><span id="local-6989586621679998864"><span class="annot"><span class="annottext">FromJSONKeyFunction [Order]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679998871"><span id="local-6989586621679998873"><span class="annot"><span class="annottext">FromJSONKeyFunction [Order]
 FromJSONKeyFunction Order
 FromJSONKeyFunction Order
 -&gt; FromJSONKeyFunction [Order] -&gt; FromJSONKey Order
@@ -201,7 +201,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Order]
 fromJSONKey :: FromJSONKeyFunction Order
 $cfromJSONKey :: FromJSONKeyFunction Order
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679998853"><span id="local-6989586621679998855"><span id="local-6989586621679998857"><span id="local-6989586621679998859"><span class="annot"><span class="annottext">[Order] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679998862"><span id="local-6989586621679998864"><span id="local-6989586621679998866"><span id="local-6989586621679998868"><span class="annot"><span class="annottext">[Order] -&gt; Encoding
 [Order] -&gt; Value
 Order -&gt; Encoding
 Order -&gt; Value
@@ -225,7 +225,7 @@ $ctoEncoding :: Order -&gt; Encoding
 toJSON :: Order -&gt; Value
 $ctoJSON :: Order -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679998848"><span id="local-6989586621679998850"><span class="annot"><span class="annottext">ToJSONKeyFunction [Order]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679998857"><span id="local-6989586621679998859"><span class="annot"><span class="annottext">ToJSONKeyFunction [Order]
 ToJSONKeyFunction Order
 ToJSONKeyFunction Order
 -&gt; ToJSONKeyFunction [Order] -&gt; ToJSONKey Order
@@ -236,13 +236,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Order]
 toJSONKey :: ToJSONKeyFunction Order
 $ctoJSONKey :: ToJSONKeyFunction Order
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679998845"><span class="annot"><span class="annottext">[Node] -&gt; Either String Order
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679998854"><span class="annot"><span class="annottext">[Node] -&gt; Either String Order
 ([Node] -&gt; Either String Order) -&gt; FromXML Order
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Order
 $cparseXML :: [Node] -&gt; Either String Order
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679998842"><span class="annot"><span class="annottext">Order -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679998851"><span class="annot"><span class="annottext">Order -&gt; XML
 (Order -&gt; XML) -&gt; ToXML Order
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Order -&gt; XML

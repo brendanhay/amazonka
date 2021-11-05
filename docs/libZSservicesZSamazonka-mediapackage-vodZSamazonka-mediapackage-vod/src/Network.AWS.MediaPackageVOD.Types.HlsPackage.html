@@ -1,0 +1,408 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaPackageVOD.Types.HlsPackage</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaPackageVOD.Types.HlsPackage</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.HlsEncryption.html"><span class="hs-identifier">Network.AWS.MediaPackageVOD.Types.HlsEncryption</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.HlsManifest.html"><span class="hs-identifier">Network.AWS.MediaPackageVOD.Types.HlsManifest</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | An HTTP Live Streaming (HLS) packaging configuration.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newHlsPackage' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679196754"><span id="local-6989586621679196755"></span></span><span class="hs-keyword">data</span><span> </span><span id="HlsPackage"><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#HlsPackage"><span class="hs-identifier hs-var">HlsPackage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsPackage%27"><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#HlsPackage%27"><span class="hs-identifier hs-var">HlsPackage'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When enabled, audio streams will be placed in rendition groups in the</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- output.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AuseAudioRenditionGroup%3AHlsPackage%27"><span class="annot"><span class="annottext">HlsPackage -&gt; Maybe Bool
+</span><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#%24sel%3AuseAudioRenditionGroup%3AHlsPackage%27"><span class="hs-identifier hs-var hs-var">useAudioRenditionGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | When enabled, MediaPackage passes through digital video broadcasting</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- (DVB) subtitles into the output.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AincludeDvbSubtitles%3AHlsPackage%27"><span class="annot"><span class="annottext">HlsPackage -&gt; Maybe Bool
+</span><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#%24sel%3AincludeDvbSubtitles%3AHlsPackage%27"><span class="hs-identifier hs-var hs-var">includeDvbSubtitles</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Duration (in seconds) of each fragment. Actual fragments will be rounded</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- to the nearest multiple of the source fragment duration.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AsegmentDurationSeconds%3AHlsPackage%27"><span class="annot"><span class="annottext">HlsPackage -&gt; Maybe Int
+</span><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#%24sel%3AsegmentDurationSeconds%3AHlsPackage%27"><span class="hs-identifier hs-var hs-var">segmentDurationSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aencryption%3AHlsPackage%27"><span class="annot"><span class="annottext">HlsPackage -&gt; Maybe HlsEncryption
+</span><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#%24sel%3Aencryption%3AHlsPackage%27"><span class="hs-identifier hs-var hs-var">encryption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.HlsEncryption.html#HlsEncryption"><span class="hs-identifier hs-type">HlsEncryption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | A list of HLS manifest configurations.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AhlsManifests%3AHlsPackage%27"><span class="annot"><span class="annottext">HlsPackage -&gt; [HlsManifest]
+</span><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#%24sel%3AhlsManifests%3AHlsPackage%27"><span class="hs-identifier hs-var hs-var">hlsManifests</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.HlsManifest.html#HlsManifest"><span class="hs-identifier hs-type">HlsManifest</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679196744"><span id="local-6989586621679196746"><span class="annot"><span class="annottext">HlsPackage -&gt; HlsPackage -&gt; Bool
+(HlsPackage -&gt; HlsPackage -&gt; Bool)
+-&gt; (HlsPackage -&gt; HlsPackage -&gt; Bool) -&gt; Eq HlsPackage
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: HlsPackage -&gt; HlsPackage -&gt; Bool
+$c/= :: HlsPackage -&gt; HlsPackage -&gt; Bool
+== :: HlsPackage -&gt; HlsPackage -&gt; Bool
+$c== :: HlsPackage -&gt; HlsPackage -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679196735"><span id="local-6989586621679196737"><span id="local-6989586621679196739"><span id="local-6989586621679196741"><span class="annot"><span class="annottext">ReadPrec [HlsPackage]
+ReadPrec HlsPackage
+Int -&gt; ReadS HlsPackage
+ReadS [HlsPackage]
+(Int -&gt; ReadS HlsPackage)
+-&gt; ReadS [HlsPackage]
+-&gt; ReadPrec HlsPackage
+-&gt; ReadPrec [HlsPackage]
+-&gt; Read HlsPackage
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [HlsPackage]
+$creadListPrec :: ReadPrec [HlsPackage]
+readPrec :: ReadPrec HlsPackage
+$creadPrec :: ReadPrec HlsPackage
+readList :: ReadS [HlsPackage]
+$creadList :: ReadS [HlsPackage]
+readsPrec :: Int -&gt; ReadS HlsPackage
+$creadsPrec :: Int -&gt; ReadS HlsPackage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679196728"><span id="local-6989586621679196730"><span id="local-6989586621679196732"><span class="annot"><span class="annottext">Int -&gt; HlsPackage -&gt; ShowS
+[HlsPackage] -&gt; ShowS
+HlsPackage -&gt; String
+(Int -&gt; HlsPackage -&gt; ShowS)
+-&gt; (HlsPackage -&gt; String)
+-&gt; ([HlsPackage] -&gt; ShowS)
+-&gt; Show HlsPackage
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [HlsPackage] -&gt; ShowS
+$cshowList :: [HlsPackage] -&gt; ShowS
+show :: HlsPackage -&gt; String
+$cshow :: HlsPackage -&gt; String
+showsPrec :: Int -&gt; HlsPackage -&gt; ShowS
+$cshowsPrec :: Int -&gt; HlsPackage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. HlsPackage -&gt; Rep HlsPackage x)
+-&gt; (forall x. Rep HlsPackage x -&gt; HlsPackage) -&gt; Generic HlsPackage
+forall x. Rep HlsPackage x -&gt; HlsPackage
+forall x. HlsPackage -&gt; Rep HlsPackage x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep HlsPackage x -&gt; HlsPackage
+$cfrom :: forall x. HlsPackage -&gt; Rep HlsPackage x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Create a value of 'HlsPackage' with all optional fields omitted.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'useAudioRenditionGroup', 'hlsPackage_useAudioRenditionGroup' - When enabled, audio streams will be placed in rendition groups in the</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- output.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'includeDvbSubtitles', 'hlsPackage_includeDvbSubtitles' - When enabled, MediaPackage passes through digital video broadcasting</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- (DVB) subtitles into the output.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'segmentDurationSeconds', 'hlsPackage_segmentDurationSeconds' - Duration (in seconds) of each fragment. Actual fragments will be rounded</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- to the nearest multiple of the source fragment duration.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'encryption', 'hlsPackage_encryption' - Undocumented member.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'hlsManifests', 'hlsPackage_hlsManifests' - A list of HLS manifest configurations.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#newHlsPackage"><span class="hs-identifier hs-type">newHlsPackage</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#HlsPackage"><span class="hs-identifier hs-type">HlsPackage</span></a></span><span>
+</span><span id="line-69"></span><span id="newHlsPackage"><span class="annot"><span class="annottext">newHlsPackage :: HlsPackage
+</span><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#newHlsPackage"><span class="hs-identifier hs-var hs-var">newHlsPackage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">HlsPackage' :: Maybe Bool
+-&gt; Maybe Bool
+-&gt; Maybe Int
+-&gt; Maybe HlsEncryption
+-&gt; [HlsManifest]
+-&gt; HlsPackage
+</span><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#HlsPackage%27"><span class="hs-identifier hs-type">HlsPackage'</span></a></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:useAudioRenditionGroup:HlsPackage' :: Maybe Bool
+</span><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#%24sel%3AuseAudioRenditionGroup%3AHlsPackage%27"><span class="hs-identifier hs-var">useAudioRenditionGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:includeDvbSubtitles:HlsPackage' :: Maybe Bool
+</span><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#%24sel%3AincludeDvbSubtitles%3AHlsPackage%27"><span class="hs-identifier hs-var">includeDvbSubtitles</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:segmentDurationSeconds:HlsPackage' :: Maybe Int
+</span><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#%24sel%3AsegmentDurationSeconds%3AHlsPackage%27"><span class="hs-identifier hs-var">segmentDurationSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:encryption:HlsPackage' :: Maybe HlsEncryption
+</span><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#%24sel%3Aencryption%3AHlsPackage%27"><span class="hs-identifier hs-var">encryption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HlsEncryption
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:hlsManifests:HlsPackage' :: [HlsManifest]
+</span><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#%24sel%3AhlsManifests%3AHlsPackage%27"><span class="hs-identifier hs-var">hlsManifests</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[HlsManifest]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | When enabled, audio streams will be placed in rendition groups in the</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- output.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#hlsPackage_useAudioRenditionGroup"><span class="hs-identifier hs-type">hlsPackage_useAudioRenditionGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#HlsPackage"><span class="hs-identifier hs-type">HlsPackage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="hlsPackage_useAudioRenditionGroup"><span class="annot"><span class="annottext">hlsPackage_useAudioRenditionGroup :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; HlsPackage -&gt; f HlsPackage
+</span><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#hlsPackage_useAudioRenditionGroup"><span class="hs-identifier hs-var hs-var">hlsPackage_useAudioRenditionGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HlsPackage -&gt; Maybe Bool)
+-&gt; (HlsPackage -&gt; Maybe Bool -&gt; HlsPackage)
+-&gt; Lens HlsPackage HlsPackage (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#HlsPackage%27"><span class="hs-identifier hs-type">HlsPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196719"><span class="annot"><span class="annottext">Maybe Bool
+useAudioRenditionGroup :: Maybe Bool
+$sel:useAudioRenditionGroup:HlsPackage' :: HlsPackage -&gt; Maybe Bool
+</span><a href="#local-6989586621679196719"><span class="hs-identifier hs-var hs-var">useAudioRenditionGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679196719"><span class="hs-identifier hs-var">useAudioRenditionGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196718"><span class="annot"><span class="annottext">s :: HlsPackage
+</span><a href="#local-6989586621679196718"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#HlsPackage%27"><span class="hs-identifier hs-type">HlsPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196717"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679196717"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsPackage
+</span><a href="#local-6989586621679196718"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:useAudioRenditionGroup:HlsPackage' :: Maybe Bool
+</span><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#%24sel%3AuseAudioRenditionGroup%3AHlsPackage%27"><span class="hs-identifier hs-var">useAudioRenditionGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679196717"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#HlsPackage"><span class="hs-identifier hs-type">HlsPackage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | When enabled, MediaPackage passes through digital video broadcasting</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- (DVB) subtitles into the output.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#hlsPackage_includeDvbSubtitles"><span class="hs-identifier hs-type">hlsPackage_includeDvbSubtitles</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#HlsPackage"><span class="hs-identifier hs-type">HlsPackage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="hlsPackage_includeDvbSubtitles"><span class="annot"><span class="annottext">hlsPackage_includeDvbSubtitles :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; HlsPackage -&gt; f HlsPackage
+</span><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#hlsPackage_includeDvbSubtitles"><span class="hs-identifier hs-var hs-var">hlsPackage_includeDvbSubtitles</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HlsPackage -&gt; Maybe Bool)
+-&gt; (HlsPackage -&gt; Maybe Bool -&gt; HlsPackage)
+-&gt; Lens HlsPackage HlsPackage (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#HlsPackage%27"><span class="hs-identifier hs-type">HlsPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196715"><span class="annot"><span class="annottext">Maybe Bool
+includeDvbSubtitles :: Maybe Bool
+$sel:includeDvbSubtitles:HlsPackage' :: HlsPackage -&gt; Maybe Bool
+</span><a href="#local-6989586621679196715"><span class="hs-identifier hs-var hs-var">includeDvbSubtitles</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679196715"><span class="hs-identifier hs-var">includeDvbSubtitles</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196714"><span class="annot"><span class="annottext">s :: HlsPackage
+</span><a href="#local-6989586621679196714"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#HlsPackage%27"><span class="hs-identifier hs-type">HlsPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196713"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679196713"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsPackage
+</span><a href="#local-6989586621679196714"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeDvbSubtitles:HlsPackage' :: Maybe Bool
+</span><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#%24sel%3AincludeDvbSubtitles%3AHlsPackage%27"><span class="hs-identifier hs-var">includeDvbSubtitles</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679196713"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#HlsPackage"><span class="hs-identifier hs-type">HlsPackage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | Duration (in seconds) of each fragment. Actual fragments will be rounded</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- to the nearest multiple of the source fragment duration.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#hlsPackage_segmentDurationSeconds"><span class="hs-identifier hs-type">hlsPackage_segmentDurationSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#HlsPackage"><span class="hs-identifier hs-type">HlsPackage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="hlsPackage_segmentDurationSeconds"><span class="annot"><span class="annottext">hlsPackage_segmentDurationSeconds :: (Maybe Int -&gt; f (Maybe Int)) -&gt; HlsPackage -&gt; f HlsPackage
+</span><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#hlsPackage_segmentDurationSeconds"><span class="hs-identifier hs-var hs-var">hlsPackage_segmentDurationSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HlsPackage -&gt; Maybe Int)
+-&gt; (HlsPackage -&gt; Maybe Int -&gt; HlsPackage)
+-&gt; Lens HlsPackage HlsPackage (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#HlsPackage%27"><span class="hs-identifier hs-type">HlsPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196711"><span class="annot"><span class="annottext">Maybe Int
+segmentDurationSeconds :: Maybe Int
+$sel:segmentDurationSeconds:HlsPackage' :: HlsPackage -&gt; Maybe Int
+</span><a href="#local-6989586621679196711"><span class="hs-identifier hs-var hs-var">segmentDurationSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679196711"><span class="hs-identifier hs-var">segmentDurationSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196710"><span class="annot"><span class="annottext">s :: HlsPackage
+</span><a href="#local-6989586621679196710"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#HlsPackage%27"><span class="hs-identifier hs-type">HlsPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196709"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679196709"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsPackage
+</span><a href="#local-6989586621679196710"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:segmentDurationSeconds:HlsPackage' :: Maybe Int
+</span><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#%24sel%3AsegmentDurationSeconds%3AHlsPackage%27"><span class="hs-identifier hs-var">segmentDurationSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679196709"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#HlsPackage"><span class="hs-identifier hs-type">HlsPackage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#hlsPackage_encryption"><span class="hs-identifier hs-type">hlsPackage_encryption</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#HlsPackage"><span class="hs-identifier hs-type">HlsPackage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.HlsEncryption.html#HlsEncryption"><span class="hs-identifier hs-type">HlsEncryption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="hlsPackage_encryption"><span class="annot"><span class="annottext">hlsPackage_encryption :: (Maybe HlsEncryption -&gt; f (Maybe HlsEncryption))
+-&gt; HlsPackage -&gt; f HlsPackage
+</span><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#hlsPackage_encryption"><span class="hs-identifier hs-var hs-var">hlsPackage_encryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HlsPackage -&gt; Maybe HlsEncryption)
+-&gt; (HlsPackage -&gt; Maybe HlsEncryption -&gt; HlsPackage)
+-&gt; Lens
+     HlsPackage HlsPackage (Maybe HlsEncryption) (Maybe HlsEncryption)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#HlsPackage%27"><span class="hs-identifier hs-type">HlsPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196707"><span class="annot"><span class="annottext">Maybe HlsEncryption
+encryption :: Maybe HlsEncryption
+$sel:encryption:HlsPackage' :: HlsPackage -&gt; Maybe HlsEncryption
+</span><a href="#local-6989586621679196707"><span class="hs-identifier hs-var hs-var">encryption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HlsEncryption
+</span><a href="#local-6989586621679196707"><span class="hs-identifier hs-var">encryption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196706"><span class="annot"><span class="annottext">s :: HlsPackage
+</span><a href="#local-6989586621679196706"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#HlsPackage%27"><span class="hs-identifier hs-type">HlsPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196705"><span class="annot"><span class="annottext">Maybe HlsEncryption
+</span><a href="#local-6989586621679196705"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsPackage
+</span><a href="#local-6989586621679196706"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryption:HlsPackage' :: Maybe HlsEncryption
+</span><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#%24sel%3Aencryption%3AHlsPackage%27"><span class="hs-identifier hs-var">encryption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HlsEncryption
+</span><a href="#local-6989586621679196705"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#HlsPackage"><span class="hs-identifier hs-type">HlsPackage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | A list of HLS manifest configurations.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#hlsPackage_hlsManifests"><span class="hs-identifier hs-type">hlsPackage_hlsManifests</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#HlsPackage"><span class="hs-identifier hs-type">HlsPackage</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.HlsManifest.html#HlsManifest"><span class="hs-identifier hs-type">HlsManifest</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-100"></span><span id="hlsPackage_hlsManifests"><span class="annot"><span class="annottext">hlsPackage_hlsManifests :: ([HlsManifest] -&gt; f [HlsManifest]) -&gt; HlsPackage -&gt; f HlsPackage
+</span><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#hlsPackage_hlsManifests"><span class="hs-identifier hs-var hs-var">hlsPackage_hlsManifests</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HlsPackage -&gt; [HlsManifest])
+-&gt; (HlsPackage -&gt; [HlsManifest] -&gt; HlsPackage)
+-&gt; Lens HlsPackage HlsPackage [HlsManifest] [HlsManifest]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#HlsPackage%27"><span class="hs-identifier hs-type">HlsPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196703"><span class="annot"><span class="annottext">[HlsManifest]
+hlsManifests :: [HlsManifest]
+$sel:hlsManifests:HlsPackage' :: HlsPackage -&gt; [HlsManifest]
+</span><a href="#local-6989586621679196703"><span class="hs-identifier hs-var hs-var">hlsManifests</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[HlsManifest]
+</span><a href="#local-6989586621679196703"><span class="hs-identifier hs-var">hlsManifests</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196702"><span class="annot"><span class="annottext">s :: HlsPackage
+</span><a href="#local-6989586621679196702"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#HlsPackage%27"><span class="hs-identifier hs-type">HlsPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196701"><span class="annot"><span class="annottext">[HlsManifest]
+</span><a href="#local-6989586621679196701"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsPackage
+</span><a href="#local-6989586621679196702"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hlsManifests:HlsPackage' :: [HlsManifest]
+</span><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#%24sel%3AhlsManifests%3AHlsPackage%27"><span class="hs-identifier hs-var">hlsManifests</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[HlsManifest]
+</span><a href="#local-6989586621679196701"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#HlsPackage"><span class="hs-identifier hs-type">HlsPackage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([HlsManifest] -&gt; f [HlsManifest]) -&gt; HlsPackage -&gt; f HlsPackage)
+-&gt; (([HlsManifest] -&gt; f [HlsManifest])
+    -&gt; [HlsManifest] -&gt; f [HlsManifest])
+-&gt; ([HlsManifest] -&gt; f [HlsManifest])
+-&gt; HlsPackage
+-&gt; f HlsPackage
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([HlsManifest] -&gt; f [HlsManifest])
+-&gt; [HlsManifest] -&gt; f [HlsManifest]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196696"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#HlsPackage"><span class="hs-identifier hs-type">HlsPackage</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679196694"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HlsPackage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser HlsPackage) -&gt; Value -&gt; Parser HlsPackage
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;HlsPackage&quot;</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679196691"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679196691"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+-&gt; Maybe Bool
+-&gt; Maybe Int
+-&gt; Maybe HlsEncryption
+-&gt; [HlsManifest]
+-&gt; HlsPackage
+</span><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#HlsPackage%27"><span class="hs-identifier hs-var">HlsPackage'</span></a></span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool
+ -&gt; Maybe Bool
+ -&gt; Maybe Int
+ -&gt; Maybe HlsEncryption
+ -&gt; [HlsManifest]
+ -&gt; HlsPackage)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Int -&gt; Maybe HlsEncryption -&gt; [HlsManifest] -&gt; HlsPackage)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679196691"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;useAudioRenditionGroup&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Int -&gt; Maybe HlsEncryption -&gt; [HlsManifest] -&gt; HlsPackage)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Int -&gt; Maybe HlsEncryption -&gt; [HlsManifest] -&gt; HlsPackage)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679196691"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;includeDvbSubtitles&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int -&gt; Maybe HlsEncryption -&gt; [HlsManifest] -&gt; HlsPackage)
+-&gt; Parser (Maybe Int)
+-&gt; Parser (Maybe HlsEncryption -&gt; [HlsManifest] -&gt; HlsPackage)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679196691"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;segmentDurationSeconds&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe HlsEncryption -&gt; [HlsManifest] -&gt; HlsPackage)
+-&gt; Parser (Maybe HlsEncryption)
+-&gt; Parser ([HlsManifest] -&gt; HlsPackage)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679196691"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HlsEncryption)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;encryption&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser ([HlsManifest] -&gt; HlsPackage)
+-&gt; Parser [HlsManifest] -&gt; Parser HlsPackage
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679196691"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [HlsManifest])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;hlsManifests&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [HlsManifest])
+-&gt; [HlsManifest] -&gt; Parser [HlsManifest]
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">[HlsManifest]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196684"><span id="local-6989586621679196686"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#HlsPackage"><span class="hs-identifier hs-type">HlsPackage</span></a></span></span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196681"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#HlsPackage"><span class="hs-identifier hs-type">HlsPackage</span></a></span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196673"><span id="local-6989586621679196675"><span id="local-6989586621679196677"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#HlsPackage"><span class="hs-identifier hs-type">HlsPackage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679196671"><span class="annot"><span class="annottext">toJSON :: HlsPackage -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#HlsPackage%27"><span class="hs-identifier hs-type">HlsPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196665"><span id="local-6989586621679196666"><span id="local-6989586621679196667"><span id="local-6989586621679196668"><span id="local-6989586621679196669"><span class="annot"><span class="annottext">[HlsManifest]
+Maybe Bool
+Maybe Int
+Maybe HlsEncryption
+hlsManifests :: [HlsManifest]
+encryption :: Maybe HlsEncryption
+segmentDurationSeconds :: Maybe Int
+includeDvbSubtitles :: Maybe Bool
+useAudioRenditionGroup :: Maybe Bool
+$sel:hlsManifests:HlsPackage' :: HlsPackage -&gt; [HlsManifest]
+$sel:encryption:HlsPackage' :: HlsPackage -&gt; Maybe HlsEncryption
+$sel:segmentDurationSeconds:HlsPackage' :: HlsPackage -&gt; Maybe Int
+$sel:includeDvbSubtitles:HlsPackage' :: HlsPackage -&gt; Maybe Bool
+$sel:useAudioRenditionGroup:HlsPackage' :: HlsPackage -&gt; Maybe Bool
+</span><a href="#local-6989586621679196665"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-123"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;useAudioRenditionGroup&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679196669"><span class="hs-identifier hs-var">useAudioRenditionGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;includeDvbSubtitles&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679196668"><span class="hs-identifier hs-var">includeDvbSubtitles</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;segmentDurationSeconds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679196667"><span class="hs-identifier hs-var">segmentDurationSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;encryption&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HlsEncryption -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HlsEncryption -&gt; Pair) -&gt; Maybe HlsEncryption -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HlsEncryption
+</span><a href="#local-6989586621679196666"><span class="hs-identifier hs-var">encryption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;hlsManifests&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [HlsManifest] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[HlsManifest]
+</span><a href="#local-6989586621679196665"><span class="hs-identifier hs-var">hlsManifests</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span></pre></body></html>

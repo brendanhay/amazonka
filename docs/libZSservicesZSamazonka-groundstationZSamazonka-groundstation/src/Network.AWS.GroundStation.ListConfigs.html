@@ -1,0 +1,605 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.GroundStation.ListConfigs</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns a list of @Config@ objects.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.GroundStation.ListConfigs</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#ListConfigs"><span class="hs-identifier">ListConfigs</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#newListConfigs"><span class="hs-identifier">newListConfigs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#listConfigs_nextToken"><span class="hs-identifier">listConfigs_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#listConfigs_maxResults"><span class="hs-identifier">listConfigs_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#ListConfigsResponse"><span class="hs-identifier">ListConfigsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#newListConfigsResponse"><span class="hs-identifier">newListConfigsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#listConfigsResponse_configList"><span class="hs-identifier">listConfigsResponse_configList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#listConfigsResponse_nextToken"><span class="hs-identifier">listConfigsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#listConfigsResponse_httpStatus"><span class="hs-identifier">listConfigsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.html"><span class="hs-identifier">Network.AWS.GroundStation.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newListConfigs' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679219930"><span id="local-6989586621679219931"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListConfigs"><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#ListConfigs"><span class="hs-identifier hs-var">ListConfigs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListConfigs%27"><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#ListConfigs%27"><span class="hs-identifier hs-var">ListConfigs'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Next token returned in the request of a previous @ListConfigs@ call.</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- Used to get the next page of results.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AnextToken%3AListConfigs%27"><span class="annot"><span class="annottext">ListConfigs -&gt; Maybe Text
+</span><a href="Network.AWS.GroundStation.ListConfigs.html#%24sel%3AnextToken%3AListConfigs%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | Maximum number of @Configs@ returned.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AmaxResults%3AListConfigs%27"><span class="annot"><span class="annottext">ListConfigs -&gt; Maybe Int
+</span><a href="Network.AWS.GroundStation.ListConfigs.html#%24sel%3AmaxResults%3AListConfigs%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679219923"><span id="local-6989586621679219925"><span class="annot"><span class="annottext">ListConfigs -&gt; ListConfigs -&gt; Bool
+(ListConfigs -&gt; ListConfigs -&gt; Bool)
+-&gt; (ListConfigs -&gt; ListConfigs -&gt; Bool) -&gt; Eq ListConfigs
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListConfigs -&gt; ListConfigs -&gt; Bool
+$c/= :: ListConfigs -&gt; ListConfigs -&gt; Bool
+== :: ListConfigs -&gt; ListConfigs -&gt; Bool
+$c== :: ListConfigs -&gt; ListConfigs -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679219914"><span id="local-6989586621679219916"><span id="local-6989586621679219918"><span id="local-6989586621679219920"><span class="annot"><span class="annottext">ReadPrec [ListConfigs]
+ReadPrec ListConfigs
+Int -&gt; ReadS ListConfigs
+ReadS [ListConfigs]
+(Int -&gt; ReadS ListConfigs)
+-&gt; ReadS [ListConfigs]
+-&gt; ReadPrec ListConfigs
+-&gt; ReadPrec [ListConfigs]
+-&gt; Read ListConfigs
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListConfigs]
+$creadListPrec :: ReadPrec [ListConfigs]
+readPrec :: ReadPrec ListConfigs
+$creadPrec :: ReadPrec ListConfigs
+readList :: ReadS [ListConfigs]
+$creadList :: ReadS [ListConfigs]
+readsPrec :: Int -&gt; ReadS ListConfigs
+$creadsPrec :: Int -&gt; ReadS ListConfigs
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679219907"><span id="local-6989586621679219909"><span id="local-6989586621679219911"><span class="annot"><span class="annottext">Int -&gt; ListConfigs -&gt; ShowS
+[ListConfigs] -&gt; ShowS
+ListConfigs -&gt; String
+(Int -&gt; ListConfigs -&gt; ShowS)
+-&gt; (ListConfigs -&gt; String)
+-&gt; ([ListConfigs] -&gt; ShowS)
+-&gt; Show ListConfigs
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListConfigs] -&gt; ShowS
+$cshowList :: [ListConfigs] -&gt; ShowS
+show :: ListConfigs -&gt; String
+$cshow :: ListConfigs -&gt; String
+showsPrec :: Int -&gt; ListConfigs -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListConfigs -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListConfigs -&gt; Rep ListConfigs x)
+-&gt; (forall x. Rep ListConfigs x -&gt; ListConfigs)
+-&gt; Generic ListConfigs
+forall x. Rep ListConfigs x -&gt; ListConfigs
+forall x. ListConfigs -&gt; Rep ListConfigs x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListConfigs x -&gt; ListConfigs
+$cfrom :: forall x. ListConfigs -&gt; Rep ListConfigs x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Create a value of 'ListConfigs' with all optional fields omitted.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'nextToken', 'listConfigs_nextToken' - Next token returned in the request of a previous @ListConfigs@ call.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Used to get the next page of results.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'maxResults', 'listConfigs_maxResults' - Maximum number of @Configs@ returned.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#newListConfigs"><span class="hs-identifier hs-type">newListConfigs</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#ListConfigs"><span class="hs-identifier hs-type">ListConfigs</span></a></span><span>
+</span><span id="line-79"></span><span id="newListConfigs"><span class="annot"><span class="annottext">newListConfigs :: ListConfigs
+</span><a href="Network.AWS.GroundStation.ListConfigs.html#newListConfigs"><span class="hs-identifier hs-var hs-var">newListConfigs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">ListConfigs' :: Maybe Text -&gt; Maybe Int -&gt; ListConfigs
+</span><a href="Network.AWS.GroundStation.ListConfigs.html#ListConfigs%27"><span class="hs-identifier hs-type">ListConfigs'</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListConfigs' :: Maybe Text
+</span><a href="Network.AWS.GroundStation.ListConfigs.html#%24sel%3AnextToken%3AListConfigs%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListConfigs' :: Maybe Int
+</span><a href="Network.AWS.GroundStation.ListConfigs.html#%24sel%3AmaxResults%3AListConfigs%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | Next token returned in the request of a previous @ListConfigs@ call.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Used to get the next page of results.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#listConfigs_nextToken"><span class="hs-identifier hs-type">listConfigs_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#ListConfigs"><span class="hs-identifier hs-type">ListConfigs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="listConfigs_nextToken"><span class="annot"><span class="annottext">listConfigs_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListConfigs -&gt; f ListConfigs
+</span><a href="Network.AWS.GroundStation.ListConfigs.html#listConfigs_nextToken"><span class="hs-identifier hs-var hs-var">listConfigs_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListConfigs -&gt; Maybe Text)
+-&gt; (ListConfigs -&gt; Maybe Text -&gt; ListConfigs)
+-&gt; Lens ListConfigs ListConfigs (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#ListConfigs%27"><span class="hs-identifier hs-type">ListConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219901"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListConfigs' :: ListConfigs -&gt; Maybe Text
+</span><a href="#local-6989586621679219901"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219901"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219900"><span class="annot"><span class="annottext">s :: ListConfigs
+</span><a href="#local-6989586621679219900"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#ListConfigs%27"><span class="hs-identifier hs-type">ListConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219899"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219899"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConfigs
+</span><a href="#local-6989586621679219900"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListConfigs' :: Maybe Text
+</span><a href="Network.AWS.GroundStation.ListConfigs.html#%24sel%3AnextToken%3AListConfigs%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219899"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#ListConfigs"><span class="hs-identifier hs-type">ListConfigs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | Maximum number of @Configs@ returned.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#listConfigs_maxResults"><span class="hs-identifier hs-type">listConfigs_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#ListConfigs"><span class="hs-identifier hs-type">ListConfigs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="listConfigs_maxResults"><span class="annot"><span class="annottext">listConfigs_maxResults :: (Maybe Int -&gt; f (Maybe Int)) -&gt; ListConfigs -&gt; f ListConfigs
+</span><a href="Network.AWS.GroundStation.ListConfigs.html#listConfigs_maxResults"><span class="hs-identifier hs-var hs-var">listConfigs_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListConfigs -&gt; Maybe Int)
+-&gt; (ListConfigs -&gt; Maybe Int -&gt; ListConfigs)
+-&gt; Lens ListConfigs ListConfigs (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#ListConfigs%27"><span class="hs-identifier hs-type">ListConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219898"><span class="annot"><span class="annottext">Maybe Int
+maxResults :: Maybe Int
+$sel:maxResults:ListConfigs' :: ListConfigs -&gt; Maybe Int
+</span><a href="#local-6989586621679219898"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679219898"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219897"><span class="annot"><span class="annottext">s :: ListConfigs
+</span><a href="#local-6989586621679219897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#ListConfigs%27"><span class="hs-identifier hs-type">ListConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219896"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679219896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConfigs
+</span><a href="#local-6989586621679219897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListConfigs' :: Maybe Int
+</span><a href="Network.AWS.GroundStation.ListConfigs.html#%24sel%3AmaxResults%3AListConfigs%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679219896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#ListConfigs"><span class="hs-identifier hs-type">ListConfigs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#ListConfigs"><span class="hs-identifier hs-type">ListConfigs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679219892"><span class="annot"><span class="annottext">page :: ListConfigs -&gt; AWSResponse ListConfigs -&gt; Maybe ListConfigs
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679219890"><span class="annot"><span class="annottext">ListConfigs
+</span><a href="#local-6989586621679219890"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679219889"><span class="annot"><span class="annottext">AWSResponse ListConfigs
+</span><a href="#local-6989586621679219889"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-97"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListConfigs
+ListConfigsResponse
+</span><a href="#local-6989586621679219889"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">ListConfigsResponse
+-&gt; Getting (First Text) ListConfigsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListConfigsResponse -&gt; Const (First Text) ListConfigsResponse
+Lens' ListConfigsResponse (Maybe Text)
+</span><a href="Network.AWS.GroundStation.ListConfigs.html#listConfigsResponse_nextToken"><span class="hs-identifier hs-var">listConfigsResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListConfigsResponse -&gt; Const (First Text) ListConfigsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListConfigsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-99"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListConfigs
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [ConfigListItem] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-102"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListConfigs
+ListConfigsResponse
+</span><a href="#local-6989586621679219889"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">ListConfigsResponse
+-&gt; Getting
+     (First [ConfigListItem]) ListConfigsResponse [ConfigListItem]
+-&gt; Maybe [ConfigListItem]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [ConfigListItem]
+ -&gt; Const (First [ConfigListItem]) (Maybe [ConfigListItem]))
+-&gt; ListConfigsResponse
+-&gt; Const (First [ConfigListItem]) ListConfigsResponse
+Lens' ListConfigsResponse (Maybe [ConfigListItem])
+</span><a href="Network.AWS.GroundStation.ListConfigs.html#listConfigsResponse_configList"><span class="hs-identifier hs-var">listConfigsResponse_configList</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe [ConfigListItem]
+  -&gt; Const (First [ConfigListItem]) (Maybe [ConfigListItem]))
+ -&gt; ListConfigsResponse
+ -&gt; Const (First [ConfigListItem]) ListConfigsResponse)
+-&gt; (([ConfigListItem]
+     -&gt; Const (First [ConfigListItem]) [ConfigListItem])
+    -&gt; Maybe [ConfigListItem]
+    -&gt; Const (First [ConfigListItem]) (Maybe [ConfigListItem]))
+-&gt; Getting
+     (First [ConfigListItem]) ListConfigsResponse [ConfigListItem]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ConfigListItem]
+ -&gt; Const (First [ConfigListItem]) [ConfigListItem])
+-&gt; Maybe [ConfigListItem]
+-&gt; Const (First [ConfigListItem]) (Maybe [ConfigListItem])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-104"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListConfigs
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">ListConfigs -&gt; Maybe ListConfigs
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListConfigs -&gt; Maybe ListConfigs)
+-&gt; ListConfigs -&gt; Maybe ListConfigs
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">ListConfigs
+</span><a href="#local-6989586621679219890"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">ListConfigs -&gt; (ListConfigs -&gt; ListConfigs) -&gt; ListConfigs
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListConfigs -&gt; Identity ListConfigs
+Lens ListConfigs ListConfigs (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.GroundStation.ListConfigs.html#listConfigs_nextToken"><span class="hs-identifier hs-var">listConfigs_nextToken</span></a></span><span>
+</span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListConfigs -&gt; Identity ListConfigs)
+-&gt; Maybe Text -&gt; ListConfigs -&gt; ListConfigs
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListConfigs
+ListConfigsResponse
+</span><a href="#local-6989586621679219889"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">ListConfigsResponse
+-&gt; Getting (First Text) ListConfigsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListConfigsResponse -&gt; Const (First Text) ListConfigsResponse
+Lens' ListConfigsResponse (Maybe Text)
+</span><a href="Network.AWS.GroundStation.ListConfigs.html#listConfigsResponse_nextToken"><span class="hs-identifier hs-var">listConfigsResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListConfigsResponse -&gt; Const (First Text) ListConfigsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListConfigsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#ListConfigs"><span class="hs-identifier hs-type">ListConfigs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#ListConfigs"><span class="hs-identifier hs-type">ListConfigs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#ListConfigsResponse"><span class="hs-identifier hs-type">ListConfigsResponse</span></a></span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679219879"><span class="annot"><span class="annottext">request :: ListConfigs -&gt; Request ListConfigs
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListConfigs -&gt; Request ListConfigs
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.GroundStation.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679219875"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListConfigs
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListConfigs)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListConfigs))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListConfigs
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListConfigs)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679219872"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679219872"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679219871"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679219871"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679219870"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679219870"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ConfigListItem] -&gt; Maybe Text -&gt; Int -&gt; ListConfigsResponse
+</span><a href="Network.AWS.GroundStation.ListConfigs.html#ListConfigsResponse%27"><span class="hs-identifier hs-var">ListConfigsResponse'</span></a></span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ConfigListItem]
+ -&gt; Maybe Text -&gt; Int -&gt; ListConfigsResponse)
+-&gt; Either String (Maybe [ConfigListItem])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListConfigsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679219870"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ConfigListItem]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;configList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ConfigListItem]))
+-&gt; Maybe [ConfigListItem] -&gt; Either String (Maybe [ConfigListItem])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ConfigListItem]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListConfigsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListConfigsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679219870"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListConfigsResponse)
+-&gt; Either String Int -&gt; Either String ListConfigsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679219872"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679219861"><span id="local-6989586621679219863"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#ListConfigs"><span class="hs-identifier hs-type">ListConfigs</span></a></span></span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679219858"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#ListConfigs"><span class="hs-identifier hs-type">ListConfigs</span></a></span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#ListConfigs"><span class="hs-identifier hs-type">ListConfigs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679219854"><span class="annot"><span class="annottext">toHeaders :: ListConfigs -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListConfigs -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-133"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-134"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-135"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-136"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#ListConfigs"><span class="hs-identifier hs-type">ListConfigs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679219848"><span class="annot"><span class="annottext">toPath :: ListConfigs -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListConfigs -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/config&quot;</span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#ListConfigs"><span class="hs-identifier hs-type">ListConfigs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679219844"><span class="annot"><span class="annottext">toQuery :: ListConfigs -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#ListConfigs%27"><span class="hs-identifier hs-type">ListConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219841"><span id="local-6989586621679219842"><span class="annot"><span class="annottext">Maybe Int
+Maybe Text
+maxResults :: Maybe Int
+nextToken :: Maybe Text
+$sel:maxResults:ListConfigs' :: ListConfigs -&gt; Maybe Int
+$sel:nextToken:ListConfigs' :: ListConfigs -&gt; Maybe Text
+</span><a href="#local-6989586621679219841"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219842"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679219841"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- /See:/ 'newListConfigsResponse' smart constructor.</span><span>
+</span><span id="line-153"></span><span id="local-6989586621679219838"><span id="local-6989586621679219839"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListConfigsResponse"><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#ListConfigsResponse"><span class="hs-identifier hs-var">ListConfigsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListConfigsResponse%27"><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#ListConfigsResponse%27"><span class="hs-identifier hs-var">ListConfigsResponse'</span></a></span></span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | List of @Config@ items.</span><span>
+</span><span id="line-155"></span><span>    </span><span id="%24sel%3AconfigList%3AListConfigsResponse%27"><span class="annot"><span class="annottext">ListConfigsResponse -&gt; Maybe [ConfigListItem]
+</span><a href="Network.AWS.GroundStation.ListConfigs.html#%24sel%3AconfigList%3AListConfigsResponse%27"><span class="hs-identifier hs-var hs-var">configList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigListItem.html#ConfigListItem"><span class="hs-identifier hs-type">ConfigListItem</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- | Next token returned in the response of a previous @ListConfigs@ call.</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- Used to get the next page of results.</span><span>
+</span><span id="line-158"></span><span>    </span><span id="%24sel%3AnextToken%3AListConfigsResponse%27"><span class="annot"><span class="annottext">ListConfigsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.GroundStation.ListConfigs.html#%24sel%3AnextToken%3AListConfigsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-160"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListConfigsResponse%27"><span class="annot"><span class="annottext">ListConfigsResponse -&gt; Int
+</span><a href="Network.AWS.GroundStation.ListConfigs.html#%24sel%3AhttpStatus%3AListConfigsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-162"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679219831"><span id="local-6989586621679219833"><span class="annot"><span class="annottext">ListConfigsResponse -&gt; ListConfigsResponse -&gt; Bool
+(ListConfigsResponse -&gt; ListConfigsResponse -&gt; Bool)
+-&gt; (ListConfigsResponse -&gt; ListConfigsResponse -&gt; Bool)
+-&gt; Eq ListConfigsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListConfigsResponse -&gt; ListConfigsResponse -&gt; Bool
+$c/= :: ListConfigsResponse -&gt; ListConfigsResponse -&gt; Bool
+== :: ListConfigsResponse -&gt; ListConfigsResponse -&gt; Bool
+$c== :: ListConfigsResponse -&gt; ListConfigsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679219823"><span id="local-6989586621679219825"><span id="local-6989586621679219827"><span id="local-6989586621679219829"><span class="annot"><span class="annottext">ReadPrec [ListConfigsResponse]
+ReadPrec ListConfigsResponse
+Int -&gt; ReadS ListConfigsResponse
+ReadS [ListConfigsResponse]
+(Int -&gt; ReadS ListConfigsResponse)
+-&gt; ReadS [ListConfigsResponse]
+-&gt; ReadPrec ListConfigsResponse
+-&gt; ReadPrec [ListConfigsResponse]
+-&gt; Read ListConfigsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListConfigsResponse]
+$creadListPrec :: ReadPrec [ListConfigsResponse]
+readPrec :: ReadPrec ListConfigsResponse
+$creadPrec :: ReadPrec ListConfigsResponse
+readList :: ReadS [ListConfigsResponse]
+$creadList :: ReadS [ListConfigsResponse]
+readsPrec :: Int -&gt; ReadS ListConfigsResponse
+$creadsPrec :: Int -&gt; ReadS ListConfigsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679219817"><span id="local-6989586621679219819"><span id="local-6989586621679219821"><span class="annot"><span class="annottext">Int -&gt; ListConfigsResponse -&gt; ShowS
+[ListConfigsResponse] -&gt; ShowS
+ListConfigsResponse -&gt; String
+(Int -&gt; ListConfigsResponse -&gt; ShowS)
+-&gt; (ListConfigsResponse -&gt; String)
+-&gt; ([ListConfigsResponse] -&gt; ShowS)
+-&gt; Show ListConfigsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListConfigsResponse] -&gt; ShowS
+$cshowList :: [ListConfigsResponse] -&gt; ShowS
+show :: ListConfigsResponse -&gt; String
+$cshow :: ListConfigsResponse -&gt; String
+showsPrec :: Int -&gt; ListConfigsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListConfigsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListConfigsResponse -&gt; Rep ListConfigsResponse x)
+-&gt; (forall x. Rep ListConfigsResponse x -&gt; ListConfigsResponse)
+-&gt; Generic ListConfigsResponse
+forall x. Rep ListConfigsResponse x -&gt; ListConfigsResponse
+forall x. ListConfigsResponse -&gt; Rep ListConfigsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListConfigsResponse x -&gt; ListConfigsResponse
+$cfrom :: forall x. ListConfigsResponse -&gt; Rep ListConfigsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- Create a value of 'ListConfigsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- 'configList', 'listConfigsResponse_configList' - List of @Config@ items.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- 'nextToken', 'listConfigsResponse_nextToken' - Next token returned in the response of a previous @ListConfigs@ call.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- Used to get the next page of results.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- 'httpStatus', 'listConfigsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#newListConfigsResponse"><span class="hs-identifier hs-type">newListConfigsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-179"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-180"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-181"></span><span>  </span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#ListConfigsResponse"><span class="hs-identifier hs-type">ListConfigsResponse</span></a></span><span>
+</span><span id="line-182"></span><span id="newListConfigsResponse"><span class="annot"><span class="annottext">newListConfigsResponse :: Int -&gt; ListConfigsResponse
+</span><a href="Network.AWS.GroundStation.ListConfigs.html#newListConfigsResponse"><span class="hs-identifier hs-var hs-var">newListConfigsResponse</span></a></span></span><span> </span><span id="local-6989586621679219814"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679219814"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-183"></span><span>  </span><span class="annot"><span class="annottext">ListConfigsResponse' :: Maybe [ConfigListItem] -&gt; Maybe Text -&gt; Int -&gt; ListConfigsResponse
+</span><a href="Network.AWS.GroundStation.ListConfigs.html#ListConfigsResponse%27"><span class="hs-identifier hs-type">ListConfigsResponse'</span></a></span><span>
+</span><span id="line-184"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:configList:ListConfigsResponse' :: Maybe [ConfigListItem]
+</span><a href="Network.AWS.GroundStation.ListConfigs.html#%24sel%3AconfigList%3AListConfigsResponse%27"><span class="hs-identifier hs-var">configList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ConfigListItem]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListConfigsResponse' :: Maybe Text
+</span><a href="Network.AWS.GroundStation.ListConfigs.html#%24sel%3AnextToken%3AListConfigsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListConfigsResponse' :: Int
+</span><a href="Network.AWS.GroundStation.ListConfigs.html#%24sel%3AhttpStatus%3AListConfigsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679219814"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-187"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | List of @Config@ items.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#listConfigsResponse_configList"><span class="hs-identifier hs-type">listConfigsResponse_configList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#ListConfigsResponse"><span class="hs-identifier hs-type">ListConfigsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GroundStation.Types.ConfigListItem.html#ConfigListItem"><span class="hs-identifier hs-type">ConfigListItem</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span id="listConfigsResponse_configList"><span class="annot"><span class="annottext">listConfigsResponse_configList :: (Maybe [ConfigListItem] -&gt; f (Maybe [ConfigListItem]))
+-&gt; ListConfigsResponse -&gt; f ListConfigsResponse
+</span><a href="Network.AWS.GroundStation.ListConfigs.html#listConfigsResponse_configList"><span class="hs-identifier hs-var hs-var">listConfigsResponse_configList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListConfigsResponse -&gt; Maybe [ConfigListItem])
+-&gt; (ListConfigsResponse
+    -&gt; Maybe [ConfigListItem] -&gt; ListConfigsResponse)
+-&gt; Lens' ListConfigsResponse (Maybe [ConfigListItem])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#ListConfigsResponse%27"><span class="hs-identifier hs-type">ListConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219813"><span class="annot"><span class="annottext">Maybe [ConfigListItem]
+configList :: Maybe [ConfigListItem]
+$sel:configList:ListConfigsResponse' :: ListConfigsResponse -&gt; Maybe [ConfigListItem]
+</span><a href="#local-6989586621679219813"><span class="hs-identifier hs-var hs-var">configList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ConfigListItem]
+</span><a href="#local-6989586621679219813"><span class="hs-identifier hs-var">configList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219812"><span class="annot"><span class="annottext">s :: ListConfigsResponse
+</span><a href="#local-6989586621679219812"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#ListConfigsResponse%27"><span class="hs-identifier hs-type">ListConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219811"><span class="annot"><span class="annottext">Maybe [ConfigListItem]
+</span><a href="#local-6989586621679219811"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConfigsResponse
+</span><a href="#local-6989586621679219812"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configList:ListConfigsResponse' :: Maybe [ConfigListItem]
+</span><a href="Network.AWS.GroundStation.ListConfigs.html#%24sel%3AconfigList%3AListConfigsResponse%27"><span class="hs-identifier hs-var">configList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ConfigListItem]
+</span><a href="#local-6989586621679219811"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#ListConfigsResponse"><span class="hs-identifier hs-type">ListConfigsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ConfigListItem] -&gt; f (Maybe [ConfigListItem]))
+ -&gt; ListConfigsResponse -&gt; f ListConfigsResponse)
+-&gt; ((Maybe [ConfigListItem] -&gt; f (Maybe [ConfigListItem]))
+    -&gt; Maybe [ConfigListItem] -&gt; f (Maybe [ConfigListItem]))
+-&gt; (Maybe [ConfigListItem] -&gt; f (Maybe [ConfigListItem]))
+-&gt; ListConfigsResponse
+-&gt; f ListConfigsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ConfigListItem] [ConfigListItem] [ConfigListItem] [ConfigListItem]
+-&gt; Iso
+     (Maybe [ConfigListItem])
+     (Maybe [ConfigListItem])
+     (Maybe [ConfigListItem])
+     (Maybe [ConfigListItem])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ConfigListItem] [ConfigListItem] [ConfigListItem] [ConfigListItem]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | Next token returned in the response of a previous @ListConfigs@ call.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- Used to get the next page of results.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#listConfigsResponse_nextToken"><span class="hs-identifier hs-type">listConfigsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#ListConfigsResponse"><span class="hs-identifier hs-type">ListConfigsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span id="listConfigsResponse_nextToken"><span class="annot"><span class="annottext">listConfigsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListConfigsResponse -&gt; f ListConfigsResponse
+</span><a href="Network.AWS.GroundStation.ListConfigs.html#listConfigsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listConfigsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListConfigsResponse -&gt; Maybe Text)
+-&gt; (ListConfigsResponse -&gt; Maybe Text -&gt; ListConfigsResponse)
+-&gt; Lens' ListConfigsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#ListConfigsResponse%27"><span class="hs-identifier hs-type">ListConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219808"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListConfigsResponse' :: ListConfigsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679219808"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219808"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219807"><span class="annot"><span class="annottext">s :: ListConfigsResponse
+</span><a href="#local-6989586621679219807"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#ListConfigsResponse%27"><span class="hs-identifier hs-type">ListConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219806"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219806"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConfigsResponse
+</span><a href="#local-6989586621679219807"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListConfigsResponse' :: Maybe Text
+</span><a href="Network.AWS.GroundStation.ListConfigs.html#%24sel%3AnextToken%3AListConfigsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219806"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#ListConfigsResponse"><span class="hs-identifier hs-type">ListConfigsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#listConfigsResponse_httpStatus"><span class="hs-identifier hs-type">listConfigsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#ListConfigsResponse"><span class="hs-identifier hs-type">ListConfigsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-200"></span><span id="listConfigsResponse_httpStatus"><span class="annot"><span class="annottext">listConfigsResponse_httpStatus :: (Int -&gt; f Int) -&gt; ListConfigsResponse -&gt; f ListConfigsResponse
+</span><a href="Network.AWS.GroundStation.ListConfigs.html#listConfigsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listConfigsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListConfigsResponse -&gt; Int)
+-&gt; (ListConfigsResponse -&gt; Int -&gt; ListConfigsResponse)
+-&gt; Lens ListConfigsResponse ListConfigsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#ListConfigsResponse%27"><span class="hs-identifier hs-type">ListConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219805"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListConfigsResponse' :: ListConfigsResponse -&gt; Int
+</span><a href="#local-6989586621679219805"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679219805"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219804"><span class="annot"><span class="annottext">s :: ListConfigsResponse
+</span><a href="#local-6989586621679219804"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#ListConfigsResponse%27"><span class="hs-identifier hs-type">ListConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219803"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679219803"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConfigsResponse
+</span><a href="#local-6989586621679219804"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListConfigsResponse' :: Int
+</span><a href="Network.AWS.GroundStation.ListConfigs.html#%24sel%3AhttpStatus%3AListConfigsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679219803"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#ListConfigsResponse"><span class="hs-identifier hs-type">ListConfigsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679219801"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.ListConfigs.html#ListConfigsResponse"><span class="hs-identifier hs-type">ListConfigsResponse</span></a></span></span><span>
+</span><span id="line-203"></span></pre></body></html>

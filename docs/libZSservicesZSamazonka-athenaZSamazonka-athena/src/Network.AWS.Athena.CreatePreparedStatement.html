@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newCreatePreparedStatement' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679226556"><span id="local-6989586621679226557"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatePreparedStatement"><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatement"><span class="hs-identifier hs-var">CreatePreparedStatement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatePreparedStatement%27"><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatement%27"><span class="hs-identifier hs-var">CreatePreparedStatement'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679226565"><span id="local-6989586621679226566"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatePreparedStatement"><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatement"><span class="hs-identifier hs-var">CreatePreparedStatement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatePreparedStatement%27"><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatement%27"><span class="hs-identifier hs-var">CreatePreparedStatement'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The description of the prepared statement.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3Adescription%3ACreatePreparedStatement%27"><span class="annot"><span class="annottext">CreatePreparedStatement -&gt; Maybe Text
 </span><a href="Network.AWS.Athena.CreatePreparedStatement.html#%24sel%3Adescription%3ACreatePreparedStatement%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -63,7 +63,7 @@
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AqueryStatement%3ACreatePreparedStatement%27"><span class="annot"><span class="annottext">CreatePreparedStatement -&gt; Text
 </span><a href="Network.AWS.Athena.CreatePreparedStatement.html#%24sel%3AqueryStatement%3ACreatePreparedStatement%27"><span class="hs-identifier hs-var hs-var">queryStatement</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226547"><span id="local-6989586621679226549"><span class="annot"><span class="annottext">CreatePreparedStatement -&gt; CreatePreparedStatement -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226556"><span id="local-6989586621679226558"><span class="annot"><span class="annottext">CreatePreparedStatement -&gt; CreatePreparedStatement -&gt; Bool
 (CreatePreparedStatement -&gt; CreatePreparedStatement -&gt; Bool)
 -&gt; (CreatePreparedStatement -&gt; CreatePreparedStatement -&gt; Bool)
 -&gt; Eq CreatePreparedStatement
@@ -72,7 +72,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreatePreparedStatement -&gt; CreatePreparedStatement -&gt; Bool
 == :: CreatePreparedStatement -&gt; CreatePreparedStatement -&gt; Bool
 $c== :: CreatePreparedStatement -&gt; CreatePreparedStatement -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226538"><span id="local-6989586621679226540"><span id="local-6989586621679226542"><span id="local-6989586621679226544"><span class="annot"><span class="annottext">ReadPrec [CreatePreparedStatement]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226547"><span id="local-6989586621679226549"><span id="local-6989586621679226551"><span id="local-6989586621679226553"><span class="annot"><span class="annottext">ReadPrec [CreatePreparedStatement]
 ReadPrec CreatePreparedStatement
 Int -&gt; ReadS CreatePreparedStatement
 ReadS [CreatePreparedStatement]
@@ -92,7 +92,7 @@ readList :: ReadS [CreatePreparedStatement]
 $creadList :: ReadS [CreatePreparedStatement]
 readsPrec :: Int -&gt; ReadS CreatePreparedStatement
 $creadsPrec :: Int -&gt; ReadS CreatePreparedStatement
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226531"><span id="local-6989586621679226533"><span id="local-6989586621679226535"><span class="annot"><span class="annottext">Int -&gt; CreatePreparedStatement -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226540"><span id="local-6989586621679226542"><span id="local-6989586621679226544"><span class="annot"><span class="annottext">Int -&gt; CreatePreparedStatement -&gt; ShowS
 [CreatePreparedStatement] -&gt; ShowS
 CreatePreparedStatement -&gt; String
 (Int -&gt; CreatePreparedStatement -&gt; ShowS)
@@ -145,12 +145,12 @@ $cfrom :: forall x. CreatePreparedStatement -&gt; Rep CreatePreparedStatement x
 </span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatement"><span class="hs-identifier hs-type">CreatePreparedStatement</span></a></span><span>
 </span><span id="line-87"></span><span id="newCreatePreparedStatement"><span class="annot"><span class="annottext">newCreatePreparedStatement :: Text -&gt; Text -&gt; Text -&gt; CreatePreparedStatement
 </span><a href="Network.AWS.Athena.CreatePreparedStatement.html#newCreatePreparedStatement"><span class="hs-identifier hs-var hs-var">newCreatePreparedStatement</span></a></span></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679226526"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226526"><span class="hs-identifier hs-var">pStatementName_</span></a></span></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679226525"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226525"><span class="hs-identifier hs-var">pWorkGroup_</span></a></span></span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679226524"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226524"><span class="hs-identifier hs-var">pQueryStatement_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679226535"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226535"><span class="hs-identifier hs-var">pStatementName_</span></a></span></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679226534"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226534"><span class="hs-identifier hs-var">pWorkGroup_</span></a></span></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679226533"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226533"><span class="hs-identifier hs-var">pQueryStatement_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">CreatePreparedStatement' :: Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; CreatePreparedStatement
 </span><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatement%27"><span class="hs-identifier hs-type">CreatePreparedStatement'</span></a></span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:description:CreatePreparedStatement' :: Maybe Text
@@ -160,13 +160,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">$sel:statementName:CreatePreparedStatement' :: Text
 </span><a href="Network.AWS.Athena.CreatePreparedStatement.html#%24sel%3AstatementName%3ACreatePreparedStatement%27"><span class="hs-identifier hs-var">statementName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226526"><span class="hs-identifier hs-var">pStatementName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679226535"><span class="hs-identifier hs-var">pStatementName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-95"></span><span>        </span><span class="annot"><span class="annottext">$sel:workGroup:CreatePreparedStatement' :: Text
 </span><a href="Network.AWS.Athena.CreatePreparedStatement.html#%24sel%3AworkGroup%3ACreatePreparedStatement%27"><span class="hs-identifier hs-var">workGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226525"><span class="hs-identifier hs-var">pWorkGroup_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679226534"><span class="hs-identifier hs-var">pWorkGroup_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">$sel:queryStatement:CreatePreparedStatement' :: Text
 </span><a href="Network.AWS.Athena.CreatePreparedStatement.html#%24sel%3AqueryStatement%3ACreatePreparedStatement%27"><span class="hs-identifier hs-var">queryStatement</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226524"><span class="hs-identifier hs-var">pQueryStatement_</span></a></span><span>
+</span><a href="#local-6989586621679226533"><span class="hs-identifier hs-var">pQueryStatement_</span></a></span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | The description of the prepared statement.</span><span>
@@ -182,16 +182,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatement%27"><span class="hs-identifier hs-type">CreatePreparedStatement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226521"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatement%27"><span class="hs-identifier hs-type">CreatePreparedStatement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226530"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:CreatePreparedStatement' :: CreatePreparedStatement -&gt; Maybe Text
-</span><a href="#local-6989586621679226521"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679226521"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226520"><span class="annot"><span class="annottext">s :: CreatePreparedStatement
-</span><a href="#local-6989586621679226520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatement%27"><span class="hs-identifier hs-type">CreatePreparedStatement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226519"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679226519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePreparedStatement
-</span><a href="#local-6989586621679226520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreatePreparedStatement' :: Maybe Text
+</span><a href="#local-6989586621679226530"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679226530"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226529"><span class="annot"><span class="annottext">s :: CreatePreparedStatement
+</span><a href="#local-6989586621679226529"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatement%27"><span class="hs-identifier hs-type">CreatePreparedStatement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226528"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679226528"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePreparedStatement
+</span><a href="#local-6989586621679226529"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreatePreparedStatement' :: Maybe Text
 </span><a href="Network.AWS.Athena.CreatePreparedStatement.html#%24sel%3Adescription%3ACreatePreparedStatement%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679226519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatement"><span class="hs-identifier hs-type">CreatePreparedStatement</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226528"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatement"><span class="hs-identifier hs-type">CreatePreparedStatement</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | The name of the prepared statement.</span><span>
 </span><span id="line-104"></span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#createPreparedStatement_statementName"><span class="hs-identifier hs-type">createPreparedStatement_statementName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatement"><span class="hs-identifier hs-type">CreatePreparedStatement</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -201,16 +201,16 @@ $sel:description:CreatePreparedStatement' :: CreatePreparedStatement -&gt; Maybe
 -&gt; (CreatePreparedStatement -&gt; Text -&gt; CreatePreparedStatement)
 -&gt; Lens CreatePreparedStatement CreatePreparedStatement Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatement%27"><span class="hs-identifier hs-type">CreatePreparedStatement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226518"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatement%27"><span class="hs-identifier hs-type">CreatePreparedStatement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226527"><span class="annot"><span class="annottext">Text
 statementName :: Text
 $sel:statementName:CreatePreparedStatement' :: CreatePreparedStatement -&gt; Text
-</span><a href="#local-6989586621679226518"><span class="hs-identifier hs-var hs-var">statementName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226518"><span class="hs-identifier hs-var">statementName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226517"><span class="annot"><span class="annottext">s :: CreatePreparedStatement
-</span><a href="#local-6989586621679226517"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatement%27"><span class="hs-identifier hs-type">CreatePreparedStatement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226516"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226516"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePreparedStatement
-</span><a href="#local-6989586621679226517"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statementName:CreatePreparedStatement' :: Text
+</span><a href="#local-6989586621679226527"><span class="hs-identifier hs-var hs-var">statementName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226527"><span class="hs-identifier hs-var">statementName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226526"><span class="annot"><span class="annottext">s :: CreatePreparedStatement
+</span><a href="#local-6989586621679226526"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatement%27"><span class="hs-identifier hs-type">CreatePreparedStatement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226525"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226525"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePreparedStatement
+</span><a href="#local-6989586621679226526"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statementName:CreatePreparedStatement' :: Text
 </span><a href="Network.AWS.Athena.CreatePreparedStatement.html#%24sel%3AstatementName%3ACreatePreparedStatement%27"><span class="hs-identifier hs-var">statementName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226516"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatement"><span class="hs-identifier hs-type">CreatePreparedStatement</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226525"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatement"><span class="hs-identifier hs-type">CreatePreparedStatement</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | The name of the workgroup to which the prepared statement belongs.</span><span>
 </span><span id="line-108"></span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#createPreparedStatement_workGroup"><span class="hs-identifier hs-type">createPreparedStatement_workGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatement"><span class="hs-identifier hs-type">CreatePreparedStatement</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -220,16 +220,16 @@ $sel:statementName:CreatePreparedStatement' :: CreatePreparedStatement -&gt; Tex
 -&gt; (CreatePreparedStatement -&gt; Text -&gt; CreatePreparedStatement)
 -&gt; Lens CreatePreparedStatement CreatePreparedStatement Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatement%27"><span class="hs-identifier hs-type">CreatePreparedStatement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226515"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatement%27"><span class="hs-identifier hs-type">CreatePreparedStatement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226524"><span class="annot"><span class="annottext">Text
 workGroup :: Text
 $sel:workGroup:CreatePreparedStatement' :: CreatePreparedStatement -&gt; Text
-</span><a href="#local-6989586621679226515"><span class="hs-identifier hs-var hs-var">workGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226515"><span class="hs-identifier hs-var">workGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226514"><span class="annot"><span class="annottext">s :: CreatePreparedStatement
-</span><a href="#local-6989586621679226514"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatement%27"><span class="hs-identifier hs-type">CreatePreparedStatement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226513"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226513"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePreparedStatement
-</span><a href="#local-6989586621679226514"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workGroup:CreatePreparedStatement' :: Text
+</span><a href="#local-6989586621679226524"><span class="hs-identifier hs-var hs-var">workGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226524"><span class="hs-identifier hs-var">workGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226523"><span class="annot"><span class="annottext">s :: CreatePreparedStatement
+</span><a href="#local-6989586621679226523"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatement%27"><span class="hs-identifier hs-type">CreatePreparedStatement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226522"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226522"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePreparedStatement
+</span><a href="#local-6989586621679226523"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workGroup:CreatePreparedStatement' :: Text
 </span><a href="Network.AWS.Athena.CreatePreparedStatement.html#%24sel%3AworkGroup%3ACreatePreparedStatement%27"><span class="hs-identifier hs-var">workGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226513"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatement"><span class="hs-identifier hs-type">CreatePreparedStatement</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226522"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatement"><span class="hs-identifier hs-type">CreatePreparedStatement</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | The query string for the prepared statement.</span><span>
 </span><span id="line-112"></span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#createPreparedStatement_queryStatement"><span class="hs-identifier hs-type">createPreparedStatement_queryStatement</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatement"><span class="hs-identifier hs-type">CreatePreparedStatement</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -239,28 +239,28 @@ $sel:workGroup:CreatePreparedStatement' :: CreatePreparedStatement -&gt; Text
 -&gt; (CreatePreparedStatement -&gt; Text -&gt; CreatePreparedStatement)
 -&gt; Lens CreatePreparedStatement CreatePreparedStatement Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatement%27"><span class="hs-identifier hs-type">CreatePreparedStatement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226512"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatement%27"><span class="hs-identifier hs-type">CreatePreparedStatement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226521"><span class="annot"><span class="annottext">Text
 queryStatement :: Text
 $sel:queryStatement:CreatePreparedStatement' :: CreatePreparedStatement -&gt; Text
-</span><a href="#local-6989586621679226512"><span class="hs-identifier hs-var hs-var">queryStatement</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226512"><span class="hs-identifier hs-var">queryStatement</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226511"><span class="annot"><span class="annottext">s :: CreatePreparedStatement
-</span><a href="#local-6989586621679226511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatement%27"><span class="hs-identifier hs-type">CreatePreparedStatement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226510"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePreparedStatement
-</span><a href="#local-6989586621679226511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryStatement:CreatePreparedStatement' :: Text
+</span><a href="#local-6989586621679226521"><span class="hs-identifier hs-var hs-var">queryStatement</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226521"><span class="hs-identifier hs-var">queryStatement</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226520"><span class="annot"><span class="annottext">s :: CreatePreparedStatement
+</span><a href="#local-6989586621679226520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatement%27"><span class="hs-identifier hs-type">CreatePreparedStatement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226519"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePreparedStatement
+</span><a href="#local-6989586621679226520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryStatement:CreatePreparedStatement' :: Text
 </span><a href="Network.AWS.Athena.CreatePreparedStatement.html#%24sel%3AqueryStatement%3ACreatePreparedStatement%27"><span class="hs-identifier hs-var">queryStatement</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatement"><span class="hs-identifier hs-type">CreatePreparedStatement</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatement"><span class="hs-identifier hs-type">CreatePreparedStatement</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatement"><span class="hs-identifier hs-type">CreatePreparedStatement</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-116"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-117"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatement"><span class="hs-identifier hs-type">CreatePreparedStatement</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>      </span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatementResponse"><span class="hs-identifier hs-type">CreatePreparedStatementResponse</span></a></span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679226506"><span class="annot"><span class="annottext">request :: CreatePreparedStatement -&gt; Request CreatePreparedStatement
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679226515"><span class="annot"><span class="annottext">request :: CreatePreparedStatement -&gt; Request CreatePreparedStatement
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; CreatePreparedStatement -&gt; Request CreatePreparedStatement
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Athena.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679226502"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679226511"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreatePreparedStatement
 -&gt; ClientResponse ClientBody
@@ -286,10 +286,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679226499"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679226499"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679226498"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679226498"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679226497"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679226497"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679226508"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226508"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679226507"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679226507"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679226506"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679226506"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; CreatePreparedStatementResponse
 </span><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatementResponse%27"><span class="hs-identifier hs-var">CreatePreparedStatementResponse'</span></a></span><span>
 </span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; CreatePreparedStatementResponse)
@@ -301,15 +301,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679226499"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226508"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226490"><span id="local-6989586621679226492"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatement"><span class="hs-identifier hs-type">CreatePreparedStatement</span></a></span></span></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226499"><span id="local-6989586621679226501"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatement"><span class="hs-identifier hs-type">CreatePreparedStatement</span></a></span></span></span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226487"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatement"><span class="hs-identifier hs-type">CreatePreparedStatement</span></a></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226496"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatement"><span class="hs-identifier hs-type">CreatePreparedStatement</span></a></span></span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatement"><span class="hs-identifier hs-type">CreatePreparedStatement</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679226483"><span class="annot"><span class="annottext">toHeaders :: CreatePreparedStatement -&gt; ResponseHeaders
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679226492"><span class="annot"><span class="annottext">toHeaders :: CreatePreparedStatement -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreatePreparedStatement -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -336,9 +336,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-143"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226473"><span id="local-6989586621679226475"><span id="local-6989586621679226477"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatement"><span class="hs-identifier hs-type">CreatePreparedStatement</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679226471"><span class="annot"><span class="annottext">toJSON :: CreatePreparedStatement -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatement%27"><span class="hs-identifier hs-type">CreatePreparedStatement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226466"><span id="local-6989586621679226467"><span id="local-6989586621679226468"><span id="local-6989586621679226469"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226482"><span id="local-6989586621679226484"><span id="local-6989586621679226486"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatement"><span class="hs-identifier hs-type">CreatePreparedStatement</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679226480"><span class="annot"><span class="annottext">toJSON :: CreatePreparedStatement -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatement%27"><span class="hs-identifier hs-type">CreatePreparedStatement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226475"><span id="local-6989586621679226476"><span id="local-6989586621679226477"><span id="local-6989586621679226478"><span class="annot"><span class="annottext">Maybe Text
 Text
 queryStatement :: Text
 workGroup :: Text
@@ -348,7 +348,7 @@ $sel:queryStatement:CreatePreparedStatement' :: CreatePreparedStatement -&gt; Te
 $sel:workGroup:CreatePreparedStatement' :: CreatePreparedStatement -&gt; Text
 $sel:statementName:CreatePreparedStatement' :: CreatePreparedStatement -&gt; Text
 $sel:description:CreatePreparedStatement' :: CreatePreparedStatement -&gt; Maybe Text
-</span><a href="#local-6989586621679226466"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679226475"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -360,21 +360,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679226469"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679226478"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StatementName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226468"><span class="hs-identifier hs-var">statementName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679226477"><span class="hs-identifier hs-var">statementName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;WorkGroup&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226467"><span class="hs-identifier hs-var">workGroup</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679226476"><span class="hs-identifier hs-var">workGroup</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -382,19 +382,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;QueryStatement&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679226466"><span class="hs-identifier hs-var">queryStatement</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226475"><span class="hs-identifier hs-var">queryStatement</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-156"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatement"><span class="hs-identifier hs-type">CreatePreparedStatement</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679226460"><span class="annot"><span class="annottext">toPath :: CreatePreparedStatement -&gt; ByteString
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679226469"><span class="annot"><span class="annottext">toPath :: CreatePreparedStatement -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreatePreparedStatement -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatement"><span class="hs-identifier hs-type">CreatePreparedStatement</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679226456"><span class="annot"><span class="annottext">toQuery :: CreatePreparedStatement -&gt; QueryString
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679226465"><span class="annot"><span class="annottext">toQuery :: CreatePreparedStatement -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreatePreparedStatement -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -402,12 +402,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- | /See:/ 'newCreatePreparedStatementResponse' smart constructor.</span><span>
-</span><span id="line-165"></span><span id="local-6989586621679226453"><span id="local-6989586621679226454"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatePreparedStatementResponse"><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatementResponse"><span class="hs-identifier hs-var">CreatePreparedStatementResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatePreparedStatementResponse%27"><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatementResponse%27"><span class="hs-identifier hs-var">CreatePreparedStatementResponse'</span></a></span></span><span>
+</span><span id="line-165"></span><span id="local-6989586621679226462"><span id="local-6989586621679226463"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatePreparedStatementResponse"><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatementResponse"><span class="hs-identifier hs-var">CreatePreparedStatementResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatePreparedStatementResponse%27"><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatementResponse%27"><span class="hs-identifier hs-var">CreatePreparedStatementResponse'</span></a></span></span><span>
 </span><span id="line-166"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-167"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreatePreparedStatementResponse%27"><span class="annot"><span class="annottext">CreatePreparedStatementResponse -&gt; Int
 </span><a href="Network.AWS.Athena.CreatePreparedStatement.html#%24sel%3AhttpStatus%3ACreatePreparedStatementResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-168"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-169"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226448"><span id="local-6989586621679226450"><span class="annot"><span class="annottext">CreatePreparedStatementResponse
+</span><span id="line-169"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226457"><span id="local-6989586621679226459"><span class="annot"><span class="annottext">CreatePreparedStatementResponse
 -&gt; CreatePreparedStatementResponse -&gt; Bool
 (CreatePreparedStatementResponse
  -&gt; CreatePreparedStatementResponse -&gt; Bool)
@@ -423,7 +423,7 @@ $c/= :: CreatePreparedStatementResponse
 -&gt; CreatePreparedStatementResponse -&gt; Bool
 $c== :: CreatePreparedStatementResponse
 -&gt; CreatePreparedStatementResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226440"><span id="local-6989586621679226442"><span id="local-6989586621679226444"><span id="local-6989586621679226446"><span class="annot"><span class="annottext">ReadPrec [CreatePreparedStatementResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226449"><span id="local-6989586621679226451"><span id="local-6989586621679226453"><span id="local-6989586621679226455"><span class="annot"><span class="annottext">ReadPrec [CreatePreparedStatementResponse]
 ReadPrec CreatePreparedStatementResponse
 Int -&gt; ReadS CreatePreparedStatementResponse
 ReadS [CreatePreparedStatementResponse]
@@ -443,7 +443,7 @@ readList :: ReadS [CreatePreparedStatementResponse]
 $creadList :: ReadS [CreatePreparedStatementResponse]
 readsPrec :: Int -&gt; ReadS CreatePreparedStatementResponse
 $creadsPrec :: Int -&gt; ReadS CreatePreparedStatementResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226434"><span id="local-6989586621679226436"><span id="local-6989586621679226438"><span class="annot"><span class="annottext">Int -&gt; CreatePreparedStatementResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226443"><span id="local-6989586621679226445"><span id="local-6989586621679226447"><span class="annot"><span class="annottext">Int -&gt; CreatePreparedStatementResponse -&gt; ShowS
 [CreatePreparedStatementResponse] -&gt; ShowS
 CreatePreparedStatementResponse -&gt; String
 (Int -&gt; CreatePreparedStatementResponse -&gt; ShowS)
@@ -495,14 +495,14 @@ CreatePreparedStatementResponse
 </span><span id="line-182"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-183"></span><span>  </span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatementResponse"><span class="hs-identifier hs-type">CreatePreparedStatementResponse</span></a></span><span>
 </span><span id="line-184"></span><span id="newCreatePreparedStatementResponse"><span class="annot"><span class="annottext">newCreatePreparedStatementResponse :: Int -&gt; CreatePreparedStatementResponse
-</span><a href="Network.AWS.Athena.CreatePreparedStatement.html#newCreatePreparedStatementResponse"><span class="hs-identifier hs-var hs-var">newCreatePreparedStatementResponse</span></a></span></span><span> </span><span id="local-6989586621679226431"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679226431"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Athena.CreatePreparedStatement.html#newCreatePreparedStatementResponse"><span class="hs-identifier hs-var hs-var">newCreatePreparedStatementResponse</span></a></span></span><span> </span><span id="local-6989586621679226440"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226440"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-185"></span><span>  </span><span class="annot"><span class="annottext">CreatePreparedStatementResponse' :: Int -&gt; CreatePreparedStatementResponse
 </span><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatementResponse%27"><span class="hs-identifier hs-type">CreatePreparedStatementResponse'</span></a></span><span>
 </span><span id="line-186"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreatePreparedStatementResponse' :: Int
 </span><a href="Network.AWS.Athena.CreatePreparedStatement.html#%24sel%3AhttpStatus%3ACreatePreparedStatementResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679226431"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679226440"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-188"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -519,18 +519,18 @@ CreatePreparedStatementResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatementResponse%27"><span class="hs-identifier hs-type">CreatePreparedStatementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226430"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatementResponse%27"><span class="hs-identifier hs-type">CreatePreparedStatementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226439"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreatePreparedStatementResponse' :: CreatePreparedStatementResponse -&gt; Int
-</span><a href="#local-6989586621679226430"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679226430"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226429"><span class="annot"><span class="annottext">s :: CreatePreparedStatementResponse
-</span><a href="#local-6989586621679226429"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatementResponse%27"><span class="hs-identifier hs-type">CreatePreparedStatementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226428"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679226428"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePreparedStatementResponse
-</span><a href="#local-6989586621679226429"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreatePreparedStatementResponse' :: Int
+</span><a href="#local-6989586621679226439"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226439"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226438"><span class="annot"><span class="annottext">s :: CreatePreparedStatementResponse
+</span><a href="#local-6989586621679226438"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatementResponse%27"><span class="hs-identifier hs-type">CreatePreparedStatementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226437"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226437"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePreparedStatementResponse
+</span><a href="#local-6989586621679226438"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreatePreparedStatementResponse' :: Int
 </span><a href="Network.AWS.Athena.CreatePreparedStatement.html#%24sel%3AhttpStatus%3ACreatePreparedStatementResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679226428"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatementResponse"><span class="hs-identifier hs-type">CreatePreparedStatementResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226437"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatementResponse"><span class="hs-identifier hs-type">CreatePreparedStatementResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>
 </span><span id="line-194"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-195"></span><span>  </span><span id="local-6989586621679226426"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679226435"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-196"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.CreatePreparedStatement.html#CreatePreparedStatementResponse"><span class="hs-identifier hs-type">CreatePreparedStatementResponse</span></a></span></span><span>
 </span><span id="line-197"></span></pre></body></html>

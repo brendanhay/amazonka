@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ConnectParticipant.Types.SortKey</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ConnectParticipant.Types.SortKey</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.ConnectParticipant.Types.SortKey.html#SortKey"><span class="hs-identifier">SortKey</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.ConnectParticipant.Types.SortKey.html#SortKey_ASCENDING"><span class="hs-identifier">SortKey_ASCENDING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.ConnectParticipant.Types.SortKey.html#SortKey_DESCENDING"><span class="hs-identifier">SortKey_DESCENDING</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679160940"><span id="local-6989586621679160941"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SortKey"><span class="annot"><a href="Network.AWS.ConnectParticipant.Types.SortKey.html#SortKey"><span class="hs-identifier hs-var">SortKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SortKey%27"><span class="annot"><a href="Network.AWS.ConnectParticipant.Types.SortKey.html#SortKey%27"><span class="hs-identifier hs-var">SortKey'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromSortKey"><span class="annot"><span class="annottext">SortKey -&gt; Text
+</span><a href="Network.AWS.ConnectParticipant.Types.SortKey.html#fromSortKey"><span class="hs-identifier hs-var hs-var">fromSortKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679160932"><span id="local-6989586621679160934"><span id="local-6989586621679160936"><span class="annot"><span class="annottext">Int -&gt; SortKey -&gt; ShowS
+[SortKey] -&gt; ShowS
+SortKey -&gt; String
+(Int -&gt; SortKey -&gt; ShowS)
+-&gt; (SortKey -&gt; String) -&gt; ([SortKey] -&gt; ShowS) -&gt; Show SortKey
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SortKey] -&gt; ShowS
+$cshowList :: [SortKey] -&gt; ShowS
+show :: SortKey -&gt; String
+$cshow :: SortKey -&gt; String
+showsPrec :: Int -&gt; SortKey -&gt; ShowS
+$cshowsPrec :: Int -&gt; SortKey -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>      </span><span id="local-6989586621679160923"><span id="local-6989586621679160925"><span id="local-6989586621679160927"><span id="local-6989586621679160929"><span class="annot"><span class="annottext">ReadPrec [SortKey]
+ReadPrec SortKey
+Int -&gt; ReadS SortKey
+ReadS [SortKey]
+(Int -&gt; ReadS SortKey)
+-&gt; ReadS [SortKey]
+-&gt; ReadPrec SortKey
+-&gt; ReadPrec [SortKey]
+-&gt; Read SortKey
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SortKey]
+$creadListPrec :: ReadPrec [SortKey]
+readPrec :: ReadPrec SortKey
+$creadPrec :: ReadPrec SortKey
+readList :: ReadS [SortKey]
+$creadList :: ReadS [SortKey]
+readsPrec :: Int -&gt; ReadS SortKey
+$creadsPrec :: Int -&gt; ReadS SortKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>      </span><span id="local-6989586621679160918"><span id="local-6989586621679160920"><span class="annot"><span class="annottext">SortKey -&gt; SortKey -&gt; Bool
+(SortKey -&gt; SortKey -&gt; Bool)
+-&gt; (SortKey -&gt; SortKey -&gt; Bool) -&gt; Eq SortKey
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SortKey -&gt; SortKey -&gt; Bool
+$c/= :: SortKey -&gt; SortKey -&gt; Bool
+== :: SortKey -&gt; SortKey -&gt; Bool
+$c== :: SortKey -&gt; SortKey -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679160902"><span id="local-6989586621679160904"><span id="local-6989586621679160906"><span id="local-6989586621679160908"><span id="local-6989586621679160910"><span id="local-6989586621679160912"><span id="local-6989586621679160914"><span class="annot"><span class="annottext">Eq SortKey
+Eq SortKey
+-&gt; (SortKey -&gt; SortKey -&gt; Ordering)
+-&gt; (SortKey -&gt; SortKey -&gt; Bool)
+-&gt; (SortKey -&gt; SortKey -&gt; Bool)
+-&gt; (SortKey -&gt; SortKey -&gt; Bool)
+-&gt; (SortKey -&gt; SortKey -&gt; Bool)
+-&gt; (SortKey -&gt; SortKey -&gt; SortKey)
+-&gt; (SortKey -&gt; SortKey -&gt; SortKey)
+-&gt; Ord SortKey
+SortKey -&gt; SortKey -&gt; Bool
+SortKey -&gt; SortKey -&gt; Ordering
+SortKey -&gt; SortKey -&gt; SortKey
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: SortKey -&gt; SortKey -&gt; SortKey
+$cmin :: SortKey -&gt; SortKey -&gt; SortKey
+max :: SortKey -&gt; SortKey -&gt; SortKey
+$cmax :: SortKey -&gt; SortKey -&gt; SortKey
+&gt;= :: SortKey -&gt; SortKey -&gt; Bool
+$c&gt;= :: SortKey -&gt; SortKey -&gt; Bool
+&gt; :: SortKey -&gt; SortKey -&gt; Bool
+$c&gt; :: SortKey -&gt; SortKey -&gt; Bool
+&lt;= :: SortKey -&gt; SortKey -&gt; Bool
+$c&lt;= :: SortKey -&gt; SortKey -&gt; Bool
+&lt; :: SortKey -&gt; SortKey -&gt; Bool
+$c&lt; :: SortKey -&gt; SortKey -&gt; Bool
+compare :: SortKey -&gt; SortKey -&gt; Ordering
+$ccompare :: SortKey -&gt; SortKey -&gt; Ordering
+$cp1Ord :: Eq SortKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="annottext">(forall x. SortKey -&gt; Rep SortKey x)
+-&gt; (forall x. Rep SortKey x -&gt; SortKey) -&gt; Generic SortKey
+forall x. Rep SortKey x -&gt; SortKey
+forall x. SortKey -&gt; Rep SortKey x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SortKey x -&gt; SortKey
+$cfrom :: forall x. SortKey -&gt; Rep SortKey x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679160894"><span id="local-6989586621679160896"><span class="annot"><span class="annottext">Int -&gt; SortKey -&gt; Int
+SortKey -&gt; Int
+(Int -&gt; SortKey -&gt; Int) -&gt; (SortKey -&gt; Int) -&gt; Hashable SortKey
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: SortKey -&gt; Int
+$chash :: SortKey -&gt; Int
+hashWithSalt :: Int -&gt; SortKey -&gt; Int
+$chashWithSalt :: Int -&gt; SortKey -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679160891"><span class="annot"><span class="annottext">SortKey -&gt; ()
+(SortKey -&gt; ()) -&gt; NFData SortKey
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: SortKey -&gt; ()
+$crnf :: SortKey -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679160888"><span class="annot"><span class="annottext">Text -&gt; Either String SortKey
+(Text -&gt; Either String SortKey) -&gt; FromText SortKey
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String SortKey
+$cfromText :: Text -&gt; Either String SortKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679160885"><span class="annot"><span class="annottext">SortKey -&gt; Text
+(SortKey -&gt; Text) -&gt; ToText SortKey
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: SortKey -&gt; Text
+$ctoText :: SortKey -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679160882"><span class="annot"><span class="annottext">SortKey -&gt; ByteString
+(SortKey -&gt; ByteString) -&gt; ToByteString SortKey
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: SortKey -&gt; ByteString
+$ctoBS :: SortKey -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679160879"><span class="annot"><span class="annottext">SortKey -&gt; ByteStringBuilder
+(SortKey -&gt; ByteStringBuilder) -&gt; ToLog SortKey
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: SortKey -&gt; ByteStringBuilder
+$cbuild :: SortKey -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679160876"><span class="annot"><span class="annottext">HeaderName -&gt; SortKey -&gt; [Header]
+(HeaderName -&gt; SortKey -&gt; [Header]) -&gt; ToHeader SortKey
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; SortKey -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; SortKey -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679160873"><span class="annot"><span class="annottext">SortKey -&gt; QueryString
+(SortKey -&gt; QueryString) -&gt; ToQuery SortKey
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: SortKey -&gt; QueryString
+$ctoQuery :: SortKey -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679160868"><span id="local-6989586621679160870"><span class="annot"><span class="annottext">Value -&gt; Parser [SortKey]
+Value -&gt; Parser SortKey
+(Value -&gt; Parser SortKey)
+-&gt; (Value -&gt; Parser [SortKey]) -&gt; FromJSON SortKey
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [SortKey]
+$cparseJSONList :: Value -&gt; Parser [SortKey]
+parseJSON :: Value -&gt; Parser SortKey
+$cparseJSON :: Value -&gt; Parser SortKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679160863"><span id="local-6989586621679160865"><span class="annot"><span class="annottext">FromJSONKeyFunction [SortKey]
+FromJSONKeyFunction SortKey
+FromJSONKeyFunction SortKey
+-&gt; FromJSONKeyFunction [SortKey] -&gt; FromJSONKey SortKey
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [SortKey]
+$cfromJSONKeyList :: FromJSONKeyFunction [SortKey]
+fromJSONKey :: FromJSONKeyFunction SortKey
+$cfromJSONKey :: FromJSONKeyFunction SortKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679160854"><span id="local-6989586621679160856"><span id="local-6989586621679160858"><span id="local-6989586621679160860"><span class="annot"><span class="annottext">[SortKey] -&gt; Encoding
+[SortKey] -&gt; Value
+SortKey -&gt; Encoding
+SortKey -&gt; Value
+(SortKey -&gt; Value)
+-&gt; (SortKey -&gt; Encoding)
+-&gt; ([SortKey] -&gt; Value)
+-&gt; ([SortKey] -&gt; Encoding)
+-&gt; ToJSON SortKey
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [SortKey] -&gt; Encoding
+$ctoEncodingList :: [SortKey] -&gt; Encoding
+toJSONList :: [SortKey] -&gt; Value
+$ctoJSONList :: [SortKey] -&gt; Value
+toEncoding :: SortKey -&gt; Encoding
+$ctoEncoding :: SortKey -&gt; Encoding
+toJSON :: SortKey -&gt; Value
+$ctoJSON :: SortKey -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679160849"><span id="local-6989586621679160851"><span class="annot"><span class="annottext">ToJSONKeyFunction [SortKey]
+ToJSONKeyFunction SortKey
+ToJSONKeyFunction SortKey
+-&gt; ToJSONKeyFunction [SortKey] -&gt; ToJSONKey SortKey
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [SortKey]
+$ctoJSONKeyList :: ToJSONKeyFunction [SortKey]
+toJSONKey :: ToJSONKeyFunction SortKey
+$ctoJSONKey :: ToJSONKeyFunction SortKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679160846"><span class="annot"><span class="annottext">[Node] -&gt; Either String SortKey
+([Node] -&gt; Either String SortKey) -&gt; FromXML SortKey
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String SortKey
+$cparseXML :: [Node] -&gt; Either String SortKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679160843"><span class="annot"><span class="annottext">SortKey -&gt; XML
+(SortKey -&gt; XML) -&gt; ToXML SortKey
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: SortKey -&gt; XML
+$ctoXML :: SortKey -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ConnectParticipant.Types.SortKey.html#SortKey_ASCENDING"><span class="hs-identifier hs-type">SortKey_ASCENDING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ConnectParticipant.Types.SortKey.html#SortKey"><span class="hs-identifier hs-type">SortKey</span></a></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSortKey_ASCENDING"><span id="%24mSortKey_ASCENDING"><span id="SortKey_ASCENDING"><span class="annot"><span class="annottext">$bSortKey_ASCENDING :: SortKey
+$mSortKey_ASCENDING :: forall r. SortKey -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ConnectParticipant.Types.SortKey.html#%24bSortKey_ASCENDING"><span class="hs-identifier hs-var hs-var hs-var">SortKey_ASCENDING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ConnectParticipant.Types.SortKey.html#SortKey%27"><span class="hs-identifier hs-type">SortKey'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ASCENDING&quot;</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ConnectParticipant.Types.SortKey.html#SortKey_DESCENDING"><span class="hs-identifier hs-type">SortKey_DESCENDING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ConnectParticipant.Types.SortKey.html#SortKey"><span class="hs-identifier hs-type">SortKey</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSortKey_DESCENDING"><span id="%24mSortKey_DESCENDING"><span id="SortKey_DESCENDING"><span class="annot"><span class="annottext">$bSortKey_DESCENDING :: SortKey
+$mSortKey_DESCENDING :: forall r. SortKey -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ConnectParticipant.Types.SortKey.html#%24bSortKey_DESCENDING"><span class="hs-identifier hs-var hs-var hs-var">SortKey_DESCENDING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ConnectParticipant.Types.SortKey.html#SortKey%27"><span class="hs-identifier hs-type">SortKey'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DESCENDING&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.ConnectParticipant.Types.SortKey.html#SortKey_ASCENDING"><span class="hs-pragma hs-type">SortKey_ASCENDING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.ConnectParticipant.Types.SortKey.html#SortKey_DESCENDING"><span class="hs-pragma hs-type">SortKey_DESCENDING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.ConnectParticipant.Types.SortKey.html#SortKey%27"><span class="hs-pragma hs-type">SortKey'</span></a></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-68"></span></pre></body></html>

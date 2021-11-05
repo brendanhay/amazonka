@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Information about a connection between two services.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newEdge' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679251673"><span id="local-6989586621679251674"></span></span><span class="hs-keyword">data</span><span> </span><span id="Edge"><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#Edge"><span class="hs-identifier hs-var">Edge</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Edge%27"><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#Edge%27"><span class="hs-identifier hs-var">Edge'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679251682"><span id="local-6989586621679251683"></span></span><span class="hs-keyword">data</span><span> </span><span id="Edge"><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#Edge"><span class="hs-identifier hs-var">Edge</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Edge%27"><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#Edge%27"><span class="hs-identifier hs-var">Edge'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The start time of the first segment on the edge.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AstartTime%3AEdge%27"><span class="annot"><span class="annottext">Edge -&gt; Maybe POSIX
 </span><a href="Network.AWS.XRay.Types.Edge.html#%24sel%3AstartTime%3AEdge%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
@@ -49,14 +49,14 @@
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3AsummaryStatistics%3AEdge%27"><span class="annot"><span class="annottext">Edge -&gt; Maybe EdgeStatistics
 </span><a href="Network.AWS.XRay.Types.Edge.html#%24sel%3AsummaryStatistics%3AEdge%27"><span class="hs-identifier hs-var hs-var">summaryStatistics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.EdgeStatistics.html#EdgeStatistics"><span class="hs-identifier hs-type">EdgeStatistics</span></a></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679251662"><span id="local-6989586621679251664"><span class="annot"><span class="annottext">Edge -&gt; Edge -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679251671"><span id="local-6989586621679251673"><span class="annot"><span class="annottext">Edge -&gt; Edge -&gt; Bool
 (Edge -&gt; Edge -&gt; Bool) -&gt; (Edge -&gt; Edge -&gt; Bool) -&gt; Eq Edge
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Edge -&gt; Edge -&gt; Bool
 $c/= :: Edge -&gt; Edge -&gt; Bool
 == :: Edge -&gt; Edge -&gt; Bool
 $c== :: Edge -&gt; Edge -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251653"><span id="local-6989586621679251655"><span id="local-6989586621679251657"><span id="local-6989586621679251659"><span class="annot"><span class="annottext">ReadPrec [Edge]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251662"><span id="local-6989586621679251664"><span id="local-6989586621679251666"><span id="local-6989586621679251668"><span class="annot"><span class="annottext">ReadPrec [Edge]
 ReadPrec Edge
 Int -&gt; ReadS Edge
 ReadS [Edge]
@@ -73,7 +73,7 @@ readList :: ReadS [Edge]
 $creadList :: ReadS [Edge]
 readsPrec :: Int -&gt; ReadS Edge
 $creadsPrec :: Int -&gt; ReadS Edge
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251646"><span id="local-6989586621679251648"><span id="local-6989586621679251650"><span class="annot"><span class="annottext">Int -&gt; Edge -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251655"><span id="local-6989586621679251657"><span id="local-6989586621679251659"><span class="annot"><span class="annottext">Int -&gt; Edge -&gt; ShowS
 [Edge] -&gt; ShowS
 Edge -&gt; String
 (Int -&gt; Edge -&gt; ShowS)
@@ -160,16 +160,16 @@ forall a. Maybe a
 -&gt; (Edge -&gt; Maybe POSIX -&gt; Edge)
 -&gt; Lens Edge Edge (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#Edge%27"><span class="hs-identifier hs-type">Edge'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251637"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#Edge%27"><span class="hs-identifier hs-type">Edge'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251646"><span class="annot"><span class="annottext">Maybe POSIX
 startTime :: Maybe POSIX
 $sel:startTime:Edge' :: Edge -&gt; Maybe POSIX
-</span><a href="#local-6989586621679251637"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679251637"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251636"><span class="annot"><span class="annottext">s :: Edge
-</span><a href="#local-6989586621679251636"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#Edge%27"><span class="hs-identifier hs-type">Edge'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251635"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679251635"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Edge
-</span><a href="#local-6989586621679251636"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:Edge' :: Maybe POSIX
+</span><a href="#local-6989586621679251646"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679251646"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251645"><span class="annot"><span class="annottext">s :: Edge
+</span><a href="#local-6989586621679251645"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#Edge%27"><span class="hs-identifier hs-type">Edge'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251644"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679251644"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Edge
+</span><a href="#local-6989586621679251645"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:Edge' :: Maybe POSIX
 </span><a href="Network.AWS.XRay.Types.Edge.html#%24sel%3AstartTime%3AEdge%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679251635"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#Edge"><span class="hs-identifier hs-type">Edge</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Edge -&gt; f Edge)
+</span><a href="#local-6989586621679251644"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#Edge"><span class="hs-identifier hs-type">Edge</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Edge -&gt; f Edge)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -192,16 +192,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (Edge -&gt; Maybe [Alias] -&gt; Edge)
 -&gt; Lens Edge Edge (Maybe [Alias]) (Maybe [Alias])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#Edge%27"><span class="hs-identifier hs-type">Edge'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251630"><span class="annot"><span class="annottext">Maybe [Alias]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#Edge%27"><span class="hs-identifier hs-type">Edge'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251639"><span class="annot"><span class="annottext">Maybe [Alias]
 aliases :: Maybe [Alias]
 $sel:aliases:Edge' :: Edge -&gt; Maybe [Alias]
-</span><a href="#local-6989586621679251630"><span class="hs-identifier hs-var hs-var">aliases</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Alias]
-</span><a href="#local-6989586621679251630"><span class="hs-identifier hs-var">aliases</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251629"><span class="annot"><span class="annottext">s :: Edge
-</span><a href="#local-6989586621679251629"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#Edge%27"><span class="hs-identifier hs-type">Edge'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251628"><span class="annot"><span class="annottext">Maybe [Alias]
-</span><a href="#local-6989586621679251628"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Edge
-</span><a href="#local-6989586621679251629"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aliases:Edge' :: Maybe [Alias]
+</span><a href="#local-6989586621679251639"><span class="hs-identifier hs-var hs-var">aliases</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Alias]
+</span><a href="#local-6989586621679251639"><span class="hs-identifier hs-var">aliases</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251638"><span class="annot"><span class="annottext">s :: Edge
+</span><a href="#local-6989586621679251638"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#Edge%27"><span class="hs-identifier hs-type">Edge'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251637"><span class="annot"><span class="annottext">Maybe [Alias]
+</span><a href="#local-6989586621679251637"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Edge
+</span><a href="#local-6989586621679251638"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aliases:Edge' :: Maybe [Alias]
 </span><a href="Network.AWS.XRay.Types.Edge.html#%24sel%3Aaliases%3AEdge%27"><span class="hs-identifier hs-var">aliases</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Alias]
-</span><a href="#local-6989586621679251628"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#Edge"><span class="hs-identifier hs-type">Edge</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Alias] -&gt; f (Maybe [Alias])) -&gt; Edge -&gt; f Edge)
+</span><a href="#local-6989586621679251637"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#Edge"><span class="hs-identifier hs-type">Edge</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Alias] -&gt; f (Maybe [Alias])) -&gt; Edge -&gt; f Edge)
 -&gt; ((Maybe [Alias] -&gt; f (Maybe [Alias]))
     -&gt; Maybe [Alias] -&gt; f (Maybe [Alias]))
 -&gt; (Maybe [Alias] -&gt; f (Maybe [Alias]))
@@ -226,16 +226,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (Edge -&gt; Maybe [HistogramEntry] -&gt; Edge)
 -&gt; Lens Edge Edge (Maybe [HistogramEntry]) (Maybe [HistogramEntry])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#Edge%27"><span class="hs-identifier hs-type">Edge'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251625"><span class="annot"><span class="annottext">Maybe [HistogramEntry]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#Edge%27"><span class="hs-identifier hs-type">Edge'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251634"><span class="annot"><span class="annottext">Maybe [HistogramEntry]
 responseTimeHistogram :: Maybe [HistogramEntry]
 $sel:responseTimeHistogram:Edge' :: Edge -&gt; Maybe [HistogramEntry]
-</span><a href="#local-6989586621679251625"><span class="hs-identifier hs-var hs-var">responseTimeHistogram</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [HistogramEntry]
-</span><a href="#local-6989586621679251625"><span class="hs-identifier hs-var">responseTimeHistogram</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251624"><span class="annot"><span class="annottext">s :: Edge
-</span><a href="#local-6989586621679251624"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#Edge%27"><span class="hs-identifier hs-type">Edge'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251623"><span class="annot"><span class="annottext">Maybe [HistogramEntry]
-</span><a href="#local-6989586621679251623"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Edge
-</span><a href="#local-6989586621679251624"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responseTimeHistogram:Edge' :: Maybe [HistogramEntry]
+</span><a href="#local-6989586621679251634"><span class="hs-identifier hs-var hs-var">responseTimeHistogram</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [HistogramEntry]
+</span><a href="#local-6989586621679251634"><span class="hs-identifier hs-var">responseTimeHistogram</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251633"><span class="annot"><span class="annottext">s :: Edge
+</span><a href="#local-6989586621679251633"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#Edge%27"><span class="hs-identifier hs-type">Edge'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251632"><span class="annot"><span class="annottext">Maybe [HistogramEntry]
+</span><a href="#local-6989586621679251632"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Edge
+</span><a href="#local-6989586621679251633"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responseTimeHistogram:Edge' :: Maybe [HistogramEntry]
 </span><a href="Network.AWS.XRay.Types.Edge.html#%24sel%3AresponseTimeHistogram%3AEdge%27"><span class="hs-identifier hs-var">responseTimeHistogram</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [HistogramEntry]
-</span><a href="#local-6989586621679251623"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#Edge"><span class="hs-identifier hs-type">Edge</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [HistogramEntry] -&gt; f (Maybe [HistogramEntry]))
+</span><a href="#local-6989586621679251632"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#Edge"><span class="hs-identifier hs-type">Edge</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [HistogramEntry] -&gt; f (Maybe [HistogramEntry]))
  -&gt; Edge -&gt; f Edge)
 -&gt; ((Maybe [HistogramEntry] -&gt; f (Maybe [HistogramEntry]))
     -&gt; Maybe [HistogramEntry] -&gt; f (Maybe [HistogramEntry]))
@@ -265,16 +265,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (Edge -&gt; Maybe Int -&gt; Edge)
 -&gt; Lens Edge Edge (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#Edge%27"><span class="hs-identifier hs-type">Edge'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251621"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#Edge%27"><span class="hs-identifier hs-type">Edge'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251630"><span class="annot"><span class="annottext">Maybe Int
 referenceId :: Maybe Int
 $sel:referenceId:Edge' :: Edge -&gt; Maybe Int
-</span><a href="#local-6989586621679251621"><span class="hs-identifier hs-var hs-var">referenceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679251621"><span class="hs-identifier hs-var">referenceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251620"><span class="annot"><span class="annottext">s :: Edge
-</span><a href="#local-6989586621679251620"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#Edge%27"><span class="hs-identifier hs-type">Edge'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251619"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679251619"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Edge
-</span><a href="#local-6989586621679251620"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:referenceId:Edge' :: Maybe Int
+</span><a href="#local-6989586621679251630"><span class="hs-identifier hs-var hs-var">referenceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679251630"><span class="hs-identifier hs-var">referenceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251629"><span class="annot"><span class="annottext">s :: Edge
+</span><a href="#local-6989586621679251629"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#Edge%27"><span class="hs-identifier hs-type">Edge'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251628"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679251628"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Edge
+</span><a href="#local-6989586621679251629"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:referenceId:Edge' :: Maybe Int
 </span><a href="Network.AWS.XRay.Types.Edge.html#%24sel%3AreferenceId%3AEdge%27"><span class="hs-identifier hs-var">referenceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679251619"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#Edge"><span class="hs-identifier hs-type">Edge</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679251628"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#Edge"><span class="hs-identifier hs-type">Edge</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | The end time of the last segment on the edge.</span><span>
 </span><span id="line-96"></span><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#edge_endTime"><span class="hs-identifier hs-type">edge_endTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#Edge"><span class="hs-identifier hs-type">Edge</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
@@ -283,16 +283,16 @@ $sel:referenceId:Edge' :: Edge -&gt; Maybe Int
 -&gt; (Edge -&gt; Maybe POSIX -&gt; Edge)
 -&gt; Lens Edge Edge (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#Edge%27"><span class="hs-identifier hs-type">Edge'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251617"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#Edge%27"><span class="hs-identifier hs-type">Edge'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251626"><span class="annot"><span class="annottext">Maybe POSIX
 endTime :: Maybe POSIX
 $sel:endTime:Edge' :: Edge -&gt; Maybe POSIX
-</span><a href="#local-6989586621679251617"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679251617"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251616"><span class="annot"><span class="annottext">s :: Edge
-</span><a href="#local-6989586621679251616"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#Edge%27"><span class="hs-identifier hs-type">Edge'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251615"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679251615"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Edge
-</span><a href="#local-6989586621679251616"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:Edge' :: Maybe POSIX
+</span><a href="#local-6989586621679251626"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679251626"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251625"><span class="annot"><span class="annottext">s :: Edge
+</span><a href="#local-6989586621679251625"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#Edge%27"><span class="hs-identifier hs-type">Edge'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251624"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679251624"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Edge
+</span><a href="#local-6989586621679251625"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:Edge' :: Maybe POSIX
 </span><a href="Network.AWS.XRay.Types.Edge.html#%24sel%3AendTime%3AEdge%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679251615"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#Edge"><span class="hs-identifier hs-type">Edge</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Edge -&gt; f Edge)
+</span><a href="#local-6989586621679251624"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#Edge"><span class="hs-identifier hs-type">Edge</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Edge -&gt; f Edge)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -316,27 +316,27 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (Edge -&gt; Maybe EdgeStatistics -&gt; Edge)
 -&gt; Lens Edge Edge (Maybe EdgeStatistics) (Maybe EdgeStatistics)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#Edge%27"><span class="hs-identifier hs-type">Edge'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251613"><span class="annot"><span class="annottext">Maybe EdgeStatistics
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#Edge%27"><span class="hs-identifier hs-type">Edge'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251622"><span class="annot"><span class="annottext">Maybe EdgeStatistics
 summaryStatistics :: Maybe EdgeStatistics
 $sel:summaryStatistics:Edge' :: Edge -&gt; Maybe EdgeStatistics
-</span><a href="#local-6989586621679251613"><span class="hs-identifier hs-var hs-var">summaryStatistics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EdgeStatistics
-</span><a href="#local-6989586621679251613"><span class="hs-identifier hs-var">summaryStatistics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251612"><span class="annot"><span class="annottext">s :: Edge
-</span><a href="#local-6989586621679251612"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#Edge%27"><span class="hs-identifier hs-type">Edge'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251611"><span class="annot"><span class="annottext">Maybe EdgeStatistics
-</span><a href="#local-6989586621679251611"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Edge
-</span><a href="#local-6989586621679251612"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:summaryStatistics:Edge' :: Maybe EdgeStatistics
+</span><a href="#local-6989586621679251622"><span class="hs-identifier hs-var hs-var">summaryStatistics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EdgeStatistics
+</span><a href="#local-6989586621679251622"><span class="hs-identifier hs-var">summaryStatistics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251621"><span class="annot"><span class="annottext">s :: Edge
+</span><a href="#local-6989586621679251621"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#Edge%27"><span class="hs-identifier hs-type">Edge'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251620"><span class="annot"><span class="annottext">Maybe EdgeStatistics
+</span><a href="#local-6989586621679251620"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Edge
+</span><a href="#local-6989586621679251621"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:summaryStatistics:Edge' :: Maybe EdgeStatistics
 </span><a href="Network.AWS.XRay.Types.Edge.html#%24sel%3AsummaryStatistics%3AEdge%27"><span class="hs-identifier hs-var">summaryStatistics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EdgeStatistics
-</span><a href="#local-6989586621679251611"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#Edge"><span class="hs-identifier hs-type">Edge</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679251620"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#Edge"><span class="hs-identifier hs-type">Edge</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251608"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#Edge"><span class="hs-identifier hs-type">Edge</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679251606"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Edge
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251617"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#Edge"><span class="hs-identifier hs-type">Edge</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679251615"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Edge
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Edge) -&gt; Value -&gt; Parser Edge
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Edge&quot;</span></span><span>
-</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679251603"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679251603"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679251612"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251612"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
 -&gt; Maybe [Alias]
 -&gt; Maybe [HistogramEntry]
@@ -362,7 +362,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Edge)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679251603"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679251612"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StartTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -379,7 +379,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Int -&gt; Maybe POSIX -&gt; Maybe EdgeStatistics -&gt; Edge)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679251603"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Alias]))
+</span><a href="#local-6989586621679251612"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Alias]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Aliases&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Alias]))
@@ -396,7 +396,7 @@ forall a. Monoid a =&gt; a
      (Maybe Int -&gt; Maybe POSIX -&gt; Maybe EdgeStatistics -&gt; Edge)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679251603"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [HistogramEntry]))
+</span><a href="#local-6989586621679251612"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [HistogramEntry]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResponseTimeHistogram&quot;</span></span><span>
@@ -412,7 +412,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe POSIX -&gt; Maybe EdgeStatistics -&gt; Edge)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679251603"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679251612"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReferenceId&quot;</span></span><span class="hs-special">)</span><span>
@@ -420,7 +420,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe POSIX) -&gt; Parser (Maybe EdgeStatistics -&gt; Edge)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679251603"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679251612"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EndTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -428,13 +428,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe EdgeStatistics) -&gt; Parser Edge
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679251603"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EdgeStatistics)
+</span><a href="#local-6989586621679251612"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EdgeStatistics)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SummaryStatistics&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251596"><span id="local-6989586621679251598"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#Edge"><span class="hs-identifier hs-type">Edge</span></a></span></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251605"><span id="local-6989586621679251607"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#Edge"><span class="hs-identifier hs-type">Edge</span></a></span></span></span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251593"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#Edge"><span class="hs-identifier hs-type">Edge</span></a></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251602"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.Edge.html#Edge"><span class="hs-identifier hs-type">Edge</span></a></span></span><span>
 </span><span id="line-122"></span></pre></body></html>

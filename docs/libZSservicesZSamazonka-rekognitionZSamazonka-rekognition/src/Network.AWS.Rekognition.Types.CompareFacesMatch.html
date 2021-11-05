@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- matches the face in the bounding box.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newCompareFacesMatch' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679330720"><span id="local-6989586621679330721"></span></span><span class="hs-keyword">data</span><span> </span><span id="CompareFacesMatch"><span class="annot"><a href="Network.AWS.Rekognition.Types.CompareFacesMatch.html#CompareFacesMatch"><span class="hs-identifier hs-var">CompareFacesMatch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CompareFacesMatch%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.CompareFacesMatch.html#CompareFacesMatch%27"><span class="hs-identifier hs-var">CompareFacesMatch'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679330729"><span id="local-6989586621679330730"></span></span><span class="hs-keyword">data</span><span> </span><span id="CompareFacesMatch"><span class="annot"><a href="Network.AWS.Rekognition.Types.CompareFacesMatch.html#CompareFacesMatch"><span class="hs-identifier hs-var">CompareFacesMatch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CompareFacesMatch%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.CompareFacesMatch.html#CompareFacesMatch%27"><span class="hs-identifier hs-var">CompareFacesMatch'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Level of confidence that the faces match.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Asimilarity%3ACompareFacesMatch%27"><span class="annot"><span class="annottext">CompareFacesMatch -&gt; Maybe Double
 </span><a href="Network.AWS.Rekognition.Types.CompareFacesMatch.html#%24sel%3Asimilarity%3ACompareFacesMatch%27"><span class="hs-identifier hs-var hs-var">similarity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
@@ -40,7 +40,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3Aface%3ACompareFacesMatch%27"><span class="annot"><span class="annottext">CompareFacesMatch -&gt; Maybe ComparedFace
 </span><a href="Network.AWS.Rekognition.Types.CompareFacesMatch.html#%24sel%3Aface%3ACompareFacesMatch%27"><span class="hs-identifier hs-var hs-var">face</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.ComparedFace.html#ComparedFace"><span class="hs-identifier hs-type">ComparedFace</span></a></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679330713"><span id="local-6989586621679330715"><span class="annot"><span class="annottext">CompareFacesMatch -&gt; CompareFacesMatch -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679330722"><span id="local-6989586621679330724"><span class="annot"><span class="annottext">CompareFacesMatch -&gt; CompareFacesMatch -&gt; Bool
 (CompareFacesMatch -&gt; CompareFacesMatch -&gt; Bool)
 -&gt; (CompareFacesMatch -&gt; CompareFacesMatch -&gt; Bool)
 -&gt; Eq CompareFacesMatch
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CompareFacesMatch -&gt; CompareFacesMatch -&gt; Bool
 == :: CompareFacesMatch -&gt; CompareFacesMatch -&gt; Bool
 $c== :: CompareFacesMatch -&gt; CompareFacesMatch -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330704"><span id="local-6989586621679330706"><span id="local-6989586621679330708"><span id="local-6989586621679330710"><span class="annot"><span class="annottext">ReadPrec [CompareFacesMatch]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330713"><span id="local-6989586621679330715"><span id="local-6989586621679330717"><span id="local-6989586621679330719"><span class="annot"><span class="annottext">ReadPrec [CompareFacesMatch]
 ReadPrec CompareFacesMatch
 Int -&gt; ReadS CompareFacesMatch
 ReadS [CompareFacesMatch]
@@ -69,7 +69,7 @@ readList :: ReadS [CompareFacesMatch]
 $creadList :: ReadS [CompareFacesMatch]
 readsPrec :: Int -&gt; ReadS CompareFacesMatch
 $creadsPrec :: Int -&gt; ReadS CompareFacesMatch
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330697"><span id="local-6989586621679330699"><span id="local-6989586621679330701"><span class="annot"><span class="annottext">Int -&gt; CompareFacesMatch -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330706"><span id="local-6989586621679330708"><span id="local-6989586621679330710"><span class="annot"><span class="annottext">Int -&gt; CompareFacesMatch -&gt; ShowS
 [CompareFacesMatch] -&gt; ShowS
 CompareFacesMatch -&gt; String
 (Int -&gt; CompareFacesMatch -&gt; ShowS)
@@ -132,16 +132,16 @@ forall a. Maybe a
 -&gt; Lens
      CompareFacesMatch CompareFacesMatch (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.CompareFacesMatch.html#CompareFacesMatch%27"><span class="hs-identifier hs-type">CompareFacesMatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330688"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.CompareFacesMatch.html#CompareFacesMatch%27"><span class="hs-identifier hs-type">CompareFacesMatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330697"><span class="annot"><span class="annottext">Maybe Double
 similarity :: Maybe Double
 $sel:similarity:CompareFacesMatch' :: CompareFacesMatch -&gt; Maybe Double
-</span><a href="#local-6989586621679330688"><span class="hs-identifier hs-var hs-var">similarity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679330688"><span class="hs-identifier hs-var">similarity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330687"><span class="annot"><span class="annottext">s :: CompareFacesMatch
-</span><a href="#local-6989586621679330687"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.CompareFacesMatch.html#CompareFacesMatch%27"><span class="hs-identifier hs-type">CompareFacesMatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330686"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679330686"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CompareFacesMatch
-</span><a href="#local-6989586621679330687"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:similarity:CompareFacesMatch' :: Maybe Double
+</span><a href="#local-6989586621679330697"><span class="hs-identifier hs-var hs-var">similarity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679330697"><span class="hs-identifier hs-var">similarity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330696"><span class="annot"><span class="annottext">s :: CompareFacesMatch
+</span><a href="#local-6989586621679330696"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.CompareFacesMatch.html#CompareFacesMatch%27"><span class="hs-identifier hs-type">CompareFacesMatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330695"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679330695"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CompareFacesMatch
+</span><a href="#local-6989586621679330696"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:similarity:CompareFacesMatch' :: Maybe Double
 </span><a href="Network.AWS.Rekognition.Types.CompareFacesMatch.html#%24sel%3Asimilarity%3ACompareFacesMatch%27"><span class="hs-identifier hs-var">similarity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679330686"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.CompareFacesMatch.html#CompareFacesMatch"><span class="hs-identifier hs-type">CompareFacesMatch</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679330695"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.CompareFacesMatch.html#CompareFacesMatch"><span class="hs-identifier hs-type">CompareFacesMatch</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | Provides face metadata (bounding box and confidence that the bounding</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- box actually contains a face).</span><span>
@@ -156,19 +156,19 @@ $sel:similarity:CompareFacesMatch' :: CompareFacesMatch -&gt; Maybe Double
      (Maybe ComparedFace)
      (Maybe ComparedFace)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.CompareFacesMatch.html#CompareFacesMatch%27"><span class="hs-identifier hs-type">CompareFacesMatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330684"><span class="annot"><span class="annottext">Maybe ComparedFace
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.CompareFacesMatch.html#CompareFacesMatch%27"><span class="hs-identifier hs-type">CompareFacesMatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330693"><span class="annot"><span class="annottext">Maybe ComparedFace
 face :: Maybe ComparedFace
 $sel:face:CompareFacesMatch' :: CompareFacesMatch -&gt; Maybe ComparedFace
-</span><a href="#local-6989586621679330684"><span class="hs-identifier hs-var hs-var">face</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ComparedFace
-</span><a href="#local-6989586621679330684"><span class="hs-identifier hs-var">face</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330683"><span class="annot"><span class="annottext">s :: CompareFacesMatch
-</span><a href="#local-6989586621679330683"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.CompareFacesMatch.html#CompareFacesMatch%27"><span class="hs-identifier hs-type">CompareFacesMatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330682"><span class="annot"><span class="annottext">Maybe ComparedFace
-</span><a href="#local-6989586621679330682"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CompareFacesMatch
-</span><a href="#local-6989586621679330683"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:face:CompareFacesMatch' :: Maybe ComparedFace
+</span><a href="#local-6989586621679330693"><span class="hs-identifier hs-var hs-var">face</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ComparedFace
+</span><a href="#local-6989586621679330693"><span class="hs-identifier hs-var">face</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330692"><span class="annot"><span class="annottext">s :: CompareFacesMatch
+</span><a href="#local-6989586621679330692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.CompareFacesMatch.html#CompareFacesMatch%27"><span class="hs-identifier hs-type">CompareFacesMatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330691"><span class="annot"><span class="annottext">Maybe ComparedFace
+</span><a href="#local-6989586621679330691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CompareFacesMatch
+</span><a href="#local-6989586621679330692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:face:CompareFacesMatch' :: Maybe ComparedFace
 </span><a href="Network.AWS.Rekognition.Types.CompareFacesMatch.html#%24sel%3Aface%3ACompareFacesMatch%27"><span class="hs-identifier hs-var">face</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ComparedFace
-</span><a href="#local-6989586621679330682"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.CompareFacesMatch.html#CompareFacesMatch"><span class="hs-identifier hs-type">CompareFacesMatch</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679330691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.CompareFacesMatch.html#CompareFacesMatch"><span class="hs-identifier hs-type">CompareFacesMatch</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330679"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.CompareFacesMatch.html#CompareFacesMatch"><span class="hs-identifier hs-type">CompareFacesMatch</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679330677"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CompareFacesMatch
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330688"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.CompareFacesMatch.html#CompareFacesMatch"><span class="hs-identifier hs-type">CompareFacesMatch</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679330686"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CompareFacesMatch
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CompareFacesMatch)
@@ -178,8 +178,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CompareFacesMatch&quot;</span></span><span>
-</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679330674"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679330674"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679330683"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330683"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">Maybe Double -&gt; Maybe ComparedFace -&gt; CompareFacesMatch
 </span><a href="Network.AWS.Rekognition.Types.CompareFacesMatch.html#CompareFacesMatch%27"><span class="hs-identifier hs-var">CompareFacesMatch'</span></a></span><span>
 </span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Double -&gt; Maybe ComparedFace -&gt; CompareFacesMatch)
@@ -187,7 +187,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe ComparedFace -&gt; CompareFacesMatch)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679330674"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679330683"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Similarity&quot;</span></span><span class="hs-special">)</span><span>
@@ -195,13 +195,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe ComparedFace) -&gt; Parser CompareFacesMatch
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679330674"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ComparedFace)
+</span><a href="#local-6989586621679330683"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ComparedFace)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Face&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330668"><span id="local-6989586621679330670"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.CompareFacesMatch.html#CompareFacesMatch"><span class="hs-identifier hs-type">CompareFacesMatch</span></a></span></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330677"><span id="local-6989586621679330679"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.CompareFacesMatch.html#CompareFacesMatch"><span class="hs-identifier hs-type">CompareFacesMatch</span></a></span></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330665"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.CompareFacesMatch.html#CompareFacesMatch"><span class="hs-identifier hs-type">CompareFacesMatch</span></a></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330674"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.CompareFacesMatch.html#CompareFacesMatch"><span class="hs-identifier hs-type">CompareFacesMatch</span></a></span></span><span>
 </span><span id="line-85"></span></pre></body></html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AmplifyBackend.Types.OAuthGrantType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AmplifyBackend.Types.OAuthGrantType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.OAuthGrantType.html#OAuthGrantType"><span class="hs-identifier">OAuthGrantType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.OAuthGrantType.html#OAuthGrantType_CODE"><span class="hs-identifier">OAuthGrantType_CODE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.OAuthGrantType.html#OAuthGrantType_IMPLICIT"><span class="hs-identifier">OAuthGrantType_IMPLICIT</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679231329"><span id="local-6989586621679231330"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OAuthGrantType"><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.OAuthGrantType.html#OAuthGrantType"><span class="hs-identifier hs-var">OAuthGrantType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OAuthGrantType%27"><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.OAuthGrantType.html#OAuthGrantType%27"><span class="hs-identifier hs-var">OAuthGrantType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromOAuthGrantType"><span class="annot"><span class="annottext">OAuthGrantType -&gt; Text
+</span><a href="Network.AWS.AmplifyBackend.Types.OAuthGrantType.html#fromOAuthGrantType"><span class="hs-identifier hs-var hs-var">fromOAuthGrantType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679231321"><span id="local-6989586621679231323"><span id="local-6989586621679231325"><span class="annot"><span class="annottext">Int -&gt; OAuthGrantType -&gt; ShowS
+[OAuthGrantType] -&gt; ShowS
+OAuthGrantType -&gt; String
+(Int -&gt; OAuthGrantType -&gt; ShowS)
+-&gt; (OAuthGrantType -&gt; String)
+-&gt; ([OAuthGrantType] -&gt; ShowS)
+-&gt; Show OAuthGrantType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [OAuthGrantType] -&gt; ShowS
+$cshowList :: [OAuthGrantType] -&gt; ShowS
+show :: OAuthGrantType -&gt; String
+$cshow :: OAuthGrantType -&gt; String
+showsPrec :: Int -&gt; OAuthGrantType -&gt; ShowS
+$cshowsPrec :: Int -&gt; OAuthGrantType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679231312"><span id="local-6989586621679231314"><span id="local-6989586621679231316"><span id="local-6989586621679231318"><span class="annot"><span class="annottext">ReadPrec [OAuthGrantType]
+ReadPrec OAuthGrantType
+Int -&gt; ReadS OAuthGrantType
+ReadS [OAuthGrantType]
+(Int -&gt; ReadS OAuthGrantType)
+-&gt; ReadS [OAuthGrantType]
+-&gt; ReadPrec OAuthGrantType
+-&gt; ReadPrec [OAuthGrantType]
+-&gt; Read OAuthGrantType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [OAuthGrantType]
+$creadListPrec :: ReadPrec [OAuthGrantType]
+readPrec :: ReadPrec OAuthGrantType
+$creadPrec :: ReadPrec OAuthGrantType
+readList :: ReadS [OAuthGrantType]
+$creadList :: ReadS [OAuthGrantType]
+readsPrec :: Int -&gt; ReadS OAuthGrantType
+$creadsPrec :: Int -&gt; ReadS OAuthGrantType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679231307"><span id="local-6989586621679231309"><span class="annot"><span class="annottext">OAuthGrantType -&gt; OAuthGrantType -&gt; Bool
+(OAuthGrantType -&gt; OAuthGrantType -&gt; Bool)
+-&gt; (OAuthGrantType -&gt; OAuthGrantType -&gt; Bool) -&gt; Eq OAuthGrantType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: OAuthGrantType -&gt; OAuthGrantType -&gt; Bool
+$c/= :: OAuthGrantType -&gt; OAuthGrantType -&gt; Bool
+== :: OAuthGrantType -&gt; OAuthGrantType -&gt; Bool
+$c== :: OAuthGrantType -&gt; OAuthGrantType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679231291"><span id="local-6989586621679231293"><span id="local-6989586621679231295"><span id="local-6989586621679231297"><span id="local-6989586621679231299"><span id="local-6989586621679231301"><span id="local-6989586621679231303"><span class="annot"><span class="annottext">Eq OAuthGrantType
+Eq OAuthGrantType
+-&gt; (OAuthGrantType -&gt; OAuthGrantType -&gt; Ordering)
+-&gt; (OAuthGrantType -&gt; OAuthGrantType -&gt; Bool)
+-&gt; (OAuthGrantType -&gt; OAuthGrantType -&gt; Bool)
+-&gt; (OAuthGrantType -&gt; OAuthGrantType -&gt; Bool)
+-&gt; (OAuthGrantType -&gt; OAuthGrantType -&gt; Bool)
+-&gt; (OAuthGrantType -&gt; OAuthGrantType -&gt; OAuthGrantType)
+-&gt; (OAuthGrantType -&gt; OAuthGrantType -&gt; OAuthGrantType)
+-&gt; Ord OAuthGrantType
+OAuthGrantType -&gt; OAuthGrantType -&gt; Bool
+OAuthGrantType -&gt; OAuthGrantType -&gt; Ordering
+OAuthGrantType -&gt; OAuthGrantType -&gt; OAuthGrantType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: OAuthGrantType -&gt; OAuthGrantType -&gt; OAuthGrantType
+$cmin :: OAuthGrantType -&gt; OAuthGrantType -&gt; OAuthGrantType
+max :: OAuthGrantType -&gt; OAuthGrantType -&gt; OAuthGrantType
+$cmax :: OAuthGrantType -&gt; OAuthGrantType -&gt; OAuthGrantType
+&gt;= :: OAuthGrantType -&gt; OAuthGrantType -&gt; Bool
+$c&gt;= :: OAuthGrantType -&gt; OAuthGrantType -&gt; Bool
+&gt; :: OAuthGrantType -&gt; OAuthGrantType -&gt; Bool
+$c&gt; :: OAuthGrantType -&gt; OAuthGrantType -&gt; Bool
+&lt;= :: OAuthGrantType -&gt; OAuthGrantType -&gt; Bool
+$c&lt;= :: OAuthGrantType -&gt; OAuthGrantType -&gt; Bool
+&lt; :: OAuthGrantType -&gt; OAuthGrantType -&gt; Bool
+$c&lt; :: OAuthGrantType -&gt; OAuthGrantType -&gt; Bool
+compare :: OAuthGrantType -&gt; OAuthGrantType -&gt; Ordering
+$ccompare :: OAuthGrantType -&gt; OAuthGrantType -&gt; Ordering
+$cp1Ord :: Eq OAuthGrantType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. OAuthGrantType -&gt; Rep OAuthGrantType x)
+-&gt; (forall x. Rep OAuthGrantType x -&gt; OAuthGrantType)
+-&gt; Generic OAuthGrantType
+forall x. Rep OAuthGrantType x -&gt; OAuthGrantType
+forall x. OAuthGrantType -&gt; Rep OAuthGrantType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep OAuthGrantType x -&gt; OAuthGrantType
+$cfrom :: forall x. OAuthGrantType -&gt; Rep OAuthGrantType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679231283"><span id="local-6989586621679231285"><span class="annot"><span class="annottext">Int -&gt; OAuthGrantType -&gt; Int
+OAuthGrantType -&gt; Int
+(Int -&gt; OAuthGrantType -&gt; Int)
+-&gt; (OAuthGrantType -&gt; Int) -&gt; Hashable OAuthGrantType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: OAuthGrantType -&gt; Int
+$chash :: OAuthGrantType -&gt; Int
+hashWithSalt :: Int -&gt; OAuthGrantType -&gt; Int
+$chashWithSalt :: Int -&gt; OAuthGrantType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679231280"><span class="annot"><span class="annottext">OAuthGrantType -&gt; ()
+(OAuthGrantType -&gt; ()) -&gt; NFData OAuthGrantType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: OAuthGrantType -&gt; ()
+$crnf :: OAuthGrantType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679231277"><span class="annot"><span class="annottext">Text -&gt; Either String OAuthGrantType
+(Text -&gt; Either String OAuthGrantType) -&gt; FromText OAuthGrantType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String OAuthGrantType
+$cfromText :: Text -&gt; Either String OAuthGrantType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679231274"><span class="annot"><span class="annottext">OAuthGrantType -&gt; Text
+(OAuthGrantType -&gt; Text) -&gt; ToText OAuthGrantType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: OAuthGrantType -&gt; Text
+$ctoText :: OAuthGrantType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679231271"><span class="annot"><span class="annottext">OAuthGrantType -&gt; ByteString
+(OAuthGrantType -&gt; ByteString) -&gt; ToByteString OAuthGrantType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: OAuthGrantType -&gt; ByteString
+$ctoBS :: OAuthGrantType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679231268"><span class="annot"><span class="annottext">OAuthGrantType -&gt; ByteStringBuilder
+(OAuthGrantType -&gt; ByteStringBuilder) -&gt; ToLog OAuthGrantType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: OAuthGrantType -&gt; ByteStringBuilder
+$cbuild :: OAuthGrantType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679231265"><span class="annot"><span class="annottext">HeaderName -&gt; OAuthGrantType -&gt; [Header]
+(HeaderName -&gt; OAuthGrantType -&gt; [Header])
+-&gt; ToHeader OAuthGrantType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; OAuthGrantType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; OAuthGrantType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679231262"><span class="annot"><span class="annottext">OAuthGrantType -&gt; QueryString
+(OAuthGrantType -&gt; QueryString) -&gt; ToQuery OAuthGrantType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: OAuthGrantType -&gt; QueryString
+$ctoQuery :: OAuthGrantType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679231257"><span id="local-6989586621679231259"><span class="annot"><span class="annottext">Value -&gt; Parser [OAuthGrantType]
+Value -&gt; Parser OAuthGrantType
+(Value -&gt; Parser OAuthGrantType)
+-&gt; (Value -&gt; Parser [OAuthGrantType]) -&gt; FromJSON OAuthGrantType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [OAuthGrantType]
+$cparseJSONList :: Value -&gt; Parser [OAuthGrantType]
+parseJSON :: Value -&gt; Parser OAuthGrantType
+$cparseJSON :: Value -&gt; Parser OAuthGrantType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679231252"><span id="local-6989586621679231254"><span class="annot"><span class="annottext">FromJSONKeyFunction [OAuthGrantType]
+FromJSONKeyFunction OAuthGrantType
+FromJSONKeyFunction OAuthGrantType
+-&gt; FromJSONKeyFunction [OAuthGrantType]
+-&gt; FromJSONKey OAuthGrantType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [OAuthGrantType]
+$cfromJSONKeyList :: FromJSONKeyFunction [OAuthGrantType]
+fromJSONKey :: FromJSONKeyFunction OAuthGrantType
+$cfromJSONKey :: FromJSONKeyFunction OAuthGrantType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679231243"><span id="local-6989586621679231245"><span id="local-6989586621679231247"><span id="local-6989586621679231249"><span class="annot"><span class="annottext">[OAuthGrantType] -&gt; Encoding
+[OAuthGrantType] -&gt; Value
+OAuthGrantType -&gt; Encoding
+OAuthGrantType -&gt; Value
+(OAuthGrantType -&gt; Value)
+-&gt; (OAuthGrantType -&gt; Encoding)
+-&gt; ([OAuthGrantType] -&gt; Value)
+-&gt; ([OAuthGrantType] -&gt; Encoding)
+-&gt; ToJSON OAuthGrantType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [OAuthGrantType] -&gt; Encoding
+$ctoEncodingList :: [OAuthGrantType] -&gt; Encoding
+toJSONList :: [OAuthGrantType] -&gt; Value
+$ctoJSONList :: [OAuthGrantType] -&gt; Value
+toEncoding :: OAuthGrantType -&gt; Encoding
+$ctoEncoding :: OAuthGrantType -&gt; Encoding
+toJSON :: OAuthGrantType -&gt; Value
+$ctoJSON :: OAuthGrantType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679231238"><span id="local-6989586621679231240"><span class="annot"><span class="annottext">ToJSONKeyFunction [OAuthGrantType]
+ToJSONKeyFunction OAuthGrantType
+ToJSONKeyFunction OAuthGrantType
+-&gt; ToJSONKeyFunction [OAuthGrantType] -&gt; ToJSONKey OAuthGrantType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [OAuthGrantType]
+$ctoJSONKeyList :: ToJSONKeyFunction [OAuthGrantType]
+toJSONKey :: ToJSONKeyFunction OAuthGrantType
+$ctoJSONKey :: ToJSONKeyFunction OAuthGrantType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679231235"><span class="annot"><span class="annottext">[Node] -&gt; Either String OAuthGrantType
+([Node] -&gt; Either String OAuthGrantType) -&gt; FromXML OAuthGrantType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String OAuthGrantType
+$cparseXML :: [Node] -&gt; Either String OAuthGrantType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679231232"><span class="annot"><span class="annottext">OAuthGrantType -&gt; XML
+(OAuthGrantType -&gt; XML) -&gt; ToXML OAuthGrantType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: OAuthGrantType -&gt; XML
+$ctoXML :: OAuthGrantType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.OAuthGrantType.html#OAuthGrantType_CODE"><span class="hs-identifier hs-type">OAuthGrantType_CODE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.OAuthGrantType.html#OAuthGrantType"><span class="hs-identifier hs-type">OAuthGrantType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOAuthGrantType_CODE"><span id="%24mOAuthGrantType_CODE"><span id="OAuthGrantType_CODE"><span class="annot"><span class="annottext">$bOAuthGrantType_CODE :: OAuthGrantType
+$mOAuthGrantType_CODE :: forall r. OAuthGrantType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AmplifyBackend.Types.OAuthGrantType.html#%24bOAuthGrantType_CODE"><span class="hs-identifier hs-var hs-var hs-var">OAuthGrantType_CODE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.OAuthGrantType.html#OAuthGrantType%27"><span class="hs-identifier hs-type">OAuthGrantType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CODE&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.OAuthGrantType.html#OAuthGrantType_IMPLICIT"><span class="hs-identifier hs-type">OAuthGrantType_IMPLICIT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.OAuthGrantType.html#OAuthGrantType"><span class="hs-identifier hs-type">OAuthGrantType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOAuthGrantType_IMPLICIT"><span id="%24mOAuthGrantType_IMPLICIT"><span id="OAuthGrantType_IMPLICIT"><span class="annot"><span class="annottext">$bOAuthGrantType_IMPLICIT :: OAuthGrantType
+$mOAuthGrantType_IMPLICIT :: forall r. OAuthGrantType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AmplifyBackend.Types.OAuthGrantType.html#%24bOAuthGrantType_IMPLICIT"><span class="hs-identifier hs-var hs-var hs-var">OAuthGrantType_IMPLICIT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.OAuthGrantType.html#OAuthGrantType%27"><span class="hs-identifier hs-type">OAuthGrantType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IMPLICIT&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.OAuthGrantType.html#OAuthGrantType_CODE"><span class="hs-pragma hs-type">OAuthGrantType_CODE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.OAuthGrantType.html#OAuthGrantType_IMPLICIT"><span class="hs-pragma hs-type">OAuthGrantType_IMPLICIT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.OAuthGrantType.html#OAuthGrantType%27"><span class="hs-pragma hs-type">OAuthGrantType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

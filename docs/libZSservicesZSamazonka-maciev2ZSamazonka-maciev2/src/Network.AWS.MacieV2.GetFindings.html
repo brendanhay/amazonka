@@ -1,0 +1,478 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.MacieV2.GetFindings</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves the details of one or more findings.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MacieV2.GetFindings</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.MacieV2.GetFindings.html#GetFindings"><span class="hs-identifier">GetFindings</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.MacieV2.GetFindings.html#newGetFindings"><span class="hs-identifier">newGetFindings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.MacieV2.GetFindings.html#getFindings_sortCriteria"><span class="hs-identifier">getFindings_sortCriteria</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.MacieV2.GetFindings.html#getFindings_findingIds"><span class="hs-identifier">getFindings_findingIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.MacieV2.GetFindings.html#GetFindingsResponse"><span class="hs-identifier">GetFindingsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.MacieV2.GetFindings.html#newGetFindingsResponse"><span class="hs-identifier">newGetFindingsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.MacieV2.GetFindings.html#getFindingsResponse_findings"><span class="hs-identifier">getFindingsResponse_findings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.MacieV2.GetFindings.html#getFindingsResponse_httpStatus"><span class="hs-identifier">getFindingsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.html"><span class="hs-identifier">Network.AWS.MacieV2.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newGetFindings' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679411015"><span id="local-6989586621679411016"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetFindings"><span class="annot"><a href="Network.AWS.MacieV2.GetFindings.html#GetFindings"><span class="hs-identifier hs-var">GetFindings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetFindings%27"><span class="annot"><a href="Network.AWS.MacieV2.GetFindings.html#GetFindings%27"><span class="hs-identifier hs-var">GetFindings'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The criteria for sorting the results of the request.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AsortCriteria%3AGetFindings%27"><span class="annot"><span class="annottext">GetFindings -&gt; Maybe SortCriteria
+</span><a href="Network.AWS.MacieV2.GetFindings.html#%24sel%3AsortCriteria%3AGetFindings%27"><span class="hs-identifier hs-var hs-var">sortCriteria</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.SortCriteria.html#SortCriteria"><span class="hs-identifier hs-type">SortCriteria</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | An array of strings that lists the unique identifiers for the findings</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- to retrieve.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AfindingIds%3AGetFindings%27"><span class="annot"><span class="annottext">GetFindings -&gt; [Text]
+</span><a href="Network.AWS.MacieV2.GetFindings.html#%24sel%3AfindingIds%3AGetFindings%27"><span class="hs-identifier hs-var hs-var">findingIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679411008"><span id="local-6989586621679411010"><span class="annot"><span class="annottext">GetFindings -&gt; GetFindings -&gt; Bool
+(GetFindings -&gt; GetFindings -&gt; Bool)
+-&gt; (GetFindings -&gt; GetFindings -&gt; Bool) -&gt; Eq GetFindings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetFindings -&gt; GetFindings -&gt; Bool
+$c/= :: GetFindings -&gt; GetFindings -&gt; Bool
+== :: GetFindings -&gt; GetFindings -&gt; Bool
+$c== :: GetFindings -&gt; GetFindings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679410999"><span id="local-6989586621679411001"><span id="local-6989586621679411003"><span id="local-6989586621679411005"><span class="annot"><span class="annottext">ReadPrec [GetFindings]
+ReadPrec GetFindings
+Int -&gt; ReadS GetFindings
+ReadS [GetFindings]
+(Int -&gt; ReadS GetFindings)
+-&gt; ReadS [GetFindings]
+-&gt; ReadPrec GetFindings
+-&gt; ReadPrec [GetFindings]
+-&gt; Read GetFindings
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetFindings]
+$creadListPrec :: ReadPrec [GetFindings]
+readPrec :: ReadPrec GetFindings
+$creadPrec :: ReadPrec GetFindings
+readList :: ReadS [GetFindings]
+$creadList :: ReadS [GetFindings]
+readsPrec :: Int -&gt; ReadS GetFindings
+$creadsPrec :: Int -&gt; ReadS GetFindings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679410992"><span id="local-6989586621679410994"><span id="local-6989586621679410996"><span class="annot"><span class="annottext">Int -&gt; GetFindings -&gt; ShowS
+[GetFindings] -&gt; ShowS
+GetFindings -&gt; String
+(Int -&gt; GetFindings -&gt; ShowS)
+-&gt; (GetFindings -&gt; String)
+-&gt; ([GetFindings] -&gt; ShowS)
+-&gt; Show GetFindings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetFindings] -&gt; ShowS
+$cshowList :: [GetFindings] -&gt; ShowS
+show :: GetFindings -&gt; String
+$cshow :: GetFindings -&gt; String
+showsPrec :: Int -&gt; GetFindings -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetFindings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetFindings -&gt; Rep GetFindings x)
+-&gt; (forall x. Rep GetFindings x -&gt; GetFindings)
+-&gt; Generic GetFindings
+forall x. Rep GetFindings x -&gt; GetFindings
+forall x. GetFindings -&gt; Rep GetFindings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetFindings x -&gt; GetFindings
+$cfrom :: forall x. GetFindings -&gt; Rep GetFindings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'GetFindings' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'sortCriteria', 'getFindings_sortCriteria' - The criteria for sorting the results of the request.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'findingIds', 'getFindings_findingIds' - An array of strings that lists the unique identifiers for the findings</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- to retrieve.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.MacieV2.GetFindings.html#newGetFindings"><span class="hs-identifier hs-type">newGetFindings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.MacieV2.GetFindings.html#GetFindings"><span class="hs-identifier hs-type">GetFindings</span></a></span><span>
+</span><span id="line-74"></span><span id="newGetFindings"><span class="annot"><span class="annottext">newGetFindings :: GetFindings
+</span><a href="Network.AWS.MacieV2.GetFindings.html#newGetFindings"><span class="hs-identifier hs-var hs-var">newGetFindings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">GetFindings' :: Maybe SortCriteria -&gt; [Text] -&gt; GetFindings
+</span><a href="Network.AWS.MacieV2.GetFindings.html#GetFindings%27"><span class="hs-identifier hs-type">GetFindings'</span></a></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sortCriteria:GetFindings' :: Maybe SortCriteria
+</span><a href="Network.AWS.MacieV2.GetFindings.html#%24sel%3AsortCriteria%3AGetFindings%27"><span class="hs-identifier hs-var">sortCriteria</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SortCriteria
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:findingIds:GetFindings' :: [Text]
+</span><a href="Network.AWS.MacieV2.GetFindings.html#%24sel%3AfindingIds%3AGetFindings%27"><span class="hs-identifier hs-var">findingIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The criteria for sorting the results of the request.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.MacieV2.GetFindings.html#getFindings_sortCriteria"><span class="hs-identifier hs-type">getFindings_sortCriteria</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetFindings.html#GetFindings"><span class="hs-identifier hs-type">GetFindings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.SortCriteria.html#SortCriteria"><span class="hs-identifier hs-type">SortCriteria</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="getFindings_sortCriteria"><span class="annot"><span class="annottext">getFindings_sortCriteria :: (Maybe SortCriteria -&gt; f (Maybe SortCriteria))
+-&gt; GetFindings -&gt; f GetFindings
+</span><a href="Network.AWS.MacieV2.GetFindings.html#getFindings_sortCriteria"><span class="hs-identifier hs-var hs-var">getFindings_sortCriteria</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFindings -&gt; Maybe SortCriteria)
+-&gt; (GetFindings -&gt; Maybe SortCriteria -&gt; GetFindings)
+-&gt; Lens
+     GetFindings GetFindings (Maybe SortCriteria) (Maybe SortCriteria)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.GetFindings.html#GetFindings%27"><span class="hs-identifier hs-type">GetFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410985"><span class="annot"><span class="annottext">Maybe SortCriteria
+sortCriteria :: Maybe SortCriteria
+$sel:sortCriteria:GetFindings' :: GetFindings -&gt; Maybe SortCriteria
+</span><a href="#local-6989586621679410985"><span class="hs-identifier hs-var hs-var">sortCriteria</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SortCriteria
+</span><a href="#local-6989586621679410985"><span class="hs-identifier hs-var">sortCriteria</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679410984"><span class="annot"><span class="annottext">s :: GetFindings
+</span><a href="#local-6989586621679410984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.GetFindings.html#GetFindings%27"><span class="hs-identifier hs-type">GetFindings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679410983"><span class="annot"><span class="annottext">Maybe SortCriteria
+</span><a href="#local-6989586621679410983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFindings
+</span><a href="#local-6989586621679410984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortCriteria:GetFindings' :: Maybe SortCriteria
+</span><a href="Network.AWS.MacieV2.GetFindings.html#%24sel%3AsortCriteria%3AGetFindings%27"><span class="hs-identifier hs-var">sortCriteria</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SortCriteria
+</span><a href="#local-6989586621679410983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetFindings.html#GetFindings"><span class="hs-identifier hs-type">GetFindings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | An array of strings that lists the unique identifiers for the findings</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- to retrieve.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.MacieV2.GetFindings.html#getFindings_findingIds"><span class="hs-identifier hs-type">getFindings_findingIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetFindings.html#GetFindings"><span class="hs-identifier hs-type">GetFindings</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-87"></span><span id="getFindings_findingIds"><span class="annot"><span class="annottext">getFindings_findingIds :: ([Text] -&gt; f [Text]) -&gt; GetFindings -&gt; f GetFindings
+</span><a href="Network.AWS.MacieV2.GetFindings.html#getFindings_findingIds"><span class="hs-identifier hs-var hs-var">getFindings_findingIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFindings -&gt; [Text])
+-&gt; (GetFindings -&gt; [Text] -&gt; GetFindings)
+-&gt; Lens GetFindings GetFindings [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.GetFindings.html#GetFindings%27"><span class="hs-identifier hs-type">GetFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410982"><span class="annot"><span class="annottext">[Text]
+findingIds :: [Text]
+$sel:findingIds:GetFindings' :: GetFindings -&gt; [Text]
+</span><a href="#local-6989586621679410982"><span class="hs-identifier hs-var hs-var">findingIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679410982"><span class="hs-identifier hs-var">findingIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679410981"><span class="annot"><span class="annottext">s :: GetFindings
+</span><a href="#local-6989586621679410981"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.GetFindings.html#GetFindings%27"><span class="hs-identifier hs-type">GetFindings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679410980"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679410980"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFindings
+</span><a href="#local-6989586621679410981"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:findingIds:GetFindings' :: [Text]
+</span><a href="Network.AWS.MacieV2.GetFindings.html#%24sel%3AfindingIds%3AGetFindings%27"><span class="hs-identifier hs-var">findingIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679410980"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetFindings.html#GetFindings"><span class="hs-identifier hs-type">GetFindings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; GetFindings -&gt; f GetFindings)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; GetFindings
+-&gt; f GetFindings
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetFindings.html#GetFindings"><span class="hs-identifier hs-type">GetFindings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetFindings.html#GetFindings"><span class="hs-identifier hs-type">GetFindings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetFindings.html#GetFindingsResponse"><span class="hs-identifier hs-type">GetFindingsResponse</span></a></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679410974"><span class="annot"><span class="annottext">request :: GetFindings -&gt; Request GetFindings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetFindings -&gt; Request GetFindings
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.MacieV2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679410970"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetFindings
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetFindings)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetFindings))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetFindings
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetFindings)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679410967"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679410967"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679410966"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679410966"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679410965"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679410965"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Finding] -&gt; Int -&gt; GetFindingsResponse
+</span><a href="Network.AWS.MacieV2.GetFindings.html#GetFindingsResponse%27"><span class="hs-identifier hs-var">GetFindingsResponse'</span></a></span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Finding] -&gt; Int -&gt; GetFindingsResponse)
+-&gt; Either String (Maybe [Finding])
+-&gt; Either String (Int -&gt; GetFindingsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679410965"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Finding]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;findings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Finding]))
+-&gt; Maybe [Finding] -&gt; Either String (Maybe [Finding])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Finding]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetFindingsResponse)
+-&gt; Either String Int -&gt; Either String GetFindingsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679410967"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679410956"><span id="local-6989586621679410958"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetFindings.html#GetFindings"><span class="hs-identifier hs-type">GetFindings</span></a></span></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679410953"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetFindings.html#GetFindings"><span class="hs-identifier hs-type">GetFindings</span></a></span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetFindings.html#GetFindings"><span class="hs-identifier hs-type">GetFindings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679410949"><span class="annot"><span class="annottext">toHeaders :: GetFindings -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetFindings -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-108"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-109"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-110"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-111"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679410939"><span id="local-6989586621679410941"><span id="local-6989586621679410943"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetFindings.html#GetFindings"><span class="hs-identifier hs-type">GetFindings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679410937"><span class="annot"><span class="annottext">toJSON :: GetFindings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetFindings.html#GetFindings%27"><span class="hs-identifier hs-type">GetFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410934"><span id="local-6989586621679410935"><span class="annot"><span class="annottext">[Text]
+Maybe SortCriteria
+findingIds :: [Text]
+sortCriteria :: Maybe SortCriteria
+$sel:findingIds:GetFindings' :: GetFindings -&gt; [Text]
+$sel:sortCriteria:GetFindings' :: GetFindings -&gt; Maybe SortCriteria
+</span><a href="#local-6989586621679410934"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-119"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sortCriteria&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SortCriteria -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SortCriteria -&gt; Pair) -&gt; Maybe SortCriteria -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SortCriteria
+</span><a href="#local-6989586621679410935"><span class="hs-identifier hs-var">sortCriteria</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;findingIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679410934"><span class="hs-identifier hs-var">findingIds</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetFindings.html#GetFindings"><span class="hs-identifier hs-type">GetFindings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679410928"><span class="annot"><span class="annottext">toPath :: GetFindings -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetFindings -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/findings/describe&quot;</span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetFindings.html#GetFindings"><span class="hs-identifier hs-type">GetFindings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679410924"><span class="annot"><span class="annottext">toQuery :: GetFindings -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetFindings -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | /See:/ 'newGetFindingsResponse' smart constructor.</span><span>
+</span><span id="line-131"></span><span id="local-6989586621679410921"><span id="local-6989586621679410922"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetFindingsResponse"><span class="annot"><a href="Network.AWS.MacieV2.GetFindings.html#GetFindingsResponse"><span class="hs-identifier hs-var">GetFindingsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetFindingsResponse%27"><span class="annot"><a href="Network.AWS.MacieV2.GetFindings.html#GetFindingsResponse%27"><span class="hs-identifier hs-var">GetFindingsResponse'</span></a></span></span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects, one for each finding that meets the criteria</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- specified in the request.</span><span>
+</span><span id="line-134"></span><span>    </span><span id="%24sel%3Afindings%3AGetFindingsResponse%27"><span class="annot"><span class="annottext">GetFindingsResponse -&gt; Maybe [Finding]
+</span><a href="Network.AWS.MacieV2.GetFindings.html#%24sel%3Afindings%3AGetFindingsResponse%27"><span class="hs-identifier hs-var hs-var">findings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MacieV2.Types.Finding.html#Finding"><span class="hs-identifier hs-type">Finding</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-136"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetFindingsResponse%27"><span class="annot"><span class="annottext">GetFindingsResponse -&gt; Int
+</span><a href="Network.AWS.MacieV2.GetFindings.html#%24sel%3AhttpStatus%3AGetFindingsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679410915"><span id="local-6989586621679410917"><span class="annot"><span class="annottext">GetFindingsResponse -&gt; GetFindingsResponse -&gt; Bool
+(GetFindingsResponse -&gt; GetFindingsResponse -&gt; Bool)
+-&gt; (GetFindingsResponse -&gt; GetFindingsResponse -&gt; Bool)
+-&gt; Eq GetFindingsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetFindingsResponse -&gt; GetFindingsResponse -&gt; Bool
+$c/= :: GetFindingsResponse -&gt; GetFindingsResponse -&gt; Bool
+== :: GetFindingsResponse -&gt; GetFindingsResponse -&gt; Bool
+$c== :: GetFindingsResponse -&gt; GetFindingsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679410907"><span id="local-6989586621679410909"><span id="local-6989586621679410911"><span id="local-6989586621679410913"><span class="annot"><span class="annottext">ReadPrec [GetFindingsResponse]
+ReadPrec GetFindingsResponse
+Int -&gt; ReadS GetFindingsResponse
+ReadS [GetFindingsResponse]
+(Int -&gt; ReadS GetFindingsResponse)
+-&gt; ReadS [GetFindingsResponse]
+-&gt; ReadPrec GetFindingsResponse
+-&gt; ReadPrec [GetFindingsResponse]
+-&gt; Read GetFindingsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetFindingsResponse]
+$creadListPrec :: ReadPrec [GetFindingsResponse]
+readPrec :: ReadPrec GetFindingsResponse
+$creadPrec :: ReadPrec GetFindingsResponse
+readList :: ReadS [GetFindingsResponse]
+$creadList :: ReadS [GetFindingsResponse]
+readsPrec :: Int -&gt; ReadS GetFindingsResponse
+$creadsPrec :: Int -&gt; ReadS GetFindingsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679410901"><span id="local-6989586621679410903"><span id="local-6989586621679410905"><span class="annot"><span class="annottext">Int -&gt; GetFindingsResponse -&gt; ShowS
+[GetFindingsResponse] -&gt; ShowS
+GetFindingsResponse -&gt; String
+(Int -&gt; GetFindingsResponse -&gt; ShowS)
+-&gt; (GetFindingsResponse -&gt; String)
+-&gt; ([GetFindingsResponse] -&gt; ShowS)
+-&gt; Show GetFindingsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetFindingsResponse] -&gt; ShowS
+$cshowList :: [GetFindingsResponse] -&gt; ShowS
+show :: GetFindingsResponse -&gt; String
+$cshow :: GetFindingsResponse -&gt; String
+showsPrec :: Int -&gt; GetFindingsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetFindingsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetFindingsResponse -&gt; Rep GetFindingsResponse x)
+-&gt; (forall x. Rep GetFindingsResponse x -&gt; GetFindingsResponse)
+-&gt; Generic GetFindingsResponse
+forall x. Rep GetFindingsResponse x -&gt; GetFindingsResponse
+forall x. GetFindingsResponse -&gt; Rep GetFindingsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetFindingsResponse x -&gt; GetFindingsResponse
+$cfrom :: forall x. GetFindingsResponse -&gt; Rep GetFindingsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- Create a value of 'GetFindingsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'findings', 'getFindingsResponse_findings' - An array of objects, one for each finding that meets the criteria</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- specified in the request.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- 'httpStatus', 'getFindingsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Network.AWS.MacieV2.GetFindings.html#newGetFindingsResponse"><span class="hs-identifier hs-type">newGetFindingsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-153"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><a href="Network.AWS.MacieV2.GetFindings.html#GetFindingsResponse"><span class="hs-identifier hs-type">GetFindingsResponse</span></a></span><span>
+</span><span id="line-156"></span><span id="newGetFindingsResponse"><span class="annot"><span class="annottext">newGetFindingsResponse :: Int -&gt; GetFindingsResponse
+</span><a href="Network.AWS.MacieV2.GetFindings.html#newGetFindingsResponse"><span class="hs-identifier hs-var hs-var">newGetFindingsResponse</span></a></span></span><span> </span><span id="local-6989586621679410898"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679410898"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><span class="annottext">GetFindingsResponse' :: Maybe [Finding] -&gt; Int -&gt; GetFindingsResponse
+</span><a href="Network.AWS.MacieV2.GetFindings.html#GetFindingsResponse%27"><span class="hs-identifier hs-type">GetFindingsResponse'</span></a></span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:findings:GetFindingsResponse' :: Maybe [Finding]
+</span><a href="Network.AWS.MacieV2.GetFindings.html#%24sel%3Afindings%3AGetFindingsResponse%27"><span class="hs-identifier hs-var">findings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Finding]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetFindingsResponse' :: Int
+</span><a href="Network.AWS.MacieV2.GetFindings.html#%24sel%3AhttpStatus%3AGetFindingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679410898"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | An array of objects, one for each finding that meets the criteria</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- specified in the request.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.MacieV2.GetFindings.html#getFindingsResponse_findings"><span class="hs-identifier hs-type">getFindingsResponse_findings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetFindings.html#GetFindingsResponse"><span class="hs-identifier hs-type">GetFindingsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MacieV2.Types.Finding.html#Finding"><span class="hs-identifier hs-type">Finding</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="getFindingsResponse_findings"><span class="annot"><span class="annottext">getFindingsResponse_findings :: (Maybe [Finding] -&gt; f (Maybe [Finding]))
+-&gt; GetFindingsResponse -&gt; f GetFindingsResponse
+</span><a href="Network.AWS.MacieV2.GetFindings.html#getFindingsResponse_findings"><span class="hs-identifier hs-var hs-var">getFindingsResponse_findings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFindingsResponse -&gt; Maybe [Finding])
+-&gt; (GetFindingsResponse -&gt; Maybe [Finding] -&gt; GetFindingsResponse)
+-&gt; Lens
+     GetFindingsResponse
+     GetFindingsResponse
+     (Maybe [Finding])
+     (Maybe [Finding])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.GetFindings.html#GetFindingsResponse%27"><span class="hs-identifier hs-type">GetFindingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410897"><span class="annot"><span class="annottext">Maybe [Finding]
+findings :: Maybe [Finding]
+$sel:findings:GetFindingsResponse' :: GetFindingsResponse -&gt; Maybe [Finding]
+</span><a href="#local-6989586621679410897"><span class="hs-identifier hs-var hs-var">findings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Finding]
+</span><a href="#local-6989586621679410897"><span class="hs-identifier hs-var">findings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679410896"><span class="annot"><span class="annottext">s :: GetFindingsResponse
+</span><a href="#local-6989586621679410896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.GetFindings.html#GetFindingsResponse%27"><span class="hs-identifier hs-type">GetFindingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679410895"><span class="annot"><span class="annottext">Maybe [Finding]
+</span><a href="#local-6989586621679410895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFindingsResponse
+</span><a href="#local-6989586621679410896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:findings:GetFindingsResponse' :: Maybe [Finding]
+</span><a href="Network.AWS.MacieV2.GetFindings.html#%24sel%3Afindings%3AGetFindingsResponse%27"><span class="hs-identifier hs-var">findings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Finding]
+</span><a href="#local-6989586621679410895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetFindings.html#GetFindingsResponse"><span class="hs-identifier hs-type">GetFindingsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Finding] -&gt; f (Maybe [Finding]))
+ -&gt; GetFindingsResponse -&gt; f GetFindingsResponse)
+-&gt; ((Maybe [Finding] -&gt; f (Maybe [Finding]))
+    -&gt; Maybe [Finding] -&gt; f (Maybe [Finding]))
+-&gt; (Maybe [Finding] -&gt; f (Maybe [Finding]))
+-&gt; GetFindingsResponse
+-&gt; f GetFindingsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Finding] [Finding] [Finding] [Finding]
+-&gt; Iso
+     (Maybe [Finding])
+     (Maybe [Finding])
+     (Maybe [Finding])
+     (Maybe [Finding])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Finding] [Finding] [Finding] [Finding]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.MacieV2.GetFindings.html#getFindingsResponse_httpStatus"><span class="hs-identifier hs-type">getFindingsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetFindings.html#GetFindingsResponse"><span class="hs-identifier hs-type">GetFindingsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-169"></span><span id="getFindingsResponse_httpStatus"><span class="annot"><span class="annottext">getFindingsResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetFindingsResponse -&gt; f GetFindingsResponse
+</span><a href="Network.AWS.MacieV2.GetFindings.html#getFindingsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getFindingsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFindingsResponse -&gt; Int)
+-&gt; (GetFindingsResponse -&gt; Int -&gt; GetFindingsResponse)
+-&gt; Lens GetFindingsResponse GetFindingsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.GetFindings.html#GetFindingsResponse%27"><span class="hs-identifier hs-type">GetFindingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410893"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetFindingsResponse' :: GetFindingsResponse -&gt; Int
+</span><a href="#local-6989586621679410893"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679410893"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679410892"><span class="annot"><span class="annottext">s :: GetFindingsResponse
+</span><a href="#local-6989586621679410892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.GetFindings.html#GetFindingsResponse%27"><span class="hs-identifier hs-type">GetFindingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679410891"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679410891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFindingsResponse
+</span><a href="#local-6989586621679410892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetFindingsResponse' :: Int
+</span><a href="Network.AWS.MacieV2.GetFindings.html#%24sel%3AhttpStatus%3AGetFindingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679410891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetFindings.html#GetFindingsResponse"><span class="hs-identifier hs-type">GetFindingsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679410889"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetFindings.html#GetFindingsResponse"><span class="hs-identifier hs-type">GetFindingsResponse</span></a></span></span><span>
+</span><span id="line-172"></span></pre></body></html>

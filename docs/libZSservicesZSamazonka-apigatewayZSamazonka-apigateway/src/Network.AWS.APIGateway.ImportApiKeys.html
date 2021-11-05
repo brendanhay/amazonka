@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-comment">-- CSV-formatted file.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newImportApiKeys' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679376270"><span id="local-6989586621679376271"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImportApiKeys"><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeys"><span class="hs-identifier hs-var">ImportApiKeys</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportApiKeys%27"><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeys%27"><span class="hs-identifier hs-var">ImportApiKeys'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679376279"><span id="local-6989586621679376280"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImportApiKeys"><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeys"><span class="hs-identifier hs-var">ImportApiKeys</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportApiKeys%27"><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeys%27"><span class="hs-identifier hs-var">ImportApiKeys'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A query parameter to indicate whether to rollback ApiKey importation</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- (@true@) or not (@false@) when error is encountered.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AfailOnWarnings%3AImportApiKeys%27"><span class="annot"><span class="annottext">ImportApiKeys -&gt; Maybe Bool
@@ -68,7 +68,7 @@
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3Aformat%3AImportApiKeys%27"><span class="annot"><span class="annottext">ImportApiKeys -&gt; ApiKeysFormat
 </span><a href="Network.AWS.APIGateway.ImportApiKeys.html#%24sel%3Aformat%3AImportApiKeys%27"><span class="hs-identifier hs-var hs-var">format</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.ApiKeysFormat.html#ApiKeysFormat"><span class="hs-identifier hs-type">ApiKeysFormat</span></a></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679376262"><span id="local-6989586621679376264"><span class="annot"><span class="annottext">ImportApiKeys -&gt; ImportApiKeys -&gt; Bool
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679376271"><span id="local-6989586621679376273"><span class="annot"><span class="annottext">ImportApiKeys -&gt; ImportApiKeys -&gt; Bool
 (ImportApiKeys -&gt; ImportApiKeys -&gt; Bool)
 -&gt; (ImportApiKeys -&gt; ImportApiKeys -&gt; Bool) -&gt; Eq ImportApiKeys
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -76,7 +76,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ImportApiKeys -&gt; ImportApiKeys -&gt; Bool
 == :: ImportApiKeys -&gt; ImportApiKeys -&gt; Bool
 $c== :: ImportApiKeys -&gt; ImportApiKeys -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376255"><span id="local-6989586621679376257"><span id="local-6989586621679376259"><span class="annot"><span class="annottext">Int -&gt; ImportApiKeys -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376264"><span id="local-6989586621679376266"><span id="local-6989586621679376268"><span class="annot"><span class="annottext">Int -&gt; ImportApiKeys -&gt; ShowS
 [ImportApiKeys] -&gt; ShowS
 ImportApiKeys -&gt; String
 (Int -&gt; ImportApiKeys -&gt; ShowS)
@@ -126,9 +126,9 @@ $cfrom :: forall x. ImportApiKeys -&gt; Rep ImportApiKeys x
 </span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.Types.ApiKeysFormat.html#ApiKeysFormat"><span class="hs-identifier hs-type">ApiKeysFormat</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeys"><span class="hs-identifier hs-type">ImportApiKeys</span></a></span><span>
 </span><span id="line-93"></span><span id="newImportApiKeys"><span class="annot"><span class="annottext">newImportApiKeys :: ByteString -&gt; ApiKeysFormat -&gt; ImportApiKeys
-</span><a href="Network.AWS.APIGateway.ImportApiKeys.html#newImportApiKeys"><span class="hs-identifier hs-var hs-var">newImportApiKeys</span></a></span></span><span> </span><span id="local-6989586621679376250"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679376250"><span class="hs-identifier hs-var">pBody_</span></a></span></span><span> </span><span id="local-6989586621679376249"><span class="annot"><span class="annottext">ApiKeysFormat
-</span><a href="#local-6989586621679376249"><span class="hs-identifier hs-var">pFormat_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.APIGateway.ImportApiKeys.html#newImportApiKeys"><span class="hs-identifier hs-var hs-var">newImportApiKeys</span></a></span></span><span> </span><span id="local-6989586621679376259"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679376259"><span class="hs-identifier hs-var">pBody_</span></a></span></span><span> </span><span id="local-6989586621679376258"><span class="annot"><span class="annottext">ApiKeysFormat
+</span><a href="#local-6989586621679376258"><span class="hs-identifier hs-var">pFormat_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>  </span><span class="annot"><span class="annottext">ImportApiKeys' :: Maybe Bool -&gt; ByteString -&gt; ApiKeysFormat -&gt; ImportApiKeys
 </span><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeys%27"><span class="hs-identifier hs-type">ImportApiKeys'</span></a></span><span>
 </span><span id="line-95"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:failOnWarnings:ImportApiKeys' :: Maybe Bool
@@ -137,10 +137,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:body:ImportApiKeys' :: ByteString
 </span><a href="Network.AWS.APIGateway.ImportApiKeys.html#%24sel%3Abody%3AImportApiKeys%27"><span class="hs-identifier hs-var">body</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679376250"><span class="hs-identifier hs-var">pBody_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679376259"><span class="hs-identifier hs-var">pBody_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:format:ImportApiKeys' :: ApiKeysFormat
 </span><a href="Network.AWS.APIGateway.ImportApiKeys.html#%24sel%3Aformat%3AImportApiKeys%27"><span class="hs-identifier hs-var">format</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ApiKeysFormat
-</span><a href="#local-6989586621679376249"><span class="hs-identifier hs-var">pFormat_</span></a></span><span>
+</span><a href="#local-6989586621679376258"><span class="hs-identifier hs-var">pFormat_</span></a></span><span>
 </span><span id="line-98"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | A query parameter to indicate whether to rollback ApiKey importation</span><span>
@@ -151,16 +151,16 @@ forall a. Maybe a
 -&gt; (ImportApiKeys -&gt; Maybe Bool -&gt; ImportApiKeys)
 -&gt; Lens ImportApiKeys ImportApiKeys (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeys%27"><span class="hs-identifier hs-type">ImportApiKeys'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376246"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeys%27"><span class="hs-identifier hs-type">ImportApiKeys'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376255"><span class="annot"><span class="annottext">Maybe Bool
 failOnWarnings :: Maybe Bool
 $sel:failOnWarnings:ImportApiKeys' :: ImportApiKeys -&gt; Maybe Bool
-</span><a href="#local-6989586621679376246"><span class="hs-identifier hs-var hs-var">failOnWarnings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679376246"><span class="hs-identifier hs-var">failOnWarnings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376245"><span class="annot"><span class="annottext">s :: ImportApiKeys
-</span><a href="#local-6989586621679376245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeys%27"><span class="hs-identifier hs-type">ImportApiKeys'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376244"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679376244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportApiKeys
-</span><a href="#local-6989586621679376245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failOnWarnings:ImportApiKeys' :: Maybe Bool
+</span><a href="#local-6989586621679376255"><span class="hs-identifier hs-var hs-var">failOnWarnings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679376255"><span class="hs-identifier hs-var">failOnWarnings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376254"><span class="annot"><span class="annottext">s :: ImportApiKeys
+</span><a href="#local-6989586621679376254"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeys%27"><span class="hs-identifier hs-type">ImportApiKeys'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376253"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679376253"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportApiKeys
+</span><a href="#local-6989586621679376254"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failOnWarnings:ImportApiKeys' :: Maybe Bool
 </span><a href="Network.AWS.APIGateway.ImportApiKeys.html#%24sel%3AfailOnWarnings%3AImportApiKeys%27"><span class="hs-identifier hs-var">failOnWarnings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679376244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeys"><span class="hs-identifier hs-type">ImportApiKeys</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679376253"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeys"><span class="hs-identifier hs-type">ImportApiKeys</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | The payload of the POST request to import API keys. For the payload</span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- format, see</span><span>
@@ -171,16 +171,16 @@ $sel:failOnWarnings:ImportApiKeys' :: ImportApiKeys -&gt; Maybe Bool
 -&gt; (ImportApiKeys -&gt; ByteString -&gt; ImportApiKeys)
 -&gt; Lens ImportApiKeys ImportApiKeys ByteString ByteString
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeys%27"><span class="hs-identifier hs-type">ImportApiKeys'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376243"><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeys%27"><span class="hs-identifier hs-type">ImportApiKeys'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376252"><span class="annot"><span class="annottext">ByteString
 body :: ByteString
 $sel:body:ImportApiKeys' :: ImportApiKeys -&gt; ByteString
-</span><a href="#local-6989586621679376243"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679376243"><span class="hs-identifier hs-var">body</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376242"><span class="annot"><span class="annottext">s :: ImportApiKeys
-</span><a href="#local-6989586621679376242"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeys%27"><span class="hs-identifier hs-type">ImportApiKeys'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376241"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679376241"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportApiKeys
-</span><a href="#local-6989586621679376242"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:body:ImportApiKeys' :: ByteString
+</span><a href="#local-6989586621679376252"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679376252"><span class="hs-identifier hs-var">body</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376251"><span class="annot"><span class="annottext">s :: ImportApiKeys
+</span><a href="#local-6989586621679376251"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeys%27"><span class="hs-identifier hs-type">ImportApiKeys'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376250"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679376250"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportApiKeys
+</span><a href="#local-6989586621679376251"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:body:ImportApiKeys' :: ByteString
 </span><a href="Network.AWS.APIGateway.ImportApiKeys.html#%24sel%3Abody%3AImportApiKeys%27"><span class="hs-identifier hs-var">body</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679376241"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeys"><span class="hs-identifier hs-type">ImportApiKeys</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679376250"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeys"><span class="hs-identifier hs-type">ImportApiKeys</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | A query parameter to specify the input format to imported API keys.</span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- Currently, only the @csv@ format is supported.</span><span>
@@ -191,27 +191,27 @@ $sel:body:ImportApiKeys' :: ImportApiKeys -&gt; ByteString
 -&gt; (ImportApiKeys -&gt; ApiKeysFormat -&gt; ImportApiKeys)
 -&gt; Lens ImportApiKeys ImportApiKeys ApiKeysFormat ApiKeysFormat
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeys%27"><span class="hs-identifier hs-type">ImportApiKeys'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376240"><span class="annot"><span class="annottext">ApiKeysFormat
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeys%27"><span class="hs-identifier hs-type">ImportApiKeys'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376249"><span class="annot"><span class="annottext">ApiKeysFormat
 format :: ApiKeysFormat
 $sel:format:ImportApiKeys' :: ImportApiKeys -&gt; ApiKeysFormat
-</span><a href="#local-6989586621679376240"><span class="hs-identifier hs-var hs-var">format</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApiKeysFormat
-</span><a href="#local-6989586621679376240"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376239"><span class="annot"><span class="annottext">s :: ImportApiKeys
-</span><a href="#local-6989586621679376239"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeys%27"><span class="hs-identifier hs-type">ImportApiKeys'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376238"><span class="annot"><span class="annottext">ApiKeysFormat
-</span><a href="#local-6989586621679376238"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportApiKeys
-</span><a href="#local-6989586621679376239"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:format:ImportApiKeys' :: ApiKeysFormat
+</span><a href="#local-6989586621679376249"><span class="hs-identifier hs-var hs-var">format</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApiKeysFormat
+</span><a href="#local-6989586621679376249"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376248"><span class="annot"><span class="annottext">s :: ImportApiKeys
+</span><a href="#local-6989586621679376248"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeys%27"><span class="hs-identifier hs-type">ImportApiKeys'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376247"><span class="annot"><span class="annottext">ApiKeysFormat
+</span><a href="#local-6989586621679376247"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportApiKeys
+</span><a href="#local-6989586621679376248"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:format:ImportApiKeys' :: ApiKeysFormat
 </span><a href="Network.AWS.APIGateway.ImportApiKeys.html#%24sel%3Aformat%3AImportApiKeys%27"><span class="hs-identifier hs-var">format</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ApiKeysFormat
-</span><a href="#local-6989586621679376238"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeys"><span class="hs-identifier hs-type">ImportApiKeys</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679376247"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeys"><span class="hs-identifier hs-type">ImportApiKeys</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeys"><span class="hs-identifier hs-type">ImportApiKeys</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-117"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-118"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeys"><span class="hs-identifier hs-type">ImportApiKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>      </span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeysResponse"><span class="hs-identifier hs-type">ImportApiKeysResponse</span></a></span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679376234"><span class="annot"><span class="annottext">request :: ImportApiKeys -&gt; Request ImportApiKeys
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679376243"><span class="annot"><span class="annottext">request :: ImportApiKeys -&gt; Request ImportApiKeys
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ImportApiKeys -&gt; Request ImportApiKeys
 forall a. (ToRequest a, ToBody a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postBody</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.APIGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679376230"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679376239"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ImportApiKeys
 -&gt; ClientResponse ClientBody
@@ -235,10 +235,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679376227"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679376227"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679376226"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679376226"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679376225"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679376225"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679376236"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679376236"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679376235"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679376235"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679376234"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679376234"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe [Text] -&gt; Int -&gt; ImportApiKeysResponse
 </span><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeysResponse%27"><span class="hs-identifier hs-var">ImportApiKeysResponse'</span></a></span><span>
 </span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe [Text] -&gt; Int -&gt; ImportApiKeysResponse)
@@ -246,7 +246,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe [Text] -&gt; Int -&gt; ImportApiKeysResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679376225"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679376234"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ids&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
@@ -260,7 +260,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; ImportApiKeysResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679376225"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679376234"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;warnings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
@@ -277,16 +277,16 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679376227"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679376236"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376216"><span id="local-6989586621679376218"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeys"><span class="hs-identifier hs-type">ImportApiKeys</span></a></span></span></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376225"><span id="local-6989586621679376227"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeys"><span class="hs-identifier hs-type">ImportApiKeys</span></a></span></span></span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376213"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeys"><span class="hs-identifier hs-type">ImportApiKeys</span></a></span></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376222"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeys"><span class="hs-identifier hs-type">ImportApiKeys</span></a></span></span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToBody</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeys"><span class="hs-identifier hs-type">ImportApiKeys</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679376209"><span class="annot"><span class="annottext">toBody :: ImportApiKeys -&gt; RequestBody
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toBody</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeys%27"><span class="hs-identifier hs-type">ImportApiKeys'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376205"><span id="local-6989586621679376206"><span id="local-6989586621679376207"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679376218"><span class="annot"><span class="annottext">toBody :: ImportApiKeys -&gt; RequestBody
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toBody</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeys%27"><span class="hs-identifier hs-type">ImportApiKeys'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376214"><span id="local-6989586621679376215"><span id="local-6989586621679376216"><span class="annot"><span class="annottext">Maybe Bool
 ByteString
 ApiKeysFormat
 format :: ApiKeysFormat
@@ -295,13 +295,13 @@ failOnWarnings :: Maybe Bool
 $sel:format:ImportApiKeys' :: ImportApiKeys -&gt; ApiKeysFormat
 $sel:body:ImportApiKeys' :: ImportApiKeys -&gt; ByteString
 $sel:failOnWarnings:ImportApiKeys' :: ImportApiKeys -&gt; Maybe Bool
-</span><a href="#local-6989586621679376205"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RequestBody
+</span><a href="#local-6989586621679376214"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RequestBody
 forall a. ToBody a =&gt; a -&gt; RequestBody
 </span><span class="hs-identifier hs-var">Core.toBody</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679376206"><span class="hs-identifier hs-var">body</span></a></span><span>
+</span><a href="#local-6989586621679376215"><span class="hs-identifier hs-var">body</span></a></span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeys"><span class="hs-identifier hs-type">ImportApiKeys</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679376202"><span class="annot"><span class="annottext">toHeaders :: ImportApiKeys -&gt; ResponseHeaders
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679376211"><span class="annot"><span class="annottext">toHeaders :: ImportApiKeys -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ImportApiKeys -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -319,15 +319,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeys"><span class="hs-identifier hs-type">ImportApiKeys</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679376196"><span class="annot"><span class="annottext">toPath :: ImportApiKeys -&gt; ByteString
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679376205"><span class="annot"><span class="annottext">toPath :: ImportApiKeys -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ImportApiKeys -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/apikeys&quot;</span></span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeys"><span class="hs-identifier hs-type">ImportApiKeys</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679376192"><span class="annot"><span class="annottext">toQuery :: ImportApiKeys -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeys%27"><span class="hs-identifier hs-type">ImportApiKeys'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376188"><span id="local-6989586621679376189"><span id="local-6989586621679376190"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679376201"><span class="annot"><span class="annottext">toQuery :: ImportApiKeys -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeys%27"><span class="hs-identifier hs-type">ImportApiKeys'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376197"><span id="local-6989586621679376198"><span id="local-6989586621679376199"><span class="annot"><span class="annottext">Maybe Bool
 ByteString
 ApiKeysFormat
 format :: ApiKeysFormat
@@ -336,7 +336,7 @@ failOnWarnings :: Maybe Bool
 $sel:format:ImportApiKeys' :: ImportApiKeys -&gt; ApiKeysFormat
 $sel:body:ImportApiKeys' :: ImportApiKeys -&gt; ByteString
 $sel:failOnWarnings:ImportApiKeys' :: ImportApiKeys -&gt; Maybe Bool
-</span><a href="#local-6989586621679376188"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679376197"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -344,12 +344,12 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;failonwarnings&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679376190"><span class="hs-identifier hs-var">failOnWarnings</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679376199"><span class="hs-identifier hs-var">failOnWarnings</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;format&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ApiKeysFormat -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">ApiKeysFormat
-</span><a href="#local-6989586621679376188"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679376197"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>        </span><span class="annot"><span class="annottext">QueryString
 </span><span class="hs-string">&quot;mode=import&quot;</span></span><span>
 </span><span id="line-155"></span><span>      </span><span class="hs-special">]</span><span>
@@ -357,7 +357,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-157"></span><span class="hs-comment">-- | The identifier of an ApiKey used in a UsagePlan.</span><span>
 </span><span id="line-158"></span><span class="hs-comment">--</span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- /See:/ 'newImportApiKeysResponse' smart constructor.</span><span>
-</span><span id="line-160"></span><span id="local-6989586621679376185"><span id="local-6989586621679376186"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImportApiKeysResponse"><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeysResponse"><span class="hs-identifier hs-var">ImportApiKeysResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportApiKeysResponse%27"><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeysResponse%27"><span class="hs-identifier hs-var">ImportApiKeysResponse'</span></a></span></span><span>
+</span><span id="line-160"></span><span id="local-6989586621679376194"><span id="local-6989586621679376195"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImportApiKeysResponse"><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeysResponse"><span class="hs-identifier hs-var">ImportApiKeysResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportApiKeysResponse%27"><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeysResponse%27"><span class="hs-identifier hs-var">ImportApiKeysResponse'</span></a></span></span><span>
 </span><span id="line-161"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of all the ApiKey identifiers.</span><span>
 </span><span id="line-162"></span><span>    </span><span id="%24sel%3Aids%3AImportApiKeysResponse%27"><span class="annot"><span class="annottext">ImportApiKeysResponse -&gt; Maybe [Text]
 </span><a href="Network.AWS.APIGateway.ImportApiKeys.html#%24sel%3Aids%3AImportApiKeysResponse%27"><span class="hs-identifier hs-var hs-var">ids</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -368,7 +368,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-166"></span><span>    </span><span id="%24sel%3AhttpStatus%3AImportApiKeysResponse%27"><span class="annot"><span class="annottext">ImportApiKeysResponse -&gt; Int
 </span><a href="Network.AWS.APIGateway.ImportApiKeys.html#%24sel%3AhttpStatus%3AImportApiKeysResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-167"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-168"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679376178"><span id="local-6989586621679376180"><span class="annot"><span class="annottext">ImportApiKeysResponse -&gt; ImportApiKeysResponse -&gt; Bool
+</span><span id="line-168"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679376187"><span id="local-6989586621679376189"><span class="annot"><span class="annottext">ImportApiKeysResponse -&gt; ImportApiKeysResponse -&gt; Bool
 (ImportApiKeysResponse -&gt; ImportApiKeysResponse -&gt; Bool)
 -&gt; (ImportApiKeysResponse -&gt; ImportApiKeysResponse -&gt; Bool)
 -&gt; Eq ImportApiKeysResponse
@@ -377,7 +377,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ImportApiKeysResponse -&gt; ImportApiKeysResponse -&gt; Bool
 == :: ImportApiKeysResponse -&gt; ImportApiKeysResponse -&gt; Bool
 $c== :: ImportApiKeysResponse -&gt; ImportApiKeysResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376170"><span id="local-6989586621679376172"><span id="local-6989586621679376174"><span id="local-6989586621679376176"><span class="annot"><span class="annottext">ReadPrec [ImportApiKeysResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376179"><span id="local-6989586621679376181"><span id="local-6989586621679376183"><span id="local-6989586621679376185"><span class="annot"><span class="annottext">ReadPrec [ImportApiKeysResponse]
 ReadPrec ImportApiKeysResponse
 Int -&gt; ReadS ImportApiKeysResponse
 ReadS [ImportApiKeysResponse]
@@ -397,7 +397,7 @@ readList :: ReadS [ImportApiKeysResponse]
 $creadList :: ReadS [ImportApiKeysResponse]
 readsPrec :: Int -&gt; ReadS ImportApiKeysResponse
 $creadsPrec :: Int -&gt; ReadS ImportApiKeysResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376163"><span id="local-6989586621679376165"><span id="local-6989586621679376167"><span class="annot"><span class="annottext">Int -&gt; ImportApiKeysResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376172"><span id="local-6989586621679376174"><span id="local-6989586621679376176"><span class="annot"><span class="annottext">Int -&gt; ImportApiKeysResponse -&gt; ShowS
 [ImportApiKeysResponse] -&gt; ShowS
 ImportApiKeysResponse -&gt; String
 (Int -&gt; ImportApiKeysResponse -&gt; ShowS)
@@ -441,8 +441,8 @@ $cfrom :: forall x. ImportApiKeysResponse -&gt; Rep ImportApiKeysResponse x
 </span><span id="line-185"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-186"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeysResponse"><span class="hs-identifier hs-type">ImportApiKeysResponse</span></a></span><span>
 </span><span id="line-187"></span><span id="newImportApiKeysResponse"><span class="annot"><span class="annottext">newImportApiKeysResponse :: Int -&gt; ImportApiKeysResponse
-</span><a href="Network.AWS.APIGateway.ImportApiKeys.html#newImportApiKeysResponse"><span class="hs-identifier hs-var hs-var">newImportApiKeysResponse</span></a></span></span><span> </span><span id="local-6989586621679376160"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679376160"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.APIGateway.ImportApiKeys.html#newImportApiKeysResponse"><span class="hs-identifier hs-var hs-var">newImportApiKeysResponse</span></a></span></span><span> </span><span id="local-6989586621679376169"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679376169"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-188"></span><span>  </span><span class="annot"><span class="annottext">ImportApiKeysResponse' :: Maybe [Text] -&gt; Maybe [Text] -&gt; Int -&gt; ImportApiKeysResponse
 </span><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeysResponse%27"><span class="hs-identifier hs-type">ImportApiKeysResponse'</span></a></span><span>
 </span><span id="line-189"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ids:ImportApiKeysResponse' :: Maybe [Text]
@@ -455,7 +455,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ImportApiKeysResponse' :: Int
 </span><a href="Network.AWS.APIGateway.ImportApiKeys.html#%24sel%3AhttpStatus%3AImportApiKeysResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679376160"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679376169"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-192"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-193"></span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- | A list of all the ApiKey identifiers.</span><span>
@@ -470,16 +470,16 @@ forall a. Maybe a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeysResponse%27"><span class="hs-identifier hs-type">ImportApiKeysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376159"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeysResponse%27"><span class="hs-identifier hs-type">ImportApiKeysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376168"><span class="annot"><span class="annottext">Maybe [Text]
 ids :: Maybe [Text]
 $sel:ids:ImportApiKeysResponse' :: ImportApiKeysResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621679376159"><span class="hs-identifier hs-var hs-var">ids</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679376159"><span class="hs-identifier hs-var">ids</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376158"><span class="annot"><span class="annottext">s :: ImportApiKeysResponse
-</span><a href="#local-6989586621679376158"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeysResponse%27"><span class="hs-identifier hs-type">ImportApiKeysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376157"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679376157"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportApiKeysResponse
-</span><a href="#local-6989586621679376158"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ids:ImportApiKeysResponse' :: Maybe [Text]
+</span><a href="#local-6989586621679376168"><span class="hs-identifier hs-var hs-var">ids</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679376168"><span class="hs-identifier hs-var">ids</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376167"><span class="annot"><span class="annottext">s :: ImportApiKeysResponse
+</span><a href="#local-6989586621679376167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeysResponse%27"><span class="hs-identifier hs-type">ImportApiKeysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376166"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679376166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportApiKeysResponse
+</span><a href="#local-6989586621679376167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ids:ImportApiKeysResponse' :: Maybe [Text]
 </span><a href="Network.AWS.APIGateway.ImportApiKeys.html#%24sel%3Aids%3AImportApiKeysResponse%27"><span class="hs-identifier hs-var">ids</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679376157"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeysResponse"><span class="hs-identifier hs-type">ImportApiKeysResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679376166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeysResponse"><span class="hs-identifier hs-type">ImportApiKeysResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ImportApiKeysResponse -&gt; f ImportApiKeysResponse)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -508,16 +508,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeysResponse%27"><span class="hs-identifier hs-type">ImportApiKeysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376153"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeysResponse%27"><span class="hs-identifier hs-type">ImportApiKeysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376162"><span class="annot"><span class="annottext">Maybe [Text]
 warnings :: Maybe [Text]
 $sel:warnings:ImportApiKeysResponse' :: ImportApiKeysResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621679376153"><span class="hs-identifier hs-var hs-var">warnings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679376153"><span class="hs-identifier hs-var">warnings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376152"><span class="annot"><span class="annottext">s :: ImportApiKeysResponse
-</span><a href="#local-6989586621679376152"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeysResponse%27"><span class="hs-identifier hs-type">ImportApiKeysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376151"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679376151"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportApiKeysResponse
-</span><a href="#local-6989586621679376152"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:warnings:ImportApiKeysResponse' :: Maybe [Text]
+</span><a href="#local-6989586621679376162"><span class="hs-identifier hs-var hs-var">warnings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679376162"><span class="hs-identifier hs-var">warnings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376161"><span class="annot"><span class="annottext">s :: ImportApiKeysResponse
+</span><a href="#local-6989586621679376161"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeysResponse%27"><span class="hs-identifier hs-type">ImportApiKeysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376160"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679376160"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportApiKeysResponse
+</span><a href="#local-6989586621679376161"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:warnings:ImportApiKeysResponse' :: Maybe [Text]
 </span><a href="Network.AWS.APIGateway.ImportApiKeys.html#%24sel%3Awarnings%3AImportApiKeysResponse%27"><span class="hs-identifier hs-var">warnings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679376151"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeysResponse"><span class="hs-identifier hs-type">ImportApiKeysResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679376160"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeysResponse"><span class="hs-identifier hs-type">ImportApiKeysResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ImportApiKeysResponse -&gt; f ImportApiKeysResponse)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -541,16 +541,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ImportApiKeysResponse -&gt; Int -&gt; ImportApiKeysResponse)
 -&gt; Lens ImportApiKeysResponse ImportApiKeysResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeysResponse%27"><span class="hs-identifier hs-type">ImportApiKeysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376150"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeysResponse%27"><span class="hs-identifier hs-type">ImportApiKeysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376159"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ImportApiKeysResponse' :: ImportApiKeysResponse -&gt; Int
-</span><a href="#local-6989586621679376150"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679376150"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376149"><span class="annot"><span class="annottext">s :: ImportApiKeysResponse
-</span><a href="#local-6989586621679376149"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeysResponse%27"><span class="hs-identifier hs-type">ImportApiKeysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376148"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679376148"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportApiKeysResponse
-</span><a href="#local-6989586621679376149"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ImportApiKeysResponse' :: Int
+</span><a href="#local-6989586621679376159"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679376159"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376158"><span class="annot"><span class="annottext">s :: ImportApiKeysResponse
+</span><a href="#local-6989586621679376158"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeysResponse%27"><span class="hs-identifier hs-type">ImportApiKeysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376157"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679376157"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportApiKeysResponse
+</span><a href="#local-6989586621679376158"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ImportApiKeysResponse' :: Int
 </span><a href="Network.AWS.APIGateway.ImportApiKeys.html#%24sel%3AhttpStatus%3AImportApiKeysResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679376148"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeysResponse"><span class="hs-identifier hs-type">ImportApiKeysResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679376157"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeysResponse"><span class="hs-identifier hs-type">ImportApiKeysResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-205"></span><span>
-</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376146"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeysResponse"><span class="hs-identifier hs-type">ImportApiKeysResponse</span></a></span></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376155"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.ImportApiKeys.html#ImportApiKeysResponse"><span class="hs-identifier hs-type">ImportApiKeysResponse</span></a></span></span><span>
 </span><span id="line-207"></span></pre></body></html>

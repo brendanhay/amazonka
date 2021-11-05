@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- /See:/ 'newDeleteDBSnapshot' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679798003"><span id="local-6989586621679798004"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDBSnapshot"><span class="annot"><a href="Network.AWS.RDS.DeleteDBSnapshot.html#DeleteDBSnapshot"><span class="hs-identifier hs-var">DeleteDBSnapshot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDBSnapshot%27"><span class="annot"><a href="Network.AWS.RDS.DeleteDBSnapshot.html#DeleteDBSnapshot%27"><span class="hs-identifier hs-var">DeleteDBSnapshot'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679798012"><span id="local-6989586621679798013"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDBSnapshot"><span class="annot"><a href="Network.AWS.RDS.DeleteDBSnapshot.html#DeleteDBSnapshot"><span class="hs-identifier hs-var">DeleteDBSnapshot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDBSnapshot%27"><span class="annot"><a href="Network.AWS.RDS.DeleteDBSnapshot.html#DeleteDBSnapshot%27"><span class="hs-identifier hs-var">DeleteDBSnapshot'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The DB snapshot identifier.</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- Constraints: Must be the name of an existing DB snapshot in the</span><span>
@@ -60,7 +60,7 @@
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AdbSnapshotIdentifier%3ADeleteDBSnapshot%27"><span class="annot"><span class="annottext">DeleteDBSnapshot -&gt; Text
 </span><a href="Network.AWS.RDS.DeleteDBSnapshot.html#%24sel%3AdbSnapshotIdentifier%3ADeleteDBSnapshot%27"><span class="hs-identifier hs-var hs-var">dbSnapshotIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679797997"><span id="local-6989586621679797999"><span class="annot"><span class="annottext">DeleteDBSnapshot -&gt; DeleteDBSnapshot -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679798006"><span id="local-6989586621679798008"><span class="annot"><span class="annottext">DeleteDBSnapshot -&gt; DeleteDBSnapshot -&gt; Bool
 (DeleteDBSnapshot -&gt; DeleteDBSnapshot -&gt; Bool)
 -&gt; (DeleteDBSnapshot -&gt; DeleteDBSnapshot -&gt; Bool)
 -&gt; Eq DeleteDBSnapshot
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteDBSnapshot -&gt; DeleteDBSnapshot -&gt; Bool
 == :: DeleteDBSnapshot -&gt; DeleteDBSnapshot -&gt; Bool
 $c== :: DeleteDBSnapshot -&gt; DeleteDBSnapshot -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679797988"><span id="local-6989586621679797990"><span id="local-6989586621679797992"><span id="local-6989586621679797994"><span class="annot"><span class="annottext">ReadPrec [DeleteDBSnapshot]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679797997"><span id="local-6989586621679797999"><span id="local-6989586621679798001"><span id="local-6989586621679798003"><span class="annot"><span class="annottext">ReadPrec [DeleteDBSnapshot]
 ReadPrec DeleteDBSnapshot
 Int -&gt; ReadS DeleteDBSnapshot
 ReadS [DeleteDBSnapshot]
@@ -89,7 +89,7 @@ readList :: ReadS [DeleteDBSnapshot]
 $creadList :: ReadS [DeleteDBSnapshot]
 readsPrec :: Int -&gt; ReadS DeleteDBSnapshot
 $creadsPrec :: Int -&gt; ReadS DeleteDBSnapshot
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679797981"><span id="local-6989586621679797983"><span id="local-6989586621679797985"><span class="annot"><span class="annottext">Int -&gt; DeleteDBSnapshot -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679797990"><span id="local-6989586621679797992"><span id="local-6989586621679797994"><span class="annot"><span class="annottext">Int -&gt; DeleteDBSnapshot -&gt; ShowS
 [DeleteDBSnapshot] -&gt; ShowS
 DeleteDBSnapshot -&gt; String
 (Int -&gt; DeleteDBSnapshot -&gt; ShowS)
@@ -132,14 +132,14 @@ $cfrom :: forall x. DeleteDBSnapshot -&gt; Rep DeleteDBSnapshot x
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBSnapshot.html#DeleteDBSnapshot"><span class="hs-identifier hs-type">DeleteDBSnapshot</span></a></span><span>
 </span><span id="line-80"></span><span id="newDeleteDBSnapshot"><span class="annot"><span class="annottext">newDeleteDBSnapshot :: Text -&gt; DeleteDBSnapshot
-</span><a href="Network.AWS.RDS.DeleteDBSnapshot.html#newDeleteDBSnapshot"><span class="hs-identifier hs-var hs-var">newDeleteDBSnapshot</span></a></span></span><span> </span><span id="local-6989586621679797976"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679797976"><span class="hs-identifier hs-var">pDBSnapshotIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.RDS.DeleteDBSnapshot.html#newDeleteDBSnapshot"><span class="hs-identifier hs-var hs-var">newDeleteDBSnapshot</span></a></span></span><span> </span><span id="local-6989586621679797985"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679797985"><span class="hs-identifier hs-var">pDBSnapshotIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">DeleteDBSnapshot' :: Text -&gt; DeleteDBSnapshot
 </span><a href="Network.AWS.RDS.DeleteDBSnapshot.html#DeleteDBSnapshot%27"><span class="hs-identifier hs-type">DeleteDBSnapshot'</span></a></span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dbSnapshotIdentifier:DeleteDBSnapshot' :: Text
 </span><a href="Network.AWS.RDS.DeleteDBSnapshot.html#%24sel%3AdbSnapshotIdentifier%3ADeleteDBSnapshot%27"><span class="hs-identifier hs-var">dbSnapshotIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679797976"><span class="hs-identifier hs-var">pDBSnapshotIdentifier_</span></a></span><span>
+</span><a href="#local-6989586621679797985"><span class="hs-identifier hs-var">pDBSnapshotIdentifier_</span></a></span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | The DB snapshot identifier.</span><span>
@@ -152,27 +152,27 @@ $cfrom :: forall x. DeleteDBSnapshot -&gt; Rep DeleteDBSnapshot x
 -&gt; (DeleteDBSnapshot -&gt; Text -&gt; DeleteDBSnapshot)
 -&gt; Lens DeleteDBSnapshot DeleteDBSnapshot Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBSnapshot.html#DeleteDBSnapshot%27"><span class="hs-identifier hs-type">DeleteDBSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797973"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBSnapshot.html#DeleteDBSnapshot%27"><span class="hs-identifier hs-type">DeleteDBSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797982"><span class="annot"><span class="annottext">Text
 dbSnapshotIdentifier :: Text
 $sel:dbSnapshotIdentifier:DeleteDBSnapshot' :: DeleteDBSnapshot -&gt; Text
-</span><a href="#local-6989586621679797973"><span class="hs-identifier hs-var hs-var">dbSnapshotIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679797973"><span class="hs-identifier hs-var">dbSnapshotIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797972"><span class="annot"><span class="annottext">s :: DeleteDBSnapshot
-</span><a href="#local-6989586621679797972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBSnapshot.html#DeleteDBSnapshot%27"><span class="hs-identifier hs-type">DeleteDBSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797971"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679797971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDBSnapshot
-</span><a href="#local-6989586621679797972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbSnapshotIdentifier:DeleteDBSnapshot' :: Text
+</span><a href="#local-6989586621679797982"><span class="hs-identifier hs-var hs-var">dbSnapshotIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679797982"><span class="hs-identifier hs-var">dbSnapshotIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797981"><span class="annot"><span class="annottext">s :: DeleteDBSnapshot
+</span><a href="#local-6989586621679797981"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBSnapshot.html#DeleteDBSnapshot%27"><span class="hs-identifier hs-type">DeleteDBSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797980"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679797980"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDBSnapshot
+</span><a href="#local-6989586621679797981"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbSnapshotIdentifier:DeleteDBSnapshot' :: Text
 </span><a href="Network.AWS.RDS.DeleteDBSnapshot.html#%24sel%3AdbSnapshotIdentifier%3ADeleteDBSnapshot%27"><span class="hs-identifier hs-var">dbSnapshotIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679797971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBSnapshot.html#DeleteDBSnapshot"><span class="hs-identifier hs-type">DeleteDBSnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679797980"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBSnapshot.html#DeleteDBSnapshot"><span class="hs-identifier hs-type">DeleteDBSnapshot</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBSnapshot.html#DeleteDBSnapshot"><span class="hs-identifier hs-type">DeleteDBSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-94"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-95"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBSnapshot.html#DeleteDBSnapshot"><span class="hs-identifier hs-type">DeleteDBSnapshot</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBSnapshot.html#DeleteDBSnapshotResponse"><span class="hs-identifier hs-type">DeleteDBSnapshotResponse</span></a></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679797967"><span class="annot"><span class="annottext">request :: DeleteDBSnapshot -&gt; Request DeleteDBSnapshot
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679797976"><span class="annot"><span class="annottext">request :: DeleteDBSnapshot -&gt; Request DeleteDBSnapshot
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteDBSnapshot -&gt; Request DeleteDBSnapshot
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679797963"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679797972"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteDBSnapshot
 -&gt; ClientResponse ClientBody
@@ -201,10 +201,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeleteDBSnapshotResult&quot;</span></span><span>
-</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679797960"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679797960"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679797959"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679797959"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679797958"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679797958"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679797969"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679797969"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679797968"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679797968"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679797967"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679797967"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe DBSnapshot -&gt; Int -&gt; DeleteDBSnapshotResponse
 </span><a href="Network.AWS.RDS.DeleteDBSnapshot.html#DeleteDBSnapshotResponse%27"><span class="hs-identifier hs-var">DeleteDBSnapshotResponse'</span></a></span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DBSnapshot -&gt; Int -&gt; DeleteDBSnapshotResponse)
@@ -212,7 +212,7 @@ Text
 -&gt; Either String (Int -&gt; DeleteDBSnapshotResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679797958"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DBSnapshot)
+</span><a href="#local-6989586621679797967"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DBSnapshot)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DBSnapshot&quot;</span></span><span class="hs-special">)</span><span>
@@ -224,15 +224,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679797960"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679797969"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797950"><span id="local-6989586621679797952"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBSnapshot.html#DeleteDBSnapshot"><span class="hs-identifier hs-type">DeleteDBSnapshot</span></a></span></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797959"><span id="local-6989586621679797961"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBSnapshot.html#DeleteDBSnapshot"><span class="hs-identifier hs-type">DeleteDBSnapshot</span></a></span></span></span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797947"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBSnapshot.html#DeleteDBSnapshot"><span class="hs-identifier hs-type">DeleteDBSnapshot</span></a></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797956"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBSnapshot.html#DeleteDBSnapshot"><span class="hs-identifier hs-type">DeleteDBSnapshot</span></a></span></span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBSnapshot.html#DeleteDBSnapshot"><span class="hs-identifier hs-type">DeleteDBSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679797943"><span class="annot"><span class="annottext">toHeaders :: DeleteDBSnapshot -&gt; ResponseHeaders
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679797952"><span class="annot"><span class="annottext">toHeaders :: DeleteDBSnapshot -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteDBSnapshot -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -240,18 +240,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBSnapshot.html#DeleteDBSnapshot"><span class="hs-identifier hs-type">DeleteDBSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679797938"><span class="annot"><span class="annottext">toPath :: DeleteDBSnapshot -&gt; ByteString
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679797947"><span class="annot"><span class="annottext">toPath :: DeleteDBSnapshot -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteDBSnapshot -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBSnapshot.html#DeleteDBSnapshot"><span class="hs-identifier hs-type">DeleteDBSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679797934"><span class="annot"><span class="annottext">toQuery :: DeleteDBSnapshot -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBSnapshot.html#DeleteDBSnapshot%27"><span class="hs-identifier hs-type">DeleteDBSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797932"><span class="annot"><span class="annottext">Text
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679797943"><span class="annot"><span class="annottext">toQuery :: DeleteDBSnapshot -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBSnapshot.html#DeleteDBSnapshot%27"><span class="hs-identifier hs-type">DeleteDBSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797941"><span class="annot"><span class="annottext">Text
 dbSnapshotIdentifier :: Text
 $sel:dbSnapshotIdentifier:DeleteDBSnapshot' :: DeleteDBSnapshot -&gt; Text
-</span><a href="#local-6989586621679797932"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679797941"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -271,18 +271,18 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;DBSnapshotIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679797932"><span class="hs-identifier hs-var">dbSnapshotIdentifier</span></a></span><span>
+</span><a href="#local-6989586621679797941"><span class="hs-identifier hs-var">dbSnapshotIdentifier</span></a></span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | /See:/ 'newDeleteDBSnapshotResponse' smart constructor.</span><span>
-</span><span id="line-128"></span><span id="local-6989586621679797929"><span id="local-6989586621679797930"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDBSnapshotResponse"><span class="annot"><a href="Network.AWS.RDS.DeleteDBSnapshot.html#DeleteDBSnapshotResponse"><span class="hs-identifier hs-var">DeleteDBSnapshotResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDBSnapshotResponse%27"><span class="annot"><a href="Network.AWS.RDS.DeleteDBSnapshot.html#DeleteDBSnapshotResponse%27"><span class="hs-identifier hs-var">DeleteDBSnapshotResponse'</span></a></span></span><span>
+</span><span id="line-128"></span><span id="local-6989586621679797938"><span id="local-6989586621679797939"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDBSnapshotResponse"><span class="annot"><a href="Network.AWS.RDS.DeleteDBSnapshot.html#DeleteDBSnapshotResponse"><span class="hs-identifier hs-var">DeleteDBSnapshotResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDBSnapshotResponse%27"><span class="annot"><a href="Network.AWS.RDS.DeleteDBSnapshot.html#DeleteDBSnapshotResponse%27"><span class="hs-identifier hs-var">DeleteDBSnapshotResponse'</span></a></span></span><span>
 </span><span id="line-129"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AdbSnapshot%3ADeleteDBSnapshotResponse%27"><span class="annot"><span class="annottext">DeleteDBSnapshotResponse -&gt; Maybe DBSnapshot
 </span><a href="Network.AWS.RDS.DeleteDBSnapshot.html#%24sel%3AdbSnapshot%3ADeleteDBSnapshotResponse%27"><span class="hs-identifier hs-var hs-var">dbSnapshot</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBSnapshot.html#DBSnapshot"><span class="hs-identifier hs-type">DBSnapshot</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-130"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-131"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteDBSnapshotResponse%27"><span class="annot"><span class="annottext">DeleteDBSnapshotResponse -&gt; Int
 </span><a href="Network.AWS.RDS.DeleteDBSnapshot.html#%24sel%3AhttpStatus%3ADeleteDBSnapshotResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-132"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-133"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679797923"><span id="local-6989586621679797925"><span class="annot"><span class="annottext">DeleteDBSnapshotResponse -&gt; DeleteDBSnapshotResponse -&gt; Bool
+</span><span id="line-133"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679797932"><span id="local-6989586621679797934"><span class="annot"><span class="annottext">DeleteDBSnapshotResponse -&gt; DeleteDBSnapshotResponse -&gt; Bool
 (DeleteDBSnapshotResponse -&gt; DeleteDBSnapshotResponse -&gt; Bool)
 -&gt; (DeleteDBSnapshotResponse -&gt; DeleteDBSnapshotResponse -&gt; Bool)
 -&gt; Eq DeleteDBSnapshotResponse
@@ -291,7 +291,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteDBSnapshotResponse -&gt; DeleteDBSnapshotResponse -&gt; Bool
 == :: DeleteDBSnapshotResponse -&gt; DeleteDBSnapshotResponse -&gt; Bool
 $c== :: DeleteDBSnapshotResponse -&gt; DeleteDBSnapshotResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679797915"><span id="local-6989586621679797917"><span id="local-6989586621679797919"><span id="local-6989586621679797921"><span class="annot"><span class="annottext">ReadPrec [DeleteDBSnapshotResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679797924"><span id="local-6989586621679797926"><span id="local-6989586621679797928"><span id="local-6989586621679797930"><span class="annot"><span class="annottext">ReadPrec [DeleteDBSnapshotResponse]
 ReadPrec DeleteDBSnapshotResponse
 Int -&gt; ReadS DeleteDBSnapshotResponse
 ReadS [DeleteDBSnapshotResponse]
@@ -311,7 +311,7 @@ readList :: ReadS [DeleteDBSnapshotResponse]
 $creadList :: ReadS [DeleteDBSnapshotResponse]
 readsPrec :: Int -&gt; ReadS DeleteDBSnapshotResponse
 $creadsPrec :: Int -&gt; ReadS DeleteDBSnapshotResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679797909"><span id="local-6989586621679797911"><span id="local-6989586621679797913"><span class="annot"><span class="annottext">Int -&gt; DeleteDBSnapshotResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679797918"><span id="local-6989586621679797920"><span id="local-6989586621679797922"><span class="annot"><span class="annottext">Int -&gt; DeleteDBSnapshotResponse -&gt; ShowS
 [DeleteDBSnapshotResponse] -&gt; ShowS
 DeleteDBSnapshotResponse -&gt; String
 (Int -&gt; DeleteDBSnapshotResponse -&gt; ShowS)
@@ -359,8 +359,8 @@ DeleteDBSnapshotResponse -&gt; Rep DeleteDBSnapshotResponse x
 </span><span id="line-148"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-149"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBSnapshot.html#DeleteDBSnapshotResponse"><span class="hs-identifier hs-type">DeleteDBSnapshotResponse</span></a></span><span>
 </span><span id="line-150"></span><span id="newDeleteDBSnapshotResponse"><span class="annot"><span class="annottext">newDeleteDBSnapshotResponse :: Int -&gt; DeleteDBSnapshotResponse
-</span><a href="Network.AWS.RDS.DeleteDBSnapshot.html#newDeleteDBSnapshotResponse"><span class="hs-identifier hs-var hs-var">newDeleteDBSnapshotResponse</span></a></span></span><span> </span><span id="local-6989586621679797906"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679797906"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.RDS.DeleteDBSnapshot.html#newDeleteDBSnapshotResponse"><span class="hs-identifier hs-var hs-var">newDeleteDBSnapshotResponse</span></a></span></span><span> </span><span id="local-6989586621679797915"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679797915"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>  </span><span class="annot"><span class="annottext">DeleteDBSnapshotResponse' :: Maybe DBSnapshot -&gt; Int -&gt; DeleteDBSnapshotResponse
 </span><a href="Network.AWS.RDS.DeleteDBSnapshot.html#DeleteDBSnapshotResponse%27"><span class="hs-identifier hs-type">DeleteDBSnapshotResponse'</span></a></span><span>
 </span><span id="line-152"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dbSnapshot:DeleteDBSnapshotResponse' :: Maybe DBSnapshot
@@ -370,7 +370,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteDBSnapshotResponse' :: Int
 </span><a href="Network.AWS.RDS.DeleteDBSnapshot.html#%24sel%3AhttpStatus%3ADeleteDBSnapshotResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679797906"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679797915"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-155"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -386,16 +386,16 @@ forall a. Maybe a
      (Maybe DBSnapshot)
      (Maybe DBSnapshot)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBSnapshot.html#DeleteDBSnapshotResponse%27"><span class="hs-identifier hs-type">DeleteDBSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797905"><span class="annot"><span class="annottext">Maybe DBSnapshot
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBSnapshot.html#DeleteDBSnapshotResponse%27"><span class="hs-identifier hs-type">DeleteDBSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797914"><span class="annot"><span class="annottext">Maybe DBSnapshot
 dbSnapshot :: Maybe DBSnapshot
 $sel:dbSnapshot:DeleteDBSnapshotResponse' :: DeleteDBSnapshotResponse -&gt; Maybe DBSnapshot
-</span><a href="#local-6989586621679797905"><span class="hs-identifier hs-var hs-var">dbSnapshot</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DBSnapshot
-</span><a href="#local-6989586621679797905"><span class="hs-identifier hs-var">dbSnapshot</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797904"><span class="annot"><span class="annottext">s :: DeleteDBSnapshotResponse
-</span><a href="#local-6989586621679797904"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBSnapshot.html#DeleteDBSnapshotResponse%27"><span class="hs-identifier hs-type">DeleteDBSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797903"><span class="annot"><span class="annottext">Maybe DBSnapshot
-</span><a href="#local-6989586621679797903"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDBSnapshotResponse
-</span><a href="#local-6989586621679797904"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbSnapshot:DeleteDBSnapshotResponse' :: Maybe DBSnapshot
+</span><a href="#local-6989586621679797914"><span class="hs-identifier hs-var hs-var">dbSnapshot</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DBSnapshot
+</span><a href="#local-6989586621679797914"><span class="hs-identifier hs-var">dbSnapshot</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797913"><span class="annot"><span class="annottext">s :: DeleteDBSnapshotResponse
+</span><a href="#local-6989586621679797913"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBSnapshot.html#DeleteDBSnapshotResponse%27"><span class="hs-identifier hs-type">DeleteDBSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797912"><span class="annot"><span class="annottext">Maybe DBSnapshot
+</span><a href="#local-6989586621679797912"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDBSnapshotResponse
+</span><a href="#local-6989586621679797913"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbSnapshot:DeleteDBSnapshotResponse' :: Maybe DBSnapshot
 </span><a href="Network.AWS.RDS.DeleteDBSnapshot.html#%24sel%3AdbSnapshot%3ADeleteDBSnapshotResponse%27"><span class="hs-identifier hs-var">dbSnapshot</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DBSnapshot
-</span><a href="#local-6989586621679797903"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBSnapshot.html#DeleteDBSnapshotResponse"><span class="hs-identifier hs-type">DeleteDBSnapshotResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679797912"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBSnapshot.html#DeleteDBSnapshotResponse"><span class="hs-identifier hs-type">DeleteDBSnapshotResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-162"></span><span class="annot"><a href="Network.AWS.RDS.DeleteDBSnapshot.html#deleteDBSnapshotResponse_httpStatus"><span class="hs-identifier hs-type">deleteDBSnapshotResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBSnapshot.html#DeleteDBSnapshotResponse"><span class="hs-identifier hs-type">DeleteDBSnapshotResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -405,16 +405,16 @@ $sel:dbSnapshot:DeleteDBSnapshotResponse' :: DeleteDBSnapshotResponse -&gt; Mayb
 -&gt; (DeleteDBSnapshotResponse -&gt; Int -&gt; DeleteDBSnapshotResponse)
 -&gt; Lens DeleteDBSnapshotResponse DeleteDBSnapshotResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBSnapshot.html#DeleteDBSnapshotResponse%27"><span class="hs-identifier hs-type">DeleteDBSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797902"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBSnapshot.html#DeleteDBSnapshotResponse%27"><span class="hs-identifier hs-type">DeleteDBSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797911"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteDBSnapshotResponse' :: DeleteDBSnapshotResponse -&gt; Int
-</span><a href="#local-6989586621679797902"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679797902"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797901"><span class="annot"><span class="annottext">s :: DeleteDBSnapshotResponse
-</span><a href="#local-6989586621679797901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBSnapshot.html#DeleteDBSnapshotResponse%27"><span class="hs-identifier hs-type">DeleteDBSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797900"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679797900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDBSnapshotResponse
-</span><a href="#local-6989586621679797901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteDBSnapshotResponse' :: Int
+</span><a href="#local-6989586621679797911"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679797911"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797910"><span class="annot"><span class="annottext">s :: DeleteDBSnapshotResponse
+</span><a href="#local-6989586621679797910"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBSnapshot.html#DeleteDBSnapshotResponse%27"><span class="hs-identifier hs-type">DeleteDBSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797909"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679797909"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDBSnapshotResponse
+</span><a href="#local-6989586621679797910"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteDBSnapshotResponse' :: Int
 </span><a href="Network.AWS.RDS.DeleteDBSnapshot.html#%24sel%3AhttpStatus%3ADeleteDBSnapshotResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679797900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBSnapshot.html#DeleteDBSnapshotResponse"><span class="hs-identifier hs-type">DeleteDBSnapshotResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679797909"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBSnapshot.html#DeleteDBSnapshotResponse"><span class="hs-identifier hs-type">DeleteDBSnapshotResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797898"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBSnapshot.html#DeleteDBSnapshotResponse"><span class="hs-identifier hs-type">DeleteDBSnapshotResponse</span></a></span></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797907"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBSnapshot.html#DeleteDBSnapshotResponse"><span class="hs-identifier hs-type">DeleteDBSnapshotResponse</span></a></span></span><span>
 </span><span id="line-166"></span></pre></body></html>

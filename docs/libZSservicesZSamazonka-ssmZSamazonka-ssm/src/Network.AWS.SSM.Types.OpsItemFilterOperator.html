@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679803764"><span id="local-6989586621679803765"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OpsItemFilterOperator"><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemFilterOperator.html#OpsItemFilterOperator"><span class="hs-identifier hs-var">OpsItemFilterOperator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OpsItemFilterOperator%27"><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemFilterOperator.html#OpsItemFilterOperator%27"><span class="hs-identifier hs-var">OpsItemFilterOperator'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679803773"><span id="local-6989586621679803774"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OpsItemFilterOperator"><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemFilterOperator.html#OpsItemFilterOperator"><span class="hs-identifier hs-var">OpsItemFilterOperator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OpsItemFilterOperator%27"><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemFilterOperator.html#OpsItemFilterOperator%27"><span class="hs-identifier hs-var">OpsItemFilterOperator'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromOpsItemFilterOperator"><span class="annot"><span class="annottext">OpsItemFilterOperator -&gt; Text
 </span><a href="Network.AWS.SSM.Types.OpsItemFilterOperator.html#fromOpsItemFilterOperator"><span class="hs-identifier hs-var hs-var">fromOpsItemFilterOperator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679803756"><span id="local-6989586621679803758"><span id="local-6989586621679803760"><span class="annot"><span class="annottext">Int -&gt; OpsItemFilterOperator -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679803765"><span id="local-6989586621679803767"><span id="local-6989586621679803769"><span class="annot"><span class="annottext">Int -&gt; OpsItemFilterOperator -&gt; ShowS
 [OpsItemFilterOperator] -&gt; ShowS
 OpsItemFilterOperator -&gt; String
 (Int -&gt; OpsItemFilterOperator -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: OpsItemFilterOperator -&gt; String
 showsPrec :: Int -&gt; OpsItemFilterOperator -&gt; ShowS
 $cshowsPrec :: Int -&gt; OpsItemFilterOperator -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679803747"><span id="local-6989586621679803749"><span id="local-6989586621679803751"><span id="local-6989586621679803753"><span class="annot"><span class="annottext">ReadPrec [OpsItemFilterOperator]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679803756"><span id="local-6989586621679803758"><span id="local-6989586621679803760"><span id="local-6989586621679803762"><span class="annot"><span class="annottext">ReadPrec [OpsItemFilterOperator]
 ReadPrec OpsItemFilterOperator
 Int -&gt; ReadS OpsItemFilterOperator
 ReadS [OpsItemFilterOperator]
@@ -74,7 +74,7 @@ $creadList :: ReadS [OpsItemFilterOperator]
 readsPrec :: Int -&gt; ReadS OpsItemFilterOperator
 $creadsPrec :: Int -&gt; ReadS OpsItemFilterOperator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679803742"><span id="local-6989586621679803744"><span class="annot"><span class="annottext">OpsItemFilterOperator -&gt; OpsItemFilterOperator -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679803751"><span id="local-6989586621679803753"><span class="annot"><span class="annottext">OpsItemFilterOperator -&gt; OpsItemFilterOperator -&gt; Bool
 (OpsItemFilterOperator -&gt; OpsItemFilterOperator -&gt; Bool)
 -&gt; (OpsItemFilterOperator -&gt; OpsItemFilterOperator -&gt; Bool)
 -&gt; Eq OpsItemFilterOperator
@@ -84,7 +84,7 @@ $c/= :: OpsItemFilterOperator -&gt; OpsItemFilterOperator -&gt; Bool
 == :: OpsItemFilterOperator -&gt; OpsItemFilterOperator -&gt; Bool
 $c== :: OpsItemFilterOperator -&gt; OpsItemFilterOperator -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679803726"><span id="local-6989586621679803728"><span id="local-6989586621679803730"><span id="local-6989586621679803732"><span id="local-6989586621679803734"><span id="local-6989586621679803736"><span id="local-6989586621679803738"><span class="annot"><span class="annottext">Eq OpsItemFilterOperator
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679803735"><span id="local-6989586621679803737"><span id="local-6989586621679803739"><span id="local-6989586621679803741"><span id="local-6989586621679803743"><span id="local-6989586621679803745"><span id="local-6989586621679803747"><span class="annot"><span class="annottext">Eq OpsItemFilterOperator
 Eq OpsItemFilterOperator
 -&gt; (OpsItemFilterOperator -&gt; OpsItemFilterOperator -&gt; Ordering)
 -&gt; (OpsItemFilterOperator -&gt; OpsItemFilterOperator -&gt; Bool)
@@ -142,7 +142,7 @@ $cfrom :: forall x. OpsItemFilterOperator -&gt; Rep OpsItemFilterOperator x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679803718"><span id="local-6989586621679803720"><span class="annot"><span class="annottext">Int -&gt; OpsItemFilterOperator -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679803727"><span id="local-6989586621679803729"><span class="annot"><span class="annottext">Int -&gt; OpsItemFilterOperator -&gt; Int
 OpsItemFilterOperator -&gt; Int
 (Int -&gt; OpsItemFilterOperator -&gt; Int)
 -&gt; (OpsItemFilterOperator -&gt; Int) -&gt; Hashable OpsItemFilterOperator
@@ -152,54 +152,54 @@ $chash :: OpsItemFilterOperator -&gt; Int
 hashWithSalt :: Int -&gt; OpsItemFilterOperator -&gt; Int
 $chashWithSalt :: Int -&gt; OpsItemFilterOperator -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679803715"><span class="annot"><span class="annottext">OpsItemFilterOperator -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679803724"><span class="annot"><span class="annottext">OpsItemFilterOperator -&gt; ()
 (OpsItemFilterOperator -&gt; ()) -&gt; NFData OpsItemFilterOperator
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: OpsItemFilterOperator -&gt; ()
 $crnf :: OpsItemFilterOperator -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679803712"><span class="annot"><span class="annottext">Text -&gt; Either String OpsItemFilterOperator
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679803721"><span class="annot"><span class="annottext">Text -&gt; Either String OpsItemFilterOperator
 (Text -&gt; Either String OpsItemFilterOperator)
 -&gt; FromText OpsItemFilterOperator
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String OpsItemFilterOperator
 $cfromText :: Text -&gt; Either String OpsItemFilterOperator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679803709"><span class="annot"><span class="annottext">OpsItemFilterOperator -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679803718"><span class="annot"><span class="annottext">OpsItemFilterOperator -&gt; Text
 (OpsItemFilterOperator -&gt; Text) -&gt; ToText OpsItemFilterOperator
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: OpsItemFilterOperator -&gt; Text
 $ctoText :: OpsItemFilterOperator -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679803706"><span class="annot"><span class="annottext">OpsItemFilterOperator -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679803715"><span class="annot"><span class="annottext">OpsItemFilterOperator -&gt; ByteString
 (OpsItemFilterOperator -&gt; ByteString)
 -&gt; ToByteString OpsItemFilterOperator
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: OpsItemFilterOperator -&gt; ByteString
 $ctoBS :: OpsItemFilterOperator -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679803703"><span class="annot"><span class="annottext">OpsItemFilterOperator -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679803712"><span class="annot"><span class="annottext">OpsItemFilterOperator -&gt; ByteStringBuilder
 (OpsItemFilterOperator -&gt; ByteStringBuilder)
 -&gt; ToLog OpsItemFilterOperator
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: OpsItemFilterOperator -&gt; ByteStringBuilder
 $cbuild :: OpsItemFilterOperator -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679803700"><span class="annot"><span class="annottext">HeaderName -&gt; OpsItemFilterOperator -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679803709"><span class="annot"><span class="annottext">HeaderName -&gt; OpsItemFilterOperator -&gt; [Header]
 (HeaderName -&gt; OpsItemFilterOperator -&gt; [Header])
 -&gt; ToHeader OpsItemFilterOperator
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; OpsItemFilterOperator -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; OpsItemFilterOperator -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679803697"><span class="annot"><span class="annottext">OpsItemFilterOperator -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679803706"><span class="annot"><span class="annottext">OpsItemFilterOperator -&gt; QueryString
 (OpsItemFilterOperator -&gt; QueryString)
 -&gt; ToQuery OpsItemFilterOperator
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: OpsItemFilterOperator -&gt; QueryString
 $ctoQuery :: OpsItemFilterOperator -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679803692"><span id="local-6989586621679803694"><span class="annot"><span class="annottext">Value -&gt; Parser [OpsItemFilterOperator]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679803701"><span id="local-6989586621679803703"><span class="annot"><span class="annottext">Value -&gt; Parser [OpsItemFilterOperator]
 Value -&gt; Parser OpsItemFilterOperator
 (Value -&gt; Parser OpsItemFilterOperator)
 -&gt; (Value -&gt; Parser [OpsItemFilterOperator])
@@ -211,7 +211,7 @@ $cparseJSONList :: Value -&gt; Parser [OpsItemFilterOperator]
 parseJSON :: Value -&gt; Parser OpsItemFilterOperator
 $cparseJSON :: Value -&gt; Parser OpsItemFilterOperator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679803687"><span id="local-6989586621679803689"><span class="annot"><span class="annottext">FromJSONKeyFunction [OpsItemFilterOperator]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679803696"><span id="local-6989586621679803698"><span class="annot"><span class="annottext">FromJSONKeyFunction [OpsItemFilterOperator]
 FromJSONKeyFunction OpsItemFilterOperator
 FromJSONKeyFunction OpsItemFilterOperator
 -&gt; FromJSONKeyFunction [OpsItemFilterOperator]
@@ -223,7 +223,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [OpsItemFilterOperator]
 fromJSONKey :: FromJSONKeyFunction OpsItemFilterOperator
 $cfromJSONKey :: FromJSONKeyFunction OpsItemFilterOperator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679803678"><span id="local-6989586621679803680"><span id="local-6989586621679803682"><span id="local-6989586621679803684"><span class="annot"><span class="annottext">[OpsItemFilterOperator] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679803687"><span id="local-6989586621679803689"><span id="local-6989586621679803691"><span id="local-6989586621679803693"><span class="annot"><span class="annottext">[OpsItemFilterOperator] -&gt; Encoding
 [OpsItemFilterOperator] -&gt; Value
 OpsItemFilterOperator -&gt; Encoding
 OpsItemFilterOperator -&gt; Value
@@ -247,7 +247,7 @@ $ctoEncoding :: OpsItemFilterOperator -&gt; Encoding
 toJSON :: OpsItemFilterOperator -&gt; Value
 $ctoJSON :: OpsItemFilterOperator -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679803673"><span id="local-6989586621679803675"><span class="annot"><span class="annottext">ToJSONKeyFunction [OpsItemFilterOperator]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679803682"><span id="local-6989586621679803684"><span class="annot"><span class="annottext">ToJSONKeyFunction [OpsItemFilterOperator]
 ToJSONKeyFunction OpsItemFilterOperator
 ToJSONKeyFunction OpsItemFilterOperator
 -&gt; ToJSONKeyFunction [OpsItemFilterOperator]
@@ -259,14 +259,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [OpsItemFilterOperator]
 toJSONKey :: ToJSONKeyFunction OpsItemFilterOperator
 $ctoJSONKey :: ToJSONKeyFunction OpsItemFilterOperator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679803670"><span class="annot"><span class="annottext">[Node] -&gt; Either String OpsItemFilterOperator
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679803679"><span class="annot"><span class="annottext">[Node] -&gt; Either String OpsItemFilterOperator
 ([Node] -&gt; Either String OpsItemFilterOperator)
 -&gt; FromXML OpsItemFilterOperator
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String OpsItemFilterOperator
 $cparseXML :: [Node] -&gt; Either String OpsItemFilterOperator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679803667"><span class="annot"><span class="annottext">OpsItemFilterOperator -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679803676"><span class="annot"><span class="annottext">OpsItemFilterOperator -&gt; XML
 (OpsItemFilterOperator -&gt; XML) -&gt; ToXML OpsItemFilterOperator
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: OpsItemFilterOperator -&gt; XML

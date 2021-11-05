@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- if you execute the change set.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newChange' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679420973"><span id="local-6989586621679420974"></span></span><span class="hs-keyword">data</span><span> </span><span id="Change"><span class="annot"><a href="Network.AWS.CloudFormation.Types.Change.html#Change"><span class="hs-identifier hs-var">Change</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Change%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.Change.html#Change%27"><span class="hs-identifier hs-var">Change'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679420982"><span id="local-6989586621679420983"></span></span><span class="hs-keyword">data</span><span> </span><span id="Change"><span class="annot"><a href="Network.AWS.CloudFormation.Types.Change.html#Change"><span class="hs-identifier hs-var">Change</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Change%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.Change.html#Change%27"><span class="hs-identifier hs-var">Change'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A @ResourceChange@ structure that describes the resource and action that</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- CloudFormation will perform.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AresourceChange%3AChange%27"><span class="annot"><span class="annottext">Change -&gt; Maybe ResourceChange
@@ -39,7 +39,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3Atype%27%3AChange%27"><span class="annot"><span class="annottext">Change -&gt; Maybe ChangeType
 </span><a href="Network.AWS.CloudFormation.Types.Change.html#%24sel%3Atype%27%3AChange%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ChangeType.html#ChangeType"><span class="hs-identifier hs-type">ChangeType</span></a></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679420966"><span id="local-6989586621679420968"><span class="annot"><span class="annottext">Change -&gt; Change -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679420975"><span id="local-6989586621679420977"><span class="annot"><span class="annottext">Change -&gt; Change -&gt; Bool
 (Change -&gt; Change -&gt; Bool)
 -&gt; (Change -&gt; Change -&gt; Bool) -&gt; Eq Change
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Change -&gt; Change -&gt; Bool
 == :: Change -&gt; Change -&gt; Bool
 $c== :: Change -&gt; Change -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679420957"><span id="local-6989586621679420959"><span id="local-6989586621679420961"><span id="local-6989586621679420963"><span class="annot"><span class="annottext">ReadPrec [Change]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679420966"><span id="local-6989586621679420968"><span id="local-6989586621679420970"><span id="local-6989586621679420972"><span class="annot"><span class="annottext">ReadPrec [Change]
 ReadPrec Change
 Int -&gt; ReadS Change
 ReadS [Change]
@@ -67,7 +67,7 @@ readList :: ReadS [Change]
 $creadList :: ReadS [Change]
 readsPrec :: Int -&gt; ReadS Change
 $creadsPrec :: Int -&gt; ReadS Change
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679420950"><span id="local-6989586621679420952"><span id="local-6989586621679420954"><span class="annot"><span class="annottext">Int -&gt; Change -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679420959"><span id="local-6989586621679420961"><span id="local-6989586621679420963"><span class="annot"><span class="annottext">Int -&gt; Change -&gt; ShowS
 [Change] -&gt; ShowS
 Change -&gt; String
 (Int -&gt; Change -&gt; ShowS)
@@ -128,16 +128,16 @@ forall a. Maybe a
 -&gt; (Change -&gt; Maybe ResourceChange -&gt; Change)
 -&gt; Lens Change Change (Maybe ResourceChange) (Maybe ResourceChange)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.Change.html#Change%27"><span class="hs-identifier hs-type">Change'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420941"><span class="annot"><span class="annottext">Maybe ResourceChange
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.Change.html#Change%27"><span class="hs-identifier hs-type">Change'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420950"><span class="annot"><span class="annottext">Maybe ResourceChange
 resourceChange :: Maybe ResourceChange
 $sel:resourceChange:Change' :: Change -&gt; Maybe ResourceChange
-</span><a href="#local-6989586621679420941"><span class="hs-identifier hs-var hs-var">resourceChange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceChange
-</span><a href="#local-6989586621679420941"><span class="hs-identifier hs-var">resourceChange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420940"><span class="annot"><span class="annottext">s :: Change
-</span><a href="#local-6989586621679420940"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.Change.html#Change%27"><span class="hs-identifier hs-type">Change'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420939"><span class="annot"><span class="annottext">Maybe ResourceChange
-</span><a href="#local-6989586621679420939"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Change
-</span><a href="#local-6989586621679420940"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceChange:Change' :: Maybe ResourceChange
+</span><a href="#local-6989586621679420950"><span class="hs-identifier hs-var hs-var">resourceChange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceChange
+</span><a href="#local-6989586621679420950"><span class="hs-identifier hs-var">resourceChange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420949"><span class="annot"><span class="annottext">s :: Change
+</span><a href="#local-6989586621679420949"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.Change.html#Change%27"><span class="hs-identifier hs-type">Change'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420948"><span class="annot"><span class="annottext">Maybe ResourceChange
+</span><a href="#local-6989586621679420948"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Change
+</span><a href="#local-6989586621679420949"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceChange:Change' :: Maybe ResourceChange
 </span><a href="Network.AWS.CloudFormation.Types.Change.html#%24sel%3AresourceChange%3AChange%27"><span class="hs-identifier hs-var">resourceChange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceChange
-</span><a href="#local-6989586621679420939"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.Change.html#Change"><span class="hs-identifier hs-type">Change</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679420948"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.Change.html#Change"><span class="hs-identifier hs-type">Change</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | The type of entity that CloudFormation changes. Currently, the only</span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- entity type is @Resource@.</span><span>
@@ -147,21 +147,21 @@ $sel:resourceChange:Change' :: Change -&gt; Maybe ResourceChange
 -&gt; (Change -&gt; Maybe ChangeType -&gt; Change)
 -&gt; Lens Change Change (Maybe ChangeType) (Maybe ChangeType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.Change.html#Change%27"><span class="hs-identifier hs-type">Change'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420937"><span class="annot"><span class="annottext">Maybe ChangeType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.Change.html#Change%27"><span class="hs-identifier hs-type">Change'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679420946"><span class="annot"><span class="annottext">Maybe ChangeType
 type' :: Maybe ChangeType
 $sel:type':Change' :: Change -&gt; Maybe ChangeType
-</span><a href="#local-6989586621679420937"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChangeType
-</span><a href="#local-6989586621679420937"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420936"><span class="annot"><span class="annottext">s :: Change
-</span><a href="#local-6989586621679420936"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.Change.html#Change%27"><span class="hs-identifier hs-type">Change'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420935"><span class="annot"><span class="annottext">Maybe ChangeType
-</span><a href="#local-6989586621679420935"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Change
-</span><a href="#local-6989586621679420936"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Change' :: Maybe ChangeType
+</span><a href="#local-6989586621679420946"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChangeType
+</span><a href="#local-6989586621679420946"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679420945"><span class="annot"><span class="annottext">s :: Change
+</span><a href="#local-6989586621679420945"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.Change.html#Change%27"><span class="hs-identifier hs-type">Change'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679420944"><span class="annot"><span class="annottext">Maybe ChangeType
+</span><a href="#local-6989586621679420944"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Change
+</span><a href="#local-6989586621679420945"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Change' :: Maybe ChangeType
 </span><a href="Network.AWS.CloudFormation.Types.Change.html#%24sel%3Atype%27%3AChange%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChangeType
-</span><a href="#local-6989586621679420935"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.Change.html#Change"><span class="hs-identifier hs-type">Change</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679420944"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.Change.html#Change"><span class="hs-identifier hs-type">Change</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.Change.html#Change"><span class="hs-identifier hs-type">Change</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679420932"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Change
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679420930"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679420930"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679420941"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Change
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679420939"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679420939"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">Maybe ResourceChange -&gt; Maybe ChangeType -&gt; Change
 </span><a href="Network.AWS.CloudFormation.Types.Change.html#Change%27"><span class="hs-identifier hs-var">Change'</span></a></span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">(Maybe ResourceChange -&gt; Maybe ChangeType -&gt; Change)
@@ -169,7 +169,7 @@ $sel:type':Change' :: Change -&gt; Maybe ChangeType
 -&gt; Either String (Maybe ChangeType -&gt; Change)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679420930"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ResourceChange)
+</span><a href="#local-6989586621679420939"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ResourceChange)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceChange&quot;</span></span><span class="hs-special">)</span><span>
@@ -177,12 +177,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe ChangeType) -&gt; Either String Change
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679420930"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ChangeType)
+</span><a href="#local-6989586621679420939"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ChangeType)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679420924"><span id="local-6989586621679420926"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.Change.html#Change"><span class="hs-identifier hs-type">Change</span></a></span></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679420933"><span id="local-6989586621679420935"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.Change.html#Change"><span class="hs-identifier hs-type">Change</span></a></span></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679420921"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.Change.html#Change"><span class="hs-identifier hs-type">Change</span></a></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679420930"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.Change.html#Change"><span class="hs-identifier hs-type">Change</span></a></span></span><span>
 </span><span id="line-82"></span></pre></body></html>

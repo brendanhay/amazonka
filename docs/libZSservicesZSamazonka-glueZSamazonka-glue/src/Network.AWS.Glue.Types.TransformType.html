@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679703011"><span id="local-6989586621679703012"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TransformType"><span class="annot"><a href="Network.AWS.Glue.Types.TransformType.html#TransformType"><span class="hs-identifier hs-var">TransformType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransformType%27"><span class="annot"><a href="Network.AWS.Glue.Types.TransformType.html#TransformType%27"><span class="hs-identifier hs-var">TransformType'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679703020"><span id="local-6989586621679703021"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TransformType"><span class="annot"><a href="Network.AWS.Glue.Types.TransformType.html#TransformType"><span class="hs-identifier hs-var">TransformType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransformType%27"><span class="annot"><a href="Network.AWS.Glue.Types.TransformType.html#TransformType%27"><span class="hs-identifier hs-var">TransformType'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTransformType"><span class="annot"><span class="annottext">TransformType -&gt; Text
 </span><a href="Network.AWS.Glue.Types.TransformType.html#fromTransformType"><span class="hs-identifier hs-var hs-var">fromTransformType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679703003"><span id="local-6989586621679703005"><span id="local-6989586621679703007"><span class="annot"><span class="annottext">Int -&gt; TransformType -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679703012"><span id="local-6989586621679703014"><span id="local-6989586621679703016"><span class="annot"><span class="annottext">Int -&gt; TransformType -&gt; ShowS
 [TransformType] -&gt; ShowS
 TransformType -&gt; String
 (Int -&gt; TransformType -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: TransformType -&gt; String
 showsPrec :: Int -&gt; TransformType -&gt; ShowS
 $cshowsPrec :: Int -&gt; TransformType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679702994"><span id="local-6989586621679702996"><span id="local-6989586621679702998"><span id="local-6989586621679703000"><span class="annot"><span class="annottext">ReadPrec [TransformType]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679703003"><span id="local-6989586621679703005"><span id="local-6989586621679703007"><span id="local-6989586621679703009"><span class="annot"><span class="annottext">ReadPrec [TransformType]
 ReadPrec TransformType
 Int -&gt; ReadS TransformType
 ReadS [TransformType]
@@ -71,7 +71,7 @@ $creadList :: ReadS [TransformType]
 readsPrec :: Int -&gt; ReadS TransformType
 $creadsPrec :: Int -&gt; ReadS TransformType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679702989"><span id="local-6989586621679702991"><span class="annot"><span class="annottext">TransformType -&gt; TransformType -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679702998"><span id="local-6989586621679703000"><span class="annot"><span class="annottext">TransformType -&gt; TransformType -&gt; Bool
 (TransformType -&gt; TransformType -&gt; Bool)
 -&gt; (TransformType -&gt; TransformType -&gt; Bool) -&gt; Eq TransformType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -80,7 +80,7 @@ $c/= :: TransformType -&gt; TransformType -&gt; Bool
 == :: TransformType -&gt; TransformType -&gt; Bool
 $c== :: TransformType -&gt; TransformType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679702973"><span id="local-6989586621679702975"><span id="local-6989586621679702977"><span id="local-6989586621679702979"><span id="local-6989586621679702981"><span id="local-6989586621679702983"><span id="local-6989586621679702985"><span class="annot"><span class="annottext">Eq TransformType
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679702982"><span id="local-6989586621679702984"><span id="local-6989586621679702986"><span id="local-6989586621679702988"><span id="local-6989586621679702990"><span id="local-6989586621679702992"><span id="local-6989586621679702994"><span class="annot"><span class="annottext">Eq TransformType
 Eq TransformType
 -&gt; (TransformType -&gt; TransformType -&gt; Ordering)
 -&gt; (TransformType -&gt; TransformType -&gt; Bool)
@@ -131,7 +131,7 @@ $cfrom :: forall x. TransformType -&gt; Rep TransformType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679702965"><span id="local-6989586621679702967"><span class="annot"><span class="annottext">Int -&gt; TransformType -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679702974"><span id="local-6989586621679702976"><span class="annot"><span class="annottext">Int -&gt; TransformType -&gt; Int
 TransformType -&gt; Int
 (Int -&gt; TransformType -&gt; Int)
 -&gt; (TransformType -&gt; Int) -&gt; Hashable TransformType
@@ -141,49 +141,49 @@ $chash :: TransformType -&gt; Int
 hashWithSalt :: Int -&gt; TransformType -&gt; Int
 $chashWithSalt :: Int -&gt; TransformType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679702962"><span class="annot"><span class="annottext">TransformType -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679702971"><span class="annot"><span class="annottext">TransformType -&gt; ()
 (TransformType -&gt; ()) -&gt; NFData TransformType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TransformType -&gt; ()
 $crnf :: TransformType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679702959"><span class="annot"><span class="annottext">Text -&gt; Either String TransformType
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679702968"><span class="annot"><span class="annottext">Text -&gt; Either String TransformType
 (Text -&gt; Either String TransformType) -&gt; FromText TransformType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TransformType
 $cfromText :: Text -&gt; Either String TransformType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679702956"><span class="annot"><span class="annottext">TransformType -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679702965"><span class="annot"><span class="annottext">TransformType -&gt; Text
 (TransformType -&gt; Text) -&gt; ToText TransformType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TransformType -&gt; Text
 $ctoText :: TransformType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679702953"><span class="annot"><span class="annottext">TransformType -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679702962"><span class="annot"><span class="annottext">TransformType -&gt; ByteString
 (TransformType -&gt; ByteString) -&gt; ToByteString TransformType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TransformType -&gt; ByteString
 $ctoBS :: TransformType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679702950"><span class="annot"><span class="annottext">TransformType -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679702959"><span class="annot"><span class="annottext">TransformType -&gt; ByteStringBuilder
 (TransformType -&gt; ByteStringBuilder) -&gt; ToLog TransformType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TransformType -&gt; ByteStringBuilder
 $cbuild :: TransformType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679702947"><span class="annot"><span class="annottext">HeaderName -&gt; TransformType -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679702956"><span class="annot"><span class="annottext">HeaderName -&gt; TransformType -&gt; [Header]
 (HeaderName -&gt; TransformType -&gt; [Header]) -&gt; ToHeader TransformType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TransformType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TransformType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679702944"><span class="annot"><span class="annottext">TransformType -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679702953"><span class="annot"><span class="annottext">TransformType -&gt; QueryString
 (TransformType -&gt; QueryString) -&gt; ToQuery TransformType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TransformType -&gt; QueryString
 $ctoQuery :: TransformType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679702939"><span id="local-6989586621679702941"><span class="annot"><span class="annottext">Value -&gt; Parser [TransformType]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679702948"><span id="local-6989586621679702950"><span class="annot"><span class="annottext">Value -&gt; Parser [TransformType]
 Value -&gt; Parser TransformType
 (Value -&gt; Parser TransformType)
 -&gt; (Value -&gt; Parser [TransformType]) -&gt; FromJSON TransformType
@@ -194,7 +194,7 @@ $cparseJSONList :: Value -&gt; Parser [TransformType]
 parseJSON :: Value -&gt; Parser TransformType
 $cparseJSON :: Value -&gt; Parser TransformType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679702934"><span id="local-6989586621679702936"><span class="annot"><span class="annottext">FromJSONKeyFunction [TransformType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679702943"><span id="local-6989586621679702945"><span class="annot"><span class="annottext">FromJSONKeyFunction [TransformType]
 FromJSONKeyFunction TransformType
 FromJSONKeyFunction TransformType
 -&gt; FromJSONKeyFunction [TransformType] -&gt; FromJSONKey TransformType
@@ -205,7 +205,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TransformType]
 fromJSONKey :: FromJSONKeyFunction TransformType
 $cfromJSONKey :: FromJSONKeyFunction TransformType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679702925"><span id="local-6989586621679702927"><span id="local-6989586621679702929"><span id="local-6989586621679702931"><span class="annot"><span class="annottext">[TransformType] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679702934"><span id="local-6989586621679702936"><span id="local-6989586621679702938"><span id="local-6989586621679702940"><span class="annot"><span class="annottext">[TransformType] -&gt; Encoding
 [TransformType] -&gt; Value
 TransformType -&gt; Encoding
 TransformType -&gt; Value
@@ -229,7 +229,7 @@ $ctoEncoding :: TransformType -&gt; Encoding
 toJSON :: TransformType -&gt; Value
 $ctoJSON :: TransformType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679702920"><span id="local-6989586621679702922"><span class="annot"><span class="annottext">ToJSONKeyFunction [TransformType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679702929"><span id="local-6989586621679702931"><span class="annot"><span class="annottext">ToJSONKeyFunction [TransformType]
 ToJSONKeyFunction TransformType
 ToJSONKeyFunction TransformType
 -&gt; ToJSONKeyFunction [TransformType] -&gt; ToJSONKey TransformType
@@ -240,13 +240,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TransformType]
 toJSONKey :: ToJSONKeyFunction TransformType
 $ctoJSONKey :: ToJSONKeyFunction TransformType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679702917"><span class="annot"><span class="annottext">[Node] -&gt; Either String TransformType
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679702926"><span class="annot"><span class="annottext">[Node] -&gt; Either String TransformType
 ([Node] -&gt; Either String TransformType) -&gt; FromXML TransformType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TransformType
 $cparseXML :: [Node] -&gt; Either String TransformType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679702914"><span class="annot"><span class="annottext">TransformType -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679702923"><span class="annot"><span class="annottext">TransformType -&gt; XML
 (TransformType -&gt; XML) -&gt; ToXML TransformType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TransformType -&gt; XML

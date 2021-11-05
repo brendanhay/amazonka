@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newStartingPosition' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679198770"><span id="local-6989586621679198771"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartingPosition"><span class="annot"><a href="Network.AWS.Kinesis.Types.StartingPosition.html#StartingPosition"><span class="hs-identifier hs-var">StartingPosition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartingPosition%27"><span class="annot"><a href="Network.AWS.Kinesis.Types.StartingPosition.html#StartingPosition%27"><span class="hs-identifier hs-var">StartingPosition'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679198779"><span id="local-6989586621679198780"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartingPosition"><span class="annot"><a href="Network.AWS.Kinesis.Types.StartingPosition.html#StartingPosition"><span class="hs-identifier hs-var">StartingPosition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartingPosition%27"><span class="annot"><a href="Network.AWS.Kinesis.Types.StartingPosition.html#StartingPosition%27"><span class="hs-identifier hs-var">StartingPosition'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The sequence number of the data record in the shard from which to start</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- streaming. To specify a sequence number, set @StartingPosition@ to</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- @AT_SEQUENCE_NUMBER@ or @AFTER_SEQUENCE_NUMBER@.</span><span>
@@ -62,7 +62,7 @@
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3Atype%27%3AStartingPosition%27"><span class="annot"><span class="annottext">StartingPosition -&gt; ShardIteratorType
 </span><a href="Network.AWS.Kinesis.Types.StartingPosition.html#%24sel%3Atype%27%3AStartingPosition%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.ShardIteratorType.html#ShardIteratorType"><span class="hs-identifier hs-type">ShardIteratorType</span></a></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679198762"><span id="local-6989586621679198764"><span class="annot"><span class="annottext">StartingPosition -&gt; StartingPosition -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679198771"><span id="local-6989586621679198773"><span class="annot"><span class="annottext">StartingPosition -&gt; StartingPosition -&gt; Bool
 (StartingPosition -&gt; StartingPosition -&gt; Bool)
 -&gt; (StartingPosition -&gt; StartingPosition -&gt; Bool)
 -&gt; Eq StartingPosition
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StartingPosition -&gt; StartingPosition -&gt; Bool
 == :: StartingPosition -&gt; StartingPosition -&gt; Bool
 $c== :: StartingPosition -&gt; StartingPosition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198753"><span id="local-6989586621679198755"><span id="local-6989586621679198757"><span id="local-6989586621679198759"><span class="annot"><span class="annottext">ReadPrec [StartingPosition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198762"><span id="local-6989586621679198764"><span id="local-6989586621679198766"><span id="local-6989586621679198768"><span class="annot"><span class="annottext">ReadPrec [StartingPosition]
 ReadPrec StartingPosition
 Int -&gt; ReadS StartingPosition
 ReadS [StartingPosition]
@@ -91,7 +91,7 @@ readList :: ReadS [StartingPosition]
 $creadList :: ReadS [StartingPosition]
 readsPrec :: Int -&gt; ReadS StartingPosition
 $creadsPrec :: Int -&gt; ReadS StartingPosition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198746"><span id="local-6989586621679198748"><span id="local-6989586621679198750"><span class="annot"><span class="annottext">Int -&gt; StartingPosition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198755"><span id="local-6989586621679198757"><span id="local-6989586621679198759"><span class="annot"><span class="annottext">Int -&gt; StartingPosition -&gt; ShowS
 [StartingPosition] -&gt; ShowS
 StartingPosition -&gt; String
 (Int -&gt; StartingPosition -&gt; ShowS)
@@ -159,8 +159,8 @@ $cfrom :: forall x. StartingPosition -&gt; Rep StartingPosition x
 </span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.Kinesis.Types.ShardIteratorType.html#ShardIteratorType"><span class="hs-identifier hs-type">ShardIteratorType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-104"></span><span>  </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StartingPosition.html#StartingPosition"><span class="hs-identifier hs-type">StartingPosition</span></a></span><span>
 </span><span id="line-105"></span><span id="newStartingPosition"><span class="annot"><span class="annottext">newStartingPosition :: ShardIteratorType -&gt; StartingPosition
-</span><a href="Network.AWS.Kinesis.Types.StartingPosition.html#newStartingPosition"><span class="hs-identifier hs-var hs-var">newStartingPosition</span></a></span></span><span> </span><span id="local-6989586621679198740"><span class="annot"><span class="annottext">ShardIteratorType
-</span><a href="#local-6989586621679198740"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Kinesis.Types.StartingPosition.html#newStartingPosition"><span class="hs-identifier hs-var hs-var">newStartingPosition</span></a></span></span><span> </span><span id="local-6989586621679198749"><span class="annot"><span class="annottext">ShardIteratorType
+</span><a href="#local-6989586621679198749"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>  </span><span class="annot"><span class="annottext">StartingPosition' :: Maybe Text -&gt; Maybe POSIX -&gt; ShardIteratorType -&gt; StartingPosition
 </span><a href="Network.AWS.Kinesis.Types.StartingPosition.html#StartingPosition%27"><span class="hs-identifier hs-type">StartingPosition'</span></a></span><span>
 </span><span id="line-107"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sequenceNumber:StartingPosition' :: Maybe Text
@@ -173,7 +173,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':StartingPosition' :: ShardIteratorType
 </span><a href="Network.AWS.Kinesis.Types.StartingPosition.html#%24sel%3Atype%27%3AStartingPosition%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ShardIteratorType
-</span><a href="#local-6989586621679198740"><span class="hs-identifier hs-var">pType_</span></a></span><span>
+</span><a href="#local-6989586621679198749"><span class="hs-identifier hs-var">pType_</span></a></span><span>
 </span><span id="line-110"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- | The sequence number of the data record in the shard from which to start</span><span>
@@ -186,16 +186,16 @@ forall a. Maybe a
 -&gt; (StartingPosition -&gt; Maybe Text -&gt; StartingPosition)
 -&gt; Lens StartingPosition StartingPosition (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StartingPosition.html#StartingPosition%27"><span class="hs-identifier hs-type">StartingPosition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198736"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StartingPosition.html#StartingPosition%27"><span class="hs-identifier hs-type">StartingPosition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198745"><span class="annot"><span class="annottext">Maybe Text
 sequenceNumber :: Maybe Text
 $sel:sequenceNumber:StartingPosition' :: StartingPosition -&gt; Maybe Text
-</span><a href="#local-6989586621679198736"><span class="hs-identifier hs-var hs-var">sequenceNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679198736"><span class="hs-identifier hs-var">sequenceNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198735"><span class="annot"><span class="annottext">s :: StartingPosition
-</span><a href="#local-6989586621679198735"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StartingPosition.html#StartingPosition%27"><span class="hs-identifier hs-type">StartingPosition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198734"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679198734"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartingPosition
-</span><a href="#local-6989586621679198735"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sequenceNumber:StartingPosition' :: Maybe Text
+</span><a href="#local-6989586621679198745"><span class="hs-identifier hs-var hs-var">sequenceNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198745"><span class="hs-identifier hs-var">sequenceNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198744"><span class="annot"><span class="annottext">s :: StartingPosition
+</span><a href="#local-6989586621679198744"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StartingPosition.html#StartingPosition%27"><span class="hs-identifier hs-type">StartingPosition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198743"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198743"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartingPosition
+</span><a href="#local-6989586621679198744"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sequenceNumber:StartingPosition' :: Maybe Text
 </span><a href="Network.AWS.Kinesis.Types.StartingPosition.html#%24sel%3AsequenceNumber%3AStartingPosition%27"><span class="hs-identifier hs-var">sequenceNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679198734"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StartingPosition.html#StartingPosition"><span class="hs-identifier hs-type">StartingPosition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679198743"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StartingPosition.html#StartingPosition"><span class="hs-identifier hs-type">StartingPosition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | The time stamp of the data record from which to start reading. To</span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- specify a time stamp, set @StartingPosition@ to @Type AT_TIMESTAMP@. A</span><span>
@@ -213,16 +213,16 @@ $sel:sequenceNumber:StartingPosition' :: StartingPosition -&gt; Maybe Text
 -&gt; Lens
      StartingPosition StartingPosition (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StartingPosition.html#StartingPosition%27"><span class="hs-identifier hs-type">StartingPosition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198732"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StartingPosition.html#StartingPosition%27"><span class="hs-identifier hs-type">StartingPosition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198741"><span class="annot"><span class="annottext">Maybe POSIX
 timestamp :: Maybe POSIX
 $sel:timestamp:StartingPosition' :: StartingPosition -&gt; Maybe POSIX
-</span><a href="#local-6989586621679198732"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679198732"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198731"><span class="annot"><span class="annottext">s :: StartingPosition
-</span><a href="#local-6989586621679198731"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StartingPosition.html#StartingPosition%27"><span class="hs-identifier hs-type">StartingPosition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198730"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679198730"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartingPosition
-</span><a href="#local-6989586621679198731"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:StartingPosition' :: Maybe POSIX
+</span><a href="#local-6989586621679198741"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679198741"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198740"><span class="annot"><span class="annottext">s :: StartingPosition
+</span><a href="#local-6989586621679198740"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StartingPosition.html#StartingPosition%27"><span class="hs-identifier hs-type">StartingPosition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198739"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679198739"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartingPosition
+</span><a href="#local-6989586621679198740"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:StartingPosition' :: Maybe POSIX
 </span><a href="Network.AWS.Kinesis.Types.StartingPosition.html#%24sel%3Atimestamp%3AStartingPosition%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679198730"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StartingPosition.html#StartingPosition"><span class="hs-identifier hs-type">StartingPosition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679198739"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StartingPosition.html#StartingPosition"><span class="hs-identifier hs-type">StartingPosition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; StartingPosition -&gt; f StartingPosition)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -266,24 +266,24 @@ forall (a :: Format). Iso' (Time a) UTCTime
      ShardIteratorType
      ShardIteratorType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StartingPosition.html#StartingPosition%27"><span class="hs-identifier hs-type">StartingPosition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198725"><span class="annot"><span class="annottext">ShardIteratorType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StartingPosition.html#StartingPosition%27"><span class="hs-identifier hs-type">StartingPosition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198734"><span class="annot"><span class="annottext">ShardIteratorType
 type' :: ShardIteratorType
 $sel:type':StartingPosition' :: StartingPosition -&gt; ShardIteratorType
-</span><a href="#local-6989586621679198725"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ShardIteratorType
-</span><a href="#local-6989586621679198725"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198724"><span class="annot"><span class="annottext">s :: StartingPosition
-</span><a href="#local-6989586621679198724"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StartingPosition.html#StartingPosition%27"><span class="hs-identifier hs-type">StartingPosition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198723"><span class="annot"><span class="annottext">ShardIteratorType
-</span><a href="#local-6989586621679198723"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartingPosition
-</span><a href="#local-6989586621679198724"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':StartingPosition' :: ShardIteratorType
+</span><a href="#local-6989586621679198734"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ShardIteratorType
+</span><a href="#local-6989586621679198734"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198733"><span class="annot"><span class="annottext">s :: StartingPosition
+</span><a href="#local-6989586621679198733"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StartingPosition.html#StartingPosition%27"><span class="hs-identifier hs-type">StartingPosition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198732"><span class="annot"><span class="annottext">ShardIteratorType
+</span><a href="#local-6989586621679198732"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartingPosition
+</span><a href="#local-6989586621679198733"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':StartingPosition' :: ShardIteratorType
 </span><a href="Network.AWS.Kinesis.Types.StartingPosition.html#%24sel%3Atype%27%3AStartingPosition%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ShardIteratorType
-</span><a href="#local-6989586621679198723"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StartingPosition.html#StartingPosition"><span class="hs-identifier hs-type">StartingPosition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679198732"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StartingPosition.html#StartingPosition"><span class="hs-identifier hs-type">StartingPosition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198719"><span id="local-6989586621679198721"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StartingPosition.html#StartingPosition"><span class="hs-identifier hs-type">StartingPosition</span></a></span></span></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198728"><span id="local-6989586621679198730"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StartingPosition.html#StartingPosition"><span class="hs-identifier hs-type">StartingPosition</span></a></span></span></span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198716"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StartingPosition.html#StartingPosition"><span class="hs-identifier hs-type">StartingPosition</span></a></span></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198725"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StartingPosition.html#StartingPosition"><span class="hs-identifier hs-type">StartingPosition</span></a></span></span><span>
 </span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198708"><span id="local-6989586621679198710"><span id="local-6989586621679198712"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StartingPosition.html#StartingPosition"><span class="hs-identifier hs-type">StartingPosition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679198706"><span class="annot"><span class="annottext">toJSON :: StartingPosition -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StartingPosition.html#StartingPosition%27"><span class="hs-identifier hs-type">StartingPosition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198702"><span id="local-6989586621679198703"><span id="local-6989586621679198704"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198717"><span id="local-6989586621679198719"><span id="local-6989586621679198721"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StartingPosition.html#StartingPosition"><span class="hs-identifier hs-type">StartingPosition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679198715"><span class="annot"><span class="annottext">toJSON :: StartingPosition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StartingPosition.html#StartingPosition%27"><span class="hs-identifier hs-type">StartingPosition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198711"><span id="local-6989586621679198712"><span id="local-6989586621679198713"><span class="annot"><span class="annottext">Maybe Text
 Maybe POSIX
 ShardIteratorType
 type' :: ShardIteratorType
@@ -292,7 +292,7 @@ sequenceNumber :: Maybe Text
 $sel:type':StartingPosition' :: StartingPosition -&gt; ShardIteratorType
 $sel:timestamp:StartingPosition' :: StartingPosition -&gt; Maybe POSIX
 $sel:sequenceNumber:StartingPosition' :: StartingPosition -&gt; Maybe Text
-</span><a href="#local-6989586621679198702"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679198711"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-155"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -305,21 +305,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-157"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679198704"><span class="hs-identifier hs-var">sequenceNumber</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679198713"><span class="hs-identifier hs-var">sequenceNumber</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-158"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Timestamp&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679198703"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679198712"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ShardIteratorType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ShardIteratorType
-</span><a href="#local-6989586621679198702"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679198711"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-161"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span></pre></body></html>

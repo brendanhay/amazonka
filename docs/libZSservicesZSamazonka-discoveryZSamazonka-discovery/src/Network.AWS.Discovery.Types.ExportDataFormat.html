@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679203239"><span id="local-6989586621679203240"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ExportDataFormat"><span class="annot"><a href="Network.AWS.Discovery.Types.ExportDataFormat.html#ExportDataFormat"><span class="hs-identifier hs-var">ExportDataFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExportDataFormat%27"><span class="annot"><a href="Network.AWS.Discovery.Types.ExportDataFormat.html#ExportDataFormat%27"><span class="hs-identifier hs-var">ExportDataFormat'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679203248"><span id="local-6989586621679203249"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ExportDataFormat"><span class="annot"><a href="Network.AWS.Discovery.Types.ExportDataFormat.html#ExportDataFormat"><span class="hs-identifier hs-var">ExportDataFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExportDataFormat%27"><span class="annot"><a href="Network.AWS.Discovery.Types.ExportDataFormat.html#ExportDataFormat%27"><span class="hs-identifier hs-var">ExportDataFormat'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromExportDataFormat"><span class="annot"><span class="annottext">ExportDataFormat -&gt; Text
 </span><a href="Network.AWS.Discovery.Types.ExportDataFormat.html#fromExportDataFormat"><span class="hs-identifier hs-var hs-var">fromExportDataFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679203231"><span id="local-6989586621679203233"><span id="local-6989586621679203235"><span class="annot"><span class="annottext">Int -&gt; ExportDataFormat -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679203240"><span id="local-6989586621679203242"><span id="local-6989586621679203244"><span class="annot"><span class="annottext">Int -&gt; ExportDataFormat -&gt; ShowS
 [ExportDataFormat] -&gt; ShowS
 ExportDataFormat -&gt; String
 (Int -&gt; ExportDataFormat -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ExportDataFormat -&gt; String
 showsPrec :: Int -&gt; ExportDataFormat -&gt; ShowS
 $cshowsPrec :: Int -&gt; ExportDataFormat -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679203222"><span id="local-6989586621679203224"><span id="local-6989586621679203226"><span id="local-6989586621679203228"><span class="annot"><span class="annottext">ReadPrec [ExportDataFormat]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679203231"><span id="local-6989586621679203233"><span id="local-6989586621679203235"><span id="local-6989586621679203237"><span class="annot"><span class="annottext">ReadPrec [ExportDataFormat]
 ReadPrec ExportDataFormat
 Int -&gt; ReadS ExportDataFormat
 ReadS [ExportDataFormat]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ExportDataFormat]
 readsPrec :: Int -&gt; ReadS ExportDataFormat
 $creadsPrec :: Int -&gt; ReadS ExportDataFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679203217"><span id="local-6989586621679203219"><span class="annot"><span class="annottext">ExportDataFormat -&gt; ExportDataFormat -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679203226"><span id="local-6989586621679203228"><span class="annot"><span class="annottext">ExportDataFormat -&gt; ExportDataFormat -&gt; Bool
 (ExportDataFormat -&gt; ExportDataFormat -&gt; Bool)
 -&gt; (ExportDataFormat -&gt; ExportDataFormat -&gt; Bool)
 -&gt; Eq ExportDataFormat
@@ -82,7 +82,7 @@ $c/= :: ExportDataFormat -&gt; ExportDataFormat -&gt; Bool
 == :: ExportDataFormat -&gt; ExportDataFormat -&gt; Bool
 $c== :: ExportDataFormat -&gt; ExportDataFormat -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679203201"><span id="local-6989586621679203203"><span id="local-6989586621679203205"><span id="local-6989586621679203207"><span id="local-6989586621679203209"><span id="local-6989586621679203211"><span id="local-6989586621679203213"><span class="annot"><span class="annottext">Eq ExportDataFormat
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679203210"><span id="local-6989586621679203212"><span id="local-6989586621679203214"><span id="local-6989586621679203216"><span id="local-6989586621679203218"><span id="local-6989586621679203220"><span id="local-6989586621679203222"><span class="annot"><span class="annottext">Eq ExportDataFormat
 Eq ExportDataFormat
 -&gt; (ExportDataFormat -&gt; ExportDataFormat -&gt; Ordering)
 -&gt; (ExportDataFormat -&gt; ExportDataFormat -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. ExportDataFormat -&gt; Rep ExportDataFormat x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679203193"><span id="local-6989586621679203195"><span class="annot"><span class="annottext">Int -&gt; ExportDataFormat -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679203202"><span id="local-6989586621679203204"><span class="annot"><span class="annottext">Int -&gt; ExportDataFormat -&gt; Int
 ExportDataFormat -&gt; Int
 (Int -&gt; ExportDataFormat -&gt; Int)
 -&gt; (ExportDataFormat -&gt; Int) -&gt; Hashable ExportDataFormat
@@ -143,51 +143,51 @@ $chash :: ExportDataFormat -&gt; Int
 hashWithSalt :: Int -&gt; ExportDataFormat -&gt; Int
 $chashWithSalt :: Int -&gt; ExportDataFormat -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679203190"><span class="annot"><span class="annottext">ExportDataFormat -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679203199"><span class="annot"><span class="annottext">ExportDataFormat -&gt; ()
 (ExportDataFormat -&gt; ()) -&gt; NFData ExportDataFormat
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ExportDataFormat -&gt; ()
 $crnf :: ExportDataFormat -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679203187"><span class="annot"><span class="annottext">Text -&gt; Either String ExportDataFormat
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679203196"><span class="annot"><span class="annottext">Text -&gt; Either String ExportDataFormat
 (Text -&gt; Either String ExportDataFormat)
 -&gt; FromText ExportDataFormat
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ExportDataFormat
 $cfromText :: Text -&gt; Either String ExportDataFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679203184"><span class="annot"><span class="annottext">ExportDataFormat -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679203193"><span class="annot"><span class="annottext">ExportDataFormat -&gt; Text
 (ExportDataFormat -&gt; Text) -&gt; ToText ExportDataFormat
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ExportDataFormat -&gt; Text
 $ctoText :: ExportDataFormat -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679203181"><span class="annot"><span class="annottext">ExportDataFormat -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679203190"><span class="annot"><span class="annottext">ExportDataFormat -&gt; ByteString
 (ExportDataFormat -&gt; ByteString) -&gt; ToByteString ExportDataFormat
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ExportDataFormat -&gt; ByteString
 $ctoBS :: ExportDataFormat -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679203178"><span class="annot"><span class="annottext">ExportDataFormat -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679203187"><span class="annot"><span class="annottext">ExportDataFormat -&gt; ByteStringBuilder
 (ExportDataFormat -&gt; ByteStringBuilder) -&gt; ToLog ExportDataFormat
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ExportDataFormat -&gt; ByteStringBuilder
 $cbuild :: ExportDataFormat -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679203175"><span class="annot"><span class="annottext">HeaderName -&gt; ExportDataFormat -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679203184"><span class="annot"><span class="annottext">HeaderName -&gt; ExportDataFormat -&gt; [Header]
 (HeaderName -&gt; ExportDataFormat -&gt; [Header])
 -&gt; ToHeader ExportDataFormat
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ExportDataFormat -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ExportDataFormat -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679203172"><span class="annot"><span class="annottext">ExportDataFormat -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679203181"><span class="annot"><span class="annottext">ExportDataFormat -&gt; QueryString
 (ExportDataFormat -&gt; QueryString) -&gt; ToQuery ExportDataFormat
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ExportDataFormat -&gt; QueryString
 $ctoQuery :: ExportDataFormat -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679203167"><span id="local-6989586621679203169"><span class="annot"><span class="annottext">Value -&gt; Parser [ExportDataFormat]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679203176"><span id="local-6989586621679203178"><span class="annot"><span class="annottext">Value -&gt; Parser [ExportDataFormat]
 Value -&gt; Parser ExportDataFormat
 (Value -&gt; Parser ExportDataFormat)
 -&gt; (Value -&gt; Parser [ExportDataFormat])
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [ExportDataFormat]
 parseJSON :: Value -&gt; Parser ExportDataFormat
 $cparseJSON :: Value -&gt; Parser ExportDataFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679203162"><span id="local-6989586621679203164"><span class="annot"><span class="annottext">FromJSONKeyFunction [ExportDataFormat]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679203171"><span id="local-6989586621679203173"><span class="annot"><span class="annottext">FromJSONKeyFunction [ExportDataFormat]
 FromJSONKeyFunction ExportDataFormat
 FromJSONKeyFunction ExportDataFormat
 -&gt; FromJSONKeyFunction [ExportDataFormat]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ExportDataFormat]
 fromJSONKey :: FromJSONKeyFunction ExportDataFormat
 $cfromJSONKey :: FromJSONKeyFunction ExportDataFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679203153"><span id="local-6989586621679203155"><span id="local-6989586621679203157"><span id="local-6989586621679203159"><span class="annot"><span class="annottext">[ExportDataFormat] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679203162"><span id="local-6989586621679203164"><span id="local-6989586621679203166"><span id="local-6989586621679203168"><span class="annot"><span class="annottext">[ExportDataFormat] -&gt; Encoding
 [ExportDataFormat] -&gt; Value
 ExportDataFormat -&gt; Encoding
 ExportDataFormat -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: ExportDataFormat -&gt; Encoding
 toJSON :: ExportDataFormat -&gt; Value
 $ctoJSON :: ExportDataFormat -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679203148"><span id="local-6989586621679203150"><span class="annot"><span class="annottext">ToJSONKeyFunction [ExportDataFormat]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679203157"><span id="local-6989586621679203159"><span class="annot"><span class="annottext">ToJSONKeyFunction [ExportDataFormat]
 ToJSONKeyFunction ExportDataFormat
 ToJSONKeyFunction ExportDataFormat
 -&gt; ToJSONKeyFunction [ExportDataFormat]
@@ -247,14 +247,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ExportDataFormat]
 toJSONKey :: ToJSONKeyFunction ExportDataFormat
 $ctoJSONKey :: ToJSONKeyFunction ExportDataFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679203145"><span class="annot"><span class="annottext">[Node] -&gt; Either String ExportDataFormat
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679203154"><span class="annot"><span class="annottext">[Node] -&gt; Either String ExportDataFormat
 ([Node] -&gt; Either String ExportDataFormat)
 -&gt; FromXML ExportDataFormat
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ExportDataFormat
 $cparseXML :: [Node] -&gt; Either String ExportDataFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679203142"><span class="annot"><span class="annottext">ExportDataFormat -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679203151"><span class="annot"><span class="annottext">ExportDataFormat -&gt; XML
 (ExportDataFormat -&gt; XML) -&gt; ToXML ExportDataFormat
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ExportDataFormat -&gt; XML

@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679287497"><span id="local-6989586621679287498"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ImageStateChangeReasonCode"><span class="annot"><a href="Network.AWS.AppStream.Types.ImageStateChangeReasonCode.html#ImageStateChangeReasonCode"><span class="hs-identifier hs-var">ImageStateChangeReasonCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImageStateChangeReasonCode%27"><span class="annot"><a href="Network.AWS.AppStream.Types.ImageStateChangeReasonCode.html#ImageStateChangeReasonCode%27"><span class="hs-identifier hs-var">ImageStateChangeReasonCode'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679287506"><span id="local-6989586621679287507"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ImageStateChangeReasonCode"><span class="annot"><a href="Network.AWS.AppStream.Types.ImageStateChangeReasonCode.html#ImageStateChangeReasonCode"><span class="hs-identifier hs-var">ImageStateChangeReasonCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImageStateChangeReasonCode%27"><span class="annot"><a href="Network.AWS.AppStream.Types.ImageStateChangeReasonCode.html#ImageStateChangeReasonCode%27"><span class="hs-identifier hs-var">ImageStateChangeReasonCode'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromImageStateChangeReasonCode"><span class="annot"><span class="annottext">ImageStateChangeReasonCode -&gt; Text
 </span><a href="Network.AWS.AppStream.Types.ImageStateChangeReasonCode.html#fromImageStateChangeReasonCode"><span class="hs-identifier hs-var hs-var">fromImageStateChangeReasonCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679287489"><span id="local-6989586621679287491"><span id="local-6989586621679287493"><span class="annot"><span class="annottext">Int -&gt; ImageStateChangeReasonCode -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679287498"><span id="local-6989586621679287500"><span id="local-6989586621679287502"><span class="annot"><span class="annottext">Int -&gt; ImageStateChangeReasonCode -&gt; ShowS
 [ImageStateChangeReasonCode] -&gt; ShowS
 ImageStateChangeReasonCode -&gt; String
 (Int -&gt; ImageStateChangeReasonCode -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: ImageStateChangeReasonCode -&gt; String
 showsPrec :: Int -&gt; ImageStateChangeReasonCode -&gt; ShowS
 $cshowsPrec :: Int -&gt; ImageStateChangeReasonCode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679287480"><span id="local-6989586621679287482"><span id="local-6989586621679287484"><span id="local-6989586621679287486"><span class="annot"><span class="annottext">ReadPrec [ImageStateChangeReasonCode]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679287489"><span id="local-6989586621679287491"><span id="local-6989586621679287493"><span id="local-6989586621679287495"><span class="annot"><span class="annottext">ReadPrec [ImageStateChangeReasonCode]
 ReadPrec ImageStateChangeReasonCode
 Int -&gt; ReadS ImageStateChangeReasonCode
 ReadS [ImageStateChangeReasonCode]
@@ -73,7 +73,7 @@ $creadList :: ReadS [ImageStateChangeReasonCode]
 readsPrec :: Int -&gt; ReadS ImageStateChangeReasonCode
 $creadsPrec :: Int -&gt; ReadS ImageStateChangeReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679287475"><span id="local-6989586621679287477"><span class="annot"><span class="annottext">ImageStateChangeReasonCode -&gt; ImageStateChangeReasonCode -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679287484"><span id="local-6989586621679287486"><span class="annot"><span class="annottext">ImageStateChangeReasonCode -&gt; ImageStateChangeReasonCode -&gt; Bool
 (ImageStateChangeReasonCode -&gt; ImageStateChangeReasonCode -&gt; Bool)
 -&gt; (ImageStateChangeReasonCode
     -&gt; ImageStateChangeReasonCode -&gt; Bool)
@@ -84,7 +84,7 @@ $c/= :: ImageStateChangeReasonCode -&gt; ImageStateChangeReasonCode -&gt; Bool
 == :: ImageStateChangeReasonCode -&gt; ImageStateChangeReasonCode -&gt; Bool
 $c== :: ImageStateChangeReasonCode -&gt; ImageStateChangeReasonCode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679287459"><span id="local-6989586621679287461"><span id="local-6989586621679287463"><span id="local-6989586621679287465"><span id="local-6989586621679287467"><span id="local-6989586621679287469"><span id="local-6989586621679287471"><span class="annot"><span class="annottext">Eq ImageStateChangeReasonCode
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679287468"><span id="local-6989586621679287470"><span id="local-6989586621679287472"><span id="local-6989586621679287474"><span id="local-6989586621679287476"><span id="local-6989586621679287478"><span id="local-6989586621679287480"><span class="annot"><span class="annottext">Eq ImageStateChangeReasonCode
 Eq ImageStateChangeReasonCode
 -&gt; (ImageStateChangeReasonCode
     -&gt; ImageStateChangeReasonCode -&gt; Ordering)
@@ -156,7 +156,7 @@ ImageStateChangeReasonCode -&gt; Rep ImageStateChangeReasonCode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679287451"><span id="local-6989586621679287453"><span class="annot"><span class="annottext">Int -&gt; ImageStateChangeReasonCode -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679287460"><span id="local-6989586621679287462"><span class="annot"><span class="annottext">Int -&gt; ImageStateChangeReasonCode -&gt; Int
 ImageStateChangeReasonCode -&gt; Int
 (Int -&gt; ImageStateChangeReasonCode -&gt; Int)
 -&gt; (ImageStateChangeReasonCode -&gt; Int)
@@ -167,56 +167,56 @@ $chash :: ImageStateChangeReasonCode -&gt; Int
 hashWithSalt :: Int -&gt; ImageStateChangeReasonCode -&gt; Int
 $chashWithSalt :: Int -&gt; ImageStateChangeReasonCode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679287448"><span class="annot"><span class="annottext">ImageStateChangeReasonCode -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679287457"><span class="annot"><span class="annottext">ImageStateChangeReasonCode -&gt; ()
 (ImageStateChangeReasonCode -&gt; ())
 -&gt; NFData ImageStateChangeReasonCode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ImageStateChangeReasonCode -&gt; ()
 $crnf :: ImageStateChangeReasonCode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679287445"><span class="annot"><span class="annottext">Text -&gt; Either String ImageStateChangeReasonCode
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679287454"><span class="annot"><span class="annottext">Text -&gt; Either String ImageStateChangeReasonCode
 (Text -&gt; Either String ImageStateChangeReasonCode)
 -&gt; FromText ImageStateChangeReasonCode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ImageStateChangeReasonCode
 $cfromText :: Text -&gt; Either String ImageStateChangeReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679287442"><span class="annot"><span class="annottext">ImageStateChangeReasonCode -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679287451"><span class="annot"><span class="annottext">ImageStateChangeReasonCode -&gt; Text
 (ImageStateChangeReasonCode -&gt; Text)
 -&gt; ToText ImageStateChangeReasonCode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ImageStateChangeReasonCode -&gt; Text
 $ctoText :: ImageStateChangeReasonCode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679287439"><span class="annot"><span class="annottext">ImageStateChangeReasonCode -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679287448"><span class="annot"><span class="annottext">ImageStateChangeReasonCode -&gt; ByteString
 (ImageStateChangeReasonCode -&gt; ByteString)
 -&gt; ToByteString ImageStateChangeReasonCode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ImageStateChangeReasonCode -&gt; ByteString
 $ctoBS :: ImageStateChangeReasonCode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679287436"><span class="annot"><span class="annottext">ImageStateChangeReasonCode -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679287445"><span class="annot"><span class="annottext">ImageStateChangeReasonCode -&gt; ByteStringBuilder
 (ImageStateChangeReasonCode -&gt; ByteStringBuilder)
 -&gt; ToLog ImageStateChangeReasonCode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ImageStateChangeReasonCode -&gt; ByteStringBuilder
 $cbuild :: ImageStateChangeReasonCode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679287433"><span class="annot"><span class="annottext">HeaderName -&gt; ImageStateChangeReasonCode -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679287442"><span class="annot"><span class="annottext">HeaderName -&gt; ImageStateChangeReasonCode -&gt; [Header]
 (HeaderName -&gt; ImageStateChangeReasonCode -&gt; [Header])
 -&gt; ToHeader ImageStateChangeReasonCode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ImageStateChangeReasonCode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ImageStateChangeReasonCode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679287430"><span class="annot"><span class="annottext">ImageStateChangeReasonCode -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679287439"><span class="annot"><span class="annottext">ImageStateChangeReasonCode -&gt; QueryString
 (ImageStateChangeReasonCode -&gt; QueryString)
 -&gt; ToQuery ImageStateChangeReasonCode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ImageStateChangeReasonCode -&gt; QueryString
 $ctoQuery :: ImageStateChangeReasonCode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679287425"><span id="local-6989586621679287427"><span class="annot"><span class="annottext">Value -&gt; Parser [ImageStateChangeReasonCode]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679287434"><span id="local-6989586621679287436"><span class="annot"><span class="annottext">Value -&gt; Parser [ImageStateChangeReasonCode]
 Value -&gt; Parser ImageStateChangeReasonCode
 (Value -&gt; Parser ImageStateChangeReasonCode)
 -&gt; (Value -&gt; Parser [ImageStateChangeReasonCode])
@@ -228,7 +228,7 @@ $cparseJSONList :: Value -&gt; Parser [ImageStateChangeReasonCode]
 parseJSON :: Value -&gt; Parser ImageStateChangeReasonCode
 $cparseJSON :: Value -&gt; Parser ImageStateChangeReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679287420"><span id="local-6989586621679287422"><span class="annot"><span class="annottext">FromJSONKeyFunction [ImageStateChangeReasonCode]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679287429"><span id="local-6989586621679287431"><span class="annot"><span class="annottext">FromJSONKeyFunction [ImageStateChangeReasonCode]
 FromJSONKeyFunction ImageStateChangeReasonCode
 FromJSONKeyFunction ImageStateChangeReasonCode
 -&gt; FromJSONKeyFunction [ImageStateChangeReasonCode]
@@ -240,7 +240,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ImageStateChangeReasonCode]
 fromJSONKey :: FromJSONKeyFunction ImageStateChangeReasonCode
 $cfromJSONKey :: FromJSONKeyFunction ImageStateChangeReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679287411"><span id="local-6989586621679287413"><span id="local-6989586621679287415"><span id="local-6989586621679287417"><span class="annot"><span class="annottext">[ImageStateChangeReasonCode] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679287420"><span id="local-6989586621679287422"><span id="local-6989586621679287424"><span id="local-6989586621679287426"><span class="annot"><span class="annottext">[ImageStateChangeReasonCode] -&gt; Encoding
 [ImageStateChangeReasonCode] -&gt; Value
 ImageStateChangeReasonCode -&gt; Encoding
 ImageStateChangeReasonCode -&gt; Value
@@ -264,7 +264,7 @@ $ctoEncoding :: ImageStateChangeReasonCode -&gt; Encoding
 toJSON :: ImageStateChangeReasonCode -&gt; Value
 $ctoJSON :: ImageStateChangeReasonCode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679287406"><span id="local-6989586621679287408"><span class="annot"><span class="annottext">ToJSONKeyFunction [ImageStateChangeReasonCode]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679287415"><span id="local-6989586621679287417"><span class="annot"><span class="annottext">ToJSONKeyFunction [ImageStateChangeReasonCode]
 ToJSONKeyFunction ImageStateChangeReasonCode
 ToJSONKeyFunction ImageStateChangeReasonCode
 -&gt; ToJSONKeyFunction [ImageStateChangeReasonCode]
@@ -276,14 +276,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ImageStateChangeReasonCode]
 toJSONKey :: ToJSONKeyFunction ImageStateChangeReasonCode
 $ctoJSONKey :: ToJSONKeyFunction ImageStateChangeReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679287403"><span class="annot"><span class="annottext">[Node] -&gt; Either String ImageStateChangeReasonCode
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679287412"><span class="annot"><span class="annottext">[Node] -&gt; Either String ImageStateChangeReasonCode
 ([Node] -&gt; Either String ImageStateChangeReasonCode)
 -&gt; FromXML ImageStateChangeReasonCode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ImageStateChangeReasonCode
 $cparseXML :: [Node] -&gt; Either String ImageStateChangeReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679287400"><span class="annot"><span class="annottext">ImageStateChangeReasonCode -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679287409"><span class="annot"><span class="annottext">ImageStateChangeReasonCode -&gt; XML
 (ImageStateChangeReasonCode -&gt; XML)
 -&gt; ToXML ImageStateChangeReasonCode
 forall a. (a -&gt; XML) -&gt; ToXML a

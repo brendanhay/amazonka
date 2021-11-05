@@ -1,0 +1,1016 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ApiGatewayV2.UpdateVpcLink</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates a VPC link.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ApiGatewayV2.UpdateVpcLink</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLink"><span class="hs-identifier">UpdateVpcLink</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#newUpdateVpcLink"><span class="hs-identifier">newUpdateVpcLink</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#updateVpcLink_name"><span class="hs-identifier">updateVpcLink_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#updateVpcLink_vpcLinkId"><span class="hs-identifier">updateVpcLink_vpcLinkId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse"><span class="hs-identifier">UpdateVpcLinkResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#newUpdateVpcLinkResponse"><span class="hs-identifier">newUpdateVpcLinkResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#updateVpcLinkResponse_securityGroupIds"><span class="hs-identifier">updateVpcLinkResponse_securityGroupIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#updateVpcLinkResponse_subnetIds"><span class="hs-identifier">updateVpcLinkResponse_subnetIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#updateVpcLinkResponse_vpcLinkId"><span class="hs-identifier">updateVpcLinkResponse_vpcLinkId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#updateVpcLinkResponse_createdDate"><span class="hs-identifier">updateVpcLinkResponse_createdDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#updateVpcLinkResponse_vpcLinkVersion"><span class="hs-identifier">updateVpcLinkResponse_vpcLinkVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#updateVpcLinkResponse_name"><span class="hs-identifier">updateVpcLinkResponse_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#updateVpcLinkResponse_vpcLinkStatusMessage"><span class="hs-identifier">updateVpcLinkResponse_vpcLinkStatusMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#updateVpcLinkResponse_tags"><span class="hs-identifier">updateVpcLinkResponse_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#updateVpcLinkResponse_vpcLinkStatus"><span class="hs-identifier">updateVpcLinkResponse_vpcLinkStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#updateVpcLinkResponse_httpStatus"><span class="hs-identifier">updateVpcLinkResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.html"><span class="hs-identifier">Network.AWS.ApiGatewayV2.Types</span></a></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | Updates a VPC link.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- /See:/ 'newUpdateVpcLink' smart constructor.</span><span>
+</span><span id="line-61"></span><span id="local-6989586621679430621"><span id="local-6989586621679430622"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateVpcLink"><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLink"><span class="hs-identifier hs-var">UpdateVpcLink</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateVpcLink%27"><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLink%27"><span class="hs-identifier hs-var">UpdateVpcLink'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the VPC link.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3Aname%3AUpdateVpcLink%27"><span class="annot"><span class="annottext">UpdateVpcLink -&gt; Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#%24sel%3Aname%3AUpdateVpcLink%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The ID of the VPC link.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AvpcLinkId%3AUpdateVpcLink%27"><span class="annot"><span class="annottext">UpdateVpcLink -&gt; Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#%24sel%3AvpcLinkId%3AUpdateVpcLink%27"><span class="hs-identifier hs-var hs-var">vpcLinkId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679430614"><span id="local-6989586621679430616"><span class="annot"><span class="annottext">UpdateVpcLink -&gt; UpdateVpcLink -&gt; Bool
+(UpdateVpcLink -&gt; UpdateVpcLink -&gt; Bool)
+-&gt; (UpdateVpcLink -&gt; UpdateVpcLink -&gt; Bool) -&gt; Eq UpdateVpcLink
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateVpcLink -&gt; UpdateVpcLink -&gt; Bool
+$c/= :: UpdateVpcLink -&gt; UpdateVpcLink -&gt; Bool
+== :: UpdateVpcLink -&gt; UpdateVpcLink -&gt; Bool
+$c== :: UpdateVpcLink -&gt; UpdateVpcLink -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430605"><span id="local-6989586621679430607"><span id="local-6989586621679430609"><span id="local-6989586621679430611"><span class="annot"><span class="annottext">ReadPrec [UpdateVpcLink]
+ReadPrec UpdateVpcLink
+Int -&gt; ReadS UpdateVpcLink
+ReadS [UpdateVpcLink]
+(Int -&gt; ReadS UpdateVpcLink)
+-&gt; ReadS [UpdateVpcLink]
+-&gt; ReadPrec UpdateVpcLink
+-&gt; ReadPrec [UpdateVpcLink]
+-&gt; Read UpdateVpcLink
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateVpcLink]
+$creadListPrec :: ReadPrec [UpdateVpcLink]
+readPrec :: ReadPrec UpdateVpcLink
+$creadPrec :: ReadPrec UpdateVpcLink
+readList :: ReadS [UpdateVpcLink]
+$creadList :: ReadS [UpdateVpcLink]
+readsPrec :: Int -&gt; ReadS UpdateVpcLink
+$creadsPrec :: Int -&gt; ReadS UpdateVpcLink
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430598"><span id="local-6989586621679430600"><span id="local-6989586621679430602"><span class="annot"><span class="annottext">Int -&gt; UpdateVpcLink -&gt; ShowS
+[UpdateVpcLink] -&gt; ShowS
+UpdateVpcLink -&gt; String
+(Int -&gt; UpdateVpcLink -&gt; ShowS)
+-&gt; (UpdateVpcLink -&gt; String)
+-&gt; ([UpdateVpcLink] -&gt; ShowS)
+-&gt; Show UpdateVpcLink
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateVpcLink] -&gt; ShowS
+$cshowList :: [UpdateVpcLink] -&gt; ShowS
+show :: UpdateVpcLink -&gt; String
+$cshow :: UpdateVpcLink -&gt; String
+showsPrec :: Int -&gt; UpdateVpcLink -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateVpcLink -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateVpcLink -&gt; Rep UpdateVpcLink x)
+-&gt; (forall x. Rep UpdateVpcLink x -&gt; UpdateVpcLink)
+-&gt; Generic UpdateVpcLink
+forall x. Rep UpdateVpcLink x -&gt; UpdateVpcLink
+forall x. UpdateVpcLink -&gt; Rep UpdateVpcLink x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateVpcLink x -&gt; UpdateVpcLink
+$cfrom :: forall x. UpdateVpcLink -&gt; Rep UpdateVpcLink x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'UpdateVpcLink' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'name', 'updateVpcLink_name' - The name of the VPC link.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'vpcLinkId', 'updateVpcLink_vpcLinkId' - The ID of the VPC link.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#newUpdateVpcLink"><span class="hs-identifier hs-type">newUpdateVpcLink</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'vpcLinkId'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLink"><span class="hs-identifier hs-type">UpdateVpcLink</span></a></span><span>
+</span><span id="line-84"></span><span id="newUpdateVpcLink"><span class="annot"><span class="annottext">newUpdateVpcLink :: Text -&gt; UpdateVpcLink
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#newUpdateVpcLink"><span class="hs-identifier hs-var hs-var">newUpdateVpcLink</span></a></span></span><span> </span><span id="local-6989586621679430593"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679430593"><span class="hs-identifier hs-var">pVpcLinkId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">UpdateVpcLink' :: Maybe Text -&gt; Text -&gt; UpdateVpcLink
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLink%27"><span class="hs-identifier hs-type">UpdateVpcLink'</span></a></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:UpdateVpcLink' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#%24sel%3Aname%3AUpdateVpcLink%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcLinkId:UpdateVpcLink' :: Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#%24sel%3AvpcLinkId%3AUpdateVpcLink%27"><span class="hs-identifier hs-var">vpcLinkId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679430593"><span class="hs-identifier hs-var">pVpcLinkId_</span></a></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The name of the VPC link.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#updateVpcLink_name"><span class="hs-identifier hs-type">updateVpcLink_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLink"><span class="hs-identifier hs-type">UpdateVpcLink</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="updateVpcLink_name"><span class="annot"><span class="annottext">updateVpcLink_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateVpcLink -&gt; f UpdateVpcLink
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#updateVpcLink_name"><span class="hs-identifier hs-var hs-var">updateVpcLink_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateVpcLink -&gt; Maybe Text)
+-&gt; (UpdateVpcLink -&gt; Maybe Text -&gt; UpdateVpcLink)
+-&gt; Lens UpdateVpcLink UpdateVpcLink (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLink%27"><span class="hs-identifier hs-type">UpdateVpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430590"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:UpdateVpcLink' :: UpdateVpcLink -&gt; Maybe Text
+</span><a href="#local-6989586621679430590"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430590"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430589"><span class="annot"><span class="annottext">s :: UpdateVpcLink
+</span><a href="#local-6989586621679430589"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLink%27"><span class="hs-identifier hs-type">UpdateVpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430588"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430588"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateVpcLink
+</span><a href="#local-6989586621679430589"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateVpcLink' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#%24sel%3Aname%3AUpdateVpcLink%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430588"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLink"><span class="hs-identifier hs-type">UpdateVpcLink</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The ID of the VPC link.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#updateVpcLink_vpcLinkId"><span class="hs-identifier hs-type">updateVpcLink_vpcLinkId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLink"><span class="hs-identifier hs-type">UpdateVpcLink</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-96"></span><span id="updateVpcLink_vpcLinkId"><span class="annot"><span class="annottext">updateVpcLink_vpcLinkId :: (Text -&gt; f Text) -&gt; UpdateVpcLink -&gt; f UpdateVpcLink
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#updateVpcLink_vpcLinkId"><span class="hs-identifier hs-var hs-var">updateVpcLink_vpcLinkId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateVpcLink -&gt; Text)
+-&gt; (UpdateVpcLink -&gt; Text -&gt; UpdateVpcLink)
+-&gt; Lens UpdateVpcLink UpdateVpcLink Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLink%27"><span class="hs-identifier hs-type">UpdateVpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430587"><span class="annot"><span class="annottext">Text
+vpcLinkId :: Text
+$sel:vpcLinkId:UpdateVpcLink' :: UpdateVpcLink -&gt; Text
+</span><a href="#local-6989586621679430587"><span class="hs-identifier hs-var hs-var">vpcLinkId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679430587"><span class="hs-identifier hs-var">vpcLinkId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430586"><span class="annot"><span class="annottext">s :: UpdateVpcLink
+</span><a href="#local-6989586621679430586"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLink%27"><span class="hs-identifier hs-type">UpdateVpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430585"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679430585"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateVpcLink
+</span><a href="#local-6989586621679430586"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcLinkId:UpdateVpcLink' :: Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#%24sel%3AvpcLinkId%3AUpdateVpcLink%27"><span class="hs-identifier hs-var">vpcLinkId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679430585"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLink"><span class="hs-identifier hs-type">UpdateVpcLink</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLink"><span class="hs-identifier hs-type">UpdateVpcLink</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-100"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLink"><span class="hs-identifier hs-type">UpdateVpcLink</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse"><span class="hs-identifier hs-type">UpdateVpcLinkResponse</span></a></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679430581"><span class="annot"><span class="annottext">request :: UpdateVpcLink -&gt; Request UpdateVpcLink
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateVpcLink -&gt; Request UpdateVpcLink
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.patchJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ApiGatewayV2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679430577"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateVpcLink
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateVpcLink)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateVpcLink))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateVpcLink
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateVpcLink)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679430574"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679430574"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679430573"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679430573"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679430572"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679430572"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe VpcLinkVersion
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe VpcLinkStatus
+-&gt; Int
+-&gt; UpdateVpcLinkResponse
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse%27"><span class="hs-identifier hs-var">UpdateVpcLinkResponse'</span></a></span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text]
+ -&gt; Maybe [Text]
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe VpcLinkVersion
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe VpcLinkStatus
+ -&gt; Int
+ -&gt; UpdateVpcLinkResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either
+     String
+     (Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe VpcLinkVersion
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe VpcLinkStatus
+      -&gt; Int
+      -&gt; UpdateVpcLinkResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679430572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;securityGroupIds&quot;</span></span><span>
+</span><span id="line-108"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-109"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe VpcLinkVersion
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe VpcLinkStatus
+   -&gt; Int
+   -&gt; UpdateVpcLinkResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe VpcLinkVersion
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe VpcLinkStatus
+      -&gt; Int
+      -&gt; UpdateVpcLinkResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679430572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;subnetIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe VpcLinkVersion
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe VpcLinkStatus
+   -&gt; Int
+   -&gt; UpdateVpcLinkResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe POSIX
+      -&gt; Maybe VpcLinkVersion
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe VpcLinkStatus
+      -&gt; Int
+      -&gt; UpdateVpcLinkResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679430572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;vpcLinkId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe POSIX
+   -&gt; Maybe VpcLinkVersion
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe VpcLinkStatus
+   -&gt; Int
+   -&gt; UpdateVpcLinkResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe VpcLinkVersion
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe VpcLinkStatus
+      -&gt; Int
+      -&gt; UpdateVpcLinkResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679430572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe VpcLinkVersion
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe VpcLinkStatus
+   -&gt; Int
+   -&gt; UpdateVpcLinkResponse)
+-&gt; Either String (Maybe VpcLinkVersion)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe VpcLinkStatus
+      -&gt; Int
+      -&gt; UpdateVpcLinkResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679430572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe VpcLinkVersion)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;vpcLinkVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe VpcLinkStatus
+   -&gt; Int
+   -&gt; UpdateVpcLinkResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe VpcLinkStatus
+      -&gt; Int
+      -&gt; UpdateVpcLinkResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679430572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe VpcLinkStatus
+   -&gt; Int
+   -&gt; UpdateVpcLinkResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe (HashMap Text Text)
+      -&gt; Maybe VpcLinkStatus -&gt; Int -&gt; UpdateVpcLinkResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679430572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;vpcLinkStatusMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (HashMap Text Text)
+   -&gt; Maybe VpcLinkStatus -&gt; Int -&gt; UpdateVpcLinkResponse)
+-&gt; Either String (Maybe (HashMap Text Text))
+-&gt; Either
+     String (Maybe VpcLinkStatus -&gt; Int -&gt; UpdateVpcLinkResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679430572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text)
+-&gt; Either String (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe VpcLinkStatus -&gt; Int -&gt; UpdateVpcLinkResponse)
+-&gt; Either String (Maybe VpcLinkStatus)
+-&gt; Either String (Int -&gt; UpdateVpcLinkResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679430572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe VpcLinkStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;vpcLinkStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateVpcLinkResponse)
+-&gt; Either String Int -&gt; Either String UpdateVpcLinkResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679430574"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430563"><span id="local-6989586621679430565"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLink"><span class="hs-identifier hs-type">UpdateVpcLink</span></a></span></span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430560"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLink"><span class="hs-identifier hs-type">UpdateVpcLink</span></a></span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLink"><span class="hs-identifier hs-type">UpdateVpcLink</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679430556"><span class="annot"><span class="annottext">toHeaders :: UpdateVpcLink -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateVpcLink -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-129"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-130"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-131"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-132"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430546"><span id="local-6989586621679430548"><span id="local-6989586621679430550"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLink"><span class="hs-identifier hs-type">UpdateVpcLink</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679430544"><span class="annot"><span class="annottext">toJSON :: UpdateVpcLink -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLink%27"><span class="hs-identifier hs-type">UpdateVpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430541"><span id="local-6989586621679430542"><span class="annot"><span class="annottext">Maybe Text
+Text
+vpcLinkId :: Text
+name :: Maybe Text
+$sel:vpcLinkId:UpdateVpcLink' :: UpdateVpcLink -&gt; Text
+$sel:name:UpdateVpcLink' :: UpdateVpcLink -&gt; Maybe Text
+</span><a href="#local-6989586621679430541"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-140"></span><span>          </span><span class="hs-special">[</span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430542"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLink"><span class="hs-identifier hs-type">UpdateVpcLink</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679430535"><span class="annot"><span class="annottext">toPath :: UpdateVpcLink -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLink%27"><span class="hs-identifier hs-type">UpdateVpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430532"><span id="local-6989586621679430533"><span class="annot"><span class="annottext">Maybe Text
+Text
+vpcLinkId :: Text
+name :: Maybe Text
+$sel:vpcLinkId:UpdateVpcLink' :: UpdateVpcLink -&gt; Text
+$sel:name:UpdateVpcLink' :: UpdateVpcLink -&gt; Maybe Text
+</span><a href="#local-6989586621679430532"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v2/vpclinks/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679430532"><span class="hs-identifier hs-var">vpcLinkId</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLink"><span class="hs-identifier hs-type">UpdateVpcLink</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679430528"><span class="annot"><span class="annottext">toQuery :: UpdateVpcLink -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateVpcLink -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | /See:/ 'newUpdateVpcLinkResponse' smart constructor.</span><span>
+</span><span id="line-152"></span><span id="local-6989586621679430525"><span id="local-6989586621679430526"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateVpcLinkResponse"><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse"><span class="hs-identifier hs-var">UpdateVpcLinkResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateVpcLinkResponse%27"><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse%27"><span class="hs-identifier hs-var">UpdateVpcLinkResponse'</span></a></span></span><span>
+</span><span id="line-153"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of security group IDs for the VPC link.</span><span>
+</span><span id="line-154"></span><span>    </span><span id="%24sel%3AsecurityGroupIds%3AUpdateVpcLinkResponse%27"><span class="annot"><span class="annottext">UpdateVpcLinkResponse -&gt; Maybe [Text]
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#%24sel%3AsecurityGroupIds%3AUpdateVpcLinkResponse%27"><span class="hs-identifier hs-var hs-var">securityGroupIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- | A list of subnet IDs to include in the VPC link.</span><span>
+</span><span id="line-156"></span><span>    </span><span id="%24sel%3AsubnetIds%3AUpdateVpcLinkResponse%27"><span class="annot"><span class="annottext">UpdateVpcLinkResponse -&gt; Maybe [Text]
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#%24sel%3AsubnetIds%3AUpdateVpcLinkResponse%27"><span class="hs-identifier hs-var hs-var">subnetIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- | The ID of the VPC link.</span><span>
+</span><span id="line-158"></span><span>    </span><span id="%24sel%3AvpcLinkId%3AUpdateVpcLinkResponse%27"><span class="annot"><span class="annottext">UpdateVpcLinkResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#%24sel%3AvpcLinkId%3AUpdateVpcLinkResponse%27"><span class="hs-identifier hs-var hs-var">vpcLinkId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- | The timestamp when the VPC link was created.</span><span>
+</span><span id="line-160"></span><span>    </span><span id="%24sel%3AcreatedDate%3AUpdateVpcLinkResponse%27"><span class="annot"><span class="annottext">UpdateVpcLinkResponse -&gt; Maybe POSIX
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#%24sel%3AcreatedDate%3AUpdateVpcLinkResponse%27"><span class="hs-identifier hs-var hs-var">createdDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- | The version of the VPC link.</span><span>
+</span><span id="line-162"></span><span>    </span><span id="%24sel%3AvpcLinkVersion%3AUpdateVpcLinkResponse%27"><span class="annot"><span class="annottext">UpdateVpcLinkResponse -&gt; Maybe VpcLinkVersion
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#%24sel%3AvpcLinkVersion%3AUpdateVpcLinkResponse%27"><span class="hs-identifier hs-var hs-var">vpcLinkVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.VpcLinkVersion.html#VpcLinkVersion"><span class="hs-identifier hs-type">VpcLinkVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- | The name of the VPC link.</span><span>
+</span><span id="line-164"></span><span>    </span><span id="%24sel%3Aname%3AUpdateVpcLinkResponse%27"><span class="annot"><span class="annottext">UpdateVpcLinkResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#%24sel%3Aname%3AUpdateVpcLinkResponse%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- | A message summarizing the cause of the status of the VPC link.</span><span>
+</span><span id="line-166"></span><span>    </span><span id="%24sel%3AvpcLinkStatusMessage%3AUpdateVpcLinkResponse%27"><span class="annot"><span class="annottext">UpdateVpcLinkResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#%24sel%3AvpcLinkStatusMessage%3AUpdateVpcLinkResponse%27"><span class="hs-identifier hs-var hs-var">vpcLinkStatusMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">-- | Tags for the VPC link.</span><span>
+</span><span id="line-168"></span><span>    </span><span id="%24sel%3Atags%3AUpdateVpcLinkResponse%27"><span class="annot"><span class="annottext">UpdateVpcLinkResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#%24sel%3Atags%3AUpdateVpcLinkResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- | The status of the VPC link.</span><span>
+</span><span id="line-170"></span><span>    </span><span id="%24sel%3AvpcLinkStatus%3AUpdateVpcLinkResponse%27"><span class="annot"><span class="annottext">UpdateVpcLinkResponse -&gt; Maybe VpcLinkStatus
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#%24sel%3AvpcLinkStatus%3AUpdateVpcLinkResponse%27"><span class="hs-identifier hs-var hs-var">vpcLinkStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.VpcLinkStatus.html#VpcLinkStatus"><span class="hs-identifier hs-type">VpcLinkStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-172"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateVpcLinkResponse%27"><span class="annot"><span class="annottext">UpdateVpcLinkResponse -&gt; Int
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#%24sel%3AhttpStatus%3AUpdateVpcLinkResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679430511"><span id="local-6989586621679430513"><span class="annot"><span class="annottext">UpdateVpcLinkResponse -&gt; UpdateVpcLinkResponse -&gt; Bool
+(UpdateVpcLinkResponse -&gt; UpdateVpcLinkResponse -&gt; Bool)
+-&gt; (UpdateVpcLinkResponse -&gt; UpdateVpcLinkResponse -&gt; Bool)
+-&gt; Eq UpdateVpcLinkResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateVpcLinkResponse -&gt; UpdateVpcLinkResponse -&gt; Bool
+$c/= :: UpdateVpcLinkResponse -&gt; UpdateVpcLinkResponse -&gt; Bool
+== :: UpdateVpcLinkResponse -&gt; UpdateVpcLinkResponse -&gt; Bool
+$c== :: UpdateVpcLinkResponse -&gt; UpdateVpcLinkResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430503"><span id="local-6989586621679430505"><span id="local-6989586621679430507"><span id="local-6989586621679430509"><span class="annot"><span class="annottext">ReadPrec [UpdateVpcLinkResponse]
+ReadPrec UpdateVpcLinkResponse
+Int -&gt; ReadS UpdateVpcLinkResponse
+ReadS [UpdateVpcLinkResponse]
+(Int -&gt; ReadS UpdateVpcLinkResponse)
+-&gt; ReadS [UpdateVpcLinkResponse]
+-&gt; ReadPrec UpdateVpcLinkResponse
+-&gt; ReadPrec [UpdateVpcLinkResponse]
+-&gt; Read UpdateVpcLinkResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateVpcLinkResponse]
+$creadListPrec :: ReadPrec [UpdateVpcLinkResponse]
+readPrec :: ReadPrec UpdateVpcLinkResponse
+$creadPrec :: ReadPrec UpdateVpcLinkResponse
+readList :: ReadS [UpdateVpcLinkResponse]
+$creadList :: ReadS [UpdateVpcLinkResponse]
+readsPrec :: Int -&gt; ReadS UpdateVpcLinkResponse
+$creadsPrec :: Int -&gt; ReadS UpdateVpcLinkResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430497"><span id="local-6989586621679430499"><span id="local-6989586621679430501"><span class="annot"><span class="annottext">Int -&gt; UpdateVpcLinkResponse -&gt; ShowS
+[UpdateVpcLinkResponse] -&gt; ShowS
+UpdateVpcLinkResponse -&gt; String
+(Int -&gt; UpdateVpcLinkResponse -&gt; ShowS)
+-&gt; (UpdateVpcLinkResponse -&gt; String)
+-&gt; ([UpdateVpcLinkResponse] -&gt; ShowS)
+-&gt; Show UpdateVpcLinkResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateVpcLinkResponse] -&gt; ShowS
+$cshowList :: [UpdateVpcLinkResponse] -&gt; ShowS
+show :: UpdateVpcLinkResponse -&gt; String
+$cshow :: UpdateVpcLinkResponse -&gt; String
+showsPrec :: Int -&gt; UpdateVpcLinkResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateVpcLinkResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateVpcLinkResponse -&gt; Rep UpdateVpcLinkResponse x)
+-&gt; (forall x. Rep UpdateVpcLinkResponse x -&gt; UpdateVpcLinkResponse)
+-&gt; Generic UpdateVpcLinkResponse
+forall x. Rep UpdateVpcLinkResponse x -&gt; UpdateVpcLinkResponse
+forall x. UpdateVpcLinkResponse -&gt; Rep UpdateVpcLinkResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateVpcLinkResponse x -&gt; UpdateVpcLinkResponse
+$cfrom :: forall x. UpdateVpcLinkResponse -&gt; Rep UpdateVpcLinkResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- Create a value of 'UpdateVpcLinkResponse' with all optional fields omitted.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- 'securityGroupIds', 'updateVpcLinkResponse_securityGroupIds' - A list of security group IDs for the VPC link.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- 'subnetIds', 'updateVpcLinkResponse_subnetIds' - A list of subnet IDs to include in the VPC link.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'vpcLinkId', 'updateVpcLinkResponse_vpcLinkId' - The ID of the VPC link.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'createdDate', 'updateVpcLinkResponse_createdDate' - The timestamp when the VPC link was created.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- 'vpcLinkVersion', 'updateVpcLinkResponse_vpcLinkVersion' - The version of the VPC link.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- 'name', 'updateVpcLinkResponse_name' - The name of the VPC link.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- 'vpcLinkStatusMessage', 'updateVpcLinkResponse_vpcLinkStatusMessage' - A message summarizing the cause of the status of the VPC link.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- 'tags', 'updateVpcLinkResponse_tags' - Tags for the VPC link.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- 'vpcLinkStatus', 'updateVpcLinkResponse_vpcLinkStatus' - The status of the VPC link.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- 'httpStatus', 'updateVpcLinkResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#newUpdateVpcLinkResponse"><span class="hs-identifier hs-type">newUpdateVpcLinkResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-204"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-205"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-206"></span><span>  </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse"><span class="hs-identifier hs-type">UpdateVpcLinkResponse</span></a></span><span>
+</span><span id="line-207"></span><span id="newUpdateVpcLinkResponse"><span class="annot"><span class="annottext">newUpdateVpcLinkResponse :: Int -&gt; UpdateVpcLinkResponse
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#newUpdateVpcLinkResponse"><span class="hs-identifier hs-var hs-var">newUpdateVpcLinkResponse</span></a></span></span><span> </span><span id="local-6989586621679430494"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679430494"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-208"></span><span>  </span><span class="annot"><span class="annottext">UpdateVpcLinkResponse' :: Maybe [Text]
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe VpcLinkVersion
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe VpcLinkStatus
+-&gt; Int
+-&gt; UpdateVpcLinkResponse
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse%27"><span class="hs-identifier hs-type">UpdateVpcLinkResponse'</span></a></span><span>
+</span><span id="line-209"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:securityGroupIds:UpdateVpcLinkResponse' :: Maybe [Text]
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#%24sel%3AsecurityGroupIds%3AUpdateVpcLinkResponse%27"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-210"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>      </span><span class="annot"><span class="annottext">$sel:subnetIds:UpdateVpcLinkResponse' :: Maybe [Text]
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#%24sel%3AsubnetIds%3AUpdateVpcLinkResponse%27"><span class="hs-identifier hs-var">subnetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcLinkId:UpdateVpcLinkResponse' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#%24sel%3AvpcLinkId%3AUpdateVpcLinkResponse%27"><span class="hs-identifier hs-var">vpcLinkId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdDate:UpdateVpcLinkResponse' :: Maybe POSIX
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#%24sel%3AcreatedDate%3AUpdateVpcLinkResponse%27"><span class="hs-identifier hs-var">createdDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcLinkVersion:UpdateVpcLinkResponse' :: Maybe VpcLinkVersion
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#%24sel%3AvpcLinkVersion%3AUpdateVpcLinkResponse%27"><span class="hs-identifier hs-var">vpcLinkVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VpcLinkVersion
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:UpdateVpcLinkResponse' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#%24sel%3Aname%3AUpdateVpcLinkResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcLinkStatusMessage:UpdateVpcLinkResponse' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#%24sel%3AvpcLinkStatusMessage%3AUpdateVpcLinkResponse%27"><span class="hs-identifier hs-var">vpcLinkStatusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:UpdateVpcLinkResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#%24sel%3Atags%3AUpdateVpcLinkResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcLinkStatus:UpdateVpcLinkResponse' :: Maybe VpcLinkStatus
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#%24sel%3AvpcLinkStatus%3AUpdateVpcLinkResponse%27"><span class="hs-identifier hs-var">vpcLinkStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VpcLinkStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateVpcLinkResponse' :: Int
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#%24sel%3AhttpStatus%3AUpdateVpcLinkResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679430494"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-220"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | A list of security group IDs for the VPC link.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#updateVpcLinkResponse_securityGroupIds"><span class="hs-identifier hs-type">updateVpcLinkResponse_securityGroupIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse"><span class="hs-identifier hs-type">UpdateVpcLinkResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span id="updateVpcLinkResponse_securityGroupIds"><span class="annot"><span class="annottext">updateVpcLinkResponse_securityGroupIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; UpdateVpcLinkResponse -&gt; f UpdateVpcLinkResponse
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#updateVpcLinkResponse_securityGroupIds"><span class="hs-identifier hs-var hs-var">updateVpcLinkResponse_securityGroupIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateVpcLinkResponse -&gt; Maybe [Text])
+-&gt; (UpdateVpcLinkResponse -&gt; Maybe [Text] -&gt; UpdateVpcLinkResponse)
+-&gt; Lens
+     UpdateVpcLinkResponse
+     UpdateVpcLinkResponse
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse%27"><span class="hs-identifier hs-type">UpdateVpcLinkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430493"><span class="annot"><span class="annottext">Maybe [Text]
+securityGroupIds :: Maybe [Text]
+$sel:securityGroupIds:UpdateVpcLinkResponse' :: UpdateVpcLinkResponse -&gt; Maybe [Text]
+</span><a href="#local-6989586621679430493"><span class="hs-identifier hs-var hs-var">securityGroupIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679430493"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430492"><span class="annot"><span class="annottext">s :: UpdateVpcLinkResponse
+</span><a href="#local-6989586621679430492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse%27"><span class="hs-identifier hs-type">UpdateVpcLinkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430491"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679430491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateVpcLinkResponse
+</span><a href="#local-6989586621679430492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityGroupIds:UpdateVpcLinkResponse' :: Maybe [Text]
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#%24sel%3AsecurityGroupIds%3AUpdateVpcLinkResponse%27"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679430491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse"><span class="hs-identifier hs-type">UpdateVpcLinkResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; UpdateVpcLinkResponse -&gt; f UpdateVpcLinkResponse)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; UpdateVpcLinkResponse
+-&gt; f UpdateVpcLinkResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- | A list of subnet IDs to include in the VPC link.</span><span>
+</span><span id="line-227"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#updateVpcLinkResponse_subnetIds"><span class="hs-identifier hs-type">updateVpcLinkResponse_subnetIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse"><span class="hs-identifier hs-type">UpdateVpcLinkResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span id="updateVpcLinkResponse_subnetIds"><span class="annot"><span class="annottext">updateVpcLinkResponse_subnetIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; UpdateVpcLinkResponse -&gt; f UpdateVpcLinkResponse
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#updateVpcLinkResponse_subnetIds"><span class="hs-identifier hs-var hs-var">updateVpcLinkResponse_subnetIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateVpcLinkResponse -&gt; Maybe [Text])
+-&gt; (UpdateVpcLinkResponse -&gt; Maybe [Text] -&gt; UpdateVpcLinkResponse)
+-&gt; Lens
+     UpdateVpcLinkResponse
+     UpdateVpcLinkResponse
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse%27"><span class="hs-identifier hs-type">UpdateVpcLinkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430487"><span class="annot"><span class="annottext">Maybe [Text]
+subnetIds :: Maybe [Text]
+$sel:subnetIds:UpdateVpcLinkResponse' :: UpdateVpcLinkResponse -&gt; Maybe [Text]
+</span><a href="#local-6989586621679430487"><span class="hs-identifier hs-var hs-var">subnetIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679430487"><span class="hs-identifier hs-var">subnetIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430486"><span class="annot"><span class="annottext">s :: UpdateVpcLinkResponse
+</span><a href="#local-6989586621679430486"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse%27"><span class="hs-identifier hs-type">UpdateVpcLinkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430485"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679430485"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateVpcLinkResponse
+</span><a href="#local-6989586621679430486"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetIds:UpdateVpcLinkResponse' :: Maybe [Text]
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#%24sel%3AsubnetIds%3AUpdateVpcLinkResponse%27"><span class="hs-identifier hs-var">subnetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679430485"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse"><span class="hs-identifier hs-type">UpdateVpcLinkResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; UpdateVpcLinkResponse -&gt; f UpdateVpcLinkResponse)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; UpdateVpcLinkResponse
+-&gt; f UpdateVpcLinkResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- | The ID of the VPC link.</span><span>
+</span><span id="line-231"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#updateVpcLinkResponse_vpcLinkId"><span class="hs-identifier hs-type">updateVpcLinkResponse_vpcLinkId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse"><span class="hs-identifier hs-type">UpdateVpcLinkResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span id="updateVpcLinkResponse_vpcLinkId"><span class="annot"><span class="annottext">updateVpcLinkResponse_vpcLinkId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateVpcLinkResponse -&gt; f UpdateVpcLinkResponse
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#updateVpcLinkResponse_vpcLinkId"><span class="hs-identifier hs-var hs-var">updateVpcLinkResponse_vpcLinkId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateVpcLinkResponse -&gt; Maybe Text)
+-&gt; (UpdateVpcLinkResponse -&gt; Maybe Text -&gt; UpdateVpcLinkResponse)
+-&gt; Lens
+     UpdateVpcLinkResponse
+     UpdateVpcLinkResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse%27"><span class="hs-identifier hs-type">UpdateVpcLinkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430484"><span class="annot"><span class="annottext">Maybe Text
+vpcLinkId :: Maybe Text
+$sel:vpcLinkId:UpdateVpcLinkResponse' :: UpdateVpcLinkResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679430484"><span class="hs-identifier hs-var hs-var">vpcLinkId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430484"><span class="hs-identifier hs-var">vpcLinkId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430483"><span class="annot"><span class="annottext">s :: UpdateVpcLinkResponse
+</span><a href="#local-6989586621679430483"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse%27"><span class="hs-identifier hs-type">UpdateVpcLinkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430482"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430482"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateVpcLinkResponse
+</span><a href="#local-6989586621679430483"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcLinkId:UpdateVpcLinkResponse' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#%24sel%3AvpcLinkId%3AUpdateVpcLinkResponse%27"><span class="hs-identifier hs-var">vpcLinkId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430482"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse"><span class="hs-identifier hs-type">UpdateVpcLinkResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- | The timestamp when the VPC link was created.</span><span>
+</span><span id="line-235"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#updateVpcLinkResponse_createdDate"><span class="hs-identifier hs-type">updateVpcLinkResponse_createdDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse"><span class="hs-identifier hs-type">UpdateVpcLinkResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span id="updateVpcLinkResponse_createdDate"><span class="annot"><span class="annottext">updateVpcLinkResponse_createdDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; UpdateVpcLinkResponse -&gt; f UpdateVpcLinkResponse
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#updateVpcLinkResponse_createdDate"><span class="hs-identifier hs-var hs-var">updateVpcLinkResponse_createdDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateVpcLinkResponse -&gt; Maybe POSIX)
+-&gt; (UpdateVpcLinkResponse -&gt; Maybe POSIX -&gt; UpdateVpcLinkResponse)
+-&gt; Lens
+     UpdateVpcLinkResponse
+     UpdateVpcLinkResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse%27"><span class="hs-identifier hs-type">UpdateVpcLinkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430481"><span class="annot"><span class="annottext">Maybe POSIX
+createdDate :: Maybe POSIX
+$sel:createdDate:UpdateVpcLinkResponse' :: UpdateVpcLinkResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679430481"><span class="hs-identifier hs-var hs-var">createdDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679430481"><span class="hs-identifier hs-var">createdDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430480"><span class="annot"><span class="annottext">s :: UpdateVpcLinkResponse
+</span><a href="#local-6989586621679430480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse%27"><span class="hs-identifier hs-type">UpdateVpcLinkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430479"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679430479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateVpcLinkResponse
+</span><a href="#local-6989586621679430480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdDate:UpdateVpcLinkResponse' :: Maybe POSIX
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#%24sel%3AcreatedDate%3AUpdateVpcLinkResponse%27"><span class="hs-identifier hs-var">createdDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679430479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse"><span class="hs-identifier hs-type">UpdateVpcLinkResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; UpdateVpcLinkResponse -&gt; f UpdateVpcLinkResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; UpdateVpcLinkResponse
+-&gt; f UpdateVpcLinkResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- | The version of the VPC link.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#updateVpcLinkResponse_vpcLinkVersion"><span class="hs-identifier hs-type">updateVpcLinkResponse_vpcLinkVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse"><span class="hs-identifier hs-type">UpdateVpcLinkResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.VpcLinkVersion.html#VpcLinkVersion"><span class="hs-identifier hs-type">VpcLinkVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span id="updateVpcLinkResponse_vpcLinkVersion"><span class="annot"><span class="annottext">updateVpcLinkResponse_vpcLinkVersion :: (Maybe VpcLinkVersion -&gt; f (Maybe VpcLinkVersion))
+-&gt; UpdateVpcLinkResponse -&gt; f UpdateVpcLinkResponse
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#updateVpcLinkResponse_vpcLinkVersion"><span class="hs-identifier hs-var hs-var">updateVpcLinkResponse_vpcLinkVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateVpcLinkResponse -&gt; Maybe VpcLinkVersion)
+-&gt; (UpdateVpcLinkResponse
+    -&gt; Maybe VpcLinkVersion -&gt; UpdateVpcLinkResponse)
+-&gt; Lens
+     UpdateVpcLinkResponse
+     UpdateVpcLinkResponse
+     (Maybe VpcLinkVersion)
+     (Maybe VpcLinkVersion)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse%27"><span class="hs-identifier hs-type">UpdateVpcLinkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430477"><span class="annot"><span class="annottext">Maybe VpcLinkVersion
+vpcLinkVersion :: Maybe VpcLinkVersion
+$sel:vpcLinkVersion:UpdateVpcLinkResponse' :: UpdateVpcLinkResponse -&gt; Maybe VpcLinkVersion
+</span><a href="#local-6989586621679430477"><span class="hs-identifier hs-var hs-var">vpcLinkVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VpcLinkVersion
+</span><a href="#local-6989586621679430477"><span class="hs-identifier hs-var">vpcLinkVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430476"><span class="annot"><span class="annottext">s :: UpdateVpcLinkResponse
+</span><a href="#local-6989586621679430476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse%27"><span class="hs-identifier hs-type">UpdateVpcLinkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430475"><span class="annot"><span class="annottext">Maybe VpcLinkVersion
+</span><a href="#local-6989586621679430475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateVpcLinkResponse
+</span><a href="#local-6989586621679430476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcLinkVersion:UpdateVpcLinkResponse' :: Maybe VpcLinkVersion
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#%24sel%3AvpcLinkVersion%3AUpdateVpcLinkResponse%27"><span class="hs-identifier hs-var">vpcLinkVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VpcLinkVersion
+</span><a href="#local-6989586621679430475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse"><span class="hs-identifier hs-type">UpdateVpcLinkResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- | The name of the VPC link.</span><span>
+</span><span id="line-243"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#updateVpcLinkResponse_name"><span class="hs-identifier hs-type">updateVpcLinkResponse_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse"><span class="hs-identifier hs-type">UpdateVpcLinkResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span id="updateVpcLinkResponse_name"><span class="annot"><span class="annottext">updateVpcLinkResponse_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateVpcLinkResponse -&gt; f UpdateVpcLinkResponse
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#updateVpcLinkResponse_name"><span class="hs-identifier hs-var hs-var">updateVpcLinkResponse_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateVpcLinkResponse -&gt; Maybe Text)
+-&gt; (UpdateVpcLinkResponse -&gt; Maybe Text -&gt; UpdateVpcLinkResponse)
+-&gt; Lens
+     UpdateVpcLinkResponse
+     UpdateVpcLinkResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse%27"><span class="hs-identifier hs-type">UpdateVpcLinkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430474"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:UpdateVpcLinkResponse' :: UpdateVpcLinkResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679430474"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430474"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430473"><span class="annot"><span class="annottext">s :: UpdateVpcLinkResponse
+</span><a href="#local-6989586621679430473"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse%27"><span class="hs-identifier hs-type">UpdateVpcLinkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430472"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430472"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateVpcLinkResponse
+</span><a href="#local-6989586621679430473"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateVpcLinkResponse' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#%24sel%3Aname%3AUpdateVpcLinkResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430472"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse"><span class="hs-identifier hs-type">UpdateVpcLinkResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- | A message summarizing the cause of the status of the VPC link.</span><span>
+</span><span id="line-247"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#updateVpcLinkResponse_vpcLinkStatusMessage"><span class="hs-identifier hs-type">updateVpcLinkResponse_vpcLinkStatusMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse"><span class="hs-identifier hs-type">UpdateVpcLinkResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span id="updateVpcLinkResponse_vpcLinkStatusMessage"><span class="annot"><span class="annottext">updateVpcLinkResponse_vpcLinkStatusMessage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateVpcLinkResponse -&gt; f UpdateVpcLinkResponse
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#updateVpcLinkResponse_vpcLinkStatusMessage"><span class="hs-identifier hs-var hs-var">updateVpcLinkResponse_vpcLinkStatusMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateVpcLinkResponse -&gt; Maybe Text)
+-&gt; (UpdateVpcLinkResponse -&gt; Maybe Text -&gt; UpdateVpcLinkResponse)
+-&gt; Lens
+     UpdateVpcLinkResponse
+     UpdateVpcLinkResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse%27"><span class="hs-identifier hs-type">UpdateVpcLinkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430471"><span class="annot"><span class="annottext">Maybe Text
+vpcLinkStatusMessage :: Maybe Text
+$sel:vpcLinkStatusMessage:UpdateVpcLinkResponse' :: UpdateVpcLinkResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679430471"><span class="hs-identifier hs-var hs-var">vpcLinkStatusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430471"><span class="hs-identifier hs-var">vpcLinkStatusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430470"><span class="annot"><span class="annottext">s :: UpdateVpcLinkResponse
+</span><a href="#local-6989586621679430470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse%27"><span class="hs-identifier hs-type">UpdateVpcLinkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430469"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateVpcLinkResponse
+</span><a href="#local-6989586621679430470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcLinkStatusMessage:UpdateVpcLinkResponse' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#%24sel%3AvpcLinkStatusMessage%3AUpdateVpcLinkResponse%27"><span class="hs-identifier hs-var">vpcLinkStatusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse"><span class="hs-identifier hs-type">UpdateVpcLinkResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- | Tags for the VPC link.</span><span>
+</span><span id="line-251"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#updateVpcLinkResponse_tags"><span class="hs-identifier hs-type">updateVpcLinkResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse"><span class="hs-identifier hs-type">UpdateVpcLinkResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span id="updateVpcLinkResponse_tags"><span class="annot"><span class="annottext">updateVpcLinkResponse_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; UpdateVpcLinkResponse -&gt; f UpdateVpcLinkResponse
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#updateVpcLinkResponse_tags"><span class="hs-identifier hs-var hs-var">updateVpcLinkResponse_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateVpcLinkResponse -&gt; Maybe (HashMap Text Text))
+-&gt; (UpdateVpcLinkResponse
+    -&gt; Maybe (HashMap Text Text) -&gt; UpdateVpcLinkResponse)
+-&gt; Lens
+     UpdateVpcLinkResponse
+     UpdateVpcLinkResponse
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse%27"><span class="hs-identifier hs-type">UpdateVpcLinkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430468"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:UpdateVpcLinkResponse' :: UpdateVpcLinkResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679430468"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679430468"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430467"><span class="annot"><span class="annottext">s :: UpdateVpcLinkResponse
+</span><a href="#local-6989586621679430467"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse%27"><span class="hs-identifier hs-type">UpdateVpcLinkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430466"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679430466"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateVpcLinkResponse
+</span><a href="#local-6989586621679430467"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:UpdateVpcLinkResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#%24sel%3Atags%3AUpdateVpcLinkResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679430466"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse"><span class="hs-identifier hs-type">UpdateVpcLinkResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; UpdateVpcLinkResponse -&gt; f UpdateVpcLinkResponse)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; UpdateVpcLinkResponse
+-&gt; f UpdateVpcLinkResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- | The status of the VPC link.</span><span>
+</span><span id="line-255"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#updateVpcLinkResponse_vpcLinkStatus"><span class="hs-identifier hs-type">updateVpcLinkResponse_vpcLinkStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse"><span class="hs-identifier hs-type">UpdateVpcLinkResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.VpcLinkStatus.html#VpcLinkStatus"><span class="hs-identifier hs-type">VpcLinkStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span id="updateVpcLinkResponse_vpcLinkStatus"><span class="annot"><span class="annottext">updateVpcLinkResponse_vpcLinkStatus :: (Maybe VpcLinkStatus -&gt; f (Maybe VpcLinkStatus))
+-&gt; UpdateVpcLinkResponse -&gt; f UpdateVpcLinkResponse
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#updateVpcLinkResponse_vpcLinkStatus"><span class="hs-identifier hs-var hs-var">updateVpcLinkResponse_vpcLinkStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateVpcLinkResponse -&gt; Maybe VpcLinkStatus)
+-&gt; (UpdateVpcLinkResponse
+    -&gt; Maybe VpcLinkStatus -&gt; UpdateVpcLinkResponse)
+-&gt; Lens
+     UpdateVpcLinkResponse
+     UpdateVpcLinkResponse
+     (Maybe VpcLinkStatus)
+     (Maybe VpcLinkStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse%27"><span class="hs-identifier hs-type">UpdateVpcLinkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430465"><span class="annot"><span class="annottext">Maybe VpcLinkStatus
+vpcLinkStatus :: Maybe VpcLinkStatus
+$sel:vpcLinkStatus:UpdateVpcLinkResponse' :: UpdateVpcLinkResponse -&gt; Maybe VpcLinkStatus
+</span><a href="#local-6989586621679430465"><span class="hs-identifier hs-var hs-var">vpcLinkStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VpcLinkStatus
+</span><a href="#local-6989586621679430465"><span class="hs-identifier hs-var">vpcLinkStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430464"><span class="annot"><span class="annottext">s :: UpdateVpcLinkResponse
+</span><a href="#local-6989586621679430464"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse%27"><span class="hs-identifier hs-type">UpdateVpcLinkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430463"><span class="annot"><span class="annottext">Maybe VpcLinkStatus
+</span><a href="#local-6989586621679430463"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateVpcLinkResponse
+</span><a href="#local-6989586621679430464"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcLinkStatus:UpdateVpcLinkResponse' :: Maybe VpcLinkStatus
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#%24sel%3AvpcLinkStatus%3AUpdateVpcLinkResponse%27"><span class="hs-identifier hs-var">vpcLinkStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VpcLinkStatus
+</span><a href="#local-6989586621679430463"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse"><span class="hs-identifier hs-type">UpdateVpcLinkResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-259"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#updateVpcLinkResponse_httpStatus"><span class="hs-identifier hs-type">updateVpcLinkResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse"><span class="hs-identifier hs-type">UpdateVpcLinkResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-260"></span><span id="updateVpcLinkResponse_httpStatus"><span class="annot"><span class="annottext">updateVpcLinkResponse_httpStatus :: (Int -&gt; f Int) -&gt; UpdateVpcLinkResponse -&gt; f UpdateVpcLinkResponse
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#updateVpcLinkResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateVpcLinkResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateVpcLinkResponse -&gt; Int)
+-&gt; (UpdateVpcLinkResponse -&gt; Int -&gt; UpdateVpcLinkResponse)
+-&gt; Lens UpdateVpcLinkResponse UpdateVpcLinkResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse%27"><span class="hs-identifier hs-type">UpdateVpcLinkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430462"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateVpcLinkResponse' :: UpdateVpcLinkResponse -&gt; Int
+</span><a href="#local-6989586621679430462"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679430462"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430461"><span class="annot"><span class="annottext">s :: UpdateVpcLinkResponse
+</span><a href="#local-6989586621679430461"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse%27"><span class="hs-identifier hs-type">UpdateVpcLinkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430460"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679430460"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateVpcLinkResponse
+</span><a href="#local-6989586621679430461"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateVpcLinkResponse' :: Int
+</span><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#%24sel%3AhttpStatus%3AUpdateVpcLinkResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679430460"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse"><span class="hs-identifier hs-type">UpdateVpcLinkResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430458"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateVpcLink.html#UpdateVpcLinkResponse"><span class="hs-identifier hs-type">UpdateVpcLinkResponse</span></a></span></span><span>
+</span><span id="line-263"></span></pre></body></html>

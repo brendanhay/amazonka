@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621681167763"><span id="local-6989586621681167764"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TrafficMirrorNetworkService"><span class="annot"><a href="Network.AWS.EC2.Types.TrafficMirrorNetworkService.html#TrafficMirrorNetworkService"><span class="hs-identifier hs-var">TrafficMirrorNetworkService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TrafficMirrorNetworkService%27"><span class="annot"><a href="Network.AWS.EC2.Types.TrafficMirrorNetworkService.html#TrafficMirrorNetworkService%27"><span class="hs-identifier hs-var">TrafficMirrorNetworkService'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621681167772"><span id="local-6989586621681167773"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TrafficMirrorNetworkService"><span class="annot"><a href="Network.AWS.EC2.Types.TrafficMirrorNetworkService.html#TrafficMirrorNetworkService"><span class="hs-identifier hs-var">TrafficMirrorNetworkService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TrafficMirrorNetworkService%27"><span class="annot"><a href="Network.AWS.EC2.Types.TrafficMirrorNetworkService.html#TrafficMirrorNetworkService%27"><span class="hs-identifier hs-var">TrafficMirrorNetworkService'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTrafficMirrorNetworkService"><span class="annot"><span class="annottext">TrafficMirrorNetworkService -&gt; Text
 </span><a href="Network.AWS.EC2.Types.TrafficMirrorNetworkService.html#fromTrafficMirrorNetworkService"><span class="hs-identifier hs-var hs-var">fromTrafficMirrorNetworkService</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681167755"><span id="local-6989586621681167757"><span id="local-6989586621681167759"><span class="annot"><span class="annottext">Int -&gt; TrafficMirrorNetworkService -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681167764"><span id="local-6989586621681167766"><span id="local-6989586621681167768"><span class="annot"><span class="annottext">Int -&gt; TrafficMirrorNetworkService -&gt; ShowS
 [TrafficMirrorNetworkService] -&gt; ShowS
 TrafficMirrorNetworkService -&gt; String
 (Int -&gt; TrafficMirrorNetworkService -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: TrafficMirrorNetworkService -&gt; String
 showsPrec :: Int -&gt; TrafficMirrorNetworkService -&gt; ShowS
 $cshowsPrec :: Int -&gt; TrafficMirrorNetworkService -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621681167746"><span id="local-6989586621681167748"><span id="local-6989586621681167750"><span id="local-6989586621681167752"><span class="annot"><span class="annottext">ReadPrec [TrafficMirrorNetworkService]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621681167755"><span id="local-6989586621681167757"><span id="local-6989586621681167759"><span id="local-6989586621681167761"><span class="annot"><span class="annottext">ReadPrec [TrafficMirrorNetworkService]
 ReadPrec TrafficMirrorNetworkService
 Int -&gt; ReadS TrafficMirrorNetworkService
 ReadS [TrafficMirrorNetworkService]
@@ -72,7 +72,7 @@ $creadList :: ReadS [TrafficMirrorNetworkService]
 readsPrec :: Int -&gt; ReadS TrafficMirrorNetworkService
 $creadsPrec :: Int -&gt; ReadS TrafficMirrorNetworkService
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681167741"><span id="local-6989586621681167743"><span class="annot"><span class="annottext">TrafficMirrorNetworkService -&gt; TrafficMirrorNetworkService -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681167750"><span id="local-6989586621681167752"><span class="annot"><span class="annottext">TrafficMirrorNetworkService -&gt; TrafficMirrorNetworkService -&gt; Bool
 (TrafficMirrorNetworkService
  -&gt; TrafficMirrorNetworkService -&gt; Bool)
 -&gt; (TrafficMirrorNetworkService
@@ -84,7 +84,7 @@ $c/= :: TrafficMirrorNetworkService -&gt; TrafficMirrorNetworkService -&gt; Bool
 == :: TrafficMirrorNetworkService -&gt; TrafficMirrorNetworkService -&gt; Bool
 $c== :: TrafficMirrorNetworkService -&gt; TrafficMirrorNetworkService -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681167725"><span id="local-6989586621681167727"><span id="local-6989586621681167729"><span id="local-6989586621681167731"><span id="local-6989586621681167733"><span id="local-6989586621681167735"><span id="local-6989586621681167737"><span class="annot"><span class="annottext">Eq TrafficMirrorNetworkService
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681167734"><span id="local-6989586621681167736"><span id="local-6989586621681167738"><span id="local-6989586621681167740"><span id="local-6989586621681167742"><span id="local-6989586621681167744"><span id="local-6989586621681167746"><span class="annot"><span class="annottext">Eq TrafficMirrorNetworkService
 Eq TrafficMirrorNetworkService
 -&gt; (TrafficMirrorNetworkService
     -&gt; TrafficMirrorNetworkService -&gt; Ordering)
@@ -156,7 +156,7 @@ TrafficMirrorNetworkService -&gt; Rep TrafficMirrorNetworkService x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681167717"><span id="local-6989586621681167719"><span class="annot"><span class="annottext">Int -&gt; TrafficMirrorNetworkService -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681167726"><span id="local-6989586621681167728"><span class="annot"><span class="annottext">Int -&gt; TrafficMirrorNetworkService -&gt; Int
 TrafficMirrorNetworkService -&gt; Int
 (Int -&gt; TrafficMirrorNetworkService -&gt; Int)
 -&gt; (TrafficMirrorNetworkService -&gt; Int)
@@ -167,56 +167,56 @@ $chash :: TrafficMirrorNetworkService -&gt; Int
 hashWithSalt :: Int -&gt; TrafficMirrorNetworkService -&gt; Int
 $chashWithSalt :: Int -&gt; TrafficMirrorNetworkService -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621681167714"><span class="annot"><span class="annottext">TrafficMirrorNetworkService -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621681167723"><span class="annot"><span class="annottext">TrafficMirrorNetworkService -&gt; ()
 (TrafficMirrorNetworkService -&gt; ())
 -&gt; NFData TrafficMirrorNetworkService
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TrafficMirrorNetworkService -&gt; ()
 $crnf :: TrafficMirrorNetworkService -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681167711"><span class="annot"><span class="annottext">Text -&gt; Either String TrafficMirrorNetworkService
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681167720"><span class="annot"><span class="annottext">Text -&gt; Either String TrafficMirrorNetworkService
 (Text -&gt; Either String TrafficMirrorNetworkService)
 -&gt; FromText TrafficMirrorNetworkService
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TrafficMirrorNetworkService
 $cfromText :: Text -&gt; Either String TrafficMirrorNetworkService
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681167708"><span class="annot"><span class="annottext">TrafficMirrorNetworkService -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681167717"><span class="annot"><span class="annottext">TrafficMirrorNetworkService -&gt; Text
 (TrafficMirrorNetworkService -&gt; Text)
 -&gt; ToText TrafficMirrorNetworkService
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TrafficMirrorNetworkService -&gt; Text
 $ctoText :: TrafficMirrorNetworkService -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681167705"><span class="annot"><span class="annottext">TrafficMirrorNetworkService -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681167714"><span class="annot"><span class="annottext">TrafficMirrorNetworkService -&gt; ByteString
 (TrafficMirrorNetworkService -&gt; ByteString)
 -&gt; ToByteString TrafficMirrorNetworkService
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TrafficMirrorNetworkService -&gt; ByteString
 $ctoBS :: TrafficMirrorNetworkService -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681167702"><span class="annot"><span class="annottext">TrafficMirrorNetworkService -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681167711"><span class="annot"><span class="annottext">TrafficMirrorNetworkService -&gt; ByteStringBuilder
 (TrafficMirrorNetworkService -&gt; ByteStringBuilder)
 -&gt; ToLog TrafficMirrorNetworkService
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TrafficMirrorNetworkService -&gt; ByteStringBuilder
 $cbuild :: TrafficMirrorNetworkService -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681167699"><span class="annot"><span class="annottext">HeaderName -&gt; TrafficMirrorNetworkService -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681167708"><span class="annot"><span class="annottext">HeaderName -&gt; TrafficMirrorNetworkService -&gt; [Header]
 (HeaderName -&gt; TrafficMirrorNetworkService -&gt; [Header])
 -&gt; ToHeader TrafficMirrorNetworkService
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TrafficMirrorNetworkService -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TrafficMirrorNetworkService -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681167696"><span class="annot"><span class="annottext">TrafficMirrorNetworkService -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681167705"><span class="annot"><span class="annottext">TrafficMirrorNetworkService -&gt; QueryString
 (TrafficMirrorNetworkService -&gt; QueryString)
 -&gt; ToQuery TrafficMirrorNetworkService
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TrafficMirrorNetworkService -&gt; QueryString
 $ctoQuery :: TrafficMirrorNetworkService -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681167691"><span id="local-6989586621681167693"><span class="annot"><span class="annottext">Value -&gt; Parser [TrafficMirrorNetworkService]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681167700"><span id="local-6989586621681167702"><span class="annot"><span class="annottext">Value -&gt; Parser [TrafficMirrorNetworkService]
 Value -&gt; Parser TrafficMirrorNetworkService
 (Value -&gt; Parser TrafficMirrorNetworkService)
 -&gt; (Value -&gt; Parser [TrafficMirrorNetworkService])
@@ -228,7 +228,7 @@ $cparseJSONList :: Value -&gt; Parser [TrafficMirrorNetworkService]
 parseJSON :: Value -&gt; Parser TrafficMirrorNetworkService
 $cparseJSON :: Value -&gt; Parser TrafficMirrorNetworkService
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681167686"><span id="local-6989586621681167688"><span class="annot"><span class="annottext">FromJSONKeyFunction [TrafficMirrorNetworkService]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681167695"><span id="local-6989586621681167697"><span class="annot"><span class="annottext">FromJSONKeyFunction [TrafficMirrorNetworkService]
 FromJSONKeyFunction TrafficMirrorNetworkService
 FromJSONKeyFunction TrafficMirrorNetworkService
 -&gt; FromJSONKeyFunction [TrafficMirrorNetworkService]
@@ -240,7 +240,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TrafficMirrorNetworkService]
 fromJSONKey :: FromJSONKeyFunction TrafficMirrorNetworkService
 $cfromJSONKey :: FromJSONKeyFunction TrafficMirrorNetworkService
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681167677"><span id="local-6989586621681167679"><span id="local-6989586621681167681"><span id="local-6989586621681167683"><span class="annot"><span class="annottext">[TrafficMirrorNetworkService] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681167686"><span id="local-6989586621681167688"><span id="local-6989586621681167690"><span id="local-6989586621681167692"><span class="annot"><span class="annottext">[TrafficMirrorNetworkService] -&gt; Encoding
 [TrafficMirrorNetworkService] -&gt; Value
 TrafficMirrorNetworkService -&gt; Encoding
 TrafficMirrorNetworkService -&gt; Value
@@ -264,7 +264,7 @@ $ctoEncoding :: TrafficMirrorNetworkService -&gt; Encoding
 toJSON :: TrafficMirrorNetworkService -&gt; Value
 $ctoJSON :: TrafficMirrorNetworkService -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681167672"><span id="local-6989586621681167674"><span class="annot"><span class="annottext">ToJSONKeyFunction [TrafficMirrorNetworkService]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681167681"><span id="local-6989586621681167683"><span class="annot"><span class="annottext">ToJSONKeyFunction [TrafficMirrorNetworkService]
 ToJSONKeyFunction TrafficMirrorNetworkService
 ToJSONKeyFunction TrafficMirrorNetworkService
 -&gt; ToJSONKeyFunction [TrafficMirrorNetworkService]
@@ -276,14 +276,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TrafficMirrorNetworkService]
 toJSONKey :: ToJSONKeyFunction TrafficMirrorNetworkService
 $ctoJSONKey :: ToJSONKeyFunction TrafficMirrorNetworkService
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681167669"><span class="annot"><span class="annottext">[Node] -&gt; Either String TrafficMirrorNetworkService
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681167678"><span class="annot"><span class="annottext">[Node] -&gt; Either String TrafficMirrorNetworkService
 ([Node] -&gt; Either String TrafficMirrorNetworkService)
 -&gt; FromXML TrafficMirrorNetworkService
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TrafficMirrorNetworkService
 $cparseXML :: [Node] -&gt; Either String TrafficMirrorNetworkService
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681167666"><span class="annot"><span class="annottext">TrafficMirrorNetworkService -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681167675"><span class="annot"><span class="annottext">TrafficMirrorNetworkService -&gt; XML
 (TrafficMirrorNetworkService -&gt; XML)
 -&gt; ToXML TrafficMirrorNetworkService
 forall a. (a -&gt; XML) -&gt; ToXML a

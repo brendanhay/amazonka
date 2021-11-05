@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- | codec in increasing order of complexity</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679890872"><span id="local-6989586621679890873"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InputCodec"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputCodec.html#InputCodec"><span class="hs-identifier hs-var">InputCodec</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputCodec%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputCodec.html#InputCodec%27"><span class="hs-identifier hs-var">InputCodec'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679890881"><span id="local-6989586621679890882"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InputCodec"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputCodec.html#InputCodec"><span class="hs-identifier hs-var">InputCodec</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputCodec%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputCodec.html#InputCodec%27"><span class="hs-identifier hs-var">InputCodec'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInputCodec"><span class="annot"><span class="annottext">InputCodec -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.InputCodec.html#fromInputCodec"><span class="hs-identifier hs-var hs-var">fromInputCodec</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679890864"><span id="local-6989586621679890866"><span id="local-6989586621679890868"><span class="annot"><span class="annottext">Int -&gt; InputCodec -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679890873"><span id="local-6989586621679890875"><span id="local-6989586621679890877"><span class="annot"><span class="annottext">Int -&gt; InputCodec -&gt; ShowS
 [InputCodec] -&gt; ShowS
 InputCodec -&gt; String
 (Int -&gt; InputCodec -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: InputCodec -&gt; String
 showsPrec :: Int -&gt; InputCodec -&gt; ShowS
 $cshowsPrec :: Int -&gt; InputCodec -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679890855"><span id="local-6989586621679890857"><span id="local-6989586621679890859"><span id="local-6989586621679890861"><span class="annot"><span class="annottext">ReadPrec [InputCodec]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679890864"><span id="local-6989586621679890866"><span id="local-6989586621679890868"><span id="local-6989586621679890870"><span class="annot"><span class="annottext">ReadPrec [InputCodec]
 ReadPrec InputCodec
 Int -&gt; ReadS InputCodec
 ReadS [InputCodec]
@@ -74,7 +74,7 @@ $creadList :: ReadS [InputCodec]
 readsPrec :: Int -&gt; ReadS InputCodec
 $creadsPrec :: Int -&gt; ReadS InputCodec
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679890850"><span id="local-6989586621679890852"><span class="annot"><span class="annottext">InputCodec -&gt; InputCodec -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679890859"><span id="local-6989586621679890861"><span class="annot"><span class="annottext">InputCodec -&gt; InputCodec -&gt; Bool
 (InputCodec -&gt; InputCodec -&gt; Bool)
 -&gt; (InputCodec -&gt; InputCodec -&gt; Bool) -&gt; Eq InputCodec
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -83,7 +83,7 @@ $c/= :: InputCodec -&gt; InputCodec -&gt; Bool
 == :: InputCodec -&gt; InputCodec -&gt; Bool
 $c== :: InputCodec -&gt; InputCodec -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679890834"><span id="local-6989586621679890836"><span id="local-6989586621679890838"><span id="local-6989586621679890840"><span id="local-6989586621679890842"><span id="local-6989586621679890844"><span id="local-6989586621679890846"><span class="annot"><span class="annottext">Eq InputCodec
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679890843"><span id="local-6989586621679890845"><span id="local-6989586621679890847"><span id="local-6989586621679890849"><span id="local-6989586621679890851"><span id="local-6989586621679890853"><span id="local-6989586621679890855"><span class="annot"><span class="annottext">Eq InputCodec
 Eq InputCodec
 -&gt; (InputCodec -&gt; InputCodec -&gt; Ordering)
 -&gt; (InputCodec -&gt; InputCodec -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. InputCodec -&gt; Rep InputCodec x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679890826"><span id="local-6989586621679890828"><span class="annot"><span class="annottext">Int -&gt; InputCodec -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679890835"><span id="local-6989586621679890837"><span class="annot"><span class="annottext">Int -&gt; InputCodec -&gt; Int
 InputCodec -&gt; Int
 (Int -&gt; InputCodec -&gt; Int)
 -&gt; (InputCodec -&gt; Int) -&gt; Hashable InputCodec
@@ -143,49 +143,49 @@ $chash :: InputCodec -&gt; Int
 hashWithSalt :: Int -&gt; InputCodec -&gt; Int
 $chashWithSalt :: Int -&gt; InputCodec -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679890823"><span class="annot"><span class="annottext">InputCodec -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679890832"><span class="annot"><span class="annottext">InputCodec -&gt; ()
 (InputCodec -&gt; ()) -&gt; NFData InputCodec
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: InputCodec -&gt; ()
 $crnf :: InputCodec -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679890820"><span class="annot"><span class="annottext">Text -&gt; Either String InputCodec
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679890829"><span class="annot"><span class="annottext">Text -&gt; Either String InputCodec
 (Text -&gt; Either String InputCodec) -&gt; FromText InputCodec
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String InputCodec
 $cfromText :: Text -&gt; Either String InputCodec
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679890817"><span class="annot"><span class="annottext">InputCodec -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679890826"><span class="annot"><span class="annottext">InputCodec -&gt; Text
 (InputCodec -&gt; Text) -&gt; ToText InputCodec
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: InputCodec -&gt; Text
 $ctoText :: InputCodec -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679890814"><span class="annot"><span class="annottext">InputCodec -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679890823"><span class="annot"><span class="annottext">InputCodec -&gt; ByteString
 (InputCodec -&gt; ByteString) -&gt; ToByteString InputCodec
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: InputCodec -&gt; ByteString
 $ctoBS :: InputCodec -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679890811"><span class="annot"><span class="annottext">InputCodec -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679890820"><span class="annot"><span class="annottext">InputCodec -&gt; ByteStringBuilder
 (InputCodec -&gt; ByteStringBuilder) -&gt; ToLog InputCodec
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: InputCodec -&gt; ByteStringBuilder
 $cbuild :: InputCodec -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679890808"><span class="annot"><span class="annottext">HeaderName -&gt; InputCodec -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679890817"><span class="annot"><span class="annottext">HeaderName -&gt; InputCodec -&gt; [Header]
 (HeaderName -&gt; InputCodec -&gt; [Header]) -&gt; ToHeader InputCodec
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; InputCodec -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; InputCodec -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679890805"><span class="annot"><span class="annottext">InputCodec -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679890814"><span class="annot"><span class="annottext">InputCodec -&gt; QueryString
 (InputCodec -&gt; QueryString) -&gt; ToQuery InputCodec
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: InputCodec -&gt; QueryString
 $ctoQuery :: InputCodec -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679890800"><span id="local-6989586621679890802"><span class="annot"><span class="annottext">Value -&gt; Parser [InputCodec]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679890809"><span id="local-6989586621679890811"><span class="annot"><span class="annottext">Value -&gt; Parser [InputCodec]
 Value -&gt; Parser InputCodec
 (Value -&gt; Parser InputCodec)
 -&gt; (Value -&gt; Parser [InputCodec]) -&gt; FromJSON InputCodec
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [InputCodec]
 parseJSON :: Value -&gt; Parser InputCodec
 $cparseJSON :: Value -&gt; Parser InputCodec
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679890795"><span id="local-6989586621679890797"><span class="annot"><span class="annottext">FromJSONKeyFunction [InputCodec]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679890804"><span id="local-6989586621679890806"><span class="annot"><span class="annottext">FromJSONKeyFunction [InputCodec]
 FromJSONKeyFunction InputCodec
 FromJSONKeyFunction InputCodec
 -&gt; FromJSONKeyFunction [InputCodec] -&gt; FromJSONKey InputCodec
@@ -207,7 +207,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [InputCodec]
 fromJSONKey :: FromJSONKeyFunction InputCodec
 $cfromJSONKey :: FromJSONKeyFunction InputCodec
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679890786"><span id="local-6989586621679890788"><span id="local-6989586621679890790"><span id="local-6989586621679890792"><span class="annot"><span class="annottext">[InputCodec] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679890795"><span id="local-6989586621679890797"><span id="local-6989586621679890799"><span id="local-6989586621679890801"><span class="annot"><span class="annottext">[InputCodec] -&gt; Encoding
 [InputCodec] -&gt; Value
 InputCodec -&gt; Encoding
 InputCodec -&gt; Value
@@ -231,7 +231,7 @@ $ctoEncoding :: InputCodec -&gt; Encoding
 toJSON :: InputCodec -&gt; Value
 $ctoJSON :: InputCodec -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679890781"><span id="local-6989586621679890783"><span class="annot"><span class="annottext">ToJSONKeyFunction [InputCodec]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679890790"><span id="local-6989586621679890792"><span class="annot"><span class="annottext">ToJSONKeyFunction [InputCodec]
 ToJSONKeyFunction InputCodec
 ToJSONKeyFunction InputCodec
 -&gt; ToJSONKeyFunction [InputCodec] -&gt; ToJSONKey InputCodec
@@ -242,13 +242,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [InputCodec]
 toJSONKey :: ToJSONKeyFunction InputCodec
 $ctoJSONKey :: ToJSONKeyFunction InputCodec
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679890778"><span class="annot"><span class="annottext">[Node] -&gt; Either String InputCodec
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679890787"><span class="annot"><span class="annottext">[Node] -&gt; Either String InputCodec
 ([Node] -&gt; Either String InputCodec) -&gt; FromXML InputCodec
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String InputCodec
 $cparseXML :: [Node] -&gt; Either String InputCodec
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679890775"><span class="annot"><span class="annottext">InputCodec -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679890784"><span class="annot"><span class="annottext">InputCodec -&gt; XML
 (InputCodec -&gt; XML) -&gt; ToXML InputCodec
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: InputCodec -&gt; XML

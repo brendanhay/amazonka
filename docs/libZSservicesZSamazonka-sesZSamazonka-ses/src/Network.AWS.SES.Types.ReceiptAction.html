@@ -38,7 +38,7 @@
 </span><span id="line-38"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rules.html Amazon SES Developer Guide&gt;.</span><span>
 </span><span id="line-39"></span><span class="hs-comment">--</span><span>
 </span><span id="line-40"></span><span class="hs-comment">-- /See:/ 'newReceiptAction' smart constructor.</span><span>
-</span><span id="line-41"></span><span id="local-6989586621679276961"><span id="local-6989586621679276962"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReceiptAction"><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction"><span class="hs-identifier hs-var">ReceiptAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReceiptAction%27"><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction%27"><span class="hs-identifier hs-var">ReceiptAction'</span></a></span></span><span>
+</span><span id="line-41"></span><span id="local-6989586621679276970"><span id="local-6989586621679276971"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReceiptAction"><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction"><span class="hs-identifier hs-var">ReceiptAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReceiptAction%27"><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction%27"><span class="hs-identifier hs-var">ReceiptAction'</span></a></span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Adds a header to the received email.</span><span>
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3AaddHeaderAction%3AReceiptAction%27"><span class="annot"><span class="annottext">ReceiptAction -&gt; Maybe AddHeaderAction
 </span><a href="Network.AWS.SES.Types.ReceiptAction.html#%24sel%3AaddHeaderAction%3AReceiptAction%27"><span class="hs-identifier hs-var hs-var">addHeaderAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.AddHeaderAction.html#AddHeaderAction"><span class="hs-identifier hs-type">AddHeaderAction</span></a></span><span class="hs-special">,</span><span>
@@ -67,7 +67,7 @@
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3As3Action%3AReceiptAction%27"><span class="annot"><span class="annottext">ReceiptAction -&gt; Maybe S3Action
 </span><a href="Network.AWS.SES.Types.ReceiptAction.html#%24sel%3As3Action%3AReceiptAction%27"><span class="hs-identifier hs-var hs-var">s3Action</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679276949"><span id="local-6989586621679276951"><span class="annot"><span class="annottext">ReceiptAction -&gt; ReceiptAction -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679276958"><span id="local-6989586621679276960"><span class="annot"><span class="annottext">ReceiptAction -&gt; ReceiptAction -&gt; Bool
 (ReceiptAction -&gt; ReceiptAction -&gt; Bool)
 -&gt; (ReceiptAction -&gt; ReceiptAction -&gt; Bool) -&gt; Eq ReceiptAction
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ReceiptAction -&gt; ReceiptAction -&gt; Bool
 == :: ReceiptAction -&gt; ReceiptAction -&gt; Bool
 $c== :: ReceiptAction -&gt; ReceiptAction -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276940"><span id="local-6989586621679276942"><span id="local-6989586621679276944"><span id="local-6989586621679276946"><span class="annot"><span class="annottext">ReadPrec [ReceiptAction]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276949"><span id="local-6989586621679276951"><span id="local-6989586621679276953"><span id="local-6989586621679276955"><span class="annot"><span class="annottext">ReadPrec [ReceiptAction]
 ReadPrec ReceiptAction
 Int -&gt; ReadS ReceiptAction
 ReadS [ReceiptAction]
@@ -95,7 +95,7 @@ readList :: ReadS [ReceiptAction]
 $creadList :: ReadS [ReceiptAction]
 readsPrec :: Int -&gt; ReadS ReceiptAction
 $creadsPrec :: Int -&gt; ReadS ReceiptAction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276933"><span id="local-6989586621679276935"><span id="local-6989586621679276937"><span class="annot"><span class="annottext">Int -&gt; ReceiptAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276942"><span id="local-6989586621679276944"><span id="local-6989586621679276946"><span class="annot"><span class="annottext">Int -&gt; ReceiptAction -&gt; ShowS
 [ReceiptAction] -&gt; ShowS
 ReceiptAction -&gt; String
 (Int -&gt; ReceiptAction -&gt; ShowS)
@@ -203,16 +203,16 @@ forall a. Maybe a
      (Maybe AddHeaderAction)
      (Maybe AddHeaderAction)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction%27"><span class="hs-identifier hs-type">ReceiptAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276924"><span class="annot"><span class="annottext">Maybe AddHeaderAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction%27"><span class="hs-identifier hs-type">ReceiptAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276933"><span class="annot"><span class="annottext">Maybe AddHeaderAction
 addHeaderAction :: Maybe AddHeaderAction
 $sel:addHeaderAction:ReceiptAction' :: ReceiptAction -&gt; Maybe AddHeaderAction
-</span><a href="#local-6989586621679276924"><span class="hs-identifier hs-var hs-var">addHeaderAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AddHeaderAction
-</span><a href="#local-6989586621679276924"><span class="hs-identifier hs-var">addHeaderAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276923"><span class="annot"><span class="annottext">s :: ReceiptAction
-</span><a href="#local-6989586621679276923"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction%27"><span class="hs-identifier hs-type">ReceiptAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276922"><span class="annot"><span class="annottext">Maybe AddHeaderAction
-</span><a href="#local-6989586621679276922"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiptAction
-</span><a href="#local-6989586621679276923"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addHeaderAction:ReceiptAction' :: Maybe AddHeaderAction
+</span><a href="#local-6989586621679276933"><span class="hs-identifier hs-var hs-var">addHeaderAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AddHeaderAction
+</span><a href="#local-6989586621679276933"><span class="hs-identifier hs-var">addHeaderAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276932"><span class="annot"><span class="annottext">s :: ReceiptAction
+</span><a href="#local-6989586621679276932"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction%27"><span class="hs-identifier hs-type">ReceiptAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276931"><span class="annot"><span class="annottext">Maybe AddHeaderAction
+</span><a href="#local-6989586621679276931"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiptAction
+</span><a href="#local-6989586621679276932"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addHeaderAction:ReceiptAction' :: Maybe AddHeaderAction
 </span><a href="Network.AWS.SES.Types.ReceiptAction.html#%24sel%3AaddHeaderAction%3AReceiptAction%27"><span class="hs-identifier hs-var">addHeaderAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AddHeaderAction
-</span><a href="#local-6989586621679276922"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction"><span class="hs-identifier hs-type">ReceiptAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276931"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction"><span class="hs-identifier hs-type">ReceiptAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | Publishes the email content within a notification to Amazon SNS.</span><span>
 </span><span id="line-110"></span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#receiptAction_sNSAction"><span class="hs-identifier hs-type">receiptAction_sNSAction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction"><span class="hs-identifier hs-type">ReceiptAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.SNSAction.html#SNSAction"><span class="hs-identifier hs-type">SNSAction</span></a></span><span class="hs-special">)</span><span>
@@ -223,16 +223,16 @@ $sel:addHeaderAction:ReceiptAction' :: ReceiptAction -&gt; Maybe AddHeaderAction
 -&gt; Lens
      ReceiptAction ReceiptAction (Maybe SNSAction) (Maybe SNSAction)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction%27"><span class="hs-identifier hs-type">ReceiptAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276920"><span class="annot"><span class="annottext">Maybe SNSAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction%27"><span class="hs-identifier hs-type">ReceiptAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276929"><span class="annot"><span class="annottext">Maybe SNSAction
 sNSAction :: Maybe SNSAction
 $sel:sNSAction:ReceiptAction' :: ReceiptAction -&gt; Maybe SNSAction
-</span><a href="#local-6989586621679276920"><span class="hs-identifier hs-var hs-var">sNSAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SNSAction
-</span><a href="#local-6989586621679276920"><span class="hs-identifier hs-var">sNSAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276919"><span class="annot"><span class="annottext">s :: ReceiptAction
-</span><a href="#local-6989586621679276919"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction%27"><span class="hs-identifier hs-type">ReceiptAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276918"><span class="annot"><span class="annottext">Maybe SNSAction
-</span><a href="#local-6989586621679276918"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiptAction
-</span><a href="#local-6989586621679276919"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sNSAction:ReceiptAction' :: Maybe SNSAction
+</span><a href="#local-6989586621679276929"><span class="hs-identifier hs-var hs-var">sNSAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SNSAction
+</span><a href="#local-6989586621679276929"><span class="hs-identifier hs-var">sNSAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276928"><span class="annot"><span class="annottext">s :: ReceiptAction
+</span><a href="#local-6989586621679276928"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction%27"><span class="hs-identifier hs-type">ReceiptAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276927"><span class="annot"><span class="annottext">Maybe SNSAction
+</span><a href="#local-6989586621679276927"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiptAction
+</span><a href="#local-6989586621679276928"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sNSAction:ReceiptAction' :: Maybe SNSAction
 </span><a href="Network.AWS.SES.Types.ReceiptAction.html#%24sel%3AsNSAction%3AReceiptAction%27"><span class="hs-identifier hs-var">sNSAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SNSAction
-</span><a href="#local-6989586621679276918"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction"><span class="hs-identifier hs-type">ReceiptAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276927"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction"><span class="hs-identifier hs-type">ReceiptAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | Calls Amazon WorkMail and, optionally, publishes a notification to</span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- Amazon Amazon SNS.</span><span>
@@ -247,16 +247,16 @@ $sel:sNSAction:ReceiptAction' :: ReceiptAction -&gt; Maybe SNSAction
      (Maybe WorkmailAction)
      (Maybe WorkmailAction)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction%27"><span class="hs-identifier hs-type">ReceiptAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276916"><span class="annot"><span class="annottext">Maybe WorkmailAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction%27"><span class="hs-identifier hs-type">ReceiptAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276925"><span class="annot"><span class="annottext">Maybe WorkmailAction
 workmailAction :: Maybe WorkmailAction
 $sel:workmailAction:ReceiptAction' :: ReceiptAction -&gt; Maybe WorkmailAction
-</span><a href="#local-6989586621679276916"><span class="hs-identifier hs-var hs-var">workmailAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WorkmailAction
-</span><a href="#local-6989586621679276916"><span class="hs-identifier hs-var">workmailAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276915"><span class="annot"><span class="annottext">s :: ReceiptAction
-</span><a href="#local-6989586621679276915"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction%27"><span class="hs-identifier hs-type">ReceiptAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276914"><span class="annot"><span class="annottext">Maybe WorkmailAction
-</span><a href="#local-6989586621679276914"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiptAction
-</span><a href="#local-6989586621679276915"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workmailAction:ReceiptAction' :: Maybe WorkmailAction
+</span><a href="#local-6989586621679276925"><span class="hs-identifier hs-var hs-var">workmailAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WorkmailAction
+</span><a href="#local-6989586621679276925"><span class="hs-identifier hs-var">workmailAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276924"><span class="annot"><span class="annottext">s :: ReceiptAction
+</span><a href="#local-6989586621679276924"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction%27"><span class="hs-identifier hs-type">ReceiptAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276923"><span class="annot"><span class="annottext">Maybe WorkmailAction
+</span><a href="#local-6989586621679276923"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiptAction
+</span><a href="#local-6989586621679276924"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workmailAction:ReceiptAction' :: Maybe WorkmailAction
 </span><a href="Network.AWS.SES.Types.ReceiptAction.html#%24sel%3AworkmailAction%3AReceiptAction%27"><span class="hs-identifier hs-var">workmailAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WorkmailAction
-</span><a href="#local-6989586621679276914"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction"><span class="hs-identifier hs-type">ReceiptAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276923"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction"><span class="hs-identifier hs-type">ReceiptAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | Rejects the received email by returning a bounce response to the sender</span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- and, optionally, publishes a notification to Amazon Simple Notification</span><span>
@@ -272,16 +272,16 @@ $sel:workmailAction:ReceiptAction' :: ReceiptAction -&gt; Maybe WorkmailAction
      (Maybe BounceAction)
      (Maybe BounceAction)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction%27"><span class="hs-identifier hs-type">ReceiptAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276912"><span class="annot"><span class="annottext">Maybe BounceAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction%27"><span class="hs-identifier hs-type">ReceiptAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276921"><span class="annot"><span class="annottext">Maybe BounceAction
 bounceAction :: Maybe BounceAction
 $sel:bounceAction:ReceiptAction' :: ReceiptAction -&gt; Maybe BounceAction
-</span><a href="#local-6989586621679276912"><span class="hs-identifier hs-var hs-var">bounceAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BounceAction
-</span><a href="#local-6989586621679276912"><span class="hs-identifier hs-var">bounceAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276911"><span class="annot"><span class="annottext">s :: ReceiptAction
-</span><a href="#local-6989586621679276911"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction%27"><span class="hs-identifier hs-type">ReceiptAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276910"><span class="annot"><span class="annottext">Maybe BounceAction
-</span><a href="#local-6989586621679276910"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiptAction
-</span><a href="#local-6989586621679276911"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bounceAction:ReceiptAction' :: Maybe BounceAction
+</span><a href="#local-6989586621679276921"><span class="hs-identifier hs-var hs-var">bounceAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BounceAction
+</span><a href="#local-6989586621679276921"><span class="hs-identifier hs-var">bounceAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276920"><span class="annot"><span class="annottext">s :: ReceiptAction
+</span><a href="#local-6989586621679276920"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction%27"><span class="hs-identifier hs-type">ReceiptAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276919"><span class="annot"><span class="annottext">Maybe BounceAction
+</span><a href="#local-6989586621679276919"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiptAction
+</span><a href="#local-6989586621679276920"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bounceAction:ReceiptAction' :: Maybe BounceAction
 </span><a href="Network.AWS.SES.Types.ReceiptAction.html#%24sel%3AbounceAction%3AReceiptAction%27"><span class="hs-identifier hs-var">bounceAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BounceAction
-</span><a href="#local-6989586621679276910"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction"><span class="hs-identifier hs-type">ReceiptAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276919"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction"><span class="hs-identifier hs-type">ReceiptAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- | Calls an AWS Lambda function, and optionally, publishes a notification</span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- to Amazon SNS.</span><span>
@@ -296,16 +296,16 @@ $sel:bounceAction:ReceiptAction' :: ReceiptAction -&gt; Maybe BounceAction
      (Maybe LambdaAction)
      (Maybe LambdaAction)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction%27"><span class="hs-identifier hs-type">ReceiptAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276908"><span class="annot"><span class="annottext">Maybe LambdaAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction%27"><span class="hs-identifier hs-type">ReceiptAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276917"><span class="annot"><span class="annottext">Maybe LambdaAction
 lambdaAction :: Maybe LambdaAction
 $sel:lambdaAction:ReceiptAction' :: ReceiptAction -&gt; Maybe LambdaAction
-</span><a href="#local-6989586621679276908"><span class="hs-identifier hs-var hs-var">lambdaAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaAction
-</span><a href="#local-6989586621679276908"><span class="hs-identifier hs-var">lambdaAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276907"><span class="annot"><span class="annottext">s :: ReceiptAction
-</span><a href="#local-6989586621679276907"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction%27"><span class="hs-identifier hs-type">ReceiptAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276906"><span class="annot"><span class="annottext">Maybe LambdaAction
-</span><a href="#local-6989586621679276906"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiptAction
-</span><a href="#local-6989586621679276907"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lambdaAction:ReceiptAction' :: Maybe LambdaAction
+</span><a href="#local-6989586621679276917"><span class="hs-identifier hs-var hs-var">lambdaAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaAction
+</span><a href="#local-6989586621679276917"><span class="hs-identifier hs-var">lambdaAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276916"><span class="annot"><span class="annottext">s :: ReceiptAction
+</span><a href="#local-6989586621679276916"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction%27"><span class="hs-identifier hs-type">ReceiptAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276915"><span class="annot"><span class="annottext">Maybe LambdaAction
+</span><a href="#local-6989586621679276915"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiptAction
+</span><a href="#local-6989586621679276916"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lambdaAction:ReceiptAction' :: Maybe LambdaAction
 </span><a href="Network.AWS.SES.Types.ReceiptAction.html#%24sel%3AlambdaAction%3AReceiptAction%27"><span class="hs-identifier hs-var">lambdaAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaAction
-</span><a href="#local-6989586621679276906"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction"><span class="hs-identifier hs-type">ReceiptAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276915"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction"><span class="hs-identifier hs-type">ReceiptAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | Terminates the evaluation of the receipt rule set and optionally</span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- publishes a notification to Amazon SNS.</span><span>
@@ -317,16 +317,16 @@ $sel:lambdaAction:ReceiptAction' :: ReceiptAction -&gt; Maybe LambdaAction
 -&gt; Lens
      ReceiptAction ReceiptAction (Maybe StopAction) (Maybe StopAction)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction%27"><span class="hs-identifier hs-type">ReceiptAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276904"><span class="annot"><span class="annottext">Maybe StopAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction%27"><span class="hs-identifier hs-type">ReceiptAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276913"><span class="annot"><span class="annottext">Maybe StopAction
 stopAction :: Maybe StopAction
 $sel:stopAction:ReceiptAction' :: ReceiptAction -&gt; Maybe StopAction
-</span><a href="#local-6989586621679276904"><span class="hs-identifier hs-var hs-var">stopAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StopAction
-</span><a href="#local-6989586621679276904"><span class="hs-identifier hs-var">stopAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276903"><span class="annot"><span class="annottext">s :: ReceiptAction
-</span><a href="#local-6989586621679276903"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction%27"><span class="hs-identifier hs-type">ReceiptAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276902"><span class="annot"><span class="annottext">Maybe StopAction
-</span><a href="#local-6989586621679276902"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiptAction
-</span><a href="#local-6989586621679276903"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stopAction:ReceiptAction' :: Maybe StopAction
+</span><a href="#local-6989586621679276913"><span class="hs-identifier hs-var hs-var">stopAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StopAction
+</span><a href="#local-6989586621679276913"><span class="hs-identifier hs-var">stopAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276912"><span class="annot"><span class="annottext">s :: ReceiptAction
+</span><a href="#local-6989586621679276912"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction%27"><span class="hs-identifier hs-type">ReceiptAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276911"><span class="annot"><span class="annottext">Maybe StopAction
+</span><a href="#local-6989586621679276911"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiptAction
+</span><a href="#local-6989586621679276912"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stopAction:ReceiptAction' :: Maybe StopAction
 </span><a href="Network.AWS.SES.Types.ReceiptAction.html#%24sel%3AstopAction%3AReceiptAction%27"><span class="hs-identifier hs-var">stopAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StopAction
-</span><a href="#local-6989586621679276902"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction"><span class="hs-identifier hs-type">ReceiptAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276911"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction"><span class="hs-identifier hs-type">ReceiptAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- | Saves the received message to an Amazon Simple Storage Service (Amazon</span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- S3) bucket and, optionally, publishes a notification to Amazon SNS.</span><span>
@@ -338,21 +338,21 @@ $sel:stopAction:ReceiptAction' :: ReceiptAction -&gt; Maybe StopAction
 -&gt; Lens
      ReceiptAction ReceiptAction (Maybe S3Action) (Maybe S3Action)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction%27"><span class="hs-identifier hs-type">ReceiptAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276900"><span class="annot"><span class="annottext">Maybe S3Action
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction%27"><span class="hs-identifier hs-type">ReceiptAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276909"><span class="annot"><span class="annottext">Maybe S3Action
 s3Action :: Maybe S3Action
 $sel:s3Action:ReceiptAction' :: ReceiptAction -&gt; Maybe S3Action
-</span><a href="#local-6989586621679276900"><span class="hs-identifier hs-var hs-var">s3Action</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3Action
-</span><a href="#local-6989586621679276900"><span class="hs-identifier hs-var">s3Action</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276899"><span class="annot"><span class="annottext">s :: ReceiptAction
-</span><a href="#local-6989586621679276899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction%27"><span class="hs-identifier hs-type">ReceiptAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276898"><span class="annot"><span class="annottext">Maybe S3Action
-</span><a href="#local-6989586621679276898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiptAction
-</span><a href="#local-6989586621679276899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Action:ReceiptAction' :: Maybe S3Action
+</span><a href="#local-6989586621679276909"><span class="hs-identifier hs-var hs-var">s3Action</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3Action
+</span><a href="#local-6989586621679276909"><span class="hs-identifier hs-var">s3Action</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276908"><span class="annot"><span class="annottext">s :: ReceiptAction
+</span><a href="#local-6989586621679276908"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction%27"><span class="hs-identifier hs-type">ReceiptAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276907"><span class="annot"><span class="annottext">Maybe S3Action
+</span><a href="#local-6989586621679276907"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiptAction
+</span><a href="#local-6989586621679276908"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Action:ReceiptAction' :: Maybe S3Action
 </span><a href="Network.AWS.SES.Types.ReceiptAction.html#%24sel%3As3Action%3AReceiptAction%27"><span class="hs-identifier hs-var">s3Action</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3Action
-</span><a href="#local-6989586621679276898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction"><span class="hs-identifier hs-type">ReceiptAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction"><span class="hs-identifier hs-type">ReceiptAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction"><span class="hs-identifier hs-type">ReceiptAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679276895"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ReceiptAction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679276893"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679276893"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679276904"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ReceiptAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679276902"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679276902"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">Maybe AddHeaderAction
 -&gt; Maybe SNSAction
 -&gt; Maybe WorkmailAction
@@ -382,7 +382,7 @@ $sel:s3Action:ReceiptAction' :: ReceiptAction -&gt; Maybe S3Action
       -&gt; ReceiptAction)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679276893"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe AddHeaderAction)
+</span><a href="#local-6989586621679276902"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe AddHeaderAction)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AddHeaderAction&quot;</span></span><span class="hs-special">)</span><span>
@@ -406,7 +406,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; ReceiptAction)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679276893"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe SNSAction)
+</span><a href="#local-6989586621679276902"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe SNSAction)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SNSAction&quot;</span></span><span class="hs-special">)</span><span>
@@ -428,7 +428,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; ReceiptAction)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679276893"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe WorkmailAction)
+</span><a href="#local-6989586621679276902"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe WorkmailAction)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;WorkmailAction&quot;</span></span><span class="hs-special">)</span><span>
@@ -446,7 +446,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Maybe StopAction -&gt; Maybe S3Action -&gt; ReceiptAction)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679276893"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe BounceAction)
+</span><a href="#local-6989586621679276902"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe BounceAction)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BounceAction&quot;</span></span><span class="hs-special">)</span><span>
@@ -459,7 +459,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      String (Maybe StopAction -&gt; Maybe S3Action -&gt; ReceiptAction)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679276893"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe LambdaAction)
+</span><a href="#local-6989586621679276902"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe LambdaAction)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LambdaAction&quot;</span></span><span class="hs-special">)</span><span>
@@ -468,7 +468,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe S3Action -&gt; ReceiptAction)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679276893"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe StopAction)
+</span><a href="#local-6989586621679276902"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe StopAction)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StopAction&quot;</span></span><span class="hs-special">)</span><span>
@@ -476,18 +476,18 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe S3Action) -&gt; Either String ReceiptAction
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679276893"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe S3Action)
+</span><a href="#local-6989586621679276902"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe S3Action)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3Action&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276887"><span id="local-6989586621679276889"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction"><span class="hs-identifier hs-type">ReceiptAction</span></a></span></span></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276896"><span id="local-6989586621679276898"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction"><span class="hs-identifier hs-type">ReceiptAction</span></a></span></span></span><span>
 </span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276884"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction"><span class="hs-identifier hs-type">ReceiptAction</span></a></span></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276893"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction"><span class="hs-identifier hs-type">ReceiptAction</span></a></span></span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction"><span class="hs-identifier hs-type">ReceiptAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679276880"><span class="annot"><span class="annottext">toQuery :: ReceiptAction -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction%27"><span class="hs-identifier hs-type">ReceiptAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276872"><span id="local-6989586621679276873"><span id="local-6989586621679276874"><span id="local-6989586621679276875"><span id="local-6989586621679276876"><span id="local-6989586621679276877"><span id="local-6989586621679276878"><span class="annot"><span class="annottext">Maybe AddHeaderAction
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679276889"><span class="annot"><span class="annottext">toQuery :: ReceiptAction -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptAction.html#ReceiptAction%27"><span class="hs-identifier hs-type">ReceiptAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276881"><span id="local-6989586621679276882"><span id="local-6989586621679276883"><span id="local-6989586621679276884"><span id="local-6989586621679276885"><span id="local-6989586621679276886"><span id="local-6989586621679276887"><span class="annot"><span class="annottext">Maybe AddHeaderAction
 Maybe BounceAction
 Maybe LambdaAction
 Maybe S3Action
@@ -508,7 +508,7 @@ $sel:bounceAction:ReceiptAction' :: ReceiptAction -&gt; Maybe BounceAction
 $sel:workmailAction:ReceiptAction' :: ReceiptAction -&gt; Maybe WorkmailAction
 $sel:sNSAction:ReceiptAction' :: ReceiptAction -&gt; Maybe SNSAction
 $sel:addHeaderAction:ReceiptAction' :: ReceiptAction -&gt; Maybe AddHeaderAction
-</span><a href="#local-6989586621679276872"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679276881"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -516,36 +516,36 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;AddHeaderAction&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe AddHeaderAction -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe AddHeaderAction
-</span><a href="#local-6989586621679276878"><span class="hs-identifier hs-var">addHeaderAction</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679276887"><span class="hs-identifier hs-var">addHeaderAction</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;SNSAction&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe SNSAction -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe SNSAction
-</span><a href="#local-6989586621679276877"><span class="hs-identifier hs-var">sNSAction</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679276886"><span class="hs-identifier hs-var">sNSAction</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;WorkmailAction&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe WorkmailAction -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe WorkmailAction
-</span><a href="#local-6989586621679276876"><span class="hs-identifier hs-var">workmailAction</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679276885"><span class="hs-identifier hs-var">workmailAction</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;BounceAction&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe BounceAction -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe BounceAction
-</span><a href="#local-6989586621679276875"><span class="hs-identifier hs-var">bounceAction</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679276884"><span class="hs-identifier hs-var">bounceAction</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;LambdaAction&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe LambdaAction -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe LambdaAction
-</span><a href="#local-6989586621679276874"><span class="hs-identifier hs-var">lambdaAction</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679276883"><span class="hs-identifier hs-var">lambdaAction</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;StopAction&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe StopAction -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe StopAction
-</span><a href="#local-6989586621679276873"><span class="hs-identifier hs-var">stopAction</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679276882"><span class="hs-identifier hs-var">stopAction</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;S3Action&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe S3Action -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe S3Action
-</span><a href="#local-6989586621679276872"><span class="hs-identifier hs-var">s3Action</span></a></span><span>
+</span><a href="#local-6989586621679276881"><span class="hs-identifier hs-var">s3Action</span></a></span><span>
 </span><span id="line-164"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-165"></span></pre></body></html>

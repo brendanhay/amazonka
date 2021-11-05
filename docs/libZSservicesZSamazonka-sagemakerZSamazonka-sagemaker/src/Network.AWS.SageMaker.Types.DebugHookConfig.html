@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html Use the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug Your Training Job&gt;.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newDebugHookConfig' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621680300670"><span id="local-6989586621680300671"></span></span><span class="hs-keyword">data</span><span> </span><span id="DebugHookConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugHookConfig.html#DebugHookConfig"><span class="hs-identifier hs-var">DebugHookConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DebugHookConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugHookConfig.html#DebugHookConfig%27"><span class="hs-identifier hs-var">DebugHookConfig'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621680300679"><span id="local-6989586621680300680"></span></span><span class="hs-keyword">data</span><span> </span><span id="DebugHookConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugHookConfig.html#DebugHookConfig"><span class="hs-identifier hs-var">DebugHookConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DebugHookConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugHookConfig.html#DebugHookConfig%27"><span class="hs-identifier hs-var">DebugHookConfig'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Path to local storage location for metrics and tensors. Defaults to</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- @\/opt\/ml\/output\/tensors\/@.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AlocalPath%3ADebugHookConfig%27"><span class="annot"><span class="annottext">DebugHookConfig -&gt; Maybe Text
@@ -47,7 +47,7 @@
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3As3OutputPath%3ADebugHookConfig%27"><span class="annot"><span class="annottext">DebugHookConfig -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.DebugHookConfig.html#%24sel%3As3OutputPath%3ADebugHookConfig%27"><span class="hs-identifier hs-var hs-var">s3OutputPath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680300661"><span id="local-6989586621680300663"><span class="annot"><span class="annottext">DebugHookConfig -&gt; DebugHookConfig -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680300670"><span id="local-6989586621680300672"><span class="annot"><span class="annottext">DebugHookConfig -&gt; DebugHookConfig -&gt; Bool
 (DebugHookConfig -&gt; DebugHookConfig -&gt; Bool)
 -&gt; (DebugHookConfig -&gt; DebugHookConfig -&gt; Bool)
 -&gt; Eq DebugHookConfig
@@ -56,7 +56,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DebugHookConfig -&gt; DebugHookConfig -&gt; Bool
 == :: DebugHookConfig -&gt; DebugHookConfig -&gt; Bool
 $c== :: DebugHookConfig -&gt; DebugHookConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680300652"><span id="local-6989586621680300654"><span id="local-6989586621680300656"><span id="local-6989586621680300658"><span class="annot"><span class="annottext">ReadPrec [DebugHookConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680300661"><span id="local-6989586621680300663"><span id="local-6989586621680300665"><span id="local-6989586621680300667"><span class="annot"><span class="annottext">ReadPrec [DebugHookConfig]
 ReadPrec DebugHookConfig
 Int -&gt; ReadS DebugHookConfig
 ReadS [DebugHookConfig]
@@ -76,7 +76,7 @@ readList :: ReadS [DebugHookConfig]
 $creadList :: ReadS [DebugHookConfig]
 readsPrec :: Int -&gt; ReadS DebugHookConfig
 $creadsPrec :: Int -&gt; ReadS DebugHookConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680300645"><span id="local-6989586621680300647"><span id="local-6989586621680300649"><span class="annot"><span class="annottext">Int -&gt; DebugHookConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680300654"><span id="local-6989586621680300656"><span id="local-6989586621680300658"><span class="annot"><span class="annottext">Int -&gt; DebugHookConfig -&gt; ShowS
 [DebugHookConfig] -&gt; ShowS
 DebugHookConfig -&gt; String
 (Int -&gt; DebugHookConfig -&gt; ShowS)
@@ -125,8 +125,8 @@ $cfrom :: forall x. DebugHookConfig -&gt; Rep DebugHookConfig x
 </span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugHookConfig.html#DebugHookConfig"><span class="hs-identifier hs-type">DebugHookConfig</span></a></span><span>
 </span><span id="line-70"></span><span id="newDebugHookConfig"><span class="annot"><span class="annottext">newDebugHookConfig :: Text -&gt; DebugHookConfig
-</span><a href="Network.AWS.SageMaker.Types.DebugHookConfig.html#newDebugHookConfig"><span class="hs-identifier hs-var hs-var">newDebugHookConfig</span></a></span></span><span> </span><span id="local-6989586621680300639"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680300639"><span class="hs-identifier hs-var">pS3OutputPath_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.Types.DebugHookConfig.html#newDebugHookConfig"><span class="hs-identifier hs-var hs-var">newDebugHookConfig</span></a></span></span><span> </span><span id="local-6989586621680300648"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680300648"><span class="hs-identifier hs-var">pS3OutputPath_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">DebugHookConfig' :: Maybe Text
 -&gt; Maybe [CollectionConfiguration]
 -&gt; Maybe (HashMap Text Text)
@@ -147,7 +147,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3OutputPath:DebugHookConfig' :: Text
 </span><a href="Network.AWS.SageMaker.Types.DebugHookConfig.html#%24sel%3As3OutputPath%3ADebugHookConfig%27"><span class="hs-identifier hs-var">s3OutputPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680300639"><span class="hs-identifier hs-var">pS3OutputPath_</span></a></span><span>
+</span><a href="#local-6989586621680300648"><span class="hs-identifier hs-var">pS3OutputPath_</span></a></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | Path to local storage location for metrics and tensors. Defaults to</span><span>
@@ -159,16 +159,16 @@ forall a. Maybe a
 -&gt; (DebugHookConfig -&gt; Maybe Text -&gt; DebugHookConfig)
 -&gt; Lens DebugHookConfig DebugHookConfig (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugHookConfig.html#DebugHookConfig%27"><span class="hs-identifier hs-type">DebugHookConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680300635"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugHookConfig.html#DebugHookConfig%27"><span class="hs-identifier hs-type">DebugHookConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680300644"><span class="annot"><span class="annottext">Maybe Text
 localPath :: Maybe Text
 $sel:localPath:DebugHookConfig' :: DebugHookConfig -&gt; Maybe Text
-</span><a href="#local-6989586621680300635"><span class="hs-identifier hs-var hs-var">localPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680300635"><span class="hs-identifier hs-var">localPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680300634"><span class="annot"><span class="annottext">s :: DebugHookConfig
-</span><a href="#local-6989586621680300634"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugHookConfig.html#DebugHookConfig%27"><span class="hs-identifier hs-type">DebugHookConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680300633"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680300633"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DebugHookConfig
-</span><a href="#local-6989586621680300634"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:localPath:DebugHookConfig' :: Maybe Text
+</span><a href="#local-6989586621680300644"><span class="hs-identifier hs-var hs-var">localPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680300644"><span class="hs-identifier hs-var">localPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680300643"><span class="annot"><span class="annottext">s :: DebugHookConfig
+</span><a href="#local-6989586621680300643"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugHookConfig.html#DebugHookConfig%27"><span class="hs-identifier hs-type">DebugHookConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680300642"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680300642"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DebugHookConfig
+</span><a href="#local-6989586621680300643"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:localPath:DebugHookConfig' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.DebugHookConfig.html#%24sel%3AlocalPath%3ADebugHookConfig%27"><span class="hs-identifier hs-var">localPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680300633"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugHookConfig.html#DebugHookConfig"><span class="hs-identifier hs-type">DebugHookConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680300642"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugHookConfig.html#DebugHookConfig"><span class="hs-identifier hs-type">DebugHookConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | Configuration information for Debugger tensor collections. To learn more</span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- about how to configure the @CollectionConfiguration@ parameter, see</span><span>
@@ -186,16 +186,16 @@ $sel:localPath:DebugHookConfig' :: DebugHookConfig -&gt; Maybe Text
      (Maybe [CollectionConfiguration])
      (Maybe [CollectionConfiguration])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugHookConfig.html#DebugHookConfig%27"><span class="hs-identifier hs-type">DebugHookConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680300631"><span class="annot"><span class="annottext">Maybe [CollectionConfiguration]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugHookConfig.html#DebugHookConfig%27"><span class="hs-identifier hs-type">DebugHookConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680300640"><span class="annot"><span class="annottext">Maybe [CollectionConfiguration]
 collectionConfigurations :: Maybe [CollectionConfiguration]
 $sel:collectionConfigurations:DebugHookConfig' :: DebugHookConfig -&gt; Maybe [CollectionConfiguration]
-</span><a href="#local-6989586621680300631"><span class="hs-identifier hs-var hs-var">collectionConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CollectionConfiguration]
-</span><a href="#local-6989586621680300631"><span class="hs-identifier hs-var">collectionConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680300630"><span class="annot"><span class="annottext">s :: DebugHookConfig
-</span><a href="#local-6989586621680300630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugHookConfig.html#DebugHookConfig%27"><span class="hs-identifier hs-type">DebugHookConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680300629"><span class="annot"><span class="annottext">Maybe [CollectionConfiguration]
-</span><a href="#local-6989586621680300629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DebugHookConfig
-</span><a href="#local-6989586621680300630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:collectionConfigurations:DebugHookConfig' :: Maybe [CollectionConfiguration]
+</span><a href="#local-6989586621680300640"><span class="hs-identifier hs-var hs-var">collectionConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CollectionConfiguration]
+</span><a href="#local-6989586621680300640"><span class="hs-identifier hs-var">collectionConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680300639"><span class="annot"><span class="annottext">s :: DebugHookConfig
+</span><a href="#local-6989586621680300639"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugHookConfig.html#DebugHookConfig%27"><span class="hs-identifier hs-type">DebugHookConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680300638"><span class="annot"><span class="annottext">Maybe [CollectionConfiguration]
+</span><a href="#local-6989586621680300638"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DebugHookConfig
+</span><a href="#local-6989586621680300639"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:collectionConfigurations:DebugHookConfig' :: Maybe [CollectionConfiguration]
 </span><a href="Network.AWS.SageMaker.Types.DebugHookConfig.html#%24sel%3AcollectionConfigurations%3ADebugHookConfig%27"><span class="hs-identifier hs-var">collectionConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CollectionConfiguration]
-</span><a href="#local-6989586621680300629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugHookConfig.html#DebugHookConfig"><span class="hs-identifier hs-type">DebugHookConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CollectionConfiguration]
+</span><a href="#local-6989586621680300638"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugHookConfig.html#DebugHookConfig"><span class="hs-identifier hs-type">DebugHookConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CollectionConfiguration]
   -&gt; f (Maybe [CollectionConfiguration]))
  -&gt; DebugHookConfig -&gt; f DebugHookConfig)
 -&gt; ((Maybe [CollectionConfiguration]
@@ -241,16 +241,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugHookConfig.html#DebugHookConfig%27"><span class="hs-identifier hs-type">DebugHookConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680300624"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugHookConfig.html#DebugHookConfig%27"><span class="hs-identifier hs-type">DebugHookConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680300633"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 hookParameters :: Maybe (HashMap Text Text)
 $sel:hookParameters:DebugHookConfig' :: DebugHookConfig -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621680300624"><span class="hs-identifier hs-var hs-var">hookParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621680300624"><span class="hs-identifier hs-var">hookParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680300623"><span class="annot"><span class="annottext">s :: DebugHookConfig
-</span><a href="#local-6989586621680300623"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugHookConfig.html#DebugHookConfig%27"><span class="hs-identifier hs-type">DebugHookConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680300622"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621680300622"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DebugHookConfig
-</span><a href="#local-6989586621680300623"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hookParameters:DebugHookConfig' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680300633"><span class="hs-identifier hs-var hs-var">hookParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680300633"><span class="hs-identifier hs-var">hookParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680300632"><span class="annot"><span class="annottext">s :: DebugHookConfig
+</span><a href="#local-6989586621680300632"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugHookConfig.html#DebugHookConfig%27"><span class="hs-identifier hs-type">DebugHookConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680300631"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680300631"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DebugHookConfig
+</span><a href="#local-6989586621680300632"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hookParameters:DebugHookConfig' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.SageMaker.Types.DebugHookConfig.html#%24sel%3AhookParameters%3ADebugHookConfig%27"><span class="hs-identifier hs-var">hookParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621680300622"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugHookConfig.html#DebugHookConfig"><span class="hs-identifier hs-type">DebugHookConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621680300631"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugHookConfig.html#DebugHookConfig"><span class="hs-identifier hs-type">DebugHookConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; DebugHookConfig -&gt; f DebugHookConfig)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -286,19 +286,19 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (DebugHookConfig -&gt; Text -&gt; DebugHookConfig)
 -&gt; Lens DebugHookConfig DebugHookConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugHookConfig.html#DebugHookConfig%27"><span class="hs-identifier hs-type">DebugHookConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680300620"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugHookConfig.html#DebugHookConfig%27"><span class="hs-identifier hs-type">DebugHookConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680300629"><span class="annot"><span class="annottext">Text
 s3OutputPath :: Text
 $sel:s3OutputPath:DebugHookConfig' :: DebugHookConfig -&gt; Text
-</span><a href="#local-6989586621680300620"><span class="hs-identifier hs-var hs-var">s3OutputPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680300620"><span class="hs-identifier hs-var">s3OutputPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680300619"><span class="annot"><span class="annottext">s :: DebugHookConfig
-</span><a href="#local-6989586621680300619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugHookConfig.html#DebugHookConfig%27"><span class="hs-identifier hs-type">DebugHookConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680300618"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680300618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DebugHookConfig
-</span><a href="#local-6989586621680300619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3OutputPath:DebugHookConfig' :: Text
+</span><a href="#local-6989586621680300629"><span class="hs-identifier hs-var hs-var">s3OutputPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680300629"><span class="hs-identifier hs-var">s3OutputPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680300628"><span class="annot"><span class="annottext">s :: DebugHookConfig
+</span><a href="#local-6989586621680300628"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugHookConfig.html#DebugHookConfig%27"><span class="hs-identifier hs-type">DebugHookConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680300627"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680300627"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DebugHookConfig
+</span><a href="#local-6989586621680300628"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3OutputPath:DebugHookConfig' :: Text
 </span><a href="Network.AWS.SageMaker.Types.DebugHookConfig.html#%24sel%3As3OutputPath%3ADebugHookConfig%27"><span class="hs-identifier hs-var">s3OutputPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680300618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugHookConfig.html#DebugHookConfig"><span class="hs-identifier hs-type">DebugHookConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680300627"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugHookConfig.html#DebugHookConfig"><span class="hs-identifier hs-type">DebugHookConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680300615"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugHookConfig.html#DebugHookConfig"><span class="hs-identifier hs-type">DebugHookConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621680300613"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DebugHookConfig
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680300624"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugHookConfig.html#DebugHookConfig"><span class="hs-identifier hs-type">DebugHookConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621680300622"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DebugHookConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DebugHookConfig)
@@ -308,8 +308,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DebugHookConfig&quot;</span></span><span>
-</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680300610"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680300610"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680300619"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680300619"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [CollectionConfiguration]
 -&gt; Maybe (HashMap Text Text)
@@ -327,7 +327,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe (HashMap Text Text) -&gt; Text -&gt; DebugHookConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680300610"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680300619"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LocalPath&quot;</span></span><span class="hs-special">)</span><span>
@@ -338,7 +338,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe (HashMap Text Text) -&gt; Text -&gt; DebugHookConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680300610"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [CollectionConfiguration]))
+</span><a href="#local-6989586621680300619"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [CollectionConfiguration]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CollectionConfigurations&quot;</span></span><span>
@@ -355,7 +355,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Text -&gt; DebugHookConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680300610"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621680300619"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HookParameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
@@ -368,19 +368,19 @@ forall a. Monoid a =&gt; a
 -&gt; Parser Text -&gt; Parser DebugHookConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680300610"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680300619"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3OutputPath&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680300602"><span id="local-6989586621680300604"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugHookConfig.html#DebugHookConfig"><span class="hs-identifier hs-type">DebugHookConfig</span></a></span></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680300611"><span id="local-6989586621680300613"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugHookConfig.html#DebugHookConfig"><span class="hs-identifier hs-type">DebugHookConfig</span></a></span></span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680300599"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugHookConfig.html#DebugHookConfig"><span class="hs-identifier hs-type">DebugHookConfig</span></a></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680300608"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugHookConfig.html#DebugHookConfig"><span class="hs-identifier hs-type">DebugHookConfig</span></a></span></span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680300591"><span id="local-6989586621680300593"><span id="local-6989586621680300595"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugHookConfig.html#DebugHookConfig"><span class="hs-identifier hs-type">DebugHookConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621680300589"><span class="annot"><span class="annottext">toJSON :: DebugHookConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugHookConfig.html#DebugHookConfig%27"><span class="hs-identifier hs-type">DebugHookConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680300584"><span id="local-6989586621680300585"><span id="local-6989586621680300586"><span id="local-6989586621680300587"><span class="annot"><span class="annottext">Maybe [CollectionConfiguration]
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680300600"><span id="local-6989586621680300602"><span id="local-6989586621680300604"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugHookConfig.html#DebugHookConfig"><span class="hs-identifier hs-type">DebugHookConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621680300598"><span class="annot"><span class="annottext">toJSON :: DebugHookConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DebugHookConfig.html#DebugHookConfig%27"><span class="hs-identifier hs-type">DebugHookConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680300593"><span id="local-6989586621680300594"><span id="local-6989586621680300595"><span id="local-6989586621680300596"><span class="annot"><span class="annottext">Maybe [CollectionConfiguration]
 Maybe Text
 Maybe (HashMap Text Text)
 Text
@@ -392,7 +392,7 @@ $sel:s3OutputPath:DebugHookConfig' :: DebugHookConfig -&gt; Text
 $sel:hookParameters:DebugHookConfig' :: DebugHookConfig -&gt; Maybe (HashMap Text Text)
 $sel:collectionConfigurations:DebugHookConfig' :: DebugHookConfig -&gt; Maybe [CollectionConfiguration]
 $sel:localPath:DebugHookConfig' :: DebugHookConfig -&gt; Maybe Text
-</span><a href="#local-6989586621680300584"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680300593"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -404,7 +404,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680300587"><span class="hs-identifier hs-var">localPath</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680300596"><span class="hs-identifier hs-var">localPath</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-120"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CollectionConfigurations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [CollectionConfiguration] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -413,7 +413,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [CollectionConfiguration] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CollectionConfiguration]
-</span><a href="#local-6989586621680300586"><span class="hs-identifier hs-var">collectionConfigurations</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680300595"><span class="hs-identifier hs-var">collectionConfigurations</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-122"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HookParameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -422,14 +422,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621680300585"><span class="hs-identifier hs-var">hookParameters</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680300594"><span class="hs-identifier hs-var">hookParameters</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3OutputPath&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680300584"><span class="hs-identifier hs-var">s3OutputPath</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680300593"><span class="hs-identifier hs-var">s3OutputPath</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span></pre></body></html>

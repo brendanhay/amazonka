@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | The value of an @Expression@ and its current status.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newExpressionStatus' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679208756"><span id="local-6989586621679208757"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExpressionStatus"><span class="annot"><a href="Network.AWS.CloudSearch.Types.ExpressionStatus.html#ExpressionStatus"><span class="hs-identifier hs-var">ExpressionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExpressionStatus%27"><span class="annot"><a href="Network.AWS.CloudSearch.Types.ExpressionStatus.html#ExpressionStatus%27"><span class="hs-identifier hs-var">ExpressionStatus'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679208765"><span id="local-6989586621679208766"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExpressionStatus"><span class="annot"><a href="Network.AWS.CloudSearch.Types.ExpressionStatus.html#ExpressionStatus"><span class="hs-identifier hs-var">ExpressionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExpressionStatus%27"><span class="annot"><a href="Network.AWS.CloudSearch.Types.ExpressionStatus.html#ExpressionStatus%27"><span class="hs-identifier hs-var">ExpressionStatus'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The expression that is evaluated for sorting while processing a search</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- request.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Aoptions%3AExpressionStatus%27"><span class="annot"><span class="annottext">ExpressionStatus -&gt; Expression
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Astatus%3AExpressionStatus%27"><span class="annot"><span class="annottext">ExpressionStatus -&gt; OptionStatus
 </span><a href="Network.AWS.CloudSearch.Types.ExpressionStatus.html#%24sel%3Astatus%3AExpressionStatus%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679208749"><span id="local-6989586621679208751"><span class="annot"><span class="annottext">ExpressionStatus -&gt; ExpressionStatus -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679208758"><span id="local-6989586621679208760"><span class="annot"><span class="annottext">ExpressionStatus -&gt; ExpressionStatus -&gt; Bool
 (ExpressionStatus -&gt; ExpressionStatus -&gt; Bool)
 -&gt; (ExpressionStatus -&gt; ExpressionStatus -&gt; Bool)
 -&gt; Eq ExpressionStatus
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ExpressionStatus -&gt; ExpressionStatus -&gt; Bool
 == :: ExpressionStatus -&gt; ExpressionStatus -&gt; Bool
 $c== :: ExpressionStatus -&gt; ExpressionStatus -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208740"><span id="local-6989586621679208742"><span id="local-6989586621679208744"><span id="local-6989586621679208746"><span class="annot"><span class="annottext">ReadPrec [ExpressionStatus]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208749"><span id="local-6989586621679208751"><span id="local-6989586621679208753"><span id="local-6989586621679208755"><span class="annot"><span class="annottext">ReadPrec [ExpressionStatus]
 ReadPrec ExpressionStatus
 Int -&gt; ReadS ExpressionStatus
 ReadS [ExpressionStatus]
@@ -65,7 +65,7 @@ readList :: ReadS [ExpressionStatus]
 $creadList :: ReadS [ExpressionStatus]
 readsPrec :: Int -&gt; ReadS ExpressionStatus
 $creadsPrec :: Int -&gt; ReadS ExpressionStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208733"><span id="local-6989586621679208735"><span id="local-6989586621679208737"><span class="annot"><span class="annottext">Int -&gt; ExpressionStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208742"><span id="local-6989586621679208744"><span id="local-6989586621679208746"><span class="annot"><span class="annottext">Int -&gt; ExpressionStatus -&gt; ShowS
 [ExpressionStatus] -&gt; ShowS
 ExpressionStatus -&gt; String
 (Int -&gt; ExpressionStatus -&gt; ShowS)
@@ -110,17 +110,17 @@ $cfrom :: forall x. ExpressionStatus -&gt; Rep ExpressionStatus x
 </span><span id="line-55"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ExpressionStatus.html#ExpressionStatus"><span class="hs-identifier hs-type">ExpressionStatus</span></a></span><span>
 </span><span id="line-57"></span><span id="newExpressionStatus"><span class="annot"><span class="annottext">newExpressionStatus :: Expression -&gt; OptionStatus -&gt; ExpressionStatus
-</span><a href="Network.AWS.CloudSearch.Types.ExpressionStatus.html#newExpressionStatus"><span class="hs-identifier hs-var hs-var">newExpressionStatus</span></a></span></span><span> </span><span id="local-6989586621679208727"><span class="annot"><span class="annottext">Expression
-</span><a href="#local-6989586621679208727"><span class="hs-identifier hs-var">pOptions_</span></a></span></span><span> </span><span id="local-6989586621679208726"><span class="annot"><span class="annottext">OptionStatus
-</span><a href="#local-6989586621679208726"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudSearch.Types.ExpressionStatus.html#newExpressionStatus"><span class="hs-identifier hs-var hs-var">newExpressionStatus</span></a></span></span><span> </span><span id="local-6989586621679208736"><span class="annot"><span class="annottext">Expression
+</span><a href="#local-6989586621679208736"><span class="hs-identifier hs-var">pOptions_</span></a></span></span><span> </span><span id="local-6989586621679208735"><span class="annot"><span class="annottext">OptionStatus
+</span><a href="#local-6989586621679208735"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">ExpressionStatus' :: Expression -&gt; OptionStatus -&gt; ExpressionStatus
 </span><a href="Network.AWS.CloudSearch.Types.ExpressionStatus.html#ExpressionStatus%27"><span class="hs-identifier hs-type">ExpressionStatus'</span></a></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:options:ExpressionStatus' :: Expression
 </span><a href="Network.AWS.CloudSearch.Types.ExpressionStatus.html#%24sel%3Aoptions%3AExpressionStatus%27"><span class="hs-identifier hs-var">options</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Expression
-</span><a href="#local-6989586621679208727"><span class="hs-identifier hs-var">pOptions_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679208736"><span class="hs-identifier hs-var">pOptions_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:ExpressionStatus' :: OptionStatus
 </span><a href="Network.AWS.CloudSearch.Types.ExpressionStatus.html#%24sel%3Astatus%3AExpressionStatus%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OptionStatus
-</span><a href="#local-6989586621679208726"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><a href="#local-6989586621679208735"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | The expression that is evaluated for sorting while processing a search</span><span>
@@ -132,16 +132,16 @@ $cfrom :: forall x. ExpressionStatus -&gt; Rep ExpressionStatus x
 -&gt; (ExpressionStatus -&gt; Expression -&gt; ExpressionStatus)
 -&gt; Lens ExpressionStatus ExpressionStatus Expression Expression
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ExpressionStatus.html#ExpressionStatus%27"><span class="hs-identifier hs-type">ExpressionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208722"><span class="annot"><span class="annottext">Expression
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ExpressionStatus.html#ExpressionStatus%27"><span class="hs-identifier hs-type">ExpressionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208731"><span class="annot"><span class="annottext">Expression
 options :: Expression
 $sel:options:ExpressionStatus' :: ExpressionStatus -&gt; Expression
-</span><a href="#local-6989586621679208722"><span class="hs-identifier hs-var hs-var">options</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Expression
-</span><a href="#local-6989586621679208722"><span class="hs-identifier hs-var">options</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208721"><span class="annot"><span class="annottext">s :: ExpressionStatus
-</span><a href="#local-6989586621679208721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ExpressionStatus.html#ExpressionStatus%27"><span class="hs-identifier hs-type">ExpressionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208720"><span class="annot"><span class="annottext">Expression
-</span><a href="#local-6989586621679208720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExpressionStatus
-</span><a href="#local-6989586621679208721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:options:ExpressionStatus' :: Expression
+</span><a href="#local-6989586621679208731"><span class="hs-identifier hs-var hs-var">options</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Expression
+</span><a href="#local-6989586621679208731"><span class="hs-identifier hs-var">options</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208730"><span class="annot"><span class="annottext">s :: ExpressionStatus
+</span><a href="#local-6989586621679208730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ExpressionStatus.html#ExpressionStatus%27"><span class="hs-identifier hs-type">ExpressionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208729"><span class="annot"><span class="annottext">Expression
+</span><a href="#local-6989586621679208729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExpressionStatus
+</span><a href="#local-6989586621679208730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:options:ExpressionStatus' :: Expression
 </span><a href="Network.AWS.CloudSearch.Types.ExpressionStatus.html#%24sel%3Aoptions%3AExpressionStatus%27"><span class="hs-identifier hs-var">options</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Expression
-</span><a href="#local-6989586621679208720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ExpressionStatus.html#ExpressionStatus"><span class="hs-identifier hs-type">ExpressionStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679208729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ExpressionStatus.html#ExpressionStatus"><span class="hs-identifier hs-type">ExpressionStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-69"></span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ExpressionStatus.html#expressionStatus_status"><span class="hs-identifier hs-type">expressionStatus_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ExpressionStatus.html#ExpressionStatus"><span class="hs-identifier hs-type">ExpressionStatus</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span><span>
@@ -151,21 +151,21 @@ $sel:options:ExpressionStatus' :: ExpressionStatus -&gt; Expression
 -&gt; (ExpressionStatus -&gt; OptionStatus -&gt; ExpressionStatus)
 -&gt; Lens ExpressionStatus ExpressionStatus OptionStatus OptionStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ExpressionStatus.html#ExpressionStatus%27"><span class="hs-identifier hs-type">ExpressionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208718"><span class="annot"><span class="annottext">OptionStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ExpressionStatus.html#ExpressionStatus%27"><span class="hs-identifier hs-type">ExpressionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208727"><span class="annot"><span class="annottext">OptionStatus
 status :: OptionStatus
 $sel:status:ExpressionStatus' :: ExpressionStatus -&gt; OptionStatus
-</span><a href="#local-6989586621679208718"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OptionStatus
-</span><a href="#local-6989586621679208718"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208717"><span class="annot"><span class="annottext">s :: ExpressionStatus
-</span><a href="#local-6989586621679208717"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ExpressionStatus.html#ExpressionStatus%27"><span class="hs-identifier hs-type">ExpressionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208716"><span class="annot"><span class="annottext">OptionStatus
-</span><a href="#local-6989586621679208716"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExpressionStatus
-</span><a href="#local-6989586621679208717"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ExpressionStatus' :: OptionStatus
+</span><a href="#local-6989586621679208727"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OptionStatus
+</span><a href="#local-6989586621679208727"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208726"><span class="annot"><span class="annottext">s :: ExpressionStatus
+</span><a href="#local-6989586621679208726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ExpressionStatus.html#ExpressionStatus%27"><span class="hs-identifier hs-type">ExpressionStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208725"><span class="annot"><span class="annottext">OptionStatus
+</span><a href="#local-6989586621679208725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExpressionStatus
+</span><a href="#local-6989586621679208726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ExpressionStatus' :: OptionStatus
 </span><a href="Network.AWS.CloudSearch.Types.ExpressionStatus.html#%24sel%3Astatus%3AExpressionStatus%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OptionStatus
-</span><a href="#local-6989586621679208716"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ExpressionStatus.html#ExpressionStatus"><span class="hs-identifier hs-type">ExpressionStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679208725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ExpressionStatus.html#ExpressionStatus"><span class="hs-identifier hs-type">ExpressionStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ExpressionStatus.html#ExpressionStatus"><span class="hs-identifier hs-type">ExpressionStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679208713"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ExpressionStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679208711"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679208711"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679208722"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ExpressionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679208720"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679208720"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">Expression -&gt; OptionStatus -&gt; ExpressionStatus
 </span><a href="Network.AWS.CloudSearch.Types.ExpressionStatus.html#ExpressionStatus%27"><span class="hs-identifier hs-var">ExpressionStatus'</span></a></span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">(Expression -&gt; OptionStatus -&gt; ExpressionStatus)
@@ -173,7 +173,7 @@ $sel:status:ExpressionStatus' :: ExpressionStatus -&gt; OptionStatus
 -&gt; Either String (OptionStatus -&gt; ExpressionStatus)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679208711"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Expression
+</span><a href="#local-6989586621679208720"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Expression
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Options&quot;</span></span><span class="hs-special">)</span><span>
@@ -181,12 +181,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String OptionStatus -&gt; Either String ExpressionStatus
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679208711"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String OptionStatus
+</span><a href="#local-6989586621679208720"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String OptionStatus
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208705"><span id="local-6989586621679208707"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ExpressionStatus.html#ExpressionStatus"><span class="hs-identifier hs-type">ExpressionStatus</span></a></span></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208714"><span id="local-6989586621679208716"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ExpressionStatus.html#ExpressionStatus"><span class="hs-identifier hs-type">ExpressionStatus</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208702"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ExpressionStatus.html#ExpressionStatus"><span class="hs-identifier hs-type">ExpressionStatus</span></a></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208711"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.ExpressionStatus.html#ExpressionStatus"><span class="hs-identifier hs-type">ExpressionStatus</span></a></span></span><span>
 </span><span id="line-81"></span></pre></body></html>

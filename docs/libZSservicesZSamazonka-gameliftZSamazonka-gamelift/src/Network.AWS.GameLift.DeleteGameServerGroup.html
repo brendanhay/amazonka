@@ -85,7 +85,7 @@
 </span><span id="line-85"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | /See:/ 'newDeleteGameServerGroup' smart constructor.</span><span>
-</span><span id="line-88"></span><span id="local-6989586621679458490"><span id="local-6989586621679458491"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteGameServerGroup"><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroup"><span class="hs-identifier hs-var">DeleteGameServerGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteGameServerGroup%27"><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroup%27"><span class="hs-identifier hs-var">DeleteGameServerGroup'</span></a></span></span><span>
+</span><span id="line-88"></span><span id="local-6989586621679458499"><span id="local-6989586621679458500"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteGameServerGroup"><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroup"><span class="hs-identifier hs-var">DeleteGameServerGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteGameServerGroup%27"><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroup%27"><span class="hs-identifier hs-var">DeleteGameServerGroup'</span></a></span></span><span>
 </span><span id="line-89"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of delete to perform. Options include the following:</span><span>
 </span><span id="line-90"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-comment">-- -   @SAFE_DELETE@ &#8211; (default) Terminates the game server group and EC2</span><span>
@@ -105,7 +105,7 @@
 </span><span id="line-104"></span><span>    </span><span id="%24sel%3AgameServerGroupName%3ADeleteGameServerGroup%27"><span class="annot"><span class="annottext">DeleteGameServerGroup -&gt; Text
 </span><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#%24sel%3AgameServerGroupName%3ADeleteGameServerGroup%27"><span class="hs-identifier hs-var hs-var">gameServerGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-105"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-106"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679458483"><span id="local-6989586621679458485"><span class="annot"><span class="annottext">DeleteGameServerGroup -&gt; DeleteGameServerGroup -&gt; Bool
+</span><span id="line-106"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679458492"><span id="local-6989586621679458494"><span class="annot"><span class="annottext">DeleteGameServerGroup -&gt; DeleteGameServerGroup -&gt; Bool
 (DeleteGameServerGroup -&gt; DeleteGameServerGroup -&gt; Bool)
 -&gt; (DeleteGameServerGroup -&gt; DeleteGameServerGroup -&gt; Bool)
 -&gt; Eq DeleteGameServerGroup
@@ -114,7 +114,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteGameServerGroup -&gt; DeleteGameServerGroup -&gt; Bool
 == :: DeleteGameServerGroup -&gt; DeleteGameServerGroup -&gt; Bool
 $c== :: DeleteGameServerGroup -&gt; DeleteGameServerGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679458474"><span id="local-6989586621679458476"><span id="local-6989586621679458478"><span id="local-6989586621679458480"><span class="annot"><span class="annottext">ReadPrec [DeleteGameServerGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679458483"><span id="local-6989586621679458485"><span id="local-6989586621679458487"><span id="local-6989586621679458489"><span class="annot"><span class="annottext">ReadPrec [DeleteGameServerGroup]
 ReadPrec DeleteGameServerGroup
 Int -&gt; ReadS DeleteGameServerGroup
 ReadS [DeleteGameServerGroup]
@@ -134,7 +134,7 @@ readList :: ReadS [DeleteGameServerGroup]
 $creadList :: ReadS [DeleteGameServerGroup]
 readsPrec :: Int -&gt; ReadS DeleteGameServerGroup
 $creadsPrec :: Int -&gt; ReadS DeleteGameServerGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679458467"><span id="local-6989586621679458469"><span id="local-6989586621679458471"><span class="annot"><span class="annottext">Int -&gt; DeleteGameServerGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679458476"><span id="local-6989586621679458478"><span id="local-6989586621679458480"><span class="annot"><span class="annottext">Int -&gt; DeleteGameServerGroup -&gt; ShowS
 [DeleteGameServerGroup] -&gt; ShowS
 DeleteGameServerGroup -&gt; String
 (Int -&gt; DeleteGameServerGroup -&gt; ShowS)
@@ -188,8 +188,8 @@ $cfrom :: forall x. DeleteGameServerGroup -&gt; Rep DeleteGameServerGroup x
 </span><span id="line-133"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-134"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroup"><span class="hs-identifier hs-type">DeleteGameServerGroup</span></a></span><span>
 </span><span id="line-135"></span><span id="newDeleteGameServerGroup"><span class="annot"><span class="annottext">newDeleteGameServerGroup :: Text -&gt; DeleteGameServerGroup
-</span><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#newDeleteGameServerGroup"><span class="hs-identifier hs-var hs-var">newDeleteGameServerGroup</span></a></span></span><span> </span><span id="local-6989586621679458462"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679458462"><span class="hs-identifier hs-var">pGameServerGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#newDeleteGameServerGroup"><span class="hs-identifier hs-var hs-var">newDeleteGameServerGroup</span></a></span></span><span> </span><span id="local-6989586621679458471"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679458471"><span class="hs-identifier hs-var">pGameServerGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>  </span><span class="annot"><span class="annottext">DeleteGameServerGroup' :: Maybe GameServerGroupDeleteOption -&gt; Text -&gt; DeleteGameServerGroup
 </span><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroup%27"><span class="hs-identifier hs-type">DeleteGameServerGroup'</span></a></span><span>
 </span><span id="line-137"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deleteOption:DeleteGameServerGroup' :: Maybe GameServerGroupDeleteOption
@@ -199,7 +199,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:gameServerGroupName:DeleteGameServerGroup' :: Text
 </span><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#%24sel%3AgameServerGroupName%3ADeleteGameServerGroup%27"><span class="hs-identifier hs-var">gameServerGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679458462"><span class="hs-identifier hs-var">pGameServerGroupName_</span></a></span><span>
+</span><a href="#local-6989586621679458471"><span class="hs-identifier hs-var">pGameServerGroupName_</span></a></span><span>
 </span><span id="line-140"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | The type of delete to perform. Options include the following:</span><span>
@@ -227,16 +227,16 @@ forall a. Maybe a
      (Maybe GameServerGroupDeleteOption)
      (Maybe GameServerGroupDeleteOption)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroup%27"><span class="hs-identifier hs-type">DeleteGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458459"><span class="annot"><span class="annottext">Maybe GameServerGroupDeleteOption
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroup%27"><span class="hs-identifier hs-type">DeleteGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458468"><span class="annot"><span class="annottext">Maybe GameServerGroupDeleteOption
 deleteOption :: Maybe GameServerGroupDeleteOption
 $sel:deleteOption:DeleteGameServerGroup' :: DeleteGameServerGroup -&gt; Maybe GameServerGroupDeleteOption
-</span><a href="#local-6989586621679458459"><span class="hs-identifier hs-var hs-var">deleteOption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GameServerGroupDeleteOption
-</span><a href="#local-6989586621679458459"><span class="hs-identifier hs-var">deleteOption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679458458"><span class="annot"><span class="annottext">s :: DeleteGameServerGroup
-</span><a href="#local-6989586621679458458"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroup%27"><span class="hs-identifier hs-type">DeleteGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679458457"><span class="annot"><span class="annottext">Maybe GameServerGroupDeleteOption
-</span><a href="#local-6989586621679458457"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGameServerGroup
-</span><a href="#local-6989586621679458458"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deleteOption:DeleteGameServerGroup' :: Maybe GameServerGroupDeleteOption
+</span><a href="#local-6989586621679458468"><span class="hs-identifier hs-var hs-var">deleteOption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GameServerGroupDeleteOption
+</span><a href="#local-6989586621679458468"><span class="hs-identifier hs-var">deleteOption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679458467"><span class="annot"><span class="annottext">s :: DeleteGameServerGroup
+</span><a href="#local-6989586621679458467"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroup%27"><span class="hs-identifier hs-type">DeleteGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679458466"><span class="annot"><span class="annottext">Maybe GameServerGroupDeleteOption
+</span><a href="#local-6989586621679458466"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGameServerGroup
+</span><a href="#local-6989586621679458467"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deleteOption:DeleteGameServerGroup' :: Maybe GameServerGroupDeleteOption
 </span><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#%24sel%3AdeleteOption%3ADeleteGameServerGroup%27"><span class="hs-identifier hs-var">deleteOption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GameServerGroupDeleteOption
-</span><a href="#local-6989586621679458457"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroup"><span class="hs-identifier hs-type">DeleteGameServerGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679458466"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroup"><span class="hs-identifier hs-type">DeleteGameServerGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | A unique identifier for the game server group. Use either the</span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- GameServerGroup name or ARN value.</span><span>
@@ -247,27 +247,27 @@ $sel:deleteOption:DeleteGameServerGroup' :: DeleteGameServerGroup -&gt; Maybe Ga
 -&gt; (DeleteGameServerGroup -&gt; Text -&gt; DeleteGameServerGroup)
 -&gt; Lens DeleteGameServerGroup DeleteGameServerGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroup%27"><span class="hs-identifier hs-type">DeleteGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458456"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroup%27"><span class="hs-identifier hs-type">DeleteGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458465"><span class="annot"><span class="annottext">Text
 gameServerGroupName :: Text
 $sel:gameServerGroupName:DeleteGameServerGroup' :: DeleteGameServerGroup -&gt; Text
-</span><a href="#local-6989586621679458456"><span class="hs-identifier hs-var hs-var">gameServerGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679458456"><span class="hs-identifier hs-var">gameServerGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679458455"><span class="annot"><span class="annottext">s :: DeleteGameServerGroup
-</span><a href="#local-6989586621679458455"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroup%27"><span class="hs-identifier hs-type">DeleteGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679458454"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679458454"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGameServerGroup
-</span><a href="#local-6989586621679458455"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameServerGroupName:DeleteGameServerGroup' :: Text
+</span><a href="#local-6989586621679458465"><span class="hs-identifier hs-var hs-var">gameServerGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679458465"><span class="hs-identifier hs-var">gameServerGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679458464"><span class="annot"><span class="annottext">s :: DeleteGameServerGroup
+</span><a href="#local-6989586621679458464"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroup%27"><span class="hs-identifier hs-type">DeleteGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679458463"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679458463"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGameServerGroup
+</span><a href="#local-6989586621679458464"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameServerGroupName:DeleteGameServerGroup' :: Text
 </span><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#%24sel%3AgameServerGroupName%3ADeleteGameServerGroup%27"><span class="hs-identifier hs-var">gameServerGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679458454"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroup"><span class="hs-identifier hs-type">DeleteGameServerGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679458463"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroup"><span class="hs-identifier hs-type">DeleteGameServerGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroup"><span class="hs-identifier hs-type">DeleteGameServerGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-163"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-164"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroup"><span class="hs-identifier hs-type">DeleteGameServerGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>      </span><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroupResponse"><span class="hs-identifier hs-type">DeleteGameServerGroupResponse</span></a></span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679458450"><span class="annot"><span class="annottext">request :: DeleteGameServerGroup -&gt; Request DeleteGameServerGroup
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679458459"><span class="annot"><span class="annottext">request :: DeleteGameServerGroup -&gt; Request DeleteGameServerGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteGameServerGroup -&gt; Request DeleteGameServerGroup
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.GameLift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679458446"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679458455"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteGameServerGroup
 -&gt; ClientResponse ClientBody
@@ -293,10 +293,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-169"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679458443"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679458443"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679458442"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679458442"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679458441"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679458441"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679458452"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679458452"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679458451"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679458451"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679458450"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679458450"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-170"></span><span>          </span><span class="annot"><span class="annottext">Maybe GameServerGroup -&gt; Int -&gt; DeleteGameServerGroupResponse
 </span><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroupResponse%27"><span class="hs-identifier hs-var">DeleteGameServerGroupResponse'</span></a></span><span>
 </span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">(Maybe GameServerGroup -&gt; Int -&gt; DeleteGameServerGroupResponse)
@@ -304,7 +304,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DeleteGameServerGroupResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679458441"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe GameServerGroup)
+</span><a href="#local-6989586621679458450"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe GameServerGroup)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GameServerGroup&quot;</span></span><span class="hs-special">)</span><span>
@@ -316,15 +316,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679458443"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679458452"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679458433"><span id="local-6989586621679458435"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroup"><span class="hs-identifier hs-type">DeleteGameServerGroup</span></a></span></span></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679458442"><span id="local-6989586621679458444"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroup"><span class="hs-identifier hs-type">DeleteGameServerGroup</span></a></span></span></span><span>
 </span><span id="line-176"></span><span>
-</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679458430"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroup"><span class="hs-identifier hs-type">DeleteGameServerGroup</span></a></span></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679458439"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroup"><span class="hs-identifier hs-type">DeleteGameServerGroup</span></a></span></span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroup"><span class="hs-identifier hs-type">DeleteGameServerGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679458426"><span class="annot"><span class="annottext">toHeaders :: DeleteGameServerGroup -&gt; ResponseHeaders
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679458435"><span class="annot"><span class="annottext">toHeaders :: DeleteGameServerGroup -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-181"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteGameServerGroup -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -351,15 +351,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-191"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-192"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>
-</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679458416"><span id="local-6989586621679458418"><span id="local-6989586621679458420"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroup"><span class="hs-identifier hs-type">DeleteGameServerGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-195"></span><span>  </span><span id="local-6989586621679458414"><span class="annot"><span class="annottext">toJSON :: DeleteGameServerGroup -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroup%27"><span class="hs-identifier hs-type">DeleteGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458411"><span id="local-6989586621679458412"><span class="annot"><span class="annottext">Maybe GameServerGroupDeleteOption
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679458425"><span id="local-6989586621679458427"><span id="local-6989586621679458429"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroup"><span class="hs-identifier hs-type">DeleteGameServerGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679458423"><span class="annot"><span class="annottext">toJSON :: DeleteGameServerGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroup%27"><span class="hs-identifier hs-type">DeleteGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458420"><span id="local-6989586621679458421"><span class="annot"><span class="annottext">Maybe GameServerGroupDeleteOption
 Text
 gameServerGroupName :: Text
 deleteOption :: Maybe GameServerGroupDeleteOption
 $sel:gameServerGroupName:DeleteGameServerGroup' :: DeleteGameServerGroup -&gt; Text
 $sel:deleteOption:DeleteGameServerGroup' :: DeleteGameServerGroup -&gt; Maybe GameServerGroupDeleteOption
-</span><a href="#local-6989586621679458411"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679458420"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-196"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-197"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -372,7 +372,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe GameServerGroupDeleteOption -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe GameServerGroupDeleteOption
-</span><a href="#local-6989586621679458412"><span class="hs-identifier hs-var">deleteOption</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679458421"><span class="hs-identifier hs-var">deleteOption</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-199"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -380,19 +380,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;GameServerGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679458411"><span class="hs-identifier hs-var">gameServerGroupName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679458420"><span class="hs-identifier hs-var">gameServerGroupName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-202"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-203"></span><span>
 </span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroup"><span class="hs-identifier hs-type">DeleteGameServerGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-205"></span><span>  </span><span id="local-6989586621679458405"><span class="annot"><span class="annottext">toPath :: DeleteGameServerGroup -&gt; ByteString
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621679458414"><span class="annot"><span class="annottext">toPath :: DeleteGameServerGroup -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteGameServerGroup -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-206"></span><span>
 </span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroup"><span class="hs-identifier hs-type">DeleteGameServerGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-208"></span><span>  </span><span id="local-6989586621679458401"><span class="annot"><span class="annottext">toQuery :: DeleteGameServerGroup -&gt; QueryString
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679458410"><span class="annot"><span class="annottext">toQuery :: DeleteGameServerGroup -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteGameServerGroup -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -400,7 +400,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-209"></span><span>
 </span><span id="line-210"></span><span class="hs-comment">-- | /See:/ 'newDeleteGameServerGroupResponse' smart constructor.</span><span>
-</span><span id="line-211"></span><span id="local-6989586621679458398"><span id="local-6989586621679458399"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteGameServerGroupResponse"><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroupResponse"><span class="hs-identifier hs-var">DeleteGameServerGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteGameServerGroupResponse%27"><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroupResponse%27"><span class="hs-identifier hs-var">DeleteGameServerGroupResponse'</span></a></span></span><span>
+</span><span id="line-211"></span><span id="local-6989586621679458407"><span id="local-6989586621679458408"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteGameServerGroupResponse"><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroupResponse"><span class="hs-identifier hs-var">DeleteGameServerGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteGameServerGroupResponse%27"><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroupResponse%27"><span class="hs-identifier hs-var">DeleteGameServerGroupResponse'</span></a></span></span><span>
 </span><span id="line-212"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object that describes the deleted game server group resource, with</span><span>
 </span><span id="line-213"></span><span>    </span><span class="hs-comment">-- status updated to @DELETE_SCHEDULED@.</span><span>
 </span><span id="line-214"></span><span>    </span><span id="%24sel%3AgameServerGroup%3ADeleteGameServerGroupResponse%27"><span class="annot"><span class="annottext">DeleteGameServerGroupResponse -&gt; Maybe GameServerGroup
@@ -409,7 +409,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-216"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteGameServerGroupResponse%27"><span class="annot"><span class="annottext">DeleteGameServerGroupResponse -&gt; Int
 </span><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#%24sel%3AhttpStatus%3ADeleteGameServerGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-217"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-218"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679458392"><span id="local-6989586621679458394"><span class="annot"><span class="annottext">DeleteGameServerGroupResponse
+</span><span id="line-218"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679458401"><span id="local-6989586621679458403"><span class="annot"><span class="annottext">DeleteGameServerGroupResponse
 -&gt; DeleteGameServerGroupResponse -&gt; Bool
 (DeleteGameServerGroupResponse
  -&gt; DeleteGameServerGroupResponse -&gt; Bool)
@@ -425,7 +425,7 @@ $c/= :: DeleteGameServerGroupResponse
 -&gt; DeleteGameServerGroupResponse -&gt; Bool
 $c== :: DeleteGameServerGroupResponse
 -&gt; DeleteGameServerGroupResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679458384"><span id="local-6989586621679458386"><span id="local-6989586621679458388"><span id="local-6989586621679458390"><span class="annot"><span class="annottext">ReadPrec [DeleteGameServerGroupResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679458393"><span id="local-6989586621679458395"><span id="local-6989586621679458397"><span id="local-6989586621679458399"><span class="annot"><span class="annottext">ReadPrec [DeleteGameServerGroupResponse]
 ReadPrec DeleteGameServerGroupResponse
 Int -&gt; ReadS DeleteGameServerGroupResponse
 ReadS [DeleteGameServerGroupResponse]
@@ -445,7 +445,7 @@ readList :: ReadS [DeleteGameServerGroupResponse]
 $creadList :: ReadS [DeleteGameServerGroupResponse]
 readsPrec :: Int -&gt; ReadS DeleteGameServerGroupResponse
 $creadsPrec :: Int -&gt; ReadS DeleteGameServerGroupResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679458378"><span id="local-6989586621679458380"><span id="local-6989586621679458382"><span class="annot"><span class="annottext">Int -&gt; DeleteGameServerGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679458387"><span id="local-6989586621679458389"><span id="local-6989586621679458391"><span class="annot"><span class="annottext">Int -&gt; DeleteGameServerGroupResponse -&gt; ShowS
 [DeleteGameServerGroupResponse] -&gt; ShowS
 DeleteGameServerGroupResponse -&gt; String
 (Int -&gt; DeleteGameServerGroupResponse -&gt; ShowS)
@@ -500,8 +500,8 @@ DeleteGameServerGroupResponse
 </span><span id="line-234"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-235"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroupResponse"><span class="hs-identifier hs-type">DeleteGameServerGroupResponse</span></a></span><span>
 </span><span id="line-236"></span><span id="newDeleteGameServerGroupResponse"><span class="annot"><span class="annottext">newDeleteGameServerGroupResponse :: Int -&gt; DeleteGameServerGroupResponse
-</span><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#newDeleteGameServerGroupResponse"><span class="hs-identifier hs-var hs-var">newDeleteGameServerGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679458375"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679458375"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#newDeleteGameServerGroupResponse"><span class="hs-identifier hs-var hs-var">newDeleteGameServerGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679458384"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679458384"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-237"></span><span>  </span><span class="annot"><span class="annottext">DeleteGameServerGroupResponse' :: Maybe GameServerGroup -&gt; Int -&gt; DeleteGameServerGroupResponse
 </span><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroupResponse%27"><span class="hs-identifier hs-type">DeleteGameServerGroupResponse'</span></a></span><span>
 </span><span id="line-238"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:gameServerGroup:DeleteGameServerGroupResponse' :: Maybe GameServerGroup
@@ -511,7 +511,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-240"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteGameServerGroupResponse' :: Int
 </span><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#%24sel%3AhttpStatus%3ADeleteGameServerGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679458375"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679458384"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-241"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-242"></span><span>
 </span><span id="line-243"></span><span class="hs-comment">-- | An object that describes the deleted game server group resource, with</span><span>
@@ -528,16 +528,16 @@ forall a. Maybe a
      (Maybe GameServerGroup)
      (Maybe GameServerGroup)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroupResponse%27"><span class="hs-identifier hs-type">DeleteGameServerGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458374"><span class="annot"><span class="annottext">Maybe GameServerGroup
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroupResponse%27"><span class="hs-identifier hs-type">DeleteGameServerGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458383"><span class="annot"><span class="annottext">Maybe GameServerGroup
 gameServerGroup :: Maybe GameServerGroup
 $sel:gameServerGroup:DeleteGameServerGroupResponse' :: DeleteGameServerGroupResponse -&gt; Maybe GameServerGroup
-</span><a href="#local-6989586621679458374"><span class="hs-identifier hs-var hs-var">gameServerGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GameServerGroup
-</span><a href="#local-6989586621679458374"><span class="hs-identifier hs-var">gameServerGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679458373"><span class="annot"><span class="annottext">s :: DeleteGameServerGroupResponse
-</span><a href="#local-6989586621679458373"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroupResponse%27"><span class="hs-identifier hs-type">DeleteGameServerGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679458372"><span class="annot"><span class="annottext">Maybe GameServerGroup
-</span><a href="#local-6989586621679458372"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGameServerGroupResponse
-</span><a href="#local-6989586621679458373"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameServerGroup:DeleteGameServerGroupResponse' :: Maybe GameServerGroup
+</span><a href="#local-6989586621679458383"><span class="hs-identifier hs-var hs-var">gameServerGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GameServerGroup
+</span><a href="#local-6989586621679458383"><span class="hs-identifier hs-var">gameServerGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679458382"><span class="annot"><span class="annottext">s :: DeleteGameServerGroupResponse
+</span><a href="#local-6989586621679458382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroupResponse%27"><span class="hs-identifier hs-type">DeleteGameServerGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679458381"><span class="annot"><span class="annottext">Maybe GameServerGroup
+</span><a href="#local-6989586621679458381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGameServerGroupResponse
+</span><a href="#local-6989586621679458382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameServerGroup:DeleteGameServerGroupResponse' :: Maybe GameServerGroup
 </span><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#%24sel%3AgameServerGroup%3ADeleteGameServerGroupResponse%27"><span class="hs-identifier hs-var">gameServerGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GameServerGroup
-</span><a href="#local-6989586621679458372"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroupResponse"><span class="hs-identifier hs-type">DeleteGameServerGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679458381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroupResponse"><span class="hs-identifier hs-type">DeleteGameServerGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-247"></span><span>
 </span><span id="line-248"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-249"></span><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#deleteGameServerGroupResponse_httpStatus"><span class="hs-identifier hs-type">deleteGameServerGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroupResponse"><span class="hs-identifier hs-type">DeleteGameServerGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -549,16 +549,16 @@ $sel:gameServerGroup:DeleteGameServerGroupResponse' :: DeleteGameServerGroupResp
 -&gt; Lens
      DeleteGameServerGroupResponse DeleteGameServerGroupResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroupResponse%27"><span class="hs-identifier hs-type">DeleteGameServerGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458371"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroupResponse%27"><span class="hs-identifier hs-type">DeleteGameServerGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458380"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteGameServerGroupResponse' :: DeleteGameServerGroupResponse -&gt; Int
-</span><a href="#local-6989586621679458371"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679458371"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679458370"><span class="annot"><span class="annottext">s :: DeleteGameServerGroupResponse
-</span><a href="#local-6989586621679458370"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroupResponse%27"><span class="hs-identifier hs-type">DeleteGameServerGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679458369"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679458369"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGameServerGroupResponse
-</span><a href="#local-6989586621679458370"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteGameServerGroupResponse' :: Int
+</span><a href="#local-6989586621679458380"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679458380"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679458379"><span class="annot"><span class="annottext">s :: DeleteGameServerGroupResponse
+</span><a href="#local-6989586621679458379"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroupResponse%27"><span class="hs-identifier hs-type">DeleteGameServerGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679458378"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679458378"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGameServerGroupResponse
+</span><a href="#local-6989586621679458379"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteGameServerGroupResponse' :: Int
 </span><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#%24sel%3AhttpStatus%3ADeleteGameServerGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679458369"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroupResponse"><span class="hs-identifier hs-type">DeleteGameServerGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679458378"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroupResponse"><span class="hs-identifier hs-type">DeleteGameServerGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-251"></span><span>
-</span><span id="line-252"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679458367"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroupResponse"><span class="hs-identifier hs-type">DeleteGameServerGroupResponse</span></a></span></span><span>
+</span><span id="line-252"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679458376"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteGameServerGroup.html#DeleteGameServerGroupResponse"><span class="hs-identifier hs-type">DeleteGameServerGroupResponse</span></a></span></span><span>
 </span><span id="line-253"></span></pre></body></html>

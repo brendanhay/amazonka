@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newCopyFpgaImage' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621681301089"><span id="local-6989586621681301090"></span></span><span class="hs-keyword">data</span><span> </span><span id="CopyFpgaImage"><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage"><span class="hs-identifier hs-var">CopyFpgaImage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CopyFpgaImage%27"><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage%27"><span class="hs-identifier hs-var">CopyFpgaImage'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621681301098"><span id="local-6989586621681301099"></span></span><span class="hs-keyword">data</span><span> </span><span id="CopyFpgaImage"><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage"><span class="hs-identifier hs-var">CopyFpgaImage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CopyFpgaImage%27"><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage%27"><span class="hs-identifier hs-var">CopyFpgaImage'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Unique, case-sensitive identifier that you provide to ensure the</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- idempotency of the request. For more information, see</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html Ensuring idempotency&gt;.</span><span>
@@ -77,7 +77,7 @@
 </span><span id="line-72"></span><span>    </span><span id="%24sel%3AsourceRegion%3ACopyFpgaImage%27"><span class="annot"><span class="annottext">CopyFpgaImage -&gt; Text
 </span><a href="Network.AWS.EC2.CopyFpgaImage.html#%24sel%3AsourceRegion%3ACopyFpgaImage%27"><span class="hs-identifier hs-var hs-var">sourceRegion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681301078"><span id="local-6989586621681301080"><span class="annot"><span class="annottext">CopyFpgaImage -&gt; CopyFpgaImage -&gt; Bool
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681301087"><span id="local-6989586621681301089"><span class="annot"><span class="annottext">CopyFpgaImage -&gt; CopyFpgaImage -&gt; Bool
 (CopyFpgaImage -&gt; CopyFpgaImage -&gt; Bool)
 -&gt; (CopyFpgaImage -&gt; CopyFpgaImage -&gt; Bool) -&gt; Eq CopyFpgaImage
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -85,7 +85,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CopyFpgaImage -&gt; CopyFpgaImage -&gt; Bool
 == :: CopyFpgaImage -&gt; CopyFpgaImage -&gt; Bool
 $c== :: CopyFpgaImage -&gt; CopyFpgaImage -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681301069"><span id="local-6989586621681301071"><span id="local-6989586621681301073"><span id="local-6989586621681301075"><span class="annot"><span class="annottext">ReadPrec [CopyFpgaImage]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681301078"><span id="local-6989586621681301080"><span id="local-6989586621681301082"><span id="local-6989586621681301084"><span class="annot"><span class="annottext">ReadPrec [CopyFpgaImage]
 ReadPrec CopyFpgaImage
 Int -&gt; ReadS CopyFpgaImage
 ReadS [CopyFpgaImage]
@@ -105,7 +105,7 @@ readList :: ReadS [CopyFpgaImage]
 $creadList :: ReadS [CopyFpgaImage]
 readsPrec :: Int -&gt; ReadS CopyFpgaImage
 $creadsPrec :: Int -&gt; ReadS CopyFpgaImage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681301062"><span id="local-6989586621681301064"><span id="local-6989586621681301066"><span class="annot"><span class="annottext">Int -&gt; CopyFpgaImage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681301071"><span id="local-6989586621681301073"><span id="local-6989586621681301075"><span class="annot"><span class="annottext">Int -&gt; CopyFpgaImage -&gt; ShowS
 [CopyFpgaImage] -&gt; ShowS
 CopyFpgaImage -&gt; String
 (Int -&gt; CopyFpgaImage -&gt; ShowS)
@@ -162,9 +162,9 @@ $cfrom :: forall x. CopyFpgaImage -&gt; Rep CopyFpgaImage x
 </span><span id="line-104"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-105"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage"><span class="hs-identifier hs-type">CopyFpgaImage</span></a></span><span>
 </span><span id="line-106"></span><span id="newCopyFpgaImage"><span class="annot"><span class="annottext">newCopyFpgaImage :: Text -&gt; Text -&gt; CopyFpgaImage
-</span><a href="Network.AWS.EC2.CopyFpgaImage.html#newCopyFpgaImage"><span class="hs-identifier hs-var hs-var">newCopyFpgaImage</span></a></span></span><span> </span><span id="local-6989586621681301057"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681301057"><span class="hs-identifier hs-var">pSourceFpgaImageId_</span></a></span></span><span> </span><span id="local-6989586621681301056"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681301056"><span class="hs-identifier hs-var">pSourceRegion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.CopyFpgaImage.html#newCopyFpgaImage"><span class="hs-identifier hs-var hs-var">newCopyFpgaImage</span></a></span></span><span> </span><span id="local-6989586621681301066"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681301066"><span class="hs-identifier hs-var">pSourceFpgaImageId_</span></a></span></span><span> </span><span id="local-6989586621681301065"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681301065"><span class="hs-identifier hs-var">pSourceRegion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>  </span><span class="annot"><span class="annottext">CopyFpgaImage' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -191,10 +191,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceFpgaImageId:CopyFpgaImage' :: Text
 </span><a href="Network.AWS.EC2.CopyFpgaImage.html#%24sel%3AsourceFpgaImageId%3ACopyFpgaImage%27"><span class="hs-identifier hs-var">sourceFpgaImageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681301057"><span class="hs-identifier hs-var">pSourceFpgaImageId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681301066"><span class="hs-identifier hs-var">pSourceFpgaImageId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceRegion:CopyFpgaImage' :: Text
 </span><a href="Network.AWS.EC2.CopyFpgaImage.html#%24sel%3AsourceRegion%3ACopyFpgaImage%27"><span class="hs-identifier hs-var">sourceRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681301056"><span class="hs-identifier hs-var">pSourceRegion_</span></a></span><span>
+</span><a href="#local-6989586621681301065"><span class="hs-identifier hs-var">pSourceRegion_</span></a></span><span>
 </span><span id="line-114"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | Unique, case-sensitive identifier that you provide to ensure the</span><span>
@@ -206,16 +206,16 @@ forall a. Maybe a
 -&gt; (CopyFpgaImage -&gt; Maybe Text -&gt; CopyFpgaImage)
 -&gt; Lens CopyFpgaImage CopyFpgaImage (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage%27"><span class="hs-identifier hs-type">CopyFpgaImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681301053"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage%27"><span class="hs-identifier hs-type">CopyFpgaImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681301062"><span class="annot"><span class="annottext">Maybe Text
 clientToken :: Maybe Text
 $sel:clientToken:CopyFpgaImage' :: CopyFpgaImage -&gt; Maybe Text
-</span><a href="#local-6989586621681301053"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681301053"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681301052"><span class="annot"><span class="annottext">s :: CopyFpgaImage
-</span><a href="#local-6989586621681301052"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage%27"><span class="hs-identifier hs-type">CopyFpgaImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681301051"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681301051"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyFpgaImage
-</span><a href="#local-6989586621681301052"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:CopyFpgaImage' :: Maybe Text
+</span><a href="#local-6989586621681301062"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681301062"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681301061"><span class="annot"><span class="annottext">s :: CopyFpgaImage
+</span><a href="#local-6989586621681301061"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage%27"><span class="hs-identifier hs-type">CopyFpgaImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681301060"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681301060"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyFpgaImage
+</span><a href="#local-6989586621681301061"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:CopyFpgaImage' :: Maybe Text
 </span><a href="Network.AWS.EC2.CopyFpgaImage.html#%24sel%3AclientToken%3ACopyFpgaImage%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681301051"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage"><span class="hs-identifier hs-type">CopyFpgaImage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681301060"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage"><span class="hs-identifier hs-type">CopyFpgaImage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | The name for the new AFI. The default is the name of the source AFI.</span><span>
 </span><span id="line-123"></span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#copyFpgaImage_name"><span class="hs-identifier hs-type">copyFpgaImage_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage"><span class="hs-identifier hs-type">CopyFpgaImage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -224,16 +224,16 @@ $sel:clientToken:CopyFpgaImage' :: CopyFpgaImage -&gt; Maybe Text
 -&gt; (CopyFpgaImage -&gt; Maybe Text -&gt; CopyFpgaImage)
 -&gt; Lens CopyFpgaImage CopyFpgaImage (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage%27"><span class="hs-identifier hs-type">CopyFpgaImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681301050"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage%27"><span class="hs-identifier hs-type">CopyFpgaImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681301059"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:CopyFpgaImage' :: CopyFpgaImage -&gt; Maybe Text
-</span><a href="#local-6989586621681301050"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681301050"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681301049"><span class="annot"><span class="annottext">s :: CopyFpgaImage
-</span><a href="#local-6989586621681301049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage%27"><span class="hs-identifier hs-type">CopyFpgaImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681301048"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681301048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyFpgaImage
-</span><a href="#local-6989586621681301049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CopyFpgaImage' :: Maybe Text
+</span><a href="#local-6989586621681301059"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681301059"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681301058"><span class="annot"><span class="annottext">s :: CopyFpgaImage
+</span><a href="#local-6989586621681301058"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage%27"><span class="hs-identifier hs-type">CopyFpgaImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681301057"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681301057"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyFpgaImage
+</span><a href="#local-6989586621681301058"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CopyFpgaImage' :: Maybe Text
 </span><a href="Network.AWS.EC2.CopyFpgaImage.html#%24sel%3Aname%3ACopyFpgaImage%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681301048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage"><span class="hs-identifier hs-type">CopyFpgaImage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681301057"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage"><span class="hs-identifier hs-type">CopyFpgaImage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | The description for the new AFI.</span><span>
 </span><span id="line-127"></span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#copyFpgaImage_description"><span class="hs-identifier hs-type">copyFpgaImage_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage"><span class="hs-identifier hs-type">CopyFpgaImage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -242,16 +242,16 @@ $sel:name:CopyFpgaImage' :: CopyFpgaImage -&gt; Maybe Text
 -&gt; (CopyFpgaImage -&gt; Maybe Text -&gt; CopyFpgaImage)
 -&gt; Lens CopyFpgaImage CopyFpgaImage (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage%27"><span class="hs-identifier hs-type">CopyFpgaImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681301047"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage%27"><span class="hs-identifier hs-type">CopyFpgaImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681301056"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:CopyFpgaImage' :: CopyFpgaImage -&gt; Maybe Text
-</span><a href="#local-6989586621681301047"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681301047"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681301046"><span class="annot"><span class="annottext">s :: CopyFpgaImage
-</span><a href="#local-6989586621681301046"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage%27"><span class="hs-identifier hs-type">CopyFpgaImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681301045"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681301045"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyFpgaImage
-</span><a href="#local-6989586621681301046"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CopyFpgaImage' :: Maybe Text
+</span><a href="#local-6989586621681301056"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681301056"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681301055"><span class="annot"><span class="annottext">s :: CopyFpgaImage
+</span><a href="#local-6989586621681301055"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage%27"><span class="hs-identifier hs-type">CopyFpgaImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681301054"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681301054"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyFpgaImage
+</span><a href="#local-6989586621681301055"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CopyFpgaImage' :: Maybe Text
 </span><a href="Network.AWS.EC2.CopyFpgaImage.html#%24sel%3Adescription%3ACopyFpgaImage%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681301045"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage"><span class="hs-identifier hs-type">CopyFpgaImage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681301054"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage"><span class="hs-identifier hs-type">CopyFpgaImage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
@@ -263,16 +263,16 @@ $sel:description:CopyFpgaImage' :: CopyFpgaImage -&gt; Maybe Text
 -&gt; (CopyFpgaImage -&gt; Maybe Bool -&gt; CopyFpgaImage)
 -&gt; Lens CopyFpgaImage CopyFpgaImage (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage%27"><span class="hs-identifier hs-type">CopyFpgaImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681301044"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage%27"><span class="hs-identifier hs-type">CopyFpgaImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681301053"><span class="annot"><span class="annottext">Maybe Bool
 dryRun :: Maybe Bool
 $sel:dryRun:CopyFpgaImage' :: CopyFpgaImage -&gt; Maybe Bool
-</span><a href="#local-6989586621681301044"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681301044"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681301043"><span class="annot"><span class="annottext">s :: CopyFpgaImage
-</span><a href="#local-6989586621681301043"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage%27"><span class="hs-identifier hs-type">CopyFpgaImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681301042"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681301042"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyFpgaImage
-</span><a href="#local-6989586621681301043"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:CopyFpgaImage' :: Maybe Bool
+</span><a href="#local-6989586621681301053"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681301053"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681301052"><span class="annot"><span class="annottext">s :: CopyFpgaImage
+</span><a href="#local-6989586621681301052"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage%27"><span class="hs-identifier hs-type">CopyFpgaImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681301051"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681301051"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyFpgaImage
+</span><a href="#local-6989586621681301052"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:CopyFpgaImage' :: Maybe Bool
 </span><a href="Network.AWS.EC2.CopyFpgaImage.html#%24sel%3AdryRun%3ACopyFpgaImage%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681301042"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage"><span class="hs-identifier hs-type">CopyFpgaImage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681301051"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage"><span class="hs-identifier hs-type">CopyFpgaImage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- | The ID of the source AFI.</span><span>
 </span><span id="line-138"></span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#copyFpgaImage_sourceFpgaImageId"><span class="hs-identifier hs-type">copyFpgaImage_sourceFpgaImageId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage"><span class="hs-identifier hs-type">CopyFpgaImage</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -281,16 +281,16 @@ $sel:dryRun:CopyFpgaImage' :: CopyFpgaImage -&gt; Maybe Bool
 -&gt; (CopyFpgaImage -&gt; Text -&gt; CopyFpgaImage)
 -&gt; Lens CopyFpgaImage CopyFpgaImage Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage%27"><span class="hs-identifier hs-type">CopyFpgaImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681301041"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage%27"><span class="hs-identifier hs-type">CopyFpgaImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681301050"><span class="annot"><span class="annottext">Text
 sourceFpgaImageId :: Text
 $sel:sourceFpgaImageId:CopyFpgaImage' :: CopyFpgaImage -&gt; Text
-</span><a href="#local-6989586621681301041"><span class="hs-identifier hs-var hs-var">sourceFpgaImageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681301041"><span class="hs-identifier hs-var">sourceFpgaImageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681301040"><span class="annot"><span class="annottext">s :: CopyFpgaImage
-</span><a href="#local-6989586621681301040"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage%27"><span class="hs-identifier hs-type">CopyFpgaImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681301039"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681301039"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyFpgaImage
-</span><a href="#local-6989586621681301040"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceFpgaImageId:CopyFpgaImage' :: Text
+</span><a href="#local-6989586621681301050"><span class="hs-identifier hs-var hs-var">sourceFpgaImageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681301050"><span class="hs-identifier hs-var">sourceFpgaImageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681301049"><span class="annot"><span class="annottext">s :: CopyFpgaImage
+</span><a href="#local-6989586621681301049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage%27"><span class="hs-identifier hs-type">CopyFpgaImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681301048"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681301048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyFpgaImage
+</span><a href="#local-6989586621681301049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceFpgaImageId:CopyFpgaImage' :: Text
 </span><a href="Network.AWS.EC2.CopyFpgaImage.html#%24sel%3AsourceFpgaImageId%3ACopyFpgaImage%27"><span class="hs-identifier hs-var">sourceFpgaImageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681301039"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage"><span class="hs-identifier hs-type">CopyFpgaImage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681301048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage"><span class="hs-identifier hs-type">CopyFpgaImage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- | The Region that contains the source AFI.</span><span>
 </span><span id="line-142"></span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#copyFpgaImage_sourceRegion"><span class="hs-identifier hs-type">copyFpgaImage_sourceRegion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage"><span class="hs-identifier hs-type">CopyFpgaImage</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -299,27 +299,27 @@ $sel:sourceFpgaImageId:CopyFpgaImage' :: CopyFpgaImage -&gt; Text
 -&gt; (CopyFpgaImage -&gt; Text -&gt; CopyFpgaImage)
 -&gt; Lens CopyFpgaImage CopyFpgaImage Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage%27"><span class="hs-identifier hs-type">CopyFpgaImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681301038"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage%27"><span class="hs-identifier hs-type">CopyFpgaImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681301047"><span class="annot"><span class="annottext">Text
 sourceRegion :: Text
 $sel:sourceRegion:CopyFpgaImage' :: CopyFpgaImage -&gt; Text
-</span><a href="#local-6989586621681301038"><span class="hs-identifier hs-var hs-var">sourceRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681301038"><span class="hs-identifier hs-var">sourceRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681301037"><span class="annot"><span class="annottext">s :: CopyFpgaImage
-</span><a href="#local-6989586621681301037"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage%27"><span class="hs-identifier hs-type">CopyFpgaImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681301036"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681301036"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyFpgaImage
-</span><a href="#local-6989586621681301037"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceRegion:CopyFpgaImage' :: Text
+</span><a href="#local-6989586621681301047"><span class="hs-identifier hs-var hs-var">sourceRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681301047"><span class="hs-identifier hs-var">sourceRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681301046"><span class="annot"><span class="annottext">s :: CopyFpgaImage
+</span><a href="#local-6989586621681301046"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage%27"><span class="hs-identifier hs-type">CopyFpgaImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681301045"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681301045"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyFpgaImage
+</span><a href="#local-6989586621681301046"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceRegion:CopyFpgaImage' :: Text
 </span><a href="Network.AWS.EC2.CopyFpgaImage.html#%24sel%3AsourceRegion%3ACopyFpgaImage%27"><span class="hs-identifier hs-var">sourceRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681301036"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage"><span class="hs-identifier hs-type">CopyFpgaImage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681301045"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage"><span class="hs-identifier hs-type">CopyFpgaImage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage"><span class="hs-identifier hs-type">CopyFpgaImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-147"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage"><span class="hs-identifier hs-type">CopyFpgaImage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImageResponse"><span class="hs-identifier hs-type">CopyFpgaImageResponse</span></a></span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621681301032"><span class="annot"><span class="annottext">request :: CopyFpgaImage -&gt; Request CopyFpgaImage
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621681301041"><span class="annot"><span class="annottext">request :: CopyFpgaImage -&gt; Request CopyFpgaImage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CopyFpgaImage -&gt; Request CopyFpgaImage
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621681301028"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621681301037"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CopyFpgaImage
 -&gt; ClientResponse ClientBody
@@ -343,10 +343,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681301025"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681301025"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681301024"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681301024"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681301023"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681301023"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681301034"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681301034"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681301033"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681301033"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681301032"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681301032"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-153"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CopyFpgaImageResponse
 </span><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImageResponse%27"><span class="hs-identifier hs-var">CopyFpgaImageResponse'</span></a></span><span>
 </span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CopyFpgaImageResponse)
@@ -354,7 +354,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CopyFpgaImageResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681301023"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681301032"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;fpgaImageId&quot;</span></span><span class="hs-special">)</span><span>
@@ -366,15 +366,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681301025"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681301034"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681301015"><span id="local-6989586621681301017"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage"><span class="hs-identifier hs-type">CopyFpgaImage</span></a></span></span></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681301024"><span id="local-6989586621681301026"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage"><span class="hs-identifier hs-type">CopyFpgaImage</span></a></span></span></span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681301012"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage"><span class="hs-identifier hs-type">CopyFpgaImage</span></a></span></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681301021"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage"><span class="hs-identifier hs-type">CopyFpgaImage</span></a></span></span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage"><span class="hs-identifier hs-type">CopyFpgaImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621681301008"><span class="annot"><span class="annottext">toHeaders :: CopyFpgaImage -&gt; ResponseHeaders
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621681301017"><span class="annot"><span class="annottext">toHeaders :: CopyFpgaImage -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CopyFpgaImage -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -382,15 +382,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage"><span class="hs-identifier hs-type">CopyFpgaImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621681301003"><span class="annot"><span class="annottext">toPath :: CopyFpgaImage -&gt; ByteString
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621681301012"><span class="annot"><span class="annottext">toPath :: CopyFpgaImage -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CopyFpgaImage -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage"><span class="hs-identifier hs-type">CopyFpgaImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621681300999"><span class="annot"><span class="annottext">toQuery :: CopyFpgaImage -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage%27"><span class="hs-identifier hs-type">CopyFpgaImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681300992"><span id="local-6989586621681300993"><span id="local-6989586621681300994"><span id="local-6989586621681300995"><span id="local-6989586621681300996"><span id="local-6989586621681300997"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621681301008"><span class="annot"><span class="annottext">toQuery :: CopyFpgaImage -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImage%27"><span class="hs-identifier hs-type">CopyFpgaImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681301001"><span id="local-6989586621681301002"><span id="local-6989586621681301003"><span id="local-6989586621681301004"><span id="local-6989586621681301005"><span id="local-6989586621681301006"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Text
 sourceRegion :: Text
@@ -405,7 +405,7 @@ $sel:dryRun:CopyFpgaImage' :: CopyFpgaImage -&gt; Maybe Bool
 $sel:description:CopyFpgaImage' :: CopyFpgaImage -&gt; Maybe Text
 $sel:name:CopyFpgaImage' :: CopyFpgaImage -&gt; Maybe Text
 $sel:clientToken:CopyFpgaImage' :: CopyFpgaImage -&gt; Maybe Text
-</span><a href="#local-6989586621681300992"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681301001"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -425,36 +425,36 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;ClientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681300997"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681301006"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-176"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681300996"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681301005"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-177"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681300995"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681301004"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681300994"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681301003"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;SourceFpgaImageId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681300993"><span class="hs-identifier hs-var">sourceFpgaImageId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681301002"><span class="hs-identifier hs-var">sourceFpgaImageId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;SourceRegion&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681300992"><span class="hs-identifier hs-var">sourceRegion</span></a></span><span>
+</span><a href="#local-6989586621681301001"><span class="hs-identifier hs-var">sourceRegion</span></a></span><span>
 </span><span id="line-181"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- | /See:/ 'newCopyFpgaImageResponse' smart constructor.</span><span>
-</span><span id="line-184"></span><span id="local-6989586621681300989"><span id="local-6989586621681300990"></span></span><span class="hs-keyword">data</span><span> </span><span id="CopyFpgaImageResponse"><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImageResponse"><span class="hs-identifier hs-var">CopyFpgaImageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CopyFpgaImageResponse%27"><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImageResponse%27"><span class="hs-identifier hs-var">CopyFpgaImageResponse'</span></a></span></span><span>
+</span><span id="line-184"></span><span id="local-6989586621681300998"><span id="local-6989586621681300999"></span></span><span class="hs-keyword">data</span><span> </span><span id="CopyFpgaImageResponse"><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImageResponse"><span class="hs-identifier hs-var">CopyFpgaImageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CopyFpgaImageResponse%27"><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImageResponse%27"><span class="hs-identifier hs-var">CopyFpgaImageResponse'</span></a></span></span><span>
 </span><span id="line-185"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the new AFI.</span><span>
 </span><span id="line-186"></span><span>    </span><span id="%24sel%3AfpgaImageId%3ACopyFpgaImageResponse%27"><span class="annot"><span class="annottext">CopyFpgaImageResponse -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.CopyFpgaImage.html#%24sel%3AfpgaImageId%3ACopyFpgaImageResponse%27"><span class="hs-identifier hs-var hs-var">fpgaImageId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -462,7 +462,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-188"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACopyFpgaImageResponse%27"><span class="annot"><span class="annottext">CopyFpgaImageResponse -&gt; Int
 </span><a href="Network.AWS.EC2.CopyFpgaImage.html#%24sel%3AhttpStatus%3ACopyFpgaImageResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-189"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-190"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681300983"><span id="local-6989586621681300985"><span class="annot"><span class="annottext">CopyFpgaImageResponse -&gt; CopyFpgaImageResponse -&gt; Bool
+</span><span id="line-190"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681300992"><span id="local-6989586621681300994"><span class="annot"><span class="annottext">CopyFpgaImageResponse -&gt; CopyFpgaImageResponse -&gt; Bool
 (CopyFpgaImageResponse -&gt; CopyFpgaImageResponse -&gt; Bool)
 -&gt; (CopyFpgaImageResponse -&gt; CopyFpgaImageResponse -&gt; Bool)
 -&gt; Eq CopyFpgaImageResponse
@@ -471,7 +471,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CopyFpgaImageResponse -&gt; CopyFpgaImageResponse -&gt; Bool
 == :: CopyFpgaImageResponse -&gt; CopyFpgaImageResponse -&gt; Bool
 $c== :: CopyFpgaImageResponse -&gt; CopyFpgaImageResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681300975"><span id="local-6989586621681300977"><span id="local-6989586621681300979"><span id="local-6989586621681300981"><span class="annot"><span class="annottext">ReadPrec [CopyFpgaImageResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681300984"><span id="local-6989586621681300986"><span id="local-6989586621681300988"><span id="local-6989586621681300990"><span class="annot"><span class="annottext">ReadPrec [CopyFpgaImageResponse]
 ReadPrec CopyFpgaImageResponse
 Int -&gt; ReadS CopyFpgaImageResponse
 ReadS [CopyFpgaImageResponse]
@@ -491,7 +491,7 @@ readList :: ReadS [CopyFpgaImageResponse]
 $creadList :: ReadS [CopyFpgaImageResponse]
 readsPrec :: Int -&gt; ReadS CopyFpgaImageResponse
 $creadsPrec :: Int -&gt; ReadS CopyFpgaImageResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681300969"><span id="local-6989586621681300971"><span id="local-6989586621681300973"><span class="annot"><span class="annottext">Int -&gt; CopyFpgaImageResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681300978"><span id="local-6989586621681300980"><span id="local-6989586621681300982"><span class="annot"><span class="annottext">Int -&gt; CopyFpgaImageResponse -&gt; ShowS
 [CopyFpgaImageResponse] -&gt; ShowS
 CopyFpgaImageResponse -&gt; String
 (Int -&gt; CopyFpgaImageResponse -&gt; ShowS)
@@ -533,8 +533,8 @@ $cfrom :: forall x. CopyFpgaImageResponse -&gt; Rep CopyFpgaImageResponse x
 </span><span id="line-205"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-206"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImageResponse"><span class="hs-identifier hs-type">CopyFpgaImageResponse</span></a></span><span>
 </span><span id="line-207"></span><span id="newCopyFpgaImageResponse"><span class="annot"><span class="annottext">newCopyFpgaImageResponse :: Int -&gt; CopyFpgaImageResponse
-</span><a href="Network.AWS.EC2.CopyFpgaImage.html#newCopyFpgaImageResponse"><span class="hs-identifier hs-var hs-var">newCopyFpgaImageResponse</span></a></span></span><span> </span><span id="local-6989586621681300966"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681300966"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.CopyFpgaImage.html#newCopyFpgaImageResponse"><span class="hs-identifier hs-var hs-var">newCopyFpgaImageResponse</span></a></span></span><span> </span><span id="local-6989586621681300975"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681300975"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-208"></span><span>  </span><span class="annot"><span class="annottext">CopyFpgaImageResponse' :: Maybe Text -&gt; Int -&gt; CopyFpgaImageResponse
 </span><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImageResponse%27"><span class="hs-identifier hs-type">CopyFpgaImageResponse'</span></a></span><span>
 </span><span id="line-209"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:fpgaImageId:CopyFpgaImageResponse' :: Maybe Text
@@ -544,7 +544,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-211"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CopyFpgaImageResponse' :: Int
 </span><a href="Network.AWS.EC2.CopyFpgaImage.html#%24sel%3AhttpStatus%3ACopyFpgaImageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681300966"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621681300975"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-212"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-213"></span><span>
 </span><span id="line-214"></span><span class="hs-comment">-- | The ID of the new AFI.</span><span>
@@ -559,16 +559,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImageResponse%27"><span class="hs-identifier hs-type">CopyFpgaImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681300965"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImageResponse%27"><span class="hs-identifier hs-type">CopyFpgaImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681300974"><span class="annot"><span class="annottext">Maybe Text
 fpgaImageId :: Maybe Text
 $sel:fpgaImageId:CopyFpgaImageResponse' :: CopyFpgaImageResponse -&gt; Maybe Text
-</span><a href="#local-6989586621681300965"><span class="hs-identifier hs-var hs-var">fpgaImageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681300965"><span class="hs-identifier hs-var">fpgaImageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681300964"><span class="annot"><span class="annottext">s :: CopyFpgaImageResponse
-</span><a href="#local-6989586621681300964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImageResponse%27"><span class="hs-identifier hs-type">CopyFpgaImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681300963"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681300963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyFpgaImageResponse
-</span><a href="#local-6989586621681300964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fpgaImageId:CopyFpgaImageResponse' :: Maybe Text
+</span><a href="#local-6989586621681300974"><span class="hs-identifier hs-var hs-var">fpgaImageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681300974"><span class="hs-identifier hs-var">fpgaImageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681300973"><span class="annot"><span class="annottext">s :: CopyFpgaImageResponse
+</span><a href="#local-6989586621681300973"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImageResponse%27"><span class="hs-identifier hs-type">CopyFpgaImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681300972"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681300972"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyFpgaImageResponse
+</span><a href="#local-6989586621681300973"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fpgaImageId:CopyFpgaImageResponse' :: Maybe Text
 </span><a href="Network.AWS.EC2.CopyFpgaImage.html#%24sel%3AfpgaImageId%3ACopyFpgaImageResponse%27"><span class="hs-identifier hs-var">fpgaImageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681300963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImageResponse"><span class="hs-identifier hs-type">CopyFpgaImageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681300972"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImageResponse"><span class="hs-identifier hs-type">CopyFpgaImageResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-217"></span><span>
 </span><span id="line-218"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-219"></span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#copyFpgaImageResponse_httpStatus"><span class="hs-identifier hs-type">copyFpgaImageResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImageResponse"><span class="hs-identifier hs-type">CopyFpgaImageResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -577,16 +577,16 @@ $sel:fpgaImageId:CopyFpgaImageResponse' :: CopyFpgaImageResponse -&gt; Maybe Tex
 -&gt; (CopyFpgaImageResponse -&gt; Int -&gt; CopyFpgaImageResponse)
 -&gt; Lens CopyFpgaImageResponse CopyFpgaImageResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImageResponse%27"><span class="hs-identifier hs-type">CopyFpgaImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681300962"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImageResponse%27"><span class="hs-identifier hs-type">CopyFpgaImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681300971"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CopyFpgaImageResponse' :: CopyFpgaImageResponse -&gt; Int
-</span><a href="#local-6989586621681300962"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681300962"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681300961"><span class="annot"><span class="annottext">s :: CopyFpgaImageResponse
-</span><a href="#local-6989586621681300961"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImageResponse%27"><span class="hs-identifier hs-type">CopyFpgaImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681300960"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681300960"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyFpgaImageResponse
-</span><a href="#local-6989586621681300961"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CopyFpgaImageResponse' :: Int
+</span><a href="#local-6989586621681300971"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681300971"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681300970"><span class="annot"><span class="annottext">s :: CopyFpgaImageResponse
+</span><a href="#local-6989586621681300970"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImageResponse%27"><span class="hs-identifier hs-type">CopyFpgaImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681300969"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681300969"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyFpgaImageResponse
+</span><a href="#local-6989586621681300970"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CopyFpgaImageResponse' :: Int
 </span><a href="Network.AWS.EC2.CopyFpgaImage.html#%24sel%3AhttpStatus%3ACopyFpgaImageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681300960"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImageResponse"><span class="hs-identifier hs-type">CopyFpgaImageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681300969"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImageResponse"><span class="hs-identifier hs-type">CopyFpgaImageResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-221"></span><span>
-</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681300958"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImageResponse"><span class="hs-identifier hs-type">CopyFpgaImageResponse</span></a></span></span><span>
+</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681300967"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CopyFpgaImage.html#CopyFpgaImageResponse"><span class="hs-identifier hs-type">CopyFpgaImageResponse</span></a></span></span><span>
 </span><span id="line-223"></span></pre></body></html>

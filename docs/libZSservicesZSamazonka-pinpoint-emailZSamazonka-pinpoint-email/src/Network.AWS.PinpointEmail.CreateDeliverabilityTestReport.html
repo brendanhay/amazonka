@@ -1,0 +1,771 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.PinpointEmail.CreateDeliverabilityTestReport</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Create a new predictive inbox placement test. Predictive inbox placement</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- tests can help you predict how your messages will be handled by various</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- email providers around the world. When you perform a predictive inbox</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- placement test, you provide a sample message that contains the content</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- that you plan to send to your customers. Amazon Pinpoint then sends that</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- message to special email addresses spread across several major email</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- providers. After about 24 hours, the test is complete, and you can use</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- the @GetDeliverabilityTestReport@ operation to view the results of the</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- test.</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.PinpointEmail.CreateDeliverabilityTestReport</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReport"><span class="hs-identifier">CreateDeliverabilityTestReport</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#newCreateDeliverabilityTestReport"><span class="hs-identifier">newCreateDeliverabilityTestReport</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#createDeliverabilityTestReport_reportName"><span class="hs-identifier">createDeliverabilityTestReport_reportName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#createDeliverabilityTestReport_tags"><span class="hs-identifier">createDeliverabilityTestReport_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#createDeliverabilityTestReport_fromEmailAddress"><span class="hs-identifier">createDeliverabilityTestReport_fromEmailAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#createDeliverabilityTestReport_content"><span class="hs-identifier">createDeliverabilityTestReport_content</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReportResponse"><span class="hs-identifier">CreateDeliverabilityTestReportResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#newCreateDeliverabilityTestReportResponse"><span class="hs-identifier">newCreateDeliverabilityTestReportResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#createDeliverabilityTestReportResponse_httpStatus"><span class="hs-identifier">createDeliverabilityTestReportResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#createDeliverabilityTestReportResponse_reportId"><span class="hs-identifier">createDeliverabilityTestReportResponse_reportId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#createDeliverabilityTestReportResponse_deliverabilityTestStatus"><span class="hs-identifier">createDeliverabilityTestReportResponse_deliverabilityTestStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.Types.html"><span class="hs-identifier">Network.AWS.PinpointEmail.Types</span></a></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | A request to perform a predictive inbox placement test. Predictive inbox</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- placement tests can help you predict how your messages will be handled</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- by various email providers around the world. When you perform a</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- predictive inbox placement test, you provide a sample message that</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- contains the content that you plan to send to your customers. Amazon</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Pinpoint then sends that message to special email addresses spread</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- across several major email providers. After about 24 hours, the test is</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- complete, and you can use the @GetDeliverabilityTestReport@ operation to</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- view the results of the test.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- /See:/ 'newCreateDeliverabilityTestReport' smart constructor.</span><span>
+</span><span id="line-72"></span><span id="local-6989586621679244921"><span id="local-6989586621679244922"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDeliverabilityTestReport"><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReport"><span class="hs-identifier hs-var">CreateDeliverabilityTestReport</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDeliverabilityTestReport%27"><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReport%27"><span class="hs-identifier hs-var">CreateDeliverabilityTestReport'</span></a></span></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique name that helps you to identify the predictive inbox placement</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- test when you retrieve the results.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AreportName%3ACreateDeliverabilityTestReport%27"><span class="annot"><span class="annottext">CreateDeliverabilityTestReport -&gt; Maybe Text
+</span><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#%24sel%3AreportName%3ACreateDeliverabilityTestReport%27"><span class="hs-identifier hs-var hs-var">reportName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | An array of objects that define the tags (keys and values) that you want</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- to associate with the predictive inbox placement test.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3Atags%3ACreateDeliverabilityTestReport%27"><span class="annot"><span class="annottext">CreateDeliverabilityTestReport -&gt; Maybe [Tag]
+</span><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#%24sel%3Atags%3ACreateDeliverabilityTestReport%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.PinpointEmail.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | The email address that the predictive inbox placement test email was</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- sent from.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AfromEmailAddress%3ACreateDeliverabilityTestReport%27"><span class="annot"><span class="annottext">CreateDeliverabilityTestReport -&gt; Text
+</span><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#%24sel%3AfromEmailAddress%3ACreateDeliverabilityTestReport%27"><span class="hs-identifier hs-var hs-var">fromEmailAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | The HTML body of the message that you sent when you performed the</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- predictive inbox placement test.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3Acontent%3ACreateDeliverabilityTestReport%27"><span class="annot"><span class="annottext">CreateDeliverabilityTestReport -&gt; EmailContent
+</span><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#%24sel%3Acontent%3ACreateDeliverabilityTestReport%27"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.Types.EmailContent.html#EmailContent"><span class="hs-identifier hs-type">EmailContent</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679244912"><span id="local-6989586621679244914"><span class="annot"><span class="annottext">CreateDeliverabilityTestReport
+-&gt; CreateDeliverabilityTestReport -&gt; Bool
+(CreateDeliverabilityTestReport
+ -&gt; CreateDeliverabilityTestReport -&gt; Bool)
+-&gt; (CreateDeliverabilityTestReport
+    -&gt; CreateDeliverabilityTestReport -&gt; Bool)
+-&gt; Eq CreateDeliverabilityTestReport
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateDeliverabilityTestReport
+-&gt; CreateDeliverabilityTestReport -&gt; Bool
+$c/= :: CreateDeliverabilityTestReport
+-&gt; CreateDeliverabilityTestReport -&gt; Bool
+== :: CreateDeliverabilityTestReport
+-&gt; CreateDeliverabilityTestReport -&gt; Bool
+$c== :: CreateDeliverabilityTestReport
+-&gt; CreateDeliverabilityTestReport -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244903"><span id="local-6989586621679244905"><span id="local-6989586621679244907"><span id="local-6989586621679244909"><span class="annot"><span class="annottext">ReadPrec [CreateDeliverabilityTestReport]
+ReadPrec CreateDeliverabilityTestReport
+Int -&gt; ReadS CreateDeliverabilityTestReport
+ReadS [CreateDeliverabilityTestReport]
+(Int -&gt; ReadS CreateDeliverabilityTestReport)
+-&gt; ReadS [CreateDeliverabilityTestReport]
+-&gt; ReadPrec CreateDeliverabilityTestReport
+-&gt; ReadPrec [CreateDeliverabilityTestReport]
+-&gt; Read CreateDeliverabilityTestReport
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateDeliverabilityTestReport]
+$creadListPrec :: ReadPrec [CreateDeliverabilityTestReport]
+readPrec :: ReadPrec CreateDeliverabilityTestReport
+$creadPrec :: ReadPrec CreateDeliverabilityTestReport
+readList :: ReadS [CreateDeliverabilityTestReport]
+$creadList :: ReadS [CreateDeliverabilityTestReport]
+readsPrec :: Int -&gt; ReadS CreateDeliverabilityTestReport
+$creadsPrec :: Int -&gt; ReadS CreateDeliverabilityTestReport
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244896"><span id="local-6989586621679244898"><span id="local-6989586621679244900"><span class="annot"><span class="annottext">Int -&gt; CreateDeliverabilityTestReport -&gt; ShowS
+[CreateDeliverabilityTestReport] -&gt; ShowS
+CreateDeliverabilityTestReport -&gt; String
+(Int -&gt; CreateDeliverabilityTestReport -&gt; ShowS)
+-&gt; (CreateDeliverabilityTestReport -&gt; String)
+-&gt; ([CreateDeliverabilityTestReport] -&gt; ShowS)
+-&gt; Show CreateDeliverabilityTestReport
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateDeliverabilityTestReport] -&gt; ShowS
+$cshowList :: [CreateDeliverabilityTestReport] -&gt; ShowS
+show :: CreateDeliverabilityTestReport -&gt; String
+$cshow :: CreateDeliverabilityTestReport -&gt; String
+showsPrec :: Int -&gt; CreateDeliverabilityTestReport -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateDeliverabilityTestReport -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateDeliverabilityTestReport
+ -&gt; Rep CreateDeliverabilityTestReport x)
+-&gt; (forall x.
+    Rep CreateDeliverabilityTestReport x
+    -&gt; CreateDeliverabilityTestReport)
+-&gt; Generic CreateDeliverabilityTestReport
+forall x.
+Rep CreateDeliverabilityTestReport x
+-&gt; CreateDeliverabilityTestReport
+forall x.
+CreateDeliverabilityTestReport
+-&gt; Rep CreateDeliverabilityTestReport x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateDeliverabilityTestReport x
+-&gt; CreateDeliverabilityTestReport
+$cfrom :: forall x.
+CreateDeliverabilityTestReport
+-&gt; Rep CreateDeliverabilityTestReport x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- Create a value of 'CreateDeliverabilityTestReport' with all optional fields omitted.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'reportName', 'createDeliverabilityTestReport_reportName' - A unique name that helps you to identify the predictive inbox placement</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- test when you retrieve the results.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'tags', 'createDeliverabilityTestReport_tags' - An array of objects that define the tags (keys and values) that you want</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- to associate with the predictive inbox placement test.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'fromEmailAddress', 'createDeliverabilityTestReport_fromEmailAddress' - The email address that the predictive inbox placement test email was</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- sent from.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'content', 'createDeliverabilityTestReport_content' - The HTML body of the message that you sent when you performed the</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- predictive inbox placement test.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#newCreateDeliverabilityTestReport"><span class="hs-identifier hs-type">newCreateDeliverabilityTestReport</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-comment">-- | 'fromEmailAddress'</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-comment">-- | 'content'</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><a href="Network.AWS.PinpointEmail.Types.EmailContent.html#EmailContent"><span class="hs-identifier hs-type">EmailContent</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReport"><span class="hs-identifier hs-type">CreateDeliverabilityTestReport</span></a></span><span>
+</span><span id="line-113"></span><span id="newCreateDeliverabilityTestReport"><span class="annot"><span class="annottext">newCreateDeliverabilityTestReport :: Text -&gt; EmailContent -&gt; CreateDeliverabilityTestReport
+</span><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#newCreateDeliverabilityTestReport"><span class="hs-identifier hs-var hs-var">newCreateDeliverabilityTestReport</span></a></span></span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679244891"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244891"><span class="hs-identifier hs-var">pFromEmailAddress_</span></a></span></span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679244890"><span class="annot"><span class="annottext">EmailContent
+</span><a href="#local-6989586621679244890"><span class="hs-identifier hs-var">pContent_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">CreateDeliverabilityTestReport' :: Maybe Text
+-&gt; Maybe [Tag]
+-&gt; Text
+-&gt; EmailContent
+-&gt; CreateDeliverabilityTestReport
+</span><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReport%27"><span class="hs-identifier hs-type">CreateDeliverabilityTestReport'</span></a></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:reportName:CreateDeliverabilityTestReport' :: Maybe Text
+</span><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#%24sel%3AreportName%3ACreateDeliverabilityTestReport%27"><span class="hs-identifier hs-var">reportName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateDeliverabilityTestReport' :: Maybe [Tag]
+</span><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#%24sel%3Atags%3ACreateDeliverabilityTestReport%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">$sel:fromEmailAddress:CreateDeliverabilityTestReport' :: Text
+</span><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#%24sel%3AfromEmailAddress%3ACreateDeliverabilityTestReport%27"><span class="hs-identifier hs-var">fromEmailAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244891"><span class="hs-identifier hs-var">pFromEmailAddress_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">$sel:content:CreateDeliverabilityTestReport' :: EmailContent
+</span><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#%24sel%3Acontent%3ACreateDeliverabilityTestReport%27"><span class="hs-identifier hs-var">content</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EmailContent
+</span><a href="#local-6989586621679244890"><span class="hs-identifier hs-var">pContent_</span></a></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | A unique name that helps you to identify the predictive inbox placement</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- test when you retrieve the results.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#createDeliverabilityTestReport_reportName"><span class="hs-identifier hs-type">createDeliverabilityTestReport_reportName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReport"><span class="hs-identifier hs-type">CreateDeliverabilityTestReport</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="createDeliverabilityTestReport_reportName"><span class="annot"><span class="annottext">createDeliverabilityTestReport_reportName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateDeliverabilityTestReport
+-&gt; f CreateDeliverabilityTestReport
+</span><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#createDeliverabilityTestReport_reportName"><span class="hs-identifier hs-var hs-var">createDeliverabilityTestReport_reportName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDeliverabilityTestReport -&gt; Maybe Text)
+-&gt; (CreateDeliverabilityTestReport
+    -&gt; Maybe Text -&gt; CreateDeliverabilityTestReport)
+-&gt; Lens
+     CreateDeliverabilityTestReport
+     CreateDeliverabilityTestReport
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReport%27"><span class="hs-identifier hs-type">CreateDeliverabilityTestReport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244887"><span class="annot"><span class="annottext">Maybe Text
+reportName :: Maybe Text
+$sel:reportName:CreateDeliverabilityTestReport' :: CreateDeliverabilityTestReport -&gt; Maybe Text
+</span><a href="#local-6989586621679244887"><span class="hs-identifier hs-var hs-var">reportName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244887"><span class="hs-identifier hs-var">reportName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244886"><span class="annot"><span class="annottext">s :: CreateDeliverabilityTestReport
+</span><a href="#local-6989586621679244886"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReport%27"><span class="hs-identifier hs-type">CreateDeliverabilityTestReport'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244885"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244885"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDeliverabilityTestReport
+</span><a href="#local-6989586621679244886"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reportName:CreateDeliverabilityTestReport' :: Maybe Text
+</span><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#%24sel%3AreportName%3ACreateDeliverabilityTestReport%27"><span class="hs-identifier hs-var">reportName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244885"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReport"><span class="hs-identifier hs-type">CreateDeliverabilityTestReport</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | An array of objects that define the tags (keys and values) that you want</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- to associate with the predictive inbox placement test.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#createDeliverabilityTestReport_tags"><span class="hs-identifier hs-type">createDeliverabilityTestReport_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReport"><span class="hs-identifier hs-type">CreateDeliverabilityTestReport</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.PinpointEmail.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="createDeliverabilityTestReport_tags"><span class="annot"><span class="annottext">createDeliverabilityTestReport_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateDeliverabilityTestReport
+-&gt; f CreateDeliverabilityTestReport
+</span><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#createDeliverabilityTestReport_tags"><span class="hs-identifier hs-var hs-var">createDeliverabilityTestReport_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDeliverabilityTestReport -&gt; Maybe [Tag])
+-&gt; (CreateDeliverabilityTestReport
+    -&gt; Maybe [Tag] -&gt; CreateDeliverabilityTestReport)
+-&gt; Lens
+     CreateDeliverabilityTestReport
+     CreateDeliverabilityTestReport
+     (Maybe [Tag])
+     (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReport%27"><span class="hs-identifier hs-type">CreateDeliverabilityTestReport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244884"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:CreateDeliverabilityTestReport' :: CreateDeliverabilityTestReport -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679244884"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679244884"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244883"><span class="annot"><span class="annottext">s :: CreateDeliverabilityTestReport
+</span><a href="#local-6989586621679244883"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReport%27"><span class="hs-identifier hs-type">CreateDeliverabilityTestReport'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244882"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679244882"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDeliverabilityTestReport
+</span><a href="#local-6989586621679244883"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateDeliverabilityTestReport' :: Maybe [Tag]
+</span><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#%24sel%3Atags%3ACreateDeliverabilityTestReport%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679244882"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReport"><span class="hs-identifier hs-type">CreateDeliverabilityTestReport</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; CreateDeliverabilityTestReport
+ -&gt; f CreateDeliverabilityTestReport)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateDeliverabilityTestReport
+-&gt; f CreateDeliverabilityTestReport
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The email address that the predictive inbox placement test email was</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- sent from.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#createDeliverabilityTestReport_fromEmailAddress"><span class="hs-identifier hs-type">createDeliverabilityTestReport_fromEmailAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReport"><span class="hs-identifier hs-type">CreateDeliverabilityTestReport</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-137"></span><span id="createDeliverabilityTestReport_fromEmailAddress"><span class="annot"><span class="annottext">createDeliverabilityTestReport_fromEmailAddress :: (Text -&gt; f Text)
+-&gt; CreateDeliverabilityTestReport
+-&gt; f CreateDeliverabilityTestReport
+</span><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#createDeliverabilityTestReport_fromEmailAddress"><span class="hs-identifier hs-var hs-var">createDeliverabilityTestReport_fromEmailAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDeliverabilityTestReport -&gt; Text)
+-&gt; (CreateDeliverabilityTestReport
+    -&gt; Text -&gt; CreateDeliverabilityTestReport)
+-&gt; Lens
+     CreateDeliverabilityTestReport
+     CreateDeliverabilityTestReport
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReport%27"><span class="hs-identifier hs-type">CreateDeliverabilityTestReport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244878"><span class="annot"><span class="annottext">Text
+fromEmailAddress :: Text
+$sel:fromEmailAddress:CreateDeliverabilityTestReport' :: CreateDeliverabilityTestReport -&gt; Text
+</span><a href="#local-6989586621679244878"><span class="hs-identifier hs-var hs-var">fromEmailAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244878"><span class="hs-identifier hs-var">fromEmailAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244877"><span class="annot"><span class="annottext">s :: CreateDeliverabilityTestReport
+</span><a href="#local-6989586621679244877"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReport%27"><span class="hs-identifier hs-type">CreateDeliverabilityTestReport'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244876"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244876"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDeliverabilityTestReport
+</span><a href="#local-6989586621679244877"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fromEmailAddress:CreateDeliverabilityTestReport' :: Text
+</span><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#%24sel%3AfromEmailAddress%3ACreateDeliverabilityTestReport%27"><span class="hs-identifier hs-var">fromEmailAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244876"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReport"><span class="hs-identifier hs-type">CreateDeliverabilityTestReport</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The HTML body of the message that you sent when you performed the</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- predictive inbox placement test.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#createDeliverabilityTestReport_content"><span class="hs-identifier hs-type">createDeliverabilityTestReport_content</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReport"><span class="hs-identifier hs-type">CreateDeliverabilityTestReport</span></a></span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.Types.EmailContent.html#EmailContent"><span class="hs-identifier hs-type">EmailContent</span></a></span><span>
+</span><span id="line-142"></span><span id="createDeliverabilityTestReport_content"><span class="annot"><span class="annottext">createDeliverabilityTestReport_content :: (EmailContent -&gt; f EmailContent)
+-&gt; CreateDeliverabilityTestReport
+-&gt; f CreateDeliverabilityTestReport
+</span><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#createDeliverabilityTestReport_content"><span class="hs-identifier hs-var hs-var">createDeliverabilityTestReport_content</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDeliverabilityTestReport -&gt; EmailContent)
+-&gt; (CreateDeliverabilityTestReport
+    -&gt; EmailContent -&gt; CreateDeliverabilityTestReport)
+-&gt; Lens
+     CreateDeliverabilityTestReport
+     CreateDeliverabilityTestReport
+     EmailContent
+     EmailContent
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReport%27"><span class="hs-identifier hs-type">CreateDeliverabilityTestReport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244875"><span class="annot"><span class="annottext">EmailContent
+content :: EmailContent
+$sel:content:CreateDeliverabilityTestReport' :: CreateDeliverabilityTestReport -&gt; EmailContent
+</span><a href="#local-6989586621679244875"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmailContent
+</span><a href="#local-6989586621679244875"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244874"><span class="annot"><span class="annottext">s :: CreateDeliverabilityTestReport
+</span><a href="#local-6989586621679244874"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReport%27"><span class="hs-identifier hs-type">CreateDeliverabilityTestReport'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244873"><span class="annot"><span class="annottext">EmailContent
+</span><a href="#local-6989586621679244873"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDeliverabilityTestReport
+</span><a href="#local-6989586621679244874"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:content:CreateDeliverabilityTestReport' :: EmailContent
+</span><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#%24sel%3Acontent%3ACreateDeliverabilityTestReport%27"><span class="hs-identifier hs-var">content</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EmailContent
+</span><a href="#local-6989586621679244873"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReport"><span class="hs-identifier hs-type">CreateDeliverabilityTestReport</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReport"><span class="hs-identifier hs-type">CreateDeliverabilityTestReport</span></a></span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-149"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReport"><span class="hs-identifier hs-type">CreateDeliverabilityTestReport</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>      </span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReportResponse"><span class="hs-identifier hs-type">CreateDeliverabilityTestReportResponse</span></a></span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679244869"><span class="annot"><span class="annottext">request :: CreateDeliverabilityTestReport
+-&gt; Request CreateDeliverabilityTestReport
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; CreateDeliverabilityTestReport
+-&gt; Request CreateDeliverabilityTestReport
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.PinpointEmail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679244865"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateDeliverabilityTestReport
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse CreateDeliverabilityTestReport)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateDeliverabilityTestReport))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateDeliverabilityTestReport
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse CreateDeliverabilityTestReport)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679244862"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679244862"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679244861"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679244861"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679244860"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244860"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-155"></span><span>          </span><span class="annot"><span class="annottext">Int
+-&gt; Text
+-&gt; DeliverabilityTestStatus
+-&gt; CreateDeliverabilityTestReportResponse
+</span><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReportResponse%27"><span class="hs-identifier hs-var">CreateDeliverabilityTestReportResponse'</span></a></span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">(Int
+ -&gt; Text
+ -&gt; DeliverabilityTestStatus
+ -&gt; CreateDeliverabilityTestReportResponse)
+-&gt; Either String Int
+-&gt; Either
+     String
+     (Text
+      -&gt; DeliverabilityTestStatus
+      -&gt; CreateDeliverabilityTestReportResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679244862"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Text
+   -&gt; DeliverabilityTestStatus
+   -&gt; CreateDeliverabilityTestReportResponse)
+-&gt; Either String Text
+-&gt; Either
+     String
+     (DeliverabilityTestStatus
+      -&gt; CreateDeliverabilityTestReportResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244860"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReportId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (DeliverabilityTestStatus
+   -&gt; CreateDeliverabilityTestReportResponse)
+-&gt; Either String DeliverabilityTestStatus
+-&gt; Either String CreateDeliverabilityTestReportResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244860"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String DeliverabilityTestStatus
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeliverabilityTestStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679244852"><span id="local-6989586621679244854"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReport"><span class="hs-identifier hs-type">CreateDeliverabilityTestReport</span></a></span></span></span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679244849"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReport"><span class="hs-identifier hs-type">CreateDeliverabilityTestReport</span></a></span></span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-170"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReport"><span class="hs-identifier hs-type">CreateDeliverabilityTestReport</span></a></span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679244845"><span class="annot"><span class="annottext">toHeaders :: CreateDeliverabilityTestReport -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; CreateDeliverabilityTestReport -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-176"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-177"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-178"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-179"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244835"><span id="local-6989586621679244837"><span id="local-6989586621679244839"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReport"><span class="hs-identifier hs-type">CreateDeliverabilityTestReport</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679244833"><span class="annot"><span class="annottext">toJSON :: CreateDeliverabilityTestReport -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReport%27"><span class="hs-identifier hs-type">CreateDeliverabilityTestReport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244828"><span id="local-6989586621679244829"><span id="local-6989586621679244830"><span id="local-6989586621679244831"><span class="annot"><span class="annottext">Maybe [Tag]
+Maybe Text
+Text
+EmailContent
+content :: EmailContent
+fromEmailAddress :: Text
+tags :: Maybe [Tag]
+reportName :: Maybe Text
+$sel:content:CreateDeliverabilityTestReport' :: CreateDeliverabilityTestReport -&gt; EmailContent
+$sel:fromEmailAddress:CreateDeliverabilityTestReport' :: CreateDeliverabilityTestReport -&gt; Text
+$sel:tags:CreateDeliverabilityTestReport' :: CreateDeliverabilityTestReport -&gt; Maybe [Tag]
+$sel:reportName:CreateDeliverabilityTestReport' :: CreateDeliverabilityTestReport -&gt; Maybe Text
+</span><a href="#local-6989586621679244828"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-187"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReportName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244831"><span class="hs-identifier hs-var">reportName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679244830"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-190"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FromEmailAddress&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244829"><span class="hs-identifier hs-var">fromEmailAddress</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Content&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EmailContent -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">EmailContent
+</span><a href="#local-6989586621679244828"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-193"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReport"><span class="hs-identifier hs-type">CreateDeliverabilityTestReport</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679244822"><span class="annot"><span class="annottext">toPath :: CreateDeliverabilityTestReport -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-197"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; CreateDeliverabilityTestReport -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-198"></span><span>      </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v1/email/deliverability-dashboard/test&quot;</span></span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReport"><span class="hs-identifier hs-type">CreateDeliverabilityTestReport</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621679244818"><span class="annot"><span class="annottext">toQuery :: CreateDeliverabilityTestReport -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateDeliverabilityTestReport -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | Information about the predictive inbox placement test that you created.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- /See:/ 'newCreateDeliverabilityTestReportResponse' smart constructor.</span><span>
+</span><span id="line-206"></span><span id="local-6989586621679244815"><span id="local-6989586621679244816"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDeliverabilityTestReportResponse"><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReportResponse"><span class="hs-identifier hs-var">CreateDeliverabilityTestReportResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDeliverabilityTestReportResponse%27"><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReportResponse%27"><span class="hs-identifier hs-var">CreateDeliverabilityTestReportResponse'</span></a></span></span><span>
+</span><span id="line-207"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-208"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateDeliverabilityTestReportResponse%27"><span class="annot"><span class="annottext">CreateDeliverabilityTestReportResponse -&gt; Int
+</span><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#%24sel%3AhttpStatus%3ACreateDeliverabilityTestReportResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>    </span><span class="hs-comment">-- | A unique string that identifies the predictive inbox placement test.</span><span>
+</span><span id="line-210"></span><span>    </span><span id="%24sel%3AreportId%3ACreateDeliverabilityTestReportResponse%27"><span class="annot"><span class="annottext">CreateDeliverabilityTestReportResponse -&gt; Text
+</span><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#%24sel%3AreportId%3ACreateDeliverabilityTestReportResponse%27"><span class="hs-identifier hs-var hs-var">reportId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>    </span><span class="hs-comment">-- | The status of the predictive inbox placement test. If the status is</span><span>
+</span><span id="line-212"></span><span>    </span><span class="hs-comment">-- @IN_PROGRESS@, then the predictive inbox placement test is currently</span><span>
+</span><span id="line-213"></span><span>    </span><span class="hs-comment">-- running. Predictive inbox placement tests are usually complete within 24</span><span>
+</span><span id="line-214"></span><span>    </span><span class="hs-comment">-- hours of creating the test. If the status is @COMPLETE@, then the test</span><span>
+</span><span id="line-215"></span><span>    </span><span class="hs-comment">-- is finished, and you can use the @GetDeliverabilityTestReport@ to view</span><span>
+</span><span id="line-216"></span><span>    </span><span class="hs-comment">-- the results of the test.</span><span>
+</span><span id="line-217"></span><span>    </span><span id="%24sel%3AdeliverabilityTestStatus%3ACreateDeliverabilityTestReportResponse%27"><span class="annot"><span class="annottext">CreateDeliverabilityTestReportResponse -&gt; DeliverabilityTestStatus
+</span><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#%24sel%3AdeliverabilityTestStatus%3ACreateDeliverabilityTestReportResponse%27"><span class="hs-identifier hs-var hs-var">deliverabilityTestStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.Types.DeliverabilityTestStatus.html#DeliverabilityTestStatus"><span class="hs-identifier hs-type">DeliverabilityTestStatus</span></a></span><span>
+</span><span id="line-218"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-219"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679244808"><span id="local-6989586621679244810"><span class="annot"><span class="annottext">CreateDeliverabilityTestReportResponse
+-&gt; CreateDeliverabilityTestReportResponse -&gt; Bool
+(CreateDeliverabilityTestReportResponse
+ -&gt; CreateDeliverabilityTestReportResponse -&gt; Bool)
+-&gt; (CreateDeliverabilityTestReportResponse
+    -&gt; CreateDeliverabilityTestReportResponse -&gt; Bool)
+-&gt; Eq CreateDeliverabilityTestReportResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateDeliverabilityTestReportResponse
+-&gt; CreateDeliverabilityTestReportResponse -&gt; Bool
+$c/= :: CreateDeliverabilityTestReportResponse
+-&gt; CreateDeliverabilityTestReportResponse -&gt; Bool
+== :: CreateDeliverabilityTestReportResponse
+-&gt; CreateDeliverabilityTestReportResponse -&gt; Bool
+$c== :: CreateDeliverabilityTestReportResponse
+-&gt; CreateDeliverabilityTestReportResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244800"><span id="local-6989586621679244802"><span id="local-6989586621679244804"><span id="local-6989586621679244806"><span class="annot"><span class="annottext">ReadPrec [CreateDeliverabilityTestReportResponse]
+ReadPrec CreateDeliverabilityTestReportResponse
+Int -&gt; ReadS CreateDeliverabilityTestReportResponse
+ReadS [CreateDeliverabilityTestReportResponse]
+(Int -&gt; ReadS CreateDeliverabilityTestReportResponse)
+-&gt; ReadS [CreateDeliverabilityTestReportResponse]
+-&gt; ReadPrec CreateDeliverabilityTestReportResponse
+-&gt; ReadPrec [CreateDeliverabilityTestReportResponse]
+-&gt; Read CreateDeliverabilityTestReportResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateDeliverabilityTestReportResponse]
+$creadListPrec :: ReadPrec [CreateDeliverabilityTestReportResponse]
+readPrec :: ReadPrec CreateDeliverabilityTestReportResponse
+$creadPrec :: ReadPrec CreateDeliverabilityTestReportResponse
+readList :: ReadS [CreateDeliverabilityTestReportResponse]
+$creadList :: ReadS [CreateDeliverabilityTestReportResponse]
+readsPrec :: Int -&gt; ReadS CreateDeliverabilityTestReportResponse
+$creadsPrec :: Int -&gt; ReadS CreateDeliverabilityTestReportResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244794"><span id="local-6989586621679244796"><span id="local-6989586621679244798"><span class="annot"><span class="annottext">Int -&gt; CreateDeliverabilityTestReportResponse -&gt; ShowS
+[CreateDeliverabilityTestReportResponse] -&gt; ShowS
+CreateDeliverabilityTestReportResponse -&gt; String
+(Int -&gt; CreateDeliverabilityTestReportResponse -&gt; ShowS)
+-&gt; (CreateDeliverabilityTestReportResponse -&gt; String)
+-&gt; ([CreateDeliverabilityTestReportResponse] -&gt; ShowS)
+-&gt; Show CreateDeliverabilityTestReportResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateDeliverabilityTestReportResponse] -&gt; ShowS
+$cshowList :: [CreateDeliverabilityTestReportResponse] -&gt; ShowS
+show :: CreateDeliverabilityTestReportResponse -&gt; String
+$cshow :: CreateDeliverabilityTestReportResponse -&gt; String
+showsPrec :: Int -&gt; CreateDeliverabilityTestReportResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateDeliverabilityTestReportResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateDeliverabilityTestReportResponse
+ -&gt; Rep CreateDeliverabilityTestReportResponse x)
+-&gt; (forall x.
+    Rep CreateDeliverabilityTestReportResponse x
+    -&gt; CreateDeliverabilityTestReportResponse)
+-&gt; Generic CreateDeliverabilityTestReportResponse
+forall x.
+Rep CreateDeliverabilityTestReportResponse x
+-&gt; CreateDeliverabilityTestReportResponse
+forall x.
+CreateDeliverabilityTestReportResponse
+-&gt; Rep CreateDeliverabilityTestReportResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateDeliverabilityTestReportResponse x
+-&gt; CreateDeliverabilityTestReportResponse
+$cfrom :: forall x.
+CreateDeliverabilityTestReportResponse
+-&gt; Rep CreateDeliverabilityTestReportResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- Create a value of 'CreateDeliverabilityTestReportResponse' with all optional fields omitted.</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- 'httpStatus', 'createDeliverabilityTestReportResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- 'reportId', 'createDeliverabilityTestReportResponse_reportId' - A unique string that identifies the predictive inbox placement test.</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- 'deliverabilityTestStatus', 'createDeliverabilityTestReportResponse_deliverabilityTestStatus' - The status of the predictive inbox placement test. If the status is</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- @IN_PROGRESS@, then the predictive inbox placement test is currently</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- running. Predictive inbox placement tests are usually complete within 24</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- hours of creating the test. If the status is @COMPLETE@, then the test</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- is finished, and you can use the @GetDeliverabilityTestReport@ to view</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- the results of the test.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#newCreateDeliverabilityTestReportResponse"><span class="hs-identifier hs-type">newCreateDeliverabilityTestReportResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-240"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-241"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-242"></span><span>  </span><span class="hs-comment">-- | 'reportId'</span><span>
+</span><span id="line-243"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-244"></span><span>  </span><span class="hs-comment">-- | 'deliverabilityTestStatus'</span><span>
+</span><span id="line-245"></span><span>  </span><span class="annot"><a href="Network.AWS.PinpointEmail.Types.DeliverabilityTestStatus.html#DeliverabilityTestStatus"><span class="hs-identifier hs-type">DeliverabilityTestStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-246"></span><span>  </span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReportResponse"><span class="hs-identifier hs-type">CreateDeliverabilityTestReportResponse</span></a></span><span>
+</span><span id="line-247"></span><span id="newCreateDeliverabilityTestReportResponse"><span class="annot"><span class="annottext">newCreateDeliverabilityTestReportResponse :: Int
+-&gt; Text
+-&gt; DeliverabilityTestStatus
+-&gt; CreateDeliverabilityTestReportResponse
+</span><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#newCreateDeliverabilityTestReportResponse"><span class="hs-identifier hs-var hs-var">newCreateDeliverabilityTestReportResponse</span></a></span></span><span>
+</span><span id="line-248"></span><span>  </span><span id="local-6989586621679244791"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679244791"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-249"></span><span>  </span><span id="local-6989586621679244790"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244790"><span class="hs-identifier hs-var">pReportId_</span></a></span></span><span>
+</span><span id="line-250"></span><span>  </span><span id="local-6989586621679244789"><span class="annot"><span class="annottext">DeliverabilityTestStatus
+</span><a href="#local-6989586621679244789"><span class="hs-identifier hs-var">pDeliverabilityTestStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-251"></span><span>    </span><span class="annot"><span class="annottext">CreateDeliverabilityTestReportResponse' :: Int
+-&gt; Text
+-&gt; DeliverabilityTestStatus
+-&gt; CreateDeliverabilityTestReportResponse
+</span><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReportResponse%27"><span class="hs-identifier hs-type">CreateDeliverabilityTestReportResponse'</span></a></span><span>
+</span><span id="line-252"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDeliverabilityTestReportResponse' :: Int
+</span><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#%24sel%3AhttpStatus%3ACreateDeliverabilityTestReportResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-253"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679244791"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>        </span><span class="annot"><span class="annottext">$sel:reportId:CreateDeliverabilityTestReportResponse' :: Text
+</span><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#%24sel%3AreportId%3ACreateDeliverabilityTestReportResponse%27"><span class="hs-identifier hs-var">reportId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244790"><span class="hs-identifier hs-var">pReportId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>        </span><span class="annot"><span class="annottext">$sel:deliverabilityTestStatus:CreateDeliverabilityTestReportResponse' :: DeliverabilityTestStatus
+</span><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#%24sel%3AdeliverabilityTestStatus%3ACreateDeliverabilityTestReportResponse%27"><span class="hs-identifier hs-var">deliverabilityTestStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-256"></span><span>          </span><span class="annot"><span class="annottext">DeliverabilityTestStatus
+</span><a href="#local-6989586621679244789"><span class="hs-identifier hs-var">pDeliverabilityTestStatus_</span></a></span><span>
+</span><span id="line-257"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-260"></span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#createDeliverabilityTestReportResponse_httpStatus"><span class="hs-identifier hs-type">createDeliverabilityTestReportResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReportResponse"><span class="hs-identifier hs-type">CreateDeliverabilityTestReportResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-261"></span><span id="createDeliverabilityTestReportResponse_httpStatus"><span class="annot"><span class="annottext">createDeliverabilityTestReportResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateDeliverabilityTestReportResponse
+-&gt; f CreateDeliverabilityTestReportResponse
+</span><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#createDeliverabilityTestReportResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createDeliverabilityTestReportResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDeliverabilityTestReportResponse -&gt; Int)
+-&gt; (CreateDeliverabilityTestReportResponse
+    -&gt; Int -&gt; CreateDeliverabilityTestReportResponse)
+-&gt; Lens
+     CreateDeliverabilityTestReportResponse
+     CreateDeliverabilityTestReportResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReportResponse%27"><span class="hs-identifier hs-type">CreateDeliverabilityTestReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244788"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateDeliverabilityTestReportResponse' :: CreateDeliverabilityTestReportResponse -&gt; Int
+</span><a href="#local-6989586621679244788"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679244788"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244787"><span class="annot"><span class="annottext">s :: CreateDeliverabilityTestReportResponse
+</span><a href="#local-6989586621679244787"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReportResponse%27"><span class="hs-identifier hs-type">CreateDeliverabilityTestReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244786"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679244786"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDeliverabilityTestReportResponse
+</span><a href="#local-6989586621679244787"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDeliverabilityTestReportResponse' :: Int
+</span><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#%24sel%3AhttpStatus%3ACreateDeliverabilityTestReportResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679244786"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReportResponse"><span class="hs-identifier hs-type">CreateDeliverabilityTestReportResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- | A unique string that identifies the predictive inbox placement test.</span><span>
+</span><span id="line-264"></span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#createDeliverabilityTestReportResponse_reportId"><span class="hs-identifier hs-type">createDeliverabilityTestReportResponse_reportId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReportResponse"><span class="hs-identifier hs-type">CreateDeliverabilityTestReportResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-265"></span><span id="createDeliverabilityTestReportResponse_reportId"><span class="annot"><span class="annottext">createDeliverabilityTestReportResponse_reportId :: (Text -&gt; f Text)
+-&gt; CreateDeliverabilityTestReportResponse
+-&gt; f CreateDeliverabilityTestReportResponse
+</span><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#createDeliverabilityTestReportResponse_reportId"><span class="hs-identifier hs-var hs-var">createDeliverabilityTestReportResponse_reportId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDeliverabilityTestReportResponse -&gt; Text)
+-&gt; (CreateDeliverabilityTestReportResponse
+    -&gt; Text -&gt; CreateDeliverabilityTestReportResponse)
+-&gt; Lens
+     CreateDeliverabilityTestReportResponse
+     CreateDeliverabilityTestReportResponse
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReportResponse%27"><span class="hs-identifier hs-type">CreateDeliverabilityTestReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244785"><span class="annot"><span class="annottext">Text
+reportId :: Text
+$sel:reportId:CreateDeliverabilityTestReportResponse' :: CreateDeliverabilityTestReportResponse -&gt; Text
+</span><a href="#local-6989586621679244785"><span class="hs-identifier hs-var hs-var">reportId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244785"><span class="hs-identifier hs-var">reportId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244784"><span class="annot"><span class="annottext">s :: CreateDeliverabilityTestReportResponse
+</span><a href="#local-6989586621679244784"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReportResponse%27"><span class="hs-identifier hs-type">CreateDeliverabilityTestReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244783"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244783"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDeliverabilityTestReportResponse
+</span><a href="#local-6989586621679244784"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reportId:CreateDeliverabilityTestReportResponse' :: Text
+</span><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#%24sel%3AreportId%3ACreateDeliverabilityTestReportResponse%27"><span class="hs-identifier hs-var">reportId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244783"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReportResponse"><span class="hs-identifier hs-type">CreateDeliverabilityTestReportResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- | The status of the predictive inbox placement test. If the status is</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- @IN_PROGRESS@, then the predictive inbox placement test is currently</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- running. Predictive inbox placement tests are usually complete within 24</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- hours of creating the test. If the status is @COMPLETE@, then the test</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- is finished, and you can use the @GetDeliverabilityTestReport@ to view</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- the results of the test.</span><span>
+</span><span id="line-273"></span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#createDeliverabilityTestReportResponse_deliverabilityTestStatus"><span class="hs-identifier hs-type">createDeliverabilityTestReportResponse_deliverabilityTestStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReportResponse"><span class="hs-identifier hs-type">CreateDeliverabilityTestReportResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.Types.DeliverabilityTestStatus.html#DeliverabilityTestStatus"><span class="hs-identifier hs-type">DeliverabilityTestStatus</span></a></span><span>
+</span><span id="line-274"></span><span id="createDeliverabilityTestReportResponse_deliverabilityTestStatus"><span class="annot"><span class="annottext">createDeliverabilityTestReportResponse_deliverabilityTestStatus :: (DeliverabilityTestStatus -&gt; f DeliverabilityTestStatus)
+-&gt; CreateDeliverabilityTestReportResponse
+-&gt; f CreateDeliverabilityTestReportResponse
+</span><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#createDeliverabilityTestReportResponse_deliverabilityTestStatus"><span class="hs-identifier hs-var hs-var">createDeliverabilityTestReportResponse_deliverabilityTestStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDeliverabilityTestReportResponse
+ -&gt; DeliverabilityTestStatus)
+-&gt; (CreateDeliverabilityTestReportResponse
+    -&gt; DeliverabilityTestStatus
+    -&gt; CreateDeliverabilityTestReportResponse)
+-&gt; Lens
+     CreateDeliverabilityTestReportResponse
+     CreateDeliverabilityTestReportResponse
+     DeliverabilityTestStatus
+     DeliverabilityTestStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReportResponse%27"><span class="hs-identifier hs-type">CreateDeliverabilityTestReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244782"><span class="annot"><span class="annottext">DeliverabilityTestStatus
+deliverabilityTestStatus :: DeliverabilityTestStatus
+$sel:deliverabilityTestStatus:CreateDeliverabilityTestReportResponse' :: CreateDeliverabilityTestReportResponse -&gt; DeliverabilityTestStatus
+</span><a href="#local-6989586621679244782"><span class="hs-identifier hs-var hs-var">deliverabilityTestStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeliverabilityTestStatus
+</span><a href="#local-6989586621679244782"><span class="hs-identifier hs-var">deliverabilityTestStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244781"><span class="annot"><span class="annottext">s :: CreateDeliverabilityTestReportResponse
+</span><a href="#local-6989586621679244781"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReportResponse%27"><span class="hs-identifier hs-type">CreateDeliverabilityTestReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244780"><span class="annot"><span class="annottext">DeliverabilityTestStatus
+</span><a href="#local-6989586621679244780"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDeliverabilityTestReportResponse
+</span><a href="#local-6989586621679244781"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deliverabilityTestStatus:CreateDeliverabilityTestReportResponse' :: DeliverabilityTestStatus
+</span><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#%24sel%3AdeliverabilityTestStatus%3ACreateDeliverabilityTestReportResponse%27"><span class="hs-identifier hs-var">deliverabilityTestStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeliverabilityTestStatus
+</span><a href="#local-6989586621679244780"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReportResponse"><span class="hs-identifier hs-type">CreateDeliverabilityTestReportResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-277"></span><span>  </span><span id="local-6989586621679244778"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-278"></span><span>    </span><span class="annot"><a href="Network.AWS.PinpointEmail.CreateDeliverabilityTestReport.html#CreateDeliverabilityTestReportResponse"><span class="hs-identifier hs-type">CreateDeliverabilityTestReportResponse</span></a></span></span><span>
+</span><span id="line-279"></span></pre></body></html>

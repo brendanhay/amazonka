@@ -36,7 +36,7 @@
 </span><span id="line-36"></span><span class="hs-comment">-- includes the @Name@ and @RegexPatternSetId@ for one RegexPatternSet.</span><span>
 </span><span id="line-37"></span><span class="hs-comment">--</span><span>
 </span><span id="line-38"></span><span class="hs-comment">-- /See:/ 'newRegexPatternSetSummary' smart constructor.</span><span>
-</span><span id="line-39"></span><span id="local-6989586621679303568"><span id="local-6989586621679303569"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegexPatternSetSummary"><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetSummary.html#RegexPatternSetSummary"><span class="hs-identifier hs-var">RegexPatternSetSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegexPatternSetSummary%27"><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetSummary.html#RegexPatternSetSummary%27"><span class="hs-identifier hs-var">RegexPatternSetSummary'</span></a></span></span><span>
+</span><span id="line-39"></span><span id="local-6989586621679303577"><span id="local-6989586621679303578"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegexPatternSetSummary"><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetSummary.html#RegexPatternSetSummary"><span class="hs-identifier hs-var">RegexPatternSetSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegexPatternSetSummary%27"><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetSummary.html#RegexPatternSetSummary%27"><span class="hs-identifier hs-var">RegexPatternSetSummary'</span></a></span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @RegexPatternSetId@ for a @RegexPatternSet@. You use</span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-comment">-- @RegexPatternSetId@ to get information about a @RegexPatternSet@, update</span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-comment">-- a @RegexPatternSet@, remove a @RegexPatternSet@ from a @RegexMatchSet@,</span><span>
@@ -51,7 +51,7 @@
 </span><span id="line-50"></span><span>    </span><span id="%24sel%3Aname%3ARegexPatternSetSummary%27"><span class="annot"><span class="annottext">RegexPatternSetSummary -&gt; Text
 </span><a href="Network.AWS.WAF.Types.RegexPatternSetSummary.html#%24sel%3Aname%3ARegexPatternSetSummary%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303561"><span id="local-6989586621679303563"><span class="annot"><span class="annottext">RegexPatternSetSummary -&gt; RegexPatternSetSummary -&gt; Bool
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303570"><span id="local-6989586621679303572"><span class="annot"><span class="annottext">RegexPatternSetSummary -&gt; RegexPatternSetSummary -&gt; Bool
 (RegexPatternSetSummary -&gt; RegexPatternSetSummary -&gt; Bool)
 -&gt; (RegexPatternSetSummary -&gt; RegexPatternSetSummary -&gt; Bool)
 -&gt; Eq RegexPatternSetSummary
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RegexPatternSetSummary -&gt; RegexPatternSetSummary -&gt; Bool
 == :: RegexPatternSetSummary -&gt; RegexPatternSetSummary -&gt; Bool
 $c== :: RegexPatternSetSummary -&gt; RegexPatternSetSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303552"><span id="local-6989586621679303554"><span id="local-6989586621679303556"><span id="local-6989586621679303558"><span class="annot"><span class="annottext">ReadPrec [RegexPatternSetSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303561"><span id="local-6989586621679303563"><span id="local-6989586621679303565"><span id="local-6989586621679303567"><span class="annot"><span class="annottext">ReadPrec [RegexPatternSetSummary]
 ReadPrec RegexPatternSetSummary
 Int -&gt; ReadS RegexPatternSetSummary
 ReadS [RegexPatternSetSummary]
@@ -80,7 +80,7 @@ readList :: ReadS [RegexPatternSetSummary]
 $creadList :: ReadS [RegexPatternSetSummary]
 readsPrec :: Int -&gt; ReadS RegexPatternSetSummary
 $creadsPrec :: Int -&gt; ReadS RegexPatternSetSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303545"><span id="local-6989586621679303547"><span id="local-6989586621679303549"><span class="annot"><span class="annottext">Int -&gt; RegexPatternSetSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303554"><span id="local-6989586621679303556"><span id="local-6989586621679303558"><span class="annot"><span class="annottext">Int -&gt; RegexPatternSetSummary -&gt; ShowS
 [RegexPatternSetSummary] -&gt; ShowS
 RegexPatternSetSummary -&gt; String
 (Int -&gt; RegexPatternSetSummary -&gt; ShowS)
@@ -132,18 +132,18 @@ $cfrom :: forall x. RegexPatternSetSummary -&gt; Rep RegexPatternSetSummary x
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetSummary.html#RegexPatternSetSummary"><span class="hs-identifier hs-type">RegexPatternSetSummary</span></a></span><span>
 </span><span id="line-78"></span><span id="newRegexPatternSetSummary"><span class="annot"><span class="annottext">newRegexPatternSetSummary :: Text -&gt; Text -&gt; RegexPatternSetSummary
-</span><a href="Network.AWS.WAF.Types.RegexPatternSetSummary.html#newRegexPatternSetSummary"><span class="hs-identifier hs-var hs-var">newRegexPatternSetSummary</span></a></span></span><span> </span><span id="local-6989586621679303539"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303539"><span class="hs-identifier hs-var">pRegexPatternSetId_</span></a></span></span><span> </span><span id="local-6989586621679303538"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303538"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WAF.Types.RegexPatternSetSummary.html#newRegexPatternSetSummary"><span class="hs-identifier hs-var hs-var">newRegexPatternSetSummary</span></a></span></span><span> </span><span id="local-6989586621679303548"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303548"><span class="hs-identifier hs-var">pRegexPatternSetId_</span></a></span></span><span> </span><span id="local-6989586621679303547"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303547"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">RegexPatternSetSummary' :: Text -&gt; Text -&gt; RegexPatternSetSummary
 </span><a href="Network.AWS.WAF.Types.RegexPatternSetSummary.html#RegexPatternSetSummary%27"><span class="hs-identifier hs-type">RegexPatternSetSummary'</span></a></span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:regexPatternSetId:RegexPatternSetSummary' :: Text
 </span><a href="Network.AWS.WAF.Types.RegexPatternSetSummary.html#%24sel%3AregexPatternSetId%3ARegexPatternSetSummary%27"><span class="hs-identifier hs-var">regexPatternSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303539"><span class="hs-identifier hs-var">pRegexPatternSetId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679303548"><span class="hs-identifier hs-var">pRegexPatternSetId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:RegexPatternSetSummary' :: Text
 </span><a href="Network.AWS.WAF.Types.RegexPatternSetSummary.html#%24sel%3Aname%3ARegexPatternSetSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303538"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><a href="#local-6989586621679303547"><span class="hs-identifier hs-var">pName_</span></a></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The @RegexPatternSetId@ for a @RegexPatternSet@. You use</span><span>
@@ -160,16 +160,16 @@ $cfrom :: forall x. RegexPatternSetSummary -&gt; Rep RegexPatternSetSummary x
 -&gt; (RegexPatternSetSummary -&gt; Text -&gt; RegexPatternSetSummary)
 -&gt; Lens RegexPatternSetSummary RegexPatternSetSummary Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetSummary.html#RegexPatternSetSummary%27"><span class="hs-identifier hs-type">RegexPatternSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303534"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetSummary.html#RegexPatternSetSummary%27"><span class="hs-identifier hs-type">RegexPatternSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303543"><span class="annot"><span class="annottext">Text
 regexPatternSetId :: Text
 $sel:regexPatternSetId:RegexPatternSetSummary' :: RegexPatternSetSummary -&gt; Text
-</span><a href="#local-6989586621679303534"><span class="hs-identifier hs-var hs-var">regexPatternSetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303534"><span class="hs-identifier hs-var">regexPatternSetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303533"><span class="annot"><span class="annottext">s :: RegexPatternSetSummary
-</span><a href="#local-6989586621679303533"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetSummary.html#RegexPatternSetSummary%27"><span class="hs-identifier hs-type">RegexPatternSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303532"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303532"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegexPatternSetSummary
-</span><a href="#local-6989586621679303533"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:regexPatternSetId:RegexPatternSetSummary' :: Text
+</span><a href="#local-6989586621679303543"><span class="hs-identifier hs-var hs-var">regexPatternSetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303543"><span class="hs-identifier hs-var">regexPatternSetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303542"><span class="annot"><span class="annottext">s :: RegexPatternSetSummary
+</span><a href="#local-6989586621679303542"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetSummary.html#RegexPatternSetSummary%27"><span class="hs-identifier hs-type">RegexPatternSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303541"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303541"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegexPatternSetSummary
+</span><a href="#local-6989586621679303542"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:regexPatternSetId:RegexPatternSetSummary' :: Text
 </span><a href="Network.AWS.WAF.Types.RegexPatternSetSummary.html#%24sel%3AregexPatternSetId%3ARegexPatternSetSummary%27"><span class="hs-identifier hs-var">regexPatternSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303532"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetSummary.html#RegexPatternSetSummary"><span class="hs-identifier hs-type">RegexPatternSetSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679303541"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetSummary.html#RegexPatternSetSummary"><span class="hs-identifier hs-type">RegexPatternSetSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | A friendly name or description of the RegexPatternSet. You can\'t change</span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- @Name@ after you create a @RegexPatternSet@.</span><span>
@@ -180,19 +180,19 @@ $sel:regexPatternSetId:RegexPatternSetSummary' :: RegexPatternSetSummary -&gt; T
 -&gt; (RegexPatternSetSummary -&gt; Text -&gt; RegexPatternSetSummary)
 -&gt; Lens RegexPatternSetSummary RegexPatternSetSummary Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetSummary.html#RegexPatternSetSummary%27"><span class="hs-identifier hs-type">RegexPatternSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303530"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetSummary.html#RegexPatternSetSummary%27"><span class="hs-identifier hs-type">RegexPatternSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303539"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:RegexPatternSetSummary' :: RegexPatternSetSummary -&gt; Text
-</span><a href="#local-6989586621679303530"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303530"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303529"><span class="annot"><span class="annottext">s :: RegexPatternSetSummary
-</span><a href="#local-6989586621679303529"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetSummary.html#RegexPatternSetSummary%27"><span class="hs-identifier hs-type">RegexPatternSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303528"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303528"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegexPatternSetSummary
-</span><a href="#local-6989586621679303529"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:RegexPatternSetSummary' :: Text
+</span><a href="#local-6989586621679303539"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303539"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303538"><span class="annot"><span class="annottext">s :: RegexPatternSetSummary
+</span><a href="#local-6989586621679303538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetSummary.html#RegexPatternSetSummary%27"><span class="hs-identifier hs-type">RegexPatternSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303537"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegexPatternSetSummary
+</span><a href="#local-6989586621679303538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:RegexPatternSetSummary' :: Text
 </span><a href="Network.AWS.WAF.Types.RegexPatternSetSummary.html#%24sel%3Aname%3ARegexPatternSetSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303528"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetSummary.html#RegexPatternSetSummary"><span class="hs-identifier hs-type">RegexPatternSetSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679303537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetSummary.html#RegexPatternSetSummary"><span class="hs-identifier hs-type">RegexPatternSetSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303525"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetSummary.html#RegexPatternSetSummary"><span class="hs-identifier hs-type">RegexPatternSetSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679303523"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RegexPatternSetSummary
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303534"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetSummary.html#RegexPatternSetSummary"><span class="hs-identifier hs-type">RegexPatternSetSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679303532"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RegexPatternSetSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser RegexPatternSetSummary)
@@ -202,15 +202,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;RegexPatternSetSummary&quot;</span></span><span>
-</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679303520"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679303520"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679303529"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679303529"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; RegexPatternSetSummary
 </span><a href="Network.AWS.WAF.Types.RegexPatternSetSummary.html#RegexPatternSetSummary%27"><span class="hs-identifier hs-var">RegexPatternSetSummary'</span></a></span><span>
 </span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; RegexPatternSetSummary)
 -&gt; Parser Text -&gt; Parser (Text -&gt; RegexPatternSetSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679303520"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679303529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RegexPatternSetId&quot;</span></span><span class="hs-special">)</span><span>
@@ -218,13 +218,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser RegexPatternSetSummary
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679303520"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679303529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303514"><span id="local-6989586621679303516"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetSummary.html#RegexPatternSetSummary"><span class="hs-identifier hs-type">RegexPatternSetSummary</span></a></span></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303523"><span id="local-6989586621679303525"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetSummary.html#RegexPatternSetSummary"><span class="hs-identifier hs-type">RegexPatternSetSummary</span></a></span></span></span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303511"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetSummary.html#RegexPatternSetSummary"><span class="hs-identifier hs-type">RegexPatternSetSummary</span></a></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303520"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.RegexPatternSetSummary.html#RegexPatternSetSummary"><span class="hs-identifier hs-type">RegexPatternSetSummary</span></a></span></span><span>
 </span><span id="line-113"></span></pre></body></html>

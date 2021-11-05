@@ -73,7 +73,7 @@
 </span><span id="line-73"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-74"></span><span class="hs-comment">--</span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- /See:/ 'newCreateEventSubscription' smart constructor.</span><span>
-</span><span id="line-76"></span><span id="local-6989586621679456008"><span id="local-6989586621679456009"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateEventSubscription"><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription"><span class="hs-identifier hs-var">CreateEventSubscription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateEventSubscription%27"><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription%27"><span class="hs-identifier hs-var">CreateEventSubscription'</span></a></span></span><span>
+</span><span id="line-76"></span><span id="local-6989586621679456017"><span id="local-6989586621679456018"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateEventSubscription"><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription"><span class="hs-identifier hs-var">CreateEventSubscription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateEventSubscription%27"><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription%27"><span class="hs-identifier hs-var">CreateEventSubscription'</span></a></span></span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A Boolean value; set to @true@ to activate the subscription, or set to</span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-comment">-- @false@ to create the subscription but not activate it.</span><span>
 </span><span id="line-79"></span><span>    </span><span id="%24sel%3Aenabled%3ACreateEventSubscription%27"><span class="annot"><span class="annottext">CreateEventSubscription -&gt; Maybe Bool
@@ -115,7 +115,7 @@
 </span><span id="line-109"></span><span>    </span><span id="%24sel%3AsnsTopicArn%3ACreateEventSubscription%27"><span class="annot"><span class="annottext">CreateEventSubscription -&gt; Text
 </span><a href="Network.AWS.DMS.CreateEventSubscription.html#%24sel%3AsnsTopicArn%3ACreateEventSubscription%27"><span class="hs-identifier hs-var hs-var">snsTopicArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-110"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-111"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679455996"><span id="local-6989586621679455998"><span class="annot"><span class="annottext">CreateEventSubscription -&gt; CreateEventSubscription -&gt; Bool
+</span><span id="line-111"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679456005"><span id="local-6989586621679456007"><span class="annot"><span class="annottext">CreateEventSubscription -&gt; CreateEventSubscription -&gt; Bool
 (CreateEventSubscription -&gt; CreateEventSubscription -&gt; Bool)
 -&gt; (CreateEventSubscription -&gt; CreateEventSubscription -&gt; Bool)
 -&gt; Eq CreateEventSubscription
@@ -124,7 +124,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateEventSubscription -&gt; CreateEventSubscription -&gt; Bool
 == :: CreateEventSubscription -&gt; CreateEventSubscription -&gt; Bool
 $c== :: CreateEventSubscription -&gt; CreateEventSubscription -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679455987"><span id="local-6989586621679455989"><span id="local-6989586621679455991"><span id="local-6989586621679455993"><span class="annot"><span class="annottext">ReadPrec [CreateEventSubscription]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679455996"><span id="local-6989586621679455998"><span id="local-6989586621679456000"><span id="local-6989586621679456002"><span class="annot"><span class="annottext">ReadPrec [CreateEventSubscription]
 ReadPrec CreateEventSubscription
 Int -&gt; ReadS CreateEventSubscription
 ReadS [CreateEventSubscription]
@@ -144,7 +144,7 @@ readList :: ReadS [CreateEventSubscription]
 $creadList :: ReadS [CreateEventSubscription]
 readsPrec :: Int -&gt; ReadS CreateEventSubscription
 $creadsPrec :: Int -&gt; ReadS CreateEventSubscription
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679455980"><span id="local-6989586621679455982"><span id="local-6989586621679455984"><span class="annot"><span class="annottext">Int -&gt; CreateEventSubscription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679455989"><span id="local-6989586621679455991"><span id="local-6989586621679455993"><span class="annot"><span class="annottext">Int -&gt; CreateEventSubscription -&gt; ShowS
 [CreateEventSubscription] -&gt; ShowS
 CreateEventSubscription -&gt; String
 (Int -&gt; CreateEventSubscription -&gt; ShowS)
@@ -220,10 +220,10 @@ $cfrom :: forall x. CreateEventSubscription -&gt; Rep CreateEventSubscription x
 </span><span id="line-158"></span><span>  </span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription"><span class="hs-identifier hs-type">CreateEventSubscription</span></a></span><span>
 </span><span id="line-159"></span><span id="newCreateEventSubscription"><span class="annot"><span class="annottext">newCreateEventSubscription :: Text -&gt; Text -&gt; CreateEventSubscription
 </span><a href="Network.AWS.DMS.CreateEventSubscription.html#newCreateEventSubscription"><span class="hs-identifier hs-var hs-var">newCreateEventSubscription</span></a></span></span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679455975"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679455975"><span class="hs-identifier hs-var">pSubscriptionName_</span></a></span></span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679455974"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679455974"><span class="hs-identifier hs-var">pSnsTopicArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679455984"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679455984"><span class="hs-identifier hs-var">pSubscriptionName_</span></a></span></span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679455983"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679455983"><span class="hs-identifier hs-var">pSnsTopicArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">CreateEventSubscription' :: Maybe Bool
 -&gt; Maybe Text
 -&gt; Maybe [Text]
@@ -255,10 +255,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">$sel:subscriptionName:CreateEventSubscription' :: Text
 </span><a href="Network.AWS.DMS.CreateEventSubscription.html#%24sel%3AsubscriptionName%3ACreateEventSubscription%27"><span class="hs-identifier hs-var">subscriptionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679455975"><span class="hs-identifier hs-var">pSubscriptionName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679455984"><span class="hs-identifier hs-var">pSubscriptionName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">$sel:snsTopicArn:CreateEventSubscription' :: Text
 </span><a href="Network.AWS.DMS.CreateEventSubscription.html#%24sel%3AsnsTopicArn%3ACreateEventSubscription%27"><span class="hs-identifier hs-var">snsTopicArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679455974"><span class="hs-identifier hs-var">pSnsTopicArn_</span></a></span><span>
+</span><a href="#local-6989586621679455983"><span class="hs-identifier hs-var">pSnsTopicArn_</span></a></span><span>
 </span><span id="line-170"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | A Boolean value; set to @true@ to activate the subscription, or set to</span><span>
@@ -275,16 +275,16 @@ forall a. Maybe a
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription%27"><span class="hs-identifier hs-type">CreateEventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455971"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription%27"><span class="hs-identifier hs-type">CreateEventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455980"><span class="annot"><span class="annottext">Maybe Bool
 enabled :: Maybe Bool
 $sel:enabled:CreateEventSubscription' :: CreateEventSubscription -&gt; Maybe Bool
-</span><a href="#local-6989586621679455971"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679455971"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679455970"><span class="annot"><span class="annottext">s :: CreateEventSubscription
-</span><a href="#local-6989586621679455970"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription%27"><span class="hs-identifier hs-type">CreateEventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679455969"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679455969"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateEventSubscription
-</span><a href="#local-6989586621679455970"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:CreateEventSubscription' :: Maybe Bool
+</span><a href="#local-6989586621679455980"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679455980"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679455979"><span class="annot"><span class="annottext">s :: CreateEventSubscription
+</span><a href="#local-6989586621679455979"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription%27"><span class="hs-identifier hs-type">CreateEventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679455978"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679455978"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateEventSubscription
+</span><a href="#local-6989586621679455979"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:CreateEventSubscription' :: Maybe Bool
 </span><a href="Network.AWS.DMS.CreateEventSubscription.html#%24sel%3Aenabled%3ACreateEventSubscription%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679455969"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription"><span class="hs-identifier hs-type">CreateEventSubscription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679455978"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription"><span class="hs-identifier hs-type">CreateEventSubscription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- | The type of DMS resource that generates the events. For example, if you</span><span>
 </span><span id="line-178"></span><span class="hs-comment">-- want to be notified of events generated by a replication instance, you</span><span>
@@ -304,16 +304,16 @@ $sel:enabled:CreateEventSubscription' :: CreateEventSubscription -&gt; Maybe Boo
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription%27"><span class="hs-identifier hs-type">CreateEventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455968"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription%27"><span class="hs-identifier hs-type">CreateEventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455977"><span class="annot"><span class="annottext">Maybe Text
 sourceType :: Maybe Text
 $sel:sourceType:CreateEventSubscription' :: CreateEventSubscription -&gt; Maybe Text
-</span><a href="#local-6989586621679455968"><span class="hs-identifier hs-var hs-var">sourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679455968"><span class="hs-identifier hs-var">sourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679455967"><span class="annot"><span class="annottext">s :: CreateEventSubscription
-</span><a href="#local-6989586621679455967"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription%27"><span class="hs-identifier hs-type">CreateEventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679455966"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679455966"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateEventSubscription
-</span><a href="#local-6989586621679455967"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceType:CreateEventSubscription' :: Maybe Text
+</span><a href="#local-6989586621679455977"><span class="hs-identifier hs-var hs-var">sourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679455977"><span class="hs-identifier hs-var">sourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679455976"><span class="annot"><span class="annottext">s :: CreateEventSubscription
+</span><a href="#local-6989586621679455976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription%27"><span class="hs-identifier hs-type">CreateEventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679455975"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679455975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateEventSubscription
+</span><a href="#local-6989586621679455976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceType:CreateEventSubscription' :: Maybe Text
 </span><a href="Network.AWS.DMS.CreateEventSubscription.html#%24sel%3AsourceType%3ACreateEventSubscription%27"><span class="hs-identifier hs-var">sourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679455966"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription"><span class="hs-identifier hs-type">CreateEventSubscription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679455975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription"><span class="hs-identifier hs-type">CreateEventSubscription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- | A list of event categories for a source type that you want to subscribe</span><span>
 </span><span id="line-187"></span><span class="hs-comment">-- to. For more information, see</span><span>
@@ -331,16 +331,16 @@ $sel:sourceType:CreateEventSubscription' :: CreateEventSubscription -&gt; Maybe 
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription%27"><span class="hs-identifier hs-type">CreateEventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455965"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription%27"><span class="hs-identifier hs-type">CreateEventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455974"><span class="annot"><span class="annottext">Maybe [Text]
 eventCategories :: Maybe [Text]
 $sel:eventCategories:CreateEventSubscription' :: CreateEventSubscription -&gt; Maybe [Text]
-</span><a href="#local-6989586621679455965"><span class="hs-identifier hs-var hs-var">eventCategories</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679455965"><span class="hs-identifier hs-var">eventCategories</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679455964"><span class="annot"><span class="annottext">s :: CreateEventSubscription
-</span><a href="#local-6989586621679455964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription%27"><span class="hs-identifier hs-type">CreateEventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679455963"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679455963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateEventSubscription
-</span><a href="#local-6989586621679455964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventCategories:CreateEventSubscription' :: Maybe [Text]
+</span><a href="#local-6989586621679455974"><span class="hs-identifier hs-var hs-var">eventCategories</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679455974"><span class="hs-identifier hs-var">eventCategories</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679455973"><span class="annot"><span class="annottext">s :: CreateEventSubscription
+</span><a href="#local-6989586621679455973"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription%27"><span class="hs-identifier hs-type">CreateEventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679455972"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679455972"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateEventSubscription
+</span><a href="#local-6989586621679455973"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventCategories:CreateEventSubscription' :: Maybe [Text]
 </span><a href="Network.AWS.DMS.CreateEventSubscription.html#%24sel%3AeventCategories%3ACreateEventSubscription%27"><span class="hs-identifier hs-var">eventCategories</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679455963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription"><span class="hs-identifier hs-type">CreateEventSubscription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679455972"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription"><span class="hs-identifier hs-type">CreateEventSubscription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; CreateEventSubscription -&gt; f CreateEventSubscription)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -377,16 +377,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription%27"><span class="hs-identifier hs-type">CreateEventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455959"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription%27"><span class="hs-identifier hs-type">CreateEventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455968"><span class="annot"><span class="annottext">Maybe [Text]
 sourceIds :: Maybe [Text]
 $sel:sourceIds:CreateEventSubscription' :: CreateEventSubscription -&gt; Maybe [Text]
-</span><a href="#local-6989586621679455959"><span class="hs-identifier hs-var hs-var">sourceIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679455959"><span class="hs-identifier hs-var">sourceIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679455958"><span class="annot"><span class="annottext">s :: CreateEventSubscription
-</span><a href="#local-6989586621679455958"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription%27"><span class="hs-identifier hs-type">CreateEventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679455957"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679455957"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateEventSubscription
-</span><a href="#local-6989586621679455958"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceIds:CreateEventSubscription' :: Maybe [Text]
+</span><a href="#local-6989586621679455968"><span class="hs-identifier hs-var hs-var">sourceIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679455968"><span class="hs-identifier hs-var">sourceIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679455967"><span class="annot"><span class="annottext">s :: CreateEventSubscription
+</span><a href="#local-6989586621679455967"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription%27"><span class="hs-identifier hs-type">CreateEventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679455966"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679455966"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateEventSubscription
+</span><a href="#local-6989586621679455967"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceIds:CreateEventSubscription' :: Maybe [Text]
 </span><a href="Network.AWS.DMS.CreateEventSubscription.html#%24sel%3AsourceIds%3ACreateEventSubscription%27"><span class="hs-identifier hs-var">sourceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679455957"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription"><span class="hs-identifier hs-type">CreateEventSubscription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679455966"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription"><span class="hs-identifier hs-type">CreateEventSubscription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; CreateEventSubscription -&gt; f CreateEventSubscription)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -416,16 +416,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [Tag])
      (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription%27"><span class="hs-identifier hs-type">CreateEventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455956"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription%27"><span class="hs-identifier hs-type">CreateEventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455965"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:CreateEventSubscription' :: CreateEventSubscription -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679455956"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679455956"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679455955"><span class="annot"><span class="annottext">s :: CreateEventSubscription
-</span><a href="#local-6989586621679455955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription%27"><span class="hs-identifier hs-type">CreateEventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679455954"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679455954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateEventSubscription
-</span><a href="#local-6989586621679455955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateEventSubscription' :: Maybe [Tag]
+</span><a href="#local-6989586621679455965"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679455965"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679455964"><span class="annot"><span class="annottext">s :: CreateEventSubscription
+</span><a href="#local-6989586621679455964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription%27"><span class="hs-identifier hs-type">CreateEventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679455963"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679455963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateEventSubscription
+</span><a href="#local-6989586621679455964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateEventSubscription' :: Maybe [Tag]
 </span><a href="Network.AWS.DMS.CreateEventSubscription.html#%24sel%3Atags%3ACreateEventSubscription%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679455954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription"><span class="hs-identifier hs-type">CreateEventSubscription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621679455963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription"><span class="hs-identifier hs-type">CreateEventSubscription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; CreateEventSubscription -&gt; f CreateEventSubscription)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -451,16 +451,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (CreateEventSubscription -&gt; Text -&gt; CreateEventSubscription)
 -&gt; Lens CreateEventSubscription CreateEventSubscription Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription%27"><span class="hs-identifier hs-type">CreateEventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455953"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription%27"><span class="hs-identifier hs-type">CreateEventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455962"><span class="annot"><span class="annottext">Text
 subscriptionName :: Text
 $sel:subscriptionName:CreateEventSubscription' :: CreateEventSubscription -&gt; Text
-</span><a href="#local-6989586621679455953"><span class="hs-identifier hs-var hs-var">subscriptionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679455953"><span class="hs-identifier hs-var">subscriptionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679455952"><span class="annot"><span class="annottext">s :: CreateEventSubscription
-</span><a href="#local-6989586621679455952"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription%27"><span class="hs-identifier hs-type">CreateEventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679455951"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679455951"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateEventSubscription
-</span><a href="#local-6989586621679455952"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscriptionName:CreateEventSubscription' :: Text
+</span><a href="#local-6989586621679455962"><span class="hs-identifier hs-var hs-var">subscriptionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679455962"><span class="hs-identifier hs-var">subscriptionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679455961"><span class="annot"><span class="annottext">s :: CreateEventSubscription
+</span><a href="#local-6989586621679455961"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription%27"><span class="hs-identifier hs-type">CreateEventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679455960"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679455960"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateEventSubscription
+</span><a href="#local-6989586621679455961"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscriptionName:CreateEventSubscription' :: Text
 </span><a href="Network.AWS.DMS.CreateEventSubscription.html#%24sel%3AsubscriptionName%3ACreateEventSubscription%27"><span class="hs-identifier hs-var">subscriptionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679455951"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription"><span class="hs-identifier hs-type">CreateEventSubscription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679455960"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription"><span class="hs-identifier hs-type">CreateEventSubscription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-212"></span><span>
 </span><span id="line-213"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Amazon SNS topic created for event</span><span>
 </span><span id="line-214"></span><span class="hs-comment">-- notification. The ARN is created by Amazon SNS when you create a topic</span><span>
@@ -472,28 +472,28 @@ $sel:subscriptionName:CreateEventSubscription' :: CreateEventSubscription -&gt; 
 -&gt; (CreateEventSubscription -&gt; Text -&gt; CreateEventSubscription)
 -&gt; Lens CreateEventSubscription CreateEventSubscription Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription%27"><span class="hs-identifier hs-type">CreateEventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455950"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription%27"><span class="hs-identifier hs-type">CreateEventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455959"><span class="annot"><span class="annottext">Text
 snsTopicArn :: Text
 $sel:snsTopicArn:CreateEventSubscription' :: CreateEventSubscription -&gt; Text
-</span><a href="#local-6989586621679455950"><span class="hs-identifier hs-var hs-var">snsTopicArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679455950"><span class="hs-identifier hs-var">snsTopicArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679455949"><span class="annot"><span class="annottext">s :: CreateEventSubscription
-</span><a href="#local-6989586621679455949"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription%27"><span class="hs-identifier hs-type">CreateEventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679455948"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679455948"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateEventSubscription
-</span><a href="#local-6989586621679455949"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snsTopicArn:CreateEventSubscription' :: Text
+</span><a href="#local-6989586621679455959"><span class="hs-identifier hs-var hs-var">snsTopicArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679455959"><span class="hs-identifier hs-var">snsTopicArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679455958"><span class="annot"><span class="annottext">s :: CreateEventSubscription
+</span><a href="#local-6989586621679455958"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription%27"><span class="hs-identifier hs-type">CreateEventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679455957"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679455957"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateEventSubscription
+</span><a href="#local-6989586621679455958"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snsTopicArn:CreateEventSubscription' :: Text
 </span><a href="Network.AWS.DMS.CreateEventSubscription.html#%24sel%3AsnsTopicArn%3ACreateEventSubscription%27"><span class="hs-identifier hs-var">snsTopicArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679455948"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription"><span class="hs-identifier hs-type">CreateEventSubscription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679455957"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription"><span class="hs-identifier hs-type">CreateEventSubscription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-218"></span><span>
 </span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription"><span class="hs-identifier hs-type">CreateEventSubscription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-220"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-221"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription"><span class="hs-identifier hs-type">CreateEventSubscription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-222"></span><span>      </span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscriptionResponse"><span class="hs-identifier hs-type">CreateEventSubscriptionResponse</span></a></span><span>
-</span><span id="line-223"></span><span>  </span><span id="local-6989586621679455944"><span class="annot"><span class="annottext">request :: CreateEventSubscription -&gt; Request CreateEventSubscription
+</span><span id="line-223"></span><span>  </span><span id="local-6989586621679455953"><span class="annot"><span class="annottext">request :: CreateEventSubscription -&gt; Request CreateEventSubscription
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; CreateEventSubscription -&gt; Request CreateEventSubscription
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DMS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-224"></span><span>  </span><span id="local-6989586621679455940"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-224"></span><span>  </span><span id="local-6989586621679455949"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateEventSubscription
 -&gt; ClientResponse ClientBody
@@ -519,10 +519,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-226"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679455937"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679455937"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679455936"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679455936"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679455935"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679455935"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-226"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679455946"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679455946"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679455945"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679455945"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679455944"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679455944"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-227"></span><span>          </span><span class="annot"><span class="annottext">Maybe EventSubscription -&gt; Int -&gt; CreateEventSubscriptionResponse
 </span><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscriptionResponse%27"><span class="hs-identifier hs-var">CreateEventSubscriptionResponse'</span></a></span><span>
 </span><span id="line-228"></span><span>            </span><span class="annot"><span class="annottext">(Maybe EventSubscription -&gt; Int -&gt; CreateEventSubscriptionResponse)
@@ -530,7 +530,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CreateEventSubscriptionResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679455935"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe EventSubscription)
+</span><a href="#local-6989586621679455944"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe EventSubscription)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EventSubscription&quot;</span></span><span class="hs-special">)</span><span>
@@ -543,15 +543,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679455937"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679455946"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-230"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-231"></span><span>
-</span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679455927"><span id="local-6989586621679455929"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription"><span class="hs-identifier hs-type">CreateEventSubscription</span></a></span></span></span><span>
+</span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679455936"><span id="local-6989586621679455938"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription"><span class="hs-identifier hs-type">CreateEventSubscription</span></a></span></span></span><span>
 </span><span id="line-233"></span><span>
-</span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679455924"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription"><span class="hs-identifier hs-type">CreateEventSubscription</span></a></span></span><span>
+</span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679455933"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription"><span class="hs-identifier hs-type">CreateEventSubscription</span></a></span></span><span>
 </span><span id="line-235"></span><span>
 </span><span id="line-236"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription"><span class="hs-identifier hs-type">CreateEventSubscription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-237"></span><span>  </span><span id="local-6989586621679455920"><span class="annot"><span class="annottext">toHeaders :: CreateEventSubscription -&gt; ResponseHeaders
+</span><span id="line-237"></span><span>  </span><span id="local-6989586621679455929"><span class="annot"><span class="annottext">toHeaders :: CreateEventSubscription -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-238"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateEventSubscription -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -578,9 +578,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-248"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-249"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-250"></span><span>
-</span><span id="line-251"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679455910"><span id="local-6989586621679455912"><span id="local-6989586621679455914"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription"><span class="hs-identifier hs-type">CreateEventSubscription</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-252"></span><span>  </span><span id="local-6989586621679455908"><span class="annot"><span class="annottext">toJSON :: CreateEventSubscription -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription%27"><span class="hs-identifier hs-type">CreateEventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455900"><span id="local-6989586621679455901"><span id="local-6989586621679455902"><span id="local-6989586621679455903"><span id="local-6989586621679455904"><span id="local-6989586621679455905"><span id="local-6989586621679455906"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-251"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679455919"><span id="local-6989586621679455921"><span id="local-6989586621679455923"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription"><span class="hs-identifier hs-type">CreateEventSubscription</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-252"></span><span>  </span><span id="local-6989586621679455917"><span class="annot"><span class="annottext">toJSON :: CreateEventSubscription -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription%27"><span class="hs-identifier hs-type">CreateEventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455909"><span id="local-6989586621679455910"><span id="local-6989586621679455911"><span id="local-6989586621679455912"><span id="local-6989586621679455913"><span id="local-6989586621679455914"><span id="local-6989586621679455915"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [Text]
 Maybe [Tag]
 Maybe Text
@@ -599,7 +599,7 @@ $sel:sourceIds:CreateEventSubscription' :: CreateEventSubscription -&gt; Maybe [
 $sel:eventCategories:CreateEventSubscription' :: CreateEventSubscription -&gt; Maybe [Text]
 $sel:sourceType:CreateEventSubscription' :: CreateEventSubscription -&gt; Maybe Text
 $sel:enabled:CreateEventSubscription' :: CreateEventSubscription -&gt; Maybe Bool
-</span><a href="#local-6989586621679455900"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679455909"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-253"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-254"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -611,14 +611,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679455906"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679455915"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-256"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SourceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679455905"><span class="hs-identifier hs-var">sourceType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679455914"><span class="hs-identifier hs-var">sourceType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-257"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EventCategories&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -626,21 +626,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-258"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679455904"><span class="hs-identifier hs-var">eventCategories</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679455913"><span class="hs-identifier hs-var">eventCategories</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-259"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SourceIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679455903"><span class="hs-identifier hs-var">sourceIds</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679455912"><span class="hs-identifier hs-var">sourceIds</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-260"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679455902"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679455911"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-261"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -648,26 +648,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;SubscriptionName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679455901"><span class="hs-identifier hs-var">subscriptionName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679455910"><span class="hs-identifier hs-var">subscriptionName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-263"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SnsTopicArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679455900"><span class="hs-identifier hs-var">snsTopicArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679455909"><span class="hs-identifier hs-var">snsTopicArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-264"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-265"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-266"></span><span>
 </span><span id="line-267"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription"><span class="hs-identifier hs-type">CreateEventSubscription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-268"></span><span>  </span><span id="local-6989586621679455894"><span class="annot"><span class="annottext">toPath :: CreateEventSubscription -&gt; ByteString
+</span><span id="line-268"></span><span>  </span><span id="local-6989586621679455903"><span class="annot"><span class="annottext">toPath :: CreateEventSubscription -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateEventSubscription -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-269"></span><span>
 </span><span id="line-270"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscription"><span class="hs-identifier hs-type">CreateEventSubscription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-271"></span><span>  </span><span id="local-6989586621679455890"><span class="annot"><span class="annottext">toQuery :: CreateEventSubscription -&gt; QueryString
+</span><span id="line-271"></span><span>  </span><span id="local-6989586621679455899"><span class="annot"><span class="annottext">toQuery :: CreateEventSubscription -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateEventSubscription -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -677,7 +677,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-273"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-274"></span><span class="hs-comment">--</span><span>
 </span><span id="line-275"></span><span class="hs-comment">-- /See:/ 'newCreateEventSubscriptionResponse' smart constructor.</span><span>
-</span><span id="line-276"></span><span id="local-6989586621679455887"><span id="local-6989586621679455888"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateEventSubscriptionResponse"><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscriptionResponse"><span class="hs-identifier hs-var">CreateEventSubscriptionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateEventSubscriptionResponse%27"><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscriptionResponse%27"><span class="hs-identifier hs-var">CreateEventSubscriptionResponse'</span></a></span></span><span>
+</span><span id="line-276"></span><span id="local-6989586621679455896"><span id="local-6989586621679455897"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateEventSubscriptionResponse"><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscriptionResponse"><span class="hs-identifier hs-var">CreateEventSubscriptionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateEventSubscriptionResponse%27"><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscriptionResponse%27"><span class="hs-identifier hs-var">CreateEventSubscriptionResponse'</span></a></span></span><span>
 </span><span id="line-277"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The event subscription that was created.</span><span>
 </span><span id="line-278"></span><span>    </span><span id="%24sel%3AeventSubscription%3ACreateEventSubscriptionResponse%27"><span class="annot"><span class="annottext">CreateEventSubscriptionResponse -&gt; Maybe EventSubscription
 </span><a href="Network.AWS.DMS.CreateEventSubscription.html#%24sel%3AeventSubscription%3ACreateEventSubscriptionResponse%27"><span class="hs-identifier hs-var hs-var">eventSubscription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.EventSubscription.html#EventSubscription"><span class="hs-identifier hs-type">EventSubscription</span></a></span><span class="hs-special">,</span><span>
@@ -685,7 +685,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-280"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateEventSubscriptionResponse%27"><span class="annot"><span class="annottext">CreateEventSubscriptionResponse -&gt; Int
 </span><a href="Network.AWS.DMS.CreateEventSubscription.html#%24sel%3AhttpStatus%3ACreateEventSubscriptionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-281"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-282"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679455881"><span id="local-6989586621679455883"><span class="annot"><span class="annottext">CreateEventSubscriptionResponse
+</span><span id="line-282"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679455890"><span id="local-6989586621679455892"><span class="annot"><span class="annottext">CreateEventSubscriptionResponse
 -&gt; CreateEventSubscriptionResponse -&gt; Bool
 (CreateEventSubscriptionResponse
  -&gt; CreateEventSubscriptionResponse -&gt; Bool)
@@ -701,7 +701,7 @@ $c/= :: CreateEventSubscriptionResponse
 -&gt; CreateEventSubscriptionResponse -&gt; Bool
 $c== :: CreateEventSubscriptionResponse
 -&gt; CreateEventSubscriptionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679455873"><span id="local-6989586621679455875"><span id="local-6989586621679455877"><span id="local-6989586621679455879"><span class="annot"><span class="annottext">ReadPrec [CreateEventSubscriptionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679455882"><span id="local-6989586621679455884"><span id="local-6989586621679455886"><span id="local-6989586621679455888"><span class="annot"><span class="annottext">ReadPrec [CreateEventSubscriptionResponse]
 ReadPrec CreateEventSubscriptionResponse
 Int -&gt; ReadS CreateEventSubscriptionResponse
 ReadS [CreateEventSubscriptionResponse]
@@ -721,7 +721,7 @@ readList :: ReadS [CreateEventSubscriptionResponse]
 $creadList :: ReadS [CreateEventSubscriptionResponse]
 readsPrec :: Int -&gt; ReadS CreateEventSubscriptionResponse
 $creadsPrec :: Int -&gt; ReadS CreateEventSubscriptionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679455867"><span id="local-6989586621679455869"><span id="local-6989586621679455871"><span class="annot"><span class="annottext">Int -&gt; CreateEventSubscriptionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679455876"><span id="local-6989586621679455878"><span id="local-6989586621679455880"><span class="annot"><span class="annottext">Int -&gt; CreateEventSubscriptionResponse -&gt; ShowS
 [CreateEventSubscriptionResponse] -&gt; ShowS
 CreateEventSubscriptionResponse -&gt; String
 (Int -&gt; CreateEventSubscriptionResponse -&gt; ShowS)
@@ -775,8 +775,8 @@ CreateEventSubscriptionResponse
 </span><span id="line-297"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-298"></span><span>  </span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscriptionResponse"><span class="hs-identifier hs-type">CreateEventSubscriptionResponse</span></a></span><span>
 </span><span id="line-299"></span><span id="newCreateEventSubscriptionResponse"><span class="annot"><span class="annottext">newCreateEventSubscriptionResponse :: Int -&gt; CreateEventSubscriptionResponse
-</span><a href="Network.AWS.DMS.CreateEventSubscription.html#newCreateEventSubscriptionResponse"><span class="hs-identifier hs-var hs-var">newCreateEventSubscriptionResponse</span></a></span></span><span> </span><span id="local-6989586621679455864"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679455864"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DMS.CreateEventSubscription.html#newCreateEventSubscriptionResponse"><span class="hs-identifier hs-var hs-var">newCreateEventSubscriptionResponse</span></a></span></span><span> </span><span id="local-6989586621679455873"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679455873"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-300"></span><span>  </span><span class="annot"><span class="annottext">CreateEventSubscriptionResponse' :: Maybe EventSubscription -&gt; Int -&gt; CreateEventSubscriptionResponse
 </span><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscriptionResponse%27"><span class="hs-identifier hs-type">CreateEventSubscriptionResponse'</span></a></span><span>
 </span><span id="line-301"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:eventSubscription:CreateEventSubscriptionResponse' :: Maybe EventSubscription
@@ -786,7 +786,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-303"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateEventSubscriptionResponse' :: Int
 </span><a href="Network.AWS.DMS.CreateEventSubscription.html#%24sel%3AhttpStatus%3ACreateEventSubscriptionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679455864"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679455873"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-304"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-305"></span><span>
 </span><span id="line-306"></span><span class="hs-comment">-- | The event subscription that was created.</span><span>
@@ -803,16 +803,16 @@ forall a. Maybe a
      (Maybe EventSubscription)
      (Maybe EventSubscription)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscriptionResponse%27"><span class="hs-identifier hs-type">CreateEventSubscriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455863"><span class="annot"><span class="annottext">Maybe EventSubscription
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscriptionResponse%27"><span class="hs-identifier hs-type">CreateEventSubscriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455872"><span class="annot"><span class="annottext">Maybe EventSubscription
 eventSubscription :: Maybe EventSubscription
 $sel:eventSubscription:CreateEventSubscriptionResponse' :: CreateEventSubscriptionResponse -&gt; Maybe EventSubscription
-</span><a href="#local-6989586621679455863"><span class="hs-identifier hs-var hs-var">eventSubscription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EventSubscription
-</span><a href="#local-6989586621679455863"><span class="hs-identifier hs-var">eventSubscription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679455862"><span class="annot"><span class="annottext">s :: CreateEventSubscriptionResponse
-</span><a href="#local-6989586621679455862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscriptionResponse%27"><span class="hs-identifier hs-type">CreateEventSubscriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679455861"><span class="annot"><span class="annottext">Maybe EventSubscription
-</span><a href="#local-6989586621679455861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateEventSubscriptionResponse
-</span><a href="#local-6989586621679455862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventSubscription:CreateEventSubscriptionResponse' :: Maybe EventSubscription
+</span><a href="#local-6989586621679455872"><span class="hs-identifier hs-var hs-var">eventSubscription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EventSubscription
+</span><a href="#local-6989586621679455872"><span class="hs-identifier hs-var">eventSubscription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679455871"><span class="annot"><span class="annottext">s :: CreateEventSubscriptionResponse
+</span><a href="#local-6989586621679455871"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscriptionResponse%27"><span class="hs-identifier hs-type">CreateEventSubscriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679455870"><span class="annot"><span class="annottext">Maybe EventSubscription
+</span><a href="#local-6989586621679455870"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateEventSubscriptionResponse
+</span><a href="#local-6989586621679455871"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventSubscription:CreateEventSubscriptionResponse' :: Maybe EventSubscription
 </span><a href="Network.AWS.DMS.CreateEventSubscription.html#%24sel%3AeventSubscription%3ACreateEventSubscriptionResponse%27"><span class="hs-identifier hs-var">eventSubscription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventSubscription
-</span><a href="#local-6989586621679455861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscriptionResponse"><span class="hs-identifier hs-type">CreateEventSubscriptionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679455870"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscriptionResponse"><span class="hs-identifier hs-type">CreateEventSubscriptionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-309"></span><span>
 </span><span id="line-310"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-311"></span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#createEventSubscriptionResponse_httpStatus"><span class="hs-identifier hs-type">createEventSubscriptionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscriptionResponse"><span class="hs-identifier hs-type">CreateEventSubscriptionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -828,18 +828,18 @@ $sel:eventSubscription:CreateEventSubscriptionResponse' :: CreateEventSubscripti
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscriptionResponse%27"><span class="hs-identifier hs-type">CreateEventSubscriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455860"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscriptionResponse%27"><span class="hs-identifier hs-type">CreateEventSubscriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679455869"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateEventSubscriptionResponse' :: CreateEventSubscriptionResponse -&gt; Int
-</span><a href="#local-6989586621679455860"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679455860"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679455859"><span class="annot"><span class="annottext">s :: CreateEventSubscriptionResponse
-</span><a href="#local-6989586621679455859"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscriptionResponse%27"><span class="hs-identifier hs-type">CreateEventSubscriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679455858"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679455858"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateEventSubscriptionResponse
-</span><a href="#local-6989586621679455859"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateEventSubscriptionResponse' :: Int
+</span><a href="#local-6989586621679455869"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679455869"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679455868"><span class="annot"><span class="annottext">s :: CreateEventSubscriptionResponse
+</span><a href="#local-6989586621679455868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscriptionResponse%27"><span class="hs-identifier hs-type">CreateEventSubscriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679455867"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679455867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateEventSubscriptionResponse
+</span><a href="#local-6989586621679455868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateEventSubscriptionResponse' :: Int
 </span><a href="Network.AWS.DMS.CreateEventSubscription.html#%24sel%3AhttpStatus%3ACreateEventSubscriptionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679455858"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscriptionResponse"><span class="hs-identifier hs-type">CreateEventSubscriptionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679455867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscriptionResponse"><span class="hs-identifier hs-type">CreateEventSubscriptionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-313"></span><span>
 </span><span id="line-314"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-315"></span><span>  </span><span id="local-6989586621679455856"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-315"></span><span>  </span><span id="local-6989586621679455865"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-316"></span><span>    </span><span class="annot"><a href="Network.AWS.DMS.CreateEventSubscription.html#CreateEventSubscriptionResponse"><span class="hs-identifier hs-type">CreateEventSubscriptionResponse</span></a></span></span><span>
 </span><span id="line-317"></span></pre></body></html>

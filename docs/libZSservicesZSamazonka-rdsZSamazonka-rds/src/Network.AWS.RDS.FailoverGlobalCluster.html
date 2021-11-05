@@ -66,7 +66,7 @@
 </span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | /See:/ 'newFailoverGlobalCluster' smart constructor.</span><span>
-</span><span id="line-69"></span><span id="local-6989586621679785227"><span id="local-6989586621679785228"></span></span><span class="hs-keyword">data</span><span> </span><span id="FailoverGlobalCluster"><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster"><span class="hs-identifier hs-var">FailoverGlobalCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FailoverGlobalCluster%27"><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster%27"><span class="hs-identifier hs-var">FailoverGlobalCluster'</span></a></span></span><span>
+</span><span id="line-69"></span><span id="local-6989586621679785236"><span id="local-6989586621679785237"></span></span><span class="hs-keyword">data</span><span> </span><span id="FailoverGlobalCluster"><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster"><span class="hs-identifier hs-var">FailoverGlobalCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FailoverGlobalCluster%27"><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster%27"><span class="hs-identifier hs-var">FailoverGlobalCluster'</span></a></span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Identifier of the Aurora global database (GlobalCluster) that should be</span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-comment">-- failed over. The identifier is the unique key assigned by the user when</span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-comment">-- the Aurora global database was created. In other words, it\'s the name</span><span>
@@ -85,7 +85,7 @@
 </span><span id="line-84"></span><span>    </span><span id="%24sel%3AtargetDbClusterIdentifier%3AFailoverGlobalCluster%27"><span class="annot"><span class="annottext">FailoverGlobalCluster -&gt; Text
 </span><a href="Network.AWS.RDS.FailoverGlobalCluster.html#%24sel%3AtargetDbClusterIdentifier%3AFailoverGlobalCluster%27"><span class="hs-identifier hs-var hs-var">targetDbClusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-85"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-86"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679785220"><span id="local-6989586621679785222"><span class="annot"><span class="annottext">FailoverGlobalCluster -&gt; FailoverGlobalCluster -&gt; Bool
+</span><span id="line-86"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679785229"><span id="local-6989586621679785231"><span class="annot"><span class="annottext">FailoverGlobalCluster -&gt; FailoverGlobalCluster -&gt; Bool
 (FailoverGlobalCluster -&gt; FailoverGlobalCluster -&gt; Bool)
 -&gt; (FailoverGlobalCluster -&gt; FailoverGlobalCluster -&gt; Bool)
 -&gt; Eq FailoverGlobalCluster
@@ -94,7 +94,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: FailoverGlobalCluster -&gt; FailoverGlobalCluster -&gt; Bool
 == :: FailoverGlobalCluster -&gt; FailoverGlobalCluster -&gt; Bool
 $c== :: FailoverGlobalCluster -&gt; FailoverGlobalCluster -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679785211"><span id="local-6989586621679785213"><span id="local-6989586621679785215"><span id="local-6989586621679785217"><span class="annot"><span class="annottext">ReadPrec [FailoverGlobalCluster]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679785220"><span id="local-6989586621679785222"><span id="local-6989586621679785224"><span id="local-6989586621679785226"><span class="annot"><span class="annottext">ReadPrec [FailoverGlobalCluster]
 ReadPrec FailoverGlobalCluster
 Int -&gt; ReadS FailoverGlobalCluster
 ReadS [FailoverGlobalCluster]
@@ -114,7 +114,7 @@ readList :: ReadS [FailoverGlobalCluster]
 $creadList :: ReadS [FailoverGlobalCluster]
 readsPrec :: Int -&gt; ReadS FailoverGlobalCluster
 $creadsPrec :: Int -&gt; ReadS FailoverGlobalCluster
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679785204"><span id="local-6989586621679785206"><span id="local-6989586621679785208"><span class="annot"><span class="annottext">Int -&gt; FailoverGlobalCluster -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679785213"><span id="local-6989586621679785215"><span id="local-6989586621679785217"><span class="annot"><span class="annottext">Int -&gt; FailoverGlobalCluster -&gt; ShowS
 [FailoverGlobalCluster] -&gt; ShowS
 FailoverGlobalCluster -&gt; String
 (Int -&gt; FailoverGlobalCluster -&gt; ShowS)
@@ -170,20 +170,20 @@ $cfrom :: forall x. FailoverGlobalCluster -&gt; Rep FailoverGlobalCluster x
 </span><span id="line-115"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster"><span class="hs-identifier hs-type">FailoverGlobalCluster</span></a></span><span>
 </span><span id="line-116"></span><span id="newFailoverGlobalCluster"><span class="annot"><span class="annottext">newFailoverGlobalCluster :: Text -&gt; Text -&gt; FailoverGlobalCluster
 </span><a href="Network.AWS.RDS.FailoverGlobalCluster.html#newFailoverGlobalCluster"><span class="hs-identifier hs-var hs-var">newFailoverGlobalCluster</span></a></span></span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679785199"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679785199"><span class="hs-identifier hs-var">pGlobalClusterIdentifier_</span></a></span></span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679785198"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679785198"><span class="hs-identifier hs-var">pTargetDbClusterIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679785208"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679785208"><span class="hs-identifier hs-var">pGlobalClusterIdentifier_</span></a></span></span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679785207"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679785207"><span class="hs-identifier hs-var">pTargetDbClusterIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">FailoverGlobalCluster' :: Text -&gt; Text -&gt; FailoverGlobalCluster
 </span><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster%27"><span class="hs-identifier hs-type">FailoverGlobalCluster'</span></a></span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:globalClusterIdentifier:FailoverGlobalCluster' :: Text
 </span><a href="Network.AWS.RDS.FailoverGlobalCluster.html#%24sel%3AglobalClusterIdentifier%3AFailoverGlobalCluster%27"><span class="hs-identifier hs-var">globalClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679785199"><span class="hs-identifier hs-var">pGlobalClusterIdentifier_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679785208"><span class="hs-identifier hs-var">pGlobalClusterIdentifier_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">$sel:targetDbClusterIdentifier:FailoverGlobalCluster' :: Text
 </span><a href="Network.AWS.RDS.FailoverGlobalCluster.html#%24sel%3AtargetDbClusterIdentifier%3AFailoverGlobalCluster%27"><span class="hs-identifier hs-var">targetDbClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679785198"><span class="hs-identifier hs-var">pTargetDbClusterIdentifier_</span></a></span><span>
+</span><a href="#local-6989586621679785207"><span class="hs-identifier hs-var">pTargetDbClusterIdentifier_</span></a></span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | Identifier of the Aurora global database (GlobalCluster) that should be</span><span>
@@ -202,16 +202,16 @@ $cfrom :: forall x. FailoverGlobalCluster -&gt; Rep FailoverGlobalCluster x
 -&gt; (FailoverGlobalCluster -&gt; Text -&gt; FailoverGlobalCluster)
 -&gt; Lens FailoverGlobalCluster FailoverGlobalCluster Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster%27"><span class="hs-identifier hs-type">FailoverGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679785195"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster%27"><span class="hs-identifier hs-type">FailoverGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679785204"><span class="annot"><span class="annottext">Text
 globalClusterIdentifier :: Text
 $sel:globalClusterIdentifier:FailoverGlobalCluster' :: FailoverGlobalCluster -&gt; Text
-</span><a href="#local-6989586621679785195"><span class="hs-identifier hs-var hs-var">globalClusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679785195"><span class="hs-identifier hs-var">globalClusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679785194"><span class="annot"><span class="annottext">s :: FailoverGlobalCluster
-</span><a href="#local-6989586621679785194"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster%27"><span class="hs-identifier hs-type">FailoverGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679785193"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679785193"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailoverGlobalCluster
-</span><a href="#local-6989586621679785194"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalClusterIdentifier:FailoverGlobalCluster' :: Text
+</span><a href="#local-6989586621679785204"><span class="hs-identifier hs-var hs-var">globalClusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679785204"><span class="hs-identifier hs-var">globalClusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679785203"><span class="annot"><span class="annottext">s :: FailoverGlobalCluster
+</span><a href="#local-6989586621679785203"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster%27"><span class="hs-identifier hs-type">FailoverGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679785202"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679785202"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailoverGlobalCluster
+</span><a href="#local-6989586621679785203"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalClusterIdentifier:FailoverGlobalCluster' :: Text
 </span><a href="Network.AWS.RDS.FailoverGlobalCluster.html#%24sel%3AglobalClusterIdentifier%3AFailoverGlobalCluster%27"><span class="hs-identifier hs-var">globalClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679785193"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster"><span class="hs-identifier hs-type">FailoverGlobalCluster</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679785202"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster"><span class="hs-identifier hs-type">FailoverGlobalCluster</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | Identifier of the secondary Aurora DB cluster that you want to promote</span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- to primary for the Aurora global database (GlobalCluster.) Use the</span><span>
@@ -224,27 +224,27 @@ $sel:globalClusterIdentifier:FailoverGlobalCluster' :: FailoverGlobalCluster -&g
 -&gt; (FailoverGlobalCluster -&gt; Text -&gt; FailoverGlobalCluster)
 -&gt; Lens FailoverGlobalCluster FailoverGlobalCluster Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster%27"><span class="hs-identifier hs-type">FailoverGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679785192"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster%27"><span class="hs-identifier hs-type">FailoverGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679785201"><span class="annot"><span class="annottext">Text
 targetDbClusterIdentifier :: Text
 $sel:targetDbClusterIdentifier:FailoverGlobalCluster' :: FailoverGlobalCluster -&gt; Text
-</span><a href="#local-6989586621679785192"><span class="hs-identifier hs-var hs-var">targetDbClusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679785192"><span class="hs-identifier hs-var">targetDbClusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679785191"><span class="annot"><span class="annottext">s :: FailoverGlobalCluster
-</span><a href="#local-6989586621679785191"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster%27"><span class="hs-identifier hs-type">FailoverGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679785190"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679785190"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailoverGlobalCluster
-</span><a href="#local-6989586621679785191"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetDbClusterIdentifier:FailoverGlobalCluster' :: Text
+</span><a href="#local-6989586621679785201"><span class="hs-identifier hs-var hs-var">targetDbClusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679785201"><span class="hs-identifier hs-var">targetDbClusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679785200"><span class="annot"><span class="annottext">s :: FailoverGlobalCluster
+</span><a href="#local-6989586621679785200"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster%27"><span class="hs-identifier hs-type">FailoverGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679785199"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679785199"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailoverGlobalCluster
+</span><a href="#local-6989586621679785200"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetDbClusterIdentifier:FailoverGlobalCluster' :: Text
 </span><a href="Network.AWS.RDS.FailoverGlobalCluster.html#%24sel%3AtargetDbClusterIdentifier%3AFailoverGlobalCluster%27"><span class="hs-identifier hs-var">targetDbClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679785190"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster"><span class="hs-identifier hs-type">FailoverGlobalCluster</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679785199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster"><span class="hs-identifier hs-type">FailoverGlobalCluster</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster"><span class="hs-identifier hs-type">FailoverGlobalCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-147"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster"><span class="hs-identifier hs-type">FailoverGlobalCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>      </span><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalClusterResponse"><span class="hs-identifier hs-type">FailoverGlobalClusterResponse</span></a></span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679785186"><span class="annot"><span class="annottext">request :: FailoverGlobalCluster -&gt; Request FailoverGlobalCluster
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679785195"><span class="annot"><span class="annottext">request :: FailoverGlobalCluster -&gt; Request FailoverGlobalCluster
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; FailoverGlobalCluster -&gt; Request FailoverGlobalCluster
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679785182"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679785191"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy FailoverGlobalCluster
 -&gt; ClientResponse ClientBody
@@ -275,10 +275,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FailoverGlobalClusterResult&quot;</span></span><span>
-</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679785179"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679785179"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679785178"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679785178"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679785177"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679785177"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679785188"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679785188"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679785187"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679785187"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679785186"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679785186"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-154"></span><span>          </span><span class="annot"><span class="annottext">Maybe GlobalCluster -&gt; Int -&gt; FailoverGlobalClusterResponse
 </span><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalClusterResponse%27"><span class="hs-identifier hs-var">FailoverGlobalClusterResponse'</span></a></span><span>
 </span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">(Maybe GlobalCluster -&gt; Int -&gt; FailoverGlobalClusterResponse)
@@ -286,7 +286,7 @@ Text
 -&gt; Either String (Int -&gt; FailoverGlobalClusterResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679785177"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe GlobalCluster)
+</span><a href="#local-6989586621679785186"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe GlobalCluster)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GlobalCluster&quot;</span></span><span class="hs-special">)</span><span>
@@ -298,15 +298,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679785179"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679785188"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679785169"><span id="local-6989586621679785171"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster"><span class="hs-identifier hs-type">FailoverGlobalCluster</span></a></span></span></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679785178"><span id="local-6989586621679785180"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster"><span class="hs-identifier hs-type">FailoverGlobalCluster</span></a></span></span></span><span>
 </span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679785166"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster"><span class="hs-identifier hs-type">FailoverGlobalCluster</span></a></span></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679785175"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster"><span class="hs-identifier hs-type">FailoverGlobalCluster</span></a></span></span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster"><span class="hs-identifier hs-type">FailoverGlobalCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621679785162"><span class="annot"><span class="annottext">toHeaders :: FailoverGlobalCluster -&gt; ResponseHeaders
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679785171"><span class="annot"><span class="annottext">toHeaders :: FailoverGlobalCluster -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; FailoverGlobalCluster -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -314,20 +314,20 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster"><span class="hs-identifier hs-type">FailoverGlobalCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679785157"><span class="annot"><span class="annottext">toPath :: FailoverGlobalCluster -&gt; ByteString
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679785166"><span class="annot"><span class="annottext">toPath :: FailoverGlobalCluster -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; FailoverGlobalCluster -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster"><span class="hs-identifier hs-type">FailoverGlobalCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679785153"><span class="annot"><span class="annottext">toQuery :: FailoverGlobalCluster -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster%27"><span class="hs-identifier hs-type">FailoverGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679785150"><span id="local-6989586621679785151"><span class="annot"><span class="annottext">Text
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679785162"><span class="annot"><span class="annottext">toQuery :: FailoverGlobalCluster -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalCluster%27"><span class="hs-identifier hs-type">FailoverGlobalCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679785159"><span id="local-6989586621679785160"><span class="annot"><span class="annottext">Text
 targetDbClusterIdentifier :: Text
 globalClusterIdentifier :: Text
 $sel:targetDbClusterIdentifier:FailoverGlobalCluster' :: FailoverGlobalCluster -&gt; Text
 $sel:globalClusterIdentifier:FailoverGlobalCluster' :: FailoverGlobalCluster -&gt; Text
-</span><a href="#local-6989586621679785150"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679785159"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-171"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -348,24 +348,24 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-177"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679785151"><span class="hs-identifier hs-var">globalClusterIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679785160"><span class="hs-identifier hs-var">globalClusterIdentifier</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;TargetDbClusterIdentifier&quot;</span></span><span>
 </span><span id="line-179"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679785150"><span class="hs-identifier hs-var">targetDbClusterIdentifier</span></a></span><span>
+</span><a href="#local-6989586621679785159"><span class="hs-identifier hs-var">targetDbClusterIdentifier</span></a></span><span>
 </span><span id="line-180"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- | /See:/ 'newFailoverGlobalClusterResponse' smart constructor.</span><span>
-</span><span id="line-183"></span><span id="local-6989586621679785147"><span id="local-6989586621679785148"></span></span><span class="hs-keyword">data</span><span> </span><span id="FailoverGlobalClusterResponse"><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalClusterResponse"><span class="hs-identifier hs-var">FailoverGlobalClusterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FailoverGlobalClusterResponse%27"><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalClusterResponse%27"><span class="hs-identifier hs-var">FailoverGlobalClusterResponse'</span></a></span></span><span>
+</span><span id="line-183"></span><span id="local-6989586621679785156"><span id="local-6989586621679785157"></span></span><span class="hs-keyword">data</span><span> </span><span id="FailoverGlobalClusterResponse"><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalClusterResponse"><span class="hs-identifier hs-var">FailoverGlobalClusterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FailoverGlobalClusterResponse%27"><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalClusterResponse%27"><span class="hs-identifier hs-var">FailoverGlobalClusterResponse'</span></a></span></span><span>
 </span><span id="line-184"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AglobalCluster%3AFailoverGlobalClusterResponse%27"><span class="annot"><span class="annottext">FailoverGlobalClusterResponse -&gt; Maybe GlobalCluster
 </span><a href="Network.AWS.RDS.FailoverGlobalCluster.html#%24sel%3AglobalCluster%3AFailoverGlobalClusterResponse%27"><span class="hs-identifier hs-var hs-var">globalCluster</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.GlobalCluster.html#GlobalCluster"><span class="hs-identifier hs-type">GlobalCluster</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-185"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-186"></span><span>    </span><span id="%24sel%3AhttpStatus%3AFailoverGlobalClusterResponse%27"><span class="annot"><span class="annottext">FailoverGlobalClusterResponse -&gt; Int
 </span><a href="Network.AWS.RDS.FailoverGlobalCluster.html#%24sel%3AhttpStatus%3AFailoverGlobalClusterResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-187"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-188"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679785141"><span id="local-6989586621679785143"><span class="annot"><span class="annottext">FailoverGlobalClusterResponse
+</span><span id="line-188"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679785150"><span id="local-6989586621679785152"><span class="annot"><span class="annottext">FailoverGlobalClusterResponse
 -&gt; FailoverGlobalClusterResponse -&gt; Bool
 (FailoverGlobalClusterResponse
  -&gt; FailoverGlobalClusterResponse -&gt; Bool)
@@ -381,7 +381,7 @@ $c/= :: FailoverGlobalClusterResponse
 -&gt; FailoverGlobalClusterResponse -&gt; Bool
 $c== :: FailoverGlobalClusterResponse
 -&gt; FailoverGlobalClusterResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679785133"><span id="local-6989586621679785135"><span id="local-6989586621679785137"><span id="local-6989586621679785139"><span class="annot"><span class="annottext">ReadPrec [FailoverGlobalClusterResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679785142"><span id="local-6989586621679785144"><span id="local-6989586621679785146"><span id="local-6989586621679785148"><span class="annot"><span class="annottext">ReadPrec [FailoverGlobalClusterResponse]
 ReadPrec FailoverGlobalClusterResponse
 Int -&gt; ReadS FailoverGlobalClusterResponse
 ReadS [FailoverGlobalClusterResponse]
@@ -401,7 +401,7 @@ readList :: ReadS [FailoverGlobalClusterResponse]
 $creadList :: ReadS [FailoverGlobalClusterResponse]
 readsPrec :: Int -&gt; ReadS FailoverGlobalClusterResponse
 $creadsPrec :: Int -&gt; ReadS FailoverGlobalClusterResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679785127"><span id="local-6989586621679785129"><span id="local-6989586621679785131"><span class="annot"><span class="annottext">Int -&gt; FailoverGlobalClusterResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679785136"><span id="local-6989586621679785138"><span id="local-6989586621679785140"><span class="annot"><span class="annottext">Int -&gt; FailoverGlobalClusterResponse -&gt; ShowS
 [FailoverGlobalClusterResponse] -&gt; ShowS
 FailoverGlobalClusterResponse -&gt; String
 (Int -&gt; FailoverGlobalClusterResponse -&gt; ShowS)
@@ -455,8 +455,8 @@ FailoverGlobalClusterResponse
 </span><span id="line-203"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-204"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalClusterResponse"><span class="hs-identifier hs-type">FailoverGlobalClusterResponse</span></a></span><span>
 </span><span id="line-205"></span><span id="newFailoverGlobalClusterResponse"><span class="annot"><span class="annottext">newFailoverGlobalClusterResponse :: Int -&gt; FailoverGlobalClusterResponse
-</span><a href="Network.AWS.RDS.FailoverGlobalCluster.html#newFailoverGlobalClusterResponse"><span class="hs-identifier hs-var hs-var">newFailoverGlobalClusterResponse</span></a></span></span><span> </span><span id="local-6989586621679785124"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679785124"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.RDS.FailoverGlobalCluster.html#newFailoverGlobalClusterResponse"><span class="hs-identifier hs-var hs-var">newFailoverGlobalClusterResponse</span></a></span></span><span> </span><span id="local-6989586621679785133"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679785133"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-206"></span><span>  </span><span class="annot"><span class="annottext">FailoverGlobalClusterResponse' :: Maybe GlobalCluster -&gt; Int -&gt; FailoverGlobalClusterResponse
 </span><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalClusterResponse%27"><span class="hs-identifier hs-type">FailoverGlobalClusterResponse'</span></a></span><span>
 </span><span id="line-207"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:globalCluster:FailoverGlobalClusterResponse' :: Maybe GlobalCluster
@@ -466,7 +466,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:FailoverGlobalClusterResponse' :: Int
 </span><a href="Network.AWS.RDS.FailoverGlobalCluster.html#%24sel%3AhttpStatus%3AFailoverGlobalClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679785124"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679785133"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-210"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-211"></span><span>
 </span><span id="line-212"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -482,16 +482,16 @@ forall a. Maybe a
      (Maybe GlobalCluster)
      (Maybe GlobalCluster)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalClusterResponse%27"><span class="hs-identifier hs-type">FailoverGlobalClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679785123"><span class="annot"><span class="annottext">Maybe GlobalCluster
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalClusterResponse%27"><span class="hs-identifier hs-type">FailoverGlobalClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679785132"><span class="annot"><span class="annottext">Maybe GlobalCluster
 globalCluster :: Maybe GlobalCluster
 $sel:globalCluster:FailoverGlobalClusterResponse' :: FailoverGlobalClusterResponse -&gt; Maybe GlobalCluster
-</span><a href="#local-6989586621679785123"><span class="hs-identifier hs-var hs-var">globalCluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GlobalCluster
-</span><a href="#local-6989586621679785123"><span class="hs-identifier hs-var">globalCluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679785122"><span class="annot"><span class="annottext">s :: FailoverGlobalClusterResponse
-</span><a href="#local-6989586621679785122"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalClusterResponse%27"><span class="hs-identifier hs-type">FailoverGlobalClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679785121"><span class="annot"><span class="annottext">Maybe GlobalCluster
-</span><a href="#local-6989586621679785121"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailoverGlobalClusterResponse
-</span><a href="#local-6989586621679785122"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalCluster:FailoverGlobalClusterResponse' :: Maybe GlobalCluster
+</span><a href="#local-6989586621679785132"><span class="hs-identifier hs-var hs-var">globalCluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GlobalCluster
+</span><a href="#local-6989586621679785132"><span class="hs-identifier hs-var">globalCluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679785131"><span class="annot"><span class="annottext">s :: FailoverGlobalClusterResponse
+</span><a href="#local-6989586621679785131"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalClusterResponse%27"><span class="hs-identifier hs-type">FailoverGlobalClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679785130"><span class="annot"><span class="annottext">Maybe GlobalCluster
+</span><a href="#local-6989586621679785130"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailoverGlobalClusterResponse
+</span><a href="#local-6989586621679785131"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalCluster:FailoverGlobalClusterResponse' :: Maybe GlobalCluster
 </span><a href="Network.AWS.RDS.FailoverGlobalCluster.html#%24sel%3AglobalCluster%3AFailoverGlobalClusterResponse%27"><span class="hs-identifier hs-var">globalCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GlobalCluster
-</span><a href="#local-6989586621679785121"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalClusterResponse"><span class="hs-identifier hs-type">FailoverGlobalClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679785130"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalClusterResponse"><span class="hs-identifier hs-type">FailoverGlobalClusterResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-215"></span><span>
 </span><span id="line-216"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-217"></span><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#failoverGlobalClusterResponse_httpStatus"><span class="hs-identifier hs-type">failoverGlobalClusterResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalClusterResponse"><span class="hs-identifier hs-type">FailoverGlobalClusterResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -503,16 +503,16 @@ $sel:globalCluster:FailoverGlobalClusterResponse' :: FailoverGlobalClusterRespon
 -&gt; Lens
      FailoverGlobalClusterResponse FailoverGlobalClusterResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalClusterResponse%27"><span class="hs-identifier hs-type">FailoverGlobalClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679785120"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalClusterResponse%27"><span class="hs-identifier hs-type">FailoverGlobalClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679785129"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:FailoverGlobalClusterResponse' :: FailoverGlobalClusterResponse -&gt; Int
-</span><a href="#local-6989586621679785120"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679785120"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679785119"><span class="annot"><span class="annottext">s :: FailoverGlobalClusterResponse
-</span><a href="#local-6989586621679785119"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalClusterResponse%27"><span class="hs-identifier hs-type">FailoverGlobalClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679785118"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679785118"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailoverGlobalClusterResponse
-</span><a href="#local-6989586621679785119"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:FailoverGlobalClusterResponse' :: Int
+</span><a href="#local-6989586621679785129"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679785129"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679785128"><span class="annot"><span class="annottext">s :: FailoverGlobalClusterResponse
+</span><a href="#local-6989586621679785128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalClusterResponse%27"><span class="hs-identifier hs-type">FailoverGlobalClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679785127"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679785127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailoverGlobalClusterResponse
+</span><a href="#local-6989586621679785128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:FailoverGlobalClusterResponse' :: Int
 </span><a href="Network.AWS.RDS.FailoverGlobalCluster.html#%24sel%3AhttpStatus%3AFailoverGlobalClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679785118"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalClusterResponse"><span class="hs-identifier hs-type">FailoverGlobalClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679785127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalClusterResponse"><span class="hs-identifier hs-type">FailoverGlobalClusterResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-219"></span><span>
-</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679785116"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalClusterResponse"><span class="hs-identifier hs-type">FailoverGlobalClusterResponse</span></a></span></span><span>
+</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679785125"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.FailoverGlobalCluster.html#FailoverGlobalClusterResponse"><span class="hs-identifier hs-type">FailoverGlobalClusterResponse</span></a></span></span><span>
 </span><span id="line-221"></span></pre></body></html>

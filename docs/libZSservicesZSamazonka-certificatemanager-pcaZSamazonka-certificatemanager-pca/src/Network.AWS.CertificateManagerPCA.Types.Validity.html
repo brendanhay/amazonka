@@ -39,7 +39,7 @@
 </span><span id="line-39"></span><span class="hs-comment">-- time for the validity period.</span><span>
 </span><span id="line-40"></span><span class="hs-comment">--</span><span>
 </span><span id="line-41"></span><span class="hs-comment">-- /See:/ 'newValidity' smart constructor.</span><span>
-</span><span id="line-42"></span><span id="local-6989586621679213149"><span id="local-6989586621679213150"></span></span><span class="hs-keyword">data</span><span> </span><span id="Validity"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Validity.html#Validity"><span class="hs-identifier hs-var">Validity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Validity%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Validity.html#Validity%27"><span class="hs-identifier hs-var">Validity'</span></a></span></span><span>
+</span><span id="line-42"></span><span id="local-6989586621679213158"><span id="local-6989586621679213159"></span></span><span class="hs-keyword">data</span><span> </span><span id="Validity"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Validity.html#Validity"><span class="hs-identifier hs-var">Validity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Validity%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Validity.html#Validity%27"><span class="hs-identifier hs-var">Validity'</span></a></span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A long integer interpreted according to the value of @Type@, below.</span><span>
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3Avalue%3AValidity%27"><span class="annot"><span class="annottext">Validity -&gt; Natural
 </span><a href="Network.AWS.CertificateManagerPCA.Types.Validity.html#%24sel%3Avalue%3AValidity%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
@@ -81,7 +81,7 @@
 </span><span id="line-80"></span><span>    </span><span id="%24sel%3Atype%27%3AValidity%27"><span class="annot"><span class="annottext">Validity -&gt; ValidityPeriodType
 </span><a href="Network.AWS.CertificateManagerPCA.Types.Validity.html#%24sel%3Atype%27%3AValidity%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ValidityPeriodType.html#ValidityPeriodType"><span class="hs-identifier hs-type">ValidityPeriodType</span></a></span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679213142"><span id="local-6989586621679213144"><span class="annot"><span class="annottext">Validity -&gt; Validity -&gt; Bool
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679213151"><span id="local-6989586621679213153"><span class="annot"><span class="annottext">Validity -&gt; Validity -&gt; Bool
 (Validity -&gt; Validity -&gt; Bool)
 -&gt; (Validity -&gt; Validity -&gt; Bool) -&gt; Eq Validity
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -89,7 +89,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Validity -&gt; Validity -&gt; Bool
 == :: Validity -&gt; Validity -&gt; Bool
 $c== :: Validity -&gt; Validity -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679213133"><span id="local-6989586621679213135"><span id="local-6989586621679213137"><span id="local-6989586621679213139"><span class="annot"><span class="annottext">ReadPrec [Validity]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679213142"><span id="local-6989586621679213144"><span id="local-6989586621679213146"><span id="local-6989586621679213148"><span class="annot"><span class="annottext">ReadPrec [Validity]
 ReadPrec Validity
 Int -&gt; ReadS Validity
 ReadS [Validity]
@@ -109,7 +109,7 @@ readList :: ReadS [Validity]
 $creadList :: ReadS [Validity]
 readsPrec :: Int -&gt; ReadS Validity
 $creadsPrec :: Int -&gt; ReadS Validity
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679213126"><span id="local-6989586621679213128"><span id="local-6989586621679213130"><span class="annot"><span class="annottext">Int -&gt; Validity -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679213135"><span id="local-6989586621679213137"><span id="local-6989586621679213139"><span class="annot"><span class="annottext">Int -&gt; Validity -&gt; ShowS
 [Validity] -&gt; ShowS
 Validity -&gt; String
 (Int -&gt; Validity -&gt; ShowS)
@@ -184,15 +184,15 @@ $cfrom :: forall x. Validity -&gt; Rep Validity x
 </span><span id="line-133"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ValidityPeriodType.html#ValidityPeriodType"><span class="hs-identifier hs-type">ValidityPeriodType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-134"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Validity.html#Validity"><span class="hs-identifier hs-type">Validity</span></a></span><span>
 </span><span id="line-135"></span><span id="newValidity"><span class="annot"><span class="annottext">newValidity :: Natural -&gt; ValidityPeriodType -&gt; Validity
-</span><a href="Network.AWS.CertificateManagerPCA.Types.Validity.html#newValidity"><span class="hs-identifier hs-var hs-var">newValidity</span></a></span></span><span> </span><span id="local-6989586621679213120"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679213120"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span id="local-6989586621679213119"><span class="annot"><span class="annottext">ValidityPeriodType
-</span><a href="#local-6989586621679213119"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CertificateManagerPCA.Types.Validity.html#newValidity"><span class="hs-identifier hs-var hs-var">newValidity</span></a></span></span><span> </span><span id="local-6989586621679213129"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679213129"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span id="local-6989586621679213128"><span class="annot"><span class="annottext">ValidityPeriodType
+</span><a href="#local-6989586621679213128"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>  </span><span class="annot"><span class="annottext">Validity' :: Natural -&gt; ValidityPeriodType -&gt; Validity
 </span><a href="Network.AWS.CertificateManagerPCA.Types.Validity.html#Validity%27"><span class="hs-identifier hs-type">Validity'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Validity' :: Natural
 </span><a href="Network.AWS.CertificateManagerPCA.Types.Validity.html#%24sel%3Avalue%3AValidity%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679213120"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:type':Validity' :: ValidityPeriodType
+</span><a href="#local-6989586621679213129"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:type':Validity' :: ValidityPeriodType
 </span><a href="Network.AWS.CertificateManagerPCA.Types.Validity.html#%24sel%3Atype%27%3AValidity%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ValidityPeriodType
-</span><a href="#local-6989586621679213119"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679213128"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | A long integer interpreted according to the value of @Type@, below.</span><span>
 </span><span id="line-139"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Validity.html#validity_value"><span class="hs-identifier hs-type">validity_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Validity.html#Validity"><span class="hs-identifier hs-type">Validity</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
@@ -201,16 +201,16 @@ $cfrom :: forall x. Validity -&gt; Rep Validity x
 -&gt; (Validity -&gt; Natural -&gt; Validity)
 -&gt; Lens Validity Validity Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Validity.html#Validity%27"><span class="hs-identifier hs-type">Validity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213115"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Validity.html#Validity%27"><span class="hs-identifier hs-type">Validity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213124"><span class="annot"><span class="annottext">Natural
 value :: Natural
 $sel:value:Validity' :: Validity -&gt; Natural
-</span><a href="#local-6989586621679213115"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679213115"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213114"><span class="annot"><span class="annottext">s :: Validity
-</span><a href="#local-6989586621679213114"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Validity.html#Validity%27"><span class="hs-identifier hs-type">Validity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213113"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679213113"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Validity
-</span><a href="#local-6989586621679213114"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Validity' :: Natural
+</span><a href="#local-6989586621679213124"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679213124"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213123"><span class="annot"><span class="annottext">s :: Validity
+</span><a href="#local-6989586621679213123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Validity.html#Validity%27"><span class="hs-identifier hs-type">Validity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213122"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679213122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Validity
+</span><a href="#local-6989586621679213123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Validity' :: Natural
 </span><a href="Network.AWS.CertificateManagerPCA.Types.Validity.html#%24sel%3Avalue%3AValidity%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679213113"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Validity.html#Validity"><span class="hs-identifier hs-type">Validity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679213122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Validity.html#Validity"><span class="hs-identifier hs-type">Validity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | Determines how /ACM Private CA/ interprets the @Value@ parameter, an</span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- integer. Supported validity types include those listed below. Type</span><span>
@@ -254,30 +254,30 @@ $sel:value:Validity' :: Validity -&gt; Natural
 -&gt; (Validity -&gt; ValidityPeriodType -&gt; Validity)
 -&gt; Lens Validity Validity ValidityPeriodType ValidityPeriodType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Validity.html#Validity%27"><span class="hs-identifier hs-type">Validity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213111"><span class="annot"><span class="annottext">ValidityPeriodType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Validity.html#Validity%27"><span class="hs-identifier hs-type">Validity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213120"><span class="annot"><span class="annottext">ValidityPeriodType
 type' :: ValidityPeriodType
 $sel:type':Validity' :: Validity -&gt; ValidityPeriodType
-</span><a href="#local-6989586621679213111"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ValidityPeriodType
-</span><a href="#local-6989586621679213111"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213110"><span class="annot"><span class="annottext">s :: Validity
-</span><a href="#local-6989586621679213110"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Validity.html#Validity%27"><span class="hs-identifier hs-type">Validity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213109"><span class="annot"><span class="annottext">ValidityPeriodType
-</span><a href="#local-6989586621679213109"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Validity
-</span><a href="#local-6989586621679213110"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Validity' :: ValidityPeriodType
+</span><a href="#local-6989586621679213120"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ValidityPeriodType
+</span><a href="#local-6989586621679213120"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213119"><span class="annot"><span class="annottext">s :: Validity
+</span><a href="#local-6989586621679213119"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Validity.html#Validity%27"><span class="hs-identifier hs-type">Validity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213118"><span class="annot"><span class="annottext">ValidityPeriodType
+</span><a href="#local-6989586621679213118"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Validity
+</span><a href="#local-6989586621679213119"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Validity' :: ValidityPeriodType
 </span><a href="Network.AWS.CertificateManagerPCA.Types.Validity.html#%24sel%3Atype%27%3AValidity%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ValidityPeriodType
-</span><a href="#local-6989586621679213109"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Validity.html#Validity"><span class="hs-identifier hs-type">Validity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679213118"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Validity.html#Validity"><span class="hs-identifier hs-type">Validity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>
-</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213105"><span id="local-6989586621679213107"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Validity.html#Validity"><span class="hs-identifier hs-type">Validity</span></a></span></span></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213114"><span id="local-6989586621679213116"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Validity.html#Validity"><span class="hs-identifier hs-type">Validity</span></a></span></span></span><span>
 </span><span id="line-181"></span><span>
-</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213102"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Validity.html#Validity"><span class="hs-identifier hs-type">Validity</span></a></span></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213111"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Validity.html#Validity"><span class="hs-identifier hs-type">Validity</span></a></span></span><span>
 </span><span id="line-183"></span><span>
-</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213094"><span id="local-6989586621679213096"><span id="local-6989586621679213098"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Validity.html#Validity"><span class="hs-identifier hs-type">Validity</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-185"></span><span>  </span><span id="local-6989586621679213092"><span class="annot"><span class="annottext">toJSON :: Validity -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Validity.html#Validity%27"><span class="hs-identifier hs-type">Validity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213089"><span id="local-6989586621679213090"><span class="annot"><span class="annottext">Natural
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213103"><span id="local-6989586621679213105"><span id="local-6989586621679213107"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Validity.html#Validity"><span class="hs-identifier hs-type">Validity</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679213101"><span class="annot"><span class="annottext">toJSON :: Validity -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.Validity.html#Validity%27"><span class="hs-identifier hs-type">Validity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213098"><span id="local-6989586621679213099"><span class="annot"><span class="annottext">Natural
 ValidityPeriodType
 type' :: ValidityPeriodType
 value :: Natural
 $sel:type':Validity' :: Validity -&gt; ValidityPeriodType
 $sel:value:Validity' :: Validity -&gt; Natural
-</span><a href="#local-6989586621679213089"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679213098"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-186"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-187"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -289,14 +289,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Value&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679213090"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679213099"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ValidityPeriodType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ValidityPeriodType
-</span><a href="#local-6989586621679213089"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679213098"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-191"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span></pre></body></html>

@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Details about the latest launch of an application.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newLaunchDetails' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679245319"><span id="local-6989586621679245320"></span></span><span class="hs-keyword">data</span><span> </span><span id="LaunchDetails"><span class="annot"><a href="Network.AWS.SMS.Types.LaunchDetails.html#LaunchDetails"><span class="hs-identifier hs-var">LaunchDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LaunchDetails%27"><span class="annot"><a href="Network.AWS.SMS.Types.LaunchDetails.html#LaunchDetails%27"><span class="hs-identifier hs-var">LaunchDetails'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679245328"><span id="local-6989586621679245329"></span></span><span class="hs-keyword">data</span><span> </span><span id="LaunchDetails"><span class="annot"><a href="Network.AWS.SMS.Types.LaunchDetails.html#LaunchDetails"><span class="hs-identifier hs-var">LaunchDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LaunchDetails%27"><span class="annot"><a href="Network.AWS.SMS.Types.LaunchDetails.html#LaunchDetails%27"><span class="hs-identifier hs-var">LaunchDetails'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the latest stack launched for this application.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AstackId%3ALaunchDetails%27"><span class="annot"><span class="annottext">LaunchDetails -&gt; Maybe Text
 </span><a href="Network.AWS.SMS.Types.LaunchDetails.html#%24sel%3AstackId%3ALaunchDetails%27"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AstackName%3ALaunchDetails%27"><span class="annot"><span class="annottext">LaunchDetails -&gt; Maybe Text
 </span><a href="Network.AWS.SMS.Types.LaunchDetails.html#%24sel%3AstackName%3ALaunchDetails%27"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679245311"><span id="local-6989586621679245313"><span class="annot"><span class="annottext">LaunchDetails -&gt; LaunchDetails -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679245320"><span id="local-6989586621679245322"><span class="annot"><span class="annottext">LaunchDetails -&gt; LaunchDetails -&gt; Bool
 (LaunchDetails -&gt; LaunchDetails -&gt; Bool)
 -&gt; (LaunchDetails -&gt; LaunchDetails -&gt; Bool) -&gt; Eq LaunchDetails
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LaunchDetails -&gt; LaunchDetails -&gt; Bool
 == :: LaunchDetails -&gt; LaunchDetails -&gt; Bool
 $c== :: LaunchDetails -&gt; LaunchDetails -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245302"><span id="local-6989586621679245304"><span id="local-6989586621679245306"><span id="local-6989586621679245308"><span class="annot"><span class="annottext">ReadPrec [LaunchDetails]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245311"><span id="local-6989586621679245313"><span id="local-6989586621679245315"><span id="local-6989586621679245317"><span class="annot"><span class="annottext">ReadPrec [LaunchDetails]
 ReadPrec LaunchDetails
 Int -&gt; ReadS LaunchDetails
 ReadS [LaunchDetails]
@@ -65,7 +65,7 @@ readList :: ReadS [LaunchDetails]
 $creadList :: ReadS [LaunchDetails]
 readsPrec :: Int -&gt; ReadS LaunchDetails
 $creadsPrec :: Int -&gt; ReadS LaunchDetails
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245295"><span id="local-6989586621679245297"><span id="local-6989586621679245299"><span class="annot"><span class="annottext">Int -&gt; LaunchDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245304"><span id="local-6989586621679245306"><span id="local-6989586621679245308"><span class="annot"><span class="annottext">Int -&gt; LaunchDetails -&gt; ShowS
 [LaunchDetails] -&gt; ShowS
 LaunchDetails -&gt; String
 (Int -&gt; LaunchDetails -&gt; ShowS)
@@ -131,16 +131,16 @@ forall a. Maybe a
 -&gt; (LaunchDetails -&gt; Maybe Text -&gt; LaunchDetails)
 -&gt; Lens LaunchDetails LaunchDetails (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.LaunchDetails.html#LaunchDetails%27"><span class="hs-identifier hs-type">LaunchDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245286"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.LaunchDetails.html#LaunchDetails%27"><span class="hs-identifier hs-type">LaunchDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245295"><span class="annot"><span class="annottext">Maybe Text
 stackId :: Maybe Text
 $sel:stackId:LaunchDetails' :: LaunchDetails -&gt; Maybe Text
-</span><a href="#local-6989586621679245286"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679245286"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245285"><span class="annot"><span class="annottext">s :: LaunchDetails
-</span><a href="#local-6989586621679245285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.LaunchDetails.html#LaunchDetails%27"><span class="hs-identifier hs-type">LaunchDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245284"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679245284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchDetails
-</span><a href="#local-6989586621679245285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackId:LaunchDetails' :: Maybe Text
+</span><a href="#local-6989586621679245295"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245295"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245294"><span class="annot"><span class="annottext">s :: LaunchDetails
+</span><a href="#local-6989586621679245294"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.LaunchDetails.html#LaunchDetails%27"><span class="hs-identifier hs-type">LaunchDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245293"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245293"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchDetails
+</span><a href="#local-6989586621679245294"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackId:LaunchDetails' :: Maybe Text
 </span><a href="Network.AWS.SMS.Types.LaunchDetails.html#%24sel%3AstackId%3ALaunchDetails%27"><span class="hs-identifier hs-var">stackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679245284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.LaunchDetails.html#LaunchDetails"><span class="hs-identifier hs-type">LaunchDetails</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679245293"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.LaunchDetails.html#LaunchDetails"><span class="hs-identifier hs-type">LaunchDetails</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | The latest time that this application was launched successfully.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Network.AWS.SMS.Types.LaunchDetails.html#launchDetails_latestLaunchTime"><span class="hs-identifier hs-type">launchDetails_latestLaunchTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.LaunchDetails.html#LaunchDetails"><span class="hs-identifier hs-type">LaunchDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
@@ -150,16 +150,16 @@ $sel:stackId:LaunchDetails' :: LaunchDetails -&gt; Maybe Text
 -&gt; (LaunchDetails -&gt; Maybe POSIX -&gt; LaunchDetails)
 -&gt; Lens LaunchDetails LaunchDetails (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.LaunchDetails.html#LaunchDetails%27"><span class="hs-identifier hs-type">LaunchDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245282"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.LaunchDetails.html#LaunchDetails%27"><span class="hs-identifier hs-type">LaunchDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245291"><span class="annot"><span class="annottext">Maybe POSIX
 latestLaunchTime :: Maybe POSIX
 $sel:latestLaunchTime:LaunchDetails' :: LaunchDetails -&gt; Maybe POSIX
-</span><a href="#local-6989586621679245282"><span class="hs-identifier hs-var hs-var">latestLaunchTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679245282"><span class="hs-identifier hs-var">latestLaunchTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245281"><span class="annot"><span class="annottext">s :: LaunchDetails
-</span><a href="#local-6989586621679245281"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.LaunchDetails.html#LaunchDetails%27"><span class="hs-identifier hs-type">LaunchDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245280"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679245280"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchDetails
-</span><a href="#local-6989586621679245281"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:latestLaunchTime:LaunchDetails' :: Maybe POSIX
+</span><a href="#local-6989586621679245291"><span class="hs-identifier hs-var hs-var">latestLaunchTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679245291"><span class="hs-identifier hs-var">latestLaunchTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245290"><span class="annot"><span class="annottext">s :: LaunchDetails
+</span><a href="#local-6989586621679245290"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.LaunchDetails.html#LaunchDetails%27"><span class="hs-identifier hs-type">LaunchDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245289"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679245289"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchDetails
+</span><a href="#local-6989586621679245290"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:latestLaunchTime:LaunchDetails' :: Maybe POSIX
 </span><a href="Network.AWS.SMS.Types.LaunchDetails.html#%24sel%3AlatestLaunchTime%3ALaunchDetails%27"><span class="hs-identifier hs-var">latestLaunchTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679245280"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.LaunchDetails.html#LaunchDetails"><span class="hs-identifier hs-type">LaunchDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679245289"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.LaunchDetails.html#LaunchDetails"><span class="hs-identifier hs-type">LaunchDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; LaunchDetails -&gt; f LaunchDetails)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -183,19 +183,19 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (LaunchDetails -&gt; Maybe Text -&gt; LaunchDetails)
 -&gt; Lens LaunchDetails LaunchDetails (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.LaunchDetails.html#LaunchDetails%27"><span class="hs-identifier hs-type">LaunchDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245275"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.LaunchDetails.html#LaunchDetails%27"><span class="hs-identifier hs-type">LaunchDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245284"><span class="annot"><span class="annottext">Maybe Text
 stackName :: Maybe Text
 $sel:stackName:LaunchDetails' :: LaunchDetails -&gt; Maybe Text
-</span><a href="#local-6989586621679245275"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679245275"><span class="hs-identifier hs-var">stackName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245274"><span class="annot"><span class="annottext">s :: LaunchDetails
-</span><a href="#local-6989586621679245274"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.LaunchDetails.html#LaunchDetails%27"><span class="hs-identifier hs-type">LaunchDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245273"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679245273"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchDetails
-</span><a href="#local-6989586621679245274"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackName:LaunchDetails' :: Maybe Text
+</span><a href="#local-6989586621679245284"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245284"><span class="hs-identifier hs-var">stackName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245283"><span class="annot"><span class="annottext">s :: LaunchDetails
+</span><a href="#local-6989586621679245283"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.LaunchDetails.html#LaunchDetails%27"><span class="hs-identifier hs-type">LaunchDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245282"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245282"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchDetails
+</span><a href="#local-6989586621679245283"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackName:LaunchDetails' :: Maybe Text
 </span><a href="Network.AWS.SMS.Types.LaunchDetails.html#%24sel%3AstackName%3ALaunchDetails%27"><span class="hs-identifier hs-var">stackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679245273"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.LaunchDetails.html#LaunchDetails"><span class="hs-identifier hs-type">LaunchDetails</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679245282"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.LaunchDetails.html#LaunchDetails"><span class="hs-identifier hs-type">LaunchDetails</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245270"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.LaunchDetails.html#LaunchDetails"><span class="hs-identifier hs-type">LaunchDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679245268"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LaunchDetails
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245279"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.LaunchDetails.html#LaunchDetails"><span class="hs-identifier hs-type">LaunchDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679245277"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LaunchDetails
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser LaunchDetails)
@@ -205,8 +205,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;LaunchDetails&quot;</span></span><span>
-</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679245265"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679245265"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679245274"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245274"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; LaunchDetails
 </span><a href="Network.AWS.SMS.Types.LaunchDetails.html#LaunchDetails%27"><span class="hs-identifier hs-var">LaunchDetails'</span></a></span><span>
 </span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; LaunchDetails)
@@ -214,7 +214,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe POSIX -&gt; Maybe Text -&gt; LaunchDetails)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679245265"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679245274"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;stackId&quot;</span></span><span class="hs-special">)</span><span>
@@ -222,7 +222,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe POSIX) -&gt; Parser (Maybe Text -&gt; LaunchDetails)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679245265"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679245274"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;latestLaunchTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -230,13 +230,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser LaunchDetails
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679245265"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679245274"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;stackName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245259"><span id="local-6989586621679245261"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.LaunchDetails.html#LaunchDetails"><span class="hs-identifier hs-type">LaunchDetails</span></a></span></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245268"><span id="local-6989586621679245270"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.LaunchDetails.html#LaunchDetails"><span class="hs-identifier hs-type">LaunchDetails</span></a></span></span></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245256"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.LaunchDetails.html#LaunchDetails"><span class="hs-identifier hs-type">LaunchDetails</span></a></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245265"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.LaunchDetails.html#LaunchDetails"><span class="hs-identifier hs-type">LaunchDetails</span></a></span></span><span>
 </span><span id="line-87"></span></pre></body></html>

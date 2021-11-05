@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html Custom Recipes and Cookbooks&gt;.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newSource' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679377691"><span id="local-6989586621679377692"></span></span><span class="hs-keyword">data</span><span> </span><span id="Source"><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source"><span class="hs-identifier hs-var">Source</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Source%27"><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source%27"><span class="hs-identifier hs-var">Source'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679377700"><span id="local-6989586621679377701"></span></span><span class="hs-keyword">data</span><span> </span><span id="Source"><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source"><span class="hs-identifier hs-var">Source</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Source%27"><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source%27"><span class="hs-identifier hs-var">Source'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The source URL. The following is an example of an Amazon S3 source URL:</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- @https:\/\/s3.amazonaws.com\/opsworks-demo-bucket\/opsworks_cookbook_demo.tar.gz@.</span><span>
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3Aurl%3ASource%27"><span class="annot"><span class="annottext">Source -&gt; Maybe Text
@@ -77,7 +77,7 @@
 </span><span id="line-72"></span><span>    </span><span id="%24sel%3Arevision%3ASource%27"><span class="annot"><span class="annottext">Source -&gt; Maybe Text
 </span><a href="Network.AWS.OpsWorks.Types.Source.html#%24sel%3Arevision%3ASource%27"><span class="hs-identifier hs-var hs-var">revision</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679377680"><span id="local-6989586621679377682"><span class="annot"><span class="annottext">Source -&gt; Source -&gt; Bool
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679377689"><span id="local-6989586621679377691"><span class="annot"><span class="annottext">Source -&gt; Source -&gt; Bool
 (Source -&gt; Source -&gt; Bool)
 -&gt; (Source -&gt; Source -&gt; Bool) -&gt; Eq Source
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -85,7 +85,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Source -&gt; Source -&gt; Bool
 == :: Source -&gt; Source -&gt; Bool
 $c== :: Source -&gt; Source -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377671"><span id="local-6989586621679377673"><span id="local-6989586621679377675"><span id="local-6989586621679377677"><span class="annot"><span class="annottext">ReadPrec [Source]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377680"><span id="local-6989586621679377682"><span id="local-6989586621679377684"><span id="local-6989586621679377686"><span class="annot"><span class="annottext">ReadPrec [Source]
 ReadPrec Source
 Int -&gt; ReadS Source
 ReadS [Source]
@@ -105,7 +105,7 @@ readList :: ReadS [Source]
 $creadList :: ReadS [Source]
 readsPrec :: Int -&gt; ReadS Source
 $creadsPrec :: Int -&gt; ReadS Source
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377664"><span id="local-6989586621679377666"><span id="local-6989586621679377668"><span class="annot"><span class="annottext">Int -&gt; Source -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377673"><span id="local-6989586621679377675"><span id="local-6989586621679377677"><span class="annot"><span class="annottext">Int -&gt; Source -&gt; ShowS
 [Source] -&gt; ShowS
 Source -&gt; String
 (Int -&gt; Source -&gt; ShowS)
@@ -219,16 +219,16 @@ forall a. Maybe a
 -&gt; (Source -&gt; Maybe Text -&gt; Source)
 -&gt; Lens Source Source (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source%27"><span class="hs-identifier hs-type">Source'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377655"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source%27"><span class="hs-identifier hs-type">Source'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377664"><span class="annot"><span class="annottext">Maybe Text
 url :: Maybe Text
 $sel:url:Source' :: Source -&gt; Maybe Text
-</span><a href="#local-6989586621679377655"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377655"><span class="hs-identifier hs-var">url</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377654"><span class="annot"><span class="annottext">s :: Source
-</span><a href="#local-6989586621679377654"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source%27"><span class="hs-identifier hs-type">Source'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377653"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377653"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Source
-</span><a href="#local-6989586621679377654"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:url:Source' :: Maybe Text
+</span><a href="#local-6989586621679377664"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377664"><span class="hs-identifier hs-var">url</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377663"><span class="annot"><span class="annottext">s :: Source
+</span><a href="#local-6989586621679377663"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source%27"><span class="hs-identifier hs-type">Source'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377662"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377662"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Source
+</span><a href="#local-6989586621679377663"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:url:Source' :: Maybe Text
 </span><a href="Network.AWS.OpsWorks.Types.Source.html#%24sel%3Aurl%3ASource%27"><span class="hs-identifier hs-var">url</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377653"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679377662"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | This parameter depends on the repository type.</span><span>
 </span><span id="line-139"></span><span class="hs-comment">--</span><span>
@@ -243,16 +243,16 @@ $sel:url:Source' :: Source -&gt; Maybe Text
 -&gt; (Source -&gt; Maybe Text -&gt; Source)
 -&gt; Lens Source Source (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source%27"><span class="hs-identifier hs-type">Source'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377651"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source%27"><span class="hs-identifier hs-type">Source'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377660"><span class="annot"><span class="annottext">Maybe Text
 username :: Maybe Text
 $sel:username:Source' :: Source -&gt; Maybe Text
-</span><a href="#local-6989586621679377651"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377651"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377650"><span class="annot"><span class="annottext">s :: Source
-</span><a href="#local-6989586621679377650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source%27"><span class="hs-identifier hs-type">Source'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377649"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Source
-</span><a href="#local-6989586621679377650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:Source' :: Maybe Text
+</span><a href="#local-6989586621679377660"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377660"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377659"><span class="annot"><span class="annottext">s :: Source
+</span><a href="#local-6989586621679377659"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source%27"><span class="hs-identifier hs-type">Source'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377658"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377658"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Source
+</span><a href="#local-6989586621679377659"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:Source' :: Maybe Text
 </span><a href="Network.AWS.OpsWorks.Types.Source.html#%24sel%3Ausername%3ASource%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679377658"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- | In requests, the repository\'s SSH key.</span><span>
 </span><span id="line-149"></span><span class="hs-comment">--</span><span>
@@ -264,16 +264,16 @@ $sel:username:Source' :: Source -&gt; Maybe Text
 -&gt; (Source -&gt; Maybe Text -&gt; Source)
 -&gt; Lens Source Source (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source%27"><span class="hs-identifier hs-type">Source'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377647"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source%27"><span class="hs-identifier hs-type">Source'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377656"><span class="annot"><span class="annottext">Maybe Text
 sshKey :: Maybe Text
 $sel:sshKey:Source' :: Source -&gt; Maybe Text
-</span><a href="#local-6989586621679377647"><span class="hs-identifier hs-var hs-var">sshKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377647"><span class="hs-identifier hs-var">sshKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377646"><span class="annot"><span class="annottext">s :: Source
-</span><a href="#local-6989586621679377646"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source%27"><span class="hs-identifier hs-type">Source'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377645"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377645"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Source
-</span><a href="#local-6989586621679377646"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sshKey:Source' :: Maybe Text
+</span><a href="#local-6989586621679377656"><span class="hs-identifier hs-var hs-var">sshKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377656"><span class="hs-identifier hs-var">sshKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377655"><span class="annot"><span class="annottext">s :: Source
+</span><a href="#local-6989586621679377655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source%27"><span class="hs-identifier hs-type">Source'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377654"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Source
+</span><a href="#local-6989586621679377655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sshKey:Source' :: Maybe Text
 </span><a href="Network.AWS.OpsWorks.Types.Source.html#%24sel%3AsshKey%3ASource%27"><span class="hs-identifier hs-var">sshKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377645"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679377654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- | When included in a request, the parameter depends on the repository</span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- type.</span><span>
@@ -295,16 +295,16 @@ $sel:sshKey:Source' :: Source -&gt; Maybe Text
 -&gt; (Source -&gt; Maybe Text -&gt; Source)
 -&gt; Lens Source Source (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source%27"><span class="hs-identifier hs-type">Source'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377643"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source%27"><span class="hs-identifier hs-type">Source'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377652"><span class="annot"><span class="annottext">Maybe Text
 password :: Maybe Text
 $sel:password:Source' :: Source -&gt; Maybe Text
-</span><a href="#local-6989586621679377643"><span class="hs-identifier hs-var hs-var">password</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377643"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377642"><span class="annot"><span class="annottext">s :: Source
-</span><a href="#local-6989586621679377642"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source%27"><span class="hs-identifier hs-type">Source'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377641"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377641"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Source
-</span><a href="#local-6989586621679377642"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:password:Source' :: Maybe Text
+</span><a href="#local-6989586621679377652"><span class="hs-identifier hs-var hs-var">password</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377652"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377651"><span class="annot"><span class="annottext">s :: Source
+</span><a href="#local-6989586621679377651"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source%27"><span class="hs-identifier hs-type">Source'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377650"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377650"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Source
+</span><a href="#local-6989586621679377651"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:password:Source' :: Maybe Text
 </span><a href="Network.AWS.OpsWorks.Types.Source.html#%24sel%3Apassword%3ASource%27"><span class="hs-identifier hs-var">password</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377641"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679377650"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | The repository type.</span><span>
 </span><span id="line-173"></span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#source_type"><span class="hs-identifier hs-type">source_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.SourceType.html#SourceType"><span class="hs-identifier hs-type">SourceType</span></a></span><span class="hs-special">)</span><span>
@@ -313,16 +313,16 @@ $sel:password:Source' :: Source -&gt; Maybe Text
 -&gt; (Source -&gt; Maybe SourceType -&gt; Source)
 -&gt; Lens Source Source (Maybe SourceType) (Maybe SourceType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source%27"><span class="hs-identifier hs-type">Source'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377639"><span class="annot"><span class="annottext">Maybe SourceType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source%27"><span class="hs-identifier hs-type">Source'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377648"><span class="annot"><span class="annottext">Maybe SourceType
 type' :: Maybe SourceType
 $sel:type':Source' :: Source -&gt; Maybe SourceType
-</span><a href="#local-6989586621679377639"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SourceType
-</span><a href="#local-6989586621679377639"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377638"><span class="annot"><span class="annottext">s :: Source
-</span><a href="#local-6989586621679377638"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source%27"><span class="hs-identifier hs-type">Source'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377637"><span class="annot"><span class="annottext">Maybe SourceType
-</span><a href="#local-6989586621679377637"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Source
-</span><a href="#local-6989586621679377638"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Source' :: Maybe SourceType
+</span><a href="#local-6989586621679377648"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SourceType
+</span><a href="#local-6989586621679377648"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377647"><span class="annot"><span class="annottext">s :: Source
+</span><a href="#local-6989586621679377647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source%27"><span class="hs-identifier hs-type">Source'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377646"><span class="annot"><span class="annottext">Maybe SourceType
+</span><a href="#local-6989586621679377646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Source
+</span><a href="#local-6989586621679377647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Source' :: Maybe SourceType
 </span><a href="Network.AWS.OpsWorks.Types.Source.html#%24sel%3Atype%27%3ASource%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SourceType
-</span><a href="#local-6989586621679377637"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679377646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- | The application\'s version. AWS OpsWorks Stacks enables you to easily</span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- deploy new versions of an application. One of the simplest approaches is</span><span>
@@ -334,27 +334,27 @@ $sel:type':Source' :: Source -&gt; Maybe SourceType
 -&gt; (Source -&gt; Maybe Text -&gt; Source)
 -&gt; Lens Source Source (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source%27"><span class="hs-identifier hs-type">Source'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377635"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source%27"><span class="hs-identifier hs-type">Source'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377644"><span class="annot"><span class="annottext">Maybe Text
 revision :: Maybe Text
 $sel:revision:Source' :: Source -&gt; Maybe Text
-</span><a href="#local-6989586621679377635"><span class="hs-identifier hs-var hs-var">revision</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377635"><span class="hs-identifier hs-var">revision</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377634"><span class="annot"><span class="annottext">s :: Source
-</span><a href="#local-6989586621679377634"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source%27"><span class="hs-identifier hs-type">Source'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377633"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377633"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Source
-</span><a href="#local-6989586621679377634"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revision:Source' :: Maybe Text
+</span><a href="#local-6989586621679377644"><span class="hs-identifier hs-var hs-var">revision</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377644"><span class="hs-identifier hs-var">revision</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377643"><span class="annot"><span class="annottext">s :: Source
+</span><a href="#local-6989586621679377643"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source%27"><span class="hs-identifier hs-type">Source'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377642"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377642"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Source
+</span><a href="#local-6989586621679377643"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revision:Source' :: Maybe Text
 </span><a href="Network.AWS.OpsWorks.Types.Source.html#%24sel%3Arevision%3ASource%27"><span class="hs-identifier hs-var">revision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377633"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679377642"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>
-</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377630"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621679377628"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Source
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377639"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679377637"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Source
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-185"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Source) -&gt; Value -&gt; Parser Source
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-186"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Source&quot;</span></span><span>
-</span><span id="line-187"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679377625"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377625"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-187"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679377634"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679377634"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-188"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -380,7 +380,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Source)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679377634"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Url&quot;</span></span><span class="hs-special">)</span><span>
@@ -397,7 +397,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Text -&gt; Maybe SourceType -&gt; Maybe Text -&gt; Source)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679377634"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Username&quot;</span></span><span class="hs-special">)</span><span>
@@ -408,7 +408,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe SourceType -&gt; Maybe Text -&gt; Source)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679377634"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SshKey&quot;</span></span><span class="hs-special">)</span><span>
@@ -417,7 +417,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe SourceType -&gt; Maybe Text -&gt; Source)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679377634"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Password&quot;</span></span><span class="hs-special">)</span><span>
@@ -425,7 +425,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe SourceType) -&gt; Parser (Maybe Text -&gt; Source)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SourceType)
+</span><a href="#local-6989586621679377634"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SourceType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
@@ -433,19 +433,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser Source
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679377634"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Revision&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-195"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-196"></span><span>
-</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377619"><span id="local-6989586621679377621"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span></span></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377628"><span id="local-6989586621679377630"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span></span></span><span>
 </span><span id="line-198"></span><span>
-</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377616"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377625"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span></span><span>
 </span><span id="line-200"></span><span>
-</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377608"><span id="local-6989586621679377610"><span id="local-6989586621679377612"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-202"></span><span>  </span><span id="local-6989586621679377606"><span class="annot"><span class="annottext">toJSON :: Source -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source%27"><span class="hs-identifier hs-type">Source'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377599"><span id="local-6989586621679377600"><span id="local-6989586621679377601"><span id="local-6989586621679377602"><span id="local-6989586621679377603"><span id="local-6989586621679377604"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377617"><span id="local-6989586621679377619"><span id="local-6989586621679377621"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-202"></span><span>  </span><span id="local-6989586621679377615"><span class="annot"><span class="annottext">toJSON :: Source -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Source.html#Source%27"><span class="hs-identifier hs-type">Source'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377608"><span id="local-6989586621679377609"><span id="local-6989586621679377610"><span id="local-6989586621679377611"><span id="local-6989586621679377612"><span id="local-6989586621679377613"><span class="annot"><span class="annottext">Maybe Text
 Maybe SourceType
 revision :: Maybe Text
 type' :: Maybe SourceType
@@ -459,7 +459,7 @@ $sel:password:Source' :: Source -&gt; Maybe Text
 $sel:sshKey:Source' :: Source -&gt; Maybe Text
 $sel:username:Source' :: Source -&gt; Maybe Text
 $sel:url:Source' :: Source -&gt; Maybe Text
-</span><a href="#local-6989586621679377599"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679377608"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-203"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-204"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -471,42 +471,42 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377604"><span class="hs-identifier hs-var">url</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679377613"><span class="hs-identifier hs-var">url</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-206"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Username&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377603"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679377612"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-207"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SshKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377602"><span class="hs-identifier hs-var">sshKey</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679377611"><span class="hs-identifier hs-var">sshKey</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-208"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Password&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377601"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679377610"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-209"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SourceType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SourceType -&gt; Pair) -&gt; Maybe SourceType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SourceType
-</span><a href="#local-6989586621679377600"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679377609"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-210"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Revision&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377599"><span class="hs-identifier hs-var">revision</span></a></span><span>
+</span><a href="#local-6989586621679377608"><span class="hs-identifier hs-var">revision</span></a></span><span>
 </span><span id="line-211"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-212"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-213"></span></pre></body></html>

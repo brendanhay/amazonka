@@ -58,7 +58,7 @@
 </span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newListImports' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621679434852"><span id="local-6989586621679434853"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListImports"><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImports"><span class="hs-identifier hs-var">ListImports</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListImports%27"><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImports%27"><span class="hs-identifier hs-var">ListImports'</span></a></span></span><span>
+</span><span id="line-61"></span><span id="local-6989586621679434861"><span id="local-6989586621679434862"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListImports"><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImports"><span class="hs-identifier hs-var">ListImports</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListImports%27"><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImports%27"><span class="hs-identifier hs-var">ListImports'</span></a></span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A string (provided by the ListImports response output) that identifies</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- the next page of stacks that are importing the specified exported output</span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">-- value.</span><span>
@@ -69,7 +69,7 @@
 </span><span id="line-68"></span><span>    </span><span id="%24sel%3AexportName%3AListImports%27"><span class="annot"><span class="annottext">ListImports -&gt; Text
 </span><a href="Network.AWS.CloudFormation.ListImports.html#%24sel%3AexportName%3AListImports%27"><span class="hs-identifier hs-var hs-var">exportName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679434845"><span id="local-6989586621679434847"><span class="annot"><span class="annottext">ListImports -&gt; ListImports -&gt; Bool
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679434854"><span id="local-6989586621679434856"><span class="annot"><span class="annottext">ListImports -&gt; ListImports -&gt; Bool
 (ListImports -&gt; ListImports -&gt; Bool)
 -&gt; (ListImports -&gt; ListImports -&gt; Bool) -&gt; Eq ListImports
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -77,7 +77,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListImports -&gt; ListImports -&gt; Bool
 == :: ListImports -&gt; ListImports -&gt; Bool
 $c== :: ListImports -&gt; ListImports -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679434836"><span id="local-6989586621679434838"><span id="local-6989586621679434840"><span id="local-6989586621679434842"><span class="annot"><span class="annottext">ReadPrec [ListImports]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679434845"><span id="local-6989586621679434847"><span id="local-6989586621679434849"><span id="local-6989586621679434851"><span class="annot"><span class="annottext">ReadPrec [ListImports]
 ReadPrec ListImports
 Int -&gt; ReadS ListImports
 ReadS [ListImports]
@@ -97,7 +97,7 @@ readList :: ReadS [ListImports]
 $creadList :: ReadS [ListImports]
 readsPrec :: Int -&gt; ReadS ListImports
 $creadsPrec :: Int -&gt; ReadS ListImports
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679434829"><span id="local-6989586621679434831"><span id="local-6989586621679434833"><span class="annot"><span class="annottext">Int -&gt; ListImports -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679434838"><span id="local-6989586621679434840"><span id="local-6989586621679434842"><span class="annot"><span class="annottext">Int -&gt; ListImports -&gt; ShowS
 [ListImports] -&gt; ShowS
 ListImports -&gt; String
 (Int -&gt; ListImports -&gt; ShowS)
@@ -142,8 +142,8 @@ $cfrom :: forall x. ListImports -&gt; Rep ListImports x
 </span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImports"><span class="hs-identifier hs-type">ListImports</span></a></span><span>
 </span><span id="line-90"></span><span id="newListImports"><span class="annot"><span class="annottext">newListImports :: Text -&gt; ListImports
-</span><a href="Network.AWS.CloudFormation.ListImports.html#newListImports"><span class="hs-identifier hs-var hs-var">newListImports</span></a></span></span><span> </span><span id="local-6989586621679434824"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679434824"><span class="hs-identifier hs-var">pExportName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFormation.ListImports.html#newListImports"><span class="hs-identifier hs-var hs-var">newListImports</span></a></span></span><span> </span><span id="local-6989586621679434833"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679434833"><span class="hs-identifier hs-var">pExportName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><span class="annottext">ListImports' :: Maybe Text -&gt; Text -&gt; ListImports
 </span><a href="Network.AWS.CloudFormation.ListImports.html#ListImports%27"><span class="hs-identifier hs-type">ListImports'</span></a></span><span>
 </span><span id="line-92"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListImports' :: Maybe Text
@@ -152,7 +152,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:exportName:ListImports' :: Text
 </span><a href="Network.AWS.CloudFormation.ListImports.html#%24sel%3AexportName%3AListImports%27"><span class="hs-identifier hs-var">exportName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679434824"><span class="hs-identifier hs-var">pExportName_</span></a></span><span>
+</span><a href="#local-6989586621679434833"><span class="hs-identifier hs-var">pExportName_</span></a></span><span>
 </span><span id="line-94"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | A string (provided by the ListImports response output) that identifies</span><span>
@@ -164,16 +164,16 @@ forall a. Maybe a
 -&gt; (ListImports -&gt; Maybe Text -&gt; ListImports)
 -&gt; Lens ListImports ListImports (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImports%27"><span class="hs-identifier hs-type">ListImports'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434822"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImports%27"><span class="hs-identifier hs-type">ListImports'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434831"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListImports' :: ListImports -&gt; Maybe Text
-</span><a href="#local-6989586621679434822"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434822"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434821"><span class="annot"><span class="annottext">s :: ListImports
-</span><a href="#local-6989586621679434821"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImports%27"><span class="hs-identifier hs-type">ListImports'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434820"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434820"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListImports
-</span><a href="#local-6989586621679434821"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListImports' :: Maybe Text
+</span><a href="#local-6989586621679434831"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679434831"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434830"><span class="annot"><span class="annottext">s :: ListImports
+</span><a href="#local-6989586621679434830"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImports%27"><span class="hs-identifier hs-type">ListImports'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434829"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679434829"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListImports
+</span><a href="#local-6989586621679434830"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListImports' :: Maybe Text
 </span><a href="Network.AWS.CloudFormation.ListImports.html#%24sel%3AnextToken%3AListImports%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434820"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImports"><span class="hs-identifier hs-type">ListImports</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679434829"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImports"><span class="hs-identifier hs-type">ListImports</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | The name of the exported output value. CloudFormation returns the stack</span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- names that are importing this value.</span><span>
@@ -183,28 +183,28 @@ $sel:nextToken:ListImports' :: ListImports -&gt; Maybe Text
 -&gt; (ListImports -&gt; Text -&gt; ListImports)
 -&gt; Lens ListImports ListImports Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImports%27"><span class="hs-identifier hs-type">ListImports'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434819"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImports%27"><span class="hs-identifier hs-type">ListImports'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434828"><span class="annot"><span class="annottext">Text
 exportName :: Text
 $sel:exportName:ListImports' :: ListImports -&gt; Text
-</span><a href="#local-6989586621679434819"><span class="hs-identifier hs-var hs-var">exportName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679434819"><span class="hs-identifier hs-var">exportName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434818"><span class="annot"><span class="annottext">s :: ListImports
-</span><a href="#local-6989586621679434818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImports%27"><span class="hs-identifier hs-type">ListImports'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434817"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679434817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListImports
-</span><a href="#local-6989586621679434818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportName:ListImports' :: Text
+</span><a href="#local-6989586621679434828"><span class="hs-identifier hs-var hs-var">exportName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679434828"><span class="hs-identifier hs-var">exportName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434827"><span class="annot"><span class="annottext">s :: ListImports
+</span><a href="#local-6989586621679434827"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImports%27"><span class="hs-identifier hs-type">ListImports'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434826"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679434826"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListImports
+</span><a href="#local-6989586621679434827"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportName:ListImports' :: Text
 </span><a href="Network.AWS.CloudFormation.ListImports.html#%24sel%3AexportName%3AListImports%27"><span class="hs-identifier hs-var">exportName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679434817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImports"><span class="hs-identifier hs-type">ListImports</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679434826"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImports"><span class="hs-identifier hs-type">ListImports</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImports"><span class="hs-identifier hs-type">ListImports</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679434813"><span class="annot"><span class="annottext">page :: ListImports -&gt; AWSResponse ListImports -&gt; Maybe ListImports
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679434811"><span class="annot"><span class="annottext">ListImports
-</span><a href="#local-6989586621679434811"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679434810"><span class="annot"><span class="annottext">AWSResponse ListImports
-</span><a href="#local-6989586621679434810"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679434822"><span class="annot"><span class="annottext">page :: ListImports -&gt; AWSResponse ListImports -&gt; Maybe ListImports
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679434820"><span class="annot"><span class="annottext">ListImports
+</span><a href="#local-6989586621679434820"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679434819"><span class="annot"><span class="annottext">AWSResponse ListImports
+</span><a href="#local-6989586621679434819"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-109"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-110"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListImports
 ListImportsResponse
-</span><a href="#local-6989586621679434810"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679434819"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">ListImportsResponse
 -&gt; Getting (First Text) ListImportsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -230,7 +230,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-115"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListImports
 ListImportsResponse
-</span><a href="#local-6989586621679434810"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679434819"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">ListImportsResponse
 -&gt; Getting (First [Text]) ListImportsResponse [Text]
 -&gt; Maybe [Text]
@@ -261,7 +261,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">ListImports
-</span><a href="#local-6989586621679434811"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679434820"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">ListImports -&gt; (ListImports -&gt; ListImports) -&gt; ListImports
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -274,7 +274,7 @@ Lens ListImports ListImports (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListImports
 ListImportsResponse
-</span><a href="#local-6989586621679434810"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679434819"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">ListImportsResponse
 -&gt; Getting (First Text) ListImportsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -294,12 +294,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImports"><span class="hs-identifier hs-type">ListImports</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-127"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImports"><span class="hs-identifier hs-type">ListImports</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImportsResponse"><span class="hs-identifier hs-type">ListImportsResponse</span></a></span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679434800"><span class="annot"><span class="annottext">request :: ListImports -&gt; Request ListImports
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679434809"><span class="annot"><span class="annottext">request :: ListImports -&gt; Request ListImports
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListImports -&gt; Request ListImports
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudFormation.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679434796"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679434805"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListImports
 -&gt; ClientResponse ClientBody
@@ -328,10 +328,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ListImportsResult&quot;</span></span><span>
-</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679434793"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679434793"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679434792"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679434792"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679434791"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679434791"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679434802"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679434802"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679434801"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679434801"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679434800"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679434800"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; ListImportsResponse
 </span><a href="Network.AWS.CloudFormation.ListImports.html#ListImportsResponse%27"><span class="hs-identifier hs-var">ListImportsResponse'</span></a></span><span>
 </span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; ListImportsResponse)
@@ -339,7 +339,7 @@ Text
 -&gt; Either String (Maybe Text -&gt; Int -&gt; ListImportsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679434791"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679434800"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Imports&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -366,7 +366,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String (Int -&gt; ListImportsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679434791"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679434800"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -378,15 +378,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679434793"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679434802"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434780"><span id="local-6989586621679434782"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImports"><span class="hs-identifier hs-type">ListImports</span></a></span></span></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434789"><span id="local-6989586621679434791"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImports"><span class="hs-identifier hs-type">ListImports</span></a></span></span></span><span>
 </span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434777"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImports"><span class="hs-identifier hs-type">ListImports</span></a></span></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434786"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImports"><span class="hs-identifier hs-type">ListImports</span></a></span></span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImports"><span class="hs-identifier hs-type">ListImports</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679434773"><span class="annot"><span class="annottext">toHeaders :: ListImports -&gt; ResponseHeaders
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679434782"><span class="annot"><span class="annottext">toHeaders :: ListImports -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListImports -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -394,21 +394,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImports"><span class="hs-identifier hs-type">ListImports</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679434768"><span class="annot"><span class="annottext">toPath :: ListImports -&gt; ByteString
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679434777"><span class="annot"><span class="annottext">toPath :: ListImports -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListImports -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImports"><span class="hs-identifier hs-type">ListImports</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679434764"><span class="annot"><span class="annottext">toQuery :: ListImports -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImports%27"><span class="hs-identifier hs-type">ListImports'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434761"><span id="local-6989586621679434762"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679434773"><span class="annot"><span class="annottext">toQuery :: ListImports -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImports%27"><span class="hs-identifier hs-type">ListImports'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434770"><span id="local-6989586621679434771"><span class="annot"><span class="annottext">Maybe Text
 Text
 exportName :: Text
 nextToken :: Maybe Text
 $sel:exportName:ListImports' :: ListImports -&gt; Text
 $sel:nextToken:ListImports' :: ListImports -&gt; Maybe Text
-</span><a href="#local-6989586621679434761"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679434770"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -428,16 +428,16 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434762"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679434771"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ExportName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679434761"><span class="hs-identifier hs-var">exportName</span></a></span><span>
+</span><a href="#local-6989586621679434770"><span class="hs-identifier hs-var">exportName</span></a></span><span>
 </span><span id="line-160"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- | /See:/ 'newListImportsResponse' smart constructor.</span><span>
-</span><span id="line-163"></span><span id="local-6989586621679434758"><span id="local-6989586621679434759"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListImportsResponse"><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImportsResponse"><span class="hs-identifier hs-var">ListImportsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListImportsResponse%27"><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImportsResponse%27"><span class="hs-identifier hs-var">ListImportsResponse'</span></a></span></span><span>
+</span><span id="line-163"></span><span id="local-6989586621679434767"><span id="local-6989586621679434768"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListImportsResponse"><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImportsResponse"><span class="hs-identifier hs-var">ListImportsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListImportsResponse%27"><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImportsResponse%27"><span class="hs-identifier hs-var">ListImportsResponse'</span></a></span></span><span>
 </span><span id="line-164"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of stack names that are importing the specified exported output</span><span>
 </span><span id="line-165"></span><span>    </span><span class="hs-comment">-- value.</span><span>
 </span><span id="line-166"></span><span>    </span><span id="%24sel%3Aimports%3AListImportsResponse%27"><span class="annot"><span class="annottext">ListImportsResponse -&gt; Maybe [Text]
@@ -450,7 +450,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-171"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListImportsResponse%27"><span class="annot"><span class="annottext">ListImportsResponse -&gt; Int
 </span><a href="Network.AWS.CloudFormation.ListImports.html#%24sel%3AhttpStatus%3AListImportsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-172"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-173"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679434751"><span id="local-6989586621679434753"><span class="annot"><span class="annottext">ListImportsResponse -&gt; ListImportsResponse -&gt; Bool
+</span><span id="line-173"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679434760"><span id="local-6989586621679434762"><span class="annot"><span class="annottext">ListImportsResponse -&gt; ListImportsResponse -&gt; Bool
 (ListImportsResponse -&gt; ListImportsResponse -&gt; Bool)
 -&gt; (ListImportsResponse -&gt; ListImportsResponse -&gt; Bool)
 -&gt; Eq ListImportsResponse
@@ -459,7 +459,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListImportsResponse -&gt; ListImportsResponse -&gt; Bool
 == :: ListImportsResponse -&gt; ListImportsResponse -&gt; Bool
 $c== :: ListImportsResponse -&gt; ListImportsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679434743"><span id="local-6989586621679434745"><span id="local-6989586621679434747"><span id="local-6989586621679434749"><span class="annot"><span class="annottext">ReadPrec [ListImportsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679434752"><span id="local-6989586621679434754"><span id="local-6989586621679434756"><span id="local-6989586621679434758"><span class="annot"><span class="annottext">ReadPrec [ListImportsResponse]
 ReadPrec ListImportsResponse
 Int -&gt; ReadS ListImportsResponse
 ReadS [ListImportsResponse]
@@ -479,7 +479,7 @@ readList :: ReadS [ListImportsResponse]
 $creadList :: ReadS [ListImportsResponse]
 readsPrec :: Int -&gt; ReadS ListImportsResponse
 $creadsPrec :: Int -&gt; ReadS ListImportsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679434737"><span id="local-6989586621679434739"><span id="local-6989586621679434741"><span class="annot"><span class="annottext">Int -&gt; ListImportsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679434746"><span id="local-6989586621679434748"><span id="local-6989586621679434750"><span class="annot"><span class="annottext">Int -&gt; ListImportsResponse -&gt; ShowS
 [ListImportsResponse] -&gt; ShowS
 ListImportsResponse -&gt; String
 (Int -&gt; ListImportsResponse -&gt; ShowS)
@@ -525,8 +525,8 @@ $cfrom :: forall x. ListImportsResponse -&gt; Rep ListImportsResponse x
 </span><span id="line-192"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-193"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImportsResponse"><span class="hs-identifier hs-type">ListImportsResponse</span></a></span><span>
 </span><span id="line-194"></span><span id="newListImportsResponse"><span class="annot"><span class="annottext">newListImportsResponse :: Int -&gt; ListImportsResponse
-</span><a href="Network.AWS.CloudFormation.ListImports.html#newListImportsResponse"><span class="hs-identifier hs-var hs-var">newListImportsResponse</span></a></span></span><span> </span><span id="local-6989586621679434734"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679434734"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFormation.ListImports.html#newListImportsResponse"><span class="hs-identifier hs-var hs-var">newListImportsResponse</span></a></span></span><span> </span><span id="local-6989586621679434743"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679434743"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-195"></span><span>  </span><span class="annot"><span class="annottext">ListImportsResponse' :: Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; ListImportsResponse
 </span><a href="Network.AWS.CloudFormation.ListImports.html#ListImportsResponse%27"><span class="hs-identifier hs-type">ListImportsResponse'</span></a></span><span>
 </span><span id="line-196"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:imports:ListImportsResponse' :: Maybe [Text]
@@ -539,7 +539,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-198"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListImportsResponse' :: Int
 </span><a href="Network.AWS.CloudFormation.ListImports.html#%24sel%3AhttpStatus%3AListImportsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679434734"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679434743"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-199"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-200"></span><span>
 </span><span id="line-201"></span><span class="hs-comment">-- | A list of stack names that are importing the specified exported output</span><span>
@@ -551,16 +551,16 @@ forall a. Maybe a
 -&gt; (ListImportsResponse -&gt; Maybe [Text] -&gt; ListImportsResponse)
 -&gt; Lens' ListImportsResponse (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImportsResponse%27"><span class="hs-identifier hs-type">ListImportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434733"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImportsResponse%27"><span class="hs-identifier hs-type">ListImportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434742"><span class="annot"><span class="annottext">Maybe [Text]
 imports :: Maybe [Text]
 $sel:imports:ListImportsResponse' :: ListImportsResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621679434733"><span class="hs-identifier hs-var hs-var">imports</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679434733"><span class="hs-identifier hs-var">imports</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434732"><span class="annot"><span class="annottext">s :: ListImportsResponse
-</span><a href="#local-6989586621679434732"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImportsResponse%27"><span class="hs-identifier hs-type">ListImportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434731"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679434731"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListImportsResponse
-</span><a href="#local-6989586621679434732"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imports:ListImportsResponse' :: Maybe [Text]
+</span><a href="#local-6989586621679434742"><span class="hs-identifier hs-var hs-var">imports</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679434742"><span class="hs-identifier hs-var">imports</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434741"><span class="annot"><span class="annottext">s :: ListImportsResponse
+</span><a href="#local-6989586621679434741"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImportsResponse%27"><span class="hs-identifier hs-type">ListImportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434740"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679434740"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListImportsResponse
+</span><a href="#local-6989586621679434741"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imports:ListImportsResponse' :: Maybe [Text]
 </span><a href="Network.AWS.CloudFormation.ListImports.html#%24sel%3Aimports%3AListImportsResponse%27"><span class="hs-identifier hs-var">imports</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679434731"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImportsResponse"><span class="hs-identifier hs-type">ListImportsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679434740"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImportsResponse"><span class="hs-identifier hs-type">ListImportsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ListImportsResponse -&gt; f ListImportsResponse)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -586,16 +586,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ListImportsResponse -&gt; Maybe Text -&gt; ListImportsResponse)
 -&gt; Lens' ListImportsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImportsResponse%27"><span class="hs-identifier hs-type">ListImportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434728"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImportsResponse%27"><span class="hs-identifier hs-type">ListImportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434737"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListImportsResponse' :: ListImportsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679434728"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434728"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434727"><span class="annot"><span class="annottext">s :: ListImportsResponse
-</span><a href="#local-6989586621679434727"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImportsResponse%27"><span class="hs-identifier hs-type">ListImportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434726"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434726"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListImportsResponse
-</span><a href="#local-6989586621679434727"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListImportsResponse' :: Maybe Text
+</span><a href="#local-6989586621679434737"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679434737"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434736"><span class="annot"><span class="annottext">s :: ListImportsResponse
+</span><a href="#local-6989586621679434736"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImportsResponse%27"><span class="hs-identifier hs-type">ListImportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434735"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679434735"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListImportsResponse
+</span><a href="#local-6989586621679434736"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListImportsResponse' :: Maybe Text
 </span><a href="Network.AWS.CloudFormation.ListImports.html#%24sel%3AnextToken%3AListImportsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434726"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImportsResponse"><span class="hs-identifier hs-type">ListImportsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679434735"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImportsResponse"><span class="hs-identifier hs-type">ListImportsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-210"></span><span>
 </span><span id="line-211"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-212"></span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#listImportsResponse_httpStatus"><span class="hs-identifier hs-type">listImportsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImportsResponse"><span class="hs-identifier hs-type">ListImportsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -604,16 +604,16 @@ $sel:nextToken:ListImportsResponse' :: ListImportsResponse -&gt; Maybe Text
 -&gt; (ListImportsResponse -&gt; Int -&gt; ListImportsResponse)
 -&gt; Lens ListImportsResponse ListImportsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImportsResponse%27"><span class="hs-identifier hs-type">ListImportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434725"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImportsResponse%27"><span class="hs-identifier hs-type">ListImportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434734"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListImportsResponse' :: ListImportsResponse -&gt; Int
-</span><a href="#local-6989586621679434725"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679434725"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434724"><span class="annot"><span class="annottext">s :: ListImportsResponse
-</span><a href="#local-6989586621679434724"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImportsResponse%27"><span class="hs-identifier hs-type">ListImportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434723"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679434723"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListImportsResponse
-</span><a href="#local-6989586621679434724"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListImportsResponse' :: Int
+</span><a href="#local-6989586621679434734"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679434734"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434733"><span class="annot"><span class="annottext">s :: ListImportsResponse
+</span><a href="#local-6989586621679434733"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImportsResponse%27"><span class="hs-identifier hs-type">ListImportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434732"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679434732"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListImportsResponse
+</span><a href="#local-6989586621679434733"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListImportsResponse' :: Int
 </span><a href="Network.AWS.CloudFormation.ListImports.html#%24sel%3AhttpStatus%3AListImportsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679434723"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImportsResponse"><span class="hs-identifier hs-type">ListImportsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679434732"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImportsResponse"><span class="hs-identifier hs-type">ListImportsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-214"></span><span>
-</span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434721"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImportsResponse"><span class="hs-identifier hs-type">ListImportsResponse</span></a></span></span><span>
+</span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434730"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListImports.html#ListImportsResponse"><span class="hs-identifier hs-type">ListImportsResponse</span></a></span></span><span>
 </span><span id="line-216"></span></pre></body></html>

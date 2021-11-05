@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-comment">-- time are initialized using the input timecode source, or the time is</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- initialized using the input timecode source and the date is initialized</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- using the timestamp_offset.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621679979836"><span id="local-6989586621679979837"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HlsProgramDateTime"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsProgramDateTime.html#HlsProgramDateTime"><span class="hs-identifier hs-var">HlsProgramDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsProgramDateTime%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsProgramDateTime.html#HlsProgramDateTime%27"><span class="hs-identifier hs-var">HlsProgramDateTime'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679979845"><span id="local-6989586621679979846"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HlsProgramDateTime"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsProgramDateTime.html#HlsProgramDateTime"><span class="hs-identifier hs-var">HlsProgramDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsProgramDateTime%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsProgramDateTime.html#HlsProgramDateTime%27"><span class="hs-identifier hs-var">HlsProgramDateTime'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHlsProgramDateTime"><span class="annot"><span class="annottext">HlsProgramDateTime -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.HlsProgramDateTime.html#fromHlsProgramDateTime"><span class="hs-identifier hs-var hs-var">fromHlsProgramDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679979828"><span id="local-6989586621679979830"><span id="local-6989586621679979832"><span class="annot"><span class="annottext">Int -&gt; HlsProgramDateTime -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679979837"><span id="local-6989586621679979839"><span id="local-6989586621679979841"><span class="annot"><span class="annottext">Int -&gt; HlsProgramDateTime -&gt; ShowS
 [HlsProgramDateTime] -&gt; ShowS
 HlsProgramDateTime -&gt; String
 (Int -&gt; HlsProgramDateTime -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: HlsProgramDateTime -&gt; String
 showsPrec :: Int -&gt; HlsProgramDateTime -&gt; ShowS
 $cshowsPrec :: Int -&gt; HlsProgramDateTime -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679979819"><span id="local-6989586621679979821"><span id="local-6989586621679979823"><span id="local-6989586621679979825"><span class="annot"><span class="annottext">ReadPrec [HlsProgramDateTime]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679979828"><span id="local-6989586621679979830"><span id="local-6989586621679979832"><span id="local-6989586621679979834"><span class="annot"><span class="annottext">ReadPrec [HlsProgramDateTime]
 ReadPrec HlsProgramDateTime
 Int -&gt; ReadS HlsProgramDateTime
 ReadS [HlsProgramDateTime]
@@ -77,7 +77,7 @@ $creadList :: ReadS [HlsProgramDateTime]
 readsPrec :: Int -&gt; ReadS HlsProgramDateTime
 $creadsPrec :: Int -&gt; ReadS HlsProgramDateTime
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679979814"><span id="local-6989586621679979816"><span class="annot"><span class="annottext">HlsProgramDateTime -&gt; HlsProgramDateTime -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679979823"><span id="local-6989586621679979825"><span class="annot"><span class="annottext">HlsProgramDateTime -&gt; HlsProgramDateTime -&gt; Bool
 (HlsProgramDateTime -&gt; HlsProgramDateTime -&gt; Bool)
 -&gt; (HlsProgramDateTime -&gt; HlsProgramDateTime -&gt; Bool)
 -&gt; Eq HlsProgramDateTime
@@ -87,7 +87,7 @@ $c/= :: HlsProgramDateTime -&gt; HlsProgramDateTime -&gt; Bool
 == :: HlsProgramDateTime -&gt; HlsProgramDateTime -&gt; Bool
 $c== :: HlsProgramDateTime -&gt; HlsProgramDateTime -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679979798"><span id="local-6989586621679979800"><span id="local-6989586621679979802"><span id="local-6989586621679979804"><span id="local-6989586621679979806"><span id="local-6989586621679979808"><span id="local-6989586621679979810"><span class="annot"><span class="annottext">Eq HlsProgramDateTime
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679979807"><span id="local-6989586621679979809"><span id="local-6989586621679979811"><span id="local-6989586621679979813"><span id="local-6989586621679979815"><span id="local-6989586621679979817"><span id="local-6989586621679979819"><span class="annot"><span class="annottext">Eq HlsProgramDateTime
 Eq HlsProgramDateTime
 -&gt; (HlsProgramDateTime -&gt; HlsProgramDateTime -&gt; Ordering)
 -&gt; (HlsProgramDateTime -&gt; HlsProgramDateTime -&gt; Bool)
@@ -138,7 +138,7 @@ $cfrom :: forall x. HlsProgramDateTime -&gt; Rep HlsProgramDateTime x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679979790"><span id="local-6989586621679979792"><span class="annot"><span class="annottext">Int -&gt; HlsProgramDateTime -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679979799"><span id="local-6989586621679979801"><span class="annot"><span class="annottext">Int -&gt; HlsProgramDateTime -&gt; Int
 HlsProgramDateTime -&gt; Int
 (Int -&gt; HlsProgramDateTime -&gt; Int)
 -&gt; (HlsProgramDateTime -&gt; Int) -&gt; Hashable HlsProgramDateTime
@@ -148,53 +148,53 @@ $chash :: HlsProgramDateTime -&gt; Int
 hashWithSalt :: Int -&gt; HlsProgramDateTime -&gt; Int
 $chashWithSalt :: Int -&gt; HlsProgramDateTime -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679979787"><span class="annot"><span class="annottext">HlsProgramDateTime -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679979796"><span class="annot"><span class="annottext">HlsProgramDateTime -&gt; ()
 (HlsProgramDateTime -&gt; ()) -&gt; NFData HlsProgramDateTime
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: HlsProgramDateTime -&gt; ()
 $crnf :: HlsProgramDateTime -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679979784"><span class="annot"><span class="annottext">Text -&gt; Either String HlsProgramDateTime
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679979793"><span class="annot"><span class="annottext">Text -&gt; Either String HlsProgramDateTime
 (Text -&gt; Either String HlsProgramDateTime)
 -&gt; FromText HlsProgramDateTime
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String HlsProgramDateTime
 $cfromText :: Text -&gt; Either String HlsProgramDateTime
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679979781"><span class="annot"><span class="annottext">HlsProgramDateTime -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679979790"><span class="annot"><span class="annottext">HlsProgramDateTime -&gt; Text
 (HlsProgramDateTime -&gt; Text) -&gt; ToText HlsProgramDateTime
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: HlsProgramDateTime -&gt; Text
 $ctoText :: HlsProgramDateTime -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679979778"><span class="annot"><span class="annottext">HlsProgramDateTime -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679979787"><span class="annot"><span class="annottext">HlsProgramDateTime -&gt; ByteString
 (HlsProgramDateTime -&gt; ByteString)
 -&gt; ToByteString HlsProgramDateTime
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: HlsProgramDateTime -&gt; ByteString
 $ctoBS :: HlsProgramDateTime -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679979775"><span class="annot"><span class="annottext">HlsProgramDateTime -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679979784"><span class="annot"><span class="annottext">HlsProgramDateTime -&gt; ByteStringBuilder
 (HlsProgramDateTime -&gt; ByteStringBuilder)
 -&gt; ToLog HlsProgramDateTime
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: HlsProgramDateTime -&gt; ByteStringBuilder
 $cbuild :: HlsProgramDateTime -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679979772"><span class="annot"><span class="annottext">HeaderName -&gt; HlsProgramDateTime -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679979781"><span class="annot"><span class="annottext">HeaderName -&gt; HlsProgramDateTime -&gt; [Header]
 (HeaderName -&gt; HlsProgramDateTime -&gt; [Header])
 -&gt; ToHeader HlsProgramDateTime
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; HlsProgramDateTime -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; HlsProgramDateTime -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679979769"><span class="annot"><span class="annottext">HlsProgramDateTime -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679979778"><span class="annot"><span class="annottext">HlsProgramDateTime -&gt; QueryString
 (HlsProgramDateTime -&gt; QueryString) -&gt; ToQuery HlsProgramDateTime
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: HlsProgramDateTime -&gt; QueryString
 $ctoQuery :: HlsProgramDateTime -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679979764"><span id="local-6989586621679979766"><span class="annot"><span class="annottext">Value -&gt; Parser [HlsProgramDateTime]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679979773"><span id="local-6989586621679979775"><span class="annot"><span class="annottext">Value -&gt; Parser [HlsProgramDateTime]
 Value -&gt; Parser HlsProgramDateTime
 (Value -&gt; Parser HlsProgramDateTime)
 -&gt; (Value -&gt; Parser [HlsProgramDateTime])
@@ -206,7 +206,7 @@ $cparseJSONList :: Value -&gt; Parser [HlsProgramDateTime]
 parseJSON :: Value -&gt; Parser HlsProgramDateTime
 $cparseJSON :: Value -&gt; Parser HlsProgramDateTime
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679979759"><span id="local-6989586621679979761"><span class="annot"><span class="annottext">FromJSONKeyFunction [HlsProgramDateTime]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679979768"><span id="local-6989586621679979770"><span class="annot"><span class="annottext">FromJSONKeyFunction [HlsProgramDateTime]
 FromJSONKeyFunction HlsProgramDateTime
 FromJSONKeyFunction HlsProgramDateTime
 -&gt; FromJSONKeyFunction [HlsProgramDateTime]
@@ -218,7 +218,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [HlsProgramDateTime]
 fromJSONKey :: FromJSONKeyFunction HlsProgramDateTime
 $cfromJSONKey :: FromJSONKeyFunction HlsProgramDateTime
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679979750"><span id="local-6989586621679979752"><span id="local-6989586621679979754"><span id="local-6989586621679979756"><span class="annot"><span class="annottext">[HlsProgramDateTime] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679979759"><span id="local-6989586621679979761"><span id="local-6989586621679979763"><span id="local-6989586621679979765"><span class="annot"><span class="annottext">[HlsProgramDateTime] -&gt; Encoding
 [HlsProgramDateTime] -&gt; Value
 HlsProgramDateTime -&gt; Encoding
 HlsProgramDateTime -&gt; Value
@@ -242,7 +242,7 @@ $ctoEncoding :: HlsProgramDateTime -&gt; Encoding
 toJSON :: HlsProgramDateTime -&gt; Value
 $ctoJSON :: HlsProgramDateTime -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679979745"><span id="local-6989586621679979747"><span class="annot"><span class="annottext">ToJSONKeyFunction [HlsProgramDateTime]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679979754"><span id="local-6989586621679979756"><span class="annot"><span class="annottext">ToJSONKeyFunction [HlsProgramDateTime]
 ToJSONKeyFunction HlsProgramDateTime
 ToJSONKeyFunction HlsProgramDateTime
 -&gt; ToJSONKeyFunction [HlsProgramDateTime]
@@ -254,14 +254,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [HlsProgramDateTime]
 toJSONKey :: ToJSONKeyFunction HlsProgramDateTime
 $ctoJSONKey :: ToJSONKeyFunction HlsProgramDateTime
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679979742"><span class="annot"><span class="annottext">[Node] -&gt; Either String HlsProgramDateTime
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679979751"><span class="annot"><span class="annottext">[Node] -&gt; Either String HlsProgramDateTime
 ([Node] -&gt; Either String HlsProgramDateTime)
 -&gt; FromXML HlsProgramDateTime
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String HlsProgramDateTime
 $cparseXML :: [Node] -&gt; Either String HlsProgramDateTime
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679979739"><span class="annot"><span class="annottext">HlsProgramDateTime -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679979748"><span class="annot"><span class="annottext">HlsProgramDateTime -&gt; XML
 (HlsProgramDateTime -&gt; XML) -&gt; ToXML HlsProgramDateTime
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: HlsProgramDateTime -&gt; XML

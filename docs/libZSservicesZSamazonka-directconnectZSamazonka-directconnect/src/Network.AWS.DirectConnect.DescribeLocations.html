@@ -46,10 +46,10 @@
 </span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-47"></span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newDescribeLocations' smart constructor.</span><span>
-</span><span id="line-49"></span><span id="local-6989586621679295769"><span id="local-6989586621679295770"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeLocations"><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLocations.html#DescribeLocations"><span class="hs-identifier hs-var">DescribeLocations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeLocations%27"><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLocations.html#DescribeLocations%27"><span class="hs-identifier hs-var">DescribeLocations'</span></a></span></span><span>
+</span><span id="line-49"></span><span id="local-6989586621679295778"><span id="local-6989586621679295779"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeLocations"><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLocations.html#DescribeLocations"><span class="hs-identifier hs-var">DescribeLocations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeLocations%27"><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLocations.html#DescribeLocations%27"><span class="hs-identifier hs-var">DescribeLocations'</span></a></span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679295764"><span id="local-6989586621679295766"><span class="annot"><span class="annottext">DescribeLocations -&gt; DescribeLocations -&gt; Bool
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679295773"><span id="local-6989586621679295775"><span class="annot"><span class="annottext">DescribeLocations -&gt; DescribeLocations -&gt; Bool
 (DescribeLocations -&gt; DescribeLocations -&gt; Bool)
 -&gt; (DescribeLocations -&gt; DescribeLocations -&gt; Bool)
 -&gt; Eq DescribeLocations
@@ -58,7 +58,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeLocations -&gt; DescribeLocations -&gt; Bool
 == :: DescribeLocations -&gt; DescribeLocations -&gt; Bool
 $c== :: DescribeLocations -&gt; DescribeLocations -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295755"><span id="local-6989586621679295757"><span id="local-6989586621679295759"><span id="local-6989586621679295761"><span class="annot"><span class="annottext">ReadPrec [DescribeLocations]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295764"><span id="local-6989586621679295766"><span id="local-6989586621679295768"><span id="local-6989586621679295770"><span class="annot"><span class="annottext">ReadPrec [DescribeLocations]
 ReadPrec DescribeLocations
 Int -&gt; ReadS DescribeLocations
 ReadS [DescribeLocations]
@@ -78,7 +78,7 @@ readList :: ReadS [DescribeLocations]
 $creadList :: ReadS [DescribeLocations]
 readsPrec :: Int -&gt; ReadS DescribeLocations
 $creadsPrec :: Int -&gt; ReadS DescribeLocations
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295748"><span id="local-6989586621679295750"><span id="local-6989586621679295752"><span class="annot"><span class="annottext">Int -&gt; DescribeLocations -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295757"><span id="local-6989586621679295759"><span id="local-6989586621679295761"><span class="annot"><span class="annottext">Int -&gt; DescribeLocations -&gt; ShowS
 [DescribeLocations] -&gt; ShowS
 DescribeLocations -&gt; String
 (Int -&gt; DescribeLocations -&gt; ShowS)
@@ -118,12 +118,12 @@ $cfrom :: forall x. DescribeLocations -&gt; Rep DescribeLocations x
 </span><span id="line-63"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-64"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLocations.html#DescribeLocations"><span class="hs-identifier hs-type">DescribeLocations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>      </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLocations.html#DescribeLocationsResponse"><span class="hs-identifier hs-type">DescribeLocationsResponse</span></a></span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679295740"><span class="annot"><span class="annottext">request :: DescribeLocations -&gt; Request DescribeLocations
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679295749"><span class="annot"><span class="annottext">request :: DescribeLocations -&gt; Request DescribeLocations
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeLocations -&gt; Request DescribeLocations
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DirectConnect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679295736"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679295745"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeLocations
 -&gt; ClientResponse ClientBody
@@ -149,10 +149,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679295733"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679295733"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679295732"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679295732"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679295731"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679295731"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679295742"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679295742"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679295741"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679295741"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679295740"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679295740"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Location] -&gt; Int -&gt; DescribeLocationsResponse
 </span><a href="Network.AWS.DirectConnect.DescribeLocations.html#DescribeLocationsResponse%27"><span class="hs-identifier hs-var">DescribeLocationsResponse'</span></a></span><span>
 </span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Location] -&gt; Int -&gt; DescribeLocationsResponse)
@@ -160,7 +160,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DescribeLocationsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679295731"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Location]))
+</span><a href="#local-6989586621679295740"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Location]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;locations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Location]))
@@ -177,15 +177,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679295733"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679295742"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295722"><span id="local-6989586621679295724"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLocations.html#DescribeLocations"><span class="hs-identifier hs-type">DescribeLocations</span></a></span></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295731"><span id="local-6989586621679295733"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLocations.html#DescribeLocations"><span class="hs-identifier hs-type">DescribeLocations</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295719"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLocations.html#DescribeLocations"><span class="hs-identifier hs-type">DescribeLocations</span></a></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295728"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLocations.html#DescribeLocations"><span class="hs-identifier hs-type">DescribeLocations</span></a></span></span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLocations.html#DescribeLocations"><span class="hs-identifier hs-type">DescribeLocations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679295715"><span class="annot"><span class="annottext">toHeaders :: DescribeLocations -&gt; ResponseHeaders
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679295724"><span class="annot"><span class="annottext">toHeaders :: DescribeLocations -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeLocations -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -212,8 +212,8 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-91"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295705"><span id="local-6989586621679295707"><span id="local-6989586621679295709"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLocations.html#DescribeLocations"><span class="hs-identifier hs-type">DescribeLocations</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679295703"><span class="annot"><span class="annottext">toJSON :: DescribeLocations -&gt; Value
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295714"><span id="local-6989586621679295716"><span id="local-6989586621679295718"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLocations.html#DescribeLocations"><span class="hs-identifier hs-type">DescribeLocations</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679295712"><span class="annot"><span class="annottext">toJSON :: DescribeLocations -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; DescribeLocations -&gt; Value
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
@@ -222,14 +222,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLocations.html#DescribeLocations"><span class="hs-identifier hs-type">DescribeLocations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679295698"><span class="annot"><span class="annottext">toPath :: DescribeLocations -&gt; ByteString
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679295707"><span class="annot"><span class="annottext">toPath :: DescribeLocations -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeLocations -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLocations.html#DescribeLocations"><span class="hs-identifier hs-type">DescribeLocations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679295694"><span class="annot"><span class="annottext">toQuery :: DescribeLocations -&gt; QueryString
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679295703"><span class="annot"><span class="annottext">toQuery :: DescribeLocations -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeLocations -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -237,7 +237,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | /See:/ 'newDescribeLocationsResponse' smart constructor.</span><span>
-</span><span id="line-104"></span><span id="local-6989586621679295691"><span id="local-6989586621679295692"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeLocationsResponse"><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLocations.html#DescribeLocationsResponse"><span class="hs-identifier hs-var">DescribeLocationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeLocationsResponse%27"><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLocations.html#DescribeLocationsResponse%27"><span class="hs-identifier hs-var">DescribeLocationsResponse'</span></a></span></span><span>
+</span><span id="line-104"></span><span id="local-6989586621679295700"><span id="local-6989586621679295701"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeLocationsResponse"><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLocations.html#DescribeLocationsResponse"><span class="hs-identifier hs-var">DescribeLocationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeLocationsResponse%27"><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLocations.html#DescribeLocationsResponse%27"><span class="hs-identifier hs-var">DescribeLocationsResponse'</span></a></span></span><span>
 </span><span id="line-105"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The locations.</span><span>
 </span><span id="line-106"></span><span>    </span><span id="%24sel%3Alocations%3ADescribeLocationsResponse%27"><span class="annot"><span class="annottext">DescribeLocationsResponse -&gt; Maybe [Location]
 </span><a href="Network.AWS.DirectConnect.DescribeLocations.html#%24sel%3Alocations%3ADescribeLocationsResponse%27"><span class="hs-identifier hs-var hs-var">locations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.Location.html#Location"><span class="hs-identifier hs-type">Location</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -245,7 +245,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-108"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeLocationsResponse%27"><span class="annot"><span class="annottext">DescribeLocationsResponse -&gt; Int
 </span><a href="Network.AWS.DirectConnect.DescribeLocations.html#%24sel%3AhttpStatus%3ADescribeLocationsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-109"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-110"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679295685"><span id="local-6989586621679295687"><span class="annot"><span class="annottext">DescribeLocationsResponse -&gt; DescribeLocationsResponse -&gt; Bool
+</span><span id="line-110"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679295694"><span id="local-6989586621679295696"><span class="annot"><span class="annottext">DescribeLocationsResponse -&gt; DescribeLocationsResponse -&gt; Bool
 (DescribeLocationsResponse -&gt; DescribeLocationsResponse -&gt; Bool)
 -&gt; (DescribeLocationsResponse -&gt; DescribeLocationsResponse -&gt; Bool)
 -&gt; Eq DescribeLocationsResponse
@@ -254,7 +254,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeLocationsResponse -&gt; DescribeLocationsResponse -&gt; Bool
 == :: DescribeLocationsResponse -&gt; DescribeLocationsResponse -&gt; Bool
 $c== :: DescribeLocationsResponse -&gt; DescribeLocationsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295677"><span id="local-6989586621679295679"><span id="local-6989586621679295681"><span id="local-6989586621679295683"><span class="annot"><span class="annottext">ReadPrec [DescribeLocationsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295686"><span id="local-6989586621679295688"><span id="local-6989586621679295690"><span id="local-6989586621679295692"><span class="annot"><span class="annottext">ReadPrec [DescribeLocationsResponse]
 ReadPrec DescribeLocationsResponse
 Int -&gt; ReadS DescribeLocationsResponse
 ReadS [DescribeLocationsResponse]
@@ -274,7 +274,7 @@ readList :: ReadS [DescribeLocationsResponse]
 $creadList :: ReadS [DescribeLocationsResponse]
 readsPrec :: Int -&gt; ReadS DescribeLocationsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeLocationsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295671"><span id="local-6989586621679295673"><span id="local-6989586621679295675"><span class="annot"><span class="annottext">Int -&gt; DescribeLocationsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295680"><span id="local-6989586621679295682"><span id="local-6989586621679295684"><span class="annot"><span class="annottext">Int -&gt; DescribeLocationsResponse -&gt; ShowS
 [DescribeLocationsResponse] -&gt; ShowS
 DescribeLocationsResponse -&gt; String
 (Int -&gt; DescribeLocationsResponse -&gt; ShowS)
@@ -322,8 +322,8 @@ DescribeLocationsResponse -&gt; Rep DescribeLocationsResponse x
 </span><span id="line-125"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-126"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLocations.html#DescribeLocationsResponse"><span class="hs-identifier hs-type">DescribeLocationsResponse</span></a></span><span>
 </span><span id="line-127"></span><span id="newDescribeLocationsResponse"><span class="annot"><span class="annottext">newDescribeLocationsResponse :: Int -&gt; DescribeLocationsResponse
-</span><a href="Network.AWS.DirectConnect.DescribeLocations.html#newDescribeLocationsResponse"><span class="hs-identifier hs-var hs-var">newDescribeLocationsResponse</span></a></span></span><span> </span><span id="local-6989586621679295668"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679295668"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DirectConnect.DescribeLocations.html#newDescribeLocationsResponse"><span class="hs-identifier hs-var hs-var">newDescribeLocationsResponse</span></a></span></span><span> </span><span id="local-6989586621679295677"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679295677"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>  </span><span class="annot"><span class="annottext">DescribeLocationsResponse' :: Maybe [Location] -&gt; Int -&gt; DescribeLocationsResponse
 </span><a href="Network.AWS.DirectConnect.DescribeLocations.html#DescribeLocationsResponse%27"><span class="hs-identifier hs-type">DescribeLocationsResponse'</span></a></span><span>
 </span><span id="line-129"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:locations:DescribeLocationsResponse' :: Maybe [Location]
@@ -333,7 +333,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeLocationsResponse' :: Int
 </span><a href="Network.AWS.DirectConnect.DescribeLocations.html#%24sel%3AhttpStatus%3ADescribeLocationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679295668"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679295677"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-132"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- | The locations.</span><span>
@@ -349,16 +349,16 @@ forall a. Maybe a
      (Maybe [Location])
      (Maybe [Location])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLocations.html#DescribeLocationsResponse%27"><span class="hs-identifier hs-type">DescribeLocationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295665"><span class="annot"><span class="annottext">Maybe [Location]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLocations.html#DescribeLocationsResponse%27"><span class="hs-identifier hs-type">DescribeLocationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295674"><span class="annot"><span class="annottext">Maybe [Location]
 locations :: Maybe [Location]
 $sel:locations:DescribeLocationsResponse' :: DescribeLocationsResponse -&gt; Maybe [Location]
-</span><a href="#local-6989586621679295665"><span class="hs-identifier hs-var hs-var">locations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Location]
-</span><a href="#local-6989586621679295665"><span class="hs-identifier hs-var">locations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295664"><span class="annot"><span class="annottext">s :: DescribeLocationsResponse
-</span><a href="#local-6989586621679295664"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLocations.html#DescribeLocationsResponse%27"><span class="hs-identifier hs-type">DescribeLocationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295663"><span class="annot"><span class="annottext">Maybe [Location]
-</span><a href="#local-6989586621679295663"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLocationsResponse
-</span><a href="#local-6989586621679295664"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:locations:DescribeLocationsResponse' :: Maybe [Location]
+</span><a href="#local-6989586621679295674"><span class="hs-identifier hs-var hs-var">locations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Location]
+</span><a href="#local-6989586621679295674"><span class="hs-identifier hs-var">locations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295673"><span class="annot"><span class="annottext">s :: DescribeLocationsResponse
+</span><a href="#local-6989586621679295673"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLocations.html#DescribeLocationsResponse%27"><span class="hs-identifier hs-type">DescribeLocationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295672"><span class="annot"><span class="annottext">Maybe [Location]
+</span><a href="#local-6989586621679295672"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLocationsResponse
+</span><a href="#local-6989586621679295673"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:locations:DescribeLocationsResponse' :: Maybe [Location]
 </span><a href="Network.AWS.DirectConnect.DescribeLocations.html#%24sel%3Alocations%3ADescribeLocationsResponse%27"><span class="hs-identifier hs-var">locations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Location]
-</span><a href="#local-6989586621679295663"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLocations.html#DescribeLocationsResponse"><span class="hs-identifier hs-type">DescribeLocationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Location] -&gt; f (Maybe [Location]))
+</span><a href="#local-6989586621679295672"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLocations.html#DescribeLocationsResponse"><span class="hs-identifier hs-type">DescribeLocationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Location] -&gt; f (Maybe [Location]))
  -&gt; DescribeLocationsResponse -&gt; f DescribeLocationsResponse)
 -&gt; ((Maybe [Location] -&gt; f (Maybe [Location]))
     -&gt; Maybe [Location] -&gt; f (Maybe [Location]))
@@ -387,16 +387,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (DescribeLocationsResponse -&gt; Int -&gt; DescribeLocationsResponse)
 -&gt; Lens DescribeLocationsResponse DescribeLocationsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLocations.html#DescribeLocationsResponse%27"><span class="hs-identifier hs-type">DescribeLocationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295659"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLocations.html#DescribeLocationsResponse%27"><span class="hs-identifier hs-type">DescribeLocationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295668"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeLocationsResponse' :: DescribeLocationsResponse -&gt; Int
-</span><a href="#local-6989586621679295659"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679295659"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295658"><span class="annot"><span class="annottext">s :: DescribeLocationsResponse
-</span><a href="#local-6989586621679295658"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLocations.html#DescribeLocationsResponse%27"><span class="hs-identifier hs-type">DescribeLocationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295657"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679295657"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLocationsResponse
-</span><a href="#local-6989586621679295658"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeLocationsResponse' :: Int
+</span><a href="#local-6989586621679295668"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679295668"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295667"><span class="annot"><span class="annottext">s :: DescribeLocationsResponse
+</span><a href="#local-6989586621679295667"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLocations.html#DescribeLocationsResponse%27"><span class="hs-identifier hs-type">DescribeLocationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295666"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679295666"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLocationsResponse
+</span><a href="#local-6989586621679295667"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeLocationsResponse' :: Int
 </span><a href="Network.AWS.DirectConnect.DescribeLocations.html#%24sel%3AhttpStatus%3ADescribeLocationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679295657"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLocations.html#DescribeLocationsResponse"><span class="hs-identifier hs-type">DescribeLocationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679295666"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLocations.html#DescribeLocationsResponse"><span class="hs-identifier hs-type">DescribeLocationsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295655"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLocations.html#DescribeLocationsResponse"><span class="hs-identifier hs-type">DescribeLocationsResponse</span></a></span></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295664"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLocations.html#DescribeLocationsResponse"><span class="hs-identifier hs-type">DescribeLocationsResponse</span></a></span></span><span>
 </span><span id="line-143"></span></pre></body></html>

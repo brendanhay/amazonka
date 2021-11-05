@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes the FPGAs for the instance type.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newFpgaInfo' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621681110381"><span id="local-6989586621681110382"></span></span><span class="hs-keyword">data</span><span> </span><span id="FpgaInfo"><span class="annot"><a href="Network.AWS.EC2.Types.FpgaInfo.html#FpgaInfo"><span class="hs-identifier hs-var">FpgaInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FpgaInfo%27"><span class="annot"><a href="Network.AWS.EC2.Types.FpgaInfo.html#FpgaInfo%27"><span class="hs-identifier hs-var">FpgaInfo'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621681110390"><span id="local-6989586621681110391"></span></span><span class="hs-keyword">data</span><span> </span><span id="FpgaInfo"><span class="annot"><a href="Network.AWS.EC2.Types.FpgaInfo.html#FpgaInfo"><span class="hs-identifier hs-var">FpgaInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FpgaInfo%27"><span class="annot"><a href="Network.AWS.EC2.Types.FpgaInfo.html#FpgaInfo%27"><span class="hs-identifier hs-var">FpgaInfo'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The total memory of all FPGA accelerators for the instance type.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AtotalFpgaMemoryInMiB%3AFpgaInfo%27"><span class="annot"><span class="annottext">FpgaInfo -&gt; Maybe Int
 </span><a href="Network.AWS.EC2.Types.FpgaInfo.html#%24sel%3AtotalFpgaMemoryInMiB%3AFpgaInfo%27"><span class="hs-identifier hs-var hs-var">totalFpgaMemoryInMiB</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Afpgas%3AFpgaInfo%27"><span class="annot"><span class="annottext">FpgaInfo -&gt; Maybe [FpgaDeviceInfo]
 </span><a href="Network.AWS.EC2.Types.FpgaInfo.html#%24sel%3Afpgas%3AFpgaInfo%27"><span class="hs-identifier hs-var hs-var">fpgas</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#FpgaDeviceInfo"><span class="hs-identifier hs-type">FpgaDeviceInfo</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681110374"><span id="local-6989586621681110376"><span class="annot"><span class="annottext">FpgaInfo -&gt; FpgaInfo -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681110383"><span id="local-6989586621681110385"><span class="annot"><span class="annottext">FpgaInfo -&gt; FpgaInfo -&gt; Bool
 (FpgaInfo -&gt; FpgaInfo -&gt; Bool)
 -&gt; (FpgaInfo -&gt; FpgaInfo -&gt; Bool) -&gt; Eq FpgaInfo
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: FpgaInfo -&gt; FpgaInfo -&gt; Bool
 == :: FpgaInfo -&gt; FpgaInfo -&gt; Bool
 $c== :: FpgaInfo -&gt; FpgaInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681110365"><span id="local-6989586621681110367"><span id="local-6989586621681110369"><span id="local-6989586621681110371"><span class="annot"><span class="annottext">ReadPrec [FpgaInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681110374"><span id="local-6989586621681110376"><span id="local-6989586621681110378"><span id="local-6989586621681110380"><span class="annot"><span class="annottext">ReadPrec [FpgaInfo]
 ReadPrec FpgaInfo
 Int -&gt; ReadS FpgaInfo
 ReadS [FpgaInfo]
@@ -64,7 +64,7 @@ readList :: ReadS [FpgaInfo]
 $creadList :: ReadS [FpgaInfo]
 readsPrec :: Int -&gt; ReadS FpgaInfo
 $creadsPrec :: Int -&gt; ReadS FpgaInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681110358"><span id="local-6989586621681110360"><span id="local-6989586621681110362"><span class="annot"><span class="annottext">Int -&gt; FpgaInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681110367"><span id="local-6989586621681110369"><span id="local-6989586621681110371"><span class="annot"><span class="annottext">Int -&gt; FpgaInfo -&gt; ShowS
 [FpgaInfo] -&gt; ShowS
 FpgaInfo -&gt; String
 (Int -&gt; FpgaInfo -&gt; ShowS)
@@ -121,16 +121,16 @@ forall a. Maybe a
 -&gt; (FpgaInfo -&gt; Maybe Int -&gt; FpgaInfo)
 -&gt; Lens FpgaInfo FpgaInfo (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaInfo.html#FpgaInfo%27"><span class="hs-identifier hs-type">FpgaInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681110349"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaInfo.html#FpgaInfo%27"><span class="hs-identifier hs-type">FpgaInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681110358"><span class="annot"><span class="annottext">Maybe Int
 totalFpgaMemoryInMiB :: Maybe Int
 $sel:totalFpgaMemoryInMiB:FpgaInfo' :: FpgaInfo -&gt; Maybe Int
-</span><a href="#local-6989586621681110349"><span class="hs-identifier hs-var hs-var">totalFpgaMemoryInMiB</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681110349"><span class="hs-identifier hs-var">totalFpgaMemoryInMiB</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681110348"><span class="annot"><span class="annottext">s :: FpgaInfo
-</span><a href="#local-6989586621681110348"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaInfo.html#FpgaInfo%27"><span class="hs-identifier hs-type">FpgaInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681110347"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681110347"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FpgaInfo
-</span><a href="#local-6989586621681110348"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalFpgaMemoryInMiB:FpgaInfo' :: Maybe Int
+</span><a href="#local-6989586621681110358"><span class="hs-identifier hs-var hs-var">totalFpgaMemoryInMiB</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681110358"><span class="hs-identifier hs-var">totalFpgaMemoryInMiB</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681110357"><span class="annot"><span class="annottext">s :: FpgaInfo
+</span><a href="#local-6989586621681110357"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaInfo.html#FpgaInfo%27"><span class="hs-identifier hs-type">FpgaInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681110356"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681110356"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FpgaInfo
+</span><a href="#local-6989586621681110357"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalFpgaMemoryInMiB:FpgaInfo' :: Maybe Int
 </span><a href="Network.AWS.EC2.Types.FpgaInfo.html#%24sel%3AtotalFpgaMemoryInMiB%3AFpgaInfo%27"><span class="hs-identifier hs-var">totalFpgaMemoryInMiB</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681110347"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaInfo.html#FpgaInfo"><span class="hs-identifier hs-type">FpgaInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681110356"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaInfo.html#FpgaInfo"><span class="hs-identifier hs-type">FpgaInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | Describes the FPGAs for the instance type.</span><span>
 </span><span id="line-63"></span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaInfo.html#fpgaInfo_fpgas"><span class="hs-identifier hs-type">fpgaInfo_fpgas</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaInfo.html#FpgaInfo"><span class="hs-identifier hs-type">FpgaInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaDeviceInfo.html#FpgaDeviceInfo"><span class="hs-identifier hs-type">FpgaDeviceInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -141,16 +141,16 @@ $sel:totalFpgaMemoryInMiB:FpgaInfo' :: FpgaInfo -&gt; Maybe Int
 -&gt; Lens
      FpgaInfo FpgaInfo (Maybe [FpgaDeviceInfo]) (Maybe [FpgaDeviceInfo])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaInfo.html#FpgaInfo%27"><span class="hs-identifier hs-type">FpgaInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681110345"><span class="annot"><span class="annottext">Maybe [FpgaDeviceInfo]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaInfo.html#FpgaInfo%27"><span class="hs-identifier hs-type">FpgaInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681110354"><span class="annot"><span class="annottext">Maybe [FpgaDeviceInfo]
 fpgas :: Maybe [FpgaDeviceInfo]
 $sel:fpgas:FpgaInfo' :: FpgaInfo -&gt; Maybe [FpgaDeviceInfo]
-</span><a href="#local-6989586621681110345"><span class="hs-identifier hs-var hs-var">fpgas</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FpgaDeviceInfo]
-</span><a href="#local-6989586621681110345"><span class="hs-identifier hs-var">fpgas</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681110344"><span class="annot"><span class="annottext">s :: FpgaInfo
-</span><a href="#local-6989586621681110344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaInfo.html#FpgaInfo%27"><span class="hs-identifier hs-type">FpgaInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681110343"><span class="annot"><span class="annottext">Maybe [FpgaDeviceInfo]
-</span><a href="#local-6989586621681110343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FpgaInfo
-</span><a href="#local-6989586621681110344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fpgas:FpgaInfo' :: Maybe [FpgaDeviceInfo]
+</span><a href="#local-6989586621681110354"><span class="hs-identifier hs-var hs-var">fpgas</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FpgaDeviceInfo]
+</span><a href="#local-6989586621681110354"><span class="hs-identifier hs-var">fpgas</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681110353"><span class="annot"><span class="annottext">s :: FpgaInfo
+</span><a href="#local-6989586621681110353"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaInfo.html#FpgaInfo%27"><span class="hs-identifier hs-type">FpgaInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681110352"><span class="annot"><span class="annottext">Maybe [FpgaDeviceInfo]
+</span><a href="#local-6989586621681110352"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FpgaInfo
+</span><a href="#local-6989586621681110353"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fpgas:FpgaInfo' :: Maybe [FpgaDeviceInfo]
 </span><a href="Network.AWS.EC2.Types.FpgaInfo.html#%24sel%3Afpgas%3AFpgaInfo%27"><span class="hs-identifier hs-var">fpgas</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FpgaDeviceInfo]
-</span><a href="#local-6989586621681110343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaInfo.html#FpgaInfo"><span class="hs-identifier hs-type">FpgaInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FpgaDeviceInfo] -&gt; f (Maybe [FpgaDeviceInfo]))
+</span><a href="#local-6989586621681110352"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaInfo.html#FpgaInfo"><span class="hs-identifier hs-type">FpgaInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FpgaDeviceInfo] -&gt; f (Maybe [FpgaDeviceInfo]))
  -&gt; FpgaInfo -&gt; f FpgaInfo)
 -&gt; ((Maybe [FpgaDeviceInfo] -&gt; f (Maybe [FpgaDeviceInfo]))
     -&gt; Maybe [FpgaDeviceInfo] -&gt; f (Maybe [FpgaDeviceInfo]))
@@ -174,9 +174,9 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaInfo.html#FpgaInfo"><span class="hs-identifier hs-type">FpgaInfo</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621681110337"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String FpgaInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681110335"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681110335"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621681110346"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String FpgaInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681110344"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681110344"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">Maybe Int -&gt; Maybe [FpgaDeviceInfo] -&gt; FpgaInfo
 </span><a href="Network.AWS.EC2.Types.FpgaInfo.html#FpgaInfo%27"><span class="hs-identifier hs-var">FpgaInfo'</span></a></span><span>
 </span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Int -&gt; Maybe [FpgaDeviceInfo] -&gt; FpgaInfo)
@@ -184,7 +184,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Either String (Maybe [FpgaDeviceInfo] -&gt; FpgaInfo)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681110335"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621681110344"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;totalFpgaMemoryInMiB&quot;</span></span><span class="hs-special">)</span><span>
@@ -192,7 +192,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe [FpgaDeviceInfo]) -&gt; Either String FpgaInfo
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681110335"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681110344"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;fpgas&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -215,7 +215,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681110326"><span id="local-6989586621681110328"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaInfo.html#FpgaInfo"><span class="hs-identifier hs-type">FpgaInfo</span></a></span></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681110335"><span id="local-6989586621681110337"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaInfo.html#FpgaInfo"><span class="hs-identifier hs-type">FpgaInfo</span></a></span></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681110323"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaInfo.html#FpgaInfo"><span class="hs-identifier hs-type">FpgaInfo</span></a></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681110332"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FpgaInfo.html#FpgaInfo"><span class="hs-identifier hs-type">FpgaInfo</span></a></span></span><span>
 </span><span id="line-77"></span></pre></body></html>

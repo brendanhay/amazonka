@@ -58,7 +58,7 @@
 </span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.html"><span class="hs-identifier">Network.AWS.WAFRegional.Types</span></a></span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newListIPSets' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621679316800"><span id="local-6989586621679316801"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListIPSets"><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSets"><span class="hs-identifier hs-var">ListIPSets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListIPSets%27"><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSets%27"><span class="hs-identifier hs-var">ListIPSets'</span></a></span></span><span>
+</span><span id="line-61"></span><span id="local-6989586621679316809"><span id="local-6989586621679316810"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListIPSets"><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSets"><span class="hs-identifier hs-var">ListIPSets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListIPSets%27"><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSets%27"><span class="hs-identifier hs-var">ListIPSets'</span></a></span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | AWS WAF returns a @NextMarker@ value in the response that allows you to</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- list another group of @IPSets@. For the second and subsequent</span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">-- @ListIPSets@ requests, specify the value of @NextMarker@ from the</span><span>
@@ -72,7 +72,7 @@
 </span><span id="line-71"></span><span>    </span><span id="%24sel%3Alimit%3AListIPSets%27"><span class="annot"><span class="annottext">ListIPSets -&gt; Maybe Natural
 </span><a href="Network.AWS.WAFRegional.ListIPSets.html#%24sel%3Alimit%3AListIPSets%27"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679316793"><span id="local-6989586621679316795"><span class="annot"><span class="annottext">ListIPSets -&gt; ListIPSets -&gt; Bool
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679316802"><span id="local-6989586621679316804"><span class="annot"><span class="annottext">ListIPSets -&gt; ListIPSets -&gt; Bool
 (ListIPSets -&gt; ListIPSets -&gt; Bool)
 -&gt; (ListIPSets -&gt; ListIPSets -&gt; Bool) -&gt; Eq ListIPSets
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -80,7 +80,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListIPSets -&gt; ListIPSets -&gt; Bool
 == :: ListIPSets -&gt; ListIPSets -&gt; Bool
 $c== :: ListIPSets -&gt; ListIPSets -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316784"><span id="local-6989586621679316786"><span id="local-6989586621679316788"><span id="local-6989586621679316790"><span class="annot"><span class="annottext">ReadPrec [ListIPSets]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316793"><span id="local-6989586621679316795"><span id="local-6989586621679316797"><span id="local-6989586621679316799"><span class="annot"><span class="annottext">ReadPrec [ListIPSets]
 ReadPrec ListIPSets
 Int -&gt; ReadS ListIPSets
 ReadS [ListIPSets]
@@ -100,7 +100,7 @@ readList :: ReadS [ListIPSets]
 $creadList :: ReadS [ListIPSets]
 readsPrec :: Int -&gt; ReadS ListIPSets
 $creadsPrec :: Int -&gt; ReadS ListIPSets
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316777"><span id="local-6989586621679316779"><span id="local-6989586621679316781"><span class="annot"><span class="annottext">Int -&gt; ListIPSets -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316786"><span id="local-6989586621679316788"><span id="local-6989586621679316790"><span class="annot"><span class="annottext">Int -&gt; ListIPSets -&gt; ShowS
 [ListIPSets] -&gt; ShowS
 ListIPSets -&gt; String
 (Int -&gt; ListIPSets -&gt; ShowS)
@@ -168,16 +168,16 @@ forall a. Maybe a
 -&gt; (ListIPSets -&gt; Maybe Text -&gt; ListIPSets)
 -&gt; Lens ListIPSets ListIPSets (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSets%27"><span class="hs-identifier hs-type">ListIPSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316770"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSets%27"><span class="hs-identifier hs-type">ListIPSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316779"><span class="annot"><span class="annottext">Maybe Text
 nextMarker :: Maybe Text
 $sel:nextMarker:ListIPSets' :: ListIPSets -&gt; Maybe Text
-</span><a href="#local-6989586621679316770"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316770"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316769"><span class="annot"><span class="annottext">s :: ListIPSets
-</span><a href="#local-6989586621679316769"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSets%27"><span class="hs-identifier hs-type">ListIPSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316768"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316768"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListIPSets
-</span><a href="#local-6989586621679316769"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListIPSets' :: Maybe Text
+</span><a href="#local-6989586621679316779"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316779"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316778"><span class="annot"><span class="annottext">s :: ListIPSets
+</span><a href="#local-6989586621679316778"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSets%27"><span class="hs-identifier hs-type">ListIPSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316777"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316777"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListIPSets
+</span><a href="#local-6989586621679316778"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListIPSets' :: Maybe Text
 </span><a href="Network.AWS.WAFRegional.ListIPSets.html#%24sel%3AnextMarker%3AListIPSets%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316768"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSets"><span class="hs-identifier hs-type">ListIPSets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316777"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSets"><span class="hs-identifier hs-type">ListIPSets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | Specifies the number of @IPSet@ objects that you want AWS WAF to return</span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- for this request. If you have more @IPSet@ objects than the number you</span><span>
@@ -189,25 +189,25 @@ $sel:nextMarker:ListIPSets' :: ListIPSets -&gt; Maybe Text
 -&gt; (ListIPSets -&gt; Maybe Natural -&gt; ListIPSets)
 -&gt; Lens ListIPSets ListIPSets (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSets%27"><span class="hs-identifier hs-type">ListIPSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316767"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSets%27"><span class="hs-identifier hs-type">ListIPSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316776"><span class="annot"><span class="annottext">Maybe Natural
 limit :: Maybe Natural
 $sel:limit:ListIPSets' :: ListIPSets -&gt; Maybe Natural
-</span><a href="#local-6989586621679316767"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679316767"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316766"><span class="annot"><span class="annottext">s :: ListIPSets
-</span><a href="#local-6989586621679316766"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSets%27"><span class="hs-identifier hs-type">ListIPSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316765"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679316765"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListIPSets
-</span><a href="#local-6989586621679316766"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListIPSets' :: Maybe Natural
+</span><a href="#local-6989586621679316776"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679316776"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316775"><span class="annot"><span class="annottext">s :: ListIPSets
+</span><a href="#local-6989586621679316775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSets%27"><span class="hs-identifier hs-type">ListIPSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316774"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679316774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListIPSets
+</span><a href="#local-6989586621679316775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListIPSets' :: Maybe Natural
 </span><a href="Network.AWS.WAFRegional.ListIPSets.html#%24sel%3Alimit%3AListIPSets%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679316765"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSets"><span class="hs-identifier hs-type">ListIPSets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSets"><span class="hs-identifier hs-type">ListIPSets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSets"><span class="hs-identifier hs-type">ListIPSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-115"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSets"><span class="hs-identifier hs-type">ListIPSets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSetsResponse"><span class="hs-identifier hs-type">ListIPSetsResponse</span></a></span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679316761"><span class="annot"><span class="annottext">request :: ListIPSets -&gt; Request ListIPSets
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679316770"><span class="annot"><span class="annottext">request :: ListIPSets -&gt; Request ListIPSets
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListIPSets -&gt; Request ListIPSets
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.WAFRegional.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679316757"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679316766"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListIPSets
 -&gt; ClientResponse ClientBody
@@ -231,10 +231,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679316754"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679316754"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679316753"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679316753"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679316752"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679316752"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679316763"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679316763"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679316762"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679316762"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679316761"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679316761"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [IPSetSummary] -&gt; Int -&gt; ListIPSetsResponse
 </span><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSetsResponse%27"><span class="hs-identifier hs-var">ListIPSetsResponse'</span></a></span><span>
 </span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [IPSetSummary] -&gt; Int -&gt; ListIPSetsResponse)
@@ -243,7 +243,7 @@ MonadResource m =&gt;
      String (Maybe [IPSetSummary] -&gt; Int -&gt; ListIPSetsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679316752"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679316761"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextMarker&quot;</span></span><span class="hs-special">)</span><span>
@@ -252,7 +252,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListIPSetsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679316752"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [IPSetSummary]))
+</span><a href="#local-6989586621679316761"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [IPSetSummary]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IPSets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [IPSetSummary]))
@@ -269,15 +269,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679316754"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316763"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316743"><span id="local-6989586621679316745"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSets"><span class="hs-identifier hs-type">ListIPSets</span></a></span></span></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316752"><span id="local-6989586621679316754"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSets"><span class="hs-identifier hs-type">ListIPSets</span></a></span></span></span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316740"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSets"><span class="hs-identifier hs-type">ListIPSets</span></a></span></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316749"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSets"><span class="hs-identifier hs-type">ListIPSets</span></a></span></span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSets"><span class="hs-identifier hs-type">ListIPSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679316736"><span class="annot"><span class="annottext">toHeaders :: ListIPSets -&gt; ResponseHeaders
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679316745"><span class="annot"><span class="annottext">toHeaders :: ListIPSets -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListIPSets -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -304,15 +304,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-142"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316726"><span id="local-6989586621679316728"><span id="local-6989586621679316730"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSets"><span class="hs-identifier hs-type">ListIPSets</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679316724"><span class="annot"><span class="annottext">toJSON :: ListIPSets -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSets%27"><span class="hs-identifier hs-type">ListIPSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316721"><span id="local-6989586621679316722"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316735"><span id="local-6989586621679316737"><span id="local-6989586621679316739"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSets"><span class="hs-identifier hs-type">ListIPSets</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679316733"><span class="annot"><span class="annottext">toJSON :: ListIPSets -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSets%27"><span class="hs-identifier hs-type">ListIPSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316730"><span id="local-6989586621679316731"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 limit :: Maybe Natural
 nextMarker :: Maybe Text
 $sel:limit:ListIPSets' :: ListIPSets -&gt; Maybe Natural
 $sel:nextMarker:ListIPSets' :: ListIPSets -&gt; Maybe Text
-</span><a href="#local-6989586621679316721"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679316730"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-148"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -324,26 +324,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316722"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679316731"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-150"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679316721"><span class="hs-identifier hs-var">limit</span></a></span><span>
+</span><a href="#local-6989586621679316730"><span class="hs-identifier hs-var">limit</span></a></span><span>
 </span><span id="line-151"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-152"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSets"><span class="hs-identifier hs-type">ListIPSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679316715"><span class="annot"><span class="annottext">toPath :: ListIPSets -&gt; ByteString
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679316724"><span class="annot"><span class="annottext">toPath :: ListIPSets -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListIPSets -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSets"><span class="hs-identifier hs-type">ListIPSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679316711"><span class="annot"><span class="annottext">toQuery :: ListIPSets -&gt; QueryString
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679316720"><span class="annot"><span class="annottext">toQuery :: ListIPSets -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListIPSets -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -351,7 +351,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- | /See:/ 'newListIPSetsResponse' smart constructor.</span><span>
-</span><span id="line-161"></span><span id="local-6989586621679316708"><span id="local-6989586621679316709"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListIPSetsResponse"><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSetsResponse"><span class="hs-identifier hs-var">ListIPSetsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListIPSetsResponse%27"><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSetsResponse%27"><span class="hs-identifier hs-var">ListIPSetsResponse'</span></a></span></span><span>
+</span><span id="line-161"></span><span id="local-6989586621679316717"><span id="local-6989586621679316718"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListIPSetsResponse"><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSetsResponse"><span class="hs-identifier hs-var">ListIPSetsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListIPSetsResponse%27"><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSetsResponse%27"><span class="hs-identifier hs-var">ListIPSetsResponse'</span></a></span></span><span>
 </span><span id="line-162"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | To list more @IPSet@ objects, submit another @ListIPSets@ request, and</span><span>
 </span><span id="line-163"></span><span>    </span><span class="hs-comment">-- in the next request use the @NextMarker@ response value as the</span><span>
 </span><span id="line-164"></span><span>    </span><span class="hs-comment">-- @NextMarker@ value.</span><span>
@@ -364,7 +364,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-169"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListIPSetsResponse%27"><span class="annot"><span class="annottext">ListIPSetsResponse -&gt; Int
 </span><a href="Network.AWS.WAFRegional.ListIPSets.html#%24sel%3AhttpStatus%3AListIPSetsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-170"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-171"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679316701"><span id="local-6989586621679316703"><span class="annot"><span class="annottext">ListIPSetsResponse -&gt; ListIPSetsResponse -&gt; Bool
+</span><span id="line-171"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679316710"><span id="local-6989586621679316712"><span class="annot"><span class="annottext">ListIPSetsResponse -&gt; ListIPSetsResponse -&gt; Bool
 (ListIPSetsResponse -&gt; ListIPSetsResponse -&gt; Bool)
 -&gt; (ListIPSetsResponse -&gt; ListIPSetsResponse -&gt; Bool)
 -&gt; Eq ListIPSetsResponse
@@ -373,7 +373,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListIPSetsResponse -&gt; ListIPSetsResponse -&gt; Bool
 == :: ListIPSetsResponse -&gt; ListIPSetsResponse -&gt; Bool
 $c== :: ListIPSetsResponse -&gt; ListIPSetsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316693"><span id="local-6989586621679316695"><span id="local-6989586621679316697"><span id="local-6989586621679316699"><span class="annot"><span class="annottext">ReadPrec [ListIPSetsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316702"><span id="local-6989586621679316704"><span id="local-6989586621679316706"><span id="local-6989586621679316708"><span class="annot"><span class="annottext">ReadPrec [ListIPSetsResponse]
 ReadPrec ListIPSetsResponse
 Int -&gt; ReadS ListIPSetsResponse
 ReadS [ListIPSetsResponse]
@@ -393,7 +393,7 @@ readList :: ReadS [ListIPSetsResponse]
 $creadList :: ReadS [ListIPSetsResponse]
 readsPrec :: Int -&gt; ReadS ListIPSetsResponse
 $creadsPrec :: Int -&gt; ReadS ListIPSetsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316687"><span id="local-6989586621679316689"><span id="local-6989586621679316691"><span class="annot"><span class="annottext">Int -&gt; ListIPSetsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316696"><span id="local-6989586621679316698"><span id="local-6989586621679316700"><span class="annot"><span class="annottext">Int -&gt; ListIPSetsResponse -&gt; ShowS
 [ListIPSetsResponse] -&gt; ShowS
 ListIPSetsResponse -&gt; String
 (Int -&gt; ListIPSetsResponse -&gt; ShowS)
@@ -439,8 +439,8 @@ $cfrom :: forall x. ListIPSetsResponse -&gt; Rep ListIPSetsResponse x
 </span><span id="line-190"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-191"></span><span>  </span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSetsResponse"><span class="hs-identifier hs-type">ListIPSetsResponse</span></a></span><span>
 </span><span id="line-192"></span><span id="newListIPSetsResponse"><span class="annot"><span class="annottext">newListIPSetsResponse :: Int -&gt; ListIPSetsResponse
-</span><a href="Network.AWS.WAFRegional.ListIPSets.html#newListIPSetsResponse"><span class="hs-identifier hs-var hs-var">newListIPSetsResponse</span></a></span></span><span> </span><span id="local-6989586621679316684"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679316684"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WAFRegional.ListIPSets.html#newListIPSetsResponse"><span class="hs-identifier hs-var hs-var">newListIPSetsResponse</span></a></span></span><span> </span><span id="local-6989586621679316693"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679316693"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-193"></span><span>  </span><span class="annot"><span class="annottext">ListIPSetsResponse' :: Maybe Text -&gt; Maybe [IPSetSummary] -&gt; Int -&gt; ListIPSetsResponse
 </span><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSetsResponse%27"><span class="hs-identifier hs-type">ListIPSetsResponse'</span></a></span><span>
 </span><span id="line-194"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextMarker:ListIPSetsResponse' :: Maybe Text
@@ -453,7 +453,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-196"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListIPSetsResponse' :: Int
 </span><a href="Network.AWS.WAFRegional.ListIPSets.html#%24sel%3AhttpStatus%3AListIPSetsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679316684"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679316693"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-197"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-comment">-- | To list more @IPSet@ objects, submit another @ListIPSets@ request, and</span><span>
@@ -467,16 +467,16 @@ forall a. Maybe a
 -&gt; Lens
      ListIPSetsResponse ListIPSetsResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSetsResponse%27"><span class="hs-identifier hs-type">ListIPSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316683"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSetsResponse%27"><span class="hs-identifier hs-type">ListIPSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316692"><span class="annot"><span class="annottext">Maybe Text
 nextMarker :: Maybe Text
 $sel:nextMarker:ListIPSetsResponse' :: ListIPSetsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679316683"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316683"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316682"><span class="annot"><span class="annottext">s :: ListIPSetsResponse
-</span><a href="#local-6989586621679316682"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSetsResponse%27"><span class="hs-identifier hs-type">ListIPSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316681"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316681"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListIPSetsResponse
-</span><a href="#local-6989586621679316682"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListIPSetsResponse' :: Maybe Text
+</span><a href="#local-6989586621679316692"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316692"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316691"><span class="annot"><span class="annottext">s :: ListIPSetsResponse
+</span><a href="#local-6989586621679316691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSetsResponse%27"><span class="hs-identifier hs-type">ListIPSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316690"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListIPSetsResponse
+</span><a href="#local-6989586621679316691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListIPSetsResponse' :: Maybe Text
 </span><a href="Network.AWS.WAFRegional.ListIPSets.html#%24sel%3AnextMarker%3AListIPSetsResponse%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316681"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSetsResponse"><span class="hs-identifier hs-type">ListIPSetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSetsResponse"><span class="hs-identifier hs-type">ListIPSetsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-204"></span><span>
 </span><span id="line-205"></span><span class="hs-comment">-- | An array of IPSetSummary objects.</span><span>
 </span><span id="line-206"></span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#listIPSetsResponse_iPSets"><span class="hs-identifier hs-type">listIPSetsResponse_iPSets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSetsResponse"><span class="hs-identifier hs-type">ListIPSetsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.IPSetSummary.html#IPSetSummary"><span class="hs-identifier hs-type">IPSetSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -491,16 +491,16 @@ $sel:nextMarker:ListIPSetsResponse' :: ListIPSetsResponse -&gt; Maybe Text
      (Maybe [IPSetSummary])
      (Maybe [IPSetSummary])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSetsResponse%27"><span class="hs-identifier hs-type">ListIPSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316680"><span class="annot"><span class="annottext">Maybe [IPSetSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSetsResponse%27"><span class="hs-identifier hs-type">ListIPSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316689"><span class="annot"><span class="annottext">Maybe [IPSetSummary]
 iPSets :: Maybe [IPSetSummary]
 $sel:iPSets:ListIPSetsResponse' :: ListIPSetsResponse -&gt; Maybe [IPSetSummary]
-</span><a href="#local-6989586621679316680"><span class="hs-identifier hs-var hs-var">iPSets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [IPSetSummary]
-</span><a href="#local-6989586621679316680"><span class="hs-identifier hs-var">iPSets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316679"><span class="annot"><span class="annottext">s :: ListIPSetsResponse
-</span><a href="#local-6989586621679316679"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSetsResponse%27"><span class="hs-identifier hs-type">ListIPSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316678"><span class="annot"><span class="annottext">Maybe [IPSetSummary]
-</span><a href="#local-6989586621679316678"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListIPSetsResponse
-</span><a href="#local-6989586621679316679"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iPSets:ListIPSetsResponse' :: Maybe [IPSetSummary]
+</span><a href="#local-6989586621679316689"><span class="hs-identifier hs-var hs-var">iPSets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [IPSetSummary]
+</span><a href="#local-6989586621679316689"><span class="hs-identifier hs-var">iPSets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316688"><span class="annot"><span class="annottext">s :: ListIPSetsResponse
+</span><a href="#local-6989586621679316688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSetsResponse%27"><span class="hs-identifier hs-type">ListIPSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316687"><span class="annot"><span class="annottext">Maybe [IPSetSummary]
+</span><a href="#local-6989586621679316687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListIPSetsResponse
+</span><a href="#local-6989586621679316688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iPSets:ListIPSetsResponse' :: Maybe [IPSetSummary]
 </span><a href="Network.AWS.WAFRegional.ListIPSets.html#%24sel%3AiPSets%3AListIPSetsResponse%27"><span class="hs-identifier hs-var">iPSets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [IPSetSummary]
-</span><a href="#local-6989586621679316678"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSetsResponse"><span class="hs-identifier hs-type">ListIPSetsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [IPSetSummary] -&gt; f (Maybe [IPSetSummary]))
+</span><a href="#local-6989586621679316687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSetsResponse"><span class="hs-identifier hs-type">ListIPSetsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [IPSetSummary] -&gt; f (Maybe [IPSetSummary]))
  -&gt; ListIPSetsResponse -&gt; f ListIPSetsResponse)
 -&gt; ((Maybe [IPSetSummary] -&gt; f (Maybe [IPSetSummary]))
     -&gt; Maybe [IPSetSummary] -&gt; f (Maybe [IPSetSummary]))
@@ -528,16 +528,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ListIPSetsResponse -&gt; Int -&gt; ListIPSetsResponse)
 -&gt; Lens ListIPSetsResponse ListIPSetsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSetsResponse%27"><span class="hs-identifier hs-type">ListIPSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316674"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSetsResponse%27"><span class="hs-identifier hs-type">ListIPSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316683"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListIPSetsResponse' :: ListIPSetsResponse -&gt; Int
-</span><a href="#local-6989586621679316674"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679316674"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316673"><span class="annot"><span class="annottext">s :: ListIPSetsResponse
-</span><a href="#local-6989586621679316673"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSetsResponse%27"><span class="hs-identifier hs-type">ListIPSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316672"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679316672"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListIPSetsResponse
-</span><a href="#local-6989586621679316673"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListIPSetsResponse' :: Int
+</span><a href="#local-6989586621679316683"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679316683"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316682"><span class="annot"><span class="annottext">s :: ListIPSetsResponse
+</span><a href="#local-6989586621679316682"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSetsResponse%27"><span class="hs-identifier hs-type">ListIPSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316681"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679316681"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListIPSetsResponse
+</span><a href="#local-6989586621679316682"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListIPSetsResponse' :: Int
 </span><a href="Network.AWS.WAFRegional.ListIPSets.html#%24sel%3AhttpStatus%3AListIPSetsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679316672"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSetsResponse"><span class="hs-identifier hs-type">ListIPSetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316681"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSetsResponse"><span class="hs-identifier hs-type">ListIPSetsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-212"></span><span>
-</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316670"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSetsResponse"><span class="hs-identifier hs-type">ListIPSetsResponse</span></a></span></span><span>
+</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316679"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListIPSets.html#ListIPSetsResponse"><span class="hs-identifier hs-type">ListIPSetsResponse</span></a></span></span><span>
 </span><span id="line-214"></span></pre></body></html>

@@ -1,0 +1,799 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ApiGatewayV2.UpdateDeployment</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates a Deployment.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ApiGatewayV2.UpdateDeployment</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeployment"><span class="hs-identifier">UpdateDeployment</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#newUpdateDeployment"><span class="hs-identifier">newUpdateDeployment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#updateDeployment_description"><span class="hs-identifier">updateDeployment_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#updateDeployment_apiId"><span class="hs-identifier">updateDeployment_apiId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#updateDeployment_deploymentId"><span class="hs-identifier">updateDeployment_deploymentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeploymentResponse"><span class="hs-identifier">UpdateDeploymentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#newUpdateDeploymentResponse"><span class="hs-identifier">newUpdateDeploymentResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#updateDeploymentResponse_deploymentId"><span class="hs-identifier">updateDeploymentResponse_deploymentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#updateDeploymentResponse_autoDeployed"><span class="hs-identifier">updateDeploymentResponse_autoDeployed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#updateDeploymentResponse_deploymentStatusMessage"><span class="hs-identifier">updateDeploymentResponse_deploymentStatusMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#updateDeploymentResponse_createdDate"><span class="hs-identifier">updateDeploymentResponse_createdDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#updateDeploymentResponse_deploymentStatus"><span class="hs-identifier">updateDeploymentResponse_deploymentStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#updateDeploymentResponse_description"><span class="hs-identifier">updateDeploymentResponse_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#updateDeploymentResponse_httpStatus"><span class="hs-identifier">updateDeploymentResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.html"><span class="hs-identifier">Network.AWS.ApiGatewayV2.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | Updates a Deployment.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- /See:/ 'newUpdateDeployment' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621679427858"><span id="local-6989586621679427859"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDeployment"><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeployment"><span class="hs-identifier hs-var">UpdateDeployment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDeployment%27"><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeployment%27"><span class="hs-identifier hs-var">UpdateDeployment'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The description for the deployment resource.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Adescription%3AUpdateDeployment%27"><span class="annot"><span class="annottext">UpdateDeployment -&gt; Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#%24sel%3Adescription%3AUpdateDeployment%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The API identifier.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AapiId%3AUpdateDeployment%27"><span class="annot"><span class="annottext">UpdateDeployment -&gt; Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#%24sel%3AapiId%3AUpdateDeployment%27"><span class="hs-identifier hs-var hs-var">apiId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The deployment ID.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AdeploymentId%3AUpdateDeployment%27"><span class="annot"><span class="annottext">UpdateDeployment -&gt; Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#%24sel%3AdeploymentId%3AUpdateDeployment%27"><span class="hs-identifier hs-var hs-var">deploymentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679427850"><span id="local-6989586621679427852"><span class="annot"><span class="annottext">UpdateDeployment -&gt; UpdateDeployment -&gt; Bool
+(UpdateDeployment -&gt; UpdateDeployment -&gt; Bool)
+-&gt; (UpdateDeployment -&gt; UpdateDeployment -&gt; Bool)
+-&gt; Eq UpdateDeployment
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateDeployment -&gt; UpdateDeployment -&gt; Bool
+$c/= :: UpdateDeployment -&gt; UpdateDeployment -&gt; Bool
+== :: UpdateDeployment -&gt; UpdateDeployment -&gt; Bool
+$c== :: UpdateDeployment -&gt; UpdateDeployment -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679427841"><span id="local-6989586621679427843"><span id="local-6989586621679427845"><span id="local-6989586621679427847"><span class="annot"><span class="annottext">ReadPrec [UpdateDeployment]
+ReadPrec UpdateDeployment
+Int -&gt; ReadS UpdateDeployment
+ReadS [UpdateDeployment]
+(Int -&gt; ReadS UpdateDeployment)
+-&gt; ReadS [UpdateDeployment]
+-&gt; ReadPrec UpdateDeployment
+-&gt; ReadPrec [UpdateDeployment]
+-&gt; Read UpdateDeployment
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateDeployment]
+$creadListPrec :: ReadPrec [UpdateDeployment]
+readPrec :: ReadPrec UpdateDeployment
+$creadPrec :: ReadPrec UpdateDeployment
+readList :: ReadS [UpdateDeployment]
+$creadList :: ReadS [UpdateDeployment]
+readsPrec :: Int -&gt; ReadS UpdateDeployment
+$creadsPrec :: Int -&gt; ReadS UpdateDeployment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679427834"><span id="local-6989586621679427836"><span id="local-6989586621679427838"><span class="annot"><span class="annottext">Int -&gt; UpdateDeployment -&gt; ShowS
+[UpdateDeployment] -&gt; ShowS
+UpdateDeployment -&gt; String
+(Int -&gt; UpdateDeployment -&gt; ShowS)
+-&gt; (UpdateDeployment -&gt; String)
+-&gt; ([UpdateDeployment] -&gt; ShowS)
+-&gt; Show UpdateDeployment
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateDeployment] -&gt; ShowS
+$cshowList :: [UpdateDeployment] -&gt; ShowS
+show :: UpdateDeployment -&gt; String
+$cshow :: UpdateDeployment -&gt; String
+showsPrec :: Int -&gt; UpdateDeployment -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateDeployment -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateDeployment -&gt; Rep UpdateDeployment x)
+-&gt; (forall x. Rep UpdateDeployment x -&gt; UpdateDeployment)
+-&gt; Generic UpdateDeployment
+forall x. Rep UpdateDeployment x -&gt; UpdateDeployment
+forall x. UpdateDeployment -&gt; Rep UpdateDeployment x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateDeployment x -&gt; UpdateDeployment
+$cfrom :: forall x. UpdateDeployment -&gt; Rep UpdateDeployment x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'UpdateDeployment' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'description', 'updateDeployment_description' - The description for the deployment resource.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'apiId', 'updateDeployment_apiId' - The API identifier.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'deploymentId', 'updateDeployment_deploymentId' - The deployment ID.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#newUpdateDeployment"><span class="hs-identifier hs-type">newUpdateDeployment</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-comment">-- | 'apiId'</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-comment">-- | 'deploymentId'</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeployment"><span class="hs-identifier hs-type">UpdateDeployment</span></a></span><span>
+</span><span id="line-88"></span><span id="newUpdateDeployment"><span class="annot"><span class="annottext">newUpdateDeployment :: Text -&gt; Text -&gt; UpdateDeployment
+</span><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#newUpdateDeployment"><span class="hs-identifier hs-var hs-var">newUpdateDeployment</span></a></span></span><span> </span><span id="local-6989586621679427829"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679427829"><span class="hs-identifier hs-var">pApiId_</span></a></span></span><span> </span><span id="local-6989586621679427828"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679427828"><span class="hs-identifier hs-var">pDeploymentId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">UpdateDeployment' :: Maybe Text -&gt; Text -&gt; Text -&gt; UpdateDeployment
+</span><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeployment%27"><span class="hs-identifier hs-type">UpdateDeployment'</span></a></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:description:UpdateDeployment' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#%24sel%3Adescription%3AUpdateDeployment%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:apiId:UpdateDeployment' :: Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#%24sel%3AapiId%3AUpdateDeployment%27"><span class="hs-identifier hs-var">apiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679427829"><span class="hs-identifier hs-var">pApiId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:deploymentId:UpdateDeployment' :: Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#%24sel%3AdeploymentId%3AUpdateDeployment%27"><span class="hs-identifier hs-var">deploymentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679427828"><span class="hs-identifier hs-var">pDeploymentId_</span></a></span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The description for the deployment resource.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#updateDeployment_description"><span class="hs-identifier hs-type">updateDeployment_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeployment"><span class="hs-identifier hs-type">UpdateDeployment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="updateDeployment_description"><span class="annot"><span class="annottext">updateDeployment_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateDeployment -&gt; f UpdateDeployment
+</span><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#updateDeployment_description"><span class="hs-identifier hs-var hs-var">updateDeployment_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDeployment -&gt; Maybe Text)
+-&gt; (UpdateDeployment -&gt; Maybe Text -&gt; UpdateDeployment)
+-&gt; Lens UpdateDeployment UpdateDeployment (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeployment%27"><span class="hs-identifier hs-type">UpdateDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427825"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:UpdateDeployment' :: UpdateDeployment -&gt; Maybe Text
+</span><a href="#local-6989586621679427825"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427825"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427824"><span class="annot"><span class="annottext">s :: UpdateDeployment
+</span><a href="#local-6989586621679427824"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeployment%27"><span class="hs-identifier hs-type">UpdateDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427823"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427823"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDeployment
+</span><a href="#local-6989586621679427824"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateDeployment' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#%24sel%3Adescription%3AUpdateDeployment%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427823"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeployment"><span class="hs-identifier hs-type">UpdateDeployment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The API identifier.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#updateDeployment_apiId"><span class="hs-identifier hs-type">updateDeployment_apiId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeployment"><span class="hs-identifier hs-type">UpdateDeployment</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-101"></span><span id="updateDeployment_apiId"><span class="annot"><span class="annottext">updateDeployment_apiId :: (Text -&gt; f Text) -&gt; UpdateDeployment -&gt; f UpdateDeployment
+</span><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#updateDeployment_apiId"><span class="hs-identifier hs-var hs-var">updateDeployment_apiId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDeployment -&gt; Text)
+-&gt; (UpdateDeployment -&gt; Text -&gt; UpdateDeployment)
+-&gt; Lens UpdateDeployment UpdateDeployment Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeployment%27"><span class="hs-identifier hs-type">UpdateDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427822"><span class="annot"><span class="annottext">Text
+apiId :: Text
+$sel:apiId:UpdateDeployment' :: UpdateDeployment -&gt; Text
+</span><a href="#local-6989586621679427822"><span class="hs-identifier hs-var hs-var">apiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679427822"><span class="hs-identifier hs-var">apiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427821"><span class="annot"><span class="annottext">s :: UpdateDeployment
+</span><a href="#local-6989586621679427821"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeployment%27"><span class="hs-identifier hs-type">UpdateDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427820"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679427820"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDeployment
+</span><a href="#local-6989586621679427821"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiId:UpdateDeployment' :: Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#%24sel%3AapiId%3AUpdateDeployment%27"><span class="hs-identifier hs-var">apiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679427820"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeployment"><span class="hs-identifier hs-type">UpdateDeployment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The deployment ID.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#updateDeployment_deploymentId"><span class="hs-identifier hs-type">updateDeployment_deploymentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeployment"><span class="hs-identifier hs-type">UpdateDeployment</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-105"></span><span id="updateDeployment_deploymentId"><span class="annot"><span class="annottext">updateDeployment_deploymentId :: (Text -&gt; f Text) -&gt; UpdateDeployment -&gt; f UpdateDeployment
+</span><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#updateDeployment_deploymentId"><span class="hs-identifier hs-var hs-var">updateDeployment_deploymentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDeployment -&gt; Text)
+-&gt; (UpdateDeployment -&gt; Text -&gt; UpdateDeployment)
+-&gt; Lens UpdateDeployment UpdateDeployment Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeployment%27"><span class="hs-identifier hs-type">UpdateDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427819"><span class="annot"><span class="annottext">Text
+deploymentId :: Text
+$sel:deploymentId:UpdateDeployment' :: UpdateDeployment -&gt; Text
+</span><a href="#local-6989586621679427819"><span class="hs-identifier hs-var hs-var">deploymentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679427819"><span class="hs-identifier hs-var">deploymentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427818"><span class="annot"><span class="annottext">s :: UpdateDeployment
+</span><a href="#local-6989586621679427818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeployment%27"><span class="hs-identifier hs-type">UpdateDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427817"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679427817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDeployment
+</span><a href="#local-6989586621679427818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentId:UpdateDeployment' :: Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#%24sel%3AdeploymentId%3AUpdateDeployment%27"><span class="hs-identifier hs-var">deploymentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679427817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeployment"><span class="hs-identifier hs-type">UpdateDeployment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeployment"><span class="hs-identifier hs-type">UpdateDeployment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-109"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeployment"><span class="hs-identifier hs-type">UpdateDeployment</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeploymentResponse"><span class="hs-identifier hs-type">UpdateDeploymentResponse</span></a></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679427813"><span class="annot"><span class="annottext">request :: UpdateDeployment -&gt; Request UpdateDeployment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateDeployment -&gt; Request UpdateDeployment
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.patchJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ApiGatewayV2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679427809"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateDeployment
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateDeployment)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateDeployment))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateDeployment
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateDeployment)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679427806"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679427806"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679427805"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679427805"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679427804"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679427804"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe DeploymentStatus
+-&gt; Maybe Text
+-&gt; Int
+-&gt; UpdateDeploymentResponse
+</span><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeploymentResponse%27"><span class="hs-identifier hs-var">UpdateDeploymentResponse'</span></a></span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe DeploymentStatus
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; UpdateDeploymentResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe DeploymentStatus
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; UpdateDeploymentResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679427804"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;deploymentId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe DeploymentStatus
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; UpdateDeploymentResponse)
+-&gt; Either String (Maybe Bool)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe DeploymentStatus
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; UpdateDeploymentResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679427804"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;autoDeployed&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe DeploymentStatus
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; UpdateDeploymentResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe POSIX
+      -&gt; Maybe DeploymentStatus
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; UpdateDeploymentResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679427804"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;deploymentStatusMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe POSIX
+   -&gt; Maybe DeploymentStatus
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; UpdateDeploymentResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe DeploymentStatus
+      -&gt; Maybe Text -&gt; Int -&gt; UpdateDeploymentResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679427804"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe DeploymentStatus
+   -&gt; Maybe Text -&gt; Int -&gt; UpdateDeploymentResponse)
+-&gt; Either String (Maybe DeploymentStatus)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; UpdateDeploymentResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679427804"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe DeploymentStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;deploymentStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; UpdateDeploymentResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; UpdateDeploymentResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679427804"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateDeploymentResponse)
+-&gt; Either String Int -&gt; Either String UpdateDeploymentResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679427806"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679427796"><span id="local-6989586621679427798"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeployment"><span class="hs-identifier hs-type">UpdateDeployment</span></a></span></span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679427793"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeployment"><span class="hs-identifier hs-type">UpdateDeployment</span></a></span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeployment"><span class="hs-identifier hs-type">UpdateDeployment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679427789"><span class="annot"><span class="annottext">toHeaders :: UpdateDeployment -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateDeployment -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-133"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-134"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-135"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-136"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679427779"><span id="local-6989586621679427781"><span id="local-6989586621679427783"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeployment"><span class="hs-identifier hs-type">UpdateDeployment</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679427777"><span class="annot"><span class="annottext">toJSON :: UpdateDeployment -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeployment%27"><span class="hs-identifier hs-type">UpdateDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427773"><span id="local-6989586621679427774"><span id="local-6989586621679427775"><span class="annot"><span class="annottext">Maybe Text
+Text
+deploymentId :: Text
+apiId :: Text
+description :: Maybe Text
+$sel:deploymentId:UpdateDeployment' :: UpdateDeployment -&gt; Text
+$sel:apiId:UpdateDeployment' :: UpdateDeployment -&gt; Text
+$sel:description:UpdateDeployment' :: UpdateDeployment -&gt; Maybe Text
+</span><a href="#local-6989586621679427773"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-144"></span><span>          </span><span class="hs-special">[</span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427775"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeployment"><span class="hs-identifier hs-type">UpdateDeployment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679427767"><span class="annot"><span class="annottext">toPath :: UpdateDeployment -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeployment%27"><span class="hs-identifier hs-type">UpdateDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427763"><span id="local-6989586621679427764"><span id="local-6989586621679427765"><span class="annot"><span class="annottext">Maybe Text
+Text
+deploymentId :: Text
+apiId :: Text
+description :: Maybe Text
+$sel:deploymentId:UpdateDeployment' :: UpdateDeployment -&gt; Text
+$sel:apiId:UpdateDeployment' :: UpdateDeployment -&gt; Text
+$sel:description:UpdateDeployment' :: UpdateDeployment -&gt; Maybe Text
+</span><a href="#local-6989586621679427763"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v2/apis/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679427764"><span class="hs-identifier hs-var">apiId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/deployments/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679427763"><span class="hs-identifier hs-var">deploymentId</span></a></span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeployment"><span class="hs-identifier hs-type">UpdateDeployment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679427759"><span class="annot"><span class="annottext">toQuery :: UpdateDeployment -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateDeployment -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | /See:/ 'newUpdateDeploymentResponse' smart constructor.</span><span>
+</span><span id="line-160"></span><span id="local-6989586621679427756"><span id="local-6989586621679427757"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDeploymentResponse"><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeploymentResponse"><span class="hs-identifier hs-var">UpdateDeploymentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDeploymentResponse%27"><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeploymentResponse%27"><span class="hs-identifier hs-var">UpdateDeploymentResponse'</span></a></span></span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier for the deployment.</span><span>
+</span><span id="line-162"></span><span>    </span><span id="%24sel%3AdeploymentId%3AUpdateDeploymentResponse%27"><span class="annot"><span class="annottext">UpdateDeploymentResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#%24sel%3AdeploymentId%3AUpdateDeploymentResponse%27"><span class="hs-identifier hs-var hs-var">deploymentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- | Specifies whether a deployment was automatically released.</span><span>
+</span><span id="line-164"></span><span>    </span><span id="%24sel%3AautoDeployed%3AUpdateDeploymentResponse%27"><span class="annot"><span class="annottext">UpdateDeploymentResponse -&gt; Maybe Bool
+</span><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#%24sel%3AautoDeployed%3AUpdateDeploymentResponse%27"><span class="hs-identifier hs-var hs-var">autoDeployed</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- | May contain additional feedback on the status of an API deployment.</span><span>
+</span><span id="line-166"></span><span>    </span><span id="%24sel%3AdeploymentStatusMessage%3AUpdateDeploymentResponse%27"><span class="annot"><span class="annottext">UpdateDeploymentResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#%24sel%3AdeploymentStatusMessage%3AUpdateDeploymentResponse%27"><span class="hs-identifier hs-var hs-var">deploymentStatusMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">-- | The date and time when the Deployment resource was created.</span><span>
+</span><span id="line-168"></span><span>    </span><span id="%24sel%3AcreatedDate%3AUpdateDeploymentResponse%27"><span class="annot"><span class="annottext">UpdateDeploymentResponse -&gt; Maybe POSIX
+</span><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#%24sel%3AcreatedDate%3AUpdateDeploymentResponse%27"><span class="hs-identifier hs-var hs-var">createdDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- | The status of the deployment: PENDING, FAILED, or SUCCEEDED.</span><span>
+</span><span id="line-170"></span><span>    </span><span id="%24sel%3AdeploymentStatus%3AUpdateDeploymentResponse%27"><span class="annot"><span class="annottext">UpdateDeploymentResponse -&gt; Maybe DeploymentStatus
+</span><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#%24sel%3AdeploymentStatus%3AUpdateDeploymentResponse%27"><span class="hs-identifier hs-var hs-var">deploymentStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.DeploymentStatus.html#DeploymentStatus"><span class="hs-identifier hs-type">DeploymentStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- | The description for the deployment.</span><span>
+</span><span id="line-172"></span><span>    </span><span id="%24sel%3Adescription%3AUpdateDeploymentResponse%27"><span class="annot"><span class="annottext">UpdateDeploymentResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#%24sel%3Adescription%3AUpdateDeploymentResponse%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-174"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateDeploymentResponse%27"><span class="annot"><span class="annottext">UpdateDeploymentResponse -&gt; Int
+</span><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#%24sel%3AhttpStatus%3AUpdateDeploymentResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-175"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-176"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679427745"><span id="local-6989586621679427747"><span class="annot"><span class="annottext">UpdateDeploymentResponse -&gt; UpdateDeploymentResponse -&gt; Bool
+(UpdateDeploymentResponse -&gt; UpdateDeploymentResponse -&gt; Bool)
+-&gt; (UpdateDeploymentResponse -&gt; UpdateDeploymentResponse -&gt; Bool)
+-&gt; Eq UpdateDeploymentResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateDeploymentResponse -&gt; UpdateDeploymentResponse -&gt; Bool
+$c/= :: UpdateDeploymentResponse -&gt; UpdateDeploymentResponse -&gt; Bool
+== :: UpdateDeploymentResponse -&gt; UpdateDeploymentResponse -&gt; Bool
+$c== :: UpdateDeploymentResponse -&gt; UpdateDeploymentResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679427737"><span id="local-6989586621679427739"><span id="local-6989586621679427741"><span id="local-6989586621679427743"><span class="annot"><span class="annottext">ReadPrec [UpdateDeploymentResponse]
+ReadPrec UpdateDeploymentResponse
+Int -&gt; ReadS UpdateDeploymentResponse
+ReadS [UpdateDeploymentResponse]
+(Int -&gt; ReadS UpdateDeploymentResponse)
+-&gt; ReadS [UpdateDeploymentResponse]
+-&gt; ReadPrec UpdateDeploymentResponse
+-&gt; ReadPrec [UpdateDeploymentResponse]
+-&gt; Read UpdateDeploymentResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateDeploymentResponse]
+$creadListPrec :: ReadPrec [UpdateDeploymentResponse]
+readPrec :: ReadPrec UpdateDeploymentResponse
+$creadPrec :: ReadPrec UpdateDeploymentResponse
+readList :: ReadS [UpdateDeploymentResponse]
+$creadList :: ReadS [UpdateDeploymentResponse]
+readsPrec :: Int -&gt; ReadS UpdateDeploymentResponse
+$creadsPrec :: Int -&gt; ReadS UpdateDeploymentResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679427731"><span id="local-6989586621679427733"><span id="local-6989586621679427735"><span class="annot"><span class="annottext">Int -&gt; UpdateDeploymentResponse -&gt; ShowS
+[UpdateDeploymentResponse] -&gt; ShowS
+UpdateDeploymentResponse -&gt; String
+(Int -&gt; UpdateDeploymentResponse -&gt; ShowS)
+-&gt; (UpdateDeploymentResponse -&gt; String)
+-&gt; ([UpdateDeploymentResponse] -&gt; ShowS)
+-&gt; Show UpdateDeploymentResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateDeploymentResponse] -&gt; ShowS
+$cshowList :: [UpdateDeploymentResponse] -&gt; ShowS
+show :: UpdateDeploymentResponse -&gt; String
+$cshow :: UpdateDeploymentResponse -&gt; String
+showsPrec :: Int -&gt; UpdateDeploymentResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateDeploymentResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateDeploymentResponse -&gt; Rep UpdateDeploymentResponse x)
+-&gt; (forall x.
+    Rep UpdateDeploymentResponse x -&gt; UpdateDeploymentResponse)
+-&gt; Generic UpdateDeploymentResponse
+forall x.
+Rep UpdateDeploymentResponse x -&gt; UpdateDeploymentResponse
+forall x.
+UpdateDeploymentResponse -&gt; Rep UpdateDeploymentResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateDeploymentResponse x -&gt; UpdateDeploymentResponse
+$cfrom :: forall x.
+UpdateDeploymentResponse -&gt; Rep UpdateDeploymentResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- Create a value of 'UpdateDeploymentResponse' with all optional fields omitted.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- 'deploymentId', 'updateDeploymentResponse_deploymentId' - The identifier for the deployment.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'autoDeployed', 'updateDeploymentResponse_autoDeployed' - Specifies whether a deployment was automatically released.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'deploymentStatusMessage', 'updateDeploymentResponse_deploymentStatusMessage' - May contain additional feedback on the status of an API deployment.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- 'createdDate', 'updateDeploymentResponse_createdDate' - The date and time when the Deployment resource was created.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- 'deploymentStatus', 'updateDeploymentResponse_deploymentStatus' - The status of the deployment: PENDING, FAILED, or SUCCEEDED.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- 'description', 'updateDeploymentResponse_description' - The description for the deployment.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- 'httpStatus', 'updateDeploymentResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#newUpdateDeploymentResponse"><span class="hs-identifier hs-type">newUpdateDeploymentResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-200"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-201"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-202"></span><span>  </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeploymentResponse"><span class="hs-identifier hs-type">UpdateDeploymentResponse</span></a></span><span>
+</span><span id="line-203"></span><span id="newUpdateDeploymentResponse"><span class="annot"><span class="annottext">newUpdateDeploymentResponse :: Int -&gt; UpdateDeploymentResponse
+</span><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#newUpdateDeploymentResponse"><span class="hs-identifier hs-var hs-var">newUpdateDeploymentResponse</span></a></span></span><span> </span><span id="local-6989586621679427728"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679427728"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-204"></span><span>  </span><span class="annot"><span class="annottext">UpdateDeploymentResponse' :: Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe DeploymentStatus
+-&gt; Maybe Text
+-&gt; Int
+-&gt; UpdateDeploymentResponse
+</span><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeploymentResponse%27"><span class="hs-identifier hs-type">UpdateDeploymentResponse'</span></a></span><span>
+</span><span id="line-205"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deploymentId:UpdateDeploymentResponse' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#%24sel%3AdeploymentId%3AUpdateDeploymentResponse%27"><span class="hs-identifier hs-var">deploymentId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-206"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>      </span><span class="annot"><span class="annottext">$sel:autoDeployed:UpdateDeploymentResponse' :: Maybe Bool
+</span><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#%24sel%3AautoDeployed%3AUpdateDeploymentResponse%27"><span class="hs-identifier hs-var">autoDeployed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">$sel:deploymentStatusMessage:UpdateDeploymentResponse' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#%24sel%3AdeploymentStatusMessage%3AUpdateDeploymentResponse%27"><span class="hs-identifier hs-var">deploymentStatusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdDate:UpdateDeploymentResponse' :: Maybe POSIX
+</span><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#%24sel%3AcreatedDate%3AUpdateDeploymentResponse%27"><span class="hs-identifier hs-var">createdDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>      </span><span class="annot"><span class="annottext">$sel:deploymentStatus:UpdateDeploymentResponse' :: Maybe DeploymentStatus
+</span><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#%24sel%3AdeploymentStatus%3AUpdateDeploymentResponse%27"><span class="hs-identifier hs-var">deploymentStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeploymentStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:UpdateDeploymentResponse' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#%24sel%3Adescription%3AUpdateDeploymentResponse%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateDeploymentResponse' :: Int
+</span><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#%24sel%3AhttpStatus%3AUpdateDeploymentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679427728"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-213"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | The identifier for the deployment.</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#updateDeploymentResponse_deploymentId"><span class="hs-identifier hs-type">updateDeploymentResponse_deploymentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeploymentResponse"><span class="hs-identifier hs-type">UpdateDeploymentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span id="updateDeploymentResponse_deploymentId"><span class="annot"><span class="annottext">updateDeploymentResponse_deploymentId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateDeploymentResponse -&gt; f UpdateDeploymentResponse
+</span><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#updateDeploymentResponse_deploymentId"><span class="hs-identifier hs-var hs-var">updateDeploymentResponse_deploymentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDeploymentResponse -&gt; Maybe Text)
+-&gt; (UpdateDeploymentResponse
+    -&gt; Maybe Text -&gt; UpdateDeploymentResponse)
+-&gt; Lens
+     UpdateDeploymentResponse
+     UpdateDeploymentResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeploymentResponse%27"><span class="hs-identifier hs-type">UpdateDeploymentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427727"><span class="annot"><span class="annottext">Maybe Text
+deploymentId :: Maybe Text
+$sel:deploymentId:UpdateDeploymentResponse' :: UpdateDeploymentResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679427727"><span class="hs-identifier hs-var hs-var">deploymentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427727"><span class="hs-identifier hs-var">deploymentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427726"><span class="annot"><span class="annottext">s :: UpdateDeploymentResponse
+</span><a href="#local-6989586621679427726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeploymentResponse%27"><span class="hs-identifier hs-type">UpdateDeploymentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427725"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDeploymentResponse
+</span><a href="#local-6989586621679427726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentId:UpdateDeploymentResponse' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#%24sel%3AdeploymentId%3AUpdateDeploymentResponse%27"><span class="hs-identifier hs-var">deploymentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeploymentResponse"><span class="hs-identifier hs-type">UpdateDeploymentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- | Specifies whether a deployment was automatically released.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#updateDeploymentResponse_autoDeployed"><span class="hs-identifier hs-type">updateDeploymentResponse_autoDeployed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeploymentResponse"><span class="hs-identifier hs-type">UpdateDeploymentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span id="updateDeploymentResponse_autoDeployed"><span class="annot"><span class="annottext">updateDeploymentResponse_autoDeployed :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; UpdateDeploymentResponse -&gt; f UpdateDeploymentResponse
+</span><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#updateDeploymentResponse_autoDeployed"><span class="hs-identifier hs-var hs-var">updateDeploymentResponse_autoDeployed</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDeploymentResponse -&gt; Maybe Bool)
+-&gt; (UpdateDeploymentResponse
+    -&gt; Maybe Bool -&gt; UpdateDeploymentResponse)
+-&gt; Lens
+     UpdateDeploymentResponse
+     UpdateDeploymentResponse
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeploymentResponse%27"><span class="hs-identifier hs-type">UpdateDeploymentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427724"><span class="annot"><span class="annottext">Maybe Bool
+autoDeployed :: Maybe Bool
+$sel:autoDeployed:UpdateDeploymentResponse' :: UpdateDeploymentResponse -&gt; Maybe Bool
+</span><a href="#local-6989586621679427724"><span class="hs-identifier hs-var hs-var">autoDeployed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679427724"><span class="hs-identifier hs-var">autoDeployed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427723"><span class="annot"><span class="annottext">s :: UpdateDeploymentResponse
+</span><a href="#local-6989586621679427723"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeploymentResponse%27"><span class="hs-identifier hs-type">UpdateDeploymentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427722"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679427722"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDeploymentResponse
+</span><a href="#local-6989586621679427723"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoDeployed:UpdateDeploymentResponse' :: Maybe Bool
+</span><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#%24sel%3AautoDeployed%3AUpdateDeploymentResponse%27"><span class="hs-identifier hs-var">autoDeployed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679427722"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeploymentResponse"><span class="hs-identifier hs-type">UpdateDeploymentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- | May contain additional feedback on the status of an API deployment.</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#updateDeploymentResponse_deploymentStatusMessage"><span class="hs-identifier hs-type">updateDeploymentResponse_deploymentStatusMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeploymentResponse"><span class="hs-identifier hs-type">UpdateDeploymentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span id="updateDeploymentResponse_deploymentStatusMessage"><span class="annot"><span class="annottext">updateDeploymentResponse_deploymentStatusMessage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateDeploymentResponse -&gt; f UpdateDeploymentResponse
+</span><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#updateDeploymentResponse_deploymentStatusMessage"><span class="hs-identifier hs-var hs-var">updateDeploymentResponse_deploymentStatusMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDeploymentResponse -&gt; Maybe Text)
+-&gt; (UpdateDeploymentResponse
+    -&gt; Maybe Text -&gt; UpdateDeploymentResponse)
+-&gt; Lens
+     UpdateDeploymentResponse
+     UpdateDeploymentResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeploymentResponse%27"><span class="hs-identifier hs-type">UpdateDeploymentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427721"><span class="annot"><span class="annottext">Maybe Text
+deploymentStatusMessage :: Maybe Text
+$sel:deploymentStatusMessage:UpdateDeploymentResponse' :: UpdateDeploymentResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679427721"><span class="hs-identifier hs-var hs-var">deploymentStatusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427721"><span class="hs-identifier hs-var">deploymentStatusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427720"><span class="annot"><span class="annottext">s :: UpdateDeploymentResponse
+</span><a href="#local-6989586621679427720"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeploymentResponse%27"><span class="hs-identifier hs-type">UpdateDeploymentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427719"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427719"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDeploymentResponse
+</span><a href="#local-6989586621679427720"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentStatusMessage:UpdateDeploymentResponse' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#%24sel%3AdeploymentStatusMessage%3AUpdateDeploymentResponse%27"><span class="hs-identifier hs-var">deploymentStatusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427719"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeploymentResponse"><span class="hs-identifier hs-type">UpdateDeploymentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- | The date and time when the Deployment resource was created.</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#updateDeploymentResponse_createdDate"><span class="hs-identifier hs-type">updateDeploymentResponse_createdDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeploymentResponse"><span class="hs-identifier hs-type">UpdateDeploymentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span id="updateDeploymentResponse_createdDate"><span class="annot"><span class="annottext">updateDeploymentResponse_createdDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; UpdateDeploymentResponse -&gt; f UpdateDeploymentResponse
+</span><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#updateDeploymentResponse_createdDate"><span class="hs-identifier hs-var hs-var">updateDeploymentResponse_createdDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDeploymentResponse -&gt; Maybe POSIX)
+-&gt; (UpdateDeploymentResponse
+    -&gt; Maybe POSIX -&gt; UpdateDeploymentResponse)
+-&gt; Lens
+     UpdateDeploymentResponse
+     UpdateDeploymentResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeploymentResponse%27"><span class="hs-identifier hs-type">UpdateDeploymentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427718"><span class="annot"><span class="annottext">Maybe POSIX
+createdDate :: Maybe POSIX
+$sel:createdDate:UpdateDeploymentResponse' :: UpdateDeploymentResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679427718"><span class="hs-identifier hs-var hs-var">createdDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679427718"><span class="hs-identifier hs-var">createdDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427717"><span class="annot"><span class="annottext">s :: UpdateDeploymentResponse
+</span><a href="#local-6989586621679427717"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeploymentResponse%27"><span class="hs-identifier hs-type">UpdateDeploymentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427716"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679427716"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDeploymentResponse
+</span><a href="#local-6989586621679427717"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdDate:UpdateDeploymentResponse' :: Maybe POSIX
+</span><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#%24sel%3AcreatedDate%3AUpdateDeploymentResponse%27"><span class="hs-identifier hs-var">createdDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679427716"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeploymentResponse"><span class="hs-identifier hs-type">UpdateDeploymentResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; UpdateDeploymentResponse -&gt; f UpdateDeploymentResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; UpdateDeploymentResponse
+-&gt; f UpdateDeploymentResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- | The status of the deployment: PENDING, FAILED, or SUCCEEDED.</span><span>
+</span><span id="line-232"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#updateDeploymentResponse_deploymentStatus"><span class="hs-identifier hs-type">updateDeploymentResponse_deploymentStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeploymentResponse"><span class="hs-identifier hs-type">UpdateDeploymentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.DeploymentStatus.html#DeploymentStatus"><span class="hs-identifier hs-type">DeploymentStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span id="updateDeploymentResponse_deploymentStatus"><span class="annot"><span class="annottext">updateDeploymentResponse_deploymentStatus :: (Maybe DeploymentStatus -&gt; f (Maybe DeploymentStatus))
+-&gt; UpdateDeploymentResponse -&gt; f UpdateDeploymentResponse
+</span><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#updateDeploymentResponse_deploymentStatus"><span class="hs-identifier hs-var hs-var">updateDeploymentResponse_deploymentStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDeploymentResponse -&gt; Maybe DeploymentStatus)
+-&gt; (UpdateDeploymentResponse
+    -&gt; Maybe DeploymentStatus -&gt; UpdateDeploymentResponse)
+-&gt; Lens
+     UpdateDeploymentResponse
+     UpdateDeploymentResponse
+     (Maybe DeploymentStatus)
+     (Maybe DeploymentStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeploymentResponse%27"><span class="hs-identifier hs-type">UpdateDeploymentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427712"><span class="annot"><span class="annottext">Maybe DeploymentStatus
+deploymentStatus :: Maybe DeploymentStatus
+$sel:deploymentStatus:UpdateDeploymentResponse' :: UpdateDeploymentResponse -&gt; Maybe DeploymentStatus
+</span><a href="#local-6989586621679427712"><span class="hs-identifier hs-var hs-var">deploymentStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeploymentStatus
+</span><a href="#local-6989586621679427712"><span class="hs-identifier hs-var">deploymentStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427711"><span class="annot"><span class="annottext">s :: UpdateDeploymentResponse
+</span><a href="#local-6989586621679427711"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeploymentResponse%27"><span class="hs-identifier hs-type">UpdateDeploymentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427710"><span class="annot"><span class="annottext">Maybe DeploymentStatus
+</span><a href="#local-6989586621679427710"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDeploymentResponse
+</span><a href="#local-6989586621679427711"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentStatus:UpdateDeploymentResponse' :: Maybe DeploymentStatus
+</span><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#%24sel%3AdeploymentStatus%3AUpdateDeploymentResponse%27"><span class="hs-identifier hs-var">deploymentStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeploymentStatus
+</span><a href="#local-6989586621679427710"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeploymentResponse"><span class="hs-identifier hs-type">UpdateDeploymentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- | The description for the deployment.</span><span>
+</span><span id="line-236"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#updateDeploymentResponse_description"><span class="hs-identifier hs-type">updateDeploymentResponse_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeploymentResponse"><span class="hs-identifier hs-type">UpdateDeploymentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span id="updateDeploymentResponse_description"><span class="annot"><span class="annottext">updateDeploymentResponse_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateDeploymentResponse -&gt; f UpdateDeploymentResponse
+</span><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#updateDeploymentResponse_description"><span class="hs-identifier hs-var hs-var">updateDeploymentResponse_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDeploymentResponse -&gt; Maybe Text)
+-&gt; (UpdateDeploymentResponse
+    -&gt; Maybe Text -&gt; UpdateDeploymentResponse)
+-&gt; Lens
+     UpdateDeploymentResponse
+     UpdateDeploymentResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeploymentResponse%27"><span class="hs-identifier hs-type">UpdateDeploymentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427709"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:UpdateDeploymentResponse' :: UpdateDeploymentResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679427709"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427709"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427708"><span class="annot"><span class="annottext">s :: UpdateDeploymentResponse
+</span><a href="#local-6989586621679427708"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeploymentResponse%27"><span class="hs-identifier hs-type">UpdateDeploymentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427707"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427707"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDeploymentResponse
+</span><a href="#local-6989586621679427708"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateDeploymentResponse' :: Maybe Text
+</span><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#%24sel%3Adescription%3AUpdateDeploymentResponse%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679427707"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeploymentResponse"><span class="hs-identifier hs-type">UpdateDeploymentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-240"></span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#updateDeploymentResponse_httpStatus"><span class="hs-identifier hs-type">updateDeploymentResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeploymentResponse"><span class="hs-identifier hs-type">UpdateDeploymentResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-241"></span><span id="updateDeploymentResponse_httpStatus"><span class="annot"><span class="annottext">updateDeploymentResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateDeploymentResponse -&gt; f UpdateDeploymentResponse
+</span><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#updateDeploymentResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateDeploymentResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDeploymentResponse -&gt; Int)
+-&gt; (UpdateDeploymentResponse -&gt; Int -&gt; UpdateDeploymentResponse)
+-&gt; Lens UpdateDeploymentResponse UpdateDeploymentResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeploymentResponse%27"><span class="hs-identifier hs-type">UpdateDeploymentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427706"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateDeploymentResponse' :: UpdateDeploymentResponse -&gt; Int
+</span><a href="#local-6989586621679427706"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679427706"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427705"><span class="annot"><span class="annottext">s :: UpdateDeploymentResponse
+</span><a href="#local-6989586621679427705"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeploymentResponse%27"><span class="hs-identifier hs-type">UpdateDeploymentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427704"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679427704"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDeploymentResponse
+</span><a href="#local-6989586621679427705"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateDeploymentResponse' :: Int
+</span><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#%24sel%3AhttpStatus%3AUpdateDeploymentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679427704"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeploymentResponse"><span class="hs-identifier hs-type">UpdateDeploymentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679427702"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.UpdateDeployment.html#UpdateDeploymentResponse"><span class="hs-identifier hs-type">UpdateDeploymentResponse</span></a></span></span><span>
+</span><span id="line-244"></span></pre></body></html>

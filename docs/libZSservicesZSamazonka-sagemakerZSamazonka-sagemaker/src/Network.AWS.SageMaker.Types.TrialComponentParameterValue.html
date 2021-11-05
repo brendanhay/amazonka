@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- This object is specified in the CreateTrialComponent request.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newTrialComponentParameterValue' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621680353700"><span id="local-6989586621680353701"></span></span><span class="hs-keyword">data</span><span> </span><span id="TrialComponentParameterValue"><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentParameterValue.html#TrialComponentParameterValue"><span class="hs-identifier hs-var">TrialComponentParameterValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TrialComponentParameterValue%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentParameterValue.html#TrialComponentParameterValue%27"><span class="hs-identifier hs-var">TrialComponentParameterValue'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680353709"><span id="local-6989586621680353710"></span></span><span class="hs-keyword">data</span><span> </span><span id="TrialComponentParameterValue"><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentParameterValue.html#TrialComponentParameterValue"><span class="hs-identifier hs-var">TrialComponentParameterValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TrialComponentParameterValue%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentParameterValue.html#TrialComponentParameterValue%27"><span class="hs-identifier hs-var">TrialComponentParameterValue'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The numeric value of a numeric hyperparameter. If you specify a value</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- for this parameter, you can\'t specify the @StringValue@ parameter.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AnumberValue%3ATrialComponentParameterValue%27"><span class="annot"><span class="annottext">TrialComponentParameterValue -&gt; Maybe Double
@@ -39,7 +39,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AstringValue%3ATrialComponentParameterValue%27"><span class="annot"><span class="annottext">TrialComponentParameterValue -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.TrialComponentParameterValue.html#%24sel%3AstringValue%3ATrialComponentParameterValue%27"><span class="hs-identifier hs-var hs-var">stringValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680353693"><span id="local-6989586621680353695"><span class="annot"><span class="annottext">TrialComponentParameterValue
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680353702"><span id="local-6989586621680353704"><span class="annot"><span class="annottext">TrialComponentParameterValue
 -&gt; TrialComponentParameterValue -&gt; Bool
 (TrialComponentParameterValue
  -&gt; TrialComponentParameterValue -&gt; Bool)
@@ -55,7 +55,7 @@ $c/= :: TrialComponentParameterValue
 -&gt; TrialComponentParameterValue -&gt; Bool
 $c== :: TrialComponentParameterValue
 -&gt; TrialComponentParameterValue -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680353684"><span id="local-6989586621680353686"><span id="local-6989586621680353688"><span id="local-6989586621680353690"><span class="annot"><span class="annottext">ReadPrec [TrialComponentParameterValue]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680353693"><span id="local-6989586621680353695"><span id="local-6989586621680353697"><span id="local-6989586621680353699"><span class="annot"><span class="annottext">ReadPrec [TrialComponentParameterValue]
 ReadPrec TrialComponentParameterValue
 Int -&gt; ReadS TrialComponentParameterValue
 ReadS [TrialComponentParameterValue]
@@ -75,7 +75,7 @@ readList :: ReadS [TrialComponentParameterValue]
 $creadList :: ReadS [TrialComponentParameterValue]
 readsPrec :: Int -&gt; ReadS TrialComponentParameterValue
 $creadsPrec :: Int -&gt; ReadS TrialComponentParameterValue
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680353677"><span id="local-6989586621680353679"><span id="local-6989586621680353681"><span class="annot"><span class="annottext">Int -&gt; TrialComponentParameterValue -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680353686"><span id="local-6989586621680353688"><span id="local-6989586621680353690"><span class="annot"><span class="annottext">Int -&gt; TrialComponentParameterValue -&gt; ShowS
 [TrialComponentParameterValue] -&gt; ShowS
 TrialComponentParameterValue -&gt; String
 (Int -&gt; TrialComponentParameterValue -&gt; ShowS)
@@ -151,16 +151,16 @@ forall a. Maybe a
      (Maybe Double)
      (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentParameterValue.html#TrialComponentParameterValue%27"><span class="hs-identifier hs-type">TrialComponentParameterValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680353668"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentParameterValue.html#TrialComponentParameterValue%27"><span class="hs-identifier hs-type">TrialComponentParameterValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680353677"><span class="annot"><span class="annottext">Maybe Double
 numberValue :: Maybe Double
 $sel:numberValue:TrialComponentParameterValue' :: TrialComponentParameterValue -&gt; Maybe Double
-</span><a href="#local-6989586621680353668"><span class="hs-identifier hs-var hs-var">numberValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621680353668"><span class="hs-identifier hs-var">numberValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680353667"><span class="annot"><span class="annottext">s :: TrialComponentParameterValue
-</span><a href="#local-6989586621680353667"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentParameterValue.html#TrialComponentParameterValue%27"><span class="hs-identifier hs-type">TrialComponentParameterValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680353666"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621680353666"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrialComponentParameterValue
-</span><a href="#local-6989586621680353667"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberValue:TrialComponentParameterValue' :: Maybe Double
+</span><a href="#local-6989586621680353677"><span class="hs-identifier hs-var hs-var">numberValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621680353677"><span class="hs-identifier hs-var">numberValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680353676"><span class="annot"><span class="annottext">s :: TrialComponentParameterValue
+</span><a href="#local-6989586621680353676"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentParameterValue.html#TrialComponentParameterValue%27"><span class="hs-identifier hs-type">TrialComponentParameterValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680353675"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621680353675"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrialComponentParameterValue
+</span><a href="#local-6989586621680353676"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberValue:TrialComponentParameterValue' :: Maybe Double
 </span><a href="Network.AWS.SageMaker.Types.TrialComponentParameterValue.html#%24sel%3AnumberValue%3ATrialComponentParameterValue%27"><span class="hs-identifier hs-var">numberValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621680353666"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentParameterValue.html#TrialComponentParameterValue"><span class="hs-identifier hs-type">TrialComponentParameterValue</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680353675"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentParameterValue.html#TrialComponentParameterValue"><span class="hs-identifier hs-type">TrialComponentParameterValue</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | The string value of a categorical hyperparameter. If you specify a value</span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- for this parameter, you can\'t specify the @NumberValue@ parameter.</span><span>
@@ -176,19 +176,19 @@ $sel:numberValue:TrialComponentParameterValue' :: TrialComponentParameterValue -
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentParameterValue.html#TrialComponentParameterValue%27"><span class="hs-identifier hs-type">TrialComponentParameterValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680353664"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentParameterValue.html#TrialComponentParameterValue%27"><span class="hs-identifier hs-type">TrialComponentParameterValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680353673"><span class="annot"><span class="annottext">Maybe Text
 stringValue :: Maybe Text
 $sel:stringValue:TrialComponentParameterValue' :: TrialComponentParameterValue -&gt; Maybe Text
-</span><a href="#local-6989586621680353664"><span class="hs-identifier hs-var hs-var">stringValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680353664"><span class="hs-identifier hs-var">stringValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680353663"><span class="annot"><span class="annottext">s :: TrialComponentParameterValue
-</span><a href="#local-6989586621680353663"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentParameterValue.html#TrialComponentParameterValue%27"><span class="hs-identifier hs-type">TrialComponentParameterValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680353662"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680353662"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrialComponentParameterValue
-</span><a href="#local-6989586621680353663"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stringValue:TrialComponentParameterValue' :: Maybe Text
+</span><a href="#local-6989586621680353673"><span class="hs-identifier hs-var hs-var">stringValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680353673"><span class="hs-identifier hs-var">stringValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680353672"><span class="annot"><span class="annottext">s :: TrialComponentParameterValue
+</span><a href="#local-6989586621680353672"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentParameterValue.html#TrialComponentParameterValue%27"><span class="hs-identifier hs-type">TrialComponentParameterValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680353671"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680353671"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrialComponentParameterValue
+</span><a href="#local-6989586621680353672"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stringValue:TrialComponentParameterValue' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.TrialComponentParameterValue.html#%24sel%3AstringValue%3ATrialComponentParameterValue%27"><span class="hs-identifier hs-var">stringValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680353662"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentParameterValue.html#TrialComponentParameterValue"><span class="hs-identifier hs-type">TrialComponentParameterValue</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680353671"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentParameterValue.html#TrialComponentParameterValue"><span class="hs-identifier hs-type">TrialComponentParameterValue</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680353659"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentParameterValue.html#TrialComponentParameterValue"><span class="hs-identifier hs-type">TrialComponentParameterValue</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621680353657"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TrialComponentParameterValue
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680353668"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentParameterValue.html#TrialComponentParameterValue"><span class="hs-identifier hs-type">TrialComponentParameterValue</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621680353666"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TrialComponentParameterValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TrialComponentParameterValue)
@@ -198,8 +198,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TrialComponentParameterValue&quot;</span></span><span>
-</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680353654"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680353654"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680353663"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680353663"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Maybe Double -&gt; Maybe Text -&gt; TrialComponentParameterValue
 </span><a href="Network.AWS.SageMaker.Types.TrialComponentParameterValue.html#TrialComponentParameterValue%27"><span class="hs-identifier hs-var">TrialComponentParameterValue'</span></a></span><span>
 </span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Double -&gt; Maybe Text -&gt; TrialComponentParameterValue)
@@ -207,7 +207,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; TrialComponentParameterValue)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680353654"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621680353663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NumberValue&quot;</span></span><span class="hs-special">)</span><span>
@@ -215,27 +215,27 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser TrialComponentParameterValue
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680353654"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680353663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StringValue&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621680353648"><span id="local-6989586621680353650"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621680353657"><span id="local-6989586621680353659"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentParameterValue.html#TrialComponentParameterValue"><span class="hs-identifier hs-type">TrialComponentParameterValue</span></a></span></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680353645"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentParameterValue.html#TrialComponentParameterValue"><span class="hs-identifier hs-type">TrialComponentParameterValue</span></a></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680353654"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentParameterValue.html#TrialComponentParameterValue"><span class="hs-identifier hs-type">TrialComponentParameterValue</span></a></span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680353637"><span id="local-6989586621680353639"><span id="local-6989586621680353641"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentParameterValue.html#TrialComponentParameterValue"><span class="hs-identifier hs-type">TrialComponentParameterValue</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621680353635"><span class="annot"><span class="annottext">toJSON :: TrialComponentParameterValue -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentParameterValue.html#TrialComponentParameterValue%27"><span class="hs-identifier hs-type">TrialComponentParameterValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680353632"><span id="local-6989586621680353633"><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680353646"><span id="local-6989586621680353648"><span id="local-6989586621680353650"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentParameterValue.html#TrialComponentParameterValue"><span class="hs-identifier hs-type">TrialComponentParameterValue</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621680353644"><span class="annot"><span class="annottext">toJSON :: TrialComponentParameterValue -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrialComponentParameterValue.html#TrialComponentParameterValue%27"><span class="hs-identifier hs-type">TrialComponentParameterValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680353641"><span id="local-6989586621680353642"><span class="annot"><span class="annottext">Maybe Double
 Maybe Text
 stringValue :: Maybe Text
 numberValue :: Maybe Double
 $sel:stringValue:TrialComponentParameterValue' :: TrialComponentParameterValue -&gt; Maybe Text
 $sel:numberValue:TrialComponentParameterValue' :: TrialComponentParameterValue -&gt; Maybe Double
-</span><a href="#local-6989586621680353632"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680353641"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -247,14 +247,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621680353633"><span class="hs-identifier hs-var">numberValue</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680353642"><span class="hs-identifier hs-var">numberValue</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-95"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StringValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680353632"><span class="hs-identifier hs-var">stringValue</span></a></span><span>
+</span><a href="#local-6989586621680353641"><span class="hs-identifier hs-var">stringValue</span></a></span><span>
 </span><span id="line-96"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span></pre></body></html>

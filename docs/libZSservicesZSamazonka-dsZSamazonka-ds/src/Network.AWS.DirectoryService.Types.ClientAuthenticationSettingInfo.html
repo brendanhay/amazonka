@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- directory.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newClientAuthenticationSettingInfo' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679294485"><span id="local-6989586621679294486"></span></span><span class="hs-keyword">data</span><span> </span><span id="ClientAuthenticationSettingInfo"><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientAuthenticationSettingInfo.html#ClientAuthenticationSettingInfo"><span class="hs-identifier hs-var">ClientAuthenticationSettingInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClientAuthenticationSettingInfo%27"><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientAuthenticationSettingInfo.html#ClientAuthenticationSettingInfo%27"><span class="hs-identifier hs-var">ClientAuthenticationSettingInfo'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679294494"><span id="local-6989586621679294495"></span></span><span class="hs-keyword">data</span><span> </span><span id="ClientAuthenticationSettingInfo"><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientAuthenticationSettingInfo.html#ClientAuthenticationSettingInfo"><span class="hs-identifier hs-var">ClientAuthenticationSettingInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClientAuthenticationSettingInfo%27"><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientAuthenticationSettingInfo.html#ClientAuthenticationSettingInfo%27"><span class="hs-identifier hs-var">ClientAuthenticationSettingInfo'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Whether the client authentication type is enabled or disabled for the</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- specified directory.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Astatus%3AClientAuthenticationSettingInfo%27"><span class="annot"><span class="annottext">ClientAuthenticationSettingInfo -&gt; Maybe ClientAuthenticationStatus
@@ -44,7 +44,7 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3Atype%27%3AClientAuthenticationSettingInfo%27"><span class="annot"><span class="annottext">ClientAuthenticationSettingInfo -&gt; Maybe ClientAuthenticationType
 </span><a href="Network.AWS.DirectoryService.Types.ClientAuthenticationSettingInfo.html#%24sel%3Atype%27%3AClientAuthenticationSettingInfo%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientAuthenticationType.html#ClientAuthenticationType"><span class="hs-identifier hs-type">ClientAuthenticationType</span></a></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679294477"><span id="local-6989586621679294479"><span class="annot"><span class="annottext">ClientAuthenticationSettingInfo
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679294486"><span id="local-6989586621679294488"><span class="annot"><span class="annottext">ClientAuthenticationSettingInfo
 -&gt; ClientAuthenticationSettingInfo -&gt; Bool
 (ClientAuthenticationSettingInfo
  -&gt; ClientAuthenticationSettingInfo -&gt; Bool)
@@ -60,7 +60,7 @@ $c/= :: ClientAuthenticationSettingInfo
 -&gt; ClientAuthenticationSettingInfo -&gt; Bool
 $c== :: ClientAuthenticationSettingInfo
 -&gt; ClientAuthenticationSettingInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294468"><span id="local-6989586621679294470"><span id="local-6989586621679294472"><span id="local-6989586621679294474"><span class="annot"><span class="annottext">ReadPrec [ClientAuthenticationSettingInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294477"><span id="local-6989586621679294479"><span id="local-6989586621679294481"><span id="local-6989586621679294483"><span class="annot"><span class="annottext">ReadPrec [ClientAuthenticationSettingInfo]
 ReadPrec ClientAuthenticationSettingInfo
 Int -&gt; ReadS ClientAuthenticationSettingInfo
 ReadS [ClientAuthenticationSettingInfo]
@@ -80,7 +80,7 @@ readList :: ReadS [ClientAuthenticationSettingInfo]
 $creadList :: ReadS [ClientAuthenticationSettingInfo]
 readsPrec :: Int -&gt; ReadS ClientAuthenticationSettingInfo
 $creadsPrec :: Int -&gt; ReadS ClientAuthenticationSettingInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294461"><span id="local-6989586621679294463"><span id="local-6989586621679294465"><span class="annot"><span class="annottext">Int -&gt; ClientAuthenticationSettingInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294470"><span id="local-6989586621679294472"><span id="local-6989586621679294474"><span class="annot"><span class="annottext">Int -&gt; ClientAuthenticationSettingInfo -&gt; ShowS
 [ClientAuthenticationSettingInfo] -&gt; ShowS
 ClientAuthenticationSettingInfo -&gt; String
 (Int -&gt; ClientAuthenticationSettingInfo -&gt; ShowS)
@@ -177,16 +177,16 @@ forall a. Maybe a
      (Maybe ClientAuthenticationStatus)
      (Maybe ClientAuthenticationStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientAuthenticationSettingInfo.html#ClientAuthenticationSettingInfo%27"><span class="hs-identifier hs-type">ClientAuthenticationSettingInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294452"><span class="annot"><span class="annottext">Maybe ClientAuthenticationStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientAuthenticationSettingInfo.html#ClientAuthenticationSettingInfo%27"><span class="hs-identifier hs-type">ClientAuthenticationSettingInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294461"><span class="annot"><span class="annottext">Maybe ClientAuthenticationStatus
 status :: Maybe ClientAuthenticationStatus
 $sel:status:ClientAuthenticationSettingInfo' :: ClientAuthenticationSettingInfo -&gt; Maybe ClientAuthenticationStatus
-</span><a href="#local-6989586621679294452"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ClientAuthenticationStatus
-</span><a href="#local-6989586621679294452"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294451"><span class="annot"><span class="annottext">s :: ClientAuthenticationSettingInfo
-</span><a href="#local-6989586621679294451"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientAuthenticationSettingInfo.html#ClientAuthenticationSettingInfo%27"><span class="hs-identifier hs-type">ClientAuthenticationSettingInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294450"><span class="annot"><span class="annottext">Maybe ClientAuthenticationStatus
-</span><a href="#local-6989586621679294450"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClientAuthenticationSettingInfo
-</span><a href="#local-6989586621679294451"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ClientAuthenticationSettingInfo' :: Maybe ClientAuthenticationStatus
+</span><a href="#local-6989586621679294461"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ClientAuthenticationStatus
+</span><a href="#local-6989586621679294461"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294460"><span class="annot"><span class="annottext">s :: ClientAuthenticationSettingInfo
+</span><a href="#local-6989586621679294460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientAuthenticationSettingInfo.html#ClientAuthenticationSettingInfo%27"><span class="hs-identifier hs-type">ClientAuthenticationSettingInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294459"><span class="annot"><span class="annottext">Maybe ClientAuthenticationStatus
+</span><a href="#local-6989586621679294459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClientAuthenticationSettingInfo
+</span><a href="#local-6989586621679294460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ClientAuthenticationSettingInfo' :: Maybe ClientAuthenticationStatus
 </span><a href="Network.AWS.DirectoryService.Types.ClientAuthenticationSettingInfo.html#%24sel%3Astatus%3AClientAuthenticationSettingInfo%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ClientAuthenticationStatus
-</span><a href="#local-6989586621679294450"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientAuthenticationSettingInfo.html#ClientAuthenticationSettingInfo"><span class="hs-identifier hs-type">ClientAuthenticationSettingInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679294459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientAuthenticationSettingInfo.html#ClientAuthenticationSettingInfo"><span class="hs-identifier hs-type">ClientAuthenticationSettingInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | The date and time when the status of the client authentication type was</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- last updated.</span><span>
@@ -203,16 +203,16 @@ $sel:status:ClientAuthenticationSettingInfo' :: ClientAuthenticationSettingInfo 
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientAuthenticationSettingInfo.html#ClientAuthenticationSettingInfo%27"><span class="hs-identifier hs-type">ClientAuthenticationSettingInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294448"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientAuthenticationSettingInfo.html#ClientAuthenticationSettingInfo%27"><span class="hs-identifier hs-type">ClientAuthenticationSettingInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294457"><span class="annot"><span class="annottext">Maybe POSIX
 lastUpdatedDateTime :: Maybe POSIX
 $sel:lastUpdatedDateTime:ClientAuthenticationSettingInfo' :: ClientAuthenticationSettingInfo -&gt; Maybe POSIX
-</span><a href="#local-6989586621679294448"><span class="hs-identifier hs-var hs-var">lastUpdatedDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679294448"><span class="hs-identifier hs-var">lastUpdatedDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294447"><span class="annot"><span class="annottext">s :: ClientAuthenticationSettingInfo
-</span><a href="#local-6989586621679294447"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientAuthenticationSettingInfo.html#ClientAuthenticationSettingInfo%27"><span class="hs-identifier hs-type">ClientAuthenticationSettingInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294446"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679294446"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClientAuthenticationSettingInfo
-</span><a href="#local-6989586621679294447"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedDateTime:ClientAuthenticationSettingInfo' :: Maybe POSIX
+</span><a href="#local-6989586621679294457"><span class="hs-identifier hs-var hs-var">lastUpdatedDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679294457"><span class="hs-identifier hs-var">lastUpdatedDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294456"><span class="annot"><span class="annottext">s :: ClientAuthenticationSettingInfo
+</span><a href="#local-6989586621679294456"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientAuthenticationSettingInfo.html#ClientAuthenticationSettingInfo%27"><span class="hs-identifier hs-type">ClientAuthenticationSettingInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294455"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679294455"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClientAuthenticationSettingInfo
+</span><a href="#local-6989586621679294456"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedDateTime:ClientAuthenticationSettingInfo' :: Maybe POSIX
 </span><a href="Network.AWS.DirectoryService.Types.ClientAuthenticationSettingInfo.html#%24sel%3AlastUpdatedDateTime%3AClientAuthenticationSettingInfo%27"><span class="hs-identifier hs-var">lastUpdatedDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679294446"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientAuthenticationSettingInfo.html#ClientAuthenticationSettingInfo"><span class="hs-identifier hs-type">ClientAuthenticationSettingInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679294455"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientAuthenticationSettingInfo.html#ClientAuthenticationSettingInfo"><span class="hs-identifier hs-type">ClientAuthenticationSettingInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; ClientAuthenticationSettingInfo
  -&gt; f ClientAuthenticationSettingInfo)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -248,22 +248,22 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe ClientAuthenticationType)
      (Maybe ClientAuthenticationType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientAuthenticationSettingInfo.html#ClientAuthenticationSettingInfo%27"><span class="hs-identifier hs-type">ClientAuthenticationSettingInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294441"><span class="annot"><span class="annottext">Maybe ClientAuthenticationType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientAuthenticationSettingInfo.html#ClientAuthenticationSettingInfo%27"><span class="hs-identifier hs-type">ClientAuthenticationSettingInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294450"><span class="annot"><span class="annottext">Maybe ClientAuthenticationType
 type' :: Maybe ClientAuthenticationType
 $sel:type':ClientAuthenticationSettingInfo' :: ClientAuthenticationSettingInfo -&gt; Maybe ClientAuthenticationType
-</span><a href="#local-6989586621679294441"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ClientAuthenticationType
-</span><a href="#local-6989586621679294441"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294440"><span class="annot"><span class="annottext">s :: ClientAuthenticationSettingInfo
-</span><a href="#local-6989586621679294440"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientAuthenticationSettingInfo.html#ClientAuthenticationSettingInfo%27"><span class="hs-identifier hs-type">ClientAuthenticationSettingInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294439"><span class="annot"><span class="annottext">Maybe ClientAuthenticationType
-</span><a href="#local-6989586621679294439"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClientAuthenticationSettingInfo
-</span><a href="#local-6989586621679294440"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ClientAuthenticationSettingInfo' :: Maybe ClientAuthenticationType
+</span><a href="#local-6989586621679294450"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ClientAuthenticationType
+</span><a href="#local-6989586621679294450"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294449"><span class="annot"><span class="annottext">s :: ClientAuthenticationSettingInfo
+</span><a href="#local-6989586621679294449"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientAuthenticationSettingInfo.html#ClientAuthenticationSettingInfo%27"><span class="hs-identifier hs-type">ClientAuthenticationSettingInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294448"><span class="annot"><span class="annottext">Maybe ClientAuthenticationType
+</span><a href="#local-6989586621679294448"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClientAuthenticationSettingInfo
+</span><a href="#local-6989586621679294449"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ClientAuthenticationSettingInfo' :: Maybe ClientAuthenticationType
 </span><a href="Network.AWS.DirectoryService.Types.ClientAuthenticationSettingInfo.html#%24sel%3Atype%27%3AClientAuthenticationSettingInfo%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ClientAuthenticationType
-</span><a href="#local-6989586621679294439"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientAuthenticationSettingInfo.html#ClientAuthenticationSettingInfo"><span class="hs-identifier hs-type">ClientAuthenticationSettingInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679294448"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientAuthenticationSettingInfo.html#ClientAuthenticationSettingInfo"><span class="hs-identifier hs-type">ClientAuthenticationSettingInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679294436"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679294445"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-91"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientAuthenticationSettingInfo.html#ClientAuthenticationSettingInfo"><span class="hs-identifier hs-type">ClientAuthenticationSettingInfo</span></a></span></span><span>
 </span><span id="line-92"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679294434"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ClientAuthenticationSettingInfo
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679294443"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ClientAuthenticationSettingInfo
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ClientAuthenticationSettingInfo)
@@ -273,8 +273,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ClientAuthenticationSettingInfo&quot;</span></span><span>
-</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679294431"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679294431"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679294440"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679294440"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe ClientAuthenticationStatus
 -&gt; Maybe POSIX
 -&gt; Maybe ClientAuthenticationType
@@ -291,7 +291,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; ClientAuthenticationSettingInfo)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679294431"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ClientAuthenticationStatus)
+</span><a href="#local-6989586621679294440"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ClientAuthenticationStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
@@ -304,7 +304,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe ClientAuthenticationType -&gt; ClientAuthenticationSettingInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679294431"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679294440"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LastUpdatedDateTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -314,17 +314,17 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser ClientAuthenticationSettingInfo
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679294431"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ClientAuthenticationType)
+</span><a href="#local-6989586621679294440"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ClientAuthenticationType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679294425"><span id="local-6989586621679294427"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679294434"><span id="local-6989586621679294436"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientAuthenticationSettingInfo.html#ClientAuthenticationSettingInfo"><span class="hs-identifier hs-type">ClientAuthenticationSettingInfo</span></a></span></span></span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679294422"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679294431"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.ClientAuthenticationSettingInfo.html#ClientAuthenticationSettingInfo"><span class="hs-identifier hs-type">ClientAuthenticationSettingInfo</span></a></span></span><span>
 </span><span id="line-110"></span></pre></body></html>

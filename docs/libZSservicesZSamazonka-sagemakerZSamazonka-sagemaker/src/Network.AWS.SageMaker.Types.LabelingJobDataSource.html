@@ -39,7 +39,7 @@
 </span><span id="line-39"></span><span class="hs-comment">-- use @SnsDataSource@ to create a streaming labeling job.</span><span>
 </span><span id="line-40"></span><span class="hs-comment">--</span><span>
 </span><span id="line-41"></span><span class="hs-comment">-- /See:/ 'newLabelingJobDataSource' smart constructor.</span><span>
-</span><span id="line-42"></span><span id="local-6989586621680314025"><span id="local-6989586621680314026"></span></span><span class="hs-keyword">data</span><span> </span><span id="LabelingJobDataSource"><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataSource.html#LabelingJobDataSource"><span class="hs-identifier hs-var">LabelingJobDataSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LabelingJobDataSource%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataSource.html#LabelingJobDataSource%27"><span class="hs-identifier hs-var">LabelingJobDataSource'</span></a></span></span><span>
+</span><span id="line-42"></span><span id="local-6989586621680314034"><span id="local-6989586621680314035"></span></span><span class="hs-keyword">data</span><span> </span><span id="LabelingJobDataSource"><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataSource.html#LabelingJobDataSource"><span class="hs-identifier hs-var">LabelingJobDataSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LabelingJobDataSource%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataSource.html#LabelingJobDataSource%27"><span class="hs-identifier hs-var">LabelingJobDataSource'</span></a></span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon S3 location of the input data objects.</span><span>
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3As3DataSource%3ALabelingJobDataSource%27"><span class="annot"><span class="annottext">LabelingJobDataSource -&gt; Maybe LabelingJobS3DataSource
 </span><a href="Network.AWS.SageMaker.Types.LabelingJobDataSource.html#%24sel%3As3DataSource%3ALabelingJobDataSource%27"><span class="hs-identifier hs-var hs-var">s3DataSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobS3DataSource.html#LabelingJobS3DataSource"><span class="hs-identifier hs-type">LabelingJobS3DataSource</span></a></span><span class="hs-special">,</span><span>
@@ -49,7 +49,7 @@
 </span><span id="line-48"></span><span>    </span><span id="%24sel%3AsnsDataSource%3ALabelingJobDataSource%27"><span class="annot"><span class="annottext">LabelingJobDataSource -&gt; Maybe LabelingJobSnsDataSource
 </span><a href="Network.AWS.SageMaker.Types.LabelingJobDataSource.html#%24sel%3AsnsDataSource%3ALabelingJobDataSource%27"><span class="hs-identifier hs-var hs-var">snsDataSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobSnsDataSource.html#LabelingJobSnsDataSource"><span class="hs-identifier hs-type">LabelingJobSnsDataSource</span></a></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680314018"><span id="local-6989586621680314020"><span class="annot"><span class="annottext">LabelingJobDataSource -&gt; LabelingJobDataSource -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680314027"><span id="local-6989586621680314029"><span class="annot"><span class="annottext">LabelingJobDataSource -&gt; LabelingJobDataSource -&gt; Bool
 (LabelingJobDataSource -&gt; LabelingJobDataSource -&gt; Bool)
 -&gt; (LabelingJobDataSource -&gt; LabelingJobDataSource -&gt; Bool)
 -&gt; Eq LabelingJobDataSource
@@ -58,7 +58,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LabelingJobDataSource -&gt; LabelingJobDataSource -&gt; Bool
 == :: LabelingJobDataSource -&gt; LabelingJobDataSource -&gt; Bool
 $c== :: LabelingJobDataSource -&gt; LabelingJobDataSource -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680314009"><span id="local-6989586621680314011"><span id="local-6989586621680314013"><span id="local-6989586621680314015"><span class="annot"><span class="annottext">ReadPrec [LabelingJobDataSource]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680314018"><span id="local-6989586621680314020"><span id="local-6989586621680314022"><span id="local-6989586621680314024"><span class="annot"><span class="annottext">ReadPrec [LabelingJobDataSource]
 ReadPrec LabelingJobDataSource
 Int -&gt; ReadS LabelingJobDataSource
 ReadS [LabelingJobDataSource]
@@ -78,7 +78,7 @@ readList :: ReadS [LabelingJobDataSource]
 $creadList :: ReadS [LabelingJobDataSource]
 readsPrec :: Int -&gt; ReadS LabelingJobDataSource
 $creadsPrec :: Int -&gt; ReadS LabelingJobDataSource
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680314002"><span id="local-6989586621680314004"><span id="local-6989586621680314006"><span class="annot"><span class="annottext">Int -&gt; LabelingJobDataSource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680314011"><span id="local-6989586621680314013"><span id="local-6989586621680314015"><span class="annot"><span class="annottext">Int -&gt; LabelingJobDataSource -&gt; ShowS
 [LabelingJobDataSource] -&gt; ShowS
 LabelingJobDataSource -&gt; String
 (Int -&gt; LabelingJobDataSource -&gt; ShowS)
@@ -149,16 +149,16 @@ forall a. Maybe a
      (Maybe LabelingJobS3DataSource)
      (Maybe LabelingJobS3DataSource)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataSource.html#LabelingJobDataSource%27"><span class="hs-identifier hs-type">LabelingJobDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680313993"><span class="annot"><span class="annottext">Maybe LabelingJobS3DataSource
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataSource.html#LabelingJobDataSource%27"><span class="hs-identifier hs-type">LabelingJobDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680314002"><span class="annot"><span class="annottext">Maybe LabelingJobS3DataSource
 s3DataSource :: Maybe LabelingJobS3DataSource
 $sel:s3DataSource:LabelingJobDataSource' :: LabelingJobDataSource -&gt; Maybe LabelingJobS3DataSource
-</span><a href="#local-6989586621680313993"><span class="hs-identifier hs-var hs-var">s3DataSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LabelingJobS3DataSource
-</span><a href="#local-6989586621680313993"><span class="hs-identifier hs-var">s3DataSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680313992"><span class="annot"><span class="annottext">s :: LabelingJobDataSource
-</span><a href="#local-6989586621680313992"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataSource.html#LabelingJobDataSource%27"><span class="hs-identifier hs-type">LabelingJobDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680313991"><span class="annot"><span class="annottext">Maybe LabelingJobS3DataSource
-</span><a href="#local-6989586621680313991"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LabelingJobDataSource
-</span><a href="#local-6989586621680313992"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3DataSource:LabelingJobDataSource' :: Maybe LabelingJobS3DataSource
+</span><a href="#local-6989586621680314002"><span class="hs-identifier hs-var hs-var">s3DataSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LabelingJobS3DataSource
+</span><a href="#local-6989586621680314002"><span class="hs-identifier hs-var">s3DataSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680314001"><span class="annot"><span class="annottext">s :: LabelingJobDataSource
+</span><a href="#local-6989586621680314001"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataSource.html#LabelingJobDataSource%27"><span class="hs-identifier hs-type">LabelingJobDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680314000"><span class="annot"><span class="annottext">Maybe LabelingJobS3DataSource
+</span><a href="#local-6989586621680314000"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LabelingJobDataSource
+</span><a href="#local-6989586621680314001"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3DataSource:LabelingJobDataSource' :: Maybe LabelingJobS3DataSource
 </span><a href="Network.AWS.SageMaker.Types.LabelingJobDataSource.html#%24sel%3As3DataSource%3ALabelingJobDataSource%27"><span class="hs-identifier hs-var">s3DataSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LabelingJobS3DataSource
-</span><a href="#local-6989586621680313991"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataSource.html#LabelingJobDataSource"><span class="hs-identifier hs-type">LabelingJobDataSource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680314000"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataSource.html#LabelingJobDataSource"><span class="hs-identifier hs-type">LabelingJobDataSource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | An Amazon SNS data source used for streaming labeling jobs. To learn</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- more, see</span><span>
@@ -176,19 +176,19 @@ $sel:s3DataSource:LabelingJobDataSource' :: LabelingJobDataSource -&gt; Maybe La
      (Maybe LabelingJobSnsDataSource)
      (Maybe LabelingJobSnsDataSource)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataSource.html#LabelingJobDataSource%27"><span class="hs-identifier hs-type">LabelingJobDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680313989"><span class="annot"><span class="annottext">Maybe LabelingJobSnsDataSource
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataSource.html#LabelingJobDataSource%27"><span class="hs-identifier hs-type">LabelingJobDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680313998"><span class="annot"><span class="annottext">Maybe LabelingJobSnsDataSource
 snsDataSource :: Maybe LabelingJobSnsDataSource
 $sel:snsDataSource:LabelingJobDataSource' :: LabelingJobDataSource -&gt; Maybe LabelingJobSnsDataSource
-</span><a href="#local-6989586621680313989"><span class="hs-identifier hs-var hs-var">snsDataSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LabelingJobSnsDataSource
-</span><a href="#local-6989586621680313989"><span class="hs-identifier hs-var">snsDataSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680313988"><span class="annot"><span class="annottext">s :: LabelingJobDataSource
-</span><a href="#local-6989586621680313988"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataSource.html#LabelingJobDataSource%27"><span class="hs-identifier hs-type">LabelingJobDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680313987"><span class="annot"><span class="annottext">Maybe LabelingJobSnsDataSource
-</span><a href="#local-6989586621680313987"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LabelingJobDataSource
-</span><a href="#local-6989586621680313988"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snsDataSource:LabelingJobDataSource' :: Maybe LabelingJobSnsDataSource
+</span><a href="#local-6989586621680313998"><span class="hs-identifier hs-var hs-var">snsDataSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LabelingJobSnsDataSource
+</span><a href="#local-6989586621680313998"><span class="hs-identifier hs-var">snsDataSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680313997"><span class="annot"><span class="annottext">s :: LabelingJobDataSource
+</span><a href="#local-6989586621680313997"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataSource.html#LabelingJobDataSource%27"><span class="hs-identifier hs-type">LabelingJobDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680313996"><span class="annot"><span class="annottext">Maybe LabelingJobSnsDataSource
+</span><a href="#local-6989586621680313996"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LabelingJobDataSource
+</span><a href="#local-6989586621680313997"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snsDataSource:LabelingJobDataSource' :: Maybe LabelingJobSnsDataSource
 </span><a href="Network.AWS.SageMaker.Types.LabelingJobDataSource.html#%24sel%3AsnsDataSource%3ALabelingJobDataSource%27"><span class="hs-identifier hs-var">snsDataSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LabelingJobSnsDataSource
-</span><a href="#local-6989586621680313987"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataSource.html#LabelingJobDataSource"><span class="hs-identifier hs-type">LabelingJobDataSource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680313996"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataSource.html#LabelingJobDataSource"><span class="hs-identifier hs-type">LabelingJobDataSource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680313984"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataSource.html#LabelingJobDataSource"><span class="hs-identifier hs-type">LabelingJobDataSource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621680313982"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LabelingJobDataSource
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680313993"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataSource.html#LabelingJobDataSource"><span class="hs-identifier hs-type">LabelingJobDataSource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621680313991"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LabelingJobDataSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser LabelingJobDataSource)
@@ -198,8 +198,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;LabelingJobDataSource&quot;</span></span><span>
-</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680313979"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680313979"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680313988"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680313988"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Maybe LabelingJobS3DataSource
 -&gt; Maybe LabelingJobSnsDataSource -&gt; LabelingJobDataSource
 </span><a href="Network.AWS.SageMaker.Types.LabelingJobDataSource.html#LabelingJobDataSource%27"><span class="hs-identifier hs-var">LabelingJobDataSource'</span></a></span><span>
@@ -209,7 +209,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe LabelingJobSnsDataSource -&gt; LabelingJobDataSource)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680313979"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LabelingJobS3DataSource)
+</span><a href="#local-6989586621680313988"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LabelingJobS3DataSource)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3DataSource&quot;</span></span><span class="hs-special">)</span><span>
@@ -218,25 +218,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser LabelingJobDataSource
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680313979"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LabelingJobSnsDataSource)
+</span><a href="#local-6989586621680313988"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LabelingJobSnsDataSource)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SnsDataSource&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680313973"><span id="local-6989586621680313975"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataSource.html#LabelingJobDataSource"><span class="hs-identifier hs-type">LabelingJobDataSource</span></a></span></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680313982"><span id="local-6989586621680313984"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataSource.html#LabelingJobDataSource"><span class="hs-identifier hs-type">LabelingJobDataSource</span></a></span></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680313970"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataSource.html#LabelingJobDataSource"><span class="hs-identifier hs-type">LabelingJobDataSource</span></a></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680313979"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataSource.html#LabelingJobDataSource"><span class="hs-identifier hs-type">LabelingJobDataSource</span></a></span></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680313962"><span id="local-6989586621680313964"><span id="local-6989586621680313966"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataSource.html#LabelingJobDataSource"><span class="hs-identifier hs-type">LabelingJobDataSource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621680313960"><span class="annot"><span class="annottext">toJSON :: LabelingJobDataSource -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataSource.html#LabelingJobDataSource%27"><span class="hs-identifier hs-type">LabelingJobDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680313957"><span id="local-6989586621680313958"><span class="annot"><span class="annottext">Maybe LabelingJobS3DataSource
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680313971"><span id="local-6989586621680313973"><span id="local-6989586621680313975"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataSource.html#LabelingJobDataSource"><span class="hs-identifier hs-type">LabelingJobDataSource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621680313969"><span class="annot"><span class="annottext">toJSON :: LabelingJobDataSource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataSource.html#LabelingJobDataSource%27"><span class="hs-identifier hs-type">LabelingJobDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680313966"><span id="local-6989586621680313967"><span class="annot"><span class="annottext">Maybe LabelingJobS3DataSource
 Maybe LabelingJobSnsDataSource
 snsDataSource :: Maybe LabelingJobSnsDataSource
 s3DataSource :: Maybe LabelingJobS3DataSource
 $sel:snsDataSource:LabelingJobDataSource' :: LabelingJobDataSource -&gt; Maybe LabelingJobSnsDataSource
 $sel:s3DataSource:LabelingJobDataSource' :: LabelingJobDataSource -&gt; Maybe LabelingJobS3DataSource
-</span><a href="#local-6989586621680313957"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680313966"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -249,7 +249,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe LabelingJobS3DataSource -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LabelingJobS3DataSource
-</span><a href="#local-6989586621680313958"><span class="hs-identifier hs-var">s3DataSource</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680313967"><span class="hs-identifier hs-var">s3DataSource</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-103"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SnsDataSource&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LabelingJobSnsDataSource -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -257,7 +257,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe LabelingJobSnsDataSource -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LabelingJobSnsDataSource
-</span><a href="#local-6989586621680313957"><span class="hs-identifier hs-var">snsDataSource</span></a></span><span>
+</span><a href="#local-6989586621680313966"><span class="hs-identifier hs-var">snsDataSource</span></a></span><span>
 </span><span id="line-104"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span></pre></body></html>

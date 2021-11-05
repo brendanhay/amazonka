@@ -1,0 +1,557 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.RobOMaker.Types.Robot</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.RobOMaker.Types.Robot</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Architecture.html"><span class="hs-identifier">Network.AWS.RobOMaker.Types.Architecture</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotStatus.html"><span class="hs-identifier">Network.AWS.RobOMaker.Types.RobotStatus</span></a></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Information about a robot.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newRobot' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679369668"><span id="local-6989586621679369669"></span></span><span class="hs-keyword">data</span><span> </span><span id="Robot"><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#Robot"><span class="hs-identifier hs-var">Robot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Robot%27"><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#Robot%27"><span class="hs-identifier hs-var">Robot'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the last deployment job.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AlastDeploymentJob%3ARobot%27"><span class="annot"><span class="annottext">Robot -&gt; Maybe Text
+</span><a href="Network.AWS.RobOMaker.Types.Robot.html#%24sel%3AlastDeploymentJob%3ARobot%27"><span class="hs-identifier hs-var hs-var">lastDeploymentJob</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The status of the robot.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Astatus%3ARobot%27"><span class="annot"><span class="annottext">Robot -&gt; Maybe RobotStatus
+</span><a href="Network.AWS.RobOMaker.Types.Robot.html#%24sel%3Astatus%3ARobot%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#RobotStatus"><span class="hs-identifier hs-type">RobotStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the robot.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aarn%3ARobot%27"><span class="annot"><span class="annottext">Robot -&gt; Maybe Text
+</span><a href="Network.AWS.RobOMaker.Types.Robot.html#%24sel%3Aarn%3ARobot%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the robot was created.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AcreatedAt%3ARobot%27"><span class="annot"><span class="annottext">Robot -&gt; Maybe POSIX
+</span><a href="Network.AWS.RobOMaker.Types.Robot.html#%24sel%3AcreatedAt%3ARobot%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The Greengrass group associated with the robot.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AgreenGrassGroupId%3ARobot%27"><span class="annot"><span class="annottext">Robot -&gt; Maybe Text
+</span><a href="Network.AWS.RobOMaker.Types.Robot.html#%24sel%3AgreenGrassGroupId%3ARobot%27"><span class="hs-identifier hs-var hs-var">greenGrassGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the fleet.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AfleetArn%3ARobot%27"><span class="annot"><span class="annottext">Robot -&gt; Maybe Text
+</span><a href="Network.AWS.RobOMaker.Types.Robot.html#%24sel%3AfleetArn%3ARobot%27"><span class="hs-identifier hs-var hs-var">fleetArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The name of the robot.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Aname%3ARobot%27"><span class="annot"><span class="annottext">Robot -&gt; Maybe Text
+</span><a href="Network.AWS.RobOMaker.Types.Robot.html#%24sel%3Aname%3ARobot%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The architecture of the robot.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Aarchitecture%3ARobot%27"><span class="annot"><span class="annottext">Robot -&gt; Maybe Architecture
+</span><a href="Network.AWS.RobOMaker.Types.Robot.html#%24sel%3Aarchitecture%3ARobot%27"><span class="hs-identifier hs-var hs-var">architecture</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Architecture.html#Architecture"><span class="hs-identifier hs-type">Architecture</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The time of the last deployment.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AlastDeploymentTime%3ARobot%27"><span class="annot"><span class="annottext">Robot -&gt; Maybe POSIX
+</span><a href="Network.AWS.RobOMaker.Types.Robot.html#%24sel%3AlastDeploymentTime%3ARobot%27"><span class="hs-identifier hs-var hs-var">lastDeploymentTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679369654"><span id="local-6989586621679369656"><span class="annot"><span class="annottext">Robot -&gt; Robot -&gt; Bool
+(Robot -&gt; Robot -&gt; Bool) -&gt; (Robot -&gt; Robot -&gt; Bool) -&gt; Eq Robot
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Robot -&gt; Robot -&gt; Bool
+$c/= :: Robot -&gt; Robot -&gt; Bool
+== :: Robot -&gt; Robot -&gt; Bool
+$c== :: Robot -&gt; Robot -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369645"><span id="local-6989586621679369647"><span id="local-6989586621679369649"><span id="local-6989586621679369651"><span class="annot"><span class="annottext">ReadPrec [Robot]
+ReadPrec Robot
+Int -&gt; ReadS Robot
+ReadS [Robot]
+(Int -&gt; ReadS Robot)
+-&gt; ReadS [Robot]
+-&gt; ReadPrec Robot
+-&gt; ReadPrec [Robot]
+-&gt; Read Robot
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Robot]
+$creadListPrec :: ReadPrec [Robot]
+readPrec :: ReadPrec Robot
+$creadPrec :: ReadPrec Robot
+readList :: ReadS [Robot]
+$creadList :: ReadS [Robot]
+readsPrec :: Int -&gt; ReadS Robot
+$creadsPrec :: Int -&gt; ReadS Robot
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369638"><span id="local-6989586621679369640"><span id="local-6989586621679369642"><span class="annot"><span class="annottext">Int -&gt; Robot -&gt; ShowS
+[Robot] -&gt; ShowS
+Robot -&gt; String
+(Int -&gt; Robot -&gt; ShowS)
+-&gt; (Robot -&gt; String) -&gt; ([Robot] -&gt; ShowS) -&gt; Show Robot
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Robot] -&gt; ShowS
+$cshowList :: [Robot] -&gt; ShowS
+show :: Robot -&gt; String
+$cshow :: Robot -&gt; String
+showsPrec :: Int -&gt; Robot -&gt; ShowS
+$cshowsPrec :: Int -&gt; Robot -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Robot -&gt; Rep Robot x)
+-&gt; (forall x. Rep Robot x -&gt; Robot) -&gt; Generic Robot
+forall x. Rep Robot x -&gt; Robot
+forall x. Robot -&gt; Rep Robot x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Robot x -&gt; Robot
+$cfrom :: forall x. Robot -&gt; Rep Robot x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Create a value of 'Robot' with all optional fields omitted.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'lastDeploymentJob', 'robot_lastDeploymentJob' - The Amazon Resource Name (ARN) of the last deployment job.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'status', 'robot_status' - The status of the robot.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'arn', 'robot_arn' - The Amazon Resource Name (ARN) of the robot.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'createdAt', 'robot_createdAt' - The time, in milliseconds since the epoch, when the robot was created.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'greenGrassGroupId', 'robot_greenGrassGroupId' - The Greengrass group associated with the robot.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'fleetArn', 'robot_fleetArn' - The Amazon Resource Name (ARN) of the fleet.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'name', 'robot_name' - The name of the robot.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'architecture', 'robot_architecture' - The architecture of the robot.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'lastDeploymentTime', 'robot_lastDeploymentTime' - The time of the last deployment.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#newRobot"><span class="hs-identifier hs-type">newRobot</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#Robot"><span class="hs-identifier hs-type">Robot</span></a></span><span>
+</span><span id="line-80"></span><span id="newRobot"><span class="annot"><span class="annottext">newRobot :: Robot
+</span><a href="Network.AWS.RobOMaker.Types.Robot.html#newRobot"><span class="hs-identifier hs-var hs-var">newRobot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">Robot' :: Maybe Text
+-&gt; Maybe RobotStatus
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Architecture
+-&gt; Maybe POSIX
+-&gt; Robot
+</span><a href="Network.AWS.RobOMaker.Types.Robot.html#Robot%27"><span class="hs-identifier hs-type">Robot'</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastDeploymentJob:Robot' :: Maybe Text
+</span><a href="Network.AWS.RobOMaker.Types.Robot.html#%24sel%3AlastDeploymentJob%3ARobot%27"><span class="hs-identifier hs-var">lastDeploymentJob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:Robot' :: Maybe RobotStatus
+</span><a href="Network.AWS.RobOMaker.Types.Robot.html#%24sel%3Astatus%3ARobot%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RobotStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:Robot' :: Maybe Text
+</span><a href="Network.AWS.RobOMaker.Types.Robot.html#%24sel%3Aarn%3ARobot%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAt:Robot' :: Maybe POSIX
+</span><a href="Network.AWS.RobOMaker.Types.Robot.html#%24sel%3AcreatedAt%3ARobot%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:greenGrassGroupId:Robot' :: Maybe Text
+</span><a href="Network.AWS.RobOMaker.Types.Robot.html#%24sel%3AgreenGrassGroupId%3ARobot%27"><span class="hs-identifier hs-var">greenGrassGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:fleetArn:Robot' :: Maybe Text
+</span><a href="Network.AWS.RobOMaker.Types.Robot.html#%24sel%3AfleetArn%3ARobot%27"><span class="hs-identifier hs-var">fleetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Robot' :: Maybe Text
+</span><a href="Network.AWS.RobOMaker.Types.Robot.html#%24sel%3Aname%3ARobot%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:architecture:Robot' :: Maybe Architecture
+</span><a href="Network.AWS.RobOMaker.Types.Robot.html#%24sel%3Aarchitecture%3ARobot%27"><span class="hs-identifier hs-var">architecture</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Architecture
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastDeploymentTime:Robot' :: Maybe POSIX
+</span><a href="Network.AWS.RobOMaker.Types.Robot.html#%24sel%3AlastDeploymentTime%3ARobot%27"><span class="hs-identifier hs-var">lastDeploymentTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the last deployment job.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#robot_lastDeploymentJob"><span class="hs-identifier hs-type">robot_lastDeploymentJob</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#Robot"><span class="hs-identifier hs-type">Robot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="robot_lastDeploymentJob"><span class="annot"><span class="annottext">robot_lastDeploymentJob :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Robot -&gt; f Robot
+</span><a href="Network.AWS.RobOMaker.Types.Robot.html#robot_lastDeploymentJob"><span class="hs-identifier hs-var hs-var">robot_lastDeploymentJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Robot -&gt; Maybe Text)
+-&gt; (Robot -&gt; Maybe Text -&gt; Robot)
+-&gt; Lens Robot Robot (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#Robot%27"><span class="hs-identifier hs-type">Robot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369629"><span class="annot"><span class="annottext">Maybe Text
+lastDeploymentJob :: Maybe Text
+$sel:lastDeploymentJob:Robot' :: Robot -&gt; Maybe Text
+</span><a href="#local-6989586621679369629"><span class="hs-identifier hs-var hs-var">lastDeploymentJob</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369629"><span class="hs-identifier hs-var">lastDeploymentJob</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369628"><span class="annot"><span class="annottext">s :: Robot
+</span><a href="#local-6989586621679369628"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#Robot%27"><span class="hs-identifier hs-type">Robot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369627"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369627"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Robot
+</span><a href="#local-6989586621679369628"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastDeploymentJob:Robot' :: Maybe Text
+</span><a href="Network.AWS.RobOMaker.Types.Robot.html#%24sel%3AlastDeploymentJob%3ARobot%27"><span class="hs-identifier hs-var">lastDeploymentJob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369627"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#Robot"><span class="hs-identifier hs-type">Robot</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The status of the robot.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#robot_status"><span class="hs-identifier hs-type">robot_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#Robot"><span class="hs-identifier hs-type">Robot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotStatus.html#RobotStatus"><span class="hs-identifier hs-type">RobotStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="robot_status"><span class="annot"><span class="annottext">robot_status :: (Maybe RobotStatus -&gt; f (Maybe RobotStatus)) -&gt; Robot -&gt; f Robot
+</span><a href="Network.AWS.RobOMaker.Types.Robot.html#robot_status"><span class="hs-identifier hs-var hs-var">robot_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Robot -&gt; Maybe RobotStatus)
+-&gt; (Robot -&gt; Maybe RobotStatus -&gt; Robot)
+-&gt; Lens Robot Robot (Maybe RobotStatus) (Maybe RobotStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#Robot%27"><span class="hs-identifier hs-type">Robot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369625"><span class="annot"><span class="annottext">Maybe RobotStatus
+status :: Maybe RobotStatus
+$sel:status:Robot' :: Robot -&gt; Maybe RobotStatus
+</span><a href="#local-6989586621679369625"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RobotStatus
+</span><a href="#local-6989586621679369625"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369624"><span class="annot"><span class="annottext">s :: Robot
+</span><a href="#local-6989586621679369624"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#Robot%27"><span class="hs-identifier hs-type">Robot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369623"><span class="annot"><span class="annottext">Maybe RobotStatus
+</span><a href="#local-6989586621679369623"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Robot
+</span><a href="#local-6989586621679369624"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Robot' :: Maybe RobotStatus
+</span><a href="Network.AWS.RobOMaker.Types.Robot.html#%24sel%3Astatus%3ARobot%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RobotStatus
+</span><a href="#local-6989586621679369623"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#Robot"><span class="hs-identifier hs-type">Robot</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the robot.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#robot_arn"><span class="hs-identifier hs-type">robot_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#Robot"><span class="hs-identifier hs-type">Robot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="robot_arn"><span class="annot"><span class="annottext">robot_arn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Robot -&gt; f Robot
+</span><a href="Network.AWS.RobOMaker.Types.Robot.html#robot_arn"><span class="hs-identifier hs-var hs-var">robot_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Robot -&gt; Maybe Text)
+-&gt; (Robot -&gt; Maybe Text -&gt; Robot)
+-&gt; Lens Robot Robot (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#Robot%27"><span class="hs-identifier hs-type">Robot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369621"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:Robot' :: Robot -&gt; Maybe Text
+</span><a href="#local-6989586621679369621"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369621"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369620"><span class="annot"><span class="annottext">s :: Robot
+</span><a href="#local-6989586621679369620"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#Robot%27"><span class="hs-identifier hs-type">Robot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369619"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369619"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Robot
+</span><a href="#local-6989586621679369620"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:Robot' :: Maybe Text
+</span><a href="Network.AWS.RobOMaker.Types.Robot.html#%24sel%3Aarn%3ARobot%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369619"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#Robot"><span class="hs-identifier hs-type">Robot</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the robot was created.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#robot_createdAt"><span class="hs-identifier hs-type">robot_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#Robot"><span class="hs-identifier hs-type">Robot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="robot_createdAt"><span class="annot"><span class="annottext">robot_createdAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Robot -&gt; f Robot
+</span><a href="Network.AWS.RobOMaker.Types.Robot.html#robot_createdAt"><span class="hs-identifier hs-var hs-var">robot_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Robot -&gt; Maybe POSIX)
+-&gt; (Robot -&gt; Maybe POSIX -&gt; Robot)
+-&gt; Lens Robot Robot (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#Robot%27"><span class="hs-identifier hs-type">Robot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369617"><span class="annot"><span class="annottext">Maybe POSIX
+createdAt :: Maybe POSIX
+$sel:createdAt:Robot' :: Robot -&gt; Maybe POSIX
+</span><a href="#local-6989586621679369617"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679369617"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369616"><span class="annot"><span class="annottext">s :: Robot
+</span><a href="#local-6989586621679369616"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#Robot%27"><span class="hs-identifier hs-type">Robot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369615"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679369615"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Robot
+</span><a href="#local-6989586621679369616"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:Robot' :: Maybe POSIX
+</span><a href="Network.AWS.RobOMaker.Types.Robot.html#%24sel%3AcreatedAt%3ARobot%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679369615"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#Robot"><span class="hs-identifier hs-type">Robot</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Robot -&gt; f Robot)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Robot
+-&gt; f Robot
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The Greengrass group associated with the robot.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#robot_greenGrassGroupId"><span class="hs-identifier hs-type">robot_greenGrassGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#Robot"><span class="hs-identifier hs-type">Robot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="robot_greenGrassGroupId"><span class="annot"><span class="annottext">robot_greenGrassGroupId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Robot -&gt; f Robot
+</span><a href="Network.AWS.RobOMaker.Types.Robot.html#robot_greenGrassGroupId"><span class="hs-identifier hs-var hs-var">robot_greenGrassGroupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Robot -&gt; Maybe Text)
+-&gt; (Robot -&gt; Maybe Text -&gt; Robot)
+-&gt; Lens Robot Robot (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#Robot%27"><span class="hs-identifier hs-type">Robot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369610"><span class="annot"><span class="annottext">Maybe Text
+greenGrassGroupId :: Maybe Text
+$sel:greenGrassGroupId:Robot' :: Robot -&gt; Maybe Text
+</span><a href="#local-6989586621679369610"><span class="hs-identifier hs-var hs-var">greenGrassGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369610"><span class="hs-identifier hs-var">greenGrassGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369609"><span class="annot"><span class="annottext">s :: Robot
+</span><a href="#local-6989586621679369609"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#Robot%27"><span class="hs-identifier hs-type">Robot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369608"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369608"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Robot
+</span><a href="#local-6989586621679369609"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:greenGrassGroupId:Robot' :: Maybe Text
+</span><a href="Network.AWS.RobOMaker.Types.Robot.html#%24sel%3AgreenGrassGroupId%3ARobot%27"><span class="hs-identifier hs-var">greenGrassGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369608"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#Robot"><span class="hs-identifier hs-type">Robot</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the fleet.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#robot_fleetArn"><span class="hs-identifier hs-type">robot_fleetArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#Robot"><span class="hs-identifier hs-type">Robot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="robot_fleetArn"><span class="annot"><span class="annottext">robot_fleetArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Robot -&gt; f Robot
+</span><a href="Network.AWS.RobOMaker.Types.Robot.html#robot_fleetArn"><span class="hs-identifier hs-var hs-var">robot_fleetArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Robot -&gt; Maybe Text)
+-&gt; (Robot -&gt; Maybe Text -&gt; Robot)
+-&gt; Lens Robot Robot (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#Robot%27"><span class="hs-identifier hs-type">Robot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369606"><span class="annot"><span class="annottext">Maybe Text
+fleetArn :: Maybe Text
+$sel:fleetArn:Robot' :: Robot -&gt; Maybe Text
+</span><a href="#local-6989586621679369606"><span class="hs-identifier hs-var hs-var">fleetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369606"><span class="hs-identifier hs-var">fleetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369605"><span class="annot"><span class="annottext">s :: Robot
+</span><a href="#local-6989586621679369605"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#Robot%27"><span class="hs-identifier hs-type">Robot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369604"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369604"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Robot
+</span><a href="#local-6989586621679369605"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetArn:Robot' :: Maybe Text
+</span><a href="Network.AWS.RobOMaker.Types.Robot.html#%24sel%3AfleetArn%3ARobot%27"><span class="hs-identifier hs-var">fleetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369604"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#Robot"><span class="hs-identifier hs-type">Robot</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The name of the robot.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#robot_name"><span class="hs-identifier hs-type">robot_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#Robot"><span class="hs-identifier hs-type">Robot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="robot_name"><span class="annot"><span class="annottext">robot_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Robot -&gt; f Robot
+</span><a href="Network.AWS.RobOMaker.Types.Robot.html#robot_name"><span class="hs-identifier hs-var hs-var">robot_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Robot -&gt; Maybe Text)
+-&gt; (Robot -&gt; Maybe Text -&gt; Robot)
+-&gt; Lens Robot Robot (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#Robot%27"><span class="hs-identifier hs-type">Robot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369602"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:Robot' :: Robot -&gt; Maybe Text
+</span><a href="#local-6989586621679369602"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369602"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369601"><span class="annot"><span class="annottext">s :: Robot
+</span><a href="#local-6989586621679369601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#Robot%27"><span class="hs-identifier hs-type">Robot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369600"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Robot
+</span><a href="#local-6989586621679369601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Robot' :: Maybe Text
+</span><a href="Network.AWS.RobOMaker.Types.Robot.html#%24sel%3Aname%3ARobot%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679369600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#Robot"><span class="hs-identifier hs-type">Robot</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The architecture of the robot.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#robot_architecture"><span class="hs-identifier hs-type">robot_architecture</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#Robot"><span class="hs-identifier hs-type">Robot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Architecture.html#Architecture"><span class="hs-identifier hs-type">Architecture</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="robot_architecture"><span class="annot"><span class="annottext">robot_architecture :: (Maybe Architecture -&gt; f (Maybe Architecture)) -&gt; Robot -&gt; f Robot
+</span><a href="Network.AWS.RobOMaker.Types.Robot.html#robot_architecture"><span class="hs-identifier hs-var hs-var">robot_architecture</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Robot -&gt; Maybe Architecture)
+-&gt; (Robot -&gt; Maybe Architecture -&gt; Robot)
+-&gt; Lens Robot Robot (Maybe Architecture) (Maybe Architecture)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#Robot%27"><span class="hs-identifier hs-type">Robot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369598"><span class="annot"><span class="annottext">Maybe Architecture
+architecture :: Maybe Architecture
+$sel:architecture:Robot' :: Robot -&gt; Maybe Architecture
+</span><a href="#local-6989586621679369598"><span class="hs-identifier hs-var hs-var">architecture</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Architecture
+</span><a href="#local-6989586621679369598"><span class="hs-identifier hs-var">architecture</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369597"><span class="annot"><span class="annottext">s :: Robot
+</span><a href="#local-6989586621679369597"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#Robot%27"><span class="hs-identifier hs-type">Robot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369596"><span class="annot"><span class="annottext">Maybe Architecture
+</span><a href="#local-6989586621679369596"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Robot
+</span><a href="#local-6989586621679369597"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:architecture:Robot' :: Maybe Architecture
+</span><a href="Network.AWS.RobOMaker.Types.Robot.html#%24sel%3Aarchitecture%3ARobot%27"><span class="hs-identifier hs-var">architecture</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Architecture
+</span><a href="#local-6989586621679369596"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#Robot"><span class="hs-identifier hs-type">Robot</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The time of the last deployment.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#robot_lastDeploymentTime"><span class="hs-identifier hs-type">robot_lastDeploymentTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#Robot"><span class="hs-identifier hs-type">Robot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="robot_lastDeploymentTime"><span class="annot"><span class="annottext">robot_lastDeploymentTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Robot -&gt; f Robot
+</span><a href="Network.AWS.RobOMaker.Types.Robot.html#robot_lastDeploymentTime"><span class="hs-identifier hs-var hs-var">robot_lastDeploymentTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Robot -&gt; Maybe POSIX)
+-&gt; (Robot -&gt; Maybe POSIX -&gt; Robot)
+-&gt; Lens Robot Robot (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#Robot%27"><span class="hs-identifier hs-type">Robot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369594"><span class="annot"><span class="annottext">Maybe POSIX
+lastDeploymentTime :: Maybe POSIX
+$sel:lastDeploymentTime:Robot' :: Robot -&gt; Maybe POSIX
+</span><a href="#local-6989586621679369594"><span class="hs-identifier hs-var hs-var">lastDeploymentTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679369594"><span class="hs-identifier hs-var">lastDeploymentTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369593"><span class="annot"><span class="annottext">s :: Robot
+</span><a href="#local-6989586621679369593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#Robot%27"><span class="hs-identifier hs-type">Robot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369592"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679369592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Robot
+</span><a href="#local-6989586621679369593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastDeploymentTime:Robot' :: Maybe POSIX
+</span><a href="Network.AWS.RobOMaker.Types.Robot.html#%24sel%3AlastDeploymentTime%3ARobot%27"><span class="hs-identifier hs-var">lastDeploymentTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679369592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#Robot"><span class="hs-identifier hs-type">Robot</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Robot -&gt; f Robot)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Robot
+-&gt; f Robot
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369589"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#Robot"><span class="hs-identifier hs-type">Robot</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679369587"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Robot
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Robot) -&gt; Value -&gt; Parser Robot
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Robot&quot;</span></span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679369584"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369584"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe RobotStatus
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Architecture
+-&gt; Maybe POSIX
+-&gt; Robot
+</span><a href="Network.AWS.RobOMaker.Types.Robot.html#Robot%27"><span class="hs-identifier hs-var">Robot'</span></a></span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe RobotStatus
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Architecture
+ -&gt; Maybe POSIX
+ -&gt; Robot)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe RobotStatus
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Architecture
+      -&gt; Maybe POSIX
+      -&gt; Robot)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369584"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastDeploymentJob&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe RobotStatus
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Architecture
+   -&gt; Maybe POSIX
+   -&gt; Robot)
+-&gt; Parser (Maybe RobotStatus)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Architecture
+      -&gt; Maybe POSIX
+      -&gt; Robot)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369584"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RobotStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Architecture
+   -&gt; Maybe POSIX
+   -&gt; Robot)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Architecture
+      -&gt; Maybe POSIX
+      -&gt; Robot)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369584"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Architecture
+   -&gt; Maybe POSIX
+   -&gt; Robot)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Architecture
+      -&gt; Maybe POSIX
+      -&gt; Robot)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369584"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Architecture
+   -&gt; Maybe POSIX
+   -&gt; Robot)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Architecture -&gt; Maybe POSIX -&gt; Robot)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369584"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;greenGrassGroupId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Architecture -&gt; Maybe POSIX -&gt; Robot)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Architecture -&gt; Maybe POSIX -&gt; Robot)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369584"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;fleetArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Architecture -&gt; Maybe POSIX -&gt; Robot)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Architecture -&gt; Maybe POSIX -&gt; Robot)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369584"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Architecture -&gt; Maybe POSIX -&gt; Robot)
+-&gt; Parser (Maybe Architecture) -&gt; Parser (Maybe POSIX -&gt; Robot)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369584"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Architecture)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;architecture&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Robot)
+-&gt; Parser (Maybe POSIX) -&gt; Parser Robot
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369584"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastDeploymentTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369578"><span id="local-6989586621679369580"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#Robot"><span class="hs-identifier hs-type">Robot</span></a></span></span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369575"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Robot.html#Robot"><span class="hs-identifier hs-type">Robot</span></a></span></span><span>
+</span><span id="line-149"></span></pre></body></html>

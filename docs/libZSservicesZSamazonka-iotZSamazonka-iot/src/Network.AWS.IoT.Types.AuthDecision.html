@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679776926"><span id="local-6989586621679776927"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AuthDecision"><span class="annot"><a href="Network.AWS.IoT.Types.AuthDecision.html#AuthDecision"><span class="hs-identifier hs-var">AuthDecision</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuthDecision%27"><span class="annot"><a href="Network.AWS.IoT.Types.AuthDecision.html#AuthDecision%27"><span class="hs-identifier hs-var">AuthDecision'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679776935"><span id="local-6989586621679776936"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AuthDecision"><span class="annot"><a href="Network.AWS.IoT.Types.AuthDecision.html#AuthDecision"><span class="hs-identifier hs-var">AuthDecision</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuthDecision%27"><span class="annot"><a href="Network.AWS.IoT.Types.AuthDecision.html#AuthDecision%27"><span class="hs-identifier hs-var">AuthDecision'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAuthDecision"><span class="annot"><span class="annottext">AuthDecision -&gt; Text
 </span><a href="Network.AWS.IoT.Types.AuthDecision.html#fromAuthDecision"><span class="hs-identifier hs-var hs-var">fromAuthDecision</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679776918"><span id="local-6989586621679776920"><span id="local-6989586621679776922"><span class="annot"><span class="annottext">Int -&gt; AuthDecision -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679776927"><span id="local-6989586621679776929"><span id="local-6989586621679776931"><span class="annot"><span class="annottext">Int -&gt; AuthDecision -&gt; ShowS
 [AuthDecision] -&gt; ShowS
 AuthDecision -&gt; String
 (Int -&gt; AuthDecision -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: AuthDecision -&gt; String
 showsPrec :: Int -&gt; AuthDecision -&gt; ShowS
 $cshowsPrec :: Int -&gt; AuthDecision -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679776909"><span id="local-6989586621679776911"><span id="local-6989586621679776913"><span id="local-6989586621679776915"><span class="annot"><span class="annottext">ReadPrec [AuthDecision]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679776918"><span id="local-6989586621679776920"><span id="local-6989586621679776922"><span id="local-6989586621679776924"><span class="annot"><span class="annottext">ReadPrec [AuthDecision]
 ReadPrec AuthDecision
 Int -&gt; ReadS AuthDecision
 ReadS [AuthDecision]
@@ -73,7 +73,7 @@ $creadList :: ReadS [AuthDecision]
 readsPrec :: Int -&gt; ReadS AuthDecision
 $creadsPrec :: Int -&gt; ReadS AuthDecision
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679776904"><span id="local-6989586621679776906"><span class="annot"><span class="annottext">AuthDecision -&gt; AuthDecision -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679776913"><span id="local-6989586621679776915"><span class="annot"><span class="annottext">AuthDecision -&gt; AuthDecision -&gt; Bool
 (AuthDecision -&gt; AuthDecision -&gt; Bool)
 -&gt; (AuthDecision -&gt; AuthDecision -&gt; Bool) -&gt; Eq AuthDecision
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: AuthDecision -&gt; AuthDecision -&gt; Bool
 == :: AuthDecision -&gt; AuthDecision -&gt; Bool
 $c== :: AuthDecision -&gt; AuthDecision -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679776888"><span id="local-6989586621679776890"><span id="local-6989586621679776892"><span id="local-6989586621679776894"><span id="local-6989586621679776896"><span id="local-6989586621679776898"><span id="local-6989586621679776900"><span class="annot"><span class="annottext">Eq AuthDecision
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679776897"><span id="local-6989586621679776899"><span id="local-6989586621679776901"><span id="local-6989586621679776903"><span id="local-6989586621679776905"><span id="local-6989586621679776907"><span id="local-6989586621679776909"><span class="annot"><span class="annottext">Eq AuthDecision
 Eq AuthDecision
 -&gt; (AuthDecision -&gt; AuthDecision -&gt; Ordering)
 -&gt; (AuthDecision -&gt; AuthDecision -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. AuthDecision -&gt; Rep AuthDecision x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679776880"><span id="local-6989586621679776882"><span class="annot"><span class="annottext">Int -&gt; AuthDecision -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679776889"><span id="local-6989586621679776891"><span class="annot"><span class="annottext">Int -&gt; AuthDecision -&gt; Int
 AuthDecision -&gt; Int
 (Int -&gt; AuthDecision -&gt; Int)
 -&gt; (AuthDecision -&gt; Int) -&gt; Hashable AuthDecision
@@ -143,49 +143,49 @@ $chash :: AuthDecision -&gt; Int
 hashWithSalt :: Int -&gt; AuthDecision -&gt; Int
 $chashWithSalt :: Int -&gt; AuthDecision -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679776877"><span class="annot"><span class="annottext">AuthDecision -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679776886"><span class="annot"><span class="annottext">AuthDecision -&gt; ()
 (AuthDecision -&gt; ()) -&gt; NFData AuthDecision
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AuthDecision -&gt; ()
 $crnf :: AuthDecision -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679776874"><span class="annot"><span class="annottext">Text -&gt; Either String AuthDecision
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679776883"><span class="annot"><span class="annottext">Text -&gt; Either String AuthDecision
 (Text -&gt; Either String AuthDecision) -&gt; FromText AuthDecision
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AuthDecision
 $cfromText :: Text -&gt; Either String AuthDecision
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679776871"><span class="annot"><span class="annottext">AuthDecision -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679776880"><span class="annot"><span class="annottext">AuthDecision -&gt; Text
 (AuthDecision -&gt; Text) -&gt; ToText AuthDecision
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AuthDecision -&gt; Text
 $ctoText :: AuthDecision -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679776868"><span class="annot"><span class="annottext">AuthDecision -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679776877"><span class="annot"><span class="annottext">AuthDecision -&gt; ByteString
 (AuthDecision -&gt; ByteString) -&gt; ToByteString AuthDecision
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AuthDecision -&gt; ByteString
 $ctoBS :: AuthDecision -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679776865"><span class="annot"><span class="annottext">AuthDecision -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679776874"><span class="annot"><span class="annottext">AuthDecision -&gt; ByteStringBuilder
 (AuthDecision -&gt; ByteStringBuilder) -&gt; ToLog AuthDecision
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AuthDecision -&gt; ByteStringBuilder
 $cbuild :: AuthDecision -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679776862"><span class="annot"><span class="annottext">HeaderName -&gt; AuthDecision -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679776871"><span class="annot"><span class="annottext">HeaderName -&gt; AuthDecision -&gt; [Header]
 (HeaderName -&gt; AuthDecision -&gt; [Header]) -&gt; ToHeader AuthDecision
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AuthDecision -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AuthDecision -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679776859"><span class="annot"><span class="annottext">AuthDecision -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679776868"><span class="annot"><span class="annottext">AuthDecision -&gt; QueryString
 (AuthDecision -&gt; QueryString) -&gt; ToQuery AuthDecision
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AuthDecision -&gt; QueryString
 $ctoQuery :: AuthDecision -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679776854"><span id="local-6989586621679776856"><span class="annot"><span class="annottext">Value -&gt; Parser [AuthDecision]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679776863"><span id="local-6989586621679776865"><span class="annot"><span class="annottext">Value -&gt; Parser [AuthDecision]
 Value -&gt; Parser AuthDecision
 (Value -&gt; Parser AuthDecision)
 -&gt; (Value -&gt; Parser [AuthDecision]) -&gt; FromJSON AuthDecision
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [AuthDecision]
 parseJSON :: Value -&gt; Parser AuthDecision
 $cparseJSON :: Value -&gt; Parser AuthDecision
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679776849"><span id="local-6989586621679776851"><span class="annot"><span class="annottext">FromJSONKeyFunction [AuthDecision]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679776858"><span id="local-6989586621679776860"><span class="annot"><span class="annottext">FromJSONKeyFunction [AuthDecision]
 FromJSONKeyFunction AuthDecision
 FromJSONKeyFunction AuthDecision
 -&gt; FromJSONKeyFunction [AuthDecision] -&gt; FromJSONKey AuthDecision
@@ -207,7 +207,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AuthDecision]
 fromJSONKey :: FromJSONKeyFunction AuthDecision
 $cfromJSONKey :: FromJSONKeyFunction AuthDecision
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679776840"><span id="local-6989586621679776842"><span id="local-6989586621679776844"><span id="local-6989586621679776846"><span class="annot"><span class="annottext">[AuthDecision] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679776849"><span id="local-6989586621679776851"><span id="local-6989586621679776853"><span id="local-6989586621679776855"><span class="annot"><span class="annottext">[AuthDecision] -&gt; Encoding
 [AuthDecision] -&gt; Value
 AuthDecision -&gt; Encoding
 AuthDecision -&gt; Value
@@ -231,7 +231,7 @@ $ctoEncoding :: AuthDecision -&gt; Encoding
 toJSON :: AuthDecision -&gt; Value
 $ctoJSON :: AuthDecision -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679776835"><span id="local-6989586621679776837"><span class="annot"><span class="annottext">ToJSONKeyFunction [AuthDecision]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679776844"><span id="local-6989586621679776846"><span class="annot"><span class="annottext">ToJSONKeyFunction [AuthDecision]
 ToJSONKeyFunction AuthDecision
 ToJSONKeyFunction AuthDecision
 -&gt; ToJSONKeyFunction [AuthDecision] -&gt; ToJSONKey AuthDecision
@@ -242,13 +242,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AuthDecision]
 toJSONKey :: ToJSONKeyFunction AuthDecision
 $ctoJSONKey :: ToJSONKeyFunction AuthDecision
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679776832"><span class="annot"><span class="annottext">[Node] -&gt; Either String AuthDecision
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679776841"><span class="annot"><span class="annottext">[Node] -&gt; Either String AuthDecision
 ([Node] -&gt; Either String AuthDecision) -&gt; FromXML AuthDecision
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AuthDecision
 $cparseXML :: [Node] -&gt; Either String AuthDecision
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679776829"><span class="annot"><span class="annottext">AuthDecision -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679776838"><span class="annot"><span class="annottext">AuthDecision -&gt; XML
 (AuthDecision -&gt; XML) -&gt; ToXML AuthDecision
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AuthDecision -&gt; XML

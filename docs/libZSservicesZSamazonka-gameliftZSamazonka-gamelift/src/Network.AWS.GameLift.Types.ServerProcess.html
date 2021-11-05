@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- part of a fleet\'s RuntimeConfiguration.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newServerProcess' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679441083"><span id="local-6989586621679441084"></span></span><span class="hs-keyword">data</span><span> </span><span id="ServerProcess"><span class="annot"><a href="Network.AWS.GameLift.Types.ServerProcess.html#ServerProcess"><span class="hs-identifier hs-var">ServerProcess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServerProcess%27"><span class="annot"><a href="Network.AWS.GameLift.Types.ServerProcess.html#ServerProcess%27"><span class="hs-identifier hs-var">ServerProcess'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679441092"><span id="local-6989586621679441093"></span></span><span class="hs-keyword">data</span><span> </span><span id="ServerProcess"><span class="annot"><a href="Network.AWS.GameLift.Types.ServerProcess.html#ServerProcess"><span class="hs-identifier hs-var">ServerProcess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServerProcess%27"><span class="annot"><a href="Network.AWS.GameLift.Types.ServerProcess.html#ServerProcess%27"><span class="hs-identifier hs-var">ServerProcess'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An optional list of parameters to pass to the server executable or</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- Realtime script on launch.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Aparameters%3AServerProcess%27"><span class="annot"><span class="annottext">ServerProcess -&gt; Maybe Text
@@ -51,7 +51,7 @@
 </span><span id="line-49"></span><span>    </span><span id="%24sel%3AconcurrentExecutions%3AServerProcess%27"><span class="annot"><span class="annottext">ServerProcess -&gt; Natural
 </span><a href="Network.AWS.GameLift.Types.ServerProcess.html#%24sel%3AconcurrentExecutions%3AServerProcess%27"><span class="hs-identifier hs-var hs-var">concurrentExecutions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679441075"><span id="local-6989586621679441077"><span class="annot"><span class="annottext">ServerProcess -&gt; ServerProcess -&gt; Bool
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679441084"><span id="local-6989586621679441086"><span class="annot"><span class="annottext">ServerProcess -&gt; ServerProcess -&gt; Bool
 (ServerProcess -&gt; ServerProcess -&gt; Bool)
 -&gt; (ServerProcess -&gt; ServerProcess -&gt; Bool) -&gt; Eq ServerProcess
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -59,7 +59,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ServerProcess -&gt; ServerProcess -&gt; Bool
 == :: ServerProcess -&gt; ServerProcess -&gt; Bool
 $c== :: ServerProcess -&gt; ServerProcess -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679441066"><span id="local-6989586621679441068"><span id="local-6989586621679441070"><span id="local-6989586621679441072"><span class="annot"><span class="annottext">ReadPrec [ServerProcess]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679441075"><span id="local-6989586621679441077"><span id="local-6989586621679441079"><span id="local-6989586621679441081"><span class="annot"><span class="annottext">ReadPrec [ServerProcess]
 ReadPrec ServerProcess
 Int -&gt; ReadS ServerProcess
 ReadS [ServerProcess]
@@ -79,7 +79,7 @@ readList :: ReadS [ServerProcess]
 $creadList :: ReadS [ServerProcess]
 readsPrec :: Int -&gt; ReadS ServerProcess
 $creadsPrec :: Int -&gt; ReadS ServerProcess
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679441059"><span id="local-6989586621679441061"><span id="local-6989586621679441063"><span class="annot"><span class="annottext">Int -&gt; ServerProcess -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679441068"><span id="local-6989586621679441070"><span id="local-6989586621679441072"><span class="annot"><span class="annottext">Int -&gt; ServerProcess -&gt; ShowS
 [ServerProcess] -&gt; ShowS
 ServerProcess -&gt; String
 (Int -&gt; ServerProcess -&gt; ShowS)
@@ -136,9 +136,9 @@ $cfrom :: forall x. ServerProcess -&gt; Rep ServerProcess x
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.Types.ServerProcess.html#ServerProcess"><span class="hs-identifier hs-type">ServerProcess</span></a></span><span>
 </span><span id="line-83"></span><span id="newServerProcess"><span class="annot"><span class="annottext">newServerProcess :: Text -&gt; Natural -&gt; ServerProcess
-</span><a href="Network.AWS.GameLift.Types.ServerProcess.html#newServerProcess"><span class="hs-identifier hs-var hs-var">newServerProcess</span></a></span></span><span> </span><span id="local-6989586621679441053"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679441053"><span class="hs-identifier hs-var">pLaunchPath_</span></a></span></span><span> </span><span id="local-6989586621679441052"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679441052"><span class="hs-identifier hs-var">pConcurrentExecutions_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GameLift.Types.ServerProcess.html#newServerProcess"><span class="hs-identifier hs-var hs-var">newServerProcess</span></a></span></span><span> </span><span id="local-6989586621679441062"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679441062"><span class="hs-identifier hs-var">pLaunchPath_</span></a></span></span><span> </span><span id="local-6989586621679441061"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679441061"><span class="hs-identifier hs-var">pConcurrentExecutions_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">ServerProcess' :: Maybe Text -&gt; Text -&gt; Natural -&gt; ServerProcess
 </span><a href="Network.AWS.GameLift.Types.ServerProcess.html#ServerProcess%27"><span class="hs-identifier hs-type">ServerProcess'</span></a></span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:parameters:ServerProcess' :: Maybe Text
@@ -147,10 +147,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:launchPath:ServerProcess' :: Text
 </span><a href="Network.AWS.GameLift.Types.ServerProcess.html#%24sel%3AlaunchPath%3AServerProcess%27"><span class="hs-identifier hs-var">launchPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679441053"><span class="hs-identifier hs-var">pLaunchPath_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679441062"><span class="hs-identifier hs-var">pLaunchPath_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:concurrentExecutions:ServerProcess' :: Natural
 </span><a href="Network.AWS.GameLift.Types.ServerProcess.html#%24sel%3AconcurrentExecutions%3AServerProcess%27"><span class="hs-identifier hs-var">concurrentExecutions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679441052"><span class="hs-identifier hs-var">pConcurrentExecutions_</span></a></span><span>
+</span><a href="#local-6989586621679441061"><span class="hs-identifier hs-var">pConcurrentExecutions_</span></a></span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | An optional list of parameters to pass to the server executable or</span><span>
@@ -161,16 +161,16 @@ forall a. Maybe a
 -&gt; (ServerProcess -&gt; Maybe Text -&gt; ServerProcess)
 -&gt; Lens ServerProcess ServerProcess (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.ServerProcess.html#ServerProcess%27"><span class="hs-identifier hs-type">ServerProcess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441048"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.ServerProcess.html#ServerProcess%27"><span class="hs-identifier hs-type">ServerProcess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441057"><span class="annot"><span class="annottext">Maybe Text
 parameters :: Maybe Text
 $sel:parameters:ServerProcess' :: ServerProcess -&gt; Maybe Text
-</span><a href="#local-6989586621679441048"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679441048"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679441047"><span class="annot"><span class="annottext">s :: ServerProcess
-</span><a href="#local-6989586621679441047"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.ServerProcess.html#ServerProcess%27"><span class="hs-identifier hs-type">ServerProcess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679441046"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679441046"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServerProcess
-</span><a href="#local-6989586621679441047"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameters:ServerProcess' :: Maybe Text
+</span><a href="#local-6989586621679441057"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679441057"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679441056"><span class="annot"><span class="annottext">s :: ServerProcess
+</span><a href="#local-6989586621679441056"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.ServerProcess.html#ServerProcess%27"><span class="hs-identifier hs-type">ServerProcess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679441055"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679441055"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServerProcess
+</span><a href="#local-6989586621679441056"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameters:ServerProcess' :: Maybe Text
 </span><a href="Network.AWS.GameLift.Types.ServerProcess.html#%24sel%3Aparameters%3AServerProcess%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679441046"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.ServerProcess.html#ServerProcess"><span class="hs-identifier hs-type">ServerProcess</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679441055"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.ServerProcess.html#ServerProcess"><span class="hs-identifier hs-type">ServerProcess</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | The location of a game build executable or the Realtime script file that</span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- contains the @Init()@ function. Game builds and Realtime scripts are</span><span>
@@ -188,16 +188,16 @@ $sel:parameters:ServerProcess' :: ServerProcess -&gt; Maybe Text
 -&gt; (ServerProcess -&gt; Text -&gt; ServerProcess)
 -&gt; Lens ServerProcess ServerProcess Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.ServerProcess.html#ServerProcess%27"><span class="hs-identifier hs-type">ServerProcess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441044"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.ServerProcess.html#ServerProcess%27"><span class="hs-identifier hs-type">ServerProcess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441053"><span class="annot"><span class="annottext">Text
 launchPath :: Text
 $sel:launchPath:ServerProcess' :: ServerProcess -&gt; Text
-</span><a href="#local-6989586621679441044"><span class="hs-identifier hs-var hs-var">launchPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679441044"><span class="hs-identifier hs-var">launchPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679441043"><span class="annot"><span class="annottext">s :: ServerProcess
-</span><a href="#local-6989586621679441043"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.ServerProcess.html#ServerProcess%27"><span class="hs-identifier hs-type">ServerProcess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679441042"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679441042"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServerProcess
-</span><a href="#local-6989586621679441043"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchPath:ServerProcess' :: Text
+</span><a href="#local-6989586621679441053"><span class="hs-identifier hs-var hs-var">launchPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679441053"><span class="hs-identifier hs-var">launchPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679441052"><span class="annot"><span class="annottext">s :: ServerProcess
+</span><a href="#local-6989586621679441052"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.ServerProcess.html#ServerProcess%27"><span class="hs-identifier hs-type">ServerProcess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679441051"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679441051"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServerProcess
+</span><a href="#local-6989586621679441052"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchPath:ServerProcess' :: Text
 </span><a href="Network.AWS.GameLift.Types.ServerProcess.html#%24sel%3AlaunchPath%3AServerProcess%27"><span class="hs-identifier hs-var">launchPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679441042"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.ServerProcess.html#ServerProcess"><span class="hs-identifier hs-type">ServerProcess</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679441051"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.ServerProcess.html#ServerProcess"><span class="hs-identifier hs-type">ServerProcess</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | The number of server processes using this configuration that run</span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- concurrently on each instance.</span><span>
@@ -207,19 +207,19 @@ $sel:launchPath:ServerProcess' :: ServerProcess -&gt; Text
 -&gt; (ServerProcess -&gt; Natural -&gt; ServerProcess)
 -&gt; Lens ServerProcess ServerProcess Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.ServerProcess.html#ServerProcess%27"><span class="hs-identifier hs-type">ServerProcess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441040"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.ServerProcess.html#ServerProcess%27"><span class="hs-identifier hs-type">ServerProcess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441049"><span class="annot"><span class="annottext">Natural
 concurrentExecutions :: Natural
 $sel:concurrentExecutions:ServerProcess' :: ServerProcess -&gt; Natural
-</span><a href="#local-6989586621679441040"><span class="hs-identifier hs-var hs-var">concurrentExecutions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679441040"><span class="hs-identifier hs-var">concurrentExecutions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679441039"><span class="annot"><span class="annottext">s :: ServerProcess
-</span><a href="#local-6989586621679441039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.ServerProcess.html#ServerProcess%27"><span class="hs-identifier hs-type">ServerProcess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679441038"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679441038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServerProcess
-</span><a href="#local-6989586621679441039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:concurrentExecutions:ServerProcess' :: Natural
+</span><a href="#local-6989586621679441049"><span class="hs-identifier hs-var hs-var">concurrentExecutions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679441049"><span class="hs-identifier hs-var">concurrentExecutions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679441048"><span class="annot"><span class="annottext">s :: ServerProcess
+</span><a href="#local-6989586621679441048"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.ServerProcess.html#ServerProcess%27"><span class="hs-identifier hs-type">ServerProcess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679441047"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679441047"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServerProcess
+</span><a href="#local-6989586621679441048"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:concurrentExecutions:ServerProcess' :: Natural
 </span><a href="Network.AWS.GameLift.Types.ServerProcess.html#%24sel%3AconcurrentExecutions%3AServerProcess%27"><span class="hs-identifier hs-var">concurrentExecutions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679441038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.ServerProcess.html#ServerProcess"><span class="hs-identifier hs-type">ServerProcess</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679441047"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.ServerProcess.html#ServerProcess"><span class="hs-identifier hs-type">ServerProcess</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679441035"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.ServerProcess.html#ServerProcess"><span class="hs-identifier hs-type">ServerProcess</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679441033"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ServerProcess
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679441044"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.ServerProcess.html#ServerProcess"><span class="hs-identifier hs-type">ServerProcess</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679441042"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ServerProcess
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ServerProcess)
@@ -229,15 +229,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ServerProcess&quot;</span></span><span>
-</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679441030"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679441030"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679441039"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679441039"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Text -&gt; Natural -&gt; ServerProcess
 </span><a href="Network.AWS.GameLift.Types.ServerProcess.html#ServerProcess%27"><span class="hs-identifier hs-var">ServerProcess'</span></a></span><span>
 </span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Text -&gt; Natural -&gt; ServerProcess)
 -&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; Natural -&gt; ServerProcess)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679441030"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679441039"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Parameters&quot;</span></span><span class="hs-special">)</span><span>
@@ -245,7 +245,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser (Natural -&gt; ServerProcess)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679441030"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679441039"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LaunchPath&quot;</span></span><span class="hs-special">)</span><span>
@@ -253,19 +253,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Natural -&gt; Parser ServerProcess
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679441030"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679441039"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConcurrentExecutions&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679441023"><span id="local-6989586621679441025"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.ServerProcess.html#ServerProcess"><span class="hs-identifier hs-type">ServerProcess</span></a></span></span></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679441032"><span id="local-6989586621679441034"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.ServerProcess.html#ServerProcess"><span class="hs-identifier hs-type">ServerProcess</span></a></span></span></span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679441020"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.ServerProcess.html#ServerProcess"><span class="hs-identifier hs-type">ServerProcess</span></a></span></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679441029"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.ServerProcess.html#ServerProcess"><span class="hs-identifier hs-type">ServerProcess</span></a></span></span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679441012"><span id="local-6989586621679441014"><span id="local-6989586621679441016"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.ServerProcess.html#ServerProcess"><span class="hs-identifier hs-type">ServerProcess</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679441010"><span class="annot"><span class="annottext">toJSON :: ServerProcess -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.ServerProcess.html#ServerProcess%27"><span class="hs-identifier hs-type">ServerProcess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441006"><span id="local-6989586621679441007"><span id="local-6989586621679441008"><span class="annot"><span class="annottext">Natural
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679441021"><span id="local-6989586621679441023"><span id="local-6989586621679441025"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.ServerProcess.html#ServerProcess"><span class="hs-identifier hs-type">ServerProcess</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679441019"><span class="annot"><span class="annottext">toJSON :: ServerProcess -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.ServerProcess.html#ServerProcess%27"><span class="hs-identifier hs-type">ServerProcess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679441015"><span id="local-6989586621679441016"><span id="local-6989586621679441017"><span class="annot"><span class="annottext">Natural
 Maybe Text
 Text
 concurrentExecutions :: Natural
@@ -274,7 +274,7 @@ parameters :: Maybe Text
 $sel:concurrentExecutions:ServerProcess' :: ServerProcess -&gt; Natural
 $sel:launchPath:ServerProcess' :: ServerProcess -&gt; Text
 $sel:parameters:ServerProcess' :: ServerProcess -&gt; Maybe Text
-</span><a href="#local-6989586621679441006"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679441015"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -286,14 +286,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679441008"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679441017"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LaunchPath&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679441007"><span class="hs-identifier hs-var">launchPath</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679441016"><span class="hs-identifier hs-var">launchPath</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -302,7 +302,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-136"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679441006"><span class="hs-identifier hs-var">concurrentExecutions</span></a></span><span>
+</span><a href="#local-6989586621679441015"><span class="hs-identifier hs-var">concurrentExecutions</span></a></span><span>
 </span><span id="line-137"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>

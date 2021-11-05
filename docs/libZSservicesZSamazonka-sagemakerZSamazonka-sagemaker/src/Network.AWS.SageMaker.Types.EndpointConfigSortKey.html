@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621680303903"><span id="local-6989586621680303904"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EndpointConfigSortKey"><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointConfigSortKey.html#EndpointConfigSortKey"><span class="hs-identifier hs-var">EndpointConfigSortKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EndpointConfigSortKey%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointConfigSortKey.html#EndpointConfigSortKey%27"><span class="hs-identifier hs-var">EndpointConfigSortKey'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680303912"><span id="local-6989586621680303913"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EndpointConfigSortKey"><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointConfigSortKey.html#EndpointConfigSortKey"><span class="hs-identifier hs-var">EndpointConfigSortKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EndpointConfigSortKey%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointConfigSortKey.html#EndpointConfigSortKey%27"><span class="hs-identifier hs-var">EndpointConfigSortKey'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEndpointConfigSortKey"><span class="annot"><span class="annottext">EndpointConfigSortKey -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.EndpointConfigSortKey.html#fromEndpointConfigSortKey"><span class="hs-identifier hs-var hs-var">fromEndpointConfigSortKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680303895"><span id="local-6989586621680303897"><span id="local-6989586621680303899"><span class="annot"><span class="annottext">Int -&gt; EndpointConfigSortKey -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680303904"><span id="local-6989586621680303906"><span id="local-6989586621680303908"><span class="annot"><span class="annottext">Int -&gt; EndpointConfigSortKey -&gt; ShowS
 [EndpointConfigSortKey] -&gt; ShowS
 EndpointConfigSortKey -&gt; String
 (Int -&gt; EndpointConfigSortKey -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: EndpointConfigSortKey -&gt; String
 showsPrec :: Int -&gt; EndpointConfigSortKey -&gt; ShowS
 $cshowsPrec :: Int -&gt; EndpointConfigSortKey -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621680303886"><span id="local-6989586621680303888"><span id="local-6989586621680303890"><span id="local-6989586621680303892"><span class="annot"><span class="annottext">ReadPrec [EndpointConfigSortKey]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621680303895"><span id="local-6989586621680303897"><span id="local-6989586621680303899"><span id="local-6989586621680303901"><span class="annot"><span class="annottext">ReadPrec [EndpointConfigSortKey]
 ReadPrec EndpointConfigSortKey
 Int -&gt; ReadS EndpointConfigSortKey
 ReadS [EndpointConfigSortKey]
@@ -72,7 +72,7 @@ $creadList :: ReadS [EndpointConfigSortKey]
 readsPrec :: Int -&gt; ReadS EndpointConfigSortKey
 $creadsPrec :: Int -&gt; ReadS EndpointConfigSortKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621680303881"><span id="local-6989586621680303883"><span class="annot"><span class="annottext">EndpointConfigSortKey -&gt; EndpointConfigSortKey -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680303890"><span id="local-6989586621680303892"><span class="annot"><span class="annottext">EndpointConfigSortKey -&gt; EndpointConfigSortKey -&gt; Bool
 (EndpointConfigSortKey -&gt; EndpointConfigSortKey -&gt; Bool)
 -&gt; (EndpointConfigSortKey -&gt; EndpointConfigSortKey -&gt; Bool)
 -&gt; Eq EndpointConfigSortKey
@@ -82,7 +82,7 @@ $c/= :: EndpointConfigSortKey -&gt; EndpointConfigSortKey -&gt; Bool
 == :: EndpointConfigSortKey -&gt; EndpointConfigSortKey -&gt; Bool
 $c== :: EndpointConfigSortKey -&gt; EndpointConfigSortKey -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621680303865"><span id="local-6989586621680303867"><span id="local-6989586621680303869"><span id="local-6989586621680303871"><span id="local-6989586621680303873"><span id="local-6989586621680303875"><span id="local-6989586621680303877"><span class="annot"><span class="annottext">Eq EndpointConfigSortKey
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680303874"><span id="local-6989586621680303876"><span id="local-6989586621680303878"><span id="local-6989586621680303880"><span id="local-6989586621680303882"><span id="local-6989586621680303884"><span id="local-6989586621680303886"><span class="annot"><span class="annottext">Eq EndpointConfigSortKey
 Eq EndpointConfigSortKey
 -&gt; (EndpointConfigSortKey -&gt; EndpointConfigSortKey -&gt; Ordering)
 -&gt; (EndpointConfigSortKey -&gt; EndpointConfigSortKey -&gt; Bool)
@@ -140,7 +140,7 @@ $cfrom :: forall x. EndpointConfigSortKey -&gt; Rep EndpointConfigSortKey x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680303857"><span id="local-6989586621680303859"><span class="annot"><span class="annottext">Int -&gt; EndpointConfigSortKey -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680303866"><span id="local-6989586621680303868"><span class="annot"><span class="annottext">Int -&gt; EndpointConfigSortKey -&gt; Int
 EndpointConfigSortKey -&gt; Int
 (Int -&gt; EndpointConfigSortKey -&gt; Int)
 -&gt; (EndpointConfigSortKey -&gt; Int) -&gt; Hashable EndpointConfigSortKey
@@ -150,54 +150,54 @@ $chash :: EndpointConfigSortKey -&gt; Int
 hashWithSalt :: Int -&gt; EndpointConfigSortKey -&gt; Int
 $chashWithSalt :: Int -&gt; EndpointConfigSortKey -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621680303854"><span class="annot"><span class="annottext">EndpointConfigSortKey -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680303863"><span class="annot"><span class="annottext">EndpointConfigSortKey -&gt; ()
 (EndpointConfigSortKey -&gt; ()) -&gt; NFData EndpointConfigSortKey
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: EndpointConfigSortKey -&gt; ()
 $crnf :: EndpointConfigSortKey -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680303851"><span class="annot"><span class="annottext">Text -&gt; Either String EndpointConfigSortKey
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680303860"><span class="annot"><span class="annottext">Text -&gt; Either String EndpointConfigSortKey
 (Text -&gt; Either String EndpointConfigSortKey)
 -&gt; FromText EndpointConfigSortKey
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String EndpointConfigSortKey
 $cfromText :: Text -&gt; Either String EndpointConfigSortKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680303848"><span class="annot"><span class="annottext">EndpointConfigSortKey -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680303857"><span class="annot"><span class="annottext">EndpointConfigSortKey -&gt; Text
 (EndpointConfigSortKey -&gt; Text) -&gt; ToText EndpointConfigSortKey
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: EndpointConfigSortKey -&gt; Text
 $ctoText :: EndpointConfigSortKey -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680303845"><span class="annot"><span class="annottext">EndpointConfigSortKey -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680303854"><span class="annot"><span class="annottext">EndpointConfigSortKey -&gt; ByteString
 (EndpointConfigSortKey -&gt; ByteString)
 -&gt; ToByteString EndpointConfigSortKey
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: EndpointConfigSortKey -&gt; ByteString
 $ctoBS :: EndpointConfigSortKey -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680303842"><span class="annot"><span class="annottext">EndpointConfigSortKey -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680303851"><span class="annot"><span class="annottext">EndpointConfigSortKey -&gt; ByteStringBuilder
 (EndpointConfigSortKey -&gt; ByteStringBuilder)
 -&gt; ToLog EndpointConfigSortKey
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: EndpointConfigSortKey -&gt; ByteStringBuilder
 $cbuild :: EndpointConfigSortKey -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680303839"><span class="annot"><span class="annottext">HeaderName -&gt; EndpointConfigSortKey -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680303848"><span class="annot"><span class="annottext">HeaderName -&gt; EndpointConfigSortKey -&gt; [Header]
 (HeaderName -&gt; EndpointConfigSortKey -&gt; [Header])
 -&gt; ToHeader EndpointConfigSortKey
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; EndpointConfigSortKey -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; EndpointConfigSortKey -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680303836"><span class="annot"><span class="annottext">EndpointConfigSortKey -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680303845"><span class="annot"><span class="annottext">EndpointConfigSortKey -&gt; QueryString
 (EndpointConfigSortKey -&gt; QueryString)
 -&gt; ToQuery EndpointConfigSortKey
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: EndpointConfigSortKey -&gt; QueryString
 $ctoQuery :: EndpointConfigSortKey -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680303831"><span id="local-6989586621680303833"><span class="annot"><span class="annottext">Value -&gt; Parser [EndpointConfigSortKey]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680303840"><span id="local-6989586621680303842"><span class="annot"><span class="annottext">Value -&gt; Parser [EndpointConfigSortKey]
 Value -&gt; Parser EndpointConfigSortKey
 (Value -&gt; Parser EndpointConfigSortKey)
 -&gt; (Value -&gt; Parser [EndpointConfigSortKey])
@@ -209,7 +209,7 @@ $cparseJSONList :: Value -&gt; Parser [EndpointConfigSortKey]
 parseJSON :: Value -&gt; Parser EndpointConfigSortKey
 $cparseJSON :: Value -&gt; Parser EndpointConfigSortKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680303826"><span id="local-6989586621680303828"><span class="annot"><span class="annottext">FromJSONKeyFunction [EndpointConfigSortKey]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680303835"><span id="local-6989586621680303837"><span class="annot"><span class="annottext">FromJSONKeyFunction [EndpointConfigSortKey]
 FromJSONKeyFunction EndpointConfigSortKey
 FromJSONKeyFunction EndpointConfigSortKey
 -&gt; FromJSONKeyFunction [EndpointConfigSortKey]
@@ -221,7 +221,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [EndpointConfigSortKey]
 fromJSONKey :: FromJSONKeyFunction EndpointConfigSortKey
 $cfromJSONKey :: FromJSONKeyFunction EndpointConfigSortKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680303817"><span id="local-6989586621680303819"><span id="local-6989586621680303821"><span id="local-6989586621680303823"><span class="annot"><span class="annottext">[EndpointConfigSortKey] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680303826"><span id="local-6989586621680303828"><span id="local-6989586621680303830"><span id="local-6989586621680303832"><span class="annot"><span class="annottext">[EndpointConfigSortKey] -&gt; Encoding
 [EndpointConfigSortKey] -&gt; Value
 EndpointConfigSortKey -&gt; Encoding
 EndpointConfigSortKey -&gt; Value
@@ -245,7 +245,7 @@ $ctoEncoding :: EndpointConfigSortKey -&gt; Encoding
 toJSON :: EndpointConfigSortKey -&gt; Value
 $ctoJSON :: EndpointConfigSortKey -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680303812"><span id="local-6989586621680303814"><span class="annot"><span class="annottext">ToJSONKeyFunction [EndpointConfigSortKey]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680303821"><span id="local-6989586621680303823"><span class="annot"><span class="annottext">ToJSONKeyFunction [EndpointConfigSortKey]
 ToJSONKeyFunction EndpointConfigSortKey
 ToJSONKeyFunction EndpointConfigSortKey
 -&gt; ToJSONKeyFunction [EndpointConfigSortKey]
@@ -257,14 +257,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [EndpointConfigSortKey]
 toJSONKey :: ToJSONKeyFunction EndpointConfigSortKey
 $ctoJSONKey :: ToJSONKeyFunction EndpointConfigSortKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680303809"><span class="annot"><span class="annottext">[Node] -&gt; Either String EndpointConfigSortKey
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680303818"><span class="annot"><span class="annottext">[Node] -&gt; Either String EndpointConfigSortKey
 ([Node] -&gt; Either String EndpointConfigSortKey)
 -&gt; FromXML EndpointConfigSortKey
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String EndpointConfigSortKey
 $cparseXML :: [Node] -&gt; Either String EndpointConfigSortKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680303806"><span class="annot"><span class="annottext">EndpointConfigSortKey -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680303815"><span class="annot"><span class="annottext">EndpointConfigSortKey -&gt; XML
 (EndpointConfigSortKey -&gt; XML) -&gt; ToXML EndpointConfigSortKey
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: EndpointConfigSortKey -&gt; XML

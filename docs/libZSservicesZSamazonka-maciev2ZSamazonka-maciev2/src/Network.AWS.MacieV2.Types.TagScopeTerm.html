@@ -1,0 +1,380 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MacieV2.Types.TagScopeTerm</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MacieV2.Types.TagScopeTerm</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobComparator.html"><span class="hs-identifier">Network.AWS.MacieV2.Types.JobComparator</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.TagTarget.html"><span class="hs-identifier">Network.AWS.MacieV2.Types.TagTarget</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.TagValuePair.html"><span class="hs-identifier">Network.AWS.MacieV2.Types.TagValuePair</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Specifies a tag-based condition that determines whether an S3 object is</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- included or excluded from a classification job.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newTagScopeTerm' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679399773"><span id="local-6989586621679399774"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagScopeTerm"><span class="annot"><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#TagScopeTerm"><span class="hs-identifier hs-var">TagScopeTerm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagScopeTerm%27"><span class="annot"><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#TagScopeTerm%27"><span class="hs-identifier hs-var">TagScopeTerm'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The tag keys or tag key and value pairs to use in the condition. To</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- specify only tag keys in a condition, specify the keys in this array and</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- set the value for each associated tag value to an empty string.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AtagValues%3ATagScopeTerm%27"><span class="annot"><span class="annottext">TagScopeTerm -&gt; Maybe [TagValuePair]
+</span><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#%24sel%3AtagValues%3ATagScopeTerm%27"><span class="hs-identifier hs-var hs-var">tagValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MacieV2.Types.TagValuePair.html#TagValuePair"><span class="hs-identifier hs-type">TagValuePair</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The object property to use in the condition. The only valid value is</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- TAG.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Akey%3ATagScopeTerm%27"><span class="annot"><span class="annottext">TagScopeTerm -&gt; Maybe Text
+</span><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#%24sel%3Akey%3ATagScopeTerm%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The operator to use in the condition. Valid values are EQ (equals) or NE</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- (not equals).</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Acomparator%3ATagScopeTerm%27"><span class="annot"><span class="annottext">TagScopeTerm -&gt; Maybe JobComparator
+</span><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#%24sel%3Acomparator%3ATagScopeTerm%27"><span class="hs-identifier hs-var hs-var">comparator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobComparator.html#JobComparator"><span class="hs-identifier hs-type">JobComparator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The type of object to apply the condition to.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Atarget%3ATagScopeTerm%27"><span class="annot"><span class="annottext">TagScopeTerm -&gt; Maybe TagTarget
+</span><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#%24sel%3Atarget%3ATagScopeTerm%27"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.TagTarget.html#TagTarget"><span class="hs-identifier hs-type">TagTarget</span></a></span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679399764"><span id="local-6989586621679399766"><span class="annot"><span class="annottext">TagScopeTerm -&gt; TagScopeTerm -&gt; Bool
+(TagScopeTerm -&gt; TagScopeTerm -&gt; Bool)
+-&gt; (TagScopeTerm -&gt; TagScopeTerm -&gt; Bool) -&gt; Eq TagScopeTerm
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TagScopeTerm -&gt; TagScopeTerm -&gt; Bool
+$c/= :: TagScopeTerm -&gt; TagScopeTerm -&gt; Bool
+== :: TagScopeTerm -&gt; TagScopeTerm -&gt; Bool
+$c== :: TagScopeTerm -&gt; TagScopeTerm -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399755"><span id="local-6989586621679399757"><span id="local-6989586621679399759"><span id="local-6989586621679399761"><span class="annot"><span class="annottext">ReadPrec [TagScopeTerm]
+ReadPrec TagScopeTerm
+Int -&gt; ReadS TagScopeTerm
+ReadS [TagScopeTerm]
+(Int -&gt; ReadS TagScopeTerm)
+-&gt; ReadS [TagScopeTerm]
+-&gt; ReadPrec TagScopeTerm
+-&gt; ReadPrec [TagScopeTerm]
+-&gt; Read TagScopeTerm
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TagScopeTerm]
+$creadListPrec :: ReadPrec [TagScopeTerm]
+readPrec :: ReadPrec TagScopeTerm
+$creadPrec :: ReadPrec TagScopeTerm
+readList :: ReadS [TagScopeTerm]
+$creadList :: ReadS [TagScopeTerm]
+readsPrec :: Int -&gt; ReadS TagScopeTerm
+$creadsPrec :: Int -&gt; ReadS TagScopeTerm
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399748"><span id="local-6989586621679399750"><span id="local-6989586621679399752"><span class="annot"><span class="annottext">Int -&gt; TagScopeTerm -&gt; ShowS
+[TagScopeTerm] -&gt; ShowS
+TagScopeTerm -&gt; String
+(Int -&gt; TagScopeTerm -&gt; ShowS)
+-&gt; (TagScopeTerm -&gt; String)
+-&gt; ([TagScopeTerm] -&gt; ShowS)
+-&gt; Show TagScopeTerm
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TagScopeTerm] -&gt; ShowS
+$cshowList :: [TagScopeTerm] -&gt; ShowS
+show :: TagScopeTerm -&gt; String
+$cshow :: TagScopeTerm -&gt; String
+showsPrec :: Int -&gt; TagScopeTerm -&gt; ShowS
+$cshowsPrec :: Int -&gt; TagScopeTerm -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. TagScopeTerm -&gt; Rep TagScopeTerm x)
+-&gt; (forall x. Rep TagScopeTerm x -&gt; TagScopeTerm)
+-&gt; Generic TagScopeTerm
+forall x. Rep TagScopeTerm x -&gt; TagScopeTerm
+forall x. TagScopeTerm -&gt; Rep TagScopeTerm x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TagScopeTerm x -&gt; TagScopeTerm
+$cfrom :: forall x. TagScopeTerm -&gt; Rep TagScopeTerm x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Create a value of 'TagScopeTerm' with all optional fields omitted.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'tagValues', 'tagScopeTerm_tagValues' - The tag keys or tag key and value pairs to use in the condition. To</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- specify only tag keys in a condition, specify the keys in this array and</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- set the value for each associated tag value to an empty string.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'key', 'tagScopeTerm_key' - The object property to use in the condition. The only valid value is</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- TAG.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'comparator', 'tagScopeTerm_comparator' - The operator to use in the condition. Valid values are EQ (equals) or NE</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- (not equals).</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'target', 'tagScopeTerm_target' - The type of object to apply the condition to.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#newTagScopeTerm"><span class="hs-identifier hs-type">newTagScopeTerm</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#TagScopeTerm"><span class="hs-identifier hs-type">TagScopeTerm</span></a></span><span>
+</span><span id="line-70"></span><span id="newTagScopeTerm"><span class="annot"><span class="annottext">newTagScopeTerm :: TagScopeTerm
+</span><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#newTagScopeTerm"><span class="hs-identifier hs-var hs-var">newTagScopeTerm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">TagScopeTerm' :: Maybe [TagValuePair]
+-&gt; Maybe Text
+-&gt; Maybe JobComparator
+-&gt; Maybe TagTarget
+-&gt; TagScopeTerm
+</span><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#TagScopeTerm%27"><span class="hs-identifier hs-type">TagScopeTerm'</span></a></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tagValues:TagScopeTerm' :: Maybe [TagValuePair]
+</span><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#%24sel%3AtagValues%3ATagScopeTerm%27"><span class="hs-identifier hs-var">tagValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TagValuePair]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:key:TagScopeTerm' :: Maybe Text
+</span><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#%24sel%3Akey%3ATagScopeTerm%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:comparator:TagScopeTerm' :: Maybe JobComparator
+</span><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#%24sel%3Acomparator%3ATagScopeTerm%27"><span class="hs-identifier hs-var">comparator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobComparator
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:target:TagScopeTerm' :: Maybe TagTarget
+</span><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#%24sel%3Atarget%3ATagScopeTerm%27"><span class="hs-identifier hs-var">target</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TagTarget
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The tag keys or tag key and value pairs to use in the condition. To</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- specify only tag keys in a condition, specify the keys in this array and</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- set the value for each associated tag value to an empty string.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#tagScopeTerm_tagValues"><span class="hs-identifier hs-type">tagScopeTerm_tagValues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#TagScopeTerm"><span class="hs-identifier hs-type">TagScopeTerm</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MacieV2.Types.TagValuePair.html#TagValuePair"><span class="hs-identifier hs-type">TagValuePair</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="tagScopeTerm_tagValues"><span class="annot"><span class="annottext">tagScopeTerm_tagValues :: (Maybe [TagValuePair] -&gt; f (Maybe [TagValuePair]))
+-&gt; TagScopeTerm -&gt; f TagScopeTerm
+</span><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#tagScopeTerm_tagValues"><span class="hs-identifier hs-var hs-var">tagScopeTerm_tagValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TagScopeTerm -&gt; Maybe [TagValuePair])
+-&gt; (TagScopeTerm -&gt; Maybe [TagValuePair] -&gt; TagScopeTerm)
+-&gt; Lens
+     TagScopeTerm
+     TagScopeTerm
+     (Maybe [TagValuePair])
+     (Maybe [TagValuePair])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#TagScopeTerm%27"><span class="hs-identifier hs-type">TagScopeTerm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399739"><span class="annot"><span class="annottext">Maybe [TagValuePair]
+tagValues :: Maybe [TagValuePair]
+$sel:tagValues:TagScopeTerm' :: TagScopeTerm -&gt; Maybe [TagValuePair]
+</span><a href="#local-6989586621679399739"><span class="hs-identifier hs-var hs-var">tagValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TagValuePair]
+</span><a href="#local-6989586621679399739"><span class="hs-identifier hs-var">tagValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399738"><span class="annot"><span class="annottext">s :: TagScopeTerm
+</span><a href="#local-6989586621679399738"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#TagScopeTerm%27"><span class="hs-identifier hs-type">TagScopeTerm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399737"><span class="annot"><span class="annottext">Maybe [TagValuePair]
+</span><a href="#local-6989586621679399737"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagScopeTerm
+</span><a href="#local-6989586621679399738"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagValues:TagScopeTerm' :: Maybe [TagValuePair]
+</span><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#%24sel%3AtagValues%3ATagScopeTerm%27"><span class="hs-identifier hs-var">tagValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TagValuePair]
+</span><a href="#local-6989586621679399737"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#TagScopeTerm"><span class="hs-identifier hs-type">TagScopeTerm</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TagValuePair] -&gt; f (Maybe [TagValuePair]))
+ -&gt; TagScopeTerm -&gt; f TagScopeTerm)
+-&gt; ((Maybe [TagValuePair] -&gt; f (Maybe [TagValuePair]))
+    -&gt; Maybe [TagValuePair] -&gt; f (Maybe [TagValuePair]))
+-&gt; (Maybe [TagValuePair] -&gt; f (Maybe [TagValuePair]))
+-&gt; TagScopeTerm
+-&gt; f TagScopeTerm
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [TagValuePair] [TagValuePair] [TagValuePair] [TagValuePair]
+-&gt; Iso
+     (Maybe [TagValuePair])
+     (Maybe [TagValuePair])
+     (Maybe [TagValuePair])
+     (Maybe [TagValuePair])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [TagValuePair] [TagValuePair] [TagValuePair] [TagValuePair]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The object property to use in the condition. The only valid value is</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- TAG.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#tagScopeTerm_key"><span class="hs-identifier hs-type">tagScopeTerm_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#TagScopeTerm"><span class="hs-identifier hs-type">TagScopeTerm</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="tagScopeTerm_key"><span class="annot"><span class="annottext">tagScopeTerm_key :: (Maybe Text -&gt; f (Maybe Text)) -&gt; TagScopeTerm -&gt; f TagScopeTerm
+</span><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#tagScopeTerm_key"><span class="hs-identifier hs-var hs-var">tagScopeTerm_key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TagScopeTerm -&gt; Maybe Text)
+-&gt; (TagScopeTerm -&gt; Maybe Text -&gt; TagScopeTerm)
+-&gt; Lens TagScopeTerm TagScopeTerm (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#TagScopeTerm%27"><span class="hs-identifier hs-type">TagScopeTerm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399732"><span class="annot"><span class="annottext">Maybe Text
+key :: Maybe Text
+$sel:key:TagScopeTerm' :: TagScopeTerm -&gt; Maybe Text
+</span><a href="#local-6989586621679399732"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399732"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399731"><span class="annot"><span class="annottext">s :: TagScopeTerm
+</span><a href="#local-6989586621679399731"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#TagScopeTerm%27"><span class="hs-identifier hs-type">TagScopeTerm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399730"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399730"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagScopeTerm
+</span><a href="#local-6989586621679399731"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:TagScopeTerm' :: Maybe Text
+</span><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#%24sel%3Akey%3ATagScopeTerm%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399730"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#TagScopeTerm"><span class="hs-identifier hs-type">TagScopeTerm</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The operator to use in the condition. Valid values are EQ (equals) or NE</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- (not equals).</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#tagScopeTerm_comparator"><span class="hs-identifier hs-type">tagScopeTerm_comparator</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#TagScopeTerm"><span class="hs-identifier hs-type">TagScopeTerm</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.JobComparator.html#JobComparator"><span class="hs-identifier hs-type">JobComparator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="tagScopeTerm_comparator"><span class="annot"><span class="annottext">tagScopeTerm_comparator :: (Maybe JobComparator -&gt; f (Maybe JobComparator))
+-&gt; TagScopeTerm -&gt; f TagScopeTerm
+</span><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#tagScopeTerm_comparator"><span class="hs-identifier hs-var hs-var">tagScopeTerm_comparator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TagScopeTerm -&gt; Maybe JobComparator)
+-&gt; (TagScopeTerm -&gt; Maybe JobComparator -&gt; TagScopeTerm)
+-&gt; Lens
+     TagScopeTerm
+     TagScopeTerm
+     (Maybe JobComparator)
+     (Maybe JobComparator)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#TagScopeTerm%27"><span class="hs-identifier hs-type">TagScopeTerm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399728"><span class="annot"><span class="annottext">Maybe JobComparator
+comparator :: Maybe JobComparator
+$sel:comparator:TagScopeTerm' :: TagScopeTerm -&gt; Maybe JobComparator
+</span><a href="#local-6989586621679399728"><span class="hs-identifier hs-var hs-var">comparator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobComparator
+</span><a href="#local-6989586621679399728"><span class="hs-identifier hs-var">comparator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399727"><span class="annot"><span class="annottext">s :: TagScopeTerm
+</span><a href="#local-6989586621679399727"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#TagScopeTerm%27"><span class="hs-identifier hs-type">TagScopeTerm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399726"><span class="annot"><span class="annottext">Maybe JobComparator
+</span><a href="#local-6989586621679399726"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagScopeTerm
+</span><a href="#local-6989586621679399727"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comparator:TagScopeTerm' :: Maybe JobComparator
+</span><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#%24sel%3Acomparator%3ATagScopeTerm%27"><span class="hs-identifier hs-var">comparator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobComparator
+</span><a href="#local-6989586621679399726"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#TagScopeTerm"><span class="hs-identifier hs-type">TagScopeTerm</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The type of object to apply the condition to.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#tagScopeTerm_target"><span class="hs-identifier hs-type">tagScopeTerm_target</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#TagScopeTerm"><span class="hs-identifier hs-type">TagScopeTerm</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.TagTarget.html#TagTarget"><span class="hs-identifier hs-type">TagTarget</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="tagScopeTerm_target"><span class="annot"><span class="annottext">tagScopeTerm_target :: (Maybe TagTarget -&gt; f (Maybe TagTarget))
+-&gt; TagScopeTerm -&gt; f TagScopeTerm
+</span><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#tagScopeTerm_target"><span class="hs-identifier hs-var hs-var">tagScopeTerm_target</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TagScopeTerm -&gt; Maybe TagTarget)
+-&gt; (TagScopeTerm -&gt; Maybe TagTarget -&gt; TagScopeTerm)
+-&gt; Lens
+     TagScopeTerm TagScopeTerm (Maybe TagTarget) (Maybe TagTarget)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#TagScopeTerm%27"><span class="hs-identifier hs-type">TagScopeTerm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399724"><span class="annot"><span class="annottext">Maybe TagTarget
+target :: Maybe TagTarget
+$sel:target:TagScopeTerm' :: TagScopeTerm -&gt; Maybe TagTarget
+</span><a href="#local-6989586621679399724"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TagTarget
+</span><a href="#local-6989586621679399724"><span class="hs-identifier hs-var">target</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399723"><span class="annot"><span class="annottext">s :: TagScopeTerm
+</span><a href="#local-6989586621679399723"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#TagScopeTerm%27"><span class="hs-identifier hs-type">TagScopeTerm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399722"><span class="annot"><span class="annottext">Maybe TagTarget
+</span><a href="#local-6989586621679399722"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagScopeTerm
+</span><a href="#local-6989586621679399723"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:target:TagScopeTerm' :: Maybe TagTarget
+</span><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#%24sel%3Atarget%3ATagScopeTerm%27"><span class="hs-identifier hs-var">target</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TagTarget
+</span><a href="#local-6989586621679399722"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#TagScopeTerm"><span class="hs-identifier hs-type">TagScopeTerm</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399719"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#TagScopeTerm"><span class="hs-identifier hs-type">TagScopeTerm</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679399717"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TagScopeTerm
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser TagScopeTerm) -&gt; Value -&gt; Parser TagScopeTerm
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;TagScopeTerm&quot;</span></span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679399714"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679399714"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe [TagValuePair]
+-&gt; Maybe Text
+-&gt; Maybe JobComparator
+-&gt; Maybe TagTarget
+-&gt; TagScopeTerm
+</span><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#TagScopeTerm%27"><span class="hs-identifier hs-var">TagScopeTerm'</span></a></span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [TagValuePair]
+ -&gt; Maybe Text
+ -&gt; Maybe JobComparator
+ -&gt; Maybe TagTarget
+ -&gt; TagScopeTerm)
+-&gt; Parser (Maybe [TagValuePair])
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe JobComparator -&gt; Maybe TagTarget -&gt; TagScopeTerm)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679399714"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [TagValuePair]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tagValues&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [TagValuePair]))
+-&gt; Maybe [TagValuePair] -&gt; Parser (Maybe [TagValuePair])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TagValuePair]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe JobComparator -&gt; Maybe TagTarget -&gt; TagScopeTerm)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe JobComparator -&gt; Maybe TagTarget -&gt; TagScopeTerm)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679399714"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;key&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe JobComparator -&gt; Maybe TagTarget -&gt; TagScopeTerm)
+-&gt; Parser (Maybe JobComparator)
+-&gt; Parser (Maybe TagTarget -&gt; TagScopeTerm)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679399714"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe JobComparator)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;comparator&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe TagTarget -&gt; TagScopeTerm)
+-&gt; Parser (Maybe TagTarget) -&gt; Parser TagScopeTerm
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679399714"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TagTarget)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;target&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399707"><span id="local-6989586621679399709"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#TagScopeTerm"><span class="hs-identifier hs-type">TagScopeTerm</span></a></span></span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399704"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#TagScopeTerm"><span class="hs-identifier hs-type">TagScopeTerm</span></a></span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399696"><span id="local-6989586621679399698"><span id="local-6989586621679399700"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#TagScopeTerm"><span class="hs-identifier hs-type">TagScopeTerm</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679399694"><span class="annot"><span class="annottext">toJSON :: TagScopeTerm -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.TagScopeTerm.html#TagScopeTerm%27"><span class="hs-identifier hs-type">TagScopeTerm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399689"><span id="local-6989586621679399690"><span id="local-6989586621679399691"><span id="local-6989586621679399692"><span class="annot"><span class="annottext">Maybe [TagValuePair]
+Maybe Text
+Maybe JobComparator
+Maybe TagTarget
+target :: Maybe TagTarget
+comparator :: Maybe JobComparator
+key :: Maybe Text
+tagValues :: Maybe [TagValuePair]
+$sel:target:TagScopeTerm' :: TagScopeTerm -&gt; Maybe TagTarget
+$sel:comparator:TagScopeTerm' :: TagScopeTerm -&gt; Maybe JobComparator
+$sel:key:TagScopeTerm' :: TagScopeTerm -&gt; Maybe Text
+$sel:tagValues:TagScopeTerm' :: TagScopeTerm -&gt; Maybe [TagValuePair]
+</span><a href="#local-6989586621679399689"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-118"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tagValues&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [TagValuePair] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([TagValuePair] -&gt; Pair) -&gt; Maybe [TagValuePair] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TagValuePair]
+</span><a href="#local-6989586621679399692"><span class="hs-identifier hs-var">tagValues</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399691"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;comparator&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; JobComparator -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(JobComparator -&gt; Pair) -&gt; Maybe JobComparator -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe JobComparator
+</span><a href="#local-6989586621679399690"><span class="hs-identifier hs-var">comparator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;target&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TagTarget -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(TagTarget -&gt; Pair) -&gt; Maybe TagTarget -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TagTarget
+</span><a href="#local-6989586621679399689"><span class="hs-identifier hs-var">target</span></a></span><span>
+</span><span id="line-122"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span></pre></body></html>

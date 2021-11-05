@@ -33,7 +33,7 @@
 </span><span id="line-33"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-workmail.html Amazon SES Developer Guide&gt;.</span><span>
 </span><span id="line-34"></span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newWorkmailAction' smart constructor.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679276826"><span id="local-6989586621679276827"></span></span><span class="hs-keyword">data</span><span> </span><span id="WorkmailAction"><span class="annot"><a href="Network.AWS.SES.Types.WorkmailAction.html#WorkmailAction"><span class="hs-identifier hs-var">WorkmailAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkmailAction%27"><span class="annot"><a href="Network.AWS.SES.Types.WorkmailAction.html#WorkmailAction%27"><span class="hs-identifier hs-var">WorkmailAction'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679276835"><span id="local-6989586621679276836"></span></span><span class="hs-keyword">data</span><span> </span><span id="WorkmailAction"><span class="annot"><a href="Network.AWS.SES.Types.WorkmailAction.html#WorkmailAction"><span class="hs-identifier hs-var">WorkmailAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkmailAction%27"><span class="annot"><a href="Network.AWS.SES.Types.WorkmailAction.html#WorkmailAction%27"><span class="hs-identifier hs-var">WorkmailAction'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- the WorkMail action is called. An example of an Amazon SNS topic ARN is</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- @arn:aws:sns:us-west-2:123456789012:MyTopic@. For more information about</span><span>
@@ -49,7 +49,7 @@
 </span><span id="line-48"></span><span>    </span><span id="%24sel%3AorganizationArn%3AWorkmailAction%27"><span class="annot"><span class="annottext">WorkmailAction -&gt; Text
 </span><a href="Network.AWS.SES.Types.WorkmailAction.html#%24sel%3AorganizationArn%3AWorkmailAction%27"><span class="hs-identifier hs-var hs-var">organizationArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679276819"><span id="local-6989586621679276821"><span class="annot"><span class="annottext">WorkmailAction -&gt; WorkmailAction -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679276828"><span id="local-6989586621679276830"><span class="annot"><span class="annottext">WorkmailAction -&gt; WorkmailAction -&gt; Bool
 (WorkmailAction -&gt; WorkmailAction -&gt; Bool)
 -&gt; (WorkmailAction -&gt; WorkmailAction -&gt; Bool) -&gt; Eq WorkmailAction
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: WorkmailAction -&gt; WorkmailAction -&gt; Bool
 == :: WorkmailAction -&gt; WorkmailAction -&gt; Bool
 $c== :: WorkmailAction -&gt; WorkmailAction -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276810"><span id="local-6989586621679276812"><span id="local-6989586621679276814"><span id="local-6989586621679276816"><span class="annot"><span class="annottext">ReadPrec [WorkmailAction]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276819"><span id="local-6989586621679276821"><span id="local-6989586621679276823"><span id="local-6989586621679276825"><span class="annot"><span class="annottext">ReadPrec [WorkmailAction]
 ReadPrec WorkmailAction
 Int -&gt; ReadS WorkmailAction
 ReadS [WorkmailAction]
@@ -77,7 +77,7 @@ readList :: ReadS [WorkmailAction]
 $creadList :: ReadS [WorkmailAction]
 readsPrec :: Int -&gt; ReadS WorkmailAction
 $creadsPrec :: Int -&gt; ReadS WorkmailAction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276803"><span id="local-6989586621679276805"><span id="local-6989586621679276807"><span class="annot"><span class="annottext">Int -&gt; WorkmailAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276812"><span id="local-6989586621679276814"><span id="local-6989586621679276816"><span class="annot"><span class="annottext">Int -&gt; WorkmailAction -&gt; ShowS
 [WorkmailAction] -&gt; ShowS
 WorkmailAction -&gt; String
 (Int -&gt; WorkmailAction -&gt; ShowS)
@@ -127,8 +127,8 @@ $cfrom :: forall x. WorkmailAction -&gt; Rep WorkmailAction x
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.Types.WorkmailAction.html#WorkmailAction"><span class="hs-identifier hs-type">WorkmailAction</span></a></span><span>
 </span><span id="line-75"></span><span id="newWorkmailAction"><span class="annot"><span class="annottext">newWorkmailAction :: Text -&gt; WorkmailAction
-</span><a href="Network.AWS.SES.Types.WorkmailAction.html#newWorkmailAction"><span class="hs-identifier hs-var hs-var">newWorkmailAction</span></a></span></span><span> </span><span id="local-6989586621679276797"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276797"><span class="hs-identifier hs-var">pOrganizationArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SES.Types.WorkmailAction.html#newWorkmailAction"><span class="hs-identifier hs-var hs-var">newWorkmailAction</span></a></span></span><span> </span><span id="local-6989586621679276806"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276806"><span class="hs-identifier hs-var">pOrganizationArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">WorkmailAction' :: Maybe Text -&gt; Text -&gt; WorkmailAction
 </span><a href="Network.AWS.SES.Types.WorkmailAction.html#WorkmailAction%27"><span class="hs-identifier hs-type">WorkmailAction'</span></a></span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:topicArn:WorkmailAction' :: Maybe Text
@@ -137,7 +137,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:organizationArn:WorkmailAction' :: Text
 </span><a href="Network.AWS.SES.Types.WorkmailAction.html#%24sel%3AorganizationArn%3AWorkmailAction%27"><span class="hs-identifier hs-var">organizationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276797"><span class="hs-identifier hs-var">pOrganizationArn_</span></a></span><span>
+</span><a href="#local-6989586621679276806"><span class="hs-identifier hs-var">pOrganizationArn_</span></a></span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when</span><span>
@@ -152,16 +152,16 @@ forall a. Maybe a
 -&gt; (WorkmailAction -&gt; Maybe Text -&gt; WorkmailAction)
 -&gt; Lens WorkmailAction WorkmailAction (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.WorkmailAction.html#WorkmailAction%27"><span class="hs-identifier hs-type">WorkmailAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276793"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.WorkmailAction.html#WorkmailAction%27"><span class="hs-identifier hs-type">WorkmailAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276802"><span class="annot"><span class="annottext">Maybe Text
 topicArn :: Maybe Text
 $sel:topicArn:WorkmailAction' :: WorkmailAction -&gt; Maybe Text
-</span><a href="#local-6989586621679276793"><span class="hs-identifier hs-var hs-var">topicArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679276793"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276792"><span class="annot"><span class="annottext">s :: WorkmailAction
-</span><a href="#local-6989586621679276792"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.WorkmailAction.html#WorkmailAction%27"><span class="hs-identifier hs-type">WorkmailAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276791"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679276791"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkmailAction
-</span><a href="#local-6989586621679276792"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicArn:WorkmailAction' :: Maybe Text
+</span><a href="#local-6989586621679276802"><span class="hs-identifier hs-var hs-var">topicArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679276802"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276801"><span class="annot"><span class="annottext">s :: WorkmailAction
+</span><a href="#local-6989586621679276801"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.WorkmailAction.html#WorkmailAction%27"><span class="hs-identifier hs-type">WorkmailAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276800"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679276800"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkmailAction
+</span><a href="#local-6989586621679276801"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicArn:WorkmailAction' :: Maybe Text
 </span><a href="Network.AWS.SES.Types.WorkmailAction.html#%24sel%3AtopicArn%3AWorkmailAction%27"><span class="hs-identifier hs-var">topicArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679276791"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.WorkmailAction.html#WorkmailAction"><span class="hs-identifier hs-type">WorkmailAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276800"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.WorkmailAction.html#WorkmailAction"><span class="hs-identifier hs-type">WorkmailAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The ARN of the Amazon WorkMail organization. An example of an Amazon</span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- WorkMail organization ARN is</span><span>
@@ -174,21 +174,21 @@ $sel:topicArn:WorkmailAction' :: WorkmailAction -&gt; Maybe Text
 -&gt; (WorkmailAction -&gt; Text -&gt; WorkmailAction)
 -&gt; Lens WorkmailAction WorkmailAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.WorkmailAction.html#WorkmailAction%27"><span class="hs-identifier hs-type">WorkmailAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276789"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.WorkmailAction.html#WorkmailAction%27"><span class="hs-identifier hs-type">WorkmailAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276798"><span class="annot"><span class="annottext">Text
 organizationArn :: Text
 $sel:organizationArn:WorkmailAction' :: WorkmailAction -&gt; Text
-</span><a href="#local-6989586621679276789"><span class="hs-identifier hs-var hs-var">organizationArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276789"><span class="hs-identifier hs-var">organizationArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276788"><span class="annot"><span class="annottext">s :: WorkmailAction
-</span><a href="#local-6989586621679276788"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.WorkmailAction.html#WorkmailAction%27"><span class="hs-identifier hs-type">WorkmailAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276787"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276787"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkmailAction
-</span><a href="#local-6989586621679276788"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationArn:WorkmailAction' :: Text
+</span><a href="#local-6989586621679276798"><span class="hs-identifier hs-var hs-var">organizationArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276798"><span class="hs-identifier hs-var">organizationArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276797"><span class="annot"><span class="annottext">s :: WorkmailAction
+</span><a href="#local-6989586621679276797"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.WorkmailAction.html#WorkmailAction%27"><span class="hs-identifier hs-type">WorkmailAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276796"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276796"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkmailAction
+</span><a href="#local-6989586621679276797"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationArn:WorkmailAction' :: Text
 </span><a href="Network.AWS.SES.Types.WorkmailAction.html#%24sel%3AorganizationArn%3AWorkmailAction%27"><span class="hs-identifier hs-var">organizationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276787"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.WorkmailAction.html#WorkmailAction"><span class="hs-identifier hs-type">WorkmailAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276796"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.WorkmailAction.html#WorkmailAction"><span class="hs-identifier hs-type">WorkmailAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.WorkmailAction.html#WorkmailAction"><span class="hs-identifier hs-type">WorkmailAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679276784"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String WorkmailAction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679276782"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679276782"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679276793"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String WorkmailAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679276791"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679276791"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Text -&gt; WorkmailAction
 </span><a href="Network.AWS.SES.Types.WorkmailAction.html#WorkmailAction%27"><span class="hs-identifier hs-var">WorkmailAction'</span></a></span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Text -&gt; WorkmailAction)
@@ -196,7 +196,7 @@ $sel:organizationArn:WorkmailAction' :: WorkmailAction -&gt; Text
 -&gt; Either String (Text -&gt; WorkmailAction)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679276782"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679276791"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TopicArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -204,24 +204,24 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String Text -&gt; Either String WorkmailAction
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679276782"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679276791"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OrganizationArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276775"><span id="local-6989586621679276777"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.WorkmailAction.html#WorkmailAction"><span class="hs-identifier hs-type">WorkmailAction</span></a></span></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276784"><span id="local-6989586621679276786"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.WorkmailAction.html#WorkmailAction"><span class="hs-identifier hs-type">WorkmailAction</span></a></span></span></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276772"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.WorkmailAction.html#WorkmailAction"><span class="hs-identifier hs-type">WorkmailAction</span></a></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276781"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.WorkmailAction.html#WorkmailAction"><span class="hs-identifier hs-type">WorkmailAction</span></a></span></span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.WorkmailAction.html#WorkmailAction"><span class="hs-identifier hs-type">WorkmailAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679276768"><span class="annot"><span class="annottext">toQuery :: WorkmailAction -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.WorkmailAction.html#WorkmailAction%27"><span class="hs-identifier hs-type">WorkmailAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276765"><span id="local-6989586621679276766"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679276777"><span class="annot"><span class="annottext">toQuery :: WorkmailAction -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.WorkmailAction.html#WorkmailAction%27"><span class="hs-identifier hs-type">WorkmailAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276774"><span id="local-6989586621679276775"><span class="annot"><span class="annottext">Maybe Text
 Text
 organizationArn :: Text
 topicArn :: Maybe Text
 $sel:organizationArn:WorkmailAction' :: WorkmailAction -&gt; Text
 $sel:topicArn:WorkmailAction' :: WorkmailAction -&gt; Maybe Text
-</span><a href="#local-6989586621679276765"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679276774"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -229,11 +229,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;TopicArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679276766"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679276775"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;OrganizationArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679276765"><span class="hs-identifier hs-var">organizationArn</span></a></span><span>
+</span><a href="#local-6989586621679276774"><span class="hs-identifier hs-var">organizationArn</span></a></span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-113"></span></pre></body></html>

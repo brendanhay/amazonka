@@ -35,7 +35,7 @@
 </span><span id="line-35"></span><span class="hs-comment">-- in the /Amazon S3 API Reference/.</span><span>
 </span><span id="line-36"></span><span class="hs-comment">--</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- /See:/ 'newInventoryConfiguration' smart constructor.</span><span>
-</span><span id="line-38"></span><span id="local-6989586621679552762"><span id="local-6989586621679552763"></span></span><span class="hs-keyword">data</span><span> </span><span id="InventoryConfiguration"><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration"><span class="hs-identifier hs-var">InventoryConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InventoryConfiguration%27"><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration%27"><span class="hs-identifier hs-var">InventoryConfiguration'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679552771"><span id="local-6989586621679552772"></span></span><span class="hs-keyword">data</span><span> </span><span id="InventoryConfiguration"><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration"><span class="hs-identifier hs-var">InventoryConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InventoryConfiguration%27"><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration%27"><span class="hs-identifier hs-var">InventoryConfiguration'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Contains the optional fields that are included in the inventory results.</span><span>
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3AoptionalFields%3AInventoryConfiguration%27"><span class="annot"><span class="annottext">InventoryConfiguration -&gt; Maybe [InventoryOptionalField]
 </span><a href="Network.AWS.S3.Types.InventoryConfiguration.html#%24sel%3AoptionalFields%3AInventoryConfiguration%27"><span class="hs-identifier hs-var hs-var">optionalFields</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryOptionalField.html#InventoryOptionalField"><span class="hs-identifier hs-type">InventoryOptionalField</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -64,7 +64,7 @@
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3Aschedule%3AInventoryConfiguration%27"><span class="annot"><span class="annottext">InventoryConfiguration -&gt; InventorySchedule
 </span><a href="Network.AWS.S3.Types.InventoryConfiguration.html#%24sel%3Aschedule%3AInventoryConfiguration%27"><span class="hs-identifier hs-var hs-var">schedule</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventorySchedule.html#InventorySchedule"><span class="hs-identifier hs-type">InventorySchedule</span></a></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679552750"><span id="local-6989586621679552752"><span class="annot"><span class="annottext">InventoryConfiguration -&gt; InventoryConfiguration -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679552759"><span id="local-6989586621679552761"><span class="annot"><span class="annottext">InventoryConfiguration -&gt; InventoryConfiguration -&gt; Bool
 (InventoryConfiguration -&gt; InventoryConfiguration -&gt; Bool)
 -&gt; (InventoryConfiguration -&gt; InventoryConfiguration -&gt; Bool)
 -&gt; Eq InventoryConfiguration
@@ -73,7 +73,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InventoryConfiguration -&gt; InventoryConfiguration -&gt; Bool
 == :: InventoryConfiguration -&gt; InventoryConfiguration -&gt; Bool
 $c== :: InventoryConfiguration -&gt; InventoryConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679552743"><span id="local-6989586621679552745"><span id="local-6989586621679552747"><span class="annot"><span class="annottext">Int -&gt; InventoryConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679552752"><span id="local-6989586621679552754"><span id="local-6989586621679552756"><span class="annot"><span class="annottext">Int -&gt; InventoryConfiguration -&gt; ShowS
 [InventoryConfiguration] -&gt; ShowS
 InventoryConfiguration -&gt; String
 (Int -&gt; InventoryConfiguration -&gt; ShowS)
@@ -146,16 +146,16 @@ $cfrom :: forall x. InventoryConfiguration -&gt; Rep InventoryConfiguration x
 -&gt; InventorySchedule
 -&gt; InventoryConfiguration
 </span><a href="Network.AWS.S3.Types.InventoryConfiguration.html#newInventoryConfiguration"><span class="hs-identifier hs-var hs-var">newInventoryConfiguration</span></a></span></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679552737"><span class="annot"><span class="annottext">InventoryDestination
-</span><a href="#local-6989586621679552737"><span class="hs-identifier hs-var">pDestination_</span></a></span></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679552736"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679552736"><span class="hs-identifier hs-var">pIsEnabled_</span></a></span></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679552735"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679552735"><span class="hs-identifier hs-var">pId_</span></a></span></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679552734"><span class="annot"><span class="annottext">InventoryIncludedObjectVersions
-</span><a href="#local-6989586621679552734"><span class="hs-identifier hs-var">pIncludedObjectVersions_</span></a></span></span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679552733"><span class="annot"><span class="annottext">InventorySchedule
-</span><a href="#local-6989586621679552733"><span class="hs-identifier hs-var">pSchedule_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679552746"><span class="annot"><span class="annottext">InventoryDestination
+</span><a href="#local-6989586621679552746"><span class="hs-identifier hs-var">pDestination_</span></a></span></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679552745"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679552745"><span class="hs-identifier hs-var">pIsEnabled_</span></a></span></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679552744"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679552744"><span class="hs-identifier hs-var">pId_</span></a></span></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679552743"><span class="annot"><span class="annottext">InventoryIncludedObjectVersions
+</span><a href="#local-6989586621679552743"><span class="hs-identifier hs-var">pIncludedObjectVersions_</span></a></span></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679552742"><span class="annot"><span class="annottext">InventorySchedule
+</span><a href="#local-6989586621679552742"><span class="hs-identifier hs-var">pSchedule_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">InventoryConfiguration' :: Maybe [InventoryOptionalField]
 -&gt; Maybe InventoryFilter
 -&gt; InventoryDestination
@@ -176,19 +176,19 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">$sel:destination:InventoryConfiguration' :: InventoryDestination
 </span><a href="Network.AWS.S3.Types.InventoryConfiguration.html#%24sel%3Adestination%3AInventoryConfiguration%27"><span class="hs-identifier hs-var">destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InventoryDestination
-</span><a href="#local-6989586621679552737"><span class="hs-identifier hs-var">pDestination_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679552746"><span class="hs-identifier hs-var">pDestination_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">$sel:isEnabled:InventoryConfiguration' :: Bool
 </span><a href="Network.AWS.S3.Types.InventoryConfiguration.html#%24sel%3AisEnabled%3AInventoryConfiguration%27"><span class="hs-identifier hs-var">isEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679552736"><span class="hs-identifier hs-var">pIsEnabled_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679552745"><span class="hs-identifier hs-var">pIsEnabled_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">$sel:id:InventoryConfiguration' :: Text
 </span><a href="Network.AWS.S3.Types.InventoryConfiguration.html#%24sel%3Aid%3AInventoryConfiguration%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679552735"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679552744"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">$sel:includedObjectVersions:InventoryConfiguration' :: InventoryIncludedObjectVersions
 </span><a href="Network.AWS.S3.Types.InventoryConfiguration.html#%24sel%3AincludedObjectVersions%3AInventoryConfiguration%27"><span class="hs-identifier hs-var">includedObjectVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InventoryIncludedObjectVersions
-</span><a href="#local-6989586621679552734"><span class="hs-identifier hs-var">pIncludedObjectVersions_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679552743"><span class="hs-identifier hs-var">pIncludedObjectVersions_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">$sel:schedule:InventoryConfiguration' :: InventorySchedule
 </span><a href="Network.AWS.S3.Types.InventoryConfiguration.html#%24sel%3Aschedule%3AInventoryConfiguration%27"><span class="hs-identifier hs-var">schedule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InventorySchedule
-</span><a href="#local-6989586621679552733"><span class="hs-identifier hs-var">pSchedule_</span></a></span><span>
+</span><a href="#local-6989586621679552742"><span class="hs-identifier hs-var">pSchedule_</span></a></span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | Contains the optional fields that are included in the inventory results.</span><span>
@@ -205,16 +205,16 @@ forall a. Maybe a
      (Maybe [InventoryOptionalField])
      (Maybe [InventoryOptionalField])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration%27"><span class="hs-identifier hs-type">InventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552729"><span class="annot"><span class="annottext">Maybe [InventoryOptionalField]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration%27"><span class="hs-identifier hs-type">InventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552738"><span class="annot"><span class="annottext">Maybe [InventoryOptionalField]
 optionalFields :: Maybe [InventoryOptionalField]
 $sel:optionalFields:InventoryConfiguration' :: InventoryConfiguration -&gt; Maybe [InventoryOptionalField]
-</span><a href="#local-6989586621679552729"><span class="hs-identifier hs-var hs-var">optionalFields</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InventoryOptionalField]
-</span><a href="#local-6989586621679552729"><span class="hs-identifier hs-var">optionalFields</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679552728"><span class="annot"><span class="annottext">s :: InventoryConfiguration
-</span><a href="#local-6989586621679552728"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration%27"><span class="hs-identifier hs-type">InventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679552727"><span class="annot"><span class="annottext">Maybe [InventoryOptionalField]
-</span><a href="#local-6989586621679552727"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryConfiguration
-</span><a href="#local-6989586621679552728"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:optionalFields:InventoryConfiguration' :: Maybe [InventoryOptionalField]
+</span><a href="#local-6989586621679552738"><span class="hs-identifier hs-var hs-var">optionalFields</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InventoryOptionalField]
+</span><a href="#local-6989586621679552738"><span class="hs-identifier hs-var">optionalFields</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679552737"><span class="annot"><span class="annottext">s :: InventoryConfiguration
+</span><a href="#local-6989586621679552737"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration%27"><span class="hs-identifier hs-type">InventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679552736"><span class="annot"><span class="annottext">Maybe [InventoryOptionalField]
+</span><a href="#local-6989586621679552736"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryConfiguration
+</span><a href="#local-6989586621679552737"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:optionalFields:InventoryConfiguration' :: Maybe [InventoryOptionalField]
 </span><a href="Network.AWS.S3.Types.InventoryConfiguration.html#%24sel%3AoptionalFields%3AInventoryConfiguration%27"><span class="hs-identifier hs-var">optionalFields</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InventoryOptionalField]
-</span><a href="#local-6989586621679552727"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration"><span class="hs-identifier hs-type">InventoryConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InventoryOptionalField]
+</span><a href="#local-6989586621679552736"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration"><span class="hs-identifier hs-type">InventoryConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InventoryOptionalField]
   -&gt; f (Maybe [InventoryOptionalField]))
  -&gt; InventoryConfiguration -&gt; f InventoryConfiguration)
 -&gt; ((Maybe [InventoryOptionalField]
@@ -261,16 +261,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe InventoryFilter)
      (Maybe InventoryFilter)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration%27"><span class="hs-identifier hs-type">InventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552722"><span class="annot"><span class="annottext">Maybe InventoryFilter
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration%27"><span class="hs-identifier hs-type">InventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552731"><span class="annot"><span class="annottext">Maybe InventoryFilter
 filter' :: Maybe InventoryFilter
 $sel:filter':InventoryConfiguration' :: InventoryConfiguration -&gt; Maybe InventoryFilter
-</span><a href="#local-6989586621679552722"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InventoryFilter
-</span><a href="#local-6989586621679552722"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679552721"><span class="annot"><span class="annottext">s :: InventoryConfiguration
-</span><a href="#local-6989586621679552721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration%27"><span class="hs-identifier hs-type">InventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679552720"><span class="annot"><span class="annottext">Maybe InventoryFilter
-</span><a href="#local-6989586621679552720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryConfiguration
-</span><a href="#local-6989586621679552721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filter':InventoryConfiguration' :: Maybe InventoryFilter
+</span><a href="#local-6989586621679552731"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InventoryFilter
+</span><a href="#local-6989586621679552731"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679552730"><span class="annot"><span class="annottext">s :: InventoryConfiguration
+</span><a href="#local-6989586621679552730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration%27"><span class="hs-identifier hs-type">InventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679552729"><span class="annot"><span class="annottext">Maybe InventoryFilter
+</span><a href="#local-6989586621679552729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryConfiguration
+</span><a href="#local-6989586621679552730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filter':InventoryConfiguration' :: Maybe InventoryFilter
 </span><a href="Network.AWS.S3.Types.InventoryConfiguration.html#%24sel%3Afilter%27%3AInventoryConfiguration%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InventoryFilter
-</span><a href="#local-6989586621679552720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration"><span class="hs-identifier hs-type">InventoryConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679552729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration"><span class="hs-identifier hs-type">InventoryConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | Contains information about where to publish the inventory results.</span><span>
 </span><span id="line-128"></span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#inventoryConfiguration_destination"><span class="hs-identifier hs-type">inventoryConfiguration_destination</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration"><span class="hs-identifier hs-type">InventoryConfiguration</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryDestination.html#InventoryDestination"><span class="hs-identifier hs-type">InventoryDestination</span></a></span><span>
@@ -285,16 +285,16 @@ $sel:filter':InventoryConfiguration' :: InventoryConfiguration -&gt; Maybe Inven
      InventoryDestination
      InventoryDestination
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration%27"><span class="hs-identifier hs-type">InventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552718"><span class="annot"><span class="annottext">InventoryDestination
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration%27"><span class="hs-identifier hs-type">InventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552727"><span class="annot"><span class="annottext">InventoryDestination
 destination :: InventoryDestination
 $sel:destination:InventoryConfiguration' :: InventoryConfiguration -&gt; InventoryDestination
-</span><a href="#local-6989586621679552718"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryDestination
-</span><a href="#local-6989586621679552718"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679552717"><span class="annot"><span class="annottext">s :: InventoryConfiguration
-</span><a href="#local-6989586621679552717"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration%27"><span class="hs-identifier hs-type">InventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679552716"><span class="annot"><span class="annottext">InventoryDestination
-</span><a href="#local-6989586621679552716"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryConfiguration
-</span><a href="#local-6989586621679552717"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destination:InventoryConfiguration' :: InventoryDestination
+</span><a href="#local-6989586621679552727"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryDestination
+</span><a href="#local-6989586621679552727"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679552726"><span class="annot"><span class="annottext">s :: InventoryConfiguration
+</span><a href="#local-6989586621679552726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration%27"><span class="hs-identifier hs-type">InventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679552725"><span class="annot"><span class="annottext">InventoryDestination
+</span><a href="#local-6989586621679552725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryConfiguration
+</span><a href="#local-6989586621679552726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destination:InventoryConfiguration' :: InventoryDestination
 </span><a href="Network.AWS.S3.Types.InventoryConfiguration.html#%24sel%3Adestination%3AInventoryConfiguration%27"><span class="hs-identifier hs-var">destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InventoryDestination
-</span><a href="#local-6989586621679552716"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration"><span class="hs-identifier hs-type">InventoryConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679552725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration"><span class="hs-identifier hs-type">InventoryConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- | Specifies whether the inventory is enabled or disabled. If set to</span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- @True@, an inventory list is generated. If set to @False@, no inventory</span><span>
@@ -306,16 +306,16 @@ $sel:destination:InventoryConfiguration' :: InventoryConfiguration -&gt; Invento
 -&gt; (InventoryConfiguration -&gt; Bool -&gt; InventoryConfiguration)
 -&gt; Lens InventoryConfiguration InventoryConfiguration Bool Bool
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration%27"><span class="hs-identifier hs-type">InventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552714"><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration%27"><span class="hs-identifier hs-type">InventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552723"><span class="annot"><span class="annottext">Bool
 isEnabled :: Bool
 $sel:isEnabled:InventoryConfiguration' :: InventoryConfiguration -&gt; Bool
-</span><a href="#local-6989586621679552714"><span class="hs-identifier hs-var hs-var">isEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679552714"><span class="hs-identifier hs-var">isEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679552713"><span class="annot"><span class="annottext">s :: InventoryConfiguration
-</span><a href="#local-6989586621679552713"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration%27"><span class="hs-identifier hs-type">InventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679552712"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679552712"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryConfiguration
-</span><a href="#local-6989586621679552713"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isEnabled:InventoryConfiguration' :: Bool
+</span><a href="#local-6989586621679552723"><span class="hs-identifier hs-var hs-var">isEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679552723"><span class="hs-identifier hs-var">isEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679552722"><span class="annot"><span class="annottext">s :: InventoryConfiguration
+</span><a href="#local-6989586621679552722"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration%27"><span class="hs-identifier hs-type">InventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679552721"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679552721"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryConfiguration
+</span><a href="#local-6989586621679552722"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isEnabled:InventoryConfiguration' :: Bool
 </span><a href="Network.AWS.S3.Types.InventoryConfiguration.html#%24sel%3AisEnabled%3AInventoryConfiguration%27"><span class="hs-identifier hs-var">isEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679552712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration"><span class="hs-identifier hs-type">InventoryConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679552721"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration"><span class="hs-identifier hs-type">InventoryConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- | The ID used to identify the inventory configuration.</span><span>
 </span><span id="line-138"></span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#inventoryConfiguration_id"><span class="hs-identifier hs-type">inventoryConfiguration_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration"><span class="hs-identifier hs-type">InventoryConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -325,16 +325,16 @@ $sel:isEnabled:InventoryConfiguration' :: InventoryConfiguration -&gt; Bool
 -&gt; (InventoryConfiguration -&gt; Text -&gt; InventoryConfiguration)
 -&gt; Lens InventoryConfiguration InventoryConfiguration Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration%27"><span class="hs-identifier hs-type">InventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552710"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration%27"><span class="hs-identifier hs-type">InventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552719"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:InventoryConfiguration' :: InventoryConfiguration -&gt; Text
-</span><a href="#local-6989586621679552710"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679552710"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679552709"><span class="annot"><span class="annottext">s :: InventoryConfiguration
-</span><a href="#local-6989586621679552709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration%27"><span class="hs-identifier hs-type">InventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679552708"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679552708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryConfiguration
-</span><a href="#local-6989586621679552709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:InventoryConfiguration' :: Text
+</span><a href="#local-6989586621679552719"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679552719"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679552718"><span class="annot"><span class="annottext">s :: InventoryConfiguration
+</span><a href="#local-6989586621679552718"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration%27"><span class="hs-identifier hs-type">InventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679552717"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679552717"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryConfiguration
+</span><a href="#local-6989586621679552718"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:InventoryConfiguration' :: Text
 </span><a href="Network.AWS.S3.Types.InventoryConfiguration.html#%24sel%3Aid%3AInventoryConfiguration%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679552708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration"><span class="hs-identifier hs-type">InventoryConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679552717"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration"><span class="hs-identifier hs-type">InventoryConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- | Object versions to include in the inventory list. If set to @All@, the</span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- list includes all the object versions, which adds the version-related</span><span>
@@ -353,16 +353,16 @@ $sel:id:InventoryConfiguration' :: InventoryConfiguration -&gt; Text
      InventoryIncludedObjectVersions
      InventoryIncludedObjectVersions
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration%27"><span class="hs-identifier hs-type">InventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552706"><span class="annot"><span class="annottext">InventoryIncludedObjectVersions
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration%27"><span class="hs-identifier hs-type">InventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552715"><span class="annot"><span class="annottext">InventoryIncludedObjectVersions
 includedObjectVersions :: InventoryIncludedObjectVersions
 $sel:includedObjectVersions:InventoryConfiguration' :: InventoryConfiguration -&gt; InventoryIncludedObjectVersions
-</span><a href="#local-6989586621679552706"><span class="hs-identifier hs-var hs-var">includedObjectVersions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryIncludedObjectVersions
-</span><a href="#local-6989586621679552706"><span class="hs-identifier hs-var">includedObjectVersions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679552705"><span class="annot"><span class="annottext">s :: InventoryConfiguration
-</span><a href="#local-6989586621679552705"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration%27"><span class="hs-identifier hs-type">InventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679552704"><span class="annot"><span class="annottext">InventoryIncludedObjectVersions
-</span><a href="#local-6989586621679552704"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryConfiguration
-</span><a href="#local-6989586621679552705"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includedObjectVersions:InventoryConfiguration' :: InventoryIncludedObjectVersions
+</span><a href="#local-6989586621679552715"><span class="hs-identifier hs-var hs-var">includedObjectVersions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryIncludedObjectVersions
+</span><a href="#local-6989586621679552715"><span class="hs-identifier hs-var">includedObjectVersions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679552714"><span class="annot"><span class="annottext">s :: InventoryConfiguration
+</span><a href="#local-6989586621679552714"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration%27"><span class="hs-identifier hs-type">InventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679552713"><span class="annot"><span class="annottext">InventoryIncludedObjectVersions
+</span><a href="#local-6989586621679552713"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryConfiguration
+</span><a href="#local-6989586621679552714"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includedObjectVersions:InventoryConfiguration' :: InventoryIncludedObjectVersions
 </span><a href="Network.AWS.S3.Types.InventoryConfiguration.html#%24sel%3AincludedObjectVersions%3AInventoryConfiguration%27"><span class="hs-identifier hs-var">includedObjectVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InventoryIncludedObjectVersions
-</span><a href="#local-6989586621679552704"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration"><span class="hs-identifier hs-type">InventoryConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679552713"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration"><span class="hs-identifier hs-type">InventoryConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- | Specifies the schedule for generating inventory results.</span><span>
 </span><span id="line-149"></span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#inventoryConfiguration_schedule"><span class="hs-identifier hs-type">inventoryConfiguration_schedule</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration"><span class="hs-identifier hs-type">InventoryConfiguration</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventorySchedule.html#InventorySchedule"><span class="hs-identifier hs-type">InventorySchedule</span></a></span><span>
@@ -377,21 +377,21 @@ $sel:includedObjectVersions:InventoryConfiguration' :: InventoryConfiguration -&
      InventorySchedule
      InventorySchedule
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration%27"><span class="hs-identifier hs-type">InventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552702"><span class="annot"><span class="annottext">InventorySchedule
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration%27"><span class="hs-identifier hs-type">InventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552711"><span class="annot"><span class="annottext">InventorySchedule
 schedule :: InventorySchedule
 $sel:schedule:InventoryConfiguration' :: InventoryConfiguration -&gt; InventorySchedule
-</span><a href="#local-6989586621679552702"><span class="hs-identifier hs-var hs-var">schedule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventorySchedule
-</span><a href="#local-6989586621679552702"><span class="hs-identifier hs-var">schedule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679552701"><span class="annot"><span class="annottext">s :: InventoryConfiguration
-</span><a href="#local-6989586621679552701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration%27"><span class="hs-identifier hs-type">InventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679552700"><span class="annot"><span class="annottext">InventorySchedule
-</span><a href="#local-6989586621679552700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryConfiguration
-</span><a href="#local-6989586621679552701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schedule:InventoryConfiguration' :: InventorySchedule
+</span><a href="#local-6989586621679552711"><span class="hs-identifier hs-var hs-var">schedule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventorySchedule
+</span><a href="#local-6989586621679552711"><span class="hs-identifier hs-var">schedule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679552710"><span class="annot"><span class="annottext">s :: InventoryConfiguration
+</span><a href="#local-6989586621679552710"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration%27"><span class="hs-identifier hs-type">InventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679552709"><span class="annot"><span class="annottext">InventorySchedule
+</span><a href="#local-6989586621679552709"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryConfiguration
+</span><a href="#local-6989586621679552710"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schedule:InventoryConfiguration' :: InventorySchedule
 </span><a href="Network.AWS.S3.Types.InventoryConfiguration.html#%24sel%3Aschedule%3AInventoryConfiguration%27"><span class="hs-identifier hs-var">schedule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InventorySchedule
-</span><a href="#local-6989586621679552700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration"><span class="hs-identifier hs-type">InventoryConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679552709"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration"><span class="hs-identifier hs-type">InventoryConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration"><span class="hs-identifier hs-type">InventoryConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679552697"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String InventoryConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679552695"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679552695"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679552706"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String InventoryConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679552704"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679552704"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">Maybe [InventoryOptionalField]
 -&gt; Maybe InventoryFilter
 -&gt; InventoryDestination
@@ -421,7 +421,7 @@ $sel:schedule:InventoryConfiguration' :: InventoryConfiguration -&gt; InventoryS
       -&gt; InventoryConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679552695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679552704"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OptionalFields&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -463,7 +463,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
       -&gt; InventoryConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679552695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe InventoryFilter)
+</span><a href="#local-6989586621679552704"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe InventoryFilter)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Filter&quot;</span></span><span class="hs-special">)</span><span>
@@ -485,7 +485,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; InventoryConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679552695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String InventoryDestination
+</span><a href="#local-6989586621679552704"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String InventoryDestination
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Destination&quot;</span></span><span class="hs-special">)</span><span>
@@ -505,7 +505,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
       -&gt; InventoryConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679552695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Bool
+</span><a href="#local-6989586621679552704"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Bool
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IsEnabled&quot;</span></span><span class="hs-special">)</span><span>
@@ -522,7 +522,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
       -&gt; InventorySchedule -&gt; InventoryConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679552695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679552704"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
@@ -534,7 +534,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String (InventorySchedule -&gt; InventoryConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679552695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String InventoryIncludedObjectVersions
+</span><a href="#local-6989586621679552704"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String InventoryIncludedObjectVersions
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IncludedObjectVersions&quot;</span></span><span class="hs-special">)</span><span>
@@ -543,18 +543,18 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String InventoryConfiguration
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679552695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String InventorySchedule
+</span><a href="#local-6989586621679552704"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String InventorySchedule
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Schedule&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679552685"><span id="local-6989586621679552687"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration"><span class="hs-identifier hs-type">InventoryConfiguration</span></a></span></span></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679552694"><span id="local-6989586621679552696"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration"><span class="hs-identifier hs-type">InventoryConfiguration</span></a></span></span></span><span>
 </span><span id="line-166"></span><span>
-</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679552682"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration"><span class="hs-identifier hs-type">InventoryConfiguration</span></a></span></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679552691"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration"><span class="hs-identifier hs-type">InventoryConfiguration</span></a></span></span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration"><span class="hs-identifier hs-type">InventoryConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679552678"><span class="annot"><span class="annottext">toXML :: InventoryConfiguration -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration%27"><span class="hs-identifier hs-type">InventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552670"><span id="local-6989586621679552671"><span id="local-6989586621679552672"><span id="local-6989586621679552673"><span id="local-6989586621679552674"><span id="local-6989586621679552675"><span id="local-6989586621679552676"><span class="annot"><span class="annottext">Bool
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679552687"><span class="annot"><span class="annottext">toXML :: InventoryConfiguration -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryConfiguration.html#InventoryConfiguration%27"><span class="hs-identifier hs-type">InventoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552679"><span id="local-6989586621679552680"><span id="local-6989586621679552681"><span id="local-6989586621679552682"><span id="local-6989586621679552683"><span id="local-6989586621679552684"><span id="local-6989586621679552685"><span class="annot"><span class="annottext">Bool
 Maybe [InventoryOptionalField]
 Maybe InventoryFilter
 Text
@@ -575,7 +575,7 @@ $sel:isEnabled:InventoryConfiguration' :: InventoryConfiguration -&gt; Bool
 $sel:destination:InventoryConfiguration' :: InventoryConfiguration -&gt; InventoryDestination
 $sel:filter':InventoryConfiguration' :: InventoryConfiguration -&gt; Maybe InventoryFilter
 $sel:optionalFields:InventoryConfiguration' :: InventoryConfiguration -&gt; Maybe [InventoryOptionalField]
-</span><a href="#local-6989586621679552670"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679552679"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-171"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -593,37 +593,37 @@ forall a. (IsList a, ToXML (Item a)) =&gt; Name -&gt; a -&gt; XML
 -&gt; Maybe [InventoryOptionalField] -&gt; Maybe XML
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [InventoryOptionalField]
-</span><a href="#local-6989586621679552676"><span class="hs-identifier hs-var">optionalFields</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679552685"><span class="hs-identifier hs-var">optionalFields</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-175"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe InventoryFilter -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe InventoryFilter
-</span><a href="#local-6989586621679552675"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679552684"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-176"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Destination&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; InventoryDestination -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">InventoryDestination
-</span><a href="#local-6989586621679552674"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679552683"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-177"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;IsEnabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Bool -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679552673"><span class="hs-identifier hs-var">isEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679552682"><span class="hs-identifier hs-var">isEnabled</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Id&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679552672"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679552681"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;IncludedObjectVersions&quot;</span></span><span>
 </span><span id="line-180"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; InventoryIncludedObjectVersions -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">InventoryIncludedObjectVersions
-</span><a href="#local-6989586621679552671"><span class="hs-identifier hs-var">includedObjectVersions</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679552680"><span class="hs-identifier hs-var">includedObjectVersions</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Schedule&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; InventorySchedule -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">InventorySchedule
-</span><a href="#local-6989586621679552670"><span class="hs-identifier hs-var">schedule</span></a></span><span>
+</span><a href="#local-6989586621679552679"><span class="hs-identifier hs-var">schedule</span></a></span><span>
 </span><span id="line-182"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-183"></span></pre></body></html>

@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Placeholder documentation for InputAttachment</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newInputAttachment' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679931361"><span id="local-6989586621679931362"></span></span><span class="hs-keyword">data</span><span> </span><span id="InputAttachment"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputAttachment.html#InputAttachment"><span class="hs-identifier hs-var">InputAttachment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputAttachment%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputAttachment.html#InputAttachment%27"><span class="hs-identifier hs-var">InputAttachment'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679931370"><span id="local-6989586621679931371"></span></span><span class="hs-keyword">data</span><span> </span><span id="InputAttachment"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputAttachment.html#InputAttachment"><span class="hs-identifier hs-var">InputAttachment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputAttachment%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputAttachment.html#InputAttachment%27"><span class="hs-identifier hs-var">InputAttachment'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | User-specified name for the attachment. This is required if the user</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- wants to use this input in an input switch action.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AinputAttachmentName%3AInputAttachment%27"><span class="annot"><span class="annottext">InputAttachment -&gt; Maybe Text
@@ -44,7 +44,7 @@
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3AinputSettings%3AInputAttachment%27"><span class="annot"><span class="annottext">InputAttachment -&gt; Maybe InputSettings
 </span><a href="Network.AWS.MediaLive.Types.InputAttachment.html#%24sel%3AinputSettings%3AInputAttachment%27"><span class="hs-identifier hs-var hs-var">inputSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings"><span class="hs-identifier hs-type">InputSettings</span></a></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679931352"><span id="local-6989586621679931354"><span class="annot"><span class="annottext">InputAttachment -&gt; InputAttachment -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679931361"><span id="local-6989586621679931363"><span class="annot"><span class="annottext">InputAttachment -&gt; InputAttachment -&gt; Bool
 (InputAttachment -&gt; InputAttachment -&gt; Bool)
 -&gt; (InputAttachment -&gt; InputAttachment -&gt; Bool)
 -&gt; Eq InputAttachment
@@ -53,7 +53,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InputAttachment -&gt; InputAttachment -&gt; Bool
 == :: InputAttachment -&gt; InputAttachment -&gt; Bool
 $c== :: InputAttachment -&gt; InputAttachment -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679931343"><span id="local-6989586621679931345"><span id="local-6989586621679931347"><span id="local-6989586621679931349"><span class="annot"><span class="annottext">ReadPrec [InputAttachment]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679931352"><span id="local-6989586621679931354"><span id="local-6989586621679931356"><span id="local-6989586621679931358"><span class="annot"><span class="annottext">ReadPrec [InputAttachment]
 ReadPrec InputAttachment
 Int -&gt; ReadS InputAttachment
 ReadS [InputAttachment]
@@ -73,7 +73,7 @@ readList :: ReadS [InputAttachment]
 $creadList :: ReadS [InputAttachment]
 readsPrec :: Int -&gt; ReadS InputAttachment
 $creadsPrec :: Int -&gt; ReadS InputAttachment
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679931336"><span id="local-6989586621679931338"><span id="local-6989586621679931340"><span class="annot"><span class="annottext">Int -&gt; InputAttachment -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679931345"><span id="local-6989586621679931347"><span id="local-6989586621679931349"><span class="annot"><span class="annottext">Int -&gt; InputAttachment -&gt; ShowS
 [InputAttachment] -&gt; ShowS
 InputAttachment -&gt; String
 (Int -&gt; InputAttachment -&gt; ShowS)
@@ -154,16 +154,16 @@ forall a. Maybe a
 -&gt; (InputAttachment -&gt; Maybe Text -&gt; InputAttachment)
 -&gt; Lens InputAttachment InputAttachment (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputAttachment.html#InputAttachment%27"><span class="hs-identifier hs-type">InputAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679931327"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputAttachment.html#InputAttachment%27"><span class="hs-identifier hs-type">InputAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679931336"><span class="annot"><span class="annottext">Maybe Text
 inputAttachmentName :: Maybe Text
 $sel:inputAttachmentName:InputAttachment' :: InputAttachment -&gt; Maybe Text
-</span><a href="#local-6989586621679931327"><span class="hs-identifier hs-var hs-var">inputAttachmentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679931327"><span class="hs-identifier hs-var">inputAttachmentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679931326"><span class="annot"><span class="annottext">s :: InputAttachment
-</span><a href="#local-6989586621679931326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputAttachment.html#InputAttachment%27"><span class="hs-identifier hs-type">InputAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679931325"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679931325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputAttachment
-</span><a href="#local-6989586621679931326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputAttachmentName:InputAttachment' :: Maybe Text
+</span><a href="#local-6989586621679931336"><span class="hs-identifier hs-var hs-var">inputAttachmentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679931336"><span class="hs-identifier hs-var">inputAttachmentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679931335"><span class="annot"><span class="annottext">s :: InputAttachment
+</span><a href="#local-6989586621679931335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputAttachment.html#InputAttachment%27"><span class="hs-identifier hs-type">InputAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679931334"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679931334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputAttachment
+</span><a href="#local-6989586621679931335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputAttachmentName:InputAttachment' :: Maybe Text
 </span><a href="Network.AWS.MediaLive.Types.InputAttachment.html#%24sel%3AinputAttachmentName%3AInputAttachment%27"><span class="hs-identifier hs-var">inputAttachmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679931325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputAttachment.html#InputAttachment"><span class="hs-identifier hs-type">InputAttachment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679931334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputAttachment.html#InputAttachment"><span class="hs-identifier hs-type">InputAttachment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | The ID of the input</span><span>
 </span><span id="line-79"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputAttachment.html#inputAttachment_inputId"><span class="hs-identifier hs-type">inputAttachment_inputId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputAttachment.html#InputAttachment"><span class="hs-identifier hs-type">InputAttachment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -173,16 +173,16 @@ $sel:inputAttachmentName:InputAttachment' :: InputAttachment -&gt; Maybe Text
 -&gt; (InputAttachment -&gt; Maybe Text -&gt; InputAttachment)
 -&gt; Lens InputAttachment InputAttachment (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputAttachment.html#InputAttachment%27"><span class="hs-identifier hs-type">InputAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679931323"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputAttachment.html#InputAttachment%27"><span class="hs-identifier hs-type">InputAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679931332"><span class="annot"><span class="annottext">Maybe Text
 inputId :: Maybe Text
 $sel:inputId:InputAttachment' :: InputAttachment -&gt; Maybe Text
-</span><a href="#local-6989586621679931323"><span class="hs-identifier hs-var hs-var">inputId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679931323"><span class="hs-identifier hs-var">inputId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679931322"><span class="annot"><span class="annottext">s :: InputAttachment
-</span><a href="#local-6989586621679931322"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputAttachment.html#InputAttachment%27"><span class="hs-identifier hs-type">InputAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679931321"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679931321"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputAttachment
-</span><a href="#local-6989586621679931322"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputId:InputAttachment' :: Maybe Text
+</span><a href="#local-6989586621679931332"><span class="hs-identifier hs-var hs-var">inputId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679931332"><span class="hs-identifier hs-var">inputId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679931331"><span class="annot"><span class="annottext">s :: InputAttachment
+</span><a href="#local-6989586621679931331"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputAttachment.html#InputAttachment%27"><span class="hs-identifier hs-type">InputAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679931330"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679931330"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputAttachment
+</span><a href="#local-6989586621679931331"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputId:InputAttachment' :: Maybe Text
 </span><a href="Network.AWS.MediaLive.Types.InputAttachment.html#%24sel%3AinputId%3AInputAttachment%27"><span class="hs-identifier hs-var">inputId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679931321"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputAttachment.html#InputAttachment"><span class="hs-identifier hs-type">InputAttachment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679931330"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputAttachment.html#InputAttachment"><span class="hs-identifier hs-type">InputAttachment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | User-specified settings for defining what the conditions are for</span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- declaring the input unhealthy and failing over to a different input.</span><span>
@@ -199,16 +199,16 @@ $sel:inputId:InputAttachment' :: InputAttachment -&gt; Maybe Text
      (Maybe AutomaticInputFailoverSettings)
      (Maybe AutomaticInputFailoverSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputAttachment.html#InputAttachment%27"><span class="hs-identifier hs-type">InputAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679931319"><span class="annot"><span class="annottext">Maybe AutomaticInputFailoverSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputAttachment.html#InputAttachment%27"><span class="hs-identifier hs-type">InputAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679931328"><span class="annot"><span class="annottext">Maybe AutomaticInputFailoverSettings
 automaticInputFailoverSettings :: Maybe AutomaticInputFailoverSettings
 $sel:automaticInputFailoverSettings:InputAttachment' :: InputAttachment -&gt; Maybe AutomaticInputFailoverSettings
-</span><a href="#local-6989586621679931319"><span class="hs-identifier hs-var hs-var">automaticInputFailoverSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AutomaticInputFailoverSettings
-</span><a href="#local-6989586621679931319"><span class="hs-identifier hs-var">automaticInputFailoverSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679931318"><span class="annot"><span class="annottext">s :: InputAttachment
-</span><a href="#local-6989586621679931318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputAttachment.html#InputAttachment%27"><span class="hs-identifier hs-type">InputAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679931317"><span class="annot"><span class="annottext">Maybe AutomaticInputFailoverSettings
-</span><a href="#local-6989586621679931317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputAttachment
-</span><a href="#local-6989586621679931318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:automaticInputFailoverSettings:InputAttachment' :: Maybe AutomaticInputFailoverSettings
+</span><a href="#local-6989586621679931328"><span class="hs-identifier hs-var hs-var">automaticInputFailoverSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AutomaticInputFailoverSettings
+</span><a href="#local-6989586621679931328"><span class="hs-identifier hs-var">automaticInputFailoverSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679931327"><span class="annot"><span class="annottext">s :: InputAttachment
+</span><a href="#local-6989586621679931327"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputAttachment.html#InputAttachment%27"><span class="hs-identifier hs-type">InputAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679931326"><span class="annot"><span class="annottext">Maybe AutomaticInputFailoverSettings
+</span><a href="#local-6989586621679931326"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputAttachment
+</span><a href="#local-6989586621679931327"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:automaticInputFailoverSettings:InputAttachment' :: Maybe AutomaticInputFailoverSettings
 </span><a href="Network.AWS.MediaLive.Types.InputAttachment.html#%24sel%3AautomaticInputFailoverSettings%3AInputAttachment%27"><span class="hs-identifier hs-var">automaticInputFailoverSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AutomaticInputFailoverSettings
-</span><a href="#local-6989586621679931317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputAttachment.html#InputAttachment"><span class="hs-identifier hs-type">InputAttachment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679931326"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputAttachment.html#InputAttachment"><span class="hs-identifier hs-type">InputAttachment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | Settings of an input (caption selector, etc.)</span><span>
 </span><span id="line-88"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputAttachment.html#inputAttachment_inputSettings"><span class="hs-identifier hs-type">inputAttachment_inputSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputAttachment.html#InputAttachment"><span class="hs-identifier hs-type">InputAttachment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSettings.html#InputSettings"><span class="hs-identifier hs-type">InputSettings</span></a></span><span class="hs-special">)</span><span>
@@ -222,19 +222,19 @@ $sel:automaticInputFailoverSettings:InputAttachment' :: InputAttachment -&gt; Ma
      (Maybe InputSettings)
      (Maybe InputSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputAttachment.html#InputAttachment%27"><span class="hs-identifier hs-type">InputAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679931315"><span class="annot"><span class="annottext">Maybe InputSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputAttachment.html#InputAttachment%27"><span class="hs-identifier hs-type">InputAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679931324"><span class="annot"><span class="annottext">Maybe InputSettings
 inputSettings :: Maybe InputSettings
 $sel:inputSettings:InputAttachment' :: InputAttachment -&gt; Maybe InputSettings
-</span><a href="#local-6989586621679931315"><span class="hs-identifier hs-var hs-var">inputSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputSettings
-</span><a href="#local-6989586621679931315"><span class="hs-identifier hs-var">inputSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679931314"><span class="annot"><span class="annottext">s :: InputAttachment
-</span><a href="#local-6989586621679931314"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputAttachment.html#InputAttachment%27"><span class="hs-identifier hs-type">InputAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679931313"><span class="annot"><span class="annottext">Maybe InputSettings
-</span><a href="#local-6989586621679931313"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputAttachment
-</span><a href="#local-6989586621679931314"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputSettings:InputAttachment' :: Maybe InputSettings
+</span><a href="#local-6989586621679931324"><span class="hs-identifier hs-var hs-var">inputSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputSettings
+</span><a href="#local-6989586621679931324"><span class="hs-identifier hs-var">inputSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679931323"><span class="annot"><span class="annottext">s :: InputAttachment
+</span><a href="#local-6989586621679931323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputAttachment.html#InputAttachment%27"><span class="hs-identifier hs-type">InputAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679931322"><span class="annot"><span class="annottext">Maybe InputSettings
+</span><a href="#local-6989586621679931322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputAttachment
+</span><a href="#local-6989586621679931323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputSettings:InputAttachment' :: Maybe InputSettings
 </span><a href="Network.AWS.MediaLive.Types.InputAttachment.html#%24sel%3AinputSettings%3AInputAttachment%27"><span class="hs-identifier hs-var">inputSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputSettings
-</span><a href="#local-6989586621679931313"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputAttachment.html#InputAttachment"><span class="hs-identifier hs-type">InputAttachment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679931322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputAttachment.html#InputAttachment"><span class="hs-identifier hs-type">InputAttachment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679931310"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputAttachment.html#InputAttachment"><span class="hs-identifier hs-type">InputAttachment</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679931308"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InputAttachment
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679931319"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputAttachment.html#InputAttachment"><span class="hs-identifier hs-type">InputAttachment</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679931317"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InputAttachment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser InputAttachment)
@@ -244,8 +244,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;InputAttachment&quot;</span></span><span>
-</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679931305"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679931305"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679931314"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679931314"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe AutomaticInputFailoverSettings
@@ -265,7 +265,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; InputAttachment)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679931305"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679931314"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;inputAttachmentName&quot;</span></span><span class="hs-special">)</span><span>
@@ -280,7 +280,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe InputSettings -&gt; InputAttachment)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679931305"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679931314"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;inputId&quot;</span></span><span class="hs-special">)</span><span>
@@ -291,7 +291,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe InputSettings -&gt; InputAttachment)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679931305"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AutomaticInputFailoverSettings)
+</span><a href="#local-6989586621679931314"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AutomaticInputFailoverSettings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;automaticInputFailoverSettings&quot;</span></span><span class="hs-special">)</span><span>
@@ -299,19 +299,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe InputSettings) -&gt; Parser InputAttachment
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679931305"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputSettings)
+</span><a href="#local-6989586621679931314"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputSettings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;inputSettings&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679931299"><span id="local-6989586621679931301"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputAttachment.html#InputAttachment"><span class="hs-identifier hs-type">InputAttachment</span></a></span></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679931308"><span id="local-6989586621679931310"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputAttachment.html#InputAttachment"><span class="hs-identifier hs-type">InputAttachment</span></a></span></span></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679931296"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputAttachment.html#InputAttachment"><span class="hs-identifier hs-type">InputAttachment</span></a></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679931305"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputAttachment.html#InputAttachment"><span class="hs-identifier hs-type">InputAttachment</span></a></span></span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679931288"><span id="local-6989586621679931290"><span id="local-6989586621679931292"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputAttachment.html#InputAttachment"><span class="hs-identifier hs-type">InputAttachment</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679931286"><span class="annot"><span class="annottext">toJSON :: InputAttachment -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputAttachment.html#InputAttachment%27"><span class="hs-identifier hs-type">InputAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679931281"><span id="local-6989586621679931282"><span id="local-6989586621679931283"><span id="local-6989586621679931284"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679931297"><span id="local-6989586621679931299"><span id="local-6989586621679931301"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputAttachment.html#InputAttachment"><span class="hs-identifier hs-type">InputAttachment</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679931295"><span class="annot"><span class="annottext">toJSON :: InputAttachment -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputAttachment.html#InputAttachment%27"><span class="hs-identifier hs-type">InputAttachment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679931290"><span id="local-6989586621679931291"><span id="local-6989586621679931292"><span id="local-6989586621679931293"><span class="annot"><span class="annottext">Maybe Text
 Maybe AutomaticInputFailoverSettings
 Maybe InputSettings
 inputSettings :: Maybe InputSettings
@@ -322,7 +322,7 @@ $sel:inputSettings:InputAttachment' :: InputAttachment -&gt; Maybe InputSettings
 $sel:automaticInputFailoverSettings:InputAttachment' :: InputAttachment -&gt; Maybe AutomaticInputFailoverSettings
 $sel:inputId:InputAttachment' :: InputAttachment -&gt; Maybe Text
 $sel:inputAttachmentName:InputAttachment' :: InputAttachment -&gt; Maybe Text
-</span><a href="#local-6989586621679931281"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679931290"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -335,14 +335,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-112"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679931284"><span class="hs-identifier hs-var">inputAttachmentName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679931293"><span class="hs-identifier hs-var">inputAttachmentName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-113"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;inputId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679931283"><span class="hs-identifier hs-var">inputId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679931292"><span class="hs-identifier hs-var">inputId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-114"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;automaticInputFailoverSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AutomaticInputFailoverSettings -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -351,14 +351,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe AutomaticInputFailoverSettings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AutomaticInputFailoverSettings
-</span><a href="#local-6989586621679931282"><span class="hs-identifier hs-var">automaticInputFailoverSettings</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679931291"><span class="hs-identifier hs-var">automaticInputFailoverSettings</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-116"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;inputSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputSettings -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(InputSettings -&gt; Pair) -&gt; Maybe InputSettings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InputSettings
-</span><a href="#local-6989586621679931281"><span class="hs-identifier hs-var">inputSettings</span></a></span><span>
+</span><a href="#local-6989586621679931290"><span class="hs-identifier hs-var">inputSettings</span></a></span><span>
 </span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span></pre></body></html>

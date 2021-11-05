@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679428597"><span id="local-6989586621679428598"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="VersionBump"><span class="annot"><a href="Network.AWS.CloudFormation.Types.VersionBump.html#VersionBump"><span class="hs-identifier hs-var">VersionBump</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VersionBump%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.VersionBump.html#VersionBump%27"><span class="hs-identifier hs-var">VersionBump'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679428606"><span id="local-6989586621679428607"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="VersionBump"><span class="annot"><a href="Network.AWS.CloudFormation.Types.VersionBump.html#VersionBump"><span class="hs-identifier hs-var">VersionBump</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VersionBump%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.VersionBump.html#VersionBump%27"><span class="hs-identifier hs-var">VersionBump'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromVersionBump"><span class="annot"><span class="annottext">VersionBump -&gt; Text
 </span><a href="Network.AWS.CloudFormation.Types.VersionBump.html#fromVersionBump"><span class="hs-identifier hs-var hs-var">fromVersionBump</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679428589"><span id="local-6989586621679428591"><span id="local-6989586621679428593"><span class="annot"><span class="annottext">Int -&gt; VersionBump -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679428598"><span id="local-6989586621679428600"><span id="local-6989586621679428602"><span class="annot"><span class="annottext">Int -&gt; VersionBump -&gt; ShowS
 [VersionBump] -&gt; ShowS
 VersionBump -&gt; String
 (Int -&gt; VersionBump -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: VersionBump -&gt; String
 showsPrec :: Int -&gt; VersionBump -&gt; ShowS
 $cshowsPrec :: Int -&gt; VersionBump -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679428580"><span id="local-6989586621679428582"><span id="local-6989586621679428584"><span id="local-6989586621679428586"><span class="annot"><span class="annottext">ReadPrec [VersionBump]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679428589"><span id="local-6989586621679428591"><span id="local-6989586621679428593"><span id="local-6989586621679428595"><span class="annot"><span class="annottext">ReadPrec [VersionBump]
 ReadPrec VersionBump
 Int -&gt; ReadS VersionBump
 ReadS [VersionBump]
@@ -72,7 +72,7 @@ $creadList :: ReadS [VersionBump]
 readsPrec :: Int -&gt; ReadS VersionBump
 $creadsPrec :: Int -&gt; ReadS VersionBump
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679428575"><span id="local-6989586621679428577"><span class="annot"><span class="annottext">VersionBump -&gt; VersionBump -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679428584"><span id="local-6989586621679428586"><span class="annot"><span class="annottext">VersionBump -&gt; VersionBump -&gt; Bool
 (VersionBump -&gt; VersionBump -&gt; Bool)
 -&gt; (VersionBump -&gt; VersionBump -&gt; Bool) -&gt; Eq VersionBump
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: VersionBump -&gt; VersionBump -&gt; Bool
 == :: VersionBump -&gt; VersionBump -&gt; Bool
 $c== :: VersionBump -&gt; VersionBump -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679428559"><span id="local-6989586621679428561"><span id="local-6989586621679428563"><span id="local-6989586621679428565"><span id="local-6989586621679428567"><span id="local-6989586621679428569"><span id="local-6989586621679428571"><span class="annot"><span class="annottext">Eq VersionBump
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679428568"><span id="local-6989586621679428570"><span id="local-6989586621679428572"><span id="local-6989586621679428574"><span id="local-6989586621679428576"><span id="local-6989586621679428578"><span id="local-6989586621679428580"><span class="annot"><span class="annottext">Eq VersionBump
 Eq VersionBump
 -&gt; (VersionBump -&gt; VersionBump -&gt; Ordering)
 -&gt; (VersionBump -&gt; VersionBump -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. VersionBump -&gt; Rep VersionBump x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679428551"><span id="local-6989586621679428553"><span class="annot"><span class="annottext">Int -&gt; VersionBump -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679428560"><span id="local-6989586621679428562"><span class="annot"><span class="annottext">Int -&gt; VersionBump -&gt; Int
 VersionBump -&gt; Int
 (Int -&gt; VersionBump -&gt; Int)
 -&gt; (VersionBump -&gt; Int) -&gt; Hashable VersionBump
@@ -142,49 +142,49 @@ $chash :: VersionBump -&gt; Int
 hashWithSalt :: Int -&gt; VersionBump -&gt; Int
 $chashWithSalt :: Int -&gt; VersionBump -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679428548"><span class="annot"><span class="annottext">VersionBump -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679428557"><span class="annot"><span class="annottext">VersionBump -&gt; ()
 (VersionBump -&gt; ()) -&gt; NFData VersionBump
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: VersionBump -&gt; ()
 $crnf :: VersionBump -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679428545"><span class="annot"><span class="annottext">Text -&gt; Either String VersionBump
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679428554"><span class="annot"><span class="annottext">Text -&gt; Either String VersionBump
 (Text -&gt; Either String VersionBump) -&gt; FromText VersionBump
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String VersionBump
 $cfromText :: Text -&gt; Either String VersionBump
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679428542"><span class="annot"><span class="annottext">VersionBump -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679428551"><span class="annot"><span class="annottext">VersionBump -&gt; Text
 (VersionBump -&gt; Text) -&gt; ToText VersionBump
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: VersionBump -&gt; Text
 $ctoText :: VersionBump -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679428539"><span class="annot"><span class="annottext">VersionBump -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679428548"><span class="annot"><span class="annottext">VersionBump -&gt; ByteString
 (VersionBump -&gt; ByteString) -&gt; ToByteString VersionBump
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: VersionBump -&gt; ByteString
 $ctoBS :: VersionBump -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679428536"><span class="annot"><span class="annottext">VersionBump -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679428545"><span class="annot"><span class="annottext">VersionBump -&gt; ByteStringBuilder
 (VersionBump -&gt; ByteStringBuilder) -&gt; ToLog VersionBump
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: VersionBump -&gt; ByteStringBuilder
 $cbuild :: VersionBump -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679428533"><span class="annot"><span class="annottext">HeaderName -&gt; VersionBump -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679428542"><span class="annot"><span class="annottext">HeaderName -&gt; VersionBump -&gt; [Header]
 (HeaderName -&gt; VersionBump -&gt; [Header]) -&gt; ToHeader VersionBump
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; VersionBump -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; VersionBump -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679428530"><span class="annot"><span class="annottext">VersionBump -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679428539"><span class="annot"><span class="annottext">VersionBump -&gt; QueryString
 (VersionBump -&gt; QueryString) -&gt; ToQuery VersionBump
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: VersionBump -&gt; QueryString
 $ctoQuery :: VersionBump -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679428525"><span id="local-6989586621679428527"><span class="annot"><span class="annottext">Value -&gt; Parser [VersionBump]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679428534"><span id="local-6989586621679428536"><span class="annot"><span class="annottext">Value -&gt; Parser [VersionBump]
 Value -&gt; Parser VersionBump
 (Value -&gt; Parser VersionBump)
 -&gt; (Value -&gt; Parser [VersionBump]) -&gt; FromJSON VersionBump
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [VersionBump]
 parseJSON :: Value -&gt; Parser VersionBump
 $cparseJSON :: Value -&gt; Parser VersionBump
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679428520"><span id="local-6989586621679428522"><span class="annot"><span class="annottext">FromJSONKeyFunction [VersionBump]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679428529"><span id="local-6989586621679428531"><span class="annot"><span class="annottext">FromJSONKeyFunction [VersionBump]
 FromJSONKeyFunction VersionBump
 FromJSONKeyFunction VersionBump
 -&gt; FromJSONKeyFunction [VersionBump] -&gt; FromJSONKey VersionBump
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [VersionBump]
 fromJSONKey :: FromJSONKeyFunction VersionBump
 $cfromJSONKey :: FromJSONKeyFunction VersionBump
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679428511"><span id="local-6989586621679428513"><span id="local-6989586621679428515"><span id="local-6989586621679428517"><span class="annot"><span class="annottext">[VersionBump] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679428520"><span id="local-6989586621679428522"><span id="local-6989586621679428524"><span id="local-6989586621679428526"><span class="annot"><span class="annottext">[VersionBump] -&gt; Encoding
 [VersionBump] -&gt; Value
 VersionBump -&gt; Encoding
 VersionBump -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: VersionBump -&gt; Encoding
 toJSON :: VersionBump -&gt; Value
 $ctoJSON :: VersionBump -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679428506"><span id="local-6989586621679428508"><span class="annot"><span class="annottext">ToJSONKeyFunction [VersionBump]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679428515"><span id="local-6989586621679428517"><span class="annot"><span class="annottext">ToJSONKeyFunction [VersionBump]
 ToJSONKeyFunction VersionBump
 ToJSONKeyFunction VersionBump
 -&gt; ToJSONKeyFunction [VersionBump] -&gt; ToJSONKey VersionBump
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [VersionBump]
 toJSONKey :: ToJSONKeyFunction VersionBump
 $ctoJSONKey :: ToJSONKeyFunction VersionBump
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679428503"><span class="annot"><span class="annottext">[Node] -&gt; Either String VersionBump
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679428512"><span class="annot"><span class="annottext">[Node] -&gt; Either String VersionBump
 ([Node] -&gt; Either String VersionBump) -&gt; FromXML VersionBump
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String VersionBump
 $cparseXML :: [Node] -&gt; Either String VersionBump
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679428500"><span class="annot"><span class="annottext">VersionBump -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679428509"><span class="annot"><span class="annottext">VersionBump -&gt; XML
 (VersionBump -&gt; XML) -&gt; ToXML VersionBump
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: VersionBump -&gt; XML

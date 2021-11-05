@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- data type.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newEbsBlockDevice' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679380035"><span id="local-6989586621679380036"></span></span><span class="hs-keyword">data</span><span> </span><span id="EbsBlockDevice"><span class="annot"><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#EbsBlockDevice"><span class="hs-identifier hs-var">EbsBlockDevice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EbsBlockDevice%27"><span class="annot"><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#EbsBlockDevice%27"><span class="hs-identifier hs-var">EbsBlockDevice'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679380044"><span id="local-6989586621679380045"></span></span><span class="hs-keyword">data</span><span> </span><span id="EbsBlockDevice"><span class="annot"><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#EbsBlockDevice"><span class="hs-identifier hs-var">EbsBlockDevice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EbsBlockDevice%27"><span class="annot"><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#EbsBlockDevice%27"><span class="hs-identifier hs-var">EbsBlockDevice'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Whether the volume is deleted on instance termination.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AdeleteOnTermination%3AEbsBlockDevice%27"><span class="annot"><span class="annottext">EbsBlockDevice -&gt; Maybe Bool
 </span><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#%24sel%3AdeleteOnTermination%3AEbsBlockDevice%27"><span class="hs-identifier hs-var hs-var">deleteOnTermination</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
@@ -57,7 +57,7 @@
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AsnapshotId%3AEbsBlockDevice%27"><span class="annot"><span class="annottext">EbsBlockDevice -&gt; Maybe Text
 </span><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#%24sel%3AsnapshotId%3AEbsBlockDevice%27"><span class="hs-identifier hs-var hs-var">snapshotId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679380025"><span id="local-6989586621679380027"><span class="annot"><span class="annottext">EbsBlockDevice -&gt; EbsBlockDevice -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679380034"><span id="local-6989586621679380036"><span class="annot"><span class="annottext">EbsBlockDevice -&gt; EbsBlockDevice -&gt; Bool
 (EbsBlockDevice -&gt; EbsBlockDevice -&gt; Bool)
 -&gt; (EbsBlockDevice -&gt; EbsBlockDevice -&gt; Bool) -&gt; Eq EbsBlockDevice
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EbsBlockDevice -&gt; EbsBlockDevice -&gt; Bool
 == :: EbsBlockDevice -&gt; EbsBlockDevice -&gt; Bool
 $c== :: EbsBlockDevice -&gt; EbsBlockDevice -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679380016"><span id="local-6989586621679380018"><span id="local-6989586621679380020"><span id="local-6989586621679380022"><span class="annot"><span class="annottext">ReadPrec [EbsBlockDevice]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679380025"><span id="local-6989586621679380027"><span id="local-6989586621679380029"><span id="local-6989586621679380031"><span class="annot"><span class="annottext">ReadPrec [EbsBlockDevice]
 ReadPrec EbsBlockDevice
 Int -&gt; ReadS EbsBlockDevice
 ReadS [EbsBlockDevice]
@@ -85,7 +85,7 @@ readList :: ReadS [EbsBlockDevice]
 $creadList :: ReadS [EbsBlockDevice]
 readsPrec :: Int -&gt; ReadS EbsBlockDevice
 $creadsPrec :: Int -&gt; ReadS EbsBlockDevice
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679380009"><span id="local-6989586621679380011"><span id="local-6989586621679380013"><span class="annot"><span class="annottext">Int -&gt; EbsBlockDevice -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679380018"><span id="local-6989586621679380020"><span id="local-6989586621679380022"><span class="annot"><span class="annottext">Int -&gt; EbsBlockDevice -&gt; ShowS
 [EbsBlockDevice] -&gt; ShowS
 EbsBlockDevice -&gt; String
 (Int -&gt; EbsBlockDevice -&gt; ShowS)
@@ -180,16 +180,16 @@ forall a. Maybe a
 -&gt; (EbsBlockDevice -&gt; Maybe Bool -&gt; EbsBlockDevice)
 -&gt; Lens EbsBlockDevice EbsBlockDevice (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#EbsBlockDevice%27"><span class="hs-identifier hs-type">EbsBlockDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380000"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#EbsBlockDevice%27"><span class="hs-identifier hs-type">EbsBlockDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380009"><span class="annot"><span class="annottext">Maybe Bool
 deleteOnTermination :: Maybe Bool
 $sel:deleteOnTermination:EbsBlockDevice' :: EbsBlockDevice -&gt; Maybe Bool
-</span><a href="#local-6989586621679380000"><span class="hs-identifier hs-var hs-var">deleteOnTermination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679380000"><span class="hs-identifier hs-var">deleteOnTermination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379999"><span class="annot"><span class="annottext">s :: EbsBlockDevice
-</span><a href="#local-6989586621679379999"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#EbsBlockDevice%27"><span class="hs-identifier hs-type">EbsBlockDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379998"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679379998"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EbsBlockDevice
-</span><a href="#local-6989586621679379999"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deleteOnTermination:EbsBlockDevice' :: Maybe Bool
+</span><a href="#local-6989586621679380009"><span class="hs-identifier hs-var hs-var">deleteOnTermination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679380009"><span class="hs-identifier hs-var">deleteOnTermination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380008"><span class="annot"><span class="annottext">s :: EbsBlockDevice
+</span><a href="#local-6989586621679380008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#EbsBlockDevice%27"><span class="hs-identifier hs-type">EbsBlockDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380007"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679380007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EbsBlockDevice
+</span><a href="#local-6989586621679380008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deleteOnTermination:EbsBlockDevice' :: Maybe Bool
 </span><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#%24sel%3AdeleteOnTermination%3AEbsBlockDevice%27"><span class="hs-identifier hs-var">deleteOnTermination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679379998"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#EbsBlockDevice"><span class="hs-identifier hs-type">EbsBlockDevice</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679380007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#EbsBlockDevice"><span class="hs-identifier hs-type">EbsBlockDevice</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | The volume size, in GiB. For more information, see</span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html EbsBlockDevice&gt;.</span><span>
@@ -199,16 +199,16 @@ $sel:deleteOnTermination:EbsBlockDevice' :: EbsBlockDevice -&gt; Maybe Bool
 -&gt; (EbsBlockDevice -&gt; Maybe Int -&gt; EbsBlockDevice)
 -&gt; Lens EbsBlockDevice EbsBlockDevice (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#EbsBlockDevice%27"><span class="hs-identifier hs-type">EbsBlockDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379996"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#EbsBlockDevice%27"><span class="hs-identifier hs-type">EbsBlockDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380005"><span class="annot"><span class="annottext">Maybe Int
 volumeSize :: Maybe Int
 $sel:volumeSize:EbsBlockDevice' :: EbsBlockDevice -&gt; Maybe Int
-</span><a href="#local-6989586621679379996"><span class="hs-identifier hs-var hs-var">volumeSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679379996"><span class="hs-identifier hs-var">volumeSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379995"><span class="annot"><span class="annottext">s :: EbsBlockDevice
-</span><a href="#local-6989586621679379995"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#EbsBlockDevice%27"><span class="hs-identifier hs-type">EbsBlockDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379994"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679379994"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EbsBlockDevice
-</span><a href="#local-6989586621679379995"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeSize:EbsBlockDevice' :: Maybe Int
+</span><a href="#local-6989586621679380005"><span class="hs-identifier hs-var hs-var">volumeSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679380005"><span class="hs-identifier hs-var">volumeSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380004"><span class="annot"><span class="annottext">s :: EbsBlockDevice
+</span><a href="#local-6989586621679380004"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#EbsBlockDevice%27"><span class="hs-identifier hs-type">EbsBlockDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380003"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679380003"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EbsBlockDevice
+</span><a href="#local-6989586621679380004"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeSize:EbsBlockDevice' :: Maybe Int
 </span><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#%24sel%3AvolumeSize%3AEbsBlockDevice%27"><span class="hs-identifier hs-var">volumeSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679379994"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#EbsBlockDevice"><span class="hs-identifier hs-type">EbsBlockDevice</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679380003"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#EbsBlockDevice"><span class="hs-identifier hs-type">EbsBlockDevice</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | The number of I\/O operations per second (IOPS) that the volume</span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- supports. For more information, see</span><span>
@@ -219,16 +219,16 @@ $sel:volumeSize:EbsBlockDevice' :: EbsBlockDevice -&gt; Maybe Int
 -&gt; (EbsBlockDevice -&gt; Maybe Int -&gt; EbsBlockDevice)
 -&gt; Lens EbsBlockDevice EbsBlockDevice (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#EbsBlockDevice%27"><span class="hs-identifier hs-type">EbsBlockDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379992"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#EbsBlockDevice%27"><span class="hs-identifier hs-type">EbsBlockDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380001"><span class="annot"><span class="annottext">Maybe Int
 iops :: Maybe Int
 $sel:iops:EbsBlockDevice' :: EbsBlockDevice -&gt; Maybe Int
-</span><a href="#local-6989586621679379992"><span class="hs-identifier hs-var hs-var">iops</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679379992"><span class="hs-identifier hs-var">iops</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379991"><span class="annot"><span class="annottext">s :: EbsBlockDevice
-</span><a href="#local-6989586621679379991"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#EbsBlockDevice%27"><span class="hs-identifier hs-type">EbsBlockDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379990"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679379990"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EbsBlockDevice
-</span><a href="#local-6989586621679379991"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iops:EbsBlockDevice' :: Maybe Int
+</span><a href="#local-6989586621679380001"><span class="hs-identifier hs-var hs-var">iops</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679380001"><span class="hs-identifier hs-var">iops</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380000"><span class="annot"><span class="annottext">s :: EbsBlockDevice
+</span><a href="#local-6989586621679380000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#EbsBlockDevice%27"><span class="hs-identifier hs-type">EbsBlockDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379999"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679379999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EbsBlockDevice
+</span><a href="#local-6989586621679380000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iops:EbsBlockDevice' :: Maybe Int
 </span><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#%24sel%3Aiops%3AEbsBlockDevice%27"><span class="hs-identifier hs-var">iops</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679379990"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#EbsBlockDevice"><span class="hs-identifier hs-type">EbsBlockDevice</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679379999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#EbsBlockDevice"><span class="hs-identifier hs-type">EbsBlockDevice</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | The volume type. @gp2@ for General Purpose (SSD) volumes, @io1@ for</span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- Provisioned IOPS (SSD) volumes, @st1@ for Throughput Optimized hard disk</span><span>
@@ -246,16 +246,16 @@ $sel:iops:EbsBlockDevice' :: EbsBlockDevice -&gt; Maybe Int
 -&gt; Lens
      EbsBlockDevice EbsBlockDevice (Maybe VolumeType) (Maybe VolumeType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#EbsBlockDevice%27"><span class="hs-identifier hs-type">EbsBlockDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379988"><span class="annot"><span class="annottext">Maybe VolumeType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#EbsBlockDevice%27"><span class="hs-identifier hs-type">EbsBlockDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379997"><span class="annot"><span class="annottext">Maybe VolumeType
 volumeType :: Maybe VolumeType
 $sel:volumeType:EbsBlockDevice' :: EbsBlockDevice -&gt; Maybe VolumeType
-</span><a href="#local-6989586621679379988"><span class="hs-identifier hs-var hs-var">volumeType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VolumeType
-</span><a href="#local-6989586621679379988"><span class="hs-identifier hs-var">volumeType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379987"><span class="annot"><span class="annottext">s :: EbsBlockDevice
-</span><a href="#local-6989586621679379987"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#EbsBlockDevice%27"><span class="hs-identifier hs-type">EbsBlockDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379986"><span class="annot"><span class="annottext">Maybe VolumeType
-</span><a href="#local-6989586621679379986"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EbsBlockDevice
-</span><a href="#local-6989586621679379987"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeType:EbsBlockDevice' :: Maybe VolumeType
+</span><a href="#local-6989586621679379997"><span class="hs-identifier hs-var hs-var">volumeType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VolumeType
+</span><a href="#local-6989586621679379997"><span class="hs-identifier hs-var">volumeType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379996"><span class="annot"><span class="annottext">s :: EbsBlockDevice
+</span><a href="#local-6989586621679379996"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#EbsBlockDevice%27"><span class="hs-identifier hs-type">EbsBlockDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379995"><span class="annot"><span class="annottext">Maybe VolumeType
+</span><a href="#local-6989586621679379995"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EbsBlockDevice
+</span><a href="#local-6989586621679379996"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeType:EbsBlockDevice' :: Maybe VolumeType
 </span><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#%24sel%3AvolumeType%3AEbsBlockDevice%27"><span class="hs-identifier hs-var">volumeType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VolumeType
-</span><a href="#local-6989586621679379986"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#EbsBlockDevice"><span class="hs-identifier hs-type">EbsBlockDevice</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679379995"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#EbsBlockDevice"><span class="hs-identifier hs-type">EbsBlockDevice</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | The snapshot ID.</span><span>
 </span><span id="line-123"></span><span class="annot"><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#ebsBlockDevice_snapshotId"><span class="hs-identifier hs-type">ebsBlockDevice_snapshotId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#EbsBlockDevice"><span class="hs-identifier hs-type">EbsBlockDevice</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -265,19 +265,19 @@ $sel:volumeType:EbsBlockDevice' :: EbsBlockDevice -&gt; Maybe VolumeType
 -&gt; (EbsBlockDevice -&gt; Maybe Text -&gt; EbsBlockDevice)
 -&gt; Lens EbsBlockDevice EbsBlockDevice (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#EbsBlockDevice%27"><span class="hs-identifier hs-type">EbsBlockDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379984"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#EbsBlockDevice%27"><span class="hs-identifier hs-type">EbsBlockDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379993"><span class="annot"><span class="annottext">Maybe Text
 snapshotId :: Maybe Text
 $sel:snapshotId:EbsBlockDevice' :: EbsBlockDevice -&gt; Maybe Text
-</span><a href="#local-6989586621679379984"><span class="hs-identifier hs-var hs-var">snapshotId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679379984"><span class="hs-identifier hs-var">snapshotId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379983"><span class="annot"><span class="annottext">s :: EbsBlockDevice
-</span><a href="#local-6989586621679379983"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#EbsBlockDevice%27"><span class="hs-identifier hs-type">EbsBlockDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379982"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679379982"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EbsBlockDevice
-</span><a href="#local-6989586621679379983"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotId:EbsBlockDevice' :: Maybe Text
+</span><a href="#local-6989586621679379993"><span class="hs-identifier hs-var hs-var">snapshotId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379993"><span class="hs-identifier hs-var">snapshotId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679379992"><span class="annot"><span class="annottext">s :: EbsBlockDevice
+</span><a href="#local-6989586621679379992"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#EbsBlockDevice%27"><span class="hs-identifier hs-type">EbsBlockDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679379991"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679379991"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EbsBlockDevice
+</span><a href="#local-6989586621679379992"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotId:EbsBlockDevice' :: Maybe Text
 </span><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#%24sel%3AsnapshotId%3AEbsBlockDevice%27"><span class="hs-identifier hs-var">snapshotId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679379982"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#EbsBlockDevice"><span class="hs-identifier hs-type">EbsBlockDevice</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679379991"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#EbsBlockDevice"><span class="hs-identifier hs-type">EbsBlockDevice</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379979"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#EbsBlockDevice"><span class="hs-identifier hs-type">EbsBlockDevice</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679379977"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EbsBlockDevice
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379988"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#EbsBlockDevice"><span class="hs-identifier hs-type">EbsBlockDevice</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679379986"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EbsBlockDevice
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser EbsBlockDevice)
@@ -287,8 +287,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EbsBlockDevice&quot;</span></span><span>
-</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679379974"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679379974"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679379983"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679379983"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
 -&gt; Maybe Int
 -&gt; Maybe Int
@@ -308,7 +308,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe Int -&gt; Maybe VolumeType -&gt; Maybe Text -&gt; EbsBlockDevice)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679379974"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679379983"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeleteOnTermination&quot;</span></span><span class="hs-special">)</span><span>
@@ -320,7 +320,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Int -&gt; Maybe VolumeType -&gt; Maybe Text -&gt; EbsBlockDevice)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679379974"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679379983"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VolumeSize&quot;</span></span><span class="hs-special">)</span><span>
@@ -330,7 +330,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe VolumeType -&gt; Maybe Text -&gt; EbsBlockDevice)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679379974"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679379983"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Iops&quot;</span></span><span class="hs-special">)</span><span>
@@ -339,7 +339,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; EbsBlockDevice)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679379974"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VolumeType)
+</span><a href="#local-6989586621679379983"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VolumeType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VolumeType&quot;</span></span><span class="hs-special">)</span><span>
@@ -347,19 +347,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser EbsBlockDevice
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679379974"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679379983"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SnapshotId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379968"><span id="local-6989586621679379970"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#EbsBlockDevice"><span class="hs-identifier hs-type">EbsBlockDevice</span></a></span></span></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379977"><span id="local-6989586621679379979"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#EbsBlockDevice"><span class="hs-identifier hs-type">EbsBlockDevice</span></a></span></span></span><span>
 </span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379965"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#EbsBlockDevice"><span class="hs-identifier hs-type">EbsBlockDevice</span></a></span></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379974"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#EbsBlockDevice"><span class="hs-identifier hs-type">EbsBlockDevice</span></a></span></span><span>
 </span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379957"><span id="local-6989586621679379959"><span id="local-6989586621679379961"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#EbsBlockDevice"><span class="hs-identifier hs-type">EbsBlockDevice</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679379955"><span class="annot"><span class="annottext">toJSON :: EbsBlockDevice -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#EbsBlockDevice%27"><span class="hs-identifier hs-type">EbsBlockDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379949"><span id="local-6989586621679379950"><span id="local-6989586621679379951"><span id="local-6989586621679379952"><span id="local-6989586621679379953"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679379966"><span id="local-6989586621679379968"><span id="local-6989586621679379970"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#EbsBlockDevice"><span class="hs-identifier hs-type">EbsBlockDevice</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679379964"><span class="annot"><span class="annottext">toJSON :: EbsBlockDevice -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.EbsBlockDevice.html#EbsBlockDevice%27"><span class="hs-identifier hs-type">EbsBlockDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379958"><span id="local-6989586621679379959"><span id="local-6989586621679379960"><span id="local-6989586621679379961"><span id="local-6989586621679379962"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Int
 Maybe Text
 Maybe VolumeType
@@ -373,7 +373,7 @@ $sel:volumeType:EbsBlockDevice' :: EbsBlockDevice -&gt; Maybe VolumeType
 $sel:iops:EbsBlockDevice' :: EbsBlockDevice -&gt; Maybe Int
 $sel:volumeSize:EbsBlockDevice' :: EbsBlockDevice -&gt; Maybe Int
 $sel:deleteOnTermination:EbsBlockDevice' :: EbsBlockDevice -&gt; Maybe Bool
-</span><a href="#local-6989586621679379949"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679379958"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -386,35 +386,35 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-148"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679379953"><span class="hs-identifier hs-var">deleteOnTermination</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679379962"><span class="hs-identifier hs-var">deleteOnTermination</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-149"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VolumeSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679379952"><span class="hs-identifier hs-var">volumeSize</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679379961"><span class="hs-identifier hs-var">volumeSize</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-150"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Iops&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679379951"><span class="hs-identifier hs-var">iops</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679379960"><span class="hs-identifier hs-var">iops</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-151"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VolumeType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VolumeType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(VolumeType -&gt; Pair) -&gt; Maybe VolumeType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VolumeType
-</span><a href="#local-6989586621679379950"><span class="hs-identifier hs-var">volumeType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679379959"><span class="hs-identifier hs-var">volumeType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-152"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SnapshotId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679379949"><span class="hs-identifier hs-var">snapshotId</span></a></span><span>
+</span><a href="#local-6989586621679379958"><span class="hs-identifier hs-var">snapshotId</span></a></span><span>
 </span><span id="line-153"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span></pre></body></html>

@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679275123"><span id="local-6989586621679275124"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Specialty"><span class="annot"><a href="Network.AWS.Transcribe.Types.Specialty.html#Specialty"><span class="hs-identifier hs-var">Specialty</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Specialty%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.Specialty.html#Specialty%27"><span class="hs-identifier hs-var">Specialty'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679275132"><span id="local-6989586621679275133"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Specialty"><span class="annot"><a href="Network.AWS.Transcribe.Types.Specialty.html#Specialty"><span class="hs-identifier hs-var">Specialty</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Specialty%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.Specialty.html#Specialty%27"><span class="hs-identifier hs-var">Specialty'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSpecialty"><span class="annot"><span class="annottext">Specialty -&gt; Text
 </span><a href="Network.AWS.Transcribe.Types.Specialty.html#fromSpecialty"><span class="hs-identifier hs-var hs-var">fromSpecialty</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679275115"><span id="local-6989586621679275117"><span id="local-6989586621679275119"><span class="annot"><span class="annottext">Int -&gt; Specialty -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679275124"><span id="local-6989586621679275126"><span id="local-6989586621679275128"><span class="annot"><span class="annottext">Int -&gt; Specialty -&gt; ShowS
 [Specialty] -&gt; ShowS
 Specialty -&gt; String
 (Int -&gt; Specialty -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: Specialty -&gt; String
 showsPrec :: Int -&gt; Specialty -&gt; ShowS
 $cshowsPrec :: Int -&gt; Specialty -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679275106"><span id="local-6989586621679275108"><span id="local-6989586621679275110"><span id="local-6989586621679275112"><span class="annot"><span class="annottext">ReadPrec [Specialty]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679275115"><span id="local-6989586621679275117"><span id="local-6989586621679275119"><span id="local-6989586621679275121"><span class="annot"><span class="annottext">ReadPrec [Specialty]
 ReadPrec Specialty
 Int -&gt; ReadS Specialty
 ReadS [Specialty]
@@ -71,7 +71,7 @@ $creadList :: ReadS [Specialty]
 readsPrec :: Int -&gt; ReadS Specialty
 $creadsPrec :: Int -&gt; ReadS Specialty
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679275101"><span id="local-6989586621679275103"><span class="annot"><span class="annottext">Specialty -&gt; Specialty -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679275110"><span id="local-6989586621679275112"><span class="annot"><span class="annottext">Specialty -&gt; Specialty -&gt; Bool
 (Specialty -&gt; Specialty -&gt; Bool)
 -&gt; (Specialty -&gt; Specialty -&gt; Bool) -&gt; Eq Specialty
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -80,7 +80,7 @@ $c/= :: Specialty -&gt; Specialty -&gt; Bool
 == :: Specialty -&gt; Specialty -&gt; Bool
 $c== :: Specialty -&gt; Specialty -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679275085"><span id="local-6989586621679275087"><span id="local-6989586621679275089"><span id="local-6989586621679275091"><span id="local-6989586621679275093"><span id="local-6989586621679275095"><span id="local-6989586621679275097"><span class="annot"><span class="annottext">Eq Specialty
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679275094"><span id="local-6989586621679275096"><span id="local-6989586621679275098"><span id="local-6989586621679275100"><span id="local-6989586621679275102"><span id="local-6989586621679275104"><span id="local-6989586621679275106"><span class="annot"><span class="annottext">Eq Specialty
 Eq Specialty
 -&gt; (Specialty -&gt; Specialty -&gt; Ordering)
 -&gt; (Specialty -&gt; Specialty -&gt; Bool)
@@ -130,7 +130,7 @@ $cfrom :: forall x. Specialty -&gt; Rep Specialty x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679275077"><span id="local-6989586621679275079"><span class="annot"><span class="annottext">Int -&gt; Specialty -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679275086"><span id="local-6989586621679275088"><span class="annot"><span class="annottext">Int -&gt; Specialty -&gt; Int
 Specialty -&gt; Int
 (Int -&gt; Specialty -&gt; Int)
 -&gt; (Specialty -&gt; Int) -&gt; Hashable Specialty
@@ -140,49 +140,49 @@ $chash :: Specialty -&gt; Int
 hashWithSalt :: Int -&gt; Specialty -&gt; Int
 $chashWithSalt :: Int -&gt; Specialty -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679275074"><span class="annot"><span class="annottext">Specialty -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679275083"><span class="annot"><span class="annottext">Specialty -&gt; ()
 (Specialty -&gt; ()) -&gt; NFData Specialty
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Specialty -&gt; ()
 $crnf :: Specialty -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679275071"><span class="annot"><span class="annottext">Text -&gt; Either String Specialty
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679275080"><span class="annot"><span class="annottext">Text -&gt; Either String Specialty
 (Text -&gt; Either String Specialty) -&gt; FromText Specialty
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Specialty
 $cfromText :: Text -&gt; Either String Specialty
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679275068"><span class="annot"><span class="annottext">Specialty -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679275077"><span class="annot"><span class="annottext">Specialty -&gt; Text
 (Specialty -&gt; Text) -&gt; ToText Specialty
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Specialty -&gt; Text
 $ctoText :: Specialty -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679275065"><span class="annot"><span class="annottext">Specialty -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679275074"><span class="annot"><span class="annottext">Specialty -&gt; ByteString
 (Specialty -&gt; ByteString) -&gt; ToByteString Specialty
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Specialty -&gt; ByteString
 $ctoBS :: Specialty -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679275062"><span class="annot"><span class="annottext">Specialty -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679275071"><span class="annot"><span class="annottext">Specialty -&gt; ByteStringBuilder
 (Specialty -&gt; ByteStringBuilder) -&gt; ToLog Specialty
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Specialty -&gt; ByteStringBuilder
 $cbuild :: Specialty -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679275059"><span class="annot"><span class="annottext">HeaderName -&gt; Specialty -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679275068"><span class="annot"><span class="annottext">HeaderName -&gt; Specialty -&gt; [Header]
 (HeaderName -&gt; Specialty -&gt; [Header]) -&gt; ToHeader Specialty
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Specialty -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Specialty -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679275056"><span class="annot"><span class="annottext">Specialty -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679275065"><span class="annot"><span class="annottext">Specialty -&gt; QueryString
 (Specialty -&gt; QueryString) -&gt; ToQuery Specialty
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Specialty -&gt; QueryString
 $ctoQuery :: Specialty -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679275051"><span id="local-6989586621679275053"><span class="annot"><span class="annottext">Value -&gt; Parser [Specialty]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679275060"><span id="local-6989586621679275062"><span class="annot"><span class="annottext">Value -&gt; Parser [Specialty]
 Value -&gt; Parser Specialty
 (Value -&gt; Parser Specialty)
 -&gt; (Value -&gt; Parser [Specialty]) -&gt; FromJSON Specialty
@@ -193,7 +193,7 @@ $cparseJSONList :: Value -&gt; Parser [Specialty]
 parseJSON :: Value -&gt; Parser Specialty
 $cparseJSON :: Value -&gt; Parser Specialty
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679275046"><span id="local-6989586621679275048"><span class="annot"><span class="annottext">FromJSONKeyFunction [Specialty]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679275055"><span id="local-6989586621679275057"><span class="annot"><span class="annottext">FromJSONKeyFunction [Specialty]
 FromJSONKeyFunction Specialty
 FromJSONKeyFunction Specialty
 -&gt; FromJSONKeyFunction [Specialty] -&gt; FromJSONKey Specialty
@@ -204,7 +204,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Specialty]
 fromJSONKey :: FromJSONKeyFunction Specialty
 $cfromJSONKey :: FromJSONKeyFunction Specialty
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679275037"><span id="local-6989586621679275039"><span id="local-6989586621679275041"><span id="local-6989586621679275043"><span class="annot"><span class="annottext">[Specialty] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679275046"><span id="local-6989586621679275048"><span id="local-6989586621679275050"><span id="local-6989586621679275052"><span class="annot"><span class="annottext">[Specialty] -&gt; Encoding
 [Specialty] -&gt; Value
 Specialty -&gt; Encoding
 Specialty -&gt; Value
@@ -228,7 +228,7 @@ $ctoEncoding :: Specialty -&gt; Encoding
 toJSON :: Specialty -&gt; Value
 $ctoJSON :: Specialty -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679275032"><span id="local-6989586621679275034"><span class="annot"><span class="annottext">ToJSONKeyFunction [Specialty]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679275041"><span id="local-6989586621679275043"><span class="annot"><span class="annottext">ToJSONKeyFunction [Specialty]
 ToJSONKeyFunction Specialty
 ToJSONKeyFunction Specialty
 -&gt; ToJSONKeyFunction [Specialty] -&gt; ToJSONKey Specialty
@@ -239,13 +239,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Specialty]
 toJSONKey :: ToJSONKeyFunction Specialty
 $ctoJSONKey :: ToJSONKeyFunction Specialty
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679275029"><span class="annot"><span class="annottext">[Node] -&gt; Either String Specialty
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679275038"><span class="annot"><span class="annottext">[Node] -&gt; Either String Specialty
 ([Node] -&gt; Either String Specialty) -&gt; FromXML Specialty
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Specialty
 $cparseXML :: [Node] -&gt; Either String Specialty
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679275026"><span class="annot"><span class="annottext">Specialty -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679275035"><span class="annot"><span class="annottext">Specialty -&gt; XML
 (Specialty -&gt; XML) -&gt; ToXML Specialty
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Specialty -&gt; XML

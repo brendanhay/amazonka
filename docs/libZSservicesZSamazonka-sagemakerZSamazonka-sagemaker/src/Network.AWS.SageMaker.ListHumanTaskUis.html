@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.html"><span class="hs-identifier">Network.AWS.SageMaker.Types</span></a></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newListHumanTaskUis' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621680381910"><span id="local-6989586621680381911"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListHumanTaskUis"><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUis"><span class="hs-identifier hs-var">ListHumanTaskUis</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListHumanTaskUis%27"><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUis%27"><span class="hs-identifier hs-var">ListHumanTaskUis'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621680381919"><span id="local-6989586621680381920"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListHumanTaskUis"><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUis"><span class="hs-identifier hs-var">ListHumanTaskUis</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListHumanTaskUis%27"><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUis%27"><span class="hs-identifier hs-var">ListHumanTaskUis'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A filter that returns only human task user interfaces with a creation</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- time greater than or equal to the specified timestamp.</span><span>
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AcreationTimeAfter%3AListHumanTaskUis%27"><span class="annot"><span class="annottext">ListHumanTaskUis -&gt; Maybe POSIX
@@ -78,7 +78,7 @@
 </span><span id="line-74"></span><span>    </span><span id="%24sel%3AmaxResults%3AListHumanTaskUis%27"><span class="annot"><span class="annottext">ListHumanTaskUis -&gt; Maybe Natural
 </span><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#%24sel%3AmaxResults%3AListHumanTaskUis%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680381900"><span id="local-6989586621680381902"><span class="annot"><span class="annottext">ListHumanTaskUis -&gt; ListHumanTaskUis -&gt; Bool
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680381909"><span id="local-6989586621680381911"><span class="annot"><span class="annottext">ListHumanTaskUis -&gt; ListHumanTaskUis -&gt; Bool
 (ListHumanTaskUis -&gt; ListHumanTaskUis -&gt; Bool)
 -&gt; (ListHumanTaskUis -&gt; ListHumanTaskUis -&gt; Bool)
 -&gt; Eq ListHumanTaskUis
@@ -87,7 +87,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListHumanTaskUis -&gt; ListHumanTaskUis -&gt; Bool
 == :: ListHumanTaskUis -&gt; ListHumanTaskUis -&gt; Bool
 $c== :: ListHumanTaskUis -&gt; ListHumanTaskUis -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680381891"><span id="local-6989586621680381893"><span id="local-6989586621680381895"><span id="local-6989586621680381897"><span class="annot"><span class="annottext">ReadPrec [ListHumanTaskUis]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680381900"><span id="local-6989586621680381902"><span id="local-6989586621680381904"><span id="local-6989586621680381906"><span class="annot"><span class="annottext">ReadPrec [ListHumanTaskUis]
 ReadPrec ListHumanTaskUis
 Int -&gt; ReadS ListHumanTaskUis
 ReadS [ListHumanTaskUis]
@@ -107,7 +107,7 @@ readList :: ReadS [ListHumanTaskUis]
 $creadList :: ReadS [ListHumanTaskUis]
 readsPrec :: Int -&gt; ReadS ListHumanTaskUis
 $creadsPrec :: Int -&gt; ReadS ListHumanTaskUis
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680381884"><span id="local-6989586621680381886"><span id="local-6989586621680381888"><span class="annot"><span class="annottext">Int -&gt; ListHumanTaskUis -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680381893"><span id="local-6989586621680381895"><span id="local-6989586621680381897"><span class="annot"><span class="annottext">Int -&gt; ListHumanTaskUis -&gt; ShowS
 [ListHumanTaskUis] -&gt; ShowS
 ListHumanTaskUis -&gt; String
 (Int -&gt; ListHumanTaskUis -&gt; ShowS)
@@ -200,16 +200,16 @@ forall a. Maybe a
 -&gt; Lens
      ListHumanTaskUis ListHumanTaskUis (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUis%27"><span class="hs-identifier hs-type">ListHumanTaskUis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680381878"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUis%27"><span class="hs-identifier hs-type">ListHumanTaskUis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680381887"><span class="annot"><span class="annottext">Maybe POSIX
 creationTimeAfter :: Maybe POSIX
 $sel:creationTimeAfter:ListHumanTaskUis' :: ListHumanTaskUis -&gt; Maybe POSIX
-</span><a href="#local-6989586621680381878"><span class="hs-identifier hs-var hs-var">creationTimeAfter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680381878"><span class="hs-identifier hs-var">creationTimeAfter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680381877"><span class="annot"><span class="annottext">s :: ListHumanTaskUis
-</span><a href="#local-6989586621680381877"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUis%27"><span class="hs-identifier hs-type">ListHumanTaskUis'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680381876"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680381876"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListHumanTaskUis
-</span><a href="#local-6989586621680381877"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTimeAfter:ListHumanTaskUis' :: Maybe POSIX
+</span><a href="#local-6989586621680381887"><span class="hs-identifier hs-var hs-var">creationTimeAfter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680381887"><span class="hs-identifier hs-var">creationTimeAfter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680381886"><span class="annot"><span class="annottext">s :: ListHumanTaskUis
+</span><a href="#local-6989586621680381886"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUis%27"><span class="hs-identifier hs-type">ListHumanTaskUis'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680381885"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680381885"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListHumanTaskUis
+</span><a href="#local-6989586621680381886"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTimeAfter:ListHumanTaskUis' :: Maybe POSIX
 </span><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#%24sel%3AcreationTimeAfter%3AListHumanTaskUis%27"><span class="hs-identifier hs-var">creationTimeAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680381876"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUis"><span class="hs-identifier hs-type">ListHumanTaskUis</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621680381885"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUis"><span class="hs-identifier hs-type">ListHumanTaskUis</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; ListHumanTaskUis -&gt; f ListHumanTaskUis)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -234,16 +234,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (ListHumanTaskUis -&gt; Maybe Text -&gt; ListHumanTaskUis)
 -&gt; Lens ListHumanTaskUis ListHumanTaskUis (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUis%27"><span class="hs-identifier hs-type">ListHumanTaskUis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680381872"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUis%27"><span class="hs-identifier hs-type">ListHumanTaskUis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680381881"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListHumanTaskUis' :: ListHumanTaskUis -&gt; Maybe Text
-</span><a href="#local-6989586621680381872"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680381872"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680381871"><span class="annot"><span class="annottext">s :: ListHumanTaskUis
-</span><a href="#local-6989586621680381871"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUis%27"><span class="hs-identifier hs-type">ListHumanTaskUis'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680381870"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680381870"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListHumanTaskUis
-</span><a href="#local-6989586621680381871"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListHumanTaskUis' :: Maybe Text
+</span><a href="#local-6989586621680381881"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680381881"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680381880"><span class="annot"><span class="annottext">s :: ListHumanTaskUis
+</span><a href="#local-6989586621680381880"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUis%27"><span class="hs-identifier hs-type">ListHumanTaskUis'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680381879"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680381879"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListHumanTaskUis
+</span><a href="#local-6989586621680381880"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListHumanTaskUis' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#%24sel%3AnextToken%3AListHumanTaskUis%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680381870"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUis"><span class="hs-identifier hs-type">ListHumanTaskUis</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680381879"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUis"><span class="hs-identifier hs-type">ListHumanTaskUis</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | An optional value that specifies whether you want the results sorted in</span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- @Ascending@ or @Descending@ order.</span><span>
@@ -258,16 +258,16 @@ $sel:nextToken:ListHumanTaskUis' :: ListHumanTaskUis -&gt; Maybe Text
      (Maybe SortOrder)
      (Maybe SortOrder)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUis%27"><span class="hs-identifier hs-type">ListHumanTaskUis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680381869"><span class="annot"><span class="annottext">Maybe SortOrder
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUis%27"><span class="hs-identifier hs-type">ListHumanTaskUis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680381878"><span class="annot"><span class="annottext">Maybe SortOrder
 sortOrder :: Maybe SortOrder
 $sel:sortOrder:ListHumanTaskUis' :: ListHumanTaskUis -&gt; Maybe SortOrder
-</span><a href="#local-6989586621680381869"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
-</span><a href="#local-6989586621680381869"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680381868"><span class="annot"><span class="annottext">s :: ListHumanTaskUis
-</span><a href="#local-6989586621680381868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUis%27"><span class="hs-identifier hs-type">ListHumanTaskUis'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680381867"><span class="annot"><span class="annottext">Maybe SortOrder
-</span><a href="#local-6989586621680381867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListHumanTaskUis
-</span><a href="#local-6989586621680381868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortOrder:ListHumanTaskUis' :: Maybe SortOrder
+</span><a href="#local-6989586621680381878"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621680381878"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680381877"><span class="annot"><span class="annottext">s :: ListHumanTaskUis
+</span><a href="#local-6989586621680381877"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUis%27"><span class="hs-identifier hs-type">ListHumanTaskUis'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680381876"><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621680381876"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListHumanTaskUis
+</span><a href="#local-6989586621680381877"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortOrder:ListHumanTaskUis' :: Maybe SortOrder
 </span><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#%24sel%3AsortOrder%3AListHumanTaskUis%27"><span class="hs-identifier hs-var">sortOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
-</span><a href="#local-6989586621680381867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUis"><span class="hs-identifier hs-type">ListHumanTaskUis</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680381876"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUis"><span class="hs-identifier hs-type">ListHumanTaskUis</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | A filter that returns only human task user interfaces that were created</span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- before the specified timestamp.</span><span>
@@ -279,16 +279,16 @@ $sel:sortOrder:ListHumanTaskUis' :: ListHumanTaskUis -&gt; Maybe SortOrder
 -&gt; Lens
      ListHumanTaskUis ListHumanTaskUis (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUis%27"><span class="hs-identifier hs-type">ListHumanTaskUis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680381866"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUis%27"><span class="hs-identifier hs-type">ListHumanTaskUis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680381875"><span class="annot"><span class="annottext">Maybe POSIX
 creationTimeBefore :: Maybe POSIX
 $sel:creationTimeBefore:ListHumanTaskUis' :: ListHumanTaskUis -&gt; Maybe POSIX
-</span><a href="#local-6989586621680381866"><span class="hs-identifier hs-var hs-var">creationTimeBefore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680381866"><span class="hs-identifier hs-var">creationTimeBefore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680381865"><span class="annot"><span class="annottext">s :: ListHumanTaskUis
-</span><a href="#local-6989586621680381865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUis%27"><span class="hs-identifier hs-type">ListHumanTaskUis'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680381864"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680381864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListHumanTaskUis
-</span><a href="#local-6989586621680381865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTimeBefore:ListHumanTaskUis' :: Maybe POSIX
+</span><a href="#local-6989586621680381875"><span class="hs-identifier hs-var hs-var">creationTimeBefore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680381875"><span class="hs-identifier hs-var">creationTimeBefore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680381874"><span class="annot"><span class="annottext">s :: ListHumanTaskUis
+</span><a href="#local-6989586621680381874"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUis%27"><span class="hs-identifier hs-type">ListHumanTaskUis'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680381873"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680381873"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListHumanTaskUis
+</span><a href="#local-6989586621680381874"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTimeBefore:ListHumanTaskUis' :: Maybe POSIX
 </span><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#%24sel%3AcreationTimeBefore%3AListHumanTaskUis%27"><span class="hs-identifier hs-var">creationTimeBefore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680381864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUis"><span class="hs-identifier hs-type">ListHumanTaskUis</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621680381873"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUis"><span class="hs-identifier hs-type">ListHumanTaskUis</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; ListHumanTaskUis -&gt; f ListHumanTaskUis)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -317,29 +317,29 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; Lens
      ListHumanTaskUis ListHumanTaskUis (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUis%27"><span class="hs-identifier hs-type">ListHumanTaskUis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680381863"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUis%27"><span class="hs-identifier hs-type">ListHumanTaskUis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680381872"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListHumanTaskUis' :: ListHumanTaskUis -&gt; Maybe Natural
-</span><a href="#local-6989586621680381863"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680381863"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680381862"><span class="annot"><span class="annottext">s :: ListHumanTaskUis
-</span><a href="#local-6989586621680381862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUis%27"><span class="hs-identifier hs-type">ListHumanTaskUis'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680381861"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680381861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListHumanTaskUis
-</span><a href="#local-6989586621680381862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListHumanTaskUis' :: Maybe Natural
+</span><a href="#local-6989586621680381872"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680381872"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680381871"><span class="annot"><span class="annottext">s :: ListHumanTaskUis
+</span><a href="#local-6989586621680381871"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUis%27"><span class="hs-identifier hs-type">ListHumanTaskUis'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680381870"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680381870"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListHumanTaskUis
+</span><a href="#local-6989586621680381871"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListHumanTaskUis' :: Maybe Natural
 </span><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#%24sel%3AmaxResults%3AListHumanTaskUis%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680381861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUis"><span class="hs-identifier hs-type">ListHumanTaskUis</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680381870"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUis"><span class="hs-identifier hs-type">ListHumanTaskUis</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUis"><span class="hs-identifier hs-type">ListHumanTaskUis</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621680381857"><span class="annot"><span class="annottext">page :: ListHumanTaskUis
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621680381866"><span class="annot"><span class="annottext">page :: ListHumanTaskUis
 -&gt; AWSResponse ListHumanTaskUis -&gt; Maybe ListHumanTaskUis
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621680381855"><span class="annot"><span class="annottext">ListHumanTaskUis
-</span><a href="#local-6989586621680381855"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621680381854"><span class="annot"><span class="annottext">AWSResponse ListHumanTaskUis
-</span><a href="#local-6989586621680381854"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621680381864"><span class="annot"><span class="annottext">ListHumanTaskUis
+</span><a href="#local-6989586621680381864"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621680381863"><span class="annot"><span class="annottext">AWSResponse ListHumanTaskUis
+</span><a href="#local-6989586621680381863"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-141"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-142"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListHumanTaskUis
 ListHumanTaskUisResponse
-</span><a href="#local-6989586621680381854"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621680381863"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">ListHumanTaskUisResponse
 -&gt; Getting (First Text) ListHumanTaskUisResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -368,7 +368,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-148"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListHumanTaskUis
 ListHumanTaskUisResponse
-</span><a href="#local-6989586621680381854"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621680381863"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">ListHumanTaskUisResponse
 -&gt; Getting
      [HumanTaskUiSummary] ListHumanTaskUisResponse [HumanTaskUiSummary]
@@ -391,7 +391,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-154"></span><span>        </span><span class="annot"><span class="annottext">ListHumanTaskUis
-</span><a href="#local-6989586621680381855"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621680381864"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-155"></span><span>          </span><span class="annot"><span class="annottext">ListHumanTaskUis
 -&gt; (ListHumanTaskUis -&gt; ListHumanTaskUis) -&gt; ListHumanTaskUis
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -405,7 +405,7 @@ Lens ListHumanTaskUis ListHumanTaskUis (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListHumanTaskUis
 ListHumanTaskUisResponse
-</span><a href="#local-6989586621680381854"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621680381863"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-157"></span><span>          </span><span class="annot"><span class="annottext">ListHumanTaskUisResponse
 -&gt; Getting (First Text) ListHumanTaskUisResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -430,12 +430,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-161"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-162"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUis"><span class="hs-identifier hs-type">ListHumanTaskUis</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-163"></span><span>      </span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUisResponse"><span class="hs-identifier hs-type">ListHumanTaskUisResponse</span></a></span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621680381844"><span class="annot"><span class="annottext">request :: ListHumanTaskUis -&gt; Request ListHumanTaskUis
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621680381853"><span class="annot"><span class="annottext">request :: ListHumanTaskUis -&gt; Request ListHumanTaskUis
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListHumanTaskUis -&gt; Request ListHumanTaskUis
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621680381840"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621680381849"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListHumanTaskUis
 -&gt; ClientResponse ClientBody
@@ -459,10 +459,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-167"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680381837"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680381837"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680381836"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621680381836"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680381835"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680381835"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680381846"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680381846"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680381845"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680381845"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680381844"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680381844"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-168"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Int -&gt; [HumanTaskUiSummary] -&gt; ListHumanTaskUisResponse
 </span><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUisResponse%27"><span class="hs-identifier hs-var">ListHumanTaskUisResponse'</span></a></span><span>
@@ -473,7 +473,7 @@ MonadResource m =&gt;
      String (Int -&gt; [HumanTaskUiSummary] -&gt; ListHumanTaskUisResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680381835"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621680381844"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -487,13 +487,13 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680381837"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680381846"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Either String ([HumanTaskUiSummary] -&gt; ListHumanTaskUisResponse)
 -&gt; Either String [HumanTaskUiSummary]
 -&gt; Either String ListHumanTaskUisResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680381835"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [HumanTaskUiSummary])
+</span><a href="#local-6989586621680381844"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [HumanTaskUiSummary])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HumanTaskUiSummaries&quot;</span></span><span>
@@ -506,12 +506,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-173"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680381826"><span id="local-6989586621680381828"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUis"><span class="hs-identifier hs-type">ListHumanTaskUis</span></a></span></span></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680381835"><span id="local-6989586621680381837"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUis"><span class="hs-identifier hs-type">ListHumanTaskUis</span></a></span></span></span><span>
 </span><span id="line-177"></span><span>
-</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680381823"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUis"><span class="hs-identifier hs-type">ListHumanTaskUis</span></a></span></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680381832"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUis"><span class="hs-identifier hs-type">ListHumanTaskUis</span></a></span></span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUis"><span class="hs-identifier hs-type">ListHumanTaskUis</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621680381819"><span class="annot"><span class="annottext">toHeaders :: ListHumanTaskUis -&gt; ResponseHeaders
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621680381828"><span class="annot"><span class="annottext">toHeaders :: ListHumanTaskUis -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListHumanTaskUis -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -536,9 +536,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-190"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-191"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span><span>
-</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680381809"><span id="local-6989586621680381811"><span id="local-6989586621680381813"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUis"><span class="hs-identifier hs-type">ListHumanTaskUis</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-194"></span><span>  </span><span id="local-6989586621680381807"><span class="annot"><span class="annottext">toJSON :: ListHumanTaskUis -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUis%27"><span class="hs-identifier hs-type">ListHumanTaskUis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680381801"><span id="local-6989586621680381802"><span id="local-6989586621680381803"><span id="local-6989586621680381804"><span id="local-6989586621680381805"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680381818"><span id="local-6989586621680381820"><span id="local-6989586621680381822"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUis"><span class="hs-identifier hs-type">ListHumanTaskUis</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621680381816"><span class="annot"><span class="annottext">toJSON :: ListHumanTaskUis -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUis%27"><span class="hs-identifier hs-type">ListHumanTaskUis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680381810"><span id="local-6989586621680381811"><span id="local-6989586621680381812"><span id="local-6989586621680381813"><span id="local-6989586621680381814"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe POSIX
 Maybe SortOrder
@@ -552,7 +552,7 @@ $sel:creationTimeBefore:ListHumanTaskUis' :: ListHumanTaskUis -&gt; Maybe POSIX
 $sel:sortOrder:ListHumanTaskUis' :: ListHumanTaskUis -&gt; Maybe SortOrder
 $sel:nextToken:ListHumanTaskUis' :: ListHumanTaskUis -&gt; Maybe Text
 $sel:creationTimeAfter:ListHumanTaskUis' :: ListHumanTaskUis -&gt; Maybe POSIX
-</span><a href="#local-6989586621680381801"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680381810"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-195"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-196"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -565,21 +565,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-198"></span><span>              </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680381805"><span class="hs-identifier hs-var">creationTimeAfter</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680381814"><span class="hs-identifier hs-var">creationTimeAfter</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-199"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680381804"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680381813"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-200"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SortOrder&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SortOrder -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SortOrder -&gt; Pair) -&gt; Maybe SortOrder -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
-</span><a href="#local-6989586621680381803"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680381812"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-201"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationTimeBefore&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -587,26 +587,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-202"></span><span>              </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680381802"><span class="hs-identifier hs-var">creationTimeBefore</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680381811"><span class="hs-identifier hs-var">creationTimeBefore</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-203"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680381801"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621680381810"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-204"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-205"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>
 </span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUis"><span class="hs-identifier hs-type">ListHumanTaskUis</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-208"></span><span>  </span><span id="local-6989586621680381795"><span class="annot"><span class="annottext">toPath :: ListHumanTaskUis -&gt; ByteString
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621680381804"><span class="annot"><span class="annottext">toPath :: ListHumanTaskUis -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListHumanTaskUis -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-209"></span><span>
 </span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUis"><span class="hs-identifier hs-type">ListHumanTaskUis</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-211"></span><span>  </span><span id="local-6989586621680381791"><span class="annot"><span class="annottext">toQuery :: ListHumanTaskUis -&gt; QueryString
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621680381800"><span class="annot"><span class="annottext">toQuery :: ListHumanTaskUis -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListHumanTaskUis -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -614,7 +614,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-212"></span><span>
 </span><span id="line-213"></span><span class="hs-comment">-- | /See:/ 'newListHumanTaskUisResponse' smart constructor.</span><span>
-</span><span id="line-214"></span><span id="local-6989586621680381788"><span id="local-6989586621680381789"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListHumanTaskUisResponse"><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUisResponse"><span class="hs-identifier hs-var">ListHumanTaskUisResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListHumanTaskUisResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUisResponse%27"><span class="hs-identifier hs-var">ListHumanTaskUisResponse'</span></a></span></span><span>
+</span><span id="line-214"></span><span id="local-6989586621680381797"><span id="local-6989586621680381798"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListHumanTaskUisResponse"><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUisResponse"><span class="hs-identifier hs-var">ListHumanTaskUisResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListHumanTaskUisResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUisResponse%27"><span class="hs-identifier hs-var">ListHumanTaskUisResponse'</span></a></span></span><span>
 </span><span id="line-215"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token to resume pagination.</span><span>
 </span><span id="line-216"></span><span>    </span><span id="%24sel%3AnextToken%3AListHumanTaskUisResponse%27"><span class="annot"><span class="annottext">ListHumanTaskUisResponse -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#%24sel%3AnextToken%3AListHumanTaskUisResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -625,7 +625,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-220"></span><span>    </span><span id="%24sel%3AhumanTaskUiSummaries%3AListHumanTaskUisResponse%27"><span class="annot"><span class="annottext">ListHumanTaskUisResponse -&gt; [HumanTaskUiSummary]
 </span><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#%24sel%3AhumanTaskUiSummaries%3AListHumanTaskUisResponse%27"><span class="hs-identifier hs-var hs-var">humanTaskUiSummaries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskUiSummary.html#HumanTaskUiSummary"><span class="hs-identifier hs-type">HumanTaskUiSummary</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-221"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-222"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680381781"><span id="local-6989586621680381783"><span class="annot"><span class="annottext">ListHumanTaskUisResponse -&gt; ListHumanTaskUisResponse -&gt; Bool
+</span><span id="line-222"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680381790"><span id="local-6989586621680381792"><span class="annot"><span class="annottext">ListHumanTaskUisResponse -&gt; ListHumanTaskUisResponse -&gt; Bool
 (ListHumanTaskUisResponse -&gt; ListHumanTaskUisResponse -&gt; Bool)
 -&gt; (ListHumanTaskUisResponse -&gt; ListHumanTaskUisResponse -&gt; Bool)
 -&gt; Eq ListHumanTaskUisResponse
@@ -634,7 +634,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListHumanTaskUisResponse -&gt; ListHumanTaskUisResponse -&gt; Bool
 == :: ListHumanTaskUisResponse -&gt; ListHumanTaskUisResponse -&gt; Bool
 $c== :: ListHumanTaskUisResponse -&gt; ListHumanTaskUisResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680381773"><span id="local-6989586621680381775"><span id="local-6989586621680381777"><span id="local-6989586621680381779"><span class="annot"><span class="annottext">ReadPrec [ListHumanTaskUisResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680381782"><span id="local-6989586621680381784"><span id="local-6989586621680381786"><span id="local-6989586621680381788"><span class="annot"><span class="annottext">ReadPrec [ListHumanTaskUisResponse]
 ReadPrec ListHumanTaskUisResponse
 Int -&gt; ReadS ListHumanTaskUisResponse
 ReadS [ListHumanTaskUisResponse]
@@ -654,7 +654,7 @@ readList :: ReadS [ListHumanTaskUisResponse]
 $creadList :: ReadS [ListHumanTaskUisResponse]
 readsPrec :: Int -&gt; ReadS ListHumanTaskUisResponse
 $creadsPrec :: Int -&gt; ReadS ListHumanTaskUisResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680381767"><span id="local-6989586621680381769"><span id="local-6989586621680381771"><span class="annot"><span class="annottext">Int -&gt; ListHumanTaskUisResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680381776"><span id="local-6989586621680381778"><span id="local-6989586621680381780"><span class="annot"><span class="annottext">Int -&gt; ListHumanTaskUisResponse -&gt; ShowS
 [ListHumanTaskUisResponse] -&gt; ShowS
 ListHumanTaskUisResponse -&gt; String
 (Int -&gt; ListHumanTaskUisResponse -&gt; ShowS)
@@ -704,8 +704,8 @@ ListHumanTaskUisResponse -&gt; Rep ListHumanTaskUisResponse x
 </span><span id="line-239"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-240"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUisResponse"><span class="hs-identifier hs-type">ListHumanTaskUisResponse</span></a></span><span>
 </span><span id="line-241"></span><span id="newListHumanTaskUisResponse"><span class="annot"><span class="annottext">newListHumanTaskUisResponse :: Int -&gt; ListHumanTaskUisResponse
-</span><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#newListHumanTaskUisResponse"><span class="hs-identifier hs-var hs-var">newListHumanTaskUisResponse</span></a></span></span><span> </span><span id="local-6989586621680381764"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680381764"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#newListHumanTaskUisResponse"><span class="hs-identifier hs-var hs-var">newListHumanTaskUisResponse</span></a></span></span><span> </span><span id="local-6989586621680381773"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680381773"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-242"></span><span>  </span><span class="annot"><span class="annottext">ListHumanTaskUisResponse' :: Maybe Text
 -&gt; Int -&gt; [HumanTaskUiSummary] -&gt; ListHumanTaskUisResponse
 </span><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUisResponse%27"><span class="hs-identifier hs-type">ListHumanTaskUisResponse'</span></a></span><span>
@@ -716,7 +716,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-245"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListHumanTaskUisResponse' :: Int
 </span><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#%24sel%3AhttpStatus%3AListHumanTaskUisResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680381764"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680381773"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-246"></span><span>      </span><span class="annot"><span class="annottext">$sel:humanTaskUiSummaries:ListHumanTaskUisResponse' :: [HumanTaskUiSummary]
 </span><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#%24sel%3AhumanTaskUiSummaries%3AListHumanTaskUisResponse%27"><span class="hs-identifier hs-var">humanTaskUiSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[HumanTaskUiSummary]
 forall a. Monoid a =&gt; a
@@ -732,16 +732,16 @@ forall a. Monoid a =&gt; a
     -&gt; Maybe Text -&gt; ListHumanTaskUisResponse)
 -&gt; Lens' ListHumanTaskUisResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUisResponse%27"><span class="hs-identifier hs-type">ListHumanTaskUisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680381763"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUisResponse%27"><span class="hs-identifier hs-type">ListHumanTaskUisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680381772"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListHumanTaskUisResponse' :: ListHumanTaskUisResponse -&gt; Maybe Text
-</span><a href="#local-6989586621680381763"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680381763"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680381762"><span class="annot"><span class="annottext">s :: ListHumanTaskUisResponse
-</span><a href="#local-6989586621680381762"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUisResponse%27"><span class="hs-identifier hs-type">ListHumanTaskUisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680381761"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680381761"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListHumanTaskUisResponse
-</span><a href="#local-6989586621680381762"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListHumanTaskUisResponse' :: Maybe Text
+</span><a href="#local-6989586621680381772"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680381772"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680381771"><span class="annot"><span class="annottext">s :: ListHumanTaskUisResponse
+</span><a href="#local-6989586621680381771"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUisResponse%27"><span class="hs-identifier hs-type">ListHumanTaskUisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680381770"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680381770"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListHumanTaskUisResponse
+</span><a href="#local-6989586621680381771"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListHumanTaskUisResponse' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#%24sel%3AnextToken%3AListHumanTaskUisResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680381761"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUisResponse"><span class="hs-identifier hs-type">ListHumanTaskUisResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680381770"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUisResponse"><span class="hs-identifier hs-type">ListHumanTaskUisResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-252"></span><span>
 </span><span id="line-253"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-254"></span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#listHumanTaskUisResponse_httpStatus"><span class="hs-identifier hs-type">listHumanTaskUisResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUisResponse"><span class="hs-identifier hs-type">ListHumanTaskUisResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -751,16 +751,16 @@ $sel:nextToken:ListHumanTaskUisResponse' :: ListHumanTaskUisResponse -&gt; Maybe
 -&gt; (ListHumanTaskUisResponse -&gt; Int -&gt; ListHumanTaskUisResponse)
 -&gt; Lens ListHumanTaskUisResponse ListHumanTaskUisResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUisResponse%27"><span class="hs-identifier hs-type">ListHumanTaskUisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680381760"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUisResponse%27"><span class="hs-identifier hs-type">ListHumanTaskUisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680381769"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListHumanTaskUisResponse' :: ListHumanTaskUisResponse -&gt; Int
-</span><a href="#local-6989586621680381760"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680381760"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680381759"><span class="annot"><span class="annottext">s :: ListHumanTaskUisResponse
-</span><a href="#local-6989586621680381759"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUisResponse%27"><span class="hs-identifier hs-type">ListHumanTaskUisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680381758"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680381758"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListHumanTaskUisResponse
-</span><a href="#local-6989586621680381759"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListHumanTaskUisResponse' :: Int
+</span><a href="#local-6989586621680381769"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680381769"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680381768"><span class="annot"><span class="annottext">s :: ListHumanTaskUisResponse
+</span><a href="#local-6989586621680381768"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUisResponse%27"><span class="hs-identifier hs-type">ListHumanTaskUisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680381767"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680381767"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListHumanTaskUisResponse
+</span><a href="#local-6989586621680381768"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListHumanTaskUisResponse' :: Int
 </span><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#%24sel%3AhttpStatus%3AListHumanTaskUisResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680381758"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUisResponse"><span class="hs-identifier hs-type">ListHumanTaskUisResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680381767"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUisResponse"><span class="hs-identifier hs-type">ListHumanTaskUisResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-256"></span><span>
 </span><span id="line-257"></span><span class="hs-comment">-- | An array of objects describing the human task user interfaces.</span><span>
 </span><span id="line-258"></span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#listHumanTaskUisResponse_humanTaskUiSummaries"><span class="hs-identifier hs-type">listHumanTaskUisResponse_humanTaskUiSummaries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUisResponse"><span class="hs-identifier hs-type">ListHumanTaskUisResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskUiSummary.html#HumanTaskUiSummary"><span class="hs-identifier hs-type">HumanTaskUiSummary</span></a></span><span class="hs-special">]</span><span>
@@ -771,16 +771,16 @@ $sel:httpStatus:ListHumanTaskUisResponse' :: ListHumanTaskUisResponse -&gt; Int
     -&gt; [HumanTaskUiSummary] -&gt; ListHumanTaskUisResponse)
 -&gt; Lens' ListHumanTaskUisResponse [HumanTaskUiSummary]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUisResponse%27"><span class="hs-identifier hs-type">ListHumanTaskUisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680381757"><span class="annot"><span class="annottext">[HumanTaskUiSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUisResponse%27"><span class="hs-identifier hs-type">ListHumanTaskUisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680381766"><span class="annot"><span class="annottext">[HumanTaskUiSummary]
 humanTaskUiSummaries :: [HumanTaskUiSummary]
 $sel:humanTaskUiSummaries:ListHumanTaskUisResponse' :: ListHumanTaskUisResponse -&gt; [HumanTaskUiSummary]
-</span><a href="#local-6989586621680381757"><span class="hs-identifier hs-var hs-var">humanTaskUiSummaries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[HumanTaskUiSummary]
-</span><a href="#local-6989586621680381757"><span class="hs-identifier hs-var">humanTaskUiSummaries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680381756"><span class="annot"><span class="annottext">s :: ListHumanTaskUisResponse
-</span><a href="#local-6989586621680381756"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUisResponse%27"><span class="hs-identifier hs-type">ListHumanTaskUisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680381755"><span class="annot"><span class="annottext">[HumanTaskUiSummary]
-</span><a href="#local-6989586621680381755"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListHumanTaskUisResponse
-</span><a href="#local-6989586621680381756"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:humanTaskUiSummaries:ListHumanTaskUisResponse' :: [HumanTaskUiSummary]
+</span><a href="#local-6989586621680381766"><span class="hs-identifier hs-var hs-var">humanTaskUiSummaries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[HumanTaskUiSummary]
+</span><a href="#local-6989586621680381766"><span class="hs-identifier hs-var">humanTaskUiSummaries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680381765"><span class="annot"><span class="annottext">s :: ListHumanTaskUisResponse
+</span><a href="#local-6989586621680381765"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUisResponse%27"><span class="hs-identifier hs-type">ListHumanTaskUisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680381764"><span class="annot"><span class="annottext">[HumanTaskUiSummary]
+</span><a href="#local-6989586621680381764"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListHumanTaskUisResponse
+</span><a href="#local-6989586621680381765"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:humanTaskUiSummaries:ListHumanTaskUisResponse' :: [HumanTaskUiSummary]
 </span><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#%24sel%3AhumanTaskUiSummaries%3AListHumanTaskUisResponse%27"><span class="hs-identifier hs-var">humanTaskUiSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[HumanTaskUiSummary]
-</span><a href="#local-6989586621680381755"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUisResponse"><span class="hs-identifier hs-type">ListHumanTaskUisResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([HumanTaskUiSummary] -&gt; f [HumanTaskUiSummary])
+</span><a href="#local-6989586621680381764"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUisResponse"><span class="hs-identifier hs-type">ListHumanTaskUisResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([HumanTaskUiSummary] -&gt; f [HumanTaskUiSummary])
  -&gt; ListHumanTaskUisResponse -&gt; f ListHumanTaskUisResponse)
 -&gt; (([HumanTaskUiSummary] -&gt; f [HumanTaskUiSummary])
     -&gt; [HumanTaskUiSummary] -&gt; f [HumanTaskUiSummary])
@@ -793,5 +793,5 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-260"></span><span>
-</span><span id="line-261"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680381752"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUisResponse"><span class="hs-identifier hs-type">ListHumanTaskUisResponse</span></a></span></span><span>
+</span><span id="line-261"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680381761"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListHumanTaskUis.html#ListHumanTaskUisResponse"><span class="hs-identifier hs-type">ListHumanTaskUisResponse</span></a></span></span><span>
 </span><span id="line-262"></span></pre></body></html>

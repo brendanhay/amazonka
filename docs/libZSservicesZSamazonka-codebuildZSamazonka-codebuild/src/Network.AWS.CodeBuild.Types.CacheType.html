@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679370212"><span id="local-6989586621679370213"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CacheType"><span class="annot"><a href="Network.AWS.CodeBuild.Types.CacheType.html#CacheType"><span class="hs-identifier hs-var">CacheType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CacheType%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.CacheType.html#CacheType%27"><span class="hs-identifier hs-var">CacheType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679370221"><span id="local-6989586621679370222"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CacheType"><span class="annot"><a href="Network.AWS.CodeBuild.Types.CacheType.html#CacheType"><span class="hs-identifier hs-var">CacheType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CacheType%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.CacheType.html#CacheType%27"><span class="hs-identifier hs-var">CacheType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCacheType"><span class="annot"><span class="annottext">CacheType -&gt; Text
 </span><a href="Network.AWS.CodeBuild.Types.CacheType.html#fromCacheType"><span class="hs-identifier hs-var hs-var">fromCacheType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679370204"><span id="local-6989586621679370206"><span id="local-6989586621679370208"><span class="annot"><span class="annottext">Int -&gt; CacheType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679370213"><span id="local-6989586621679370215"><span id="local-6989586621679370217"><span class="annot"><span class="annottext">Int -&gt; CacheType -&gt; ShowS
 [CacheType] -&gt; ShowS
 CacheType -&gt; String
 (Int -&gt; CacheType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: CacheType -&gt; String
 showsPrec :: Int -&gt; CacheType -&gt; ShowS
 $cshowsPrec :: Int -&gt; CacheType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679370195"><span id="local-6989586621679370197"><span id="local-6989586621679370199"><span id="local-6989586621679370201"><span class="annot"><span class="annottext">ReadPrec [CacheType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679370204"><span id="local-6989586621679370206"><span id="local-6989586621679370208"><span id="local-6989586621679370210"><span class="annot"><span class="annottext">ReadPrec [CacheType]
 ReadPrec CacheType
 Int -&gt; ReadS CacheType
 ReadS [CacheType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [CacheType]
 readsPrec :: Int -&gt; ReadS CacheType
 $creadsPrec :: Int -&gt; ReadS CacheType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679370190"><span id="local-6989586621679370192"><span class="annot"><span class="annottext">CacheType -&gt; CacheType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679370199"><span id="local-6989586621679370201"><span class="annot"><span class="annottext">CacheType -&gt; CacheType -&gt; Bool
 (CacheType -&gt; CacheType -&gt; Bool)
 -&gt; (CacheType -&gt; CacheType -&gt; Bool) -&gt; Eq CacheType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: CacheType -&gt; CacheType -&gt; Bool
 == :: CacheType -&gt; CacheType -&gt; Bool
 $c== :: CacheType -&gt; CacheType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679370174"><span id="local-6989586621679370176"><span id="local-6989586621679370178"><span id="local-6989586621679370180"><span id="local-6989586621679370182"><span id="local-6989586621679370184"><span id="local-6989586621679370186"><span class="annot"><span class="annottext">Eq CacheType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679370183"><span id="local-6989586621679370185"><span id="local-6989586621679370187"><span id="local-6989586621679370189"><span id="local-6989586621679370191"><span id="local-6989586621679370193"><span id="local-6989586621679370195"><span class="annot"><span class="annottext">Eq CacheType
 Eq CacheType
 -&gt; (CacheType -&gt; CacheType -&gt; Ordering)
 -&gt; (CacheType -&gt; CacheType -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. CacheType -&gt; Rep CacheType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679370166"><span id="local-6989586621679370168"><span class="annot"><span class="annottext">Int -&gt; CacheType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679370175"><span id="local-6989586621679370177"><span class="annot"><span class="annottext">Int -&gt; CacheType -&gt; Int
 CacheType -&gt; Int
 (Int -&gt; CacheType -&gt; Int)
 -&gt; (CacheType -&gt; Int) -&gt; Hashable CacheType
@@ -142,49 +142,49 @@ $chash :: CacheType -&gt; Int
 hashWithSalt :: Int -&gt; CacheType -&gt; Int
 $chashWithSalt :: Int -&gt; CacheType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679370163"><span class="annot"><span class="annottext">CacheType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679370172"><span class="annot"><span class="annottext">CacheType -&gt; ()
 (CacheType -&gt; ()) -&gt; NFData CacheType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CacheType -&gt; ()
 $crnf :: CacheType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679370160"><span class="annot"><span class="annottext">Text -&gt; Either String CacheType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679370169"><span class="annot"><span class="annottext">Text -&gt; Either String CacheType
 (Text -&gt; Either String CacheType) -&gt; FromText CacheType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CacheType
 $cfromText :: Text -&gt; Either String CacheType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679370157"><span class="annot"><span class="annottext">CacheType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679370166"><span class="annot"><span class="annottext">CacheType -&gt; Text
 (CacheType -&gt; Text) -&gt; ToText CacheType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CacheType -&gt; Text
 $ctoText :: CacheType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679370154"><span class="annot"><span class="annottext">CacheType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679370163"><span class="annot"><span class="annottext">CacheType -&gt; ByteString
 (CacheType -&gt; ByteString) -&gt; ToByteString CacheType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CacheType -&gt; ByteString
 $ctoBS :: CacheType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679370151"><span class="annot"><span class="annottext">CacheType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679370160"><span class="annot"><span class="annottext">CacheType -&gt; ByteStringBuilder
 (CacheType -&gt; ByteStringBuilder) -&gt; ToLog CacheType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CacheType -&gt; ByteStringBuilder
 $cbuild :: CacheType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679370148"><span class="annot"><span class="annottext">HeaderName -&gt; CacheType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679370157"><span class="annot"><span class="annottext">HeaderName -&gt; CacheType -&gt; [Header]
 (HeaderName -&gt; CacheType -&gt; [Header]) -&gt; ToHeader CacheType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CacheType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CacheType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679370145"><span class="annot"><span class="annottext">CacheType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679370154"><span class="annot"><span class="annottext">CacheType -&gt; QueryString
 (CacheType -&gt; QueryString) -&gt; ToQuery CacheType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CacheType -&gt; QueryString
 $ctoQuery :: CacheType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679370140"><span id="local-6989586621679370142"><span class="annot"><span class="annottext">Value -&gt; Parser [CacheType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679370149"><span id="local-6989586621679370151"><span class="annot"><span class="annottext">Value -&gt; Parser [CacheType]
 Value -&gt; Parser CacheType
 (Value -&gt; Parser CacheType)
 -&gt; (Value -&gt; Parser [CacheType]) -&gt; FromJSON CacheType
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [CacheType]
 parseJSON :: Value -&gt; Parser CacheType
 $cparseJSON :: Value -&gt; Parser CacheType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679370135"><span id="local-6989586621679370137"><span class="annot"><span class="annottext">FromJSONKeyFunction [CacheType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679370144"><span id="local-6989586621679370146"><span class="annot"><span class="annottext">FromJSONKeyFunction [CacheType]
 FromJSONKeyFunction CacheType
 FromJSONKeyFunction CacheType
 -&gt; FromJSONKeyFunction [CacheType] -&gt; FromJSONKey CacheType
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CacheType]
 fromJSONKey :: FromJSONKeyFunction CacheType
 $cfromJSONKey :: FromJSONKeyFunction CacheType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679370126"><span id="local-6989586621679370128"><span id="local-6989586621679370130"><span id="local-6989586621679370132"><span class="annot"><span class="annottext">[CacheType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679370135"><span id="local-6989586621679370137"><span id="local-6989586621679370139"><span id="local-6989586621679370141"><span class="annot"><span class="annottext">[CacheType] -&gt; Encoding
 [CacheType] -&gt; Value
 CacheType -&gt; Encoding
 CacheType -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: CacheType -&gt; Encoding
 toJSON :: CacheType -&gt; Value
 $ctoJSON :: CacheType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679370121"><span id="local-6989586621679370123"><span class="annot"><span class="annottext">ToJSONKeyFunction [CacheType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679370130"><span id="local-6989586621679370132"><span class="annot"><span class="annottext">ToJSONKeyFunction [CacheType]
 ToJSONKeyFunction CacheType
 ToJSONKeyFunction CacheType
 -&gt; ToJSONKeyFunction [CacheType] -&gt; ToJSONKey CacheType
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CacheType]
 toJSONKey :: ToJSONKeyFunction CacheType
 $ctoJSONKey :: ToJSONKeyFunction CacheType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679370118"><span class="annot"><span class="annottext">[Node] -&gt; Either String CacheType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679370127"><span class="annot"><span class="annottext">[Node] -&gt; Either String CacheType
 ([Node] -&gt; Either String CacheType) -&gt; FromXML CacheType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CacheType
 $cparseXML :: [Node] -&gt; Either String CacheType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679370115"><span class="annot"><span class="annottext">CacheType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679370124"><span class="annot"><span class="annottext">CacheType -&gt; XML
 (CacheType -&gt; XML) -&gt; ToXML CacheType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CacheType -&gt; XML

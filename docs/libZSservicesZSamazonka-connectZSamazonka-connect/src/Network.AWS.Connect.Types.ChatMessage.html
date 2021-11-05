@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | A chat message.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newChatMessage' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679394756"><span id="local-6989586621679394757"></span></span><span class="hs-keyword">data</span><span> </span><span id="ChatMessage"><span class="annot"><a href="Network.AWS.Connect.Types.ChatMessage.html#ChatMessage"><span class="hs-identifier hs-var">ChatMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChatMessage%27"><span class="annot"><a href="Network.AWS.Connect.Types.ChatMessage.html#ChatMessage%27"><span class="hs-identifier hs-var">ChatMessage'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679394765"><span id="local-6989586621679394766"></span></span><span class="hs-keyword">data</span><span> </span><span id="ChatMessage"><span class="annot"><a href="Network.AWS.Connect.Types.ChatMessage.html#ChatMessage"><span class="hs-identifier hs-var">ChatMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChatMessage%27"><span class="annot"><a href="Network.AWS.Connect.Types.ChatMessage.html#ChatMessage%27"><span class="hs-identifier hs-var">ChatMessage'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of the content. Supported types are text and plain.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AcontentType%3AChatMessage%27"><span class="annot"><span class="annottext">ChatMessage -&gt; Text
 </span><a href="Network.AWS.Connect.Types.ChatMessage.html#%24sel%3AcontentType%3AChatMessage%27"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Acontent%3AChatMessage%27"><span class="annot"><span class="annottext">ChatMessage -&gt; Text
 </span><a href="Network.AWS.Connect.Types.ChatMessage.html#%24sel%3Acontent%3AChatMessage%27"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394749"><span id="local-6989586621679394751"><span class="annot"><span class="annottext">ChatMessage -&gt; ChatMessage -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394758"><span id="local-6989586621679394760"><span class="annot"><span class="annottext">ChatMessage -&gt; ChatMessage -&gt; Bool
 (ChatMessage -&gt; ChatMessage -&gt; Bool)
 -&gt; (ChatMessage -&gt; ChatMessage -&gt; Bool) -&gt; Eq ChatMessage
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ChatMessage -&gt; ChatMessage -&gt; Bool
 == :: ChatMessage -&gt; ChatMessage -&gt; Bool
 $c== :: ChatMessage -&gt; ChatMessage -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394740"><span id="local-6989586621679394742"><span id="local-6989586621679394744"><span id="local-6989586621679394746"><span class="annot"><span class="annottext">ReadPrec [ChatMessage]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394749"><span id="local-6989586621679394751"><span id="local-6989586621679394753"><span id="local-6989586621679394755"><span class="annot"><span class="annottext">ReadPrec [ChatMessage]
 ReadPrec ChatMessage
 Int -&gt; ReadS ChatMessage
 ReadS [ChatMessage]
@@ -62,7 +62,7 @@ readList :: ReadS [ChatMessage]
 $creadList :: ReadS [ChatMessage]
 readsPrec :: Int -&gt; ReadS ChatMessage
 $creadsPrec :: Int -&gt; ReadS ChatMessage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394733"><span id="local-6989586621679394735"><span id="local-6989586621679394737"><span class="annot"><span class="annottext">Int -&gt; ChatMessage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394742"><span id="local-6989586621679394744"><span id="local-6989586621679394746"><span class="annot"><span class="annottext">Int -&gt; ChatMessage -&gt; ShowS
 [ChatMessage] -&gt; ShowS
 ChatMessage -&gt; String
 (Int -&gt; ChatMessage -&gt; ShowS)
@@ -106,17 +106,17 @@ $cfrom :: forall x. ChatMessage -&gt; Rep ChatMessage x
 </span><span id="line-52"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.ChatMessage.html#ChatMessage"><span class="hs-identifier hs-type">ChatMessage</span></a></span><span>
 </span><span id="line-54"></span><span id="newChatMessage"><span class="annot"><span class="annottext">newChatMessage :: Text -&gt; Text -&gt; ChatMessage
-</span><a href="Network.AWS.Connect.Types.ChatMessage.html#newChatMessage"><span class="hs-identifier hs-var hs-var">newChatMessage</span></a></span></span><span> </span><span id="local-6989586621679394727"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394727"><span class="hs-identifier hs-var">pContentType_</span></a></span></span><span> </span><span id="local-6989586621679394726"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394726"><span class="hs-identifier hs-var">pContent_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Connect.Types.ChatMessage.html#newChatMessage"><span class="hs-identifier hs-var hs-var">newChatMessage</span></a></span></span><span> </span><span id="local-6989586621679394736"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394736"><span class="hs-identifier hs-var">pContentType_</span></a></span></span><span> </span><span id="local-6989586621679394735"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394735"><span class="hs-identifier hs-var">pContent_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">ChatMessage' :: Text -&gt; Text -&gt; ChatMessage
 </span><a href="Network.AWS.Connect.Types.ChatMessage.html#ChatMessage%27"><span class="hs-identifier hs-type">ChatMessage'</span></a></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:contentType:ChatMessage' :: Text
 </span><a href="Network.AWS.Connect.Types.ChatMessage.html#%24sel%3AcontentType%3AChatMessage%27"><span class="hs-identifier hs-var">contentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394727"><span class="hs-identifier hs-var">pContentType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679394736"><span class="hs-identifier hs-var">pContentType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:content:ChatMessage' :: Text
 </span><a href="Network.AWS.Connect.Types.ChatMessage.html#%24sel%3Acontent%3AChatMessage%27"><span class="hs-identifier hs-var">content</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394726"><span class="hs-identifier hs-var">pContent_</span></a></span><span>
+</span><a href="#local-6989586621679394735"><span class="hs-identifier hs-var">pContent_</span></a></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | The type of the content. Supported types are text and plain.</span><span>
@@ -126,16 +126,16 @@ $cfrom :: forall x. ChatMessage -&gt; Rep ChatMessage x
 -&gt; (ChatMessage -&gt; Text -&gt; ChatMessage)
 -&gt; Lens ChatMessage ChatMessage Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.ChatMessage.html#ChatMessage%27"><span class="hs-identifier hs-type">ChatMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394722"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.ChatMessage.html#ChatMessage%27"><span class="hs-identifier hs-type">ChatMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394731"><span class="annot"><span class="annottext">Text
 contentType :: Text
 $sel:contentType:ChatMessage' :: ChatMessage -&gt; Text
-</span><a href="#local-6989586621679394722"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394722"><span class="hs-identifier hs-var">contentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394721"><span class="annot"><span class="annottext">s :: ChatMessage
-</span><a href="#local-6989586621679394721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.ChatMessage.html#ChatMessage%27"><span class="hs-identifier hs-type">ChatMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394720"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChatMessage
-</span><a href="#local-6989586621679394721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentType:ChatMessage' :: Text
+</span><a href="#local-6989586621679394731"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394731"><span class="hs-identifier hs-var">contentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394730"><span class="annot"><span class="annottext">s :: ChatMessage
+</span><a href="#local-6989586621679394730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.ChatMessage.html#ChatMessage%27"><span class="hs-identifier hs-type">ChatMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394729"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChatMessage
+</span><a href="#local-6989586621679394730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentType:ChatMessage' :: Text
 </span><a href="Network.AWS.Connect.Types.ChatMessage.html#%24sel%3AcontentType%3AChatMessage%27"><span class="hs-identifier hs-var">contentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.ChatMessage.html#ChatMessage"><span class="hs-identifier hs-type">ChatMessage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.ChatMessage.html#ChatMessage"><span class="hs-identifier hs-type">ChatMessage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | The content of the chat message.</span><span>
 </span><span id="line-65"></span><span class="annot"><a href="Network.AWS.Connect.Types.ChatMessage.html#chatMessage_content"><span class="hs-identifier hs-type">chatMessage_content</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.ChatMessage.html#ChatMessage"><span class="hs-identifier hs-type">ChatMessage</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -144,29 +144,29 @@ $sel:contentType:ChatMessage' :: ChatMessage -&gt; Text
 -&gt; (ChatMessage -&gt; Text -&gt; ChatMessage)
 -&gt; Lens ChatMessage ChatMessage Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.ChatMessage.html#ChatMessage%27"><span class="hs-identifier hs-type">ChatMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394718"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.ChatMessage.html#ChatMessage%27"><span class="hs-identifier hs-type">ChatMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394727"><span class="annot"><span class="annottext">Text
 content :: Text
 $sel:content:ChatMessage' :: ChatMessage -&gt; Text
-</span><a href="#local-6989586621679394718"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394718"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394717"><span class="annot"><span class="annottext">s :: ChatMessage
-</span><a href="#local-6989586621679394717"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.ChatMessage.html#ChatMessage%27"><span class="hs-identifier hs-type">ChatMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394716"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394716"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChatMessage
-</span><a href="#local-6989586621679394717"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:content:ChatMessage' :: Text
+</span><a href="#local-6989586621679394727"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394727"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394726"><span class="annot"><span class="annottext">s :: ChatMessage
+</span><a href="#local-6989586621679394726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.ChatMessage.html#ChatMessage%27"><span class="hs-identifier hs-type">ChatMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394725"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChatMessage
+</span><a href="#local-6989586621679394726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:content:ChatMessage' :: Text
 </span><a href="Network.AWS.Connect.Types.ChatMessage.html#%24sel%3Acontent%3AChatMessage%27"><span class="hs-identifier hs-var">content</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394716"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.ChatMessage.html#ChatMessage"><span class="hs-identifier hs-type">ChatMessage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.ChatMessage.html#ChatMessage"><span class="hs-identifier hs-type">ChatMessage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394712"><span id="local-6989586621679394714"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.ChatMessage.html#ChatMessage"><span class="hs-identifier hs-type">ChatMessage</span></a></span></span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394721"><span id="local-6989586621679394723"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.ChatMessage.html#ChatMessage"><span class="hs-identifier hs-type">ChatMessage</span></a></span></span></span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394709"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.ChatMessage.html#ChatMessage"><span class="hs-identifier hs-type">ChatMessage</span></a></span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394718"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.ChatMessage.html#ChatMessage"><span class="hs-identifier hs-type">ChatMessage</span></a></span></span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394701"><span id="local-6989586621679394703"><span id="local-6989586621679394705"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.ChatMessage.html#ChatMessage"><span class="hs-identifier hs-type">ChatMessage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679394699"><span class="annot"><span class="annottext">toJSON :: ChatMessage -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.ChatMessage.html#ChatMessage%27"><span class="hs-identifier hs-type">ChatMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394696"><span id="local-6989586621679394697"><span class="annot"><span class="annottext">Text
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394710"><span id="local-6989586621679394712"><span id="local-6989586621679394714"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.ChatMessage.html#ChatMessage"><span class="hs-identifier hs-type">ChatMessage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679394708"><span class="annot"><span class="annottext">toJSON :: ChatMessage -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.ChatMessage.html#ChatMessage%27"><span class="hs-identifier hs-type">ChatMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394705"><span id="local-6989586621679394706"><span class="annot"><span class="annottext">Text
 content :: Text
 contentType :: Text
 $sel:content:ChatMessage' :: ChatMessage -&gt; Text
 $sel:contentType:ChatMessage' :: ChatMessage -&gt; Text
-</span><a href="#local-6989586621679394696"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679394705"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -178,14 +178,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ContentType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394697"><span class="hs-identifier hs-var">contentType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679394706"><span class="hs-identifier hs-var">contentType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Content&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394696"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394705"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span></pre></body></html>

@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679205668"><span id="local-6989586621679205669"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ActionSubType"><span class="annot"><a href="Network.AWS.Budgets.Types.ActionSubType.html#ActionSubType"><span class="hs-identifier hs-var">ActionSubType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActionSubType%27"><span class="annot"><a href="Network.AWS.Budgets.Types.ActionSubType.html#ActionSubType%27"><span class="hs-identifier hs-var">ActionSubType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679205677"><span id="local-6989586621679205678"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ActionSubType"><span class="annot"><a href="Network.AWS.Budgets.Types.ActionSubType.html#ActionSubType"><span class="hs-identifier hs-var">ActionSubType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActionSubType%27"><span class="annot"><a href="Network.AWS.Budgets.Types.ActionSubType.html#ActionSubType%27"><span class="hs-identifier hs-var">ActionSubType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromActionSubType"><span class="annot"><span class="annottext">ActionSubType -&gt; Text
 </span><a href="Network.AWS.Budgets.Types.ActionSubType.html#fromActionSubType"><span class="hs-identifier hs-var hs-var">fromActionSubType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679205660"><span id="local-6989586621679205662"><span id="local-6989586621679205664"><span class="annot"><span class="annottext">Int -&gt; ActionSubType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679205669"><span id="local-6989586621679205671"><span id="local-6989586621679205673"><span class="annot"><span class="annottext">Int -&gt; ActionSubType -&gt; ShowS
 [ActionSubType] -&gt; ShowS
 ActionSubType -&gt; String
 (Int -&gt; ActionSubType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ActionSubType -&gt; String
 showsPrec :: Int -&gt; ActionSubType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ActionSubType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679205651"><span id="local-6989586621679205653"><span id="local-6989586621679205655"><span id="local-6989586621679205657"><span class="annot"><span class="annottext">ReadPrec [ActionSubType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679205660"><span id="local-6989586621679205662"><span id="local-6989586621679205664"><span id="local-6989586621679205666"><span class="annot"><span class="annottext">ReadPrec [ActionSubType]
 ReadPrec ActionSubType
 Int -&gt; ReadS ActionSubType
 ReadS [ActionSubType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ActionSubType]
 readsPrec :: Int -&gt; ReadS ActionSubType
 $creadsPrec :: Int -&gt; ReadS ActionSubType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679205646"><span id="local-6989586621679205648"><span class="annot"><span class="annottext">ActionSubType -&gt; ActionSubType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679205655"><span id="local-6989586621679205657"><span class="annot"><span class="annottext">ActionSubType -&gt; ActionSubType -&gt; Bool
 (ActionSubType -&gt; ActionSubType -&gt; Bool)
 -&gt; (ActionSubType -&gt; ActionSubType -&gt; Bool) -&gt; Eq ActionSubType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: ActionSubType -&gt; ActionSubType -&gt; Bool
 == :: ActionSubType -&gt; ActionSubType -&gt; Bool
 $c== :: ActionSubType -&gt; ActionSubType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679205630"><span id="local-6989586621679205632"><span id="local-6989586621679205634"><span id="local-6989586621679205636"><span id="local-6989586621679205638"><span id="local-6989586621679205640"><span id="local-6989586621679205642"><span class="annot"><span class="annottext">Eq ActionSubType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679205639"><span id="local-6989586621679205641"><span id="local-6989586621679205643"><span id="local-6989586621679205645"><span id="local-6989586621679205647"><span id="local-6989586621679205649"><span id="local-6989586621679205651"><span class="annot"><span class="annottext">Eq ActionSubType
 Eq ActionSubType
 -&gt; (ActionSubType -&gt; ActionSubType -&gt; Ordering)
 -&gt; (ActionSubType -&gt; ActionSubType -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. ActionSubType -&gt; Rep ActionSubType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679205622"><span id="local-6989586621679205624"><span class="annot"><span class="annottext">Int -&gt; ActionSubType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679205631"><span id="local-6989586621679205633"><span class="annot"><span class="annottext">Int -&gt; ActionSubType -&gt; Int
 ActionSubType -&gt; Int
 (Int -&gt; ActionSubType -&gt; Int)
 -&gt; (ActionSubType -&gt; Int) -&gt; Hashable ActionSubType
@@ -142,49 +142,49 @@ $chash :: ActionSubType -&gt; Int
 hashWithSalt :: Int -&gt; ActionSubType -&gt; Int
 $chashWithSalt :: Int -&gt; ActionSubType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679205619"><span class="annot"><span class="annottext">ActionSubType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679205628"><span class="annot"><span class="annottext">ActionSubType -&gt; ()
 (ActionSubType -&gt; ()) -&gt; NFData ActionSubType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ActionSubType -&gt; ()
 $crnf :: ActionSubType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679205616"><span class="annot"><span class="annottext">Text -&gt; Either String ActionSubType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679205625"><span class="annot"><span class="annottext">Text -&gt; Either String ActionSubType
 (Text -&gt; Either String ActionSubType) -&gt; FromText ActionSubType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ActionSubType
 $cfromText :: Text -&gt; Either String ActionSubType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679205613"><span class="annot"><span class="annottext">ActionSubType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679205622"><span class="annot"><span class="annottext">ActionSubType -&gt; Text
 (ActionSubType -&gt; Text) -&gt; ToText ActionSubType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ActionSubType -&gt; Text
 $ctoText :: ActionSubType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679205610"><span class="annot"><span class="annottext">ActionSubType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679205619"><span class="annot"><span class="annottext">ActionSubType -&gt; ByteString
 (ActionSubType -&gt; ByteString) -&gt; ToByteString ActionSubType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ActionSubType -&gt; ByteString
 $ctoBS :: ActionSubType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679205607"><span class="annot"><span class="annottext">ActionSubType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679205616"><span class="annot"><span class="annottext">ActionSubType -&gt; ByteStringBuilder
 (ActionSubType -&gt; ByteStringBuilder) -&gt; ToLog ActionSubType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ActionSubType -&gt; ByteStringBuilder
 $cbuild :: ActionSubType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679205604"><span class="annot"><span class="annottext">HeaderName -&gt; ActionSubType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679205613"><span class="annot"><span class="annottext">HeaderName -&gt; ActionSubType -&gt; [Header]
 (HeaderName -&gt; ActionSubType -&gt; [Header]) -&gt; ToHeader ActionSubType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ActionSubType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ActionSubType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679205601"><span class="annot"><span class="annottext">ActionSubType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679205610"><span class="annot"><span class="annottext">ActionSubType -&gt; QueryString
 (ActionSubType -&gt; QueryString) -&gt; ToQuery ActionSubType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ActionSubType -&gt; QueryString
 $ctoQuery :: ActionSubType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679205596"><span id="local-6989586621679205598"><span class="annot"><span class="annottext">Value -&gt; Parser [ActionSubType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679205605"><span id="local-6989586621679205607"><span class="annot"><span class="annottext">Value -&gt; Parser [ActionSubType]
 Value -&gt; Parser ActionSubType
 (Value -&gt; Parser ActionSubType)
 -&gt; (Value -&gt; Parser [ActionSubType]) -&gt; FromJSON ActionSubType
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [ActionSubType]
 parseJSON :: Value -&gt; Parser ActionSubType
 $cparseJSON :: Value -&gt; Parser ActionSubType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679205591"><span id="local-6989586621679205593"><span class="annot"><span class="annottext">FromJSONKeyFunction [ActionSubType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679205600"><span id="local-6989586621679205602"><span class="annot"><span class="annottext">FromJSONKeyFunction [ActionSubType]
 FromJSONKeyFunction ActionSubType
 FromJSONKeyFunction ActionSubType
 -&gt; FromJSONKeyFunction [ActionSubType] -&gt; FromJSONKey ActionSubType
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ActionSubType]
 fromJSONKey :: FromJSONKeyFunction ActionSubType
 $cfromJSONKey :: FromJSONKeyFunction ActionSubType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679205582"><span id="local-6989586621679205584"><span id="local-6989586621679205586"><span id="local-6989586621679205588"><span class="annot"><span class="annottext">[ActionSubType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679205591"><span id="local-6989586621679205593"><span id="local-6989586621679205595"><span id="local-6989586621679205597"><span class="annot"><span class="annottext">[ActionSubType] -&gt; Encoding
 [ActionSubType] -&gt; Value
 ActionSubType -&gt; Encoding
 ActionSubType -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: ActionSubType -&gt; Encoding
 toJSON :: ActionSubType -&gt; Value
 $ctoJSON :: ActionSubType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679205577"><span id="local-6989586621679205579"><span class="annot"><span class="annottext">ToJSONKeyFunction [ActionSubType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679205586"><span id="local-6989586621679205588"><span class="annot"><span class="annottext">ToJSONKeyFunction [ActionSubType]
 ToJSONKeyFunction ActionSubType
 ToJSONKeyFunction ActionSubType
 -&gt; ToJSONKeyFunction [ActionSubType] -&gt; ToJSONKey ActionSubType
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ActionSubType]
 toJSONKey :: ToJSONKeyFunction ActionSubType
 $ctoJSONKey :: ToJSONKeyFunction ActionSubType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679205574"><span class="annot"><span class="annottext">[Node] -&gt; Either String ActionSubType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679205583"><span class="annot"><span class="annottext">[Node] -&gt; Either String ActionSubType
 ([Node] -&gt; Either String ActionSubType) -&gt; FromXML ActionSubType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ActionSubType
 $cparseXML :: [Node] -&gt; Either String ActionSubType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679205571"><span class="annot"><span class="annottext">ActionSubType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679205580"><span class="annot"><span class="annottext">ActionSubType -&gt; XML
 (ActionSubType -&gt; XML) -&gt; ToXML ActionSubType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ActionSubType -&gt; XML

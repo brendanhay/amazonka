@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679796535"><span id="local-6989586621679796536"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InventoryDeletionStatus"><span class="annot"><a href="Network.AWS.SSM.Types.InventoryDeletionStatus.html#InventoryDeletionStatus"><span class="hs-identifier hs-var">InventoryDeletionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InventoryDeletionStatus%27"><span class="annot"><a href="Network.AWS.SSM.Types.InventoryDeletionStatus.html#InventoryDeletionStatus%27"><span class="hs-identifier hs-var">InventoryDeletionStatus'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679796544"><span id="local-6989586621679796545"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InventoryDeletionStatus"><span class="annot"><a href="Network.AWS.SSM.Types.InventoryDeletionStatus.html#InventoryDeletionStatus"><span class="hs-identifier hs-var">InventoryDeletionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InventoryDeletionStatus%27"><span class="annot"><a href="Network.AWS.SSM.Types.InventoryDeletionStatus.html#InventoryDeletionStatus%27"><span class="hs-identifier hs-var">InventoryDeletionStatus'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInventoryDeletionStatus"><span class="annot"><span class="annottext">InventoryDeletionStatus -&gt; Text
 </span><a href="Network.AWS.SSM.Types.InventoryDeletionStatus.html#fromInventoryDeletionStatus"><span class="hs-identifier hs-var hs-var">fromInventoryDeletionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679796527"><span id="local-6989586621679796529"><span id="local-6989586621679796531"><span class="annot"><span class="annottext">Int -&gt; InventoryDeletionStatus -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679796536"><span id="local-6989586621679796538"><span id="local-6989586621679796540"><span class="annot"><span class="annottext">Int -&gt; InventoryDeletionStatus -&gt; ShowS
 [InventoryDeletionStatus] -&gt; ShowS
 InventoryDeletionStatus -&gt; String
 (Int -&gt; InventoryDeletionStatus -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: InventoryDeletionStatus -&gt; String
 showsPrec :: Int -&gt; InventoryDeletionStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; InventoryDeletionStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679796518"><span id="local-6989586621679796520"><span id="local-6989586621679796522"><span id="local-6989586621679796524"><span class="annot"><span class="annottext">ReadPrec [InventoryDeletionStatus]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679796527"><span id="local-6989586621679796529"><span id="local-6989586621679796531"><span id="local-6989586621679796533"><span class="annot"><span class="annottext">ReadPrec [InventoryDeletionStatus]
 ReadPrec InventoryDeletionStatus
 Int -&gt; ReadS InventoryDeletionStatus
 ReadS [InventoryDeletionStatus]
@@ -72,7 +72,7 @@ $creadList :: ReadS [InventoryDeletionStatus]
 readsPrec :: Int -&gt; ReadS InventoryDeletionStatus
 $creadsPrec :: Int -&gt; ReadS InventoryDeletionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679796513"><span id="local-6989586621679796515"><span class="annot"><span class="annottext">InventoryDeletionStatus -&gt; InventoryDeletionStatus -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679796522"><span id="local-6989586621679796524"><span class="annot"><span class="annottext">InventoryDeletionStatus -&gt; InventoryDeletionStatus -&gt; Bool
 (InventoryDeletionStatus -&gt; InventoryDeletionStatus -&gt; Bool)
 -&gt; (InventoryDeletionStatus -&gt; InventoryDeletionStatus -&gt; Bool)
 -&gt; Eq InventoryDeletionStatus
@@ -82,7 +82,7 @@ $c/= :: InventoryDeletionStatus -&gt; InventoryDeletionStatus -&gt; Bool
 == :: InventoryDeletionStatus -&gt; InventoryDeletionStatus -&gt; Bool
 $c== :: InventoryDeletionStatus -&gt; InventoryDeletionStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679796497"><span id="local-6989586621679796499"><span id="local-6989586621679796501"><span id="local-6989586621679796503"><span id="local-6989586621679796505"><span id="local-6989586621679796507"><span id="local-6989586621679796509"><span class="annot"><span class="annottext">Eq InventoryDeletionStatus
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679796506"><span id="local-6989586621679796508"><span id="local-6989586621679796510"><span id="local-6989586621679796512"><span id="local-6989586621679796514"><span id="local-6989586621679796516"><span id="local-6989586621679796518"><span class="annot"><span class="annottext">Eq InventoryDeletionStatus
 Eq InventoryDeletionStatus
 -&gt; (InventoryDeletionStatus -&gt; InventoryDeletionStatus -&gt; Ordering)
 -&gt; (InventoryDeletionStatus -&gt; InventoryDeletionStatus -&gt; Bool)
@@ -142,7 +142,7 @@ $cfrom :: forall x. InventoryDeletionStatus -&gt; Rep InventoryDeletionStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679796489"><span id="local-6989586621679796491"><span class="annot"><span class="annottext">Int -&gt; InventoryDeletionStatus -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679796498"><span id="local-6989586621679796500"><span class="annot"><span class="annottext">Int -&gt; InventoryDeletionStatus -&gt; Int
 InventoryDeletionStatus -&gt; Int
 (Int -&gt; InventoryDeletionStatus -&gt; Int)
 -&gt; (InventoryDeletionStatus -&gt; Int)
@@ -153,54 +153,54 @@ $chash :: InventoryDeletionStatus -&gt; Int
 hashWithSalt :: Int -&gt; InventoryDeletionStatus -&gt; Int
 $chashWithSalt :: Int -&gt; InventoryDeletionStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679796486"><span class="annot"><span class="annottext">InventoryDeletionStatus -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679796495"><span class="annot"><span class="annottext">InventoryDeletionStatus -&gt; ()
 (InventoryDeletionStatus -&gt; ()) -&gt; NFData InventoryDeletionStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: InventoryDeletionStatus -&gt; ()
 $crnf :: InventoryDeletionStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679796483"><span class="annot"><span class="annottext">Text -&gt; Either String InventoryDeletionStatus
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679796492"><span class="annot"><span class="annottext">Text -&gt; Either String InventoryDeletionStatus
 (Text -&gt; Either String InventoryDeletionStatus)
 -&gt; FromText InventoryDeletionStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String InventoryDeletionStatus
 $cfromText :: Text -&gt; Either String InventoryDeletionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679796480"><span class="annot"><span class="annottext">InventoryDeletionStatus -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679796489"><span class="annot"><span class="annottext">InventoryDeletionStatus -&gt; Text
 (InventoryDeletionStatus -&gt; Text) -&gt; ToText InventoryDeletionStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: InventoryDeletionStatus -&gt; Text
 $ctoText :: InventoryDeletionStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679796477"><span class="annot"><span class="annottext">InventoryDeletionStatus -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679796486"><span class="annot"><span class="annottext">InventoryDeletionStatus -&gt; ByteString
 (InventoryDeletionStatus -&gt; ByteString)
 -&gt; ToByteString InventoryDeletionStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: InventoryDeletionStatus -&gt; ByteString
 $ctoBS :: InventoryDeletionStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679796474"><span class="annot"><span class="annottext">InventoryDeletionStatus -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679796483"><span class="annot"><span class="annottext">InventoryDeletionStatus -&gt; ByteStringBuilder
 (InventoryDeletionStatus -&gt; ByteStringBuilder)
 -&gt; ToLog InventoryDeletionStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: InventoryDeletionStatus -&gt; ByteStringBuilder
 $cbuild :: InventoryDeletionStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679796471"><span class="annot"><span class="annottext">HeaderName -&gt; InventoryDeletionStatus -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679796480"><span class="annot"><span class="annottext">HeaderName -&gt; InventoryDeletionStatus -&gt; [Header]
 (HeaderName -&gt; InventoryDeletionStatus -&gt; [Header])
 -&gt; ToHeader InventoryDeletionStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; InventoryDeletionStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; InventoryDeletionStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679796468"><span class="annot"><span class="annottext">InventoryDeletionStatus -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679796477"><span class="annot"><span class="annottext">InventoryDeletionStatus -&gt; QueryString
 (InventoryDeletionStatus -&gt; QueryString)
 -&gt; ToQuery InventoryDeletionStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: InventoryDeletionStatus -&gt; QueryString
 $ctoQuery :: InventoryDeletionStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679796463"><span id="local-6989586621679796465"><span class="annot"><span class="annottext">Value -&gt; Parser [InventoryDeletionStatus]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679796472"><span id="local-6989586621679796474"><span class="annot"><span class="annottext">Value -&gt; Parser [InventoryDeletionStatus]
 Value -&gt; Parser InventoryDeletionStatus
 (Value -&gt; Parser InventoryDeletionStatus)
 -&gt; (Value -&gt; Parser [InventoryDeletionStatus])
@@ -212,7 +212,7 @@ $cparseJSONList :: Value -&gt; Parser [InventoryDeletionStatus]
 parseJSON :: Value -&gt; Parser InventoryDeletionStatus
 $cparseJSON :: Value -&gt; Parser InventoryDeletionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679796458"><span id="local-6989586621679796460"><span class="annot"><span class="annottext">FromJSONKeyFunction [InventoryDeletionStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679796467"><span id="local-6989586621679796469"><span class="annot"><span class="annottext">FromJSONKeyFunction [InventoryDeletionStatus]
 FromJSONKeyFunction InventoryDeletionStatus
 FromJSONKeyFunction InventoryDeletionStatus
 -&gt; FromJSONKeyFunction [InventoryDeletionStatus]
@@ -224,7 +224,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [InventoryDeletionStatus]
 fromJSONKey :: FromJSONKeyFunction InventoryDeletionStatus
 $cfromJSONKey :: FromJSONKeyFunction InventoryDeletionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679796449"><span id="local-6989586621679796451"><span id="local-6989586621679796453"><span id="local-6989586621679796455"><span class="annot"><span class="annottext">[InventoryDeletionStatus] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679796458"><span id="local-6989586621679796460"><span id="local-6989586621679796462"><span id="local-6989586621679796464"><span class="annot"><span class="annottext">[InventoryDeletionStatus] -&gt; Encoding
 [InventoryDeletionStatus] -&gt; Value
 InventoryDeletionStatus -&gt; Encoding
 InventoryDeletionStatus -&gt; Value
@@ -248,7 +248,7 @@ $ctoEncoding :: InventoryDeletionStatus -&gt; Encoding
 toJSON :: InventoryDeletionStatus -&gt; Value
 $ctoJSON :: InventoryDeletionStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679796444"><span id="local-6989586621679796446"><span class="annot"><span class="annottext">ToJSONKeyFunction [InventoryDeletionStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679796453"><span id="local-6989586621679796455"><span class="annot"><span class="annottext">ToJSONKeyFunction [InventoryDeletionStatus]
 ToJSONKeyFunction InventoryDeletionStatus
 ToJSONKeyFunction InventoryDeletionStatus
 -&gt; ToJSONKeyFunction [InventoryDeletionStatus]
@@ -260,14 +260,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [InventoryDeletionStatus]
 toJSONKey :: ToJSONKeyFunction InventoryDeletionStatus
 $ctoJSONKey :: ToJSONKeyFunction InventoryDeletionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679796441"><span class="annot"><span class="annottext">[Node] -&gt; Either String InventoryDeletionStatus
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679796450"><span class="annot"><span class="annottext">[Node] -&gt; Either String InventoryDeletionStatus
 ([Node] -&gt; Either String InventoryDeletionStatus)
 -&gt; FromXML InventoryDeletionStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String InventoryDeletionStatus
 $cparseXML :: [Node] -&gt; Either String InventoryDeletionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679796438"><span class="annot"><span class="annottext">InventoryDeletionStatus -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679796447"><span class="annot"><span class="annottext">InventoryDeletionStatus -&gt; XML
 (InventoryDeletionStatus -&gt; XML) -&gt; ToXML InventoryDeletionStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: InventoryDeletionStatus -&gt; XML

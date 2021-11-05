@@ -61,7 +61,7 @@
 </span><span id="line-61"></span><span class="hs-comment">-- | Contains the parameters for PurchaseScheduledInstances.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- /See:/ 'newPurchaseScheduledInstances' smart constructor.</span><span>
-</span><span id="line-64"></span><span id="local-6989586621681211581"><span id="local-6989586621681211582"></span></span><span class="hs-keyword">data</span><span> </span><span id="PurchaseScheduledInstances"><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstances"><span class="hs-identifier hs-var">PurchaseScheduledInstances</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PurchaseScheduledInstances%27"><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstances%27"><span class="hs-identifier hs-var">PurchaseScheduledInstances'</span></a></span></span><span>
+</span><span id="line-64"></span><span id="local-6989586621681211590"><span id="local-6989586621681211591"></span></span><span class="hs-keyword">data</span><span> </span><span id="PurchaseScheduledInstances"><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstances"><span class="hs-identifier hs-var">PurchaseScheduledInstances</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PurchaseScheduledInstances%27"><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstances%27"><span class="hs-identifier hs-var">PurchaseScheduledInstances'</span></a></span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Unique, case-sensitive identifier that ensures the idempotency of the</span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-comment">-- request. For more information, see</span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency&gt;.</span><span>
@@ -77,7 +77,7 @@
 </span><span id="line-75"></span><span>    </span><span id="%24sel%3ApurchaseRequests%3APurchaseScheduledInstances%27"><span class="annot"><span class="annottext">PurchaseScheduledInstances -&gt; NonEmpty PurchaseRequest
 </span><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#%24sel%3ApurchaseRequests%3APurchaseScheduledInstances%27"><span class="hs-identifier hs-var hs-var">purchaseRequests</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PurchaseRequest.html#PurchaseRequest"><span class="hs-identifier hs-type">PurchaseRequest</span></a></span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681211573"><span id="local-6989586621681211575"><span class="annot"><span class="annottext">PurchaseScheduledInstances -&gt; PurchaseScheduledInstances -&gt; Bool
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681211582"><span id="local-6989586621681211584"><span class="annot"><span class="annottext">PurchaseScheduledInstances -&gt; PurchaseScheduledInstances -&gt; Bool
 (PurchaseScheduledInstances -&gt; PurchaseScheduledInstances -&gt; Bool)
 -&gt; (PurchaseScheduledInstances
     -&gt; PurchaseScheduledInstances -&gt; Bool)
@@ -87,7 +87,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PurchaseScheduledInstances -&gt; PurchaseScheduledInstances -&gt; Bool
 == :: PurchaseScheduledInstances -&gt; PurchaseScheduledInstances -&gt; Bool
 $c== :: PurchaseScheduledInstances -&gt; PurchaseScheduledInstances -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681211564"><span id="local-6989586621681211566"><span id="local-6989586621681211568"><span id="local-6989586621681211570"><span class="annot"><span class="annottext">ReadPrec [PurchaseScheduledInstances]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681211573"><span id="local-6989586621681211575"><span id="local-6989586621681211577"><span id="local-6989586621681211579"><span class="annot"><span class="annottext">ReadPrec [PurchaseScheduledInstances]
 ReadPrec PurchaseScheduledInstances
 Int -&gt; ReadS PurchaseScheduledInstances
 ReadS [PurchaseScheduledInstances]
@@ -107,7 +107,7 @@ readList :: ReadS [PurchaseScheduledInstances]
 $creadList :: ReadS [PurchaseScheduledInstances]
 readsPrec :: Int -&gt; ReadS PurchaseScheduledInstances
 $creadsPrec :: Int -&gt; ReadS PurchaseScheduledInstances
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681211557"><span id="local-6989586621681211559"><span id="local-6989586621681211561"><span class="annot"><span class="annottext">Int -&gt; PurchaseScheduledInstances -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681211566"><span id="local-6989586621681211568"><span id="local-6989586621681211570"><span class="annot"><span class="annottext">Int -&gt; PurchaseScheduledInstances -&gt; ShowS
 [PurchaseScheduledInstances] -&gt; ShowS
 PurchaseScheduledInstances -&gt; String
 (Int -&gt; PurchaseScheduledInstances -&gt; ShowS)
@@ -162,8 +162,8 @@ PurchaseScheduledInstances -&gt; Rep PurchaseScheduledInstances x
 </span><span id="line-99"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PurchaseRequest.html#PurchaseRequest"><span class="hs-identifier hs-type">PurchaseRequest</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstances"><span class="hs-identifier hs-type">PurchaseScheduledInstances</span></a></span><span>
 </span><span id="line-101"></span><span id="newPurchaseScheduledInstances"><span class="annot"><span class="annottext">newPurchaseScheduledInstances :: NonEmpty PurchaseRequest -&gt; PurchaseScheduledInstances
-</span><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#newPurchaseScheduledInstances"><span class="hs-identifier hs-var hs-var">newPurchaseScheduledInstances</span></a></span></span><span> </span><span id="local-6989586621681211552"><span class="annot"><span class="annottext">NonEmpty PurchaseRequest
-</span><a href="#local-6989586621681211552"><span class="hs-identifier hs-var">pPurchaseRequests_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#newPurchaseScheduledInstances"><span class="hs-identifier hs-var hs-var">newPurchaseScheduledInstances</span></a></span></span><span> </span><span id="local-6989586621681211561"><span class="annot"><span class="annottext">NonEmpty PurchaseRequest
+</span><a href="#local-6989586621681211561"><span class="hs-identifier hs-var">pPurchaseRequests_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>  </span><span class="annot"><span class="annottext">PurchaseScheduledInstances' :: Maybe Text
 -&gt; Maybe Bool
 -&gt; NonEmpty PurchaseRequest
@@ -192,7 +192,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty PurchaseRequest -&gt; NonEmpty PurchaseRequest
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty PurchaseRequest
-</span><a href="#local-6989586621681211552"><span class="hs-identifier hs-var">pPurchaseRequests_</span></a></span><span>
+</span><a href="#local-6989586621681211561"><span class="hs-identifier hs-var">pPurchaseRequests_</span></a></span><span>
 </span><span id="line-108"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- | Unique, case-sensitive identifier that ensures the idempotency of the</span><span>
@@ -210,16 +210,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstances%27"><span class="hs-identifier hs-type">PurchaseScheduledInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681211547"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstances%27"><span class="hs-identifier hs-type">PurchaseScheduledInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681211556"><span class="annot"><span class="annottext">Maybe Text
 clientToken :: Maybe Text
 $sel:clientToken:PurchaseScheduledInstances' :: PurchaseScheduledInstances -&gt; Maybe Text
-</span><a href="#local-6989586621681211547"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681211547"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681211546"><span class="annot"><span class="annottext">s :: PurchaseScheduledInstances
-</span><a href="#local-6989586621681211546"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstances%27"><span class="hs-identifier hs-type">PurchaseScheduledInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681211545"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681211545"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PurchaseScheduledInstances
-</span><a href="#local-6989586621681211546"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:PurchaseScheduledInstances' :: Maybe Text
+</span><a href="#local-6989586621681211556"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681211556"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681211555"><span class="annot"><span class="annottext">s :: PurchaseScheduledInstances
+</span><a href="#local-6989586621681211555"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstances%27"><span class="hs-identifier hs-type">PurchaseScheduledInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681211554"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681211554"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PurchaseScheduledInstances
+</span><a href="#local-6989586621681211555"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:PurchaseScheduledInstances' :: Maybe Text
 </span><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#%24sel%3AclientToken%3APurchaseScheduledInstances%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681211545"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstances"><span class="hs-identifier hs-type">PurchaseScheduledInstances</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681211554"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstances"><span class="hs-identifier hs-type">PurchaseScheduledInstances</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
@@ -237,16 +237,16 @@ $sel:clientToken:PurchaseScheduledInstances' :: PurchaseScheduledInstances -&gt;
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstances%27"><span class="hs-identifier hs-type">PurchaseScheduledInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681211544"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstances%27"><span class="hs-identifier hs-type">PurchaseScheduledInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681211553"><span class="annot"><span class="annottext">Maybe Bool
 dryRun :: Maybe Bool
 $sel:dryRun:PurchaseScheduledInstances' :: PurchaseScheduledInstances -&gt; Maybe Bool
-</span><a href="#local-6989586621681211544"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681211544"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681211543"><span class="annot"><span class="annottext">s :: PurchaseScheduledInstances
-</span><a href="#local-6989586621681211543"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstances%27"><span class="hs-identifier hs-type">PurchaseScheduledInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681211542"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681211542"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PurchaseScheduledInstances
-</span><a href="#local-6989586621681211543"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:PurchaseScheduledInstances' :: Maybe Bool
+</span><a href="#local-6989586621681211553"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681211553"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681211552"><span class="annot"><span class="annottext">s :: PurchaseScheduledInstances
+</span><a href="#local-6989586621681211552"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstances%27"><span class="hs-identifier hs-type">PurchaseScheduledInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681211551"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681211551"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PurchaseScheduledInstances
+</span><a href="#local-6989586621681211552"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:PurchaseScheduledInstances' :: Maybe Bool
 </span><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#%24sel%3AdryRun%3APurchaseScheduledInstances%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681211542"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstances"><span class="hs-identifier hs-type">PurchaseScheduledInstances</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681211551"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstances"><span class="hs-identifier hs-type">PurchaseScheduledInstances</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | The purchase requests.</span><span>
 </span><span id="line-124"></span><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#purchaseScheduledInstances_purchaseRequests"><span class="hs-identifier hs-type">purchaseScheduledInstances_purchaseRequests</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstances"><span class="hs-identifier hs-type">PurchaseScheduledInstances</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PurchaseRequest.html#PurchaseRequest"><span class="hs-identifier hs-type">PurchaseRequest</span></a></span><span class="hs-special">)</span><span>
@@ -261,16 +261,16 @@ $sel:dryRun:PurchaseScheduledInstances' :: PurchaseScheduledInstances -&gt; Mayb
      (NonEmpty PurchaseRequest)
      (NonEmpty PurchaseRequest)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstances%27"><span class="hs-identifier hs-type">PurchaseScheduledInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681211541"><span class="annot"><span class="annottext">NonEmpty PurchaseRequest
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstances%27"><span class="hs-identifier hs-type">PurchaseScheduledInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681211550"><span class="annot"><span class="annottext">NonEmpty PurchaseRequest
 purchaseRequests :: NonEmpty PurchaseRequest
 $sel:purchaseRequests:PurchaseScheduledInstances' :: PurchaseScheduledInstances -&gt; NonEmpty PurchaseRequest
-</span><a href="#local-6989586621681211541"><span class="hs-identifier hs-var hs-var">purchaseRequests</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty PurchaseRequest
-</span><a href="#local-6989586621681211541"><span class="hs-identifier hs-var">purchaseRequests</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681211540"><span class="annot"><span class="annottext">s :: PurchaseScheduledInstances
-</span><a href="#local-6989586621681211540"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstances%27"><span class="hs-identifier hs-type">PurchaseScheduledInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681211539"><span class="annot"><span class="annottext">NonEmpty PurchaseRequest
-</span><a href="#local-6989586621681211539"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PurchaseScheduledInstances
-</span><a href="#local-6989586621681211540"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:purchaseRequests:PurchaseScheduledInstances' :: NonEmpty PurchaseRequest
+</span><a href="#local-6989586621681211550"><span class="hs-identifier hs-var hs-var">purchaseRequests</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty PurchaseRequest
+</span><a href="#local-6989586621681211550"><span class="hs-identifier hs-var">purchaseRequests</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681211549"><span class="annot"><span class="annottext">s :: PurchaseScheduledInstances
+</span><a href="#local-6989586621681211549"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstances%27"><span class="hs-identifier hs-type">PurchaseScheduledInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681211548"><span class="annot"><span class="annottext">NonEmpty PurchaseRequest
+</span><a href="#local-6989586621681211548"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PurchaseScheduledInstances
+</span><a href="#local-6989586621681211549"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:purchaseRequests:PurchaseScheduledInstances' :: NonEmpty PurchaseRequest
 </span><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#%24sel%3ApurchaseRequests%3APurchaseScheduledInstances%27"><span class="hs-identifier hs-var">purchaseRequests</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty PurchaseRequest
-</span><a href="#local-6989586621681211539"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstances"><span class="hs-identifier hs-type">PurchaseScheduledInstances</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty PurchaseRequest -&gt; f (NonEmpty PurchaseRequest))
+</span><a href="#local-6989586621681211548"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstances"><span class="hs-identifier hs-type">PurchaseScheduledInstances</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty PurchaseRequest -&gt; f (NonEmpty PurchaseRequest))
  -&gt; PurchaseScheduledInstances -&gt; f PurchaseScheduledInstances)
 -&gt; ((NonEmpty PurchaseRequest -&gt; f (NonEmpty PurchaseRequest))
     -&gt; NonEmpty PurchaseRequest -&gt; f (NonEmpty PurchaseRequest))
@@ -287,13 +287,13 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-128"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-129"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstances"><span class="hs-identifier hs-type">PurchaseScheduledInstances</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstancesResponse"><span class="hs-identifier hs-type">PurchaseScheduledInstancesResponse</span></a></span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621681211534"><span class="annot"><span class="annottext">request :: PurchaseScheduledInstances -&gt; Request PurchaseScheduledInstances
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621681211543"><span class="annot"><span class="annottext">request :: PurchaseScheduledInstances -&gt; Request PurchaseScheduledInstances
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; PurchaseScheduledInstances -&gt; Request PurchaseScheduledInstances
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621681211530"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621681211539"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PurchaseScheduledInstances
 -&gt; ClientResponse ClientBody
@@ -319,10 +319,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681211527"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681211527"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681211526"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681211526"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681211525"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681211525"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681211536"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681211536"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681211535"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681211535"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681211534"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681211534"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ScheduledInstance]
 -&gt; Int -&gt; PurchaseScheduledInstancesResponse
 </span><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstancesResponse%27"><span class="hs-identifier hs-var">PurchaseScheduledInstancesResponse'</span></a></span><span>
@@ -332,7 +332,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; PurchaseScheduledInstancesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681211525"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681211534"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;scheduledInstanceSet&quot;</span></span><span>
@@ -364,15 +364,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681211527"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681211536"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681211514"><span id="local-6989586621681211516"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstances"><span class="hs-identifier hs-type">PurchaseScheduledInstances</span></a></span></span></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681211523"><span id="local-6989586621681211525"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstances"><span class="hs-identifier hs-type">PurchaseScheduledInstances</span></a></span></span></span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681211511"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstances"><span class="hs-identifier hs-type">PurchaseScheduledInstances</span></a></span></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681211520"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstances"><span class="hs-identifier hs-type">PurchaseScheduledInstances</span></a></span></span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstances"><span class="hs-identifier hs-type">PurchaseScheduledInstances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621681211507"><span class="annot"><span class="annottext">toHeaders :: PurchaseScheduledInstances -&gt; ResponseHeaders
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621681211516"><span class="annot"><span class="annottext">toHeaders :: PurchaseScheduledInstances -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PurchaseScheduledInstances -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -380,15 +380,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstances"><span class="hs-identifier hs-type">PurchaseScheduledInstances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621681211502"><span class="annot"><span class="annottext">toPath :: PurchaseScheduledInstances -&gt; ByteString
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621681211511"><span class="annot"><span class="annottext">toPath :: PurchaseScheduledInstances -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PurchaseScheduledInstances -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstances"><span class="hs-identifier hs-type">PurchaseScheduledInstances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621681211498"><span class="annot"><span class="annottext">toQuery :: PurchaseScheduledInstances -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstances%27"><span class="hs-identifier hs-type">PurchaseScheduledInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681211494"><span id="local-6989586621681211495"><span id="local-6989586621681211496"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621681211507"><span class="annot"><span class="annottext">toQuery :: PurchaseScheduledInstances -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstances%27"><span class="hs-identifier hs-type">PurchaseScheduledInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681211503"><span id="local-6989586621681211504"><span id="local-6989586621681211505"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 NonEmpty PurchaseRequest
 purchaseRequests :: NonEmpty PurchaseRequest
@@ -397,7 +397,7 @@ clientToken :: Maybe Text
 $sel:purchaseRequests:PurchaseScheduledInstances' :: PurchaseScheduledInstances -&gt; NonEmpty PurchaseRequest
 $sel:dryRun:PurchaseScheduledInstances' :: PurchaseScheduledInstances -&gt; Maybe Bool
 $sel:clientToken:PurchaseScheduledInstances' :: PurchaseScheduledInstances -&gt; Maybe Text
-</span><a href="#local-6989586621681211494"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681211503"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -417,25 +417,25 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;ClientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681211496"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681211505"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681211495"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681211504"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">ByteString -&gt; NonEmpty PurchaseRequest -&gt; QueryString
 forall a.
 (IsList a, ToQuery (Item a)) =&gt;
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;PurchaseRequest&quot;</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty PurchaseRequest
-</span><a href="#local-6989586621681211494"><span class="hs-identifier hs-var">purchaseRequests</span></a></span><span>
+</span><a href="#local-6989586621681211503"><span class="hs-identifier hs-var">purchaseRequests</span></a></span><span>
 </span><span id="line-163"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | Contains the output of PurchaseScheduledInstances.</span><span>
 </span><span id="line-166"></span><span class="hs-comment">--</span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- /See:/ 'newPurchaseScheduledInstancesResponse' smart constructor.</span><span>
-</span><span id="line-168"></span><span id="local-6989586621681211490"><span id="local-6989586621681211491"></span></span><span class="hs-keyword">data</span><span> </span><span id="PurchaseScheduledInstancesResponse"><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstancesResponse"><span class="hs-identifier hs-var">PurchaseScheduledInstancesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PurchaseScheduledInstancesResponse%27"><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstancesResponse%27"><span class="hs-identifier hs-var">PurchaseScheduledInstancesResponse'</span></a></span></span><span>
+</span><span id="line-168"></span><span id="local-6989586621681211499"><span id="local-6989586621681211500"></span></span><span class="hs-keyword">data</span><span> </span><span id="PurchaseScheduledInstancesResponse"><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstancesResponse"><span class="hs-identifier hs-var">PurchaseScheduledInstancesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PurchaseScheduledInstancesResponse%27"><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstancesResponse%27"><span class="hs-identifier hs-var">PurchaseScheduledInstancesResponse'</span></a></span></span><span>
 </span><span id="line-169"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the Scheduled Instances.</span><span>
 </span><span id="line-170"></span><span>    </span><span id="%24sel%3AscheduledInstanceSet%3APurchaseScheduledInstancesResponse%27"><span class="annot"><span class="annottext">PurchaseScheduledInstancesResponse -&gt; Maybe [ScheduledInstance]
 </span><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#%24sel%3AscheduledInstanceSet%3APurchaseScheduledInstancesResponse%27"><span class="hs-identifier hs-var hs-var">scheduledInstanceSet</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.ScheduledInstance.html#ScheduledInstance"><span class="hs-identifier hs-type">ScheduledInstance</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -443,7 +443,7 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-172"></span><span>    </span><span id="%24sel%3AhttpStatus%3APurchaseScheduledInstancesResponse%27"><span class="annot"><span class="annottext">PurchaseScheduledInstancesResponse -&gt; Int
 </span><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#%24sel%3AhttpStatus%3APurchaseScheduledInstancesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-173"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-174"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681211484"><span id="local-6989586621681211486"><span class="annot"><span class="annottext">PurchaseScheduledInstancesResponse
+</span><span id="line-174"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681211493"><span id="local-6989586621681211495"><span class="annot"><span class="annottext">PurchaseScheduledInstancesResponse
 -&gt; PurchaseScheduledInstancesResponse -&gt; Bool
 (PurchaseScheduledInstancesResponse
  -&gt; PurchaseScheduledInstancesResponse -&gt; Bool)
@@ -459,7 +459,7 @@ $c/= :: PurchaseScheduledInstancesResponse
 -&gt; PurchaseScheduledInstancesResponse -&gt; Bool
 $c== :: PurchaseScheduledInstancesResponse
 -&gt; PurchaseScheduledInstancesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681211476"><span id="local-6989586621681211478"><span id="local-6989586621681211480"><span id="local-6989586621681211482"><span class="annot"><span class="annottext">ReadPrec [PurchaseScheduledInstancesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681211485"><span id="local-6989586621681211487"><span id="local-6989586621681211489"><span id="local-6989586621681211491"><span class="annot"><span class="annottext">ReadPrec [PurchaseScheduledInstancesResponse]
 ReadPrec PurchaseScheduledInstancesResponse
 Int -&gt; ReadS PurchaseScheduledInstancesResponse
 ReadS [PurchaseScheduledInstancesResponse]
@@ -479,7 +479,7 @@ readList :: ReadS [PurchaseScheduledInstancesResponse]
 $creadList :: ReadS [PurchaseScheduledInstancesResponse]
 readsPrec :: Int -&gt; ReadS PurchaseScheduledInstancesResponse
 $creadsPrec :: Int -&gt; ReadS PurchaseScheduledInstancesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681211470"><span id="local-6989586621681211472"><span id="local-6989586621681211474"><span class="annot"><span class="annottext">Int -&gt; PurchaseScheduledInstancesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681211479"><span id="local-6989586621681211481"><span id="local-6989586621681211483"><span class="annot"><span class="annottext">Int -&gt; PurchaseScheduledInstancesResponse -&gt; ShowS
 [PurchaseScheduledInstancesResponse] -&gt; ShowS
 PurchaseScheduledInstancesResponse -&gt; String
 (Int -&gt; PurchaseScheduledInstancesResponse -&gt; ShowS)
@@ -533,8 +533,8 @@ PurchaseScheduledInstancesResponse
 </span><span id="line-189"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-190"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstancesResponse"><span class="hs-identifier hs-type">PurchaseScheduledInstancesResponse</span></a></span><span>
 </span><span id="line-191"></span><span id="newPurchaseScheduledInstancesResponse"><span class="annot"><span class="annottext">newPurchaseScheduledInstancesResponse :: Int -&gt; PurchaseScheduledInstancesResponse
-</span><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#newPurchaseScheduledInstancesResponse"><span class="hs-identifier hs-var hs-var">newPurchaseScheduledInstancesResponse</span></a></span></span><span> </span><span id="local-6989586621681211467"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681211467"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#newPurchaseScheduledInstancesResponse"><span class="hs-identifier hs-var hs-var">newPurchaseScheduledInstancesResponse</span></a></span></span><span> </span><span id="local-6989586621681211476"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681211476"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-192"></span><span>  </span><span class="annot"><span class="annottext">PurchaseScheduledInstancesResponse' :: Maybe [ScheduledInstance]
 -&gt; Int -&gt; PurchaseScheduledInstancesResponse
 </span><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstancesResponse%27"><span class="hs-identifier hs-type">PurchaseScheduledInstancesResponse'</span></a></span><span>
@@ -545,7 +545,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:PurchaseScheduledInstancesResponse' :: Int
 </span><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#%24sel%3AhttpStatus%3APurchaseScheduledInstancesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681211467"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621681211476"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-196"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- | Information about the Scheduled Instances.</span><span>
@@ -562,16 +562,16 @@ forall a. Maybe a
      (Maybe [ScheduledInstance])
      (Maybe [ScheduledInstance])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstancesResponse%27"><span class="hs-identifier hs-type">PurchaseScheduledInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681211466"><span class="annot"><span class="annottext">Maybe [ScheduledInstance]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstancesResponse%27"><span class="hs-identifier hs-type">PurchaseScheduledInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681211475"><span class="annot"><span class="annottext">Maybe [ScheduledInstance]
 scheduledInstanceSet :: Maybe [ScheduledInstance]
 $sel:scheduledInstanceSet:PurchaseScheduledInstancesResponse' :: PurchaseScheduledInstancesResponse -&gt; Maybe [ScheduledInstance]
-</span><a href="#local-6989586621681211466"><span class="hs-identifier hs-var hs-var">scheduledInstanceSet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ScheduledInstance]
-</span><a href="#local-6989586621681211466"><span class="hs-identifier hs-var">scheduledInstanceSet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681211465"><span class="annot"><span class="annottext">s :: PurchaseScheduledInstancesResponse
-</span><a href="#local-6989586621681211465"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstancesResponse%27"><span class="hs-identifier hs-type">PurchaseScheduledInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681211464"><span class="annot"><span class="annottext">Maybe [ScheduledInstance]
-</span><a href="#local-6989586621681211464"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PurchaseScheduledInstancesResponse
-</span><a href="#local-6989586621681211465"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduledInstanceSet:PurchaseScheduledInstancesResponse' :: Maybe [ScheduledInstance]
+</span><a href="#local-6989586621681211475"><span class="hs-identifier hs-var hs-var">scheduledInstanceSet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ScheduledInstance]
+</span><a href="#local-6989586621681211475"><span class="hs-identifier hs-var">scheduledInstanceSet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681211474"><span class="annot"><span class="annottext">s :: PurchaseScheduledInstancesResponse
+</span><a href="#local-6989586621681211474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstancesResponse%27"><span class="hs-identifier hs-type">PurchaseScheduledInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681211473"><span class="annot"><span class="annottext">Maybe [ScheduledInstance]
+</span><a href="#local-6989586621681211473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PurchaseScheduledInstancesResponse
+</span><a href="#local-6989586621681211474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduledInstanceSet:PurchaseScheduledInstancesResponse' :: Maybe [ScheduledInstance]
 </span><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#%24sel%3AscheduledInstanceSet%3APurchaseScheduledInstancesResponse%27"><span class="hs-identifier hs-var">scheduledInstanceSet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ScheduledInstance]
-</span><a href="#local-6989586621681211464"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstancesResponse"><span class="hs-identifier hs-type">PurchaseScheduledInstancesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ScheduledInstance] -&gt; f (Maybe [ScheduledInstance]))
+</span><a href="#local-6989586621681211473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstancesResponse"><span class="hs-identifier hs-type">PurchaseScheduledInstancesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ScheduledInstance] -&gt; f (Maybe [ScheduledInstance]))
  -&gt; PurchaseScheduledInstancesResponse
  -&gt; f PurchaseScheduledInstancesResponse)
 -&gt; ((Maybe [ScheduledInstance] -&gt; f (Maybe [ScheduledInstance]))
@@ -615,18 +615,18 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstancesResponse%27"><span class="hs-identifier hs-type">PurchaseScheduledInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681211462"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstancesResponse%27"><span class="hs-identifier hs-type">PurchaseScheduledInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681211471"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:PurchaseScheduledInstancesResponse' :: PurchaseScheduledInstancesResponse -&gt; Int
-</span><a href="#local-6989586621681211462"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681211462"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681211461"><span class="annot"><span class="annottext">s :: PurchaseScheduledInstancesResponse
-</span><a href="#local-6989586621681211461"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstancesResponse%27"><span class="hs-identifier hs-type">PurchaseScheduledInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681211460"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681211460"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PurchaseScheduledInstancesResponse
-</span><a href="#local-6989586621681211461"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PurchaseScheduledInstancesResponse' :: Int
+</span><a href="#local-6989586621681211471"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681211471"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681211470"><span class="annot"><span class="annottext">s :: PurchaseScheduledInstancesResponse
+</span><a href="#local-6989586621681211470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstancesResponse%27"><span class="hs-identifier hs-type">PurchaseScheduledInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681211469"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681211469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PurchaseScheduledInstancesResponse
+</span><a href="#local-6989586621681211470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PurchaseScheduledInstancesResponse' :: Int
 </span><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#%24sel%3AhttpStatus%3APurchaseScheduledInstancesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681211460"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstancesResponse"><span class="hs-identifier hs-type">PurchaseScheduledInstancesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681211469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstancesResponse"><span class="hs-identifier hs-type">PurchaseScheduledInstancesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-205"></span><span>
 </span><span id="line-206"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-207"></span><span>  </span><span id="local-6989586621681211458"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621681211467"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-208"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.PurchaseScheduledInstances.html#PurchaseScheduledInstancesResponse"><span class="hs-identifier hs-type">PurchaseScheduledInstancesResponse</span></a></span></span><span>
 </span><span id="line-209"></span></pre></body></html>

@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes an action to write data to an Amazon S3 bucket.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newS3Action' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679796388"><span id="local-6989586621679796389"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3Action"><span class="annot"><a href="Network.AWS.IoT.Types.S3Action.html#S3Action"><span class="hs-identifier hs-var">S3Action</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3Action%27"><span class="annot"><a href="Network.AWS.IoT.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-var">S3Action'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679796397"><span id="local-6989586621679796398"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3Action"><span class="annot"><a href="Network.AWS.IoT.Types.S3Action.html#S3Action"><span class="hs-identifier hs-var">S3Action</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3Action%27"><span class="annot"><a href="Network.AWS.IoT.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-var">S3Action'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon S3 canned ACL that controls access to the object identified</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- by the object key. For more information, see</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl S3 canned ACLs&gt;.</span><span>
@@ -44,7 +44,7 @@
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3Akey%3AS3Action%27"><span class="annot"><span class="annottext">S3Action -&gt; Text
 </span><a href="Network.AWS.IoT.Types.S3Action.html#%24sel%3Akey%3AS3Action%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679796379"><span id="local-6989586621679796381"><span class="annot"><span class="annottext">S3Action -&gt; S3Action -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679796388"><span id="local-6989586621679796390"><span class="annot"><span class="annottext">S3Action -&gt; S3Action -&gt; Bool
 (S3Action -&gt; S3Action -&gt; Bool)
 -&gt; (S3Action -&gt; S3Action -&gt; Bool) -&gt; Eq S3Action
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: S3Action -&gt; S3Action -&gt; Bool
 == :: S3Action -&gt; S3Action -&gt; Bool
 $c== :: S3Action -&gt; S3Action -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679796370"><span id="local-6989586621679796372"><span id="local-6989586621679796374"><span id="local-6989586621679796376"><span class="annot"><span class="annottext">ReadPrec [S3Action]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679796379"><span id="local-6989586621679796381"><span id="local-6989586621679796383"><span id="local-6989586621679796385"><span class="annot"><span class="annottext">ReadPrec [S3Action]
 ReadPrec S3Action
 Int -&gt; ReadS S3Action
 ReadS [S3Action]
@@ -72,7 +72,7 @@ readList :: ReadS [S3Action]
 $creadList :: ReadS [S3Action]
 readsPrec :: Int -&gt; ReadS S3Action
 $creadsPrec :: Int -&gt; ReadS S3Action
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679796363"><span id="local-6989586621679796365"><span id="local-6989586621679796367"><span class="annot"><span class="annottext">Int -&gt; S3Action -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679796372"><span id="local-6989586621679796374"><span id="local-6989586621679796376"><span class="annot"><span class="annottext">Int -&gt; S3Action -&gt; ShowS
 [S3Action] -&gt; ShowS
 S3Action -&gt; String
 (Int -&gt; S3Action -&gt; ShowS)
@@ -122,10 +122,10 @@ $cfrom :: forall x. S3Action -&gt; Rep S3Action x
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span><span>
 </span><span id="line-71"></span><span id="newS3Action"><span class="annot"><span class="annottext">newS3Action :: Text -&gt; Text -&gt; Text -&gt; S3Action
-</span><a href="Network.AWS.IoT.Types.S3Action.html#newS3Action"><span class="hs-identifier hs-var hs-var">newS3Action</span></a></span></span><span> </span><span id="local-6989586621679796357"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796357"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span id="local-6989586621679796356"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796356"><span class="hs-identifier hs-var">pBucketName_</span></a></span></span><span> </span><span id="local-6989586621679796355"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796355"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.Types.S3Action.html#newS3Action"><span class="hs-identifier hs-var hs-var">newS3Action</span></a></span></span><span> </span><span id="local-6989586621679796366"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679796366"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span id="local-6989586621679796365"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679796365"><span class="hs-identifier hs-var">pBucketName_</span></a></span></span><span> </span><span id="local-6989586621679796364"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679796364"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">S3Action' :: Maybe CannedAccessControlList -&gt; Text -&gt; Text -&gt; Text -&gt; S3Action
 </span><a href="Network.AWS.IoT.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cannedAcl:S3Action' :: Maybe CannedAccessControlList
@@ -134,13 +134,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleArn:S3Action' :: Text
 </span><a href="Network.AWS.IoT.Types.S3Action.html#%24sel%3AroleArn%3AS3Action%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796357"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679796366"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucketName:S3Action' :: Text
 </span><a href="Network.AWS.IoT.Types.S3Action.html#%24sel%3AbucketName%3AS3Action%27"><span class="hs-identifier hs-var">bucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796356"><span class="hs-identifier hs-var">pBucketName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679796365"><span class="hs-identifier hs-var">pBucketName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:key:S3Action' :: Text
 </span><a href="Network.AWS.IoT.Types.S3Action.html#%24sel%3Akey%3AS3Action%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796355"><span class="hs-identifier hs-var">pKey_</span></a></span><span>
+</span><a href="#local-6989586621679796364"><span class="hs-identifier hs-var">pKey_</span></a></span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- | The Amazon S3 canned ACL that controls access to the object identified</span><span>
@@ -158,16 +158,16 @@ forall a. Maybe a
      (Maybe CannedAccessControlList)
      (Maybe CannedAccessControlList)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679796351"><span class="annot"><span class="annottext">Maybe CannedAccessControlList
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679796360"><span class="annot"><span class="annottext">Maybe CannedAccessControlList
 cannedAcl :: Maybe CannedAccessControlList
 $sel:cannedAcl:S3Action' :: S3Action -&gt; Maybe CannedAccessControlList
-</span><a href="#local-6989586621679796351"><span class="hs-identifier hs-var hs-var">cannedAcl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CannedAccessControlList
-</span><a href="#local-6989586621679796351"><span class="hs-identifier hs-var">cannedAcl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679796350"><span class="annot"><span class="annottext">s :: S3Action
-</span><a href="#local-6989586621679796350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679796349"><span class="annot"><span class="annottext">Maybe CannedAccessControlList
-</span><a href="#local-6989586621679796349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Action
-</span><a href="#local-6989586621679796350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cannedAcl:S3Action' :: Maybe CannedAccessControlList
+</span><a href="#local-6989586621679796360"><span class="hs-identifier hs-var hs-var">cannedAcl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CannedAccessControlList
+</span><a href="#local-6989586621679796360"><span class="hs-identifier hs-var">cannedAcl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679796359"><span class="annot"><span class="annottext">s :: S3Action
+</span><a href="#local-6989586621679796359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679796358"><span class="annot"><span class="annottext">Maybe CannedAccessControlList
+</span><a href="#local-6989586621679796358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Action
+</span><a href="#local-6989586621679796359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cannedAcl:S3Action' :: Maybe CannedAccessControlList
 </span><a href="Network.AWS.IoT.Types.S3Action.html#%24sel%3AcannedAcl%3AS3Action%27"><span class="hs-identifier hs-var">cannedAcl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CannedAccessControlList
-</span><a href="#local-6989586621679796349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679796358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The ARN of the IAM role that grants access.</span><span>
 </span><span id="line-86"></span><span class="annot"><a href="Network.AWS.IoT.Types.S3Action.html#s3Action_roleArn"><span class="hs-identifier hs-type">s3Action_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -176,16 +176,16 @@ $sel:cannedAcl:S3Action' :: S3Action -&gt; Maybe CannedAccessControlList
 -&gt; (S3Action -&gt; Text -&gt; S3Action)
 -&gt; Lens S3Action S3Action Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679796347"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679796356"><span class="annot"><span class="annottext">Text
 roleArn :: Text
 $sel:roleArn:S3Action' :: S3Action -&gt; Text
-</span><a href="#local-6989586621679796347"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796347"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679796346"><span class="annot"><span class="annottext">s :: S3Action
-</span><a href="#local-6989586621679796346"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679796345"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796345"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Action
-</span><a href="#local-6989586621679796346"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:S3Action' :: Text
+</span><a href="#local-6989586621679796356"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679796356"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679796355"><span class="annot"><span class="annottext">s :: S3Action
+</span><a href="#local-6989586621679796355"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679796354"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679796354"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Action
+</span><a href="#local-6989586621679796355"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:S3Action' :: Text
 </span><a href="Network.AWS.IoT.Types.S3Action.html#%24sel%3AroleArn%3AS3Action%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796345"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679796354"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The Amazon S3 bucket.</span><span>
 </span><span id="line-90"></span><span class="annot"><a href="Network.AWS.IoT.Types.S3Action.html#s3Action_bucketName"><span class="hs-identifier hs-type">s3Action_bucketName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -194,16 +194,16 @@ $sel:roleArn:S3Action' :: S3Action -&gt; Text
 -&gt; (S3Action -&gt; Text -&gt; S3Action)
 -&gt; Lens S3Action S3Action Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679796343"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679796352"><span class="annot"><span class="annottext">Text
 bucketName :: Text
 $sel:bucketName:S3Action' :: S3Action -&gt; Text
-</span><a href="#local-6989586621679796343"><span class="hs-identifier hs-var hs-var">bucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796343"><span class="hs-identifier hs-var">bucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679796342"><span class="annot"><span class="annottext">s :: S3Action
-</span><a href="#local-6989586621679796342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679796341"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Action
-</span><a href="#local-6989586621679796342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketName:S3Action' :: Text
+</span><a href="#local-6989586621679796352"><span class="hs-identifier hs-var hs-var">bucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679796352"><span class="hs-identifier hs-var">bucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679796351"><span class="annot"><span class="annottext">s :: S3Action
+</span><a href="#local-6989586621679796351"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679796350"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679796350"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Action
+</span><a href="#local-6989586621679796351"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketName:S3Action' :: Text
 </span><a href="Network.AWS.IoT.Types.S3Action.html#%24sel%3AbucketName%3AS3Action%27"><span class="hs-identifier hs-var">bucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679796350"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | The object key. For more information, see</span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/list_amazons3.html Actions, resources, and condition keys for Amazon S3&gt;.</span><span>
@@ -213,27 +213,27 @@ $sel:bucketName:S3Action' :: S3Action -&gt; Text
 -&gt; (S3Action -&gt; Text -&gt; S3Action)
 -&gt; Lens S3Action S3Action Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679796339"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679796348"><span class="annot"><span class="annottext">Text
 key :: Text
 $sel:key:S3Action' :: S3Action -&gt; Text
-</span><a href="#local-6989586621679796339"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796339"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679796338"><span class="annot"><span class="annottext">s :: S3Action
-</span><a href="#local-6989586621679796338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679796337"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Action
-</span><a href="#local-6989586621679796338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:S3Action' :: Text
+</span><a href="#local-6989586621679796348"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679796348"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679796347"><span class="annot"><span class="annottext">s :: S3Action
+</span><a href="#local-6989586621679796347"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679796346"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679796346"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Action
+</span><a href="#local-6989586621679796347"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:S3Action' :: Text
 </span><a href="Network.AWS.IoT.Types.S3Action.html#%24sel%3Akey%3AS3Action%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679796346"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679796334"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679796332"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser S3Action
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679796343"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679796341"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser S3Action
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser S3Action) -&gt; Value -&gt; Parser S3Action
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;S3Action&quot;</span></span><span>
-</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679796329"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679796329"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679796338"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679796338"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe CannedAccessControlList -&gt; Text -&gt; Text -&gt; Text -&gt; S3Action
 </span><a href="Network.AWS.IoT.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-var">S3Action'</span></a></span><span>
 </span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">(Maybe CannedAccessControlList -&gt; Text -&gt; Text -&gt; Text -&gt; S3Action)
@@ -241,7 +241,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Text -&gt; Text -&gt; Text -&gt; S3Action)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679796329"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CannedAccessControlList)
+</span><a href="#local-6989586621679796338"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CannedAccessControlList)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cannedAcl&quot;</span></span><span class="hs-special">)</span><span>
@@ -249,7 +249,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser (Text -&gt; Text -&gt; S3Action)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679796329"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679796338"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;roleArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -257,26 +257,26 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (Text -&gt; S3Action)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679796329"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679796338"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;bucketName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; S3Action) -&gt; Parser Text -&gt; Parser S3Action
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679796329"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679796338"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;key&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679796322"><span id="local-6989586621679796324"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679796331"><span id="local-6989586621679796333"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span></span></span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679796319"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679796328"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span></span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679796311"><span id="local-6989586621679796313"><span id="local-6989586621679796315"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679796309"><span class="annot"><span class="annottext">toJSON :: S3Action -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679796304"><span id="local-6989586621679796305"><span id="local-6989586621679796306"><span id="local-6989586621679796307"><span class="annot"><span class="annottext">Maybe CannedAccessControlList
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679796320"><span id="local-6989586621679796322"><span id="local-6989586621679796324"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679796318"><span class="annot"><span class="annottext">toJSON :: S3Action -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679796313"><span id="local-6989586621679796314"><span id="local-6989586621679796315"><span id="local-6989586621679796316"><span class="annot"><span class="annottext">Maybe CannedAccessControlList
 Text
 key :: Text
 bucketName :: Text
@@ -286,7 +286,7 @@ $sel:key:S3Action' :: S3Action -&gt; Text
 $sel:bucketName:S3Action' :: S3Action -&gt; Text
 $sel:roleArn:S3Action' :: S3Action -&gt; Text
 $sel:cannedAcl:S3Action' :: S3Action -&gt; Maybe CannedAccessControlList
-</span><a href="#local-6989586621679796304"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679796313"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -299,28 +299,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe CannedAccessControlList -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CannedAccessControlList
-</span><a href="#local-6989586621679796307"><span class="hs-identifier hs-var">cannedAcl</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679796316"><span class="hs-identifier hs-var">cannedAcl</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;roleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796306"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679796315"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;bucketName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796305"><span class="hs-identifier hs-var">bucketName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679796314"><span class="hs-identifier hs-var">bucketName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796304"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679796313"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span></pre></body></html>

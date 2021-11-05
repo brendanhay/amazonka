@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-comment">-- describes how to compute inferences, and other metadata.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newModelArtifacts' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621680317015"><span id="local-6989586621680317016"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModelArtifacts"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelArtifacts.html#ModelArtifacts"><span class="hs-identifier hs-var">ModelArtifacts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModelArtifacts%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelArtifacts.html#ModelArtifacts%27"><span class="hs-identifier hs-var">ModelArtifacts'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621680317024"><span id="local-6989586621680317025"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModelArtifacts"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelArtifacts.html#ModelArtifacts"><span class="hs-identifier hs-var">ModelArtifacts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModelArtifacts%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelArtifacts.html#ModelArtifacts%27"><span class="hs-identifier hs-var">ModelArtifacts'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The path of the S3 object that contains the model artifacts. For</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- example, @s3:\/\/bucket-name\/keynameprefix\/model.tar.gz@.</span><span>
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3As3ModelArtifacts%3AModelArtifacts%27"><span class="annot"><span class="annottext">ModelArtifacts -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.ModelArtifacts.html#%24sel%3As3ModelArtifacts%3AModelArtifacts%27"><span class="hs-identifier hs-var hs-var">s3ModelArtifacts</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680317009"><span id="local-6989586621680317011"><span class="annot"><span class="annottext">ModelArtifacts -&gt; ModelArtifacts -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680317018"><span id="local-6989586621680317020"><span class="annot"><span class="annottext">ModelArtifacts -&gt; ModelArtifacts -&gt; Bool
 (ModelArtifacts -&gt; ModelArtifacts -&gt; Bool)
 -&gt; (ModelArtifacts -&gt; ModelArtifacts -&gt; Bool) -&gt; Eq ModelArtifacts
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ModelArtifacts -&gt; ModelArtifacts -&gt; Bool
 == :: ModelArtifacts -&gt; ModelArtifacts -&gt; Bool
 $c== :: ModelArtifacts -&gt; ModelArtifacts -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680317000"><span id="local-6989586621680317002"><span id="local-6989586621680317004"><span id="local-6989586621680317006"><span class="annot"><span class="annottext">ReadPrec [ModelArtifacts]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680317009"><span id="local-6989586621680317011"><span id="local-6989586621680317013"><span id="local-6989586621680317015"><span class="annot"><span class="annottext">ReadPrec [ModelArtifacts]
 ReadPrec ModelArtifacts
 Int -&gt; ReadS ModelArtifacts
 ReadS [ModelArtifacts]
@@ -65,7 +65,7 @@ readList :: ReadS [ModelArtifacts]
 $creadList :: ReadS [ModelArtifacts]
 readsPrec :: Int -&gt; ReadS ModelArtifacts
 $creadsPrec :: Int -&gt; ReadS ModelArtifacts
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680316993"><span id="local-6989586621680316995"><span id="local-6989586621680316997"><span class="annot"><span class="annottext">Int -&gt; ModelArtifacts -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680317002"><span id="local-6989586621680317004"><span id="local-6989586621680317006"><span class="annot"><span class="annottext">Int -&gt; ModelArtifacts -&gt; ShowS
 [ModelArtifacts] -&gt; ShowS
 ModelArtifacts -&gt; String
 (Int -&gt; ModelArtifacts -&gt; ShowS)
@@ -106,14 +106,14 @@ $cfrom :: forall x. ModelArtifacts -&gt; Rep ModelArtifacts x
 </span><span id="line-53"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelArtifacts.html#ModelArtifacts"><span class="hs-identifier hs-type">ModelArtifacts</span></a></span><span>
 </span><span id="line-55"></span><span id="newModelArtifacts"><span class="annot"><span class="annottext">newModelArtifacts :: Text -&gt; ModelArtifacts
-</span><a href="Network.AWS.SageMaker.Types.ModelArtifacts.html#newModelArtifacts"><span class="hs-identifier hs-var hs-var">newModelArtifacts</span></a></span></span><span> </span><span id="local-6989586621680316987"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680316987"><span class="hs-identifier hs-var">pS3ModelArtifacts_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.Types.ModelArtifacts.html#newModelArtifacts"><span class="hs-identifier hs-var hs-var">newModelArtifacts</span></a></span></span><span> </span><span id="local-6989586621680316996"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680316996"><span class="hs-identifier hs-var">pS3ModelArtifacts_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">ModelArtifacts' :: Text -&gt; ModelArtifacts
 </span><a href="Network.AWS.SageMaker.Types.ModelArtifacts.html#ModelArtifacts%27"><span class="hs-identifier hs-type">ModelArtifacts'</span></a></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:s3ModelArtifacts:ModelArtifacts' :: Text
 </span><a href="Network.AWS.SageMaker.Types.ModelArtifacts.html#%24sel%3As3ModelArtifacts%3AModelArtifacts%27"><span class="hs-identifier hs-var">s3ModelArtifacts</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680316987"><span class="hs-identifier hs-var">pS3ModelArtifacts_</span></a></span><span>
+</span><a href="#local-6989586621680316996"><span class="hs-identifier hs-var">pS3ModelArtifacts_</span></a></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | The path of the S3 object that contains the model artifacts. For</span><span>
@@ -124,19 +124,19 @@ $cfrom :: forall x. ModelArtifacts -&gt; Rep ModelArtifacts x
 -&gt; (ModelArtifacts -&gt; Text -&gt; ModelArtifacts)
 -&gt; Lens ModelArtifacts ModelArtifacts Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelArtifacts.html#ModelArtifacts%27"><span class="hs-identifier hs-type">ModelArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680316983"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelArtifacts.html#ModelArtifacts%27"><span class="hs-identifier hs-type">ModelArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680316992"><span class="annot"><span class="annottext">Text
 s3ModelArtifacts :: Text
 $sel:s3ModelArtifacts:ModelArtifacts' :: ModelArtifacts -&gt; Text
-</span><a href="#local-6989586621680316983"><span class="hs-identifier hs-var hs-var">s3ModelArtifacts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680316983"><span class="hs-identifier hs-var">s3ModelArtifacts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680316982"><span class="annot"><span class="annottext">s :: ModelArtifacts
-</span><a href="#local-6989586621680316982"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelArtifacts.html#ModelArtifacts%27"><span class="hs-identifier hs-type">ModelArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680316981"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680316981"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelArtifacts
-</span><a href="#local-6989586621680316982"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3ModelArtifacts:ModelArtifacts' :: Text
+</span><a href="#local-6989586621680316992"><span class="hs-identifier hs-var hs-var">s3ModelArtifacts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680316992"><span class="hs-identifier hs-var">s3ModelArtifacts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680316991"><span class="annot"><span class="annottext">s :: ModelArtifacts
+</span><a href="#local-6989586621680316991"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelArtifacts.html#ModelArtifacts%27"><span class="hs-identifier hs-type">ModelArtifacts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680316990"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680316990"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelArtifacts
+</span><a href="#local-6989586621680316991"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3ModelArtifacts:ModelArtifacts' :: Text
 </span><a href="Network.AWS.SageMaker.Types.ModelArtifacts.html#%24sel%3As3ModelArtifacts%3AModelArtifacts%27"><span class="hs-identifier hs-var">s3ModelArtifacts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680316981"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelArtifacts.html#ModelArtifacts"><span class="hs-identifier hs-type">ModelArtifacts</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680316990"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelArtifacts.html#ModelArtifacts"><span class="hs-identifier hs-type">ModelArtifacts</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680316978"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelArtifacts.html#ModelArtifacts"><span class="hs-identifier hs-type">ModelArtifacts</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621680316976"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ModelArtifacts
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680316987"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelArtifacts.html#ModelArtifacts"><span class="hs-identifier hs-type">ModelArtifacts</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621680316985"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ModelArtifacts
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ModelArtifacts)
@@ -146,20 +146,20 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ModelArtifacts&quot;</span></span><span>
-</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680316973"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680316973"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680316982"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680316982"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; ModelArtifacts
 </span><a href="Network.AWS.SageMaker.Types.ModelArtifacts.html#ModelArtifacts%27"><span class="hs-identifier hs-var">ModelArtifacts'</span></a></span><span>
 </span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; ModelArtifacts) -&gt; Parser Text -&gt; Parser ModelArtifacts
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680316973"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680316982"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3ModelArtifacts&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680316967"><span id="local-6989586621680316969"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelArtifacts.html#ModelArtifacts"><span class="hs-identifier hs-type">ModelArtifacts</span></a></span></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680316976"><span id="local-6989586621680316978"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelArtifacts.html#ModelArtifacts"><span class="hs-identifier hs-type">ModelArtifacts</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680316964"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelArtifacts.html#ModelArtifacts"><span class="hs-identifier hs-type">ModelArtifacts</span></a></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680316973"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelArtifacts.html#ModelArtifacts"><span class="hs-identifier hs-type">ModelArtifacts</span></a></span></span><span>
 </span><span id="line-78"></span></pre></body></html>

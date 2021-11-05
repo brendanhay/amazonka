@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newRejectQualificationRequest' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679247697"><span id="local-6989586621679247698"></span></span><span class="hs-keyword">data</span><span> </span><span id="RejectQualificationRequest"><span class="annot"><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#RejectQualificationRequest"><span class="hs-identifier hs-var">RejectQualificationRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RejectQualificationRequest%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#RejectQualificationRequest%27"><span class="hs-identifier hs-var">RejectQualificationRequest'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679247706"><span id="local-6989586621679247707"></span></span><span class="hs-keyword">data</span><span> </span><span id="RejectQualificationRequest"><span class="annot"><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#RejectQualificationRequest"><span class="hs-identifier hs-var">RejectQualificationRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RejectQualificationRequest%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#RejectQualificationRequest%27"><span class="hs-identifier hs-var">RejectQualificationRequest'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A text message explaining why the request was rejected, to be shown to</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- the Worker who made the request.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3Areason%3ARejectQualificationRequest%27"><span class="annot"><span class="annottext">RejectQualificationRequest -&gt; Maybe Text
@@ -61,7 +61,7 @@
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AqualificationRequestId%3ARejectQualificationRequest%27"><span class="annot"><span class="annottext">RejectQualificationRequest -&gt; Text
 </span><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#%24sel%3AqualificationRequestId%3ARejectQualificationRequest%27"><span class="hs-identifier hs-var hs-var">qualificationRequestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247690"><span id="local-6989586621679247692"><span class="annot"><span class="annottext">RejectQualificationRequest -&gt; RejectQualificationRequest -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247699"><span id="local-6989586621679247701"><span class="annot"><span class="annottext">RejectQualificationRequest -&gt; RejectQualificationRequest -&gt; Bool
 (RejectQualificationRequest -&gt; RejectQualificationRequest -&gt; Bool)
 -&gt; (RejectQualificationRequest
     -&gt; RejectQualificationRequest -&gt; Bool)
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RejectQualificationRequest -&gt; RejectQualificationRequest -&gt; Bool
 == :: RejectQualificationRequest -&gt; RejectQualificationRequest -&gt; Bool
 $c== :: RejectQualificationRequest -&gt; RejectQualificationRequest -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247681"><span id="local-6989586621679247683"><span id="local-6989586621679247685"><span id="local-6989586621679247687"><span class="annot"><span class="annottext">ReadPrec [RejectQualificationRequest]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247690"><span id="local-6989586621679247692"><span id="local-6989586621679247694"><span id="local-6989586621679247696"><span class="annot"><span class="annottext">ReadPrec [RejectQualificationRequest]
 ReadPrec RejectQualificationRequest
 Int -&gt; ReadS RejectQualificationRequest
 ReadS [RejectQualificationRequest]
@@ -91,7 +91,7 @@ readList :: ReadS [RejectQualificationRequest]
 $creadList :: ReadS [RejectQualificationRequest]
 readsPrec :: Int -&gt; ReadS RejectQualificationRequest
 $creadsPrec :: Int -&gt; ReadS RejectQualificationRequest
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247674"><span id="local-6989586621679247676"><span id="local-6989586621679247678"><span class="annot"><span class="annottext">Int -&gt; RejectQualificationRequest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247683"><span id="local-6989586621679247685"><span id="local-6989586621679247687"><span class="annot"><span class="annottext">Int -&gt; RejectQualificationRequest -&gt; ShowS
 [RejectQualificationRequest] -&gt; ShowS
 RejectQualificationRequest -&gt; String
 (Int -&gt; RejectQualificationRequest -&gt; ShowS)
@@ -142,8 +142,8 @@ RejectQualificationRequest -&gt; Rep RejectQualificationRequest x
 </span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#RejectQualificationRequest"><span class="hs-identifier hs-type">RejectQualificationRequest</span></a></span><span>
 </span><span id="line-81"></span><span id="newRejectQualificationRequest"><span class="annot"><span class="annottext">newRejectQualificationRequest :: Text -&gt; RejectQualificationRequest
 </span><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#newRejectQualificationRequest"><span class="hs-identifier hs-var hs-var">newRejectQualificationRequest</span></a></span></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679247669"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247669"><span class="hs-identifier hs-var">pQualificationRequestId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679247678"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247678"><span class="hs-identifier hs-var">pQualificationRequestId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">RejectQualificationRequest' :: Maybe Text -&gt; Text -&gt; RejectQualificationRequest
 </span><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#RejectQualificationRequest%27"><span class="hs-identifier hs-type">RejectQualificationRequest'</span></a></span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:reason:RejectQualificationRequest' :: Maybe Text
@@ -154,7 +154,7 @@ forall a. Maybe a
 </span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">$sel:qualificationRequestId:RejectQualificationRequest' :: Text
 </span><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#%24sel%3AqualificationRequestId%3ARejectQualificationRequest%27"><span class="hs-identifier hs-var">qualificationRequestId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247669"><span class="hs-identifier hs-var">pQualificationRequestId_</span></a></span><span>
+</span><a href="#local-6989586621679247678"><span class="hs-identifier hs-var">pQualificationRequestId_</span></a></span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | A text message explaining why the request was rejected, to be shown to</span><span>
@@ -171,16 +171,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#RejectQualificationRequest%27"><span class="hs-identifier hs-type">RejectQualificationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247666"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#RejectQualificationRequest%27"><span class="hs-identifier hs-type">RejectQualificationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247675"><span class="annot"><span class="annottext">Maybe Text
 reason :: Maybe Text
 $sel:reason:RejectQualificationRequest' :: RejectQualificationRequest -&gt; Maybe Text
-</span><a href="#local-6989586621679247666"><span class="hs-identifier hs-var hs-var">reason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679247666"><span class="hs-identifier hs-var">reason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247665"><span class="annot"><span class="annottext">s :: RejectQualificationRequest
-</span><a href="#local-6989586621679247665"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#RejectQualificationRequest%27"><span class="hs-identifier hs-type">RejectQualificationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247664"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679247664"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RejectQualificationRequest
-</span><a href="#local-6989586621679247665"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reason:RejectQualificationRequest' :: Maybe Text
+</span><a href="#local-6989586621679247675"><span class="hs-identifier hs-var hs-var">reason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679247675"><span class="hs-identifier hs-var">reason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247674"><span class="annot"><span class="annottext">s :: RejectQualificationRequest
+</span><a href="#local-6989586621679247674"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#RejectQualificationRequest%27"><span class="hs-identifier hs-type">RejectQualificationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247673"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679247673"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RejectQualificationRequest
+</span><a href="#local-6989586621679247674"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reason:RejectQualificationRequest' :: Maybe Text
 </span><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#%24sel%3Areason%3ARejectQualificationRequest%27"><span class="hs-identifier hs-var">reason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679247664"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#RejectQualificationRequest"><span class="hs-identifier hs-type">RejectQualificationRequest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679247673"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#RejectQualificationRequest"><span class="hs-identifier hs-type">RejectQualificationRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | The ID of the Qualification request, as returned by the</span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- @ListQualificationRequests@ operation.</span><span>
@@ -193,28 +193,28 @@ $sel:reason:RejectQualificationRequest' :: RejectQualificationRequest -&gt; Mayb
 -&gt; Lens
      RejectQualificationRequest RejectQualificationRequest Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#RejectQualificationRequest%27"><span class="hs-identifier hs-type">RejectQualificationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247663"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#RejectQualificationRequest%27"><span class="hs-identifier hs-type">RejectQualificationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247672"><span class="annot"><span class="annottext">Text
 qualificationRequestId :: Text
 $sel:qualificationRequestId:RejectQualificationRequest' :: RejectQualificationRequest -&gt; Text
-</span><a href="#local-6989586621679247663"><span class="hs-identifier hs-var hs-var">qualificationRequestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247663"><span class="hs-identifier hs-var">qualificationRequestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247662"><span class="annot"><span class="annottext">s :: RejectQualificationRequest
-</span><a href="#local-6989586621679247662"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#RejectQualificationRequest%27"><span class="hs-identifier hs-type">RejectQualificationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247661"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247661"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RejectQualificationRequest
-</span><a href="#local-6989586621679247662"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:qualificationRequestId:RejectQualificationRequest' :: Text
+</span><a href="#local-6989586621679247672"><span class="hs-identifier hs-var hs-var">qualificationRequestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247672"><span class="hs-identifier hs-var">qualificationRequestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247671"><span class="annot"><span class="annottext">s :: RejectQualificationRequest
+</span><a href="#local-6989586621679247671"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#RejectQualificationRequest%27"><span class="hs-identifier hs-type">RejectQualificationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247670"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679247670"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RejectQualificationRequest
+</span><a href="#local-6989586621679247671"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:qualificationRequestId:RejectQualificationRequest' :: Text
 </span><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#%24sel%3AqualificationRequestId%3ARejectQualificationRequest%27"><span class="hs-identifier hs-var">qualificationRequestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247661"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#RejectQualificationRequest"><span class="hs-identifier hs-type">RejectQualificationRequest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679247670"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#RejectQualificationRequest"><span class="hs-identifier hs-type">RejectQualificationRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#RejectQualificationRequest"><span class="hs-identifier hs-type">RejectQualificationRequest</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-101"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-102"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#RejectQualificationRequest"><span class="hs-identifier hs-type">RejectQualificationRequest</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#RejectQualificationRequestResponse"><span class="hs-identifier hs-type">RejectQualificationRequestResponse</span></a></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679247657"><span class="annot"><span class="annottext">request :: RejectQualificationRequest -&gt; Request RejectQualificationRequest
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679247666"><span class="annot"><span class="annottext">request :: RejectQualificationRequest -&gt; Request RejectQualificationRequest
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; RejectQualificationRequest -&gt; Request RejectQualificationRequest
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MechanicalTurk.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679247653"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679247662"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RejectQualificationRequest
 -&gt; ClientResponse ClientBody
@@ -240,10 +240,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679247650"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679247650"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679247649"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679247649"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679247648"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679247648"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679247659"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679247659"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679247658"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679247658"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679247657"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679247657"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; RejectQualificationRequestResponse
 </span><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#RejectQualificationRequestResponse%27"><span class="hs-identifier hs-var">RejectQualificationRequestResponse'</span></a></span><span>
 </span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; RejectQualificationRequestResponse)
@@ -255,15 +255,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679247650"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679247659"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247641"><span id="local-6989586621679247643"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#RejectQualificationRequest"><span class="hs-identifier hs-type">RejectQualificationRequest</span></a></span></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247650"><span id="local-6989586621679247652"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#RejectQualificationRequest"><span class="hs-identifier hs-type">RejectQualificationRequest</span></a></span></span></span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247638"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#RejectQualificationRequest"><span class="hs-identifier hs-type">RejectQualificationRequest</span></a></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247647"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#RejectQualificationRequest"><span class="hs-identifier hs-type">RejectQualificationRequest</span></a></span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#RejectQualificationRequest"><span class="hs-identifier hs-type">RejectQualificationRequest</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679247634"><span class="annot"><span class="annottext">toHeaders :: RejectQualificationRequest -&gt; ResponseHeaders
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679247643"><span class="annot"><span class="annottext">toHeaders :: RejectQualificationRequest -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RejectQualificationRequest -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -290,15 +290,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-128"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247624"><span id="local-6989586621679247626"><span id="local-6989586621679247628"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#RejectQualificationRequest"><span class="hs-identifier hs-type">RejectQualificationRequest</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679247622"><span class="annot"><span class="annottext">toJSON :: RejectQualificationRequest -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#RejectQualificationRequest%27"><span class="hs-identifier hs-type">RejectQualificationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247619"><span id="local-6989586621679247620"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247633"><span id="local-6989586621679247635"><span id="local-6989586621679247637"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#RejectQualificationRequest"><span class="hs-identifier hs-type">RejectQualificationRequest</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679247631"><span class="annot"><span class="annottext">toJSON :: RejectQualificationRequest -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#RejectQualificationRequest%27"><span class="hs-identifier hs-type">RejectQualificationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247628"><span id="local-6989586621679247629"><span class="annot"><span class="annottext">Maybe Text
 Text
 qualificationRequestId :: Text
 reason :: Maybe Text
 $sel:qualificationRequestId:RejectQualificationRequest' :: RejectQualificationRequest -&gt; Text
 $sel:reason:RejectQualificationRequest' :: RejectQualificationRequest -&gt; Maybe Text
-</span><a href="#local-6989586621679247619"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679247628"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -310,7 +310,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679247620"><span class="hs-identifier hs-var">reason</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679247629"><span class="hs-identifier hs-var">reason</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -319,20 +319,20 @@ forall a. a -&gt; Maybe a
 </span><span id="line-138"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679247619"><span class="hs-identifier hs-var">qualificationRequestId</span></a></span><span>
+</span><a href="#local-6989586621679247628"><span class="hs-identifier hs-var">qualificationRequestId</span></a></span><span>
 </span><span id="line-139"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#RejectQualificationRequest"><span class="hs-identifier hs-type">RejectQualificationRequest</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679247613"><span class="annot"><span class="annottext">toPath :: RejectQualificationRequest -&gt; ByteString
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679247622"><span class="annot"><span class="annottext">toPath :: RejectQualificationRequest -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RejectQualificationRequest -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#RejectQualificationRequest"><span class="hs-identifier hs-type">RejectQualificationRequest</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679247609"><span class="annot"><span class="annottext">toQuery :: RejectQualificationRequest -&gt; QueryString
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679247618"><span class="annot"><span class="annottext">toQuery :: RejectQualificationRequest -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RejectQualificationRequest -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -340,12 +340,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- | /See:/ 'newRejectQualificationRequestResponse' smart constructor.</span><span>
-</span><span id="line-150"></span><span id="local-6989586621679247606"><span id="local-6989586621679247607"></span></span><span class="hs-keyword">data</span><span> </span><span id="RejectQualificationRequestResponse"><span class="annot"><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#RejectQualificationRequestResponse"><span class="hs-identifier hs-var">RejectQualificationRequestResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RejectQualificationRequestResponse%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#RejectQualificationRequestResponse%27"><span class="hs-identifier hs-var">RejectQualificationRequestResponse'</span></a></span></span><span>
+</span><span id="line-150"></span><span id="local-6989586621679247615"><span id="local-6989586621679247616"></span></span><span class="hs-keyword">data</span><span> </span><span id="RejectQualificationRequestResponse"><span class="annot"><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#RejectQualificationRequestResponse"><span class="hs-identifier hs-var">RejectQualificationRequestResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RejectQualificationRequestResponse%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#RejectQualificationRequestResponse%27"><span class="hs-identifier hs-var">RejectQualificationRequestResponse'</span></a></span></span><span>
 </span><span id="line-151"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-152"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARejectQualificationRequestResponse%27"><span class="annot"><span class="annottext">RejectQualificationRequestResponse -&gt; Int
 </span><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#%24sel%3AhttpStatus%3ARejectQualificationRequestResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-153"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247601"><span id="local-6989586621679247603"><span class="annot"><span class="annottext">RejectQualificationRequestResponse
+</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247610"><span id="local-6989586621679247612"><span class="annot"><span class="annottext">RejectQualificationRequestResponse
 -&gt; RejectQualificationRequestResponse -&gt; Bool
 (RejectQualificationRequestResponse
  -&gt; RejectQualificationRequestResponse -&gt; Bool)
@@ -361,7 +361,7 @@ $c/= :: RejectQualificationRequestResponse
 -&gt; RejectQualificationRequestResponse -&gt; Bool
 $c== :: RejectQualificationRequestResponse
 -&gt; RejectQualificationRequestResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247593"><span id="local-6989586621679247595"><span id="local-6989586621679247597"><span id="local-6989586621679247599"><span class="annot"><span class="annottext">ReadPrec [RejectQualificationRequestResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247602"><span id="local-6989586621679247604"><span id="local-6989586621679247606"><span id="local-6989586621679247608"><span class="annot"><span class="annottext">ReadPrec [RejectQualificationRequestResponse]
 ReadPrec RejectQualificationRequestResponse
 Int -&gt; ReadS RejectQualificationRequestResponse
 ReadS [RejectQualificationRequestResponse]
@@ -381,7 +381,7 @@ readList :: ReadS [RejectQualificationRequestResponse]
 $creadList :: ReadS [RejectQualificationRequestResponse]
 readsPrec :: Int -&gt; ReadS RejectQualificationRequestResponse
 $creadsPrec :: Int -&gt; ReadS RejectQualificationRequestResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247587"><span id="local-6989586621679247589"><span id="local-6989586621679247591"><span class="annot"><span class="annottext">Int -&gt; RejectQualificationRequestResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247596"><span id="local-6989586621679247598"><span id="local-6989586621679247600"><span class="annot"><span class="annottext">Int -&gt; RejectQualificationRequestResponse -&gt; ShowS
 [RejectQualificationRequestResponse] -&gt; ShowS
 RejectQualificationRequestResponse -&gt; String
 (Int -&gt; RejectQualificationRequestResponse -&gt; ShowS)
@@ -433,14 +433,14 @@ RejectQualificationRequestResponse
 </span><span id="line-167"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-168"></span><span>  </span><span class="annot"><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#RejectQualificationRequestResponse"><span class="hs-identifier hs-type">RejectQualificationRequestResponse</span></a></span><span>
 </span><span id="line-169"></span><span id="newRejectQualificationRequestResponse"><span class="annot"><span class="annottext">newRejectQualificationRequestResponse :: Int -&gt; RejectQualificationRequestResponse
-</span><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#newRejectQualificationRequestResponse"><span class="hs-identifier hs-var hs-var">newRejectQualificationRequestResponse</span></a></span></span><span> </span><span id="local-6989586621679247584"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679247584"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#newRejectQualificationRequestResponse"><span class="hs-identifier hs-var hs-var">newRejectQualificationRequestResponse</span></a></span></span><span> </span><span id="local-6989586621679247593"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679247593"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>  </span><span class="annot"><span class="annottext">RejectQualificationRequestResponse' :: Int -&gt; RejectQualificationRequestResponse
 </span><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#RejectQualificationRequestResponse%27"><span class="hs-identifier hs-type">RejectQualificationRequestResponse'</span></a></span><span>
 </span><span id="line-171"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:RejectQualificationRequestResponse' :: Int
 </span><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#%24sel%3AhttpStatus%3ARejectQualificationRequestResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679247584"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679247593"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-173"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -457,18 +457,18 @@ RejectQualificationRequestResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#RejectQualificationRequestResponse%27"><span class="hs-identifier hs-type">RejectQualificationRequestResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247583"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#RejectQualificationRequestResponse%27"><span class="hs-identifier hs-type">RejectQualificationRequestResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247592"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:RejectQualificationRequestResponse' :: RejectQualificationRequestResponse -&gt; Int
-</span><a href="#local-6989586621679247583"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679247583"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247582"><span class="annot"><span class="annottext">s :: RejectQualificationRequestResponse
-</span><a href="#local-6989586621679247582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#RejectQualificationRequestResponse%27"><span class="hs-identifier hs-type">RejectQualificationRequestResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247581"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679247581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RejectQualificationRequestResponse
-</span><a href="#local-6989586621679247582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RejectQualificationRequestResponse' :: Int
+</span><a href="#local-6989586621679247592"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679247592"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247591"><span class="annot"><span class="annottext">s :: RejectQualificationRequestResponse
+</span><a href="#local-6989586621679247591"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#RejectQualificationRequestResponse%27"><span class="hs-identifier hs-type">RejectQualificationRequestResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247590"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679247590"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RejectQualificationRequestResponse
+</span><a href="#local-6989586621679247591"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RejectQualificationRequestResponse' :: Int
 </span><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#%24sel%3AhttpStatus%3ARejectQualificationRequestResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679247581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#RejectQualificationRequestResponse"><span class="hs-identifier hs-type">RejectQualificationRequestResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679247590"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#RejectQualificationRequestResponse"><span class="hs-identifier hs-type">RejectQualificationRequestResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679247579"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679247588"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-181"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.RejectQualificationRequest.html#RejectQualificationRequestResponse"><span class="hs-identifier hs-type">RejectQualificationRequestResponse</span></a></span></span><span>
 </span><span id="line-182"></span></pre></body></html>

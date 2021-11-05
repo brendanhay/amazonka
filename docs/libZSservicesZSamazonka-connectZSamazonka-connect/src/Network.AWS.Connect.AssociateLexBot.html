@@ -48,7 +48,7 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newAssociateLexBot' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679427603"><span id="local-6989586621679427604"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateLexBot"><span class="annot"><a href="Network.AWS.Connect.AssociateLexBot.html#AssociateLexBot"><span class="hs-identifier hs-var">AssociateLexBot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateLexBot%27"><span class="annot"><a href="Network.AWS.Connect.AssociateLexBot.html#AssociateLexBot%27"><span class="hs-identifier hs-var">AssociateLexBot'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679427612"><span id="local-6989586621679427613"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateLexBot"><span class="annot"><a href="Network.AWS.Connect.AssociateLexBot.html#AssociateLexBot"><span class="hs-identifier hs-var">AssociateLexBot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateLexBot%27"><span class="annot"><a href="Network.AWS.Connect.AssociateLexBot.html#AssociateLexBot%27"><span class="hs-identifier hs-var">AssociateLexBot'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the Amazon Connect instance. You can find the</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- instanceId in the ARN of the instance.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AinstanceId%3AAssociateLexBot%27"><span class="annot"><span class="annottext">AssociateLexBot -&gt; Text
@@ -57,7 +57,7 @@
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AlexBot%3AAssociateLexBot%27"><span class="annot"><span class="annottext">AssociateLexBot -&gt; LexBot
 </span><a href="Network.AWS.Connect.AssociateLexBot.html#%24sel%3AlexBot%3AAssociateLexBot%27"><span class="hs-identifier hs-var hs-var">lexBot</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.LexBot.html#LexBot"><span class="hs-identifier hs-type">LexBot</span></a></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679427596"><span id="local-6989586621679427598"><span class="annot"><span class="annottext">AssociateLexBot -&gt; AssociateLexBot -&gt; Bool
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679427605"><span id="local-6989586621679427607"><span class="annot"><span class="annottext">AssociateLexBot -&gt; AssociateLexBot -&gt; Bool
 (AssociateLexBot -&gt; AssociateLexBot -&gt; Bool)
 -&gt; (AssociateLexBot -&gt; AssociateLexBot -&gt; Bool)
 -&gt; Eq AssociateLexBot
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AssociateLexBot -&gt; AssociateLexBot -&gt; Bool
 == :: AssociateLexBot -&gt; AssociateLexBot -&gt; Bool
 $c== :: AssociateLexBot -&gt; AssociateLexBot -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679427587"><span id="local-6989586621679427589"><span id="local-6989586621679427591"><span id="local-6989586621679427593"><span class="annot"><span class="annottext">ReadPrec [AssociateLexBot]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679427596"><span id="local-6989586621679427598"><span id="local-6989586621679427600"><span id="local-6989586621679427602"><span class="annot"><span class="annottext">ReadPrec [AssociateLexBot]
 ReadPrec AssociateLexBot
 Int -&gt; ReadS AssociateLexBot
 ReadS [AssociateLexBot]
@@ -86,7 +86,7 @@ readList :: ReadS [AssociateLexBot]
 $creadList :: ReadS [AssociateLexBot]
 readsPrec :: Int -&gt; ReadS AssociateLexBot
 $creadsPrec :: Int -&gt; ReadS AssociateLexBot
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679427580"><span id="local-6989586621679427582"><span id="local-6989586621679427584"><span class="annot"><span class="annottext">Int -&gt; AssociateLexBot -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679427589"><span id="local-6989586621679427591"><span id="local-6989586621679427593"><span class="annot"><span class="annottext">Int -&gt; AssociateLexBot -&gt; ShowS
 [AssociateLexBot] -&gt; ShowS
 AssociateLexBot -&gt; String
 (Int -&gt; AssociateLexBot -&gt; ShowS)
@@ -131,17 +131,17 @@ $cfrom :: forall x. AssociateLexBot -&gt; Rep AssociateLexBot x
 </span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.LexBot.html#LexBot"><span class="hs-identifier hs-type">LexBot</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.AssociateLexBot.html#AssociateLexBot"><span class="hs-identifier hs-type">AssociateLexBot</span></a></span><span>
 </span><span id="line-78"></span><span id="newAssociateLexBot"><span class="annot"><span class="annottext">newAssociateLexBot :: Text -&gt; LexBot -&gt; AssociateLexBot
-</span><a href="Network.AWS.Connect.AssociateLexBot.html#newAssociateLexBot"><span class="hs-identifier hs-var hs-var">newAssociateLexBot</span></a></span></span><span> </span><span id="local-6989586621679427575"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679427575"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span id="local-6989586621679427574"><span class="annot"><span class="annottext">LexBot
-</span><a href="#local-6989586621679427574"><span class="hs-identifier hs-var">pLexBot_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Connect.AssociateLexBot.html#newAssociateLexBot"><span class="hs-identifier hs-var hs-var">newAssociateLexBot</span></a></span></span><span> </span><span id="local-6989586621679427584"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679427584"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span id="local-6989586621679427583"><span class="annot"><span class="annottext">LexBot
+</span><a href="#local-6989586621679427583"><span class="hs-identifier hs-var">pLexBot_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">AssociateLexBot' :: Text -&gt; LexBot -&gt; AssociateLexBot
 </span><a href="Network.AWS.Connect.AssociateLexBot.html#AssociateLexBot%27"><span class="hs-identifier hs-type">AssociateLexBot'</span></a></span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceId:AssociateLexBot' :: Text
 </span><a href="Network.AWS.Connect.AssociateLexBot.html#%24sel%3AinstanceId%3AAssociateLexBot%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679427575"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679427584"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:lexBot:AssociateLexBot' :: LexBot
 </span><a href="Network.AWS.Connect.AssociateLexBot.html#%24sel%3AlexBot%3AAssociateLexBot%27"><span class="hs-identifier hs-var">lexBot</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LexBot
-</span><a href="#local-6989586621679427574"><span class="hs-identifier hs-var">pLexBot_</span></a></span><span>
+</span><a href="#local-6989586621679427583"><span class="hs-identifier hs-var">pLexBot_</span></a></span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | The identifier of the Amazon Connect instance. You can find the</span><span>
@@ -152,16 +152,16 @@ $cfrom :: forall x. AssociateLexBot -&gt; Rep AssociateLexBot x
 -&gt; (AssociateLexBot -&gt; Text -&gt; AssociateLexBot)
 -&gt; Lens AssociateLexBot AssociateLexBot Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.AssociateLexBot.html#AssociateLexBot%27"><span class="hs-identifier hs-type">AssociateLexBot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427571"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.AssociateLexBot.html#AssociateLexBot%27"><span class="hs-identifier hs-type">AssociateLexBot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427580"><span class="annot"><span class="annottext">Text
 instanceId :: Text
 $sel:instanceId:AssociateLexBot' :: AssociateLexBot -&gt; Text
-</span><a href="#local-6989586621679427571"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679427571"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427570"><span class="annot"><span class="annottext">s :: AssociateLexBot
-</span><a href="#local-6989586621679427570"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.AssociateLexBot.html#AssociateLexBot%27"><span class="hs-identifier hs-type">AssociateLexBot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427569"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679427569"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateLexBot
-</span><a href="#local-6989586621679427570"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:AssociateLexBot' :: Text
+</span><a href="#local-6989586621679427580"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679427580"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427579"><span class="annot"><span class="annottext">s :: AssociateLexBot
+</span><a href="#local-6989586621679427579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.AssociateLexBot.html#AssociateLexBot%27"><span class="hs-identifier hs-type">AssociateLexBot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427578"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679427578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateLexBot
+</span><a href="#local-6989586621679427579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:AssociateLexBot' :: Text
 </span><a href="Network.AWS.Connect.AssociateLexBot.html#%24sel%3AinstanceId%3AAssociateLexBot%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679427569"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.AssociateLexBot.html#AssociateLexBot"><span class="hs-identifier hs-type">AssociateLexBot</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679427578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.AssociateLexBot.html#AssociateLexBot"><span class="hs-identifier hs-type">AssociateLexBot</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The Amazon Lex bot to associate with the instance.</span><span>
 </span><span id="line-90"></span><span class="annot"><a href="Network.AWS.Connect.AssociateLexBot.html#associateLexBot_lexBot"><span class="hs-identifier hs-type">associateLexBot_lexBot</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.AssociateLexBot.html#AssociateLexBot"><span class="hs-identifier hs-type">AssociateLexBot</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.LexBot.html#LexBot"><span class="hs-identifier hs-type">LexBot</span></a></span><span>
@@ -170,27 +170,27 @@ $sel:instanceId:AssociateLexBot' :: AssociateLexBot -&gt; Text
 -&gt; (AssociateLexBot -&gt; LexBot -&gt; AssociateLexBot)
 -&gt; Lens AssociateLexBot AssociateLexBot LexBot LexBot
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.AssociateLexBot.html#AssociateLexBot%27"><span class="hs-identifier hs-type">AssociateLexBot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427568"><span class="annot"><span class="annottext">LexBot
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.AssociateLexBot.html#AssociateLexBot%27"><span class="hs-identifier hs-type">AssociateLexBot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427577"><span class="annot"><span class="annottext">LexBot
 lexBot :: LexBot
 $sel:lexBot:AssociateLexBot' :: AssociateLexBot -&gt; LexBot
-</span><a href="#local-6989586621679427568"><span class="hs-identifier hs-var hs-var">lexBot</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LexBot
-</span><a href="#local-6989586621679427568"><span class="hs-identifier hs-var">lexBot</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427567"><span class="annot"><span class="annottext">s :: AssociateLexBot
-</span><a href="#local-6989586621679427567"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.AssociateLexBot.html#AssociateLexBot%27"><span class="hs-identifier hs-type">AssociateLexBot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427566"><span class="annot"><span class="annottext">LexBot
-</span><a href="#local-6989586621679427566"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateLexBot
-</span><a href="#local-6989586621679427567"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lexBot:AssociateLexBot' :: LexBot
+</span><a href="#local-6989586621679427577"><span class="hs-identifier hs-var hs-var">lexBot</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LexBot
+</span><a href="#local-6989586621679427577"><span class="hs-identifier hs-var">lexBot</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679427576"><span class="annot"><span class="annottext">s :: AssociateLexBot
+</span><a href="#local-6989586621679427576"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.AssociateLexBot.html#AssociateLexBot%27"><span class="hs-identifier hs-type">AssociateLexBot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679427575"><span class="annot"><span class="annottext">LexBot
+</span><a href="#local-6989586621679427575"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateLexBot
+</span><a href="#local-6989586621679427576"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lexBot:AssociateLexBot' :: LexBot
 </span><a href="Network.AWS.Connect.AssociateLexBot.html#%24sel%3AlexBot%3AAssociateLexBot%27"><span class="hs-identifier hs-var">lexBot</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LexBot
-</span><a href="#local-6989586621679427566"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.AssociateLexBot.html#AssociateLexBot"><span class="hs-identifier hs-type">AssociateLexBot</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679427575"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.AssociateLexBot.html#AssociateLexBot"><span class="hs-identifier hs-type">AssociateLexBot</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.AssociateLexBot.html#AssociateLexBot"><span class="hs-identifier hs-type">AssociateLexBot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-94"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-95"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.AssociateLexBot.html#AssociateLexBot"><span class="hs-identifier hs-type">AssociateLexBot</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><a href="Network.AWS.Connect.AssociateLexBot.html#AssociateLexBotResponse"><span class="hs-identifier hs-type">AssociateLexBotResponse</span></a></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679427562"><span class="annot"><span class="annottext">request :: AssociateLexBot -&gt; Request AssociateLexBot
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679427571"><span class="annot"><span class="annottext">request :: AssociateLexBot -&gt; Request AssociateLexBot
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AssociateLexBot -&gt; Request AssociateLexBot
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Connect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679427558"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679427567"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AssociateLexBot
 -&gt; ClientResponse ClientBody
@@ -214,12 +214,12 @@ AWSResponse a
 AssociateLexBotResponse
 </span><a href="Network.AWS.Connect.AssociateLexBot.html#AssociateLexBotResponse%27"><span class="hs-identifier hs-var">AssociateLexBotResponse'</span></a></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679427551"><span id="local-6989586621679427553"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.AssociateLexBot.html#AssociateLexBot"><span class="hs-identifier hs-type">AssociateLexBot</span></a></span></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679427560"><span id="local-6989586621679427562"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.AssociateLexBot.html#AssociateLexBot"><span class="hs-identifier hs-type">AssociateLexBot</span></a></span></span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679427548"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.AssociateLexBot.html#AssociateLexBot"><span class="hs-identifier hs-type">AssociateLexBot</span></a></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679427557"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.AssociateLexBot.html#AssociateLexBot"><span class="hs-identifier hs-type">AssociateLexBot</span></a></span></span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.AssociateLexBot.html#AssociateLexBot"><span class="hs-identifier hs-type">AssociateLexBot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679427544"><span class="annot"><span class="annottext">toHeaders :: AssociateLexBot -&gt; [Header]
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679427553"><span class="annot"><span class="annottext">toHeaders :: AssociateLexBot -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; AssociateLexBot -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -238,15 +238,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-113"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679427534"><span id="local-6989586621679427536"><span id="local-6989586621679427538"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.AssociateLexBot.html#AssociateLexBot"><span class="hs-identifier hs-type">AssociateLexBot</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679427532"><span class="annot"><span class="annottext">toJSON :: AssociateLexBot -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.AssociateLexBot.html#AssociateLexBot%27"><span class="hs-identifier hs-type">AssociateLexBot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427529"><span id="local-6989586621679427530"><span class="annot"><span class="annottext">Text
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679427543"><span id="local-6989586621679427545"><span id="local-6989586621679427547"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.AssociateLexBot.html#AssociateLexBot"><span class="hs-identifier hs-type">AssociateLexBot</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679427541"><span class="annot"><span class="annottext">toJSON :: AssociateLexBot -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.AssociateLexBot.html#AssociateLexBot%27"><span class="hs-identifier hs-type">AssociateLexBot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427538"><span id="local-6989586621679427539"><span class="annot"><span class="annottext">Text
 LexBot
 lexBot :: LexBot
 instanceId :: Text
 $sel:lexBot:AssociateLexBot' :: AssociateLexBot -&gt; LexBot
 $sel:instanceId:AssociateLexBot' :: AssociateLexBot -&gt; Text
-</span><a href="#local-6989586621679427529"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679427538"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -258,18 +258,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;LexBot&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LexBot -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">LexBot
-</span><a href="#local-6989586621679427529"><span class="hs-identifier hs-var">lexBot</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679427538"><span class="hs-identifier hs-var">lexBot</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.AssociateLexBot.html#AssociateLexBot"><span class="hs-identifier hs-type">AssociateLexBot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679427523"><span class="annot"><span class="annottext">toPath :: AssociateLexBot -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.AssociateLexBot.html#AssociateLexBot%27"><span class="hs-identifier hs-type">AssociateLexBot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427520"><span id="local-6989586621679427521"><span class="annot"><span class="annottext">Text
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679427532"><span class="annot"><span class="annottext">toPath :: AssociateLexBot -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.AssociateLexBot.html#AssociateLexBot%27"><span class="hs-identifier hs-type">AssociateLexBot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679427529"><span id="local-6989586621679427530"><span class="annot"><span class="annottext">Text
 LexBot
 lexBot :: LexBot
 instanceId :: Text
 $sel:lexBot:AssociateLexBot' :: AssociateLexBot -&gt; LexBot
 $sel:instanceId:AssociateLexBot' :: AssociateLexBot -&gt; Text
-</span><a href="#local-6989586621679427520"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679427529"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -277,11 +277,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/instance/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679427521"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679427530"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/lex-bot&quot;</span></span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.AssociateLexBot.html#AssociateLexBot"><span class="hs-identifier hs-type">AssociateLexBot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679427516"><span class="annot"><span class="annottext">toQuery :: AssociateLexBot -&gt; QueryString
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679427525"><span class="annot"><span class="annottext">toQuery :: AssociateLexBot -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AssociateLexBot -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -289,10 +289,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- | /See:/ 'newAssociateLexBotResponse' smart constructor.</span><span>
-</span><span id="line-132"></span><span id="local-6989586621679427513"><span id="local-6989586621679427514"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateLexBotResponse"><span class="annot"><a href="Network.AWS.Connect.AssociateLexBot.html#AssociateLexBotResponse"><span class="hs-identifier hs-var">AssociateLexBotResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateLexBotResponse%27"><span class="annot"><a href="Network.AWS.Connect.AssociateLexBot.html#AssociateLexBotResponse%27"><span class="hs-identifier hs-var">AssociateLexBotResponse'</span></a></span></span><span>
+</span><span id="line-132"></span><span id="local-6989586621679427522"><span id="local-6989586621679427523"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateLexBotResponse"><span class="annot"><a href="Network.AWS.Connect.AssociateLexBot.html#AssociateLexBotResponse"><span class="hs-identifier hs-var">AssociateLexBotResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateLexBotResponse%27"><span class="annot"><a href="Network.AWS.Connect.AssociateLexBot.html#AssociateLexBotResponse%27"><span class="hs-identifier hs-var">AssociateLexBotResponse'</span></a></span></span><span>
 </span><span id="line-133"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-134"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679427509"><span id="local-6989586621679427511"><span class="annot"><span class="annottext">AssociateLexBotResponse -&gt; AssociateLexBotResponse -&gt; Bool
+</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679427518"><span id="local-6989586621679427520"><span class="annot"><span class="annottext">AssociateLexBotResponse -&gt; AssociateLexBotResponse -&gt; Bool
 (AssociateLexBotResponse -&gt; AssociateLexBotResponse -&gt; Bool)
 -&gt; (AssociateLexBotResponse -&gt; AssociateLexBotResponse -&gt; Bool)
 -&gt; Eq AssociateLexBotResponse
@@ -301,7 +301,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AssociateLexBotResponse -&gt; AssociateLexBotResponse -&gt; Bool
 == :: AssociateLexBotResponse -&gt; AssociateLexBotResponse -&gt; Bool
 $c== :: AssociateLexBotResponse -&gt; AssociateLexBotResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679427501"><span id="local-6989586621679427503"><span id="local-6989586621679427505"><span id="local-6989586621679427507"><span class="annot"><span class="annottext">ReadPrec [AssociateLexBotResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679427510"><span id="local-6989586621679427512"><span id="local-6989586621679427514"><span id="local-6989586621679427516"><span class="annot"><span class="annottext">ReadPrec [AssociateLexBotResponse]
 ReadPrec AssociateLexBotResponse
 Int -&gt; ReadS AssociateLexBotResponse
 ReadS [AssociateLexBotResponse]
@@ -321,7 +321,7 @@ readList :: ReadS [AssociateLexBotResponse]
 $creadList :: ReadS [AssociateLexBotResponse]
 readsPrec :: Int -&gt; ReadS AssociateLexBotResponse
 $creadsPrec :: Int -&gt; ReadS AssociateLexBotResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679427495"><span id="local-6989586621679427497"><span id="local-6989586621679427499"><span class="annot"><span class="annottext">Int -&gt; AssociateLexBotResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679427504"><span id="local-6989586621679427506"><span id="local-6989586621679427508"><span class="annot"><span class="annottext">Int -&gt; AssociateLexBotResponse -&gt; ShowS
 [AssociateLexBotResponse] -&gt; ShowS
 AssociateLexBotResponse -&gt; String
 (Int -&gt; AssociateLexBotResponse -&gt; ShowS)
@@ -359,5 +359,5 @@ $cfrom :: forall x. AssociateLexBotResponse -&gt; Rep AssociateLexBotResponse x
 </span><a href="Network.AWS.Connect.AssociateLexBot.html#newAssociateLexBotResponse"><span class="hs-identifier hs-var hs-var">newAssociateLexBotResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AssociateLexBotResponse
 </span><a href="Network.AWS.Connect.AssociateLexBot.html#AssociateLexBotResponse%27"><span class="hs-identifier hs-var">AssociateLexBotResponse'</span></a></span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679427491"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.AssociateLexBot.html#AssociateLexBotResponse"><span class="hs-identifier hs-type">AssociateLexBotResponse</span></a></span></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679427500"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.AssociateLexBot.html#AssociateLexBotResponse"><span class="hs-identifier hs-type">AssociateLexBotResponse</span></a></span></span><span>
 </span><span id="line-146"></span></pre></body></html>

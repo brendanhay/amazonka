@@ -1,0 +1,804 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Adds a reference data source to an existing SQL-based Kinesis Data</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Analytics application.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- Kinesis Data Analytics reads reference data (that is, an Amazon S3</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- object) and creates an in-application table within your application. In</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- the request, you provide the source (S3 bucket name and object key</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- name), name of the in-application table to create, and the necessary</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- mapping information that describes how data in an Amazon S3 object maps</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- to columns in the resulting in-application table.</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSource"><span class="hs-identifier">AddApplicationReferenceDataSource</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#newAddApplicationReferenceDataSource"><span class="hs-identifier">newAddApplicationReferenceDataSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#addApplicationReferenceDataSource_applicationName"><span class="hs-identifier">addApplicationReferenceDataSource_applicationName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#addApplicationReferenceDataSource_currentApplicationVersionId"><span class="hs-identifier">addApplicationReferenceDataSource_currentApplicationVersionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#addApplicationReferenceDataSource_referenceDataSource"><span class="hs-identifier">addApplicationReferenceDataSource_referenceDataSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSourceResponse"><span class="hs-identifier">AddApplicationReferenceDataSourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#newAddApplicationReferenceDataSourceResponse"><span class="hs-identifier">newAddApplicationReferenceDataSourceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#addApplicationReferenceDataSourceResponse_applicationARN"><span class="hs-identifier">addApplicationReferenceDataSourceResponse_applicationARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#addApplicationReferenceDataSourceResponse_applicationVersionId"><span class="hs-identifier">addApplicationReferenceDataSourceResponse_applicationVersionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#addApplicationReferenceDataSourceResponse_referenceDataSourceDescriptions"><span class="hs-identifier">addApplicationReferenceDataSourceResponse_referenceDataSourceDescriptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#addApplicationReferenceDataSourceResponse_httpStatus"><span class="hs-identifier">addApplicationReferenceDataSourceResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.html"><span class="hs-identifier">Network.AWS.KinesisAnalyticsV2.Types</span></a></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newAddApplicationReferenceDataSource' smart constructor.</span><span>
+</span><span id="line-62"></span><span id="local-6989586621679307024"><span id="local-6989586621679307025"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddApplicationReferenceDataSource"><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSource"><span class="hs-identifier hs-var">AddApplicationReferenceDataSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddApplicationReferenceDataSource%27"><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSource%27"><span class="hs-identifier hs-var">AddApplicationReferenceDataSource'</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of an existing application.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AapplicationName%3AAddApplicationReferenceDataSource%27"><span class="annot"><span class="annottext">AddApplicationReferenceDataSource -&gt; Text
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#%24sel%3AapplicationName%3AAddApplicationReferenceDataSource%27"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The version of the application for which you are adding the reference</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- data source. You can use the DescribeApplication operation to get the</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- current application version. If the version specified is not the current</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- version, the @ConcurrentModificationException@ is returned.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AcurrentApplicationVersionId%3AAddApplicationReferenceDataSource%27"><span class="annot"><span class="annottext">AddApplicationReferenceDataSource -&gt; Natural
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#%24sel%3AcurrentApplicationVersionId%3AAddApplicationReferenceDataSource%27"><span class="hs-identifier hs-var hs-var">currentApplicationVersionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The reference data source can be an object in your Amazon S3 bucket.</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- Kinesis Data Analytics reads the object and copies the data into the</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- in-application table that is created. You provide an S3 bucket, object</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- key name, and the resulting in-application table that is created.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AreferenceDataSource%3AAddApplicationReferenceDataSource%27"><span class="annot"><span class="annottext">AddApplicationReferenceDataSource -&gt; ReferenceDataSource
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#%24sel%3AreferenceDataSource%3AAddApplicationReferenceDataSource%27"><span class="hs-identifier hs-var hs-var">referenceDataSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ReferenceDataSource.html#ReferenceDataSource"><span class="hs-identifier hs-type">ReferenceDataSource</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679307016"><span id="local-6989586621679307018"><span class="annot"><span class="annottext">AddApplicationReferenceDataSource
+-&gt; AddApplicationReferenceDataSource -&gt; Bool
+(AddApplicationReferenceDataSource
+ -&gt; AddApplicationReferenceDataSource -&gt; Bool)
+-&gt; (AddApplicationReferenceDataSource
+    -&gt; AddApplicationReferenceDataSource -&gt; Bool)
+-&gt; Eq AddApplicationReferenceDataSource
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AddApplicationReferenceDataSource
+-&gt; AddApplicationReferenceDataSource -&gt; Bool
+$c/= :: AddApplicationReferenceDataSource
+-&gt; AddApplicationReferenceDataSource -&gt; Bool
+== :: AddApplicationReferenceDataSource
+-&gt; AddApplicationReferenceDataSource -&gt; Bool
+$c== :: AddApplicationReferenceDataSource
+-&gt; AddApplicationReferenceDataSource -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307007"><span id="local-6989586621679307009"><span id="local-6989586621679307011"><span id="local-6989586621679307013"><span class="annot"><span class="annottext">ReadPrec [AddApplicationReferenceDataSource]
+ReadPrec AddApplicationReferenceDataSource
+Int -&gt; ReadS AddApplicationReferenceDataSource
+ReadS [AddApplicationReferenceDataSource]
+(Int -&gt; ReadS AddApplicationReferenceDataSource)
+-&gt; ReadS [AddApplicationReferenceDataSource]
+-&gt; ReadPrec AddApplicationReferenceDataSource
+-&gt; ReadPrec [AddApplicationReferenceDataSource]
+-&gt; Read AddApplicationReferenceDataSource
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AddApplicationReferenceDataSource]
+$creadListPrec :: ReadPrec [AddApplicationReferenceDataSource]
+readPrec :: ReadPrec AddApplicationReferenceDataSource
+$creadPrec :: ReadPrec AddApplicationReferenceDataSource
+readList :: ReadS [AddApplicationReferenceDataSource]
+$creadList :: ReadS [AddApplicationReferenceDataSource]
+readsPrec :: Int -&gt; ReadS AddApplicationReferenceDataSource
+$creadsPrec :: Int -&gt; ReadS AddApplicationReferenceDataSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307000"><span id="local-6989586621679307002"><span id="local-6989586621679307004"><span class="annot"><span class="annottext">Int -&gt; AddApplicationReferenceDataSource -&gt; ShowS
+[AddApplicationReferenceDataSource] -&gt; ShowS
+AddApplicationReferenceDataSource -&gt; String
+(Int -&gt; AddApplicationReferenceDataSource -&gt; ShowS)
+-&gt; (AddApplicationReferenceDataSource -&gt; String)
+-&gt; ([AddApplicationReferenceDataSource] -&gt; ShowS)
+-&gt; Show AddApplicationReferenceDataSource
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AddApplicationReferenceDataSource] -&gt; ShowS
+$cshowList :: [AddApplicationReferenceDataSource] -&gt; ShowS
+show :: AddApplicationReferenceDataSource -&gt; String
+$cshow :: AddApplicationReferenceDataSource -&gt; String
+showsPrec :: Int -&gt; AddApplicationReferenceDataSource -&gt; ShowS
+$cshowsPrec :: Int -&gt; AddApplicationReferenceDataSource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AddApplicationReferenceDataSource
+ -&gt; Rep AddApplicationReferenceDataSource x)
+-&gt; (forall x.
+    Rep AddApplicationReferenceDataSource x
+    -&gt; AddApplicationReferenceDataSource)
+-&gt; Generic AddApplicationReferenceDataSource
+forall x.
+Rep AddApplicationReferenceDataSource x
+-&gt; AddApplicationReferenceDataSource
+forall x.
+AddApplicationReferenceDataSource
+-&gt; Rep AddApplicationReferenceDataSource x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AddApplicationReferenceDataSource x
+-&gt; AddApplicationReferenceDataSource
+$cfrom :: forall x.
+AddApplicationReferenceDataSource
+-&gt; Rep AddApplicationReferenceDataSource x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Create a value of 'AddApplicationReferenceDataSource' with all optional fields omitted.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'applicationName', 'addApplicationReferenceDataSource_applicationName' - The name of an existing application.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'currentApplicationVersionId', 'addApplicationReferenceDataSource_currentApplicationVersionId' - The version of the application for which you are adding the reference</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- data source. You can use the DescribeApplication operation to get the</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- current application version. If the version specified is not the current</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- version, the @ConcurrentModificationException@ is returned.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'referenceDataSource', 'addApplicationReferenceDataSource_referenceDataSource' - The reference data source can be an object in your Amazon S3 bucket.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- Kinesis Data Analytics reads the object and copies the data into the</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- in-application table that is created. You provide an S3 bucket, object</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- key name, and the resulting in-application table that is created.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#newAddApplicationReferenceDataSource"><span class="hs-identifier hs-type">newAddApplicationReferenceDataSource</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-comment">-- | 'applicationName'</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-comment">-- | 'currentApplicationVersionId'</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-comment">-- | 'referenceDataSource'</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ReferenceDataSource.html#ReferenceDataSource"><span class="hs-identifier hs-type">ReferenceDataSource</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSource"><span class="hs-identifier hs-type">AddApplicationReferenceDataSource</span></a></span><span>
+</span><span id="line-105"></span><span id="newAddApplicationReferenceDataSource"><span class="annot"><span class="annottext">newAddApplicationReferenceDataSource :: Text
+-&gt; Natural
+-&gt; ReferenceDataSource
+-&gt; AddApplicationReferenceDataSource
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#newAddApplicationReferenceDataSource"><span class="hs-identifier hs-var hs-var">newAddApplicationReferenceDataSource</span></a></span></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679306995"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306995"><span class="hs-identifier hs-var">pApplicationName_</span></a></span></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679306994"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679306994"><span class="hs-identifier hs-var">pCurrentApplicationVersionId_</span></a></span></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679306993"><span class="annot"><span class="annottext">ReferenceDataSource
+</span><a href="#local-6989586621679306993"><span class="hs-identifier hs-var">pReferenceDataSource_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">AddApplicationReferenceDataSource' :: Text
+-&gt; Natural
+-&gt; ReferenceDataSource
+-&gt; AddApplicationReferenceDataSource
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSource%27"><span class="hs-identifier hs-type">AddApplicationReferenceDataSource'</span></a></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:applicationName:AddApplicationReferenceDataSource' :: Text
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#%24sel%3AapplicationName%3AAddApplicationReferenceDataSource%27"><span class="hs-identifier hs-var">applicationName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306995"><span class="hs-identifier hs-var">pApplicationName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">$sel:currentApplicationVersionId:AddApplicationReferenceDataSource' :: Natural
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#%24sel%3AcurrentApplicationVersionId%3AAddApplicationReferenceDataSource%27"><span class="hs-identifier hs-var">currentApplicationVersionId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679306994"><span class="hs-identifier hs-var">pCurrentApplicationVersionId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">$sel:referenceDataSource:AddApplicationReferenceDataSource' :: ReferenceDataSource
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#%24sel%3AreferenceDataSource%3AAddApplicationReferenceDataSource%27"><span class="hs-identifier hs-var">referenceDataSource</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">ReferenceDataSource
+</span><a href="#local-6989586621679306993"><span class="hs-identifier hs-var">pReferenceDataSource_</span></a></span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The name of an existing application.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#addApplicationReferenceDataSource_applicationName"><span class="hs-identifier hs-type">addApplicationReferenceDataSource_applicationName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSource"><span class="hs-identifier hs-type">AddApplicationReferenceDataSource</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-120"></span><span id="addApplicationReferenceDataSource_applicationName"><span class="annot"><span class="annottext">addApplicationReferenceDataSource_applicationName :: (Text -&gt; f Text)
+-&gt; AddApplicationReferenceDataSource
+-&gt; f AddApplicationReferenceDataSource
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#addApplicationReferenceDataSource_applicationName"><span class="hs-identifier hs-var hs-var">addApplicationReferenceDataSource_applicationName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddApplicationReferenceDataSource -&gt; Text)
+-&gt; (AddApplicationReferenceDataSource
+    -&gt; Text -&gt; AddApplicationReferenceDataSource)
+-&gt; Lens
+     AddApplicationReferenceDataSource
+     AddApplicationReferenceDataSource
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSource%27"><span class="hs-identifier hs-type">AddApplicationReferenceDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306990"><span class="annot"><span class="annottext">Text
+applicationName :: Text
+$sel:applicationName:AddApplicationReferenceDataSource' :: AddApplicationReferenceDataSource -&gt; Text
+</span><a href="#local-6989586621679306990"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306990"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306989"><span class="annot"><span class="annottext">s :: AddApplicationReferenceDataSource
+</span><a href="#local-6989586621679306989"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSource%27"><span class="hs-identifier hs-type">AddApplicationReferenceDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306988"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306988"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddApplicationReferenceDataSource
+</span><a href="#local-6989586621679306989"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationName:AddApplicationReferenceDataSource' :: Text
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#%24sel%3AapplicationName%3AAddApplicationReferenceDataSource%27"><span class="hs-identifier hs-var">applicationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306988"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSource"><span class="hs-identifier hs-type">AddApplicationReferenceDataSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The version of the application for which you are adding the reference</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- data source. You can use the DescribeApplication operation to get the</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- current application version. If the version specified is not the current</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- version, the @ConcurrentModificationException@ is returned.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#addApplicationReferenceDataSource_currentApplicationVersionId"><span class="hs-identifier hs-type">addApplicationReferenceDataSource_currentApplicationVersionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSource"><span class="hs-identifier hs-type">AddApplicationReferenceDataSource</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-127"></span><span id="addApplicationReferenceDataSource_currentApplicationVersionId"><span class="annot"><span class="annottext">addApplicationReferenceDataSource_currentApplicationVersionId :: (Natural -&gt; f Natural)
+-&gt; AddApplicationReferenceDataSource
+-&gt; f AddApplicationReferenceDataSource
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#addApplicationReferenceDataSource_currentApplicationVersionId"><span class="hs-identifier hs-var hs-var">addApplicationReferenceDataSource_currentApplicationVersionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddApplicationReferenceDataSource -&gt; Natural)
+-&gt; (AddApplicationReferenceDataSource
+    -&gt; Natural -&gt; AddApplicationReferenceDataSource)
+-&gt; Lens
+     AddApplicationReferenceDataSource
+     AddApplicationReferenceDataSource
+     Natural
+     Natural
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSource%27"><span class="hs-identifier hs-type">AddApplicationReferenceDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306987"><span class="annot"><span class="annottext">Natural
+currentApplicationVersionId :: Natural
+$sel:currentApplicationVersionId:AddApplicationReferenceDataSource' :: AddApplicationReferenceDataSource -&gt; Natural
+</span><a href="#local-6989586621679306987"><span class="hs-identifier hs-var hs-var">currentApplicationVersionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679306987"><span class="hs-identifier hs-var">currentApplicationVersionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306986"><span class="annot"><span class="annottext">s :: AddApplicationReferenceDataSource
+</span><a href="#local-6989586621679306986"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSource%27"><span class="hs-identifier hs-type">AddApplicationReferenceDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306985"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679306985"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddApplicationReferenceDataSource
+</span><a href="#local-6989586621679306986"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currentApplicationVersionId:AddApplicationReferenceDataSource' :: Natural
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#%24sel%3AcurrentApplicationVersionId%3AAddApplicationReferenceDataSource%27"><span class="hs-identifier hs-var">currentApplicationVersionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679306985"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSource"><span class="hs-identifier hs-type">AddApplicationReferenceDataSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The reference data source can be an object in your Amazon S3 bucket.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- Kinesis Data Analytics reads the object and copies the data into the</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- in-application table that is created. You provide an S3 bucket, object</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- key name, and the resulting in-application table that is created.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#addApplicationReferenceDataSource_referenceDataSource"><span class="hs-identifier hs-type">addApplicationReferenceDataSource_referenceDataSource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSource"><span class="hs-identifier hs-type">AddApplicationReferenceDataSource</span></a></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ReferenceDataSource.html#ReferenceDataSource"><span class="hs-identifier hs-type">ReferenceDataSource</span></a></span><span>
+</span><span id="line-134"></span><span id="addApplicationReferenceDataSource_referenceDataSource"><span class="annot"><span class="annottext">addApplicationReferenceDataSource_referenceDataSource :: (ReferenceDataSource -&gt; f ReferenceDataSource)
+-&gt; AddApplicationReferenceDataSource
+-&gt; f AddApplicationReferenceDataSource
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#addApplicationReferenceDataSource_referenceDataSource"><span class="hs-identifier hs-var hs-var">addApplicationReferenceDataSource_referenceDataSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddApplicationReferenceDataSource -&gt; ReferenceDataSource)
+-&gt; (AddApplicationReferenceDataSource
+    -&gt; ReferenceDataSource -&gt; AddApplicationReferenceDataSource)
+-&gt; Lens
+     AddApplicationReferenceDataSource
+     AddApplicationReferenceDataSource
+     ReferenceDataSource
+     ReferenceDataSource
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSource%27"><span class="hs-identifier hs-type">AddApplicationReferenceDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306984"><span class="annot"><span class="annottext">ReferenceDataSource
+referenceDataSource :: ReferenceDataSource
+$sel:referenceDataSource:AddApplicationReferenceDataSource' :: AddApplicationReferenceDataSource -&gt; ReferenceDataSource
+</span><a href="#local-6989586621679306984"><span class="hs-identifier hs-var hs-var">referenceDataSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReferenceDataSource
+</span><a href="#local-6989586621679306984"><span class="hs-identifier hs-var">referenceDataSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306983"><span class="annot"><span class="annottext">s :: AddApplicationReferenceDataSource
+</span><a href="#local-6989586621679306983"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSource%27"><span class="hs-identifier hs-type">AddApplicationReferenceDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306982"><span class="annot"><span class="annottext">ReferenceDataSource
+</span><a href="#local-6989586621679306982"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddApplicationReferenceDataSource
+</span><a href="#local-6989586621679306983"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:referenceDataSource:AddApplicationReferenceDataSource' :: ReferenceDataSource
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#%24sel%3AreferenceDataSource%3AAddApplicationReferenceDataSource%27"><span class="hs-identifier hs-var">referenceDataSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ReferenceDataSource
+</span><a href="#local-6989586621679306982"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSource"><span class="hs-identifier hs-type">AddApplicationReferenceDataSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSource"><span class="hs-identifier hs-type">AddApplicationReferenceDataSource</span></a></span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-141"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSource"><span class="hs-identifier hs-type">AddApplicationReferenceDataSource</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSourceResponse"><span class="hs-identifier hs-type">AddApplicationReferenceDataSourceResponse</span></a></span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679306978"><span class="annot"><span class="annottext">request :: AddApplicationReferenceDataSource
+-&gt; Request AddApplicationReferenceDataSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; AddApplicationReferenceDataSource
+-&gt; Request AddApplicationReferenceDataSource
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679306974"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy AddApplicationReferenceDataSource
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse AddApplicationReferenceDataSource)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse AddApplicationReferenceDataSource))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy AddApplicationReferenceDataSource
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse AddApplicationReferenceDataSource)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679306971"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306971"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679306970"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679306970"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679306969"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679306969"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe [ReferenceDataSourceDescription]
+-&gt; Int
+-&gt; AddApplicationReferenceDataSourceResponse
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSourceResponse%27"><span class="hs-identifier hs-var">AddApplicationReferenceDataSourceResponse'</span></a></span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Natural
+ -&gt; Maybe [ReferenceDataSourceDescription]
+ -&gt; Int
+ -&gt; AddApplicationReferenceDataSourceResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Natural
+      -&gt; Maybe [ReferenceDataSourceDescription]
+      -&gt; Int
+      -&gt; AddApplicationReferenceDataSourceResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679306969"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApplicationARN&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Natural
+   -&gt; Maybe [ReferenceDataSourceDescription]
+   -&gt; Int
+   -&gt; AddApplicationReferenceDataSourceResponse)
+-&gt; Either String (Maybe Natural)
+-&gt; Either
+     String
+     (Maybe [ReferenceDataSourceDescription]
+      -&gt; Int -&gt; AddApplicationReferenceDataSourceResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679306969"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApplicationVersionId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [ReferenceDataSourceDescription]
+   -&gt; Int -&gt; AddApplicationReferenceDataSourceResponse)
+-&gt; Either String (Maybe [ReferenceDataSourceDescription])
+-&gt; Either String (Int -&gt; AddApplicationReferenceDataSourceResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679306969"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Either String (Maybe (Maybe [ReferenceDataSourceDescription]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReferenceDataSourceDescriptions&quot;</span></span><span>
+</span><span id="line-151"></span><span>                              </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ReferenceDataSourceDescription]))
+-&gt; Maybe [ReferenceDataSourceDescription]
+-&gt; Either String (Maybe [ReferenceDataSourceDescription])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ReferenceDataSourceDescription]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-152"></span><span>                          </span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>              </span><span class="annot"><span class="annottext">Either String (Int -&gt; AddApplicationReferenceDataSourceResponse)
+-&gt; Either String Int
+-&gt; Either String AddApplicationReferenceDataSourceResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306971"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679306960"><span id="local-6989586621679306962"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSource"><span class="hs-identifier hs-type">AddApplicationReferenceDataSource</span></a></span></span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679306957"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSource"><span class="hs-identifier hs-type">AddApplicationReferenceDataSource</span></a></span></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-165"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSource"><span class="hs-identifier hs-type">AddApplicationReferenceDataSource</span></a></span><span>
+</span><span id="line-167"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679306953"><span class="annot"><span class="annottext">toHeaders :: AddApplicationReferenceDataSource -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; AddApplicationReferenceDataSource -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-171"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-172"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;KinesisAnalytics_20180523.AddApplicationReferenceDataSource&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-173"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-174"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-176"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-177"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-178"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-180"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679306943"><span id="local-6989586621679306945"><span id="local-6989586621679306947"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-184"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSource"><span class="hs-identifier hs-type">AddApplicationReferenceDataSource</span></a></span></span></span></span><span>
+</span><span id="line-185"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679306941"><span class="annot"><span class="annottext">toJSON :: AddApplicationReferenceDataSource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSource%27"><span class="hs-identifier hs-type">AddApplicationReferenceDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306937"><span id="local-6989586621679306938"><span id="local-6989586621679306939"><span class="annot"><span class="annottext">Natural
+Text
+ReferenceDataSource
+referenceDataSource :: ReferenceDataSource
+currentApplicationVersionId :: Natural
+applicationName :: Text
+$sel:referenceDataSource:AddApplicationReferenceDataSource' :: AddApplicationReferenceDataSource -&gt; ReferenceDataSource
+$sel:currentApplicationVersionId:AddApplicationReferenceDataSource' :: AddApplicationReferenceDataSource -&gt; Natural
+$sel:applicationName:AddApplicationReferenceDataSource' :: AddApplicationReferenceDataSource -&gt; Text
+</span><a href="#local-6989586621679306937"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-188"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-189"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-190"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApplicationName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306939"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-192"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CurrentApplicationVersionId&quot;</span></span><span>
+</span><span id="line-193"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679306938"><span class="hs-identifier hs-var">currentApplicationVersionId</span></a></span><span>
+</span><span id="line-194"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-196"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReferenceDataSource&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ReferenceDataSource -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ReferenceDataSource
+</span><a href="#local-6989586621679306937"><span class="hs-identifier hs-var">referenceDataSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-198"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-201"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-202"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSource"><span class="hs-identifier hs-type">AddApplicationReferenceDataSource</span></a></span><span>
+</span><span id="line-203"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-204"></span><span>  </span><span id="local-6989586621679306931"><span class="annot"><span class="annottext">toPath :: AddApplicationReferenceDataSource -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AddApplicationReferenceDataSource -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-207"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSource"><span class="hs-identifier hs-type">AddApplicationReferenceDataSource</span></a></span><span>
+</span><span id="line-209"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-210"></span><span>  </span><span id="local-6989586621679306927"><span class="annot"><span class="annottext">toQuery :: AddApplicationReferenceDataSource -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AddApplicationReferenceDataSource -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | /See:/ 'newAddApplicationReferenceDataSourceResponse' smart constructor.</span><span>
+</span><span id="line-213"></span><span id="local-6989586621679306924"><span id="local-6989586621679306925"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddApplicationReferenceDataSourceResponse"><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSourceResponse"><span class="hs-identifier hs-var">AddApplicationReferenceDataSourceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddApplicationReferenceDataSourceResponse%27"><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSourceResponse%27"><span class="hs-identifier hs-var">AddApplicationReferenceDataSourceResponse'</span></a></span></span><span>
+</span><span id="line-214"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The application Amazon Resource Name (ARN).</span><span>
+</span><span id="line-215"></span><span>    </span><span id="%24sel%3AapplicationARN%3AAddApplicationReferenceDataSourceResponse%27"><span class="annot"><span class="annottext">AddApplicationReferenceDataSourceResponse -&gt; Maybe Text
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#%24sel%3AapplicationARN%3AAddApplicationReferenceDataSourceResponse%27"><span class="hs-identifier hs-var hs-var">applicationARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>    </span><span class="hs-comment">-- | The updated application version ID. Kinesis Data Analytics increments</span><span>
+</span><span id="line-217"></span><span>    </span><span class="hs-comment">-- this ID when the application is updated.</span><span>
+</span><span id="line-218"></span><span>    </span><span id="%24sel%3AapplicationVersionId%3AAddApplicationReferenceDataSourceResponse%27"><span class="annot"><span class="annottext">AddApplicationReferenceDataSourceResponse -&gt; Maybe Natural
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#%24sel%3AapplicationVersionId%3AAddApplicationReferenceDataSourceResponse%27"><span class="hs-identifier hs-var hs-var">applicationVersionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>    </span><span class="hs-comment">-- | Describes reference data sources configured for the application.</span><span>
+</span><span id="line-220"></span><span>    </span><span id="%24sel%3AreferenceDataSourceDescriptions%3AAddApplicationReferenceDataSourceResponse%27"><span class="annot"><span class="annottext">AddApplicationReferenceDataSourceResponse
+-&gt; Maybe [ReferenceDataSourceDescription]
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#%24sel%3AreferenceDataSourceDescriptions%3AAddApplicationReferenceDataSourceResponse%27"><span class="hs-identifier hs-var hs-var">referenceDataSourceDescriptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ReferenceDataSourceDescription.html#ReferenceDataSourceDescription"><span class="hs-identifier hs-type">ReferenceDataSourceDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-222"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAddApplicationReferenceDataSourceResponse%27"><span class="annot"><span class="annottext">AddApplicationReferenceDataSourceResponse -&gt; Int
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#%24sel%3AhttpStatus%3AAddApplicationReferenceDataSourceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-223"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-224"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679306916"><span id="local-6989586621679306918"><span class="annot"><span class="annottext">AddApplicationReferenceDataSourceResponse
+-&gt; AddApplicationReferenceDataSourceResponse -&gt; Bool
+(AddApplicationReferenceDataSourceResponse
+ -&gt; AddApplicationReferenceDataSourceResponse -&gt; Bool)
+-&gt; (AddApplicationReferenceDataSourceResponse
+    -&gt; AddApplicationReferenceDataSourceResponse -&gt; Bool)
+-&gt; Eq AddApplicationReferenceDataSourceResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AddApplicationReferenceDataSourceResponse
+-&gt; AddApplicationReferenceDataSourceResponse -&gt; Bool
+$c/= :: AddApplicationReferenceDataSourceResponse
+-&gt; AddApplicationReferenceDataSourceResponse -&gt; Bool
+== :: AddApplicationReferenceDataSourceResponse
+-&gt; AddApplicationReferenceDataSourceResponse -&gt; Bool
+$c== :: AddApplicationReferenceDataSourceResponse
+-&gt; AddApplicationReferenceDataSourceResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306908"><span id="local-6989586621679306910"><span id="local-6989586621679306912"><span id="local-6989586621679306914"><span class="annot"><span class="annottext">ReadPrec [AddApplicationReferenceDataSourceResponse]
+ReadPrec AddApplicationReferenceDataSourceResponse
+Int -&gt; ReadS AddApplicationReferenceDataSourceResponse
+ReadS [AddApplicationReferenceDataSourceResponse]
+(Int -&gt; ReadS AddApplicationReferenceDataSourceResponse)
+-&gt; ReadS [AddApplicationReferenceDataSourceResponse]
+-&gt; ReadPrec AddApplicationReferenceDataSourceResponse
+-&gt; ReadPrec [AddApplicationReferenceDataSourceResponse]
+-&gt; Read AddApplicationReferenceDataSourceResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AddApplicationReferenceDataSourceResponse]
+$creadListPrec :: ReadPrec [AddApplicationReferenceDataSourceResponse]
+readPrec :: ReadPrec AddApplicationReferenceDataSourceResponse
+$creadPrec :: ReadPrec AddApplicationReferenceDataSourceResponse
+readList :: ReadS [AddApplicationReferenceDataSourceResponse]
+$creadList :: ReadS [AddApplicationReferenceDataSourceResponse]
+readsPrec :: Int -&gt; ReadS AddApplicationReferenceDataSourceResponse
+$creadsPrec :: Int -&gt; ReadS AddApplicationReferenceDataSourceResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306902"><span id="local-6989586621679306904"><span id="local-6989586621679306906"><span class="annot"><span class="annottext">Int -&gt; AddApplicationReferenceDataSourceResponse -&gt; ShowS
+[AddApplicationReferenceDataSourceResponse] -&gt; ShowS
+AddApplicationReferenceDataSourceResponse -&gt; String
+(Int -&gt; AddApplicationReferenceDataSourceResponse -&gt; ShowS)
+-&gt; (AddApplicationReferenceDataSourceResponse -&gt; String)
+-&gt; ([AddApplicationReferenceDataSourceResponse] -&gt; ShowS)
+-&gt; Show AddApplicationReferenceDataSourceResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AddApplicationReferenceDataSourceResponse] -&gt; ShowS
+$cshowList :: [AddApplicationReferenceDataSourceResponse] -&gt; ShowS
+show :: AddApplicationReferenceDataSourceResponse -&gt; String
+$cshow :: AddApplicationReferenceDataSourceResponse -&gt; String
+showsPrec :: Int -&gt; AddApplicationReferenceDataSourceResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; AddApplicationReferenceDataSourceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AddApplicationReferenceDataSourceResponse
+ -&gt; Rep AddApplicationReferenceDataSourceResponse x)
+-&gt; (forall x.
+    Rep AddApplicationReferenceDataSourceResponse x
+    -&gt; AddApplicationReferenceDataSourceResponse)
+-&gt; Generic AddApplicationReferenceDataSourceResponse
+forall x.
+Rep AddApplicationReferenceDataSourceResponse x
+-&gt; AddApplicationReferenceDataSourceResponse
+forall x.
+AddApplicationReferenceDataSourceResponse
+-&gt; Rep AddApplicationReferenceDataSourceResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AddApplicationReferenceDataSourceResponse x
+-&gt; AddApplicationReferenceDataSourceResponse
+$cfrom :: forall x.
+AddApplicationReferenceDataSourceResponse
+-&gt; Rep AddApplicationReferenceDataSourceResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- Create a value of 'AddApplicationReferenceDataSourceResponse' with all optional fields omitted.</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- 'applicationARN', 'addApplicationReferenceDataSourceResponse_applicationARN' - The application Amazon Resource Name (ARN).</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- 'applicationVersionId', 'addApplicationReferenceDataSourceResponse_applicationVersionId' - The updated application version ID. Kinesis Data Analytics increments</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- this ID when the application is updated.</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- 'referenceDataSourceDescriptions', 'addApplicationReferenceDataSourceResponse_referenceDataSourceDescriptions' - Describes reference data sources configured for the application.</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- 'httpStatus', 'addApplicationReferenceDataSourceResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-242"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#newAddApplicationReferenceDataSourceResponse"><span class="hs-identifier hs-type">newAddApplicationReferenceDataSourceResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-243"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-244"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-245"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSourceResponse"><span class="hs-identifier hs-type">AddApplicationReferenceDataSourceResponse</span></a></span><span>
+</span><span id="line-246"></span><span id="newAddApplicationReferenceDataSourceResponse"><span class="annot"><span class="annottext">newAddApplicationReferenceDataSourceResponse :: Int -&gt; AddApplicationReferenceDataSourceResponse
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#newAddApplicationReferenceDataSourceResponse"><span class="hs-identifier hs-var hs-var">newAddApplicationReferenceDataSourceResponse</span></a></span></span><span>
+</span><span id="line-247"></span><span>  </span><span id="local-6989586621679306899"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306899"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-248"></span><span>    </span><span class="annot"><span class="annottext">AddApplicationReferenceDataSourceResponse' :: Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe [ReferenceDataSourceDescription]
+-&gt; Int
+-&gt; AddApplicationReferenceDataSourceResponse
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSourceResponse%27"><span class="hs-identifier hs-type">AddApplicationReferenceDataSourceResponse'</span></a></span><span>
+</span><span id="line-249"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:applicationARN:AddApplicationReferenceDataSourceResponse' :: Maybe Text
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#%24sel%3AapplicationARN%3AAddApplicationReferenceDataSourceResponse%27"><span class="hs-identifier hs-var">applicationARN</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-250"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>        </span><span class="annot"><span class="annottext">$sel:applicationVersionId:AddApplicationReferenceDataSourceResponse' :: Maybe Natural
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#%24sel%3AapplicationVersionId%3AAddApplicationReferenceDataSourceResponse%27"><span class="hs-identifier hs-var">applicationVersionId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-252"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>        </span><span class="annot"><span class="annottext">$sel:referenceDataSourceDescriptions:AddApplicationReferenceDataSourceResponse' :: Maybe [ReferenceDataSourceDescription]
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#%24sel%3AreferenceDataSourceDescriptions%3AAddApplicationReferenceDataSourceResponse%27"><span class="hs-identifier hs-var">referenceDataSourceDescriptions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-254"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ReferenceDataSourceDescription]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:AddApplicationReferenceDataSourceResponse' :: Int
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#%24sel%3AhttpStatus%3AAddApplicationReferenceDataSourceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306899"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-256"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-257"></span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- | The application Amazon Resource Name (ARN).</span><span>
+</span><span id="line-259"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#addApplicationReferenceDataSourceResponse_applicationARN"><span class="hs-identifier hs-type">addApplicationReferenceDataSourceResponse_applicationARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSourceResponse"><span class="hs-identifier hs-type">AddApplicationReferenceDataSourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span id="addApplicationReferenceDataSourceResponse_applicationARN"><span class="annot"><span class="annottext">addApplicationReferenceDataSourceResponse_applicationARN :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AddApplicationReferenceDataSourceResponse
+-&gt; f AddApplicationReferenceDataSourceResponse
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#addApplicationReferenceDataSourceResponse_applicationARN"><span class="hs-identifier hs-var hs-var">addApplicationReferenceDataSourceResponse_applicationARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddApplicationReferenceDataSourceResponse -&gt; Maybe Text)
+-&gt; (AddApplicationReferenceDataSourceResponse
+    -&gt; Maybe Text -&gt; AddApplicationReferenceDataSourceResponse)
+-&gt; Lens
+     AddApplicationReferenceDataSourceResponse
+     AddApplicationReferenceDataSourceResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSourceResponse%27"><span class="hs-identifier hs-type">AddApplicationReferenceDataSourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306898"><span class="annot"><span class="annottext">Maybe Text
+applicationARN :: Maybe Text
+$sel:applicationARN:AddApplicationReferenceDataSourceResponse' :: AddApplicationReferenceDataSourceResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679306898"><span class="hs-identifier hs-var hs-var">applicationARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306898"><span class="hs-identifier hs-var">applicationARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306897"><span class="annot"><span class="annottext">s :: AddApplicationReferenceDataSourceResponse
+</span><a href="#local-6989586621679306897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSourceResponse%27"><span class="hs-identifier hs-type">AddApplicationReferenceDataSourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306896"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddApplicationReferenceDataSourceResponse
+</span><a href="#local-6989586621679306897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationARN:AddApplicationReferenceDataSourceResponse' :: Maybe Text
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#%24sel%3AapplicationARN%3AAddApplicationReferenceDataSourceResponse%27"><span class="hs-identifier hs-var">applicationARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSourceResponse"><span class="hs-identifier hs-type">AddApplicationReferenceDataSourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- | The updated application version ID. Kinesis Data Analytics increments</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- this ID when the application is updated.</span><span>
+</span><span id="line-264"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#addApplicationReferenceDataSourceResponse_applicationVersionId"><span class="hs-identifier hs-type">addApplicationReferenceDataSourceResponse_applicationVersionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSourceResponse"><span class="hs-identifier hs-type">AddApplicationReferenceDataSourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span id="addApplicationReferenceDataSourceResponse_applicationVersionId"><span class="annot"><span class="annottext">addApplicationReferenceDataSourceResponse_applicationVersionId :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; AddApplicationReferenceDataSourceResponse
+-&gt; f AddApplicationReferenceDataSourceResponse
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#addApplicationReferenceDataSourceResponse_applicationVersionId"><span class="hs-identifier hs-var hs-var">addApplicationReferenceDataSourceResponse_applicationVersionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddApplicationReferenceDataSourceResponse -&gt; Maybe Natural)
+-&gt; (AddApplicationReferenceDataSourceResponse
+    -&gt; Maybe Natural -&gt; AddApplicationReferenceDataSourceResponse)
+-&gt; Lens
+     AddApplicationReferenceDataSourceResponse
+     AddApplicationReferenceDataSourceResponse
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSourceResponse%27"><span class="hs-identifier hs-type">AddApplicationReferenceDataSourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306895"><span class="annot"><span class="annottext">Maybe Natural
+applicationVersionId :: Maybe Natural
+$sel:applicationVersionId:AddApplicationReferenceDataSourceResponse' :: AddApplicationReferenceDataSourceResponse -&gt; Maybe Natural
+</span><a href="#local-6989586621679306895"><span class="hs-identifier hs-var hs-var">applicationVersionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679306895"><span class="hs-identifier hs-var">applicationVersionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306894"><span class="annot"><span class="annottext">s :: AddApplicationReferenceDataSourceResponse
+</span><a href="#local-6989586621679306894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSourceResponse%27"><span class="hs-identifier hs-type">AddApplicationReferenceDataSourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306893"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679306893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddApplicationReferenceDataSourceResponse
+</span><a href="#local-6989586621679306894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationVersionId:AddApplicationReferenceDataSourceResponse' :: Maybe Natural
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#%24sel%3AapplicationVersionId%3AAddApplicationReferenceDataSourceResponse%27"><span class="hs-identifier hs-var">applicationVersionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679306893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSourceResponse"><span class="hs-identifier hs-type">AddApplicationReferenceDataSourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- | Describes reference data sources configured for the application.</span><span>
+</span><span id="line-268"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#addApplicationReferenceDataSourceResponse_referenceDataSourceDescriptions"><span class="hs-identifier hs-type">addApplicationReferenceDataSourceResponse_referenceDataSourceDescriptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSourceResponse"><span class="hs-identifier hs-type">AddApplicationReferenceDataSourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ReferenceDataSourceDescription.html#ReferenceDataSourceDescription"><span class="hs-identifier hs-type">ReferenceDataSourceDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span id="addApplicationReferenceDataSourceResponse_referenceDataSourceDescriptions"><span class="annot"><span class="annottext">addApplicationReferenceDataSourceResponse_referenceDataSourceDescriptions :: (Maybe [ReferenceDataSourceDescription]
+ -&gt; f (Maybe [ReferenceDataSourceDescription]))
+-&gt; AddApplicationReferenceDataSourceResponse
+-&gt; f AddApplicationReferenceDataSourceResponse
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#addApplicationReferenceDataSourceResponse_referenceDataSourceDescriptions"><span class="hs-identifier hs-var hs-var">addApplicationReferenceDataSourceResponse_referenceDataSourceDescriptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddApplicationReferenceDataSourceResponse
+ -&gt; Maybe [ReferenceDataSourceDescription])
+-&gt; (AddApplicationReferenceDataSourceResponse
+    -&gt; Maybe [ReferenceDataSourceDescription]
+    -&gt; AddApplicationReferenceDataSourceResponse)
+-&gt; Lens
+     AddApplicationReferenceDataSourceResponse
+     AddApplicationReferenceDataSourceResponse
+     (Maybe [ReferenceDataSourceDescription])
+     (Maybe [ReferenceDataSourceDescription])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSourceResponse%27"><span class="hs-identifier hs-type">AddApplicationReferenceDataSourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306892"><span class="annot"><span class="annottext">Maybe [ReferenceDataSourceDescription]
+referenceDataSourceDescriptions :: Maybe [ReferenceDataSourceDescription]
+$sel:referenceDataSourceDescriptions:AddApplicationReferenceDataSourceResponse' :: AddApplicationReferenceDataSourceResponse
+-&gt; Maybe [ReferenceDataSourceDescription]
+</span><a href="#local-6989586621679306892"><span class="hs-identifier hs-var hs-var">referenceDataSourceDescriptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ReferenceDataSourceDescription]
+</span><a href="#local-6989586621679306892"><span class="hs-identifier hs-var">referenceDataSourceDescriptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306891"><span class="annot"><span class="annottext">s :: AddApplicationReferenceDataSourceResponse
+</span><a href="#local-6989586621679306891"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSourceResponse%27"><span class="hs-identifier hs-type">AddApplicationReferenceDataSourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306890"><span class="annot"><span class="annottext">Maybe [ReferenceDataSourceDescription]
+</span><a href="#local-6989586621679306890"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddApplicationReferenceDataSourceResponse
+</span><a href="#local-6989586621679306891"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:referenceDataSourceDescriptions:AddApplicationReferenceDataSourceResponse' :: Maybe [ReferenceDataSourceDescription]
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#%24sel%3AreferenceDataSourceDescriptions%3AAddApplicationReferenceDataSourceResponse%27"><span class="hs-identifier hs-var">referenceDataSourceDescriptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ReferenceDataSourceDescription]
+</span><a href="#local-6989586621679306890"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSourceResponse"><span class="hs-identifier hs-type">AddApplicationReferenceDataSourceResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ReferenceDataSourceDescription]
+  -&gt; f (Maybe [ReferenceDataSourceDescription]))
+ -&gt; AddApplicationReferenceDataSourceResponse
+ -&gt; f AddApplicationReferenceDataSourceResponse)
+-&gt; ((Maybe [ReferenceDataSourceDescription]
+     -&gt; f (Maybe [ReferenceDataSourceDescription]))
+    -&gt; Maybe [ReferenceDataSourceDescription]
+    -&gt; f (Maybe [ReferenceDataSourceDescription]))
+-&gt; (Maybe [ReferenceDataSourceDescription]
+    -&gt; f (Maybe [ReferenceDataSourceDescription]))
+-&gt; AddApplicationReferenceDataSourceResponse
+-&gt; f AddApplicationReferenceDataSourceResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ReferenceDataSourceDescription]
+  [ReferenceDataSourceDescription]
+  [ReferenceDataSourceDescription]
+  [ReferenceDataSourceDescription]
+-&gt; Iso
+     (Maybe [ReferenceDataSourceDescription])
+     (Maybe [ReferenceDataSourceDescription])
+     (Maybe [ReferenceDataSourceDescription])
+     (Maybe [ReferenceDataSourceDescription])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ReferenceDataSourceDescription]
+  [ReferenceDataSourceDescription]
+  [ReferenceDataSourceDescription]
+  [ReferenceDataSourceDescription]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-270"></span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-272"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#addApplicationReferenceDataSourceResponse_httpStatus"><span class="hs-identifier hs-type">addApplicationReferenceDataSourceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSourceResponse"><span class="hs-identifier hs-type">AddApplicationReferenceDataSourceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-273"></span><span id="addApplicationReferenceDataSourceResponse_httpStatus"><span class="annot"><span class="annottext">addApplicationReferenceDataSourceResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; AddApplicationReferenceDataSourceResponse
+-&gt; f AddApplicationReferenceDataSourceResponse
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#addApplicationReferenceDataSourceResponse_httpStatus"><span class="hs-identifier hs-var hs-var">addApplicationReferenceDataSourceResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddApplicationReferenceDataSourceResponse -&gt; Int)
+-&gt; (AddApplicationReferenceDataSourceResponse
+    -&gt; Int -&gt; AddApplicationReferenceDataSourceResponse)
+-&gt; Lens
+     AddApplicationReferenceDataSourceResponse
+     AddApplicationReferenceDataSourceResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSourceResponse%27"><span class="hs-identifier hs-type">AddApplicationReferenceDataSourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306886"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:AddApplicationReferenceDataSourceResponse' :: AddApplicationReferenceDataSourceResponse -&gt; Int
+</span><a href="#local-6989586621679306886"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306886"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306885"><span class="annot"><span class="annottext">s :: AddApplicationReferenceDataSourceResponse
+</span><a href="#local-6989586621679306885"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSourceResponse%27"><span class="hs-identifier hs-type">AddApplicationReferenceDataSourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306884"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306884"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddApplicationReferenceDataSourceResponse
+</span><a href="#local-6989586621679306885"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AddApplicationReferenceDataSourceResponse' :: Int
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#%24sel%3AhttpStatus%3AAddApplicationReferenceDataSourceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306884"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSourceResponse"><span class="hs-identifier hs-type">AddApplicationReferenceDataSourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span>
+</span><span id="line-275"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-276"></span><span>  </span><span id="local-6989586621679306882"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-277"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationReferenceDataSource.html#AddApplicationReferenceDataSourceResponse"><span class="hs-identifier hs-type">AddApplicationReferenceDataSourceResponse</span></a></span></span><span>
+</span><span id="line-278"></span></pre></body></html>

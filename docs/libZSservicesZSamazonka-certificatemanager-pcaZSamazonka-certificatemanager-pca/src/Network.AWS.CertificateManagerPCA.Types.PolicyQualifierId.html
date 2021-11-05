@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679210884"><span id="local-6989586621679210885"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PolicyQualifierId"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.PolicyQualifierId.html#PolicyQualifierId"><span class="hs-identifier hs-var">PolicyQualifierId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PolicyQualifierId%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.PolicyQualifierId.html#PolicyQualifierId%27"><span class="hs-identifier hs-var">PolicyQualifierId'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679210893"><span id="local-6989586621679210894"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PolicyQualifierId"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.PolicyQualifierId.html#PolicyQualifierId"><span class="hs-identifier hs-var">PolicyQualifierId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PolicyQualifierId%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.PolicyQualifierId.html#PolicyQualifierId%27"><span class="hs-identifier hs-var">PolicyQualifierId'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPolicyQualifierId"><span class="annot"><span class="annottext">PolicyQualifierId -&gt; Text
 </span><a href="Network.AWS.CertificateManagerPCA.Types.PolicyQualifierId.html#fromPolicyQualifierId"><span class="hs-identifier hs-var hs-var">fromPolicyQualifierId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679210876"><span id="local-6989586621679210878"><span id="local-6989586621679210880"><span class="annot"><span class="annottext">Int -&gt; PolicyQualifierId -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679210885"><span id="local-6989586621679210887"><span id="local-6989586621679210889"><span class="annot"><span class="annottext">Int -&gt; PolicyQualifierId -&gt; ShowS
 [PolicyQualifierId] -&gt; ShowS
 PolicyQualifierId -&gt; String
 (Int -&gt; PolicyQualifierId -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: PolicyQualifierId -&gt; String
 showsPrec :: Int -&gt; PolicyQualifierId -&gt; ShowS
 $cshowsPrec :: Int -&gt; PolicyQualifierId -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679210867"><span id="local-6989586621679210869"><span id="local-6989586621679210871"><span id="local-6989586621679210873"><span class="annot"><span class="annottext">ReadPrec [PolicyQualifierId]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679210876"><span id="local-6989586621679210878"><span id="local-6989586621679210880"><span id="local-6989586621679210882"><span class="annot"><span class="annottext">ReadPrec [PolicyQualifierId]
 ReadPrec PolicyQualifierId
 Int -&gt; ReadS PolicyQualifierId
 ReadS [PolicyQualifierId]
@@ -71,7 +71,7 @@ $creadList :: ReadS [PolicyQualifierId]
 readsPrec :: Int -&gt; ReadS PolicyQualifierId
 $creadsPrec :: Int -&gt; ReadS PolicyQualifierId
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679210862"><span id="local-6989586621679210864"><span class="annot"><span class="annottext">PolicyQualifierId -&gt; PolicyQualifierId -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679210871"><span id="local-6989586621679210873"><span class="annot"><span class="annottext">PolicyQualifierId -&gt; PolicyQualifierId -&gt; Bool
 (PolicyQualifierId -&gt; PolicyQualifierId -&gt; Bool)
 -&gt; (PolicyQualifierId -&gt; PolicyQualifierId -&gt; Bool)
 -&gt; Eq PolicyQualifierId
@@ -81,7 +81,7 @@ $c/= :: PolicyQualifierId -&gt; PolicyQualifierId -&gt; Bool
 == :: PolicyQualifierId -&gt; PolicyQualifierId -&gt; Bool
 $c== :: PolicyQualifierId -&gt; PolicyQualifierId -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679210846"><span id="local-6989586621679210848"><span id="local-6989586621679210850"><span id="local-6989586621679210852"><span id="local-6989586621679210854"><span id="local-6989586621679210856"><span id="local-6989586621679210858"><span class="annot"><span class="annottext">Eq PolicyQualifierId
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679210855"><span id="local-6989586621679210857"><span id="local-6989586621679210859"><span id="local-6989586621679210861"><span id="local-6989586621679210863"><span id="local-6989586621679210865"><span id="local-6989586621679210867"><span class="annot"><span class="annottext">Eq PolicyQualifierId
 Eq PolicyQualifierId
 -&gt; (PolicyQualifierId -&gt; PolicyQualifierId -&gt; Ordering)
 -&gt; (PolicyQualifierId -&gt; PolicyQualifierId -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. PolicyQualifierId -&gt; Rep PolicyQualifierId x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679210838"><span id="local-6989586621679210840"><span class="annot"><span class="annottext">Int -&gt; PolicyQualifierId -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679210847"><span id="local-6989586621679210849"><span class="annot"><span class="annottext">Int -&gt; PolicyQualifierId -&gt; Int
 PolicyQualifierId -&gt; Int
 (Int -&gt; PolicyQualifierId -&gt; Int)
 -&gt; (PolicyQualifierId -&gt; Int) -&gt; Hashable PolicyQualifierId
@@ -142,51 +142,51 @@ $chash :: PolicyQualifierId -&gt; Int
 hashWithSalt :: Int -&gt; PolicyQualifierId -&gt; Int
 $chashWithSalt :: Int -&gt; PolicyQualifierId -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679210835"><span class="annot"><span class="annottext">PolicyQualifierId -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679210844"><span class="annot"><span class="annottext">PolicyQualifierId -&gt; ()
 (PolicyQualifierId -&gt; ()) -&gt; NFData PolicyQualifierId
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: PolicyQualifierId -&gt; ()
 $crnf :: PolicyQualifierId -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679210832"><span class="annot"><span class="annottext">Text -&gt; Either String PolicyQualifierId
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679210841"><span class="annot"><span class="annottext">Text -&gt; Either String PolicyQualifierId
 (Text -&gt; Either String PolicyQualifierId)
 -&gt; FromText PolicyQualifierId
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String PolicyQualifierId
 $cfromText :: Text -&gt; Either String PolicyQualifierId
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679210829"><span class="annot"><span class="annottext">PolicyQualifierId -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679210838"><span class="annot"><span class="annottext">PolicyQualifierId -&gt; Text
 (PolicyQualifierId -&gt; Text) -&gt; ToText PolicyQualifierId
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: PolicyQualifierId -&gt; Text
 $ctoText :: PolicyQualifierId -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679210826"><span class="annot"><span class="annottext">PolicyQualifierId -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679210835"><span class="annot"><span class="annottext">PolicyQualifierId -&gt; ByteString
 (PolicyQualifierId -&gt; ByteString) -&gt; ToByteString PolicyQualifierId
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: PolicyQualifierId -&gt; ByteString
 $ctoBS :: PolicyQualifierId -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679210823"><span class="annot"><span class="annottext">PolicyQualifierId -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679210832"><span class="annot"><span class="annottext">PolicyQualifierId -&gt; ByteStringBuilder
 (PolicyQualifierId -&gt; ByteStringBuilder) -&gt; ToLog PolicyQualifierId
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: PolicyQualifierId -&gt; ByteStringBuilder
 $cbuild :: PolicyQualifierId -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679210820"><span class="annot"><span class="annottext">HeaderName -&gt; PolicyQualifierId -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679210829"><span class="annot"><span class="annottext">HeaderName -&gt; PolicyQualifierId -&gt; [Header]
 (HeaderName -&gt; PolicyQualifierId -&gt; [Header])
 -&gt; ToHeader PolicyQualifierId
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; PolicyQualifierId -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; PolicyQualifierId -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679210817"><span class="annot"><span class="annottext">PolicyQualifierId -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679210826"><span class="annot"><span class="annottext">PolicyQualifierId -&gt; QueryString
 (PolicyQualifierId -&gt; QueryString) -&gt; ToQuery PolicyQualifierId
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: PolicyQualifierId -&gt; QueryString
 $ctoQuery :: PolicyQualifierId -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679210812"><span id="local-6989586621679210814"><span class="annot"><span class="annottext">Value -&gt; Parser [PolicyQualifierId]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679210821"><span id="local-6989586621679210823"><span class="annot"><span class="annottext">Value -&gt; Parser [PolicyQualifierId]
 Value -&gt; Parser PolicyQualifierId
 (Value -&gt; Parser PolicyQualifierId)
 -&gt; (Value -&gt; Parser [PolicyQualifierId])
@@ -198,7 +198,7 @@ $cparseJSONList :: Value -&gt; Parser [PolicyQualifierId]
 parseJSON :: Value -&gt; Parser PolicyQualifierId
 $cparseJSON :: Value -&gt; Parser PolicyQualifierId
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679210807"><span id="local-6989586621679210809"><span class="annot"><span class="annottext">FromJSONKeyFunction [PolicyQualifierId]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679210816"><span id="local-6989586621679210818"><span class="annot"><span class="annottext">FromJSONKeyFunction [PolicyQualifierId]
 FromJSONKeyFunction PolicyQualifierId
 FromJSONKeyFunction PolicyQualifierId
 -&gt; FromJSONKeyFunction [PolicyQualifierId]
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [PolicyQualifierId]
 fromJSONKey :: FromJSONKeyFunction PolicyQualifierId
 $cfromJSONKey :: FromJSONKeyFunction PolicyQualifierId
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679210798"><span id="local-6989586621679210800"><span id="local-6989586621679210802"><span id="local-6989586621679210804"><span class="annot"><span class="annottext">[PolicyQualifierId] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679210807"><span id="local-6989586621679210809"><span id="local-6989586621679210811"><span id="local-6989586621679210813"><span class="annot"><span class="annottext">[PolicyQualifierId] -&gt; Encoding
 [PolicyQualifierId] -&gt; Value
 PolicyQualifierId -&gt; Encoding
 PolicyQualifierId -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: PolicyQualifierId -&gt; Encoding
 toJSON :: PolicyQualifierId -&gt; Value
 $ctoJSON :: PolicyQualifierId -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679210793"><span id="local-6989586621679210795"><span class="annot"><span class="annottext">ToJSONKeyFunction [PolicyQualifierId]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679210802"><span id="local-6989586621679210804"><span class="annot"><span class="annottext">ToJSONKeyFunction [PolicyQualifierId]
 ToJSONKeyFunction PolicyQualifierId
 ToJSONKeyFunction PolicyQualifierId
 -&gt; ToJSONKeyFunction [PolicyQualifierId]
@@ -246,14 +246,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [PolicyQualifierId]
 toJSONKey :: ToJSONKeyFunction PolicyQualifierId
 $ctoJSONKey :: ToJSONKeyFunction PolicyQualifierId
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679210790"><span class="annot"><span class="annottext">[Node] -&gt; Either String PolicyQualifierId
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679210799"><span class="annot"><span class="annottext">[Node] -&gt; Either String PolicyQualifierId
 ([Node] -&gt; Either String PolicyQualifierId)
 -&gt; FromXML PolicyQualifierId
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String PolicyQualifierId
 $cparseXML :: [Node] -&gt; Either String PolicyQualifierId
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679210787"><span class="annot"><span class="annottext">PolicyQualifierId -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679210796"><span class="annot"><span class="annottext">PolicyQualifierId -&gt; XML
 (PolicyQualifierId -&gt; XML) -&gt; ToXML PolicyQualifierId
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: PolicyQualifierId -&gt; XML

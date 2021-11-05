@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newDescribeCreateAccountStatus' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679248566"><span id="local-6989586621679248567"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeCreateAccountStatus"><span class="annot"><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#DescribeCreateAccountStatus"><span class="hs-identifier hs-var">DescribeCreateAccountStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeCreateAccountStatus%27"><span class="annot"><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#DescribeCreateAccountStatus%27"><span class="hs-identifier hs-var">DescribeCreateAccountStatus'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679248575"><span id="local-6989586621679248576"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeCreateAccountStatus"><span class="annot"><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#DescribeCreateAccountStatus"><span class="hs-identifier hs-var">DescribeCreateAccountStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeCreateAccountStatus%27"><span class="annot"><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#DescribeCreateAccountStatus%27"><span class="hs-identifier hs-var">DescribeCreateAccountStatus'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the @Id@ value that uniquely identifies the @CreateAccount@</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- request. You can get the value from the @CreateAccountStatus.Id@</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- response in an earlier CreateAccount request, or from the</span><span>
@@ -64,7 +64,7 @@
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AcreateAccountRequestId%3ADescribeCreateAccountStatus%27"><span class="annot"><span class="annottext">DescribeCreateAccountStatus -&gt; Text
 </span><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#%24sel%3AcreateAccountRequestId%3ADescribeCreateAccountStatus%27"><span class="hs-identifier hs-var hs-var">createAccountRequestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679248560"><span id="local-6989586621679248562"><span class="annot"><span class="annottext">DescribeCreateAccountStatus -&gt; DescribeCreateAccountStatus -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679248569"><span id="local-6989586621679248571"><span class="annot"><span class="annottext">DescribeCreateAccountStatus -&gt; DescribeCreateAccountStatus -&gt; Bool
 (DescribeCreateAccountStatus
  -&gt; DescribeCreateAccountStatus -&gt; Bool)
 -&gt; (DescribeCreateAccountStatus
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeCreateAccountStatus -&gt; DescribeCreateAccountStatus -&gt; Bool
 == :: DescribeCreateAccountStatus -&gt; DescribeCreateAccountStatus -&gt; Bool
 $c== :: DescribeCreateAccountStatus -&gt; DescribeCreateAccountStatus -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248551"><span id="local-6989586621679248553"><span id="local-6989586621679248555"><span id="local-6989586621679248557"><span class="annot"><span class="annottext">ReadPrec [DescribeCreateAccountStatus]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248560"><span id="local-6989586621679248562"><span id="local-6989586621679248564"><span id="local-6989586621679248566"><span class="annot"><span class="annottext">ReadPrec [DescribeCreateAccountStatus]
 ReadPrec DescribeCreateAccountStatus
 Int -&gt; ReadS DescribeCreateAccountStatus
 ReadS [DescribeCreateAccountStatus]
@@ -95,7 +95,7 @@ readList :: ReadS [DescribeCreateAccountStatus]
 $creadList :: ReadS [DescribeCreateAccountStatus]
 readsPrec :: Int -&gt; ReadS DescribeCreateAccountStatus
 $creadsPrec :: Int -&gt; ReadS DescribeCreateAccountStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248544"><span id="local-6989586621679248546"><span id="local-6989586621679248548"><span class="annot"><span class="annottext">Int -&gt; DescribeCreateAccountStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248553"><span id="local-6989586621679248555"><span id="local-6989586621679248557"><span class="annot"><span class="annottext">Int -&gt; DescribeCreateAccountStatus -&gt; ShowS
 [DescribeCreateAccountStatus] -&gt; ShowS
 DescribeCreateAccountStatus -&gt; String
 (Int -&gt; DescribeCreateAccountStatus -&gt; ShowS)
@@ -149,14 +149,14 @@ DescribeCreateAccountStatus -&gt; Rep DescribeCreateAccountStatus x
 </span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#DescribeCreateAccountStatus"><span class="hs-identifier hs-type">DescribeCreateAccountStatus</span></a></span><span>
 </span><span id="line-88"></span><span id="newDescribeCreateAccountStatus"><span class="annot"><span class="annottext">newDescribeCreateAccountStatus :: Text -&gt; DescribeCreateAccountStatus
 </span><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#newDescribeCreateAccountStatus"><span class="hs-identifier hs-var hs-var">newDescribeCreateAccountStatus</span></a></span></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679248539"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248539"><span class="hs-identifier hs-var">pCreateAccountRequestId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679248548"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679248548"><span class="hs-identifier hs-var">pCreateAccountRequestId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">DescribeCreateAccountStatus' :: Text -&gt; DescribeCreateAccountStatus
 </span><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#DescribeCreateAccountStatus%27"><span class="hs-identifier hs-type">DescribeCreateAccountStatus'</span></a></span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:createAccountRequestId:DescribeCreateAccountStatus' :: Text
 </span><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#%24sel%3AcreateAccountRequestId%3ADescribeCreateAccountStatus%27"><span class="hs-identifier hs-var">createAccountRequestId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248539"><span class="hs-identifier hs-var">pCreateAccountRequestId_</span></a></span><span>
+</span><a href="#local-6989586621679248548"><span class="hs-identifier hs-var">pCreateAccountRequestId_</span></a></span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | Specifies the @Id@ value that uniquely identifies the @CreateAccount@</span><span>
@@ -176,29 +176,29 @@ DescribeCreateAccountStatus -&gt; Rep DescribeCreateAccountStatus x
 -&gt; Lens
      DescribeCreateAccountStatus DescribeCreateAccountStatus Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#DescribeCreateAccountStatus%27"><span class="hs-identifier hs-type">DescribeCreateAccountStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248536"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#DescribeCreateAccountStatus%27"><span class="hs-identifier hs-type">DescribeCreateAccountStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248545"><span class="annot"><span class="annottext">Text
 createAccountRequestId :: Text
 $sel:createAccountRequestId:DescribeCreateAccountStatus' :: DescribeCreateAccountStatus -&gt; Text
-</span><a href="#local-6989586621679248536"><span class="hs-identifier hs-var hs-var">createAccountRequestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248536"><span class="hs-identifier hs-var">createAccountRequestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248535"><span class="annot"><span class="annottext">s :: DescribeCreateAccountStatus
-</span><a href="#local-6989586621679248535"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#DescribeCreateAccountStatus%27"><span class="hs-identifier hs-type">DescribeCreateAccountStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248534"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248534"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCreateAccountStatus
-</span><a href="#local-6989586621679248535"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createAccountRequestId:DescribeCreateAccountStatus' :: Text
+</span><a href="#local-6989586621679248545"><span class="hs-identifier hs-var hs-var">createAccountRequestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679248545"><span class="hs-identifier hs-var">createAccountRequestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248544"><span class="annot"><span class="annottext">s :: DescribeCreateAccountStatus
+</span><a href="#local-6989586621679248544"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#DescribeCreateAccountStatus%27"><span class="hs-identifier hs-type">DescribeCreateAccountStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248543"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679248543"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCreateAccountStatus
+</span><a href="#local-6989586621679248544"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createAccountRequestId:DescribeCreateAccountStatus' :: Text
 </span><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#%24sel%3AcreateAccountRequestId%3ADescribeCreateAccountStatus%27"><span class="hs-identifier hs-var">createAccountRequestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248534"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#DescribeCreateAccountStatus"><span class="hs-identifier hs-type">DescribeCreateAccountStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679248543"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#DescribeCreateAccountStatus"><span class="hs-identifier hs-type">DescribeCreateAccountStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#DescribeCreateAccountStatus"><span class="hs-identifier hs-type">DescribeCreateAccountStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-107"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-108"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#DescribeCreateAccountStatus"><span class="hs-identifier hs-type">DescribeCreateAccountStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>      </span><span class="annot"><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#DescribeCreateAccountStatusResponse"><span class="hs-identifier hs-type">DescribeCreateAccountStatusResponse</span></a></span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679248530"><span class="annot"><span class="annottext">request :: DescribeCreateAccountStatus -&gt; Request DescribeCreateAccountStatus
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679248539"><span class="annot"><span class="annottext">request :: DescribeCreateAccountStatus -&gt; Request DescribeCreateAccountStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeCreateAccountStatus
 -&gt; Request DescribeCreateAccountStatus
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Organizations.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679248526"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679248535"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeCreateAccountStatus
 -&gt; ClientResponse ClientBody
@@ -224,10 +224,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679248523"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679248523"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679248522"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679248522"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679248521"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248521"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679248532"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679248532"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679248531"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679248531"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679248530"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679248530"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">Maybe CreateAccountStatus
 -&gt; Int -&gt; DescribeCreateAccountStatusResponse
 </span><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#DescribeCreateAccountStatusResponse%27"><span class="hs-identifier hs-var">DescribeCreateAccountStatusResponse'</span></a></span><span>
@@ -237,7 +237,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DescribeCreateAccountStatusResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248521"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe CreateAccountStatus)
+</span><a href="#local-6989586621679248530"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe CreateAccountStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreateAccountStatus&quot;</span></span><span class="hs-special">)</span><span>
@@ -250,15 +250,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679248523"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679248532"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248513"><span id="local-6989586621679248515"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#DescribeCreateAccountStatus"><span class="hs-identifier hs-type">DescribeCreateAccountStatus</span></a></span></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248522"><span id="local-6989586621679248524"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#DescribeCreateAccountStatus"><span class="hs-identifier hs-type">DescribeCreateAccountStatus</span></a></span></span></span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248510"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#DescribeCreateAccountStatus"><span class="hs-identifier hs-type">DescribeCreateAccountStatus</span></a></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248519"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#DescribeCreateAccountStatus"><span class="hs-identifier hs-type">DescribeCreateAccountStatus</span></a></span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#DescribeCreateAccountStatus"><span class="hs-identifier hs-type">DescribeCreateAccountStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679248506"><span class="annot"><span class="annottext">toHeaders :: DescribeCreateAccountStatus -&gt; ResponseHeaders
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679248515"><span class="annot"><span class="annottext">toHeaders :: DescribeCreateAccountStatus -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeCreateAccountStatus -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -285,12 +285,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248496"><span id="local-6989586621679248498"><span id="local-6989586621679248500"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#DescribeCreateAccountStatus"><span class="hs-identifier hs-type">DescribeCreateAccountStatus</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679248494"><span class="annot"><span class="annottext">toJSON :: DescribeCreateAccountStatus -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#DescribeCreateAccountStatus%27"><span class="hs-identifier hs-type">DescribeCreateAccountStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248492"><span class="annot"><span class="annottext">Text
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248505"><span id="local-6989586621679248507"><span id="local-6989586621679248509"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#DescribeCreateAccountStatus"><span class="hs-identifier hs-type">DescribeCreateAccountStatus</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679248503"><span class="annot"><span class="annottext">toJSON :: DescribeCreateAccountStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#DescribeCreateAccountStatus%27"><span class="hs-identifier hs-type">DescribeCreateAccountStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248501"><span class="annot"><span class="annottext">Text
 createAccountRequestId :: Text
 $sel:createAccountRequestId:DescribeCreateAccountStatus' :: DescribeCreateAccountStatus -&gt; Text
-</span><a href="#local-6989586621679248492"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679248501"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -304,20 +304,20 @@ forall a. a -&gt; Maybe a
 </span><span id="line-144"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248492"><span class="hs-identifier hs-var">createAccountRequestId</span></a></span><span>
+</span><a href="#local-6989586621679248501"><span class="hs-identifier hs-var">createAccountRequestId</span></a></span><span>
 </span><span id="line-145"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#DescribeCreateAccountStatus"><span class="hs-identifier hs-type">DescribeCreateAccountStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679248486"><span class="annot"><span class="annottext">toPath :: DescribeCreateAccountStatus -&gt; ByteString
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679248495"><span class="annot"><span class="annottext">toPath :: DescribeCreateAccountStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeCreateAccountStatus -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#DescribeCreateAccountStatus"><span class="hs-identifier hs-type">DescribeCreateAccountStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679248482"><span class="annot"><span class="annottext">toQuery :: DescribeCreateAccountStatus -&gt; QueryString
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679248491"><span class="annot"><span class="annottext">toQuery :: DescribeCreateAccountStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeCreateAccountStatus -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -325,7 +325,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- | /See:/ 'newDescribeCreateAccountStatusResponse' smart constructor.</span><span>
-</span><span id="line-156"></span><span id="local-6989586621679248479"><span id="local-6989586621679248480"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeCreateAccountStatusResponse"><span class="annot"><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#DescribeCreateAccountStatusResponse"><span class="hs-identifier hs-var">DescribeCreateAccountStatusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeCreateAccountStatusResponse%27"><span class="annot"><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#DescribeCreateAccountStatusResponse%27"><span class="hs-identifier hs-var">DescribeCreateAccountStatusResponse'</span></a></span></span><span>
+</span><span id="line-156"></span><span id="local-6989586621679248488"><span id="local-6989586621679248489"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeCreateAccountStatusResponse"><span class="annot"><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#DescribeCreateAccountStatusResponse"><span class="hs-identifier hs-var">DescribeCreateAccountStatusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeCreateAccountStatusResponse%27"><span class="annot"><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#DescribeCreateAccountStatusResponse%27"><span class="hs-identifier hs-var">DescribeCreateAccountStatusResponse'</span></a></span></span><span>
 </span><span id="line-157"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A structure that contains the current status of an account creation</span><span>
 </span><span id="line-158"></span><span>    </span><span class="hs-comment">-- request.</span><span>
 </span><span id="line-159"></span><span>    </span><span id="%24sel%3AcreateAccountStatus%3ADescribeCreateAccountStatusResponse%27"><span class="annot"><span class="annottext">DescribeCreateAccountStatusResponse -&gt; Maybe CreateAccountStatus
@@ -334,7 +334,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-161"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeCreateAccountStatusResponse%27"><span class="annot"><span class="annottext">DescribeCreateAccountStatusResponse -&gt; Int
 </span><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#%24sel%3AhttpStatus%3ADescribeCreateAccountStatusResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-162"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-163"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679248473"><span id="local-6989586621679248475"><span class="annot"><span class="annottext">DescribeCreateAccountStatusResponse
+</span><span id="line-163"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679248482"><span id="local-6989586621679248484"><span class="annot"><span class="annottext">DescribeCreateAccountStatusResponse
 -&gt; DescribeCreateAccountStatusResponse -&gt; Bool
 (DescribeCreateAccountStatusResponse
  -&gt; DescribeCreateAccountStatusResponse -&gt; Bool)
@@ -350,7 +350,7 @@ $c/= :: DescribeCreateAccountStatusResponse
 -&gt; DescribeCreateAccountStatusResponse -&gt; Bool
 $c== :: DescribeCreateAccountStatusResponse
 -&gt; DescribeCreateAccountStatusResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248467"><span id="local-6989586621679248469"><span id="local-6989586621679248471"><span class="annot"><span class="annottext">Int -&gt; DescribeCreateAccountStatusResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248476"><span id="local-6989586621679248478"><span id="local-6989586621679248480"><span class="annot"><span class="annottext">Int -&gt; DescribeCreateAccountStatusResponse -&gt; ShowS
 [DescribeCreateAccountStatusResponse] -&gt; ShowS
 DescribeCreateAccountStatusResponse -&gt; String
 (Int -&gt; DescribeCreateAccountStatusResponse -&gt; ShowS)
@@ -405,8 +405,8 @@ DescribeCreateAccountStatusResponse
 </span><span id="line-179"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-180"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#DescribeCreateAccountStatusResponse"><span class="hs-identifier hs-type">DescribeCreateAccountStatusResponse</span></a></span><span>
 </span><span id="line-181"></span><span id="newDescribeCreateAccountStatusResponse"><span class="annot"><span class="annottext">newDescribeCreateAccountStatusResponse :: Int -&gt; DescribeCreateAccountStatusResponse
-</span><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#newDescribeCreateAccountStatusResponse"><span class="hs-identifier hs-var hs-var">newDescribeCreateAccountStatusResponse</span></a></span></span><span> </span><span id="local-6989586621679248464"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679248464"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#newDescribeCreateAccountStatusResponse"><span class="hs-identifier hs-var hs-var">newDescribeCreateAccountStatusResponse</span></a></span></span><span> </span><span id="local-6989586621679248473"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679248473"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-182"></span><span>  </span><span class="annot"><span class="annottext">DescribeCreateAccountStatusResponse' :: Maybe CreateAccountStatus
 -&gt; Int -&gt; DescribeCreateAccountStatusResponse
 </span><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#DescribeCreateAccountStatusResponse%27"><span class="hs-identifier hs-type">DescribeCreateAccountStatusResponse'</span></a></span><span>
@@ -417,7 +417,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeCreateAccountStatusResponse' :: Int
 </span><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#%24sel%3AhttpStatus%3ADescribeCreateAccountStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679248464"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679248473"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-186"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- | A structure that contains the current status of an account creation</span><span>
@@ -436,16 +436,16 @@ forall a. Maybe a
      (Maybe CreateAccountStatus)
      (Maybe CreateAccountStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#DescribeCreateAccountStatusResponse%27"><span class="hs-identifier hs-type">DescribeCreateAccountStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248463"><span class="annot"><span class="annottext">Maybe CreateAccountStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#DescribeCreateAccountStatusResponse%27"><span class="hs-identifier hs-type">DescribeCreateAccountStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248472"><span class="annot"><span class="annottext">Maybe CreateAccountStatus
 createAccountStatus :: Maybe CreateAccountStatus
 $sel:createAccountStatus:DescribeCreateAccountStatusResponse' :: DescribeCreateAccountStatusResponse -&gt; Maybe CreateAccountStatus
-</span><a href="#local-6989586621679248463"><span class="hs-identifier hs-var hs-var">createAccountStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CreateAccountStatus
-</span><a href="#local-6989586621679248463"><span class="hs-identifier hs-var">createAccountStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248462"><span class="annot"><span class="annottext">s :: DescribeCreateAccountStatusResponse
-</span><a href="#local-6989586621679248462"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#DescribeCreateAccountStatusResponse%27"><span class="hs-identifier hs-type">DescribeCreateAccountStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248461"><span class="annot"><span class="annottext">Maybe CreateAccountStatus
-</span><a href="#local-6989586621679248461"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCreateAccountStatusResponse
-</span><a href="#local-6989586621679248462"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createAccountStatus:DescribeCreateAccountStatusResponse' :: Maybe CreateAccountStatus
+</span><a href="#local-6989586621679248472"><span class="hs-identifier hs-var hs-var">createAccountStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CreateAccountStatus
+</span><a href="#local-6989586621679248472"><span class="hs-identifier hs-var">createAccountStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248471"><span class="annot"><span class="annottext">s :: DescribeCreateAccountStatusResponse
+</span><a href="#local-6989586621679248471"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#DescribeCreateAccountStatusResponse%27"><span class="hs-identifier hs-type">DescribeCreateAccountStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248470"><span class="annot"><span class="annottext">Maybe CreateAccountStatus
+</span><a href="#local-6989586621679248470"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCreateAccountStatusResponse
+</span><a href="#local-6989586621679248471"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createAccountStatus:DescribeCreateAccountStatusResponse' :: Maybe CreateAccountStatus
 </span><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#%24sel%3AcreateAccountStatus%3ADescribeCreateAccountStatusResponse%27"><span class="hs-identifier hs-var">createAccountStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CreateAccountStatus
-</span><a href="#local-6989586621679248461"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#DescribeCreateAccountStatusResponse"><span class="hs-identifier hs-type">DescribeCreateAccountStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679248470"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#DescribeCreateAccountStatusResponse"><span class="hs-identifier hs-type">DescribeCreateAccountStatusResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-194"></span><span class="annot"><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#describeCreateAccountStatusResponse_httpStatus"><span class="hs-identifier hs-type">describeCreateAccountStatusResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#DescribeCreateAccountStatusResponse"><span class="hs-identifier hs-type">DescribeCreateAccountStatusResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -461,18 +461,18 @@ $sel:createAccountStatus:DescribeCreateAccountStatusResponse' :: DescribeCreateA
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#DescribeCreateAccountStatusResponse%27"><span class="hs-identifier hs-type">DescribeCreateAccountStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248460"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#DescribeCreateAccountStatusResponse%27"><span class="hs-identifier hs-type">DescribeCreateAccountStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248469"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeCreateAccountStatusResponse' :: DescribeCreateAccountStatusResponse -&gt; Int
-</span><a href="#local-6989586621679248460"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679248460"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248459"><span class="annot"><span class="annottext">s :: DescribeCreateAccountStatusResponse
-</span><a href="#local-6989586621679248459"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#DescribeCreateAccountStatusResponse%27"><span class="hs-identifier hs-type">DescribeCreateAccountStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248458"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679248458"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCreateAccountStatusResponse
-</span><a href="#local-6989586621679248459"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeCreateAccountStatusResponse' :: Int
+</span><a href="#local-6989586621679248469"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679248469"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248468"><span class="annot"><span class="annottext">s :: DescribeCreateAccountStatusResponse
+</span><a href="#local-6989586621679248468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#DescribeCreateAccountStatusResponse%27"><span class="hs-identifier hs-type">DescribeCreateAccountStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248467"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679248467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCreateAccountStatusResponse
+</span><a href="#local-6989586621679248468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeCreateAccountStatusResponse' :: Int
 </span><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#%24sel%3AhttpStatus%3ADescribeCreateAccountStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679248458"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#DescribeCreateAccountStatusResponse"><span class="hs-identifier hs-type">DescribeCreateAccountStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679248467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#DescribeCreateAccountStatusResponse"><span class="hs-identifier hs-type">DescribeCreateAccountStatusResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-196"></span><span>
 </span><span id="line-197"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-198"></span><span>  </span><span id="local-6989586621679248456"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621679248465"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-199"></span><span>    </span><span class="annot"><a href="Network.AWS.Organizations.DescribeCreateAccountStatus.html#DescribeCreateAccountStatusResponse"><span class="hs-identifier hs-type">DescribeCreateAccountStatusResponse</span></a></span></span><span>
 </span><span id="line-200"></span></pre></body></html>

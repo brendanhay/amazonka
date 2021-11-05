@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- activity sends a text message to participants.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newSMSMessageActivity' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679608998"><span id="local-6989586621679608999"></span></span><span class="hs-keyword">data</span><span> </span><span id="SMSMessageActivity"><span class="annot"><a href="Network.AWS.Pinpoint.Types.SMSMessageActivity.html#SMSMessageActivity"><span class="hs-identifier hs-var">SMSMessageActivity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SMSMessageActivity%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.SMSMessageActivity.html#SMSMessageActivity%27"><span class="hs-identifier hs-var">SMSMessageActivity'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679609007"><span id="local-6989586621679609008"></span></span><span class="hs-keyword">data</span><span> </span><span id="SMSMessageActivity"><span class="annot"><a href="Network.AWS.Pinpoint.Types.SMSMessageActivity.html#SMSMessageActivity"><span class="hs-identifier hs-var">SMSMessageActivity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SMSMessageActivity%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.SMSMessageActivity.html#SMSMessageActivity%27"><span class="hs-identifier hs-var">SMSMessageActivity'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the SMS message template to use for the message. If</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- specified, this value must match the name of an existing message</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- template.</span><span>
@@ -55,7 +55,7 @@
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AmessageConfig%3ASMSMessageActivity%27"><span class="annot"><span class="annottext">SMSMessageActivity -&gt; Maybe JourneySMSMessage
 </span><a href="Network.AWS.Pinpoint.Types.SMSMessageActivity.html#%24sel%3AmessageConfig%3ASMSMessageActivity%27"><span class="hs-identifier hs-var hs-var">messageConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneySMSMessage.html#JourneySMSMessage"><span class="hs-identifier hs-type">JourneySMSMessage</span></a></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679608989"><span id="local-6989586621679608991"><span class="annot"><span class="annottext">SMSMessageActivity -&gt; SMSMessageActivity -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679608998"><span id="local-6989586621679609000"><span class="annot"><span class="annottext">SMSMessageActivity -&gt; SMSMessageActivity -&gt; Bool
 (SMSMessageActivity -&gt; SMSMessageActivity -&gt; Bool)
 -&gt; (SMSMessageActivity -&gt; SMSMessageActivity -&gt; Bool)
 -&gt; Eq SMSMessageActivity
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SMSMessageActivity -&gt; SMSMessageActivity -&gt; Bool
 == :: SMSMessageActivity -&gt; SMSMessageActivity -&gt; Bool
 $c== :: SMSMessageActivity -&gt; SMSMessageActivity -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679608980"><span id="local-6989586621679608982"><span id="local-6989586621679608984"><span id="local-6989586621679608986"><span class="annot"><span class="annottext">ReadPrec [SMSMessageActivity]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679608989"><span id="local-6989586621679608991"><span id="local-6989586621679608993"><span id="local-6989586621679608995"><span class="annot"><span class="annottext">ReadPrec [SMSMessageActivity]
 ReadPrec SMSMessageActivity
 Int -&gt; ReadS SMSMessageActivity
 ReadS [SMSMessageActivity]
@@ -84,7 +84,7 @@ readList :: ReadS [SMSMessageActivity]
 $creadList :: ReadS [SMSMessageActivity]
 readsPrec :: Int -&gt; ReadS SMSMessageActivity
 $creadsPrec :: Int -&gt; ReadS SMSMessageActivity
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679608973"><span id="local-6989586621679608975"><span id="local-6989586621679608977"><span class="annot"><span class="annottext">Int -&gt; SMSMessageActivity -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679608982"><span id="local-6989586621679608984"><span id="local-6989586621679608986"><span class="annot"><span class="annottext">Int -&gt; SMSMessageActivity -&gt; ShowS
 [SMSMessageActivity] -&gt; ShowS
 SMSMessageActivity -&gt; String
 (Int -&gt; SMSMessageActivity -&gt; ShowS)
@@ -177,16 +177,16 @@ forall a. Maybe a
 -&gt; Lens
      SMSMessageActivity SMSMessageActivity (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SMSMessageActivity.html#SMSMessageActivity%27"><span class="hs-identifier hs-type">SMSMessageActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679608964"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SMSMessageActivity.html#SMSMessageActivity%27"><span class="hs-identifier hs-type">SMSMessageActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679608973"><span class="annot"><span class="annottext">Maybe Text
 templateName :: Maybe Text
 $sel:templateName:SMSMessageActivity' :: SMSMessageActivity -&gt; Maybe Text
-</span><a href="#local-6989586621679608964"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679608964"><span class="hs-identifier hs-var">templateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679608963"><span class="annot"><span class="annottext">s :: SMSMessageActivity
-</span><a href="#local-6989586621679608963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SMSMessageActivity.html#SMSMessageActivity%27"><span class="hs-identifier hs-type">SMSMessageActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679608962"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679608962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SMSMessageActivity
-</span><a href="#local-6989586621679608963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateName:SMSMessageActivity' :: Maybe Text
+</span><a href="#local-6989586621679608973"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679608973"><span class="hs-identifier hs-var">templateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679608972"><span class="annot"><span class="annottext">s :: SMSMessageActivity
+</span><a href="#local-6989586621679608972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SMSMessageActivity.html#SMSMessageActivity%27"><span class="hs-identifier hs-type">SMSMessageActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679608971"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679608971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SMSMessageActivity
+</span><a href="#local-6989586621679608972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateName:SMSMessageActivity' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.SMSMessageActivity.html#%24sel%3AtemplateName%3ASMSMessageActivity%27"><span class="hs-identifier hs-var">templateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679608962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SMSMessageActivity.html#SMSMessageActivity"><span class="hs-identifier hs-type">SMSMessageActivity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679608971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SMSMessageActivity.html#SMSMessageActivity"><span class="hs-identifier hs-type">SMSMessageActivity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | The unique identifier for the version of the SMS template to use for the</span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- message. If specified, this value must match the identifier for an</span><span>
@@ -206,16 +206,16 @@ $sel:templateName:SMSMessageActivity' :: SMSMessageActivity -&gt; Maybe Text
 -&gt; Lens
      SMSMessageActivity SMSMessageActivity (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SMSMessageActivity.html#SMSMessageActivity%27"><span class="hs-identifier hs-type">SMSMessageActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679608960"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SMSMessageActivity.html#SMSMessageActivity%27"><span class="hs-identifier hs-type">SMSMessageActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679608969"><span class="annot"><span class="annottext">Maybe Text
 templateVersion :: Maybe Text
 $sel:templateVersion:SMSMessageActivity' :: SMSMessageActivity -&gt; Maybe Text
-</span><a href="#local-6989586621679608960"><span class="hs-identifier hs-var hs-var">templateVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679608960"><span class="hs-identifier hs-var">templateVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679608959"><span class="annot"><span class="annottext">s :: SMSMessageActivity
-</span><a href="#local-6989586621679608959"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SMSMessageActivity.html#SMSMessageActivity%27"><span class="hs-identifier hs-type">SMSMessageActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679608958"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679608958"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SMSMessageActivity
-</span><a href="#local-6989586621679608959"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateVersion:SMSMessageActivity' :: Maybe Text
+</span><a href="#local-6989586621679608969"><span class="hs-identifier hs-var hs-var">templateVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679608969"><span class="hs-identifier hs-var">templateVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679608968"><span class="annot"><span class="annottext">s :: SMSMessageActivity
+</span><a href="#local-6989586621679608968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SMSMessageActivity.html#SMSMessageActivity%27"><span class="hs-identifier hs-type">SMSMessageActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679608967"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679608967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SMSMessageActivity
+</span><a href="#local-6989586621679608968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateVersion:SMSMessageActivity' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.SMSMessageActivity.html#%24sel%3AtemplateVersion%3ASMSMessageActivity%27"><span class="hs-identifier hs-var">templateVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679608958"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SMSMessageActivity.html#SMSMessageActivity"><span class="hs-identifier hs-type">SMSMessageActivity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679608967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SMSMessageActivity.html#SMSMessageActivity"><span class="hs-identifier hs-type">SMSMessageActivity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | The unique identifier for the next activity to perform, after the</span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- message is sent.</span><span>
@@ -227,16 +227,16 @@ $sel:templateVersion:SMSMessageActivity' :: SMSMessageActivity -&gt; Maybe Text
 -&gt; Lens
      SMSMessageActivity SMSMessageActivity (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SMSMessageActivity.html#SMSMessageActivity%27"><span class="hs-identifier hs-type">SMSMessageActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679608956"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SMSMessageActivity.html#SMSMessageActivity%27"><span class="hs-identifier hs-type">SMSMessageActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679608965"><span class="annot"><span class="annottext">Maybe Text
 nextActivity :: Maybe Text
 $sel:nextActivity:SMSMessageActivity' :: SMSMessageActivity -&gt; Maybe Text
-</span><a href="#local-6989586621679608956"><span class="hs-identifier hs-var hs-var">nextActivity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679608956"><span class="hs-identifier hs-var">nextActivity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679608955"><span class="annot"><span class="annottext">s :: SMSMessageActivity
-</span><a href="#local-6989586621679608955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SMSMessageActivity.html#SMSMessageActivity%27"><span class="hs-identifier hs-type">SMSMessageActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679608954"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679608954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SMSMessageActivity
-</span><a href="#local-6989586621679608955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextActivity:SMSMessageActivity' :: Maybe Text
+</span><a href="#local-6989586621679608965"><span class="hs-identifier hs-var hs-var">nextActivity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679608965"><span class="hs-identifier hs-var">nextActivity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679608964"><span class="annot"><span class="annottext">s :: SMSMessageActivity
+</span><a href="#local-6989586621679608964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SMSMessageActivity.html#SMSMessageActivity%27"><span class="hs-identifier hs-type">SMSMessageActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679608963"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679608963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SMSMessageActivity
+</span><a href="#local-6989586621679608964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextActivity:SMSMessageActivity' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.SMSMessageActivity.html#%24sel%3AnextActivity%3ASMSMessageActivity%27"><span class="hs-identifier hs-var">nextActivity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679608954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SMSMessageActivity.html#SMSMessageActivity"><span class="hs-identifier hs-type">SMSMessageActivity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679608963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SMSMessageActivity.html#SMSMessageActivity"><span class="hs-identifier hs-type">SMSMessageActivity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | Specifies the sender ID and message type for an SMS message that\'s sent</span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- to participants in a journey.</span><span>
@@ -252,19 +252,19 @@ $sel:nextActivity:SMSMessageActivity' :: SMSMessageActivity -&gt; Maybe Text
      (Maybe JourneySMSMessage)
      (Maybe JourneySMSMessage)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SMSMessageActivity.html#SMSMessageActivity%27"><span class="hs-identifier hs-type">SMSMessageActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679608952"><span class="annot"><span class="annottext">Maybe JourneySMSMessage
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SMSMessageActivity.html#SMSMessageActivity%27"><span class="hs-identifier hs-type">SMSMessageActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679608961"><span class="annot"><span class="annottext">Maybe JourneySMSMessage
 messageConfig :: Maybe JourneySMSMessage
 $sel:messageConfig:SMSMessageActivity' :: SMSMessageActivity -&gt; Maybe JourneySMSMessage
-</span><a href="#local-6989586621679608952"><span class="hs-identifier hs-var hs-var">messageConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JourneySMSMessage
-</span><a href="#local-6989586621679608952"><span class="hs-identifier hs-var">messageConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679608951"><span class="annot"><span class="annottext">s :: SMSMessageActivity
-</span><a href="#local-6989586621679608951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SMSMessageActivity.html#SMSMessageActivity%27"><span class="hs-identifier hs-type">SMSMessageActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679608950"><span class="annot"><span class="annottext">Maybe JourneySMSMessage
-</span><a href="#local-6989586621679608950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SMSMessageActivity
-</span><a href="#local-6989586621679608951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageConfig:SMSMessageActivity' :: Maybe JourneySMSMessage
+</span><a href="#local-6989586621679608961"><span class="hs-identifier hs-var hs-var">messageConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JourneySMSMessage
+</span><a href="#local-6989586621679608961"><span class="hs-identifier hs-var">messageConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679608960"><span class="annot"><span class="annottext">s :: SMSMessageActivity
+</span><a href="#local-6989586621679608960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SMSMessageActivity.html#SMSMessageActivity%27"><span class="hs-identifier hs-type">SMSMessageActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679608959"><span class="annot"><span class="annottext">Maybe JourneySMSMessage
+</span><a href="#local-6989586621679608959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SMSMessageActivity
+</span><a href="#local-6989586621679608960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageConfig:SMSMessageActivity' :: Maybe JourneySMSMessage
 </span><a href="Network.AWS.Pinpoint.Types.SMSMessageActivity.html#%24sel%3AmessageConfig%3ASMSMessageActivity%27"><span class="hs-identifier hs-var">messageConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JourneySMSMessage
-</span><a href="#local-6989586621679608950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SMSMessageActivity.html#SMSMessageActivity"><span class="hs-identifier hs-type">SMSMessageActivity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679608959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SMSMessageActivity.html#SMSMessageActivity"><span class="hs-identifier hs-type">SMSMessageActivity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679608947"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SMSMessageActivity.html#SMSMessageActivity"><span class="hs-identifier hs-type">SMSMessageActivity</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679608945"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SMSMessageActivity
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679608956"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SMSMessageActivity.html#SMSMessageActivity"><span class="hs-identifier hs-type">SMSMessageActivity</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679608954"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SMSMessageActivity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SMSMessageActivity)
@@ -274,8 +274,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SMSMessageActivity&quot;</span></span><span>
-</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679608942"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679608942"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679608951"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679608951"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -293,7 +293,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe Text -&gt; Maybe JourneySMSMessage -&gt; SMSMessageActivity)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679608942"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679608951"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TemplateName&quot;</span></span><span class="hs-special">)</span><span>
@@ -305,7 +305,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Text -&gt; Maybe JourneySMSMessage -&gt; SMSMessageActivity)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679608942"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679608951"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TemplateVersion&quot;</span></span><span class="hs-special">)</span><span>
@@ -315,7 +315,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe JourneySMSMessage -&gt; SMSMessageActivity)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679608942"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679608951"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextActivity&quot;</span></span><span class="hs-special">)</span><span>
@@ -323,19 +323,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe JourneySMSMessage) -&gt; Parser SMSMessageActivity
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679608942"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe JourneySMSMessage)
+</span><a href="#local-6989586621679608951"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe JourneySMSMessage)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MessageConfig&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679608936"><span id="local-6989586621679608938"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SMSMessageActivity.html#SMSMessageActivity"><span class="hs-identifier hs-type">SMSMessageActivity</span></a></span></span></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679608945"><span id="local-6989586621679608947"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SMSMessageActivity.html#SMSMessageActivity"><span class="hs-identifier hs-type">SMSMessageActivity</span></a></span></span></span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679608933"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SMSMessageActivity.html#SMSMessageActivity"><span class="hs-identifier hs-type">SMSMessageActivity</span></a></span></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679608942"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SMSMessageActivity.html#SMSMessageActivity"><span class="hs-identifier hs-type">SMSMessageActivity</span></a></span></span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679608925"><span id="local-6989586621679608927"><span id="local-6989586621679608929"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SMSMessageActivity.html#SMSMessageActivity"><span class="hs-identifier hs-type">SMSMessageActivity</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679608923"><span class="annot"><span class="annottext">toJSON :: SMSMessageActivity -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SMSMessageActivity.html#SMSMessageActivity%27"><span class="hs-identifier hs-type">SMSMessageActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679608918"><span id="local-6989586621679608919"><span id="local-6989586621679608920"><span id="local-6989586621679608921"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679608934"><span id="local-6989586621679608936"><span id="local-6989586621679608938"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SMSMessageActivity.html#SMSMessageActivity"><span class="hs-identifier hs-type">SMSMessageActivity</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679608932"><span class="annot"><span class="annottext">toJSON :: SMSMessageActivity -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.SMSMessageActivity.html#SMSMessageActivity%27"><span class="hs-identifier hs-type">SMSMessageActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679608927"><span id="local-6989586621679608928"><span id="local-6989586621679608929"><span id="local-6989586621679608930"><span class="annot"><span class="annottext">Maybe Text
 Maybe JourneySMSMessage
 messageConfig :: Maybe JourneySMSMessage
 nextActivity :: Maybe Text
@@ -345,7 +345,7 @@ $sel:messageConfig:SMSMessageActivity' :: SMSMessageActivity -&gt; Maybe Journey
 $sel:nextActivity:SMSMessageActivity' :: SMSMessageActivity -&gt; Maybe Text
 $sel:templateVersion:SMSMessageActivity' :: SMSMessageActivity -&gt; Maybe Text
 $sel:templateName:SMSMessageActivity' :: SMSMessageActivity -&gt; Maybe Text
-</span><a href="#local-6989586621679608918"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679608927"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -357,7 +357,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679608921"><span class="hs-identifier hs-var">templateName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679608930"><span class="hs-identifier hs-var">templateName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-144"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TemplateVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -365,14 +365,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-145"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679608920"><span class="hs-identifier hs-var">templateVersion</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679608929"><span class="hs-identifier hs-var">templateVersion</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-146"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextActivity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679608919"><span class="hs-identifier hs-var">nextActivity</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679608928"><span class="hs-identifier hs-var">nextActivity</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MessageConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; JourneySMSMessage -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -380,7 +380,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe JourneySMSMessage -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe JourneySMSMessage
-</span><a href="#local-6989586621679608918"><span class="hs-identifier hs-var">messageConfig</span></a></span><span>
+</span><a href="#local-6989586621679608927"><span class="hs-identifier hs-var">messageConfig</span></a></span><span>
 </span><span id="line-148"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span></pre></body></html>

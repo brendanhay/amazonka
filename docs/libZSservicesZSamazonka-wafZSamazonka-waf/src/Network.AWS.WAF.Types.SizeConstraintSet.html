@@ -39,7 +39,7 @@
 </span><span id="line-39"></span><span class="hs-comment">-- request only needs to match one constraint to be considered a match.</span><span>
 </span><span id="line-40"></span><span class="hs-comment">--</span><span>
 </span><span id="line-41"></span><span class="hs-comment">-- /See:/ 'newSizeConstraintSet' smart constructor.</span><span>
-</span><span id="line-42"></span><span id="local-6989586621679305749"><span id="local-6989586621679305750"></span></span><span class="hs-keyword">data</span><span> </span><span id="SizeConstraintSet"><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraintSet.html#SizeConstraintSet"><span class="hs-identifier hs-var">SizeConstraintSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SizeConstraintSet%27"><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraintSet.html#SizeConstraintSet%27"><span class="hs-identifier hs-var">SizeConstraintSet'</span></a></span></span><span>
+</span><span id="line-42"></span><span id="local-6989586621679305758"><span id="local-6989586621679305759"></span></span><span class="hs-keyword">data</span><span> </span><span id="SizeConstraintSet"><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraintSet.html#SizeConstraintSet"><span class="hs-identifier hs-var">SizeConstraintSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SizeConstraintSet%27"><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraintSet.html#SizeConstraintSet%27"><span class="hs-identifier hs-var">SizeConstraintSet'</span></a></span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name, if any, of the @SizeConstraintSet@.</span><span>
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3Aname%3ASizeConstraintSet%27"><span class="annot"><span class="annottext">SizeConstraintSet -&gt; Maybe Text
 </span><a href="Network.AWS.WAF.Types.SizeConstraintSet.html#%24sel%3Aname%3ASizeConstraintSet%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -59,7 +59,7 @@
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AsizeConstraints%3ASizeConstraintSet%27"><span class="annot"><span class="annottext">SizeConstraintSet -&gt; [SizeConstraint]
 </span><a href="Network.AWS.WAF.Types.SizeConstraintSet.html#%24sel%3AsizeConstraints%3ASizeConstraintSet%27"><span class="hs-identifier hs-var hs-var">sizeConstraints</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraint.html#SizeConstraint"><span class="hs-identifier hs-type">SizeConstraint</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679305741"><span id="local-6989586621679305743"><span class="annot"><span class="annottext">SizeConstraintSet -&gt; SizeConstraintSet -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679305750"><span id="local-6989586621679305752"><span class="annot"><span class="annottext">SizeConstraintSet -&gt; SizeConstraintSet -&gt; Bool
 (SizeConstraintSet -&gt; SizeConstraintSet -&gt; Bool)
 -&gt; (SizeConstraintSet -&gt; SizeConstraintSet -&gt; Bool)
 -&gt; Eq SizeConstraintSet
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SizeConstraintSet -&gt; SizeConstraintSet -&gt; Bool
 == :: SizeConstraintSet -&gt; SizeConstraintSet -&gt; Bool
 $c== :: SizeConstraintSet -&gt; SizeConstraintSet -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305732"><span id="local-6989586621679305734"><span id="local-6989586621679305736"><span id="local-6989586621679305738"><span class="annot"><span class="annottext">ReadPrec [SizeConstraintSet]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305741"><span id="local-6989586621679305743"><span id="local-6989586621679305745"><span id="local-6989586621679305747"><span class="annot"><span class="annottext">ReadPrec [SizeConstraintSet]
 ReadPrec SizeConstraintSet
 Int -&gt; ReadS SizeConstraintSet
 ReadS [SizeConstraintSet]
@@ -88,7 +88,7 @@ readList :: ReadS [SizeConstraintSet]
 $creadList :: ReadS [SizeConstraintSet]
 readsPrec :: Int -&gt; ReadS SizeConstraintSet
 $creadsPrec :: Int -&gt; ReadS SizeConstraintSet
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305725"><span id="local-6989586621679305727"><span id="local-6989586621679305729"><span class="annot"><span class="annottext">Int -&gt; SizeConstraintSet -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305734"><span id="local-6989586621679305736"><span id="local-6989586621679305738"><span class="annot"><span class="annottext">Int -&gt; SizeConstraintSet -&gt; ShowS
 [SizeConstraintSet] -&gt; ShowS
 SizeConstraintSet -&gt; String
 (Int -&gt; SizeConstraintSet -&gt; ShowS)
@@ -141,8 +141,8 @@ $cfrom :: forall x. SizeConstraintSet -&gt; Rep SizeConstraintSet x
 </span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraintSet.html#SizeConstraintSet"><span class="hs-identifier hs-type">SizeConstraintSet</span></a></span><span>
 </span><span id="line-87"></span><span id="newSizeConstraintSet"><span class="annot"><span class="annottext">newSizeConstraintSet :: Text -&gt; SizeConstraintSet
-</span><a href="Network.AWS.WAF.Types.SizeConstraintSet.html#newSizeConstraintSet"><span class="hs-identifier hs-var hs-var">newSizeConstraintSet</span></a></span></span><span> </span><span id="local-6989586621679305719"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679305719"><span class="hs-identifier hs-var">pSizeConstraintSetId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WAF.Types.SizeConstraintSet.html#newSizeConstraintSet"><span class="hs-identifier hs-var hs-var">newSizeConstraintSet</span></a></span></span><span> </span><span id="local-6989586621679305728"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679305728"><span class="hs-identifier hs-var">pSizeConstraintSetId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">SizeConstraintSet' :: Maybe Text -&gt; Text -&gt; [SizeConstraint] -&gt; SizeConstraintSet
 </span><a href="Network.AWS.WAF.Types.SizeConstraintSet.html#SizeConstraintSet%27"><span class="hs-identifier hs-type">SizeConstraintSet'</span></a></span><span>
 </span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:SizeConstraintSet' :: Maybe Text
@@ -151,7 +151,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:sizeConstraintSetId:SizeConstraintSet' :: Text
 </span><a href="Network.AWS.WAF.Types.SizeConstraintSet.html#%24sel%3AsizeConstraintSetId%3ASizeConstraintSet%27"><span class="hs-identifier hs-var">sizeConstraintSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679305719"><span class="hs-identifier hs-var">pSizeConstraintSetId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679305728"><span class="hs-identifier hs-var">pSizeConstraintSetId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:sizeConstraints:SizeConstraintSet' :: [SizeConstraint]
 </span><a href="Network.AWS.WAF.Types.SizeConstraintSet.html#%24sel%3AsizeConstraints%3ASizeConstraintSet%27"><span class="hs-identifier hs-var">sizeConstraints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[SizeConstraint]
 forall a. Monoid a =&gt; a
@@ -167,16 +167,16 @@ forall a. Monoid a =&gt; a
 -&gt; Lens
      SizeConstraintSet SizeConstraintSet (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraintSet.html#SizeConstraintSet%27"><span class="hs-identifier hs-type">SizeConstraintSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305715"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraintSet.html#SizeConstraintSet%27"><span class="hs-identifier hs-type">SizeConstraintSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305724"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:SizeConstraintSet' :: SizeConstraintSet -&gt; Maybe Text
-</span><a href="#local-6989586621679305715"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679305715"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305714"><span class="annot"><span class="annottext">s :: SizeConstraintSet
-</span><a href="#local-6989586621679305714"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraintSet.html#SizeConstraintSet%27"><span class="hs-identifier hs-type">SizeConstraintSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305713"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679305713"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SizeConstraintSet
-</span><a href="#local-6989586621679305714"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:SizeConstraintSet' :: Maybe Text
+</span><a href="#local-6989586621679305724"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305724"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305723"><span class="annot"><span class="annottext">s :: SizeConstraintSet
+</span><a href="#local-6989586621679305723"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraintSet.html#SizeConstraintSet%27"><span class="hs-identifier hs-type">SizeConstraintSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305722"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305722"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SizeConstraintSet
+</span><a href="#local-6989586621679305723"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:SizeConstraintSet' :: Maybe Text
 </span><a href="Network.AWS.WAF.Types.SizeConstraintSet.html#%24sel%3Aname%3ASizeConstraintSet%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679305713"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraintSet.html#SizeConstraintSet"><span class="hs-identifier hs-type">SizeConstraintSet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679305722"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraintSet.html#SizeConstraintSet"><span class="hs-identifier hs-type">SizeConstraintSet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | A unique identifier for a @SizeConstraintSet@. You use</span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- @SizeConstraintSetId@ to get information about a @SizeConstraintSet@</span><span>
@@ -193,16 +193,16 @@ $sel:name:SizeConstraintSet' :: SizeConstraintSet -&gt; Maybe Text
 -&gt; (SizeConstraintSet -&gt; Text -&gt; SizeConstraintSet)
 -&gt; Lens SizeConstraintSet SizeConstraintSet Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraintSet.html#SizeConstraintSet%27"><span class="hs-identifier hs-type">SizeConstraintSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305711"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraintSet.html#SizeConstraintSet%27"><span class="hs-identifier hs-type">SizeConstraintSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305720"><span class="annot"><span class="annottext">Text
 sizeConstraintSetId :: Text
 $sel:sizeConstraintSetId:SizeConstraintSet' :: SizeConstraintSet -&gt; Text
-</span><a href="#local-6989586621679305711"><span class="hs-identifier hs-var hs-var">sizeConstraintSetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679305711"><span class="hs-identifier hs-var">sizeConstraintSetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305710"><span class="annot"><span class="annottext">s :: SizeConstraintSet
-</span><a href="#local-6989586621679305710"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraintSet.html#SizeConstraintSet%27"><span class="hs-identifier hs-type">SizeConstraintSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305709"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679305709"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SizeConstraintSet
-</span><a href="#local-6989586621679305710"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sizeConstraintSetId:SizeConstraintSet' :: Text
+</span><a href="#local-6989586621679305720"><span class="hs-identifier hs-var hs-var">sizeConstraintSetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679305720"><span class="hs-identifier hs-var">sizeConstraintSetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305719"><span class="annot"><span class="annottext">s :: SizeConstraintSet
+</span><a href="#local-6989586621679305719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraintSet.html#SizeConstraintSet%27"><span class="hs-identifier hs-type">SizeConstraintSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305718"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679305718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SizeConstraintSet
+</span><a href="#local-6989586621679305719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sizeConstraintSetId:SizeConstraintSet' :: Text
 </span><a href="Network.AWS.WAF.Types.SizeConstraintSet.html#%24sel%3AsizeConstraintSetId%3ASizeConstraintSet%27"><span class="hs-identifier hs-var">sizeConstraintSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679305709"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraintSet.html#SizeConstraintSet"><span class="hs-identifier hs-type">SizeConstraintSet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679305718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraintSet.html#SizeConstraintSet"><span class="hs-identifier hs-type">SizeConstraintSet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- | Specifies the parts of web requests that you want to inspect the size</span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- of.</span><span>
@@ -217,16 +217,16 @@ $sel:sizeConstraintSetId:SizeConstraintSet' :: SizeConstraintSet -&gt; Text
      [SizeConstraint]
      [SizeConstraint]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraintSet.html#SizeConstraintSet%27"><span class="hs-identifier hs-type">SizeConstraintSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305707"><span class="annot"><span class="annottext">[SizeConstraint]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraintSet.html#SizeConstraintSet%27"><span class="hs-identifier hs-type">SizeConstraintSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305716"><span class="annot"><span class="annottext">[SizeConstraint]
 sizeConstraints :: [SizeConstraint]
 $sel:sizeConstraints:SizeConstraintSet' :: SizeConstraintSet -&gt; [SizeConstraint]
-</span><a href="#local-6989586621679305707"><span class="hs-identifier hs-var hs-var">sizeConstraints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[SizeConstraint]
-</span><a href="#local-6989586621679305707"><span class="hs-identifier hs-var">sizeConstraints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305706"><span class="annot"><span class="annottext">s :: SizeConstraintSet
-</span><a href="#local-6989586621679305706"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraintSet.html#SizeConstraintSet%27"><span class="hs-identifier hs-type">SizeConstraintSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305705"><span class="annot"><span class="annottext">[SizeConstraint]
-</span><a href="#local-6989586621679305705"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SizeConstraintSet
-</span><a href="#local-6989586621679305706"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sizeConstraints:SizeConstraintSet' :: [SizeConstraint]
+</span><a href="#local-6989586621679305716"><span class="hs-identifier hs-var hs-var">sizeConstraints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[SizeConstraint]
+</span><a href="#local-6989586621679305716"><span class="hs-identifier hs-var">sizeConstraints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305715"><span class="annot"><span class="annottext">s :: SizeConstraintSet
+</span><a href="#local-6989586621679305715"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraintSet.html#SizeConstraintSet%27"><span class="hs-identifier hs-type">SizeConstraintSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305714"><span class="annot"><span class="annottext">[SizeConstraint]
+</span><a href="#local-6989586621679305714"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SizeConstraintSet
+</span><a href="#local-6989586621679305715"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sizeConstraints:SizeConstraintSet' :: [SizeConstraint]
 </span><a href="Network.AWS.WAF.Types.SizeConstraintSet.html#%24sel%3AsizeConstraints%3ASizeConstraintSet%27"><span class="hs-identifier hs-var">sizeConstraints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[SizeConstraint]
-</span><a href="#local-6989586621679305705"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraintSet.html#SizeConstraintSet"><span class="hs-identifier hs-type">SizeConstraintSet</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([SizeConstraint] -&gt; f [SizeConstraint])
+</span><a href="#local-6989586621679305714"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraintSet.html#SizeConstraintSet"><span class="hs-identifier hs-type">SizeConstraintSet</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([SizeConstraint] -&gt; f [SizeConstraint])
  -&gt; SizeConstraintSet -&gt; f SizeConstraintSet)
 -&gt; (([SizeConstraint] -&gt; f [SizeConstraint])
     -&gt; [SizeConstraint] -&gt; f [SizeConstraint])
@@ -239,8 +239,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305700"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraintSet.html#SizeConstraintSet"><span class="hs-identifier hs-type">SizeConstraintSet</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679305698"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SizeConstraintSet
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305709"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraintSet.html#SizeConstraintSet"><span class="hs-identifier hs-type">SizeConstraintSet</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679305707"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SizeConstraintSet
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SizeConstraintSet)
@@ -250,8 +250,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SizeConstraintSet&quot;</span></span><span>
-</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679305695"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679305695"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679305704"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679305704"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Text -&gt; [SizeConstraint] -&gt; SizeConstraintSet
 </span><a href="Network.AWS.WAF.Types.SizeConstraintSet.html#SizeConstraintSet%27"><span class="hs-identifier hs-var">SizeConstraintSet'</span></a></span><span>
 </span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Text -&gt; [SizeConstraint] -&gt; SizeConstraintSet)
@@ -259,7 +259,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Text -&gt; [SizeConstraint] -&gt; SizeConstraintSet)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679305695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679305704"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
@@ -267,7 +267,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser ([SizeConstraint] -&gt; SizeConstraintSet)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679305695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679305704"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SizeConstraintSetId&quot;</span></span><span class="hs-special">)</span><span>
@@ -275,7 +275,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser [SizeConstraint] -&gt; Parser SizeConstraintSet
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679305695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [SizeConstraint])
+</span><a href="#local-6989586621679305704"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [SizeConstraint])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SizeConstraints&quot;</span></span><span>
@@ -288,7 +288,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-125"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305687"><span id="local-6989586621679305689"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraintSet.html#SizeConstraintSet"><span class="hs-identifier hs-type">SizeConstraintSet</span></a></span></span></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305696"><span id="local-6989586621679305698"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraintSet.html#SizeConstraintSet"><span class="hs-identifier hs-type">SizeConstraintSet</span></a></span></span></span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305684"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraintSet.html#SizeConstraintSet"><span class="hs-identifier hs-type">SizeConstraintSet</span></a></span></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305693"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.SizeConstraintSet.html#SizeConstraintSet"><span class="hs-identifier hs-type">SizeConstraintSet</span></a></span></span><span>
 </span><span id="line-131"></span></pre></body></html>

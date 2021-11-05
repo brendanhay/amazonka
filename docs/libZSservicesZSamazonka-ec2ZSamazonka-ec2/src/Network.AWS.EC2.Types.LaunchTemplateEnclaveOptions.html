@@ -28,14 +28,14 @@
 </span><span id="line-28"></span><span class="hs-comment">-- Enclaves.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newLaunchTemplateEnclaveOptions' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621681123169"><span id="local-6989586621681123170"></span></span><span class="hs-keyword">data</span><span> </span><span id="LaunchTemplateEnclaveOptions"><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateEnclaveOptions.html#LaunchTemplateEnclaveOptions"><span class="hs-identifier hs-var">LaunchTemplateEnclaveOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LaunchTemplateEnclaveOptions%27"><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateEnclaveOptions.html#LaunchTemplateEnclaveOptions%27"><span class="hs-identifier hs-var">LaunchTemplateEnclaveOptions'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621681123178"><span id="local-6989586621681123179"></span></span><span class="hs-keyword">data</span><span> </span><span id="LaunchTemplateEnclaveOptions"><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateEnclaveOptions.html#LaunchTemplateEnclaveOptions"><span class="hs-identifier hs-var">LaunchTemplateEnclaveOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LaunchTemplateEnclaveOptions%27"><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateEnclaveOptions.html#LaunchTemplateEnclaveOptions%27"><span class="hs-identifier hs-var">LaunchTemplateEnclaveOptions'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If this parameter is set to @true@, the instance is enabled for Amazon</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- Web Services Nitro Enclaves; otherwise, it is not enabled for Amazon Web</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- Services Nitro Enclaves.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Aenabled%3ALaunchTemplateEnclaveOptions%27"><span class="annot"><span class="annottext">LaunchTemplateEnclaveOptions -&gt; Maybe Bool
 </span><a href="Network.AWS.EC2.Types.LaunchTemplateEnclaveOptions.html#%24sel%3Aenabled%3ALaunchTemplateEnclaveOptions%27"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681123163"><span id="local-6989586621681123165"><span class="annot"><span class="annottext">LaunchTemplateEnclaveOptions
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681123172"><span id="local-6989586621681123174"><span class="annot"><span class="annottext">LaunchTemplateEnclaveOptions
 -&gt; LaunchTemplateEnclaveOptions -&gt; Bool
 (LaunchTemplateEnclaveOptions
  -&gt; LaunchTemplateEnclaveOptions -&gt; Bool)
@@ -51,7 +51,7 @@ $c/= :: LaunchTemplateEnclaveOptions
 -&gt; LaunchTemplateEnclaveOptions -&gt; Bool
 $c== :: LaunchTemplateEnclaveOptions
 -&gt; LaunchTemplateEnclaveOptions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681123154"><span id="local-6989586621681123156"><span id="local-6989586621681123158"><span id="local-6989586621681123160"><span class="annot"><span class="annottext">ReadPrec [LaunchTemplateEnclaveOptions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681123163"><span id="local-6989586621681123165"><span id="local-6989586621681123167"><span id="local-6989586621681123169"><span class="annot"><span class="annottext">ReadPrec [LaunchTemplateEnclaveOptions]
 ReadPrec LaunchTemplateEnclaveOptions
 Int -&gt; ReadS LaunchTemplateEnclaveOptions
 ReadS [LaunchTemplateEnclaveOptions]
@@ -71,7 +71,7 @@ readList :: ReadS [LaunchTemplateEnclaveOptions]
 $creadList :: ReadS [LaunchTemplateEnclaveOptions]
 readsPrec :: Int -&gt; ReadS LaunchTemplateEnclaveOptions
 $creadsPrec :: Int -&gt; ReadS LaunchTemplateEnclaveOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681123147"><span id="local-6989586621681123149"><span id="local-6989586621681123151"><span class="annot"><span class="annottext">Int -&gt; LaunchTemplateEnclaveOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681123156"><span id="local-6989586621681123158"><span id="local-6989586621681123160"><span class="annot"><span class="annottext">Int -&gt; LaunchTemplateEnclaveOptions -&gt; ShowS
 [LaunchTemplateEnclaveOptions] -&gt; ShowS
 LaunchTemplateEnclaveOptions -&gt; String
 (Int -&gt; LaunchTemplateEnclaveOptions -&gt; ShowS)
@@ -142,21 +142,21 @@ forall a. Maybe a
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateEnclaveOptions.html#LaunchTemplateEnclaveOptions%27"><span class="hs-identifier hs-type">LaunchTemplateEnclaveOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681123138"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateEnclaveOptions.html#LaunchTemplateEnclaveOptions%27"><span class="hs-identifier hs-type">LaunchTemplateEnclaveOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681123147"><span class="annot"><span class="annottext">Maybe Bool
 enabled :: Maybe Bool
 $sel:enabled:LaunchTemplateEnclaveOptions' :: LaunchTemplateEnclaveOptions -&gt; Maybe Bool
-</span><a href="#local-6989586621681123138"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681123138"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681123137"><span class="annot"><span class="annottext">s :: LaunchTemplateEnclaveOptions
-</span><a href="#local-6989586621681123137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateEnclaveOptions.html#LaunchTemplateEnclaveOptions%27"><span class="hs-identifier hs-type">LaunchTemplateEnclaveOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681123136"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681123136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplateEnclaveOptions
-</span><a href="#local-6989586621681123137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:LaunchTemplateEnclaveOptions' :: Maybe Bool
+</span><a href="#local-6989586621681123147"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681123147"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681123146"><span class="annot"><span class="annottext">s :: LaunchTemplateEnclaveOptions
+</span><a href="#local-6989586621681123146"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateEnclaveOptions.html#LaunchTemplateEnclaveOptions%27"><span class="hs-identifier hs-type">LaunchTemplateEnclaveOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681123145"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681123145"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplateEnclaveOptions
+</span><a href="#local-6989586621681123146"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:LaunchTemplateEnclaveOptions' :: Maybe Bool
 </span><a href="Network.AWS.EC2.Types.LaunchTemplateEnclaveOptions.html#%24sel%3Aenabled%3ALaunchTemplateEnclaveOptions%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681123136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateEnclaveOptions.html#LaunchTemplateEnclaveOptions"><span class="hs-identifier hs-type">LaunchTemplateEnclaveOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681123145"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateEnclaveOptions.html#LaunchTemplateEnclaveOptions"><span class="hs-identifier hs-type">LaunchTemplateEnclaveOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateEnclaveOptions.html#LaunchTemplateEnclaveOptions"><span class="hs-identifier hs-type">LaunchTemplateEnclaveOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621681123133"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LaunchTemplateEnclaveOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681123131"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681123131"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621681123142"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LaunchTemplateEnclaveOptions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681123140"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681123140"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">Maybe Bool -&gt; LaunchTemplateEnclaveOptions
 </span><a href="Network.AWS.EC2.Types.LaunchTemplateEnclaveOptions.html#LaunchTemplateEnclaveOptions%27"><span class="hs-identifier hs-var">LaunchTemplateEnclaveOptions'</span></a></span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; LaunchTemplateEnclaveOptions)
@@ -164,14 +164,14 @@ $sel:enabled:LaunchTemplateEnclaveOptions' :: LaunchTemplateEnclaveOptions -&gt;
 -&gt; Either String LaunchTemplateEnclaveOptions
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681123131"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621681123140"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;enabled&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621681123125"><span id="local-6989586621681123127"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621681123134"><span id="local-6989586621681123136"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateEnclaveOptions.html#LaunchTemplateEnclaveOptions"><span class="hs-identifier hs-type">LaunchTemplateEnclaveOptions</span></a></span></span></span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681123122"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateEnclaveOptions.html#LaunchTemplateEnclaveOptions"><span class="hs-identifier hs-type">LaunchTemplateEnclaveOptions</span></a></span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681123131"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateEnclaveOptions.html#LaunchTemplateEnclaveOptions"><span class="hs-identifier hs-type">LaunchTemplateEnclaveOptions</span></a></span></span><span>
 </span><span id="line-74"></span></pre></body></html>

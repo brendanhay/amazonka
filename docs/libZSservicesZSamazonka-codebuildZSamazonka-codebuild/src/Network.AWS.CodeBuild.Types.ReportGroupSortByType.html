@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679375110"><span id="local-6989586621679375111"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReportGroupSortByType"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportGroupSortByType.html#ReportGroupSortByType"><span class="hs-identifier hs-var">ReportGroupSortByType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReportGroupSortByType%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportGroupSortByType.html#ReportGroupSortByType%27"><span class="hs-identifier hs-var">ReportGroupSortByType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679375119"><span id="local-6989586621679375120"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReportGroupSortByType"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportGroupSortByType.html#ReportGroupSortByType"><span class="hs-identifier hs-var">ReportGroupSortByType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReportGroupSortByType%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ReportGroupSortByType.html#ReportGroupSortByType%27"><span class="hs-identifier hs-var">ReportGroupSortByType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromReportGroupSortByType"><span class="annot"><span class="annottext">ReportGroupSortByType -&gt; Text
 </span><a href="Network.AWS.CodeBuild.Types.ReportGroupSortByType.html#fromReportGroupSortByType"><span class="hs-identifier hs-var hs-var">fromReportGroupSortByType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679375102"><span id="local-6989586621679375104"><span id="local-6989586621679375106"><span class="annot"><span class="annottext">Int -&gt; ReportGroupSortByType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679375111"><span id="local-6989586621679375113"><span id="local-6989586621679375115"><span class="annot"><span class="annottext">Int -&gt; ReportGroupSortByType -&gt; ShowS
 [ReportGroupSortByType] -&gt; ShowS
 ReportGroupSortByType -&gt; String
 (Int -&gt; ReportGroupSortByType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: ReportGroupSortByType -&gt; String
 showsPrec :: Int -&gt; ReportGroupSortByType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ReportGroupSortByType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679375093"><span id="local-6989586621679375095"><span id="local-6989586621679375097"><span id="local-6989586621679375099"><span class="annot"><span class="annottext">ReadPrec [ReportGroupSortByType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679375102"><span id="local-6989586621679375104"><span id="local-6989586621679375106"><span id="local-6989586621679375108"><span class="annot"><span class="annottext">ReadPrec [ReportGroupSortByType]
 ReadPrec ReportGroupSortByType
 Int -&gt; ReadS ReportGroupSortByType
 ReadS [ReportGroupSortByType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [ReportGroupSortByType]
 readsPrec :: Int -&gt; ReadS ReportGroupSortByType
 $creadsPrec :: Int -&gt; ReadS ReportGroupSortByType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679375088"><span id="local-6989586621679375090"><span class="annot"><span class="annottext">ReportGroupSortByType -&gt; ReportGroupSortByType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679375097"><span id="local-6989586621679375099"><span class="annot"><span class="annottext">ReportGroupSortByType -&gt; ReportGroupSortByType -&gt; Bool
 (ReportGroupSortByType -&gt; ReportGroupSortByType -&gt; Bool)
 -&gt; (ReportGroupSortByType -&gt; ReportGroupSortByType -&gt; Bool)
 -&gt; Eq ReportGroupSortByType
@@ -83,7 +83,7 @@ $c/= :: ReportGroupSortByType -&gt; ReportGroupSortByType -&gt; Bool
 == :: ReportGroupSortByType -&gt; ReportGroupSortByType -&gt; Bool
 $c== :: ReportGroupSortByType -&gt; ReportGroupSortByType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679375072"><span id="local-6989586621679375074"><span id="local-6989586621679375076"><span id="local-6989586621679375078"><span id="local-6989586621679375080"><span id="local-6989586621679375082"><span id="local-6989586621679375084"><span class="annot"><span class="annottext">Eq ReportGroupSortByType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679375081"><span id="local-6989586621679375083"><span id="local-6989586621679375085"><span id="local-6989586621679375087"><span id="local-6989586621679375089"><span id="local-6989586621679375091"><span id="local-6989586621679375093"><span class="annot"><span class="annottext">Eq ReportGroupSortByType
 Eq ReportGroupSortByType
 -&gt; (ReportGroupSortByType -&gt; ReportGroupSortByType -&gt; Ordering)
 -&gt; (ReportGroupSortByType -&gt; ReportGroupSortByType -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. ReportGroupSortByType -&gt; Rep ReportGroupSortByType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679375064"><span id="local-6989586621679375066"><span class="annot"><span class="annottext">Int -&gt; ReportGroupSortByType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679375073"><span id="local-6989586621679375075"><span class="annot"><span class="annottext">Int -&gt; ReportGroupSortByType -&gt; Int
 ReportGroupSortByType -&gt; Int
 (Int -&gt; ReportGroupSortByType -&gt; Int)
 -&gt; (ReportGroupSortByType -&gt; Int) -&gt; Hashable ReportGroupSortByType
@@ -151,54 +151,54 @@ $chash :: ReportGroupSortByType -&gt; Int
 hashWithSalt :: Int -&gt; ReportGroupSortByType -&gt; Int
 $chashWithSalt :: Int -&gt; ReportGroupSortByType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679375061"><span class="annot"><span class="annottext">ReportGroupSortByType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679375070"><span class="annot"><span class="annottext">ReportGroupSortByType -&gt; ()
 (ReportGroupSortByType -&gt; ()) -&gt; NFData ReportGroupSortByType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ReportGroupSortByType -&gt; ()
 $crnf :: ReportGroupSortByType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679375058"><span class="annot"><span class="annottext">Text -&gt; Either String ReportGroupSortByType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679375067"><span class="annot"><span class="annottext">Text -&gt; Either String ReportGroupSortByType
 (Text -&gt; Either String ReportGroupSortByType)
 -&gt; FromText ReportGroupSortByType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ReportGroupSortByType
 $cfromText :: Text -&gt; Either String ReportGroupSortByType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679375055"><span class="annot"><span class="annottext">ReportGroupSortByType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679375064"><span class="annot"><span class="annottext">ReportGroupSortByType -&gt; Text
 (ReportGroupSortByType -&gt; Text) -&gt; ToText ReportGroupSortByType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ReportGroupSortByType -&gt; Text
 $ctoText :: ReportGroupSortByType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679375052"><span class="annot"><span class="annottext">ReportGroupSortByType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679375061"><span class="annot"><span class="annottext">ReportGroupSortByType -&gt; ByteString
 (ReportGroupSortByType -&gt; ByteString)
 -&gt; ToByteString ReportGroupSortByType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ReportGroupSortByType -&gt; ByteString
 $ctoBS :: ReportGroupSortByType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679375049"><span class="annot"><span class="annottext">ReportGroupSortByType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679375058"><span class="annot"><span class="annottext">ReportGroupSortByType -&gt; ByteStringBuilder
 (ReportGroupSortByType -&gt; ByteStringBuilder)
 -&gt; ToLog ReportGroupSortByType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ReportGroupSortByType -&gt; ByteStringBuilder
 $cbuild :: ReportGroupSortByType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679375046"><span class="annot"><span class="annottext">HeaderName -&gt; ReportGroupSortByType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679375055"><span class="annot"><span class="annottext">HeaderName -&gt; ReportGroupSortByType -&gt; [Header]
 (HeaderName -&gt; ReportGroupSortByType -&gt; [Header])
 -&gt; ToHeader ReportGroupSortByType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ReportGroupSortByType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ReportGroupSortByType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679375043"><span class="annot"><span class="annottext">ReportGroupSortByType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679375052"><span class="annot"><span class="annottext">ReportGroupSortByType -&gt; QueryString
 (ReportGroupSortByType -&gt; QueryString)
 -&gt; ToQuery ReportGroupSortByType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ReportGroupSortByType -&gt; QueryString
 $ctoQuery :: ReportGroupSortByType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679375038"><span id="local-6989586621679375040"><span class="annot"><span class="annottext">Value -&gt; Parser [ReportGroupSortByType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679375047"><span id="local-6989586621679375049"><span class="annot"><span class="annottext">Value -&gt; Parser [ReportGroupSortByType]
 Value -&gt; Parser ReportGroupSortByType
 (Value -&gt; Parser ReportGroupSortByType)
 -&gt; (Value -&gt; Parser [ReportGroupSortByType])
@@ -210,7 +210,7 @@ $cparseJSONList :: Value -&gt; Parser [ReportGroupSortByType]
 parseJSON :: Value -&gt; Parser ReportGroupSortByType
 $cparseJSON :: Value -&gt; Parser ReportGroupSortByType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679375033"><span id="local-6989586621679375035"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReportGroupSortByType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679375042"><span id="local-6989586621679375044"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReportGroupSortByType]
 FromJSONKeyFunction ReportGroupSortByType
 FromJSONKeyFunction ReportGroupSortByType
 -&gt; FromJSONKeyFunction [ReportGroupSortByType]
@@ -222,7 +222,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ReportGroupSortByType]
 fromJSONKey :: FromJSONKeyFunction ReportGroupSortByType
 $cfromJSONKey :: FromJSONKeyFunction ReportGroupSortByType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679375024"><span id="local-6989586621679375026"><span id="local-6989586621679375028"><span id="local-6989586621679375030"><span class="annot"><span class="annottext">[ReportGroupSortByType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679375033"><span id="local-6989586621679375035"><span id="local-6989586621679375037"><span id="local-6989586621679375039"><span class="annot"><span class="annottext">[ReportGroupSortByType] -&gt; Encoding
 [ReportGroupSortByType] -&gt; Value
 ReportGroupSortByType -&gt; Encoding
 ReportGroupSortByType -&gt; Value
@@ -246,7 +246,7 @@ $ctoEncoding :: ReportGroupSortByType -&gt; Encoding
 toJSON :: ReportGroupSortByType -&gt; Value
 $ctoJSON :: ReportGroupSortByType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679375019"><span id="local-6989586621679375021"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReportGroupSortByType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679375028"><span id="local-6989586621679375030"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReportGroupSortByType]
 ToJSONKeyFunction ReportGroupSortByType
 ToJSONKeyFunction ReportGroupSortByType
 -&gt; ToJSONKeyFunction [ReportGroupSortByType]
@@ -258,14 +258,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ReportGroupSortByType]
 toJSONKey :: ToJSONKeyFunction ReportGroupSortByType
 $ctoJSONKey :: ToJSONKeyFunction ReportGroupSortByType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679375016"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReportGroupSortByType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679375025"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReportGroupSortByType
 ([Node] -&gt; Either String ReportGroupSortByType)
 -&gt; FromXML ReportGroupSortByType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ReportGroupSortByType
 $cparseXML :: [Node] -&gt; Either String ReportGroupSortByType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679375013"><span class="annot"><span class="annottext">ReportGroupSortByType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679375022"><span class="annot"><span class="annottext">ReportGroupSortByType -&gt; XML
 (ReportGroupSortByType -&gt; XML) -&gt; ToXML ReportGroupSortByType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ReportGroupSortByType -&gt; XML

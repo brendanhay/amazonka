@@ -1,0 +1,353 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SESV2.Types.DeliverabilityDashboardAccountStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SESV2.Types.DeliverabilityDashboardAccountStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.SESV2.Types.DeliverabilityDashboardAccountStatus.html#DeliverabilityDashboardAccountStatus"><span class="hs-identifier">DeliverabilityDashboardAccountStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.SESV2.Types.DeliverabilityDashboardAccountStatus.html#DeliverabilityDashboardAccountStatus_ACTIVE"><span class="hs-identifier">DeliverabilityDashboardAccountStatus_ACTIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.SESV2.Types.DeliverabilityDashboardAccountStatus.html#DeliverabilityDashboardAccountStatus_DISABLED"><span class="hs-identifier">DeliverabilityDashboardAccountStatus_DISABLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.SESV2.Types.DeliverabilityDashboardAccountStatus.html#DeliverabilityDashboardAccountStatus_PENDING_EXPIRATION"><span class="hs-identifier">DeliverabilityDashboardAccountStatus_PENDING_EXPIRATION</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- | The current status of your Deliverability dashboard subscription. If</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- this value is @PENDING_EXPIRATION@, your subscription is scheduled to</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- expire at the end of the current calendar month.</span><span>
+</span><span id="line-36"></span><span id="local-6989586621679325917"><span id="local-6989586621679325918"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeliverabilityDashboardAccountStatus"><span class="annot"><a href="Network.AWS.SESV2.Types.DeliverabilityDashboardAccountStatus.html#DeliverabilityDashboardAccountStatus"><span class="hs-identifier hs-var">DeliverabilityDashboardAccountStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeliverabilityDashboardAccountStatus%27"><span class="annot"><a href="Network.AWS.SESV2.Types.DeliverabilityDashboardAccountStatus.html#DeliverabilityDashboardAccountStatus%27"><span class="hs-identifier hs-var">DeliverabilityDashboardAccountStatus'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDeliverabilityDashboardAccountStatus"><span class="annot"><span class="annottext">DeliverabilityDashboardAccountStatus -&gt; Text
+</span><a href="Network.AWS.SESV2.Types.DeliverabilityDashboardAccountStatus.html#fromDeliverabilityDashboardAccountStatus"><span class="hs-identifier hs-var hs-var">fromDeliverabilityDashboardAccountStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679325909"><span id="local-6989586621679325911"><span id="local-6989586621679325913"><span class="annot"><span class="annottext">Int -&gt; DeliverabilityDashboardAccountStatus -&gt; ShowS
+[DeliverabilityDashboardAccountStatus] -&gt; ShowS
+DeliverabilityDashboardAccountStatus -&gt; String
+(Int -&gt; DeliverabilityDashboardAccountStatus -&gt; ShowS)
+-&gt; (DeliverabilityDashboardAccountStatus -&gt; String)
+-&gt; ([DeliverabilityDashboardAccountStatus] -&gt; ShowS)
+-&gt; Show DeliverabilityDashboardAccountStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeliverabilityDashboardAccountStatus] -&gt; ShowS
+$cshowList :: [DeliverabilityDashboardAccountStatus] -&gt; ShowS
+show :: DeliverabilityDashboardAccountStatus -&gt; String
+$cshow :: DeliverabilityDashboardAccountStatus -&gt; String
+showsPrec :: Int -&gt; DeliverabilityDashboardAccountStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeliverabilityDashboardAccountStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679325900"><span id="local-6989586621679325902"><span id="local-6989586621679325904"><span id="local-6989586621679325906"><span class="annot"><span class="annottext">ReadPrec [DeliverabilityDashboardAccountStatus]
+ReadPrec DeliverabilityDashboardAccountStatus
+Int -&gt; ReadS DeliverabilityDashboardAccountStatus
+ReadS [DeliverabilityDashboardAccountStatus]
+(Int -&gt; ReadS DeliverabilityDashboardAccountStatus)
+-&gt; ReadS [DeliverabilityDashboardAccountStatus]
+-&gt; ReadPrec DeliverabilityDashboardAccountStatus
+-&gt; ReadPrec [DeliverabilityDashboardAccountStatus]
+-&gt; Read DeliverabilityDashboardAccountStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeliverabilityDashboardAccountStatus]
+$creadListPrec :: ReadPrec [DeliverabilityDashboardAccountStatus]
+readPrec :: ReadPrec DeliverabilityDashboardAccountStatus
+$creadPrec :: ReadPrec DeliverabilityDashboardAccountStatus
+readList :: ReadS [DeliverabilityDashboardAccountStatus]
+$creadList :: ReadS [DeliverabilityDashboardAccountStatus]
+readsPrec :: Int -&gt; ReadS DeliverabilityDashboardAccountStatus
+$creadsPrec :: Int -&gt; ReadS DeliverabilityDashboardAccountStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679325895"><span id="local-6989586621679325897"><span class="annot"><span class="annottext">DeliverabilityDashboardAccountStatus
+-&gt; DeliverabilityDashboardAccountStatus -&gt; Bool
+(DeliverabilityDashboardAccountStatus
+ -&gt; DeliverabilityDashboardAccountStatus -&gt; Bool)
+-&gt; (DeliverabilityDashboardAccountStatus
+    -&gt; DeliverabilityDashboardAccountStatus -&gt; Bool)
+-&gt; Eq DeliverabilityDashboardAccountStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeliverabilityDashboardAccountStatus
+-&gt; DeliverabilityDashboardAccountStatus -&gt; Bool
+$c/= :: DeliverabilityDashboardAccountStatus
+-&gt; DeliverabilityDashboardAccountStatus -&gt; Bool
+== :: DeliverabilityDashboardAccountStatus
+-&gt; DeliverabilityDashboardAccountStatus -&gt; Bool
+$c== :: DeliverabilityDashboardAccountStatus
+-&gt; DeliverabilityDashboardAccountStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679325879"><span id="local-6989586621679325881"><span id="local-6989586621679325883"><span id="local-6989586621679325885"><span id="local-6989586621679325887"><span id="local-6989586621679325889"><span id="local-6989586621679325891"><span class="annot"><span class="annottext">Eq DeliverabilityDashboardAccountStatus
+Eq DeliverabilityDashboardAccountStatus
+-&gt; (DeliverabilityDashboardAccountStatus
+    -&gt; DeliverabilityDashboardAccountStatus -&gt; Ordering)
+-&gt; (DeliverabilityDashboardAccountStatus
+    -&gt; DeliverabilityDashboardAccountStatus -&gt; Bool)
+-&gt; (DeliverabilityDashboardAccountStatus
+    -&gt; DeliverabilityDashboardAccountStatus -&gt; Bool)
+-&gt; (DeliverabilityDashboardAccountStatus
+    -&gt; DeliverabilityDashboardAccountStatus -&gt; Bool)
+-&gt; (DeliverabilityDashboardAccountStatus
+    -&gt; DeliverabilityDashboardAccountStatus -&gt; Bool)
+-&gt; (DeliverabilityDashboardAccountStatus
+    -&gt; DeliverabilityDashboardAccountStatus
+    -&gt; DeliverabilityDashboardAccountStatus)
+-&gt; (DeliverabilityDashboardAccountStatus
+    -&gt; DeliverabilityDashboardAccountStatus
+    -&gt; DeliverabilityDashboardAccountStatus)
+-&gt; Ord DeliverabilityDashboardAccountStatus
+DeliverabilityDashboardAccountStatus
+-&gt; DeliverabilityDashboardAccountStatus -&gt; Bool
+DeliverabilityDashboardAccountStatus
+-&gt; DeliverabilityDashboardAccountStatus -&gt; Ordering
+DeliverabilityDashboardAccountStatus
+-&gt; DeliverabilityDashboardAccountStatus
+-&gt; DeliverabilityDashboardAccountStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DeliverabilityDashboardAccountStatus
+-&gt; DeliverabilityDashboardAccountStatus
+-&gt; DeliverabilityDashboardAccountStatus
+$cmin :: DeliverabilityDashboardAccountStatus
+-&gt; DeliverabilityDashboardAccountStatus
+-&gt; DeliverabilityDashboardAccountStatus
+max :: DeliverabilityDashboardAccountStatus
+-&gt; DeliverabilityDashboardAccountStatus
+-&gt; DeliverabilityDashboardAccountStatus
+$cmax :: DeliverabilityDashboardAccountStatus
+-&gt; DeliverabilityDashboardAccountStatus
+-&gt; DeliverabilityDashboardAccountStatus
+&gt;= :: DeliverabilityDashboardAccountStatus
+-&gt; DeliverabilityDashboardAccountStatus -&gt; Bool
+$c&gt;= :: DeliverabilityDashboardAccountStatus
+-&gt; DeliverabilityDashboardAccountStatus -&gt; Bool
+&gt; :: DeliverabilityDashboardAccountStatus
+-&gt; DeliverabilityDashboardAccountStatus -&gt; Bool
+$c&gt; :: DeliverabilityDashboardAccountStatus
+-&gt; DeliverabilityDashboardAccountStatus -&gt; Bool
+&lt;= :: DeliverabilityDashboardAccountStatus
+-&gt; DeliverabilityDashboardAccountStatus -&gt; Bool
+$c&lt;= :: DeliverabilityDashboardAccountStatus
+-&gt; DeliverabilityDashboardAccountStatus -&gt; Bool
+&lt; :: DeliverabilityDashboardAccountStatus
+-&gt; DeliverabilityDashboardAccountStatus -&gt; Bool
+$c&lt; :: DeliverabilityDashboardAccountStatus
+-&gt; DeliverabilityDashboardAccountStatus -&gt; Bool
+compare :: DeliverabilityDashboardAccountStatus
+-&gt; DeliverabilityDashboardAccountStatus -&gt; Ordering
+$ccompare :: DeliverabilityDashboardAccountStatus
+-&gt; DeliverabilityDashboardAccountStatus -&gt; Ordering
+$cp1Ord :: Eq DeliverabilityDashboardAccountStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ DeliverabilityDashboardAccountStatus
+ -&gt; Rep DeliverabilityDashboardAccountStatus x)
+-&gt; (forall x.
+    Rep DeliverabilityDashboardAccountStatus x
+    -&gt; DeliverabilityDashboardAccountStatus)
+-&gt; Generic DeliverabilityDashboardAccountStatus
+forall x.
+Rep DeliverabilityDashboardAccountStatus x
+-&gt; DeliverabilityDashboardAccountStatus
+forall x.
+DeliverabilityDashboardAccountStatus
+-&gt; Rep DeliverabilityDashboardAccountStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeliverabilityDashboardAccountStatus x
+-&gt; DeliverabilityDashboardAccountStatus
+$cfrom :: forall x.
+DeliverabilityDashboardAccountStatus
+-&gt; Rep DeliverabilityDashboardAccountStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679325871"><span id="local-6989586621679325873"><span class="annot"><span class="annottext">Int -&gt; DeliverabilityDashboardAccountStatus -&gt; Int
+DeliverabilityDashboardAccountStatus -&gt; Int
+(Int -&gt; DeliverabilityDashboardAccountStatus -&gt; Int)
+-&gt; (DeliverabilityDashboardAccountStatus -&gt; Int)
+-&gt; Hashable DeliverabilityDashboardAccountStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DeliverabilityDashboardAccountStatus -&gt; Int
+$chash :: DeliverabilityDashboardAccountStatus -&gt; Int
+hashWithSalt :: Int -&gt; DeliverabilityDashboardAccountStatus -&gt; Int
+$chashWithSalt :: Int -&gt; DeliverabilityDashboardAccountStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679325868"><span class="annot"><span class="annottext">DeliverabilityDashboardAccountStatus -&gt; ()
+(DeliverabilityDashboardAccountStatus -&gt; ())
+-&gt; NFData DeliverabilityDashboardAccountStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DeliverabilityDashboardAccountStatus -&gt; ()
+$crnf :: DeliverabilityDashboardAccountStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679325865"><span class="annot"><span class="annottext">Text -&gt; Either String DeliverabilityDashboardAccountStatus
+(Text -&gt; Either String DeliverabilityDashboardAccountStatus)
+-&gt; FromText DeliverabilityDashboardAccountStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DeliverabilityDashboardAccountStatus
+$cfromText :: Text -&gt; Either String DeliverabilityDashboardAccountStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679325862"><span class="annot"><span class="annottext">DeliverabilityDashboardAccountStatus -&gt; Text
+(DeliverabilityDashboardAccountStatus -&gt; Text)
+-&gt; ToText DeliverabilityDashboardAccountStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DeliverabilityDashboardAccountStatus -&gt; Text
+$ctoText :: DeliverabilityDashboardAccountStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679325859"><span class="annot"><span class="annottext">DeliverabilityDashboardAccountStatus -&gt; ByteString
+(DeliverabilityDashboardAccountStatus -&gt; ByteString)
+-&gt; ToByteString DeliverabilityDashboardAccountStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DeliverabilityDashboardAccountStatus -&gt; ByteString
+$ctoBS :: DeliverabilityDashboardAccountStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679325856"><span class="annot"><span class="annottext">DeliverabilityDashboardAccountStatus -&gt; ByteStringBuilder
+(DeliverabilityDashboardAccountStatus -&gt; ByteStringBuilder)
+-&gt; ToLog DeliverabilityDashboardAccountStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DeliverabilityDashboardAccountStatus -&gt; ByteStringBuilder
+$cbuild :: DeliverabilityDashboardAccountStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679325853"><span class="annot"><span class="annottext">HeaderName -&gt; DeliverabilityDashboardAccountStatus -&gt; [Header]
+(HeaderName -&gt; DeliverabilityDashboardAccountStatus -&gt; [Header])
+-&gt; ToHeader DeliverabilityDashboardAccountStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DeliverabilityDashboardAccountStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DeliverabilityDashboardAccountStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679325850"><span class="annot"><span class="annottext">DeliverabilityDashboardAccountStatus -&gt; QueryString
+(DeliverabilityDashboardAccountStatus -&gt; QueryString)
+-&gt; ToQuery DeliverabilityDashboardAccountStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DeliverabilityDashboardAccountStatus -&gt; QueryString
+$ctoQuery :: DeliverabilityDashboardAccountStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679325845"><span id="local-6989586621679325847"><span class="annot"><span class="annottext">Value -&gt; Parser [DeliverabilityDashboardAccountStatus]
+Value -&gt; Parser DeliverabilityDashboardAccountStatus
+(Value -&gt; Parser DeliverabilityDashboardAccountStatus)
+-&gt; (Value -&gt; Parser [DeliverabilityDashboardAccountStatus])
+-&gt; FromJSON DeliverabilityDashboardAccountStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DeliverabilityDashboardAccountStatus]
+$cparseJSONList :: Value -&gt; Parser [DeliverabilityDashboardAccountStatus]
+parseJSON :: Value -&gt; Parser DeliverabilityDashboardAccountStatus
+$cparseJSON :: Value -&gt; Parser DeliverabilityDashboardAccountStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679325840"><span id="local-6989586621679325842"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeliverabilityDashboardAccountStatus]
+FromJSONKeyFunction DeliverabilityDashboardAccountStatus
+FromJSONKeyFunction DeliverabilityDashboardAccountStatus
+-&gt; FromJSONKeyFunction [DeliverabilityDashboardAccountStatus]
+-&gt; FromJSONKey DeliverabilityDashboardAccountStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DeliverabilityDashboardAccountStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [DeliverabilityDashboardAccountStatus]
+fromJSONKey :: FromJSONKeyFunction DeliverabilityDashboardAccountStatus
+$cfromJSONKey :: FromJSONKeyFunction DeliverabilityDashboardAccountStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679325831"><span id="local-6989586621679325833"><span id="local-6989586621679325835"><span id="local-6989586621679325837"><span class="annot"><span class="annottext">[DeliverabilityDashboardAccountStatus] -&gt; Encoding
+[DeliverabilityDashboardAccountStatus] -&gt; Value
+DeliverabilityDashboardAccountStatus -&gt; Encoding
+DeliverabilityDashboardAccountStatus -&gt; Value
+(DeliverabilityDashboardAccountStatus -&gt; Value)
+-&gt; (DeliverabilityDashboardAccountStatus -&gt; Encoding)
+-&gt; ([DeliverabilityDashboardAccountStatus] -&gt; Value)
+-&gt; ([DeliverabilityDashboardAccountStatus] -&gt; Encoding)
+-&gt; ToJSON DeliverabilityDashboardAccountStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DeliverabilityDashboardAccountStatus] -&gt; Encoding
+$ctoEncodingList :: [DeliverabilityDashboardAccountStatus] -&gt; Encoding
+toJSONList :: [DeliverabilityDashboardAccountStatus] -&gt; Value
+$ctoJSONList :: [DeliverabilityDashboardAccountStatus] -&gt; Value
+toEncoding :: DeliverabilityDashboardAccountStatus -&gt; Encoding
+$ctoEncoding :: DeliverabilityDashboardAccountStatus -&gt; Encoding
+toJSON :: DeliverabilityDashboardAccountStatus -&gt; Value
+$ctoJSON :: DeliverabilityDashboardAccountStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679325826"><span id="local-6989586621679325828"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeliverabilityDashboardAccountStatus]
+ToJSONKeyFunction DeliverabilityDashboardAccountStatus
+ToJSONKeyFunction DeliverabilityDashboardAccountStatus
+-&gt; ToJSONKeyFunction [DeliverabilityDashboardAccountStatus]
+-&gt; ToJSONKey DeliverabilityDashboardAccountStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DeliverabilityDashboardAccountStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [DeliverabilityDashboardAccountStatus]
+toJSONKey :: ToJSONKeyFunction DeliverabilityDashboardAccountStatus
+$ctoJSONKey :: ToJSONKeyFunction DeliverabilityDashboardAccountStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679325823"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeliverabilityDashboardAccountStatus
+([Node] -&gt; Either String DeliverabilityDashboardAccountStatus)
+-&gt; FromXML DeliverabilityDashboardAccountStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DeliverabilityDashboardAccountStatus
+$cparseXML :: [Node] -&gt; Either String DeliverabilityDashboardAccountStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679325820"><span class="annot"><span class="annottext">DeliverabilityDashboardAccountStatus -&gt; XML
+(DeliverabilityDashboardAccountStatus -&gt; XML)
+-&gt; ToXML DeliverabilityDashboardAccountStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DeliverabilityDashboardAccountStatus -&gt; XML
+$ctoXML :: DeliverabilityDashboardAccountStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SESV2.Types.DeliverabilityDashboardAccountStatus.html#DeliverabilityDashboardAccountStatus_ACTIVE"><span class="hs-identifier hs-type">DeliverabilityDashboardAccountStatus_ACTIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESV2.Types.DeliverabilityDashboardAccountStatus.html#DeliverabilityDashboardAccountStatus"><span class="hs-identifier hs-type">DeliverabilityDashboardAccountStatus</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeliverabilityDashboardAccountStatus_ACTIVE"><span id="%24mDeliverabilityDashboardAccountStatus_ACTIVE"><span id="DeliverabilityDashboardAccountStatus_ACTIVE"><span class="annot"><span class="annottext">$bDeliverabilityDashboardAccountStatus_ACTIVE :: DeliverabilityDashboardAccountStatus
+$mDeliverabilityDashboardAccountStatus_ACTIVE :: forall r.
+DeliverabilityDashboardAccountStatus
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SESV2.Types.DeliverabilityDashboardAccountStatus.html#%24bDeliverabilityDashboardAccountStatus_ACTIVE"><span class="hs-identifier hs-var hs-var hs-var">DeliverabilityDashboardAccountStatus_ACTIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SESV2.Types.DeliverabilityDashboardAccountStatus.html#DeliverabilityDashboardAccountStatus%27"><span class="hs-identifier hs-type">DeliverabilityDashboardAccountStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACTIVE&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SESV2.Types.DeliverabilityDashboardAccountStatus.html#DeliverabilityDashboardAccountStatus_DISABLED"><span class="hs-identifier hs-type">DeliverabilityDashboardAccountStatus_DISABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESV2.Types.DeliverabilityDashboardAccountStatus.html#DeliverabilityDashboardAccountStatus"><span class="hs-identifier hs-type">DeliverabilityDashboardAccountStatus</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeliverabilityDashboardAccountStatus_DISABLED"><span id="%24mDeliverabilityDashboardAccountStatus_DISABLED"><span id="DeliverabilityDashboardAccountStatus_DISABLED"><span class="annot"><span class="annottext">$bDeliverabilityDashboardAccountStatus_DISABLED :: DeliverabilityDashboardAccountStatus
+$mDeliverabilityDashboardAccountStatus_DISABLED :: forall r.
+DeliverabilityDashboardAccountStatus
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SESV2.Types.DeliverabilityDashboardAccountStatus.html#%24bDeliverabilityDashboardAccountStatus_DISABLED"><span class="hs-identifier hs-var hs-var hs-var">DeliverabilityDashboardAccountStatus_DISABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SESV2.Types.DeliverabilityDashboardAccountStatus.html#DeliverabilityDashboardAccountStatus%27"><span class="hs-identifier hs-type">DeliverabilityDashboardAccountStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISABLED&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SESV2.Types.DeliverabilityDashboardAccountStatus.html#DeliverabilityDashboardAccountStatus_PENDING_EXPIRATION"><span class="hs-identifier hs-type">DeliverabilityDashboardAccountStatus_PENDING_EXPIRATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESV2.Types.DeliverabilityDashboardAccountStatus.html#DeliverabilityDashboardAccountStatus"><span class="hs-identifier hs-type">DeliverabilityDashboardAccountStatus</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeliverabilityDashboardAccountStatus_PENDING_EXPIRATION"><span id="%24mDeliverabilityDashboardAccountStatus_PENDING_EXPIRATION"><span id="DeliverabilityDashboardAccountStatus_PENDING_EXPIRATION"><span class="annot"><span class="annottext">$bDeliverabilityDashboardAccountStatus_PENDING_EXPIRATION :: DeliverabilityDashboardAccountStatus
+$mDeliverabilityDashboardAccountStatus_PENDING_EXPIRATION :: forall r.
+DeliverabilityDashboardAccountStatus
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SESV2.Types.DeliverabilityDashboardAccountStatus.html#%24bDeliverabilityDashboardAccountStatus_PENDING_EXPIRATION"><span class="hs-identifier hs-var hs-var hs-var">DeliverabilityDashboardAccountStatus_PENDING_EXPIRATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SESV2.Types.DeliverabilityDashboardAccountStatus.html#DeliverabilityDashboardAccountStatus%27"><span class="hs-identifier hs-type">DeliverabilityDashboardAccountStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PENDING_EXPIRATION&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.SESV2.Types.DeliverabilityDashboardAccountStatus.html#DeliverabilityDashboardAccountStatus_ACTIVE"><span class="hs-pragma hs-type">DeliverabilityDashboardAccountStatus_ACTIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.SESV2.Types.DeliverabilityDashboardAccountStatus.html#DeliverabilityDashboardAccountStatus_DISABLED"><span class="hs-pragma hs-type">DeliverabilityDashboardAccountStatus_DISABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.SESV2.Types.DeliverabilityDashboardAccountStatus.html#DeliverabilityDashboardAccountStatus_PENDING_EXPIRATION"><span class="hs-pragma hs-type">DeliverabilityDashboardAccountStatus_PENDING_EXPIRATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.SESV2.Types.DeliverabilityDashboardAccountStatus.html#DeliverabilityDashboardAccountStatus%27"><span class="hs-pragma hs-type">DeliverabilityDashboardAccountStatus'</span></a></span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-79"></span></pre></body></html>

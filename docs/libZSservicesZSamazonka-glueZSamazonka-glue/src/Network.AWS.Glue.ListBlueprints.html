@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newListBlueprints' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679718725"><span id="local-6989586621679718726"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListBlueprints"><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprints"><span class="hs-identifier hs-var">ListBlueprints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListBlueprints%27"><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprints%27"><span class="hs-identifier hs-var">ListBlueprints'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679718734"><span id="local-6989586621679718735"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListBlueprints"><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprints"><span class="hs-identifier hs-var">ListBlueprints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListBlueprints%27"><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprints%27"><span class="hs-identifier hs-var">ListBlueprints'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A continuation token, if this is a continuation request.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AnextToken%3AListBlueprints%27"><span class="annot"><span class="annottext">ListBlueprints -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.ListBlueprints.html#%24sel%3AnextToken%3AListBlueprints%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -61,7 +61,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3Atags%3AListBlueprints%27"><span class="annot"><span class="annottext">ListBlueprints -&gt; Maybe (HashMap Text Text)
 </span><a href="Network.AWS.Glue.ListBlueprints.html#%24sel%3Atags%3AListBlueprints%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679718717"><span id="local-6989586621679718719"><span class="annot"><span class="annottext">ListBlueprints -&gt; ListBlueprints -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679718726"><span id="local-6989586621679718728"><span class="annot"><span class="annottext">ListBlueprints -&gt; ListBlueprints -&gt; Bool
 (ListBlueprints -&gt; ListBlueprints -&gt; Bool)
 -&gt; (ListBlueprints -&gt; ListBlueprints -&gt; Bool) -&gt; Eq ListBlueprints
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListBlueprints -&gt; ListBlueprints -&gt; Bool
 == :: ListBlueprints -&gt; ListBlueprints -&gt; Bool
 $c== :: ListBlueprints -&gt; ListBlueprints -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679718708"><span id="local-6989586621679718710"><span id="local-6989586621679718712"><span id="local-6989586621679718714"><span class="annot"><span class="annottext">ReadPrec [ListBlueprints]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679718717"><span id="local-6989586621679718719"><span id="local-6989586621679718721"><span id="local-6989586621679718723"><span class="annot"><span class="annottext">ReadPrec [ListBlueprints]
 ReadPrec ListBlueprints
 Int -&gt; ReadS ListBlueprints
 ReadS [ListBlueprints]
@@ -89,7 +89,7 @@ readList :: ReadS [ListBlueprints]
 $creadList :: ReadS [ListBlueprints]
 readsPrec :: Int -&gt; ReadS ListBlueprints
 $creadsPrec :: Int -&gt; ReadS ListBlueprints
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679718701"><span id="local-6989586621679718703"><span id="local-6989586621679718705"><span class="annot"><span class="annottext">Int -&gt; ListBlueprints -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679718710"><span id="local-6989586621679718712"><span id="local-6989586621679718714"><span class="annot"><span class="annottext">Int -&gt; ListBlueprints -&gt; ShowS
 [ListBlueprints] -&gt; ShowS
 ListBlueprints -&gt; String
 (Int -&gt; ListBlueprints -&gt; ShowS)
@@ -157,16 +157,16 @@ forall a. Maybe a
 -&gt; (ListBlueprints -&gt; Maybe Text -&gt; ListBlueprints)
 -&gt; Lens ListBlueprints ListBlueprints (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprints%27"><span class="hs-identifier hs-type">ListBlueprints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679718694"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprints%27"><span class="hs-identifier hs-type">ListBlueprints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679718703"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListBlueprints' :: ListBlueprints -&gt; Maybe Text
-</span><a href="#local-6989586621679718694"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679718694"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679718693"><span class="annot"><span class="annottext">s :: ListBlueprints
-</span><a href="#local-6989586621679718693"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprints%27"><span class="hs-identifier hs-type">ListBlueprints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679718692"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679718692"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBlueprints
-</span><a href="#local-6989586621679718693"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListBlueprints' :: Maybe Text
+</span><a href="#local-6989586621679718703"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679718703"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679718702"><span class="annot"><span class="annottext">s :: ListBlueprints
+</span><a href="#local-6989586621679718702"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprints%27"><span class="hs-identifier hs-type">ListBlueprints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679718701"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679718701"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBlueprints
+</span><a href="#local-6989586621679718702"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListBlueprints' :: Maybe Text
 </span><a href="Network.AWS.Glue.ListBlueprints.html#%24sel%3AnextToken%3AListBlueprints%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679718692"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprints"><span class="hs-identifier hs-type">ListBlueprints</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679718701"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprints"><span class="hs-identifier hs-type">ListBlueprints</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The maximum size of a list to return.</span><span>
 </span><span id="line-90"></span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#listBlueprints_maxResults"><span class="hs-identifier hs-type">listBlueprints_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprints"><span class="hs-identifier hs-type">ListBlueprints</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -177,16 +177,16 @@ $sel:nextToken:ListBlueprints' :: ListBlueprints -&gt; Maybe Text
 -&gt; Lens
      ListBlueprints ListBlueprints (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprints%27"><span class="hs-identifier hs-type">ListBlueprints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679718691"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprints%27"><span class="hs-identifier hs-type">ListBlueprints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679718700"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListBlueprints' :: ListBlueprints -&gt; Maybe Natural
-</span><a href="#local-6989586621679718691"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679718691"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679718690"><span class="annot"><span class="annottext">s :: ListBlueprints
-</span><a href="#local-6989586621679718690"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprints%27"><span class="hs-identifier hs-type">ListBlueprints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679718689"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679718689"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBlueprints
-</span><a href="#local-6989586621679718690"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListBlueprints' :: Maybe Natural
+</span><a href="#local-6989586621679718700"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679718700"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679718699"><span class="annot"><span class="annottext">s :: ListBlueprints
+</span><a href="#local-6989586621679718699"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprints%27"><span class="hs-identifier hs-type">ListBlueprints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679718698"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679718698"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBlueprints
+</span><a href="#local-6989586621679718699"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListBlueprints' :: Maybe Natural
 </span><a href="Network.AWS.Glue.ListBlueprints.html#%24sel%3AmaxResults%3AListBlueprints%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679718689"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprints"><span class="hs-identifier hs-type">ListBlueprints</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679718698"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprints"><span class="hs-identifier hs-type">ListBlueprints</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | Filters the list by an Amazon Web Services resource tag.</span><span>
 </span><span id="line-94"></span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#listBlueprints_tags"><span class="hs-identifier hs-type">listBlueprints_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprints"><span class="hs-identifier hs-type">ListBlueprints</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
@@ -200,16 +200,16 @@ $sel:maxResults:ListBlueprints' :: ListBlueprints -&gt; Maybe Natural
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprints%27"><span class="hs-identifier hs-type">ListBlueprints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679718688"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprints%27"><span class="hs-identifier hs-type">ListBlueprints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679718697"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 tags :: Maybe (HashMap Text Text)
 $sel:tags:ListBlueprints' :: ListBlueprints -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679718688"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679718688"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679718687"><span class="annot"><span class="annottext">s :: ListBlueprints
-</span><a href="#local-6989586621679718687"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprints%27"><span class="hs-identifier hs-type">ListBlueprints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679718686"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679718686"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBlueprints
-</span><a href="#local-6989586621679718687"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ListBlueprints' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679718697"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679718697"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679718696"><span class="annot"><span class="annottext">s :: ListBlueprints
+</span><a href="#local-6989586621679718696"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprints%27"><span class="hs-identifier hs-type">ListBlueprints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679718695"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679718695"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBlueprints
+</span><a href="#local-6989586621679718696"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ListBlueprints' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.Glue.ListBlueprints.html#%24sel%3Atags%3AListBlueprints%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679718686"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprints"><span class="hs-identifier hs-type">ListBlueprints</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679718695"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprints"><span class="hs-identifier hs-type">ListBlueprints</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; ListBlueprints -&gt; f ListBlueprints)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -242,12 +242,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-98"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-99"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprints"><span class="hs-identifier hs-type">ListBlueprints</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprintsResponse"><span class="hs-identifier hs-type">ListBlueprintsResponse</span></a></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679718679"><span class="annot"><span class="annottext">request :: ListBlueprints -&gt; Request ListBlueprints
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679718688"><span class="annot"><span class="annottext">request :: ListBlueprints -&gt; Request ListBlueprints
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListBlueprints -&gt; Request ListBlueprints
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679718675"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679718684"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListBlueprints
 -&gt; ClientResponse ClientBody
@@ -271,10 +271,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679718672"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679718672"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679718671"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679718671"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679718670"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679718670"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679718681"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679718681"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679718680"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679718680"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679718679"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679718679"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; ListBlueprintsResponse
 </span><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprintsResponse%27"><span class="hs-identifier hs-var">ListBlueprintsResponse'</span></a></span><span>
 </span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; ListBlueprintsResponse)
@@ -282,7 +282,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; ListBlueprintsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679718670"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679718679"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Blueprints&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
@@ -296,7 +296,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; ListBlueprintsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679718670"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679718679"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -308,15 +308,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679718672"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679718681"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679718661"><span id="local-6989586621679718663"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprints"><span class="hs-identifier hs-type">ListBlueprints</span></a></span></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679718670"><span id="local-6989586621679718672"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprints"><span class="hs-identifier hs-type">ListBlueprints</span></a></span></span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679718658"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprints"><span class="hs-identifier hs-type">ListBlueprints</span></a></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679718667"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprints"><span class="hs-identifier hs-type">ListBlueprints</span></a></span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprints"><span class="hs-identifier hs-type">ListBlueprints</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679718654"><span class="annot"><span class="annottext">toHeaders :: ListBlueprints -&gt; ResponseHeaders
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679718663"><span class="annot"><span class="annottext">toHeaders :: ListBlueprints -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListBlueprints -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -341,9 +341,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679718644"><span id="local-6989586621679718646"><span id="local-6989586621679718648"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprints"><span class="hs-identifier hs-type">ListBlueprints</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679718642"><span class="annot"><span class="annottext">toJSON :: ListBlueprints -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprints%27"><span class="hs-identifier hs-type">ListBlueprints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679718638"><span id="local-6989586621679718639"><span id="local-6989586621679718640"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679718653"><span id="local-6989586621679718655"><span id="local-6989586621679718657"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprints"><span class="hs-identifier hs-type">ListBlueprints</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679718651"><span class="annot"><span class="annottext">toJSON :: ListBlueprints -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprints%27"><span class="hs-identifier hs-type">ListBlueprints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679718647"><span id="local-6989586621679718648"><span id="local-6989586621679718649"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe (HashMap Text Text)
 tags :: Maybe (HashMap Text Text)
@@ -352,7 +352,7 @@ nextToken :: Maybe Text
 $sel:tags:ListBlueprints' :: ListBlueprints -&gt; Maybe (HashMap Text Text)
 $sel:maxResults:ListBlueprints' :: ListBlueprints -&gt; Maybe Natural
 $sel:nextToken:ListBlueprints' :: ListBlueprints -&gt; Maybe Text
-</span><a href="#local-6989586621679718638"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679718647"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -364,14 +364,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679718640"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679718649"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-133"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679718639"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679718648"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-134"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -379,19 +379,19 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679718638"><span class="hs-identifier hs-var">tags</span></a></span><span>
+</span><a href="#local-6989586621679718647"><span class="hs-identifier hs-var">tags</span></a></span><span>
 </span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprints"><span class="hs-identifier hs-type">ListBlueprints</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679718632"><span class="annot"><span class="annottext">toPath :: ListBlueprints -&gt; ByteString
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679718641"><span class="annot"><span class="annottext">toPath :: ListBlueprints -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListBlueprints -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprints"><span class="hs-identifier hs-type">ListBlueprints</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679718628"><span class="annot"><span class="annottext">toQuery :: ListBlueprints -&gt; QueryString
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679718637"><span class="annot"><span class="annottext">toQuery :: ListBlueprints -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListBlueprints -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -399,7 +399,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- | /See:/ 'newListBlueprintsResponse' smart constructor.</span><span>
-</span><span id="line-145"></span><span id="local-6989586621679718625"><span id="local-6989586621679718626"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListBlueprintsResponse"><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprintsResponse"><span class="hs-identifier hs-var">ListBlueprintsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListBlueprintsResponse%27"><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprintsResponse%27"><span class="hs-identifier hs-var">ListBlueprintsResponse'</span></a></span></span><span>
+</span><span id="line-145"></span><span id="local-6989586621679718634"><span id="local-6989586621679718635"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListBlueprintsResponse"><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprintsResponse"><span class="hs-identifier hs-var">ListBlueprintsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListBlueprintsResponse%27"><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprintsResponse%27"><span class="hs-identifier hs-var">ListBlueprintsResponse'</span></a></span></span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | List of names of blueprints in the account.</span><span>
 </span><span id="line-147"></span><span>    </span><span id="%24sel%3Ablueprints%3AListBlueprintsResponse%27"><span class="annot"><span class="annottext">ListBlueprintsResponse -&gt; Maybe [Text]
 </span><a href="Network.AWS.Glue.ListBlueprints.html#%24sel%3Ablueprints%3AListBlueprintsResponse%27"><span class="hs-identifier hs-var hs-var">blueprints</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -410,7 +410,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-151"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListBlueprintsResponse%27"><span class="annot"><span class="annottext">ListBlueprintsResponse -&gt; Int
 </span><a href="Network.AWS.Glue.ListBlueprints.html#%24sel%3AhttpStatus%3AListBlueprintsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-152"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-153"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679718618"><span id="local-6989586621679718620"><span class="annot"><span class="annottext">ListBlueprintsResponse -&gt; ListBlueprintsResponse -&gt; Bool
+</span><span id="line-153"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679718627"><span id="local-6989586621679718629"><span class="annot"><span class="annottext">ListBlueprintsResponse -&gt; ListBlueprintsResponse -&gt; Bool
 (ListBlueprintsResponse -&gt; ListBlueprintsResponse -&gt; Bool)
 -&gt; (ListBlueprintsResponse -&gt; ListBlueprintsResponse -&gt; Bool)
 -&gt; Eq ListBlueprintsResponse
@@ -419,7 +419,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListBlueprintsResponse -&gt; ListBlueprintsResponse -&gt; Bool
 == :: ListBlueprintsResponse -&gt; ListBlueprintsResponse -&gt; Bool
 $c== :: ListBlueprintsResponse -&gt; ListBlueprintsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679718610"><span id="local-6989586621679718612"><span id="local-6989586621679718614"><span id="local-6989586621679718616"><span class="annot"><span class="annottext">ReadPrec [ListBlueprintsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679718619"><span id="local-6989586621679718621"><span id="local-6989586621679718623"><span id="local-6989586621679718625"><span class="annot"><span class="annottext">ReadPrec [ListBlueprintsResponse]
 ReadPrec ListBlueprintsResponse
 Int -&gt; ReadS ListBlueprintsResponse
 ReadS [ListBlueprintsResponse]
@@ -439,7 +439,7 @@ readList :: ReadS [ListBlueprintsResponse]
 $creadList :: ReadS [ListBlueprintsResponse]
 readsPrec :: Int -&gt; ReadS ListBlueprintsResponse
 $creadsPrec :: Int -&gt; ReadS ListBlueprintsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679718604"><span id="local-6989586621679718606"><span id="local-6989586621679718608"><span class="annot"><span class="annottext">Int -&gt; ListBlueprintsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679718613"><span id="local-6989586621679718615"><span id="local-6989586621679718617"><span class="annot"><span class="annottext">Int -&gt; ListBlueprintsResponse -&gt; ShowS
 [ListBlueprintsResponse] -&gt; ShowS
 ListBlueprintsResponse -&gt; String
 (Int -&gt; ListBlueprintsResponse -&gt; ShowS)
@@ -484,8 +484,8 @@ $cfrom :: forall x. ListBlueprintsResponse -&gt; Rep ListBlueprintsResponse x
 </span><span id="line-170"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-171"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprintsResponse"><span class="hs-identifier hs-type">ListBlueprintsResponse</span></a></span><span>
 </span><span id="line-172"></span><span id="newListBlueprintsResponse"><span class="annot"><span class="annottext">newListBlueprintsResponse :: Int -&gt; ListBlueprintsResponse
-</span><a href="Network.AWS.Glue.ListBlueprints.html#newListBlueprintsResponse"><span class="hs-identifier hs-var hs-var">newListBlueprintsResponse</span></a></span></span><span> </span><span id="local-6989586621679718601"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679718601"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.ListBlueprints.html#newListBlueprintsResponse"><span class="hs-identifier hs-var hs-var">newListBlueprintsResponse</span></a></span></span><span> </span><span id="local-6989586621679718610"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679718610"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-173"></span><span>  </span><span class="annot"><span class="annottext">ListBlueprintsResponse' :: Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; ListBlueprintsResponse
 </span><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprintsResponse%27"><span class="hs-identifier hs-type">ListBlueprintsResponse'</span></a></span><span>
 </span><span id="line-174"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:blueprints:ListBlueprintsResponse' :: Maybe [Text]
@@ -499,7 +499,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListBlueprintsResponse' :: Int
 </span><a href="Network.AWS.Glue.ListBlueprints.html#%24sel%3AhttpStatus%3AListBlueprintsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679718601"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679718610"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-178"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- | List of names of blueprints in the account.</span><span>
@@ -515,16 +515,16 @@ forall a. Maybe a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprintsResponse%27"><span class="hs-identifier hs-type">ListBlueprintsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679718600"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprintsResponse%27"><span class="hs-identifier hs-type">ListBlueprintsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679718609"><span class="annot"><span class="annottext">Maybe [Text]
 blueprints :: Maybe [Text]
 $sel:blueprints:ListBlueprintsResponse' :: ListBlueprintsResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621679718600"><span class="hs-identifier hs-var hs-var">blueprints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679718600"><span class="hs-identifier hs-var">blueprints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679718599"><span class="annot"><span class="annottext">s :: ListBlueprintsResponse
-</span><a href="#local-6989586621679718599"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprintsResponse%27"><span class="hs-identifier hs-type">ListBlueprintsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679718598"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679718598"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBlueprintsResponse
-</span><a href="#local-6989586621679718599"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blueprints:ListBlueprintsResponse' :: Maybe [Text]
+</span><a href="#local-6989586621679718609"><span class="hs-identifier hs-var hs-var">blueprints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679718609"><span class="hs-identifier hs-var">blueprints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679718608"><span class="annot"><span class="annottext">s :: ListBlueprintsResponse
+</span><a href="#local-6989586621679718608"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprintsResponse%27"><span class="hs-identifier hs-type">ListBlueprintsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679718607"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679718607"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBlueprintsResponse
+</span><a href="#local-6989586621679718608"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blueprints:ListBlueprintsResponse' :: Maybe [Text]
 </span><a href="Network.AWS.Glue.ListBlueprints.html#%24sel%3Ablueprints%3AListBlueprintsResponse%27"><span class="hs-identifier hs-var">blueprints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679718598"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprintsResponse"><span class="hs-identifier hs-type">ListBlueprintsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679718607"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprintsResponse"><span class="hs-identifier hs-type">ListBlueprintsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ListBlueprintsResponse -&gt; f ListBlueprintsResponse)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -553,16 +553,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprintsResponse%27"><span class="hs-identifier hs-type">ListBlueprintsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679718597"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprintsResponse%27"><span class="hs-identifier hs-type">ListBlueprintsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679718606"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListBlueprintsResponse' :: ListBlueprintsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679718597"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679718597"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679718596"><span class="annot"><span class="annottext">s :: ListBlueprintsResponse
-</span><a href="#local-6989586621679718596"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprintsResponse%27"><span class="hs-identifier hs-type">ListBlueprintsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679718595"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679718595"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBlueprintsResponse
-</span><a href="#local-6989586621679718596"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListBlueprintsResponse' :: Maybe Text
+</span><a href="#local-6989586621679718606"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679718606"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679718605"><span class="annot"><span class="annottext">s :: ListBlueprintsResponse
+</span><a href="#local-6989586621679718605"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprintsResponse%27"><span class="hs-identifier hs-type">ListBlueprintsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679718604"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679718604"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBlueprintsResponse
+</span><a href="#local-6989586621679718605"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListBlueprintsResponse' :: Maybe Text
 </span><a href="Network.AWS.Glue.ListBlueprints.html#%24sel%3AnextToken%3AListBlueprintsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679718595"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprintsResponse"><span class="hs-identifier hs-type">ListBlueprintsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679718604"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprintsResponse"><span class="hs-identifier hs-type">ListBlueprintsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-189"></span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#listBlueprintsResponse_httpStatus"><span class="hs-identifier hs-type">listBlueprintsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprintsResponse"><span class="hs-identifier hs-type">ListBlueprintsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -572,16 +572,16 @@ $sel:nextToken:ListBlueprintsResponse' :: ListBlueprintsResponse -&gt; Maybe Tex
 -&gt; (ListBlueprintsResponse -&gt; Int -&gt; ListBlueprintsResponse)
 -&gt; Lens ListBlueprintsResponse ListBlueprintsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprintsResponse%27"><span class="hs-identifier hs-type">ListBlueprintsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679718594"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprintsResponse%27"><span class="hs-identifier hs-type">ListBlueprintsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679718603"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListBlueprintsResponse' :: ListBlueprintsResponse -&gt; Int
-</span><a href="#local-6989586621679718594"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679718594"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679718593"><span class="annot"><span class="annottext">s :: ListBlueprintsResponse
-</span><a href="#local-6989586621679718593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprintsResponse%27"><span class="hs-identifier hs-type">ListBlueprintsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679718592"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679718592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBlueprintsResponse
-</span><a href="#local-6989586621679718593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListBlueprintsResponse' :: Int
+</span><a href="#local-6989586621679718603"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679718603"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679718602"><span class="annot"><span class="annottext">s :: ListBlueprintsResponse
+</span><a href="#local-6989586621679718602"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprintsResponse%27"><span class="hs-identifier hs-type">ListBlueprintsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679718601"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679718601"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBlueprintsResponse
+</span><a href="#local-6989586621679718602"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListBlueprintsResponse' :: Int
 </span><a href="Network.AWS.Glue.ListBlueprints.html#%24sel%3AhttpStatus%3AListBlueprintsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679718592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprintsResponse"><span class="hs-identifier hs-type">ListBlueprintsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679718601"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprintsResponse"><span class="hs-identifier hs-type">ListBlueprintsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-191"></span><span>
-</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679718590"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprintsResponse"><span class="hs-identifier hs-type">ListBlueprintsResponse</span></a></span></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679718599"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListBlueprints.html#ListBlueprintsResponse"><span class="hs-identifier hs-type">ListBlueprintsResponse</span></a></span></span><span>
 </span><span id="line-193"></span></pre></body></html>

@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679344863"><span id="local-6989586621679344864"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DecisionTaskTimeoutType"><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskTimeoutType.html#DecisionTaskTimeoutType"><span class="hs-identifier hs-var">DecisionTaskTimeoutType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DecisionTaskTimeoutType%27"><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskTimeoutType.html#DecisionTaskTimeoutType%27"><span class="hs-identifier hs-var">DecisionTaskTimeoutType'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679344872"><span id="local-6989586621679344873"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DecisionTaskTimeoutType"><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskTimeoutType.html#DecisionTaskTimeoutType"><span class="hs-identifier hs-var">DecisionTaskTimeoutType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DecisionTaskTimeoutType%27"><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskTimeoutType.html#DecisionTaskTimeoutType%27"><span class="hs-identifier hs-var">DecisionTaskTimeoutType'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDecisionTaskTimeoutType"><span class="annot"><span class="annottext">DecisionTaskTimeoutType -&gt; Text
 </span><a href="Network.AWS.SWF.Types.DecisionTaskTimeoutType.html#fromDecisionTaskTimeoutType"><span class="hs-identifier hs-var hs-var">fromDecisionTaskTimeoutType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679344855"><span id="local-6989586621679344857"><span id="local-6989586621679344859"><span class="annot"><span class="annottext">Int -&gt; DecisionTaskTimeoutType -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679344864"><span id="local-6989586621679344866"><span id="local-6989586621679344868"><span class="annot"><span class="annottext">Int -&gt; DecisionTaskTimeoutType -&gt; ShowS
 [DecisionTaskTimeoutType] -&gt; ShowS
 DecisionTaskTimeoutType -&gt; String
 (Int -&gt; DecisionTaskTimeoutType -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: DecisionTaskTimeoutType -&gt; String
 showsPrec :: Int -&gt; DecisionTaskTimeoutType -&gt; ShowS
 $cshowsPrec :: Int -&gt; DecisionTaskTimeoutType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679344846"><span id="local-6989586621679344848"><span id="local-6989586621679344850"><span id="local-6989586621679344852"><span class="annot"><span class="annottext">ReadPrec [DecisionTaskTimeoutType]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679344855"><span id="local-6989586621679344857"><span id="local-6989586621679344859"><span id="local-6989586621679344861"><span class="annot"><span class="annottext">ReadPrec [DecisionTaskTimeoutType]
 ReadPrec DecisionTaskTimeoutType
 Int -&gt; ReadS DecisionTaskTimeoutType
 ReadS [DecisionTaskTimeoutType]
@@ -71,7 +71,7 @@ $creadList :: ReadS [DecisionTaskTimeoutType]
 readsPrec :: Int -&gt; ReadS DecisionTaskTimeoutType
 $creadsPrec :: Int -&gt; ReadS DecisionTaskTimeoutType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679344841"><span id="local-6989586621679344843"><span class="annot"><span class="annottext">DecisionTaskTimeoutType -&gt; DecisionTaskTimeoutType -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679344850"><span id="local-6989586621679344852"><span class="annot"><span class="annottext">DecisionTaskTimeoutType -&gt; DecisionTaskTimeoutType -&gt; Bool
 (DecisionTaskTimeoutType -&gt; DecisionTaskTimeoutType -&gt; Bool)
 -&gt; (DecisionTaskTimeoutType -&gt; DecisionTaskTimeoutType -&gt; Bool)
 -&gt; Eq DecisionTaskTimeoutType
@@ -81,7 +81,7 @@ $c/= :: DecisionTaskTimeoutType -&gt; DecisionTaskTimeoutType -&gt; Bool
 == :: DecisionTaskTimeoutType -&gt; DecisionTaskTimeoutType -&gt; Bool
 $c== :: DecisionTaskTimeoutType -&gt; DecisionTaskTimeoutType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679344825"><span id="local-6989586621679344827"><span id="local-6989586621679344829"><span id="local-6989586621679344831"><span id="local-6989586621679344833"><span id="local-6989586621679344835"><span id="local-6989586621679344837"><span class="annot"><span class="annottext">Eq DecisionTaskTimeoutType
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679344834"><span id="local-6989586621679344836"><span id="local-6989586621679344838"><span id="local-6989586621679344840"><span id="local-6989586621679344842"><span id="local-6989586621679344844"><span id="local-6989586621679344846"><span class="annot"><span class="annottext">Eq DecisionTaskTimeoutType
 Eq DecisionTaskTimeoutType
 -&gt; (DecisionTaskTimeoutType -&gt; DecisionTaskTimeoutType -&gt; Ordering)
 -&gt; (DecisionTaskTimeoutType -&gt; DecisionTaskTimeoutType -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. DecisionTaskTimeoutType -&gt; Rep DecisionTaskTimeoutType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679344817"><span id="local-6989586621679344819"><span class="annot"><span class="annottext">Int -&gt; DecisionTaskTimeoutType -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679344826"><span id="local-6989586621679344828"><span class="annot"><span class="annottext">Int -&gt; DecisionTaskTimeoutType -&gt; Int
 DecisionTaskTimeoutType -&gt; Int
 (Int -&gt; DecisionTaskTimeoutType -&gt; Int)
 -&gt; (DecisionTaskTimeoutType -&gt; Int)
@@ -152,54 +152,54 @@ $chash :: DecisionTaskTimeoutType -&gt; Int
 hashWithSalt :: Int -&gt; DecisionTaskTimeoutType -&gt; Int
 $chashWithSalt :: Int -&gt; DecisionTaskTimeoutType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679344814"><span class="annot"><span class="annottext">DecisionTaskTimeoutType -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679344823"><span class="annot"><span class="annottext">DecisionTaskTimeoutType -&gt; ()
 (DecisionTaskTimeoutType -&gt; ()) -&gt; NFData DecisionTaskTimeoutType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DecisionTaskTimeoutType -&gt; ()
 $crnf :: DecisionTaskTimeoutType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679344811"><span class="annot"><span class="annottext">Text -&gt; Either String DecisionTaskTimeoutType
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679344820"><span class="annot"><span class="annottext">Text -&gt; Either String DecisionTaskTimeoutType
 (Text -&gt; Either String DecisionTaskTimeoutType)
 -&gt; FromText DecisionTaskTimeoutType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DecisionTaskTimeoutType
 $cfromText :: Text -&gt; Either String DecisionTaskTimeoutType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679344808"><span class="annot"><span class="annottext">DecisionTaskTimeoutType -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679344817"><span class="annot"><span class="annottext">DecisionTaskTimeoutType -&gt; Text
 (DecisionTaskTimeoutType -&gt; Text) -&gt; ToText DecisionTaskTimeoutType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DecisionTaskTimeoutType -&gt; Text
 $ctoText :: DecisionTaskTimeoutType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679344805"><span class="annot"><span class="annottext">DecisionTaskTimeoutType -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679344814"><span class="annot"><span class="annottext">DecisionTaskTimeoutType -&gt; ByteString
 (DecisionTaskTimeoutType -&gt; ByteString)
 -&gt; ToByteString DecisionTaskTimeoutType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DecisionTaskTimeoutType -&gt; ByteString
 $ctoBS :: DecisionTaskTimeoutType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679344802"><span class="annot"><span class="annottext">DecisionTaskTimeoutType -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679344811"><span class="annot"><span class="annottext">DecisionTaskTimeoutType -&gt; ByteStringBuilder
 (DecisionTaskTimeoutType -&gt; ByteStringBuilder)
 -&gt; ToLog DecisionTaskTimeoutType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DecisionTaskTimeoutType -&gt; ByteStringBuilder
 $cbuild :: DecisionTaskTimeoutType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679344799"><span class="annot"><span class="annottext">HeaderName -&gt; DecisionTaskTimeoutType -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679344808"><span class="annot"><span class="annottext">HeaderName -&gt; DecisionTaskTimeoutType -&gt; [Header]
 (HeaderName -&gt; DecisionTaskTimeoutType -&gt; [Header])
 -&gt; ToHeader DecisionTaskTimeoutType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DecisionTaskTimeoutType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DecisionTaskTimeoutType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679344796"><span class="annot"><span class="annottext">DecisionTaskTimeoutType -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679344805"><span class="annot"><span class="annottext">DecisionTaskTimeoutType -&gt; QueryString
 (DecisionTaskTimeoutType -&gt; QueryString)
 -&gt; ToQuery DecisionTaskTimeoutType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DecisionTaskTimeoutType -&gt; QueryString
 $ctoQuery :: DecisionTaskTimeoutType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679344791"><span id="local-6989586621679344793"><span class="annot"><span class="annottext">Value -&gt; Parser [DecisionTaskTimeoutType]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679344800"><span id="local-6989586621679344802"><span class="annot"><span class="annottext">Value -&gt; Parser [DecisionTaskTimeoutType]
 Value -&gt; Parser DecisionTaskTimeoutType
 (Value -&gt; Parser DecisionTaskTimeoutType)
 -&gt; (Value -&gt; Parser [DecisionTaskTimeoutType])
@@ -211,7 +211,7 @@ $cparseJSONList :: Value -&gt; Parser [DecisionTaskTimeoutType]
 parseJSON :: Value -&gt; Parser DecisionTaskTimeoutType
 $cparseJSON :: Value -&gt; Parser DecisionTaskTimeoutType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679344786"><span id="local-6989586621679344788"><span class="annot"><span class="annottext">FromJSONKeyFunction [DecisionTaskTimeoutType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679344795"><span id="local-6989586621679344797"><span class="annot"><span class="annottext">FromJSONKeyFunction [DecisionTaskTimeoutType]
 FromJSONKeyFunction DecisionTaskTimeoutType
 FromJSONKeyFunction DecisionTaskTimeoutType
 -&gt; FromJSONKeyFunction [DecisionTaskTimeoutType]
@@ -223,7 +223,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DecisionTaskTimeoutType]
 fromJSONKey :: FromJSONKeyFunction DecisionTaskTimeoutType
 $cfromJSONKey :: FromJSONKeyFunction DecisionTaskTimeoutType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679344777"><span id="local-6989586621679344779"><span id="local-6989586621679344781"><span id="local-6989586621679344783"><span class="annot"><span class="annottext">[DecisionTaskTimeoutType] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679344786"><span id="local-6989586621679344788"><span id="local-6989586621679344790"><span id="local-6989586621679344792"><span class="annot"><span class="annottext">[DecisionTaskTimeoutType] -&gt; Encoding
 [DecisionTaskTimeoutType] -&gt; Value
 DecisionTaskTimeoutType -&gt; Encoding
 DecisionTaskTimeoutType -&gt; Value
@@ -247,7 +247,7 @@ $ctoEncoding :: DecisionTaskTimeoutType -&gt; Encoding
 toJSON :: DecisionTaskTimeoutType -&gt; Value
 $ctoJSON :: DecisionTaskTimeoutType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679344772"><span id="local-6989586621679344774"><span class="annot"><span class="annottext">ToJSONKeyFunction [DecisionTaskTimeoutType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679344781"><span id="local-6989586621679344783"><span class="annot"><span class="annottext">ToJSONKeyFunction [DecisionTaskTimeoutType]
 ToJSONKeyFunction DecisionTaskTimeoutType
 ToJSONKeyFunction DecisionTaskTimeoutType
 -&gt; ToJSONKeyFunction [DecisionTaskTimeoutType]
@@ -259,14 +259,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DecisionTaskTimeoutType]
 toJSONKey :: ToJSONKeyFunction DecisionTaskTimeoutType
 $ctoJSONKey :: ToJSONKeyFunction DecisionTaskTimeoutType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679344769"><span class="annot"><span class="annottext">[Node] -&gt; Either String DecisionTaskTimeoutType
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679344778"><span class="annot"><span class="annottext">[Node] -&gt; Either String DecisionTaskTimeoutType
 ([Node] -&gt; Either String DecisionTaskTimeoutType)
 -&gt; FromXML DecisionTaskTimeoutType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DecisionTaskTimeoutType
 $cparseXML :: [Node] -&gt; Either String DecisionTaskTimeoutType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679344766"><span class="annot"><span class="annottext">DecisionTaskTimeoutType -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679344775"><span class="annot"><span class="annottext">DecisionTaskTimeoutType -&gt; XML
 (DecisionTaskTimeoutType -&gt; XML) -&gt; ToXML DecisionTaskTimeoutType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DecisionTaskTimeoutType -&gt; XML

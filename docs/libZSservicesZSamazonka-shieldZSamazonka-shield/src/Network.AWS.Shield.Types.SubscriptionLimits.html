@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Limits settings for your subscription.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newSubscriptionLimits' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679203864"><span id="local-6989586621679203865"></span></span><span class="hs-keyword">data</span><span> </span><span id="SubscriptionLimits"><span class="annot"><a href="Network.AWS.Shield.Types.SubscriptionLimits.html#SubscriptionLimits"><span class="hs-identifier hs-var">SubscriptionLimits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SubscriptionLimits%27"><span class="annot"><a href="Network.AWS.Shield.Types.SubscriptionLimits.html#SubscriptionLimits%27"><span class="hs-identifier hs-var">SubscriptionLimits'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679203873"><span id="local-6989586621679203874"></span></span><span class="hs-keyword">data</span><span> </span><span id="SubscriptionLimits"><span class="annot"><a href="Network.AWS.Shield.Types.SubscriptionLimits.html#SubscriptionLimits"><span class="hs-identifier hs-var">SubscriptionLimits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SubscriptionLimits%27"><span class="annot"><a href="Network.AWS.Shield.Types.SubscriptionLimits.html#SubscriptionLimits%27"><span class="hs-identifier hs-var">SubscriptionLimits'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Limits settings on protections for your subscription.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AprotectionLimits%3ASubscriptionLimits%27"><span class="annot"><span class="annottext">SubscriptionLimits -&gt; ProtectionLimits
 </span><a href="Network.AWS.Shield.Types.SubscriptionLimits.html#%24sel%3AprotectionLimits%3ASubscriptionLimits%27"><span class="hs-identifier hs-var hs-var">protectionLimits</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionLimits.html#ProtectionLimits"><span class="hs-identifier hs-type">ProtectionLimits</span></a></span><span class="hs-special">,</span><span>
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AprotectionGroupLimits%3ASubscriptionLimits%27"><span class="annot"><span class="annottext">SubscriptionLimits -&gt; ProtectionGroupLimits
 </span><a href="Network.AWS.Shield.Types.SubscriptionLimits.html#%24sel%3AprotectionGroupLimits%3ASubscriptionLimits%27"><span class="hs-identifier hs-var hs-var">protectionGroupLimits</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionGroupLimits.html#ProtectionGroupLimits"><span class="hs-identifier hs-type">ProtectionGroupLimits</span></a></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679203857"><span id="local-6989586621679203859"><span class="annot"><span class="annottext">SubscriptionLimits -&gt; SubscriptionLimits -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679203866"><span id="local-6989586621679203868"><span class="annot"><span class="annottext">SubscriptionLimits -&gt; SubscriptionLimits -&gt; Bool
 (SubscriptionLimits -&gt; SubscriptionLimits -&gt; Bool)
 -&gt; (SubscriptionLimits -&gt; SubscriptionLimits -&gt; Bool)
 -&gt; Eq SubscriptionLimits
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SubscriptionLimits -&gt; SubscriptionLimits -&gt; Bool
 == :: SubscriptionLimits -&gt; SubscriptionLimits -&gt; Bool
 $c== :: SubscriptionLimits -&gt; SubscriptionLimits -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203848"><span id="local-6989586621679203850"><span id="local-6989586621679203852"><span id="local-6989586621679203854"><span class="annot"><span class="annottext">ReadPrec [SubscriptionLimits]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203857"><span id="local-6989586621679203859"><span id="local-6989586621679203861"><span id="local-6989586621679203863"><span class="annot"><span class="annottext">ReadPrec [SubscriptionLimits]
 ReadPrec SubscriptionLimits
 Int -&gt; ReadS SubscriptionLimits
 ReadS [SubscriptionLimits]
@@ -65,7 +65,7 @@ readList :: ReadS [SubscriptionLimits]
 $creadList :: ReadS [SubscriptionLimits]
 readsPrec :: Int -&gt; ReadS SubscriptionLimits
 $creadsPrec :: Int -&gt; ReadS SubscriptionLimits
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203841"><span id="local-6989586621679203843"><span id="local-6989586621679203845"><span class="annot"><span class="annottext">Int -&gt; SubscriptionLimits -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203850"><span id="local-6989586621679203852"><span id="local-6989586621679203854"><span class="annot"><span class="annottext">Int -&gt; SubscriptionLimits -&gt; ShowS
 [SubscriptionLimits] -&gt; ShowS
 SubscriptionLimits -&gt; String
 (Int -&gt; SubscriptionLimits -&gt; ShowS)
@@ -110,19 +110,19 @@ $cfrom :: forall x. SubscriptionLimits -&gt; Rep SubscriptionLimits x
 </span><span id="line-55"></span><span>  </span><span class="annot"><a href="Network.AWS.Shield.Types.SubscriptionLimits.html#SubscriptionLimits"><span class="hs-identifier hs-type">SubscriptionLimits</span></a></span><span>
 </span><span id="line-56"></span><span id="newSubscriptionLimits"><span class="annot"><span class="annottext">newSubscriptionLimits :: ProtectionLimits -&gt; ProtectionGroupLimits -&gt; SubscriptionLimits
 </span><a href="Network.AWS.Shield.Types.SubscriptionLimits.html#newSubscriptionLimits"><span class="hs-identifier hs-var hs-var">newSubscriptionLimits</span></a></span></span><span>
-</span><span id="line-57"></span><span>  </span><span id="local-6989586621679203835"><span class="annot"><span class="annottext">ProtectionLimits
-</span><a href="#local-6989586621679203835"><span class="hs-identifier hs-var">pProtectionLimits_</span></a></span></span><span>
-</span><span id="line-58"></span><span>  </span><span id="local-6989586621679203834"><span class="annot"><span class="annottext">ProtectionGroupLimits
-</span><a href="#local-6989586621679203834"><span class="hs-identifier hs-var">pProtectionGroupLimits_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-57"></span><span>  </span><span id="local-6989586621679203844"><span class="annot"><span class="annottext">ProtectionLimits
+</span><a href="#local-6989586621679203844"><span class="hs-identifier hs-var">pProtectionLimits_</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621679203843"><span class="annot"><span class="annottext">ProtectionGroupLimits
+</span><a href="#local-6989586621679203843"><span class="hs-identifier hs-var">pProtectionGroupLimits_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><span class="annottext">SubscriptionLimits' :: ProtectionLimits -&gt; ProtectionGroupLimits -&gt; SubscriptionLimits
 </span><a href="Network.AWS.Shield.Types.SubscriptionLimits.html#SubscriptionLimits%27"><span class="hs-identifier hs-type">SubscriptionLimits'</span></a></span><span>
 </span><span id="line-60"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:protectionLimits:SubscriptionLimits' :: ProtectionLimits
 </span><a href="Network.AWS.Shield.Types.SubscriptionLimits.html#%24sel%3AprotectionLimits%3ASubscriptionLimits%27"><span class="hs-identifier hs-var">protectionLimits</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-61"></span><span>          </span><span class="annot"><span class="annottext">ProtectionLimits
-</span><a href="#local-6989586621679203835"><span class="hs-identifier hs-var">pProtectionLimits_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679203844"><span class="hs-identifier hs-var">pProtectionLimits_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-62"></span><span>        </span><span class="annot"><span class="annottext">$sel:protectionGroupLimits:SubscriptionLimits' :: ProtectionGroupLimits
 </span><a href="Network.AWS.Shield.Types.SubscriptionLimits.html#%24sel%3AprotectionGroupLimits%3ASubscriptionLimits%27"><span class="hs-identifier hs-var">protectionGroupLimits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ProtectionGroupLimits
-</span><a href="#local-6989586621679203834"><span class="hs-identifier hs-var">pProtectionGroupLimits_</span></a></span><span>
+</span><a href="#local-6989586621679203843"><span class="hs-identifier hs-var">pProtectionGroupLimits_</span></a></span><span>
 </span><span id="line-63"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | Limits settings on protections for your subscription.</span><span>
@@ -137,16 +137,16 @@ $cfrom :: forall x. SubscriptionLimits -&gt; Rep SubscriptionLimits x
      ProtectionLimits
      ProtectionLimits
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.SubscriptionLimits.html#SubscriptionLimits%27"><span class="hs-identifier hs-type">SubscriptionLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203830"><span class="annot"><span class="annottext">ProtectionLimits
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.SubscriptionLimits.html#SubscriptionLimits%27"><span class="hs-identifier hs-type">SubscriptionLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203839"><span class="annot"><span class="annottext">ProtectionLimits
 protectionLimits :: ProtectionLimits
 $sel:protectionLimits:SubscriptionLimits' :: SubscriptionLimits -&gt; ProtectionLimits
-</span><a href="#local-6989586621679203830"><span class="hs-identifier hs-var hs-var">protectionLimits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProtectionLimits
-</span><a href="#local-6989586621679203830"><span class="hs-identifier hs-var">protectionLimits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203829"><span class="annot"><span class="annottext">s :: SubscriptionLimits
-</span><a href="#local-6989586621679203829"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.SubscriptionLimits.html#SubscriptionLimits%27"><span class="hs-identifier hs-type">SubscriptionLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203828"><span class="annot"><span class="annottext">ProtectionLimits
-</span><a href="#local-6989586621679203828"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscriptionLimits
-</span><a href="#local-6989586621679203829"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protectionLimits:SubscriptionLimits' :: ProtectionLimits
+</span><a href="#local-6989586621679203839"><span class="hs-identifier hs-var hs-var">protectionLimits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProtectionLimits
+</span><a href="#local-6989586621679203839"><span class="hs-identifier hs-var">protectionLimits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203838"><span class="annot"><span class="annottext">s :: SubscriptionLimits
+</span><a href="#local-6989586621679203838"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.SubscriptionLimits.html#SubscriptionLimits%27"><span class="hs-identifier hs-type">SubscriptionLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203837"><span class="annot"><span class="annottext">ProtectionLimits
+</span><a href="#local-6989586621679203837"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscriptionLimits
+</span><a href="#local-6989586621679203838"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protectionLimits:SubscriptionLimits' :: ProtectionLimits
 </span><a href="Network.AWS.Shield.Types.SubscriptionLimits.html#%24sel%3AprotectionLimits%3ASubscriptionLimits%27"><span class="hs-identifier hs-var">protectionLimits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ProtectionLimits
-</span><a href="#local-6989586621679203828"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.SubscriptionLimits.html#SubscriptionLimits"><span class="hs-identifier hs-type">SubscriptionLimits</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679203837"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.SubscriptionLimits.html#SubscriptionLimits"><span class="hs-identifier hs-type">SubscriptionLimits</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | Limits settings on protection groups for your subscription.</span><span>
 </span><span id="line-70"></span><span class="annot"><a href="Network.AWS.Shield.Types.SubscriptionLimits.html#subscriptionLimits_protectionGroupLimits"><span class="hs-identifier hs-type">subscriptionLimits_protectionGroupLimits</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.SubscriptionLimits.html#SubscriptionLimits"><span class="hs-identifier hs-type">SubscriptionLimits</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionGroupLimits.html#ProtectionGroupLimits"><span class="hs-identifier hs-type">ProtectionGroupLimits</span></a></span><span>
@@ -161,19 +161,19 @@ $sel:protectionLimits:SubscriptionLimits' :: SubscriptionLimits -&gt; Protection
      ProtectionGroupLimits
      ProtectionGroupLimits
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.SubscriptionLimits.html#SubscriptionLimits%27"><span class="hs-identifier hs-type">SubscriptionLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203826"><span class="annot"><span class="annottext">ProtectionGroupLimits
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.SubscriptionLimits.html#SubscriptionLimits%27"><span class="hs-identifier hs-type">SubscriptionLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203835"><span class="annot"><span class="annottext">ProtectionGroupLimits
 protectionGroupLimits :: ProtectionGroupLimits
 $sel:protectionGroupLimits:SubscriptionLimits' :: SubscriptionLimits -&gt; ProtectionGroupLimits
-</span><a href="#local-6989586621679203826"><span class="hs-identifier hs-var hs-var">protectionGroupLimits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProtectionGroupLimits
-</span><a href="#local-6989586621679203826"><span class="hs-identifier hs-var">protectionGroupLimits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203825"><span class="annot"><span class="annottext">s :: SubscriptionLimits
-</span><a href="#local-6989586621679203825"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.SubscriptionLimits.html#SubscriptionLimits%27"><span class="hs-identifier hs-type">SubscriptionLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203824"><span class="annot"><span class="annottext">ProtectionGroupLimits
-</span><a href="#local-6989586621679203824"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscriptionLimits
-</span><a href="#local-6989586621679203825"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protectionGroupLimits:SubscriptionLimits' :: ProtectionGroupLimits
+</span><a href="#local-6989586621679203835"><span class="hs-identifier hs-var hs-var">protectionGroupLimits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProtectionGroupLimits
+</span><a href="#local-6989586621679203835"><span class="hs-identifier hs-var">protectionGroupLimits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203834"><span class="annot"><span class="annottext">s :: SubscriptionLimits
+</span><a href="#local-6989586621679203834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.SubscriptionLimits.html#SubscriptionLimits%27"><span class="hs-identifier hs-type">SubscriptionLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203833"><span class="annot"><span class="annottext">ProtectionGroupLimits
+</span><a href="#local-6989586621679203833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscriptionLimits
+</span><a href="#local-6989586621679203834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protectionGroupLimits:SubscriptionLimits' :: ProtectionGroupLimits
 </span><a href="Network.AWS.Shield.Types.SubscriptionLimits.html#%24sel%3AprotectionGroupLimits%3ASubscriptionLimits%27"><span class="hs-identifier hs-var">protectionGroupLimits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ProtectionGroupLimits
-</span><a href="#local-6989586621679203824"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.SubscriptionLimits.html#SubscriptionLimits"><span class="hs-identifier hs-type">SubscriptionLimits</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679203833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.SubscriptionLimits.html#SubscriptionLimits"><span class="hs-identifier hs-type">SubscriptionLimits</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203821"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.SubscriptionLimits.html#SubscriptionLimits"><span class="hs-identifier hs-type">SubscriptionLimits</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679203819"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SubscriptionLimits
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203830"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.SubscriptionLimits.html#SubscriptionLimits"><span class="hs-identifier hs-type">SubscriptionLimits</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679203828"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SubscriptionLimits
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SubscriptionLimits)
@@ -183,8 +183,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SubscriptionLimits&quot;</span></span><span>
-</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679203816"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679203816"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679203825"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679203825"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>          </span><span class="annot"><span class="annottext">ProtectionLimits -&gt; ProtectionGroupLimits -&gt; SubscriptionLimits
 </span><a href="Network.AWS.Shield.Types.SubscriptionLimits.html#SubscriptionLimits%27"><span class="hs-identifier hs-var">SubscriptionLimits'</span></a></span><span>
 </span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">(ProtectionLimits -&gt; ProtectionGroupLimits -&gt; SubscriptionLimits)
@@ -192,7 +192,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (ProtectionGroupLimits -&gt; SubscriptionLimits)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679203816"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ProtectionLimits
+</span><a href="#local-6989586621679203825"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ProtectionLimits
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ProtectionLimits&quot;</span></span><span class="hs-special">)</span><span>
@@ -200,13 +200,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser ProtectionGroupLimits -&gt; Parser SubscriptionLimits
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679203816"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ProtectionGroupLimits
+</span><a href="#local-6989586621679203825"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ProtectionGroupLimits
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ProtectionGroupLimits&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203810"><span id="local-6989586621679203812"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.SubscriptionLimits.html#SubscriptionLimits"><span class="hs-identifier hs-type">SubscriptionLimits</span></a></span></span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203819"><span id="local-6989586621679203821"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.SubscriptionLimits.html#SubscriptionLimits"><span class="hs-identifier hs-type">SubscriptionLimits</span></a></span></span></span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203807"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.SubscriptionLimits.html#SubscriptionLimits"><span class="hs-identifier hs-type">SubscriptionLimits</span></a></span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203816"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.SubscriptionLimits.html#SubscriptionLimits"><span class="hs-identifier hs-type">SubscriptionLimits</span></a></span></span><span>
 </span><span id="line-86"></span></pre></body></html>

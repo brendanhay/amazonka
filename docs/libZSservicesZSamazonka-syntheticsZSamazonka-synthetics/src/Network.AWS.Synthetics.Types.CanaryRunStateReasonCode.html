@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Synthetics.Types.CanaryRunStateReasonCode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Synthetics.Types.CanaryRunStateReasonCode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Synthetics.Types.CanaryRunStateReasonCode.html#CanaryRunStateReasonCode"><span class="hs-identifier">CanaryRunStateReasonCode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Synthetics.Types.CanaryRunStateReasonCode.html#CanaryRunStateReasonCode_CANARY_FAILURE"><span class="hs-identifier">CanaryRunStateReasonCode_CANARY_FAILURE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Synthetics.Types.CanaryRunStateReasonCode.html#CanaryRunStateReasonCode_EXECUTION_FAILURE"><span class="hs-identifier">CanaryRunStateReasonCode_EXECUTION_FAILURE</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679180498"><span id="local-6989586621679180499"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CanaryRunStateReasonCode"><span class="annot"><a href="Network.AWS.Synthetics.Types.CanaryRunStateReasonCode.html#CanaryRunStateReasonCode"><span class="hs-identifier hs-var">CanaryRunStateReasonCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CanaryRunStateReasonCode%27"><span class="annot"><a href="Network.AWS.Synthetics.Types.CanaryRunStateReasonCode.html#CanaryRunStateReasonCode%27"><span class="hs-identifier hs-var">CanaryRunStateReasonCode'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCanaryRunStateReasonCode"><span class="annot"><span class="annottext">CanaryRunStateReasonCode -&gt; Text
+</span><a href="Network.AWS.Synthetics.Types.CanaryRunStateReasonCode.html#fromCanaryRunStateReasonCode"><span class="hs-identifier hs-var hs-var">fromCanaryRunStateReasonCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679180490"><span id="local-6989586621679180492"><span id="local-6989586621679180494"><span class="annot"><span class="annottext">Int -&gt; CanaryRunStateReasonCode -&gt; ShowS
+[CanaryRunStateReasonCode] -&gt; ShowS
+CanaryRunStateReasonCode -&gt; String
+(Int -&gt; CanaryRunStateReasonCode -&gt; ShowS)
+-&gt; (CanaryRunStateReasonCode -&gt; String)
+-&gt; ([CanaryRunStateReasonCode] -&gt; ShowS)
+-&gt; Show CanaryRunStateReasonCode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CanaryRunStateReasonCode] -&gt; ShowS
+$cshowList :: [CanaryRunStateReasonCode] -&gt; ShowS
+show :: CanaryRunStateReasonCode -&gt; String
+$cshow :: CanaryRunStateReasonCode -&gt; String
+showsPrec :: Int -&gt; CanaryRunStateReasonCode -&gt; ShowS
+$cshowsPrec :: Int -&gt; CanaryRunStateReasonCode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679180481"><span id="local-6989586621679180483"><span id="local-6989586621679180485"><span id="local-6989586621679180487"><span class="annot"><span class="annottext">ReadPrec [CanaryRunStateReasonCode]
+ReadPrec CanaryRunStateReasonCode
+Int -&gt; ReadS CanaryRunStateReasonCode
+ReadS [CanaryRunStateReasonCode]
+(Int -&gt; ReadS CanaryRunStateReasonCode)
+-&gt; ReadS [CanaryRunStateReasonCode]
+-&gt; ReadPrec CanaryRunStateReasonCode
+-&gt; ReadPrec [CanaryRunStateReasonCode]
+-&gt; Read CanaryRunStateReasonCode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CanaryRunStateReasonCode]
+$creadListPrec :: ReadPrec [CanaryRunStateReasonCode]
+readPrec :: ReadPrec CanaryRunStateReasonCode
+$creadPrec :: ReadPrec CanaryRunStateReasonCode
+readList :: ReadS [CanaryRunStateReasonCode]
+$creadList :: ReadS [CanaryRunStateReasonCode]
+readsPrec :: Int -&gt; ReadS CanaryRunStateReasonCode
+$creadsPrec :: Int -&gt; ReadS CanaryRunStateReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679180476"><span id="local-6989586621679180478"><span class="annot"><span class="annottext">CanaryRunStateReasonCode -&gt; CanaryRunStateReasonCode -&gt; Bool
+(CanaryRunStateReasonCode -&gt; CanaryRunStateReasonCode -&gt; Bool)
+-&gt; (CanaryRunStateReasonCode -&gt; CanaryRunStateReasonCode -&gt; Bool)
+-&gt; Eq CanaryRunStateReasonCode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CanaryRunStateReasonCode -&gt; CanaryRunStateReasonCode -&gt; Bool
+$c/= :: CanaryRunStateReasonCode -&gt; CanaryRunStateReasonCode -&gt; Bool
+== :: CanaryRunStateReasonCode -&gt; CanaryRunStateReasonCode -&gt; Bool
+$c== :: CanaryRunStateReasonCode -&gt; CanaryRunStateReasonCode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679180460"><span id="local-6989586621679180462"><span id="local-6989586621679180464"><span id="local-6989586621679180466"><span id="local-6989586621679180468"><span id="local-6989586621679180470"><span id="local-6989586621679180472"><span class="annot"><span class="annottext">Eq CanaryRunStateReasonCode
+Eq CanaryRunStateReasonCode
+-&gt; (CanaryRunStateReasonCode
+    -&gt; CanaryRunStateReasonCode -&gt; Ordering)
+-&gt; (CanaryRunStateReasonCode -&gt; CanaryRunStateReasonCode -&gt; Bool)
+-&gt; (CanaryRunStateReasonCode -&gt; CanaryRunStateReasonCode -&gt; Bool)
+-&gt; (CanaryRunStateReasonCode -&gt; CanaryRunStateReasonCode -&gt; Bool)
+-&gt; (CanaryRunStateReasonCode -&gt; CanaryRunStateReasonCode -&gt; Bool)
+-&gt; (CanaryRunStateReasonCode
+    -&gt; CanaryRunStateReasonCode -&gt; CanaryRunStateReasonCode)
+-&gt; (CanaryRunStateReasonCode
+    -&gt; CanaryRunStateReasonCode -&gt; CanaryRunStateReasonCode)
+-&gt; Ord CanaryRunStateReasonCode
+CanaryRunStateReasonCode -&gt; CanaryRunStateReasonCode -&gt; Bool
+CanaryRunStateReasonCode -&gt; CanaryRunStateReasonCode -&gt; Ordering
+CanaryRunStateReasonCode
+-&gt; CanaryRunStateReasonCode -&gt; CanaryRunStateReasonCode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: CanaryRunStateReasonCode
+-&gt; CanaryRunStateReasonCode -&gt; CanaryRunStateReasonCode
+$cmin :: CanaryRunStateReasonCode
+-&gt; CanaryRunStateReasonCode -&gt; CanaryRunStateReasonCode
+max :: CanaryRunStateReasonCode
+-&gt; CanaryRunStateReasonCode -&gt; CanaryRunStateReasonCode
+$cmax :: CanaryRunStateReasonCode
+-&gt; CanaryRunStateReasonCode -&gt; CanaryRunStateReasonCode
+&gt;= :: CanaryRunStateReasonCode -&gt; CanaryRunStateReasonCode -&gt; Bool
+$c&gt;= :: CanaryRunStateReasonCode -&gt; CanaryRunStateReasonCode -&gt; Bool
+&gt; :: CanaryRunStateReasonCode -&gt; CanaryRunStateReasonCode -&gt; Bool
+$c&gt; :: CanaryRunStateReasonCode -&gt; CanaryRunStateReasonCode -&gt; Bool
+&lt;= :: CanaryRunStateReasonCode -&gt; CanaryRunStateReasonCode -&gt; Bool
+$c&lt;= :: CanaryRunStateReasonCode -&gt; CanaryRunStateReasonCode -&gt; Bool
+&lt; :: CanaryRunStateReasonCode -&gt; CanaryRunStateReasonCode -&gt; Bool
+$c&lt; :: CanaryRunStateReasonCode -&gt; CanaryRunStateReasonCode -&gt; Bool
+compare :: CanaryRunStateReasonCode -&gt; CanaryRunStateReasonCode -&gt; Ordering
+$ccompare :: CanaryRunStateReasonCode -&gt; CanaryRunStateReasonCode -&gt; Ordering
+$cp1Ord :: Eq CanaryRunStateReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ CanaryRunStateReasonCode -&gt; Rep CanaryRunStateReasonCode x)
+-&gt; (forall x.
+    Rep CanaryRunStateReasonCode x -&gt; CanaryRunStateReasonCode)
+-&gt; Generic CanaryRunStateReasonCode
+forall x.
+Rep CanaryRunStateReasonCode x -&gt; CanaryRunStateReasonCode
+forall x.
+CanaryRunStateReasonCode -&gt; Rep CanaryRunStateReasonCode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CanaryRunStateReasonCode x -&gt; CanaryRunStateReasonCode
+$cfrom :: forall x.
+CanaryRunStateReasonCode -&gt; Rep CanaryRunStateReasonCode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679180452"><span id="local-6989586621679180454"><span class="annot"><span class="annottext">Int -&gt; CanaryRunStateReasonCode -&gt; Int
+CanaryRunStateReasonCode -&gt; Int
+(Int -&gt; CanaryRunStateReasonCode -&gt; Int)
+-&gt; (CanaryRunStateReasonCode -&gt; Int)
+-&gt; Hashable CanaryRunStateReasonCode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: CanaryRunStateReasonCode -&gt; Int
+$chash :: CanaryRunStateReasonCode -&gt; Int
+hashWithSalt :: Int -&gt; CanaryRunStateReasonCode -&gt; Int
+$chashWithSalt :: Int -&gt; CanaryRunStateReasonCode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679180449"><span class="annot"><span class="annottext">CanaryRunStateReasonCode -&gt; ()
+(CanaryRunStateReasonCode -&gt; ()) -&gt; NFData CanaryRunStateReasonCode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: CanaryRunStateReasonCode -&gt; ()
+$crnf :: CanaryRunStateReasonCode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679180446"><span class="annot"><span class="annottext">Text -&gt; Either String CanaryRunStateReasonCode
+(Text -&gt; Either String CanaryRunStateReasonCode)
+-&gt; FromText CanaryRunStateReasonCode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String CanaryRunStateReasonCode
+$cfromText :: Text -&gt; Either String CanaryRunStateReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679180443"><span class="annot"><span class="annottext">CanaryRunStateReasonCode -&gt; Text
+(CanaryRunStateReasonCode -&gt; Text)
+-&gt; ToText CanaryRunStateReasonCode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: CanaryRunStateReasonCode -&gt; Text
+$ctoText :: CanaryRunStateReasonCode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679180440"><span class="annot"><span class="annottext">CanaryRunStateReasonCode -&gt; ByteString
+(CanaryRunStateReasonCode -&gt; ByteString)
+-&gt; ToByteString CanaryRunStateReasonCode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: CanaryRunStateReasonCode -&gt; ByteString
+$ctoBS :: CanaryRunStateReasonCode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679180437"><span class="annot"><span class="annottext">CanaryRunStateReasonCode -&gt; ByteStringBuilder
+(CanaryRunStateReasonCode -&gt; ByteStringBuilder)
+-&gt; ToLog CanaryRunStateReasonCode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: CanaryRunStateReasonCode -&gt; ByteStringBuilder
+$cbuild :: CanaryRunStateReasonCode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679180434"><span class="annot"><span class="annottext">HeaderName -&gt; CanaryRunStateReasonCode -&gt; [Header]
+(HeaderName -&gt; CanaryRunStateReasonCode -&gt; [Header])
+-&gt; ToHeader CanaryRunStateReasonCode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; CanaryRunStateReasonCode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; CanaryRunStateReasonCode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679180431"><span class="annot"><span class="annottext">CanaryRunStateReasonCode -&gt; QueryString
+(CanaryRunStateReasonCode -&gt; QueryString)
+-&gt; ToQuery CanaryRunStateReasonCode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: CanaryRunStateReasonCode -&gt; QueryString
+$ctoQuery :: CanaryRunStateReasonCode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679180426"><span id="local-6989586621679180428"><span class="annot"><span class="annottext">Value -&gt; Parser [CanaryRunStateReasonCode]
+Value -&gt; Parser CanaryRunStateReasonCode
+(Value -&gt; Parser CanaryRunStateReasonCode)
+-&gt; (Value -&gt; Parser [CanaryRunStateReasonCode])
+-&gt; FromJSON CanaryRunStateReasonCode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [CanaryRunStateReasonCode]
+$cparseJSONList :: Value -&gt; Parser [CanaryRunStateReasonCode]
+parseJSON :: Value -&gt; Parser CanaryRunStateReasonCode
+$cparseJSON :: Value -&gt; Parser CanaryRunStateReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679180421"><span id="local-6989586621679180423"><span class="annot"><span class="annottext">FromJSONKeyFunction [CanaryRunStateReasonCode]
+FromJSONKeyFunction CanaryRunStateReasonCode
+FromJSONKeyFunction CanaryRunStateReasonCode
+-&gt; FromJSONKeyFunction [CanaryRunStateReasonCode]
+-&gt; FromJSONKey CanaryRunStateReasonCode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [CanaryRunStateReasonCode]
+$cfromJSONKeyList :: FromJSONKeyFunction [CanaryRunStateReasonCode]
+fromJSONKey :: FromJSONKeyFunction CanaryRunStateReasonCode
+$cfromJSONKey :: FromJSONKeyFunction CanaryRunStateReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679180412"><span id="local-6989586621679180414"><span id="local-6989586621679180416"><span id="local-6989586621679180418"><span class="annot"><span class="annottext">[CanaryRunStateReasonCode] -&gt; Encoding
+[CanaryRunStateReasonCode] -&gt; Value
+CanaryRunStateReasonCode -&gt; Encoding
+CanaryRunStateReasonCode -&gt; Value
+(CanaryRunStateReasonCode -&gt; Value)
+-&gt; (CanaryRunStateReasonCode -&gt; Encoding)
+-&gt; ([CanaryRunStateReasonCode] -&gt; Value)
+-&gt; ([CanaryRunStateReasonCode] -&gt; Encoding)
+-&gt; ToJSON CanaryRunStateReasonCode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [CanaryRunStateReasonCode] -&gt; Encoding
+$ctoEncodingList :: [CanaryRunStateReasonCode] -&gt; Encoding
+toJSONList :: [CanaryRunStateReasonCode] -&gt; Value
+$ctoJSONList :: [CanaryRunStateReasonCode] -&gt; Value
+toEncoding :: CanaryRunStateReasonCode -&gt; Encoding
+$ctoEncoding :: CanaryRunStateReasonCode -&gt; Encoding
+toJSON :: CanaryRunStateReasonCode -&gt; Value
+$ctoJSON :: CanaryRunStateReasonCode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679180407"><span id="local-6989586621679180409"><span class="annot"><span class="annottext">ToJSONKeyFunction [CanaryRunStateReasonCode]
+ToJSONKeyFunction CanaryRunStateReasonCode
+ToJSONKeyFunction CanaryRunStateReasonCode
+-&gt; ToJSONKeyFunction [CanaryRunStateReasonCode]
+-&gt; ToJSONKey CanaryRunStateReasonCode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [CanaryRunStateReasonCode]
+$ctoJSONKeyList :: ToJSONKeyFunction [CanaryRunStateReasonCode]
+toJSONKey :: ToJSONKeyFunction CanaryRunStateReasonCode
+$ctoJSONKey :: ToJSONKeyFunction CanaryRunStateReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679180404"><span class="annot"><span class="annottext">[Node] -&gt; Either String CanaryRunStateReasonCode
+([Node] -&gt; Either String CanaryRunStateReasonCode)
+-&gt; FromXML CanaryRunStateReasonCode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String CanaryRunStateReasonCode
+$cparseXML :: [Node] -&gt; Either String CanaryRunStateReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679180401"><span class="annot"><span class="annottext">CanaryRunStateReasonCode -&gt; XML
+(CanaryRunStateReasonCode -&gt; XML) -&gt; ToXML CanaryRunStateReasonCode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: CanaryRunStateReasonCode -&gt; XML
+$ctoXML :: CanaryRunStateReasonCode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Synthetics.Types.CanaryRunStateReasonCode.html#CanaryRunStateReasonCode_CANARY_FAILURE"><span class="hs-identifier hs-type">CanaryRunStateReasonCode_CANARY_FAILURE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Synthetics.Types.CanaryRunStateReasonCode.html#CanaryRunStateReasonCode"><span class="hs-identifier hs-type">CanaryRunStateReasonCode</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCanaryRunStateReasonCode_CANARY_FAILURE"><span id="%24mCanaryRunStateReasonCode_CANARY_FAILURE"><span id="CanaryRunStateReasonCode_CANARY_FAILURE"><span class="annot"><span class="annottext">$bCanaryRunStateReasonCode_CANARY_FAILURE :: CanaryRunStateReasonCode
+$mCanaryRunStateReasonCode_CANARY_FAILURE :: forall r.
+CanaryRunStateReasonCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Synthetics.Types.CanaryRunStateReasonCode.html#%24bCanaryRunStateReasonCode_CANARY_FAILURE"><span class="hs-identifier hs-var hs-var hs-var">CanaryRunStateReasonCode_CANARY_FAILURE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Synthetics.Types.CanaryRunStateReasonCode.html#CanaryRunStateReasonCode%27"><span class="hs-identifier hs-type">CanaryRunStateReasonCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CANARY_FAILURE&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Synthetics.Types.CanaryRunStateReasonCode.html#CanaryRunStateReasonCode_EXECUTION_FAILURE"><span class="hs-identifier hs-type">CanaryRunStateReasonCode_EXECUTION_FAILURE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Synthetics.Types.CanaryRunStateReasonCode.html#CanaryRunStateReasonCode"><span class="hs-identifier hs-type">CanaryRunStateReasonCode</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCanaryRunStateReasonCode_EXECUTION_FAILURE"><span id="%24mCanaryRunStateReasonCode_EXECUTION_FAILURE"><span id="CanaryRunStateReasonCode_EXECUTION_FAILURE"><span class="annot"><span class="annottext">$bCanaryRunStateReasonCode_EXECUTION_FAILURE :: CanaryRunStateReasonCode
+$mCanaryRunStateReasonCode_EXECUTION_FAILURE :: forall r.
+CanaryRunStateReasonCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Synthetics.Types.CanaryRunStateReasonCode.html#%24bCanaryRunStateReasonCode_EXECUTION_FAILURE"><span class="hs-identifier hs-var hs-var hs-var">CanaryRunStateReasonCode_EXECUTION_FAILURE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Synthetics.Types.CanaryRunStateReasonCode.html#CanaryRunStateReasonCode%27"><span class="hs-identifier hs-type">CanaryRunStateReasonCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EXECUTION_FAILURE&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.Synthetics.Types.CanaryRunStateReasonCode.html#CanaryRunStateReasonCode_CANARY_FAILURE"><span class="hs-pragma hs-type">CanaryRunStateReasonCode_CANARY_FAILURE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Synthetics.Types.CanaryRunStateReasonCode.html#CanaryRunStateReasonCode_EXECUTION_FAILURE"><span class="hs-pragma hs-type">CanaryRunStateReasonCode_EXECUTION_FAILURE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.Synthetics.Types.CanaryRunStateReasonCode.html#CanaryRunStateReasonCode%27"><span class="hs-pragma hs-type">CanaryRunStateReasonCode'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

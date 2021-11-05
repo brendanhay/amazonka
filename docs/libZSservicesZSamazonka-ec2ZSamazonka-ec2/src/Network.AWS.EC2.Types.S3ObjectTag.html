@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- in the /Amazon Simple Storage Service User Guide/.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newS3ObjectTag' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621681146572"><span id="local-6989586621681146573"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3ObjectTag"><span class="annot"><a href="Network.AWS.EC2.Types.S3ObjectTag.html#S3ObjectTag"><span class="hs-identifier hs-var">S3ObjectTag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3ObjectTag%27"><span class="annot"><a href="Network.AWS.EC2.Types.S3ObjectTag.html#S3ObjectTag%27"><span class="hs-identifier hs-var">S3ObjectTag'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681146581"><span id="local-6989586621681146582"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3ObjectTag"><span class="annot"><a href="Network.AWS.EC2.Types.S3ObjectTag.html#S3ObjectTag"><span class="hs-identifier hs-var">S3ObjectTag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3ObjectTag%27"><span class="annot"><a href="Network.AWS.EC2.Types.S3ObjectTag.html#S3ObjectTag%27"><span class="hs-identifier hs-var">S3ObjectTag'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value of the tag.</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- Constraints: Tag values are case-sensitive and can be up to 256 Unicode</span><span>
@@ -44,7 +44,7 @@
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3Akey%3AS3ObjectTag%27"><span class="annot"><span class="annottext">S3ObjectTag -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.S3ObjectTag.html#%24sel%3Akey%3AS3ObjectTag%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681146565"><span id="local-6989586621681146567"><span class="annot"><span class="annottext">S3ObjectTag -&gt; S3ObjectTag -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681146574"><span id="local-6989586621681146576"><span class="annot"><span class="annottext">S3ObjectTag -&gt; S3ObjectTag -&gt; Bool
 (S3ObjectTag -&gt; S3ObjectTag -&gt; Bool)
 -&gt; (S3ObjectTag -&gt; S3ObjectTag -&gt; Bool) -&gt; Eq S3ObjectTag
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: S3ObjectTag -&gt; S3ObjectTag -&gt; Bool
 == :: S3ObjectTag -&gt; S3ObjectTag -&gt; Bool
 $c== :: S3ObjectTag -&gt; S3ObjectTag -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681146556"><span id="local-6989586621681146558"><span id="local-6989586621681146560"><span id="local-6989586621681146562"><span class="annot"><span class="annottext">ReadPrec [S3ObjectTag]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681146565"><span id="local-6989586621681146567"><span id="local-6989586621681146569"><span id="local-6989586621681146571"><span class="annot"><span class="annottext">ReadPrec [S3ObjectTag]
 ReadPrec S3ObjectTag
 Int -&gt; ReadS S3ObjectTag
 ReadS [S3ObjectTag]
@@ -72,7 +72,7 @@ readList :: ReadS [S3ObjectTag]
 $creadList :: ReadS [S3ObjectTag]
 readsPrec :: Int -&gt; ReadS S3ObjectTag
 $creadsPrec :: Int -&gt; ReadS S3ObjectTag
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681146549"><span id="local-6989586621681146551"><span id="local-6989586621681146553"><span class="annot"><span class="annottext">Int -&gt; S3ObjectTag -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681146558"><span id="local-6989586621681146560"><span id="local-6989586621681146562"><span class="annot"><span class="annottext">Int -&gt; S3ObjectTag -&gt; ShowS
 [S3ObjectTag] -&gt; ShowS
 S3ObjectTag -&gt; String
 (Int -&gt; S3ObjectTag -&gt; ShowS)
@@ -141,16 +141,16 @@ forall a. Maybe a
 -&gt; (S3ObjectTag -&gt; Maybe Text -&gt; S3ObjectTag)
 -&gt; Lens S3ObjectTag S3ObjectTag (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.S3ObjectTag.html#S3ObjectTag%27"><span class="hs-identifier hs-type">S3ObjectTag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681146540"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.S3ObjectTag.html#S3ObjectTag%27"><span class="hs-identifier hs-type">S3ObjectTag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681146549"><span class="annot"><span class="annottext">Maybe Text
 value :: Maybe Text
 $sel:value:S3ObjectTag' :: S3ObjectTag -&gt; Maybe Text
-</span><a href="#local-6989586621681146540"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681146540"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681146539"><span class="annot"><span class="annottext">s :: S3ObjectTag
-</span><a href="#local-6989586621681146539"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.S3ObjectTag.html#S3ObjectTag%27"><span class="hs-identifier hs-type">S3ObjectTag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681146538"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681146538"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3ObjectTag
-</span><a href="#local-6989586621681146539"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:S3ObjectTag' :: Maybe Text
+</span><a href="#local-6989586621681146549"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681146549"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681146548"><span class="annot"><span class="annottext">s :: S3ObjectTag
+</span><a href="#local-6989586621681146548"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.S3ObjectTag.html#S3ObjectTag%27"><span class="hs-identifier hs-type">S3ObjectTag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681146547"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681146547"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3ObjectTag
+</span><a href="#local-6989586621681146548"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:S3ObjectTag' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.S3ObjectTag.html#%24sel%3Avalue%3AS3ObjectTag%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681146538"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.S3ObjectTag.html#S3ObjectTag"><span class="hs-identifier hs-type">S3ObjectTag</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681146547"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.S3ObjectTag.html#S3ObjectTag"><span class="hs-identifier hs-type">S3ObjectTag</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- | The key of the tag.</span><span>
 </span><span id="line-80"></span><span class="hs-comment">--</span><span>
@@ -162,29 +162,29 @@ $sel:value:S3ObjectTag' :: S3ObjectTag -&gt; Maybe Text
 -&gt; (S3ObjectTag -&gt; Maybe Text -&gt; S3ObjectTag)
 -&gt; Lens S3ObjectTag S3ObjectTag (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.S3ObjectTag.html#S3ObjectTag%27"><span class="hs-identifier hs-type">S3ObjectTag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681146536"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.S3ObjectTag.html#S3ObjectTag%27"><span class="hs-identifier hs-type">S3ObjectTag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681146545"><span class="annot"><span class="annottext">Maybe Text
 key :: Maybe Text
 $sel:key:S3ObjectTag' :: S3ObjectTag -&gt; Maybe Text
-</span><a href="#local-6989586621681146536"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681146536"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681146535"><span class="annot"><span class="annottext">s :: S3ObjectTag
-</span><a href="#local-6989586621681146535"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.S3ObjectTag.html#S3ObjectTag%27"><span class="hs-identifier hs-type">S3ObjectTag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681146534"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681146534"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3ObjectTag
-</span><a href="#local-6989586621681146535"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:S3ObjectTag' :: Maybe Text
+</span><a href="#local-6989586621681146545"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681146545"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681146544"><span class="annot"><span class="annottext">s :: S3ObjectTag
+</span><a href="#local-6989586621681146544"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.S3ObjectTag.html#S3ObjectTag%27"><span class="hs-identifier hs-type">S3ObjectTag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681146543"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681146543"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3ObjectTag
+</span><a href="#local-6989586621681146544"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:S3ObjectTag' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.S3ObjectTag.html#%24sel%3Akey%3AS3ObjectTag%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681146534"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.S3ObjectTag.html#S3ObjectTag"><span class="hs-identifier hs-type">S3ObjectTag</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681146543"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.S3ObjectTag.html#S3ObjectTag"><span class="hs-identifier hs-type">S3ObjectTag</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681146530"><span id="local-6989586621681146532"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.S3ObjectTag.html#S3ObjectTag"><span class="hs-identifier hs-type">S3ObjectTag</span></a></span></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681146539"><span id="local-6989586621681146541"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.S3ObjectTag.html#S3ObjectTag"><span class="hs-identifier hs-type">S3ObjectTag</span></a></span></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681146527"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.S3ObjectTag.html#S3ObjectTag"><span class="hs-identifier hs-type">S3ObjectTag</span></a></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681146536"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.S3ObjectTag.html#S3ObjectTag"><span class="hs-identifier hs-type">S3ObjectTag</span></a></span></span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.S3ObjectTag.html#S3ObjectTag"><span class="hs-identifier hs-type">S3ObjectTag</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621681146523"><span class="annot"><span class="annottext">toQuery :: S3ObjectTag -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.S3ObjectTag.html#S3ObjectTag%27"><span class="hs-identifier hs-type">S3ObjectTag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681146520"><span id="local-6989586621681146521"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621681146532"><span class="annot"><span class="annottext">toQuery :: S3ObjectTag -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.S3ObjectTag.html#S3ObjectTag%27"><span class="hs-identifier hs-type">S3ObjectTag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681146529"><span id="local-6989586621681146530"><span class="annot"><span class="annottext">Maybe Text
 key :: Maybe Text
 value :: Maybe Text
 $sel:key:S3ObjectTag' :: S3ObjectTag -&gt; Maybe Text
 $sel:value:S3ObjectTag' :: S3ObjectTag -&gt; Maybe Text
-</span><a href="#local-6989586621681146520"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681146529"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -192,9 +192,9 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Value&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681146521"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621681146530"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681146520"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621681146529"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-94"></span></pre></body></html>

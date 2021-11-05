@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Hls Input Settings</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newHlsInputSettings' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679888885"><span id="local-6989586621679888886"></span></span><span class="hs-keyword">data</span><span> </span><span id="HlsInputSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#HlsInputSettings"><span class="hs-identifier hs-var">HlsInputSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsInputSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#HlsInputSettings%27"><span class="hs-identifier hs-var">HlsInputSettings'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679888894"><span id="local-6989586621679888895"></span></span><span class="hs-keyword">data</span><span> </span><span id="HlsInputSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#HlsInputSettings"><span class="hs-identifier hs-var">HlsInputSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsInputSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#HlsInputSettings%27"><span class="hs-identifier hs-var">HlsInputSettings'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When specified, reading of the HLS input will begin this many buffer</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- segments from the end (most recently written segment). When not</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- specified, the HLS input will begin with the first segment specified in</span><span>
@@ -55,7 +55,7 @@
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3Ascte35Source%3AHlsInputSettings%27"><span class="annot"><span class="annottext">HlsInputSettings -&gt; Maybe HlsScte35SourceType
 </span><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#%24sel%3Ascte35Source%3AHlsInputSettings%27"><span class="hs-identifier hs-var hs-var">scte35Source</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsScte35SourceType.html#HlsScte35SourceType"><span class="hs-identifier hs-type">HlsScte35SourceType</span></a></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679888875"><span id="local-6989586621679888877"><span class="annot"><span class="annottext">HlsInputSettings -&gt; HlsInputSettings -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679888884"><span id="local-6989586621679888886"><span class="annot"><span class="annottext">HlsInputSettings -&gt; HlsInputSettings -&gt; Bool
 (HlsInputSettings -&gt; HlsInputSettings -&gt; Bool)
 -&gt; (HlsInputSettings -&gt; HlsInputSettings -&gt; Bool)
 -&gt; Eq HlsInputSettings
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: HlsInputSettings -&gt; HlsInputSettings -&gt; Bool
 == :: HlsInputSettings -&gt; HlsInputSettings -&gt; Bool
 $c== :: HlsInputSettings -&gt; HlsInputSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679888866"><span id="local-6989586621679888868"><span id="local-6989586621679888870"><span id="local-6989586621679888872"><span class="annot"><span class="annottext">ReadPrec [HlsInputSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679888875"><span id="local-6989586621679888877"><span id="local-6989586621679888879"><span id="local-6989586621679888881"><span class="annot"><span class="annottext">ReadPrec [HlsInputSettings]
 ReadPrec HlsInputSettings
 Int -&gt; ReadS HlsInputSettings
 ReadS [HlsInputSettings]
@@ -84,7 +84,7 @@ readList :: ReadS [HlsInputSettings]
 $creadList :: ReadS [HlsInputSettings]
 readsPrec :: Int -&gt; ReadS HlsInputSettings
 $creadsPrec :: Int -&gt; ReadS HlsInputSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679888859"><span id="local-6989586621679888861"><span id="local-6989586621679888863"><span class="annot"><span class="annottext">Int -&gt; HlsInputSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679888868"><span id="local-6989586621679888870"><span id="local-6989586621679888872"><span class="annot"><span class="annottext">Int -&gt; HlsInputSettings -&gt; ShowS
 [HlsInputSettings] -&gt; ShowS
 HlsInputSettings -&gt; String
 (Int -&gt; HlsInputSettings -&gt; ShowS)
@@ -183,16 +183,16 @@ forall a. Maybe a
 -&gt; Lens
      HlsInputSettings HlsInputSettings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#HlsInputSettings%27"><span class="hs-identifier hs-type">HlsInputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679888850"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#HlsInputSettings%27"><span class="hs-identifier hs-type">HlsInputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679888859"><span class="annot"><span class="annottext">Maybe Natural
 bufferSegments :: Maybe Natural
 $sel:bufferSegments:HlsInputSettings' :: HlsInputSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679888850"><span class="hs-identifier hs-var hs-var">bufferSegments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679888850"><span class="hs-identifier hs-var">bufferSegments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679888849"><span class="annot"><span class="annottext">s :: HlsInputSettings
-</span><a href="#local-6989586621679888849"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#HlsInputSettings%27"><span class="hs-identifier hs-type">HlsInputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679888848"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679888848"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsInputSettings
-</span><a href="#local-6989586621679888849"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bufferSegments:HlsInputSettings' :: Maybe Natural
+</span><a href="#local-6989586621679888859"><span class="hs-identifier hs-var hs-var">bufferSegments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679888859"><span class="hs-identifier hs-var">bufferSegments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679888858"><span class="annot"><span class="annottext">s :: HlsInputSettings
+</span><a href="#local-6989586621679888858"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#HlsInputSettings%27"><span class="hs-identifier hs-type">HlsInputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679888857"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679888857"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsInputSettings
+</span><a href="#local-6989586621679888858"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bufferSegments:HlsInputSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#%24sel%3AbufferSegments%3AHlsInputSettings%27"><span class="hs-identifier hs-var">bufferSegments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679888848"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#HlsInputSettings"><span class="hs-identifier hs-type">HlsInputSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679888857"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#HlsInputSettings"><span class="hs-identifier hs-type">HlsInputSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | The number of consecutive times that attempts to read a manifest or</span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- segment must fail before the input is considered unavailable.</span><span>
@@ -204,16 +204,16 @@ $sel:bufferSegments:HlsInputSettings' :: HlsInputSettings -&gt; Maybe Natural
 -&gt; Lens
      HlsInputSettings HlsInputSettings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#HlsInputSettings%27"><span class="hs-identifier hs-type">HlsInputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679888846"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#HlsInputSettings%27"><span class="hs-identifier hs-type">HlsInputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679888855"><span class="annot"><span class="annottext">Maybe Natural
 retries :: Maybe Natural
 $sel:retries:HlsInputSettings' :: HlsInputSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679888846"><span class="hs-identifier hs-var hs-var">retries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679888846"><span class="hs-identifier hs-var">retries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679888845"><span class="annot"><span class="annottext">s :: HlsInputSettings
-</span><a href="#local-6989586621679888845"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#HlsInputSettings%27"><span class="hs-identifier hs-type">HlsInputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679888844"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679888844"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsInputSettings
-</span><a href="#local-6989586621679888845"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retries:HlsInputSettings' :: Maybe Natural
+</span><a href="#local-6989586621679888855"><span class="hs-identifier hs-var hs-var">retries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679888855"><span class="hs-identifier hs-var">retries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679888854"><span class="annot"><span class="annottext">s :: HlsInputSettings
+</span><a href="#local-6989586621679888854"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#HlsInputSettings%27"><span class="hs-identifier hs-type">HlsInputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679888853"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679888853"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsInputSettings
+</span><a href="#local-6989586621679888854"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retries:HlsInputSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#%24sel%3Aretries%3AHlsInputSettings%27"><span class="hs-identifier hs-var">retries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679888844"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#HlsInputSettings"><span class="hs-identifier hs-type">HlsInputSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679888853"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#HlsInputSettings"><span class="hs-identifier hs-type">HlsInputSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | The number of seconds between retries when an attempt to read a manifest</span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- or segment fails.</span><span>
@@ -225,16 +225,16 @@ $sel:retries:HlsInputSettings' :: HlsInputSettings -&gt; Maybe Natural
 -&gt; Lens
      HlsInputSettings HlsInputSettings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#HlsInputSettings%27"><span class="hs-identifier hs-type">HlsInputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679888842"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#HlsInputSettings%27"><span class="hs-identifier hs-type">HlsInputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679888851"><span class="annot"><span class="annottext">Maybe Natural
 retryInterval :: Maybe Natural
 $sel:retryInterval:HlsInputSettings' :: HlsInputSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679888842"><span class="hs-identifier hs-var hs-var">retryInterval</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679888842"><span class="hs-identifier hs-var">retryInterval</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679888841"><span class="annot"><span class="annottext">s :: HlsInputSettings
-</span><a href="#local-6989586621679888841"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#HlsInputSettings%27"><span class="hs-identifier hs-type">HlsInputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679888840"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679888840"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsInputSettings
-</span><a href="#local-6989586621679888841"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retryInterval:HlsInputSettings' :: Maybe Natural
+</span><a href="#local-6989586621679888851"><span class="hs-identifier hs-var hs-var">retryInterval</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679888851"><span class="hs-identifier hs-var">retryInterval</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679888850"><span class="annot"><span class="annottext">s :: HlsInputSettings
+</span><a href="#local-6989586621679888850"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#HlsInputSettings%27"><span class="hs-identifier hs-type">HlsInputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679888849"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679888849"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsInputSettings
+</span><a href="#local-6989586621679888850"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retryInterval:HlsInputSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#%24sel%3AretryInterval%3AHlsInputSettings%27"><span class="hs-identifier hs-var">retryInterval</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679888840"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#HlsInputSettings"><span class="hs-identifier hs-type">HlsInputSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679888849"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#HlsInputSettings"><span class="hs-identifier hs-type">HlsInputSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | When specified the HLS stream with the m3u8 BANDWIDTH that most closely</span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- matches this value will be chosen, otherwise the highest bandwidth</span><span>
@@ -248,16 +248,16 @@ $sel:retryInterval:HlsInputSettings' :: HlsInputSettings -&gt; Maybe Natural
 -&gt; Lens
      HlsInputSettings HlsInputSettings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#HlsInputSettings%27"><span class="hs-identifier hs-type">HlsInputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679888838"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#HlsInputSettings%27"><span class="hs-identifier hs-type">HlsInputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679888847"><span class="annot"><span class="annottext">Maybe Natural
 bandwidth :: Maybe Natural
 $sel:bandwidth:HlsInputSettings' :: HlsInputSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679888838"><span class="hs-identifier hs-var hs-var">bandwidth</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679888838"><span class="hs-identifier hs-var">bandwidth</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679888837"><span class="annot"><span class="annottext">s :: HlsInputSettings
-</span><a href="#local-6989586621679888837"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#HlsInputSettings%27"><span class="hs-identifier hs-type">HlsInputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679888836"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679888836"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsInputSettings
-</span><a href="#local-6989586621679888837"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bandwidth:HlsInputSettings' :: Maybe Natural
+</span><a href="#local-6989586621679888847"><span class="hs-identifier hs-var hs-var">bandwidth</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679888847"><span class="hs-identifier hs-var">bandwidth</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679888846"><span class="annot"><span class="annottext">s :: HlsInputSettings
+</span><a href="#local-6989586621679888846"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#HlsInputSettings%27"><span class="hs-identifier hs-type">HlsInputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679888845"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679888845"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsInputSettings
+</span><a href="#local-6989586621679888846"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bandwidth:HlsInputSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#%24sel%3Abandwidth%3AHlsInputSettings%27"><span class="hs-identifier hs-var">bandwidth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679888836"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#HlsInputSettings"><span class="hs-identifier hs-type">HlsInputSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679888845"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#HlsInputSettings"><span class="hs-identifier hs-type">HlsInputSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | Identifies the source for the SCTE-35 messages that MediaLive will</span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- ingest. Messages can be ingested from the content segments (in the</span><span>
@@ -275,19 +275,19 @@ $sel:bandwidth:HlsInputSettings' :: HlsInputSettings -&gt; Maybe Natural
      (Maybe HlsScte35SourceType)
      (Maybe HlsScte35SourceType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#HlsInputSettings%27"><span class="hs-identifier hs-type">HlsInputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679888834"><span class="annot"><span class="annottext">Maybe HlsScte35SourceType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#HlsInputSettings%27"><span class="hs-identifier hs-type">HlsInputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679888843"><span class="annot"><span class="annottext">Maybe HlsScte35SourceType
 scte35Source :: Maybe HlsScte35SourceType
 $sel:scte35Source:HlsInputSettings' :: HlsInputSettings -&gt; Maybe HlsScte35SourceType
-</span><a href="#local-6989586621679888834"><span class="hs-identifier hs-var hs-var">scte35Source</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HlsScte35SourceType
-</span><a href="#local-6989586621679888834"><span class="hs-identifier hs-var">scte35Source</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679888833"><span class="annot"><span class="annottext">s :: HlsInputSettings
-</span><a href="#local-6989586621679888833"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#HlsInputSettings%27"><span class="hs-identifier hs-type">HlsInputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679888832"><span class="annot"><span class="annottext">Maybe HlsScte35SourceType
-</span><a href="#local-6989586621679888832"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsInputSettings
-</span><a href="#local-6989586621679888833"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scte35Source:HlsInputSettings' :: Maybe HlsScte35SourceType
+</span><a href="#local-6989586621679888843"><span class="hs-identifier hs-var hs-var">scte35Source</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HlsScte35SourceType
+</span><a href="#local-6989586621679888843"><span class="hs-identifier hs-var">scte35Source</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679888842"><span class="annot"><span class="annottext">s :: HlsInputSettings
+</span><a href="#local-6989586621679888842"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#HlsInputSettings%27"><span class="hs-identifier hs-type">HlsInputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679888841"><span class="annot"><span class="annottext">Maybe HlsScte35SourceType
+</span><a href="#local-6989586621679888841"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsInputSettings
+</span><a href="#local-6989586621679888842"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scte35Source:HlsInputSettings' :: Maybe HlsScte35SourceType
 </span><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#%24sel%3Ascte35Source%3AHlsInputSettings%27"><span class="hs-identifier hs-var">scte35Source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HlsScte35SourceType
-</span><a href="#local-6989586621679888832"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#HlsInputSettings"><span class="hs-identifier hs-type">HlsInputSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679888841"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#HlsInputSettings"><span class="hs-identifier hs-type">HlsInputSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679888829"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#HlsInputSettings"><span class="hs-identifier hs-type">HlsInputSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679888827"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HlsInputSettings
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679888838"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#HlsInputSettings"><span class="hs-identifier hs-type">HlsInputSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679888836"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HlsInputSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser HlsInputSettings)
@@ -297,8 +297,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;HlsInputSettings&quot;</span></span><span>
-</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679888824"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679888824"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679888833"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679888833"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-130"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
 -&gt; Maybe Natural
 -&gt; Maybe Natural
@@ -321,7 +321,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; HlsInputSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679888824"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679888833"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;bufferSegments&quot;</span></span><span class="hs-special">)</span><span>
@@ -337,7 +337,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Natural -&gt; Maybe HlsScte35SourceType -&gt; HlsInputSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679888824"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679888833"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;retries&quot;</span></span><span class="hs-special">)</span><span>
@@ -349,7 +349,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Natural -&gt; Maybe HlsScte35SourceType -&gt; HlsInputSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679888824"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679888833"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;retryInterval&quot;</span></span><span class="hs-special">)</span><span>
@@ -359,7 +359,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe HlsScte35SourceType -&gt; HlsInputSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679888824"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679888833"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;bandwidth&quot;</span></span><span class="hs-special">)</span><span>
@@ -367,19 +367,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe HlsScte35SourceType) -&gt; Parser HlsInputSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679888824"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HlsScte35SourceType)
+</span><a href="#local-6989586621679888833"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HlsScte35SourceType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;scte35Source&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679888818"><span id="local-6989586621679888820"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#HlsInputSettings"><span class="hs-identifier hs-type">HlsInputSettings</span></a></span></span></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679888827"><span id="local-6989586621679888829"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#HlsInputSettings"><span class="hs-identifier hs-type">HlsInputSettings</span></a></span></span></span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679888815"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#HlsInputSettings"><span class="hs-identifier hs-type">HlsInputSettings</span></a></span></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679888824"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#HlsInputSettings"><span class="hs-identifier hs-type">HlsInputSettings</span></a></span></span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679888807"><span id="local-6989586621679888809"><span id="local-6989586621679888811"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#HlsInputSettings"><span class="hs-identifier hs-type">HlsInputSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679888805"><span class="annot"><span class="annottext">toJSON :: HlsInputSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#HlsInputSettings%27"><span class="hs-identifier hs-type">HlsInputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679888799"><span id="local-6989586621679888800"><span id="local-6989586621679888801"><span id="local-6989586621679888802"><span id="local-6989586621679888803"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679888816"><span id="local-6989586621679888818"><span id="local-6989586621679888820"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#HlsInputSettings"><span class="hs-identifier hs-type">HlsInputSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679888814"><span class="annot"><span class="annottext">toJSON :: HlsInputSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsInputSettings.html#HlsInputSettings%27"><span class="hs-identifier hs-type">HlsInputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679888808"><span id="local-6989586621679888809"><span id="local-6989586621679888810"><span id="local-6989586621679888811"><span id="local-6989586621679888812"><span class="annot"><span class="annottext">Maybe Natural
 Maybe HlsScte35SourceType
 scte35Source :: Maybe HlsScte35SourceType
 bandwidth :: Maybe Natural
@@ -391,7 +391,7 @@ $sel:bandwidth:HlsInputSettings' :: HlsInputSettings -&gt; Maybe Natural
 $sel:retryInterval:HlsInputSettings' :: HlsInputSettings -&gt; Maybe Natural
 $sel:retries:HlsInputSettings' :: HlsInputSettings -&gt; Maybe Natural
 $sel:bufferSegments:HlsInputSettings' :: HlsInputSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679888799"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679888808"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -404,28 +404,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-147"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679888803"><span class="hs-identifier hs-var">bufferSegments</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679888812"><span class="hs-identifier hs-var">bufferSegments</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-148"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;retries&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679888802"><span class="hs-identifier hs-var">retries</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679888811"><span class="hs-identifier hs-var">retries</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-149"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;retryInterval&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679888801"><span class="hs-identifier hs-var">retryInterval</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679888810"><span class="hs-identifier hs-var">retryInterval</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-150"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;bandwidth&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679888800"><span class="hs-identifier hs-var">bandwidth</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679888809"><span class="hs-identifier hs-var">bandwidth</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-151"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;scte35Source&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HlsScte35SourceType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -433,7 +433,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe HlsScte35SourceType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HlsScte35SourceType
-</span><a href="#local-6989586621679888799"><span class="hs-identifier hs-var">scte35Source</span></a></span><span>
+</span><a href="#local-6989586621679888808"><span class="hs-identifier hs-var">scte35Source</span></a></span><span>
 </span><span id="line-152"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-153"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span></pre></body></html>

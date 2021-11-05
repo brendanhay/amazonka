@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679791890"><span id="local-6989586621679791891"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ComplianceUploadType"><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceUploadType.html#ComplianceUploadType"><span class="hs-identifier hs-var">ComplianceUploadType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ComplianceUploadType%27"><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceUploadType.html#ComplianceUploadType%27"><span class="hs-identifier hs-var">ComplianceUploadType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679791899"><span id="local-6989586621679791900"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ComplianceUploadType"><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceUploadType.html#ComplianceUploadType"><span class="hs-identifier hs-var">ComplianceUploadType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ComplianceUploadType%27"><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceUploadType.html#ComplianceUploadType%27"><span class="hs-identifier hs-var">ComplianceUploadType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromComplianceUploadType"><span class="annot"><span class="annottext">ComplianceUploadType -&gt; Text
 </span><a href="Network.AWS.SSM.Types.ComplianceUploadType.html#fromComplianceUploadType"><span class="hs-identifier hs-var hs-var">fromComplianceUploadType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679791882"><span id="local-6989586621679791884"><span id="local-6989586621679791886"><span class="annot"><span class="annottext">Int -&gt; ComplianceUploadType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679791891"><span id="local-6989586621679791893"><span id="local-6989586621679791895"><span class="annot"><span class="annottext">Int -&gt; ComplianceUploadType -&gt; ShowS
 [ComplianceUploadType] -&gt; ShowS
 ComplianceUploadType -&gt; String
 (Int -&gt; ComplianceUploadType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ComplianceUploadType -&gt; String
 showsPrec :: Int -&gt; ComplianceUploadType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ComplianceUploadType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679791873"><span id="local-6989586621679791875"><span id="local-6989586621679791877"><span id="local-6989586621679791879"><span class="annot"><span class="annottext">ReadPrec [ComplianceUploadType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679791882"><span id="local-6989586621679791884"><span id="local-6989586621679791886"><span id="local-6989586621679791888"><span class="annot"><span class="annottext">ReadPrec [ComplianceUploadType]
 ReadPrec ComplianceUploadType
 Int -&gt; ReadS ComplianceUploadType
 ReadS [ComplianceUploadType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ComplianceUploadType]
 readsPrec :: Int -&gt; ReadS ComplianceUploadType
 $creadsPrec :: Int -&gt; ReadS ComplianceUploadType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679791868"><span id="local-6989586621679791870"><span class="annot"><span class="annottext">ComplianceUploadType -&gt; ComplianceUploadType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679791877"><span id="local-6989586621679791879"><span class="annot"><span class="annottext">ComplianceUploadType -&gt; ComplianceUploadType -&gt; Bool
 (ComplianceUploadType -&gt; ComplianceUploadType -&gt; Bool)
 -&gt; (ComplianceUploadType -&gt; ComplianceUploadType -&gt; Bool)
 -&gt; Eq ComplianceUploadType
@@ -82,7 +82,7 @@ $c/= :: ComplianceUploadType -&gt; ComplianceUploadType -&gt; Bool
 == :: ComplianceUploadType -&gt; ComplianceUploadType -&gt; Bool
 $c== :: ComplianceUploadType -&gt; ComplianceUploadType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679791852"><span id="local-6989586621679791854"><span id="local-6989586621679791856"><span id="local-6989586621679791858"><span id="local-6989586621679791860"><span id="local-6989586621679791862"><span id="local-6989586621679791864"><span class="annot"><span class="annottext">Eq ComplianceUploadType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679791861"><span id="local-6989586621679791863"><span id="local-6989586621679791865"><span id="local-6989586621679791867"><span id="local-6989586621679791869"><span id="local-6989586621679791871"><span id="local-6989586621679791873"><span class="annot"><span class="annottext">Eq ComplianceUploadType
 Eq ComplianceUploadType
 -&gt; (ComplianceUploadType -&gt; ComplianceUploadType -&gt; Ordering)
 -&gt; (ComplianceUploadType -&gt; ComplianceUploadType -&gt; Bool)
@@ -140,7 +140,7 @@ $cfrom :: forall x. ComplianceUploadType -&gt; Rep ComplianceUploadType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679791844"><span id="local-6989586621679791846"><span class="annot"><span class="annottext">Int -&gt; ComplianceUploadType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679791853"><span id="local-6989586621679791855"><span class="annot"><span class="annottext">Int -&gt; ComplianceUploadType -&gt; Int
 ComplianceUploadType -&gt; Int
 (Int -&gt; ComplianceUploadType -&gt; Int)
 -&gt; (ComplianceUploadType -&gt; Int) -&gt; Hashable ComplianceUploadType
@@ -150,54 +150,54 @@ $chash :: ComplianceUploadType -&gt; Int
 hashWithSalt :: Int -&gt; ComplianceUploadType -&gt; Int
 $chashWithSalt :: Int -&gt; ComplianceUploadType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679791841"><span class="annot"><span class="annottext">ComplianceUploadType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679791850"><span class="annot"><span class="annottext">ComplianceUploadType -&gt; ()
 (ComplianceUploadType -&gt; ()) -&gt; NFData ComplianceUploadType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ComplianceUploadType -&gt; ()
 $crnf :: ComplianceUploadType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679791838"><span class="annot"><span class="annottext">Text -&gt; Either String ComplianceUploadType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679791847"><span class="annot"><span class="annottext">Text -&gt; Either String ComplianceUploadType
 (Text -&gt; Either String ComplianceUploadType)
 -&gt; FromText ComplianceUploadType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ComplianceUploadType
 $cfromText :: Text -&gt; Either String ComplianceUploadType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679791835"><span class="annot"><span class="annottext">ComplianceUploadType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679791844"><span class="annot"><span class="annottext">ComplianceUploadType -&gt; Text
 (ComplianceUploadType -&gt; Text) -&gt; ToText ComplianceUploadType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ComplianceUploadType -&gt; Text
 $ctoText :: ComplianceUploadType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679791832"><span class="annot"><span class="annottext">ComplianceUploadType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679791841"><span class="annot"><span class="annottext">ComplianceUploadType -&gt; ByteString
 (ComplianceUploadType -&gt; ByteString)
 -&gt; ToByteString ComplianceUploadType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ComplianceUploadType -&gt; ByteString
 $ctoBS :: ComplianceUploadType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679791829"><span class="annot"><span class="annottext">ComplianceUploadType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679791838"><span class="annot"><span class="annottext">ComplianceUploadType -&gt; ByteStringBuilder
 (ComplianceUploadType -&gt; ByteStringBuilder)
 -&gt; ToLog ComplianceUploadType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ComplianceUploadType -&gt; ByteStringBuilder
 $cbuild :: ComplianceUploadType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679791826"><span class="annot"><span class="annottext">HeaderName -&gt; ComplianceUploadType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679791835"><span class="annot"><span class="annottext">HeaderName -&gt; ComplianceUploadType -&gt; [Header]
 (HeaderName -&gt; ComplianceUploadType -&gt; [Header])
 -&gt; ToHeader ComplianceUploadType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ComplianceUploadType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ComplianceUploadType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679791823"><span class="annot"><span class="annottext">ComplianceUploadType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679791832"><span class="annot"><span class="annottext">ComplianceUploadType -&gt; QueryString
 (ComplianceUploadType -&gt; QueryString)
 -&gt; ToQuery ComplianceUploadType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ComplianceUploadType -&gt; QueryString
 $ctoQuery :: ComplianceUploadType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679791818"><span id="local-6989586621679791820"><span class="annot"><span class="annottext">Value -&gt; Parser [ComplianceUploadType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679791827"><span id="local-6989586621679791829"><span class="annot"><span class="annottext">Value -&gt; Parser [ComplianceUploadType]
 Value -&gt; Parser ComplianceUploadType
 (Value -&gt; Parser ComplianceUploadType)
 -&gt; (Value -&gt; Parser [ComplianceUploadType])
@@ -209,7 +209,7 @@ $cparseJSONList :: Value -&gt; Parser [ComplianceUploadType]
 parseJSON :: Value -&gt; Parser ComplianceUploadType
 $cparseJSON :: Value -&gt; Parser ComplianceUploadType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679791813"><span id="local-6989586621679791815"><span class="annot"><span class="annottext">FromJSONKeyFunction [ComplianceUploadType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679791822"><span id="local-6989586621679791824"><span class="annot"><span class="annottext">FromJSONKeyFunction [ComplianceUploadType]
 FromJSONKeyFunction ComplianceUploadType
 FromJSONKeyFunction ComplianceUploadType
 -&gt; FromJSONKeyFunction [ComplianceUploadType]
@@ -221,7 +221,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ComplianceUploadType]
 fromJSONKey :: FromJSONKeyFunction ComplianceUploadType
 $cfromJSONKey :: FromJSONKeyFunction ComplianceUploadType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679791804"><span id="local-6989586621679791806"><span id="local-6989586621679791808"><span id="local-6989586621679791810"><span class="annot"><span class="annottext">[ComplianceUploadType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679791813"><span id="local-6989586621679791815"><span id="local-6989586621679791817"><span id="local-6989586621679791819"><span class="annot"><span class="annottext">[ComplianceUploadType] -&gt; Encoding
 [ComplianceUploadType] -&gt; Value
 ComplianceUploadType -&gt; Encoding
 ComplianceUploadType -&gt; Value
@@ -245,7 +245,7 @@ $ctoEncoding :: ComplianceUploadType -&gt; Encoding
 toJSON :: ComplianceUploadType -&gt; Value
 $ctoJSON :: ComplianceUploadType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679791799"><span id="local-6989586621679791801"><span class="annot"><span class="annottext">ToJSONKeyFunction [ComplianceUploadType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679791808"><span id="local-6989586621679791810"><span class="annot"><span class="annottext">ToJSONKeyFunction [ComplianceUploadType]
 ToJSONKeyFunction ComplianceUploadType
 ToJSONKeyFunction ComplianceUploadType
 -&gt; ToJSONKeyFunction [ComplianceUploadType]
@@ -257,14 +257,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ComplianceUploadType]
 toJSONKey :: ToJSONKeyFunction ComplianceUploadType
 $ctoJSONKey :: ToJSONKeyFunction ComplianceUploadType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679791796"><span class="annot"><span class="annottext">[Node] -&gt; Either String ComplianceUploadType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679791805"><span class="annot"><span class="annottext">[Node] -&gt; Either String ComplianceUploadType
 ([Node] -&gt; Either String ComplianceUploadType)
 -&gt; FromXML ComplianceUploadType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ComplianceUploadType
 $cparseXML :: [Node] -&gt; Either String ComplianceUploadType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679791793"><span class="annot"><span class="annottext">ComplianceUploadType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679791802"><span class="annot"><span class="annottext">ComplianceUploadType -&gt; XML
 (ComplianceUploadType -&gt; XML) -&gt; ToXML ComplianceUploadType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ComplianceUploadType -&gt; XML

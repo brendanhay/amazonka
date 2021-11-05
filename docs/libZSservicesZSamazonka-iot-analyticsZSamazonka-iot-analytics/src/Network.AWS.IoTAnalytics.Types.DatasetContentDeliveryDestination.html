@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | The destination to which dataset contents are delivered.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newDatasetContentDeliveryDestination' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679258813"><span id="local-6989586621679258814"></span></span><span class="hs-keyword">data</span><span> </span><span id="DatasetContentDeliveryDestination"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentDeliveryDestination.html#DatasetContentDeliveryDestination"><span class="hs-identifier hs-var">DatasetContentDeliveryDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DatasetContentDeliveryDestination%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentDeliveryDestination.html#DatasetContentDeliveryDestination%27"><span class="hs-identifier hs-var">DatasetContentDeliveryDestination'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679258822"><span id="local-6989586621679258823"></span></span><span class="hs-keyword">data</span><span> </span><span id="DatasetContentDeliveryDestination"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentDeliveryDestination.html#DatasetContentDeliveryDestination"><span class="hs-identifier hs-var">DatasetContentDeliveryDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DatasetContentDeliveryDestination%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentDeliveryDestination.html#DatasetContentDeliveryDestination%27"><span class="hs-identifier hs-var">DatasetContentDeliveryDestination'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Configuration information for delivery of dataset contents to Amazon S3.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3As3DestinationConfiguration%3ADatasetContentDeliveryDestination%27"><span class="annot"><span class="annottext">DatasetContentDeliveryDestination
 -&gt; Maybe S3DestinationConfiguration
@@ -39,7 +39,7 @@
 -&gt; Maybe IotEventsDestinationConfiguration
 </span><a href="Network.AWS.IoTAnalytics.Types.DatasetContentDeliveryDestination.html#%24sel%3AiotEventsDestinationConfiguration%3ADatasetContentDeliveryDestination%27"><span class="hs-identifier hs-var hs-var">iotEventsDestinationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.IotEventsDestinationConfiguration.html#IotEventsDestinationConfiguration"><span class="hs-identifier hs-type">IotEventsDestinationConfiguration</span></a></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679258806"><span id="local-6989586621679258808"><span class="annot"><span class="annottext">DatasetContentDeliveryDestination
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679258815"><span id="local-6989586621679258817"><span class="annot"><span class="annottext">DatasetContentDeliveryDestination
 -&gt; DatasetContentDeliveryDestination -&gt; Bool
 (DatasetContentDeliveryDestination
  -&gt; DatasetContentDeliveryDestination -&gt; Bool)
@@ -55,7 +55,7 @@ $c/= :: DatasetContentDeliveryDestination
 -&gt; DatasetContentDeliveryDestination -&gt; Bool
 $c== :: DatasetContentDeliveryDestination
 -&gt; DatasetContentDeliveryDestination -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258797"><span id="local-6989586621679258799"><span id="local-6989586621679258801"><span id="local-6989586621679258803"><span class="annot"><span class="annottext">ReadPrec [DatasetContentDeliveryDestination]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258806"><span id="local-6989586621679258808"><span id="local-6989586621679258810"><span id="local-6989586621679258812"><span class="annot"><span class="annottext">ReadPrec [DatasetContentDeliveryDestination]
 ReadPrec DatasetContentDeliveryDestination
 Int -&gt; ReadS DatasetContentDeliveryDestination
 ReadS [DatasetContentDeliveryDestination]
@@ -75,7 +75,7 @@ readList :: ReadS [DatasetContentDeliveryDestination]
 $creadList :: ReadS [DatasetContentDeliveryDestination]
 readsPrec :: Int -&gt; ReadS DatasetContentDeliveryDestination
 $creadsPrec :: Int -&gt; ReadS DatasetContentDeliveryDestination
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258790"><span id="local-6989586621679258792"><span id="local-6989586621679258794"><span class="annot"><span class="annottext">Int -&gt; DatasetContentDeliveryDestination -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258799"><span id="local-6989586621679258801"><span id="local-6989586621679258803"><span class="annot"><span class="annottext">Int -&gt; DatasetContentDeliveryDestination -&gt; ShowS
 [DatasetContentDeliveryDestination] -&gt; ShowS
 DatasetContentDeliveryDestination -&gt; String
 (Int -&gt; DatasetContentDeliveryDestination -&gt; ShowS)
@@ -162,17 +162,17 @@ forall a. Maybe a
      (Maybe S3DestinationConfiguration)
      (Maybe S3DestinationConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentDeliveryDestination.html#DatasetContentDeliveryDestination%27"><span class="hs-identifier hs-type">DatasetContentDeliveryDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258781"><span class="annot"><span class="annottext">Maybe S3DestinationConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentDeliveryDestination.html#DatasetContentDeliveryDestination%27"><span class="hs-identifier hs-type">DatasetContentDeliveryDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258790"><span class="annot"><span class="annottext">Maybe S3DestinationConfiguration
 s3DestinationConfiguration :: Maybe S3DestinationConfiguration
 $sel:s3DestinationConfiguration:DatasetContentDeliveryDestination' :: DatasetContentDeliveryDestination
 -&gt; Maybe S3DestinationConfiguration
-</span><a href="#local-6989586621679258781"><span class="hs-identifier hs-var hs-var">s3DestinationConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3DestinationConfiguration
-</span><a href="#local-6989586621679258781"><span class="hs-identifier hs-var">s3DestinationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258780"><span class="annot"><span class="annottext">s :: DatasetContentDeliveryDestination
-</span><a href="#local-6989586621679258780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentDeliveryDestination.html#DatasetContentDeliveryDestination%27"><span class="hs-identifier hs-type">DatasetContentDeliveryDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258779"><span class="annot"><span class="annottext">Maybe S3DestinationConfiguration
-</span><a href="#local-6989586621679258779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetContentDeliveryDestination
-</span><a href="#local-6989586621679258780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3DestinationConfiguration:DatasetContentDeliveryDestination' :: Maybe S3DestinationConfiguration
+</span><a href="#local-6989586621679258790"><span class="hs-identifier hs-var hs-var">s3DestinationConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3DestinationConfiguration
+</span><a href="#local-6989586621679258790"><span class="hs-identifier hs-var">s3DestinationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258789"><span class="annot"><span class="annottext">s :: DatasetContentDeliveryDestination
+</span><a href="#local-6989586621679258789"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentDeliveryDestination.html#DatasetContentDeliveryDestination%27"><span class="hs-identifier hs-type">DatasetContentDeliveryDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258788"><span class="annot"><span class="annottext">Maybe S3DestinationConfiguration
+</span><a href="#local-6989586621679258788"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetContentDeliveryDestination
+</span><a href="#local-6989586621679258789"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3DestinationConfiguration:DatasetContentDeliveryDestination' :: Maybe S3DestinationConfiguration
 </span><a href="Network.AWS.IoTAnalytics.Types.DatasetContentDeliveryDestination.html#%24sel%3As3DestinationConfiguration%3ADatasetContentDeliveryDestination%27"><span class="hs-identifier hs-var">s3DestinationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3DestinationConfiguration
-</span><a href="#local-6989586621679258779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentDeliveryDestination.html#DatasetContentDeliveryDestination"><span class="hs-identifier hs-type">DatasetContentDeliveryDestination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679258788"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentDeliveryDestination.html#DatasetContentDeliveryDestination"><span class="hs-identifier hs-type">DatasetContentDeliveryDestination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | Configuration information for delivery of dataset contents to IoT</span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- Events.</span><span>
@@ -192,23 +192,23 @@ $sel:s3DestinationConfiguration:DatasetContentDeliveryDestination' :: DatasetCon
      (Maybe IotEventsDestinationConfiguration)
      (Maybe IotEventsDestinationConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentDeliveryDestination.html#DatasetContentDeliveryDestination%27"><span class="hs-identifier hs-type">DatasetContentDeliveryDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258777"><span class="annot"><span class="annottext">Maybe IotEventsDestinationConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentDeliveryDestination.html#DatasetContentDeliveryDestination%27"><span class="hs-identifier hs-type">DatasetContentDeliveryDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258786"><span class="annot"><span class="annottext">Maybe IotEventsDestinationConfiguration
 iotEventsDestinationConfiguration :: Maybe IotEventsDestinationConfiguration
 $sel:iotEventsDestinationConfiguration:DatasetContentDeliveryDestination' :: DatasetContentDeliveryDestination
 -&gt; Maybe IotEventsDestinationConfiguration
-</span><a href="#local-6989586621679258777"><span class="hs-identifier hs-var hs-var">iotEventsDestinationConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IotEventsDestinationConfiguration
-</span><a href="#local-6989586621679258777"><span class="hs-identifier hs-var">iotEventsDestinationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258776"><span class="annot"><span class="annottext">s :: DatasetContentDeliveryDestination
-</span><a href="#local-6989586621679258776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentDeliveryDestination.html#DatasetContentDeliveryDestination%27"><span class="hs-identifier hs-type">DatasetContentDeliveryDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258775"><span class="annot"><span class="annottext">Maybe IotEventsDestinationConfiguration
-</span><a href="#local-6989586621679258775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetContentDeliveryDestination
-</span><a href="#local-6989586621679258776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iotEventsDestinationConfiguration:DatasetContentDeliveryDestination' :: Maybe IotEventsDestinationConfiguration
+</span><a href="#local-6989586621679258786"><span class="hs-identifier hs-var hs-var">iotEventsDestinationConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IotEventsDestinationConfiguration
+</span><a href="#local-6989586621679258786"><span class="hs-identifier hs-var">iotEventsDestinationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258785"><span class="annot"><span class="annottext">s :: DatasetContentDeliveryDestination
+</span><a href="#local-6989586621679258785"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentDeliveryDestination.html#DatasetContentDeliveryDestination%27"><span class="hs-identifier hs-type">DatasetContentDeliveryDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258784"><span class="annot"><span class="annottext">Maybe IotEventsDestinationConfiguration
+</span><a href="#local-6989586621679258784"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatasetContentDeliveryDestination
+</span><a href="#local-6989586621679258785"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iotEventsDestinationConfiguration:DatasetContentDeliveryDestination' :: Maybe IotEventsDestinationConfiguration
 </span><a href="Network.AWS.IoTAnalytics.Types.DatasetContentDeliveryDestination.html#%24sel%3AiotEventsDestinationConfiguration%3ADatasetContentDeliveryDestination%27"><span class="hs-identifier hs-var">iotEventsDestinationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IotEventsDestinationConfiguration
-</span><a href="#local-6989586621679258775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentDeliveryDestination.html#DatasetContentDeliveryDestination"><span class="hs-identifier hs-type">DatasetContentDeliveryDestination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679258784"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentDeliveryDestination.html#DatasetContentDeliveryDestination"><span class="hs-identifier hs-type">DatasetContentDeliveryDestination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679258772"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679258781"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentDeliveryDestination.html#DatasetContentDeliveryDestination"><span class="hs-identifier hs-type">DatasetContentDeliveryDestination</span></a></span></span><span>
 </span><span id="line-74"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679258770"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DatasetContentDeliveryDestination
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679258779"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DatasetContentDeliveryDestination
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DatasetContentDeliveryDestination)
@@ -218,8 +218,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DatasetContentDeliveryDestination&quot;</span></span><span>
-</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679258767"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679258767"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679258776"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679258776"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Maybe S3DestinationConfiguration
 -&gt; Maybe IotEventsDestinationConfiguration
 -&gt; DatasetContentDeliveryDestination
@@ -233,7 +233,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; DatasetContentDeliveryDestination)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679258767"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3DestinationConfiguration)
+</span><a href="#local-6989586621679258776"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3DestinationConfiguration)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;s3DestinationConfiguration&quot;</span></span><span class="hs-special">)</span><span>
@@ -244,26 +244,26 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser DatasetContentDeliveryDestination
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679258767"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe IotEventsDestinationConfiguration)
+</span><a href="#local-6989586621679258776"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe IotEventsDestinationConfiguration)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;iotEventsDestinationConfiguration&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679258761"><span id="local-6989586621679258763"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679258770"><span id="local-6989586621679258772"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentDeliveryDestination.html#DatasetContentDeliveryDestination"><span class="hs-identifier hs-type">DatasetContentDeliveryDestination</span></a></span></span></span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679258758"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679258767"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-90"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentDeliveryDestination.html#DatasetContentDeliveryDestination"><span class="hs-identifier hs-type">DatasetContentDeliveryDestination</span></a></span></span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679258750"><span id="local-6989586621679258752"><span id="local-6989586621679258754"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679258759"><span id="local-6989586621679258761"><span id="local-6989586621679258763"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentDeliveryDestination.html#DatasetContentDeliveryDestination"><span class="hs-identifier hs-type">DatasetContentDeliveryDestination</span></a></span></span></span></span><span>
 </span><span id="line-95"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679258748"><span class="annot"><span class="annottext">toJSON :: DatasetContentDeliveryDestination -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentDeliveryDestination.html#DatasetContentDeliveryDestination%27"><span class="hs-identifier hs-type">DatasetContentDeliveryDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258745"><span id="local-6989586621679258746"><span class="annot"><span class="annottext">Maybe IotEventsDestinationConfiguration
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679258757"><span class="annot"><span class="annottext">toJSON :: DatasetContentDeliveryDestination -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentDeliveryDestination.html#DatasetContentDeliveryDestination%27"><span class="hs-identifier hs-type">DatasetContentDeliveryDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258754"><span id="local-6989586621679258755"><span class="annot"><span class="annottext">Maybe IotEventsDestinationConfiguration
 Maybe S3DestinationConfiguration
 iotEventsDestinationConfiguration :: Maybe IotEventsDestinationConfiguration
 s3DestinationConfiguration :: Maybe S3DestinationConfiguration
@@ -271,7 +271,7 @@ $sel:iotEventsDestinationConfiguration:DatasetContentDeliveryDestination' :: Dat
 -&gt; Maybe IotEventsDestinationConfiguration
 $sel:s3DestinationConfiguration:DatasetContentDeliveryDestination' :: DatasetContentDeliveryDestination
 -&gt; Maybe S3DestinationConfiguration
-</span><a href="#local-6989586621679258745"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679258754"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -285,7 +285,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe S3DestinationConfiguration -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe S3DestinationConfiguration
-</span><a href="#local-6989586621679258746"><span class="hs-identifier hs-var">s3DestinationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679258755"><span class="hs-identifier hs-var">s3DestinationConfiguration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;iotEventsDestinationConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; IotEventsDestinationConfiguration -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -294,7 +294,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe IotEventsDestinationConfiguration -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe IotEventsDestinationConfiguration
-</span><a href="#local-6989586621679258745"><span class="hs-identifier hs-var">iotEventsDestinationConfiguration</span></a></span><span>
+</span><a href="#local-6989586621679258754"><span class="hs-identifier hs-var">iotEventsDestinationConfiguration</span></a></span><span>
 </span><span id="line-103"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span></pre></body></html>

@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes the operations that are allowed on a maintenance track.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newSupportedOperation' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679498616"><span id="local-6989586621679498617"></span></span><span class="hs-keyword">data</span><span> </span><span id="SupportedOperation"><span class="annot"><a href="Network.AWS.Redshift.Types.SupportedOperation.html#SupportedOperation"><span class="hs-identifier hs-var">SupportedOperation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SupportedOperation%27"><span class="annot"><a href="Network.AWS.Redshift.Types.SupportedOperation.html#SupportedOperation%27"><span class="hs-identifier hs-var">SupportedOperation'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679498625"><span id="local-6989586621679498626"></span></span><span class="hs-keyword">data</span><span> </span><span id="SupportedOperation"><span class="annot"><a href="Network.AWS.Redshift.Types.SupportedOperation.html#SupportedOperation"><span class="hs-identifier hs-var">SupportedOperation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SupportedOperation%27"><span class="annot"><a href="Network.AWS.Redshift.Types.SupportedOperation.html#SupportedOperation%27"><span class="hs-identifier hs-var">SupportedOperation'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of the supported operations.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AoperationName%3ASupportedOperation%27"><span class="annot"><span class="annottext">SupportedOperation -&gt; Maybe Text
 </span><a href="Network.AWS.Redshift.Types.SupportedOperation.html#%24sel%3AoperationName%3ASupportedOperation%27"><span class="hs-identifier hs-var hs-var">operationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679498610"><span id="local-6989586621679498612"><span class="annot"><span class="annottext">SupportedOperation -&gt; SupportedOperation -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679498619"><span id="local-6989586621679498621"><span class="annot"><span class="annottext">SupportedOperation -&gt; SupportedOperation -&gt; Bool
 (SupportedOperation -&gt; SupportedOperation -&gt; Bool)
 -&gt; (SupportedOperation -&gt; SupportedOperation -&gt; Bool)
 -&gt; Eq SupportedOperation
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SupportedOperation -&gt; SupportedOperation -&gt; Bool
 == :: SupportedOperation -&gt; SupportedOperation -&gt; Bool
 $c== :: SupportedOperation -&gt; SupportedOperation -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679498601"><span id="local-6989586621679498603"><span id="local-6989586621679498605"><span id="local-6989586621679498607"><span class="annot"><span class="annottext">ReadPrec [SupportedOperation]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679498610"><span id="local-6989586621679498612"><span id="local-6989586621679498614"><span id="local-6989586621679498616"><span class="annot"><span class="annottext">ReadPrec [SupportedOperation]
 ReadPrec SupportedOperation
 Int -&gt; ReadS SupportedOperation
 ReadS [SupportedOperation]
@@ -61,7 +61,7 @@ readList :: ReadS [SupportedOperation]
 $creadList :: ReadS [SupportedOperation]
 readsPrec :: Int -&gt; ReadS SupportedOperation
 $creadsPrec :: Int -&gt; ReadS SupportedOperation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679498594"><span id="local-6989586621679498596"><span id="local-6989586621679498598"><span class="annot"><span class="annottext">Int -&gt; SupportedOperation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679498603"><span id="local-6989586621679498605"><span id="local-6989586621679498607"><span class="annot"><span class="annottext">Int -&gt; SupportedOperation -&gt; ShowS
 [SupportedOperation] -&gt; ShowS
 SupportedOperation -&gt; String
 (Int -&gt; SupportedOperation -&gt; ShowS)
@@ -118,33 +118,33 @@ forall a. Maybe a
 -&gt; Lens
      SupportedOperation SupportedOperation (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.SupportedOperation.html#SupportedOperation%27"><span class="hs-identifier hs-type">SupportedOperation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679498585"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.SupportedOperation.html#SupportedOperation%27"><span class="hs-identifier hs-type">SupportedOperation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679498594"><span class="annot"><span class="annottext">Maybe Text
 operationName :: Maybe Text
 $sel:operationName:SupportedOperation' :: SupportedOperation -&gt; Maybe Text
-</span><a href="#local-6989586621679498585"><span class="hs-identifier hs-var hs-var">operationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679498585"><span class="hs-identifier hs-var">operationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679498584"><span class="annot"><span class="annottext">s :: SupportedOperation
-</span><a href="#local-6989586621679498584"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.SupportedOperation.html#SupportedOperation%27"><span class="hs-identifier hs-type">SupportedOperation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679498583"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679498583"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SupportedOperation
-</span><a href="#local-6989586621679498584"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operationName:SupportedOperation' :: Maybe Text
+</span><a href="#local-6989586621679498594"><span class="hs-identifier hs-var hs-var">operationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679498594"><span class="hs-identifier hs-var">operationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679498593"><span class="annot"><span class="annottext">s :: SupportedOperation
+</span><a href="#local-6989586621679498593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.SupportedOperation.html#SupportedOperation%27"><span class="hs-identifier hs-type">SupportedOperation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679498592"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679498592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SupportedOperation
+</span><a href="#local-6989586621679498593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operationName:SupportedOperation' :: Maybe Text
 </span><a href="Network.AWS.Redshift.Types.SupportedOperation.html#%24sel%3AoperationName%3ASupportedOperation%27"><span class="hs-identifier hs-var">operationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679498583"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.SupportedOperation.html#SupportedOperation"><span class="hs-identifier hs-type">SupportedOperation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679498592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.SupportedOperation.html#SupportedOperation"><span class="hs-identifier hs-type">SupportedOperation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.SupportedOperation.html#SupportedOperation"><span class="hs-identifier hs-type">SupportedOperation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-58"></span><span>  </span><span id="local-6989586621679498580"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String SupportedOperation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679498578"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679498578"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621679498589"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String SupportedOperation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679498587"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679498587"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; SupportedOperation
 </span><a href="Network.AWS.Redshift.Types.SupportedOperation.html#SupportedOperation%27"><span class="hs-identifier hs-var">SupportedOperation'</span></a></span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; SupportedOperation)
 -&gt; Either String (Maybe Text) -&gt; Either String SupportedOperation
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679498578"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679498587"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OperationName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679498572"><span id="local-6989586621679498574"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.SupportedOperation.html#SupportedOperation"><span class="hs-identifier hs-type">SupportedOperation</span></a></span></span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679498581"><span id="local-6989586621679498583"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.SupportedOperation.html#SupportedOperation"><span class="hs-identifier hs-type">SupportedOperation</span></a></span></span></span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679498569"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.SupportedOperation.html#SupportedOperation"><span class="hs-identifier hs-type">SupportedOperation</span></a></span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679498578"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.SupportedOperation.html#SupportedOperation"><span class="hs-identifier hs-type">SupportedOperation</span></a></span></span><span>
 </span><span id="line-65"></span></pre></body></html>

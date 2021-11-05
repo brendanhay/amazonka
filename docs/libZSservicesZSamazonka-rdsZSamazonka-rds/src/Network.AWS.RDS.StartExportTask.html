@@ -67,7 +67,7 @@
 </span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | /See:/ 'newStartExportTask' smart constructor.</span><span>
-</span><span id="line-70"></span><span id="local-6989586621679774756"><span id="local-6989586621679774757"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartExportTask"><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask"><span class="hs-identifier hs-var">StartExportTask</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartExportTask%27"><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask%27"><span class="hs-identifier hs-var">StartExportTask'</span></a></span></span><span>
+</span><span id="line-70"></span><span id="local-6989586621679774765"><span id="local-6989586621679774766"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartExportTask"><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask"><span class="hs-identifier hs-var">StartExportTask</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartExportTask%27"><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask%27"><span class="hs-identifier hs-var">StartExportTask'</span></a></span></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The data to be exported from the snapshot. If this parameter is not</span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-comment">-- provided, all the snapshot data is exported. Valid values are the</span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-comment">-- following:</span><span>
@@ -133,7 +133,7 @@
 </span><span id="line-127"></span><span>    </span><span id="%24sel%3AkmsKeyId%3AStartExportTask%27"><span class="annot"><span class="annottext">StartExportTask -&gt; Text
 </span><a href="Network.AWS.RDS.StartExportTask.html#%24sel%3AkmsKeyId%3AStartExportTask%27"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-128"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-129"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679774744"><span id="local-6989586621679774746"><span class="annot"><span class="annottext">StartExportTask -&gt; StartExportTask -&gt; Bool
+</span><span id="line-129"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679774753"><span id="local-6989586621679774755"><span class="annot"><span class="annottext">StartExportTask -&gt; StartExportTask -&gt; Bool
 (StartExportTask -&gt; StartExportTask -&gt; Bool)
 -&gt; (StartExportTask -&gt; StartExportTask -&gt; Bool)
 -&gt; Eq StartExportTask
@@ -142,7 +142,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StartExportTask -&gt; StartExportTask -&gt; Bool
 == :: StartExportTask -&gt; StartExportTask -&gt; Bool
 $c== :: StartExportTask -&gt; StartExportTask -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679774735"><span id="local-6989586621679774737"><span id="local-6989586621679774739"><span id="local-6989586621679774741"><span class="annot"><span class="annottext">ReadPrec [StartExportTask]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679774744"><span id="local-6989586621679774746"><span id="local-6989586621679774748"><span id="local-6989586621679774750"><span class="annot"><span class="annottext">ReadPrec [StartExportTask]
 ReadPrec StartExportTask
 Int -&gt; ReadS StartExportTask
 ReadS [StartExportTask]
@@ -162,7 +162,7 @@ readList :: ReadS [StartExportTask]
 $creadList :: ReadS [StartExportTask]
 readsPrec :: Int -&gt; ReadS StartExportTask
 $creadsPrec :: Int -&gt; ReadS StartExportTask
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679774728"><span id="local-6989586621679774730"><span id="local-6989586621679774732"><span class="annot"><span class="annottext">Int -&gt; StartExportTask -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679774737"><span id="local-6989586621679774739"><span id="local-6989586621679774741"><span class="annot"><span class="annottext">Int -&gt; StartExportTask -&gt; ShowS
 [StartExportTask] -&gt; ShowS
 StartExportTask -&gt; String
 (Int -&gt; StartExportTask -&gt; ShowS)
@@ -266,16 +266,16 @@ $cfrom :: forall x. StartExportTask -&gt; Rep StartExportTask x
 </span><span id="line-206"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask"><span class="hs-identifier hs-type">StartExportTask</span></a></span><span>
 </span><span id="line-207"></span><span id="newStartExportTask"><span class="annot"><span class="annottext">newStartExportTask :: Text -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; StartExportTask
 </span><a href="Network.AWS.RDS.StartExportTask.html#newStartExportTask"><span class="hs-identifier hs-var hs-var">newStartExportTask</span></a></span></span><span>
-</span><span id="line-208"></span><span>  </span><span id="local-6989586621679774723"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679774723"><span class="hs-identifier hs-var">pExportTaskIdentifier_</span></a></span></span><span>
-</span><span id="line-209"></span><span>  </span><span id="local-6989586621679774722"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679774722"><span class="hs-identifier hs-var">pSourceArn_</span></a></span></span><span>
-</span><span id="line-210"></span><span>  </span><span id="local-6989586621679774721"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679774721"><span class="hs-identifier hs-var">pS3BucketName_</span></a></span></span><span>
-</span><span id="line-211"></span><span>  </span><span id="local-6989586621679774720"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679774720"><span class="hs-identifier hs-var">pIamRoleArn_</span></a></span></span><span>
-</span><span id="line-212"></span><span>  </span><span id="local-6989586621679774719"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679774719"><span class="hs-identifier hs-var">pKmsKeyId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679774732"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679774732"><span class="hs-identifier hs-var">pExportTaskIdentifier_</span></a></span></span><span>
+</span><span id="line-209"></span><span>  </span><span id="local-6989586621679774731"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679774731"><span class="hs-identifier hs-var">pSourceArn_</span></a></span></span><span>
+</span><span id="line-210"></span><span>  </span><span id="local-6989586621679774730"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679774730"><span class="hs-identifier hs-var">pS3BucketName_</span></a></span></span><span>
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621679774729"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679774729"><span class="hs-identifier hs-var">pIamRoleArn_</span></a></span></span><span>
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621679774728"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679774728"><span class="hs-identifier hs-var">pKmsKeyId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-213"></span><span>    </span><span class="annot"><span class="annottext">StartExportTask' :: Maybe [Text]
 -&gt; Maybe Text
 -&gt; Text
@@ -295,19 +295,19 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-216"></span><span>        </span><span class="annot"><span class="annottext">$sel:exportTaskIdentifier:StartExportTask' :: Text
 </span><a href="Network.AWS.RDS.StartExportTask.html#%24sel%3AexportTaskIdentifier%3AStartExportTask%27"><span class="hs-identifier hs-var">exportTaskIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679774723"><span class="hs-identifier hs-var">pExportTaskIdentifier_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679774732"><span class="hs-identifier hs-var">pExportTaskIdentifier_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-217"></span><span>        </span><span class="annot"><span class="annottext">$sel:sourceArn:StartExportTask' :: Text
 </span><a href="Network.AWS.RDS.StartExportTask.html#%24sel%3AsourceArn%3AStartExportTask%27"><span class="hs-identifier hs-var">sourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679774722"><span class="hs-identifier hs-var">pSourceArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679774731"><span class="hs-identifier hs-var">pSourceArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-218"></span><span>        </span><span class="annot"><span class="annottext">$sel:s3BucketName:StartExportTask' :: Text
 </span><a href="Network.AWS.RDS.StartExportTask.html#%24sel%3As3BucketName%3AStartExportTask%27"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679774721"><span class="hs-identifier hs-var">pS3BucketName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679774730"><span class="hs-identifier hs-var">pS3BucketName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-219"></span><span>        </span><span class="annot"><span class="annottext">$sel:iamRoleArn:StartExportTask' :: Text
 </span><a href="Network.AWS.RDS.StartExportTask.html#%24sel%3AiamRoleArn%3AStartExportTask%27"><span class="hs-identifier hs-var">iamRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679774720"><span class="hs-identifier hs-var">pIamRoleArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679774729"><span class="hs-identifier hs-var">pIamRoleArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-220"></span><span>        </span><span class="annot"><span class="annottext">$sel:kmsKeyId:StartExportTask' :: Text
 </span><a href="Network.AWS.RDS.StartExportTask.html#%24sel%3AkmsKeyId%3AStartExportTask%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679774719"><span class="hs-identifier hs-var">pKmsKeyId_</span></a></span><span>
+</span><a href="#local-6989586621679774728"><span class="hs-identifier hs-var">pKmsKeyId_</span></a></span><span>
 </span><span id="line-221"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-222"></span><span>
 </span><span id="line-223"></span><span class="hs-comment">-- | The data to be exported from the snapshot. If this parameter is not</span><span>
@@ -335,16 +335,16 @@ forall a. Maybe a
 -&gt; Lens
      StartExportTask StartExportTask (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask%27"><span class="hs-identifier hs-type">StartExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774716"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask%27"><span class="hs-identifier hs-type">StartExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774725"><span class="annot"><span class="annottext">Maybe [Text]
 exportOnly :: Maybe [Text]
 $sel:exportOnly:StartExportTask' :: StartExportTask -&gt; Maybe [Text]
-</span><a href="#local-6989586621679774716"><span class="hs-identifier hs-var hs-var">exportOnly</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679774716"><span class="hs-identifier hs-var">exportOnly</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774715"><span class="annot"><span class="annottext">s :: StartExportTask
-</span><a href="#local-6989586621679774715"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask%27"><span class="hs-identifier hs-type">StartExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679774714"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679774714"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartExportTask
-</span><a href="#local-6989586621679774715"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportOnly:StartExportTask' :: Maybe [Text]
+</span><a href="#local-6989586621679774725"><span class="hs-identifier hs-var hs-var">exportOnly</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679774725"><span class="hs-identifier hs-var">exportOnly</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774724"><span class="annot"><span class="annottext">s :: StartExportTask
+</span><a href="#local-6989586621679774724"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask%27"><span class="hs-identifier hs-type">StartExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679774723"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679774723"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartExportTask
+</span><a href="#local-6989586621679774724"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportOnly:StartExportTask' :: Maybe [Text]
 </span><a href="Network.AWS.RDS.StartExportTask.html#%24sel%3AexportOnly%3AStartExportTask%27"><span class="hs-identifier hs-var">exportOnly</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679774714"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask"><span class="hs-identifier hs-type">StartExportTask</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679774723"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask"><span class="hs-identifier hs-type">StartExportTask</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; StartExportTask -&gt; f StartExportTask)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -370,16 +370,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (StartExportTask -&gt; Maybe Text -&gt; StartExportTask)
 -&gt; Lens StartExportTask StartExportTask (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask%27"><span class="hs-identifier hs-type">StartExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774710"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask%27"><span class="hs-identifier hs-type">StartExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774719"><span class="annot"><span class="annottext">Maybe Text
 s3Prefix :: Maybe Text
 $sel:s3Prefix:StartExportTask' :: StartExportTask -&gt; Maybe Text
-</span><a href="#local-6989586621679774710"><span class="hs-identifier hs-var hs-var">s3Prefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679774710"><span class="hs-identifier hs-var">s3Prefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774709"><span class="annot"><span class="annottext">s :: StartExportTask
-</span><a href="#local-6989586621679774709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask%27"><span class="hs-identifier hs-type">StartExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679774708"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679774708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartExportTask
-</span><a href="#local-6989586621679774709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Prefix:StartExportTask' :: Maybe Text
+</span><a href="#local-6989586621679774719"><span class="hs-identifier hs-var hs-var">s3Prefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679774719"><span class="hs-identifier hs-var">s3Prefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774718"><span class="annot"><span class="annottext">s :: StartExportTask
+</span><a href="#local-6989586621679774718"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask%27"><span class="hs-identifier hs-type">StartExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679774717"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679774717"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartExportTask
+</span><a href="#local-6989586621679774718"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Prefix:StartExportTask' :: Maybe Text
 </span><a href="Network.AWS.RDS.StartExportTask.html#%24sel%3As3Prefix%3AStartExportTask%27"><span class="hs-identifier hs-var">s3Prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679774708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask"><span class="hs-identifier hs-type">StartExportTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679774717"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask"><span class="hs-identifier hs-type">StartExportTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-247"></span><span>
 </span><span id="line-248"></span><span class="hs-comment">-- | A unique identifier for the snapshot export task. This ID isn\'t an</span><span>
 </span><span id="line-249"></span><span class="hs-comment">-- identifier for the Amazon S3 bucket where the snapshot is to be exported</span><span>
@@ -390,16 +390,16 @@ $sel:s3Prefix:StartExportTask' :: StartExportTask -&gt; Maybe Text
 -&gt; (StartExportTask -&gt; Text -&gt; StartExportTask)
 -&gt; Lens StartExportTask StartExportTask Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask%27"><span class="hs-identifier hs-type">StartExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774707"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask%27"><span class="hs-identifier hs-type">StartExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774716"><span class="annot"><span class="annottext">Text
 exportTaskIdentifier :: Text
 $sel:exportTaskIdentifier:StartExportTask' :: StartExportTask -&gt; Text
-</span><a href="#local-6989586621679774707"><span class="hs-identifier hs-var hs-var">exportTaskIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679774707"><span class="hs-identifier hs-var">exportTaskIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774706"><span class="annot"><span class="annottext">s :: StartExportTask
-</span><a href="#local-6989586621679774706"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask%27"><span class="hs-identifier hs-type">StartExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679774705"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679774705"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartExportTask
-</span><a href="#local-6989586621679774706"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportTaskIdentifier:StartExportTask' :: Text
+</span><a href="#local-6989586621679774716"><span class="hs-identifier hs-var hs-var">exportTaskIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679774716"><span class="hs-identifier hs-var">exportTaskIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774715"><span class="annot"><span class="annottext">s :: StartExportTask
+</span><a href="#local-6989586621679774715"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask%27"><span class="hs-identifier hs-type">StartExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679774714"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679774714"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartExportTask
+</span><a href="#local-6989586621679774715"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportTaskIdentifier:StartExportTask' :: Text
 </span><a href="Network.AWS.RDS.StartExportTask.html#%24sel%3AexportTaskIdentifier%3AStartExportTask%27"><span class="hs-identifier hs-var">exportTaskIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679774705"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask"><span class="hs-identifier hs-type">StartExportTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679774714"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask"><span class="hs-identifier hs-type">StartExportTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-253"></span><span>
 </span><span id="line-254"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the snapshot to export to Amazon S3.</span><span>
 </span><span id="line-255"></span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#startExportTask_sourceArn"><span class="hs-identifier hs-type">startExportTask_sourceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask"><span class="hs-identifier hs-type">StartExportTask</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -408,16 +408,16 @@ $sel:exportTaskIdentifier:StartExportTask' :: StartExportTask -&gt; Text
 -&gt; (StartExportTask -&gt; Text -&gt; StartExportTask)
 -&gt; Lens StartExportTask StartExportTask Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask%27"><span class="hs-identifier hs-type">StartExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774704"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask%27"><span class="hs-identifier hs-type">StartExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774713"><span class="annot"><span class="annottext">Text
 sourceArn :: Text
 $sel:sourceArn:StartExportTask' :: StartExportTask -&gt; Text
-</span><a href="#local-6989586621679774704"><span class="hs-identifier hs-var hs-var">sourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679774704"><span class="hs-identifier hs-var">sourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774703"><span class="annot"><span class="annottext">s :: StartExportTask
-</span><a href="#local-6989586621679774703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask%27"><span class="hs-identifier hs-type">StartExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679774702"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679774702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartExportTask
-</span><a href="#local-6989586621679774703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceArn:StartExportTask' :: Text
+</span><a href="#local-6989586621679774713"><span class="hs-identifier hs-var hs-var">sourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679774713"><span class="hs-identifier hs-var">sourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774712"><span class="annot"><span class="annottext">s :: StartExportTask
+</span><a href="#local-6989586621679774712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask%27"><span class="hs-identifier hs-type">StartExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679774711"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679774711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartExportTask
+</span><a href="#local-6989586621679774712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceArn:StartExportTask' :: Text
 </span><a href="Network.AWS.RDS.StartExportTask.html#%24sel%3AsourceArn%3AStartExportTask%27"><span class="hs-identifier hs-var">sourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679774702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask"><span class="hs-identifier hs-type">StartExportTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679774711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask"><span class="hs-identifier hs-type">StartExportTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-257"></span><span>
 </span><span id="line-258"></span><span class="hs-comment">-- | The name of the Amazon S3 bucket to export the snapshot to.</span><span>
 </span><span id="line-259"></span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#startExportTask_s3BucketName"><span class="hs-identifier hs-type">startExportTask_s3BucketName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask"><span class="hs-identifier hs-type">StartExportTask</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -426,16 +426,16 @@ $sel:sourceArn:StartExportTask' :: StartExportTask -&gt; Text
 -&gt; (StartExportTask -&gt; Text -&gt; StartExportTask)
 -&gt; Lens StartExportTask StartExportTask Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask%27"><span class="hs-identifier hs-type">StartExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774701"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask%27"><span class="hs-identifier hs-type">StartExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774710"><span class="annot"><span class="annottext">Text
 s3BucketName :: Text
 $sel:s3BucketName:StartExportTask' :: StartExportTask -&gt; Text
-</span><a href="#local-6989586621679774701"><span class="hs-identifier hs-var hs-var">s3BucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679774701"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774700"><span class="annot"><span class="annottext">s :: StartExportTask
-</span><a href="#local-6989586621679774700"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask%27"><span class="hs-identifier hs-type">StartExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679774699"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679774699"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartExportTask
-</span><a href="#local-6989586621679774700"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3BucketName:StartExportTask' :: Text
+</span><a href="#local-6989586621679774710"><span class="hs-identifier hs-var hs-var">s3BucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679774710"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774709"><span class="annot"><span class="annottext">s :: StartExportTask
+</span><a href="#local-6989586621679774709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask%27"><span class="hs-identifier hs-type">StartExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679774708"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679774708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartExportTask
+</span><a href="#local-6989586621679774709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3BucketName:StartExportTask' :: Text
 </span><a href="Network.AWS.RDS.StartExportTask.html#%24sel%3As3BucketName%3AStartExportTask%27"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679774699"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask"><span class="hs-identifier hs-type">StartExportTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679774708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask"><span class="hs-identifier hs-type">StartExportTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-261"></span><span>
 </span><span id="line-262"></span><span class="hs-comment">-- | The name of the IAM role to use for writing to the Amazon S3 bucket when</span><span>
 </span><span id="line-263"></span><span class="hs-comment">-- exporting a snapshot.</span><span>
@@ -445,16 +445,16 @@ $sel:s3BucketName:StartExportTask' :: StartExportTask -&gt; Text
 -&gt; (StartExportTask -&gt; Text -&gt; StartExportTask)
 -&gt; Lens StartExportTask StartExportTask Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask%27"><span class="hs-identifier hs-type">StartExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774698"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask%27"><span class="hs-identifier hs-type">StartExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774707"><span class="annot"><span class="annottext">Text
 iamRoleArn :: Text
 $sel:iamRoleArn:StartExportTask' :: StartExportTask -&gt; Text
-</span><a href="#local-6989586621679774698"><span class="hs-identifier hs-var hs-var">iamRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679774698"><span class="hs-identifier hs-var">iamRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774697"><span class="annot"><span class="annottext">s :: StartExportTask
-</span><a href="#local-6989586621679774697"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask%27"><span class="hs-identifier hs-type">StartExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679774696"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679774696"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartExportTask
-</span><a href="#local-6989586621679774697"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iamRoleArn:StartExportTask' :: Text
+</span><a href="#local-6989586621679774707"><span class="hs-identifier hs-var hs-var">iamRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679774707"><span class="hs-identifier hs-var">iamRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774706"><span class="annot"><span class="annottext">s :: StartExportTask
+</span><a href="#local-6989586621679774706"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask%27"><span class="hs-identifier hs-type">StartExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679774705"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679774705"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartExportTask
+</span><a href="#local-6989586621679774706"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iamRoleArn:StartExportTask' :: Text
 </span><a href="Network.AWS.RDS.StartExportTask.html#%24sel%3AiamRoleArn%3AStartExportTask%27"><span class="hs-identifier hs-var">iamRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679774696"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask"><span class="hs-identifier hs-type">StartExportTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679774705"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask"><span class="hs-identifier hs-type">StartExportTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-266"></span><span>
 </span><span id="line-267"></span><span class="hs-comment">-- | The ID of the Amazon Web Services KMS customer master key (CMK) to use</span><span>
 </span><span id="line-268"></span><span class="hs-comment">-- to encrypt the snapshot exported to Amazon S3. The Amazon Web Services</span><span>
@@ -486,25 +486,25 @@ $sel:iamRoleArn:StartExportTask' :: StartExportTask -&gt; Text
 -&gt; (StartExportTask -&gt; Text -&gt; StartExportTask)
 -&gt; Lens StartExportTask StartExportTask Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask%27"><span class="hs-identifier hs-type">StartExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774695"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask%27"><span class="hs-identifier hs-type">StartExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774704"><span class="annot"><span class="annottext">Text
 kmsKeyId :: Text
 $sel:kmsKeyId:StartExportTask' :: StartExportTask -&gt; Text
-</span><a href="#local-6989586621679774695"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679774695"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774694"><span class="annot"><span class="annottext">s :: StartExportTask
-</span><a href="#local-6989586621679774694"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask%27"><span class="hs-identifier hs-type">StartExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679774693"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679774693"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartExportTask
-</span><a href="#local-6989586621679774694"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyId:StartExportTask' :: Text
+</span><a href="#local-6989586621679774704"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679774704"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774703"><span class="annot"><span class="annottext">s :: StartExportTask
+</span><a href="#local-6989586621679774703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask%27"><span class="hs-identifier hs-type">StartExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679774702"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679774702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartExportTask
+</span><a href="#local-6989586621679774703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyId:StartExportTask' :: Text
 </span><a href="Network.AWS.RDS.StartExportTask.html#%24sel%3AkmsKeyId%3AStartExportTask%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679774693"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask"><span class="hs-identifier hs-type">StartExportTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679774702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask"><span class="hs-identifier hs-type">StartExportTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-293"></span><span>
 </span><span id="line-294"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask"><span class="hs-identifier hs-type">StartExportTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-295"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask"><span class="hs-identifier hs-type">StartExportTask</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ExportTask.html#ExportTask"><span class="hs-identifier hs-type">ExportTask</span></a></span><span>
-</span><span id="line-296"></span><span>  </span><span id="local-6989586621679774689"><span class="annot"><span class="annottext">request :: StartExportTask -&gt; Request StartExportTask
+</span><span id="line-296"></span><span>  </span><span id="local-6989586621679774698"><span class="annot"><span class="annottext">request :: StartExportTask -&gt; Request StartExportTask
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StartExportTask -&gt; Request StartExportTask
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-297"></span><span>  </span><span id="local-6989586621679774685"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-297"></span><span>  </span><span id="local-6989586621679774694"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StartExportTask
 -&gt; ClientResponse ClientBody
@@ -533,20 +533,20 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-299"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StartExportTaskResult&quot;</span></span><span>
-</span><span id="line-300"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774682"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679774682"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679774681"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679774681"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679774680"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679774680"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String ExportTask
+</span><span id="line-300"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774691"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679774691"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679774690"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679774690"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679774689"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679774689"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String ExportTask
 forall a. FromXML a =&gt; [Node] -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679774680"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679774689"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-301"></span><span>
-</span><span id="line-302"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679774675"><span id="local-6989586621679774677"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask"><span class="hs-identifier hs-type">StartExportTask</span></a></span></span></span><span>
+</span><span id="line-302"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679774684"><span id="local-6989586621679774686"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask"><span class="hs-identifier hs-type">StartExportTask</span></a></span></span></span><span>
 </span><span id="line-303"></span><span>
-</span><span id="line-304"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679774672"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask"><span class="hs-identifier hs-type">StartExportTask</span></a></span></span><span>
+</span><span id="line-304"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679774681"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask"><span class="hs-identifier hs-type">StartExportTask</span></a></span></span><span>
 </span><span id="line-305"></span><span>
 </span><span id="line-306"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask"><span class="hs-identifier hs-type">StartExportTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-307"></span><span>  </span><span id="local-6989586621679774668"><span class="annot"><span class="annottext">toHeaders :: StartExportTask -&gt; ResponseHeaders
+</span><span id="line-307"></span><span>  </span><span id="local-6989586621679774677"><span class="annot"><span class="annottext">toHeaders :: StartExportTask -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StartExportTask -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -554,15 +554,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-308"></span><span>
 </span><span id="line-309"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask"><span class="hs-identifier hs-type">StartExportTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-310"></span><span>  </span><span id="local-6989586621679774663"><span class="annot"><span class="annottext">toPath :: StartExportTask -&gt; ByteString
+</span><span id="line-310"></span><span>  </span><span id="local-6989586621679774672"><span class="annot"><span class="annottext">toPath :: StartExportTask -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StartExportTask -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-311"></span><span>
 </span><span id="line-312"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask"><span class="hs-identifier hs-type">StartExportTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-313"></span><span>  </span><span id="local-6989586621679774659"><span class="annot"><span class="annottext">toQuery :: StartExportTask -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask%27"><span class="hs-identifier hs-type">StartExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774651"><span id="local-6989586621679774652"><span id="local-6989586621679774653"><span id="local-6989586621679774654"><span id="local-6989586621679774655"><span id="local-6989586621679774656"><span id="local-6989586621679774657"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-313"></span><span>  </span><span id="local-6989586621679774668"><span class="annot"><span class="annottext">toQuery :: StartExportTask -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StartExportTask.html#StartExportTask%27"><span class="hs-identifier hs-type">StartExportTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774660"><span id="local-6989586621679774661"><span id="local-6989586621679774662"><span id="local-6989586621679774663"><span id="local-6989586621679774664"><span id="local-6989586621679774665"><span id="local-6989586621679774666"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe Text
 Text
 kmsKeyId :: Text
@@ -579,7 +579,7 @@ $sel:sourceArn:StartExportTask' :: StartExportTask -&gt; Text
 $sel:exportTaskIdentifier:StartExportTask' :: StartExportTask -&gt; Text
 $sel:s3Prefix:StartExportTask' :: StartExportTask -&gt; Maybe Text
 $sel:exportOnly:StartExportTask' :: StartExportTask -&gt; Maybe [Text]
-</span><a href="#local-6989586621679774651"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679774660"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-314"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -610,36 +610,36 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679774657"><span class="hs-identifier hs-var">exportOnly</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679774666"><span class="hs-identifier hs-var">exportOnly</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-322"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;S3Prefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679774656"><span class="hs-identifier hs-var">s3Prefix</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679774665"><span class="hs-identifier hs-var">s3Prefix</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-323"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ExportTaskIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679774655"><span class="hs-identifier hs-var">exportTaskIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679774664"><span class="hs-identifier hs-var">exportTaskIdentifier</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-324"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;SourceArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679774654"><span class="hs-identifier hs-var">sourceArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679774663"><span class="hs-identifier hs-var">sourceArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-325"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;S3BucketName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679774653"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679774662"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-326"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;IamRoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679774652"><span class="hs-identifier hs-var">iamRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679774661"><span class="hs-identifier hs-var">iamRoleArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-327"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;KmsKeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679774651"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span>
+</span><a href="#local-6989586621679774660"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span>
 </span><span id="line-328"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-329"></span></pre></body></html>

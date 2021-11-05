@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AppConfig.Types.ReplicateTo</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AppConfig.Types.ReplicateTo</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.AppConfig.Types.ReplicateTo.html#ReplicateTo"><span class="hs-identifier">ReplicateTo</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.AppConfig.Types.ReplicateTo.html#ReplicateTo_NONE"><span class="hs-identifier">ReplicateTo_NONE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.AppConfig.Types.ReplicateTo.html#ReplicateTo_SSM_DOCUMENT"><span class="hs-identifier">ReplicateTo_SSM_DOCUMENT</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679200863"><span id="local-6989586621679200864"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReplicateTo"><span class="annot"><a href="Network.AWS.AppConfig.Types.ReplicateTo.html#ReplicateTo"><span class="hs-identifier hs-var">ReplicateTo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplicateTo%27"><span class="annot"><a href="Network.AWS.AppConfig.Types.ReplicateTo.html#ReplicateTo%27"><span class="hs-identifier hs-var">ReplicateTo'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromReplicateTo"><span class="annot"><span class="annottext">ReplicateTo -&gt; Text
+</span><a href="Network.AWS.AppConfig.Types.ReplicateTo.html#fromReplicateTo"><span class="hs-identifier hs-var hs-var">fromReplicateTo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679200855"><span id="local-6989586621679200857"><span id="local-6989586621679200859"><span class="annot"><span class="annottext">Int -&gt; ReplicateTo -&gt; ShowS
+[ReplicateTo] -&gt; ShowS
+ReplicateTo -&gt; String
+(Int -&gt; ReplicateTo -&gt; ShowS)
+-&gt; (ReplicateTo -&gt; String)
+-&gt; ([ReplicateTo] -&gt; ShowS)
+-&gt; Show ReplicateTo
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ReplicateTo] -&gt; ShowS
+$cshowList :: [ReplicateTo] -&gt; ShowS
+show :: ReplicateTo -&gt; String
+$cshow :: ReplicateTo -&gt; String
+showsPrec :: Int -&gt; ReplicateTo -&gt; ShowS
+$cshowsPrec :: Int -&gt; ReplicateTo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679200846"><span id="local-6989586621679200848"><span id="local-6989586621679200850"><span id="local-6989586621679200852"><span class="annot"><span class="annottext">ReadPrec [ReplicateTo]
+ReadPrec ReplicateTo
+Int -&gt; ReadS ReplicateTo
+ReadS [ReplicateTo]
+(Int -&gt; ReadS ReplicateTo)
+-&gt; ReadS [ReplicateTo]
+-&gt; ReadPrec ReplicateTo
+-&gt; ReadPrec [ReplicateTo]
+-&gt; Read ReplicateTo
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ReplicateTo]
+$creadListPrec :: ReadPrec [ReplicateTo]
+readPrec :: ReadPrec ReplicateTo
+$creadPrec :: ReadPrec ReplicateTo
+readList :: ReadS [ReplicateTo]
+$creadList :: ReadS [ReplicateTo]
+readsPrec :: Int -&gt; ReadS ReplicateTo
+$creadsPrec :: Int -&gt; ReadS ReplicateTo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679200841"><span id="local-6989586621679200843"><span class="annot"><span class="annottext">ReplicateTo -&gt; ReplicateTo -&gt; Bool
+(ReplicateTo -&gt; ReplicateTo -&gt; Bool)
+-&gt; (ReplicateTo -&gt; ReplicateTo -&gt; Bool) -&gt; Eq ReplicateTo
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ReplicateTo -&gt; ReplicateTo -&gt; Bool
+$c/= :: ReplicateTo -&gt; ReplicateTo -&gt; Bool
+== :: ReplicateTo -&gt; ReplicateTo -&gt; Bool
+$c== :: ReplicateTo -&gt; ReplicateTo -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679200825"><span id="local-6989586621679200827"><span id="local-6989586621679200829"><span id="local-6989586621679200831"><span id="local-6989586621679200833"><span id="local-6989586621679200835"><span id="local-6989586621679200837"><span class="annot"><span class="annottext">Eq ReplicateTo
+Eq ReplicateTo
+-&gt; (ReplicateTo -&gt; ReplicateTo -&gt; Ordering)
+-&gt; (ReplicateTo -&gt; ReplicateTo -&gt; Bool)
+-&gt; (ReplicateTo -&gt; ReplicateTo -&gt; Bool)
+-&gt; (ReplicateTo -&gt; ReplicateTo -&gt; Bool)
+-&gt; (ReplicateTo -&gt; ReplicateTo -&gt; Bool)
+-&gt; (ReplicateTo -&gt; ReplicateTo -&gt; ReplicateTo)
+-&gt; (ReplicateTo -&gt; ReplicateTo -&gt; ReplicateTo)
+-&gt; Ord ReplicateTo
+ReplicateTo -&gt; ReplicateTo -&gt; Bool
+ReplicateTo -&gt; ReplicateTo -&gt; Ordering
+ReplicateTo -&gt; ReplicateTo -&gt; ReplicateTo
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ReplicateTo -&gt; ReplicateTo -&gt; ReplicateTo
+$cmin :: ReplicateTo -&gt; ReplicateTo -&gt; ReplicateTo
+max :: ReplicateTo -&gt; ReplicateTo -&gt; ReplicateTo
+$cmax :: ReplicateTo -&gt; ReplicateTo -&gt; ReplicateTo
+&gt;= :: ReplicateTo -&gt; ReplicateTo -&gt; Bool
+$c&gt;= :: ReplicateTo -&gt; ReplicateTo -&gt; Bool
+&gt; :: ReplicateTo -&gt; ReplicateTo -&gt; Bool
+$c&gt; :: ReplicateTo -&gt; ReplicateTo -&gt; Bool
+&lt;= :: ReplicateTo -&gt; ReplicateTo -&gt; Bool
+$c&lt;= :: ReplicateTo -&gt; ReplicateTo -&gt; Bool
+&lt; :: ReplicateTo -&gt; ReplicateTo -&gt; Bool
+$c&lt; :: ReplicateTo -&gt; ReplicateTo -&gt; Bool
+compare :: ReplicateTo -&gt; ReplicateTo -&gt; Ordering
+$ccompare :: ReplicateTo -&gt; ReplicateTo -&gt; Ordering
+$cp1Ord :: Eq ReplicateTo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ReplicateTo -&gt; Rep ReplicateTo x)
+-&gt; (forall x. Rep ReplicateTo x -&gt; ReplicateTo)
+-&gt; Generic ReplicateTo
+forall x. Rep ReplicateTo x -&gt; ReplicateTo
+forall x. ReplicateTo -&gt; Rep ReplicateTo x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ReplicateTo x -&gt; ReplicateTo
+$cfrom :: forall x. ReplicateTo -&gt; Rep ReplicateTo x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679200817"><span id="local-6989586621679200819"><span class="annot"><span class="annottext">Int -&gt; ReplicateTo -&gt; Int
+ReplicateTo -&gt; Int
+(Int -&gt; ReplicateTo -&gt; Int)
+-&gt; (ReplicateTo -&gt; Int) -&gt; Hashable ReplicateTo
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ReplicateTo -&gt; Int
+$chash :: ReplicateTo -&gt; Int
+hashWithSalt :: Int -&gt; ReplicateTo -&gt; Int
+$chashWithSalt :: Int -&gt; ReplicateTo -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679200814"><span class="annot"><span class="annottext">ReplicateTo -&gt; ()
+(ReplicateTo -&gt; ()) -&gt; NFData ReplicateTo
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ReplicateTo -&gt; ()
+$crnf :: ReplicateTo -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679200811"><span class="annot"><span class="annottext">Text -&gt; Either String ReplicateTo
+(Text -&gt; Either String ReplicateTo) -&gt; FromText ReplicateTo
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ReplicateTo
+$cfromText :: Text -&gt; Either String ReplicateTo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679200808"><span class="annot"><span class="annottext">ReplicateTo -&gt; Text
+(ReplicateTo -&gt; Text) -&gt; ToText ReplicateTo
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ReplicateTo -&gt; Text
+$ctoText :: ReplicateTo -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679200805"><span class="annot"><span class="annottext">ReplicateTo -&gt; ByteString
+(ReplicateTo -&gt; ByteString) -&gt; ToByteString ReplicateTo
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ReplicateTo -&gt; ByteString
+$ctoBS :: ReplicateTo -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679200802"><span class="annot"><span class="annottext">ReplicateTo -&gt; ByteStringBuilder
+(ReplicateTo -&gt; ByteStringBuilder) -&gt; ToLog ReplicateTo
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ReplicateTo -&gt; ByteStringBuilder
+$cbuild :: ReplicateTo -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679200799"><span class="annot"><span class="annottext">HeaderName -&gt; ReplicateTo -&gt; [Header]
+(HeaderName -&gt; ReplicateTo -&gt; [Header]) -&gt; ToHeader ReplicateTo
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ReplicateTo -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ReplicateTo -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679200796"><span class="annot"><span class="annottext">ReplicateTo -&gt; QueryString
+(ReplicateTo -&gt; QueryString) -&gt; ToQuery ReplicateTo
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ReplicateTo -&gt; QueryString
+$ctoQuery :: ReplicateTo -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679200791"><span id="local-6989586621679200793"><span class="annot"><span class="annottext">Value -&gt; Parser [ReplicateTo]
+Value -&gt; Parser ReplicateTo
+(Value -&gt; Parser ReplicateTo)
+-&gt; (Value -&gt; Parser [ReplicateTo]) -&gt; FromJSON ReplicateTo
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ReplicateTo]
+$cparseJSONList :: Value -&gt; Parser [ReplicateTo]
+parseJSON :: Value -&gt; Parser ReplicateTo
+$cparseJSON :: Value -&gt; Parser ReplicateTo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679200786"><span id="local-6989586621679200788"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReplicateTo]
+FromJSONKeyFunction ReplicateTo
+FromJSONKeyFunction ReplicateTo
+-&gt; FromJSONKeyFunction [ReplicateTo] -&gt; FromJSONKey ReplicateTo
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ReplicateTo]
+$cfromJSONKeyList :: FromJSONKeyFunction [ReplicateTo]
+fromJSONKey :: FromJSONKeyFunction ReplicateTo
+$cfromJSONKey :: FromJSONKeyFunction ReplicateTo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679200777"><span id="local-6989586621679200779"><span id="local-6989586621679200781"><span id="local-6989586621679200783"><span class="annot"><span class="annottext">[ReplicateTo] -&gt; Encoding
+[ReplicateTo] -&gt; Value
+ReplicateTo -&gt; Encoding
+ReplicateTo -&gt; Value
+(ReplicateTo -&gt; Value)
+-&gt; (ReplicateTo -&gt; Encoding)
+-&gt; ([ReplicateTo] -&gt; Value)
+-&gt; ([ReplicateTo] -&gt; Encoding)
+-&gt; ToJSON ReplicateTo
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ReplicateTo] -&gt; Encoding
+$ctoEncodingList :: [ReplicateTo] -&gt; Encoding
+toJSONList :: [ReplicateTo] -&gt; Value
+$ctoJSONList :: [ReplicateTo] -&gt; Value
+toEncoding :: ReplicateTo -&gt; Encoding
+$ctoEncoding :: ReplicateTo -&gt; Encoding
+toJSON :: ReplicateTo -&gt; Value
+$ctoJSON :: ReplicateTo -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679200772"><span id="local-6989586621679200774"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReplicateTo]
+ToJSONKeyFunction ReplicateTo
+ToJSONKeyFunction ReplicateTo
+-&gt; ToJSONKeyFunction [ReplicateTo] -&gt; ToJSONKey ReplicateTo
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ReplicateTo]
+$ctoJSONKeyList :: ToJSONKeyFunction [ReplicateTo]
+toJSONKey :: ToJSONKeyFunction ReplicateTo
+$ctoJSONKey :: ToJSONKeyFunction ReplicateTo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679200769"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReplicateTo
+([Node] -&gt; Either String ReplicateTo) -&gt; FromXML ReplicateTo
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ReplicateTo
+$cparseXML :: [Node] -&gt; Either String ReplicateTo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679200766"><span class="annot"><span class="annottext">ReplicateTo -&gt; XML
+(ReplicateTo -&gt; XML) -&gt; ToXML ReplicateTo
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ReplicateTo -&gt; XML
+$ctoXML :: ReplicateTo -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppConfig.Types.ReplicateTo.html#ReplicateTo_NONE"><span class="hs-identifier hs-type">ReplicateTo_NONE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppConfig.Types.ReplicateTo.html#ReplicateTo"><span class="hs-identifier hs-type">ReplicateTo</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReplicateTo_NONE"><span id="%24mReplicateTo_NONE"><span id="ReplicateTo_NONE"><span class="annot"><span class="annottext">$bReplicateTo_NONE :: ReplicateTo
+$mReplicateTo_NONE :: forall r. ReplicateTo -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppConfig.Types.ReplicateTo.html#%24bReplicateTo_NONE"><span class="hs-identifier hs-var hs-var hs-var">ReplicateTo_NONE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppConfig.Types.ReplicateTo.html#ReplicateTo%27"><span class="hs-identifier hs-type">ReplicateTo'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NONE&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppConfig.Types.ReplicateTo.html#ReplicateTo_SSM_DOCUMENT"><span class="hs-identifier hs-type">ReplicateTo_SSM_DOCUMENT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppConfig.Types.ReplicateTo.html#ReplicateTo"><span class="hs-identifier hs-type">ReplicateTo</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReplicateTo_SSM_DOCUMENT"><span id="%24mReplicateTo_SSM_DOCUMENT"><span id="ReplicateTo_SSM_DOCUMENT"><span class="annot"><span class="annottext">$bReplicateTo_SSM_DOCUMENT :: ReplicateTo
+$mReplicateTo_SSM_DOCUMENT :: forall r. ReplicateTo -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppConfig.Types.ReplicateTo.html#%24bReplicateTo_SSM_DOCUMENT"><span class="hs-identifier hs-var hs-var hs-var">ReplicateTo_SSM_DOCUMENT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppConfig.Types.ReplicateTo.html#ReplicateTo%27"><span class="hs-identifier hs-type">ReplicateTo'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SSM_DOCUMENT&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.AppConfig.Types.ReplicateTo.html#ReplicateTo_NONE"><span class="hs-pragma hs-type">ReplicateTo_NONE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.AppConfig.Types.ReplicateTo.html#ReplicateTo_SSM_DOCUMENT"><span class="hs-pragma hs-type">ReplicateTo_SSM_DOCUMENT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.AppConfig.Types.ReplicateTo.html#ReplicateTo%27"><span class="hs-pragma hs-type">ReplicateTo'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

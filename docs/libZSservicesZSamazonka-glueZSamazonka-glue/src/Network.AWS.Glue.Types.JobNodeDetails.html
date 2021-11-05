@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The details of a Job node present in the workflow.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newJobNodeDetails' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679706486"><span id="local-6989586621679706487"></span></span><span class="hs-keyword">data</span><span> </span><span id="JobNodeDetails"><span class="annot"><a href="Network.AWS.Glue.Types.JobNodeDetails.html#JobNodeDetails"><span class="hs-identifier hs-var">JobNodeDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobNodeDetails%27"><span class="annot"><a href="Network.AWS.Glue.Types.JobNodeDetails.html#JobNodeDetails%27"><span class="hs-identifier hs-var">JobNodeDetails'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679706495"><span id="local-6989586621679706496"></span></span><span class="hs-keyword">data</span><span> </span><span id="JobNodeDetails"><span class="annot"><a href="Network.AWS.Glue.Types.JobNodeDetails.html#JobNodeDetails"><span class="hs-identifier hs-var">JobNodeDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobNodeDetails%27"><span class="annot"><a href="Network.AWS.Glue.Types.JobNodeDetails.html#JobNodeDetails%27"><span class="hs-identifier hs-var">JobNodeDetails'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The information for the job runs represented by the job node.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AjobRuns%3AJobNodeDetails%27"><span class="annot"><span class="annottext">JobNodeDetails -&gt; Maybe [JobRun]
 </span><a href="Network.AWS.Glue.Types.JobNodeDetails.html#%24sel%3AjobRuns%3AJobNodeDetails%27"><span class="hs-identifier hs-var hs-var">jobRuns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.JobRun.html#JobRun"><span class="hs-identifier hs-type">JobRun</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679706480"><span id="local-6989586621679706482"><span class="annot"><span class="annottext">JobNodeDetails -&gt; JobNodeDetails -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679706489"><span id="local-6989586621679706491"><span class="annot"><span class="annottext">JobNodeDetails -&gt; JobNodeDetails -&gt; Bool
 (JobNodeDetails -&gt; JobNodeDetails -&gt; Bool)
 -&gt; (JobNodeDetails -&gt; JobNodeDetails -&gt; Bool) -&gt; Eq JobNodeDetails
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: JobNodeDetails -&gt; JobNodeDetails -&gt; Bool
 == :: JobNodeDetails -&gt; JobNodeDetails -&gt; Bool
 $c== :: JobNodeDetails -&gt; JobNodeDetails -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679706471"><span id="local-6989586621679706473"><span id="local-6989586621679706475"><span id="local-6989586621679706477"><span class="annot"><span class="annottext">ReadPrec [JobNodeDetails]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679706480"><span id="local-6989586621679706482"><span id="local-6989586621679706484"><span id="local-6989586621679706486"><span class="annot"><span class="annottext">ReadPrec [JobNodeDetails]
 ReadPrec JobNodeDetails
 Int -&gt; ReadS JobNodeDetails
 ReadS [JobNodeDetails]
@@ -60,7 +60,7 @@ readList :: ReadS [JobNodeDetails]
 $creadList :: ReadS [JobNodeDetails]
 readsPrec :: Int -&gt; ReadS JobNodeDetails
 $creadsPrec :: Int -&gt; ReadS JobNodeDetails
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679706464"><span id="local-6989586621679706466"><span id="local-6989586621679706468"><span class="annot"><span class="annottext">Int -&gt; JobNodeDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679706473"><span id="local-6989586621679706475"><span id="local-6989586621679706477"><span class="annot"><span class="annottext">Int -&gt; JobNodeDetails -&gt; ShowS
 [JobNodeDetails] -&gt; ShowS
 JobNodeDetails -&gt; String
 (Int -&gt; JobNodeDetails -&gt; ShowS)
@@ -114,16 +114,16 @@ forall a. Maybe a
 -&gt; Lens
      JobNodeDetails JobNodeDetails (Maybe [JobRun]) (Maybe [JobRun])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.JobNodeDetails.html#JobNodeDetails%27"><span class="hs-identifier hs-type">JobNodeDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679706455"><span class="annot"><span class="annottext">Maybe [JobRun]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.JobNodeDetails.html#JobNodeDetails%27"><span class="hs-identifier hs-type">JobNodeDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679706464"><span class="annot"><span class="annottext">Maybe [JobRun]
 jobRuns :: Maybe [JobRun]
 $sel:jobRuns:JobNodeDetails' :: JobNodeDetails -&gt; Maybe [JobRun]
-</span><a href="#local-6989586621679706455"><span class="hs-identifier hs-var hs-var">jobRuns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [JobRun]
-</span><a href="#local-6989586621679706455"><span class="hs-identifier hs-var">jobRuns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679706454"><span class="annot"><span class="annottext">s :: JobNodeDetails
-</span><a href="#local-6989586621679706454"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.JobNodeDetails.html#JobNodeDetails%27"><span class="hs-identifier hs-type">JobNodeDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679706453"><span class="annot"><span class="annottext">Maybe [JobRun]
-</span><a href="#local-6989586621679706453"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobNodeDetails
-</span><a href="#local-6989586621679706454"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobRuns:JobNodeDetails' :: Maybe [JobRun]
+</span><a href="#local-6989586621679706464"><span class="hs-identifier hs-var hs-var">jobRuns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [JobRun]
+</span><a href="#local-6989586621679706464"><span class="hs-identifier hs-var">jobRuns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679706463"><span class="annot"><span class="annottext">s :: JobNodeDetails
+</span><a href="#local-6989586621679706463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.JobNodeDetails.html#JobNodeDetails%27"><span class="hs-identifier hs-type">JobNodeDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679706462"><span class="annot"><span class="annottext">Maybe [JobRun]
+</span><a href="#local-6989586621679706462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobNodeDetails
+</span><a href="#local-6989586621679706463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobRuns:JobNodeDetails' :: Maybe [JobRun]
 </span><a href="Network.AWS.Glue.Types.JobNodeDetails.html#%24sel%3AjobRuns%3AJobNodeDetails%27"><span class="hs-identifier hs-var">jobRuns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [JobRun]
-</span><a href="#local-6989586621679706453"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JobNodeDetails.html#JobNodeDetails"><span class="hs-identifier hs-type">JobNodeDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [JobRun] -&gt; f (Maybe [JobRun]))
+</span><a href="#local-6989586621679706462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JobNodeDetails.html#JobNodeDetails"><span class="hs-identifier hs-type">JobNodeDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [JobRun] -&gt; f (Maybe [JobRun]))
  -&gt; JobNodeDetails -&gt; f JobNodeDetails)
 -&gt; ((Maybe [JobRun] -&gt; f (Maybe [JobRun]))
     -&gt; Maybe [JobRun] -&gt; f (Maybe [JobRun]))
@@ -141,8 +141,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-53"></span><span>
-</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679706447"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JobNodeDetails.html#JobNodeDetails"><span class="hs-identifier hs-type">JobNodeDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621679706445"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JobNodeDetails
+</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679706456"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JobNodeDetails.html#JobNodeDetails"><span class="hs-identifier hs-type">JobNodeDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679706454"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JobNodeDetails
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser JobNodeDetails)
@@ -152,15 +152,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;JobNodeDetails&quot;</span></span><span>
-</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679706442"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679706442"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679706451"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679706451"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>          </span><span class="annot"><span class="annottext">Maybe [JobRun] -&gt; JobNodeDetails
 </span><a href="Network.AWS.Glue.Types.JobNodeDetails.html#JobNodeDetails%27"><span class="hs-identifier hs-var">JobNodeDetails'</span></a></span><span>
 </span><span id="line-60"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [JobRun] -&gt; JobNodeDetails)
 -&gt; Parser (Maybe [JobRun]) -&gt; Parser JobNodeDetails
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679706442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [JobRun]))
+</span><a href="#local-6989586621679706451"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [JobRun]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;JobRuns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [JobRun]))
@@ -171,7 +171,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679706435"><span id="local-6989586621679706437"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JobNodeDetails.html#JobNodeDetails"><span class="hs-identifier hs-type">JobNodeDetails</span></a></span></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679706444"><span id="local-6989586621679706446"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JobNodeDetails.html#JobNodeDetails"><span class="hs-identifier hs-type">JobNodeDetails</span></a></span></span></span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679706432"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JobNodeDetails.html#JobNodeDetails"><span class="hs-identifier hs-type">JobNodeDetails</span></a></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679706441"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JobNodeDetails.html#JobNodeDetails"><span class="hs-identifier hs-type">JobNodeDetails</span></a></span></span><span>
 </span><span id="line-66"></span></pre></body></html>

@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Information required for human workers to complete a labeling task.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newHumanTaskConfig' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621680355736"><span id="local-6989586621680355737"></span></span><span class="hs-keyword">data</span><span> </span><span id="HumanTaskConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig"><span class="hs-identifier hs-var">HumanTaskConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HumanTaskConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-var">HumanTaskConfig'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680355745"><span id="local-6989586621680355746"></span></span><span class="hs-keyword">data</span><span> </span><span id="HumanTaskConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig"><span class="hs-identifier hs-var">HumanTaskConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HumanTaskConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-var">HumanTaskConfig'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Keywords used to describe the task so that workers on Amazon Mechanical</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- Turk can discover the task.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AtaskKeywords%3AHumanTaskConfig%27"><span class="annot"><span class="annottext">HumanTaskConfig -&gt; Maybe (NonEmpty Text)
@@ -749,7 +749,7 @@
 </span><span id="line-738"></span><span>    </span><span id="%24sel%3AannotationConsolidationConfig%3AHumanTaskConfig%27"><span class="annot"><span class="annottext">HumanTaskConfig -&gt; AnnotationConsolidationConfig
 </span><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#%24sel%3AannotationConsolidationConfig%3AHumanTaskConfig%27"><span class="hs-identifier hs-var hs-var">annotationConsolidationConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AnnotationConsolidationConfig.html#AnnotationConsolidationConfig"><span class="hs-identifier hs-type">AnnotationConsolidationConfig</span></a></span><span>
 </span><span id="line-739"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-740"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680355719"><span id="local-6989586621680355721"><span class="annot"><span class="annottext">HumanTaskConfig -&gt; HumanTaskConfig -&gt; Bool
+</span><span id="line-740"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680355728"><span id="local-6989586621680355730"><span class="annot"><span class="annottext">HumanTaskConfig -&gt; HumanTaskConfig -&gt; Bool
 (HumanTaskConfig -&gt; HumanTaskConfig -&gt; Bool)
 -&gt; (HumanTaskConfig -&gt; HumanTaskConfig -&gt; Bool)
 -&gt; Eq HumanTaskConfig
@@ -758,7 +758,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: HumanTaskConfig -&gt; HumanTaskConfig -&gt; Bool
 == :: HumanTaskConfig -&gt; HumanTaskConfig -&gt; Bool
 $c== :: HumanTaskConfig -&gt; HumanTaskConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680355710"><span id="local-6989586621680355712"><span id="local-6989586621680355714"><span id="local-6989586621680355716"><span class="annot"><span class="annottext">ReadPrec [HumanTaskConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680355719"><span id="local-6989586621680355721"><span id="local-6989586621680355723"><span id="local-6989586621680355725"><span class="annot"><span class="annottext">ReadPrec [HumanTaskConfig]
 ReadPrec HumanTaskConfig
 Int -&gt; ReadS HumanTaskConfig
 ReadS [HumanTaskConfig]
@@ -778,7 +778,7 @@ readList :: ReadS [HumanTaskConfig]
 $creadList :: ReadS [HumanTaskConfig]
 readsPrec :: Int -&gt; ReadS HumanTaskConfig
 $creadsPrec :: Int -&gt; ReadS HumanTaskConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680355703"><span id="local-6989586621680355705"><span id="local-6989586621680355707"><span class="annot"><span class="annottext">Int -&gt; HumanTaskConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680355712"><span id="local-6989586621680355714"><span id="local-6989586621680355716"><span class="annot"><span class="annottext">Int -&gt; HumanTaskConfig -&gt; ShowS
 [HumanTaskConfig] -&gt; ShowS
 HumanTaskConfig -&gt; String
 (Int -&gt; HumanTaskConfig -&gt; ShowS)
@@ -1545,22 +1545,22 @@ $cfrom :: forall x. HumanTaskConfig -&gt; Rep HumanTaskConfig x
 -&gt; AnnotationConsolidationConfig
 -&gt; HumanTaskConfig
 </span><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#newHumanTaskConfig"><span class="hs-identifier hs-var hs-var">newHumanTaskConfig</span></a></span></span><span>
-</span><span id="line-1474"></span><span>  </span><span id="local-6989586621680355697"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680355697"><span class="hs-identifier hs-var">pWorkteamArn_</span></a></span></span><span>
-</span><span id="line-1475"></span><span>  </span><span id="local-6989586621680355696"><span class="annot"><span class="annottext">UiConfig
-</span><a href="#local-6989586621680355696"><span class="hs-identifier hs-var">pUiConfig_</span></a></span></span><span>
-</span><span id="line-1476"></span><span>  </span><span id="local-6989586621680355695"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680355695"><span class="hs-identifier hs-var">pPreHumanTaskLambdaArn_</span></a></span></span><span>
-</span><span id="line-1477"></span><span>  </span><span id="local-6989586621680355694"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680355694"><span class="hs-identifier hs-var">pTaskTitle_</span></a></span></span><span>
-</span><span id="line-1478"></span><span>  </span><span id="local-6989586621680355693"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680355693"><span class="hs-identifier hs-var">pTaskDescription_</span></a></span></span><span>
-</span><span id="line-1479"></span><span>  </span><span id="local-6989586621680355692"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621680355692"><span class="hs-identifier hs-var">pNumberOfHumanWorkersPerDataObject_</span></a></span></span><span>
-</span><span id="line-1480"></span><span>  </span><span id="local-6989586621680355691"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621680355691"><span class="hs-identifier hs-var">pTaskTimeLimitInSeconds_</span></a></span></span><span>
-</span><span id="line-1481"></span><span>  </span><span id="local-6989586621680355690"><span class="annot"><span class="annottext">AnnotationConsolidationConfig
-</span><a href="#local-6989586621680355690"><span class="hs-identifier hs-var">pAnnotationConsolidationConfig_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-1474"></span><span>  </span><span id="local-6989586621680355706"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680355706"><span class="hs-identifier hs-var">pWorkteamArn_</span></a></span></span><span>
+</span><span id="line-1475"></span><span>  </span><span id="local-6989586621680355705"><span class="annot"><span class="annottext">UiConfig
+</span><a href="#local-6989586621680355705"><span class="hs-identifier hs-var">pUiConfig_</span></a></span></span><span>
+</span><span id="line-1476"></span><span>  </span><span id="local-6989586621680355704"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680355704"><span class="hs-identifier hs-var">pPreHumanTaskLambdaArn_</span></a></span></span><span>
+</span><span id="line-1477"></span><span>  </span><span id="local-6989586621680355703"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680355703"><span class="hs-identifier hs-var">pTaskTitle_</span></a></span></span><span>
+</span><span id="line-1478"></span><span>  </span><span id="local-6989586621680355702"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680355702"><span class="hs-identifier hs-var">pTaskDescription_</span></a></span></span><span>
+</span><span id="line-1479"></span><span>  </span><span id="local-6989586621680355701"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621680355701"><span class="hs-identifier hs-var">pNumberOfHumanWorkersPerDataObject_</span></a></span></span><span>
+</span><span id="line-1480"></span><span>  </span><span id="local-6989586621680355700"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621680355700"><span class="hs-identifier hs-var">pTaskTimeLimitInSeconds_</span></a></span></span><span>
+</span><span id="line-1481"></span><span>  </span><span id="local-6989586621680355699"><span class="annot"><span class="annottext">AnnotationConsolidationConfig
+</span><a href="#local-6989586621680355699"><span class="hs-identifier hs-var">pAnnotationConsolidationConfig_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-1482"></span><span>    </span><span class="annot"><span class="annottext">HumanTaskConfig' :: Maybe (NonEmpty Text)
 -&gt; Maybe PublicWorkforceTaskPrice
 -&gt; Maybe Natural
@@ -1593,30 +1593,30 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-1487"></span><span>        </span><span class="annot"><span class="annottext">$sel:workteamArn:HumanTaskConfig' :: Text
 </span><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#%24sel%3AworkteamArn%3AHumanTaskConfig%27"><span class="hs-identifier hs-var">workteamArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680355697"><span class="hs-identifier hs-var">pWorkteamArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680355706"><span class="hs-identifier hs-var">pWorkteamArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1488"></span><span>        </span><span class="annot"><span class="annottext">$sel:uiConfig:HumanTaskConfig' :: UiConfig
 </span><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#%24sel%3AuiConfig%3AHumanTaskConfig%27"><span class="hs-identifier hs-var">uiConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UiConfig
-</span><a href="#local-6989586621680355696"><span class="hs-identifier hs-var">pUiConfig_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680355705"><span class="hs-identifier hs-var">pUiConfig_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1489"></span><span>        </span><span class="annot"><span class="annottext">$sel:preHumanTaskLambdaArn:HumanTaskConfig' :: Text
 </span><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#%24sel%3ApreHumanTaskLambdaArn%3AHumanTaskConfig%27"><span class="hs-identifier hs-var">preHumanTaskLambdaArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680355695"><span class="hs-identifier hs-var">pPreHumanTaskLambdaArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680355704"><span class="hs-identifier hs-var">pPreHumanTaskLambdaArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1490"></span><span>        </span><span class="annot"><span class="annottext">$sel:taskTitle:HumanTaskConfig' :: Text
 </span><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#%24sel%3AtaskTitle%3AHumanTaskConfig%27"><span class="hs-identifier hs-var">taskTitle</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680355694"><span class="hs-identifier hs-var">pTaskTitle_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680355703"><span class="hs-identifier hs-var">pTaskTitle_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1491"></span><span>        </span><span class="annot"><span class="annottext">$sel:taskDescription:HumanTaskConfig' :: Text
 </span><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#%24sel%3AtaskDescription%3AHumanTaskConfig%27"><span class="hs-identifier hs-var">taskDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680355693"><span class="hs-identifier hs-var">pTaskDescription_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680355702"><span class="hs-identifier hs-var">pTaskDescription_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1492"></span><span>        </span><span class="annot"><span class="annottext">$sel:numberOfHumanWorkersPerDataObject:HumanTaskConfig' :: Natural
 </span><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#%24sel%3AnumberOfHumanWorkersPerDataObject%3AHumanTaskConfig%27"><span class="hs-identifier hs-var">numberOfHumanWorkersPerDataObject</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-1493"></span><span>          </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621680355692"><span class="hs-identifier hs-var">pNumberOfHumanWorkersPerDataObject_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680355701"><span class="hs-identifier hs-var">pNumberOfHumanWorkersPerDataObject_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1494"></span><span>        </span><span class="annot"><span class="annottext">$sel:taskTimeLimitInSeconds:HumanTaskConfig' :: Natural
 </span><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#%24sel%3AtaskTimeLimitInSeconds%3AHumanTaskConfig%27"><span class="hs-identifier hs-var">taskTimeLimitInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621680355691"><span class="hs-identifier hs-var">pTaskTimeLimitInSeconds_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680355700"><span class="hs-identifier hs-var">pTaskTimeLimitInSeconds_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1495"></span><span>        </span><span class="annot"><span class="annottext">$sel:annotationConsolidationConfig:HumanTaskConfig' :: AnnotationConsolidationConfig
 </span><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#%24sel%3AannotationConsolidationConfig%3AHumanTaskConfig%27"><span class="hs-identifier hs-var">annotationConsolidationConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-1496"></span><span>          </span><span class="annot"><span class="annottext">AnnotationConsolidationConfig
-</span><a href="#local-6989586621680355690"><span class="hs-identifier hs-var">pAnnotationConsolidationConfig_</span></a></span><span>
+</span><a href="#local-6989586621680355699"><span class="hs-identifier hs-var">pAnnotationConsolidationConfig_</span></a></span><span>
 </span><span id="line-1497"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-1498"></span><span>
 </span><span id="line-1499"></span><span class="hs-comment">-- | Keywords used to describe the task so that workers on Amazon Mechanical</span><span>
@@ -1632,16 +1632,16 @@ forall a. Maybe a
      (Maybe (NonEmpty Text))
      (Maybe (NonEmpty Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355686"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355695"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 taskKeywords :: Maybe (NonEmpty Text)
 $sel:taskKeywords:HumanTaskConfig' :: HumanTaskConfig -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621680355686"><span class="hs-identifier hs-var hs-var">taskKeywords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621680355686"><span class="hs-identifier hs-var">taskKeywords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680355685"><span class="annot"><span class="annottext">s :: HumanTaskConfig
-</span><a href="#local-6989586621680355685"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680355684"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621680355684"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HumanTaskConfig
-</span><a href="#local-6989586621680355685"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskKeywords:HumanTaskConfig' :: Maybe (NonEmpty Text)
+</span><a href="#local-6989586621680355695"><span class="hs-identifier hs-var hs-var">taskKeywords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621680355695"><span class="hs-identifier hs-var">taskKeywords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680355694"><span class="annot"><span class="annottext">s :: HumanTaskConfig
+</span><a href="#local-6989586621680355694"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680355693"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621680355693"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HumanTaskConfig
+</span><a href="#local-6989586621680355694"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskKeywords:HumanTaskConfig' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#%24sel%3AtaskKeywords%3AHumanTaskConfig%27"><span class="hs-identifier hs-var">taskKeywords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621680355684"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig"><span class="hs-identifier hs-type">HumanTaskConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621680355693"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig"><span class="hs-identifier hs-type">HumanTaskConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
  -&gt; HumanTaskConfig -&gt; f HumanTaskConfig)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
     -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -1679,16 +1679,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe PublicWorkforceTaskPrice)
      (Maybe PublicWorkforceTaskPrice)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355679"><span class="annot"><span class="annottext">Maybe PublicWorkforceTaskPrice
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355688"><span class="annot"><span class="annottext">Maybe PublicWorkforceTaskPrice
 publicWorkforceTaskPrice :: Maybe PublicWorkforceTaskPrice
 $sel:publicWorkforceTaskPrice:HumanTaskConfig' :: HumanTaskConfig -&gt; Maybe PublicWorkforceTaskPrice
-</span><a href="#local-6989586621680355679"><span class="hs-identifier hs-var hs-var">publicWorkforceTaskPrice</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PublicWorkforceTaskPrice
-</span><a href="#local-6989586621680355679"><span class="hs-identifier hs-var">publicWorkforceTaskPrice</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680355678"><span class="annot"><span class="annottext">s :: HumanTaskConfig
-</span><a href="#local-6989586621680355678"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680355677"><span class="annot"><span class="annottext">Maybe PublicWorkforceTaskPrice
-</span><a href="#local-6989586621680355677"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HumanTaskConfig
-</span><a href="#local-6989586621680355678"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publicWorkforceTaskPrice:HumanTaskConfig' :: Maybe PublicWorkforceTaskPrice
+</span><a href="#local-6989586621680355688"><span class="hs-identifier hs-var hs-var">publicWorkforceTaskPrice</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PublicWorkforceTaskPrice
+</span><a href="#local-6989586621680355688"><span class="hs-identifier hs-var">publicWorkforceTaskPrice</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680355687"><span class="annot"><span class="annottext">s :: HumanTaskConfig
+</span><a href="#local-6989586621680355687"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680355686"><span class="annot"><span class="annottext">Maybe PublicWorkforceTaskPrice
+</span><a href="#local-6989586621680355686"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HumanTaskConfig
+</span><a href="#local-6989586621680355687"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publicWorkforceTaskPrice:HumanTaskConfig' :: Maybe PublicWorkforceTaskPrice
 </span><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#%24sel%3ApublicWorkforceTaskPrice%3AHumanTaskConfig%27"><span class="hs-identifier hs-var">publicWorkforceTaskPrice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PublicWorkforceTaskPrice
-</span><a href="#local-6989586621680355677"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig"><span class="hs-identifier hs-type">HumanTaskConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680355686"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig"><span class="hs-identifier hs-type">HumanTaskConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1508"></span><span>
 </span><span id="line-1509"></span><span class="hs-comment">-- | The length of time that a task remains available for labeling by human</span><span>
 </span><span id="line-1510"></span><span class="hs-comment">-- workers. The default and maximum values for this parameter depend on the</span><span>
@@ -1709,16 +1709,16 @@ $sel:publicWorkforceTaskPrice:HumanTaskConfig' :: HumanTaskConfig -&gt; Maybe Pu
 -&gt; Lens
      HumanTaskConfig HumanTaskConfig (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355675"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355684"><span class="annot"><span class="annottext">Maybe Natural
 taskAvailabilityLifetimeInSeconds :: Maybe Natural
 $sel:taskAvailabilityLifetimeInSeconds:HumanTaskConfig' :: HumanTaskConfig -&gt; Maybe Natural
-</span><a href="#local-6989586621680355675"><span class="hs-identifier hs-var hs-var">taskAvailabilityLifetimeInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680355675"><span class="hs-identifier hs-var">taskAvailabilityLifetimeInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680355674"><span class="annot"><span class="annottext">s :: HumanTaskConfig
-</span><a href="#local-6989586621680355674"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680355673"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680355673"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HumanTaskConfig
-</span><a href="#local-6989586621680355674"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskAvailabilityLifetimeInSeconds:HumanTaskConfig' :: Maybe Natural
+</span><a href="#local-6989586621680355684"><span class="hs-identifier hs-var hs-var">taskAvailabilityLifetimeInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680355684"><span class="hs-identifier hs-var">taskAvailabilityLifetimeInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680355683"><span class="annot"><span class="annottext">s :: HumanTaskConfig
+</span><a href="#local-6989586621680355683"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680355682"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680355682"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HumanTaskConfig
+</span><a href="#local-6989586621680355683"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskAvailabilityLifetimeInSeconds:HumanTaskConfig' :: Maybe Natural
 </span><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#%24sel%3AtaskAvailabilityLifetimeInSeconds%3AHumanTaskConfig%27"><span class="hs-identifier hs-var">taskAvailabilityLifetimeInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680355673"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig"><span class="hs-identifier hs-type">HumanTaskConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680355682"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig"><span class="hs-identifier hs-type">HumanTaskConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1522"></span><span>
 </span><span id="line-1523"></span><span class="hs-comment">-- | Defines the maximum number of data objects that can be labeled by human</span><span>
 </span><span id="line-1524"></span><span class="hs-comment">-- workers at the same time. Also referred to as batch size. Each object</span><span>
@@ -1732,16 +1732,16 @@ $sel:taskAvailabilityLifetimeInSeconds:HumanTaskConfig' :: HumanTaskConfig -&gt;
 -&gt; Lens
      HumanTaskConfig HumanTaskConfig (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355671"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355680"><span class="annot"><span class="annottext">Maybe Natural
 maxConcurrentTaskCount :: Maybe Natural
 $sel:maxConcurrentTaskCount:HumanTaskConfig' :: HumanTaskConfig -&gt; Maybe Natural
-</span><a href="#local-6989586621680355671"><span class="hs-identifier hs-var hs-var">maxConcurrentTaskCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680355671"><span class="hs-identifier hs-var">maxConcurrentTaskCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680355670"><span class="annot"><span class="annottext">s :: HumanTaskConfig
-</span><a href="#local-6989586621680355670"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680355669"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680355669"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HumanTaskConfig
-</span><a href="#local-6989586621680355670"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxConcurrentTaskCount:HumanTaskConfig' :: Maybe Natural
+</span><a href="#local-6989586621680355680"><span class="hs-identifier hs-var hs-var">maxConcurrentTaskCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680355680"><span class="hs-identifier hs-var">maxConcurrentTaskCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680355679"><span class="annot"><span class="annottext">s :: HumanTaskConfig
+</span><a href="#local-6989586621680355679"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680355678"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680355678"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HumanTaskConfig
+</span><a href="#local-6989586621680355679"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxConcurrentTaskCount:HumanTaskConfig' :: Maybe Natural
 </span><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#%24sel%3AmaxConcurrentTaskCount%3AHumanTaskConfig%27"><span class="hs-identifier hs-var">maxConcurrentTaskCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680355669"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig"><span class="hs-identifier hs-type">HumanTaskConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680355678"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig"><span class="hs-identifier hs-type">HumanTaskConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1529"></span><span>
 </span><span id="line-1530"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the work team assigned to complete the</span><span>
 </span><span id="line-1531"></span><span class="hs-comment">-- tasks.</span><span>
@@ -1751,16 +1751,16 @@ $sel:maxConcurrentTaskCount:HumanTaskConfig' :: HumanTaskConfig -&gt; Maybe Natu
 -&gt; (HumanTaskConfig -&gt; Text -&gt; HumanTaskConfig)
 -&gt; Lens HumanTaskConfig HumanTaskConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355667"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355676"><span class="annot"><span class="annottext">Text
 workteamArn :: Text
 $sel:workteamArn:HumanTaskConfig' :: HumanTaskConfig -&gt; Text
-</span><a href="#local-6989586621680355667"><span class="hs-identifier hs-var hs-var">workteamArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680355667"><span class="hs-identifier hs-var">workteamArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680355666"><span class="annot"><span class="annottext">s :: HumanTaskConfig
-</span><a href="#local-6989586621680355666"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680355665"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680355665"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HumanTaskConfig
-</span><a href="#local-6989586621680355666"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workteamArn:HumanTaskConfig' :: Text
+</span><a href="#local-6989586621680355676"><span class="hs-identifier hs-var hs-var">workteamArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680355676"><span class="hs-identifier hs-var">workteamArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680355675"><span class="annot"><span class="annottext">s :: HumanTaskConfig
+</span><a href="#local-6989586621680355675"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680355674"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680355674"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HumanTaskConfig
+</span><a href="#local-6989586621680355675"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workteamArn:HumanTaskConfig' :: Text
 </span><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#%24sel%3AworkteamArn%3AHumanTaskConfig%27"><span class="hs-identifier hs-var">workteamArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680355665"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig"><span class="hs-identifier hs-type">HumanTaskConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680355674"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig"><span class="hs-identifier hs-type">HumanTaskConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1534"></span><span>
 </span><span id="line-1535"></span><span class="hs-comment">-- | Information about the user interface that workers use to complete the</span><span>
 </span><span id="line-1536"></span><span class="hs-comment">-- labeling task.</span><span>
@@ -1770,16 +1770,16 @@ $sel:workteamArn:HumanTaskConfig' :: HumanTaskConfig -&gt; Text
 -&gt; (HumanTaskConfig -&gt; UiConfig -&gt; HumanTaskConfig)
 -&gt; Lens HumanTaskConfig HumanTaskConfig UiConfig UiConfig
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355663"><span class="annot"><span class="annottext">UiConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355672"><span class="annot"><span class="annottext">UiConfig
 uiConfig :: UiConfig
 $sel:uiConfig:HumanTaskConfig' :: HumanTaskConfig -&gt; UiConfig
-</span><a href="#local-6989586621680355663"><span class="hs-identifier hs-var hs-var">uiConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UiConfig
-</span><a href="#local-6989586621680355663"><span class="hs-identifier hs-var">uiConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680355662"><span class="annot"><span class="annottext">s :: HumanTaskConfig
-</span><a href="#local-6989586621680355662"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680355661"><span class="annot"><span class="annottext">UiConfig
-</span><a href="#local-6989586621680355661"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HumanTaskConfig
-</span><a href="#local-6989586621680355662"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uiConfig:HumanTaskConfig' :: UiConfig
+</span><a href="#local-6989586621680355672"><span class="hs-identifier hs-var hs-var">uiConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UiConfig
+</span><a href="#local-6989586621680355672"><span class="hs-identifier hs-var">uiConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680355671"><span class="annot"><span class="annottext">s :: HumanTaskConfig
+</span><a href="#local-6989586621680355671"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680355670"><span class="annot"><span class="annottext">UiConfig
+</span><a href="#local-6989586621680355670"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HumanTaskConfig
+</span><a href="#local-6989586621680355671"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uiConfig:HumanTaskConfig' :: UiConfig
 </span><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#%24sel%3AuiConfig%3AHumanTaskConfig%27"><span class="hs-identifier hs-var">uiConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UiConfig
-</span><a href="#local-6989586621680355661"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig"><span class="hs-identifier hs-type">HumanTaskConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680355670"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig"><span class="hs-identifier hs-type">HumanTaskConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1539"></span><span>
 </span><span id="line-1540"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of a Lambda function that is run before a</span><span>
 </span><span id="line-1541"></span><span class="hs-comment">-- data object is sent to a human worker. Use this function to provide</span><span>
@@ -2433,16 +2433,16 @@ $sel:uiConfig:HumanTaskConfig' :: HumanTaskConfig -&gt; UiConfig
 -&gt; (HumanTaskConfig -&gt; Text -&gt; HumanTaskConfig)
 -&gt; Lens HumanTaskConfig HumanTaskConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355659"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355668"><span class="annot"><span class="annottext">Text
 preHumanTaskLambdaArn :: Text
 $sel:preHumanTaskLambdaArn:HumanTaskConfig' :: HumanTaskConfig -&gt; Text
-</span><a href="#local-6989586621680355659"><span class="hs-identifier hs-var hs-var">preHumanTaskLambdaArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680355659"><span class="hs-identifier hs-var">preHumanTaskLambdaArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680355658"><span class="annot"><span class="annottext">s :: HumanTaskConfig
-</span><a href="#local-6989586621680355658"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680355657"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680355657"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HumanTaskConfig
-</span><a href="#local-6989586621680355658"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:preHumanTaskLambdaArn:HumanTaskConfig' :: Text
+</span><a href="#local-6989586621680355668"><span class="hs-identifier hs-var hs-var">preHumanTaskLambdaArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680355668"><span class="hs-identifier hs-var">preHumanTaskLambdaArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680355667"><span class="annot"><span class="annottext">s :: HumanTaskConfig
+</span><a href="#local-6989586621680355667"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680355666"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680355666"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HumanTaskConfig
+</span><a href="#local-6989586621680355667"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:preHumanTaskLambdaArn:HumanTaskConfig' :: Text
 </span><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#%24sel%3ApreHumanTaskLambdaArn%3AHumanTaskConfig%27"><span class="hs-identifier hs-var">preHumanTaskLambdaArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680355657"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig"><span class="hs-identifier hs-type">HumanTaskConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680355666"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig"><span class="hs-identifier hs-type">HumanTaskConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-2188"></span><span>
 </span><span id="line-2189"></span><span class="hs-comment">-- | A title for the task for your human workers.</span><span>
 </span><span id="line-2190"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#humanTaskConfig_taskTitle"><span class="hs-identifier hs-type">humanTaskConfig_taskTitle</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig"><span class="hs-identifier hs-type">HumanTaskConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -2451,16 +2451,16 @@ $sel:preHumanTaskLambdaArn:HumanTaskConfig' :: HumanTaskConfig -&gt; Text
 -&gt; (HumanTaskConfig -&gt; Text -&gt; HumanTaskConfig)
 -&gt; Lens HumanTaskConfig HumanTaskConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355655"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355664"><span class="annot"><span class="annottext">Text
 taskTitle :: Text
 $sel:taskTitle:HumanTaskConfig' :: HumanTaskConfig -&gt; Text
-</span><a href="#local-6989586621680355655"><span class="hs-identifier hs-var hs-var">taskTitle</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680355655"><span class="hs-identifier hs-var">taskTitle</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680355654"><span class="annot"><span class="annottext">s :: HumanTaskConfig
-</span><a href="#local-6989586621680355654"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680355653"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680355653"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HumanTaskConfig
-</span><a href="#local-6989586621680355654"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskTitle:HumanTaskConfig' :: Text
+</span><a href="#local-6989586621680355664"><span class="hs-identifier hs-var hs-var">taskTitle</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680355664"><span class="hs-identifier hs-var">taskTitle</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680355663"><span class="annot"><span class="annottext">s :: HumanTaskConfig
+</span><a href="#local-6989586621680355663"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680355662"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680355662"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HumanTaskConfig
+</span><a href="#local-6989586621680355663"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskTitle:HumanTaskConfig' :: Text
 </span><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#%24sel%3AtaskTitle%3AHumanTaskConfig%27"><span class="hs-identifier hs-var">taskTitle</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680355653"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig"><span class="hs-identifier hs-type">HumanTaskConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680355662"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig"><span class="hs-identifier hs-type">HumanTaskConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-2192"></span><span>
 </span><span id="line-2193"></span><span class="hs-comment">-- | A description of the task for your human workers.</span><span>
 </span><span id="line-2194"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#humanTaskConfig_taskDescription"><span class="hs-identifier hs-type">humanTaskConfig_taskDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig"><span class="hs-identifier hs-type">HumanTaskConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -2469,16 +2469,16 @@ $sel:taskTitle:HumanTaskConfig' :: HumanTaskConfig -&gt; Text
 -&gt; (HumanTaskConfig -&gt; Text -&gt; HumanTaskConfig)
 -&gt; Lens HumanTaskConfig HumanTaskConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355651"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355660"><span class="annot"><span class="annottext">Text
 taskDescription :: Text
 $sel:taskDescription:HumanTaskConfig' :: HumanTaskConfig -&gt; Text
-</span><a href="#local-6989586621680355651"><span class="hs-identifier hs-var hs-var">taskDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680355651"><span class="hs-identifier hs-var">taskDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680355650"><span class="annot"><span class="annottext">s :: HumanTaskConfig
-</span><a href="#local-6989586621680355650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680355649"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680355649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HumanTaskConfig
-</span><a href="#local-6989586621680355650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskDescription:HumanTaskConfig' :: Text
+</span><a href="#local-6989586621680355660"><span class="hs-identifier hs-var hs-var">taskDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680355660"><span class="hs-identifier hs-var">taskDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680355659"><span class="annot"><span class="annottext">s :: HumanTaskConfig
+</span><a href="#local-6989586621680355659"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680355658"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680355658"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HumanTaskConfig
+</span><a href="#local-6989586621680355659"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskDescription:HumanTaskConfig' :: Text
 </span><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#%24sel%3AtaskDescription%3AHumanTaskConfig%27"><span class="hs-identifier hs-var">taskDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680355649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig"><span class="hs-identifier hs-type">HumanTaskConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680355658"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig"><span class="hs-identifier hs-type">HumanTaskConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-2196"></span><span>
 </span><span id="line-2197"></span><span class="hs-comment">-- | The number of human workers that will label an object.</span><span>
 </span><span id="line-2198"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#humanTaskConfig_numberOfHumanWorkersPerDataObject"><span class="hs-identifier hs-type">humanTaskConfig_numberOfHumanWorkersPerDataObject</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig"><span class="hs-identifier hs-type">HumanTaskConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
@@ -2487,16 +2487,16 @@ $sel:taskDescription:HumanTaskConfig' :: HumanTaskConfig -&gt; Text
 -&gt; (HumanTaskConfig -&gt; Natural -&gt; HumanTaskConfig)
 -&gt; Lens HumanTaskConfig HumanTaskConfig Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355647"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355656"><span class="annot"><span class="annottext">Natural
 numberOfHumanWorkersPerDataObject :: Natural
 $sel:numberOfHumanWorkersPerDataObject:HumanTaskConfig' :: HumanTaskConfig -&gt; Natural
-</span><a href="#local-6989586621680355647"><span class="hs-identifier hs-var hs-var">numberOfHumanWorkersPerDataObject</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621680355647"><span class="hs-identifier hs-var">numberOfHumanWorkersPerDataObject</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680355646"><span class="annot"><span class="annottext">s :: HumanTaskConfig
-</span><a href="#local-6989586621680355646"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680355645"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621680355645"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HumanTaskConfig
-</span><a href="#local-6989586621680355646"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfHumanWorkersPerDataObject:HumanTaskConfig' :: Natural
+</span><a href="#local-6989586621680355656"><span class="hs-identifier hs-var hs-var">numberOfHumanWorkersPerDataObject</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621680355656"><span class="hs-identifier hs-var">numberOfHumanWorkersPerDataObject</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680355655"><span class="annot"><span class="annottext">s :: HumanTaskConfig
+</span><a href="#local-6989586621680355655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680355654"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621680355654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HumanTaskConfig
+</span><a href="#local-6989586621680355655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfHumanWorkersPerDataObject:HumanTaskConfig' :: Natural
 </span><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#%24sel%3AnumberOfHumanWorkersPerDataObject%3AHumanTaskConfig%27"><span class="hs-identifier hs-var">numberOfHumanWorkersPerDataObject</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621680355645"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig"><span class="hs-identifier hs-type">HumanTaskConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680355654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig"><span class="hs-identifier hs-type">HumanTaskConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-2200"></span><span>
 </span><span id="line-2201"></span><span class="hs-comment">-- | The amount of time that a worker has to complete a task.</span><span>
 </span><span id="line-2202"></span><span class="hs-comment">--</span><span>
@@ -2525,16 +2525,16 @@ $sel:numberOfHumanWorkersPerDataObject:HumanTaskConfig' :: HumanTaskConfig -&gt;
 -&gt; (HumanTaskConfig -&gt; Natural -&gt; HumanTaskConfig)
 -&gt; Lens HumanTaskConfig HumanTaskConfig Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355643"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355652"><span class="annot"><span class="annottext">Natural
 taskTimeLimitInSeconds :: Natural
 $sel:taskTimeLimitInSeconds:HumanTaskConfig' :: HumanTaskConfig -&gt; Natural
-</span><a href="#local-6989586621680355643"><span class="hs-identifier hs-var hs-var">taskTimeLimitInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621680355643"><span class="hs-identifier hs-var">taskTimeLimitInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680355642"><span class="annot"><span class="annottext">s :: HumanTaskConfig
-</span><a href="#local-6989586621680355642"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680355641"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621680355641"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HumanTaskConfig
-</span><a href="#local-6989586621680355642"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskTimeLimitInSeconds:HumanTaskConfig' :: Natural
+</span><a href="#local-6989586621680355652"><span class="hs-identifier hs-var hs-var">taskTimeLimitInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621680355652"><span class="hs-identifier hs-var">taskTimeLimitInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680355651"><span class="annot"><span class="annottext">s :: HumanTaskConfig
+</span><a href="#local-6989586621680355651"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680355650"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621680355650"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HumanTaskConfig
+</span><a href="#local-6989586621680355651"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskTimeLimitInSeconds:HumanTaskConfig' :: Natural
 </span><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#%24sel%3AtaskTimeLimitInSeconds%3AHumanTaskConfig%27"><span class="hs-identifier hs-var">taskTimeLimitInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621680355641"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig"><span class="hs-identifier hs-type">HumanTaskConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680355650"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig"><span class="hs-identifier hs-type">HumanTaskConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-2224"></span><span>
 </span><span id="line-2225"></span><span class="hs-comment">-- | Configures how labels are consolidated across human workers.</span><span>
 </span><span id="line-2226"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#humanTaskConfig_annotationConsolidationConfig"><span class="hs-identifier hs-type">humanTaskConfig_annotationConsolidationConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig"><span class="hs-identifier hs-type">HumanTaskConfig</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AnnotationConsolidationConfig.html#AnnotationConsolidationConfig"><span class="hs-identifier hs-type">AnnotationConsolidationConfig</span></a></span><span>
@@ -2549,19 +2549,19 @@ $sel:taskTimeLimitInSeconds:HumanTaskConfig' :: HumanTaskConfig -&gt; Natural
      AnnotationConsolidationConfig
      AnnotationConsolidationConfig
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355639"><span class="annot"><span class="annottext">AnnotationConsolidationConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355648"><span class="annot"><span class="annottext">AnnotationConsolidationConfig
 annotationConsolidationConfig :: AnnotationConsolidationConfig
 $sel:annotationConsolidationConfig:HumanTaskConfig' :: HumanTaskConfig -&gt; AnnotationConsolidationConfig
-</span><a href="#local-6989586621680355639"><span class="hs-identifier hs-var hs-var">annotationConsolidationConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnnotationConsolidationConfig
-</span><a href="#local-6989586621680355639"><span class="hs-identifier hs-var">annotationConsolidationConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680355638"><span class="annot"><span class="annottext">s :: HumanTaskConfig
-</span><a href="#local-6989586621680355638"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680355637"><span class="annot"><span class="annottext">AnnotationConsolidationConfig
-</span><a href="#local-6989586621680355637"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HumanTaskConfig
-</span><a href="#local-6989586621680355638"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:annotationConsolidationConfig:HumanTaskConfig' :: AnnotationConsolidationConfig
+</span><a href="#local-6989586621680355648"><span class="hs-identifier hs-var hs-var">annotationConsolidationConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnnotationConsolidationConfig
+</span><a href="#local-6989586621680355648"><span class="hs-identifier hs-var">annotationConsolidationConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680355647"><span class="annot"><span class="annottext">s :: HumanTaskConfig
+</span><a href="#local-6989586621680355647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680355646"><span class="annot"><span class="annottext">AnnotationConsolidationConfig
+</span><a href="#local-6989586621680355646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HumanTaskConfig
+</span><a href="#local-6989586621680355647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:annotationConsolidationConfig:HumanTaskConfig' :: AnnotationConsolidationConfig
 </span><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#%24sel%3AannotationConsolidationConfig%3AHumanTaskConfig%27"><span class="hs-identifier hs-var">annotationConsolidationConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AnnotationConsolidationConfig
-</span><a href="#local-6989586621680355637"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig"><span class="hs-identifier hs-type">HumanTaskConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680355646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig"><span class="hs-identifier hs-type">HumanTaskConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-2228"></span><span>
-</span><span id="line-2229"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680355634"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig"><span class="hs-identifier hs-type">HumanTaskConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-2230"></span><span>  </span><span id="local-6989586621680355632"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HumanTaskConfig
+</span><span id="line-2229"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680355643"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig"><span class="hs-identifier hs-type">HumanTaskConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-2230"></span><span>  </span><span id="local-6989586621680355641"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HumanTaskConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-2231"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser HumanTaskConfig)
@@ -2571,8 +2571,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-2232"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;HumanTaskConfig&quot;</span></span><span>
-</span><span id="line-2233"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680355629"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680355629"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-2233"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680355638"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680355638"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-2234"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 -&gt; Maybe PublicWorkforceTaskPrice
 -&gt; Maybe Natural
@@ -2616,7 +2616,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; HumanTaskConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680355629"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
+</span><a href="#local-6989586621680355638"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TaskKeywords&quot;</span></span><span class="hs-special">)</span><span>
@@ -2648,7 +2648,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; HumanTaskConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680355629"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PublicWorkforceTaskPrice)
+</span><a href="#local-6989586621680355638"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PublicWorkforceTaskPrice)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PublicWorkforceTaskPrice&quot;</span></span><span class="hs-special">)</span><span>
@@ -2678,7 +2678,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; HumanTaskConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680355629"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621680355638"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TaskAvailabilityLifetimeInSeconds&quot;</span></span><span class="hs-special">)</span><span>
@@ -2706,7 +2706,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; HumanTaskConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680355629"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621680355638"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxConcurrentTaskCount&quot;</span></span><span class="hs-special">)</span><span>
@@ -2732,7 +2732,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; HumanTaskConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680355629"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680355638"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;WorkteamArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -2756,7 +2756,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
       -&gt; HumanTaskConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680355629"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser UiConfig
+</span><a href="#local-6989586621680355638"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser UiConfig
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UiConfig&quot;</span></span><span class="hs-special">)</span><span>
@@ -2778,7 +2778,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
       -&gt; HumanTaskConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680355629"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680355638"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PreHumanTaskLambdaArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -2798,7 +2798,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
       -&gt; HumanTaskConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680355629"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680355638"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TaskTitle&quot;</span></span><span class="hs-special">)</span><span>
@@ -2814,7 +2814,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
       -&gt; Natural -&gt; AnnotationConsolidationConfig -&gt; HumanTaskConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680355629"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680355638"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TaskDescription&quot;</span></span><span class="hs-special">)</span><span>
@@ -2826,7 +2826,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
      (Natural -&gt; AnnotationConsolidationConfig -&gt; HumanTaskConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680355629"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621680355638"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NumberOfHumanWorkersPerDataObject&quot;</span></span><span class="hs-special">)</span><span>
@@ -2836,7 +2836,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (AnnotationConsolidationConfig -&gt; HumanTaskConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680355629"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621680355638"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TaskTimeLimitInSeconds&quot;</span></span><span class="hs-special">)</span><span>
@@ -2844,19 +2844,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser AnnotationConsolidationConfig -&gt; Parser HumanTaskConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680355629"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser AnnotationConsolidationConfig
+</span><a href="#local-6989586621680355638"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser AnnotationConsolidationConfig
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AnnotationConsolidationConfig&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-2247"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-2248"></span><span>
-</span><span id="line-2249"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680355622"><span id="local-6989586621680355624"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig"><span class="hs-identifier hs-type">HumanTaskConfig</span></a></span></span></span><span>
+</span><span id="line-2249"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680355631"><span id="local-6989586621680355633"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig"><span class="hs-identifier hs-type">HumanTaskConfig</span></a></span></span></span><span>
 </span><span id="line-2250"></span><span>
-</span><span id="line-2251"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680355619"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig"><span class="hs-identifier hs-type">HumanTaskConfig</span></a></span></span><span>
+</span><span id="line-2251"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680355628"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig"><span class="hs-identifier hs-type">HumanTaskConfig</span></a></span></span><span>
 </span><span id="line-2252"></span><span>
-</span><span id="line-2253"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680355611"><span id="local-6989586621680355613"><span id="local-6989586621680355615"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig"><span class="hs-identifier hs-type">HumanTaskConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-2254"></span><span>  </span><span id="local-6989586621680355609"><span class="annot"><span class="annottext">toJSON :: HumanTaskConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355596"><span id="local-6989586621680355597"><span id="local-6989586621680355598"><span id="local-6989586621680355599"><span id="local-6989586621680355600"><span id="local-6989586621680355601"><span id="local-6989586621680355602"><span id="local-6989586621680355603"><span id="local-6989586621680355604"><span id="local-6989586621680355605"><span id="local-6989586621680355606"><span id="local-6989586621680355607"><span class="annot"><span class="annottext">Natural
+</span><span id="line-2253"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680355620"><span id="local-6989586621680355622"><span id="local-6989586621680355624"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig"><span class="hs-identifier hs-type">HumanTaskConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-2254"></span><span>  </span><span id="local-6989586621680355618"><span class="annot"><span class="annottext">toJSON :: HumanTaskConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanTaskConfig.html#HumanTaskConfig%27"><span class="hs-identifier hs-type">HumanTaskConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355605"><span id="local-6989586621680355606"><span id="local-6989586621680355607"><span id="local-6989586621680355608"><span id="local-6989586621680355609"><span id="local-6989586621680355610"><span id="local-6989586621680355611"><span id="local-6989586621680355612"><span id="local-6989586621680355613"><span id="local-6989586621680355614"><span id="local-6989586621680355615"><span id="local-6989586621680355616"><span class="annot"><span class="annottext">Natural
 Maybe Natural
 Maybe (NonEmpty Text)
 Maybe PublicWorkforceTaskPrice
@@ -2887,7 +2887,7 @@ $sel:maxConcurrentTaskCount:HumanTaskConfig' :: HumanTaskConfig -&gt; Maybe Natu
 $sel:taskAvailabilityLifetimeInSeconds:HumanTaskConfig' :: HumanTaskConfig -&gt; Maybe Natural
 $sel:publicWorkforceTaskPrice:HumanTaskConfig' :: HumanTaskConfig -&gt; Maybe PublicWorkforceTaskPrice
 $sel:taskKeywords:HumanTaskConfig' :: HumanTaskConfig -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621680355596"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680355605"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-2255"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-2256"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -2899,7 +2899,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621680355607"><span class="hs-identifier hs-var">taskKeywords</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680355616"><span class="hs-identifier hs-var">taskKeywords</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-2258"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PublicWorkforceTaskPrice&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PublicWorkforceTaskPrice -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -2908,7 +2908,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe PublicWorkforceTaskPrice -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe PublicWorkforceTaskPrice
-</span><a href="#local-6989586621680355606"><span class="hs-identifier hs-var">publicWorkforceTaskPrice</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680355615"><span class="hs-identifier hs-var">publicWorkforceTaskPrice</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-2260"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TaskAvailabilityLifetimeInSeconds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -2916,7 +2916,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-2261"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680355605"><span class="hs-identifier hs-var">taskAvailabilityLifetimeInSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680355614"><span class="hs-identifier hs-var">taskAvailabilityLifetimeInSeconds</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-2262"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxConcurrentTaskCount&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -2924,21 +2924,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-2263"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680355604"><span class="hs-identifier hs-var">maxConcurrentTaskCount</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680355613"><span class="hs-identifier hs-var">maxConcurrentTaskCount</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-2264"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;WorkteamArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680355603"><span class="hs-identifier hs-var">workteamArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680355612"><span class="hs-identifier hs-var">workteamArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-2265"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UiConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; UiConfig -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">UiConfig
-</span><a href="#local-6989586621680355602"><span class="hs-identifier hs-var">uiConfig</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680355611"><span class="hs-identifier hs-var">uiConfig</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-2266"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -2947,7 +2947,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-2268"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680355601"><span class="hs-identifier hs-var">preHumanTaskLambdaArn</span></a></span><span>
+</span><a href="#local-6989586621680355610"><span class="hs-identifier hs-var">preHumanTaskLambdaArn</span></a></span><span>
 </span><span id="line-2269"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-2270"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -2955,7 +2955,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;TaskTitle&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680355600"><span class="hs-identifier hs-var">taskTitle</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680355609"><span class="hs-identifier hs-var">taskTitle</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-2271"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -2963,7 +2963,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;TaskDescription&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680355599"><span class="hs-identifier hs-var">taskDescription</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680355608"><span class="hs-identifier hs-var">taskDescription</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-2273"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -2972,7 +2972,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-2275"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621680355598"><span class="hs-identifier hs-var">numberOfHumanWorkersPerDataObject</span></a></span><span>
+</span><a href="#local-6989586621680355607"><span class="hs-identifier hs-var">numberOfHumanWorkersPerDataObject</span></a></span><span>
 </span><span id="line-2276"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-2277"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -2982,7 +2982,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-2279"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621680355597"><span class="hs-identifier hs-var">taskTimeLimitInSeconds</span></a></span><span>
+</span><a href="#local-6989586621680355606"><span class="hs-identifier hs-var">taskTimeLimitInSeconds</span></a></span><span>
 </span><span id="line-2280"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-2281"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -2992,7 +2992,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-2283"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; AnnotationConsolidationConfig -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">AnnotationConsolidationConfig
-</span><a href="#local-6989586621680355596"><span class="hs-identifier hs-var">annotationConsolidationConfig</span></a></span><span>
+</span><a href="#local-6989586621680355605"><span class="hs-identifier hs-var">annotationConsolidationConfig</span></a></span><span>
 </span><span id="line-2284"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-2285"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-2286"></span><span>      </span><span class="hs-special">)</span><span>

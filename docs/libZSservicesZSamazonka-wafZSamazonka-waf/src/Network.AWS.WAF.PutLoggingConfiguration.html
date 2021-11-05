@@ -78,7 +78,7 @@
 </span><span id="line-78"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.html"><span class="hs-identifier">Network.AWS.WAF.Types</span></a></span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | /See:/ 'newPutLoggingConfiguration' smart constructor.</span><span>
-</span><span id="line-81"></span><span id="local-6989586621679309915"><span id="local-6989586621679309916"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutLoggingConfiguration"><span class="annot"><a href="Network.AWS.WAF.PutLoggingConfiguration.html#PutLoggingConfiguration"><span class="hs-identifier hs-var">PutLoggingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutLoggingConfiguration%27"><span class="annot"><a href="Network.AWS.WAF.PutLoggingConfiguration.html#PutLoggingConfiguration%27"><span class="hs-identifier hs-var">PutLoggingConfiguration'</span></a></span></span><span>
+</span><span id="line-81"></span><span id="local-6989586621679309924"><span id="local-6989586621679309925"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutLoggingConfiguration"><span class="annot"><a href="Network.AWS.WAF.PutLoggingConfiguration.html#PutLoggingConfiguration"><span class="hs-identifier hs-var">PutLoggingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutLoggingConfiguration%27"><span class="annot"><a href="Network.AWS.WAF.PutLoggingConfiguration.html#PutLoggingConfiguration%27"><span class="hs-identifier hs-var">PutLoggingConfiguration'</span></a></span></span><span>
 </span><span id="line-82"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Kinesis Data Firehose that contains the inspected traffic</span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-comment">-- information, the redacted fields details, and the Amazon Resource Name</span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-comment">-- (ARN) of the web ACL to monitor.</span><span>
@@ -88,7 +88,7 @@
 </span><span id="line-88"></span><span>    </span><span id="%24sel%3AloggingConfiguration%3APutLoggingConfiguration%27"><span class="annot"><span class="annottext">PutLoggingConfiguration -&gt; LoggingConfiguration
 </span><a href="Network.AWS.WAF.PutLoggingConfiguration.html#%24sel%3AloggingConfiguration%3APutLoggingConfiguration%27"><span class="hs-identifier hs-var hs-var">loggingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-type">LoggingConfiguration</span></a></span><span>
 </span><span id="line-89"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-90"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679309909"><span id="local-6989586621679309911"><span class="annot"><span class="annottext">PutLoggingConfiguration -&gt; PutLoggingConfiguration -&gt; Bool
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679309918"><span id="local-6989586621679309920"><span class="annot"><span class="annottext">PutLoggingConfiguration -&gt; PutLoggingConfiguration -&gt; Bool
 (PutLoggingConfiguration -&gt; PutLoggingConfiguration -&gt; Bool)
 -&gt; (PutLoggingConfiguration -&gt; PutLoggingConfiguration -&gt; Bool)
 -&gt; Eq PutLoggingConfiguration
@@ -97,7 +97,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutLoggingConfiguration -&gt; PutLoggingConfiguration -&gt; Bool
 == :: PutLoggingConfiguration -&gt; PutLoggingConfiguration -&gt; Bool
 $c== :: PutLoggingConfiguration -&gt; PutLoggingConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309900"><span id="local-6989586621679309902"><span id="local-6989586621679309904"><span id="local-6989586621679309906"><span class="annot"><span class="annottext">ReadPrec [PutLoggingConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309909"><span id="local-6989586621679309911"><span id="local-6989586621679309913"><span id="local-6989586621679309915"><span class="annot"><span class="annottext">ReadPrec [PutLoggingConfiguration]
 ReadPrec PutLoggingConfiguration
 Int -&gt; ReadS PutLoggingConfiguration
 ReadS [PutLoggingConfiguration]
@@ -117,7 +117,7 @@ readList :: ReadS [PutLoggingConfiguration]
 $creadList :: ReadS [PutLoggingConfiguration]
 readsPrec :: Int -&gt; ReadS PutLoggingConfiguration
 $creadsPrec :: Int -&gt; ReadS PutLoggingConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309893"><span id="local-6989586621679309895"><span id="local-6989586621679309897"><span class="annot"><span class="annottext">Int -&gt; PutLoggingConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309902"><span id="local-6989586621679309904"><span id="local-6989586621679309906"><span class="annot"><span class="annottext">Int -&gt; PutLoggingConfiguration -&gt; ShowS
 [PutLoggingConfiguration] -&gt; ShowS
 PutLoggingConfiguration -&gt; String
 (Int -&gt; PutLoggingConfiguration -&gt; ShowS)
@@ -164,14 +164,14 @@ $cfrom :: forall x. PutLoggingConfiguration -&gt; Rep PutLoggingConfiguration x
 </span><span id="line-108"></span><span>  </span><span class="annot"><a href="Network.AWS.WAF.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-type">LoggingConfiguration</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-109"></span><span>  </span><span class="annot"><a href="Network.AWS.WAF.PutLoggingConfiguration.html#PutLoggingConfiguration"><span class="hs-identifier hs-type">PutLoggingConfiguration</span></a></span><span>
 </span><span id="line-110"></span><span id="newPutLoggingConfiguration"><span class="annot"><span class="annottext">newPutLoggingConfiguration :: LoggingConfiguration -&gt; PutLoggingConfiguration
-</span><a href="Network.AWS.WAF.PutLoggingConfiguration.html#newPutLoggingConfiguration"><span class="hs-identifier hs-var hs-var">newPutLoggingConfiguration</span></a></span></span><span> </span><span id="local-6989586621679309888"><span class="annot"><span class="annottext">LoggingConfiguration
-</span><a href="#local-6989586621679309888"><span class="hs-identifier hs-var">pLoggingConfiguration_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WAF.PutLoggingConfiguration.html#newPutLoggingConfiguration"><span class="hs-identifier hs-var hs-var">newPutLoggingConfiguration</span></a></span></span><span> </span><span id="local-6989586621679309897"><span class="annot"><span class="annottext">LoggingConfiguration
+</span><a href="#local-6989586621679309897"><span class="hs-identifier hs-var">pLoggingConfiguration_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>  </span><span class="annot"><span class="annottext">PutLoggingConfiguration' :: LoggingConfiguration -&gt; PutLoggingConfiguration
 </span><a href="Network.AWS.WAF.PutLoggingConfiguration.html#PutLoggingConfiguration%27"><span class="hs-identifier hs-type">PutLoggingConfiguration'</span></a></span><span>
 </span><span id="line-112"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:loggingConfiguration:PutLoggingConfiguration' :: LoggingConfiguration
 </span><a href="Network.AWS.WAF.PutLoggingConfiguration.html#%24sel%3AloggingConfiguration%3APutLoggingConfiguration%27"><span class="hs-identifier hs-var">loggingConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">LoggingConfiguration
-</span><a href="#local-6989586621679309888"><span class="hs-identifier hs-var">pLoggingConfiguration_</span></a></span><span>
+</span><a href="#local-6989586621679309897"><span class="hs-identifier hs-var">pLoggingConfiguration_</span></a></span><span>
 </span><span id="line-114"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | The Amazon Kinesis Data Firehose that contains the inspected traffic</span><span>
@@ -192,28 +192,28 @@ $cfrom :: forall x. PutLoggingConfiguration -&gt; Rep PutLoggingConfiguration x
      LoggingConfiguration
      LoggingConfiguration
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.PutLoggingConfiguration.html#PutLoggingConfiguration%27"><span class="hs-identifier hs-type">PutLoggingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309885"><span class="annot"><span class="annottext">LoggingConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.PutLoggingConfiguration.html#PutLoggingConfiguration%27"><span class="hs-identifier hs-type">PutLoggingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309894"><span class="annot"><span class="annottext">LoggingConfiguration
 loggingConfiguration :: LoggingConfiguration
 $sel:loggingConfiguration:PutLoggingConfiguration' :: PutLoggingConfiguration -&gt; LoggingConfiguration
-</span><a href="#local-6989586621679309885"><span class="hs-identifier hs-var hs-var">loggingConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoggingConfiguration
-</span><a href="#local-6989586621679309885"><span class="hs-identifier hs-var">loggingConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309884"><span class="annot"><span class="annottext">s :: PutLoggingConfiguration
-</span><a href="#local-6989586621679309884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.PutLoggingConfiguration.html#PutLoggingConfiguration%27"><span class="hs-identifier hs-type">PutLoggingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309883"><span class="annot"><span class="annottext">LoggingConfiguration
-</span><a href="#local-6989586621679309883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutLoggingConfiguration
-</span><a href="#local-6989586621679309884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loggingConfiguration:PutLoggingConfiguration' :: LoggingConfiguration
+</span><a href="#local-6989586621679309894"><span class="hs-identifier hs-var hs-var">loggingConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoggingConfiguration
+</span><a href="#local-6989586621679309894"><span class="hs-identifier hs-var">loggingConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309893"><span class="annot"><span class="annottext">s :: PutLoggingConfiguration
+</span><a href="#local-6989586621679309893"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.PutLoggingConfiguration.html#PutLoggingConfiguration%27"><span class="hs-identifier hs-type">PutLoggingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309892"><span class="annot"><span class="annottext">LoggingConfiguration
+</span><a href="#local-6989586621679309892"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutLoggingConfiguration
+</span><a href="#local-6989586621679309893"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loggingConfiguration:PutLoggingConfiguration' :: LoggingConfiguration
 </span><a href="Network.AWS.WAF.PutLoggingConfiguration.html#%24sel%3AloggingConfiguration%3APutLoggingConfiguration%27"><span class="hs-identifier hs-var">loggingConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LoggingConfiguration
-</span><a href="#local-6989586621679309883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.PutLoggingConfiguration.html#PutLoggingConfiguration"><span class="hs-identifier hs-type">PutLoggingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679309892"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.PutLoggingConfiguration.html#PutLoggingConfiguration"><span class="hs-identifier hs-type">PutLoggingConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.PutLoggingConfiguration.html#PutLoggingConfiguration"><span class="hs-identifier hs-type">PutLoggingConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-126"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-127"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.PutLoggingConfiguration.html#PutLoggingConfiguration"><span class="hs-identifier hs-type">PutLoggingConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>      </span><span class="annot"><a href="Network.AWS.WAF.PutLoggingConfiguration.html#PutLoggingConfigurationResponse"><span class="hs-identifier hs-type">PutLoggingConfigurationResponse</span></a></span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679309879"><span class="annot"><span class="annottext">request :: PutLoggingConfiguration -&gt; Request PutLoggingConfiguration
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679309888"><span class="annot"><span class="annottext">request :: PutLoggingConfiguration -&gt; Request PutLoggingConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; PutLoggingConfiguration -&gt; Request PutLoggingConfiguration
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.WAF.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679309875"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679309884"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutLoggingConfiguration
 -&gt; ClientResponse ClientBody
@@ -239,10 +239,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679309872"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679309872"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679309871"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679309871"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679309870"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679309870"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679309881"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309881"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679309880"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679309880"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679309879"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679309879"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">Maybe LoggingConfiguration
 -&gt; Int -&gt; PutLoggingConfigurationResponse
 </span><a href="Network.AWS.WAF.PutLoggingConfiguration.html#PutLoggingConfigurationResponse%27"><span class="hs-identifier hs-var">PutLoggingConfigurationResponse'</span></a></span><span>
@@ -252,7 +252,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; PutLoggingConfigurationResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679309870"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe LoggingConfiguration)
+</span><a href="#local-6989586621679309879"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe LoggingConfiguration)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LoggingConfiguration&quot;</span></span><span class="hs-special">)</span><span>
@@ -265,15 +265,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679309872"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679309881"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309862"><span id="local-6989586621679309864"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.PutLoggingConfiguration.html#PutLoggingConfiguration"><span class="hs-identifier hs-type">PutLoggingConfiguration</span></a></span></span></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309871"><span id="local-6989586621679309873"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.PutLoggingConfiguration.html#PutLoggingConfiguration"><span class="hs-identifier hs-type">PutLoggingConfiguration</span></a></span></span></span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309859"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.PutLoggingConfiguration.html#PutLoggingConfiguration"><span class="hs-identifier hs-type">PutLoggingConfiguration</span></a></span></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309868"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.PutLoggingConfiguration.html#PutLoggingConfiguration"><span class="hs-identifier hs-type">PutLoggingConfiguration</span></a></span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.PutLoggingConfiguration.html#PutLoggingConfiguration"><span class="hs-identifier hs-type">PutLoggingConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679309855"><span class="annot"><span class="annottext">toHeaders :: PutLoggingConfiguration -&gt; ResponseHeaders
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679309864"><span class="annot"><span class="annottext">toHeaders :: PutLoggingConfiguration -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutLoggingConfiguration -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -300,12 +300,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-154"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309845"><span id="local-6989586621679309847"><span id="local-6989586621679309849"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.PutLoggingConfiguration.html#PutLoggingConfiguration"><span class="hs-identifier hs-type">PutLoggingConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679309843"><span class="annot"><span class="annottext">toJSON :: PutLoggingConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.PutLoggingConfiguration.html#PutLoggingConfiguration%27"><span class="hs-identifier hs-type">PutLoggingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309841"><span class="annot"><span class="annottext">LoggingConfiguration
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309854"><span id="local-6989586621679309856"><span id="local-6989586621679309858"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.PutLoggingConfiguration.html#PutLoggingConfiguration"><span class="hs-identifier hs-type">PutLoggingConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679309852"><span class="annot"><span class="annottext">toJSON :: PutLoggingConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.PutLoggingConfiguration.html#PutLoggingConfiguration%27"><span class="hs-identifier hs-type">PutLoggingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309850"><span class="annot"><span class="annottext">LoggingConfiguration
 loggingConfiguration :: LoggingConfiguration
 $sel:loggingConfiguration:PutLoggingConfiguration' :: PutLoggingConfiguration -&gt; LoggingConfiguration
-</span><a href="#local-6989586621679309841"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679309850"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-160"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -319,20 +319,20 @@ forall a. a -&gt; Maybe a
 </span><span id="line-163"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; LoggingConfiguration -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">LoggingConfiguration
-</span><a href="#local-6989586621679309841"><span class="hs-identifier hs-var">loggingConfiguration</span></a></span><span>
+</span><a href="#local-6989586621679309850"><span class="hs-identifier hs-var">loggingConfiguration</span></a></span><span>
 </span><span id="line-164"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-166"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.PutLoggingConfiguration.html#PutLoggingConfiguration"><span class="hs-identifier hs-type">PutLoggingConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621679309835"><span class="annot"><span class="annottext">toPath :: PutLoggingConfiguration -&gt; ByteString
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679309844"><span class="annot"><span class="annottext">toPath :: PutLoggingConfiguration -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutLoggingConfiguration -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.PutLoggingConfiguration.html#PutLoggingConfiguration"><span class="hs-identifier hs-type">PutLoggingConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621679309831"><span class="annot"><span class="annottext">toQuery :: PutLoggingConfiguration -&gt; QueryString
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679309840"><span class="annot"><span class="annottext">toQuery :: PutLoggingConfiguration -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutLoggingConfiguration -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -340,7 +340,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- | /See:/ 'newPutLoggingConfigurationResponse' smart constructor.</span><span>
-</span><span id="line-175"></span><span id="local-6989586621679309828"><span id="local-6989586621679309829"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutLoggingConfigurationResponse"><span class="annot"><a href="Network.AWS.WAF.PutLoggingConfiguration.html#PutLoggingConfigurationResponse"><span class="hs-identifier hs-var">PutLoggingConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutLoggingConfigurationResponse%27"><span class="annot"><a href="Network.AWS.WAF.PutLoggingConfiguration.html#PutLoggingConfigurationResponse%27"><span class="hs-identifier hs-var">PutLoggingConfigurationResponse'</span></a></span></span><span>
+</span><span id="line-175"></span><span id="local-6989586621679309837"><span id="local-6989586621679309838"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutLoggingConfigurationResponse"><span class="annot"><a href="Network.AWS.WAF.PutLoggingConfiguration.html#PutLoggingConfigurationResponse"><span class="hs-identifier hs-var">PutLoggingConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutLoggingConfigurationResponse%27"><span class="annot"><a href="Network.AWS.WAF.PutLoggingConfiguration.html#PutLoggingConfigurationResponse%27"><span class="hs-identifier hs-var">PutLoggingConfigurationResponse'</span></a></span></span><span>
 </span><span id="line-176"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The LoggingConfiguration that you submitted in the request.</span><span>
 </span><span id="line-177"></span><span>    </span><span id="%24sel%3AloggingConfiguration%3APutLoggingConfigurationResponse%27"><span class="annot"><span class="annottext">PutLoggingConfigurationResponse -&gt; Maybe LoggingConfiguration
 </span><a href="Network.AWS.WAF.PutLoggingConfiguration.html#%24sel%3AloggingConfiguration%3APutLoggingConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">loggingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.LoggingConfiguration.html#LoggingConfiguration"><span class="hs-identifier hs-type">LoggingConfiguration</span></a></span><span class="hs-special">,</span><span>
@@ -348,7 +348,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-179"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutLoggingConfigurationResponse%27"><span class="annot"><span class="annottext">PutLoggingConfigurationResponse -&gt; Int
 </span><a href="Network.AWS.WAF.PutLoggingConfiguration.html#%24sel%3AhttpStatus%3APutLoggingConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-180"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-181"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679309822"><span id="local-6989586621679309824"><span class="annot"><span class="annottext">PutLoggingConfigurationResponse
+</span><span id="line-181"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679309831"><span id="local-6989586621679309833"><span class="annot"><span class="annottext">PutLoggingConfigurationResponse
 -&gt; PutLoggingConfigurationResponse -&gt; Bool
 (PutLoggingConfigurationResponse
  -&gt; PutLoggingConfigurationResponse -&gt; Bool)
@@ -364,7 +364,7 @@ $c/= :: PutLoggingConfigurationResponse
 -&gt; PutLoggingConfigurationResponse -&gt; Bool
 $c== :: PutLoggingConfigurationResponse
 -&gt; PutLoggingConfigurationResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309814"><span id="local-6989586621679309816"><span id="local-6989586621679309818"><span id="local-6989586621679309820"><span class="annot"><span class="annottext">ReadPrec [PutLoggingConfigurationResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309823"><span id="local-6989586621679309825"><span id="local-6989586621679309827"><span id="local-6989586621679309829"><span class="annot"><span class="annottext">ReadPrec [PutLoggingConfigurationResponse]
 ReadPrec PutLoggingConfigurationResponse
 Int -&gt; ReadS PutLoggingConfigurationResponse
 ReadS [PutLoggingConfigurationResponse]
@@ -384,7 +384,7 @@ readList :: ReadS [PutLoggingConfigurationResponse]
 $creadList :: ReadS [PutLoggingConfigurationResponse]
 readsPrec :: Int -&gt; ReadS PutLoggingConfigurationResponse
 $creadsPrec :: Int -&gt; ReadS PutLoggingConfigurationResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309808"><span id="local-6989586621679309810"><span id="local-6989586621679309812"><span class="annot"><span class="annottext">Int -&gt; PutLoggingConfigurationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309817"><span id="local-6989586621679309819"><span id="local-6989586621679309821"><span class="annot"><span class="annottext">Int -&gt; PutLoggingConfigurationResponse -&gt; ShowS
 [PutLoggingConfigurationResponse] -&gt; ShowS
 PutLoggingConfigurationResponse -&gt; String
 (Int -&gt; PutLoggingConfigurationResponse -&gt; ShowS)
@@ -438,8 +438,8 @@ PutLoggingConfigurationResponse
 </span><span id="line-196"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-197"></span><span>  </span><span class="annot"><a href="Network.AWS.WAF.PutLoggingConfiguration.html#PutLoggingConfigurationResponse"><span class="hs-identifier hs-type">PutLoggingConfigurationResponse</span></a></span><span>
 </span><span id="line-198"></span><span id="newPutLoggingConfigurationResponse"><span class="annot"><span class="annottext">newPutLoggingConfigurationResponse :: Int -&gt; PutLoggingConfigurationResponse
-</span><a href="Network.AWS.WAF.PutLoggingConfiguration.html#newPutLoggingConfigurationResponse"><span class="hs-identifier hs-var hs-var">newPutLoggingConfigurationResponse</span></a></span></span><span> </span><span id="local-6989586621679309805"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679309805"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WAF.PutLoggingConfiguration.html#newPutLoggingConfigurationResponse"><span class="hs-identifier hs-var hs-var">newPutLoggingConfigurationResponse</span></a></span></span><span> </span><span id="local-6989586621679309814"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309814"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-199"></span><span>  </span><span class="annot"><span class="annottext">PutLoggingConfigurationResponse' :: Maybe LoggingConfiguration
 -&gt; Int -&gt; PutLoggingConfigurationResponse
 </span><a href="Network.AWS.WAF.PutLoggingConfiguration.html#PutLoggingConfigurationResponse%27"><span class="hs-identifier hs-type">PutLoggingConfigurationResponse'</span></a></span><span>
@@ -450,7 +450,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-202"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:PutLoggingConfigurationResponse' :: Int
 </span><a href="Network.AWS.WAF.PutLoggingConfiguration.html#%24sel%3AhttpStatus%3APutLoggingConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679309805"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679309814"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-203"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-204"></span><span>
 </span><span id="line-205"></span><span class="hs-comment">-- | The LoggingConfiguration that you submitted in the request.</span><span>
@@ -467,16 +467,16 @@ forall a. Maybe a
      (Maybe LoggingConfiguration)
      (Maybe LoggingConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.PutLoggingConfiguration.html#PutLoggingConfigurationResponse%27"><span class="hs-identifier hs-type">PutLoggingConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309804"><span class="annot"><span class="annottext">Maybe LoggingConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.PutLoggingConfiguration.html#PutLoggingConfigurationResponse%27"><span class="hs-identifier hs-type">PutLoggingConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309813"><span class="annot"><span class="annottext">Maybe LoggingConfiguration
 loggingConfiguration :: Maybe LoggingConfiguration
 $sel:loggingConfiguration:PutLoggingConfigurationResponse' :: PutLoggingConfigurationResponse -&gt; Maybe LoggingConfiguration
-</span><a href="#local-6989586621679309804"><span class="hs-identifier hs-var hs-var">loggingConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LoggingConfiguration
-</span><a href="#local-6989586621679309804"><span class="hs-identifier hs-var">loggingConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309803"><span class="annot"><span class="annottext">s :: PutLoggingConfigurationResponse
-</span><a href="#local-6989586621679309803"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.PutLoggingConfiguration.html#PutLoggingConfigurationResponse%27"><span class="hs-identifier hs-type">PutLoggingConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309802"><span class="annot"><span class="annottext">Maybe LoggingConfiguration
-</span><a href="#local-6989586621679309802"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutLoggingConfigurationResponse
-</span><a href="#local-6989586621679309803"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loggingConfiguration:PutLoggingConfigurationResponse' :: Maybe LoggingConfiguration
+</span><a href="#local-6989586621679309813"><span class="hs-identifier hs-var hs-var">loggingConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LoggingConfiguration
+</span><a href="#local-6989586621679309813"><span class="hs-identifier hs-var">loggingConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309812"><span class="annot"><span class="annottext">s :: PutLoggingConfigurationResponse
+</span><a href="#local-6989586621679309812"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.PutLoggingConfiguration.html#PutLoggingConfigurationResponse%27"><span class="hs-identifier hs-type">PutLoggingConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309811"><span class="annot"><span class="annottext">Maybe LoggingConfiguration
+</span><a href="#local-6989586621679309811"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutLoggingConfigurationResponse
+</span><a href="#local-6989586621679309812"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loggingConfiguration:PutLoggingConfigurationResponse' :: Maybe LoggingConfiguration
 </span><a href="Network.AWS.WAF.PutLoggingConfiguration.html#%24sel%3AloggingConfiguration%3APutLoggingConfigurationResponse%27"><span class="hs-identifier hs-var">loggingConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LoggingConfiguration
-</span><a href="#local-6989586621679309802"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.PutLoggingConfiguration.html#PutLoggingConfigurationResponse"><span class="hs-identifier hs-type">PutLoggingConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679309811"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.PutLoggingConfiguration.html#PutLoggingConfigurationResponse"><span class="hs-identifier hs-type">PutLoggingConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-208"></span><span>
 </span><span id="line-209"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-210"></span><span class="annot"><a href="Network.AWS.WAF.PutLoggingConfiguration.html#putLoggingConfigurationResponse_httpStatus"><span class="hs-identifier hs-type">putLoggingConfigurationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.PutLoggingConfiguration.html#PutLoggingConfigurationResponse"><span class="hs-identifier hs-type">PutLoggingConfigurationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -492,18 +492,18 @@ $sel:loggingConfiguration:PutLoggingConfigurationResponse' :: PutLoggingConfigur
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.PutLoggingConfiguration.html#PutLoggingConfigurationResponse%27"><span class="hs-identifier hs-type">PutLoggingConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309801"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.PutLoggingConfiguration.html#PutLoggingConfigurationResponse%27"><span class="hs-identifier hs-type">PutLoggingConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309810"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:PutLoggingConfigurationResponse' :: PutLoggingConfigurationResponse -&gt; Int
-</span><a href="#local-6989586621679309801"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679309801"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309800"><span class="annot"><span class="annottext">s :: PutLoggingConfigurationResponse
-</span><a href="#local-6989586621679309800"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.PutLoggingConfiguration.html#PutLoggingConfigurationResponse%27"><span class="hs-identifier hs-type">PutLoggingConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309799"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679309799"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutLoggingConfigurationResponse
-</span><a href="#local-6989586621679309800"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutLoggingConfigurationResponse' :: Int
+</span><a href="#local-6989586621679309810"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309810"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309809"><span class="annot"><span class="annottext">s :: PutLoggingConfigurationResponse
+</span><a href="#local-6989586621679309809"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.PutLoggingConfiguration.html#PutLoggingConfigurationResponse%27"><span class="hs-identifier hs-type">PutLoggingConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309808"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309808"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutLoggingConfigurationResponse
+</span><a href="#local-6989586621679309809"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutLoggingConfigurationResponse' :: Int
 </span><a href="Network.AWS.WAF.PutLoggingConfiguration.html#%24sel%3AhttpStatus%3APutLoggingConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679309799"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.PutLoggingConfiguration.html#PutLoggingConfigurationResponse"><span class="hs-identifier hs-type">PutLoggingConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679309808"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.PutLoggingConfiguration.html#PutLoggingConfigurationResponse"><span class="hs-identifier hs-type">PutLoggingConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-212"></span><span>
 </span><span id="line-213"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-214"></span><span>  </span><span id="local-6989586621679309797"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679309806"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-215"></span><span>    </span><span class="annot"><a href="Network.AWS.WAF.PutLoggingConfiguration.html#PutLoggingConfigurationResponse"><span class="hs-identifier hs-type">PutLoggingConfigurationResponse</span></a></span></span><span>
 </span><span id="line-216"></span></pre></body></html>

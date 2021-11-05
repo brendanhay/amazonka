@@ -28,12 +28,12 @@
 </span><span id="line-28"></span><span class="hs-comment">-- configuring the server during launch.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newUserData' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679248433"><span id="local-6989586621679248434"></span></span><span class="hs-keyword">data</span><span> </span><span id="UserData"><span class="annot"><a href="Network.AWS.SMS.Types.UserData.html#UserData"><span class="hs-identifier hs-var">UserData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserData%27"><span class="annot"><a href="Network.AWS.SMS.Types.UserData.html#UserData%27"><span class="hs-identifier hs-var">UserData'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679248442"><span id="local-6989586621679248443"></span></span><span class="hs-keyword">data</span><span> </span><span id="UserData"><span class="annot"><a href="Network.AWS.SMS.Types.UserData.html#UserData"><span class="hs-identifier hs-var">UserData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserData%27"><span class="annot"><a href="Network.AWS.SMS.Types.UserData.html#UserData%27"><span class="hs-identifier hs-var">UserData'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Amazon S3 location of the user-data script.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3As3Location%3AUserData%27"><span class="annot"><span class="annottext">UserData -&gt; Maybe S3Location
 </span><a href="Network.AWS.SMS.Types.UserData.html#%24sel%3As3Location%3AUserData%27"><span class="hs-identifier hs-var hs-var">s3Location</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.S3Location.html#S3Location"><span class="hs-identifier hs-type">S3Location</span></a></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679248427"><span id="local-6989586621679248429"><span class="annot"><span class="annottext">UserData -&gt; UserData -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679248436"><span id="local-6989586621679248438"><span class="annot"><span class="annottext">UserData -&gt; UserData -&gt; Bool
 (UserData -&gt; UserData -&gt; Bool)
 -&gt; (UserData -&gt; UserData -&gt; Bool) -&gt; Eq UserData
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UserData -&gt; UserData -&gt; Bool
 == :: UserData -&gt; UserData -&gt; Bool
 $c== :: UserData -&gt; UserData -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248418"><span id="local-6989586621679248420"><span id="local-6989586621679248422"><span id="local-6989586621679248424"><span class="annot"><span class="annottext">ReadPrec [UserData]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248427"><span id="local-6989586621679248429"><span id="local-6989586621679248431"><span id="local-6989586621679248433"><span class="annot"><span class="annottext">ReadPrec [UserData]
 ReadPrec UserData
 Int -&gt; ReadS UserData
 ReadS [UserData]
@@ -61,7 +61,7 @@ readList :: ReadS [UserData]
 $creadList :: ReadS [UserData]
 readsPrec :: Int -&gt; ReadS UserData
 $creadsPrec :: Int -&gt; ReadS UserData
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248411"><span id="local-6989586621679248413"><span id="local-6989586621679248415"><span class="annot"><span class="annottext">Int -&gt; UserData -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248420"><span id="local-6989586621679248422"><span id="local-6989586621679248424"><span class="annot"><span class="annottext">Int -&gt; UserData -&gt; ShowS
 [UserData] -&gt; ShowS
 UserData -&gt; String
 (Int -&gt; UserData -&gt; ShowS)
@@ -110,48 +110,48 @@ forall a. Maybe a
 -&gt; (UserData -&gt; Maybe S3Location -&gt; UserData)
 -&gt; Lens UserData UserData (Maybe S3Location) (Maybe S3Location)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.UserData.html#UserData%27"><span class="hs-identifier hs-type">UserData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248402"><span class="annot"><span class="annottext">Maybe S3Location
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.UserData.html#UserData%27"><span class="hs-identifier hs-type">UserData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248411"><span class="annot"><span class="annottext">Maybe S3Location
 s3Location :: Maybe S3Location
 $sel:s3Location:UserData' :: UserData -&gt; Maybe S3Location
-</span><a href="#local-6989586621679248402"><span class="hs-identifier hs-var hs-var">s3Location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3Location
-</span><a href="#local-6989586621679248402"><span class="hs-identifier hs-var">s3Location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248401"><span class="annot"><span class="annottext">s :: UserData
-</span><a href="#local-6989586621679248401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.UserData.html#UserData%27"><span class="hs-identifier hs-type">UserData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248400"><span class="annot"><span class="annottext">Maybe S3Location
-</span><a href="#local-6989586621679248400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserData
-</span><a href="#local-6989586621679248401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Location:UserData' :: Maybe S3Location
+</span><a href="#local-6989586621679248411"><span class="hs-identifier hs-var hs-var">s3Location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3Location
+</span><a href="#local-6989586621679248411"><span class="hs-identifier hs-var">s3Location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248410"><span class="annot"><span class="annottext">s :: UserData
+</span><a href="#local-6989586621679248410"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.UserData.html#UserData%27"><span class="hs-identifier hs-type">UserData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248409"><span class="annot"><span class="annottext">Maybe S3Location
+</span><a href="#local-6989586621679248409"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserData
+</span><a href="#local-6989586621679248410"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Location:UserData' :: Maybe S3Location
 </span><a href="Network.AWS.SMS.Types.UserData.html#%24sel%3As3Location%3AUserData%27"><span class="hs-identifier hs-var">s3Location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3Location
-</span><a href="#local-6989586621679248400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.UserData.html#UserData"><span class="hs-identifier hs-type">UserData</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679248409"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.UserData.html#UserData"><span class="hs-identifier hs-type">UserData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>
-</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248397"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.UserData.html#UserData"><span class="hs-identifier hs-type">UserData</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621679248395"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UserData
+</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248406"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.UserData.html#UserData"><span class="hs-identifier hs-type">UserData</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679248404"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UserData
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser UserData) -&gt; Value -&gt; Parser UserData
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;UserData&quot;</span></span><span>
-</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679248392"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248392"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679248401"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679248401"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>          </span><span class="annot"><span class="annottext">Maybe S3Location -&gt; UserData
 </span><a href="Network.AWS.SMS.Types.UserData.html#UserData%27"><span class="hs-identifier hs-var">UserData'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe S3Location -&gt; UserData)
 -&gt; Parser (Maybe S3Location) -&gt; Parser UserData
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248392"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3Location)
+</span><a href="#local-6989586621679248401"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3Location)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;s3Location&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248386"><span id="local-6989586621679248388"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.UserData.html#UserData"><span class="hs-identifier hs-type">UserData</span></a></span></span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248395"><span id="local-6989586621679248397"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.UserData.html#UserData"><span class="hs-identifier hs-type">UserData</span></a></span></span></span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248383"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.UserData.html#UserData"><span class="hs-identifier hs-type">UserData</span></a></span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248392"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.UserData.html#UserData"><span class="hs-identifier hs-type">UserData</span></a></span></span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248375"><span id="local-6989586621679248377"><span id="local-6989586621679248379"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.UserData.html#UserData"><span class="hs-identifier hs-type">UserData</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679248373"><span class="annot"><span class="annottext">toJSON :: UserData -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.UserData.html#UserData%27"><span class="hs-identifier hs-type">UserData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248371"><span class="annot"><span class="annottext">Maybe S3Location
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248384"><span id="local-6989586621679248386"><span id="local-6989586621679248388"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.UserData.html#UserData"><span class="hs-identifier hs-type">UserData</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679248382"><span class="annot"><span class="annottext">toJSON :: UserData -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.UserData.html#UserData%27"><span class="hs-identifier hs-type">UserData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248380"><span class="annot"><span class="annottext">Maybe S3Location
 s3Location :: Maybe S3Location
 $sel:s3Location:UserData' :: UserData -&gt; Maybe S3Location
-</span><a href="#local-6989586621679248371"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679248380"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -163,6 +163,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(S3Location -&gt; Pair) -&gt; Maybe S3Location -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe S3Location
-</span><a href="#local-6989586621679248371"><span class="hs-identifier hs-var">s3Location</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679248380"><span class="hs-identifier hs-var">s3Location</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-71"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span></pre></body></html>

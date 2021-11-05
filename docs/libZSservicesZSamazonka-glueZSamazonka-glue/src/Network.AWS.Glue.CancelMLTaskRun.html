@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newCancelMLTaskRun' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679742717"><span id="local-6989586621679742718"></span></span><span class="hs-keyword">data</span><span> </span><span id="CancelMLTaskRun"><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRun"><span class="hs-identifier hs-var">CancelMLTaskRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelMLTaskRun%27"><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRun%27"><span class="hs-identifier hs-var">CancelMLTaskRun'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679742726"><span id="local-6989586621679742727"></span></span><span class="hs-keyword">data</span><span> </span><span id="CancelMLTaskRun"><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRun"><span class="hs-identifier hs-var">CancelMLTaskRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelMLTaskRun%27"><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRun%27"><span class="hs-identifier hs-var">CancelMLTaskRun'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier of the machine learning transform.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AtransformId%3ACancelMLTaskRun%27"><span class="annot"><span class="annottext">CancelMLTaskRun -&gt; Text
 </span><a href="Network.AWS.Glue.CancelMLTaskRun.html#%24sel%3AtransformId%3ACancelMLTaskRun%27"><span class="hs-identifier hs-var hs-var">transformId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -62,7 +62,7 @@
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AtaskRunId%3ACancelMLTaskRun%27"><span class="annot"><span class="annottext">CancelMLTaskRun -&gt; Text
 </span><a href="Network.AWS.Glue.CancelMLTaskRun.html#%24sel%3AtaskRunId%3ACancelMLTaskRun%27"><span class="hs-identifier hs-var hs-var">taskRunId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679742710"><span id="local-6989586621679742712"><span class="annot"><span class="annottext">CancelMLTaskRun -&gt; CancelMLTaskRun -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679742719"><span id="local-6989586621679742721"><span class="annot"><span class="annottext">CancelMLTaskRun -&gt; CancelMLTaskRun -&gt; Bool
 (CancelMLTaskRun -&gt; CancelMLTaskRun -&gt; Bool)
 -&gt; (CancelMLTaskRun -&gt; CancelMLTaskRun -&gt; Bool)
 -&gt; Eq CancelMLTaskRun
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CancelMLTaskRun -&gt; CancelMLTaskRun -&gt; Bool
 == :: CancelMLTaskRun -&gt; CancelMLTaskRun -&gt; Bool
 $c== :: CancelMLTaskRun -&gt; CancelMLTaskRun -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679742701"><span id="local-6989586621679742703"><span id="local-6989586621679742705"><span id="local-6989586621679742707"><span class="annot"><span class="annottext">ReadPrec [CancelMLTaskRun]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679742710"><span id="local-6989586621679742712"><span id="local-6989586621679742714"><span id="local-6989586621679742716"><span class="annot"><span class="annottext">ReadPrec [CancelMLTaskRun]
 ReadPrec CancelMLTaskRun
 Int -&gt; ReadS CancelMLTaskRun
 ReadS [CancelMLTaskRun]
@@ -91,7 +91,7 @@ readList :: ReadS [CancelMLTaskRun]
 $creadList :: ReadS [CancelMLTaskRun]
 readsPrec :: Int -&gt; ReadS CancelMLTaskRun
 $creadsPrec :: Int -&gt; ReadS CancelMLTaskRun
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679742694"><span id="local-6989586621679742696"><span id="local-6989586621679742698"><span class="annot"><span class="annottext">Int -&gt; CancelMLTaskRun -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679742703"><span id="local-6989586621679742705"><span id="local-6989586621679742707"><span class="annot"><span class="annottext">Int -&gt; CancelMLTaskRun -&gt; ShowS
 [CancelMLTaskRun] -&gt; ShowS
 CancelMLTaskRun -&gt; String
 (Int -&gt; CancelMLTaskRun -&gt; ShowS)
@@ -135,17 +135,17 @@ $cfrom :: forall x. CancelMLTaskRun -&gt; Rep CancelMLTaskRun x
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRun"><span class="hs-identifier hs-type">CancelMLTaskRun</span></a></span><span>
 </span><span id="line-82"></span><span id="newCancelMLTaskRun"><span class="annot"><span class="annottext">newCancelMLTaskRun :: Text -&gt; Text -&gt; CancelMLTaskRun
-</span><a href="Network.AWS.Glue.CancelMLTaskRun.html#newCancelMLTaskRun"><span class="hs-identifier hs-var hs-var">newCancelMLTaskRun</span></a></span></span><span> </span><span id="local-6989586621679742689"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679742689"><span class="hs-identifier hs-var">pTransformId_</span></a></span></span><span> </span><span id="local-6989586621679742688"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679742688"><span class="hs-identifier hs-var">pTaskRunId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.CancelMLTaskRun.html#newCancelMLTaskRun"><span class="hs-identifier hs-var hs-var">newCancelMLTaskRun</span></a></span></span><span> </span><span id="local-6989586621679742698"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679742698"><span class="hs-identifier hs-var">pTransformId_</span></a></span></span><span> </span><span id="local-6989586621679742697"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679742697"><span class="hs-identifier hs-var">pTaskRunId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">CancelMLTaskRun' :: Text -&gt; Text -&gt; CancelMLTaskRun
 </span><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRun%27"><span class="hs-identifier hs-type">CancelMLTaskRun'</span></a></span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:transformId:CancelMLTaskRun' :: Text
 </span><a href="Network.AWS.Glue.CancelMLTaskRun.html#%24sel%3AtransformId%3ACancelMLTaskRun%27"><span class="hs-identifier hs-var">transformId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679742689"><span class="hs-identifier hs-var">pTransformId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679742698"><span class="hs-identifier hs-var">pTransformId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:taskRunId:CancelMLTaskRun' :: Text
 </span><a href="Network.AWS.Glue.CancelMLTaskRun.html#%24sel%3AtaskRunId%3ACancelMLTaskRun%27"><span class="hs-identifier hs-var">taskRunId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679742688"><span class="hs-identifier hs-var">pTaskRunId_</span></a></span><span>
+</span><a href="#local-6989586621679742697"><span class="hs-identifier hs-var">pTaskRunId_</span></a></span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | The unique identifier of the machine learning transform.</span><span>
@@ -155,16 +155,16 @@ $cfrom :: forall x. CancelMLTaskRun -&gt; Rep CancelMLTaskRun x
 -&gt; (CancelMLTaskRun -&gt; Text -&gt; CancelMLTaskRun)
 -&gt; Lens CancelMLTaskRun CancelMLTaskRun Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRun%27"><span class="hs-identifier hs-type">CancelMLTaskRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742685"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRun%27"><span class="hs-identifier hs-type">CancelMLTaskRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742694"><span class="annot"><span class="annottext">Text
 transformId :: Text
 $sel:transformId:CancelMLTaskRun' :: CancelMLTaskRun -&gt; Text
-</span><a href="#local-6989586621679742685"><span class="hs-identifier hs-var hs-var">transformId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679742685"><span class="hs-identifier hs-var">transformId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679742684"><span class="annot"><span class="annottext">s :: CancelMLTaskRun
-</span><a href="#local-6989586621679742684"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRun%27"><span class="hs-identifier hs-type">CancelMLTaskRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679742683"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679742683"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelMLTaskRun
-</span><a href="#local-6989586621679742684"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transformId:CancelMLTaskRun' :: Text
+</span><a href="#local-6989586621679742694"><span class="hs-identifier hs-var hs-var">transformId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679742694"><span class="hs-identifier hs-var">transformId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679742693"><span class="annot"><span class="annottext">s :: CancelMLTaskRun
+</span><a href="#local-6989586621679742693"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRun%27"><span class="hs-identifier hs-type">CancelMLTaskRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679742692"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679742692"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelMLTaskRun
+</span><a href="#local-6989586621679742693"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transformId:CancelMLTaskRun' :: Text
 </span><a href="Network.AWS.Glue.CancelMLTaskRun.html#%24sel%3AtransformId%3ACancelMLTaskRun%27"><span class="hs-identifier hs-var">transformId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679742683"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRun"><span class="hs-identifier hs-type">CancelMLTaskRun</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679742692"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRun"><span class="hs-identifier hs-type">CancelMLTaskRun</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | A unique identifier for the task run.</span><span>
 </span><span id="line-93"></span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#cancelMLTaskRun_taskRunId"><span class="hs-identifier hs-type">cancelMLTaskRun_taskRunId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRun"><span class="hs-identifier hs-type">CancelMLTaskRun</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -173,27 +173,27 @@ $sel:transformId:CancelMLTaskRun' :: CancelMLTaskRun -&gt; Text
 -&gt; (CancelMLTaskRun -&gt; Text -&gt; CancelMLTaskRun)
 -&gt; Lens CancelMLTaskRun CancelMLTaskRun Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRun%27"><span class="hs-identifier hs-type">CancelMLTaskRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742682"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRun%27"><span class="hs-identifier hs-type">CancelMLTaskRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742691"><span class="annot"><span class="annottext">Text
 taskRunId :: Text
 $sel:taskRunId:CancelMLTaskRun' :: CancelMLTaskRun -&gt; Text
-</span><a href="#local-6989586621679742682"><span class="hs-identifier hs-var hs-var">taskRunId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679742682"><span class="hs-identifier hs-var">taskRunId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679742681"><span class="annot"><span class="annottext">s :: CancelMLTaskRun
-</span><a href="#local-6989586621679742681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRun%27"><span class="hs-identifier hs-type">CancelMLTaskRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679742680"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679742680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelMLTaskRun
-</span><a href="#local-6989586621679742681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskRunId:CancelMLTaskRun' :: Text
+</span><a href="#local-6989586621679742691"><span class="hs-identifier hs-var hs-var">taskRunId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679742691"><span class="hs-identifier hs-var">taskRunId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679742690"><span class="annot"><span class="annottext">s :: CancelMLTaskRun
+</span><a href="#local-6989586621679742690"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRun%27"><span class="hs-identifier hs-type">CancelMLTaskRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679742689"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679742689"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelMLTaskRun
+</span><a href="#local-6989586621679742690"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskRunId:CancelMLTaskRun' :: Text
 </span><a href="Network.AWS.Glue.CancelMLTaskRun.html#%24sel%3AtaskRunId%3ACancelMLTaskRun%27"><span class="hs-identifier hs-var">taskRunId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679742680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRun"><span class="hs-identifier hs-type">CancelMLTaskRun</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679742689"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRun"><span class="hs-identifier hs-type">CancelMLTaskRun</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRun"><span class="hs-identifier hs-type">CancelMLTaskRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-97"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-98"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRun"><span class="hs-identifier hs-type">CancelMLTaskRun</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse"><span class="hs-identifier hs-type">CancelMLTaskRunResponse</span></a></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679742676"><span class="annot"><span class="annottext">request :: CancelMLTaskRun -&gt; Request CancelMLTaskRun
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679742685"><span class="annot"><span class="annottext">request :: CancelMLTaskRun -&gt; Request CancelMLTaskRun
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CancelMLTaskRun -&gt; Request CancelMLTaskRun
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679742672"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679742681"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CancelMLTaskRun
 -&gt; ClientResponse ClientBody
@@ -217,10 +217,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679742669"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679742669"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679742668"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679742668"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679742667"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679742667"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679742678"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679742678"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679742677"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679742677"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679742676"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679742676"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Maybe TaskStatusType
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CancelMLTaskRunResponse
 </span><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse%27"><span class="hs-identifier hs-var">CancelMLTaskRunResponse'</span></a></span><span>
@@ -231,7 +231,7 @@ MonadResource m =&gt;
      String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CancelMLTaskRunResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679742667"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe TaskStatusType)
+</span><a href="#local-6989586621679742676"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe TaskStatusType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
@@ -241,7 +241,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text -&gt; Int -&gt; CancelMLTaskRunResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679742667"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679742676"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TransformId&quot;</span></span><span class="hs-special">)</span><span>
@@ -250,7 +250,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; CancelMLTaskRunResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679742667"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679742676"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TaskRunId&quot;</span></span><span class="hs-special">)</span><span>
@@ -262,15 +262,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679742669"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679742678"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679742659"><span id="local-6989586621679742661"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRun"><span class="hs-identifier hs-type">CancelMLTaskRun</span></a></span></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679742668"><span id="local-6989586621679742670"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRun"><span class="hs-identifier hs-type">CancelMLTaskRun</span></a></span></span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679742656"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRun"><span class="hs-identifier hs-type">CancelMLTaskRun</span></a></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679742665"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRun"><span class="hs-identifier hs-type">CancelMLTaskRun</span></a></span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRun"><span class="hs-identifier hs-type">CancelMLTaskRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679742652"><span class="annot"><span class="annottext">toHeaders :: CancelMLTaskRun -&gt; ResponseHeaders
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679742661"><span class="annot"><span class="annottext">toHeaders :: CancelMLTaskRun -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CancelMLTaskRun -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -295,14 +295,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679742642"><span id="local-6989586621679742644"><span id="local-6989586621679742646"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRun"><span class="hs-identifier hs-type">CancelMLTaskRun</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679742640"><span class="annot"><span class="annottext">toJSON :: CancelMLTaskRun -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRun%27"><span class="hs-identifier hs-type">CancelMLTaskRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742637"><span id="local-6989586621679742638"><span class="annot"><span class="annottext">Text
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679742651"><span id="local-6989586621679742653"><span id="local-6989586621679742655"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRun"><span class="hs-identifier hs-type">CancelMLTaskRun</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679742649"><span class="annot"><span class="annottext">toJSON :: CancelMLTaskRun -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRun%27"><span class="hs-identifier hs-type">CancelMLTaskRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742646"><span id="local-6989586621679742647"><span class="annot"><span class="annottext">Text
 taskRunId :: Text
 transformId :: Text
 $sel:taskRunId:CancelMLTaskRun' :: CancelMLTaskRun -&gt; Text
 $sel:transformId:CancelMLTaskRun' :: CancelMLTaskRun -&gt; Text
-</span><a href="#local-6989586621679742637"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679742646"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -314,26 +314,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;TransformId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679742638"><span class="hs-identifier hs-var">transformId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679742647"><span class="hs-identifier hs-var">transformId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TaskRunId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679742637"><span class="hs-identifier hs-var">taskRunId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679742646"><span class="hs-identifier hs-var">taskRunId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRun"><span class="hs-identifier hs-type">CancelMLTaskRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679742631"><span class="annot"><span class="annottext">toPath :: CancelMLTaskRun -&gt; ByteString
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679742640"><span class="annot"><span class="annottext">toPath :: CancelMLTaskRun -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CancelMLTaskRun -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRun"><span class="hs-identifier hs-type">CancelMLTaskRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679742627"><span class="annot"><span class="annottext">toQuery :: CancelMLTaskRun -&gt; QueryString
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679742636"><span class="annot"><span class="annottext">toQuery :: CancelMLTaskRun -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CancelMLTaskRun -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -341,7 +341,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | /See:/ 'newCancelMLTaskRunResponse' smart constructor.</span><span>
-</span><span id="line-144"></span><span id="local-6989586621679742624"><span id="local-6989586621679742625"></span></span><span class="hs-keyword">data</span><span> </span><span id="CancelMLTaskRunResponse"><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse"><span class="hs-identifier hs-var">CancelMLTaskRunResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelMLTaskRunResponse%27"><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse%27"><span class="hs-identifier hs-var">CancelMLTaskRunResponse'</span></a></span></span><span>
+</span><span id="line-144"></span><span id="local-6989586621679742633"><span id="local-6989586621679742634"></span></span><span class="hs-keyword">data</span><span> </span><span id="CancelMLTaskRunResponse"><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse"><span class="hs-identifier hs-var">CancelMLTaskRunResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelMLTaskRunResponse%27"><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse%27"><span class="hs-identifier hs-var">CancelMLTaskRunResponse'</span></a></span></span><span>
 </span><span id="line-145"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status for this run.</span><span>
 </span><span id="line-146"></span><span>    </span><span id="%24sel%3Astatus%3ACancelMLTaskRunResponse%27"><span class="annot"><span class="annottext">CancelMLTaskRunResponse -&gt; Maybe TaskStatusType
 </span><a href="Network.AWS.Glue.CancelMLTaskRun.html#%24sel%3Astatus%3ACancelMLTaskRunResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TaskStatusType.html#TaskStatusType"><span class="hs-identifier hs-type">TaskStatusType</span></a></span><span class="hs-special">,</span><span>
@@ -355,7 +355,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-152"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACancelMLTaskRunResponse%27"><span class="annot"><span class="annottext">CancelMLTaskRunResponse -&gt; Int
 </span><a href="Network.AWS.Glue.CancelMLTaskRun.html#%24sel%3AhttpStatus%3ACancelMLTaskRunResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-153"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679742616"><span id="local-6989586621679742618"><span class="annot"><span class="annottext">CancelMLTaskRunResponse -&gt; CancelMLTaskRunResponse -&gt; Bool
+</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679742625"><span id="local-6989586621679742627"><span class="annot"><span class="annottext">CancelMLTaskRunResponse -&gt; CancelMLTaskRunResponse -&gt; Bool
 (CancelMLTaskRunResponse -&gt; CancelMLTaskRunResponse -&gt; Bool)
 -&gt; (CancelMLTaskRunResponse -&gt; CancelMLTaskRunResponse -&gt; Bool)
 -&gt; Eq CancelMLTaskRunResponse
@@ -364,7 +364,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CancelMLTaskRunResponse -&gt; CancelMLTaskRunResponse -&gt; Bool
 == :: CancelMLTaskRunResponse -&gt; CancelMLTaskRunResponse -&gt; Bool
 $c== :: CancelMLTaskRunResponse -&gt; CancelMLTaskRunResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679742608"><span id="local-6989586621679742610"><span id="local-6989586621679742612"><span id="local-6989586621679742614"><span class="annot"><span class="annottext">ReadPrec [CancelMLTaskRunResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679742617"><span id="local-6989586621679742619"><span id="local-6989586621679742621"><span id="local-6989586621679742623"><span class="annot"><span class="annottext">ReadPrec [CancelMLTaskRunResponse]
 ReadPrec CancelMLTaskRunResponse
 Int -&gt; ReadS CancelMLTaskRunResponse
 ReadS [CancelMLTaskRunResponse]
@@ -384,7 +384,7 @@ readList :: ReadS [CancelMLTaskRunResponse]
 $creadList :: ReadS [CancelMLTaskRunResponse]
 readsPrec :: Int -&gt; ReadS CancelMLTaskRunResponse
 $creadsPrec :: Int -&gt; ReadS CancelMLTaskRunResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679742602"><span id="local-6989586621679742604"><span id="local-6989586621679742606"><span class="annot"><span class="annottext">Int -&gt; CancelMLTaskRunResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679742611"><span id="local-6989586621679742613"><span id="local-6989586621679742615"><span class="annot"><span class="annottext">Int -&gt; CancelMLTaskRunResponse -&gt; ShowS
 [CancelMLTaskRunResponse] -&gt; ShowS
 CancelMLTaskRunResponse -&gt; String
 (Int -&gt; CancelMLTaskRunResponse -&gt; ShowS)
@@ -432,8 +432,8 @@ $cfrom :: forall x. CancelMLTaskRunResponse -&gt; Rep CancelMLTaskRunResponse x
 </span><span id="line-173"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-174"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse"><span class="hs-identifier hs-type">CancelMLTaskRunResponse</span></a></span><span>
 </span><span id="line-175"></span><span id="newCancelMLTaskRunResponse"><span class="annot"><span class="annottext">newCancelMLTaskRunResponse :: Int -&gt; CancelMLTaskRunResponse
-</span><a href="Network.AWS.Glue.CancelMLTaskRun.html#newCancelMLTaskRunResponse"><span class="hs-identifier hs-var hs-var">newCancelMLTaskRunResponse</span></a></span></span><span> </span><span id="local-6989586621679742599"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679742599"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.CancelMLTaskRun.html#newCancelMLTaskRunResponse"><span class="hs-identifier hs-var hs-var">newCancelMLTaskRunResponse</span></a></span></span><span> </span><span id="local-6989586621679742608"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679742608"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-176"></span><span>  </span><span class="annot"><span class="annottext">CancelMLTaskRunResponse' :: Maybe TaskStatusType
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CancelMLTaskRunResponse
 </span><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse%27"><span class="hs-identifier hs-type">CancelMLTaskRunResponse'</span></a></span><span>
@@ -451,7 +451,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CancelMLTaskRunResponse' :: Int
 </span><a href="Network.AWS.Glue.CancelMLTaskRun.html#%24sel%3AhttpStatus%3ACancelMLTaskRunResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679742599"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679742608"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-181"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- | The status for this run.</span><span>
@@ -467,16 +467,16 @@ forall a. Maybe a
      (Maybe TaskStatusType)
      (Maybe TaskStatusType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse%27"><span class="hs-identifier hs-type">CancelMLTaskRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742598"><span class="annot"><span class="annottext">Maybe TaskStatusType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse%27"><span class="hs-identifier hs-type">CancelMLTaskRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742607"><span class="annot"><span class="annottext">Maybe TaskStatusType
 status :: Maybe TaskStatusType
 $sel:status:CancelMLTaskRunResponse' :: CancelMLTaskRunResponse -&gt; Maybe TaskStatusType
-</span><a href="#local-6989586621679742598"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TaskStatusType
-</span><a href="#local-6989586621679742598"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679742597"><span class="annot"><span class="annottext">s :: CancelMLTaskRunResponse
-</span><a href="#local-6989586621679742597"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse%27"><span class="hs-identifier hs-type">CancelMLTaskRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679742596"><span class="annot"><span class="annottext">Maybe TaskStatusType
-</span><a href="#local-6989586621679742596"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelMLTaskRunResponse
-</span><a href="#local-6989586621679742597"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:CancelMLTaskRunResponse' :: Maybe TaskStatusType
+</span><a href="#local-6989586621679742607"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TaskStatusType
+</span><a href="#local-6989586621679742607"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679742606"><span class="annot"><span class="annottext">s :: CancelMLTaskRunResponse
+</span><a href="#local-6989586621679742606"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse%27"><span class="hs-identifier hs-type">CancelMLTaskRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679742605"><span class="annot"><span class="annottext">Maybe TaskStatusType
+</span><a href="#local-6989586621679742605"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelMLTaskRunResponse
+</span><a href="#local-6989586621679742606"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:CancelMLTaskRunResponse' :: Maybe TaskStatusType
 </span><a href="Network.AWS.Glue.CancelMLTaskRun.html#%24sel%3Astatus%3ACancelMLTaskRunResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TaskStatusType
-</span><a href="#local-6989586621679742596"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse"><span class="hs-identifier hs-type">CancelMLTaskRunResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679742605"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse"><span class="hs-identifier hs-type">CancelMLTaskRunResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-comment">-- | The unique identifier of the machine learning transform.</span><span>
 </span><span id="line-188"></span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#cancelMLTaskRunResponse_transformId"><span class="hs-identifier hs-type">cancelMLTaskRunResponse_transformId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse"><span class="hs-identifier hs-type">CancelMLTaskRunResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -491,16 +491,16 @@ $sel:status:CancelMLTaskRunResponse' :: CancelMLTaskRunResponse -&gt; Maybe Task
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse%27"><span class="hs-identifier hs-type">CancelMLTaskRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742595"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse%27"><span class="hs-identifier hs-type">CancelMLTaskRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742604"><span class="annot"><span class="annottext">Maybe Text
 transformId :: Maybe Text
 $sel:transformId:CancelMLTaskRunResponse' :: CancelMLTaskRunResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679742595"><span class="hs-identifier hs-var hs-var">transformId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679742595"><span class="hs-identifier hs-var">transformId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679742594"><span class="annot"><span class="annottext">s :: CancelMLTaskRunResponse
-</span><a href="#local-6989586621679742594"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse%27"><span class="hs-identifier hs-type">CancelMLTaskRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679742593"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679742593"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelMLTaskRunResponse
-</span><a href="#local-6989586621679742594"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transformId:CancelMLTaskRunResponse' :: Maybe Text
+</span><a href="#local-6989586621679742604"><span class="hs-identifier hs-var hs-var">transformId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679742604"><span class="hs-identifier hs-var">transformId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679742603"><span class="annot"><span class="annottext">s :: CancelMLTaskRunResponse
+</span><a href="#local-6989586621679742603"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse%27"><span class="hs-identifier hs-type">CancelMLTaskRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679742602"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679742602"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelMLTaskRunResponse
+</span><a href="#local-6989586621679742603"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transformId:CancelMLTaskRunResponse' :: Maybe Text
 </span><a href="Network.AWS.Glue.CancelMLTaskRun.html#%24sel%3AtransformId%3ACancelMLTaskRunResponse%27"><span class="hs-identifier hs-var">transformId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679742593"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse"><span class="hs-identifier hs-type">CancelMLTaskRunResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679742602"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse"><span class="hs-identifier hs-type">CancelMLTaskRunResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | The unique identifier for the task run.</span><span>
 </span><span id="line-192"></span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#cancelMLTaskRunResponse_taskRunId"><span class="hs-identifier hs-type">cancelMLTaskRunResponse_taskRunId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse"><span class="hs-identifier hs-type">CancelMLTaskRunResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -515,16 +515,16 @@ $sel:transformId:CancelMLTaskRunResponse' :: CancelMLTaskRunResponse -&gt; Maybe
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse%27"><span class="hs-identifier hs-type">CancelMLTaskRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742592"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse%27"><span class="hs-identifier hs-type">CancelMLTaskRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742601"><span class="annot"><span class="annottext">Maybe Text
 taskRunId :: Maybe Text
 $sel:taskRunId:CancelMLTaskRunResponse' :: CancelMLTaskRunResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679742592"><span class="hs-identifier hs-var hs-var">taskRunId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679742592"><span class="hs-identifier hs-var">taskRunId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679742591"><span class="annot"><span class="annottext">s :: CancelMLTaskRunResponse
-</span><a href="#local-6989586621679742591"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse%27"><span class="hs-identifier hs-type">CancelMLTaskRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679742590"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679742590"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelMLTaskRunResponse
-</span><a href="#local-6989586621679742591"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskRunId:CancelMLTaskRunResponse' :: Maybe Text
+</span><a href="#local-6989586621679742601"><span class="hs-identifier hs-var hs-var">taskRunId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679742601"><span class="hs-identifier hs-var">taskRunId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679742600"><span class="annot"><span class="annottext">s :: CancelMLTaskRunResponse
+</span><a href="#local-6989586621679742600"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse%27"><span class="hs-identifier hs-type">CancelMLTaskRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679742599"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679742599"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelMLTaskRunResponse
+</span><a href="#local-6989586621679742600"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskRunId:CancelMLTaskRunResponse' :: Maybe Text
 </span><a href="Network.AWS.Glue.CancelMLTaskRun.html#%24sel%3AtaskRunId%3ACancelMLTaskRunResponse%27"><span class="hs-identifier hs-var">taskRunId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679742590"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse"><span class="hs-identifier hs-type">CancelMLTaskRunResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679742599"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse"><span class="hs-identifier hs-type">CancelMLTaskRunResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>
 </span><span id="line-195"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-196"></span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#cancelMLTaskRunResponse_httpStatus"><span class="hs-identifier hs-type">cancelMLTaskRunResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse"><span class="hs-identifier hs-type">CancelMLTaskRunResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -534,16 +534,16 @@ $sel:taskRunId:CancelMLTaskRunResponse' :: CancelMLTaskRunResponse -&gt; Maybe T
 -&gt; (CancelMLTaskRunResponse -&gt; Int -&gt; CancelMLTaskRunResponse)
 -&gt; Lens CancelMLTaskRunResponse CancelMLTaskRunResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse%27"><span class="hs-identifier hs-type">CancelMLTaskRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742589"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse%27"><span class="hs-identifier hs-type">CancelMLTaskRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679742598"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CancelMLTaskRunResponse' :: CancelMLTaskRunResponse -&gt; Int
-</span><a href="#local-6989586621679742589"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679742589"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679742588"><span class="annot"><span class="annottext">s :: CancelMLTaskRunResponse
-</span><a href="#local-6989586621679742588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse%27"><span class="hs-identifier hs-type">CancelMLTaskRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679742587"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679742587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelMLTaskRunResponse
-</span><a href="#local-6989586621679742588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CancelMLTaskRunResponse' :: Int
+</span><a href="#local-6989586621679742598"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679742598"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679742597"><span class="annot"><span class="annottext">s :: CancelMLTaskRunResponse
+</span><a href="#local-6989586621679742597"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse%27"><span class="hs-identifier hs-type">CancelMLTaskRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679742596"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679742596"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelMLTaskRunResponse
+</span><a href="#local-6989586621679742597"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CancelMLTaskRunResponse' :: Int
 </span><a href="Network.AWS.Glue.CancelMLTaskRun.html#%24sel%3AhttpStatus%3ACancelMLTaskRunResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679742587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse"><span class="hs-identifier hs-type">CancelMLTaskRunResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679742596"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse"><span class="hs-identifier hs-type">CancelMLTaskRunResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-198"></span><span>
-</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679742585"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse"><span class="hs-identifier hs-type">CancelMLTaskRunResponse</span></a></span></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679742594"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CancelMLTaskRun.html#CancelMLTaskRunResponse"><span class="hs-identifier hs-type">CancelMLTaskRunResponse</span></a></span></span><span>
 </span><span id="line-200"></span></pre></body></html>

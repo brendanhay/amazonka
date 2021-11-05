@@ -45,13 +45,13 @@
 </span><span id="line-45"></span><span class="hs-comment">--     @ConsumedCapacity@ for the operation.</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- -   @NONE@ - No @ConsumedCapacity@ details are included in the response.</span><span>
-</span><span id="line-48"></span><span id="local-6989586621679379304"><span id="local-6989586621679379305"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReturnConsumedCapacity"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReturnConsumedCapacity.html#ReturnConsumedCapacity"><span class="hs-identifier hs-var">ReturnConsumedCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReturnConsumedCapacity%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReturnConsumedCapacity.html#ReturnConsumedCapacity%27"><span class="hs-identifier hs-var">ReturnConsumedCapacity'</span></a></span></span><span>
+</span><span id="line-48"></span><span id="local-6989586621679379313"><span id="local-6989586621679379314"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReturnConsumedCapacity"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReturnConsumedCapacity.html#ReturnConsumedCapacity"><span class="hs-identifier hs-var">ReturnConsumedCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReturnConsumedCapacity%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReturnConsumedCapacity.html#ReturnConsumedCapacity%27"><span class="hs-identifier hs-var">ReturnConsumedCapacity'</span></a></span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromReturnConsumedCapacity"><span class="annot"><span class="annottext">ReturnConsumedCapacity -&gt; Text
 </span><a href="Network.AWS.DynamoDB.Types.ReturnConsumedCapacity.html#fromReturnConsumedCapacity"><span class="hs-identifier hs-var hs-var">fromReturnConsumedCapacity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-50"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679379296"><span id="local-6989586621679379298"><span id="local-6989586621679379300"><span class="annot"><span class="annottext">Int -&gt; ReturnConsumedCapacity -&gt; ShowS
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679379305"><span id="local-6989586621679379307"><span id="local-6989586621679379309"><span class="annot"><span class="annottext">Int -&gt; ReturnConsumedCapacity -&gt; ShowS
 [ReturnConsumedCapacity] -&gt; ShowS
 ReturnConsumedCapacity -&gt; String
 (Int -&gt; ReturnConsumedCapacity -&gt; ShowS)
@@ -67,7 +67,7 @@ $cshow :: ReturnConsumedCapacity -&gt; String
 showsPrec :: Int -&gt; ReturnConsumedCapacity -&gt; ShowS
 $cshowsPrec :: Int -&gt; ReturnConsumedCapacity -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679379287"><span id="local-6989586621679379289"><span id="local-6989586621679379291"><span id="local-6989586621679379293"><span class="annot"><span class="annottext">ReadPrec [ReturnConsumedCapacity]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679379296"><span id="local-6989586621679379298"><span id="local-6989586621679379300"><span id="local-6989586621679379302"><span class="annot"><span class="annottext">ReadPrec [ReturnConsumedCapacity]
 ReadPrec ReturnConsumedCapacity
 Int -&gt; ReadS ReturnConsumedCapacity
 ReadS [ReturnConsumedCapacity]
@@ -88,7 +88,7 @@ $creadList :: ReadS [ReturnConsumedCapacity]
 readsPrec :: Int -&gt; ReadS ReturnConsumedCapacity
 $creadsPrec :: Int -&gt; ReadS ReturnConsumedCapacity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679379282"><span id="local-6989586621679379284"><span class="annot"><span class="annottext">ReturnConsumedCapacity -&gt; ReturnConsumedCapacity -&gt; Bool
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679379291"><span id="local-6989586621679379293"><span class="annot"><span class="annottext">ReturnConsumedCapacity -&gt; ReturnConsumedCapacity -&gt; Bool
 (ReturnConsumedCapacity -&gt; ReturnConsumedCapacity -&gt; Bool)
 -&gt; (ReturnConsumedCapacity -&gt; ReturnConsumedCapacity -&gt; Bool)
 -&gt; Eq ReturnConsumedCapacity
@@ -98,7 +98,7 @@ $c/= :: ReturnConsumedCapacity -&gt; ReturnConsumedCapacity -&gt; Bool
 == :: ReturnConsumedCapacity -&gt; ReturnConsumedCapacity -&gt; Bool
 $c== :: ReturnConsumedCapacity -&gt; ReturnConsumedCapacity -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679379266"><span id="local-6989586621679379268"><span id="local-6989586621679379270"><span id="local-6989586621679379272"><span id="local-6989586621679379274"><span id="local-6989586621679379276"><span id="local-6989586621679379278"><span class="annot"><span class="annottext">Eq ReturnConsumedCapacity
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679379275"><span id="local-6989586621679379277"><span id="local-6989586621679379279"><span id="local-6989586621679379281"><span id="local-6989586621679379283"><span id="local-6989586621679379285"><span id="local-6989586621679379287"><span class="annot"><span class="annottext">Eq ReturnConsumedCapacity
 Eq ReturnConsumedCapacity
 -&gt; (ReturnConsumedCapacity -&gt; ReturnConsumedCapacity -&gt; Ordering)
 -&gt; (ReturnConsumedCapacity -&gt; ReturnConsumedCapacity -&gt; Bool)
@@ -157,7 +157,7 @@ $cfrom :: forall x. ReturnConsumedCapacity -&gt; Rep ReturnConsumedCapacity x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679379258"><span id="local-6989586621679379260"><span class="annot"><span class="annottext">Int -&gt; ReturnConsumedCapacity -&gt; Int
+</span><span id="line-60"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679379267"><span id="local-6989586621679379269"><span class="annot"><span class="annottext">Int -&gt; ReturnConsumedCapacity -&gt; Int
 ReturnConsumedCapacity -&gt; Int
 (Int -&gt; ReturnConsumedCapacity -&gt; Int)
 -&gt; (ReturnConsumedCapacity -&gt; Int)
@@ -168,54 +168,54 @@ $chash :: ReturnConsumedCapacity -&gt; Int
 hashWithSalt :: Int -&gt; ReturnConsumedCapacity -&gt; Int
 $chashWithSalt :: Int -&gt; ReturnConsumedCapacity -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679379255"><span class="annot"><span class="annottext">ReturnConsumedCapacity -&gt; ()
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679379264"><span class="annot"><span class="annottext">ReturnConsumedCapacity -&gt; ()
 (ReturnConsumedCapacity -&gt; ()) -&gt; NFData ReturnConsumedCapacity
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ReturnConsumedCapacity -&gt; ()
 $crnf :: ReturnConsumedCapacity -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679379252"><span class="annot"><span class="annottext">Text -&gt; Either String ReturnConsumedCapacity
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679379261"><span class="annot"><span class="annottext">Text -&gt; Either String ReturnConsumedCapacity
 (Text -&gt; Either String ReturnConsumedCapacity)
 -&gt; FromText ReturnConsumedCapacity
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ReturnConsumedCapacity
 $cfromText :: Text -&gt; Either String ReturnConsumedCapacity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679379249"><span class="annot"><span class="annottext">ReturnConsumedCapacity -&gt; Text
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679379258"><span class="annot"><span class="annottext">ReturnConsumedCapacity -&gt; Text
 (ReturnConsumedCapacity -&gt; Text) -&gt; ToText ReturnConsumedCapacity
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ReturnConsumedCapacity -&gt; Text
 $ctoText :: ReturnConsumedCapacity -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679379246"><span class="annot"><span class="annottext">ReturnConsumedCapacity -&gt; ByteString
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679379255"><span class="annot"><span class="annottext">ReturnConsumedCapacity -&gt; ByteString
 (ReturnConsumedCapacity -&gt; ByteString)
 -&gt; ToByteString ReturnConsumedCapacity
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ReturnConsumedCapacity -&gt; ByteString
 $ctoBS :: ReturnConsumedCapacity -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679379243"><span class="annot"><span class="annottext">ReturnConsumedCapacity -&gt; ByteStringBuilder
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679379252"><span class="annot"><span class="annottext">ReturnConsumedCapacity -&gt; ByteStringBuilder
 (ReturnConsumedCapacity -&gt; ByteStringBuilder)
 -&gt; ToLog ReturnConsumedCapacity
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ReturnConsumedCapacity -&gt; ByteStringBuilder
 $cbuild :: ReturnConsumedCapacity -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679379240"><span class="annot"><span class="annottext">HeaderName -&gt; ReturnConsumedCapacity -&gt; [Header]
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679379249"><span class="annot"><span class="annottext">HeaderName -&gt; ReturnConsumedCapacity -&gt; [Header]
 (HeaderName -&gt; ReturnConsumedCapacity -&gt; [Header])
 -&gt; ToHeader ReturnConsumedCapacity
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ReturnConsumedCapacity -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ReturnConsumedCapacity -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679379237"><span class="annot"><span class="annottext">ReturnConsumedCapacity -&gt; QueryString
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679379246"><span class="annot"><span class="annottext">ReturnConsumedCapacity -&gt; QueryString
 (ReturnConsumedCapacity -&gt; QueryString)
 -&gt; ToQuery ReturnConsumedCapacity
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ReturnConsumedCapacity -&gt; QueryString
 $ctoQuery :: ReturnConsumedCapacity -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679379232"><span id="local-6989586621679379234"><span class="annot"><span class="annottext">Value -&gt; Parser [ReturnConsumedCapacity]
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679379241"><span id="local-6989586621679379243"><span class="annot"><span class="annottext">Value -&gt; Parser [ReturnConsumedCapacity]
 Value -&gt; Parser ReturnConsumedCapacity
 (Value -&gt; Parser ReturnConsumedCapacity)
 -&gt; (Value -&gt; Parser [ReturnConsumedCapacity])
@@ -227,7 +227,7 @@ $cparseJSONList :: Value -&gt; Parser [ReturnConsumedCapacity]
 parseJSON :: Value -&gt; Parser ReturnConsumedCapacity
 $cparseJSON :: Value -&gt; Parser ReturnConsumedCapacity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679379227"><span id="local-6989586621679379229"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReturnConsumedCapacity]
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679379236"><span id="local-6989586621679379238"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReturnConsumedCapacity]
 FromJSONKeyFunction ReturnConsumedCapacity
 FromJSONKeyFunction ReturnConsumedCapacity
 -&gt; FromJSONKeyFunction [ReturnConsumedCapacity]
@@ -239,7 +239,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ReturnConsumedCapacity]
 fromJSONKey :: FromJSONKeyFunction ReturnConsumedCapacity
 $cfromJSONKey :: FromJSONKeyFunction ReturnConsumedCapacity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679379218"><span id="local-6989586621679379220"><span id="local-6989586621679379222"><span id="local-6989586621679379224"><span class="annot"><span class="annottext">[ReturnConsumedCapacity] -&gt; Encoding
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679379227"><span id="local-6989586621679379229"><span id="local-6989586621679379231"><span id="local-6989586621679379233"><span class="annot"><span class="annottext">[ReturnConsumedCapacity] -&gt; Encoding
 [ReturnConsumedCapacity] -&gt; Value
 ReturnConsumedCapacity -&gt; Encoding
 ReturnConsumedCapacity -&gt; Value
@@ -263,7 +263,7 @@ $ctoEncoding :: ReturnConsumedCapacity -&gt; Encoding
 toJSON :: ReturnConsumedCapacity -&gt; Value
 $ctoJSON :: ReturnConsumedCapacity -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span id="local-6989586621679379213"><span id="local-6989586621679379215"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReturnConsumedCapacity]
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679379222"><span id="local-6989586621679379224"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReturnConsumedCapacity]
 ToJSONKeyFunction ReturnConsumedCapacity
 ToJSONKeyFunction ReturnConsumedCapacity
 -&gt; ToJSONKeyFunction [ReturnConsumedCapacity]
@@ -275,14 +275,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ReturnConsumedCapacity]
 toJSONKey :: ToJSONKeyFunction ReturnConsumedCapacity
 $ctoJSONKey :: ToJSONKeyFunction ReturnConsumedCapacity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span id="local-6989586621679379210"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReturnConsumedCapacity
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679379219"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReturnConsumedCapacity
 ([Node] -&gt; Either String ReturnConsumedCapacity)
 -&gt; FromXML ReturnConsumedCapacity
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ReturnConsumedCapacity
 $cparseXML :: [Node] -&gt; Either String ReturnConsumedCapacity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span id="local-6989586621679379207"><span class="annot"><span class="annottext">ReturnConsumedCapacity -&gt; XML
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679379216"><span class="annot"><span class="annottext">ReturnConsumedCapacity -&gt; XML
 (ReturnConsumedCapacity -&gt; XML) -&gt; ToXML ReturnConsumedCapacity
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ReturnConsumedCapacity -&gt; XML

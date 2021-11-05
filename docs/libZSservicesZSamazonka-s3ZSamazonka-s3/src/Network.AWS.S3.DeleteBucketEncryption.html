@@ -63,7 +63,7 @@
 </span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.html"><span class="hs-identifier">Network.AWS.S3.Types</span></a></span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | /See:/ 'newDeleteBucketEncryption' smart constructor.</span><span>
-</span><span id="line-66"></span><span id="local-6989586621679580973"><span id="local-6989586621679580974"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBucketEncryption"><span class="annot"><a href="Network.AWS.S3.DeleteBucketEncryption.html#DeleteBucketEncryption"><span class="hs-identifier hs-var">DeleteBucketEncryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBucketEncryption%27"><span class="annot"><a href="Network.AWS.S3.DeleteBucketEncryption.html#DeleteBucketEncryption%27"><span class="hs-identifier hs-var">DeleteBucketEncryption'</span></a></span></span><span>
+</span><span id="line-66"></span><span id="local-6989586621679580982"><span id="local-6989586621679580983"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBucketEncryption"><span class="annot"><a href="Network.AWS.S3.DeleteBucketEncryption.html#DeleteBucketEncryption"><span class="hs-identifier hs-var">DeleteBucketEncryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBucketEncryption%27"><span class="annot"><a href="Network.AWS.S3.DeleteBucketEncryption.html#DeleteBucketEncryption%27"><span class="hs-identifier hs-var">DeleteBucketEncryption'</span></a></span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
@@ -74,7 +74,7 @@
 </span><span id="line-73"></span><span>    </span><span id="%24sel%3Abucket%3ADeleteBucketEncryption%27"><span class="annot"><span class="annottext">DeleteBucketEncryption -&gt; BucketName
 </span><a href="Network.AWS.S3.DeleteBucketEncryption.html#%24sel%3Abucket%3ADeleteBucketEncryption%27"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span>
 </span><span id="line-74"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679580966"><span id="local-6989586621679580968"><span class="annot"><span class="annottext">DeleteBucketEncryption -&gt; DeleteBucketEncryption -&gt; Bool
+</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679580975"><span id="local-6989586621679580977"><span class="annot"><span class="annottext">DeleteBucketEncryption -&gt; DeleteBucketEncryption -&gt; Bool
 (DeleteBucketEncryption -&gt; DeleteBucketEncryption -&gt; Bool)
 -&gt; (DeleteBucketEncryption -&gt; DeleteBucketEncryption -&gt; Bool)
 -&gt; Eq DeleteBucketEncryption
@@ -83,7 +83,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteBucketEncryption -&gt; DeleteBucketEncryption -&gt; Bool
 == :: DeleteBucketEncryption -&gt; DeleteBucketEncryption -&gt; Bool
 $c== :: DeleteBucketEncryption -&gt; DeleteBucketEncryption -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679580957"><span id="local-6989586621679580959"><span id="local-6989586621679580961"><span id="local-6989586621679580963"><span class="annot"><span class="annottext">ReadPrec [DeleteBucketEncryption]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679580966"><span id="local-6989586621679580968"><span id="local-6989586621679580970"><span id="local-6989586621679580972"><span class="annot"><span class="annottext">ReadPrec [DeleteBucketEncryption]
 ReadPrec DeleteBucketEncryption
 Int -&gt; ReadS DeleteBucketEncryption
 ReadS [DeleteBucketEncryption]
@@ -103,7 +103,7 @@ readList :: ReadS [DeleteBucketEncryption]
 $creadList :: ReadS [DeleteBucketEncryption]
 readsPrec :: Int -&gt; ReadS DeleteBucketEncryption
 $creadsPrec :: Int -&gt; ReadS DeleteBucketEncryption
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679580950"><span id="local-6989586621679580952"><span id="local-6989586621679580954"><span class="annot"><span class="annottext">Int -&gt; DeleteBucketEncryption -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679580959"><span id="local-6989586621679580961"><span id="local-6989586621679580963"><span class="annot"><span class="annottext">Int -&gt; DeleteBucketEncryption -&gt; ShowS
 [DeleteBucketEncryption] -&gt; ShowS
 DeleteBucketEncryption -&gt; String
 (Int -&gt; DeleteBucketEncryption -&gt; ShowS)
@@ -149,8 +149,8 @@ $cfrom :: forall x. DeleteBucketEncryption -&gt; Rep DeleteBucketEncryption x
 </span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketEncryption.html#DeleteBucketEncryption"><span class="hs-identifier hs-type">DeleteBucketEncryption</span></a></span><span>
 </span><span id="line-95"></span><span id="newDeleteBucketEncryption"><span class="annot"><span class="annottext">newDeleteBucketEncryption :: BucketName -&gt; DeleteBucketEncryption
-</span><a href="Network.AWS.S3.DeleteBucketEncryption.html#newDeleteBucketEncryption"><span class="hs-identifier hs-var hs-var">newDeleteBucketEncryption</span></a></span></span><span> </span><span id="local-6989586621679580945"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679580945"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.DeleteBucketEncryption.html#newDeleteBucketEncryption"><span class="hs-identifier hs-var hs-var">newDeleteBucketEncryption</span></a></span></span><span> </span><span id="local-6989586621679580954"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679580954"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>  </span><span class="annot"><span class="annottext">DeleteBucketEncryption' :: Maybe Text -&gt; BucketName -&gt; DeleteBucketEncryption
 </span><a href="Network.AWS.S3.DeleteBucketEncryption.html#DeleteBucketEncryption%27"><span class="hs-identifier hs-type">DeleteBucketEncryption'</span></a></span><span>
 </span><span id="line-97"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:DeleteBucketEncryption' :: Maybe Text
@@ -160,7 +160,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucket:DeleteBucketEncryption' :: BucketName
 </span><a href="Network.AWS.S3.DeleteBucketEncryption.html#%24sel%3Abucket%3ADeleteBucketEncryption%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679580945"><span class="hs-identifier hs-var">pBucket_</span></a></span><span>
+</span><a href="#local-6989586621679580954"><span class="hs-identifier hs-var">pBucket_</span></a></span><span>
 </span><span id="line-100"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
@@ -177,16 +177,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.DeleteBucketEncryption.html#DeleteBucketEncryption%27"><span class="hs-identifier hs-type">DeleteBucketEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679580942"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.DeleteBucketEncryption.html#DeleteBucketEncryption%27"><span class="hs-identifier hs-type">DeleteBucketEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679580951"><span class="annot"><span class="annottext">Maybe Text
 expectedBucketOwner :: Maybe Text
 $sel:expectedBucketOwner:DeleteBucketEncryption' :: DeleteBucketEncryption -&gt; Maybe Text
-</span><a href="#local-6989586621679580942"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679580942"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679580941"><span class="annot"><span class="annottext">s :: DeleteBucketEncryption
-</span><a href="#local-6989586621679580941"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.DeleteBucketEncryption.html#DeleteBucketEncryption%27"><span class="hs-identifier hs-type">DeleteBucketEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679580940"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679580940"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBucketEncryption
-</span><a href="#local-6989586621679580941"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:DeleteBucketEncryption' :: Maybe Text
+</span><a href="#local-6989586621679580951"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679580951"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679580950"><span class="annot"><span class="annottext">s :: DeleteBucketEncryption
+</span><a href="#local-6989586621679580950"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.DeleteBucketEncryption.html#DeleteBucketEncryption%27"><span class="hs-identifier hs-type">DeleteBucketEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679580949"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679580949"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBucketEncryption
+</span><a href="#local-6989586621679580950"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:DeleteBucketEncryption' :: Maybe Text
 </span><a href="Network.AWS.S3.DeleteBucketEncryption.html#%24sel%3AexpectedBucketOwner%3ADeleteBucketEncryption%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679580940"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketEncryption.html#DeleteBucketEncryption"><span class="hs-identifier hs-type">DeleteBucketEncryption</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679580949"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketEncryption.html#DeleteBucketEncryption"><span class="hs-identifier hs-type">DeleteBucketEncryption</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | The name of the bucket containing the server-side encryption</span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- configuration to delete.</span><span>
@@ -198,22 +198,22 @@ $sel:expectedBucketOwner:DeleteBucketEncryption' :: DeleteBucketEncryption -&gt;
 -&gt; Lens
      DeleteBucketEncryption DeleteBucketEncryption BucketName BucketName
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.DeleteBucketEncryption.html#DeleteBucketEncryption%27"><span class="hs-identifier hs-type">DeleteBucketEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679580939"><span class="annot"><span class="annottext">BucketName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.DeleteBucketEncryption.html#DeleteBucketEncryption%27"><span class="hs-identifier hs-type">DeleteBucketEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679580948"><span class="annot"><span class="annottext">BucketName
 bucket :: BucketName
 $sel:bucket:DeleteBucketEncryption' :: DeleteBucketEncryption -&gt; BucketName
-</span><a href="#local-6989586621679580939"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679580939"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679580938"><span class="annot"><span class="annottext">s :: DeleteBucketEncryption
-</span><a href="#local-6989586621679580938"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.DeleteBucketEncryption.html#DeleteBucketEncryption%27"><span class="hs-identifier hs-type">DeleteBucketEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679580937"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679580937"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBucketEncryption
-</span><a href="#local-6989586621679580938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:DeleteBucketEncryption' :: BucketName
+</span><a href="#local-6989586621679580948"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679580948"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679580947"><span class="annot"><span class="annottext">s :: DeleteBucketEncryption
+</span><a href="#local-6989586621679580947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.DeleteBucketEncryption.html#DeleteBucketEncryption%27"><span class="hs-identifier hs-type">DeleteBucketEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679580946"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679580946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBucketEncryption
+</span><a href="#local-6989586621679580947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:DeleteBucketEncryption' :: BucketName
 </span><a href="Network.AWS.S3.DeleteBucketEncryption.html#%24sel%3Abucket%3ADeleteBucketEncryption%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679580937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketEncryption.html#DeleteBucketEncryption"><span class="hs-identifier hs-type">DeleteBucketEncryption</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679580946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketEncryption.html#DeleteBucketEncryption"><span class="hs-identifier hs-type">DeleteBucketEncryption</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketEncryption.html#DeleteBucketEncryption"><span class="hs-identifier hs-type">DeleteBucketEncryption</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-114"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-115"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketEncryption.html#DeleteBucketEncryption"><span class="hs-identifier hs-type">DeleteBucketEncryption</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>      </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketEncryption.html#DeleteBucketEncryptionResponse"><span class="hs-identifier hs-type">DeleteBucketEncryptionResponse</span></a></span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679580933"><span class="annot"><span class="annottext">request :: DeleteBucketEncryption -&gt; Request DeleteBucketEncryption
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679580942"><span class="annot"><span class="annottext">request :: DeleteBucketEncryption -&gt; Request DeleteBucketEncryption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">Request DeleteBucketEncryption -&gt; Request DeleteBucketEncryption
 forall a. Request a -&gt; Request a
@@ -227,7 +227,7 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.S3.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679580927"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679580936"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteBucketEncryption
 -&gt; ClientResponse ClientBody
@@ -254,19 +254,19 @@ AWSResponse a
 DeleteBucketEncryptionResponse
 </span><a href="Network.AWS.S3.DeleteBucketEncryption.html#DeleteBucketEncryptionResponse%27"><span class="hs-identifier hs-var">DeleteBucketEncryptionResponse'</span></a></span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679580920"><span id="local-6989586621679580922"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketEncryption.html#DeleteBucketEncryption"><span class="hs-identifier hs-type">DeleteBucketEncryption</span></a></span></span></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679580929"><span id="local-6989586621679580931"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketEncryption.html#DeleteBucketEncryption"><span class="hs-identifier hs-type">DeleteBucketEncryption</span></a></span></span></span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679580917"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketEncryption.html#DeleteBucketEncryption"><span class="hs-identifier hs-type">DeleteBucketEncryption</span></a></span></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679580926"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketEncryption.html#DeleteBucketEncryption"><span class="hs-identifier hs-type">DeleteBucketEncryption</span></a></span></span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketEncryption.html#DeleteBucketEncryption"><span class="hs-identifier hs-type">DeleteBucketEncryption</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679580913"><span class="annot"><span class="annottext">toHeaders :: DeleteBucketEncryption -&gt; [Header]
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketEncryption.html#DeleteBucketEncryption%27"><span class="hs-identifier hs-type">DeleteBucketEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679580910"><span id="local-6989586621679580911"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679580922"><span class="annot"><span class="annottext">toHeaders :: DeleteBucketEncryption -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketEncryption.html#DeleteBucketEncryption%27"><span class="hs-identifier hs-type">DeleteBucketEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679580919"><span id="local-6989586621679580920"><span class="annot"><span class="annottext">Maybe Text
 BucketName
 bucket :: BucketName
 expectedBucketOwner :: Maybe Text
 $sel:bucket:DeleteBucketEncryption' :: DeleteBucketEncryption -&gt; BucketName
 $sel:expectedBucketOwner:DeleteBucketEncryption' :: DeleteBucketEncryption -&gt; Maybe Text
-</span><a href="#local-6989586621679580910"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679580919"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -275,28 +275,28 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; [Header]
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679580911"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
+</span><a href="#local-6989586621679580920"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketEncryption.html#DeleteBucketEncryption"><span class="hs-identifier hs-type">DeleteBucketEncryption</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679580906"><span class="annot"><span class="annottext">toPath :: DeleteBucketEncryption -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketEncryption.html#DeleteBucketEncryption%27"><span class="hs-identifier hs-type">DeleteBucketEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679580903"><span id="local-6989586621679580904"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679580915"><span class="annot"><span class="annottext">toPath :: DeleteBucketEncryption -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketEncryption.html#DeleteBucketEncryption%27"><span class="hs-identifier hs-type">DeleteBucketEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679580912"><span id="local-6989586621679580913"><span class="annot"><span class="annottext">Maybe Text
 BucketName
 bucket :: BucketName
 expectedBucketOwner :: Maybe Text
 $sel:bucket:DeleteBucketEncryption' :: DeleteBucketEncryption -&gt; BucketName
 $sel:expectedBucketOwner:DeleteBucketEncryption' :: DeleteBucketEncryption -&gt; Maybe Text
-</span><a href="#local-6989586621679580903"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679580912"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">BucketName -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679580903"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679580912"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketEncryption.html#DeleteBucketEncryption"><span class="hs-identifier hs-type">DeleteBucketEncryption</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679580899"><span class="annot"><span class="annottext">toQuery :: DeleteBucketEncryption -&gt; QueryString
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679580908"><span class="annot"><span class="annottext">toQuery :: DeleteBucketEncryption -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteBucketEncryption -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
@@ -306,10 +306,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;encryption&quot;</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | /See:/ 'newDeleteBucketEncryptionResponse' smart constructor.</span><span>
-</span><span id="line-144"></span><span id="local-6989586621679580895"><span id="local-6989586621679580896"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBucketEncryptionResponse"><span class="annot"><a href="Network.AWS.S3.DeleteBucketEncryption.html#DeleteBucketEncryptionResponse"><span class="hs-identifier hs-var">DeleteBucketEncryptionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBucketEncryptionResponse%27"><span class="annot"><a href="Network.AWS.S3.DeleteBucketEncryption.html#DeleteBucketEncryptionResponse%27"><span class="hs-identifier hs-var">DeleteBucketEncryptionResponse'</span></a></span></span><span>
+</span><span id="line-144"></span><span id="local-6989586621679580904"><span id="local-6989586621679580905"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBucketEncryptionResponse"><span class="annot"><a href="Network.AWS.S3.DeleteBucketEncryption.html#DeleteBucketEncryptionResponse"><span class="hs-identifier hs-var">DeleteBucketEncryptionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBucketEncryptionResponse%27"><span class="annot"><a href="Network.AWS.S3.DeleteBucketEncryption.html#DeleteBucketEncryptionResponse%27"><span class="hs-identifier hs-var">DeleteBucketEncryptionResponse'</span></a></span></span><span>
 </span><span id="line-145"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679580891"><span id="local-6989586621679580893"><span class="annot"><span class="annottext">DeleteBucketEncryptionResponse
+</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679580900"><span id="local-6989586621679580902"><span class="annot"><span class="annottext">DeleteBucketEncryptionResponse
 -&gt; DeleteBucketEncryptionResponse -&gt; Bool
 (DeleteBucketEncryptionResponse
  -&gt; DeleteBucketEncryptionResponse -&gt; Bool)
@@ -325,7 +325,7 @@ $c/= :: DeleteBucketEncryptionResponse
 -&gt; DeleteBucketEncryptionResponse -&gt; Bool
 $c== :: DeleteBucketEncryptionResponse
 -&gt; DeleteBucketEncryptionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679580883"><span id="local-6989586621679580885"><span id="local-6989586621679580887"><span id="local-6989586621679580889"><span class="annot"><span class="annottext">ReadPrec [DeleteBucketEncryptionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679580892"><span id="local-6989586621679580894"><span id="local-6989586621679580896"><span id="local-6989586621679580898"><span class="annot"><span class="annottext">ReadPrec [DeleteBucketEncryptionResponse]
 ReadPrec DeleteBucketEncryptionResponse
 Int -&gt; ReadS DeleteBucketEncryptionResponse
 ReadS [DeleteBucketEncryptionResponse]
@@ -345,7 +345,7 @@ readList :: ReadS [DeleteBucketEncryptionResponse]
 $creadList :: ReadS [DeleteBucketEncryptionResponse]
 readsPrec :: Int -&gt; ReadS DeleteBucketEncryptionResponse
 $creadsPrec :: Int -&gt; ReadS DeleteBucketEncryptionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679580877"><span id="local-6989586621679580879"><span id="local-6989586621679580881"><span class="annot"><span class="annottext">Int -&gt; DeleteBucketEncryptionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679580886"><span id="local-6989586621679580888"><span id="local-6989586621679580890"><span class="annot"><span class="annottext">Int -&gt; DeleteBucketEncryptionResponse -&gt; ShowS
 [DeleteBucketEncryptionResponse] -&gt; ShowS
 DeleteBucketEncryptionResponse -&gt; String
 (Int -&gt; DeleteBucketEncryptionResponse -&gt; ShowS)
@@ -395,6 +395,6 @@ DeleteBucketEncryptionResponse
 </span><a href="Network.AWS.S3.DeleteBucketEncryption.html#DeleteBucketEncryptionResponse%27"><span class="hs-identifier hs-var">DeleteBucketEncryptionResponse'</span></a></span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679580873"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679580882"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-160"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.DeleteBucketEncryption.html#DeleteBucketEncryptionResponse"><span class="hs-identifier hs-type">DeleteBucketEncryptionResponse</span></a></span></span><span>
 </span><span id="line-161"></span></pre></body></html>

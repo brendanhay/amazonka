@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Docker container image configuration object for the model bias job.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newModelBiasAppSpecification' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621680317135"><span id="local-6989586621680317136"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModelBiasAppSpecification"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasAppSpecification.html#ModelBiasAppSpecification"><span class="hs-identifier hs-var">ModelBiasAppSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModelBiasAppSpecification%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasAppSpecification.html#ModelBiasAppSpecification%27"><span class="hs-identifier hs-var">ModelBiasAppSpecification'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621680317144"><span id="local-6989586621680317145"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModelBiasAppSpecification"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasAppSpecification.html#ModelBiasAppSpecification"><span class="hs-identifier hs-var">ModelBiasAppSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModelBiasAppSpecification%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasAppSpecification.html#ModelBiasAppSpecification%27"><span class="hs-identifier hs-var">ModelBiasAppSpecification'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Sets the environment variables in the Docker container.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Aenvironment%3AModelBiasAppSpecification%27"><span class="annot"><span class="annottext">ModelBiasAppSpecification -&gt; Maybe (HashMap Text Text)
 </span><a href="Network.AWS.SageMaker.Types.ModelBiasAppSpecification.html#%24sel%3Aenvironment%3AModelBiasAppSpecification%27"><span class="hs-identifier hs-var hs-var">environment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -39,7 +39,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AconfigUri%3AModelBiasAppSpecification%27"><span class="annot"><span class="annottext">ModelBiasAppSpecification -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.ModelBiasAppSpecification.html#%24sel%3AconfigUri%3AModelBiasAppSpecification%27"><span class="hs-identifier hs-var hs-var">configUri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680317127"><span id="local-6989586621680317129"><span class="annot"><span class="annottext">ModelBiasAppSpecification -&gt; ModelBiasAppSpecification -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680317136"><span id="local-6989586621680317138"><span class="annot"><span class="annottext">ModelBiasAppSpecification -&gt; ModelBiasAppSpecification -&gt; Bool
 (ModelBiasAppSpecification -&gt; ModelBiasAppSpecification -&gt; Bool)
 -&gt; (ModelBiasAppSpecification -&gt; ModelBiasAppSpecification -&gt; Bool)
 -&gt; Eq ModelBiasAppSpecification
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ModelBiasAppSpecification -&gt; ModelBiasAppSpecification -&gt; Bool
 == :: ModelBiasAppSpecification -&gt; ModelBiasAppSpecification -&gt; Bool
 $c== :: ModelBiasAppSpecification -&gt; ModelBiasAppSpecification -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680317118"><span id="local-6989586621680317120"><span id="local-6989586621680317122"><span id="local-6989586621680317124"><span class="annot"><span class="annottext">ReadPrec [ModelBiasAppSpecification]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680317127"><span id="local-6989586621680317129"><span id="local-6989586621680317131"><span id="local-6989586621680317133"><span class="annot"><span class="annottext">ReadPrec [ModelBiasAppSpecification]
 ReadPrec ModelBiasAppSpecification
 Int -&gt; ReadS ModelBiasAppSpecification
 ReadS [ModelBiasAppSpecification]
@@ -68,7 +68,7 @@ readList :: ReadS [ModelBiasAppSpecification]
 $creadList :: ReadS [ModelBiasAppSpecification]
 readsPrec :: Int -&gt; ReadS ModelBiasAppSpecification
 $creadsPrec :: Int -&gt; ReadS ModelBiasAppSpecification
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680317111"><span id="local-6989586621680317113"><span id="local-6989586621680317115"><span class="annot"><span class="annottext">Int -&gt; ModelBiasAppSpecification -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680317120"><span id="local-6989586621680317122"><span id="local-6989586621680317124"><span class="annot"><span class="annottext">Int -&gt; ModelBiasAppSpecification -&gt; ShowS
 [ModelBiasAppSpecification] -&gt; ShowS
 ModelBiasAppSpecification -&gt; String
 (Int -&gt; ModelBiasAppSpecification -&gt; ShowS)
@@ -122,9 +122,9 @@ ModelBiasAppSpecification -&gt; Rep ModelBiasAppSpecification x
 </span><span id="line-60"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-61"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasAppSpecification.html#ModelBiasAppSpecification"><span class="hs-identifier hs-type">ModelBiasAppSpecification</span></a></span><span>
 </span><span id="line-62"></span><span id="newModelBiasAppSpecification"><span class="annot"><span class="annottext">newModelBiasAppSpecification :: Text -&gt; Text -&gt; ModelBiasAppSpecification
-</span><a href="Network.AWS.SageMaker.Types.ModelBiasAppSpecification.html#newModelBiasAppSpecification"><span class="hs-identifier hs-var hs-var">newModelBiasAppSpecification</span></a></span></span><span> </span><span id="local-6989586621680317105"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680317105"><span class="hs-identifier hs-var">pImageUri_</span></a></span></span><span> </span><span id="local-6989586621680317104"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680317104"><span class="hs-identifier hs-var">pConfigUri_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.Types.ModelBiasAppSpecification.html#newModelBiasAppSpecification"><span class="hs-identifier hs-var hs-var">newModelBiasAppSpecification</span></a></span></span><span> </span><span id="local-6989586621680317114"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680317114"><span class="hs-identifier hs-var">pImageUri_</span></a></span></span><span> </span><span id="local-6989586621680317113"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680317113"><span class="hs-identifier hs-var">pConfigUri_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-63"></span><span>  </span><span class="annot"><span class="annottext">ModelBiasAppSpecification' :: Maybe (HashMap Text Text)
 -&gt; Text -&gt; Text -&gt; ModelBiasAppSpecification
 </span><a href="Network.AWS.SageMaker.Types.ModelBiasAppSpecification.html#ModelBiasAppSpecification%27"><span class="hs-identifier hs-type">ModelBiasAppSpecification'</span></a></span><span>
@@ -135,10 +135,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:imageUri:ModelBiasAppSpecification' :: Text
 </span><a href="Network.AWS.SageMaker.Types.ModelBiasAppSpecification.html#%24sel%3AimageUri%3AModelBiasAppSpecification%27"><span class="hs-identifier hs-var">imageUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680317105"><span class="hs-identifier hs-var">pImageUri_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680317114"><span class="hs-identifier hs-var">pImageUri_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:configUri:ModelBiasAppSpecification' :: Text
 </span><a href="Network.AWS.SageMaker.Types.ModelBiasAppSpecification.html#%24sel%3AconfigUri%3AModelBiasAppSpecification%27"><span class="hs-identifier hs-var">configUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680317104"><span class="hs-identifier hs-var">pConfigUri_</span></a></span><span>
+</span><a href="#local-6989586621680317113"><span class="hs-identifier hs-var">pConfigUri_</span></a></span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | Sets the environment variables in the Docker container.</span><span>
@@ -154,16 +154,16 @@ forall a. Maybe a
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasAppSpecification.html#ModelBiasAppSpecification%27"><span class="hs-identifier hs-type">ModelBiasAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680317100"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasAppSpecification.html#ModelBiasAppSpecification%27"><span class="hs-identifier hs-type">ModelBiasAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680317109"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 environment :: Maybe (HashMap Text Text)
 $sel:environment:ModelBiasAppSpecification' :: ModelBiasAppSpecification -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621680317100"><span class="hs-identifier hs-var hs-var">environment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621680317100"><span class="hs-identifier hs-var">environment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680317099"><span class="annot"><span class="annottext">s :: ModelBiasAppSpecification
-</span><a href="#local-6989586621680317099"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasAppSpecification.html#ModelBiasAppSpecification%27"><span class="hs-identifier hs-type">ModelBiasAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680317098"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621680317098"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelBiasAppSpecification
-</span><a href="#local-6989586621680317099"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environment:ModelBiasAppSpecification' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680317109"><span class="hs-identifier hs-var hs-var">environment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680317109"><span class="hs-identifier hs-var">environment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680317108"><span class="annot"><span class="annottext">s :: ModelBiasAppSpecification
+</span><a href="#local-6989586621680317108"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasAppSpecification.html#ModelBiasAppSpecification%27"><span class="hs-identifier hs-type">ModelBiasAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680317107"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680317107"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelBiasAppSpecification
+</span><a href="#local-6989586621680317108"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environment:ModelBiasAppSpecification' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.SageMaker.Types.ModelBiasAppSpecification.html#%24sel%3Aenvironment%3AModelBiasAppSpecification%27"><span class="hs-identifier hs-var">environment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621680317098"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasAppSpecification.html#ModelBiasAppSpecification"><span class="hs-identifier hs-type">ModelBiasAppSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621680317107"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasAppSpecification.html#ModelBiasAppSpecification"><span class="hs-identifier hs-type">ModelBiasAppSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; ModelBiasAppSpecification -&gt; f ModelBiasAppSpecification)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -201,16 +201,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      ModelBiasAppSpecification ModelBiasAppSpecification Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasAppSpecification.html#ModelBiasAppSpecification%27"><span class="hs-identifier hs-type">ModelBiasAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680317093"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasAppSpecification.html#ModelBiasAppSpecification%27"><span class="hs-identifier hs-type">ModelBiasAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680317102"><span class="annot"><span class="annottext">Text
 imageUri :: Text
 $sel:imageUri:ModelBiasAppSpecification' :: ModelBiasAppSpecification -&gt; Text
-</span><a href="#local-6989586621680317093"><span class="hs-identifier hs-var hs-var">imageUri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680317093"><span class="hs-identifier hs-var">imageUri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680317092"><span class="annot"><span class="annottext">s :: ModelBiasAppSpecification
-</span><a href="#local-6989586621680317092"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasAppSpecification.html#ModelBiasAppSpecification%27"><span class="hs-identifier hs-type">ModelBiasAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680317091"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680317091"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelBiasAppSpecification
-</span><a href="#local-6989586621680317092"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageUri:ModelBiasAppSpecification' :: Text
+</span><a href="#local-6989586621680317102"><span class="hs-identifier hs-var hs-var">imageUri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680317102"><span class="hs-identifier hs-var">imageUri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680317101"><span class="annot"><span class="annottext">s :: ModelBiasAppSpecification
+</span><a href="#local-6989586621680317101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasAppSpecification.html#ModelBiasAppSpecification%27"><span class="hs-identifier hs-type">ModelBiasAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680317100"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680317100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelBiasAppSpecification
+</span><a href="#local-6989586621680317101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageUri:ModelBiasAppSpecification' :: Text
 </span><a href="Network.AWS.SageMaker.Types.ModelBiasAppSpecification.html#%24sel%3AimageUri%3AModelBiasAppSpecification%27"><span class="hs-identifier hs-var">imageUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680317091"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasAppSpecification.html#ModelBiasAppSpecification"><span class="hs-identifier hs-type">ModelBiasAppSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680317100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasAppSpecification.html#ModelBiasAppSpecification"><span class="hs-identifier hs-type">ModelBiasAppSpecification</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | JSON formatted S3 file that defines bias parameters. For more</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- information on this JSON configuration file, see</span><span>
@@ -223,19 +223,19 @@ $sel:imageUri:ModelBiasAppSpecification' :: ModelBiasAppSpecification -&gt; Text
 -&gt; Lens
      ModelBiasAppSpecification ModelBiasAppSpecification Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasAppSpecification.html#ModelBiasAppSpecification%27"><span class="hs-identifier hs-type">ModelBiasAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680317089"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasAppSpecification.html#ModelBiasAppSpecification%27"><span class="hs-identifier hs-type">ModelBiasAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680317098"><span class="annot"><span class="annottext">Text
 configUri :: Text
 $sel:configUri:ModelBiasAppSpecification' :: ModelBiasAppSpecification -&gt; Text
-</span><a href="#local-6989586621680317089"><span class="hs-identifier hs-var hs-var">configUri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680317089"><span class="hs-identifier hs-var">configUri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680317088"><span class="annot"><span class="annottext">s :: ModelBiasAppSpecification
-</span><a href="#local-6989586621680317088"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasAppSpecification.html#ModelBiasAppSpecification%27"><span class="hs-identifier hs-type">ModelBiasAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680317087"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680317087"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelBiasAppSpecification
-</span><a href="#local-6989586621680317088"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configUri:ModelBiasAppSpecification' :: Text
+</span><a href="#local-6989586621680317098"><span class="hs-identifier hs-var hs-var">configUri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680317098"><span class="hs-identifier hs-var">configUri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680317097"><span class="annot"><span class="annottext">s :: ModelBiasAppSpecification
+</span><a href="#local-6989586621680317097"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasAppSpecification.html#ModelBiasAppSpecification%27"><span class="hs-identifier hs-type">ModelBiasAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680317096"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680317096"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelBiasAppSpecification
+</span><a href="#local-6989586621680317097"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configUri:ModelBiasAppSpecification' :: Text
 </span><a href="Network.AWS.SageMaker.Types.ModelBiasAppSpecification.html#%24sel%3AconfigUri%3AModelBiasAppSpecification%27"><span class="hs-identifier hs-var">configUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680317087"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasAppSpecification.html#ModelBiasAppSpecification"><span class="hs-identifier hs-type">ModelBiasAppSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680317096"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasAppSpecification.html#ModelBiasAppSpecification"><span class="hs-identifier hs-type">ModelBiasAppSpecification</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680317084"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasAppSpecification.html#ModelBiasAppSpecification"><span class="hs-identifier hs-type">ModelBiasAppSpecification</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621680317082"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ModelBiasAppSpecification
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680317093"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasAppSpecification.html#ModelBiasAppSpecification"><span class="hs-identifier hs-type">ModelBiasAppSpecification</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621680317091"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ModelBiasAppSpecification
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ModelBiasAppSpecification)
@@ -245,8 +245,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ModelBiasAppSpecification&quot;</span></span><span>
-</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680317079"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680317079"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680317088"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680317088"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 -&gt; Text -&gt; Text -&gt; ModelBiasAppSpecification
 </span><a href="Network.AWS.SageMaker.Types.ModelBiasAppSpecification.html#ModelBiasAppSpecification%27"><span class="hs-identifier hs-var">ModelBiasAppSpecification'</span></a></span><span>
@@ -256,7 +256,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Text -&gt; Text -&gt; ModelBiasAppSpecification)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680317079"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621680317088"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Environment&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
@@ -269,7 +269,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser Text -&gt; Parser (Text -&gt; ModelBiasAppSpecification)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680317079"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680317088"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ImageUri&quot;</span></span><span class="hs-special">)</span><span>
@@ -277,19 +277,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser ModelBiasAppSpecification
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680317079"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680317088"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConfigUri&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680317071"><span id="local-6989586621680317073"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasAppSpecification.html#ModelBiasAppSpecification"><span class="hs-identifier hs-type">ModelBiasAppSpecification</span></a></span></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680317080"><span id="local-6989586621680317082"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasAppSpecification.html#ModelBiasAppSpecification"><span class="hs-identifier hs-type">ModelBiasAppSpecification</span></a></span></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680317068"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasAppSpecification.html#ModelBiasAppSpecification"><span class="hs-identifier hs-type">ModelBiasAppSpecification</span></a></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680317077"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasAppSpecification.html#ModelBiasAppSpecification"><span class="hs-identifier hs-type">ModelBiasAppSpecification</span></a></span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680317060"><span id="local-6989586621680317062"><span id="local-6989586621680317064"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasAppSpecification.html#ModelBiasAppSpecification"><span class="hs-identifier hs-type">ModelBiasAppSpecification</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621680317058"><span class="annot"><span class="annottext">toJSON :: ModelBiasAppSpecification -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasAppSpecification.html#ModelBiasAppSpecification%27"><span class="hs-identifier hs-type">ModelBiasAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680317054"><span id="local-6989586621680317055"><span id="local-6989586621680317056"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680317069"><span id="local-6989586621680317071"><span id="local-6989586621680317073"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasAppSpecification.html#ModelBiasAppSpecification"><span class="hs-identifier hs-type">ModelBiasAppSpecification</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621680317067"><span class="annot"><span class="annottext">toJSON :: ModelBiasAppSpecification -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelBiasAppSpecification.html#ModelBiasAppSpecification%27"><span class="hs-identifier hs-type">ModelBiasAppSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680317063"><span id="local-6989586621680317064"><span id="local-6989586621680317065"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 Text
 configUri :: Text
 imageUri :: Text
@@ -297,7 +297,7 @@ environment :: Maybe (HashMap Text Text)
 $sel:configUri:ModelBiasAppSpecification' :: ModelBiasAppSpecification -&gt; Text
 $sel:imageUri:ModelBiasAppSpecification' :: ModelBiasAppSpecification -&gt; Text
 $sel:environment:ModelBiasAppSpecification' :: ModelBiasAppSpecification -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621680317054"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680317063"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -310,21 +310,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621680317056"><span class="hs-identifier hs-var">environment</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680317065"><span class="hs-identifier hs-var">environment</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ImageUri&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680317055"><span class="hs-identifier hs-var">imageUri</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680317064"><span class="hs-identifier hs-var">imageUri</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConfigUri&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680317054"><span class="hs-identifier hs-var">configUri</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680317063"><span class="hs-identifier hs-var">configUri</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span></pre></body></html>

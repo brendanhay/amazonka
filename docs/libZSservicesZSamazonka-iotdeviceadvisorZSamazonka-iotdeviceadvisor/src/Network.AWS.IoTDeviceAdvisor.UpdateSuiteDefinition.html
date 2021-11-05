@@ -1,0 +1,799 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates a Device Advisor test suite.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinition"><span class="hs-identifier">UpdateSuiteDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#newUpdateSuiteDefinition"><span class="hs-identifier">newUpdateSuiteDefinition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#updateSuiteDefinition_suiteDefinitionConfiguration"><span class="hs-identifier">updateSuiteDefinition_suiteDefinitionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#updateSuiteDefinition_suiteDefinitionId"><span class="hs-identifier">updateSuiteDefinition_suiteDefinitionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinitionResponse"><span class="hs-identifier">UpdateSuiteDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#newUpdateSuiteDefinitionResponse"><span class="hs-identifier">newUpdateSuiteDefinitionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#updateSuiteDefinitionResponse_lastUpdatedAt"><span class="hs-identifier">updateSuiteDefinitionResponse_lastUpdatedAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#updateSuiteDefinitionResponse_createdAt"><span class="hs-identifier">updateSuiteDefinitionResponse_createdAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#updateSuiteDefinitionResponse_suiteDefinitionArn"><span class="hs-identifier">updateSuiteDefinitionResponse_suiteDefinitionArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#updateSuiteDefinitionResponse_suiteDefinitionId"><span class="hs-identifier">updateSuiteDefinitionResponse_suiteDefinitionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#updateSuiteDefinitionResponse_suiteDefinitionVersion"><span class="hs-identifier">updateSuiteDefinitionResponse_suiteDefinitionVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#updateSuiteDefinitionResponse_suiteDefinitionName"><span class="hs-identifier">updateSuiteDefinitionResponse_suiteDefinitionName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#updateSuiteDefinitionResponse_httpStatus"><span class="hs-identifier">updateSuiteDefinitionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.html"><span class="hs-identifier">Network.AWS.IoTDeviceAdvisor.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newUpdateSuiteDefinition' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679172934"><span id="local-6989586621679172935"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateSuiteDefinition"><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinition"><span class="hs-identifier hs-var">UpdateSuiteDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateSuiteDefinition%27"><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinition%27"><span class="hs-identifier hs-var">UpdateSuiteDefinition'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Updates a Device Advisor test suite with suite definition configuration.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AsuiteDefinitionConfiguration%3AUpdateSuiteDefinition%27"><span class="annot"><span class="annottext">UpdateSuiteDefinition -&gt; Maybe SuiteDefinitionConfiguration
+</span><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#%24sel%3AsuiteDefinitionConfiguration%3AUpdateSuiteDefinition%27"><span class="hs-identifier hs-var hs-var">suiteDefinitionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteDefinitionConfiguration.html#SuiteDefinitionConfiguration"><span class="hs-identifier hs-type">SuiteDefinitionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | Suite definition Id of the test suite to be updated.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AsuiteDefinitionId%3AUpdateSuiteDefinition%27"><span class="annot"><span class="annottext">UpdateSuiteDefinition -&gt; Text
+</span><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#%24sel%3AsuiteDefinitionId%3AUpdateSuiteDefinition%27"><span class="hs-identifier hs-var hs-var">suiteDefinitionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679172927"><span id="local-6989586621679172929"><span class="annot"><span class="annottext">UpdateSuiteDefinition -&gt; UpdateSuiteDefinition -&gt; Bool
+(UpdateSuiteDefinition -&gt; UpdateSuiteDefinition -&gt; Bool)
+-&gt; (UpdateSuiteDefinition -&gt; UpdateSuiteDefinition -&gt; Bool)
+-&gt; Eq UpdateSuiteDefinition
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateSuiteDefinition -&gt; UpdateSuiteDefinition -&gt; Bool
+$c/= :: UpdateSuiteDefinition -&gt; UpdateSuiteDefinition -&gt; Bool
+== :: UpdateSuiteDefinition -&gt; UpdateSuiteDefinition -&gt; Bool
+$c== :: UpdateSuiteDefinition -&gt; UpdateSuiteDefinition -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679172918"><span id="local-6989586621679172920"><span id="local-6989586621679172922"><span id="local-6989586621679172924"><span class="annot"><span class="annottext">ReadPrec [UpdateSuiteDefinition]
+ReadPrec UpdateSuiteDefinition
+Int -&gt; ReadS UpdateSuiteDefinition
+ReadS [UpdateSuiteDefinition]
+(Int -&gt; ReadS UpdateSuiteDefinition)
+-&gt; ReadS [UpdateSuiteDefinition]
+-&gt; ReadPrec UpdateSuiteDefinition
+-&gt; ReadPrec [UpdateSuiteDefinition]
+-&gt; Read UpdateSuiteDefinition
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateSuiteDefinition]
+$creadListPrec :: ReadPrec [UpdateSuiteDefinition]
+readPrec :: ReadPrec UpdateSuiteDefinition
+$creadPrec :: ReadPrec UpdateSuiteDefinition
+readList :: ReadS [UpdateSuiteDefinition]
+$creadList :: ReadS [UpdateSuiteDefinition]
+readsPrec :: Int -&gt; ReadS UpdateSuiteDefinition
+$creadsPrec :: Int -&gt; ReadS UpdateSuiteDefinition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679172911"><span id="local-6989586621679172913"><span id="local-6989586621679172915"><span class="annot"><span class="annottext">Int -&gt; UpdateSuiteDefinition -&gt; ShowS
+[UpdateSuiteDefinition] -&gt; ShowS
+UpdateSuiteDefinition -&gt; String
+(Int -&gt; UpdateSuiteDefinition -&gt; ShowS)
+-&gt; (UpdateSuiteDefinition -&gt; String)
+-&gt; ([UpdateSuiteDefinition] -&gt; ShowS)
+-&gt; Show UpdateSuiteDefinition
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateSuiteDefinition] -&gt; ShowS
+$cshowList :: [UpdateSuiteDefinition] -&gt; ShowS
+show :: UpdateSuiteDefinition -&gt; String
+$cshow :: UpdateSuiteDefinition -&gt; String
+showsPrec :: Int -&gt; UpdateSuiteDefinition -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateSuiteDefinition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateSuiteDefinition -&gt; Rep UpdateSuiteDefinition x)
+-&gt; (forall x. Rep UpdateSuiteDefinition x -&gt; UpdateSuiteDefinition)
+-&gt; Generic UpdateSuiteDefinition
+forall x. Rep UpdateSuiteDefinition x -&gt; UpdateSuiteDefinition
+forall x. UpdateSuiteDefinition -&gt; Rep UpdateSuiteDefinition x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateSuiteDefinition x -&gt; UpdateSuiteDefinition
+$cfrom :: forall x. UpdateSuiteDefinition -&gt; Rep UpdateSuiteDefinition x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'UpdateSuiteDefinition' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'suiteDefinitionConfiguration', 'updateSuiteDefinition_suiteDefinitionConfiguration' - Updates a Device Advisor test suite with suite definition configuration.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'suiteDefinitionId', 'updateSuiteDefinition_suiteDefinitionId' - Suite definition Id of the test suite to be updated.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#newUpdateSuiteDefinition"><span class="hs-identifier hs-type">newUpdateSuiteDefinition</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'suiteDefinitionId'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinition"><span class="hs-identifier hs-type">UpdateSuiteDefinition</span></a></span><span>
+</span><span id="line-79"></span><span id="newUpdateSuiteDefinition"><span class="annot"><span class="annottext">newUpdateSuiteDefinition :: Text -&gt; UpdateSuiteDefinition
+</span><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#newUpdateSuiteDefinition"><span class="hs-identifier hs-var hs-var">newUpdateSuiteDefinition</span></a></span></span><span> </span><span id="local-6989586621679172906"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679172906"><span class="hs-identifier hs-var">pSuiteDefinitionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">UpdateSuiteDefinition' :: Maybe SuiteDefinitionConfiguration -&gt; Text -&gt; UpdateSuiteDefinition
+</span><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinition%27"><span class="hs-identifier hs-type">UpdateSuiteDefinition'</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:suiteDefinitionConfiguration:UpdateSuiteDefinition' :: Maybe SuiteDefinitionConfiguration
+</span><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#%24sel%3AsuiteDefinitionConfiguration%3AUpdateSuiteDefinition%27"><span class="hs-identifier hs-var">suiteDefinitionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">Maybe SuiteDefinitionConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:suiteDefinitionId:UpdateSuiteDefinition' :: Text
+</span><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#%24sel%3AsuiteDefinitionId%3AUpdateSuiteDefinition%27"><span class="hs-identifier hs-var">suiteDefinitionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679172906"><span class="hs-identifier hs-var">pSuiteDefinitionId_</span></a></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | Updates a Device Advisor test suite with suite definition configuration.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#updateSuiteDefinition_suiteDefinitionConfiguration"><span class="hs-identifier hs-type">updateSuiteDefinition_suiteDefinitionConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinition"><span class="hs-identifier hs-type">UpdateSuiteDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.SuiteDefinitionConfiguration.html#SuiteDefinitionConfiguration"><span class="hs-identifier hs-type">SuiteDefinitionConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="updateSuiteDefinition_suiteDefinitionConfiguration"><span class="annot"><span class="annottext">updateSuiteDefinition_suiteDefinitionConfiguration :: (Maybe SuiteDefinitionConfiguration
+ -&gt; f (Maybe SuiteDefinitionConfiguration))
+-&gt; UpdateSuiteDefinition -&gt; f UpdateSuiteDefinition
+</span><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#updateSuiteDefinition_suiteDefinitionConfiguration"><span class="hs-identifier hs-var hs-var">updateSuiteDefinition_suiteDefinitionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSuiteDefinition -&gt; Maybe SuiteDefinitionConfiguration)
+-&gt; (UpdateSuiteDefinition
+    -&gt; Maybe SuiteDefinitionConfiguration -&gt; UpdateSuiteDefinition)
+-&gt; Lens
+     UpdateSuiteDefinition
+     UpdateSuiteDefinition
+     (Maybe SuiteDefinitionConfiguration)
+     (Maybe SuiteDefinitionConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinition%27"><span class="hs-identifier hs-type">UpdateSuiteDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172903"><span class="annot"><span class="annottext">Maybe SuiteDefinitionConfiguration
+suiteDefinitionConfiguration :: Maybe SuiteDefinitionConfiguration
+$sel:suiteDefinitionConfiguration:UpdateSuiteDefinition' :: UpdateSuiteDefinition -&gt; Maybe SuiteDefinitionConfiguration
+</span><a href="#local-6989586621679172903"><span class="hs-identifier hs-var hs-var">suiteDefinitionConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SuiteDefinitionConfiguration
+</span><a href="#local-6989586621679172903"><span class="hs-identifier hs-var">suiteDefinitionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172902"><span class="annot"><span class="annottext">s :: UpdateSuiteDefinition
+</span><a href="#local-6989586621679172902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinition%27"><span class="hs-identifier hs-type">UpdateSuiteDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172901"><span class="annot"><span class="annottext">Maybe SuiteDefinitionConfiguration
+</span><a href="#local-6989586621679172901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSuiteDefinition
+</span><a href="#local-6989586621679172902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:suiteDefinitionConfiguration:UpdateSuiteDefinition' :: Maybe SuiteDefinitionConfiguration
+</span><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#%24sel%3AsuiteDefinitionConfiguration%3AUpdateSuiteDefinition%27"><span class="hs-identifier hs-var">suiteDefinitionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SuiteDefinitionConfiguration
+</span><a href="#local-6989586621679172901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinition"><span class="hs-identifier hs-type">UpdateSuiteDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | Suite definition Id of the test suite to be updated.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#updateSuiteDefinition_suiteDefinitionId"><span class="hs-identifier hs-type">updateSuiteDefinition_suiteDefinitionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinition"><span class="hs-identifier hs-type">UpdateSuiteDefinition</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-92"></span><span id="updateSuiteDefinition_suiteDefinitionId"><span class="annot"><span class="annottext">updateSuiteDefinition_suiteDefinitionId :: (Text -&gt; f Text)
+-&gt; UpdateSuiteDefinition -&gt; f UpdateSuiteDefinition
+</span><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#updateSuiteDefinition_suiteDefinitionId"><span class="hs-identifier hs-var hs-var">updateSuiteDefinition_suiteDefinitionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSuiteDefinition -&gt; Text)
+-&gt; (UpdateSuiteDefinition -&gt; Text -&gt; UpdateSuiteDefinition)
+-&gt; Lens UpdateSuiteDefinition UpdateSuiteDefinition Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinition%27"><span class="hs-identifier hs-type">UpdateSuiteDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172900"><span class="annot"><span class="annottext">Text
+suiteDefinitionId :: Text
+$sel:suiteDefinitionId:UpdateSuiteDefinition' :: UpdateSuiteDefinition -&gt; Text
+</span><a href="#local-6989586621679172900"><span class="hs-identifier hs-var hs-var">suiteDefinitionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679172900"><span class="hs-identifier hs-var">suiteDefinitionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172899"><span class="annot"><span class="annottext">s :: UpdateSuiteDefinition
+</span><a href="#local-6989586621679172899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinition%27"><span class="hs-identifier hs-type">UpdateSuiteDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172898"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679172898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSuiteDefinition
+</span><a href="#local-6989586621679172899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:suiteDefinitionId:UpdateSuiteDefinition' :: Text
+</span><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#%24sel%3AsuiteDefinitionId%3AUpdateSuiteDefinition%27"><span class="hs-identifier hs-var">suiteDefinitionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679172898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinition"><span class="hs-identifier hs-type">UpdateSuiteDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinition"><span class="hs-identifier hs-type">UpdateSuiteDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-96"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinition"><span class="hs-identifier hs-type">UpdateSuiteDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinitionResponse"><span class="hs-identifier hs-type">UpdateSuiteDefinitionResponse</span></a></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679172894"><span class="annot"><span class="annottext">request :: UpdateSuiteDefinition -&gt; Request UpdateSuiteDefinition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateSuiteDefinition -&gt; Request UpdateSuiteDefinition
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.patchJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.IoTDeviceAdvisor.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679172890"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateSuiteDefinition
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateSuiteDefinition)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateSuiteDefinition))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateSuiteDefinition
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateSuiteDefinition)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679172887"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679172887"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679172886"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679172886"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679172885"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679172885"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; UpdateSuiteDefinitionResponse
+</span><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinitionResponse%27"><span class="hs-identifier hs-var">UpdateSuiteDefinitionResponse'</span></a></span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; UpdateSuiteDefinitionResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; UpdateSuiteDefinitionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679172885"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastUpdatedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; UpdateSuiteDefinitionResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; UpdateSuiteDefinitionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679172885"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; UpdateSuiteDefinitionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; UpdateSuiteDefinitionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679172885"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;suiteDefinitionArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; UpdateSuiteDefinitionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; UpdateSuiteDefinitionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679172885"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;suiteDefinitionId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; UpdateSuiteDefinitionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; UpdateSuiteDefinitionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679172885"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;suiteDefinitionVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; UpdateSuiteDefinitionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; UpdateSuiteDefinitionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679172885"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;suiteDefinitionName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateSuiteDefinitionResponse)
+-&gt; Either String Int -&gt; Either String UpdateSuiteDefinitionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679172887"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679172877"><span id="local-6989586621679172879"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinition"><span class="hs-identifier hs-type">UpdateSuiteDefinition</span></a></span></span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679172874"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinition"><span class="hs-identifier hs-type">UpdateSuiteDefinition</span></a></span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinition"><span class="hs-identifier hs-type">UpdateSuiteDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679172870"><span class="annot"><span class="annottext">toHeaders :: UpdateSuiteDefinition -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateSuiteDefinition -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-120"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-121"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-122"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-123"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679172860"><span id="local-6989586621679172862"><span id="local-6989586621679172864"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinition"><span class="hs-identifier hs-type">UpdateSuiteDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679172858"><span class="annot"><span class="annottext">toJSON :: UpdateSuiteDefinition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinition%27"><span class="hs-identifier hs-type">UpdateSuiteDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172855"><span id="local-6989586621679172856"><span class="annot"><span class="annottext">Maybe SuiteDefinitionConfiguration
+Text
+suiteDefinitionId :: Text
+suiteDefinitionConfiguration :: Maybe SuiteDefinitionConfiguration
+$sel:suiteDefinitionId:UpdateSuiteDefinition' :: UpdateSuiteDefinition -&gt; Text
+$sel:suiteDefinitionConfiguration:UpdateSuiteDefinition' :: UpdateSuiteDefinition -&gt; Maybe SuiteDefinitionConfiguration
+</span><a href="#local-6989586621679172855"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-131"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;suiteDefinitionConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SuiteDefinitionConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>              </span><span class="annot"><span class="annottext">(SuiteDefinitionConfiguration -&gt; Pair)
+-&gt; Maybe SuiteDefinitionConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SuiteDefinitionConfiguration
+</span><a href="#local-6989586621679172856"><span class="hs-identifier hs-var">suiteDefinitionConfiguration</span></a></span><span>
+</span><span id="line-133"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinition"><span class="hs-identifier hs-type">UpdateSuiteDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679172849"><span class="annot"><span class="annottext">toPath :: UpdateSuiteDefinition -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinition%27"><span class="hs-identifier hs-type">UpdateSuiteDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172846"><span id="local-6989586621679172847"><span class="annot"><span class="annottext">Maybe SuiteDefinitionConfiguration
+Text
+suiteDefinitionId :: Text
+suiteDefinitionConfiguration :: Maybe SuiteDefinitionConfiguration
+$sel:suiteDefinitionId:UpdateSuiteDefinition' :: UpdateSuiteDefinition -&gt; Text
+$sel:suiteDefinitionConfiguration:UpdateSuiteDefinition' :: UpdateSuiteDefinition -&gt; Maybe SuiteDefinitionConfiguration
+</span><a href="#local-6989586621679172846"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/suiteDefinitions/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679172846"><span class="hs-identifier hs-var">suiteDefinitionId</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinition"><span class="hs-identifier hs-type">UpdateSuiteDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679172842"><span class="annot"><span class="annottext">toQuery :: UpdateSuiteDefinition -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateSuiteDefinition -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | /See:/ 'newUpdateSuiteDefinitionResponse' smart constructor.</span><span>
+</span><span id="line-145"></span><span id="local-6989586621679172839"><span id="local-6989586621679172840"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateSuiteDefinitionResponse"><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinitionResponse"><span class="hs-identifier hs-var">UpdateSuiteDefinitionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateSuiteDefinitionResponse%27"><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinitionResponse%27"><span class="hs-identifier hs-var">UpdateSuiteDefinitionResponse'</span></a></span></span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Timestamp of when the test suite was updated.</span><span>
+</span><span id="line-147"></span><span>    </span><span id="%24sel%3AlastUpdatedAt%3AUpdateSuiteDefinitionResponse%27"><span class="annot"><span class="annottext">UpdateSuiteDefinitionResponse -&gt; Maybe POSIX
+</span><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#%24sel%3AlastUpdatedAt%3AUpdateSuiteDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">lastUpdatedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- | Timestamp of when the test suite was created.</span><span>
+</span><span id="line-149"></span><span>    </span><span id="%24sel%3AcreatedAt%3AUpdateSuiteDefinitionResponse%27"><span class="annot"><span class="annottext">UpdateSuiteDefinitionResponse -&gt; Maybe POSIX
+</span><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#%24sel%3AcreatedAt%3AUpdateSuiteDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- | Amazon Resource name of the updated test suite.</span><span>
+</span><span id="line-151"></span><span>    </span><span id="%24sel%3AsuiteDefinitionArn%3AUpdateSuiteDefinitionResponse%27"><span class="annot"><span class="annottext">UpdateSuiteDefinitionResponse -&gt; Maybe Text
+</span><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#%24sel%3AsuiteDefinitionArn%3AUpdateSuiteDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">suiteDefinitionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- | Suite definition Id of the updated test suite.</span><span>
+</span><span id="line-153"></span><span>    </span><span id="%24sel%3AsuiteDefinitionId%3AUpdateSuiteDefinitionResponse%27"><span class="annot"><span class="annottext">UpdateSuiteDefinitionResponse -&gt; Maybe Text
+</span><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#%24sel%3AsuiteDefinitionId%3AUpdateSuiteDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">suiteDefinitionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- | Suite definition version of the updated test suite.</span><span>
+</span><span id="line-155"></span><span>    </span><span id="%24sel%3AsuiteDefinitionVersion%3AUpdateSuiteDefinitionResponse%27"><span class="annot"><span class="annottext">UpdateSuiteDefinitionResponse -&gt; Maybe Text
+</span><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#%24sel%3AsuiteDefinitionVersion%3AUpdateSuiteDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">suiteDefinitionVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- | Suite definition name of the updated test suite.</span><span>
+</span><span id="line-157"></span><span>    </span><span id="%24sel%3AsuiteDefinitionName%3AUpdateSuiteDefinitionResponse%27"><span class="annot"><span class="annottext">UpdateSuiteDefinitionResponse -&gt; Maybe Text
+</span><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#%24sel%3AsuiteDefinitionName%3AUpdateSuiteDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">suiteDefinitionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-159"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateSuiteDefinitionResponse%27"><span class="annot"><span class="annottext">UpdateSuiteDefinitionResponse -&gt; Int
+</span><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#%24sel%3AhttpStatus%3AUpdateSuiteDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679172828"><span id="local-6989586621679172830"><span class="annot"><span class="annottext">UpdateSuiteDefinitionResponse
+-&gt; UpdateSuiteDefinitionResponse -&gt; Bool
+(UpdateSuiteDefinitionResponse
+ -&gt; UpdateSuiteDefinitionResponse -&gt; Bool)
+-&gt; (UpdateSuiteDefinitionResponse
+    -&gt; UpdateSuiteDefinitionResponse -&gt; Bool)
+-&gt; Eq UpdateSuiteDefinitionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateSuiteDefinitionResponse
+-&gt; UpdateSuiteDefinitionResponse -&gt; Bool
+$c/= :: UpdateSuiteDefinitionResponse
+-&gt; UpdateSuiteDefinitionResponse -&gt; Bool
+== :: UpdateSuiteDefinitionResponse
+-&gt; UpdateSuiteDefinitionResponse -&gt; Bool
+$c== :: UpdateSuiteDefinitionResponse
+-&gt; UpdateSuiteDefinitionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679172820"><span id="local-6989586621679172822"><span id="local-6989586621679172824"><span id="local-6989586621679172826"><span class="annot"><span class="annottext">ReadPrec [UpdateSuiteDefinitionResponse]
+ReadPrec UpdateSuiteDefinitionResponse
+Int -&gt; ReadS UpdateSuiteDefinitionResponse
+ReadS [UpdateSuiteDefinitionResponse]
+(Int -&gt; ReadS UpdateSuiteDefinitionResponse)
+-&gt; ReadS [UpdateSuiteDefinitionResponse]
+-&gt; ReadPrec UpdateSuiteDefinitionResponse
+-&gt; ReadPrec [UpdateSuiteDefinitionResponse]
+-&gt; Read UpdateSuiteDefinitionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateSuiteDefinitionResponse]
+$creadListPrec :: ReadPrec [UpdateSuiteDefinitionResponse]
+readPrec :: ReadPrec UpdateSuiteDefinitionResponse
+$creadPrec :: ReadPrec UpdateSuiteDefinitionResponse
+readList :: ReadS [UpdateSuiteDefinitionResponse]
+$creadList :: ReadS [UpdateSuiteDefinitionResponse]
+readsPrec :: Int -&gt; ReadS UpdateSuiteDefinitionResponse
+$creadsPrec :: Int -&gt; ReadS UpdateSuiteDefinitionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679172814"><span id="local-6989586621679172816"><span id="local-6989586621679172818"><span class="annot"><span class="annottext">Int -&gt; UpdateSuiteDefinitionResponse -&gt; ShowS
+[UpdateSuiteDefinitionResponse] -&gt; ShowS
+UpdateSuiteDefinitionResponse -&gt; String
+(Int -&gt; UpdateSuiteDefinitionResponse -&gt; ShowS)
+-&gt; (UpdateSuiteDefinitionResponse -&gt; String)
+-&gt; ([UpdateSuiteDefinitionResponse] -&gt; ShowS)
+-&gt; Show UpdateSuiteDefinitionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateSuiteDefinitionResponse] -&gt; ShowS
+$cshowList :: [UpdateSuiteDefinitionResponse] -&gt; ShowS
+show :: UpdateSuiteDefinitionResponse -&gt; String
+$cshow :: UpdateSuiteDefinitionResponse -&gt; String
+showsPrec :: Int -&gt; UpdateSuiteDefinitionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateSuiteDefinitionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateSuiteDefinitionResponse
+ -&gt; Rep UpdateSuiteDefinitionResponse x)
+-&gt; (forall x.
+    Rep UpdateSuiteDefinitionResponse x
+    -&gt; UpdateSuiteDefinitionResponse)
+-&gt; Generic UpdateSuiteDefinitionResponse
+forall x.
+Rep UpdateSuiteDefinitionResponse x
+-&gt; UpdateSuiteDefinitionResponse
+forall x.
+UpdateSuiteDefinitionResponse
+-&gt; Rep UpdateSuiteDefinitionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateSuiteDefinitionResponse x
+-&gt; UpdateSuiteDefinitionResponse
+$cfrom :: forall x.
+UpdateSuiteDefinitionResponse
+-&gt; Rep UpdateSuiteDefinitionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- Create a value of 'UpdateSuiteDefinitionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 'lastUpdatedAt', 'updateSuiteDefinitionResponse_lastUpdatedAt' - Timestamp of when the test suite was updated.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- 'createdAt', 'updateSuiteDefinitionResponse_createdAt' - Timestamp of when the test suite was created.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- 'suiteDefinitionArn', 'updateSuiteDefinitionResponse_suiteDefinitionArn' - Amazon Resource name of the updated test suite.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- 'suiteDefinitionId', 'updateSuiteDefinitionResponse_suiteDefinitionId' - Suite definition Id of the updated test suite.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- 'suiteDefinitionVersion', 'updateSuiteDefinitionResponse_suiteDefinitionVersion' - Suite definition version of the updated test suite.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- 'suiteDefinitionName', 'updateSuiteDefinitionResponse_suiteDefinitionName' - Suite definition name of the updated test suite.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- 'httpStatus', 'updateSuiteDefinitionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#newUpdateSuiteDefinitionResponse"><span class="hs-identifier hs-type">newUpdateSuiteDefinitionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-185"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-186"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-187"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinitionResponse"><span class="hs-identifier hs-type">UpdateSuiteDefinitionResponse</span></a></span><span>
+</span><span id="line-188"></span><span id="newUpdateSuiteDefinitionResponse"><span class="annot"><span class="annottext">newUpdateSuiteDefinitionResponse :: Int -&gt; UpdateSuiteDefinitionResponse
+</span><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#newUpdateSuiteDefinitionResponse"><span class="hs-identifier hs-var hs-var">newUpdateSuiteDefinitionResponse</span></a></span></span><span> </span><span id="local-6989586621679172811"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679172811"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-189"></span><span>  </span><span class="annot"><span class="annottext">UpdateSuiteDefinitionResponse' :: Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; UpdateSuiteDefinitionResponse
+</span><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinitionResponse%27"><span class="hs-identifier hs-type">UpdateSuiteDefinitionResponse'</span></a></span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastUpdatedAt:UpdateSuiteDefinitionResponse' :: Maybe POSIX
+</span><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#%24sel%3AlastUpdatedAt%3AUpdateSuiteDefinitionResponse%27"><span class="hs-identifier hs-var">lastUpdatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-191"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAt:UpdateSuiteDefinitionResponse' :: Maybe POSIX
+</span><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#%24sel%3AcreatedAt%3AUpdateSuiteDefinitionResponse%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">$sel:suiteDefinitionArn:UpdateSuiteDefinitionResponse' :: Maybe Text
+</span><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#%24sel%3AsuiteDefinitionArn%3AUpdateSuiteDefinitionResponse%27"><span class="hs-identifier hs-var">suiteDefinitionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>      </span><span class="annot"><span class="annottext">$sel:suiteDefinitionId:UpdateSuiteDefinitionResponse' :: Maybe Text
+</span><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#%24sel%3AsuiteDefinitionId%3AUpdateSuiteDefinitionResponse%27"><span class="hs-identifier hs-var">suiteDefinitionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">$sel:suiteDefinitionVersion:UpdateSuiteDefinitionResponse' :: Maybe Text
+</span><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#%24sel%3AsuiteDefinitionVersion%3AUpdateSuiteDefinitionResponse%27"><span class="hs-identifier hs-var">suiteDefinitionVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>      </span><span class="annot"><span class="annottext">$sel:suiteDefinitionName:UpdateSuiteDefinitionResponse' :: Maybe Text
+</span><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#%24sel%3AsuiteDefinitionName%3AUpdateSuiteDefinitionResponse%27"><span class="hs-identifier hs-var">suiteDefinitionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateSuiteDefinitionResponse' :: Int
+</span><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#%24sel%3AhttpStatus%3AUpdateSuiteDefinitionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679172811"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | Timestamp of when the test suite was updated.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#updateSuiteDefinitionResponse_lastUpdatedAt"><span class="hs-identifier hs-type">updateSuiteDefinitionResponse_lastUpdatedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinitionResponse"><span class="hs-identifier hs-type">UpdateSuiteDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span id="updateSuiteDefinitionResponse_lastUpdatedAt"><span class="annot"><span class="annottext">updateSuiteDefinitionResponse_lastUpdatedAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; UpdateSuiteDefinitionResponse -&gt; f UpdateSuiteDefinitionResponse
+</span><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#updateSuiteDefinitionResponse_lastUpdatedAt"><span class="hs-identifier hs-var hs-var">updateSuiteDefinitionResponse_lastUpdatedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSuiteDefinitionResponse -&gt; Maybe POSIX)
+-&gt; (UpdateSuiteDefinitionResponse
+    -&gt; Maybe POSIX -&gt; UpdateSuiteDefinitionResponse)
+-&gt; Lens
+     UpdateSuiteDefinitionResponse
+     UpdateSuiteDefinitionResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinitionResponse%27"><span class="hs-identifier hs-type">UpdateSuiteDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172810"><span class="annot"><span class="annottext">Maybe POSIX
+lastUpdatedAt :: Maybe POSIX
+$sel:lastUpdatedAt:UpdateSuiteDefinitionResponse' :: UpdateSuiteDefinitionResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679172810"><span class="hs-identifier hs-var hs-var">lastUpdatedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679172810"><span class="hs-identifier hs-var">lastUpdatedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172809"><span class="annot"><span class="annottext">s :: UpdateSuiteDefinitionResponse
+</span><a href="#local-6989586621679172809"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinitionResponse%27"><span class="hs-identifier hs-type">UpdateSuiteDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172808"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679172808"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSuiteDefinitionResponse
+</span><a href="#local-6989586621679172809"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedAt:UpdateSuiteDefinitionResponse' :: Maybe POSIX
+</span><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#%24sel%3AlastUpdatedAt%3AUpdateSuiteDefinitionResponse%27"><span class="hs-identifier hs-var">lastUpdatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679172808"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinitionResponse"><span class="hs-identifier hs-type">UpdateSuiteDefinitionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; UpdateSuiteDefinitionResponse
+ -&gt; f UpdateSuiteDefinitionResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; UpdateSuiteDefinitionResponse
+-&gt; f UpdateSuiteDefinitionResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | Timestamp of when the test suite was created.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#updateSuiteDefinitionResponse_createdAt"><span class="hs-identifier hs-type">updateSuiteDefinitionResponse_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinitionResponse"><span class="hs-identifier hs-type">UpdateSuiteDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span id="updateSuiteDefinitionResponse_createdAt"><span class="annot"><span class="annottext">updateSuiteDefinitionResponse_createdAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; UpdateSuiteDefinitionResponse -&gt; f UpdateSuiteDefinitionResponse
+</span><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#updateSuiteDefinitionResponse_createdAt"><span class="hs-identifier hs-var hs-var">updateSuiteDefinitionResponse_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSuiteDefinitionResponse -&gt; Maybe POSIX)
+-&gt; (UpdateSuiteDefinitionResponse
+    -&gt; Maybe POSIX -&gt; UpdateSuiteDefinitionResponse)
+-&gt; Lens
+     UpdateSuiteDefinitionResponse
+     UpdateSuiteDefinitionResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinitionResponse%27"><span class="hs-identifier hs-type">UpdateSuiteDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172804"><span class="annot"><span class="annottext">Maybe POSIX
+createdAt :: Maybe POSIX
+$sel:createdAt:UpdateSuiteDefinitionResponse' :: UpdateSuiteDefinitionResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679172804"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679172804"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172803"><span class="annot"><span class="annottext">s :: UpdateSuiteDefinitionResponse
+</span><a href="#local-6989586621679172803"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinitionResponse%27"><span class="hs-identifier hs-type">UpdateSuiteDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172802"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679172802"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSuiteDefinitionResponse
+</span><a href="#local-6989586621679172803"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:UpdateSuiteDefinitionResponse' :: Maybe POSIX
+</span><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#%24sel%3AcreatedAt%3AUpdateSuiteDefinitionResponse%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679172802"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinitionResponse"><span class="hs-identifier hs-type">UpdateSuiteDefinitionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; UpdateSuiteDefinitionResponse
+ -&gt; f UpdateSuiteDefinitionResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; UpdateSuiteDefinitionResponse
+-&gt; f UpdateSuiteDefinitionResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | Amazon Resource name of the updated test suite.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#updateSuiteDefinitionResponse_suiteDefinitionArn"><span class="hs-identifier hs-type">updateSuiteDefinitionResponse_suiteDefinitionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinitionResponse"><span class="hs-identifier hs-type">UpdateSuiteDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span id="updateSuiteDefinitionResponse_suiteDefinitionArn"><span class="annot"><span class="annottext">updateSuiteDefinitionResponse_suiteDefinitionArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateSuiteDefinitionResponse -&gt; f UpdateSuiteDefinitionResponse
+</span><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#updateSuiteDefinitionResponse_suiteDefinitionArn"><span class="hs-identifier hs-var hs-var">updateSuiteDefinitionResponse_suiteDefinitionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSuiteDefinitionResponse -&gt; Maybe Text)
+-&gt; (UpdateSuiteDefinitionResponse
+    -&gt; Maybe Text -&gt; UpdateSuiteDefinitionResponse)
+-&gt; Lens
+     UpdateSuiteDefinitionResponse
+     UpdateSuiteDefinitionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinitionResponse%27"><span class="hs-identifier hs-type">UpdateSuiteDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172801"><span class="annot"><span class="annottext">Maybe Text
+suiteDefinitionArn :: Maybe Text
+$sel:suiteDefinitionArn:UpdateSuiteDefinitionResponse' :: UpdateSuiteDefinitionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679172801"><span class="hs-identifier hs-var hs-var">suiteDefinitionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679172801"><span class="hs-identifier hs-var">suiteDefinitionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172800"><span class="annot"><span class="annottext">s :: UpdateSuiteDefinitionResponse
+</span><a href="#local-6989586621679172800"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinitionResponse%27"><span class="hs-identifier hs-type">UpdateSuiteDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172799"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679172799"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSuiteDefinitionResponse
+</span><a href="#local-6989586621679172800"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:suiteDefinitionArn:UpdateSuiteDefinitionResponse' :: Maybe Text
+</span><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#%24sel%3AsuiteDefinitionArn%3AUpdateSuiteDefinitionResponse%27"><span class="hs-identifier hs-var">suiteDefinitionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679172799"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinitionResponse"><span class="hs-identifier hs-type">UpdateSuiteDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | Suite definition Id of the updated test suite.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#updateSuiteDefinitionResponse_suiteDefinitionId"><span class="hs-identifier hs-type">updateSuiteDefinitionResponse_suiteDefinitionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinitionResponse"><span class="hs-identifier hs-type">UpdateSuiteDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span id="updateSuiteDefinitionResponse_suiteDefinitionId"><span class="annot"><span class="annottext">updateSuiteDefinitionResponse_suiteDefinitionId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateSuiteDefinitionResponse -&gt; f UpdateSuiteDefinitionResponse
+</span><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#updateSuiteDefinitionResponse_suiteDefinitionId"><span class="hs-identifier hs-var hs-var">updateSuiteDefinitionResponse_suiteDefinitionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSuiteDefinitionResponse -&gt; Maybe Text)
+-&gt; (UpdateSuiteDefinitionResponse
+    -&gt; Maybe Text -&gt; UpdateSuiteDefinitionResponse)
+-&gt; Lens
+     UpdateSuiteDefinitionResponse
+     UpdateSuiteDefinitionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinitionResponse%27"><span class="hs-identifier hs-type">UpdateSuiteDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172798"><span class="annot"><span class="annottext">Maybe Text
+suiteDefinitionId :: Maybe Text
+$sel:suiteDefinitionId:UpdateSuiteDefinitionResponse' :: UpdateSuiteDefinitionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679172798"><span class="hs-identifier hs-var hs-var">suiteDefinitionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679172798"><span class="hs-identifier hs-var">suiteDefinitionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172797"><span class="annot"><span class="annottext">s :: UpdateSuiteDefinitionResponse
+</span><a href="#local-6989586621679172797"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinitionResponse%27"><span class="hs-identifier hs-type">UpdateSuiteDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172796"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679172796"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSuiteDefinitionResponse
+</span><a href="#local-6989586621679172797"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:suiteDefinitionId:UpdateSuiteDefinitionResponse' :: Maybe Text
+</span><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#%24sel%3AsuiteDefinitionId%3AUpdateSuiteDefinitionResponse%27"><span class="hs-identifier hs-var">suiteDefinitionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679172796"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinitionResponse"><span class="hs-identifier hs-type">UpdateSuiteDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | Suite definition version of the updated test suite.</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#updateSuiteDefinitionResponse_suiteDefinitionVersion"><span class="hs-identifier hs-type">updateSuiteDefinitionResponse_suiteDefinitionVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinitionResponse"><span class="hs-identifier hs-type">UpdateSuiteDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span id="updateSuiteDefinitionResponse_suiteDefinitionVersion"><span class="annot"><span class="annottext">updateSuiteDefinitionResponse_suiteDefinitionVersion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateSuiteDefinitionResponse -&gt; f UpdateSuiteDefinitionResponse
+</span><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#updateSuiteDefinitionResponse_suiteDefinitionVersion"><span class="hs-identifier hs-var hs-var">updateSuiteDefinitionResponse_suiteDefinitionVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSuiteDefinitionResponse -&gt; Maybe Text)
+-&gt; (UpdateSuiteDefinitionResponse
+    -&gt; Maybe Text -&gt; UpdateSuiteDefinitionResponse)
+-&gt; Lens
+     UpdateSuiteDefinitionResponse
+     UpdateSuiteDefinitionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinitionResponse%27"><span class="hs-identifier hs-type">UpdateSuiteDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172795"><span class="annot"><span class="annottext">Maybe Text
+suiteDefinitionVersion :: Maybe Text
+$sel:suiteDefinitionVersion:UpdateSuiteDefinitionResponse' :: UpdateSuiteDefinitionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679172795"><span class="hs-identifier hs-var hs-var">suiteDefinitionVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679172795"><span class="hs-identifier hs-var">suiteDefinitionVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172794"><span class="annot"><span class="annottext">s :: UpdateSuiteDefinitionResponse
+</span><a href="#local-6989586621679172794"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinitionResponse%27"><span class="hs-identifier hs-type">UpdateSuiteDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172793"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679172793"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSuiteDefinitionResponse
+</span><a href="#local-6989586621679172794"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:suiteDefinitionVersion:UpdateSuiteDefinitionResponse' :: Maybe Text
+</span><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#%24sel%3AsuiteDefinitionVersion%3AUpdateSuiteDefinitionResponse%27"><span class="hs-identifier hs-var">suiteDefinitionVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679172793"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinitionResponse"><span class="hs-identifier hs-type">UpdateSuiteDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- | Suite definition name of the updated test suite.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#updateSuiteDefinitionResponse_suiteDefinitionName"><span class="hs-identifier hs-type">updateSuiteDefinitionResponse_suiteDefinitionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinitionResponse"><span class="hs-identifier hs-type">UpdateSuiteDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span id="updateSuiteDefinitionResponse_suiteDefinitionName"><span class="annot"><span class="annottext">updateSuiteDefinitionResponse_suiteDefinitionName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateSuiteDefinitionResponse -&gt; f UpdateSuiteDefinitionResponse
+</span><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#updateSuiteDefinitionResponse_suiteDefinitionName"><span class="hs-identifier hs-var hs-var">updateSuiteDefinitionResponse_suiteDefinitionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSuiteDefinitionResponse -&gt; Maybe Text)
+-&gt; (UpdateSuiteDefinitionResponse
+    -&gt; Maybe Text -&gt; UpdateSuiteDefinitionResponse)
+-&gt; Lens
+     UpdateSuiteDefinitionResponse
+     UpdateSuiteDefinitionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinitionResponse%27"><span class="hs-identifier hs-type">UpdateSuiteDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172792"><span class="annot"><span class="annottext">Maybe Text
+suiteDefinitionName :: Maybe Text
+$sel:suiteDefinitionName:UpdateSuiteDefinitionResponse' :: UpdateSuiteDefinitionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679172792"><span class="hs-identifier hs-var hs-var">suiteDefinitionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679172792"><span class="hs-identifier hs-var">suiteDefinitionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172791"><span class="annot"><span class="annottext">s :: UpdateSuiteDefinitionResponse
+</span><a href="#local-6989586621679172791"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinitionResponse%27"><span class="hs-identifier hs-type">UpdateSuiteDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172790"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679172790"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSuiteDefinitionResponse
+</span><a href="#local-6989586621679172791"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:suiteDefinitionName:UpdateSuiteDefinitionResponse' :: Maybe Text
+</span><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#%24sel%3AsuiteDefinitionName%3AUpdateSuiteDefinitionResponse%27"><span class="hs-identifier hs-var">suiteDefinitionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679172790"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinitionResponse"><span class="hs-identifier hs-type">UpdateSuiteDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#updateSuiteDefinitionResponse_httpStatus"><span class="hs-identifier hs-type">updateSuiteDefinitionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinitionResponse"><span class="hs-identifier hs-type">UpdateSuiteDefinitionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-226"></span><span id="updateSuiteDefinitionResponse_httpStatus"><span class="annot"><span class="annottext">updateSuiteDefinitionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateSuiteDefinitionResponse -&gt; f UpdateSuiteDefinitionResponse
+</span><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#updateSuiteDefinitionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateSuiteDefinitionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSuiteDefinitionResponse -&gt; Int)
+-&gt; (UpdateSuiteDefinitionResponse
+    -&gt; Int -&gt; UpdateSuiteDefinitionResponse)
+-&gt; Lens
+     UpdateSuiteDefinitionResponse UpdateSuiteDefinitionResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinitionResponse%27"><span class="hs-identifier hs-type">UpdateSuiteDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679172789"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateSuiteDefinitionResponse' :: UpdateSuiteDefinitionResponse -&gt; Int
+</span><a href="#local-6989586621679172789"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679172789"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679172788"><span class="annot"><span class="annottext">s :: UpdateSuiteDefinitionResponse
+</span><a href="#local-6989586621679172788"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinitionResponse%27"><span class="hs-identifier hs-type">UpdateSuiteDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679172787"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679172787"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSuiteDefinitionResponse
+</span><a href="#local-6989586621679172788"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateSuiteDefinitionResponse' :: Int
+</span><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#%24sel%3AhttpStatus%3AUpdateSuiteDefinitionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679172787"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinitionResponse"><span class="hs-identifier hs-type">UpdateSuiteDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679172785"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.UpdateSuiteDefinition.html#UpdateSuiteDefinitionResponse"><span class="hs-identifier hs-type">UpdateSuiteDefinitionResponse</span></a></span></span><span>
+</span><span id="line-229"></span></pre></body></html>

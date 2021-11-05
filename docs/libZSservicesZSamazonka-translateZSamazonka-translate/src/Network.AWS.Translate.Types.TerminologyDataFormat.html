@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679184187"><span id="local-6989586621679184188"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TerminologyDataFormat"><span class="annot"><a href="Network.AWS.Translate.Types.TerminologyDataFormat.html#TerminologyDataFormat"><span class="hs-identifier hs-var">TerminologyDataFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TerminologyDataFormat%27"><span class="annot"><a href="Network.AWS.Translate.Types.TerminologyDataFormat.html#TerminologyDataFormat%27"><span class="hs-identifier hs-var">TerminologyDataFormat'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679184196"><span id="local-6989586621679184197"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TerminologyDataFormat"><span class="annot"><a href="Network.AWS.Translate.Types.TerminologyDataFormat.html#TerminologyDataFormat"><span class="hs-identifier hs-var">TerminologyDataFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TerminologyDataFormat%27"><span class="annot"><a href="Network.AWS.Translate.Types.TerminologyDataFormat.html#TerminologyDataFormat%27"><span class="hs-identifier hs-var">TerminologyDataFormat'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTerminologyDataFormat"><span class="annot"><span class="annottext">TerminologyDataFormat -&gt; Text
 </span><a href="Network.AWS.Translate.Types.TerminologyDataFormat.html#fromTerminologyDataFormat"><span class="hs-identifier hs-var hs-var">fromTerminologyDataFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679184179"><span id="local-6989586621679184181"><span id="local-6989586621679184183"><span class="annot"><span class="annottext">Int -&gt; TerminologyDataFormat -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679184188"><span id="local-6989586621679184190"><span id="local-6989586621679184192"><span class="annot"><span class="annottext">Int -&gt; TerminologyDataFormat -&gt; ShowS
 [TerminologyDataFormat] -&gt; ShowS
 TerminologyDataFormat -&gt; String
 (Int -&gt; TerminologyDataFormat -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: TerminologyDataFormat -&gt; String
 showsPrec :: Int -&gt; TerminologyDataFormat -&gt; ShowS
 $cshowsPrec :: Int -&gt; TerminologyDataFormat -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679184170"><span id="local-6989586621679184172"><span id="local-6989586621679184174"><span id="local-6989586621679184176"><span class="annot"><span class="annottext">ReadPrec [TerminologyDataFormat]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679184179"><span id="local-6989586621679184181"><span id="local-6989586621679184183"><span id="local-6989586621679184185"><span class="annot"><span class="annottext">ReadPrec [TerminologyDataFormat]
 ReadPrec TerminologyDataFormat
 Int -&gt; ReadS TerminologyDataFormat
 ReadS [TerminologyDataFormat]
@@ -72,7 +72,7 @@ $creadList :: ReadS [TerminologyDataFormat]
 readsPrec :: Int -&gt; ReadS TerminologyDataFormat
 $creadsPrec :: Int -&gt; ReadS TerminologyDataFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679184165"><span id="local-6989586621679184167"><span class="annot"><span class="annottext">TerminologyDataFormat -&gt; TerminologyDataFormat -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679184174"><span id="local-6989586621679184176"><span class="annot"><span class="annottext">TerminologyDataFormat -&gt; TerminologyDataFormat -&gt; Bool
 (TerminologyDataFormat -&gt; TerminologyDataFormat -&gt; Bool)
 -&gt; (TerminologyDataFormat -&gt; TerminologyDataFormat -&gt; Bool)
 -&gt; Eq TerminologyDataFormat
@@ -82,7 +82,7 @@ $c/= :: TerminologyDataFormat -&gt; TerminologyDataFormat -&gt; Bool
 == :: TerminologyDataFormat -&gt; TerminologyDataFormat -&gt; Bool
 $c== :: TerminologyDataFormat -&gt; TerminologyDataFormat -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679184149"><span id="local-6989586621679184151"><span id="local-6989586621679184153"><span id="local-6989586621679184155"><span id="local-6989586621679184157"><span id="local-6989586621679184159"><span id="local-6989586621679184161"><span class="annot"><span class="annottext">Eq TerminologyDataFormat
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679184158"><span id="local-6989586621679184160"><span id="local-6989586621679184162"><span id="local-6989586621679184164"><span id="local-6989586621679184166"><span id="local-6989586621679184168"><span id="local-6989586621679184170"><span class="annot"><span class="annottext">Eq TerminologyDataFormat
 Eq TerminologyDataFormat
 -&gt; (TerminologyDataFormat -&gt; TerminologyDataFormat -&gt; Ordering)
 -&gt; (TerminologyDataFormat -&gt; TerminologyDataFormat -&gt; Bool)
@@ -140,7 +140,7 @@ $cfrom :: forall x. TerminologyDataFormat -&gt; Rep TerminologyDataFormat x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679184141"><span id="local-6989586621679184143"><span class="annot"><span class="annottext">Int -&gt; TerminologyDataFormat -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679184150"><span id="local-6989586621679184152"><span class="annot"><span class="annottext">Int -&gt; TerminologyDataFormat -&gt; Int
 TerminologyDataFormat -&gt; Int
 (Int -&gt; TerminologyDataFormat -&gt; Int)
 -&gt; (TerminologyDataFormat -&gt; Int) -&gt; Hashable TerminologyDataFormat
@@ -150,54 +150,54 @@ $chash :: TerminologyDataFormat -&gt; Int
 hashWithSalt :: Int -&gt; TerminologyDataFormat -&gt; Int
 $chashWithSalt :: Int -&gt; TerminologyDataFormat -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679184138"><span class="annot"><span class="annottext">TerminologyDataFormat -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679184147"><span class="annot"><span class="annottext">TerminologyDataFormat -&gt; ()
 (TerminologyDataFormat -&gt; ()) -&gt; NFData TerminologyDataFormat
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TerminologyDataFormat -&gt; ()
 $crnf :: TerminologyDataFormat -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679184135"><span class="annot"><span class="annottext">Text -&gt; Either String TerminologyDataFormat
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679184144"><span class="annot"><span class="annottext">Text -&gt; Either String TerminologyDataFormat
 (Text -&gt; Either String TerminologyDataFormat)
 -&gt; FromText TerminologyDataFormat
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TerminologyDataFormat
 $cfromText :: Text -&gt; Either String TerminologyDataFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679184132"><span class="annot"><span class="annottext">TerminologyDataFormat -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679184141"><span class="annot"><span class="annottext">TerminologyDataFormat -&gt; Text
 (TerminologyDataFormat -&gt; Text) -&gt; ToText TerminologyDataFormat
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TerminologyDataFormat -&gt; Text
 $ctoText :: TerminologyDataFormat -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679184129"><span class="annot"><span class="annottext">TerminologyDataFormat -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679184138"><span class="annot"><span class="annottext">TerminologyDataFormat -&gt; ByteString
 (TerminologyDataFormat -&gt; ByteString)
 -&gt; ToByteString TerminologyDataFormat
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TerminologyDataFormat -&gt; ByteString
 $ctoBS :: TerminologyDataFormat -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679184126"><span class="annot"><span class="annottext">TerminologyDataFormat -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679184135"><span class="annot"><span class="annottext">TerminologyDataFormat -&gt; ByteStringBuilder
 (TerminologyDataFormat -&gt; ByteStringBuilder)
 -&gt; ToLog TerminologyDataFormat
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TerminologyDataFormat -&gt; ByteStringBuilder
 $cbuild :: TerminologyDataFormat -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679184123"><span class="annot"><span class="annottext">HeaderName -&gt; TerminologyDataFormat -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679184132"><span class="annot"><span class="annottext">HeaderName -&gt; TerminologyDataFormat -&gt; [Header]
 (HeaderName -&gt; TerminologyDataFormat -&gt; [Header])
 -&gt; ToHeader TerminologyDataFormat
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TerminologyDataFormat -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TerminologyDataFormat -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679184120"><span class="annot"><span class="annottext">TerminologyDataFormat -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679184129"><span class="annot"><span class="annottext">TerminologyDataFormat -&gt; QueryString
 (TerminologyDataFormat -&gt; QueryString)
 -&gt; ToQuery TerminologyDataFormat
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TerminologyDataFormat -&gt; QueryString
 $ctoQuery :: TerminologyDataFormat -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679184115"><span id="local-6989586621679184117"><span class="annot"><span class="annottext">Value -&gt; Parser [TerminologyDataFormat]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679184124"><span id="local-6989586621679184126"><span class="annot"><span class="annottext">Value -&gt; Parser [TerminologyDataFormat]
 Value -&gt; Parser TerminologyDataFormat
 (Value -&gt; Parser TerminologyDataFormat)
 -&gt; (Value -&gt; Parser [TerminologyDataFormat])
@@ -209,7 +209,7 @@ $cparseJSONList :: Value -&gt; Parser [TerminologyDataFormat]
 parseJSON :: Value -&gt; Parser TerminologyDataFormat
 $cparseJSON :: Value -&gt; Parser TerminologyDataFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679184110"><span id="local-6989586621679184112"><span class="annot"><span class="annottext">FromJSONKeyFunction [TerminologyDataFormat]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679184119"><span id="local-6989586621679184121"><span class="annot"><span class="annottext">FromJSONKeyFunction [TerminologyDataFormat]
 FromJSONKeyFunction TerminologyDataFormat
 FromJSONKeyFunction TerminologyDataFormat
 -&gt; FromJSONKeyFunction [TerminologyDataFormat]
@@ -221,7 +221,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TerminologyDataFormat]
 fromJSONKey :: FromJSONKeyFunction TerminologyDataFormat
 $cfromJSONKey :: FromJSONKeyFunction TerminologyDataFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679184101"><span id="local-6989586621679184103"><span id="local-6989586621679184105"><span id="local-6989586621679184107"><span class="annot"><span class="annottext">[TerminologyDataFormat] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679184110"><span id="local-6989586621679184112"><span id="local-6989586621679184114"><span id="local-6989586621679184116"><span class="annot"><span class="annottext">[TerminologyDataFormat] -&gt; Encoding
 [TerminologyDataFormat] -&gt; Value
 TerminologyDataFormat -&gt; Encoding
 TerminologyDataFormat -&gt; Value
@@ -245,7 +245,7 @@ $ctoEncoding :: TerminologyDataFormat -&gt; Encoding
 toJSON :: TerminologyDataFormat -&gt; Value
 $ctoJSON :: TerminologyDataFormat -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679184096"><span id="local-6989586621679184098"><span class="annot"><span class="annottext">ToJSONKeyFunction [TerminologyDataFormat]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679184105"><span id="local-6989586621679184107"><span class="annot"><span class="annottext">ToJSONKeyFunction [TerminologyDataFormat]
 ToJSONKeyFunction TerminologyDataFormat
 ToJSONKeyFunction TerminologyDataFormat
 -&gt; ToJSONKeyFunction [TerminologyDataFormat]
@@ -257,14 +257,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TerminologyDataFormat]
 toJSONKey :: ToJSONKeyFunction TerminologyDataFormat
 $ctoJSONKey :: ToJSONKeyFunction TerminologyDataFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679184093"><span class="annot"><span class="annottext">[Node] -&gt; Either String TerminologyDataFormat
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679184102"><span class="annot"><span class="annottext">[Node] -&gt; Either String TerminologyDataFormat
 ([Node] -&gt; Either String TerminologyDataFormat)
 -&gt; FromXML TerminologyDataFormat
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TerminologyDataFormat
 $cparseXML :: [Node] -&gt; Either String TerminologyDataFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679184090"><span class="annot"><span class="annottext">TerminologyDataFormat -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679184099"><span class="annot"><span class="annottext">TerminologyDataFormat -&gt; XML
 (TerminologyDataFormat -&gt; XML) -&gt; ToXML TerminologyDataFormat
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TerminologyDataFormat -&gt; XML

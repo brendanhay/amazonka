@@ -48,12 +48,12 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newBatchExecuteStatement' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679396008"><span id="local-6989586621679396009"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchExecuteStatement"><span class="annot"><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#BatchExecuteStatement"><span class="hs-identifier hs-var">BatchExecuteStatement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchExecuteStatement%27"><span class="annot"><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#BatchExecuteStatement%27"><span class="hs-identifier hs-var">BatchExecuteStatement'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679396017"><span id="local-6989586621679396018"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchExecuteStatement"><span class="annot"><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#BatchExecuteStatement"><span class="hs-identifier hs-var">BatchExecuteStatement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchExecuteStatement%27"><span class="annot"><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#BatchExecuteStatement%27"><span class="hs-identifier hs-var">BatchExecuteStatement'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of PartiQL statements representing the batch to run.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3Astatements%3ABatchExecuteStatement%27"><span class="annot"><span class="annottext">BatchExecuteStatement -&gt; NonEmpty BatchStatementRequest
 </span><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#%24sel%3Astatements%3ABatchExecuteStatement%27"><span class="hs-identifier hs-var hs-var">statements</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementRequest.html#BatchStatementRequest"><span class="hs-identifier hs-type">BatchStatementRequest</span></a></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679396002"><span id="local-6989586621679396004"><span class="annot"><span class="annottext">BatchExecuteStatement -&gt; BatchExecuteStatement -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679396011"><span id="local-6989586621679396013"><span class="annot"><span class="annottext">BatchExecuteStatement -&gt; BatchExecuteStatement -&gt; Bool
 (BatchExecuteStatement -&gt; BatchExecuteStatement -&gt; Bool)
 -&gt; (BatchExecuteStatement -&gt; BatchExecuteStatement -&gt; Bool)
 -&gt; Eq BatchExecuteStatement
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BatchExecuteStatement -&gt; BatchExecuteStatement -&gt; Bool
 == :: BatchExecuteStatement -&gt; BatchExecuteStatement -&gt; Bool
 $c== :: BatchExecuteStatement -&gt; BatchExecuteStatement -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395993"><span id="local-6989586621679395995"><span id="local-6989586621679395997"><span id="local-6989586621679395999"><span class="annot"><span class="annottext">ReadPrec [BatchExecuteStatement]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396002"><span id="local-6989586621679396004"><span id="local-6989586621679396006"><span id="local-6989586621679396008"><span class="annot"><span class="annottext">ReadPrec [BatchExecuteStatement]
 ReadPrec BatchExecuteStatement
 Int -&gt; ReadS BatchExecuteStatement
 ReadS [BatchExecuteStatement]
@@ -82,7 +82,7 @@ readList :: ReadS [BatchExecuteStatement]
 $creadList :: ReadS [BatchExecuteStatement]
 readsPrec :: Int -&gt; ReadS BatchExecuteStatement
 $creadsPrec :: Int -&gt; ReadS BatchExecuteStatement
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395986"><span id="local-6989586621679395988"><span id="local-6989586621679395990"><span class="annot"><span class="annottext">Int -&gt; BatchExecuteStatement -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395995"><span id="local-6989586621679395997"><span id="local-6989586621679395999"><span class="annot"><span class="annottext">Int -&gt; BatchExecuteStatement -&gt; ShowS
 [BatchExecuteStatement] -&gt; ShowS
 BatchExecuteStatement -&gt; String
 (Int -&gt; BatchExecuteStatement -&gt; ShowS)
@@ -122,8 +122,8 @@ $cfrom :: forall x. BatchExecuteStatement -&gt; Rep BatchExecuteStatement x
 </span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementRequest.html#BatchStatementRequest"><span class="hs-identifier hs-type">BatchStatementRequest</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#BatchExecuteStatement"><span class="hs-identifier hs-type">BatchExecuteStatement</span></a></span><span>
 </span><span id="line-70"></span><span id="newBatchExecuteStatement"><span class="annot"><span class="annottext">newBatchExecuteStatement :: NonEmpty BatchStatementRequest -&gt; BatchExecuteStatement
-</span><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#newBatchExecuteStatement"><span class="hs-identifier hs-var hs-var">newBatchExecuteStatement</span></a></span></span><span> </span><span id="local-6989586621679395981"><span class="annot"><span class="annottext">NonEmpty BatchStatementRequest
-</span><a href="#local-6989586621679395981"><span class="hs-identifier hs-var">pStatements_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#newBatchExecuteStatement"><span class="hs-identifier hs-var hs-var">newBatchExecuteStatement</span></a></span></span><span> </span><span id="local-6989586621679395990"><span class="annot"><span class="annottext">NonEmpty BatchStatementRequest
+</span><a href="#local-6989586621679395990"><span class="hs-identifier hs-var">pStatements_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">BatchExecuteStatement' :: NonEmpty BatchStatementRequest -&gt; BatchExecuteStatement
 </span><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#BatchExecuteStatement%27"><span class="hs-identifier hs-type">BatchExecuteStatement'</span></a></span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:statements:BatchExecuteStatement' :: NonEmpty BatchStatementRequest
@@ -144,7 +144,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty BatchStatementRequest -&gt; NonEmpty BatchStatementRequest
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty BatchStatementRequest
-</span><a href="#local-6989586621679395981"><span class="hs-identifier hs-var">pStatements_</span></a></span><span>
+</span><a href="#local-6989586621679395990"><span class="hs-identifier hs-var">pStatements_</span></a></span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | The list of PartiQL statements representing the batch to run.</span><span>
@@ -161,16 +161,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (NonEmpty BatchStatementRequest)
      (NonEmpty BatchStatementRequest)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#BatchExecuteStatement%27"><span class="hs-identifier hs-type">BatchExecuteStatement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395976"><span class="annot"><span class="annottext">NonEmpty BatchStatementRequest
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#BatchExecuteStatement%27"><span class="hs-identifier hs-type">BatchExecuteStatement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395985"><span class="annot"><span class="annottext">NonEmpty BatchStatementRequest
 statements :: NonEmpty BatchStatementRequest
 $sel:statements:BatchExecuteStatement' :: BatchExecuteStatement -&gt; NonEmpty BatchStatementRequest
-</span><a href="#local-6989586621679395976"><span class="hs-identifier hs-var hs-var">statements</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty BatchStatementRequest
-</span><a href="#local-6989586621679395976"><span class="hs-identifier hs-var">statements</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395975"><span class="annot"><span class="annottext">s :: BatchExecuteStatement
-</span><a href="#local-6989586621679395975"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#BatchExecuteStatement%27"><span class="hs-identifier hs-type">BatchExecuteStatement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395974"><span class="annot"><span class="annottext">NonEmpty BatchStatementRequest
-</span><a href="#local-6989586621679395974"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchExecuteStatement
-</span><a href="#local-6989586621679395975"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statements:BatchExecuteStatement' :: NonEmpty BatchStatementRequest
+</span><a href="#local-6989586621679395985"><span class="hs-identifier hs-var hs-var">statements</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty BatchStatementRequest
+</span><a href="#local-6989586621679395985"><span class="hs-identifier hs-var">statements</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395984"><span class="annot"><span class="annottext">s :: BatchExecuteStatement
+</span><a href="#local-6989586621679395984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#BatchExecuteStatement%27"><span class="hs-identifier hs-type">BatchExecuteStatement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395983"><span class="annot"><span class="annottext">NonEmpty BatchStatementRequest
+</span><a href="#local-6989586621679395983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchExecuteStatement
+</span><a href="#local-6989586621679395984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statements:BatchExecuteStatement' :: NonEmpty BatchStatementRequest
 </span><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#%24sel%3Astatements%3ABatchExecuteStatement%27"><span class="hs-identifier hs-var">statements</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty BatchStatementRequest
-</span><a href="#local-6989586621679395974"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#BatchExecuteStatement"><span class="hs-identifier hs-type">BatchExecuteStatement</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty BatchStatementRequest
+</span><a href="#local-6989586621679395983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#BatchExecuteStatement"><span class="hs-identifier hs-type">BatchExecuteStatement</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty BatchStatementRequest
   -&gt; f (NonEmpty BatchStatementRequest))
  -&gt; BatchExecuteStatement -&gt; f BatchExecuteStatement)
 -&gt; ((NonEmpty BatchStatementRequest
@@ -193,12 +193,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-81"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-82"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#BatchExecuteStatement"><span class="hs-identifier hs-type">BatchExecuteStatement</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#BatchExecuteStatementResponse"><span class="hs-identifier hs-type">BatchExecuteStatementResponse</span></a></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679395969"><span class="annot"><span class="annottext">request :: BatchExecuteStatement -&gt; Request BatchExecuteStatement
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679395978"><span class="annot"><span class="annottext">request :: BatchExecuteStatement -&gt; Request BatchExecuteStatement
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; BatchExecuteStatement -&gt; Request BatchExecuteStatement
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DynamoDB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679395965"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679395974"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy BatchExecuteStatement
 -&gt; ClientResponse ClientBody
@@ -224,10 +224,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679395962"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679395962"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679395961"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679395961"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679395960"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679395960"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679395971"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679395971"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679395970"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679395970"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679395969"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679395969"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe [BatchStatementResponse]
 -&gt; Int -&gt; BatchExecuteStatementResponse
 </span><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#BatchExecuteStatementResponse%27"><span class="hs-identifier hs-var">BatchExecuteStatementResponse'</span></a></span><span>
@@ -237,7 +237,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; BatchExecuteStatementResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679395960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679395969"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [BatchStatementResponse]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -256,15 +256,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679395962"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679395971"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395951"><span id="local-6989586621679395953"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#BatchExecuteStatement"><span class="hs-identifier hs-type">BatchExecuteStatement</span></a></span></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395960"><span id="local-6989586621679395962"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#BatchExecuteStatement"><span class="hs-identifier hs-type">BatchExecuteStatement</span></a></span></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395948"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#BatchExecuteStatement"><span class="hs-identifier hs-type">BatchExecuteStatement</span></a></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395957"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#BatchExecuteStatement"><span class="hs-identifier hs-type">BatchExecuteStatement</span></a></span></span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#BatchExecuteStatement"><span class="hs-identifier hs-type">BatchExecuteStatement</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679395944"><span class="annot"><span class="annottext">toHeaders :: BatchExecuteStatement -&gt; ResponseHeaders
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679395953"><span class="annot"><span class="annottext">toHeaders :: BatchExecuteStatement -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; BatchExecuteStatement -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -291,12 +291,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-109"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395934"><span id="local-6989586621679395936"><span id="local-6989586621679395938"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#BatchExecuteStatement"><span class="hs-identifier hs-type">BatchExecuteStatement</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679395932"><span class="annot"><span class="annottext">toJSON :: BatchExecuteStatement -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#BatchExecuteStatement%27"><span class="hs-identifier hs-type">BatchExecuteStatement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395930"><span class="annot"><span class="annottext">NonEmpty BatchStatementRequest
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395943"><span id="local-6989586621679395945"><span id="local-6989586621679395947"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#BatchExecuteStatement"><span class="hs-identifier hs-type">BatchExecuteStatement</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679395941"><span class="annot"><span class="annottext">toJSON :: BatchExecuteStatement -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#BatchExecuteStatement%27"><span class="hs-identifier hs-type">BatchExecuteStatement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395939"><span class="annot"><span class="annottext">NonEmpty BatchStatementRequest
 statements :: NonEmpty BatchStatementRequest
 $sel:statements:BatchExecuteStatement' :: BatchExecuteStatement -&gt; NonEmpty BatchStatementRequest
-</span><a href="#local-6989586621679395930"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679395939"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -308,18 +308,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Statements&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty BatchStatementRequest -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty BatchStatementRequest
-</span><a href="#local-6989586621679395930"><span class="hs-identifier hs-var">statements</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679395939"><span class="hs-identifier hs-var">statements</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#BatchExecuteStatement"><span class="hs-identifier hs-type">BatchExecuteStatement</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679395924"><span class="annot"><span class="annottext">toPath :: BatchExecuteStatement -&gt; ByteString
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679395933"><span class="annot"><span class="annottext">toPath :: BatchExecuteStatement -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; BatchExecuteStatement -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#BatchExecuteStatement"><span class="hs-identifier hs-type">BatchExecuteStatement</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679395920"><span class="annot"><span class="annottext">toQuery :: BatchExecuteStatement -&gt; QueryString
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679395929"><span class="annot"><span class="annottext">toQuery :: BatchExecuteStatement -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; BatchExecuteStatement -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -327,7 +327,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | /See:/ 'newBatchExecuteStatementResponse' smart constructor.</span><span>
-</span><span id="line-126"></span><span id="local-6989586621679395917"><span id="local-6989586621679395918"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchExecuteStatementResponse"><span class="annot"><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#BatchExecuteStatementResponse"><span class="hs-identifier hs-var">BatchExecuteStatementResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchExecuteStatementResponse%27"><span class="annot"><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#BatchExecuteStatementResponse%27"><span class="hs-identifier hs-var">BatchExecuteStatementResponse'</span></a></span></span><span>
+</span><span id="line-126"></span><span id="local-6989586621679395926"><span id="local-6989586621679395927"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchExecuteStatementResponse"><span class="annot"><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#BatchExecuteStatementResponse"><span class="hs-identifier hs-var">BatchExecuteStatementResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchExecuteStatementResponse%27"><span class="annot"><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#BatchExecuteStatementResponse%27"><span class="hs-identifier hs-var">BatchExecuteStatementResponse'</span></a></span></span><span>
 </span><span id="line-127"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response to each PartiQL statement in the batch.</span><span>
 </span><span id="line-128"></span><span>    </span><span id="%24sel%3Aresponses%3ABatchExecuteStatementResponse%27"><span class="annot"><span class="annottext">BatchExecuteStatementResponse -&gt; Maybe [BatchStatementResponse]
 </span><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#%24sel%3Aresponses%3ABatchExecuteStatementResponse%27"><span class="hs-identifier hs-var hs-var">responses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.BatchStatementResponse.html#BatchStatementResponse"><span class="hs-identifier hs-type">BatchStatementResponse</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -335,7 +335,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-130"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchExecuteStatementResponse%27"><span class="annot"><span class="annottext">BatchExecuteStatementResponse -&gt; Int
 </span><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#%24sel%3AhttpStatus%3ABatchExecuteStatementResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-131"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-132"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679395911"><span id="local-6989586621679395913"><span class="annot"><span class="annottext">BatchExecuteStatementResponse
+</span><span id="line-132"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679395920"><span id="local-6989586621679395922"><span class="annot"><span class="annottext">BatchExecuteStatementResponse
 -&gt; BatchExecuteStatementResponse -&gt; Bool
 (BatchExecuteStatementResponse
  -&gt; BatchExecuteStatementResponse -&gt; Bool)
@@ -351,7 +351,7 @@ $c/= :: BatchExecuteStatementResponse
 -&gt; BatchExecuteStatementResponse -&gt; Bool
 $c== :: BatchExecuteStatementResponse
 -&gt; BatchExecuteStatementResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395903"><span id="local-6989586621679395905"><span id="local-6989586621679395907"><span id="local-6989586621679395909"><span class="annot"><span class="annottext">ReadPrec [BatchExecuteStatementResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395912"><span id="local-6989586621679395914"><span id="local-6989586621679395916"><span id="local-6989586621679395918"><span class="annot"><span class="annottext">ReadPrec [BatchExecuteStatementResponse]
 ReadPrec BatchExecuteStatementResponse
 Int -&gt; ReadS BatchExecuteStatementResponse
 ReadS [BatchExecuteStatementResponse]
@@ -371,7 +371,7 @@ readList :: ReadS [BatchExecuteStatementResponse]
 $creadList :: ReadS [BatchExecuteStatementResponse]
 readsPrec :: Int -&gt; ReadS BatchExecuteStatementResponse
 $creadsPrec :: Int -&gt; ReadS BatchExecuteStatementResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395897"><span id="local-6989586621679395899"><span id="local-6989586621679395901"><span class="annot"><span class="annottext">Int -&gt; BatchExecuteStatementResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395906"><span id="local-6989586621679395908"><span id="local-6989586621679395910"><span class="annot"><span class="annottext">Int -&gt; BatchExecuteStatementResponse -&gt; ShowS
 [BatchExecuteStatementResponse] -&gt; ShowS
 BatchExecuteStatementResponse -&gt; String
 (Int -&gt; BatchExecuteStatementResponse -&gt; ShowS)
@@ -425,8 +425,8 @@ BatchExecuteStatementResponse
 </span><span id="line-147"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-148"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#BatchExecuteStatementResponse"><span class="hs-identifier hs-type">BatchExecuteStatementResponse</span></a></span><span>
 </span><span id="line-149"></span><span id="newBatchExecuteStatementResponse"><span class="annot"><span class="annottext">newBatchExecuteStatementResponse :: Int -&gt; BatchExecuteStatementResponse
-</span><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#newBatchExecuteStatementResponse"><span class="hs-identifier hs-var hs-var">newBatchExecuteStatementResponse</span></a></span></span><span> </span><span id="local-6989586621679395894"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679395894"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#newBatchExecuteStatementResponse"><span class="hs-identifier hs-var hs-var">newBatchExecuteStatementResponse</span></a></span></span><span> </span><span id="local-6989586621679395903"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679395903"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-150"></span><span>  </span><span class="annot"><span class="annottext">BatchExecuteStatementResponse' :: Maybe [BatchStatementResponse]
 -&gt; Int -&gt; BatchExecuteStatementResponse
 </span><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#BatchExecuteStatementResponse%27"><span class="hs-identifier hs-type">BatchExecuteStatementResponse'</span></a></span><span>
@@ -437,7 +437,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchExecuteStatementResponse' :: Int
 </span><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#%24sel%3AhttpStatus%3ABatchExecuteStatementResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679395894"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679395903"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-154"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | The response to each PartiQL statement in the batch.</span><span>
@@ -454,16 +454,16 @@ forall a. Maybe a
      (Maybe [BatchStatementResponse])
      (Maybe [BatchStatementResponse])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#BatchExecuteStatementResponse%27"><span class="hs-identifier hs-type">BatchExecuteStatementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395893"><span class="annot"><span class="annottext">Maybe [BatchStatementResponse]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#BatchExecuteStatementResponse%27"><span class="hs-identifier hs-type">BatchExecuteStatementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395902"><span class="annot"><span class="annottext">Maybe [BatchStatementResponse]
 responses :: Maybe [BatchStatementResponse]
 $sel:responses:BatchExecuteStatementResponse' :: BatchExecuteStatementResponse -&gt; Maybe [BatchStatementResponse]
-</span><a href="#local-6989586621679395893"><span class="hs-identifier hs-var hs-var">responses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BatchStatementResponse]
-</span><a href="#local-6989586621679395893"><span class="hs-identifier hs-var">responses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395892"><span class="annot"><span class="annottext">s :: BatchExecuteStatementResponse
-</span><a href="#local-6989586621679395892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#BatchExecuteStatementResponse%27"><span class="hs-identifier hs-type">BatchExecuteStatementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395891"><span class="annot"><span class="annottext">Maybe [BatchStatementResponse]
-</span><a href="#local-6989586621679395891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchExecuteStatementResponse
-</span><a href="#local-6989586621679395892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responses:BatchExecuteStatementResponse' :: Maybe [BatchStatementResponse]
+</span><a href="#local-6989586621679395902"><span class="hs-identifier hs-var hs-var">responses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BatchStatementResponse]
+</span><a href="#local-6989586621679395902"><span class="hs-identifier hs-var">responses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395901"><span class="annot"><span class="annottext">s :: BatchExecuteStatementResponse
+</span><a href="#local-6989586621679395901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#BatchExecuteStatementResponse%27"><span class="hs-identifier hs-type">BatchExecuteStatementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395900"><span class="annot"><span class="annottext">Maybe [BatchStatementResponse]
+</span><a href="#local-6989586621679395900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchExecuteStatementResponse
+</span><a href="#local-6989586621679395901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responses:BatchExecuteStatementResponse' :: Maybe [BatchStatementResponse]
 </span><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#%24sel%3Aresponses%3ABatchExecuteStatementResponse%27"><span class="hs-identifier hs-var">responses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [BatchStatementResponse]
-</span><a href="#local-6989586621679395891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#BatchExecuteStatementResponse"><span class="hs-identifier hs-type">BatchExecuteStatementResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BatchStatementResponse]
+</span><a href="#local-6989586621679395900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#BatchExecuteStatementResponse"><span class="hs-identifier hs-type">BatchExecuteStatementResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BatchStatementResponse]
   -&gt; f (Maybe [BatchStatementResponse]))
  -&gt; BatchExecuteStatementResponse
  -&gt; f BatchExecuteStatementResponse)
@@ -507,16 +507,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      BatchExecuteStatementResponse BatchExecuteStatementResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#BatchExecuteStatementResponse%27"><span class="hs-identifier hs-type">BatchExecuteStatementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395889"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#BatchExecuteStatementResponse%27"><span class="hs-identifier hs-type">BatchExecuteStatementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395898"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:BatchExecuteStatementResponse' :: BatchExecuteStatementResponse -&gt; Int
-</span><a href="#local-6989586621679395889"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679395889"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395888"><span class="annot"><span class="annottext">s :: BatchExecuteStatementResponse
-</span><a href="#local-6989586621679395888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#BatchExecuteStatementResponse%27"><span class="hs-identifier hs-type">BatchExecuteStatementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395887"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679395887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchExecuteStatementResponse
-</span><a href="#local-6989586621679395888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchExecuteStatementResponse' :: Int
+</span><a href="#local-6989586621679395898"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679395898"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395897"><span class="annot"><span class="annottext">s :: BatchExecuteStatementResponse
+</span><a href="#local-6989586621679395897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#BatchExecuteStatementResponse%27"><span class="hs-identifier hs-type">BatchExecuteStatementResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395896"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679395896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchExecuteStatementResponse
+</span><a href="#local-6989586621679395897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchExecuteStatementResponse' :: Int
 </span><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#%24sel%3AhttpStatus%3ABatchExecuteStatementResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679395887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#BatchExecuteStatementResponse"><span class="hs-identifier hs-type">BatchExecuteStatementResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679395896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#BatchExecuteStatementResponse"><span class="hs-identifier hs-type">BatchExecuteStatementResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395885"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#BatchExecuteStatementResponse"><span class="hs-identifier hs-type">BatchExecuteStatementResponse</span></a></span></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395894"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.BatchExecuteStatement.html#BatchExecuteStatementResponse"><span class="hs-identifier hs-type">BatchExecuteStatementResponse</span></a></span></span><span>
 </span><span id="line-165"></span></pre></body></html>

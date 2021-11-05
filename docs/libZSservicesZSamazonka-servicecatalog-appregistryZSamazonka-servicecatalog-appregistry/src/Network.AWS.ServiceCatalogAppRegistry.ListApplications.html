@@ -1,0 +1,646 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ServiceCatalogAppRegistry.ListApplications</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves a list of all of your applications. Results are paginated.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ServiceCatalogAppRegistry.ListApplications</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#ListApplications"><span class="hs-identifier">ListApplications</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#newListApplications"><span class="hs-identifier">newListApplications</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#listApplications_nextToken"><span class="hs-identifier">listApplications_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#listApplications_maxResults"><span class="hs-identifier">listApplications_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#ListApplicationsResponse"><span class="hs-identifier">ListApplicationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#newListApplicationsResponse"><span class="hs-identifier">newListApplicationsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#listApplicationsResponse_nextToken"><span class="hs-identifier">listApplicationsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#listApplicationsResponse_applications"><span class="hs-identifier">listApplicationsResponse_applications</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#listApplicationsResponse_httpStatus"><span class="hs-identifier">listApplicationsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.Types.html"><span class="hs-identifier">Network.AWS.ServiceCatalogAppRegistry.Types</span></a></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newListApplications' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679181868"><span id="local-6989586621679181869"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListApplications"><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#ListApplications"><span class="hs-identifier hs-var">ListApplications</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListApplications%27"><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#ListApplications%27"><span class="hs-identifier hs-var">ListApplications'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to use to get the next page of results after a previous API</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- call.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AnextToken%3AListApplications%27"><span class="annot"><span class="annottext">ListApplications -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#%24sel%3AnextToken%3AListApplications%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The upper bound of the number of results to return (cannot exceed 25).</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- If this parameter is omitted, it defaults to 25. This value is optional.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AmaxResults%3AListApplications%27"><span class="annot"><span class="annottext">ListApplications -&gt; Maybe Natural
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#%24sel%3AmaxResults%3AListApplications%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679181861"><span id="local-6989586621679181863"><span class="annot"><span class="annottext">ListApplications -&gt; ListApplications -&gt; Bool
+(ListApplications -&gt; ListApplications -&gt; Bool)
+-&gt; (ListApplications -&gt; ListApplications -&gt; Bool)
+-&gt; Eq ListApplications
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListApplications -&gt; ListApplications -&gt; Bool
+$c/= :: ListApplications -&gt; ListApplications -&gt; Bool
+== :: ListApplications -&gt; ListApplications -&gt; Bool
+$c== :: ListApplications -&gt; ListApplications -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181852"><span id="local-6989586621679181854"><span id="local-6989586621679181856"><span id="local-6989586621679181858"><span class="annot"><span class="annottext">ReadPrec [ListApplications]
+ReadPrec ListApplications
+Int -&gt; ReadS ListApplications
+ReadS [ListApplications]
+(Int -&gt; ReadS ListApplications)
+-&gt; ReadS [ListApplications]
+-&gt; ReadPrec ListApplications
+-&gt; ReadPrec [ListApplications]
+-&gt; Read ListApplications
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListApplications]
+$creadListPrec :: ReadPrec [ListApplications]
+readPrec :: ReadPrec ListApplications
+$creadPrec :: ReadPrec ListApplications
+readList :: ReadS [ListApplications]
+$creadList :: ReadS [ListApplications]
+readsPrec :: Int -&gt; ReadS ListApplications
+$creadsPrec :: Int -&gt; ReadS ListApplications
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181845"><span id="local-6989586621679181847"><span id="local-6989586621679181849"><span class="annot"><span class="annottext">Int -&gt; ListApplications -&gt; ShowS
+[ListApplications] -&gt; ShowS
+ListApplications -&gt; String
+(Int -&gt; ListApplications -&gt; ShowS)
+-&gt; (ListApplications -&gt; String)
+-&gt; ([ListApplications] -&gt; ShowS)
+-&gt; Show ListApplications
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListApplications] -&gt; ShowS
+$cshowList :: [ListApplications] -&gt; ShowS
+show :: ListApplications -&gt; String
+$cshow :: ListApplications -&gt; String
+showsPrec :: Int -&gt; ListApplications -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListApplications -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListApplications -&gt; Rep ListApplications x)
+-&gt; (forall x. Rep ListApplications x -&gt; ListApplications)
+-&gt; Generic ListApplications
+forall x. Rep ListApplications x -&gt; ListApplications
+forall x. ListApplications -&gt; Rep ListApplications x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListApplications x -&gt; ListApplications
+$cfrom :: forall x. ListApplications -&gt; Rep ListApplications x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'ListApplications' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'nextToken', 'listApplications_nextToken' - The token to use to get the next page of results after a previous API</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- call.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'maxResults', 'listApplications_maxResults' - The upper bound of the number of results to return (cannot exceed 25).</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- If this parameter is omitted, it defaults to 25. This value is optional.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#newListApplications"><span class="hs-identifier hs-type">newListApplications</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#ListApplications"><span class="hs-identifier hs-type">ListApplications</span></a></span><span>
+</span><span id="line-79"></span><span id="newListApplications"><span class="annot"><span class="annottext">newListApplications :: ListApplications
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#newListApplications"><span class="hs-identifier hs-var hs-var">newListApplications</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">ListApplications' :: Maybe Text -&gt; Maybe Natural -&gt; ListApplications
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#ListApplications%27"><span class="hs-identifier hs-type">ListApplications'</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListApplications' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#%24sel%3AnextToken%3AListApplications%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListApplications' :: Maybe Natural
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#%24sel%3AmaxResults%3AListApplications%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The token to use to get the next page of results after a previous API</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- call.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#listApplications_nextToken"><span class="hs-identifier hs-type">listApplications_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#ListApplications"><span class="hs-identifier hs-type">ListApplications</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="listApplications_nextToken"><span class="annot"><span class="annottext">listApplications_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListApplications -&gt; f ListApplications
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#listApplications_nextToken"><span class="hs-identifier hs-var hs-var">listApplications_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListApplications -&gt; Maybe Text)
+-&gt; (ListApplications -&gt; Maybe Text -&gt; ListApplications)
+-&gt; Lens ListApplications ListApplications (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#ListApplications%27"><span class="hs-identifier hs-type">ListApplications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181839"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListApplications' :: ListApplications -&gt; Maybe Text
+</span><a href="#local-6989586621679181839"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679181839"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181838"><span class="annot"><span class="annottext">s :: ListApplications
+</span><a href="#local-6989586621679181838"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#ListApplications%27"><span class="hs-identifier hs-type">ListApplications'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181837"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679181837"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplications
+</span><a href="#local-6989586621679181838"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListApplications' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#%24sel%3AnextToken%3AListApplications%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679181837"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#ListApplications"><span class="hs-identifier hs-type">ListApplications</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The upper bound of the number of results to return (cannot exceed 25).</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- If this parameter is omitted, it defaults to 25. This value is optional.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#listApplications_maxResults"><span class="hs-identifier hs-type">listApplications_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#ListApplications"><span class="hs-identifier hs-type">ListApplications</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="listApplications_maxResults"><span class="annot"><span class="annottext">listApplications_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListApplications -&gt; f ListApplications
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#listApplications_maxResults"><span class="hs-identifier hs-var hs-var">listApplications_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListApplications -&gt; Maybe Natural)
+-&gt; (ListApplications -&gt; Maybe Natural -&gt; ListApplications)
+-&gt; Lens
+     ListApplications ListApplications (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#ListApplications%27"><span class="hs-identifier hs-type">ListApplications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181836"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListApplications' :: ListApplications -&gt; Maybe Natural
+</span><a href="#local-6989586621679181836"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679181836"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181835"><span class="annot"><span class="annottext">s :: ListApplications
+</span><a href="#local-6989586621679181835"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#ListApplications%27"><span class="hs-identifier hs-type">ListApplications'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181834"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679181834"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplications
+</span><a href="#local-6989586621679181835"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListApplications' :: Maybe Natural
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#%24sel%3AmaxResults%3AListApplications%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679181834"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#ListApplications"><span class="hs-identifier hs-type">ListApplications</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#ListApplications"><span class="hs-identifier hs-type">ListApplications</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679181830"><span class="annot"><span class="annottext">page :: ListApplications
+-&gt; AWSResponse ListApplications -&gt; Maybe ListApplications
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679181828"><span class="annot"><span class="annottext">ListApplications
+</span><a href="#local-6989586621679181828"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679181827"><span class="annot"><span class="annottext">AWSResponse ListApplications
+</span><a href="#local-6989586621679181827"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-98"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListApplications
+ListApplicationsResponse
+</span><a href="#local-6989586621679181827"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">ListApplicationsResponse
+-&gt; Getting (First Text) ListApplicationsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListApplicationsResponse
+-&gt; Const (First Text) ListApplicationsResponse
+Lens' ListApplicationsResponse (Maybe Text)
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#listApplicationsResponse_nextToken"><span class="hs-identifier hs-var">listApplicationsResponse_nextToken</span></a></span><span>
+</span><span id="line-100"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListApplicationsResponse
+ -&gt; Const (First Text) ListApplicationsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListApplicationsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-101"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListApplications
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [ApplicationSummary] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-104"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListApplications
+ListApplicationsResponse
+</span><a href="#local-6989586621679181827"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">ListApplicationsResponse
+-&gt; Getting
+     (First [ApplicationSummary])
+     ListApplicationsResponse
+     [ApplicationSummary]
+-&gt; Maybe [ApplicationSummary]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [ApplicationSummary]
+ -&gt; Const (First [ApplicationSummary]) (Maybe [ApplicationSummary]))
+-&gt; ListApplicationsResponse
+-&gt; Const (First [ApplicationSummary]) ListApplicationsResponse
+Lens' ListApplicationsResponse (Maybe [ApplicationSummary])
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#listApplicationsResponse_applications"><span class="hs-identifier hs-var">listApplicationsResponse_applications</span></a></span><span>
+</span><span id="line-106"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [ApplicationSummary]
+  -&gt; Const (First [ApplicationSummary]) (Maybe [ApplicationSummary]))
+ -&gt; ListApplicationsResponse
+ -&gt; Const (First [ApplicationSummary]) ListApplicationsResponse)
+-&gt; (([ApplicationSummary]
+     -&gt; Const (First [ApplicationSummary]) [ApplicationSummary])
+    -&gt; Maybe [ApplicationSummary]
+    -&gt; Const (First [ApplicationSummary]) (Maybe [ApplicationSummary]))
+-&gt; Getting
+     (First [ApplicationSummary])
+     ListApplicationsResponse
+     [ApplicationSummary]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ApplicationSummary]
+ -&gt; Const (First [ApplicationSummary]) [ApplicationSummary])
+-&gt; Maybe [ApplicationSummary]
+-&gt; Const (First [ApplicationSummary]) (Maybe [ApplicationSummary])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-107"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListApplications
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">ListApplications -&gt; Maybe ListApplications
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListApplications -&gt; Maybe ListApplications)
+-&gt; ListApplications -&gt; Maybe ListApplications
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">ListApplications
+</span><a href="#local-6989586621679181828"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">ListApplications
+-&gt; (ListApplications -&gt; ListApplications) -&gt; ListApplications
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListApplications -&gt; Identity ListApplications
+Lens ListApplications ListApplications (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#listApplications_nextToken"><span class="hs-identifier hs-var">listApplications_nextToken</span></a></span><span>
+</span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListApplications -&gt; Identity ListApplications)
+-&gt; Maybe Text -&gt; ListApplications -&gt; ListApplications
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListApplications
+ListApplicationsResponse
+</span><a href="#local-6989586621679181827"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">ListApplicationsResponse
+-&gt; Getting (First Text) ListApplicationsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListApplicationsResponse
+-&gt; Const (First Text) ListApplicationsResponse
+Lens' ListApplicationsResponse (Maybe Text)
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#listApplicationsResponse_nextToken"><span class="hs-identifier hs-var">listApplicationsResponse_nextToken</span></a></span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListApplicationsResponse
+ -&gt; Const (First Text) ListApplicationsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListApplicationsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#ListApplications"><span class="hs-identifier hs-type">ListApplications</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-119"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#ListApplications"><span class="hs-identifier hs-type">ListApplications</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#ListApplicationsResponse"><span class="hs-identifier hs-type">ListApplicationsResponse</span></a></span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679181817"><span class="annot"><span class="annottext">request :: ListApplications -&gt; Request ListApplications
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListApplications -&gt; Request ListApplications
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679181813"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListApplications
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListApplications)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListApplications))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListApplications
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListApplications)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679181810"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181810"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679181809"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679181809"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679181808"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679181808"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [ApplicationSummary] -&gt; Int -&gt; ListApplicationsResponse
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#ListApplicationsResponse%27"><span class="hs-identifier hs-var">ListApplicationsResponse'</span></a></span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [ApplicationSummary] -&gt; Int -&gt; ListApplicationsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [ApplicationSummary] -&gt; Int -&gt; ListApplicationsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679181808"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [ApplicationSummary] -&gt; Int -&gt; ListApplicationsResponse)
+-&gt; Either String (Maybe [ApplicationSummary])
+-&gt; Either String (Int -&gt; ListApplicationsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679181808"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [ApplicationSummary]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;applications&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ApplicationSummary]))
+-&gt; Maybe [ApplicationSummary]
+-&gt; Either String (Maybe [ApplicationSummary])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ApplicationSummary]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListApplicationsResponse)
+-&gt; Either String Int -&gt; Either String ListApplicationsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181810"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181799"><span id="local-6989586621679181801"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#ListApplications"><span class="hs-identifier hs-type">ListApplications</span></a></span></span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181796"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#ListApplications"><span class="hs-identifier hs-type">ListApplications</span></a></span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#ListApplications"><span class="hs-identifier hs-type">ListApplications</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679181792"><span class="annot"><span class="annottext">toHeaders :: ListApplications -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListApplications -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-139"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-140"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-141"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-142"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#ListApplications"><span class="hs-identifier hs-type">ListApplications</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679181786"><span class="annot"><span class="annottext">toPath :: ListApplications -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListApplications -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/applications&quot;</span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#ListApplications"><span class="hs-identifier hs-type">ListApplications</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679181782"><span class="annot"><span class="annottext">toQuery :: ListApplications -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#ListApplications%27"><span class="hs-identifier hs-type">ListApplications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181779"><span id="local-6989586621679181780"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:maxResults:ListApplications' :: ListApplications -&gt; Maybe Natural
+$sel:nextToken:ListApplications' :: ListApplications -&gt; Maybe Text
+</span><a href="#local-6989586621679181779"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679181780"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679181779"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | /See:/ 'newListApplicationsResponse' smart constructor.</span><span>
+</span><span id="line-157"></span><span id="local-6989586621679181776"><span id="local-6989586621679181777"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListApplicationsResponse"><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#ListApplicationsResponse"><span class="hs-identifier hs-var">ListApplicationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListApplicationsResponse%27"><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#ListApplicationsResponse%27"><span class="hs-identifier hs-var">ListApplicationsResponse'</span></a></span></span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to use to get the next page of results after a previous API</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- call.</span><span>
+</span><span id="line-160"></span><span>    </span><span id="%24sel%3AnextToken%3AListApplicationsResponse%27"><span class="annot"><span class="annottext">ListApplicationsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#%24sel%3AnextToken%3AListApplicationsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- | This list of applications.</span><span>
+</span><span id="line-162"></span><span>    </span><span id="%24sel%3Aapplications%3AListApplicationsResponse%27"><span class="annot"><span class="annottext">ListApplicationsResponse -&gt; Maybe [ApplicationSummary]
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#%24sel%3Aapplications%3AListApplicationsResponse%27"><span class="hs-identifier hs-var hs-var">applications</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.Types.ApplicationSummary.html#ApplicationSummary"><span class="hs-identifier hs-type">ApplicationSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-164"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListApplicationsResponse%27"><span class="annot"><span class="annottext">ListApplicationsResponse -&gt; Int
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#%24sel%3AhttpStatus%3AListApplicationsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679181769"><span id="local-6989586621679181771"><span class="annot"><span class="annottext">ListApplicationsResponse -&gt; ListApplicationsResponse -&gt; Bool
+(ListApplicationsResponse -&gt; ListApplicationsResponse -&gt; Bool)
+-&gt; (ListApplicationsResponse -&gt; ListApplicationsResponse -&gt; Bool)
+-&gt; Eq ListApplicationsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListApplicationsResponse -&gt; ListApplicationsResponse -&gt; Bool
+$c/= :: ListApplicationsResponse -&gt; ListApplicationsResponse -&gt; Bool
+== :: ListApplicationsResponse -&gt; ListApplicationsResponse -&gt; Bool
+$c== :: ListApplicationsResponse -&gt; ListApplicationsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181761"><span id="local-6989586621679181763"><span id="local-6989586621679181765"><span id="local-6989586621679181767"><span class="annot"><span class="annottext">ReadPrec [ListApplicationsResponse]
+ReadPrec ListApplicationsResponse
+Int -&gt; ReadS ListApplicationsResponse
+ReadS [ListApplicationsResponse]
+(Int -&gt; ReadS ListApplicationsResponse)
+-&gt; ReadS [ListApplicationsResponse]
+-&gt; ReadPrec ListApplicationsResponse
+-&gt; ReadPrec [ListApplicationsResponse]
+-&gt; Read ListApplicationsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListApplicationsResponse]
+$creadListPrec :: ReadPrec [ListApplicationsResponse]
+readPrec :: ReadPrec ListApplicationsResponse
+$creadPrec :: ReadPrec ListApplicationsResponse
+readList :: ReadS [ListApplicationsResponse]
+$creadList :: ReadS [ListApplicationsResponse]
+readsPrec :: Int -&gt; ReadS ListApplicationsResponse
+$creadsPrec :: Int -&gt; ReadS ListApplicationsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181755"><span id="local-6989586621679181757"><span id="local-6989586621679181759"><span class="annot"><span class="annottext">Int -&gt; ListApplicationsResponse -&gt; ShowS
+[ListApplicationsResponse] -&gt; ShowS
+ListApplicationsResponse -&gt; String
+(Int -&gt; ListApplicationsResponse -&gt; ShowS)
+-&gt; (ListApplicationsResponse -&gt; String)
+-&gt; ([ListApplicationsResponse] -&gt; ShowS)
+-&gt; Show ListApplicationsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListApplicationsResponse] -&gt; ShowS
+$cshowList :: [ListApplicationsResponse] -&gt; ShowS
+show :: ListApplicationsResponse -&gt; String
+$cshow :: ListApplicationsResponse -&gt; String
+showsPrec :: Int -&gt; ListApplicationsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListApplicationsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListApplicationsResponse -&gt; Rep ListApplicationsResponse x)
+-&gt; (forall x.
+    Rep ListApplicationsResponse x -&gt; ListApplicationsResponse)
+-&gt; Generic ListApplicationsResponse
+forall x.
+Rep ListApplicationsResponse x -&gt; ListApplicationsResponse
+forall x.
+ListApplicationsResponse -&gt; Rep ListApplicationsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListApplicationsResponse x -&gt; ListApplicationsResponse
+$cfrom :: forall x.
+ListApplicationsResponse -&gt; Rep ListApplicationsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- Create a value of 'ListApplicationsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- 'nextToken', 'listApplicationsResponse_nextToken' - The token to use to get the next page of results after a previous API</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- call.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- 'applications', 'listApplicationsResponse_applications' - This list of applications.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- 'httpStatus', 'listApplicationsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#newListApplicationsResponse"><span class="hs-identifier hs-type">newListApplicationsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-183"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-184"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-185"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#ListApplicationsResponse"><span class="hs-identifier hs-type">ListApplicationsResponse</span></a></span><span>
+</span><span id="line-186"></span><span id="newListApplicationsResponse"><span class="annot"><span class="annottext">newListApplicationsResponse :: Int -&gt; ListApplicationsResponse
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#newListApplicationsResponse"><span class="hs-identifier hs-var hs-var">newListApplicationsResponse</span></a></span></span><span> </span><span id="local-6989586621679181752"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181752"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-187"></span><span>  </span><span class="annot"><span class="annottext">ListApplicationsResponse' :: Maybe Text
+-&gt; Maybe [ApplicationSummary] -&gt; Int -&gt; ListApplicationsResponse
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#ListApplicationsResponse%27"><span class="hs-identifier hs-type">ListApplicationsResponse'</span></a></span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListApplicationsResponse' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#%24sel%3AnextToken%3AListApplicationsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">$sel:applications:ListApplicationsResponse' :: Maybe [ApplicationSummary]
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#%24sel%3Aapplications%3AListApplicationsResponse%27"><span class="hs-identifier hs-var">applications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ApplicationSummary]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListApplicationsResponse' :: Int
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#%24sel%3AhttpStatus%3AListApplicationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181752"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | The token to use to get the next page of results after a previous API</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- call.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#listApplicationsResponse_nextToken"><span class="hs-identifier hs-type">listApplicationsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#ListApplicationsResponse"><span class="hs-identifier hs-type">ListApplicationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span id="listApplicationsResponse_nextToken"><span class="annot"><span class="annottext">listApplicationsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListApplicationsResponse -&gt; f ListApplicationsResponse
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#listApplicationsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listApplicationsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListApplicationsResponse -&gt; Maybe Text)
+-&gt; (ListApplicationsResponse
+    -&gt; Maybe Text -&gt; ListApplicationsResponse)
+-&gt; Lens' ListApplicationsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#ListApplicationsResponse%27"><span class="hs-identifier hs-type">ListApplicationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181751"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListApplicationsResponse' :: ListApplicationsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679181751"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679181751"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181750"><span class="annot"><span class="annottext">s :: ListApplicationsResponse
+</span><a href="#local-6989586621679181750"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#ListApplicationsResponse%27"><span class="hs-identifier hs-type">ListApplicationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181749"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679181749"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationsResponse
+</span><a href="#local-6989586621679181750"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListApplicationsResponse' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#%24sel%3AnextToken%3AListApplicationsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679181749"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#ListApplicationsResponse"><span class="hs-identifier hs-type">ListApplicationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- | This list of applications.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#listApplicationsResponse_applications"><span class="hs-identifier hs-type">listApplicationsResponse_applications</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#ListApplicationsResponse"><span class="hs-identifier hs-type">ListApplicationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.Types.ApplicationSummary.html#ApplicationSummary"><span class="hs-identifier hs-type">ApplicationSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span id="listApplicationsResponse_applications"><span class="annot"><span class="annottext">listApplicationsResponse_applications :: (Maybe [ApplicationSummary] -&gt; f (Maybe [ApplicationSummary]))
+-&gt; ListApplicationsResponse -&gt; f ListApplicationsResponse
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#listApplicationsResponse_applications"><span class="hs-identifier hs-var hs-var">listApplicationsResponse_applications</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListApplicationsResponse -&gt; Maybe [ApplicationSummary])
+-&gt; (ListApplicationsResponse
+    -&gt; Maybe [ApplicationSummary] -&gt; ListApplicationsResponse)
+-&gt; Lens' ListApplicationsResponse (Maybe [ApplicationSummary])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#ListApplicationsResponse%27"><span class="hs-identifier hs-type">ListApplicationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181748"><span class="annot"><span class="annottext">Maybe [ApplicationSummary]
+applications :: Maybe [ApplicationSummary]
+$sel:applications:ListApplicationsResponse' :: ListApplicationsResponse -&gt; Maybe [ApplicationSummary]
+</span><a href="#local-6989586621679181748"><span class="hs-identifier hs-var hs-var">applications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ApplicationSummary]
+</span><a href="#local-6989586621679181748"><span class="hs-identifier hs-var">applications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181747"><span class="annot"><span class="annottext">s :: ListApplicationsResponse
+</span><a href="#local-6989586621679181747"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#ListApplicationsResponse%27"><span class="hs-identifier hs-type">ListApplicationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181746"><span class="annot"><span class="annottext">Maybe [ApplicationSummary]
+</span><a href="#local-6989586621679181746"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationsResponse
+</span><a href="#local-6989586621679181747"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applications:ListApplicationsResponse' :: Maybe [ApplicationSummary]
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#%24sel%3Aapplications%3AListApplicationsResponse%27"><span class="hs-identifier hs-var">applications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ApplicationSummary]
+</span><a href="#local-6989586621679181746"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#ListApplicationsResponse"><span class="hs-identifier hs-type">ListApplicationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ApplicationSummary] -&gt; f (Maybe [ApplicationSummary]))
+ -&gt; ListApplicationsResponse -&gt; f ListApplicationsResponse)
+-&gt; ((Maybe [ApplicationSummary] -&gt; f (Maybe [ApplicationSummary]))
+    -&gt; Maybe [ApplicationSummary] -&gt; f (Maybe [ApplicationSummary]))
+-&gt; (Maybe [ApplicationSummary] -&gt; f (Maybe [ApplicationSummary]))
+-&gt; ListApplicationsResponse
+-&gt; f ListApplicationsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ApplicationSummary]
+  [ApplicationSummary]
+  [ApplicationSummary]
+  [ApplicationSummary]
+-&gt; Iso
+     (Maybe [ApplicationSummary])
+     (Maybe [ApplicationSummary])
+     (Maybe [ApplicationSummary])
+     (Maybe [ApplicationSummary])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ApplicationSummary]
+  [ApplicationSummary]
+  [ApplicationSummary]
+  [ApplicationSummary]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#listApplicationsResponse_httpStatus"><span class="hs-identifier hs-type">listApplicationsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#ListApplicationsResponse"><span class="hs-identifier hs-type">ListApplicationsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-205"></span><span id="listApplicationsResponse_httpStatus"><span class="annot"><span class="annottext">listApplicationsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListApplicationsResponse -&gt; f ListApplicationsResponse
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#listApplicationsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listApplicationsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListApplicationsResponse -&gt; Int)
+-&gt; (ListApplicationsResponse -&gt; Int -&gt; ListApplicationsResponse)
+-&gt; Lens ListApplicationsResponse ListApplicationsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#ListApplicationsResponse%27"><span class="hs-identifier hs-type">ListApplicationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181743"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListApplicationsResponse' :: ListApplicationsResponse -&gt; Int
+</span><a href="#local-6989586621679181743"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181743"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181742"><span class="annot"><span class="annottext">s :: ListApplicationsResponse
+</span><a href="#local-6989586621679181742"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#ListApplicationsResponse%27"><span class="hs-identifier hs-type">ListApplicationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181741"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181741"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationsResponse
+</span><a href="#local-6989586621679181742"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListApplicationsResponse' :: Int
+</span><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#%24sel%3AhttpStatus%3AListApplicationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181741"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#ListApplicationsResponse"><span class="hs-identifier hs-type">ListApplicationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181739"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalogAppRegistry.ListApplications.html#ListApplicationsResponse"><span class="hs-identifier hs-type">ListApplicationsResponse</span></a></span></span><span>
+</span><span id="line-208"></span></pre></body></html>

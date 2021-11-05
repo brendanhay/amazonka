@@ -179,7 +179,7 @@
 </span><span id="line-179"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- | /See:/ 'newCreateKey' smart constructor.</span><span>
-</span><span id="line-182"></span><span id="local-6989586621679259769"><span id="local-6989586621679259770"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateKey"><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey"><span class="hs-identifier hs-var">CreateKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateKey%27"><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey%27"><span class="hs-identifier hs-var">CreateKey'</span></a></span></span><span>
+</span><span id="line-182"></span><span id="local-6989586621679259778"><span id="local-6989586621679259779"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateKey"><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey"><span class="hs-identifier hs-var">CreateKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateKey%27"><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey%27"><span class="hs-identifier hs-var">CreateKey'</span></a></span></span><span>
 </span><span id="line-183"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The source of the key material for the KMS key. You cannot change the</span><span>
 </span><span id="line-184"></span><span>    </span><span class="hs-comment">-- origin after you create the KMS key. The default is @AWS_KMS@, which</span><span>
 </span><span id="line-185"></span><span>    </span><span class="hs-comment">-- means that KMS creates the key material.</span><span>
@@ -419,7 +419,7 @@
 </span><span id="line-410"></span><span>    </span><span id="%24sel%3AmultiRegion%3ACreateKey%27"><span class="annot"><span class="annottext">CreateKey -&gt; Maybe Bool
 </span><a href="Network.AWS.KMS.CreateKey.html#%24sel%3AmultiRegion%3ACreateKey%27"><span class="hs-identifier hs-var hs-var">multiRegion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-411"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-412"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259754"><span id="local-6989586621679259756"><span class="annot"><span class="annottext">CreateKey -&gt; CreateKey -&gt; Bool
+</span><span id="line-412"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259763"><span id="local-6989586621679259765"><span class="annot"><span class="annottext">CreateKey -&gt; CreateKey -&gt; Bool
 (CreateKey -&gt; CreateKey -&gt; Bool)
 -&gt; (CreateKey -&gt; CreateKey -&gt; Bool) -&gt; Eq CreateKey
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -427,7 +427,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateKey -&gt; CreateKey -&gt; Bool
 == :: CreateKey -&gt; CreateKey -&gt; Bool
 $c== :: CreateKey -&gt; CreateKey -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259745"><span id="local-6989586621679259747"><span id="local-6989586621679259749"><span id="local-6989586621679259751"><span class="annot"><span class="annottext">ReadPrec [CreateKey]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259754"><span id="local-6989586621679259756"><span id="local-6989586621679259758"><span id="local-6989586621679259760"><span class="annot"><span class="annottext">ReadPrec [CreateKey]
 ReadPrec CreateKey
 Int -&gt; ReadS CreateKey
 ReadS [CreateKey]
@@ -447,7 +447,7 @@ readList :: ReadS [CreateKey]
 $creadList :: ReadS [CreateKey]
 readsPrec :: Int -&gt; ReadS CreateKey
 $creadsPrec :: Int -&gt; ReadS CreateKey
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259738"><span id="local-6989586621679259740"><span id="local-6989586621679259742"><span class="annot"><span class="annottext">Int -&gt; CreateKey -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259747"><span id="local-6989586621679259749"><span id="local-6989586621679259751"><span class="annot"><span class="annottext">Int -&gt; CreateKey -&gt; ShowS
 [CreateKey] -&gt; ShowS
 CreateKey -&gt; String
 (Int -&gt; CreateKey -&gt; ShowS)
@@ -789,16 +789,16 @@ forall a. Maybe a
 -&gt; (CreateKey -&gt; Maybe OriginType -&gt; CreateKey)
 -&gt; Lens CreateKey CreateKey (Maybe OriginType) (Maybe OriginType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey%27"><span class="hs-identifier hs-type">CreateKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259731"><span class="annot"><span class="annottext">Maybe OriginType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey%27"><span class="hs-identifier hs-type">CreateKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259740"><span class="annot"><span class="annottext">Maybe OriginType
 origin :: Maybe OriginType
 $sel:origin:CreateKey' :: CreateKey -&gt; Maybe OriginType
-</span><a href="#local-6989586621679259731"><span class="hs-identifier hs-var hs-var">origin</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OriginType
-</span><a href="#local-6989586621679259731"><span class="hs-identifier hs-var">origin</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259730"><span class="annot"><span class="annottext">s :: CreateKey
-</span><a href="#local-6989586621679259730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey%27"><span class="hs-identifier hs-type">CreateKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259729"><span class="annot"><span class="annottext">Maybe OriginType
-</span><a href="#local-6989586621679259729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKey
-</span><a href="#local-6989586621679259730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:origin:CreateKey' :: Maybe OriginType
+</span><a href="#local-6989586621679259740"><span class="hs-identifier hs-var hs-var">origin</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OriginType
+</span><a href="#local-6989586621679259740"><span class="hs-identifier hs-var">origin</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259739"><span class="annot"><span class="annottext">s :: CreateKey
+</span><a href="#local-6989586621679259739"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey%27"><span class="hs-identifier hs-type">CreateKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259738"><span class="annot"><span class="annottext">Maybe OriginType
+</span><a href="#local-6989586621679259738"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKey
+</span><a href="#local-6989586621679259739"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:origin:CreateKey' :: Maybe OriginType
 </span><a href="Network.AWS.KMS.CreateKey.html#%24sel%3Aorigin%3ACreateKey%27"><span class="hs-identifier hs-var">origin</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OriginType
-</span><a href="#local-6989586621679259729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey"><span class="hs-identifier hs-type">CreateKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259738"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey"><span class="hs-identifier hs-type">CreateKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-684"></span><span>
 </span><span id="line-685"></span><span class="hs-comment">-- | Specifies the type of KMS key to create. The default value,</span><span>
 </span><span id="line-686"></span><span class="hs-comment">-- @SYMMETRIC_DEFAULT@, creates a KMS key with a 256-bit symmetric key for</span><span>
@@ -857,16 +857,16 @@ $sel:origin:CreateKey' :: CreateKey -&gt; Maybe OriginType
 -&gt; (CreateKey -&gt; Maybe KeySpec -&gt; CreateKey)
 -&gt; Lens CreateKey CreateKey (Maybe KeySpec) (Maybe KeySpec)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey%27"><span class="hs-identifier hs-type">CreateKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259728"><span class="annot"><span class="annottext">Maybe KeySpec
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey%27"><span class="hs-identifier hs-type">CreateKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259737"><span class="annot"><span class="annottext">Maybe KeySpec
 keySpec :: Maybe KeySpec
 $sel:keySpec:CreateKey' :: CreateKey -&gt; Maybe KeySpec
-</span><a href="#local-6989586621679259728"><span class="hs-identifier hs-var hs-var">keySpec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KeySpec
-</span><a href="#local-6989586621679259728"><span class="hs-identifier hs-var">keySpec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259727"><span class="annot"><span class="annottext">s :: CreateKey
-</span><a href="#local-6989586621679259727"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey%27"><span class="hs-identifier hs-type">CreateKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259726"><span class="annot"><span class="annottext">Maybe KeySpec
-</span><a href="#local-6989586621679259726"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKey
-</span><a href="#local-6989586621679259727"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keySpec:CreateKey' :: Maybe KeySpec
+</span><a href="#local-6989586621679259737"><span class="hs-identifier hs-var hs-var">keySpec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KeySpec
+</span><a href="#local-6989586621679259737"><span class="hs-identifier hs-var">keySpec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259736"><span class="annot"><span class="annottext">s :: CreateKey
+</span><a href="#local-6989586621679259736"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey%27"><span class="hs-identifier hs-type">CreateKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259735"><span class="annot"><span class="annottext">Maybe KeySpec
+</span><a href="#local-6989586621679259735"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKey
+</span><a href="#local-6989586621679259736"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keySpec:CreateKey' :: Maybe KeySpec
 </span><a href="Network.AWS.KMS.CreateKey.html#%24sel%3AkeySpec%3ACreateKey%27"><span class="hs-identifier hs-var">keySpec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KeySpec
-</span><a href="#local-6989586621679259726"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey"><span class="hs-identifier hs-type">CreateKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259735"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey"><span class="hs-identifier hs-type">CreateKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-738"></span><span>
 </span><span id="line-739"></span><span class="hs-comment">-- | Instead, use the @KeySpec@ parameter.</span><span>
 </span><span id="line-740"></span><span class="hs-comment">--</span><span>
@@ -885,16 +885,16 @@ $sel:keySpec:CreateKey' :: CreateKey -&gt; Maybe KeySpec
      (Maybe CustomerMasterKeySpec)
      (Maybe CustomerMasterKeySpec)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey%27"><span class="hs-identifier hs-type">CreateKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259725"><span class="annot"><span class="annottext">Maybe CustomerMasterKeySpec
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey%27"><span class="hs-identifier hs-type">CreateKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259734"><span class="annot"><span class="annottext">Maybe CustomerMasterKeySpec
 customerMasterKeySpec :: Maybe CustomerMasterKeySpec
 $sel:customerMasterKeySpec:CreateKey' :: CreateKey -&gt; Maybe CustomerMasterKeySpec
-</span><a href="#local-6989586621679259725"><span class="hs-identifier hs-var hs-var">customerMasterKeySpec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CustomerMasterKeySpec
-</span><a href="#local-6989586621679259725"><span class="hs-identifier hs-var">customerMasterKeySpec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259724"><span class="annot"><span class="annottext">s :: CreateKey
-</span><a href="#local-6989586621679259724"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey%27"><span class="hs-identifier hs-type">CreateKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259723"><span class="annot"><span class="annottext">Maybe CustomerMasterKeySpec
-</span><a href="#local-6989586621679259723"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKey
-</span><a href="#local-6989586621679259724"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customerMasterKeySpec:CreateKey' :: Maybe CustomerMasterKeySpec
+</span><a href="#local-6989586621679259734"><span class="hs-identifier hs-var hs-var">customerMasterKeySpec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CustomerMasterKeySpec
+</span><a href="#local-6989586621679259734"><span class="hs-identifier hs-var">customerMasterKeySpec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259733"><span class="annot"><span class="annottext">s :: CreateKey
+</span><a href="#local-6989586621679259733"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey%27"><span class="hs-identifier hs-type">CreateKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259732"><span class="annot"><span class="annottext">Maybe CustomerMasterKeySpec
+</span><a href="#local-6989586621679259732"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKey
+</span><a href="#local-6989586621679259733"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customerMasterKeySpec:CreateKey' :: Maybe CustomerMasterKeySpec
 </span><a href="Network.AWS.KMS.CreateKey.html#%24sel%3AcustomerMasterKeySpec%3ACreateKey%27"><span class="hs-identifier hs-var">customerMasterKeySpec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CustomerMasterKeySpec
-</span><a href="#local-6989586621679259723"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey"><span class="hs-identifier hs-type">CreateKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259732"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey"><span class="hs-identifier hs-type">CreateKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-747"></span><span>
 </span><span id="line-748"></span><span class="hs-comment">-- | Determines the</span><span>
 </span><span id="line-749"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operations&gt;</span><span>
@@ -921,16 +921,16 @@ $sel:customerMasterKeySpec:CreateKey' :: CreateKey -&gt; Maybe CustomerMasterKey
 -&gt; Lens
      CreateKey CreateKey (Maybe KeyUsageType) (Maybe KeyUsageType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey%27"><span class="hs-identifier hs-type">CreateKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259722"><span class="annot"><span class="annottext">Maybe KeyUsageType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey%27"><span class="hs-identifier hs-type">CreateKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259731"><span class="annot"><span class="annottext">Maybe KeyUsageType
 keyUsage :: Maybe KeyUsageType
 $sel:keyUsage:CreateKey' :: CreateKey -&gt; Maybe KeyUsageType
-</span><a href="#local-6989586621679259722"><span class="hs-identifier hs-var hs-var">keyUsage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KeyUsageType
-</span><a href="#local-6989586621679259722"><span class="hs-identifier hs-var">keyUsage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259721"><span class="annot"><span class="annottext">s :: CreateKey
-</span><a href="#local-6989586621679259721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey%27"><span class="hs-identifier hs-type">CreateKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259720"><span class="annot"><span class="annottext">Maybe KeyUsageType
-</span><a href="#local-6989586621679259720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKey
-</span><a href="#local-6989586621679259721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyUsage:CreateKey' :: Maybe KeyUsageType
+</span><a href="#local-6989586621679259731"><span class="hs-identifier hs-var hs-var">keyUsage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KeyUsageType
+</span><a href="#local-6989586621679259731"><span class="hs-identifier hs-var">keyUsage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259730"><span class="annot"><span class="annottext">s :: CreateKey
+</span><a href="#local-6989586621679259730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey%27"><span class="hs-identifier hs-type">CreateKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259729"><span class="annot"><span class="annottext">Maybe KeyUsageType
+</span><a href="#local-6989586621679259729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKey
+</span><a href="#local-6989586621679259730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyUsage:CreateKey' :: Maybe KeyUsageType
 </span><a href="Network.AWS.KMS.CreateKey.html#%24sel%3AkeyUsage%3ACreateKey%27"><span class="hs-identifier hs-var">keyUsage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KeyUsageType
-</span><a href="#local-6989586621679259720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey"><span class="hs-identifier hs-type">CreateKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey"><span class="hs-identifier hs-type">CreateKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-767"></span><span>
 </span><span id="line-768"></span><span class="hs-comment">-- | A flag to indicate whether to bypass the key policy lockout safety</span><span>
 </span><span id="line-769"></span><span class="hs-comment">-- check.</span><span>
@@ -953,16 +953,16 @@ $sel:keyUsage:CreateKey' :: CreateKey -&gt; Maybe KeyUsageType
 -&gt; (CreateKey -&gt; Maybe Bool -&gt; CreateKey)
 -&gt; Lens CreateKey CreateKey (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey%27"><span class="hs-identifier hs-type">CreateKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259719"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey%27"><span class="hs-identifier hs-type">CreateKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259728"><span class="annot"><span class="annottext">Maybe Bool
 bypassPolicyLockoutSafetyCheck :: Maybe Bool
 $sel:bypassPolicyLockoutSafetyCheck:CreateKey' :: CreateKey -&gt; Maybe Bool
-</span><a href="#local-6989586621679259719"><span class="hs-identifier hs-var hs-var">bypassPolicyLockoutSafetyCheck</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679259719"><span class="hs-identifier hs-var">bypassPolicyLockoutSafetyCheck</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259718"><span class="annot"><span class="annottext">s :: CreateKey
-</span><a href="#local-6989586621679259718"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey%27"><span class="hs-identifier hs-type">CreateKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259717"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679259717"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKey
-</span><a href="#local-6989586621679259718"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bypassPolicyLockoutSafetyCheck:CreateKey' :: Maybe Bool
+</span><a href="#local-6989586621679259728"><span class="hs-identifier hs-var hs-var">bypassPolicyLockoutSafetyCheck</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679259728"><span class="hs-identifier hs-var">bypassPolicyLockoutSafetyCheck</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259727"><span class="annot"><span class="annottext">s :: CreateKey
+</span><a href="#local-6989586621679259727"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey%27"><span class="hs-identifier hs-type">CreateKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259726"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679259726"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKey
+</span><a href="#local-6989586621679259727"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bypassPolicyLockoutSafetyCheck:CreateKey' :: Maybe Bool
 </span><a href="Network.AWS.KMS.CreateKey.html#%24sel%3AbypassPolicyLockoutSafetyCheck%3ACreateKey%27"><span class="hs-identifier hs-var">bypassPolicyLockoutSafetyCheck</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679259717"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey"><span class="hs-identifier hs-type">CreateKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259726"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey"><span class="hs-identifier hs-type">CreateKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-785"></span><span>
 </span><span id="line-786"></span><span class="hs-comment">-- | The key policy to attach to the KMS key.</span><span>
 </span><span id="line-787"></span><span class="hs-comment">--</span><span>
@@ -1003,16 +1003,16 @@ $sel:bypassPolicyLockoutSafetyCheck:CreateKey' :: CreateKey -&gt; Maybe Bool
 -&gt; (CreateKey -&gt; Maybe Text -&gt; CreateKey)
 -&gt; Lens CreateKey CreateKey (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey%27"><span class="hs-identifier hs-type">CreateKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259716"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey%27"><span class="hs-identifier hs-type">CreateKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259725"><span class="annot"><span class="annottext">Maybe Text
 policy :: Maybe Text
 $sel:policy:CreateKey' :: CreateKey -&gt; Maybe Text
-</span><a href="#local-6989586621679259716"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259716"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259715"><span class="annot"><span class="annottext">s :: CreateKey
-</span><a href="#local-6989586621679259715"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey%27"><span class="hs-identifier hs-type">CreateKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259714"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259714"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKey
-</span><a href="#local-6989586621679259715"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:CreateKey' :: Maybe Text
+</span><a href="#local-6989586621679259725"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259725"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259724"><span class="annot"><span class="annottext">s :: CreateKey
+</span><a href="#local-6989586621679259724"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey%27"><span class="hs-identifier hs-type">CreateKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259723"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259723"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKey
+</span><a href="#local-6989586621679259724"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:CreateKey' :: Maybe Text
 </span><a href="Network.AWS.KMS.CreateKey.html#%24sel%3Apolicy%3ACreateKey%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259714"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey"><span class="hs-identifier hs-type">CreateKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259723"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey"><span class="hs-identifier hs-type">CreateKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-821"></span><span>
 </span><span id="line-822"></span><span class="hs-comment">-- | A description of the KMS key.</span><span>
 </span><span id="line-823"></span><span class="hs-comment">--</span><span>
@@ -1028,16 +1028,16 @@ $sel:policy:CreateKey' :: CreateKey -&gt; Maybe Text
 -&gt; (CreateKey -&gt; Maybe Text -&gt; CreateKey)
 -&gt; Lens CreateKey CreateKey (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey%27"><span class="hs-identifier hs-type">CreateKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259713"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey%27"><span class="hs-identifier hs-type">CreateKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259722"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:CreateKey' :: CreateKey -&gt; Maybe Text
-</span><a href="#local-6989586621679259713"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259713"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259712"><span class="annot"><span class="annottext">s :: CreateKey
-</span><a href="#local-6989586621679259712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey%27"><span class="hs-identifier hs-type">CreateKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259711"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKey
-</span><a href="#local-6989586621679259712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateKey' :: Maybe Text
+</span><a href="#local-6989586621679259722"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259722"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259721"><span class="annot"><span class="annottext">s :: CreateKey
+</span><a href="#local-6989586621679259721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey%27"><span class="hs-identifier hs-type">CreateKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259720"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKey
+</span><a href="#local-6989586621679259721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateKey' :: Maybe Text
 </span><a href="Network.AWS.KMS.CreateKey.html#%24sel%3Adescription%3ACreateKey%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey"><span class="hs-identifier hs-type">CreateKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey"><span class="hs-identifier hs-type">CreateKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-832"></span><span>
 </span><span id="line-833"></span><span class="hs-comment">-- | Creates the KMS key in the specified</span><span>
 </span><span id="line-834"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store&gt;</span><span>
@@ -1067,16 +1067,16 @@ $sel:description:CreateKey' :: CreateKey -&gt; Maybe Text
 -&gt; (CreateKey -&gt; Maybe Text -&gt; CreateKey)
 -&gt; Lens CreateKey CreateKey (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey%27"><span class="hs-identifier hs-type">CreateKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259710"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey%27"><span class="hs-identifier hs-type">CreateKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259719"><span class="annot"><span class="annottext">Maybe Text
 customKeyStoreId :: Maybe Text
 $sel:customKeyStoreId:CreateKey' :: CreateKey -&gt; Maybe Text
-</span><a href="#local-6989586621679259710"><span class="hs-identifier hs-var hs-var">customKeyStoreId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259710"><span class="hs-identifier hs-var">customKeyStoreId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259709"><span class="annot"><span class="annottext">s :: CreateKey
-</span><a href="#local-6989586621679259709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey%27"><span class="hs-identifier hs-type">CreateKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259708"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKey
-</span><a href="#local-6989586621679259709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customKeyStoreId:CreateKey' :: Maybe Text
+</span><a href="#local-6989586621679259719"><span class="hs-identifier hs-var hs-var">customKeyStoreId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259719"><span class="hs-identifier hs-var">customKeyStoreId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259718"><span class="annot"><span class="annottext">s :: CreateKey
+</span><a href="#local-6989586621679259718"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey%27"><span class="hs-identifier hs-type">CreateKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259717"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259717"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKey
+</span><a href="#local-6989586621679259718"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customKeyStoreId:CreateKey' :: Maybe Text
 </span><a href="Network.AWS.KMS.CreateKey.html#%24sel%3AcustomKeyStoreId%3ACreateKey%27"><span class="hs-identifier hs-var">customKeyStoreId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey"><span class="hs-identifier hs-type">CreateKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259717"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey"><span class="hs-identifier hs-type">CreateKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-857"></span><span>
 </span><span id="line-858"></span><span class="hs-comment">-- | Assigns one or more tags to the KMS key. Use this parameter to tag the</span><span>
 </span><span id="line-859"></span><span class="hs-comment">-- KMS key when it is created. To tag an existing KMS key, use the</span><span>
@@ -1108,16 +1108,16 @@ $sel:customKeyStoreId:CreateKey' :: CreateKey -&gt; Maybe Text
 -&gt; (CreateKey -&gt; Maybe [Tag] -&gt; CreateKey)
 -&gt; Lens CreateKey CreateKey (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey%27"><span class="hs-identifier hs-type">CreateKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259707"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey%27"><span class="hs-identifier hs-type">CreateKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259716"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:CreateKey' :: CreateKey -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679259707"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679259707"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259706"><span class="annot"><span class="annottext">s :: CreateKey
-</span><a href="#local-6989586621679259706"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey%27"><span class="hs-identifier hs-type">CreateKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259705"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679259705"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKey
-</span><a href="#local-6989586621679259706"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateKey' :: Maybe [Tag]
+</span><a href="#local-6989586621679259716"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679259716"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259715"><span class="annot"><span class="annottext">s :: CreateKey
+</span><a href="#local-6989586621679259715"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey%27"><span class="hs-identifier hs-type">CreateKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259714"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679259714"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKey
+</span><a href="#local-6989586621679259715"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateKey' :: Maybe [Tag]
 </span><a href="Network.AWS.KMS.CreateKey.html#%24sel%3Atags%3ACreateKey%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679259705"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey"><span class="hs-identifier hs-type">CreateKey</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; CreateKey -&gt; f CreateKey)
+</span><a href="#local-6989586621679259714"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey"><span class="hs-identifier hs-type">CreateKey</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; CreateKey -&gt; f CreateKey)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
 -&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -1164,25 +1164,25 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (CreateKey -&gt; Maybe Bool -&gt; CreateKey)
 -&gt; Lens CreateKey CreateKey (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey%27"><span class="hs-identifier hs-type">CreateKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259701"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey%27"><span class="hs-identifier hs-type">CreateKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259710"><span class="annot"><span class="annottext">Maybe Bool
 multiRegion :: Maybe Bool
 $sel:multiRegion:CreateKey' :: CreateKey -&gt; Maybe Bool
-</span><a href="#local-6989586621679259701"><span class="hs-identifier hs-var hs-var">multiRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679259701"><span class="hs-identifier hs-var">multiRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259700"><span class="annot"><span class="annottext">s :: CreateKey
-</span><a href="#local-6989586621679259700"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey%27"><span class="hs-identifier hs-type">CreateKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259699"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679259699"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKey
-</span><a href="#local-6989586621679259700"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:multiRegion:CreateKey' :: Maybe Bool
+</span><a href="#local-6989586621679259710"><span class="hs-identifier hs-var hs-var">multiRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679259710"><span class="hs-identifier hs-var">multiRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259709"><span class="annot"><span class="annottext">s :: CreateKey
+</span><a href="#local-6989586621679259709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey%27"><span class="hs-identifier hs-type">CreateKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259708"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679259708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKey
+</span><a href="#local-6989586621679259709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:multiRegion:CreateKey' :: Maybe Bool
 </span><a href="Network.AWS.KMS.CreateKey.html#%24sel%3AmultiRegion%3ACreateKey%27"><span class="hs-identifier hs-var">multiRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679259699"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey"><span class="hs-identifier hs-type">CreateKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey"><span class="hs-identifier hs-type">CreateKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-912"></span><span>
 </span><span id="line-913"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey"><span class="hs-identifier hs-type">CreateKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-914"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey"><span class="hs-identifier hs-type">CreateKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKeyResponse"><span class="hs-identifier hs-type">CreateKeyResponse</span></a></span><span>
-</span><span id="line-915"></span><span>  </span><span id="local-6989586621679259695"><span class="annot"><span class="annottext">request :: CreateKey -&gt; Request CreateKey
+</span><span id="line-915"></span><span>  </span><span id="local-6989586621679259704"><span class="annot"><span class="annottext">request :: CreateKey -&gt; Request CreateKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateKey -&gt; Request CreateKey
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.KMS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-916"></span><span>  </span><span id="local-6989586621679259691"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-916"></span><span>  </span><span id="local-6989586621679259700"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateKey
 -&gt; ClientResponse ClientBody
@@ -1206,10 +1206,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-918"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679259688"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259688"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679259687"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679259687"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679259686"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259686"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-918"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679259697"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259697"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679259696"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679259696"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679259695"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679259695"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-919"></span><span>          </span><span class="annot"><span class="annottext">Maybe KeyMetadata -&gt; Int -&gt; CreateKeyResponse
 </span><a href="Network.AWS.KMS.CreateKey.html#CreateKeyResponse%27"><span class="hs-identifier hs-var">CreateKeyResponse'</span></a></span><span>
 </span><span id="line-920"></span><span>            </span><span class="annot"><span class="annottext">(Maybe KeyMetadata -&gt; Int -&gt; CreateKeyResponse)
@@ -1217,7 +1217,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CreateKeyResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259686"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe KeyMetadata)
+</span><a href="#local-6989586621679259695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe KeyMetadata)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KeyMetadata&quot;</span></span><span class="hs-special">)</span><span>
@@ -1229,15 +1229,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259688"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259697"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-922"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-923"></span><span>
-</span><span id="line-924"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259678"><span id="local-6989586621679259680"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey"><span class="hs-identifier hs-type">CreateKey</span></a></span></span></span><span>
+</span><span id="line-924"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259687"><span id="local-6989586621679259689"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey"><span class="hs-identifier hs-type">CreateKey</span></a></span></span></span><span>
 </span><span id="line-925"></span><span>
-</span><span id="line-926"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259675"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey"><span class="hs-identifier hs-type">CreateKey</span></a></span></span><span>
+</span><span id="line-926"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259684"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey"><span class="hs-identifier hs-type">CreateKey</span></a></span></span><span>
 </span><span id="line-927"></span><span>
 </span><span id="line-928"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey"><span class="hs-identifier hs-type">CreateKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-929"></span><span>  </span><span id="local-6989586621679259671"><span class="annot"><span class="annottext">toHeaders :: CreateKey -&gt; ResponseHeaders
+</span><span id="line-929"></span><span>  </span><span id="local-6989586621679259680"><span class="annot"><span class="annottext">toHeaders :: CreateKey -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-930"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateKey -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -1262,9 +1262,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-938"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-939"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-940"></span><span>
-</span><span id="line-941"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259661"><span id="local-6989586621679259663"><span id="local-6989586621679259665"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey"><span class="hs-identifier hs-type">CreateKey</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-942"></span><span>  </span><span id="local-6989586621679259659"><span class="annot"><span class="annottext">toJSON :: CreateKey -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey%27"><span class="hs-identifier hs-type">CreateKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259648"><span id="local-6989586621679259649"><span id="local-6989586621679259650"><span id="local-6989586621679259651"><span id="local-6989586621679259652"><span id="local-6989586621679259653"><span id="local-6989586621679259654"><span id="local-6989586621679259655"><span id="local-6989586621679259656"><span id="local-6989586621679259657"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-941"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259670"><span id="local-6989586621679259672"><span id="local-6989586621679259674"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey"><span class="hs-identifier hs-type">CreateKey</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-942"></span><span>  </span><span id="local-6989586621679259668"><span class="annot"><span class="annottext">toJSON :: CreateKey -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey%27"><span class="hs-identifier hs-type">CreateKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259657"><span id="local-6989586621679259658"><span id="local-6989586621679259659"><span id="local-6989586621679259660"><span id="local-6989586621679259661"><span id="local-6989586621679259662"><span id="local-6989586621679259663"><span id="local-6989586621679259664"><span id="local-6989586621679259665"><span id="local-6989586621679259666"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [Tag]
 Maybe Text
 Maybe CustomerMasterKeySpec
@@ -1291,7 +1291,7 @@ $sel:keyUsage:CreateKey' :: CreateKey -&gt; Maybe KeyUsageType
 $sel:customerMasterKeySpec:CreateKey' :: CreateKey -&gt; Maybe CustomerMasterKeySpec
 $sel:keySpec:CreateKey' :: CreateKey -&gt; Maybe KeySpec
 $sel:origin:CreateKey' :: CreateKey -&gt; Maybe OriginType
-</span><a href="#local-6989586621679259648"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679259657"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-943"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-944"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -1303,14 +1303,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(OriginType -&gt; Pair) -&gt; Maybe OriginType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe OriginType
-</span><a href="#local-6989586621679259657"><span class="hs-identifier hs-var">origin</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679259666"><span class="hs-identifier hs-var">origin</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-946"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KeySpec&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; KeySpec -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(KeySpec -&gt; Pair) -&gt; Maybe KeySpec -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe KeySpec
-</span><a href="#local-6989586621679259656"><span class="hs-identifier hs-var">keySpec</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679259665"><span class="hs-identifier hs-var">keySpec</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-947"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CustomerMasterKeySpec&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CustomerMasterKeySpec -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1319,14 +1319,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe CustomerMasterKeySpec -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CustomerMasterKeySpec
-</span><a href="#local-6989586621679259655"><span class="hs-identifier hs-var">customerMasterKeySpec</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679259664"><span class="hs-identifier hs-var">customerMasterKeySpec</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-949"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KeyUsage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; KeyUsageType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(KeyUsageType -&gt; Pair) -&gt; Maybe KeyUsageType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe KeyUsageType
-</span><a href="#local-6989586621679259654"><span class="hs-identifier hs-var">keyUsage</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679259663"><span class="hs-identifier hs-var">keyUsage</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-950"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BypassPolicyLockoutSafetyCheck&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1334,21 +1334,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-951"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679259653"><span class="hs-identifier hs-var">bypassPolicyLockoutSafetyCheck</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679259662"><span class="hs-identifier hs-var">bypassPolicyLockoutSafetyCheck</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-952"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Policy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259652"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679259661"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-953"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259651"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679259660"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-954"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CustomKeyStoreId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1356,33 +1356,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-955"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259650"><span class="hs-identifier hs-var">customKeyStoreId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679259659"><span class="hs-identifier hs-var">customKeyStoreId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-956"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679259649"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679259658"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-957"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MultiRegion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679259648"><span class="hs-identifier hs-var">multiRegion</span></a></span><span>
+</span><a href="#local-6989586621679259657"><span class="hs-identifier hs-var">multiRegion</span></a></span><span>
 </span><span id="line-958"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-959"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-960"></span><span>
 </span><span id="line-961"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey"><span class="hs-identifier hs-type">CreateKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-962"></span><span>  </span><span id="local-6989586621679259642"><span class="annot"><span class="annottext">toPath :: CreateKey -&gt; ByteString
+</span><span id="line-962"></span><span>  </span><span id="local-6989586621679259651"><span class="annot"><span class="annottext">toPath :: CreateKey -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateKey -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-963"></span><span>
 </span><span id="line-964"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKey"><span class="hs-identifier hs-type">CreateKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-965"></span><span>  </span><span id="local-6989586621679259638"><span class="annot"><span class="annottext">toQuery :: CreateKey -&gt; QueryString
+</span><span id="line-965"></span><span>  </span><span id="local-6989586621679259647"><span class="annot"><span class="annottext">toQuery :: CreateKey -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateKey -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -1390,7 +1390,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-966"></span><span>
 </span><span id="line-967"></span><span class="hs-comment">-- | /See:/ 'newCreateKeyResponse' smart constructor.</span><span>
-</span><span id="line-968"></span><span id="local-6989586621679259635"><span id="local-6989586621679259636"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateKeyResponse"><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKeyResponse"><span class="hs-identifier hs-var">CreateKeyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateKeyResponse%27"><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKeyResponse%27"><span class="hs-identifier hs-var">CreateKeyResponse'</span></a></span></span><span>
+</span><span id="line-968"></span><span id="local-6989586621679259644"><span id="local-6989586621679259645"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateKeyResponse"><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKeyResponse"><span class="hs-identifier hs-var">CreateKeyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateKeyResponse%27"><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKeyResponse%27"><span class="hs-identifier hs-var">CreateKeyResponse'</span></a></span></span><span>
 </span><span id="line-969"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Metadata associated with the KMS key.</span><span>
 </span><span id="line-970"></span><span>    </span><span id="%24sel%3AkeyMetadata%3ACreateKeyResponse%27"><span class="annot"><span class="annottext">CreateKeyResponse -&gt; Maybe KeyMetadata
 </span><a href="Network.AWS.KMS.CreateKey.html#%24sel%3AkeyMetadata%3ACreateKeyResponse%27"><span class="hs-identifier hs-var hs-var">keyMetadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.KeyMetadata.html#KeyMetadata"><span class="hs-identifier hs-type">KeyMetadata</span></a></span><span class="hs-special">,</span><span>
@@ -1398,7 +1398,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-972"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateKeyResponse%27"><span class="annot"><span class="annottext">CreateKeyResponse -&gt; Int
 </span><a href="Network.AWS.KMS.CreateKey.html#%24sel%3AhttpStatus%3ACreateKeyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-973"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-974"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259629"><span id="local-6989586621679259631"><span class="annot"><span class="annottext">CreateKeyResponse -&gt; CreateKeyResponse -&gt; Bool
+</span><span id="line-974"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259638"><span id="local-6989586621679259640"><span class="annot"><span class="annottext">CreateKeyResponse -&gt; CreateKeyResponse -&gt; Bool
 (CreateKeyResponse -&gt; CreateKeyResponse -&gt; Bool)
 -&gt; (CreateKeyResponse -&gt; CreateKeyResponse -&gt; Bool)
 -&gt; Eq CreateKeyResponse
@@ -1407,7 +1407,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateKeyResponse -&gt; CreateKeyResponse -&gt; Bool
 == :: CreateKeyResponse -&gt; CreateKeyResponse -&gt; Bool
 $c== :: CreateKeyResponse -&gt; CreateKeyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259621"><span id="local-6989586621679259623"><span id="local-6989586621679259625"><span id="local-6989586621679259627"><span class="annot"><span class="annottext">ReadPrec [CreateKeyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259630"><span id="local-6989586621679259632"><span id="local-6989586621679259634"><span id="local-6989586621679259636"><span class="annot"><span class="annottext">ReadPrec [CreateKeyResponse]
 ReadPrec CreateKeyResponse
 Int -&gt; ReadS CreateKeyResponse
 ReadS [CreateKeyResponse]
@@ -1427,7 +1427,7 @@ readList :: ReadS [CreateKeyResponse]
 $creadList :: ReadS [CreateKeyResponse]
 readsPrec :: Int -&gt; ReadS CreateKeyResponse
 $creadsPrec :: Int -&gt; ReadS CreateKeyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259615"><span id="local-6989586621679259617"><span id="local-6989586621679259619"><span class="annot"><span class="annottext">Int -&gt; CreateKeyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259624"><span id="local-6989586621679259626"><span id="local-6989586621679259628"><span class="annot"><span class="annottext">Int -&gt; CreateKeyResponse -&gt; ShowS
 [CreateKeyResponse] -&gt; ShowS
 CreateKeyResponse -&gt; String
 (Int -&gt; CreateKeyResponse -&gt; ShowS)
@@ -1469,8 +1469,8 @@ $cfrom :: forall x. CreateKeyResponse -&gt; Rep CreateKeyResponse x
 </span><span id="line-989"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-990"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKeyResponse"><span class="hs-identifier hs-type">CreateKeyResponse</span></a></span><span>
 </span><span id="line-991"></span><span id="newCreateKeyResponse"><span class="annot"><span class="annottext">newCreateKeyResponse :: Int -&gt; CreateKeyResponse
-</span><a href="Network.AWS.KMS.CreateKey.html#newCreateKeyResponse"><span class="hs-identifier hs-var hs-var">newCreateKeyResponse</span></a></span></span><span> </span><span id="local-6989586621679259612"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259612"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.KMS.CreateKey.html#newCreateKeyResponse"><span class="hs-identifier hs-var hs-var">newCreateKeyResponse</span></a></span></span><span> </span><span id="local-6989586621679259621"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259621"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-992"></span><span>  </span><span class="annot"><span class="annottext">CreateKeyResponse' :: Maybe KeyMetadata -&gt; Int -&gt; CreateKeyResponse
 </span><a href="Network.AWS.KMS.CreateKey.html#CreateKeyResponse%27"><span class="hs-identifier hs-type">CreateKeyResponse'</span></a></span><span>
 </span><span id="line-993"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:keyMetadata:CreateKeyResponse' :: Maybe KeyMetadata
@@ -1479,7 +1479,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-994"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateKeyResponse' :: Int
 </span><a href="Network.AWS.KMS.CreateKey.html#%24sel%3AhttpStatus%3ACreateKeyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259612"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679259621"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-995"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-996"></span><span>
 </span><span id="line-997"></span><span class="hs-comment">-- | Metadata associated with the KMS key.</span><span>
@@ -1494,16 +1494,16 @@ forall a. Maybe a
      (Maybe KeyMetadata)
      (Maybe KeyMetadata)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKeyResponse%27"><span class="hs-identifier hs-type">CreateKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259611"><span class="annot"><span class="annottext">Maybe KeyMetadata
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKeyResponse%27"><span class="hs-identifier hs-type">CreateKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259620"><span class="annot"><span class="annottext">Maybe KeyMetadata
 keyMetadata :: Maybe KeyMetadata
 $sel:keyMetadata:CreateKeyResponse' :: CreateKeyResponse -&gt; Maybe KeyMetadata
-</span><a href="#local-6989586621679259611"><span class="hs-identifier hs-var hs-var">keyMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KeyMetadata
-</span><a href="#local-6989586621679259611"><span class="hs-identifier hs-var">keyMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259610"><span class="annot"><span class="annottext">s :: CreateKeyResponse
-</span><a href="#local-6989586621679259610"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKeyResponse%27"><span class="hs-identifier hs-type">CreateKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259609"><span class="annot"><span class="annottext">Maybe KeyMetadata
-</span><a href="#local-6989586621679259609"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyResponse
-</span><a href="#local-6989586621679259610"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyMetadata:CreateKeyResponse' :: Maybe KeyMetadata
+</span><a href="#local-6989586621679259620"><span class="hs-identifier hs-var hs-var">keyMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KeyMetadata
+</span><a href="#local-6989586621679259620"><span class="hs-identifier hs-var">keyMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259619"><span class="annot"><span class="annottext">s :: CreateKeyResponse
+</span><a href="#local-6989586621679259619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKeyResponse%27"><span class="hs-identifier hs-type">CreateKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259618"><span class="annot"><span class="annottext">Maybe KeyMetadata
+</span><a href="#local-6989586621679259618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyResponse
+</span><a href="#local-6989586621679259619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyMetadata:CreateKeyResponse' :: Maybe KeyMetadata
 </span><a href="Network.AWS.KMS.CreateKey.html#%24sel%3AkeyMetadata%3ACreateKeyResponse%27"><span class="hs-identifier hs-var">keyMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KeyMetadata
-</span><a href="#local-6989586621679259609"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKeyResponse"><span class="hs-identifier hs-type">CreateKeyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKeyResponse"><span class="hs-identifier hs-type">CreateKeyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1000"></span><span>
 </span><span id="line-1001"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-1002"></span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#createKeyResponse_httpStatus"><span class="hs-identifier hs-type">createKeyResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKeyResponse"><span class="hs-identifier hs-type">CreateKeyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -1512,16 +1512,16 @@ $sel:keyMetadata:CreateKeyResponse' :: CreateKeyResponse -&gt; Maybe KeyMetadata
 -&gt; (CreateKeyResponse -&gt; Int -&gt; CreateKeyResponse)
 -&gt; Lens CreateKeyResponse CreateKeyResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKeyResponse%27"><span class="hs-identifier hs-type">CreateKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259608"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKeyResponse%27"><span class="hs-identifier hs-type">CreateKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259617"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateKeyResponse' :: CreateKeyResponse -&gt; Int
-</span><a href="#local-6989586621679259608"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259608"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259607"><span class="annot"><span class="annottext">s :: CreateKeyResponse
-</span><a href="#local-6989586621679259607"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKeyResponse%27"><span class="hs-identifier hs-type">CreateKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259606"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259606"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyResponse
-</span><a href="#local-6989586621679259607"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateKeyResponse' :: Int
+</span><a href="#local-6989586621679259617"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259617"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259616"><span class="annot"><span class="annottext">s :: CreateKeyResponse
+</span><a href="#local-6989586621679259616"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKeyResponse%27"><span class="hs-identifier hs-type">CreateKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259615"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259615"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyResponse
+</span><a href="#local-6989586621679259616"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateKeyResponse' :: Int
 </span><a href="Network.AWS.KMS.CreateKey.html#%24sel%3AhttpStatus%3ACreateKeyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259606"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKeyResponse"><span class="hs-identifier hs-type">CreateKeyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259615"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKeyResponse"><span class="hs-identifier hs-type">CreateKeyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1004"></span><span>
-</span><span id="line-1005"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259604"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKeyResponse"><span class="hs-identifier hs-type">CreateKeyResponse</span></a></span></span><span>
+</span><span id="line-1005"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259613"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateKey.html#CreateKeyResponse"><span class="hs-identifier hs-type">CreateKeyResponse</span></a></span></span><span>
 </span><span id="line-1006"></span></pre></body></html>

@@ -56,7 +56,7 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newGetContactMethods' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679646808"><span id="local-6989586621679646809"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetContactMethods"><span class="annot"><a href="Network.AWS.Lightsail.GetContactMethods.html#GetContactMethods"><span class="hs-identifier hs-var">GetContactMethods</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetContactMethods%27"><span class="annot"><a href="Network.AWS.Lightsail.GetContactMethods.html#GetContactMethods%27"><span class="hs-identifier hs-var">GetContactMethods'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679646817"><span id="local-6989586621679646818"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetContactMethods"><span class="annot"><a href="Network.AWS.Lightsail.GetContactMethods.html#GetContactMethods"><span class="hs-identifier hs-var">GetContactMethods</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetContactMethods%27"><span class="annot"><a href="Network.AWS.Lightsail.GetContactMethods.html#GetContactMethods%27"><span class="hs-identifier hs-var">GetContactMethods'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The protocols used to send notifications, such as @Email@, or @SMS@</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- (text messaging).</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -65,7 +65,7 @@
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3Aprotocols%3AGetContactMethods%27"><span class="annot"><span class="annottext">GetContactMethods -&gt; Maybe [ContactProtocol]
 </span><a href="Network.AWS.Lightsail.GetContactMethods.html#%24sel%3Aprotocols%3AGetContactMethods%27"><span class="hs-identifier hs-var hs-var">protocols</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactProtocol.html#ContactProtocol"><span class="hs-identifier hs-type">ContactProtocol</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679646802"><span id="local-6989586621679646804"><span class="annot"><span class="annottext">GetContactMethods -&gt; GetContactMethods -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679646811"><span id="local-6989586621679646813"><span class="annot"><span class="annottext">GetContactMethods -&gt; GetContactMethods -&gt; Bool
 (GetContactMethods -&gt; GetContactMethods -&gt; Bool)
 -&gt; (GetContactMethods -&gt; GetContactMethods -&gt; Bool)
 -&gt; Eq GetContactMethods
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetContactMethods -&gt; GetContactMethods -&gt; Bool
 == :: GetContactMethods -&gt; GetContactMethods -&gt; Bool
 $c== :: GetContactMethods -&gt; GetContactMethods -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679646793"><span id="local-6989586621679646795"><span id="local-6989586621679646797"><span id="local-6989586621679646799"><span class="annot"><span class="annottext">ReadPrec [GetContactMethods]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679646802"><span id="local-6989586621679646804"><span id="local-6989586621679646806"><span id="local-6989586621679646808"><span class="annot"><span class="annottext">ReadPrec [GetContactMethods]
 ReadPrec GetContactMethods
 Int -&gt; ReadS GetContactMethods
 ReadS [GetContactMethods]
@@ -94,7 +94,7 @@ readList :: ReadS [GetContactMethods]
 $creadList :: ReadS [GetContactMethods]
 readsPrec :: Int -&gt; ReadS GetContactMethods
 $creadsPrec :: Int -&gt; ReadS GetContactMethods
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679646786"><span id="local-6989586621679646788"><span id="local-6989586621679646790"><span class="annot"><span class="annottext">Int -&gt; GetContactMethods -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679646795"><span id="local-6989586621679646797"><span id="local-6989586621679646799"><span class="annot"><span class="annottext">Int -&gt; GetContactMethods -&gt; ShowS
 [GetContactMethods] -&gt; ShowS
 GetContactMethods -&gt; String
 (Int -&gt; GetContactMethods -&gt; ShowS)
@@ -160,16 +160,16 @@ forall a. Maybe a
      (Maybe [ContactProtocol])
      (Maybe [ContactProtocol])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetContactMethods.html#GetContactMethods%27"><span class="hs-identifier hs-type">GetContactMethods'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679646779"><span class="annot"><span class="annottext">Maybe [ContactProtocol]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetContactMethods.html#GetContactMethods%27"><span class="hs-identifier hs-type">GetContactMethods'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679646788"><span class="annot"><span class="annottext">Maybe [ContactProtocol]
 protocols :: Maybe [ContactProtocol]
 $sel:protocols:GetContactMethods' :: GetContactMethods -&gt; Maybe [ContactProtocol]
-</span><a href="#local-6989586621679646779"><span class="hs-identifier hs-var hs-var">protocols</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ContactProtocol]
-</span><a href="#local-6989586621679646779"><span class="hs-identifier hs-var">protocols</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679646778"><span class="annot"><span class="annottext">s :: GetContactMethods
-</span><a href="#local-6989586621679646778"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetContactMethods.html#GetContactMethods%27"><span class="hs-identifier hs-type">GetContactMethods'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679646777"><span class="annot"><span class="annottext">Maybe [ContactProtocol]
-</span><a href="#local-6989586621679646777"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContactMethods
-</span><a href="#local-6989586621679646778"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocols:GetContactMethods' :: Maybe [ContactProtocol]
+</span><a href="#local-6989586621679646788"><span class="hs-identifier hs-var hs-var">protocols</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ContactProtocol]
+</span><a href="#local-6989586621679646788"><span class="hs-identifier hs-var">protocols</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679646787"><span class="annot"><span class="annottext">s :: GetContactMethods
+</span><a href="#local-6989586621679646787"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetContactMethods.html#GetContactMethods%27"><span class="hs-identifier hs-type">GetContactMethods'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679646786"><span class="annot"><span class="annottext">Maybe [ContactProtocol]
+</span><a href="#local-6989586621679646786"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContactMethods
+</span><a href="#local-6989586621679646787"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocols:GetContactMethods' :: Maybe [ContactProtocol]
 </span><a href="Network.AWS.Lightsail.GetContactMethods.html#%24sel%3Aprotocols%3AGetContactMethods%27"><span class="hs-identifier hs-var">protocols</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ContactProtocol]
-</span><a href="#local-6989586621679646777"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContactMethods.html#GetContactMethods"><span class="hs-identifier hs-type">GetContactMethods</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ContactProtocol] -&gt; f (Maybe [ContactProtocol]))
+</span><a href="#local-6989586621679646786"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContactMethods.html#GetContactMethods"><span class="hs-identifier hs-type">GetContactMethods</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ContactProtocol] -&gt; f (Maybe [ContactProtocol]))
  -&gt; GetContactMethods -&gt; f GetContactMethods)
 -&gt; ((Maybe [ContactProtocol] -&gt; f (Maybe [ContactProtocol]))
     -&gt; Maybe [ContactProtocol] -&gt; f (Maybe [ContactProtocol]))
@@ -202,12 +202,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-96"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-97"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContactMethods.html#GetContactMethods"><span class="hs-identifier hs-type">GetContactMethods</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><a href="Network.AWS.Lightsail.GetContactMethods.html#GetContactMethodsResponse"><span class="hs-identifier hs-type">GetContactMethodsResponse</span></a></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679646770"><span class="annot"><span class="annottext">request :: GetContactMethods -&gt; Request GetContactMethods
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679646779"><span class="annot"><span class="annottext">request :: GetContactMethods -&gt; Request GetContactMethods
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetContactMethods -&gt; Request GetContactMethods
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679646766"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679646775"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetContactMethods
 -&gt; ClientResponse ClientBody
@@ -233,10 +233,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679646763"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679646763"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679646762"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679646762"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679646761"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679646761"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679646772"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679646772"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679646771"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679646771"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679646770"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679646770"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ContactMethod] -&gt; Int -&gt; GetContactMethodsResponse
 </span><a href="Network.AWS.Lightsail.GetContactMethods.html#GetContactMethodsResponse%27"><span class="hs-identifier hs-var">GetContactMethodsResponse'</span></a></span><span>
 </span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ContactMethod] -&gt; Int -&gt; GetContactMethodsResponse)
@@ -244,7 +244,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetContactMethodsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679646761"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ContactMethod]))
+</span><a href="#local-6989586621679646770"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ContactMethod]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;contactMethods&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ContactMethod]))
@@ -261,15 +261,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679646763"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679646772"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679646752"><span id="local-6989586621679646754"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContactMethods.html#GetContactMethods"><span class="hs-identifier hs-type">GetContactMethods</span></a></span></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679646761"><span id="local-6989586621679646763"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContactMethods.html#GetContactMethods"><span class="hs-identifier hs-type">GetContactMethods</span></a></span></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679646749"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContactMethods.html#GetContactMethods"><span class="hs-identifier hs-type">GetContactMethods</span></a></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679646758"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContactMethods.html#GetContactMethods"><span class="hs-identifier hs-type">GetContactMethods</span></a></span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContactMethods.html#GetContactMethods"><span class="hs-identifier hs-type">GetContactMethods</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679646745"><span class="annot"><span class="annottext">toHeaders :: GetContactMethods -&gt; ResponseHeaders
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679646754"><span class="annot"><span class="annottext">toHeaders :: GetContactMethods -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetContactMethods -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -296,12 +296,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679646735"><span id="local-6989586621679646737"><span id="local-6989586621679646739"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContactMethods.html#GetContactMethods"><span class="hs-identifier hs-type">GetContactMethods</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679646733"><span class="annot"><span class="annottext">toJSON :: GetContactMethods -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContactMethods.html#GetContactMethods%27"><span class="hs-identifier hs-type">GetContactMethods'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679646731"><span class="annot"><span class="annottext">Maybe [ContactProtocol]
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679646744"><span id="local-6989586621679646746"><span id="local-6989586621679646748"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContactMethods.html#GetContactMethods"><span class="hs-identifier hs-type">GetContactMethods</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679646742"><span class="annot"><span class="annottext">toJSON :: GetContactMethods -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContactMethods.html#GetContactMethods%27"><span class="hs-identifier hs-type">GetContactMethods'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679646740"><span class="annot"><span class="annottext">Maybe [ContactProtocol]
 protocols :: Maybe [ContactProtocol]
 $sel:protocols:GetContactMethods' :: GetContactMethods -&gt; Maybe [ContactProtocol]
-</span><a href="#local-6989586621679646731"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679646740"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -314,18 +314,18 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [ContactProtocol] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ContactProtocol]
-</span><a href="#local-6989586621679646731"><span class="hs-identifier hs-var">protocols</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679646740"><span class="hs-identifier hs-var">protocols</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContactMethods.html#GetContactMethods"><span class="hs-identifier hs-type">GetContactMethods</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679646725"><span class="annot"><span class="annottext">toPath :: GetContactMethods -&gt; ByteString
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679646734"><span class="annot"><span class="annottext">toPath :: GetContactMethods -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetContactMethods -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContactMethods.html#GetContactMethods"><span class="hs-identifier hs-type">GetContactMethods</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679646721"><span class="annot"><span class="annottext">toQuery :: GetContactMethods -&gt; QueryString
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679646730"><span class="annot"><span class="annottext">toQuery :: GetContactMethods -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetContactMethods -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -333,7 +333,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- | /See:/ 'newGetContactMethodsResponse' smart constructor.</span><span>
-</span><span id="line-141"></span><span id="local-6989586621679646718"><span id="local-6989586621679646719"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetContactMethodsResponse"><span class="annot"><a href="Network.AWS.Lightsail.GetContactMethods.html#GetContactMethodsResponse"><span class="hs-identifier hs-var">GetContactMethodsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetContactMethodsResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.GetContactMethods.html#GetContactMethodsResponse%27"><span class="hs-identifier hs-var">GetContactMethodsResponse'</span></a></span></span><span>
+</span><span id="line-141"></span><span id="local-6989586621679646727"><span id="local-6989586621679646728"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetContactMethodsResponse"><span class="annot"><a href="Network.AWS.Lightsail.GetContactMethods.html#GetContactMethodsResponse"><span class="hs-identifier hs-var">GetContactMethodsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetContactMethodsResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.GetContactMethods.html#GetContactMethodsResponse%27"><span class="hs-identifier hs-var">GetContactMethodsResponse'</span></a></span></span><span>
 </span><span id="line-142"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects that describe the contact methods.</span><span>
 </span><span id="line-143"></span><span>    </span><span id="%24sel%3AcontactMethods%3AGetContactMethodsResponse%27"><span class="annot"><span class="annottext">GetContactMethodsResponse -&gt; Maybe [ContactMethod]
 </span><a href="Network.AWS.Lightsail.GetContactMethods.html#%24sel%3AcontactMethods%3AGetContactMethodsResponse%27"><span class="hs-identifier hs-var hs-var">contactMethods</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethod.html#ContactMethod"><span class="hs-identifier hs-type">ContactMethod</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -341,7 +341,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-145"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetContactMethodsResponse%27"><span class="annot"><span class="annottext">GetContactMethodsResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.GetContactMethods.html#%24sel%3AhttpStatus%3AGetContactMethodsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679646712"><span id="local-6989586621679646714"><span class="annot"><span class="annottext">GetContactMethodsResponse -&gt; GetContactMethodsResponse -&gt; Bool
+</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679646721"><span id="local-6989586621679646723"><span class="annot"><span class="annottext">GetContactMethodsResponse -&gt; GetContactMethodsResponse -&gt; Bool
 (GetContactMethodsResponse -&gt; GetContactMethodsResponse -&gt; Bool)
 -&gt; (GetContactMethodsResponse -&gt; GetContactMethodsResponse -&gt; Bool)
 -&gt; Eq GetContactMethodsResponse
@@ -350,7 +350,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetContactMethodsResponse -&gt; GetContactMethodsResponse -&gt; Bool
 == :: GetContactMethodsResponse -&gt; GetContactMethodsResponse -&gt; Bool
 $c== :: GetContactMethodsResponse -&gt; GetContactMethodsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679646704"><span id="local-6989586621679646706"><span id="local-6989586621679646708"><span id="local-6989586621679646710"><span class="annot"><span class="annottext">ReadPrec [GetContactMethodsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679646713"><span id="local-6989586621679646715"><span id="local-6989586621679646717"><span id="local-6989586621679646719"><span class="annot"><span class="annottext">ReadPrec [GetContactMethodsResponse]
 ReadPrec GetContactMethodsResponse
 Int -&gt; ReadS GetContactMethodsResponse
 ReadS [GetContactMethodsResponse]
@@ -370,7 +370,7 @@ readList :: ReadS [GetContactMethodsResponse]
 $creadList :: ReadS [GetContactMethodsResponse]
 readsPrec :: Int -&gt; ReadS GetContactMethodsResponse
 $creadsPrec :: Int -&gt; ReadS GetContactMethodsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679646698"><span id="local-6989586621679646700"><span id="local-6989586621679646702"><span class="annot"><span class="annottext">Int -&gt; GetContactMethodsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679646707"><span id="local-6989586621679646709"><span id="local-6989586621679646711"><span class="annot"><span class="annottext">Int -&gt; GetContactMethodsResponse -&gt; ShowS
 [GetContactMethodsResponse] -&gt; ShowS
 GetContactMethodsResponse -&gt; String
 (Int -&gt; GetContactMethodsResponse -&gt; ShowS)
@@ -418,8 +418,8 @@ GetContactMethodsResponse -&gt; Rep GetContactMethodsResponse x
 </span><span id="line-162"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-163"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.GetContactMethods.html#GetContactMethodsResponse"><span class="hs-identifier hs-type">GetContactMethodsResponse</span></a></span><span>
 </span><span id="line-164"></span><span id="newGetContactMethodsResponse"><span class="annot"><span class="annottext">newGetContactMethodsResponse :: Int -&gt; GetContactMethodsResponse
-</span><a href="Network.AWS.Lightsail.GetContactMethods.html#newGetContactMethodsResponse"><span class="hs-identifier hs-var hs-var">newGetContactMethodsResponse</span></a></span></span><span> </span><span id="local-6989586621679646695"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679646695"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.GetContactMethods.html#newGetContactMethodsResponse"><span class="hs-identifier hs-var hs-var">newGetContactMethodsResponse</span></a></span></span><span> </span><span id="local-6989586621679646704"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679646704"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>  </span><span class="annot"><span class="annottext">GetContactMethodsResponse' :: Maybe [ContactMethod] -&gt; Int -&gt; GetContactMethodsResponse
 </span><a href="Network.AWS.Lightsail.GetContactMethods.html#GetContactMethodsResponse%27"><span class="hs-identifier hs-type">GetContactMethodsResponse'</span></a></span><span>
 </span><span id="line-166"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:contactMethods:GetContactMethodsResponse' :: Maybe [ContactMethod]
@@ -429,7 +429,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetContactMethodsResponse' :: Int
 </span><a href="Network.AWS.Lightsail.GetContactMethods.html#%24sel%3AhttpStatus%3AGetContactMethodsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679646695"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679646704"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-169"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- | An array of objects that describe the contact methods.</span><span>
@@ -445,16 +445,16 @@ forall a. Maybe a
      (Maybe [ContactMethod])
      (Maybe [ContactMethod])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetContactMethods.html#GetContactMethodsResponse%27"><span class="hs-identifier hs-type">GetContactMethodsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679646694"><span class="annot"><span class="annottext">Maybe [ContactMethod]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetContactMethods.html#GetContactMethodsResponse%27"><span class="hs-identifier hs-type">GetContactMethodsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679646703"><span class="annot"><span class="annottext">Maybe [ContactMethod]
 contactMethods :: Maybe [ContactMethod]
 $sel:contactMethods:GetContactMethodsResponse' :: GetContactMethodsResponse -&gt; Maybe [ContactMethod]
-</span><a href="#local-6989586621679646694"><span class="hs-identifier hs-var hs-var">contactMethods</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ContactMethod]
-</span><a href="#local-6989586621679646694"><span class="hs-identifier hs-var">contactMethods</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679646693"><span class="annot"><span class="annottext">s :: GetContactMethodsResponse
-</span><a href="#local-6989586621679646693"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetContactMethods.html#GetContactMethodsResponse%27"><span class="hs-identifier hs-type">GetContactMethodsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679646692"><span class="annot"><span class="annottext">Maybe [ContactMethod]
-</span><a href="#local-6989586621679646692"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContactMethodsResponse
-</span><a href="#local-6989586621679646693"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contactMethods:GetContactMethodsResponse' :: Maybe [ContactMethod]
+</span><a href="#local-6989586621679646703"><span class="hs-identifier hs-var hs-var">contactMethods</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ContactMethod]
+</span><a href="#local-6989586621679646703"><span class="hs-identifier hs-var">contactMethods</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679646702"><span class="annot"><span class="annottext">s :: GetContactMethodsResponse
+</span><a href="#local-6989586621679646702"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetContactMethods.html#GetContactMethodsResponse%27"><span class="hs-identifier hs-type">GetContactMethodsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679646701"><span class="annot"><span class="annottext">Maybe [ContactMethod]
+</span><a href="#local-6989586621679646701"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContactMethodsResponse
+</span><a href="#local-6989586621679646702"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contactMethods:GetContactMethodsResponse' :: Maybe [ContactMethod]
 </span><a href="Network.AWS.Lightsail.GetContactMethods.html#%24sel%3AcontactMethods%3AGetContactMethodsResponse%27"><span class="hs-identifier hs-var">contactMethods</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ContactMethod]
-</span><a href="#local-6989586621679646692"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContactMethods.html#GetContactMethodsResponse"><span class="hs-identifier hs-type">GetContactMethodsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ContactMethod] -&gt; f (Maybe [ContactMethod]))
+</span><a href="#local-6989586621679646701"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContactMethods.html#GetContactMethodsResponse"><span class="hs-identifier hs-type">GetContactMethodsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ContactMethod] -&gt; f (Maybe [ContactMethod]))
  -&gt; GetContactMethodsResponse -&gt; f GetContactMethodsResponse)
 -&gt; ((Maybe [ContactMethod] -&gt; f (Maybe [ContactMethod]))
     -&gt; Maybe [ContactMethod] -&gt; f (Maybe [ContactMethod]))
@@ -485,16 +485,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (GetContactMethodsResponse -&gt; Int -&gt; GetContactMethodsResponse)
 -&gt; Lens GetContactMethodsResponse GetContactMethodsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetContactMethods.html#GetContactMethodsResponse%27"><span class="hs-identifier hs-type">GetContactMethodsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679646691"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetContactMethods.html#GetContactMethodsResponse%27"><span class="hs-identifier hs-type">GetContactMethodsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679646700"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetContactMethodsResponse' :: GetContactMethodsResponse -&gt; Int
-</span><a href="#local-6989586621679646691"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679646691"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679646690"><span class="annot"><span class="annottext">s :: GetContactMethodsResponse
-</span><a href="#local-6989586621679646690"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetContactMethods.html#GetContactMethodsResponse%27"><span class="hs-identifier hs-type">GetContactMethodsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679646689"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679646689"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContactMethodsResponse
-</span><a href="#local-6989586621679646690"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetContactMethodsResponse' :: Int
+</span><a href="#local-6989586621679646700"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679646700"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679646699"><span class="annot"><span class="annottext">s :: GetContactMethodsResponse
+</span><a href="#local-6989586621679646699"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetContactMethods.html#GetContactMethodsResponse%27"><span class="hs-identifier hs-type">GetContactMethodsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679646698"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679646698"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContactMethodsResponse
+</span><a href="#local-6989586621679646699"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetContactMethodsResponse' :: Int
 </span><a href="Network.AWS.Lightsail.GetContactMethods.html#%24sel%3AhttpStatus%3AGetContactMethodsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679646689"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContactMethods.html#GetContactMethodsResponse"><span class="hs-identifier hs-type">GetContactMethodsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679646698"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContactMethods.html#GetContactMethodsResponse"><span class="hs-identifier hs-type">GetContactMethodsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
-</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679646687"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContactMethods.html#GetContactMethodsResponse"><span class="hs-identifier hs-type">GetContactMethodsResponse</span></a></span></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679646696"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContactMethods.html#GetContactMethodsResponse"><span class="hs-identifier hs-type">GetContactMethodsResponse</span></a></span></span><span>
 </span><span id="line-180"></span></pre></body></html>

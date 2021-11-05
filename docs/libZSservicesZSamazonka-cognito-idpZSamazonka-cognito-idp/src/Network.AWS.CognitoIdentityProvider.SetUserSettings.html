@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-comment">-- | Represents the request to set user settings.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newSetUserSettings' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679440425"><span id="local-6989586621679440426"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetUserSettings"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#SetUserSettings"><span class="hs-identifier hs-var">SetUserSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetUserSettings%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#SetUserSettings%27"><span class="hs-identifier hs-var">SetUserSettings'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679440434"><span id="local-6989586621679440435"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetUserSettings"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#SetUserSettings"><span class="hs-identifier hs-var">SetUserSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetUserSettings%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#SetUserSettings%27"><span class="hs-identifier hs-var">SetUserSettings'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The access token for the set user settings request.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AaccessToken%3ASetUserSettings%27"><span class="annot"><span class="annottext">SetUserSettings -&gt; Sensitive Text
 </span><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#%24sel%3AaccessToken%3ASetUserSettings%27"><span class="hs-identifier hs-var hs-var">accessToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -62,7 +62,7 @@
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AmfaOptions%3ASetUserSettings%27"><span class="annot"><span class="annottext">SetUserSettings -&gt; [MFAOptionType]
 </span><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#%24sel%3AmfaOptions%3ASetUserSettings%27"><span class="hs-identifier hs-var hs-var">mfaOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.MFAOptionType.html#MFAOptionType"><span class="hs-identifier hs-type">MFAOptionType</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679440418"><span id="local-6989586621679440420"><span class="annot"><span class="annottext">SetUserSettings -&gt; SetUserSettings -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679440427"><span id="local-6989586621679440429"><span class="annot"><span class="annottext">SetUserSettings -&gt; SetUserSettings -&gt; Bool
 (SetUserSettings -&gt; SetUserSettings -&gt; Bool)
 -&gt; (SetUserSettings -&gt; SetUserSettings -&gt; Bool)
 -&gt; Eq SetUserSettings
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SetUserSettings -&gt; SetUserSettings -&gt; Bool
 == :: SetUserSettings -&gt; SetUserSettings -&gt; Bool
 $c== :: SetUserSettings -&gt; SetUserSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440411"><span id="local-6989586621679440413"><span id="local-6989586621679440415"><span class="annot"><span class="annottext">Int -&gt; SetUserSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440420"><span id="local-6989586621679440422"><span id="local-6989586621679440424"><span class="annot"><span class="annottext">Int -&gt; SetUserSettings -&gt; ShowS
 [SetUserSettings] -&gt; ShowS
 SetUserSettings -&gt; String
 (Int -&gt; SetUserSettings -&gt; ShowS)
@@ -114,8 +114,8 @@ $cfrom :: forall x. SetUserSettings -&gt; Rep SetUserSettings x
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#SetUserSettings"><span class="hs-identifier hs-type">SetUserSettings</span></a></span><span>
 </span><span id="line-81"></span><span id="newSetUserSettings"><span class="annot"><span class="annottext">newSetUserSettings :: Text -&gt; SetUserSettings
-</span><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#newSetUserSettings"><span class="hs-identifier hs-var hs-var">newSetUserSettings</span></a></span></span><span> </span><span id="local-6989586621679440406"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679440406"><span class="hs-identifier hs-var">pAccessToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#newSetUserSettings"><span class="hs-identifier hs-var hs-var">newSetUserSettings</span></a></span></span><span> </span><span id="local-6989586621679440415"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679440415"><span class="hs-identifier hs-var">pAccessToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">SetUserSettings' :: Sensitive Text -&gt; [MFAOptionType] -&gt; SetUserSettings
 </span><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#SetUserSettings%27"><span class="hs-identifier hs-type">SetUserSettings'</span></a></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accessToken:SetUserSettings' :: Sensitive Text
@@ -128,7 +128,7 @@ forall a. Iso' (Sensitive a) a
 -&gt; Text -&gt; Sensitive Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679440406"><span class="hs-identifier hs-var">pAccessToken_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679440415"><span class="hs-identifier hs-var">pAccessToken_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:mfaOptions:SetUserSettings' :: [MFAOptionType]
 </span><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#%24sel%3AmfaOptions%3ASetUserSettings%27"><span class="hs-identifier hs-var">mfaOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[MFAOptionType]
 forall a. Monoid a =&gt; a
@@ -143,16 +143,16 @@ forall a. Monoid a =&gt; a
 -&gt; Lens
      SetUserSettings SetUserSettings (Sensitive Text) (Sensitive Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#SetUserSettings%27"><span class="hs-identifier hs-type">SetUserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440401"><span class="annot"><span class="annottext">Sensitive Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#SetUserSettings%27"><span class="hs-identifier hs-type">SetUserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440410"><span class="annot"><span class="annottext">Sensitive Text
 accessToken :: Sensitive Text
 $sel:accessToken:SetUserSettings' :: SetUserSettings -&gt; Sensitive Text
-</span><a href="#local-6989586621679440401"><span class="hs-identifier hs-var hs-var">accessToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679440401"><span class="hs-identifier hs-var">accessToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440400"><span class="annot"><span class="annottext">s :: SetUserSettings
-</span><a href="#local-6989586621679440400"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#SetUserSettings%27"><span class="hs-identifier hs-type">SetUserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440399"><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679440399"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetUserSettings
-</span><a href="#local-6989586621679440400"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessToken:SetUserSettings' :: Sensitive Text
+</span><a href="#local-6989586621679440410"><span class="hs-identifier hs-var hs-var">accessToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679440410"><span class="hs-identifier hs-var">accessToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440409"><span class="annot"><span class="annottext">s :: SetUserSettings
+</span><a href="#local-6989586621679440409"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#SetUserSettings%27"><span class="hs-identifier hs-type">SetUserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440408"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679440408"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetUserSettings
+</span><a href="#local-6989586621679440409"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessToken:SetUserSettings' :: Sensitive Text
 </span><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#%24sel%3AaccessToken%3ASetUserSettings%27"><span class="hs-identifier hs-var">accessToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679440399"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#SetUserSettings"><span class="hs-identifier hs-type">SetUserSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+</span><a href="#local-6989586621679440408"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#SetUserSettings"><span class="hs-identifier hs-type">SetUserSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
  -&gt; SetUserSettings -&gt; f SetUserSettings)
 -&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
 -&gt; (Text -&gt; f Text)
@@ -173,16 +173,16 @@ forall a. Iso' (Sensitive a) a
 -&gt; Lens
      SetUserSettings SetUserSettings [MFAOptionType] [MFAOptionType]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#SetUserSettings%27"><span class="hs-identifier hs-type">SetUserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440397"><span class="annot"><span class="annottext">[MFAOptionType]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#SetUserSettings%27"><span class="hs-identifier hs-type">SetUserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440406"><span class="annot"><span class="annottext">[MFAOptionType]
 mfaOptions :: [MFAOptionType]
 $sel:mfaOptions:SetUserSettings' :: SetUserSettings -&gt; [MFAOptionType]
-</span><a href="#local-6989586621679440397"><span class="hs-identifier hs-var hs-var">mfaOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[MFAOptionType]
-</span><a href="#local-6989586621679440397"><span class="hs-identifier hs-var">mfaOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440396"><span class="annot"><span class="annottext">s :: SetUserSettings
-</span><a href="#local-6989586621679440396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#SetUserSettings%27"><span class="hs-identifier hs-type">SetUserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440395"><span class="annot"><span class="annottext">[MFAOptionType]
-</span><a href="#local-6989586621679440395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetUserSettings
-</span><a href="#local-6989586621679440396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mfaOptions:SetUserSettings' :: [MFAOptionType]
+</span><a href="#local-6989586621679440406"><span class="hs-identifier hs-var hs-var">mfaOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[MFAOptionType]
+</span><a href="#local-6989586621679440406"><span class="hs-identifier hs-var">mfaOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440405"><span class="annot"><span class="annottext">s :: SetUserSettings
+</span><a href="#local-6989586621679440405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#SetUserSettings%27"><span class="hs-identifier hs-type">SetUserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440404"><span class="annot"><span class="annottext">[MFAOptionType]
+</span><a href="#local-6989586621679440404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetUserSettings
+</span><a href="#local-6989586621679440405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mfaOptions:SetUserSettings' :: [MFAOptionType]
 </span><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#%24sel%3AmfaOptions%3ASetUserSettings%27"><span class="hs-identifier hs-var">mfaOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[MFAOptionType]
-</span><a href="#local-6989586621679440395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#SetUserSettings"><span class="hs-identifier hs-type">SetUserSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([MFAOptionType] -&gt; f [MFAOptionType])
+</span><a href="#local-6989586621679440404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#SetUserSettings"><span class="hs-identifier hs-type">SetUserSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([MFAOptionType] -&gt; f [MFAOptionType])
  -&gt; SetUserSettings -&gt; f SetUserSettings)
 -&gt; (([MFAOptionType] -&gt; f [MFAOptionType])
     -&gt; [MFAOptionType] -&gt; f [MFAOptionType])
@@ -199,12 +199,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-98"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-99"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#SetUserSettings"><span class="hs-identifier hs-type">SetUserSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#SetUserSettingsResponse"><span class="hs-identifier hs-type">SetUserSettingsResponse</span></a></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679440390"><span class="annot"><span class="annottext">request :: SetUserSettings -&gt; Request SetUserSettings
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679440399"><span class="annot"><span class="annottext">request :: SetUserSettings -&gt; Request SetUserSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SetUserSettings -&gt; Request SetUserSettings
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679440386"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679440395"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy SetUserSettings
 -&gt; ClientResponse ClientBody
@@ -228,10 +228,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679440383"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679440383"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679440382"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679440382"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679440381"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679440381"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679440392"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679440392"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679440391"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679440391"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679440390"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679440390"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; SetUserSettingsResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#SetUserSettingsResponse%27"><span class="hs-identifier hs-var">SetUserSettingsResponse'</span></a></span><span>
 </span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; SetUserSettingsResponse)
@@ -242,15 +242,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679440383"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440392"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440374"><span id="local-6989586621679440376"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#SetUserSettings"><span class="hs-identifier hs-type">SetUserSettings</span></a></span></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440383"><span id="local-6989586621679440385"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#SetUserSettings"><span class="hs-identifier hs-type">SetUserSettings</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440371"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#SetUserSettings"><span class="hs-identifier hs-type">SetUserSettings</span></a></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440380"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#SetUserSettings"><span class="hs-identifier hs-type">SetUserSettings</span></a></span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#SetUserSettings"><span class="hs-identifier hs-type">SetUserSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679440367"><span class="annot"><span class="annottext">toHeaders :: SetUserSettings -&gt; ResponseHeaders
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679440376"><span class="annot"><span class="annottext">toHeaders :: SetUserSettings -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; SetUserSettings -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -277,15 +277,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440357"><span id="local-6989586621679440359"><span id="local-6989586621679440361"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#SetUserSettings"><span class="hs-identifier hs-type">SetUserSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679440355"><span class="annot"><span class="annottext">toJSON :: SetUserSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#SetUserSettings%27"><span class="hs-identifier hs-type">SetUserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440352"><span id="local-6989586621679440353"><span class="annot"><span class="annottext">[MFAOptionType]
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440366"><span id="local-6989586621679440368"><span id="local-6989586621679440370"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#SetUserSettings"><span class="hs-identifier hs-type">SetUserSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679440364"><span class="annot"><span class="annottext">toJSON :: SetUserSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#SetUserSettings%27"><span class="hs-identifier hs-type">SetUserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440361"><span id="local-6989586621679440362"><span class="annot"><span class="annottext">[MFAOptionType]
 Sensitive Text
 mfaOptions :: [MFAOptionType]
 accessToken :: Sensitive Text
 $sel:mfaOptions:SetUserSettings' :: SetUserSettings -&gt; [MFAOptionType]
 $sel:accessToken:SetUserSettings' :: SetUserSettings -&gt; Sensitive Text
-</span><a href="#local-6989586621679440352"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679440361"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -297,26 +297,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;AccessToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679440353"><span class="hs-identifier hs-var">accessToken</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679440362"><span class="hs-identifier hs-var">accessToken</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MFAOptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [MFAOptionType] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[MFAOptionType]
-</span><a href="#local-6989586621679440352"><span class="hs-identifier hs-var">mfaOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440361"><span class="hs-identifier hs-var">mfaOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#SetUserSettings"><span class="hs-identifier hs-type">SetUserSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679440346"><span class="annot"><span class="annottext">toPath :: SetUserSettings -&gt; ByteString
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679440355"><span class="annot"><span class="annottext">toPath :: SetUserSettings -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SetUserSettings -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#SetUserSettings"><span class="hs-identifier hs-type">SetUserSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679440342"><span class="annot"><span class="annottext">toQuery :: SetUserSettings -&gt; QueryString
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679440351"><span class="annot"><span class="annottext">toQuery :: SetUserSettings -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; SetUserSettings -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -326,12 +326,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-143"></span><span class="hs-comment">-- | The response from the server for a set user settings request.</span><span>
 </span><span id="line-144"></span><span class="hs-comment">--</span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- /See:/ 'newSetUserSettingsResponse' smart constructor.</span><span>
-</span><span id="line-146"></span><span id="local-6989586621679440339"><span id="local-6989586621679440340"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetUserSettingsResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#SetUserSettingsResponse"><span class="hs-identifier hs-var">SetUserSettingsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetUserSettingsResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#SetUserSettingsResponse%27"><span class="hs-identifier hs-var">SetUserSettingsResponse'</span></a></span></span><span>
+</span><span id="line-146"></span><span id="local-6989586621679440348"><span id="local-6989586621679440349"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetUserSettingsResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#SetUserSettingsResponse"><span class="hs-identifier hs-var">SetUserSettingsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetUserSettingsResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#SetUserSettingsResponse%27"><span class="hs-identifier hs-var">SetUserSettingsResponse'</span></a></span></span><span>
 </span><span id="line-147"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-148"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASetUserSettingsResponse%27"><span class="annot"><span class="annottext">SetUserSettingsResponse -&gt; Int
 </span><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#%24sel%3AhttpStatus%3ASetUserSettingsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-149"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-150"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679440334"><span id="local-6989586621679440336"><span class="annot"><span class="annottext">SetUserSettingsResponse -&gt; SetUserSettingsResponse -&gt; Bool
+</span><span id="line-150"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679440343"><span id="local-6989586621679440345"><span class="annot"><span class="annottext">SetUserSettingsResponse -&gt; SetUserSettingsResponse -&gt; Bool
 (SetUserSettingsResponse -&gt; SetUserSettingsResponse -&gt; Bool)
 -&gt; (SetUserSettingsResponse -&gt; SetUserSettingsResponse -&gt; Bool)
 -&gt; Eq SetUserSettingsResponse
@@ -340,7 +340,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SetUserSettingsResponse -&gt; SetUserSettingsResponse -&gt; Bool
 == :: SetUserSettingsResponse -&gt; SetUserSettingsResponse -&gt; Bool
 $c== :: SetUserSettingsResponse -&gt; SetUserSettingsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440326"><span id="local-6989586621679440328"><span id="local-6989586621679440330"><span id="local-6989586621679440332"><span class="annot"><span class="annottext">ReadPrec [SetUserSettingsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440335"><span id="local-6989586621679440337"><span id="local-6989586621679440339"><span id="local-6989586621679440341"><span class="annot"><span class="annottext">ReadPrec [SetUserSettingsResponse]
 ReadPrec SetUserSettingsResponse
 Int -&gt; ReadS SetUserSettingsResponse
 ReadS [SetUserSettingsResponse]
@@ -360,7 +360,7 @@ readList :: ReadS [SetUserSettingsResponse]
 $creadList :: ReadS [SetUserSettingsResponse]
 readsPrec :: Int -&gt; ReadS SetUserSettingsResponse
 $creadsPrec :: Int -&gt; ReadS SetUserSettingsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440319"><span id="local-6989586621679440321"><span id="local-6989586621679440323"><span class="annot"><span class="annottext">Int -&gt; SetUserSettingsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440328"><span id="local-6989586621679440330"><span id="local-6989586621679440332"><span class="annot"><span class="annottext">Int -&gt; SetUserSettingsResponse -&gt; ShowS
 [SetUserSettingsResponse] -&gt; ShowS
 SetUserSettingsResponse -&gt; String
 (Int -&gt; SetUserSettingsResponse -&gt; ShowS)
@@ -402,12 +402,12 @@ $cfrom :: forall x. SetUserSettingsResponse -&gt; Rep SetUserSettingsResponse x
 </span><span id="line-163"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-164"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#SetUserSettingsResponse"><span class="hs-identifier hs-type">SetUserSettingsResponse</span></a></span><span>
 </span><span id="line-165"></span><span id="newSetUserSettingsResponse"><span class="annot"><span class="annottext">newSetUserSettingsResponse :: Int -&gt; SetUserSettingsResponse
-</span><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#newSetUserSettingsResponse"><span class="hs-identifier hs-var hs-var">newSetUserSettingsResponse</span></a></span></span><span> </span><span id="local-6989586621679440316"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679440316"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#newSetUserSettingsResponse"><span class="hs-identifier hs-var hs-var">newSetUserSettingsResponse</span></a></span></span><span> </span><span id="local-6989586621679440325"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679440325"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-166"></span><span>  </span><span class="annot"><span class="annottext">SetUserSettingsResponse' :: Int -&gt; SetUserSettingsResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#SetUserSettingsResponse%27"><span class="hs-identifier hs-type">SetUserSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SetUserSettingsResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#%24sel%3AhttpStatus%3ASetUserSettingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679440316"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679440325"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-169"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#setUserSettingsResponse_httpStatus"><span class="hs-identifier hs-type">setUserSettingsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#SetUserSettingsResponse"><span class="hs-identifier hs-type">SetUserSettingsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -417,16 +417,16 @@ $cfrom :: forall x. SetUserSettingsResponse -&gt; Rep SetUserSettingsResponse x
 -&gt; (SetUserSettingsResponse -&gt; Int -&gt; SetUserSettingsResponse)
 -&gt; Lens SetUserSettingsResponse SetUserSettingsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#SetUserSettingsResponse%27"><span class="hs-identifier hs-type">SetUserSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440315"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#SetUserSettingsResponse%27"><span class="hs-identifier hs-type">SetUserSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440324"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:SetUserSettingsResponse' :: SetUserSettingsResponse -&gt; Int
-</span><a href="#local-6989586621679440315"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679440315"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440314"><span class="annot"><span class="annottext">s :: SetUserSettingsResponse
-</span><a href="#local-6989586621679440314"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#SetUserSettingsResponse%27"><span class="hs-identifier hs-type">SetUserSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440313"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679440313"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetUserSettingsResponse
-</span><a href="#local-6989586621679440314"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SetUserSettingsResponse' :: Int
+</span><a href="#local-6989586621679440324"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679440324"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440323"><span class="annot"><span class="annottext">s :: SetUserSettingsResponse
+</span><a href="#local-6989586621679440323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#SetUserSettingsResponse%27"><span class="hs-identifier hs-type">SetUserSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440322"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679440322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetUserSettingsResponse
+</span><a href="#local-6989586621679440323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SetUserSettingsResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#%24sel%3AhttpStatus%3ASetUserSettingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679440313"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#SetUserSettingsResponse"><span class="hs-identifier hs-type">SetUserSettingsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#SetUserSettingsResponse"><span class="hs-identifier hs-type">SetUserSettingsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
-</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440311"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#SetUserSettingsResponse"><span class="hs-identifier hs-type">SetUserSettingsResponse</span></a></span></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440320"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.SetUserSettings.html#SetUserSettingsResponse"><span class="hs-identifier hs-type">SetUserSettingsResponse</span></a></span></span><span>
 </span><span id="line-173"></span></pre></body></html>

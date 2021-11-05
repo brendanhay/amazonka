@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- algorithm.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newChannelSpecification' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621680348424"><span id="local-6989586621680348425"></span></span><span class="hs-keyword">data</span><span> </span><span id="ChannelSpecification"><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification"><span class="hs-identifier hs-var">ChannelSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChannelSpecification%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification%27"><span class="hs-identifier hs-var">ChannelSpecification'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680348433"><span id="local-6989586621680348434"></span></span><span class="hs-keyword">data</span><span> </span><span id="ChannelSpecification"><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification"><span class="hs-identifier hs-var">ChannelSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChannelSpecification%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification%27"><span class="hs-identifier hs-var">ChannelSpecification'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The allowed compression types, if data compression is used.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AsupportedCompressionTypes%3AChannelSpecification%27"><span class="annot"><span class="annottext">ChannelSpecification -&gt; Maybe [CompressionType]
 </span><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#%24sel%3AsupportedCompressionTypes%3AChannelSpecification%27"><span class="hs-identifier hs-var hs-var">supportedCompressionTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.CompressionType.html#CompressionType"><span class="hs-identifier hs-type">CompressionType</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -57,7 +57,7 @@
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AsupportedInputModes%3AChannelSpecification%27"><span class="annot"><span class="annottext">ChannelSpecification -&gt; NonEmpty TrainingInputMode
 </span><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#%24sel%3AsupportedInputModes%3AChannelSpecification%27"><span class="hs-identifier hs-var hs-var">supportedInputModes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingInputMode.html#TrainingInputMode"><span class="hs-identifier hs-type">TrainingInputMode</span></a></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680348413"><span id="local-6989586621680348415"><span class="annot"><span class="annottext">ChannelSpecification -&gt; ChannelSpecification -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680348422"><span id="local-6989586621680348424"><span class="annot"><span class="annottext">ChannelSpecification -&gt; ChannelSpecification -&gt; Bool
 (ChannelSpecification -&gt; ChannelSpecification -&gt; Bool)
 -&gt; (ChannelSpecification -&gt; ChannelSpecification -&gt; Bool)
 -&gt; Eq ChannelSpecification
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ChannelSpecification -&gt; ChannelSpecification -&gt; Bool
 == :: ChannelSpecification -&gt; ChannelSpecification -&gt; Bool
 $c== :: ChannelSpecification -&gt; ChannelSpecification -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680348404"><span id="local-6989586621680348406"><span id="local-6989586621680348408"><span id="local-6989586621680348410"><span class="annot"><span class="annottext">ReadPrec [ChannelSpecification]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680348413"><span id="local-6989586621680348415"><span id="local-6989586621680348417"><span id="local-6989586621680348419"><span class="annot"><span class="annottext">ReadPrec [ChannelSpecification]
 ReadPrec ChannelSpecification
 Int -&gt; ReadS ChannelSpecification
 ReadS [ChannelSpecification]
@@ -86,7 +86,7 @@ readList :: ReadS [ChannelSpecification]
 $creadList :: ReadS [ChannelSpecification]
 readsPrec :: Int -&gt; ReadS ChannelSpecification
 $creadsPrec :: Int -&gt; ReadS ChannelSpecification
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680348397"><span id="local-6989586621680348399"><span id="local-6989586621680348401"><span class="annot"><span class="annottext">Int -&gt; ChannelSpecification -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680348406"><span id="local-6989586621680348408"><span id="local-6989586621680348410"><span class="annot"><span class="annottext">Int -&gt; ChannelSpecification -&gt; ShowS
 [ChannelSpecification] -&gt; ShowS
 ChannelSpecification -&gt; String
 (Int -&gt; ChannelSpecification -&gt; ShowS)
@@ -146,9 +146,9 @@ $cfrom :: forall x. ChannelSpecification -&gt; Rep ChannelSpecification x
 </span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingInputMode.html#TrainingInputMode"><span class="hs-identifier hs-type">TrainingInputMode</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification"><span class="hs-identifier hs-type">ChannelSpecification</span></a></span><span>
 </span><span id="line-89"></span><span id="newChannelSpecification"><span class="annot"><span class="annottext">newChannelSpecification :: Text -&gt; NonEmpty TrainingInputMode -&gt; ChannelSpecification
-</span><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#newChannelSpecification"><span class="hs-identifier hs-var hs-var">newChannelSpecification</span></a></span></span><span> </span><span id="local-6989586621680348391"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680348391"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621680348390"><span class="annot"><span class="annottext">NonEmpty TrainingInputMode
-</span><a href="#local-6989586621680348390"><span class="hs-identifier hs-var">pSupportedInputModes_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#newChannelSpecification"><span class="hs-identifier hs-var hs-var">newChannelSpecification</span></a></span></span><span> </span><span id="local-6989586621680348400"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680348400"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621680348399"><span class="annot"><span class="annottext">NonEmpty TrainingInputMode
+</span><a href="#local-6989586621680348399"><span class="hs-identifier hs-var">pSupportedInputModes_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>  </span><span class="annot"><span class="annottext">ChannelSpecification' :: Maybe [CompressionType]
 -&gt; Maybe Bool
 -&gt; Maybe Text
@@ -172,7 +172,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:ChannelSpecification' :: Text
 </span><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#%24sel%3Aname%3AChannelSpecification%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680348391"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680348400"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:supportedContentTypes:ChannelSpecification' :: [Text]
 </span><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#%24sel%3AsupportedContentTypes%3AChannelSpecification%27"><span class="hs-identifier hs-var">supportedContentTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
@@ -195,7 +195,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty TrainingInputMode -&gt; NonEmpty TrainingInputMode
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty TrainingInputMode
-</span><a href="#local-6989586621680348390"><span class="hs-identifier hs-var">pSupportedInputModes_</span></a></span><span>
+</span><a href="#local-6989586621680348399"><span class="hs-identifier hs-var">pSupportedInputModes_</span></a></span><span>
 </span><span id="line-99"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | The allowed compression types, if data compression is used.</span><span>
@@ -211,16 +211,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (Maybe [CompressionType])
      (Maybe [CompressionType])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification%27"><span class="hs-identifier hs-type">ChannelSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680348384"><span class="annot"><span class="annottext">Maybe [CompressionType]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification%27"><span class="hs-identifier hs-type">ChannelSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680348393"><span class="annot"><span class="annottext">Maybe [CompressionType]
 supportedCompressionTypes :: Maybe [CompressionType]
 $sel:supportedCompressionTypes:ChannelSpecification' :: ChannelSpecification -&gt; Maybe [CompressionType]
-</span><a href="#local-6989586621680348384"><span class="hs-identifier hs-var hs-var">supportedCompressionTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CompressionType]
-</span><a href="#local-6989586621680348384"><span class="hs-identifier hs-var">supportedCompressionTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680348383"><span class="annot"><span class="annottext">s :: ChannelSpecification
-</span><a href="#local-6989586621680348383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification%27"><span class="hs-identifier hs-type">ChannelSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680348382"><span class="annot"><span class="annottext">Maybe [CompressionType]
-</span><a href="#local-6989586621680348382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelSpecification
-</span><a href="#local-6989586621680348383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportedCompressionTypes:ChannelSpecification' :: Maybe [CompressionType]
+</span><a href="#local-6989586621680348393"><span class="hs-identifier hs-var hs-var">supportedCompressionTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CompressionType]
+</span><a href="#local-6989586621680348393"><span class="hs-identifier hs-var">supportedCompressionTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680348392"><span class="annot"><span class="annottext">s :: ChannelSpecification
+</span><a href="#local-6989586621680348392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification%27"><span class="hs-identifier hs-type">ChannelSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680348391"><span class="annot"><span class="annottext">Maybe [CompressionType]
+</span><a href="#local-6989586621680348391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelSpecification
+</span><a href="#local-6989586621680348392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportedCompressionTypes:ChannelSpecification' :: Maybe [CompressionType]
 </span><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#%24sel%3AsupportedCompressionTypes%3AChannelSpecification%27"><span class="hs-identifier hs-var">supportedCompressionTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CompressionType]
-</span><a href="#local-6989586621680348382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification"><span class="hs-identifier hs-type">ChannelSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CompressionType] -&gt; f (Maybe [CompressionType]))
+</span><a href="#local-6989586621680348391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification"><span class="hs-identifier hs-type">ChannelSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CompressionType] -&gt; f (Maybe [CompressionType]))
  -&gt; ChannelSpecification -&gt; f ChannelSpecification)
 -&gt; ((Maybe [CompressionType] -&gt; f (Maybe [CompressionType]))
     -&gt; Maybe [CompressionType] -&gt; f (Maybe [CompressionType]))
@@ -258,16 +258,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      ChannelSpecification ChannelSpecification (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification%27"><span class="hs-identifier hs-type">ChannelSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680348378"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification%27"><span class="hs-identifier hs-type">ChannelSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680348387"><span class="annot"><span class="annottext">Maybe Bool
 isRequired :: Maybe Bool
 $sel:isRequired:ChannelSpecification' :: ChannelSpecification -&gt; Maybe Bool
-</span><a href="#local-6989586621680348378"><span class="hs-identifier hs-var hs-var">isRequired</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621680348378"><span class="hs-identifier hs-var">isRequired</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680348377"><span class="annot"><span class="annottext">s :: ChannelSpecification
-</span><a href="#local-6989586621680348377"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification%27"><span class="hs-identifier hs-type">ChannelSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680348376"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621680348376"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelSpecification
-</span><a href="#local-6989586621680348377"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isRequired:ChannelSpecification' :: Maybe Bool
+</span><a href="#local-6989586621680348387"><span class="hs-identifier hs-var hs-var">isRequired</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680348387"><span class="hs-identifier hs-var">isRequired</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680348386"><span class="annot"><span class="annottext">s :: ChannelSpecification
+</span><a href="#local-6989586621680348386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification%27"><span class="hs-identifier hs-type">ChannelSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680348385"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680348385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelSpecification
+</span><a href="#local-6989586621680348386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isRequired:ChannelSpecification' :: Maybe Bool
 </span><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#%24sel%3AisRequired%3AChannelSpecification%27"><span class="hs-identifier hs-var">isRequired</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621680348376"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification"><span class="hs-identifier hs-type">ChannelSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680348385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification"><span class="hs-identifier hs-type">ChannelSpecification</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | A brief description of the channel.</span><span>
 </span><span id="line-110"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#channelSpecification_description"><span class="hs-identifier hs-type">channelSpecification_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification"><span class="hs-identifier hs-type">ChannelSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -278,16 +278,16 @@ $sel:isRequired:ChannelSpecification' :: ChannelSpecification -&gt; Maybe Bool
 -&gt; Lens
      ChannelSpecification ChannelSpecification (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification%27"><span class="hs-identifier hs-type">ChannelSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680348374"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification%27"><span class="hs-identifier hs-type">ChannelSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680348383"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:ChannelSpecification' :: ChannelSpecification -&gt; Maybe Text
-</span><a href="#local-6989586621680348374"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680348374"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680348373"><span class="annot"><span class="annottext">s :: ChannelSpecification
-</span><a href="#local-6989586621680348373"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification%27"><span class="hs-identifier hs-type">ChannelSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680348372"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680348372"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelSpecification
-</span><a href="#local-6989586621680348373"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ChannelSpecification' :: Maybe Text
+</span><a href="#local-6989586621680348383"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680348383"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680348382"><span class="annot"><span class="annottext">s :: ChannelSpecification
+</span><a href="#local-6989586621680348382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification%27"><span class="hs-identifier hs-type">ChannelSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680348381"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680348381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelSpecification
+</span><a href="#local-6989586621680348382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ChannelSpecification' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#%24sel%3Adescription%3AChannelSpecification%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680348372"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification"><span class="hs-identifier hs-type">ChannelSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680348381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification"><span class="hs-identifier hs-type">ChannelSpecification</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | The name of the channel.</span><span>
 </span><span id="line-114"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#channelSpecification_name"><span class="hs-identifier hs-type">channelSpecification_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification"><span class="hs-identifier hs-type">ChannelSpecification</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -296,16 +296,16 @@ $sel:description:ChannelSpecification' :: ChannelSpecification -&gt; Maybe Text
 -&gt; (ChannelSpecification -&gt; Text -&gt; ChannelSpecification)
 -&gt; Lens ChannelSpecification ChannelSpecification Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification%27"><span class="hs-identifier hs-type">ChannelSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680348370"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification%27"><span class="hs-identifier hs-type">ChannelSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680348379"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:ChannelSpecification' :: ChannelSpecification -&gt; Text
-</span><a href="#local-6989586621680348370"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680348370"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680348369"><span class="annot"><span class="annottext">s :: ChannelSpecification
-</span><a href="#local-6989586621680348369"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification%27"><span class="hs-identifier hs-type">ChannelSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680348368"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680348368"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelSpecification
-</span><a href="#local-6989586621680348369"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ChannelSpecification' :: Text
+</span><a href="#local-6989586621680348379"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680348379"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680348378"><span class="annot"><span class="annottext">s :: ChannelSpecification
+</span><a href="#local-6989586621680348378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification%27"><span class="hs-identifier hs-type">ChannelSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680348377"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680348377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelSpecification
+</span><a href="#local-6989586621680348378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ChannelSpecification' :: Text
 </span><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#%24sel%3Aname%3AChannelSpecification%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680348368"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification"><span class="hs-identifier hs-type">ChannelSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680348377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification"><span class="hs-identifier hs-type">ChannelSpecification</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | The supported MIME types for the data.</span><span>
 </span><span id="line-118"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#channelSpecification_supportedContentTypes"><span class="hs-identifier hs-type">channelSpecification_supportedContentTypes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification"><span class="hs-identifier hs-type">ChannelSpecification</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
@@ -315,16 +315,16 @@ $sel:name:ChannelSpecification' :: ChannelSpecification -&gt; Text
 -&gt; (ChannelSpecification -&gt; [Text] -&gt; ChannelSpecification)
 -&gt; Lens ChannelSpecification ChannelSpecification [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification%27"><span class="hs-identifier hs-type">ChannelSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680348366"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification%27"><span class="hs-identifier hs-type">ChannelSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680348375"><span class="annot"><span class="annottext">[Text]
 supportedContentTypes :: [Text]
 $sel:supportedContentTypes:ChannelSpecification' :: ChannelSpecification -&gt; [Text]
-</span><a href="#local-6989586621680348366"><span class="hs-identifier hs-var hs-var">supportedContentTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621680348366"><span class="hs-identifier hs-var">supportedContentTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680348365"><span class="annot"><span class="annottext">s :: ChannelSpecification
-</span><a href="#local-6989586621680348365"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification%27"><span class="hs-identifier hs-type">ChannelSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680348364"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621680348364"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelSpecification
-</span><a href="#local-6989586621680348365"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportedContentTypes:ChannelSpecification' :: [Text]
+</span><a href="#local-6989586621680348375"><span class="hs-identifier hs-var hs-var">supportedContentTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621680348375"><span class="hs-identifier hs-var">supportedContentTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680348374"><span class="annot"><span class="annottext">s :: ChannelSpecification
+</span><a href="#local-6989586621680348374"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification%27"><span class="hs-identifier hs-type">ChannelSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680348373"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621680348373"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelSpecification
+</span><a href="#local-6989586621680348374"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportedContentTypes:ChannelSpecification' :: [Text]
 </span><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#%24sel%3AsupportedContentTypes%3AChannelSpecification%27"><span class="hs-identifier hs-var">supportedContentTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621680348364"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification"><span class="hs-identifier hs-type">ChannelSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621680348373"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification"><span class="hs-identifier hs-type">ChannelSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; ChannelSpecification -&gt; f ChannelSpecification)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
@@ -356,16 +356,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (NonEmpty TrainingInputMode)
      (NonEmpty TrainingInputMode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification%27"><span class="hs-identifier hs-type">ChannelSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680348362"><span class="annot"><span class="annottext">NonEmpty TrainingInputMode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification%27"><span class="hs-identifier hs-type">ChannelSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680348371"><span class="annot"><span class="annottext">NonEmpty TrainingInputMode
 supportedInputModes :: NonEmpty TrainingInputMode
 $sel:supportedInputModes:ChannelSpecification' :: ChannelSpecification -&gt; NonEmpty TrainingInputMode
-</span><a href="#local-6989586621680348362"><span class="hs-identifier hs-var hs-var">supportedInputModes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty TrainingInputMode
-</span><a href="#local-6989586621680348362"><span class="hs-identifier hs-var">supportedInputModes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680348361"><span class="annot"><span class="annottext">s :: ChannelSpecification
-</span><a href="#local-6989586621680348361"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification%27"><span class="hs-identifier hs-type">ChannelSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680348360"><span class="annot"><span class="annottext">NonEmpty TrainingInputMode
-</span><a href="#local-6989586621680348360"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelSpecification
-</span><a href="#local-6989586621680348361"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportedInputModes:ChannelSpecification' :: NonEmpty TrainingInputMode
+</span><a href="#local-6989586621680348371"><span class="hs-identifier hs-var hs-var">supportedInputModes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty TrainingInputMode
+</span><a href="#local-6989586621680348371"><span class="hs-identifier hs-var">supportedInputModes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680348370"><span class="annot"><span class="annottext">s :: ChannelSpecification
+</span><a href="#local-6989586621680348370"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification%27"><span class="hs-identifier hs-type">ChannelSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680348369"><span class="annot"><span class="annottext">NonEmpty TrainingInputMode
+</span><a href="#local-6989586621680348369"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelSpecification
+</span><a href="#local-6989586621680348370"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportedInputModes:ChannelSpecification' :: NonEmpty TrainingInputMode
 </span><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#%24sel%3AsupportedInputModes%3AChannelSpecification%27"><span class="hs-identifier hs-var">supportedInputModes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty TrainingInputMode
-</span><a href="#local-6989586621680348360"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification"><span class="hs-identifier hs-type">ChannelSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty TrainingInputMode -&gt; f (NonEmpty TrainingInputMode))
+</span><a href="#local-6989586621680348369"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification"><span class="hs-identifier hs-type">ChannelSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty TrainingInputMode -&gt; f (NonEmpty TrainingInputMode))
  -&gt; ChannelSpecification -&gt; f ChannelSpecification)
 -&gt; ((NonEmpty TrainingInputMode -&gt; f (NonEmpty TrainingInputMode))
     -&gt; NonEmpty TrainingInputMode -&gt; f (NonEmpty TrainingInputMode))
@@ -378,8 +378,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680348357"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification"><span class="hs-identifier hs-type">ChannelSpecification</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621680348355"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ChannelSpecification
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680348366"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification"><span class="hs-identifier hs-type">ChannelSpecification</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621680348364"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ChannelSpecification
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ChannelSpecification)
@@ -389,8 +389,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ChannelSpecification&quot;</span></span><span>
-</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680348352"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680348352"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680348361"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680348361"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-138"></span><span>          </span><span class="annot"><span class="annottext">Maybe [CompressionType]
 -&gt; Maybe Bool
 -&gt; Maybe Text
@@ -416,7 +416,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; ChannelSpecification)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680348352"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [CompressionType]))
+</span><a href="#local-6989586621680348361"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [CompressionType]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SupportedCompressionTypes&quot;</span></span><span>
@@ -443,7 +443,7 @@ forall a. Monoid a =&gt; a
       -&gt; ChannelSpecification)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680348352"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621680348361"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IsRequired&quot;</span></span><span class="hs-special">)</span><span>
@@ -459,7 +459,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; [Text] -&gt; NonEmpty TrainingInputMode -&gt; ChannelSpecification)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680348352"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680348361"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
@@ -471,7 +471,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      ([Text] -&gt; NonEmpty TrainingInputMode -&gt; ChannelSpecification)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680348352"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680348361"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
@@ -481,7 +481,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (NonEmpty TrainingInputMode -&gt; ChannelSpecification)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680348352"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Text])
+</span><a href="#local-6989586621680348361"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Text])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SupportedContentTypes&quot;</span></span><span>
@@ -496,19 +496,19 @@ forall a. Monoid a =&gt; a
 -&gt; Parser ChannelSpecification
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680348352"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty TrainingInputMode)
+</span><a href="#local-6989586621680348361"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty TrainingInputMode)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SupportedInputModes&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680348344"><span id="local-6989586621680348346"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification"><span class="hs-identifier hs-type">ChannelSpecification</span></a></span></span></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680348353"><span id="local-6989586621680348355"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification"><span class="hs-identifier hs-type">ChannelSpecification</span></a></span></span></span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680348341"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification"><span class="hs-identifier hs-type">ChannelSpecification</span></a></span></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680348350"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification"><span class="hs-identifier hs-type">ChannelSpecification</span></a></span></span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680348333"><span id="local-6989586621680348335"><span id="local-6989586621680348337"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification"><span class="hs-identifier hs-type">ChannelSpecification</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621680348331"><span class="annot"><span class="annottext">toJSON :: ChannelSpecification -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification%27"><span class="hs-identifier hs-type">ChannelSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680348324"><span id="local-6989586621680348325"><span id="local-6989586621680348326"><span id="local-6989586621680348327"><span id="local-6989586621680348328"><span id="local-6989586621680348329"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680348342"><span id="local-6989586621680348344"><span id="local-6989586621680348346"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification"><span class="hs-identifier hs-type">ChannelSpecification</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621680348340"><span class="annot"><span class="annottext">toJSON :: ChannelSpecification -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ChannelSpecification.html#ChannelSpecification%27"><span class="hs-identifier hs-type">ChannelSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680348333"><span id="local-6989586621680348334"><span id="local-6989586621680348335"><span id="local-6989586621680348336"><span id="local-6989586621680348337"><span id="local-6989586621680348338"><span class="annot"><span class="annottext">[Text]
 Maybe Bool
 Maybe [CompressionType]
 Maybe Text
@@ -526,7 +526,7 @@ $sel:name:ChannelSpecification' :: ChannelSpecification -&gt; Text
 $sel:description:ChannelSpecification' :: ChannelSpecification -&gt; Maybe Text
 $sel:isRequired:ChannelSpecification' :: ChannelSpecification -&gt; Maybe Bool
 $sel:supportedCompressionTypes:ChannelSpecification' :: ChannelSpecification -&gt; Maybe [CompressionType]
-</span><a href="#local-6989586621680348324"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680348333"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -540,28 +540,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [CompressionType] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CompressionType]
-</span><a href="#local-6989586621680348329"><span class="hs-identifier hs-var">supportedCompressionTypes</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680348338"><span class="hs-identifier hs-var">supportedCompressionTypes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IsRequired&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621680348328"><span class="hs-identifier hs-var">isRequired</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680348337"><span class="hs-identifier hs-var">isRequired</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-162"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680348327"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680348336"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680348326"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680348335"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -570,7 +570,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-166"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621680348325"><span class="hs-identifier hs-var">supportedContentTypes</span></a></span><span>
+</span><a href="#local-6989586621680348334"><span class="hs-identifier hs-var">supportedContentTypes</span></a></span><span>
 </span><span id="line-167"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -579,7 +579,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;SupportedInputModes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty TrainingInputMode -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty TrainingInputMode
-</span><a href="#local-6989586621680348324"><span class="hs-identifier hs-var">supportedInputModes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680348333"><span class="hs-identifier hs-var">supportedInputModes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-171"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span></pre></body></html>

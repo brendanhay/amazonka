@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span class="hs-comment">-- attach.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newAddTags' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679393921"><span id="local-6989586621679393922"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddTags"><span class="annot"><a href="Network.AWS.EMR.AddTags.html#AddTags"><span class="hs-identifier hs-var">AddTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddTags%27"><span class="annot"><a href="Network.AWS.EMR.AddTags.html#AddTags%27"><span class="hs-identifier hs-var">AddTags'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679393930"><span id="local-6989586621679393931"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddTags"><span class="annot"><a href="Network.AWS.EMR.AddTags.html#AddTags"><span class="hs-identifier hs-var">AddTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddTags%27"><span class="annot"><a href="Network.AWS.EMR.AddTags.html#AddTags%27"><span class="hs-identifier hs-var">AddTags'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon EMR resource identifier to which tags will be added. For</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- example, a cluster identifier or an Amazon EMR Studio ID.</span><span>
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AresourceId%3AAddTags%27"><span class="annot"><span class="annottext">AddTags -&gt; Text
@@ -66,7 +66,7 @@
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3Atags%3AAddTags%27"><span class="annot"><span class="annottext">AddTags -&gt; [Tag]
 </span><a href="Network.AWS.EMR.AddTags.html#%24sel%3Atags%3AAddTags%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EMR.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679393914"><span id="local-6989586621679393916"><span class="annot"><span class="annottext">AddTags -&gt; AddTags -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679393923"><span id="local-6989586621679393925"><span class="annot"><span class="annottext">AddTags -&gt; AddTags -&gt; Bool
 (AddTags -&gt; AddTags -&gt; Bool)
 -&gt; (AddTags -&gt; AddTags -&gt; Bool) -&gt; Eq AddTags
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AddTags -&gt; AddTags -&gt; Bool
 == :: AddTags -&gt; AddTags -&gt; Bool
 $c== :: AddTags -&gt; AddTags -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393905"><span id="local-6989586621679393907"><span id="local-6989586621679393909"><span id="local-6989586621679393911"><span class="annot"><span class="annottext">ReadPrec [AddTags]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393914"><span id="local-6989586621679393916"><span id="local-6989586621679393918"><span id="local-6989586621679393920"><span class="annot"><span class="annottext">ReadPrec [AddTags]
 ReadPrec AddTags
 Int -&gt; ReadS AddTags
 ReadS [AddTags]
@@ -94,7 +94,7 @@ readList :: ReadS [AddTags]
 $creadList :: ReadS [AddTags]
 readsPrec :: Int -&gt; ReadS AddTags
 $creadsPrec :: Int -&gt; ReadS AddTags
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393898"><span id="local-6989586621679393900"><span id="local-6989586621679393902"><span class="annot"><span class="annottext">Int -&gt; AddTags -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393907"><span id="local-6989586621679393909"><span id="local-6989586621679393911"><span class="annot"><span class="annottext">Int -&gt; AddTags -&gt; ShowS
 [AddTags] -&gt; ShowS
 AddTags -&gt; String
 (Int -&gt; AddTags -&gt; ShowS)
@@ -137,13 +137,13 @@ $cfrom :: forall x. AddTags -&gt; Rep AddTags x
 </span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span><span>
 </span><span id="line-88"></span><span id="newAddTags"><span class="annot"><span class="annottext">newAddTags :: Text -&gt; AddTags
-</span><a href="Network.AWS.EMR.AddTags.html#newAddTags"><span class="hs-identifier hs-var hs-var">newAddTags</span></a></span></span><span> </span><span id="local-6989586621679393893"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393893"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EMR.AddTags.html#newAddTags"><span class="hs-identifier hs-var hs-var">newAddTags</span></a></span></span><span> </span><span id="local-6989586621679393902"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679393902"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">AddTags' :: Text -&gt; [Tag] -&gt; AddTags
 </span><a href="Network.AWS.EMR.AddTags.html#AddTags%27"><span class="hs-identifier hs-type">AddTags'</span></a></span><span>
 </span><span id="line-90"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceId:AddTags' :: Text
 </span><a href="Network.AWS.EMR.AddTags.html#%24sel%3AresourceId%3AAddTags%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393893"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679393902"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:AddTags' :: [Tag]
 </span><a href="Network.AWS.EMR.AddTags.html#%24sel%3Atags%3AAddTags%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Tag]
 forall a. Monoid a =&gt; a
@@ -157,16 +157,16 @@ forall a. Monoid a =&gt; a
 </span><a href="Network.AWS.EMR.AddTags.html#addTags_resourceId"><span class="hs-identifier hs-var hs-var">addTags_resourceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddTags -&gt; Text)
 -&gt; (AddTags -&gt; Text -&gt; AddTags) -&gt; Lens AddTags AddTags Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.AddTags.html#AddTags%27"><span class="hs-identifier hs-type">AddTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393890"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.AddTags.html#AddTags%27"><span class="hs-identifier hs-type">AddTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393899"><span class="annot"><span class="annottext">Text
 resourceId :: Text
 $sel:resourceId:AddTags' :: AddTags -&gt; Text
-</span><a href="#local-6989586621679393890"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393890"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393889"><span class="annot"><span class="annottext">s :: AddTags
-</span><a href="#local-6989586621679393889"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.AddTags.html#AddTags%27"><span class="hs-identifier hs-type">AddTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393888"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393888"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTags
-</span><a href="#local-6989586621679393889"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:AddTags' :: Text
+</span><a href="#local-6989586621679393899"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679393899"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393898"><span class="annot"><span class="annottext">s :: AddTags
+</span><a href="#local-6989586621679393898"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.AddTags.html#AddTags%27"><span class="hs-identifier hs-type">AddTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393897"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679393897"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTags
+</span><a href="#local-6989586621679393898"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:AddTags' :: Text
 </span><a href="Network.AWS.EMR.AddTags.html#%24sel%3AresourceId%3AAddTags%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393888"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679393897"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | A list of tags to associate with a resource. Tags are user-defined</span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- key-value pairs that consist of a required key string with a maximum of</span><span>
@@ -178,16 +178,16 @@ $sel:resourceId:AddTags' :: AddTags -&gt; Text
 -&gt; (AddTags -&gt; [Tag] -&gt; AddTags)
 -&gt; Lens AddTags AddTags [Tag] [Tag]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.AddTags.html#AddTags%27"><span class="hs-identifier hs-type">AddTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393887"><span class="annot"><span class="annottext">[Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.AddTags.html#AddTags%27"><span class="hs-identifier hs-type">AddTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393896"><span class="annot"><span class="annottext">[Tag]
 tags :: [Tag]
 $sel:tags:AddTags' :: AddTags -&gt; [Tag]
-</span><a href="#local-6989586621679393887"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679393887"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393886"><span class="annot"><span class="annottext">s :: AddTags
-</span><a href="#local-6989586621679393886"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.AddTags.html#AddTags%27"><span class="hs-identifier hs-type">AddTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393885"><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679393885"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTags
-</span><a href="#local-6989586621679393886"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:AddTags' :: [Tag]
+</span><a href="#local-6989586621679393896"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679393896"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393895"><span class="annot"><span class="annottext">s :: AddTags
+</span><a href="#local-6989586621679393895"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.AddTags.html#AddTags%27"><span class="hs-identifier hs-type">AddTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393894"><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679393894"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTags
+</span><a href="#local-6989586621679393895"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:AddTags' :: [Tag]
 </span><a href="Network.AWS.EMR.AddTags.html#%24sel%3Atags%3AAddTags%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679393885"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Tag] -&gt; f [Tag]) -&gt; AddTags -&gt; f AddTags)
+</span><a href="#local-6989586621679393894"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Tag] -&gt; f [Tag]) -&gt; AddTags -&gt; f AddTags)
 -&gt; (([Tag] -&gt; f [Tag]) -&gt; [Tag] -&gt; f [Tag])
 -&gt; ([Tag] -&gt; f [Tag])
 -&gt; AddTags
@@ -199,12 +199,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-107"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EMR.AddTags.html#AddTagsResponse"><span class="hs-identifier hs-type">AddTagsResponse</span></a></span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679393879"><span class="annot"><span class="annottext">request :: AddTags -&gt; Request AddTags
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679393888"><span class="annot"><span class="annottext">request :: AddTags -&gt; Request AddTags
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AddTags -&gt; Request AddTags
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EMR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679393875"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679393884"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AddTags
 -&gt; ClientResponse ClientBody
@@ -226,10 +226,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679393872"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393872"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679393871"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679393871"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679393870"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679393870"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679393881"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393881"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679393880"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679393880"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679393879"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679393879"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; AddTagsResponse
 </span><a href="Network.AWS.EMR.AddTags.html#AddTagsResponse%27"><span class="hs-identifier hs-var">AddTagsResponse'</span></a></span><span>
 </span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; AddTagsResponse)
@@ -240,15 +240,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393872"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679393881"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393863"><span id="local-6989586621679393865"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393872"><span id="local-6989586621679393874"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span></span></span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393860"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393869"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span></span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679393856"><span class="annot"><span class="annottext">toHeaders :: AddTags -&gt; ResponseHeaders
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679393865"><span class="annot"><span class="annottext">toHeaders :: AddTags -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AddTags -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -273,15 +273,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-130"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393846"><span id="local-6989586621679393848"><span id="local-6989586621679393850"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679393844"><span class="annot"><span class="annottext">toJSON :: AddTags -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.AddTags.html#AddTags%27"><span class="hs-identifier hs-type">AddTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393841"><span id="local-6989586621679393842"><span class="annot"><span class="annottext">[Tag]
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393855"><span id="local-6989586621679393857"><span id="local-6989586621679393859"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679393853"><span class="annot"><span class="annottext">toJSON :: AddTags -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.AddTags.html#AddTags%27"><span class="hs-identifier hs-type">AddTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393850"><span id="local-6989586621679393851"><span class="annot"><span class="annottext">[Tag]
 Text
 tags :: [Tag]
 resourceId :: Text
 $sel:tags:AddTags' :: AddTags -&gt; [Tag]
 $sel:resourceId:AddTags' :: AddTags -&gt; Text
-</span><a href="#local-6989586621679393841"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679393850"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -293,26 +293,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ResourceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393842"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679393851"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679393841"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679393850"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679393835"><span class="annot"><span class="annottext">toPath :: AddTags -&gt; ByteString
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679393844"><span class="annot"><span class="annottext">toPath :: AddTags -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AddTags -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.AddTags.html#AddTags"><span class="hs-identifier hs-type">AddTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679393831"><span class="annot"><span class="annottext">toQuery :: AddTags -&gt; QueryString
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679393840"><span class="annot"><span class="annottext">toQuery :: AddTags -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AddTags -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -322,12 +322,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-148"></span><span class="hs-comment">-- | This output indicates the result of adding tags to a resource.</span><span>
 </span><span id="line-149"></span><span class="hs-comment">--</span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- /See:/ 'newAddTagsResponse' smart constructor.</span><span>
-</span><span id="line-151"></span><span id="local-6989586621679393828"><span id="local-6989586621679393829"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddTagsResponse"><span class="annot"><a href="Network.AWS.EMR.AddTags.html#AddTagsResponse"><span class="hs-identifier hs-var">AddTagsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddTagsResponse%27"><span class="annot"><a href="Network.AWS.EMR.AddTags.html#AddTagsResponse%27"><span class="hs-identifier hs-var">AddTagsResponse'</span></a></span></span><span>
+</span><span id="line-151"></span><span id="local-6989586621679393837"><span id="local-6989586621679393838"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddTagsResponse"><span class="annot"><a href="Network.AWS.EMR.AddTags.html#AddTagsResponse"><span class="hs-identifier hs-var">AddTagsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddTagsResponse%27"><span class="annot"><a href="Network.AWS.EMR.AddTags.html#AddTagsResponse%27"><span class="hs-identifier hs-var">AddTagsResponse'</span></a></span></span><span>
 </span><span id="line-152"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-153"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAddTagsResponse%27"><span class="annot"><span class="annottext">AddTagsResponse -&gt; Int
 </span><a href="Network.AWS.EMR.AddTags.html#%24sel%3AhttpStatus%3AAddTagsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-154"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679393823"><span id="local-6989586621679393825"><span class="annot"><span class="annottext">AddTagsResponse -&gt; AddTagsResponse -&gt; Bool
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679393832"><span id="local-6989586621679393834"><span class="annot"><span class="annottext">AddTagsResponse -&gt; AddTagsResponse -&gt; Bool
 (AddTagsResponse -&gt; AddTagsResponse -&gt; Bool)
 -&gt; (AddTagsResponse -&gt; AddTagsResponse -&gt; Bool)
 -&gt; Eq AddTagsResponse
@@ -336,7 +336,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AddTagsResponse -&gt; AddTagsResponse -&gt; Bool
 == :: AddTagsResponse -&gt; AddTagsResponse -&gt; Bool
 $c== :: AddTagsResponse -&gt; AddTagsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393815"><span id="local-6989586621679393817"><span id="local-6989586621679393819"><span id="local-6989586621679393821"><span class="annot"><span class="annottext">ReadPrec [AddTagsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393824"><span id="local-6989586621679393826"><span id="local-6989586621679393828"><span id="local-6989586621679393830"><span class="annot"><span class="annottext">ReadPrec [AddTagsResponse]
 ReadPrec AddTagsResponse
 Int -&gt; ReadS AddTagsResponse
 ReadS [AddTagsResponse]
@@ -356,7 +356,7 @@ readList :: ReadS [AddTagsResponse]
 $creadList :: ReadS [AddTagsResponse]
 readsPrec :: Int -&gt; ReadS AddTagsResponse
 $creadsPrec :: Int -&gt; ReadS AddTagsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393809"><span id="local-6989586621679393811"><span id="local-6989586621679393813"><span class="annot"><span class="annottext">Int -&gt; AddTagsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393818"><span id="local-6989586621679393820"><span id="local-6989586621679393822"><span class="annot"><span class="annottext">Int -&gt; AddTagsResponse -&gt; ShowS
 [AddTagsResponse] -&gt; ShowS
 AddTagsResponse -&gt; String
 (Int -&gt; AddTagsResponse -&gt; ShowS)
@@ -396,12 +396,12 @@ $cfrom :: forall x. AddTagsResponse -&gt; Rep AddTagsResponse x
 </span><span id="line-168"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-169"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.AddTags.html#AddTagsResponse"><span class="hs-identifier hs-type">AddTagsResponse</span></a></span><span>
 </span><span id="line-170"></span><span id="newAddTagsResponse"><span class="annot"><span class="annottext">newAddTagsResponse :: Int -&gt; AddTagsResponse
-</span><a href="Network.AWS.EMR.AddTags.html#newAddTagsResponse"><span class="hs-identifier hs-var hs-var">newAddTagsResponse</span></a></span></span><span> </span><span id="local-6989586621679393806"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393806"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EMR.AddTags.html#newAddTagsResponse"><span class="hs-identifier hs-var hs-var">newAddTagsResponse</span></a></span></span><span> </span><span id="local-6989586621679393815"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393815"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-171"></span><span>  </span><span class="annot"><span class="annottext">AddTagsResponse' :: Int -&gt; AddTagsResponse
 </span><a href="Network.AWS.EMR.AddTags.html#AddTagsResponse%27"><span class="hs-identifier hs-type">AddTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AddTagsResponse' :: Int
 </span><a href="Network.AWS.EMR.AddTags.html#%24sel%3AhttpStatus%3AAddTagsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393806"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679393815"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-174"></span><span class="annot"><a href="Network.AWS.EMR.AddTags.html#addTagsResponse_httpStatus"><span class="hs-identifier hs-type">addTagsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.AddTags.html#AddTagsResponse"><span class="hs-identifier hs-type">AddTagsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -410,16 +410,16 @@ $cfrom :: forall x. AddTagsResponse -&gt; Rep AddTagsResponse x
 -&gt; (AddTagsResponse -&gt; Int -&gt; AddTagsResponse)
 -&gt; Lens AddTagsResponse AddTagsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.AddTags.html#AddTagsResponse%27"><span class="hs-identifier hs-type">AddTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393805"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.AddTags.html#AddTagsResponse%27"><span class="hs-identifier hs-type">AddTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393814"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:AddTagsResponse' :: AddTagsResponse -&gt; Int
-</span><a href="#local-6989586621679393805"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393805"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393804"><span class="annot"><span class="annottext">s :: AddTagsResponse
-</span><a href="#local-6989586621679393804"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.AddTags.html#AddTagsResponse%27"><span class="hs-identifier hs-type">AddTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393803"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393803"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTagsResponse
-</span><a href="#local-6989586621679393804"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AddTagsResponse' :: Int
+</span><a href="#local-6989586621679393814"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393814"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393813"><span class="annot"><span class="annottext">s :: AddTagsResponse
+</span><a href="#local-6989586621679393813"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.AddTags.html#AddTagsResponse%27"><span class="hs-identifier hs-type">AddTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393812"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393812"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTagsResponse
+</span><a href="#local-6989586621679393813"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AddTagsResponse' :: Int
 </span><a href="Network.AWS.EMR.AddTags.html#%24sel%3AhttpStatus%3AAddTagsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393803"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.AddTags.html#AddTagsResponse"><span class="hs-identifier hs-type">AddTagsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679393812"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.AddTags.html#AddTagsResponse"><span class="hs-identifier hs-type">AddTagsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
-</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393801"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.AddTags.html#AddTagsResponse"><span class="hs-identifier hs-type">AddTagsResponse</span></a></span></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393810"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.AddTags.html#AddTagsResponse"><span class="hs-identifier hs-type">AddTagsResponse</span></a></span></span><span>
 </span><span id="line-178"></span></pre></body></html>

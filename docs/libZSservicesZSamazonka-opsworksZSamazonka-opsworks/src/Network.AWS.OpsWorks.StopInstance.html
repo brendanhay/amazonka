@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newStopInstance' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679382391"><span id="local-6989586621679382392"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopInstance"><span class="annot"><a href="Network.AWS.OpsWorks.StopInstance.html#StopInstance"><span class="hs-identifier hs-var">StopInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopInstance%27"><span class="annot"><a href="Network.AWS.OpsWorks.StopInstance.html#StopInstance%27"><span class="hs-identifier hs-var">StopInstance'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679382400"><span id="local-6989586621679382401"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopInstance"><span class="annot"><a href="Network.AWS.OpsWorks.StopInstance.html#StopInstance"><span class="hs-identifier hs-var">StopInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopInstance%27"><span class="annot"><a href="Network.AWS.OpsWorks.StopInstance.html#StopInstance%27"><span class="hs-identifier hs-var">StopInstance'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies whether to force an instance to stop. If the instance\'s root</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- device type is @ebs@, or EBS-backed, adding the @Force@ parameter to the</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- @StopInstances@ API call disassociates the AWS OpsWorks Stacks instance</span><span>
@@ -68,7 +68,7 @@
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3AinstanceId%3AStopInstance%27"><span class="annot"><span class="annottext">StopInstance -&gt; Text
 </span><a href="Network.AWS.OpsWorks.StopInstance.html#%24sel%3AinstanceId%3AStopInstance%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679382384"><span id="local-6989586621679382386"><span class="annot"><span class="annottext">StopInstance -&gt; StopInstance -&gt; Bool
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679382393"><span id="local-6989586621679382395"><span class="annot"><span class="annottext">StopInstance -&gt; StopInstance -&gt; Bool
 (StopInstance -&gt; StopInstance -&gt; Bool)
 -&gt; (StopInstance -&gt; StopInstance -&gt; Bool) -&gt; Eq StopInstance
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -76,7 +76,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StopInstance -&gt; StopInstance -&gt; Bool
 == :: StopInstance -&gt; StopInstance -&gt; Bool
 $c== :: StopInstance -&gt; StopInstance -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382375"><span id="local-6989586621679382377"><span id="local-6989586621679382379"><span id="local-6989586621679382381"><span class="annot"><span class="annottext">ReadPrec [StopInstance]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382384"><span id="local-6989586621679382386"><span id="local-6989586621679382388"><span id="local-6989586621679382390"><span class="annot"><span class="annottext">ReadPrec [StopInstance]
 ReadPrec StopInstance
 Int -&gt; ReadS StopInstance
 ReadS [StopInstance]
@@ -96,7 +96,7 @@ readList :: ReadS [StopInstance]
 $creadList :: ReadS [StopInstance]
 readsPrec :: Int -&gt; ReadS StopInstance
 $creadsPrec :: Int -&gt; ReadS StopInstance
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382368"><span id="local-6989586621679382370"><span id="local-6989586621679382372"><span class="annot"><span class="annottext">Int -&gt; StopInstance -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382377"><span id="local-6989586621679382379"><span id="local-6989586621679382381"><span class="annot"><span class="annottext">Int -&gt; StopInstance -&gt; ShowS
 [StopInstance] -&gt; ShowS
 StopInstance -&gt; String
 (Int -&gt; StopInstance -&gt; ShowS)
@@ -144,8 +144,8 @@ $cfrom :: forall x. StopInstance -&gt; Rep StopInstance x
 </span><span id="line-90"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorks.StopInstance.html#StopInstance"><span class="hs-identifier hs-type">StopInstance</span></a></span><span>
 </span><span id="line-92"></span><span id="newStopInstance"><span class="annot"><span class="annottext">newStopInstance :: Text -&gt; StopInstance
-</span><a href="Network.AWS.OpsWorks.StopInstance.html#newStopInstance"><span class="hs-identifier hs-var hs-var">newStopInstance</span></a></span></span><span> </span><span id="local-6989586621679382363"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679382363"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.OpsWorks.StopInstance.html#newStopInstance"><span class="hs-identifier hs-var hs-var">newStopInstance</span></a></span></span><span> </span><span id="local-6989586621679382372"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679382372"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>  </span><span class="annot"><span class="annottext">StopInstance' :: Maybe Bool -&gt; Text -&gt; StopInstance
 </span><a href="Network.AWS.OpsWorks.StopInstance.html#StopInstance%27"><span class="hs-identifier hs-type">StopInstance'</span></a></span><span>
 </span><span id="line-94"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:force:StopInstance' :: Maybe Bool
@@ -154,7 +154,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceId:StopInstance' :: Text
 </span><a href="Network.AWS.OpsWorks.StopInstance.html#%24sel%3AinstanceId%3AStopInstance%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679382363"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span>
+</span><a href="#local-6989586621679382372"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span>
 </span><span id="line-96"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | Specifies whether to force an instance to stop. If the instance\'s root</span><span>
@@ -170,16 +170,16 @@ forall a. Maybe a
 -&gt; (StopInstance -&gt; Maybe Bool -&gt; StopInstance)
 -&gt; Lens StopInstance StopInstance (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.StopInstance.html#StopInstance%27"><span class="hs-identifier hs-type">StopInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382360"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.StopInstance.html#StopInstance%27"><span class="hs-identifier hs-type">StopInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382369"><span class="annot"><span class="annottext">Maybe Bool
 force :: Maybe Bool
 $sel:force:StopInstance' :: StopInstance -&gt; Maybe Bool
-</span><a href="#local-6989586621679382360"><span class="hs-identifier hs-var hs-var">force</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679382360"><span class="hs-identifier hs-var">force</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382359"><span class="annot"><span class="annottext">s :: StopInstance
-</span><a href="#local-6989586621679382359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.StopInstance.html#StopInstance%27"><span class="hs-identifier hs-type">StopInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382358"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679382358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopInstance
-</span><a href="#local-6989586621679382359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:force:StopInstance' :: Maybe Bool
+</span><a href="#local-6989586621679382369"><span class="hs-identifier hs-var hs-var">force</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679382369"><span class="hs-identifier hs-var">force</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382368"><span class="annot"><span class="annottext">s :: StopInstance
+</span><a href="#local-6989586621679382368"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.StopInstance.html#StopInstance%27"><span class="hs-identifier hs-type">StopInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382367"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679382367"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopInstance
+</span><a href="#local-6989586621679382368"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:force:StopInstance' :: Maybe Bool
 </span><a href="Network.AWS.OpsWorks.StopInstance.html#%24sel%3Aforce%3AStopInstance%27"><span class="hs-identifier hs-var">force</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679382358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StopInstance.html#StopInstance"><span class="hs-identifier hs-type">StopInstance</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679382367"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StopInstance.html#StopInstance"><span class="hs-identifier hs-type">StopInstance</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | The instance ID.</span><span>
 </span><span id="line-109"></span><span class="annot"><a href="Network.AWS.OpsWorks.StopInstance.html#stopInstance_instanceId"><span class="hs-identifier hs-type">stopInstance_instanceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StopInstance.html#StopInstance"><span class="hs-identifier hs-type">StopInstance</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -188,25 +188,25 @@ $sel:force:StopInstance' :: StopInstance -&gt; Maybe Bool
 -&gt; (StopInstance -&gt; Text -&gt; StopInstance)
 -&gt; Lens StopInstance StopInstance Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.StopInstance.html#StopInstance%27"><span class="hs-identifier hs-type">StopInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382357"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.StopInstance.html#StopInstance%27"><span class="hs-identifier hs-type">StopInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382366"><span class="annot"><span class="annottext">Text
 instanceId :: Text
 $sel:instanceId:StopInstance' :: StopInstance -&gt; Text
-</span><a href="#local-6989586621679382357"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679382357"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382356"><span class="annot"><span class="annottext">s :: StopInstance
-</span><a href="#local-6989586621679382356"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.StopInstance.html#StopInstance%27"><span class="hs-identifier hs-type">StopInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382355"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679382355"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopInstance
-</span><a href="#local-6989586621679382356"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:StopInstance' :: Text
+</span><a href="#local-6989586621679382366"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679382366"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382365"><span class="annot"><span class="annottext">s :: StopInstance
+</span><a href="#local-6989586621679382365"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.StopInstance.html#StopInstance%27"><span class="hs-identifier hs-type">StopInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382364"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679382364"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopInstance
+</span><a href="#local-6989586621679382365"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:StopInstance' :: Text
 </span><a href="Network.AWS.OpsWorks.StopInstance.html#%24sel%3AinstanceId%3AStopInstance%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679382355"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StopInstance.html#StopInstance"><span class="hs-identifier hs-type">StopInstance</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679382364"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StopInstance.html#StopInstance"><span class="hs-identifier hs-type">StopInstance</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StopInstance.html#StopInstance"><span class="hs-identifier hs-type">StopInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-113"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StopInstance.html#StopInstance"><span class="hs-identifier hs-type">StopInstance</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StopInstance.html#StopInstanceResponse"><span class="hs-identifier hs-type">StopInstanceResponse</span></a></span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679382351"><span class="annot"><span class="annottext">request :: StopInstance -&gt; Request StopInstance
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679382360"><span class="annot"><span class="annottext">request :: StopInstance -&gt; Request StopInstance
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StopInstance -&gt; Request StopInstance
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.OpsWorks.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679382347"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679382356"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StopInstance
 -&gt; ClientResponse ClientBody
@@ -229,12 +229,12 @@ AWSResponse a
 StopInstanceResponse
 </span><a href="Network.AWS.OpsWorks.StopInstance.html#StopInstanceResponse%27"><span class="hs-identifier hs-var">StopInstanceResponse'</span></a></span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382340"><span id="local-6989586621679382342"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StopInstance.html#StopInstance"><span class="hs-identifier hs-type">StopInstance</span></a></span></span></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382349"><span id="local-6989586621679382351"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StopInstance.html#StopInstance"><span class="hs-identifier hs-type">StopInstance</span></a></span></span></span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382337"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StopInstance.html#StopInstance"><span class="hs-identifier hs-type">StopInstance</span></a></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382346"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StopInstance.html#StopInstance"><span class="hs-identifier hs-type">StopInstance</span></a></span></span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StopInstance.html#StopInstance"><span class="hs-identifier hs-type">StopInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679382333"><span class="annot"><span class="annottext">toHeaders :: StopInstance -&gt; [Header]
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679382342"><span class="annot"><span class="annottext">toHeaders :: StopInstance -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; StopInstance -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -261,15 +261,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-133"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382323"><span id="local-6989586621679382325"><span id="local-6989586621679382327"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StopInstance.html#StopInstance"><span class="hs-identifier hs-type">StopInstance</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679382321"><span class="annot"><span class="annottext">toJSON :: StopInstance -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StopInstance.html#StopInstance%27"><span class="hs-identifier hs-type">StopInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382318"><span id="local-6989586621679382319"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382332"><span id="local-6989586621679382334"><span id="local-6989586621679382336"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StopInstance.html#StopInstance"><span class="hs-identifier hs-type">StopInstance</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679382330"><span class="annot"><span class="annottext">toJSON :: StopInstance -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StopInstance.html#StopInstance%27"><span class="hs-identifier hs-type">StopInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382327"><span id="local-6989586621679382328"><span class="annot"><span class="annottext">Maybe Bool
 Text
 instanceId :: Text
 force :: Maybe Bool
 $sel:instanceId:StopInstance' :: StopInstance -&gt; Text
 $sel:force:StopInstance' :: StopInstance -&gt; Maybe Bool
-</span><a href="#local-6989586621679382318"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679382327"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -281,26 +281,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679382319"><span class="hs-identifier hs-var">force</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679382328"><span class="hs-identifier hs-var">force</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InstanceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679382318"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679382327"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StopInstance.html#StopInstance"><span class="hs-identifier hs-type">StopInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679382311"><span class="annot"><span class="annottext">toPath :: StopInstance -&gt; ByteString
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679382320"><span class="annot"><span class="annottext">toPath :: StopInstance -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StopInstance -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StopInstance.html#StopInstance"><span class="hs-identifier hs-type">StopInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679382307"><span class="annot"><span class="annottext">toQuery :: StopInstance -&gt; QueryString
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679382316"><span class="annot"><span class="annottext">toQuery :: StopInstance -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StopInstance -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -308,10 +308,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- | /See:/ 'newStopInstanceResponse' smart constructor.</span><span>
-</span><span id="line-152"></span><span id="local-6989586621679382304"><span id="local-6989586621679382305"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopInstanceResponse"><span class="annot"><a href="Network.AWS.OpsWorks.StopInstance.html#StopInstanceResponse"><span class="hs-identifier hs-var">StopInstanceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopInstanceResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.StopInstance.html#StopInstanceResponse%27"><span class="hs-identifier hs-var">StopInstanceResponse'</span></a></span></span><span>
+</span><span id="line-152"></span><span id="local-6989586621679382313"><span id="local-6989586621679382314"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopInstanceResponse"><span class="annot"><a href="Network.AWS.OpsWorks.StopInstance.html#StopInstanceResponse"><span class="hs-identifier hs-var">StopInstanceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopInstanceResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.StopInstance.html#StopInstanceResponse%27"><span class="hs-identifier hs-var">StopInstanceResponse'</span></a></span></span><span>
 </span><span id="line-153"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-154"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679382300"><span id="local-6989586621679382302"><span class="annot"><span class="annottext">StopInstanceResponse -&gt; StopInstanceResponse -&gt; Bool
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679382309"><span id="local-6989586621679382311"><span class="annot"><span class="annottext">StopInstanceResponse -&gt; StopInstanceResponse -&gt; Bool
 (StopInstanceResponse -&gt; StopInstanceResponse -&gt; Bool)
 -&gt; (StopInstanceResponse -&gt; StopInstanceResponse -&gt; Bool)
 -&gt; Eq StopInstanceResponse
@@ -320,7 +320,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StopInstanceResponse -&gt; StopInstanceResponse -&gt; Bool
 == :: StopInstanceResponse -&gt; StopInstanceResponse -&gt; Bool
 $c== :: StopInstanceResponse -&gt; StopInstanceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382292"><span id="local-6989586621679382294"><span id="local-6989586621679382296"><span id="local-6989586621679382298"><span class="annot"><span class="annottext">ReadPrec [StopInstanceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382301"><span id="local-6989586621679382303"><span id="local-6989586621679382305"><span id="local-6989586621679382307"><span class="annot"><span class="annottext">ReadPrec [StopInstanceResponse]
 ReadPrec StopInstanceResponse
 Int -&gt; ReadS StopInstanceResponse
 ReadS [StopInstanceResponse]
@@ -340,7 +340,7 @@ readList :: ReadS [StopInstanceResponse]
 $creadList :: ReadS [StopInstanceResponse]
 readsPrec :: Int -&gt; ReadS StopInstanceResponse
 $creadsPrec :: Int -&gt; ReadS StopInstanceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382286"><span id="local-6989586621679382288"><span id="local-6989586621679382290"><span class="annot"><span class="annottext">Int -&gt; StopInstanceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382295"><span id="local-6989586621679382297"><span id="local-6989586621679382299"><span class="annot"><span class="annottext">Int -&gt; StopInstanceResponse -&gt; ShowS
 [StopInstanceResponse] -&gt; ShowS
 StopInstanceResponse -&gt; String
 (Int -&gt; StopInstanceResponse -&gt; ShowS)
@@ -376,5 +376,5 @@ $cfrom :: forall x. StopInstanceResponse -&gt; Rep StopInstanceResponse x
 </span><a href="Network.AWS.OpsWorks.StopInstance.html#newStopInstanceResponse"><span class="hs-identifier hs-var hs-var">newStopInstanceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StopInstanceResponse
 </span><a href="Network.AWS.OpsWorks.StopInstance.html#StopInstanceResponse%27"><span class="hs-identifier hs-var">StopInstanceResponse'</span></a></span><span>
 </span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382282"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StopInstance.html#StopInstanceResponse"><span class="hs-identifier hs-type">StopInstanceResponse</span></a></span></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382291"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StopInstance.html#StopInstanceResponse"><span class="hs-identifier hs-type">StopInstanceResponse</span></a></span></span><span>
 </span><span id="line-166"></span></pre></body></html>

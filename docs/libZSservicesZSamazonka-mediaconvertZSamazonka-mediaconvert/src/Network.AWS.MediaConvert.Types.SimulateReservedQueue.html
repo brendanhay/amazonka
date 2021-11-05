@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-comment">-- MediaConvert runs your job from an on-demand queue with similar</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- performance to what you will see with one RTS in a reserved queue. This</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- setting is disabled by default.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621680006004"><span id="local-6989586621680006005"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SimulateReservedQueue"><span class="annot"><a href="Network.AWS.MediaConvert.Types.SimulateReservedQueue.html#SimulateReservedQueue"><span class="hs-identifier hs-var">SimulateReservedQueue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SimulateReservedQueue%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.SimulateReservedQueue.html#SimulateReservedQueue%27"><span class="hs-identifier hs-var">SimulateReservedQueue'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621680006013"><span id="local-6989586621680006014"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SimulateReservedQueue"><span class="annot"><a href="Network.AWS.MediaConvert.Types.SimulateReservedQueue.html#SimulateReservedQueue"><span class="hs-identifier hs-var">SimulateReservedQueue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SimulateReservedQueue%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.SimulateReservedQueue.html#SimulateReservedQueue%27"><span class="hs-identifier hs-var">SimulateReservedQueue'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSimulateReservedQueue"><span class="annot"><span class="annottext">SimulateReservedQueue -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.SimulateReservedQueue.html#fromSimulateReservedQueue"><span class="hs-identifier hs-var hs-var">fromSimulateReservedQueue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680005996"><span id="local-6989586621680005998"><span id="local-6989586621680006000"><span class="annot"><span class="annottext">Int -&gt; SimulateReservedQueue -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680006005"><span id="local-6989586621680006007"><span id="local-6989586621680006009"><span class="annot"><span class="annottext">Int -&gt; SimulateReservedQueue -&gt; ShowS
 [SimulateReservedQueue] -&gt; ShowS
 SimulateReservedQueue -&gt; String
 (Int -&gt; SimulateReservedQueue -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: SimulateReservedQueue -&gt; String
 showsPrec :: Int -&gt; SimulateReservedQueue -&gt; ShowS
 $cshowsPrec :: Int -&gt; SimulateReservedQueue -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621680005987"><span id="local-6989586621680005989"><span id="local-6989586621680005991"><span id="local-6989586621680005993"><span class="annot"><span class="annottext">ReadPrec [SimulateReservedQueue]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621680005996"><span id="local-6989586621680005998"><span id="local-6989586621680006000"><span id="local-6989586621680006002"><span class="annot"><span class="annottext">ReadPrec [SimulateReservedQueue]
 ReadPrec SimulateReservedQueue
 Int -&gt; ReadS SimulateReservedQueue
 ReadS [SimulateReservedQueue]
@@ -77,7 +77,7 @@ $creadList :: ReadS [SimulateReservedQueue]
 readsPrec :: Int -&gt; ReadS SimulateReservedQueue
 $creadsPrec :: Int -&gt; ReadS SimulateReservedQueue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621680005982"><span id="local-6989586621680005984"><span class="annot"><span class="annottext">SimulateReservedQueue -&gt; SimulateReservedQueue -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621680005991"><span id="local-6989586621680005993"><span class="annot"><span class="annottext">SimulateReservedQueue -&gt; SimulateReservedQueue -&gt; Bool
 (SimulateReservedQueue -&gt; SimulateReservedQueue -&gt; Bool)
 -&gt; (SimulateReservedQueue -&gt; SimulateReservedQueue -&gt; Bool)
 -&gt; Eq SimulateReservedQueue
@@ -87,7 +87,7 @@ $c/= :: SimulateReservedQueue -&gt; SimulateReservedQueue -&gt; Bool
 == :: SimulateReservedQueue -&gt; SimulateReservedQueue -&gt; Bool
 $c== :: SimulateReservedQueue -&gt; SimulateReservedQueue -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621680005966"><span id="local-6989586621680005968"><span id="local-6989586621680005970"><span id="local-6989586621680005972"><span id="local-6989586621680005974"><span id="local-6989586621680005976"><span id="local-6989586621680005978"><span class="annot"><span class="annottext">Eq SimulateReservedQueue
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680005975"><span id="local-6989586621680005977"><span id="local-6989586621680005979"><span id="local-6989586621680005981"><span id="local-6989586621680005983"><span id="local-6989586621680005985"><span id="local-6989586621680005987"><span class="annot"><span class="annottext">Eq SimulateReservedQueue
 Eq SimulateReservedQueue
 -&gt; (SimulateReservedQueue -&gt; SimulateReservedQueue -&gt; Ordering)
 -&gt; (SimulateReservedQueue -&gt; SimulateReservedQueue -&gt; Bool)
@@ -145,7 +145,7 @@ $cfrom :: forall x. SimulateReservedQueue -&gt; Rep SimulateReservedQueue x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680005958"><span id="local-6989586621680005960"><span class="annot"><span class="annottext">Int -&gt; SimulateReservedQueue -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680005967"><span id="local-6989586621680005969"><span class="annot"><span class="annottext">Int -&gt; SimulateReservedQueue -&gt; Int
 SimulateReservedQueue -&gt; Int
 (Int -&gt; SimulateReservedQueue -&gt; Int)
 -&gt; (SimulateReservedQueue -&gt; Int) -&gt; Hashable SimulateReservedQueue
@@ -155,54 +155,54 @@ $chash :: SimulateReservedQueue -&gt; Int
 hashWithSalt :: Int -&gt; SimulateReservedQueue -&gt; Int
 $chashWithSalt :: Int -&gt; SimulateReservedQueue -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680005955"><span class="annot"><span class="annottext">SimulateReservedQueue -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680005964"><span class="annot"><span class="annottext">SimulateReservedQueue -&gt; ()
 (SimulateReservedQueue -&gt; ()) -&gt; NFData SimulateReservedQueue
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SimulateReservedQueue -&gt; ()
 $crnf :: SimulateReservedQueue -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680005952"><span class="annot"><span class="annottext">Text -&gt; Either String SimulateReservedQueue
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680005961"><span class="annot"><span class="annottext">Text -&gt; Either String SimulateReservedQueue
 (Text -&gt; Either String SimulateReservedQueue)
 -&gt; FromText SimulateReservedQueue
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SimulateReservedQueue
 $cfromText :: Text -&gt; Either String SimulateReservedQueue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680005949"><span class="annot"><span class="annottext">SimulateReservedQueue -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680005958"><span class="annot"><span class="annottext">SimulateReservedQueue -&gt; Text
 (SimulateReservedQueue -&gt; Text) -&gt; ToText SimulateReservedQueue
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SimulateReservedQueue -&gt; Text
 $ctoText :: SimulateReservedQueue -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680005946"><span class="annot"><span class="annottext">SimulateReservedQueue -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680005955"><span class="annot"><span class="annottext">SimulateReservedQueue -&gt; ByteString
 (SimulateReservedQueue -&gt; ByteString)
 -&gt; ToByteString SimulateReservedQueue
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SimulateReservedQueue -&gt; ByteString
 $ctoBS :: SimulateReservedQueue -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680005943"><span class="annot"><span class="annottext">SimulateReservedQueue -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680005952"><span class="annot"><span class="annottext">SimulateReservedQueue -&gt; ByteStringBuilder
 (SimulateReservedQueue -&gt; ByteStringBuilder)
 -&gt; ToLog SimulateReservedQueue
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SimulateReservedQueue -&gt; ByteStringBuilder
 $cbuild :: SimulateReservedQueue -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680005940"><span class="annot"><span class="annottext">HeaderName -&gt; SimulateReservedQueue -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680005949"><span class="annot"><span class="annottext">HeaderName -&gt; SimulateReservedQueue -&gt; [Header]
 (HeaderName -&gt; SimulateReservedQueue -&gt; [Header])
 -&gt; ToHeader SimulateReservedQueue
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SimulateReservedQueue -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SimulateReservedQueue -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680005937"><span class="annot"><span class="annottext">SimulateReservedQueue -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680005946"><span class="annot"><span class="annottext">SimulateReservedQueue -&gt; QueryString
 (SimulateReservedQueue -&gt; QueryString)
 -&gt; ToQuery SimulateReservedQueue
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SimulateReservedQueue -&gt; QueryString
 $ctoQuery :: SimulateReservedQueue -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680005932"><span id="local-6989586621680005934"><span class="annot"><span class="annottext">Value -&gt; Parser [SimulateReservedQueue]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680005941"><span id="local-6989586621680005943"><span class="annot"><span class="annottext">Value -&gt; Parser [SimulateReservedQueue]
 Value -&gt; Parser SimulateReservedQueue
 (Value -&gt; Parser SimulateReservedQueue)
 -&gt; (Value -&gt; Parser [SimulateReservedQueue])
@@ -214,7 +214,7 @@ $cparseJSONList :: Value -&gt; Parser [SimulateReservedQueue]
 parseJSON :: Value -&gt; Parser SimulateReservedQueue
 $cparseJSON :: Value -&gt; Parser SimulateReservedQueue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680005927"><span id="local-6989586621680005929"><span class="annot"><span class="annottext">FromJSONKeyFunction [SimulateReservedQueue]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680005936"><span id="local-6989586621680005938"><span class="annot"><span class="annottext">FromJSONKeyFunction [SimulateReservedQueue]
 FromJSONKeyFunction SimulateReservedQueue
 FromJSONKeyFunction SimulateReservedQueue
 -&gt; FromJSONKeyFunction [SimulateReservedQueue]
@@ -226,7 +226,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SimulateReservedQueue]
 fromJSONKey :: FromJSONKeyFunction SimulateReservedQueue
 $cfromJSONKey :: FromJSONKeyFunction SimulateReservedQueue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680005918"><span id="local-6989586621680005920"><span id="local-6989586621680005922"><span id="local-6989586621680005924"><span class="annot"><span class="annottext">[SimulateReservedQueue] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680005927"><span id="local-6989586621680005929"><span id="local-6989586621680005931"><span id="local-6989586621680005933"><span class="annot"><span class="annottext">[SimulateReservedQueue] -&gt; Encoding
 [SimulateReservedQueue] -&gt; Value
 SimulateReservedQueue -&gt; Encoding
 SimulateReservedQueue -&gt; Value
@@ -250,7 +250,7 @@ $ctoEncoding :: SimulateReservedQueue -&gt; Encoding
 toJSON :: SimulateReservedQueue -&gt; Value
 $ctoJSON :: SimulateReservedQueue -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621680005913"><span id="local-6989586621680005915"><span class="annot"><span class="annottext">ToJSONKeyFunction [SimulateReservedQueue]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680005922"><span id="local-6989586621680005924"><span class="annot"><span class="annottext">ToJSONKeyFunction [SimulateReservedQueue]
 ToJSONKeyFunction SimulateReservedQueue
 ToJSONKeyFunction SimulateReservedQueue
 -&gt; ToJSONKeyFunction [SimulateReservedQueue]
@@ -262,14 +262,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SimulateReservedQueue]
 toJSONKey :: ToJSONKeyFunction SimulateReservedQueue
 $ctoJSONKey :: ToJSONKeyFunction SimulateReservedQueue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621680005910"><span class="annot"><span class="annottext">[Node] -&gt; Either String SimulateReservedQueue
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680005919"><span class="annot"><span class="annottext">[Node] -&gt; Either String SimulateReservedQueue
 ([Node] -&gt; Either String SimulateReservedQueue)
 -&gt; FromXML SimulateReservedQueue
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SimulateReservedQueue
 $cparseXML :: [Node] -&gt; Either String SimulateReservedQueue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621680005907"><span class="annot"><span class="annottext">SimulateReservedQueue -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621680005916"><span class="annot"><span class="annottext">SimulateReservedQueue -&gt; XML
 (SimulateReservedQueue -&gt; XML) -&gt; ToXML SimulateReservedQueue
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: SimulateReservedQueue -&gt; XML

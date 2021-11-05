@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newAttachPolicy' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679349123"><span id="local-6989586621679349124"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttachPolicy"><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicy"><span class="hs-identifier hs-var">AttachPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttachPolicy%27"><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicy%27"><span class="hs-identifier hs-var">AttachPolicy'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679349132"><span id="local-6989586621679349133"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttachPolicy"><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicy"><span class="hs-identifier hs-var">AttachPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttachPolicy%27"><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicy%27"><span class="hs-identifier hs-var">AttachPolicy'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that is associated with the Directory</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- where both objects reside. For more information, see arns.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AdirectoryArn%3AAttachPolicy%27"><span class="annot"><span class="annottext">AttachPolicy -&gt; Text
@@ -62,7 +62,7 @@
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AobjectReference%3AAttachPolicy%27"><span class="annot"><span class="annottext">AttachPolicy -&gt; ObjectReference
 </span><a href="Network.AWS.CloudDirectory.AttachPolicy.html#%24sel%3AobjectReference%3AAttachPolicy%27"><span class="hs-identifier hs-var hs-var">objectReference</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ObjectReference.html#ObjectReference"><span class="hs-identifier hs-type">ObjectReference</span></a></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679349115"><span id="local-6989586621679349117"><span class="annot"><span class="annottext">AttachPolicy -&gt; AttachPolicy -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679349124"><span id="local-6989586621679349126"><span class="annot"><span class="annottext">AttachPolicy -&gt; AttachPolicy -&gt; Bool
 (AttachPolicy -&gt; AttachPolicy -&gt; Bool)
 -&gt; (AttachPolicy -&gt; AttachPolicy -&gt; Bool) -&gt; Eq AttachPolicy
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AttachPolicy -&gt; AttachPolicy -&gt; Bool
 == :: AttachPolicy -&gt; AttachPolicy -&gt; Bool
 $c== :: AttachPolicy -&gt; AttachPolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349106"><span id="local-6989586621679349108"><span id="local-6989586621679349110"><span id="local-6989586621679349112"><span class="annot"><span class="annottext">ReadPrec [AttachPolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349115"><span id="local-6989586621679349117"><span id="local-6989586621679349119"><span id="local-6989586621679349121"><span class="annot"><span class="annottext">ReadPrec [AttachPolicy]
 ReadPrec AttachPolicy
 Int -&gt; ReadS AttachPolicy
 ReadS [AttachPolicy]
@@ -90,7 +90,7 @@ readList :: ReadS [AttachPolicy]
 $creadList :: ReadS [AttachPolicy]
 readsPrec :: Int -&gt; ReadS AttachPolicy
 $creadsPrec :: Int -&gt; ReadS AttachPolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349099"><span id="local-6989586621679349101"><span id="local-6989586621679349103"><span class="annot"><span class="annottext">Int -&gt; AttachPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349108"><span id="local-6989586621679349110"><span id="local-6989586621679349112"><span class="annot"><span class="annottext">Int -&gt; AttachPolicy -&gt; ShowS
 [AttachPolicy] -&gt; ShowS
 AttachPolicy -&gt; String
 (Int -&gt; AttachPolicy -&gt; ShowS)
@@ -141,23 +141,23 @@ $cfrom :: forall x. AttachPolicy -&gt; Rep AttachPolicy x
 </span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicy"><span class="hs-identifier hs-type">AttachPolicy</span></a></span><span>
 </span><span id="line-87"></span><span id="newAttachPolicy"><span class="annot"><span class="annottext">newAttachPolicy :: Text -&gt; ObjectReference -&gt; ObjectReference -&gt; AttachPolicy
 </span><a href="Network.AWS.CloudDirectory.AttachPolicy.html#newAttachPolicy"><span class="hs-identifier hs-var hs-var">newAttachPolicy</span></a></span></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679349094"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349094"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679349093"><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679349093"><span class="hs-identifier hs-var">pPolicyReference_</span></a></span></span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679349092"><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679349092"><span class="hs-identifier hs-var">pObjectReference_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679349103"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679349103"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679349102"><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679349102"><span class="hs-identifier hs-var">pPolicyReference_</span></a></span></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679349101"><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679349101"><span class="hs-identifier hs-var">pObjectReference_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">AttachPolicy' :: Text -&gt; ObjectReference -&gt; ObjectReference -&gt; AttachPolicy
 </span><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicy%27"><span class="hs-identifier hs-type">AttachPolicy'</span></a></span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:directoryArn:AttachPolicy' :: Text
 </span><a href="Network.AWS.CloudDirectory.AttachPolicy.html#%24sel%3AdirectoryArn%3AAttachPolicy%27"><span class="hs-identifier hs-var">directoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349094"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679349103"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">$sel:policyReference:AttachPolicy' :: ObjectReference
 </span><a href="Network.AWS.CloudDirectory.AttachPolicy.html#%24sel%3ApolicyReference%3AAttachPolicy%27"><span class="hs-identifier hs-var">policyReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679349093"><span class="hs-identifier hs-var">pPolicyReference_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679349102"><span class="hs-identifier hs-var">pPolicyReference_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">$sel:objectReference:AttachPolicy' :: ObjectReference
 </span><a href="Network.AWS.CloudDirectory.AttachPolicy.html#%24sel%3AobjectReference%3AAttachPolicy%27"><span class="hs-identifier hs-var">objectReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679349092"><span class="hs-identifier hs-var">pObjectReference_</span></a></span><span>
+</span><a href="#local-6989586621679349101"><span class="hs-identifier hs-var">pObjectReference_</span></a></span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that is associated with the Directory</span><span>
@@ -168,16 +168,16 @@ $cfrom :: forall x. AttachPolicy -&gt; Rep AttachPolicy x
 -&gt; (AttachPolicy -&gt; Text -&gt; AttachPolicy)
 -&gt; Lens AttachPolicy AttachPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicy%27"><span class="hs-identifier hs-type">AttachPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349089"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicy%27"><span class="hs-identifier hs-type">AttachPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349098"><span class="annot"><span class="annottext">Text
 directoryArn :: Text
 $sel:directoryArn:AttachPolicy' :: AttachPolicy -&gt; Text
-</span><a href="#local-6989586621679349089"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349089"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349088"><span class="annot"><span class="annottext">s :: AttachPolicy
-</span><a href="#local-6989586621679349088"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicy%27"><span class="hs-identifier hs-type">AttachPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349087"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349087"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachPolicy
-</span><a href="#local-6989586621679349088"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryArn:AttachPolicy' :: Text
+</span><a href="#local-6989586621679349098"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679349098"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349097"><span class="annot"><span class="annottext">s :: AttachPolicy
+</span><a href="#local-6989586621679349097"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicy%27"><span class="hs-identifier hs-type">AttachPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349096"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679349096"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachPolicy
+</span><a href="#local-6989586621679349097"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryArn:AttachPolicy' :: Text
 </span><a href="Network.AWS.CloudDirectory.AttachPolicy.html#%24sel%3AdirectoryArn%3AAttachPolicy%27"><span class="hs-identifier hs-var">directoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349087"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicy"><span class="hs-identifier hs-type">AttachPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679349096"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicy"><span class="hs-identifier hs-type">AttachPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | The reference that is associated with the policy object.</span><span>
 </span><span id="line-103"></span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#attachPolicy_policyReference"><span class="hs-identifier hs-type">attachPolicy_policyReference</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicy"><span class="hs-identifier hs-type">AttachPolicy</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ObjectReference.html#ObjectReference"><span class="hs-identifier hs-type">ObjectReference</span></a></span><span>
@@ -187,16 +187,16 @@ $sel:directoryArn:AttachPolicy' :: AttachPolicy -&gt; Text
 -&gt; (AttachPolicy -&gt; ObjectReference -&gt; AttachPolicy)
 -&gt; Lens AttachPolicy AttachPolicy ObjectReference ObjectReference
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicy%27"><span class="hs-identifier hs-type">AttachPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349086"><span class="annot"><span class="annottext">ObjectReference
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicy%27"><span class="hs-identifier hs-type">AttachPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349095"><span class="annot"><span class="annottext">ObjectReference
 policyReference :: ObjectReference
 $sel:policyReference:AttachPolicy' :: AttachPolicy -&gt; ObjectReference
-</span><a href="#local-6989586621679349086"><span class="hs-identifier hs-var hs-var">policyReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679349086"><span class="hs-identifier hs-var">policyReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349085"><span class="annot"><span class="annottext">s :: AttachPolicy
-</span><a href="#local-6989586621679349085"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicy%27"><span class="hs-identifier hs-type">AttachPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349084"><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679349084"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachPolicy
-</span><a href="#local-6989586621679349085"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyReference:AttachPolicy' :: ObjectReference
+</span><a href="#local-6989586621679349095"><span class="hs-identifier hs-var hs-var">policyReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679349095"><span class="hs-identifier hs-var">policyReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349094"><span class="annot"><span class="annottext">s :: AttachPolicy
+</span><a href="#local-6989586621679349094"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicy%27"><span class="hs-identifier hs-type">AttachPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349093"><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679349093"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachPolicy
+</span><a href="#local-6989586621679349094"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyReference:AttachPolicy' :: ObjectReference
 </span><a href="Network.AWS.CloudDirectory.AttachPolicy.html#%24sel%3ApolicyReference%3AAttachPolicy%27"><span class="hs-identifier hs-var">policyReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679349084"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicy"><span class="hs-identifier hs-type">AttachPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679349093"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicy"><span class="hs-identifier hs-type">AttachPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | The reference that identifies the object to which the policy will be</span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- attached.</span><span>
@@ -207,25 +207,25 @@ $sel:policyReference:AttachPolicy' :: AttachPolicy -&gt; ObjectReference
 -&gt; (AttachPolicy -&gt; ObjectReference -&gt; AttachPolicy)
 -&gt; Lens AttachPolicy AttachPolicy ObjectReference ObjectReference
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicy%27"><span class="hs-identifier hs-type">AttachPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349083"><span class="annot"><span class="annottext">ObjectReference
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicy%27"><span class="hs-identifier hs-type">AttachPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349092"><span class="annot"><span class="annottext">ObjectReference
 objectReference :: ObjectReference
 $sel:objectReference:AttachPolicy' :: AttachPolicy -&gt; ObjectReference
-</span><a href="#local-6989586621679349083"><span class="hs-identifier hs-var hs-var">objectReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679349083"><span class="hs-identifier hs-var">objectReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349082"><span class="annot"><span class="annottext">s :: AttachPolicy
-</span><a href="#local-6989586621679349082"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicy%27"><span class="hs-identifier hs-type">AttachPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349081"><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679349081"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachPolicy
-</span><a href="#local-6989586621679349082"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectReference:AttachPolicy' :: ObjectReference
+</span><a href="#local-6989586621679349092"><span class="hs-identifier hs-var hs-var">objectReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679349092"><span class="hs-identifier hs-var">objectReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349091"><span class="annot"><span class="annottext">s :: AttachPolicy
+</span><a href="#local-6989586621679349091"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicy%27"><span class="hs-identifier hs-type">AttachPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349090"><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679349090"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachPolicy
+</span><a href="#local-6989586621679349091"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectReference:AttachPolicy' :: ObjectReference
 </span><a href="Network.AWS.CloudDirectory.AttachPolicy.html#%24sel%3AobjectReference%3AAttachPolicy%27"><span class="hs-identifier hs-var">objectReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679349081"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicy"><span class="hs-identifier hs-type">AttachPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679349090"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicy"><span class="hs-identifier hs-type">AttachPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicy"><span class="hs-identifier hs-type">AttachPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-112"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicy"><span class="hs-identifier hs-type">AttachPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicyResponse"><span class="hs-identifier hs-type">AttachPolicyResponse</span></a></span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679349077"><span class="annot"><span class="annottext">request :: AttachPolicy -&gt; Request AttachPolicy
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679349086"><span class="annot"><span class="annottext">request :: AttachPolicy -&gt; Request AttachPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AttachPolicy -&gt; Request AttachPolicy
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudDirectory.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679349073"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679349082"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AttachPolicy
 -&gt; ClientResponse ClientBody
@@ -249,10 +249,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679349070"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679349070"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679349069"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679349069"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679349068"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679349068"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679349079"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679349079"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679349078"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679349078"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679349077"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679349077"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; AttachPolicyResponse
 </span><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicyResponse%27"><span class="hs-identifier hs-var">AttachPolicyResponse'</span></a></span><span>
 </span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; AttachPolicyResponse)
@@ -263,16 +263,16 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679349070"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679349079"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349061"><span id="local-6989586621679349063"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicy"><span class="hs-identifier hs-type">AttachPolicy</span></a></span></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349070"><span id="local-6989586621679349072"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicy"><span class="hs-identifier hs-type">AttachPolicy</span></a></span></span></span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349058"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicy"><span class="hs-identifier hs-type">AttachPolicy</span></a></span></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349067"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicy"><span class="hs-identifier hs-type">AttachPolicy</span></a></span></span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicy"><span class="hs-identifier hs-type">AttachPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679349054"><span class="annot"><span class="annottext">toHeaders :: AttachPolicy -&gt; ResponseHeaders
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicy%27"><span class="hs-identifier hs-type">AttachPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349050"><span id="local-6989586621679349051"><span id="local-6989586621679349052"><span class="annot"><span class="annottext">Text
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679349063"><span class="annot"><span class="annottext">toHeaders :: AttachPolicy -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicy%27"><span class="hs-identifier hs-type">AttachPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349059"><span id="local-6989586621679349060"><span id="local-6989586621679349061"><span class="annot"><span class="annottext">Text
 ObjectReference
 objectReference :: ObjectReference
 policyReference :: ObjectReference
@@ -280,7 +280,7 @@ directoryArn :: Text
 $sel:objectReference:AttachPolicy' :: AttachPolicy -&gt; ObjectReference
 $sel:policyReference:AttachPolicy' :: AttachPolicy -&gt; ObjectReference
 $sel:directoryArn:AttachPolicy' :: AttachPolicy -&gt; Text
-</span><a href="#local-6989586621679349050"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679349059"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -288,11 +288,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;x-amz-data-partition&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Text -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349052"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679349061"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349042"><span id="local-6989586621679349044"><span id="local-6989586621679349046"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicy"><span class="hs-identifier hs-type">AttachPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679349040"><span class="annot"><span class="annottext">toJSON :: AttachPolicy -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicy%27"><span class="hs-identifier hs-type">AttachPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349036"><span id="local-6989586621679349037"><span id="local-6989586621679349038"><span class="annot"><span class="annottext">Text
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349051"><span id="local-6989586621679349053"><span id="local-6989586621679349055"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicy"><span class="hs-identifier hs-type">AttachPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679349049"><span class="annot"><span class="annottext">toJSON :: AttachPolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicy%27"><span class="hs-identifier hs-type">AttachPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349045"><span id="local-6989586621679349046"><span id="local-6989586621679349047"><span class="annot"><span class="annottext">Text
 ObjectReference
 objectReference :: ObjectReference
 policyReference :: ObjectReference
@@ -300,7 +300,7 @@ directoryArn :: Text
 $sel:objectReference:AttachPolicy' :: AttachPolicy -&gt; ObjectReference
 $sel:policyReference:AttachPolicy' :: AttachPolicy -&gt; ObjectReference
 $sel:directoryArn:AttachPolicy' :: AttachPolicy -&gt; Text
-</span><a href="#local-6989586621679349036"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679349045"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -313,7 +313,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;PolicyReference&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ObjectReference -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679349037"><span class="hs-identifier hs-var">policyReference</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679349046"><span class="hs-identifier hs-var">policyReference</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -321,12 +321,12 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ObjectReference&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ObjectReference -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679349036"><span class="hs-identifier hs-var">objectReference</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679349045"><span class="hs-identifier hs-var">objectReference</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicy"><span class="hs-identifier hs-type">AttachPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679349030"><span class="annot"><span class="annottext">toPath :: AttachPolicy -&gt; ByteString
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679349039"><span class="annot"><span class="annottext">toPath :: AttachPolicy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; AttachPolicy -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
@@ -335,7 +335,7 @@ forall a b. a -&gt; b -&gt; a
 </span><span class="hs-string">&quot;/amazonclouddirectory/2017-01-11/policy/attach&quot;</span></span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicy"><span class="hs-identifier hs-type">AttachPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679349025"><span class="annot"><span class="annottext">toQuery :: AttachPolicy -&gt; QueryString
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679349034"><span class="annot"><span class="annottext">toQuery :: AttachPolicy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AttachPolicy -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -343,12 +343,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- | /See:/ 'newAttachPolicyResponse' smart constructor.</span><span>
-</span><span id="line-150"></span><span id="local-6989586621679349022"><span id="local-6989586621679349023"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttachPolicyResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicyResponse"><span class="hs-identifier hs-var">AttachPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttachPolicyResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicyResponse%27"><span class="hs-identifier hs-var">AttachPolicyResponse'</span></a></span></span><span>
+</span><span id="line-150"></span><span id="local-6989586621679349031"><span id="local-6989586621679349032"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttachPolicyResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicyResponse"><span class="hs-identifier hs-var">AttachPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttachPolicyResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicyResponse%27"><span class="hs-identifier hs-var">AttachPolicyResponse'</span></a></span></span><span>
 </span><span id="line-151"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-152"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAttachPolicyResponse%27"><span class="annot"><span class="annottext">AttachPolicyResponse -&gt; Int
 </span><a href="Network.AWS.CloudDirectory.AttachPolicy.html#%24sel%3AhttpStatus%3AAttachPolicyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-153"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679349017"><span id="local-6989586621679349019"><span class="annot"><span class="annottext">AttachPolicyResponse -&gt; AttachPolicyResponse -&gt; Bool
+</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679349026"><span id="local-6989586621679349028"><span class="annot"><span class="annottext">AttachPolicyResponse -&gt; AttachPolicyResponse -&gt; Bool
 (AttachPolicyResponse -&gt; AttachPolicyResponse -&gt; Bool)
 -&gt; (AttachPolicyResponse -&gt; AttachPolicyResponse -&gt; Bool)
 -&gt; Eq AttachPolicyResponse
@@ -357,7 +357,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AttachPolicyResponse -&gt; AttachPolicyResponse -&gt; Bool
 == :: AttachPolicyResponse -&gt; AttachPolicyResponse -&gt; Bool
 $c== :: AttachPolicyResponse -&gt; AttachPolicyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349009"><span id="local-6989586621679349011"><span id="local-6989586621679349013"><span id="local-6989586621679349015"><span class="annot"><span class="annottext">ReadPrec [AttachPolicyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349018"><span id="local-6989586621679349020"><span id="local-6989586621679349022"><span id="local-6989586621679349024"><span class="annot"><span class="annottext">ReadPrec [AttachPolicyResponse]
 ReadPrec AttachPolicyResponse
 Int -&gt; ReadS AttachPolicyResponse
 ReadS [AttachPolicyResponse]
@@ -377,7 +377,7 @@ readList :: ReadS [AttachPolicyResponse]
 $creadList :: ReadS [AttachPolicyResponse]
 readsPrec :: Int -&gt; ReadS AttachPolicyResponse
 $creadsPrec :: Int -&gt; ReadS AttachPolicyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349003"><span id="local-6989586621679349005"><span id="local-6989586621679349007"><span class="annot"><span class="annottext">Int -&gt; AttachPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349012"><span id="local-6989586621679349014"><span id="local-6989586621679349016"><span class="annot"><span class="annottext">Int -&gt; AttachPolicyResponse -&gt; ShowS
 [AttachPolicyResponse] -&gt; ShowS
 AttachPolicyResponse -&gt; String
 (Int -&gt; AttachPolicyResponse -&gt; ShowS)
@@ -417,12 +417,12 @@ $cfrom :: forall x. AttachPolicyResponse -&gt; Rep AttachPolicyResponse x
 </span><span id="line-167"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-168"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicyResponse"><span class="hs-identifier hs-type">AttachPolicyResponse</span></a></span><span>
 </span><span id="line-169"></span><span id="newAttachPolicyResponse"><span class="annot"><span class="annottext">newAttachPolicyResponse :: Int -&gt; AttachPolicyResponse
-</span><a href="Network.AWS.CloudDirectory.AttachPolicy.html#newAttachPolicyResponse"><span class="hs-identifier hs-var hs-var">newAttachPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679349000"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679349000"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudDirectory.AttachPolicy.html#newAttachPolicyResponse"><span class="hs-identifier hs-var hs-var">newAttachPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679349009"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679349009"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>  </span><span class="annot"><span class="annottext">AttachPolicyResponse' :: Int -&gt; AttachPolicyResponse
 </span><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicyResponse%27"><span class="hs-identifier hs-type">AttachPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AttachPolicyResponse' :: Int
 </span><a href="Network.AWS.CloudDirectory.AttachPolicy.html#%24sel%3AhttpStatus%3AAttachPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679349000"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679349009"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-173"></span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#attachPolicyResponse_httpStatus"><span class="hs-identifier hs-type">attachPolicyResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicyResponse"><span class="hs-identifier hs-type">AttachPolicyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -431,16 +431,16 @@ $cfrom :: forall x. AttachPolicyResponse -&gt; Rep AttachPolicyResponse x
 -&gt; (AttachPolicyResponse -&gt; Int -&gt; AttachPolicyResponse)
 -&gt; Lens AttachPolicyResponse AttachPolicyResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicyResponse%27"><span class="hs-identifier hs-type">AttachPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348999"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicyResponse%27"><span class="hs-identifier hs-type">AttachPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349008"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:AttachPolicyResponse' :: AttachPolicyResponse -&gt; Int
-</span><a href="#local-6989586621679348999"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679348999"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348998"><span class="annot"><span class="annottext">s :: AttachPolicyResponse
-</span><a href="#local-6989586621679348998"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicyResponse%27"><span class="hs-identifier hs-type">AttachPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348997"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679348997"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachPolicyResponse
-</span><a href="#local-6989586621679348998"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AttachPolicyResponse' :: Int
+</span><a href="#local-6989586621679349008"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679349008"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349007"><span class="annot"><span class="annottext">s :: AttachPolicyResponse
+</span><a href="#local-6989586621679349007"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicyResponse%27"><span class="hs-identifier hs-type">AttachPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349006"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679349006"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachPolicyResponse
+</span><a href="#local-6989586621679349007"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AttachPolicyResponse' :: Int
 </span><a href="Network.AWS.CloudDirectory.AttachPolicy.html#%24sel%3AhttpStatus%3AAttachPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679348997"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicyResponse"><span class="hs-identifier hs-type">AttachPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679349006"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicyResponse"><span class="hs-identifier hs-type">AttachPolicyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348995"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicyResponse"><span class="hs-identifier hs-type">AttachPolicyResponse</span></a></span></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349004"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AttachPolicy.html#AttachPolicyResponse"><span class="hs-identifier hs-type">AttachPolicyResponse</span></a></span></span><span>
 </span><span id="line-177"></span></pre></body></html>

@@ -67,7 +67,7 @@
 </span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | /See:/ 'newGenerateRandom' smart constructor.</span><span>
-</span><span id="line-70"></span><span id="local-6989586621679255925"><span id="local-6989586621679255926"></span></span><span class="hs-keyword">data</span><span> </span><span id="GenerateRandom"><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandom"><span class="hs-identifier hs-var">GenerateRandom</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GenerateRandom%27"><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandom%27"><span class="hs-identifier hs-var">GenerateRandom'</span></a></span></span><span>
+</span><span id="line-70"></span><span id="local-6989586621679255934"><span id="local-6989586621679255935"></span></span><span class="hs-keyword">data</span><span> </span><span id="GenerateRandom"><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandom"><span class="hs-identifier hs-var">GenerateRandom</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GenerateRandom%27"><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandom%27"><span class="hs-identifier hs-var">GenerateRandom'</span></a></span></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The length of the byte string.</span><span>
 </span><span id="line-72"></span><span>    </span><span id="%24sel%3AnumberOfBytes%3AGenerateRandom%27"><span class="annot"><span class="annottext">GenerateRandom -&gt; Maybe Natural
 </span><a href="Network.AWS.KMS.GenerateRandom.html#%24sel%3AnumberOfBytes%3AGenerateRandom%27"><span class="hs-identifier hs-var hs-var">numberOfBytes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
@@ -79,7 +79,7 @@
 </span><span id="line-78"></span><span>    </span><span id="%24sel%3AcustomKeyStoreId%3AGenerateRandom%27"><span class="annot"><span class="annottext">GenerateRandom -&gt; Maybe Text
 </span><a href="Network.AWS.KMS.GenerateRandom.html#%24sel%3AcustomKeyStoreId%3AGenerateRandom%27"><span class="hs-identifier hs-var hs-var">customKeyStoreId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679255918"><span id="local-6989586621679255920"><span class="annot"><span class="annottext">GenerateRandom -&gt; GenerateRandom -&gt; Bool
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679255927"><span id="local-6989586621679255929"><span class="annot"><span class="annottext">GenerateRandom -&gt; GenerateRandom -&gt; Bool
 (GenerateRandom -&gt; GenerateRandom -&gt; Bool)
 -&gt; (GenerateRandom -&gt; GenerateRandom -&gt; Bool) -&gt; Eq GenerateRandom
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -87,7 +87,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GenerateRandom -&gt; GenerateRandom -&gt; Bool
 == :: GenerateRandom -&gt; GenerateRandom -&gt; Bool
 $c== :: GenerateRandom -&gt; GenerateRandom -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255909"><span id="local-6989586621679255911"><span id="local-6989586621679255913"><span id="local-6989586621679255915"><span class="annot"><span class="annottext">ReadPrec [GenerateRandom]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255918"><span id="local-6989586621679255920"><span id="local-6989586621679255922"><span id="local-6989586621679255924"><span class="annot"><span class="annottext">ReadPrec [GenerateRandom]
 ReadPrec GenerateRandom
 Int -&gt; ReadS GenerateRandom
 ReadS [GenerateRandom]
@@ -107,7 +107,7 @@ readList :: ReadS [GenerateRandom]
 $creadList :: ReadS [GenerateRandom]
 readsPrec :: Int -&gt; ReadS GenerateRandom
 $creadsPrec :: Int -&gt; ReadS GenerateRandom
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255902"><span id="local-6989586621679255904"><span id="local-6989586621679255906"><span class="annot"><span class="annottext">Int -&gt; GenerateRandom -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255911"><span id="local-6989586621679255913"><span id="local-6989586621679255915"><span class="annot"><span class="annottext">Int -&gt; GenerateRandom -&gt; ShowS
 [GenerateRandom] -&gt; ShowS
 GenerateRandom -&gt; String
 (Int -&gt; GenerateRandom -&gt; ShowS)
@@ -173,16 +173,16 @@ forall a. Maybe a
 -&gt; Lens
      GenerateRandom GenerateRandom (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandom%27"><span class="hs-identifier hs-type">GenerateRandom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255895"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandom%27"><span class="hs-identifier hs-type">GenerateRandom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255904"><span class="annot"><span class="annottext">Maybe Natural
 numberOfBytes :: Maybe Natural
 $sel:numberOfBytes:GenerateRandom' :: GenerateRandom -&gt; Maybe Natural
-</span><a href="#local-6989586621679255895"><span class="hs-identifier hs-var hs-var">numberOfBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679255895"><span class="hs-identifier hs-var">numberOfBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255894"><span class="annot"><span class="annottext">s :: GenerateRandom
-</span><a href="#local-6989586621679255894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandom%27"><span class="hs-identifier hs-type">GenerateRandom'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255893"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679255893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateRandom
-</span><a href="#local-6989586621679255894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfBytes:GenerateRandom' :: Maybe Natural
+</span><a href="#local-6989586621679255904"><span class="hs-identifier hs-var hs-var">numberOfBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679255904"><span class="hs-identifier hs-var">numberOfBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255903"><span class="annot"><span class="annottext">s :: GenerateRandom
+</span><a href="#local-6989586621679255903"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandom%27"><span class="hs-identifier hs-type">GenerateRandom'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255902"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679255902"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateRandom
+</span><a href="#local-6989586621679255903"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfBytes:GenerateRandom' :: Maybe Natural
 </span><a href="Network.AWS.KMS.GenerateRandom.html#%24sel%3AnumberOfBytes%3AGenerateRandom%27"><span class="hs-identifier hs-var">numberOfBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679255893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandom"><span class="hs-identifier hs-type">GenerateRandom</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679255902"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandom"><span class="hs-identifier hs-type">GenerateRandom</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | Generates the random byte string in the CloudHSM cluster that is</span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- associated with the specified</span><span>
@@ -196,27 +196,27 @@ $sel:numberOfBytes:GenerateRandom' :: GenerateRandom -&gt; Maybe Natural
 -&gt; (GenerateRandom -&gt; Maybe Text -&gt; GenerateRandom)
 -&gt; Lens GenerateRandom GenerateRandom (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandom%27"><span class="hs-identifier hs-type">GenerateRandom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255892"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandom%27"><span class="hs-identifier hs-type">GenerateRandom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255901"><span class="annot"><span class="annottext">Maybe Text
 customKeyStoreId :: Maybe Text
 $sel:customKeyStoreId:GenerateRandom' :: GenerateRandom -&gt; Maybe Text
-</span><a href="#local-6989586621679255892"><span class="hs-identifier hs-var hs-var">customKeyStoreId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255892"><span class="hs-identifier hs-var">customKeyStoreId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255891"><span class="annot"><span class="annottext">s :: GenerateRandom
-</span><a href="#local-6989586621679255891"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandom%27"><span class="hs-identifier hs-type">GenerateRandom'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255890"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255890"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateRandom
-</span><a href="#local-6989586621679255891"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customKeyStoreId:GenerateRandom' :: Maybe Text
+</span><a href="#local-6989586621679255901"><span class="hs-identifier hs-var hs-var">customKeyStoreId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679255901"><span class="hs-identifier hs-var">customKeyStoreId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255900"><span class="annot"><span class="annottext">s :: GenerateRandom
+</span><a href="#local-6989586621679255900"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandom%27"><span class="hs-identifier hs-type">GenerateRandom'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255899"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679255899"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateRandom
+</span><a href="#local-6989586621679255900"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customKeyStoreId:GenerateRandom' :: Maybe Text
 </span><a href="Network.AWS.KMS.GenerateRandom.html#%24sel%3AcustomKeyStoreId%3AGenerateRandom%27"><span class="hs-identifier hs-var">customKeyStoreId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255890"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandom"><span class="hs-identifier hs-type">GenerateRandom</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679255899"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandom"><span class="hs-identifier hs-type">GenerateRandom</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandom"><span class="hs-identifier hs-type">GenerateRandom</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-118"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-119"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandom"><span class="hs-identifier hs-type">GenerateRandom</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>      </span><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandomResponse"><span class="hs-identifier hs-type">GenerateRandomResponse</span></a></span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679255886"><span class="annot"><span class="annottext">request :: GenerateRandom -&gt; Request GenerateRandom
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679255895"><span class="annot"><span class="annottext">request :: GenerateRandom -&gt; Request GenerateRandom
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GenerateRandom -&gt; Request GenerateRandom
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.KMS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679255882"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679255891"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GenerateRandom
 -&gt; ClientResponse ClientBody
@@ -240,10 +240,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679255879"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679255879"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679255878"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679255878"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679255877"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679255877"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679255888"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679255888"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679255887"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679255887"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679255886"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679255886"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">Maybe (Sensitive Base64) -&gt; Int -&gt; GenerateRandomResponse
 </span><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandomResponse%27"><span class="hs-identifier hs-var">GenerateRandomResponse'</span></a></span><span>
 </span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (Sensitive Base64) -&gt; Int -&gt; GenerateRandomResponse)
@@ -251,7 +251,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GenerateRandomResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679255877"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Sensitive Base64))
+</span><a href="#local-6989586621679255886"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Sensitive Base64))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Plaintext&quot;</span></span><span class="hs-special">)</span><span>
@@ -263,15 +263,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679255879"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679255888"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255869"><span id="local-6989586621679255871"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandom"><span class="hs-identifier hs-type">GenerateRandom</span></a></span></span></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255878"><span id="local-6989586621679255880"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandom"><span class="hs-identifier hs-type">GenerateRandom</span></a></span></span></span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255866"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandom"><span class="hs-identifier hs-type">GenerateRandom</span></a></span></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255875"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandom"><span class="hs-identifier hs-type">GenerateRandom</span></a></span></span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandom"><span class="hs-identifier hs-type">GenerateRandom</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679255862"><span class="annot"><span class="annottext">toHeaders :: GenerateRandom -&gt; ResponseHeaders
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679255871"><span class="annot"><span class="annottext">toHeaders :: GenerateRandom -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GenerateRandom -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -298,15 +298,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-146"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255852"><span id="local-6989586621679255854"><span id="local-6989586621679255856"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandom"><span class="hs-identifier hs-type">GenerateRandom</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679255850"><span class="annot"><span class="annottext">toJSON :: GenerateRandom -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandom%27"><span class="hs-identifier hs-type">GenerateRandom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255847"><span id="local-6989586621679255848"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255861"><span id="local-6989586621679255863"><span id="local-6989586621679255865"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandom"><span class="hs-identifier hs-type">GenerateRandom</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679255859"><span class="annot"><span class="annottext">toJSON :: GenerateRandom -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandom%27"><span class="hs-identifier hs-type">GenerateRandom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255856"><span id="local-6989586621679255857"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 customKeyStoreId :: Maybe Text
 numberOfBytes :: Maybe Natural
 $sel:customKeyStoreId:GenerateRandom' :: GenerateRandom -&gt; Maybe Text
 $sel:numberOfBytes:GenerateRandom' :: GenerateRandom -&gt; Maybe Natural
-</span><a href="#local-6989586621679255847"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679255856"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -318,7 +318,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679255848"><span class="hs-identifier hs-var">numberOfBytes</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679255857"><span class="hs-identifier hs-var">numberOfBytes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CustomKeyStoreId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -326,19 +326,19 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-155"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255847"><span class="hs-identifier hs-var">customKeyStoreId</span></a></span><span>
+</span><a href="#local-6989586621679255856"><span class="hs-identifier hs-var">customKeyStoreId</span></a></span><span>
 </span><span id="line-156"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-157"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandom"><span class="hs-identifier hs-type">GenerateRandom</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679255841"><span class="annot"><span class="annottext">toPath :: GenerateRandom -&gt; ByteString
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679255850"><span class="annot"><span class="annottext">toPath :: GenerateRandom -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GenerateRandom -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandom"><span class="hs-identifier hs-type">GenerateRandom</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679255837"><span class="annot"><span class="annottext">toQuery :: GenerateRandom -&gt; QueryString
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679255846"><span class="annot"><span class="annottext">toQuery :: GenerateRandom -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GenerateRandom -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -346,7 +346,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | /See:/ 'newGenerateRandomResponse' smart constructor.</span><span>
-</span><span id="line-166"></span><span id="local-6989586621679255834"><span id="local-6989586621679255835"></span></span><span class="hs-keyword">data</span><span> </span><span id="GenerateRandomResponse"><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandomResponse"><span class="hs-identifier hs-var">GenerateRandomResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GenerateRandomResponse%27"><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandomResponse%27"><span class="hs-identifier hs-var">GenerateRandomResponse'</span></a></span></span><span>
+</span><span id="line-166"></span><span id="local-6989586621679255843"><span id="local-6989586621679255844"></span></span><span class="hs-keyword">data</span><span> </span><span id="GenerateRandomResponse"><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandomResponse"><span class="hs-identifier hs-var">GenerateRandomResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GenerateRandomResponse%27"><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandomResponse%27"><span class="hs-identifier hs-var">GenerateRandomResponse'</span></a></span></span><span>
 </span><span id="line-167"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The random byte string. When you use the HTTP API or the Amazon Web</span><span>
 </span><span id="line-168"></span><span>    </span><span class="hs-comment">-- Services CLI, the value is Base64-encoded. Otherwise, it is not</span><span>
 </span><span id="line-169"></span><span>    </span><span class="hs-comment">-- Base64-encoded.</span><span>
@@ -356,7 +356,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-172"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGenerateRandomResponse%27"><span class="annot"><span class="annottext">GenerateRandomResponse -&gt; Int
 </span><a href="Network.AWS.KMS.GenerateRandom.html#%24sel%3AhttpStatus%3AGenerateRandomResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-173"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-174"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679255828"><span id="local-6989586621679255830"><span class="annot"><span class="annottext">GenerateRandomResponse -&gt; GenerateRandomResponse -&gt; Bool
+</span><span id="line-174"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679255837"><span id="local-6989586621679255839"><span class="annot"><span class="annottext">GenerateRandomResponse -&gt; GenerateRandomResponse -&gt; Bool
 (GenerateRandomResponse -&gt; GenerateRandomResponse -&gt; Bool)
 -&gt; (GenerateRandomResponse -&gt; GenerateRandomResponse -&gt; Bool)
 -&gt; Eq GenerateRandomResponse
@@ -365,7 +365,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GenerateRandomResponse -&gt; GenerateRandomResponse -&gt; Bool
 == :: GenerateRandomResponse -&gt; GenerateRandomResponse -&gt; Bool
 $c== :: GenerateRandomResponse -&gt; GenerateRandomResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255822"><span id="local-6989586621679255824"><span id="local-6989586621679255826"><span class="annot"><span class="annottext">Int -&gt; GenerateRandomResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255831"><span id="local-6989586621679255833"><span id="local-6989586621679255835"><span class="annot"><span class="annottext">Int -&gt; GenerateRandomResponse -&gt; ShowS
 [GenerateRandomResponse] -&gt; ShowS
 GenerateRandomResponse -&gt; String
 (Int -&gt; GenerateRandomResponse -&gt; ShowS)
@@ -414,8 +414,8 @@ $cfrom :: forall x. GenerateRandomResponse -&gt; Rep GenerateRandomResponse x
 </span><span id="line-195"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-196"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandomResponse"><span class="hs-identifier hs-type">GenerateRandomResponse</span></a></span><span>
 </span><span id="line-197"></span><span id="newGenerateRandomResponse"><span class="annot"><span class="annottext">newGenerateRandomResponse :: Int -&gt; GenerateRandomResponse
-</span><a href="Network.AWS.KMS.GenerateRandom.html#newGenerateRandomResponse"><span class="hs-identifier hs-var hs-var">newGenerateRandomResponse</span></a></span></span><span> </span><span id="local-6989586621679255819"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679255819"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.KMS.GenerateRandom.html#newGenerateRandomResponse"><span class="hs-identifier hs-var hs-var">newGenerateRandomResponse</span></a></span></span><span> </span><span id="local-6989586621679255828"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679255828"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-198"></span><span>  </span><span class="annot"><span class="annottext">GenerateRandomResponse' :: Maybe (Sensitive Base64) -&gt; Int -&gt; GenerateRandomResponse
 </span><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandomResponse%27"><span class="hs-identifier hs-type">GenerateRandomResponse'</span></a></span><span>
 </span><span id="line-199"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:plaintext:GenerateRandomResponse' :: Maybe (Sensitive Base64)
@@ -425,7 +425,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-201"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GenerateRandomResponse' :: Int
 </span><a href="Network.AWS.KMS.GenerateRandom.html#%24sel%3AhttpStatus%3AGenerateRandomResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679255819"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679255828"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-202"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-203"></span><span>
 </span><span id="line-204"></span><span class="hs-comment">-- | The random byte string. When you use the HTTP API or the Amazon Web</span><span>
@@ -447,16 +447,16 @@ forall a. Maybe a
      (Maybe (Sensitive Base64))
      (Maybe (Sensitive Base64))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandomResponse%27"><span class="hs-identifier hs-type">GenerateRandomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255818"><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandomResponse%27"><span class="hs-identifier hs-type">GenerateRandomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255827"><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
 plaintext :: Maybe (Sensitive Base64)
 $sel:plaintext:GenerateRandomResponse' :: GenerateRandomResponse -&gt; Maybe (Sensitive Base64)
-</span><a href="#local-6989586621679255818"><span class="hs-identifier hs-var hs-var">plaintext</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
-</span><a href="#local-6989586621679255818"><span class="hs-identifier hs-var">plaintext</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255817"><span class="annot"><span class="annottext">s :: GenerateRandomResponse
-</span><a href="#local-6989586621679255817"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandomResponse%27"><span class="hs-identifier hs-type">GenerateRandomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255816"><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
-</span><a href="#local-6989586621679255816"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateRandomResponse
-</span><a href="#local-6989586621679255817"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:plaintext:GenerateRandomResponse' :: Maybe (Sensitive Base64)
+</span><a href="#local-6989586621679255827"><span class="hs-identifier hs-var hs-var">plaintext</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
+</span><a href="#local-6989586621679255827"><span class="hs-identifier hs-var">plaintext</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255826"><span class="annot"><span class="annottext">s :: GenerateRandomResponse
+</span><a href="#local-6989586621679255826"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandomResponse%27"><span class="hs-identifier hs-type">GenerateRandomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255825"><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
+</span><a href="#local-6989586621679255825"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateRandomResponse
+</span><a href="#local-6989586621679255826"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:plaintext:GenerateRandomResponse' :: Maybe (Sensitive Base64)
 </span><a href="Network.AWS.KMS.GenerateRandom.html#%24sel%3Aplaintext%3AGenerateRandomResponse%27"><span class="hs-identifier hs-var">plaintext</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Base64)
-</span><a href="#local-6989586621679255816"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandomResponse"><span class="hs-identifier hs-type">GenerateRandomResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Base64) -&gt; f (Maybe (Sensitive Base64)))
+</span><a href="#local-6989586621679255825"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandomResponse"><span class="hs-identifier hs-type">GenerateRandomResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Base64) -&gt; f (Maybe (Sensitive Base64)))
  -&gt; GenerateRandomResponse -&gt; f GenerateRandomResponse)
 -&gt; ((Maybe ByteString -&gt; f (Maybe ByteString))
     -&gt; Maybe (Sensitive Base64) -&gt; f (Maybe (Sensitive Base64)))
@@ -504,16 +504,16 @@ Iso' Base64 ByteString
 -&gt; (GenerateRandomResponse -&gt; Int -&gt; GenerateRandomResponse)
 -&gt; Lens GenerateRandomResponse GenerateRandomResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandomResponse%27"><span class="hs-identifier hs-type">GenerateRandomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255811"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandomResponse%27"><span class="hs-identifier hs-type">GenerateRandomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255820"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GenerateRandomResponse' :: GenerateRandomResponse -&gt; Int
-</span><a href="#local-6989586621679255811"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679255811"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255810"><span class="annot"><span class="annottext">s :: GenerateRandomResponse
-</span><a href="#local-6989586621679255810"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandomResponse%27"><span class="hs-identifier hs-type">GenerateRandomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255809"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679255809"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateRandomResponse
-</span><a href="#local-6989586621679255810"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GenerateRandomResponse' :: Int
+</span><a href="#local-6989586621679255820"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679255820"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255819"><span class="annot"><span class="annottext">s :: GenerateRandomResponse
+</span><a href="#local-6989586621679255819"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandomResponse%27"><span class="hs-identifier hs-type">GenerateRandomResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255818"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679255818"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GenerateRandomResponse
+</span><a href="#local-6989586621679255819"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GenerateRandomResponse' :: Int
 </span><a href="Network.AWS.KMS.GenerateRandom.html#%24sel%3AhttpStatus%3AGenerateRandomResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679255809"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandomResponse"><span class="hs-identifier hs-type">GenerateRandomResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679255818"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandomResponse"><span class="hs-identifier hs-type">GenerateRandomResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-217"></span><span>
-</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255807"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandomResponse"><span class="hs-identifier hs-type">GenerateRandomResponse</span></a></span></span><span>
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255816"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.GenerateRandom.html#GenerateRandomResponse"><span class="hs-identifier hs-type">GenerateRandomResponse</span></a></span></span><span>
 </span><span id="line-219"></span></pre></body></html>

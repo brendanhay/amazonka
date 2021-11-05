@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newUpdateTopicRuleDestination' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679863432"><span id="local-6989586621679863433"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateTopicRuleDestination"><span class="annot"><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#UpdateTopicRuleDestination"><span class="hs-identifier hs-var">UpdateTopicRuleDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateTopicRuleDestination%27"><span class="annot"><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#UpdateTopicRuleDestination%27"><span class="hs-identifier hs-var">UpdateTopicRuleDestination'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679863441"><span id="local-6989586621679863442"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateTopicRuleDestination"><span class="annot"><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#UpdateTopicRuleDestination"><span class="hs-identifier hs-var">UpdateTopicRuleDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateTopicRuleDestination%27"><span class="annot"><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#UpdateTopicRuleDestination%27"><span class="hs-identifier hs-var">UpdateTopicRuleDestination'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the topic rule destination.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3Aarn%3AUpdateTopicRuleDestination%27"><span class="annot"><span class="annottext">UpdateTopicRuleDestination -&gt; Text
 </span><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#%24sel%3Aarn%3AUpdateTopicRuleDestination%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -85,7 +85,7 @@
 </span><span id="line-84"></span><span>    </span><span id="%24sel%3Astatus%3AUpdateTopicRuleDestination%27"><span class="annot"><span class="annottext">UpdateTopicRuleDestination -&gt; TopicRuleDestinationStatus
 </span><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#%24sel%3Astatus%3AUpdateTopicRuleDestination%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TopicRuleDestinationStatus.html#TopicRuleDestinationStatus"><span class="hs-identifier hs-type">TopicRuleDestinationStatus</span></a></span><span>
 </span><span id="line-85"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-86"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679863425"><span id="local-6989586621679863427"><span class="annot"><span class="annottext">UpdateTopicRuleDestination -&gt; UpdateTopicRuleDestination -&gt; Bool
+</span><span id="line-86"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679863434"><span id="local-6989586621679863436"><span class="annot"><span class="annottext">UpdateTopicRuleDestination -&gt; UpdateTopicRuleDestination -&gt; Bool
 (UpdateTopicRuleDestination -&gt; UpdateTopicRuleDestination -&gt; Bool)
 -&gt; (UpdateTopicRuleDestination
     -&gt; UpdateTopicRuleDestination -&gt; Bool)
@@ -95,7 +95,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateTopicRuleDestination -&gt; UpdateTopicRuleDestination -&gt; Bool
 == :: UpdateTopicRuleDestination -&gt; UpdateTopicRuleDestination -&gt; Bool
 $c== :: UpdateTopicRuleDestination -&gt; UpdateTopicRuleDestination -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679863416"><span id="local-6989586621679863418"><span id="local-6989586621679863420"><span id="local-6989586621679863422"><span class="annot"><span class="annottext">ReadPrec [UpdateTopicRuleDestination]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679863425"><span id="local-6989586621679863427"><span id="local-6989586621679863429"><span id="local-6989586621679863431"><span class="annot"><span class="annottext">ReadPrec [UpdateTopicRuleDestination]
 ReadPrec UpdateTopicRuleDestination
 Int -&gt; ReadS UpdateTopicRuleDestination
 ReadS [UpdateTopicRuleDestination]
@@ -115,7 +115,7 @@ readList :: ReadS [UpdateTopicRuleDestination]
 $creadList :: ReadS [UpdateTopicRuleDestination]
 readsPrec :: Int -&gt; ReadS UpdateTopicRuleDestination
 $creadsPrec :: Int -&gt; ReadS UpdateTopicRuleDestination
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679863409"><span id="local-6989586621679863411"><span id="local-6989586621679863413"><span class="annot"><span class="annottext">Int -&gt; UpdateTopicRuleDestination -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679863418"><span id="local-6989586621679863420"><span id="local-6989586621679863422"><span class="annot"><span class="annottext">Int -&gt; UpdateTopicRuleDestination -&gt; ShowS
 [UpdateTopicRuleDestination] -&gt; ShowS
 UpdateTopicRuleDestination -&gt; String
 (Int -&gt; UpdateTopicRuleDestination -&gt; ShowS)
@@ -190,17 +190,17 @@ UpdateTopicRuleDestination -&gt; Rep UpdateTopicRuleDestination x
 </span><span id="line-128"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.TopicRuleDestinationStatus.html#TopicRuleDestinationStatus"><span class="hs-identifier hs-type">TopicRuleDestinationStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-129"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#UpdateTopicRuleDestination"><span class="hs-identifier hs-type">UpdateTopicRuleDestination</span></a></span><span>
 </span><span id="line-130"></span><span id="newUpdateTopicRuleDestination"><span class="annot"><span class="annottext">newUpdateTopicRuleDestination :: Text -&gt; TopicRuleDestinationStatus -&gt; UpdateTopicRuleDestination
-</span><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#newUpdateTopicRuleDestination"><span class="hs-identifier hs-var hs-var">newUpdateTopicRuleDestination</span></a></span></span><span> </span><span id="local-6989586621679863404"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679863404"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span id="local-6989586621679863403"><span class="annot"><span class="annottext">TopicRuleDestinationStatus
-</span><a href="#local-6989586621679863403"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#newUpdateTopicRuleDestination"><span class="hs-identifier hs-var hs-var">newUpdateTopicRuleDestination</span></a></span></span><span> </span><span id="local-6989586621679863413"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679863413"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span id="local-6989586621679863412"><span class="annot"><span class="annottext">TopicRuleDestinationStatus
+</span><a href="#local-6989586621679863412"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>  </span><span class="annot"><span class="annottext">UpdateTopicRuleDestination' :: Text -&gt; TopicRuleDestinationStatus -&gt; UpdateTopicRuleDestination
 </span><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#UpdateTopicRuleDestination%27"><span class="hs-identifier hs-type">UpdateTopicRuleDestination'</span></a></span><span>
 </span><span id="line-132"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:arn:UpdateTopicRuleDestination' :: Text
 </span><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#%24sel%3Aarn%3AUpdateTopicRuleDestination%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679863404"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679863413"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:UpdateTopicRuleDestination' :: TopicRuleDestinationStatus
 </span><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#%24sel%3Astatus%3AUpdateTopicRuleDestination%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TopicRuleDestinationStatus
-</span><a href="#local-6989586621679863403"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><a href="#local-6989586621679863412"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
 </span><span id="line-134"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- | The ARN of the topic rule destination.</span><span>
@@ -213,16 +213,16 @@ UpdateTopicRuleDestination -&gt; Rep UpdateTopicRuleDestination x
 -&gt; Lens
      UpdateTopicRuleDestination UpdateTopicRuleDestination Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#UpdateTopicRuleDestination%27"><span class="hs-identifier hs-type">UpdateTopicRuleDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679863400"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#UpdateTopicRuleDestination%27"><span class="hs-identifier hs-type">UpdateTopicRuleDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679863409"><span class="annot"><span class="annottext">Text
 arn :: Text
 $sel:arn:UpdateTopicRuleDestination' :: UpdateTopicRuleDestination -&gt; Text
-</span><a href="#local-6989586621679863400"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679863400"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679863399"><span class="annot"><span class="annottext">s :: UpdateTopicRuleDestination
-</span><a href="#local-6989586621679863399"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#UpdateTopicRuleDestination%27"><span class="hs-identifier hs-type">UpdateTopicRuleDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679863398"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679863398"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTopicRuleDestination
-</span><a href="#local-6989586621679863399"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:UpdateTopicRuleDestination' :: Text
+</span><a href="#local-6989586621679863409"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679863409"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679863408"><span class="annot"><span class="annottext">s :: UpdateTopicRuleDestination
+</span><a href="#local-6989586621679863408"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#UpdateTopicRuleDestination%27"><span class="hs-identifier hs-type">UpdateTopicRuleDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679863407"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679863407"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTopicRuleDestination
+</span><a href="#local-6989586621679863408"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:UpdateTopicRuleDestination' :: Text
 </span><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#%24sel%3Aarn%3AUpdateTopicRuleDestination%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679863398"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#UpdateTopicRuleDestination"><span class="hs-identifier hs-type">UpdateTopicRuleDestination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679863407"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#UpdateTopicRuleDestination"><span class="hs-identifier hs-type">UpdateTopicRuleDestination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- | The status of the topic rule destination. Valid values are:</span><span>
 </span><span id="line-141"></span><span class="hs-comment">--</span><span>
@@ -262,28 +262,28 @@ $sel:arn:UpdateTopicRuleDestination' :: UpdateTopicRuleDestination -&gt; Text
      TopicRuleDestinationStatus
      TopicRuleDestinationStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#UpdateTopicRuleDestination%27"><span class="hs-identifier hs-type">UpdateTopicRuleDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679863397"><span class="annot"><span class="annottext">TopicRuleDestinationStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#UpdateTopicRuleDestination%27"><span class="hs-identifier hs-type">UpdateTopicRuleDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679863406"><span class="annot"><span class="annottext">TopicRuleDestinationStatus
 status :: TopicRuleDestinationStatus
 $sel:status:UpdateTopicRuleDestination' :: UpdateTopicRuleDestination -&gt; TopicRuleDestinationStatus
-</span><a href="#local-6989586621679863397"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TopicRuleDestinationStatus
-</span><a href="#local-6989586621679863397"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679863396"><span class="annot"><span class="annottext">s :: UpdateTopicRuleDestination
-</span><a href="#local-6989586621679863396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#UpdateTopicRuleDestination%27"><span class="hs-identifier hs-type">UpdateTopicRuleDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679863395"><span class="annot"><span class="annottext">TopicRuleDestinationStatus
-</span><a href="#local-6989586621679863395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTopicRuleDestination
-</span><a href="#local-6989586621679863396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:UpdateTopicRuleDestination' :: TopicRuleDestinationStatus
+</span><a href="#local-6989586621679863406"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TopicRuleDestinationStatus
+</span><a href="#local-6989586621679863406"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679863405"><span class="annot"><span class="annottext">s :: UpdateTopicRuleDestination
+</span><a href="#local-6989586621679863405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#UpdateTopicRuleDestination%27"><span class="hs-identifier hs-type">UpdateTopicRuleDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679863404"><span class="annot"><span class="annottext">TopicRuleDestinationStatus
+</span><a href="#local-6989586621679863404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTopicRuleDestination
+</span><a href="#local-6989586621679863405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:UpdateTopicRuleDestination' :: TopicRuleDestinationStatus
 </span><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#%24sel%3Astatus%3AUpdateTopicRuleDestination%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TopicRuleDestinationStatus
-</span><a href="#local-6989586621679863395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#UpdateTopicRuleDestination"><span class="hs-identifier hs-type">UpdateTopicRuleDestination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679863404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#UpdateTopicRuleDestination"><span class="hs-identifier hs-type">UpdateTopicRuleDestination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#UpdateTopicRuleDestination"><span class="hs-identifier hs-type">UpdateTopicRuleDestination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-170"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-171"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#UpdateTopicRuleDestination"><span class="hs-identifier hs-type">UpdateTopicRuleDestination</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-172"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#UpdateTopicRuleDestinationResponse"><span class="hs-identifier hs-type">UpdateTopicRuleDestinationResponse</span></a></span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679863391"><span class="annot"><span class="annottext">request :: UpdateTopicRuleDestination -&gt; Request UpdateTopicRuleDestination
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679863400"><span class="annot"><span class="annottext">request :: UpdateTopicRuleDestination -&gt; Request UpdateTopicRuleDestination
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; UpdateTopicRuleDestination -&gt; Request UpdateTopicRuleDestination
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.patchJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-174"></span><span>  </span><span id="local-6989586621679863387"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679863396"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateTopicRuleDestination
 -&gt; ClientResponse ClientBody
@@ -309,10 +309,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-176"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679863384"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679863384"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679863383"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679863383"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679863382"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679863382"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-176"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679863393"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679863393"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679863392"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679863392"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679863391"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679863391"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-177"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; UpdateTopicRuleDestinationResponse
 </span><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#UpdateTopicRuleDestinationResponse%27"><span class="hs-identifier hs-var">UpdateTopicRuleDestinationResponse'</span></a></span><span>
 </span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; UpdateTopicRuleDestinationResponse)
@@ -324,30 +324,30 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679863384"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679863393"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>
-</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679863375"><span id="local-6989586621679863377"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#UpdateTopicRuleDestination"><span class="hs-identifier hs-type">UpdateTopicRuleDestination</span></a></span></span></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679863384"><span id="local-6989586621679863386"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#UpdateTopicRuleDestination"><span class="hs-identifier hs-type">UpdateTopicRuleDestination</span></a></span></span></span><span>
 </span><span id="line-182"></span><span>
-</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679863372"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#UpdateTopicRuleDestination"><span class="hs-identifier hs-type">UpdateTopicRuleDestination</span></a></span></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679863381"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#UpdateTopicRuleDestination"><span class="hs-identifier hs-type">UpdateTopicRuleDestination</span></a></span></span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#UpdateTopicRuleDestination"><span class="hs-identifier hs-type">UpdateTopicRuleDestination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-186"></span><span>  </span><span id="local-6989586621679863368"><span class="annot"><span class="annottext">toHeaders :: UpdateTopicRuleDestination -&gt; ResponseHeaders
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679863377"><span class="annot"><span class="annottext">toHeaders :: UpdateTopicRuleDestination -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateTopicRuleDestination -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-187"></span><span>
-</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679863359"><span id="local-6989586621679863361"><span id="local-6989586621679863363"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#UpdateTopicRuleDestination"><span class="hs-identifier hs-type">UpdateTopicRuleDestination</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-189"></span><span>  </span><span id="local-6989586621679863357"><span class="annot"><span class="annottext">toJSON :: UpdateTopicRuleDestination -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#UpdateTopicRuleDestination%27"><span class="hs-identifier hs-type">UpdateTopicRuleDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679863354"><span id="local-6989586621679863355"><span class="annot"><span class="annottext">Text
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679863368"><span id="local-6989586621679863370"><span id="local-6989586621679863372"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#UpdateTopicRuleDestination"><span class="hs-identifier hs-type">UpdateTopicRuleDestination</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679863366"><span class="annot"><span class="annottext">toJSON :: UpdateTopicRuleDestination -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#UpdateTopicRuleDestination%27"><span class="hs-identifier hs-type">UpdateTopicRuleDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679863363"><span id="local-6989586621679863364"><span class="annot"><span class="annottext">Text
 TopicRuleDestinationStatus
 status :: TopicRuleDestinationStatus
 arn :: Text
 $sel:status:UpdateTopicRuleDestination' :: UpdateTopicRuleDestination -&gt; TopicRuleDestinationStatus
 $sel:arn:UpdateTopicRuleDestination' :: UpdateTopicRuleDestination -&gt; Text
-</span><a href="#local-6989586621679863354"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679863363"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-190"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-191"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -359,26 +359,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;arn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679863355"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679863364"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;status&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TopicRuleDestinationStatus -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">TopicRuleDestinationStatus
-</span><a href="#local-6989586621679863354"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679863363"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-195"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-196"></span><span>
 </span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#UpdateTopicRuleDestination"><span class="hs-identifier hs-type">UpdateTopicRuleDestination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-198"></span><span>  </span><span id="local-6989586621679863348"><span class="annot"><span class="annottext">toPath :: UpdateTopicRuleDestination -&gt; ByteString
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621679863357"><span class="annot"><span class="annottext">toPath :: UpdateTopicRuleDestination -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateTopicRuleDestination -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/destinations&quot;</span></span><span>
 </span><span id="line-199"></span><span>
 </span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#UpdateTopicRuleDestination"><span class="hs-identifier hs-type">UpdateTopicRuleDestination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-201"></span><span>  </span><span id="local-6989586621679863344"><span class="annot"><span class="annottext">toQuery :: UpdateTopicRuleDestination -&gt; QueryString
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621679863353"><span class="annot"><span class="annottext">toQuery :: UpdateTopicRuleDestination -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateTopicRuleDestination -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -386,12 +386,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-202"></span><span>
 </span><span id="line-203"></span><span class="hs-comment">-- | /See:/ 'newUpdateTopicRuleDestinationResponse' smart constructor.</span><span>
-</span><span id="line-204"></span><span id="local-6989586621679863341"><span id="local-6989586621679863342"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateTopicRuleDestinationResponse"><span class="annot"><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#UpdateTopicRuleDestinationResponse"><span class="hs-identifier hs-var">UpdateTopicRuleDestinationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateTopicRuleDestinationResponse%27"><span class="annot"><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#UpdateTopicRuleDestinationResponse%27"><span class="hs-identifier hs-var">UpdateTopicRuleDestinationResponse'</span></a></span></span><span>
+</span><span id="line-204"></span><span id="local-6989586621679863350"><span id="local-6989586621679863351"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateTopicRuleDestinationResponse"><span class="annot"><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#UpdateTopicRuleDestinationResponse"><span class="hs-identifier hs-var">UpdateTopicRuleDestinationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateTopicRuleDestinationResponse%27"><span class="annot"><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#UpdateTopicRuleDestinationResponse%27"><span class="hs-identifier hs-var">UpdateTopicRuleDestinationResponse'</span></a></span></span><span>
 </span><span id="line-205"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-206"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateTopicRuleDestinationResponse%27"><span class="annot"><span class="annottext">UpdateTopicRuleDestinationResponse -&gt; Int
 </span><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#%24sel%3AhttpStatus%3AUpdateTopicRuleDestinationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-207"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-208"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679863336"><span id="local-6989586621679863338"><span class="annot"><span class="annottext">UpdateTopicRuleDestinationResponse
+</span><span id="line-208"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679863345"><span id="local-6989586621679863347"><span class="annot"><span class="annottext">UpdateTopicRuleDestinationResponse
 -&gt; UpdateTopicRuleDestinationResponse -&gt; Bool
 (UpdateTopicRuleDestinationResponse
  -&gt; UpdateTopicRuleDestinationResponse -&gt; Bool)
@@ -407,7 +407,7 @@ $c/= :: UpdateTopicRuleDestinationResponse
 -&gt; UpdateTopicRuleDestinationResponse -&gt; Bool
 $c== :: UpdateTopicRuleDestinationResponse
 -&gt; UpdateTopicRuleDestinationResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679863328"><span id="local-6989586621679863330"><span id="local-6989586621679863332"><span id="local-6989586621679863334"><span class="annot"><span class="annottext">ReadPrec [UpdateTopicRuleDestinationResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679863337"><span id="local-6989586621679863339"><span id="local-6989586621679863341"><span id="local-6989586621679863343"><span class="annot"><span class="annottext">ReadPrec [UpdateTopicRuleDestinationResponse]
 ReadPrec UpdateTopicRuleDestinationResponse
 Int -&gt; ReadS UpdateTopicRuleDestinationResponse
 ReadS [UpdateTopicRuleDestinationResponse]
@@ -427,7 +427,7 @@ readList :: ReadS [UpdateTopicRuleDestinationResponse]
 $creadList :: ReadS [UpdateTopicRuleDestinationResponse]
 readsPrec :: Int -&gt; ReadS UpdateTopicRuleDestinationResponse
 $creadsPrec :: Int -&gt; ReadS UpdateTopicRuleDestinationResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679863322"><span id="local-6989586621679863324"><span id="local-6989586621679863326"><span class="annot"><span class="annottext">Int -&gt; UpdateTopicRuleDestinationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679863331"><span id="local-6989586621679863333"><span id="local-6989586621679863335"><span class="annot"><span class="annottext">Int -&gt; UpdateTopicRuleDestinationResponse -&gt; ShowS
 [UpdateTopicRuleDestinationResponse] -&gt; ShowS
 UpdateTopicRuleDestinationResponse -&gt; String
 (Int -&gt; UpdateTopicRuleDestinationResponse -&gt; ShowS)
@@ -479,14 +479,14 @@ UpdateTopicRuleDestinationResponse
 </span><span id="line-221"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-222"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#UpdateTopicRuleDestinationResponse"><span class="hs-identifier hs-type">UpdateTopicRuleDestinationResponse</span></a></span><span>
 </span><span id="line-223"></span><span id="newUpdateTopicRuleDestinationResponse"><span class="annot"><span class="annottext">newUpdateTopicRuleDestinationResponse :: Int -&gt; UpdateTopicRuleDestinationResponse
-</span><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#newUpdateTopicRuleDestinationResponse"><span class="hs-identifier hs-var hs-var">newUpdateTopicRuleDestinationResponse</span></a></span></span><span> </span><span id="local-6989586621679863319"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679863319"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#newUpdateTopicRuleDestinationResponse"><span class="hs-identifier hs-var hs-var">newUpdateTopicRuleDestinationResponse</span></a></span></span><span> </span><span id="local-6989586621679863328"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679863328"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-224"></span><span>  </span><span class="annot"><span class="annottext">UpdateTopicRuleDestinationResponse' :: Int -&gt; UpdateTopicRuleDestinationResponse
 </span><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#UpdateTopicRuleDestinationResponse%27"><span class="hs-identifier hs-type">UpdateTopicRuleDestinationResponse'</span></a></span><span>
 </span><span id="line-225"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateTopicRuleDestinationResponse' :: Int
 </span><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#%24sel%3AhttpStatus%3AUpdateTopicRuleDestinationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-226"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679863319"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679863328"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-227"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-228"></span><span>
 </span><span id="line-229"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -503,18 +503,18 @@ UpdateTopicRuleDestinationResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#UpdateTopicRuleDestinationResponse%27"><span class="hs-identifier hs-type">UpdateTopicRuleDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679863318"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#UpdateTopicRuleDestinationResponse%27"><span class="hs-identifier hs-type">UpdateTopicRuleDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679863327"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateTopicRuleDestinationResponse' :: UpdateTopicRuleDestinationResponse -&gt; Int
-</span><a href="#local-6989586621679863318"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679863318"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679863317"><span class="annot"><span class="annottext">s :: UpdateTopicRuleDestinationResponse
-</span><a href="#local-6989586621679863317"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#UpdateTopicRuleDestinationResponse%27"><span class="hs-identifier hs-type">UpdateTopicRuleDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679863316"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679863316"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTopicRuleDestinationResponse
-</span><a href="#local-6989586621679863317"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateTopicRuleDestinationResponse' :: Int
+</span><a href="#local-6989586621679863327"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679863327"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679863326"><span class="annot"><span class="annottext">s :: UpdateTopicRuleDestinationResponse
+</span><a href="#local-6989586621679863326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#UpdateTopicRuleDestinationResponse%27"><span class="hs-identifier hs-type">UpdateTopicRuleDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679863325"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679863325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTopicRuleDestinationResponse
+</span><a href="#local-6989586621679863326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateTopicRuleDestinationResponse' :: Int
 </span><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#%24sel%3AhttpStatus%3AUpdateTopicRuleDestinationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679863316"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#UpdateTopicRuleDestinationResponse"><span class="hs-identifier hs-type">UpdateTopicRuleDestinationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679863325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#UpdateTopicRuleDestinationResponse"><span class="hs-identifier hs-type">UpdateTopicRuleDestinationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-232"></span><span>
 </span><span id="line-233"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-234"></span><span>  </span><span id="local-6989586621679863314"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-234"></span><span>  </span><span id="local-6989586621679863323"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-235"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.UpdateTopicRuleDestination.html#UpdateTopicRuleDestinationResponse"><span class="hs-identifier hs-type">UpdateTopicRuleDestinationResponse</span></a></span></span><span>
 </span><span id="line-236"></span></pre></body></html>

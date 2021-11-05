@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Specifies a metric to minimize or maximize as the objective of a job.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAutoMLJobObjective' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621680293701"><span id="local-6989586621680293702"></span></span><span class="hs-keyword">data</span><span> </span><span id="AutoMLJobObjective"><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobObjective.html#AutoMLJobObjective"><span class="hs-identifier hs-var">AutoMLJobObjective</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoMLJobObjective%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobObjective.html#AutoMLJobObjective%27"><span class="hs-identifier hs-var">AutoMLJobObjective'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621680293710"><span id="local-6989586621680293711"></span></span><span class="hs-keyword">data</span><span> </span><span id="AutoMLJobObjective"><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobObjective.html#AutoMLJobObjective"><span class="hs-identifier hs-var">AutoMLJobObjective</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoMLJobObjective%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobObjective.html#AutoMLJobObjective%27"><span class="hs-identifier hs-var">AutoMLJobObjective'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the objective metric used to measure the predictive quality</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- of a machine learning system. This metric is optimized during training</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- to provide the best estimate for model parameter values from data.</span><span>
@@ -104,7 +104,7 @@
 </span><span id="line-104"></span><span>    </span><span id="%24sel%3AmetricName%3AAutoMLJobObjective%27"><span class="annot"><span class="annottext">AutoMLJobObjective -&gt; AutoMLMetricEnum
 </span><a href="Network.AWS.SageMaker.Types.AutoMLJobObjective.html#%24sel%3AmetricName%3AAutoMLJobObjective%27"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLMetricEnum.html#AutoMLMetricEnum"><span class="hs-identifier hs-type">AutoMLMetricEnum</span></a></span><span>
 </span><span id="line-105"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-106"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680293695"><span id="local-6989586621680293697"><span class="annot"><span class="annottext">AutoMLJobObjective -&gt; AutoMLJobObjective -&gt; Bool
+</span><span id="line-106"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680293704"><span id="local-6989586621680293706"><span class="annot"><span class="annottext">AutoMLJobObjective -&gt; AutoMLJobObjective -&gt; Bool
 (AutoMLJobObjective -&gt; AutoMLJobObjective -&gt; Bool)
 -&gt; (AutoMLJobObjective -&gt; AutoMLJobObjective -&gt; Bool)
 -&gt; Eq AutoMLJobObjective
@@ -113,7 +113,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AutoMLJobObjective -&gt; AutoMLJobObjective -&gt; Bool
 == :: AutoMLJobObjective -&gt; AutoMLJobObjective -&gt; Bool
 $c== :: AutoMLJobObjective -&gt; AutoMLJobObjective -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680293686"><span id="local-6989586621680293688"><span id="local-6989586621680293690"><span id="local-6989586621680293692"><span class="annot"><span class="annottext">ReadPrec [AutoMLJobObjective]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680293695"><span id="local-6989586621680293697"><span id="local-6989586621680293699"><span id="local-6989586621680293701"><span class="annot"><span class="annottext">ReadPrec [AutoMLJobObjective]
 ReadPrec AutoMLJobObjective
 Int -&gt; ReadS AutoMLJobObjective
 ReadS [AutoMLJobObjective]
@@ -133,7 +133,7 @@ readList :: ReadS [AutoMLJobObjective]
 $creadList :: ReadS [AutoMLJobObjective]
 readsPrec :: Int -&gt; ReadS AutoMLJobObjective
 $creadsPrec :: Int -&gt; ReadS AutoMLJobObjective
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680293679"><span id="local-6989586621680293681"><span id="local-6989586621680293683"><span class="annot"><span class="annottext">Int -&gt; AutoMLJobObjective -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680293688"><span id="local-6989586621680293690"><span id="local-6989586621680293692"><span class="annot"><span class="annottext">Int -&gt; AutoMLJobObjective -&gt; ShowS
 [AutoMLJobObjective] -&gt; ShowS
 AutoMLJobObjective -&gt; String
 (Int -&gt; AutoMLJobObjective -&gt; ShowS)
@@ -245,12 +245,12 @@ $cfrom :: forall x. AutoMLJobObjective -&gt; Rep AutoMLJobObjective x
 </span><span id="line-191"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLMetricEnum.html#AutoMLMetricEnum"><span class="hs-identifier hs-type">AutoMLMetricEnum</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-192"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobObjective.html#AutoMLJobObjective"><span class="hs-identifier hs-type">AutoMLJobObjective</span></a></span><span>
 </span><span id="line-193"></span><span id="newAutoMLJobObjective"><span class="annot"><span class="annottext">newAutoMLJobObjective :: AutoMLMetricEnum -&gt; AutoMLJobObjective
-</span><a href="Network.AWS.SageMaker.Types.AutoMLJobObjective.html#newAutoMLJobObjective"><span class="hs-identifier hs-var hs-var">newAutoMLJobObjective</span></a></span></span><span> </span><span id="local-6989586621680293673"><span class="annot"><span class="annottext">AutoMLMetricEnum
-</span><a href="#local-6989586621680293673"><span class="hs-identifier hs-var">pMetricName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.Types.AutoMLJobObjective.html#newAutoMLJobObjective"><span class="hs-identifier hs-var hs-var">newAutoMLJobObjective</span></a></span></span><span> </span><span id="local-6989586621680293682"><span class="annot"><span class="annottext">AutoMLMetricEnum
+</span><a href="#local-6989586621680293682"><span class="hs-identifier hs-var">pMetricName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-194"></span><span>  </span><span class="annot"><span class="annottext">AutoMLJobObjective' :: AutoMLMetricEnum -&gt; AutoMLJobObjective
 </span><a href="Network.AWS.SageMaker.Types.AutoMLJobObjective.html#AutoMLJobObjective%27"><span class="hs-identifier hs-type">AutoMLJobObjective'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricName:AutoMLJobObjective' :: AutoMLMetricEnum
 </span><a href="Network.AWS.SageMaker.Types.AutoMLJobObjective.html#%24sel%3AmetricName%3AAutoMLJobObjective%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AutoMLMetricEnum
-</span><a href="#local-6989586621680293673"><span class="hs-identifier hs-var">pMetricName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621680293682"><span class="hs-identifier hs-var">pMetricName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-comment">-- | The name of the objective metric used to measure the predictive quality</span><span>
 </span><span id="line-197"></span><span class="hs-comment">-- of a machine learning system. This metric is optimized during training</span><span>
@@ -336,19 +336,19 @@ $cfrom :: forall x. AutoMLJobObjective -&gt; Rep AutoMLJobObjective x
      AutoMLMetricEnum
      AutoMLMetricEnum
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobObjective.html#AutoMLJobObjective%27"><span class="hs-identifier hs-type">AutoMLJobObjective'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680293669"><span class="annot"><span class="annottext">AutoMLMetricEnum
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobObjective.html#AutoMLJobObjective%27"><span class="hs-identifier hs-type">AutoMLJobObjective'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680293678"><span class="annot"><span class="annottext">AutoMLMetricEnum
 metricName :: AutoMLMetricEnum
 $sel:metricName:AutoMLJobObjective' :: AutoMLJobObjective -&gt; AutoMLMetricEnum
-</span><a href="#local-6989586621680293669"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoMLMetricEnum
-</span><a href="#local-6989586621680293669"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680293668"><span class="annot"><span class="annottext">s :: AutoMLJobObjective
-</span><a href="#local-6989586621680293668"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobObjective.html#AutoMLJobObjective%27"><span class="hs-identifier hs-type">AutoMLJobObjective'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680293667"><span class="annot"><span class="annottext">AutoMLMetricEnum
-</span><a href="#local-6989586621680293667"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoMLJobObjective
-</span><a href="#local-6989586621680293668"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricName:AutoMLJobObjective' :: AutoMLMetricEnum
+</span><a href="#local-6989586621680293678"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoMLMetricEnum
+</span><a href="#local-6989586621680293678"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680293677"><span class="annot"><span class="annottext">s :: AutoMLJobObjective
+</span><a href="#local-6989586621680293677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobObjective.html#AutoMLJobObjective%27"><span class="hs-identifier hs-type">AutoMLJobObjective'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680293676"><span class="annot"><span class="annottext">AutoMLMetricEnum
+</span><a href="#local-6989586621680293676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoMLJobObjective
+</span><a href="#local-6989586621680293677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricName:AutoMLJobObjective' :: AutoMLMetricEnum
 </span><a href="Network.AWS.SageMaker.Types.AutoMLJobObjective.html#%24sel%3AmetricName%3AAutoMLJobObjective%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AutoMLMetricEnum
-</span><a href="#local-6989586621680293667"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobObjective.html#AutoMLJobObjective"><span class="hs-identifier hs-type">AutoMLJobObjective</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680293676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobObjective.html#AutoMLJobObjective"><span class="hs-identifier hs-type">AutoMLJobObjective</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-271"></span><span>
-</span><span id="line-272"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680293664"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobObjective.html#AutoMLJobObjective"><span class="hs-identifier hs-type">AutoMLJobObjective</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-273"></span><span>  </span><span id="local-6989586621680293662"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AutoMLJobObjective
+</span><span id="line-272"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680293673"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobObjective.html#AutoMLJobObjective"><span class="hs-identifier hs-type">AutoMLJobObjective</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-273"></span><span>  </span><span id="local-6989586621680293671"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AutoMLJobObjective
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-274"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AutoMLJobObjective)
@@ -358,30 +358,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-275"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AutoMLJobObjective&quot;</span></span><span>
-</span><span id="line-276"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680293659"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680293659"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-276"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680293668"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680293668"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-277"></span><span>          </span><span class="annot"><span class="annottext">AutoMLMetricEnum -&gt; AutoMLJobObjective
 </span><a href="Network.AWS.SageMaker.Types.AutoMLJobObjective.html#AutoMLJobObjective%27"><span class="hs-identifier hs-var">AutoMLJobObjective'</span></a></span><span>
 </span><span id="line-278"></span><span>            </span><span class="annot"><span class="annottext">(AutoMLMetricEnum -&gt; AutoMLJobObjective)
 -&gt; Parser AutoMLMetricEnum -&gt; Parser AutoMLJobObjective
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680293659"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser AutoMLMetricEnum
+</span><a href="#local-6989586621680293668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser AutoMLMetricEnum
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MetricName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-279"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-280"></span><span>
-</span><span id="line-281"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680293653"><span id="local-6989586621680293655"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobObjective.html#AutoMLJobObjective"><span class="hs-identifier hs-type">AutoMLJobObjective</span></a></span></span></span><span>
+</span><span id="line-281"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680293662"><span id="local-6989586621680293664"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobObjective.html#AutoMLJobObjective"><span class="hs-identifier hs-type">AutoMLJobObjective</span></a></span></span></span><span>
 </span><span id="line-282"></span><span>
-</span><span id="line-283"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680293650"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobObjective.html#AutoMLJobObjective"><span class="hs-identifier hs-type">AutoMLJobObjective</span></a></span></span><span>
+</span><span id="line-283"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680293659"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobObjective.html#AutoMLJobObjective"><span class="hs-identifier hs-type">AutoMLJobObjective</span></a></span></span><span>
 </span><span id="line-284"></span><span>
-</span><span id="line-285"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680293642"><span id="local-6989586621680293644"><span id="local-6989586621680293646"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobObjective.html#AutoMLJobObjective"><span class="hs-identifier hs-type">AutoMLJobObjective</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-286"></span><span>  </span><span id="local-6989586621680293640"><span class="annot"><span class="annottext">toJSON :: AutoMLJobObjective -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobObjective.html#AutoMLJobObjective%27"><span class="hs-identifier hs-type">AutoMLJobObjective'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680293638"><span class="annot"><span class="annottext">AutoMLMetricEnum
+</span><span id="line-285"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680293651"><span id="local-6989586621680293653"><span id="local-6989586621680293655"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobObjective.html#AutoMLJobObjective"><span class="hs-identifier hs-type">AutoMLJobObjective</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-286"></span><span>  </span><span id="local-6989586621680293649"><span class="annot"><span class="annottext">toJSON :: AutoMLJobObjective -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobObjective.html#AutoMLJobObjective%27"><span class="hs-identifier hs-type">AutoMLJobObjective'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680293647"><span class="annot"><span class="annottext">AutoMLMetricEnum
 metricName :: AutoMLMetricEnum
 $sel:metricName:AutoMLJobObjective' :: AutoMLJobObjective -&gt; AutoMLMetricEnum
-</span><a href="#local-6989586621680293638"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680293647"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-287"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-288"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -393,6 +393,6 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;MetricName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AutoMLMetricEnum -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">AutoMLMetricEnum
-</span><a href="#local-6989586621680293638"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621680293647"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-290"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-291"></span></pre></body></html>

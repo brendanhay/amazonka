@@ -1,0 +1,526 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ConnectContactLens.Types.Transcript</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ConnectContactLens.Types.Transcript</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.IssueDetected.html"><span class="hs-identifier">Network.AWS.ConnectContactLens.Types.IssueDetected</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.SentimentValue.html"><span class="hs-identifier">Network.AWS.ConnectContactLens.Types.SentimentValue</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | A list of messages in the session.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newTranscript' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679142666"><span id="local-6989586621679142667"></span></span><span class="hs-keyword">data</span><span> </span><span id="Transcript"><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#Transcript"><span class="hs-identifier hs-var">Transcript</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Transcript%27"><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#Transcript%27"><span class="hs-identifier hs-var">Transcript'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | List of positions where issues were detected on the transcript.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AissuesDetected%3ATranscript%27"><span class="annot"><span class="annottext">Transcript -&gt; Maybe [IssueDetected]
+</span><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#%24sel%3AissuesDetected%3ATranscript%27"><span class="hs-identifier hs-var hs-var">issuesDetected</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.IssueDetected.html#IssueDetected"><span class="hs-identifier hs-type">IssueDetected</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The identifier of the transcript.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aid%3ATranscript%27"><span class="annot"><span class="annottext">Transcript -&gt; Text
+</span><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#%24sel%3Aid%3ATranscript%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The identifier of the participant.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AparticipantId%3ATranscript%27"><span class="annot"><span class="annottext">Transcript -&gt; Text
+</span><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#%24sel%3AparticipantId%3ATranscript%27"><span class="hs-identifier hs-var hs-var">participantId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The role of participant. For example, is it a customer, agent, or</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- system.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AparticipantRole%3ATranscript%27"><span class="annot"><span class="annottext">Transcript -&gt; Text
+</span><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#%24sel%3AparticipantRole%3ATranscript%27"><span class="hs-identifier hs-var hs-var">participantRole</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The content of the transcript.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Acontent%3ATranscript%27"><span class="annot"><span class="annottext">Transcript -&gt; Text
+</span><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#%24sel%3Acontent%3ATranscript%27"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The beginning offset in the contact for this transcript.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AbeginOffsetMillis%3ATranscript%27"><span class="annot"><span class="annottext">Transcript -&gt; Natural
+</span><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#%24sel%3AbeginOffsetMillis%3ATranscript%27"><span class="hs-identifier hs-var hs-var">beginOffsetMillis</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The end offset in the contact for this transcript.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AendOffsetMillis%3ATranscript%27"><span class="annot"><span class="annottext">Transcript -&gt; Natural
+</span><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#%24sel%3AendOffsetMillis%3ATranscript%27"><span class="hs-identifier hs-var hs-var">endOffsetMillis</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The sentiment of the detected for this piece of transcript.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Asentiment%3ATranscript%27"><span class="annot"><span class="annottext">Transcript -&gt; SentimentValue
+</span><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#%24sel%3Asentiment%3ATranscript%27"><span class="hs-identifier hs-var hs-var">sentiment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.SentimentValue.html#SentimentValue"><span class="hs-identifier hs-type">SentimentValue</span></a></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679142653"><span id="local-6989586621679142655"><span class="annot"><span class="annottext">Transcript -&gt; Transcript -&gt; Bool
+(Transcript -&gt; Transcript -&gt; Bool)
+-&gt; (Transcript -&gt; Transcript -&gt; Bool) -&gt; Eq Transcript
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Transcript -&gt; Transcript -&gt; Bool
+$c/= :: Transcript -&gt; Transcript -&gt; Bool
+== :: Transcript -&gt; Transcript -&gt; Bool
+$c== :: Transcript -&gt; Transcript -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679142644"><span id="local-6989586621679142646"><span id="local-6989586621679142648"><span id="local-6989586621679142650"><span class="annot"><span class="annottext">ReadPrec [Transcript]
+ReadPrec Transcript
+Int -&gt; ReadS Transcript
+ReadS [Transcript]
+(Int -&gt; ReadS Transcript)
+-&gt; ReadS [Transcript]
+-&gt; ReadPrec Transcript
+-&gt; ReadPrec [Transcript]
+-&gt; Read Transcript
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Transcript]
+$creadListPrec :: ReadPrec [Transcript]
+readPrec :: ReadPrec Transcript
+$creadPrec :: ReadPrec Transcript
+readList :: ReadS [Transcript]
+$creadList :: ReadS [Transcript]
+readsPrec :: Int -&gt; ReadS Transcript
+$creadsPrec :: Int -&gt; ReadS Transcript
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679142637"><span id="local-6989586621679142639"><span id="local-6989586621679142641"><span class="annot"><span class="annottext">Int -&gt; Transcript -&gt; ShowS
+[Transcript] -&gt; ShowS
+Transcript -&gt; String
+(Int -&gt; Transcript -&gt; ShowS)
+-&gt; (Transcript -&gt; String)
+-&gt; ([Transcript] -&gt; ShowS)
+-&gt; Show Transcript
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Transcript] -&gt; ShowS
+$cshowList :: [Transcript] -&gt; ShowS
+show :: Transcript -&gt; String
+$cshow :: Transcript -&gt; String
+showsPrec :: Int -&gt; Transcript -&gt; ShowS
+$cshowsPrec :: Int -&gt; Transcript -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Transcript -&gt; Rep Transcript x)
+-&gt; (forall x. Rep Transcript x -&gt; Transcript) -&gt; Generic Transcript
+forall x. Rep Transcript x -&gt; Transcript
+forall x. Transcript -&gt; Rep Transcript x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Transcript x -&gt; Transcript
+$cfrom :: forall x. Transcript -&gt; Rep Transcript x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Create a value of 'Transcript' with all optional fields omitted.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'issuesDetected', 'transcript_issuesDetected' - List of positions where issues were detected on the transcript.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'id', 'transcript_id' - The identifier of the transcript.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'participantId', 'transcript_participantId' - The identifier of the participant.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'participantRole', 'transcript_participantRole' - The role of participant. For example, is it a customer, agent, or</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- system.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'content', 'transcript_content' - The content of the transcript.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'beginOffsetMillis', 'transcript_beginOffsetMillis' - The beginning offset in the contact for this transcript.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'endOffsetMillis', 'transcript_endOffsetMillis' - The end offset in the contact for this transcript.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'sentiment', 'transcript_sentiment' - The sentiment of the detected for this piece of transcript.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#newTranscript"><span class="hs-identifier hs-type">newTranscript</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-comment">-- | 'participantId'</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'participantRole'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-comment">-- | 'content'</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-comment">-- | 'beginOffsetMillis'</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-comment">-- | 'endOffsetMillis'</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-comment">-- | 'sentiment'</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.SentimentValue.html#SentimentValue"><span class="hs-identifier hs-type">SentimentValue</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#Transcript"><span class="hs-identifier hs-type">Transcript</span></a></span><span>
+</span><span id="line-92"></span><span id="newTranscript"><span class="annot"><span class="annottext">newTranscript :: Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Natural
+-&gt; Natural
+-&gt; SentimentValue
+-&gt; Transcript
+</span><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#newTranscript"><span class="hs-identifier hs-var hs-var">newTranscript</span></a></span></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679142631"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679142631"><span class="hs-identifier hs-var">pId_</span></a></span></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679142630"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679142630"><span class="hs-identifier hs-var">pParticipantId_</span></a></span></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679142629"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679142629"><span class="hs-identifier hs-var">pParticipantRole_</span></a></span></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679142628"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679142628"><span class="hs-identifier hs-var">pContent_</span></a></span></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679142627"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679142627"><span class="hs-identifier hs-var">pBeginOffsetMillis_</span></a></span></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679142626"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679142626"><span class="hs-identifier hs-var">pEndOffsetMillis_</span></a></span></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679142625"><span class="annot"><span class="annottext">SentimentValue
+</span><a href="#local-6989586621679142625"><span class="hs-identifier hs-var">pSentiment_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">Transcript' :: Maybe [IssueDetected]
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Natural
+-&gt; Natural
+-&gt; SentimentValue
+-&gt; Transcript
+</span><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#Transcript%27"><span class="hs-identifier hs-type">Transcript'</span></a></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:issuesDetected:Transcript' :: Maybe [IssueDetected]
+</span><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#%24sel%3AissuesDetected%3ATranscript%27"><span class="hs-identifier hs-var">issuesDetected</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [IssueDetected]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">$sel:id:Transcript' :: Text
+</span><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#%24sel%3Aid%3ATranscript%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679142631"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">$sel:participantId:Transcript' :: Text
+</span><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#%24sel%3AparticipantId%3ATranscript%27"><span class="hs-identifier hs-var">participantId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679142630"><span class="hs-identifier hs-var">pParticipantId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">$sel:participantRole:Transcript' :: Text
+</span><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#%24sel%3AparticipantRole%3ATranscript%27"><span class="hs-identifier hs-var">participantRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679142629"><span class="hs-identifier hs-var">pParticipantRole_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">$sel:content:Transcript' :: Text
+</span><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#%24sel%3Acontent%3ATranscript%27"><span class="hs-identifier hs-var">content</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679142628"><span class="hs-identifier hs-var">pContent_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">$sel:beginOffsetMillis:Transcript' :: Natural
+</span><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#%24sel%3AbeginOffsetMillis%3ATranscript%27"><span class="hs-identifier hs-var">beginOffsetMillis</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679142627"><span class="hs-identifier hs-var">pBeginOffsetMillis_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">$sel:endOffsetMillis:Transcript' :: Natural
+</span><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#%24sel%3AendOffsetMillis%3ATranscript%27"><span class="hs-identifier hs-var">endOffsetMillis</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679142626"><span class="hs-identifier hs-var">pEndOffsetMillis_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">$sel:sentiment:Transcript' :: SentimentValue
+</span><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#%24sel%3Asentiment%3ATranscript%27"><span class="hs-identifier hs-var">sentiment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SentimentValue
+</span><a href="#local-6989586621679142625"><span class="hs-identifier hs-var">pSentiment_</span></a></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | List of positions where issues were detected on the transcript.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#transcript_issuesDetected"><span class="hs-identifier hs-type">transcript_issuesDetected</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#Transcript"><span class="hs-identifier hs-type">Transcript</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.IssueDetected.html#IssueDetected"><span class="hs-identifier hs-type">IssueDetected</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="transcript_issuesDetected"><span class="annot"><span class="annottext">transcript_issuesDetected :: (Maybe [IssueDetected] -&gt; f (Maybe [IssueDetected]))
+-&gt; Transcript -&gt; f Transcript
+</span><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#transcript_issuesDetected"><span class="hs-identifier hs-var hs-var">transcript_issuesDetected</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Transcript -&gt; Maybe [IssueDetected])
+-&gt; (Transcript -&gt; Maybe [IssueDetected] -&gt; Transcript)
+-&gt; Lens
+     Transcript
+     Transcript
+     (Maybe [IssueDetected])
+     (Maybe [IssueDetected])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#Transcript%27"><span class="hs-identifier hs-type">Transcript'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679142621"><span class="annot"><span class="annottext">Maybe [IssueDetected]
+issuesDetected :: Maybe [IssueDetected]
+$sel:issuesDetected:Transcript' :: Transcript -&gt; Maybe [IssueDetected]
+</span><a href="#local-6989586621679142621"><span class="hs-identifier hs-var hs-var">issuesDetected</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [IssueDetected]
+</span><a href="#local-6989586621679142621"><span class="hs-identifier hs-var">issuesDetected</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679142620"><span class="annot"><span class="annottext">s :: Transcript
+</span><a href="#local-6989586621679142620"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#Transcript%27"><span class="hs-identifier hs-type">Transcript'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679142619"><span class="annot"><span class="annottext">Maybe [IssueDetected]
+</span><a href="#local-6989586621679142619"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Transcript
+</span><a href="#local-6989586621679142620"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:issuesDetected:Transcript' :: Maybe [IssueDetected]
+</span><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#%24sel%3AissuesDetected%3ATranscript%27"><span class="hs-identifier hs-var">issuesDetected</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [IssueDetected]
+</span><a href="#local-6989586621679142619"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#Transcript"><span class="hs-identifier hs-type">Transcript</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [IssueDetected] -&gt; f (Maybe [IssueDetected]))
+ -&gt; Transcript -&gt; f Transcript)
+-&gt; ((Maybe [IssueDetected] -&gt; f (Maybe [IssueDetected]))
+    -&gt; Maybe [IssueDetected] -&gt; f (Maybe [IssueDetected]))
+-&gt; (Maybe [IssueDetected] -&gt; f (Maybe [IssueDetected]))
+-&gt; Transcript
+-&gt; f Transcript
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [IssueDetected] [IssueDetected] [IssueDetected] [IssueDetected]
+-&gt; Iso
+     (Maybe [IssueDetected])
+     (Maybe [IssueDetected])
+     (Maybe [IssueDetected])
+     (Maybe [IssueDetected])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [IssueDetected] [IssueDetected] [IssueDetected] [IssueDetected]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The identifier of the transcript.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#transcript_id"><span class="hs-identifier hs-type">transcript_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#Transcript"><span class="hs-identifier hs-type">Transcript</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-117"></span><span id="transcript_id"><span class="annot"><span class="annottext">transcript_id :: (Text -&gt; f Text) -&gt; Transcript -&gt; f Transcript
+</span><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#transcript_id"><span class="hs-identifier hs-var hs-var">transcript_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Transcript -&gt; Text)
+-&gt; (Transcript -&gt; Text -&gt; Transcript)
+-&gt; Lens Transcript Transcript Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#Transcript%27"><span class="hs-identifier hs-type">Transcript'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679142614"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:Transcript' :: Transcript -&gt; Text
+</span><a href="#local-6989586621679142614"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679142614"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679142613"><span class="annot"><span class="annottext">s :: Transcript
+</span><a href="#local-6989586621679142613"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#Transcript%27"><span class="hs-identifier hs-type">Transcript'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679142612"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679142612"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Transcript
+</span><a href="#local-6989586621679142613"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Transcript' :: Text
+</span><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#%24sel%3Aid%3ATranscript%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679142612"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#Transcript"><span class="hs-identifier hs-type">Transcript</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The identifier of the participant.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#transcript_participantId"><span class="hs-identifier hs-type">transcript_participantId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#Transcript"><span class="hs-identifier hs-type">Transcript</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-121"></span><span id="transcript_participantId"><span class="annot"><span class="annottext">transcript_participantId :: (Text -&gt; f Text) -&gt; Transcript -&gt; f Transcript
+</span><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#transcript_participantId"><span class="hs-identifier hs-var hs-var">transcript_participantId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Transcript -&gt; Text)
+-&gt; (Transcript -&gt; Text -&gt; Transcript)
+-&gt; Lens Transcript Transcript Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#Transcript%27"><span class="hs-identifier hs-type">Transcript'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679142610"><span class="annot"><span class="annottext">Text
+participantId :: Text
+$sel:participantId:Transcript' :: Transcript -&gt; Text
+</span><a href="#local-6989586621679142610"><span class="hs-identifier hs-var hs-var">participantId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679142610"><span class="hs-identifier hs-var">participantId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679142609"><span class="annot"><span class="annottext">s :: Transcript
+</span><a href="#local-6989586621679142609"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#Transcript%27"><span class="hs-identifier hs-type">Transcript'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679142608"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679142608"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Transcript
+</span><a href="#local-6989586621679142609"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:participantId:Transcript' :: Text
+</span><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#%24sel%3AparticipantId%3ATranscript%27"><span class="hs-identifier hs-var">participantId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679142608"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#Transcript"><span class="hs-identifier hs-type">Transcript</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The role of participant. For example, is it a customer, agent, or</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- system.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#transcript_participantRole"><span class="hs-identifier hs-type">transcript_participantRole</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#Transcript"><span class="hs-identifier hs-type">Transcript</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-126"></span><span id="transcript_participantRole"><span class="annot"><span class="annottext">transcript_participantRole :: (Text -&gt; f Text) -&gt; Transcript -&gt; f Transcript
+</span><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#transcript_participantRole"><span class="hs-identifier hs-var hs-var">transcript_participantRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Transcript -&gt; Text)
+-&gt; (Transcript -&gt; Text -&gt; Transcript)
+-&gt; Lens Transcript Transcript Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#Transcript%27"><span class="hs-identifier hs-type">Transcript'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679142606"><span class="annot"><span class="annottext">Text
+participantRole :: Text
+$sel:participantRole:Transcript' :: Transcript -&gt; Text
+</span><a href="#local-6989586621679142606"><span class="hs-identifier hs-var hs-var">participantRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679142606"><span class="hs-identifier hs-var">participantRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679142605"><span class="annot"><span class="annottext">s :: Transcript
+</span><a href="#local-6989586621679142605"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#Transcript%27"><span class="hs-identifier hs-type">Transcript'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679142604"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679142604"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Transcript
+</span><a href="#local-6989586621679142605"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:participantRole:Transcript' :: Text
+</span><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#%24sel%3AparticipantRole%3ATranscript%27"><span class="hs-identifier hs-var">participantRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679142604"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#Transcript"><span class="hs-identifier hs-type">Transcript</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The content of the transcript.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#transcript_content"><span class="hs-identifier hs-type">transcript_content</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#Transcript"><span class="hs-identifier hs-type">Transcript</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-130"></span><span id="transcript_content"><span class="annot"><span class="annottext">transcript_content :: (Text -&gt; f Text) -&gt; Transcript -&gt; f Transcript
+</span><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#transcript_content"><span class="hs-identifier hs-var hs-var">transcript_content</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Transcript -&gt; Text)
+-&gt; (Transcript -&gt; Text -&gt; Transcript)
+-&gt; Lens Transcript Transcript Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#Transcript%27"><span class="hs-identifier hs-type">Transcript'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679142602"><span class="annot"><span class="annottext">Text
+content :: Text
+$sel:content:Transcript' :: Transcript -&gt; Text
+</span><a href="#local-6989586621679142602"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679142602"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679142601"><span class="annot"><span class="annottext">s :: Transcript
+</span><a href="#local-6989586621679142601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#Transcript%27"><span class="hs-identifier hs-type">Transcript'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679142600"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679142600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Transcript
+</span><a href="#local-6989586621679142601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:content:Transcript' :: Text
+</span><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#%24sel%3Acontent%3ATranscript%27"><span class="hs-identifier hs-var">content</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679142600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#Transcript"><span class="hs-identifier hs-type">Transcript</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The beginning offset in the contact for this transcript.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#transcript_beginOffsetMillis"><span class="hs-identifier hs-type">transcript_beginOffsetMillis</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#Transcript"><span class="hs-identifier hs-type">Transcript</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-134"></span><span id="transcript_beginOffsetMillis"><span class="annot"><span class="annottext">transcript_beginOffsetMillis :: (Natural -&gt; f Natural) -&gt; Transcript -&gt; f Transcript
+</span><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#transcript_beginOffsetMillis"><span class="hs-identifier hs-var hs-var">transcript_beginOffsetMillis</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Transcript -&gt; Natural)
+-&gt; (Transcript -&gt; Natural -&gt; Transcript)
+-&gt; Lens Transcript Transcript Natural Natural
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#Transcript%27"><span class="hs-identifier hs-type">Transcript'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679142598"><span class="annot"><span class="annottext">Natural
+beginOffsetMillis :: Natural
+$sel:beginOffsetMillis:Transcript' :: Transcript -&gt; Natural
+</span><a href="#local-6989586621679142598"><span class="hs-identifier hs-var hs-var">beginOffsetMillis</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679142598"><span class="hs-identifier hs-var">beginOffsetMillis</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679142597"><span class="annot"><span class="annottext">s :: Transcript
+</span><a href="#local-6989586621679142597"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#Transcript%27"><span class="hs-identifier hs-type">Transcript'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679142596"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679142596"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Transcript
+</span><a href="#local-6989586621679142597"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:beginOffsetMillis:Transcript' :: Natural
+</span><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#%24sel%3AbeginOffsetMillis%3ATranscript%27"><span class="hs-identifier hs-var">beginOffsetMillis</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679142596"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#Transcript"><span class="hs-identifier hs-type">Transcript</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | The end offset in the contact for this transcript.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#transcript_endOffsetMillis"><span class="hs-identifier hs-type">transcript_endOffsetMillis</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#Transcript"><span class="hs-identifier hs-type">Transcript</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-138"></span><span id="transcript_endOffsetMillis"><span class="annot"><span class="annottext">transcript_endOffsetMillis :: (Natural -&gt; f Natural) -&gt; Transcript -&gt; f Transcript
+</span><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#transcript_endOffsetMillis"><span class="hs-identifier hs-var hs-var">transcript_endOffsetMillis</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Transcript -&gt; Natural)
+-&gt; (Transcript -&gt; Natural -&gt; Transcript)
+-&gt; Lens Transcript Transcript Natural Natural
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#Transcript%27"><span class="hs-identifier hs-type">Transcript'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679142594"><span class="annot"><span class="annottext">Natural
+endOffsetMillis :: Natural
+$sel:endOffsetMillis:Transcript' :: Transcript -&gt; Natural
+</span><a href="#local-6989586621679142594"><span class="hs-identifier hs-var hs-var">endOffsetMillis</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679142594"><span class="hs-identifier hs-var">endOffsetMillis</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679142593"><span class="annot"><span class="annottext">s :: Transcript
+</span><a href="#local-6989586621679142593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#Transcript%27"><span class="hs-identifier hs-type">Transcript'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679142592"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679142592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Transcript
+</span><a href="#local-6989586621679142593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endOffsetMillis:Transcript' :: Natural
+</span><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#%24sel%3AendOffsetMillis%3ATranscript%27"><span class="hs-identifier hs-var">endOffsetMillis</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679142592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#Transcript"><span class="hs-identifier hs-type">Transcript</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | The sentiment of the detected for this piece of transcript.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#transcript_sentiment"><span class="hs-identifier hs-type">transcript_sentiment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#Transcript"><span class="hs-identifier hs-type">Transcript</span></a></span><span> </span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.SentimentValue.html#SentimentValue"><span class="hs-identifier hs-type">SentimentValue</span></a></span><span>
+</span><span id="line-142"></span><span id="transcript_sentiment"><span class="annot"><span class="annottext">transcript_sentiment :: (SentimentValue -&gt; f SentimentValue) -&gt; Transcript -&gt; f Transcript
+</span><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#transcript_sentiment"><span class="hs-identifier hs-var hs-var">transcript_sentiment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Transcript -&gt; SentimentValue)
+-&gt; (Transcript -&gt; SentimentValue -&gt; Transcript)
+-&gt; Lens Transcript Transcript SentimentValue SentimentValue
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#Transcript%27"><span class="hs-identifier hs-type">Transcript'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679142590"><span class="annot"><span class="annottext">SentimentValue
+sentiment :: SentimentValue
+$sel:sentiment:Transcript' :: Transcript -&gt; SentimentValue
+</span><a href="#local-6989586621679142590"><span class="hs-identifier hs-var hs-var">sentiment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SentimentValue
+</span><a href="#local-6989586621679142590"><span class="hs-identifier hs-var">sentiment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679142589"><span class="annot"><span class="annottext">s :: Transcript
+</span><a href="#local-6989586621679142589"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#Transcript%27"><span class="hs-identifier hs-type">Transcript'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679142588"><span class="annot"><span class="annottext">SentimentValue
+</span><a href="#local-6989586621679142588"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Transcript
+</span><a href="#local-6989586621679142589"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sentiment:Transcript' :: SentimentValue
+</span><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#%24sel%3Asentiment%3ATranscript%27"><span class="hs-identifier hs-var">sentiment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SentimentValue
+</span><a href="#local-6989586621679142588"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#Transcript"><span class="hs-identifier hs-type">Transcript</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679142585"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#Transcript"><span class="hs-identifier hs-type">Transcript</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679142583"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Transcript
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser Transcript) -&gt; Value -&gt; Parser Transcript
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Transcript&quot;</span></span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679142580"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679142580"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-149"></span><span>          </span><span class="annot"><span class="annottext">Maybe [IssueDetected]
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Natural
+-&gt; Natural
+-&gt; SentimentValue
+-&gt; Transcript
+</span><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#Transcript%27"><span class="hs-identifier hs-var">Transcript'</span></a></span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [IssueDetected]
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; Natural
+ -&gt; Natural
+ -&gt; SentimentValue
+ -&gt; Transcript)
+-&gt; Parser (Maybe [IssueDetected])
+-&gt; Parser
+     (Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Natural
+      -&gt; Natural
+      -&gt; SentimentValue
+      -&gt; Transcript)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679142580"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [IssueDetected]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IssuesDetected&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [IssueDetected]))
+-&gt; Maybe [IssueDetected] -&gt; Parser (Maybe [IssueDetected])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [IssueDetected]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Natural
+   -&gt; Natural
+   -&gt; SentimentValue
+   -&gt; Transcript)
+-&gt; Parser Text
+-&gt; Parser
+     (Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Natural
+      -&gt; Natural
+      -&gt; SentimentValue
+      -&gt; Transcript)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679142580"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Natural
+   -&gt; Natural
+   -&gt; SentimentValue
+   -&gt; Transcript)
+-&gt; Parser Text
+-&gt; Parser
+     (Text
+      -&gt; Text -&gt; Natural -&gt; Natural -&gt; SentimentValue -&gt; Transcript)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679142580"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ParticipantId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; Text -&gt; Natural -&gt; Natural -&gt; SentimentValue -&gt; Transcript)
+-&gt; Parser Text
+-&gt; Parser
+     (Text -&gt; Natural -&gt; Natural -&gt; SentimentValue -&gt; Transcript)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679142580"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ParticipantRole&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Natural -&gt; Natural -&gt; SentimentValue -&gt; Transcript)
+-&gt; Parser Text
+-&gt; Parser (Natural -&gt; Natural -&gt; SentimentValue -&gt; Transcript)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679142580"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Content&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Parser (Natural -&gt; Natural -&gt; SentimentValue -&gt; Transcript)
+-&gt; Parser Natural
+-&gt; Parser (Natural -&gt; SentimentValue -&gt; Transcript)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679142580"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BeginOffsetMillis&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser (Natural -&gt; SentimentValue -&gt; Transcript)
+-&gt; Parser Natural -&gt; Parser (SentimentValue -&gt; Transcript)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679142580"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndOffsetMillis&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser (SentimentValue -&gt; Transcript)
+-&gt; Parser SentimentValue -&gt; Parser Transcript
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679142580"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser SentimentValue
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Sentiment&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679142572"><span id="local-6989586621679142574"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#Transcript"><span class="hs-identifier hs-type">Transcript</span></a></span></span></span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679142569"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ConnectContactLens.Types.Transcript.html#Transcript"><span class="hs-identifier hs-type">Transcript</span></a></span></span><span>
+</span><span id="line-163"></span></pre></body></html>

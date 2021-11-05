@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679310546"><span id="local-6989586621679310547"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ListStateFilterAction"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ListStateFilterAction.html#ListStateFilterAction"><span class="hs-identifier hs-var">ListStateFilterAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListStateFilterAction%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ListStateFilterAction.html#ListStateFilterAction%27"><span class="hs-identifier hs-var">ListStateFilterAction'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679310555"><span id="local-6989586621679310556"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ListStateFilterAction"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ListStateFilterAction.html#ListStateFilterAction"><span class="hs-identifier hs-var">ListStateFilterAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListStateFilterAction%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ListStateFilterAction.html#ListStateFilterAction%27"><span class="hs-identifier hs-var">ListStateFilterAction'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromListStateFilterAction"><span class="annot"><span class="annottext">ListStateFilterAction -&gt; Text
 </span><a href="Network.AWS.CodeDeploy.Types.ListStateFilterAction.html#fromListStateFilterAction"><span class="hs-identifier hs-var hs-var">fromListStateFilterAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679310538"><span id="local-6989586621679310540"><span id="local-6989586621679310542"><span class="annot"><span class="annottext">Int -&gt; ListStateFilterAction -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679310547"><span id="local-6989586621679310549"><span id="local-6989586621679310551"><span class="annot"><span class="annottext">Int -&gt; ListStateFilterAction -&gt; ShowS
 [ListStateFilterAction] -&gt; ShowS
 ListStateFilterAction -&gt; String
 (Int -&gt; ListStateFilterAction -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: ListStateFilterAction -&gt; String
 showsPrec :: Int -&gt; ListStateFilterAction -&gt; ShowS
 $cshowsPrec :: Int -&gt; ListStateFilterAction -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679310529"><span id="local-6989586621679310531"><span id="local-6989586621679310533"><span id="local-6989586621679310535"><span class="annot"><span class="annottext">ReadPrec [ListStateFilterAction]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679310538"><span id="local-6989586621679310540"><span id="local-6989586621679310542"><span id="local-6989586621679310544"><span class="annot"><span class="annottext">ReadPrec [ListStateFilterAction]
 ReadPrec ListStateFilterAction
 Int -&gt; ReadS ListStateFilterAction
 ReadS [ListStateFilterAction]
@@ -73,7 +73,7 @@ $creadList :: ReadS [ListStateFilterAction]
 readsPrec :: Int -&gt; ReadS ListStateFilterAction
 $creadsPrec :: Int -&gt; ReadS ListStateFilterAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679310524"><span id="local-6989586621679310526"><span class="annot"><span class="annottext">ListStateFilterAction -&gt; ListStateFilterAction -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679310533"><span id="local-6989586621679310535"><span class="annot"><span class="annottext">ListStateFilterAction -&gt; ListStateFilterAction -&gt; Bool
 (ListStateFilterAction -&gt; ListStateFilterAction -&gt; Bool)
 -&gt; (ListStateFilterAction -&gt; ListStateFilterAction -&gt; Bool)
 -&gt; Eq ListStateFilterAction
@@ -83,7 +83,7 @@ $c/= :: ListStateFilterAction -&gt; ListStateFilterAction -&gt; Bool
 == :: ListStateFilterAction -&gt; ListStateFilterAction -&gt; Bool
 $c== :: ListStateFilterAction -&gt; ListStateFilterAction -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679310508"><span id="local-6989586621679310510"><span id="local-6989586621679310512"><span id="local-6989586621679310514"><span id="local-6989586621679310516"><span id="local-6989586621679310518"><span id="local-6989586621679310520"><span class="annot"><span class="annottext">Eq ListStateFilterAction
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679310517"><span id="local-6989586621679310519"><span id="local-6989586621679310521"><span id="local-6989586621679310523"><span id="local-6989586621679310525"><span id="local-6989586621679310527"><span id="local-6989586621679310529"><span class="annot"><span class="annottext">Eq ListStateFilterAction
 Eq ListStateFilterAction
 -&gt; (ListStateFilterAction -&gt; ListStateFilterAction -&gt; Ordering)
 -&gt; (ListStateFilterAction -&gt; ListStateFilterAction -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. ListStateFilterAction -&gt; Rep ListStateFilterAction x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679310500"><span id="local-6989586621679310502"><span class="annot"><span class="annottext">Int -&gt; ListStateFilterAction -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679310509"><span id="local-6989586621679310511"><span class="annot"><span class="annottext">Int -&gt; ListStateFilterAction -&gt; Int
 ListStateFilterAction -&gt; Int
 (Int -&gt; ListStateFilterAction -&gt; Int)
 -&gt; (ListStateFilterAction -&gt; Int) -&gt; Hashable ListStateFilterAction
@@ -151,54 +151,54 @@ $chash :: ListStateFilterAction -&gt; Int
 hashWithSalt :: Int -&gt; ListStateFilterAction -&gt; Int
 $chashWithSalt :: Int -&gt; ListStateFilterAction -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679310497"><span class="annot"><span class="annottext">ListStateFilterAction -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679310506"><span class="annot"><span class="annottext">ListStateFilterAction -&gt; ()
 (ListStateFilterAction -&gt; ()) -&gt; NFData ListStateFilterAction
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ListStateFilterAction -&gt; ()
 $crnf :: ListStateFilterAction -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679310494"><span class="annot"><span class="annottext">Text -&gt; Either String ListStateFilterAction
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679310503"><span class="annot"><span class="annottext">Text -&gt; Either String ListStateFilterAction
 (Text -&gt; Either String ListStateFilterAction)
 -&gt; FromText ListStateFilterAction
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ListStateFilterAction
 $cfromText :: Text -&gt; Either String ListStateFilterAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679310491"><span class="annot"><span class="annottext">ListStateFilterAction -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679310500"><span class="annot"><span class="annottext">ListStateFilterAction -&gt; Text
 (ListStateFilterAction -&gt; Text) -&gt; ToText ListStateFilterAction
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ListStateFilterAction -&gt; Text
 $ctoText :: ListStateFilterAction -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679310488"><span class="annot"><span class="annottext">ListStateFilterAction -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679310497"><span class="annot"><span class="annottext">ListStateFilterAction -&gt; ByteString
 (ListStateFilterAction -&gt; ByteString)
 -&gt; ToByteString ListStateFilterAction
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ListStateFilterAction -&gt; ByteString
 $ctoBS :: ListStateFilterAction -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679310485"><span class="annot"><span class="annottext">ListStateFilterAction -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679310494"><span class="annot"><span class="annottext">ListStateFilterAction -&gt; ByteStringBuilder
 (ListStateFilterAction -&gt; ByteStringBuilder)
 -&gt; ToLog ListStateFilterAction
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ListStateFilterAction -&gt; ByteStringBuilder
 $cbuild :: ListStateFilterAction -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679310482"><span class="annot"><span class="annottext">HeaderName -&gt; ListStateFilterAction -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679310491"><span class="annot"><span class="annottext">HeaderName -&gt; ListStateFilterAction -&gt; [Header]
 (HeaderName -&gt; ListStateFilterAction -&gt; [Header])
 -&gt; ToHeader ListStateFilterAction
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ListStateFilterAction -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ListStateFilterAction -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679310479"><span class="annot"><span class="annottext">ListStateFilterAction -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679310488"><span class="annot"><span class="annottext">ListStateFilterAction -&gt; QueryString
 (ListStateFilterAction -&gt; QueryString)
 -&gt; ToQuery ListStateFilterAction
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ListStateFilterAction -&gt; QueryString
 $ctoQuery :: ListStateFilterAction -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679310474"><span id="local-6989586621679310476"><span class="annot"><span class="annottext">Value -&gt; Parser [ListStateFilterAction]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679310483"><span id="local-6989586621679310485"><span class="annot"><span class="annottext">Value -&gt; Parser [ListStateFilterAction]
 Value -&gt; Parser ListStateFilterAction
 (Value -&gt; Parser ListStateFilterAction)
 -&gt; (Value -&gt; Parser [ListStateFilterAction])
@@ -210,7 +210,7 @@ $cparseJSONList :: Value -&gt; Parser [ListStateFilterAction]
 parseJSON :: Value -&gt; Parser ListStateFilterAction
 $cparseJSON :: Value -&gt; Parser ListStateFilterAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679310469"><span id="local-6989586621679310471"><span class="annot"><span class="annottext">FromJSONKeyFunction [ListStateFilterAction]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679310478"><span id="local-6989586621679310480"><span class="annot"><span class="annottext">FromJSONKeyFunction [ListStateFilterAction]
 FromJSONKeyFunction ListStateFilterAction
 FromJSONKeyFunction ListStateFilterAction
 -&gt; FromJSONKeyFunction [ListStateFilterAction]
@@ -222,7 +222,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ListStateFilterAction]
 fromJSONKey :: FromJSONKeyFunction ListStateFilterAction
 $cfromJSONKey :: FromJSONKeyFunction ListStateFilterAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679310460"><span id="local-6989586621679310462"><span id="local-6989586621679310464"><span id="local-6989586621679310466"><span class="annot"><span class="annottext">[ListStateFilterAction] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679310469"><span id="local-6989586621679310471"><span id="local-6989586621679310473"><span id="local-6989586621679310475"><span class="annot"><span class="annottext">[ListStateFilterAction] -&gt; Encoding
 [ListStateFilterAction] -&gt; Value
 ListStateFilterAction -&gt; Encoding
 ListStateFilterAction -&gt; Value
@@ -246,7 +246,7 @@ $ctoEncoding :: ListStateFilterAction -&gt; Encoding
 toJSON :: ListStateFilterAction -&gt; Value
 $ctoJSON :: ListStateFilterAction -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679310455"><span id="local-6989586621679310457"><span class="annot"><span class="annottext">ToJSONKeyFunction [ListStateFilterAction]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679310464"><span id="local-6989586621679310466"><span class="annot"><span class="annottext">ToJSONKeyFunction [ListStateFilterAction]
 ToJSONKeyFunction ListStateFilterAction
 ToJSONKeyFunction ListStateFilterAction
 -&gt; ToJSONKeyFunction [ListStateFilterAction]
@@ -258,14 +258,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ListStateFilterAction]
 toJSONKey :: ToJSONKeyFunction ListStateFilterAction
 $ctoJSONKey :: ToJSONKeyFunction ListStateFilterAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679310452"><span class="annot"><span class="annottext">[Node] -&gt; Either String ListStateFilterAction
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679310461"><span class="annot"><span class="annottext">[Node] -&gt; Either String ListStateFilterAction
 ([Node] -&gt; Either String ListStateFilterAction)
 -&gt; FromXML ListStateFilterAction
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ListStateFilterAction
 $cparseXML :: [Node] -&gt; Either String ListStateFilterAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679310449"><span class="annot"><span class="annottext">ListStateFilterAction -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679310458"><span class="annot"><span class="annottext">ListStateFilterAction -&gt; XML
 (ListStateFilterAction -&gt; XML) -&gt; ToXML ListStateFilterAction
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ListStateFilterAction -&gt; XML

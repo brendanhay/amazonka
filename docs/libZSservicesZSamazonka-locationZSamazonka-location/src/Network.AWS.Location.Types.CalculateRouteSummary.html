@@ -1,0 +1,492 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Location.Types.CalculateRouteSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Location.Types.CalculateRouteSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.DistanceUnit.html"><span class="hs-identifier">Network.AWS.Location.Types.DistanceUnit</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | A summary of the calculated route.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newCalculateRouteSummary' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679260016"><span id="local-6989586621679260017"></span></span><span class="hs-keyword">data</span><span> </span><span id="CalculateRouteSummary"><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#CalculateRouteSummary"><span class="hs-identifier hs-var">CalculateRouteSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CalculateRouteSummary%27"><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#CalculateRouteSummary%27"><span class="hs-identifier hs-var">CalculateRouteSummary'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The data provider of traffic and road network data used to calculate the</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- route. Indicates one of the available providers:</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- -   @Esri@</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- -   @Here@</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- For more information about data providers, see</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html Amazon Location Service data providers&gt;.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AdataSource%3ACalculateRouteSummary%27"><span class="annot"><span class="annottext">CalculateRouteSummary -&gt; Text
+</span><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#%24sel%3AdataSource%3ACalculateRouteSummary%27"><span class="hs-identifier hs-var hs-var">dataSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The total distance covered by the route. The sum of the distance</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- travelled between every stop on the route.</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- If Esri is the data source for the route calculator, the route distance</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- can&#8217;t be greater than 400 km. If the route exceeds 400 km, the response</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- is a @400 RoutesValidationException@ error.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Adistance%3ACalculateRouteSummary%27"><span class="annot"><span class="annottext">CalculateRouteSummary -&gt; Double
+</span><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#%24sel%3Adistance%3ACalculateRouteSummary%27"><span class="hs-identifier hs-var hs-var">distance</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The unit of measurement for the distance.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AdistanceUnit%3ACalculateRouteSummary%27"><span class="annot"><span class="annottext">CalculateRouteSummary -&gt; DistanceUnit
+</span><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#%24sel%3AdistanceUnit%3ACalculateRouteSummary%27"><span class="hs-identifier hs-var hs-var">distanceUnit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.DistanceUnit.html#DistanceUnit"><span class="hs-identifier hs-type">DistanceUnit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The total travel time for the route measured in seconds. The sum of the</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- travel time between every stop on the route.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AdurationSeconds%3ACalculateRouteSummary%27"><span class="annot"><span class="annottext">CalculateRouteSummary -&gt; Double
+</span><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#%24sel%3AdurationSeconds%3ACalculateRouteSummary%27"><span class="hs-identifier hs-var hs-var">durationSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | Specifies a geographical box surrounding a route. Used to zoom into a</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- route when displaying it in a map. For example,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- @[min x, min y, max x, max y]@.</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- The first 2 @bbox@ parameters describe the lower southwest corner:</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- -   The first @bbox@ position is the X coordinate or longitude of the</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">--     lower southwest corner.</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- -   The second @bbox@ position is the Y coordinate or latitude of the</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--     lower southwest corner.</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- The next 2 @bbox@ parameters describe the upper northeast corner:</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- -   The third @bbox@ position is the X coordinate, or longitude of the</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--     upper northeast corner.</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- -   The fourth @bbox@ position is the Y coordinate, or latitude of the</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--     upper northeast corner.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3ArouteBBox%3ACalculateRouteSummary%27"><span class="annot"><span class="annottext">CalculateRouteSummary -&gt; Sensitive (NonEmpty Double)
+</span><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#%24sel%3ArouteBBox%3ACalculateRouteSummary%27"><span class="hs-identifier hs-var hs-var">routeBBox</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679260006"><span id="local-6989586621679260008"><span class="annot"><span class="annottext">CalculateRouteSummary -&gt; CalculateRouteSummary -&gt; Bool
+(CalculateRouteSummary -&gt; CalculateRouteSummary -&gt; Bool)
+-&gt; (CalculateRouteSummary -&gt; CalculateRouteSummary -&gt; Bool)
+-&gt; Eq CalculateRouteSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CalculateRouteSummary -&gt; CalculateRouteSummary -&gt; Bool
+$c/= :: CalculateRouteSummary -&gt; CalculateRouteSummary -&gt; Bool
+== :: CalculateRouteSummary -&gt; CalculateRouteSummary -&gt; Bool
+$c== :: CalculateRouteSummary -&gt; CalculateRouteSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259999"><span id="local-6989586621679260001"><span id="local-6989586621679260003"><span class="annot"><span class="annottext">Int -&gt; CalculateRouteSummary -&gt; ShowS
+[CalculateRouteSummary] -&gt; ShowS
+CalculateRouteSummary -&gt; String
+(Int -&gt; CalculateRouteSummary -&gt; ShowS)
+-&gt; (CalculateRouteSummary -&gt; String)
+-&gt; ([CalculateRouteSummary] -&gt; ShowS)
+-&gt; Show CalculateRouteSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CalculateRouteSummary] -&gt; ShowS
+$cshowList :: [CalculateRouteSummary] -&gt; ShowS
+show :: CalculateRouteSummary -&gt; String
+$cshow :: CalculateRouteSummary -&gt; String
+showsPrec :: Int -&gt; CalculateRouteSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; CalculateRouteSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CalculateRouteSummary -&gt; Rep CalculateRouteSummary x)
+-&gt; (forall x. Rep CalculateRouteSummary x -&gt; CalculateRouteSummary)
+-&gt; Generic CalculateRouteSummary
+forall x. Rep CalculateRouteSummary x -&gt; CalculateRouteSummary
+forall x. CalculateRouteSummary -&gt; Rep CalculateRouteSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CalculateRouteSummary x -&gt; CalculateRouteSummary
+$cfrom :: forall x. CalculateRouteSummary -&gt; Rep CalculateRouteSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Create a value of 'CalculateRouteSummary' with all optional fields omitted.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'dataSource', 'calculateRouteSummary_dataSource' - The data provider of traffic and road network data used to calculate the</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- route. Indicates one of the available providers:</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- -   @Esri@</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- -   @Here@</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- For more information about data providers, see</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html Amazon Location Service data providers&gt;.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'distance', 'calculateRouteSummary_distance' - The total distance covered by the route. The sum of the distance</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- travelled between every stop on the route.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- If Esri is the data source for the route calculator, the route distance</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- can&#8217;t be greater than 400 km. If the route exceeds 400 km, the response</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- is a @400 RoutesValidationException@ error.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'distanceUnit', 'calculateRouteSummary_distanceUnit' - The unit of measurement for the distance.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'durationSeconds', 'calculateRouteSummary_durationSeconds' - The total travel time for the route measured in seconds. The sum of the</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- travel time between every stop on the route.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'routeBBox', 'calculateRouteSummary_routeBBox' - Specifies a geographical box surrounding a route. Used to zoom into a</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- route when displaying it in a map. For example,</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- @[min x, min y, max x, max y]@.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- The first 2 @bbox@ parameters describe the lower southwest corner:</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- -   The first @bbox@ position is the X coordinate or longitude of the</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--     lower southwest corner.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- -   The second @bbox@ position is the Y coordinate or latitude of the</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--     lower southwest corner.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- The next 2 @bbox@ parameters describe the upper northeast corner:</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- -   The third @bbox@ position is the X coordinate, or longitude of the</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--     upper northeast corner.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- -   The fourth @bbox@ position is the Y coordinate, or latitude of the</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--     upper northeast corner.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#newCalculateRouteSummary"><span class="hs-identifier hs-type">newCalculateRouteSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-comment">-- | 'dataSource'</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-comment">-- | 'distance'</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-comment">-- | 'distanceUnit'</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><a href="Network.AWS.Location.Types.DistanceUnit.html#DistanceUnit"><span class="hs-identifier hs-type">DistanceUnit</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-comment">-- | 'durationSeconds'</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-comment">-- | 'routeBBox'</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#CalculateRouteSummary"><span class="hs-identifier hs-type">CalculateRouteSummary</span></a></span><span>
+</span><span id="line-137"></span><span id="newCalculateRouteSummary"><span class="annot"><span class="annottext">newCalculateRouteSummary :: Text
+-&gt; Double
+-&gt; DistanceUnit
+-&gt; Double
+-&gt; NonEmpty Double
+-&gt; CalculateRouteSummary
+</span><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#newCalculateRouteSummary"><span class="hs-identifier hs-var hs-var">newCalculateRouteSummary</span></a></span></span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679259993"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259993"><span class="hs-identifier hs-var">pDataSource_</span></a></span></span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679259992"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679259992"><span class="hs-identifier hs-var">pDistance_</span></a></span></span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679259991"><span class="annot"><span class="annottext">DistanceUnit
+</span><a href="#local-6989586621679259991"><span class="hs-identifier hs-var">pDistanceUnit_</span></a></span></span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679259990"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679259990"><span class="hs-identifier hs-var">pDurationSeconds_</span></a></span></span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679259989"><span class="annot"><span class="annottext">NonEmpty Double
+</span><a href="#local-6989586621679259989"><span class="hs-identifier hs-var">pRouteBBox_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">CalculateRouteSummary' :: Text
+-&gt; Double
+-&gt; DistanceUnit
+-&gt; Double
+-&gt; Sensitive (NonEmpty Double)
+-&gt; CalculateRouteSummary
+</span><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#CalculateRouteSummary%27"><span class="hs-identifier hs-type">CalculateRouteSummary'</span></a></span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dataSource:CalculateRouteSummary' :: Text
+</span><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#%24sel%3AdataSource%3ACalculateRouteSummary%27"><span class="hs-identifier hs-var">dataSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259993"><span class="hs-identifier hs-var">pDataSource_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">$sel:distance:CalculateRouteSummary' :: Double
+</span><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#%24sel%3Adistance%3ACalculateRouteSummary%27"><span class="hs-identifier hs-var">distance</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679259992"><span class="hs-identifier hs-var">pDistance_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">$sel:distanceUnit:CalculateRouteSummary' :: DistanceUnit
+</span><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#%24sel%3AdistanceUnit%3ACalculateRouteSummary%27"><span class="hs-identifier hs-var">distanceUnit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DistanceUnit
+</span><a href="#local-6989586621679259991"><span class="hs-identifier hs-var">pDistanceUnit_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">$sel:durationSeconds:CalculateRouteSummary' :: Double
+</span><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#%24sel%3AdurationSeconds%3ACalculateRouteSummary%27"><span class="hs-identifier hs-var">durationSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679259990"><span class="hs-identifier hs-var">pDurationSeconds_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">$sel:routeBBox:CalculateRouteSummary' :: Sensitive (NonEmpty Double)
+</span><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#%24sel%3ArouteBBox%3ACalculateRouteSummary%27"><span class="hs-identifier hs-var">routeBBox</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>          </span><span class="annot"><span class="annottext">Tagged (NonEmpty Double) (Identity (NonEmpty Double))
+-&gt; Tagged
+     (Sensitive (NonEmpty Double))
+     (Identity (Sensitive (NonEmpty Double)))
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Double) (Identity (NonEmpty Double))
+ -&gt; Tagged
+      (Sensitive (NonEmpty Double))
+      (Identity (Sensitive (NonEmpty Double))))
+-&gt; (Tagged (NonEmpty Double) (Identity (NonEmpty Double))
+    -&gt; Tagged (NonEmpty Double) (Identity (NonEmpty Double)))
+-&gt; Tagged (NonEmpty Double) (Identity (NonEmpty Double))
+-&gt; Tagged
+     (Sensitive (NonEmpty Double))
+     (Identity (Sensitive (NonEmpty Double)))
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Double) (Identity (NonEmpty Double))
+-&gt; Tagged (NonEmpty Double) (Identity (NonEmpty Double))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Double) (Identity (NonEmpty Double))
+ -&gt; Tagged
+      (Sensitive (NonEmpty Double))
+      (Identity (Sensitive (NonEmpty Double))))
+-&gt; NonEmpty Double -&gt; Sensitive (NonEmpty Double)
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Double
+</span><a href="#local-6989586621679259989"><span class="hs-identifier hs-var">pRouteBBox_</span></a></span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | The data provider of traffic and road network data used to calculate the</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- route. Indicates one of the available providers:</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- -   @Esri@</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- -   @Here@</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- For more information about data providers, see</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html Amazon Location Service data providers&gt;.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#calculateRouteSummary_dataSource"><span class="hs-identifier hs-type">calculateRouteSummary_dataSource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#CalculateRouteSummary"><span class="hs-identifier hs-type">CalculateRouteSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-163"></span><span id="calculateRouteSummary_dataSource"><span class="annot"><span class="annottext">calculateRouteSummary_dataSource :: (Text -&gt; f Text)
+-&gt; CalculateRouteSummary -&gt; f CalculateRouteSummary
+</span><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#calculateRouteSummary_dataSource"><span class="hs-identifier hs-var hs-var">calculateRouteSummary_dataSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CalculateRouteSummary -&gt; Text)
+-&gt; (CalculateRouteSummary -&gt; Text -&gt; CalculateRouteSummary)
+-&gt; Lens CalculateRouteSummary CalculateRouteSummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#CalculateRouteSummary%27"><span class="hs-identifier hs-type">CalculateRouteSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259981"><span class="annot"><span class="annottext">Text
+dataSource :: Text
+$sel:dataSource:CalculateRouteSummary' :: CalculateRouteSummary -&gt; Text
+</span><a href="#local-6989586621679259981"><span class="hs-identifier hs-var hs-var">dataSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259981"><span class="hs-identifier hs-var">dataSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259980"><span class="annot"><span class="annottext">s :: CalculateRouteSummary
+</span><a href="#local-6989586621679259980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#CalculateRouteSummary%27"><span class="hs-identifier hs-type">CalculateRouteSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259979"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CalculateRouteSummary
+</span><a href="#local-6989586621679259980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSource:CalculateRouteSummary' :: Text
+</span><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#%24sel%3AdataSource%3ACalculateRouteSummary%27"><span class="hs-identifier hs-var">dataSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679259979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#CalculateRouteSummary"><span class="hs-identifier hs-type">CalculateRouteSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The total distance covered by the route. The sum of the distance</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- travelled between every stop on the route.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- If Esri is the data source for the route calculator, the route distance</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- can&#8217;t be greater than 400 km. If the route exceeds 400 km, the response</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- is a @400 RoutesValidationException@ error.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#calculateRouteSummary_distance"><span class="hs-identifier hs-type">calculateRouteSummary_distance</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#CalculateRouteSummary"><span class="hs-identifier hs-type">CalculateRouteSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
+</span><span id="line-172"></span><span id="calculateRouteSummary_distance"><span class="annot"><span class="annottext">calculateRouteSummary_distance :: (Double -&gt; f Double)
+-&gt; CalculateRouteSummary -&gt; f CalculateRouteSummary
+</span><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#calculateRouteSummary_distance"><span class="hs-identifier hs-var hs-var">calculateRouteSummary_distance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CalculateRouteSummary -&gt; Double)
+-&gt; (CalculateRouteSummary -&gt; Double -&gt; CalculateRouteSummary)
+-&gt; Lens CalculateRouteSummary CalculateRouteSummary Double Double
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#CalculateRouteSummary%27"><span class="hs-identifier hs-type">CalculateRouteSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259977"><span class="annot"><span class="annottext">Double
+distance :: Double
+$sel:distance:CalculateRouteSummary' :: CalculateRouteSummary -&gt; Double
+</span><a href="#local-6989586621679259977"><span class="hs-identifier hs-var hs-var">distance</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679259977"><span class="hs-identifier hs-var">distance</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259976"><span class="annot"><span class="annottext">s :: CalculateRouteSummary
+</span><a href="#local-6989586621679259976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#CalculateRouteSummary%27"><span class="hs-identifier hs-type">CalculateRouteSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259975"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679259975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CalculateRouteSummary
+</span><a href="#local-6989586621679259976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:distance:CalculateRouteSummary' :: Double
+</span><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#%24sel%3Adistance%3ACalculateRouteSummary%27"><span class="hs-identifier hs-var">distance</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679259975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#CalculateRouteSummary"><span class="hs-identifier hs-type">CalculateRouteSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | The unit of measurement for the distance.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#calculateRouteSummary_distanceUnit"><span class="hs-identifier hs-type">calculateRouteSummary_distanceUnit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#CalculateRouteSummary"><span class="hs-identifier hs-type">CalculateRouteSummary</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.DistanceUnit.html#DistanceUnit"><span class="hs-identifier hs-type">DistanceUnit</span></a></span><span>
+</span><span id="line-176"></span><span id="calculateRouteSummary_distanceUnit"><span class="annot"><span class="annottext">calculateRouteSummary_distanceUnit :: (DistanceUnit -&gt; f DistanceUnit)
+-&gt; CalculateRouteSummary -&gt; f CalculateRouteSummary
+</span><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#calculateRouteSummary_distanceUnit"><span class="hs-identifier hs-var hs-var">calculateRouteSummary_distanceUnit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CalculateRouteSummary -&gt; DistanceUnit)
+-&gt; (CalculateRouteSummary -&gt; DistanceUnit -&gt; CalculateRouteSummary)
+-&gt; Lens
+     CalculateRouteSummary
+     CalculateRouteSummary
+     DistanceUnit
+     DistanceUnit
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#CalculateRouteSummary%27"><span class="hs-identifier hs-type">CalculateRouteSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259973"><span class="annot"><span class="annottext">DistanceUnit
+distanceUnit :: DistanceUnit
+$sel:distanceUnit:CalculateRouteSummary' :: CalculateRouteSummary -&gt; DistanceUnit
+</span><a href="#local-6989586621679259973"><span class="hs-identifier hs-var hs-var">distanceUnit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DistanceUnit
+</span><a href="#local-6989586621679259973"><span class="hs-identifier hs-var">distanceUnit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259972"><span class="annot"><span class="annottext">s :: CalculateRouteSummary
+</span><a href="#local-6989586621679259972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#CalculateRouteSummary%27"><span class="hs-identifier hs-type">CalculateRouteSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259971"><span class="annot"><span class="annottext">DistanceUnit
+</span><a href="#local-6989586621679259971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CalculateRouteSummary
+</span><a href="#local-6989586621679259972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:distanceUnit:CalculateRouteSummary' :: DistanceUnit
+</span><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#%24sel%3AdistanceUnit%3ACalculateRouteSummary%27"><span class="hs-identifier hs-var">distanceUnit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DistanceUnit
+</span><a href="#local-6989586621679259971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#CalculateRouteSummary"><span class="hs-identifier hs-type">CalculateRouteSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | The total travel time for the route measured in seconds. The sum of the</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- travel time between every stop on the route.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#calculateRouteSummary_durationSeconds"><span class="hs-identifier hs-type">calculateRouteSummary_durationSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#CalculateRouteSummary"><span class="hs-identifier hs-type">CalculateRouteSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
+</span><span id="line-181"></span><span id="calculateRouteSummary_durationSeconds"><span class="annot"><span class="annottext">calculateRouteSummary_durationSeconds :: (Double -&gt; f Double)
+-&gt; CalculateRouteSummary -&gt; f CalculateRouteSummary
+</span><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#calculateRouteSummary_durationSeconds"><span class="hs-identifier hs-var hs-var">calculateRouteSummary_durationSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CalculateRouteSummary -&gt; Double)
+-&gt; (CalculateRouteSummary -&gt; Double -&gt; CalculateRouteSummary)
+-&gt; Lens CalculateRouteSummary CalculateRouteSummary Double Double
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#CalculateRouteSummary%27"><span class="hs-identifier hs-type">CalculateRouteSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259969"><span class="annot"><span class="annottext">Double
+durationSeconds :: Double
+$sel:durationSeconds:CalculateRouteSummary' :: CalculateRouteSummary -&gt; Double
+</span><a href="#local-6989586621679259969"><span class="hs-identifier hs-var hs-var">durationSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679259969"><span class="hs-identifier hs-var">durationSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259968"><span class="annot"><span class="annottext">s :: CalculateRouteSummary
+</span><a href="#local-6989586621679259968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#CalculateRouteSummary%27"><span class="hs-identifier hs-type">CalculateRouteSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259967"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679259967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CalculateRouteSummary
+</span><a href="#local-6989586621679259968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:durationSeconds:CalculateRouteSummary' :: Double
+</span><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#%24sel%3AdurationSeconds%3ACalculateRouteSummary%27"><span class="hs-identifier hs-var">durationSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679259967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#CalculateRouteSummary"><span class="hs-identifier hs-type">CalculateRouteSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | Specifies a geographical box surrounding a route. Used to zoom into a</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- route when displaying it in a map. For example,</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- @[min x, min y, max x, max y]@.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- The first 2 @bbox@ parameters describe the lower southwest corner:</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- -   The first @bbox@ position is the X coordinate or longitude of the</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--     lower southwest corner.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- -   The second @bbox@ position is the Y coordinate or latitude of the</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--     lower southwest corner.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- The next 2 @bbox@ parameters describe the upper northeast corner:</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- -   The third @bbox@ position is the X coordinate, or longitude of the</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--     upper northeast corner.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- -   The fourth @bbox@ position is the Y coordinate, or latitude of the</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--     upper northeast corner.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#calculateRouteSummary_routeBBox"><span class="hs-identifier hs-type">calculateRouteSummary_routeBBox</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#CalculateRouteSummary"><span class="hs-identifier hs-type">CalculateRouteSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span id="calculateRouteSummary_routeBBox"><span class="annot"><span class="annottext">calculateRouteSummary_routeBBox :: (NonEmpty Double -&gt; f (NonEmpty Double))
+-&gt; CalculateRouteSummary -&gt; f CalculateRouteSummary
+</span><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#calculateRouteSummary_routeBBox"><span class="hs-identifier hs-var hs-var">calculateRouteSummary_routeBBox</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CalculateRouteSummary -&gt; Sensitive (NonEmpty Double))
+-&gt; (CalculateRouteSummary
+    -&gt; Sensitive (NonEmpty Double) -&gt; CalculateRouteSummary)
+-&gt; Lens
+     CalculateRouteSummary
+     CalculateRouteSummary
+     (Sensitive (NonEmpty Double))
+     (Sensitive (NonEmpty Double))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#CalculateRouteSummary%27"><span class="hs-identifier hs-type">CalculateRouteSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259965"><span class="annot"><span class="annottext">Sensitive (NonEmpty Double)
+routeBBox :: Sensitive (NonEmpty Double)
+$sel:routeBBox:CalculateRouteSummary' :: CalculateRouteSummary -&gt; Sensitive (NonEmpty Double)
+</span><a href="#local-6989586621679259965"><span class="hs-identifier hs-var hs-var">routeBBox</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive (NonEmpty Double)
+</span><a href="#local-6989586621679259965"><span class="hs-identifier hs-var">routeBBox</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259964"><span class="annot"><span class="annottext">s :: CalculateRouteSummary
+</span><a href="#local-6989586621679259964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#CalculateRouteSummary%27"><span class="hs-identifier hs-type">CalculateRouteSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259963"><span class="annot"><span class="annottext">Sensitive (NonEmpty Double)
+</span><a href="#local-6989586621679259963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CalculateRouteSummary
+</span><a href="#local-6989586621679259964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:routeBBox:CalculateRouteSummary' :: Sensitive (NonEmpty Double)
+</span><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#%24sel%3ArouteBBox%3ACalculateRouteSummary%27"><span class="hs-identifier hs-var">routeBBox</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive (NonEmpty Double)
+</span><a href="#local-6989586621679259963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#CalculateRouteSummary"><span class="hs-identifier hs-type">CalculateRouteSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive (NonEmpty Double) -&gt; f (Sensitive (NonEmpty Double)))
+ -&gt; CalculateRouteSummary -&gt; f CalculateRouteSummary)
+-&gt; ((NonEmpty Double -&gt; f (NonEmpty Double))
+    -&gt; Sensitive (NonEmpty Double) -&gt; f (Sensitive (NonEmpty Double)))
+-&gt; (NonEmpty Double -&gt; f (NonEmpty Double))
+-&gt; CalculateRouteSummary
+-&gt; f CalculateRouteSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Double -&gt; f (NonEmpty Double))
+-&gt; Sensitive (NonEmpty Double) -&gt; f (Sensitive (NonEmpty Double))
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">((NonEmpty Double -&gt; f (NonEmpty Double))
+ -&gt; Sensitive (NonEmpty Double) -&gt; f (Sensitive (NonEmpty Double)))
+-&gt; ((NonEmpty Double -&gt; f (NonEmpty Double))
+    -&gt; NonEmpty Double -&gt; f (NonEmpty Double))
+-&gt; (NonEmpty Double -&gt; f (NonEmpty Double))
+-&gt; Sensitive (NonEmpty Double)
+-&gt; f (Sensitive (NonEmpty Double))
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Double -&gt; f (NonEmpty Double))
+-&gt; NonEmpty Double -&gt; f (NonEmpty Double)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259960"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#CalculateRouteSummary"><span class="hs-identifier hs-type">CalculateRouteSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-206"></span><span>  </span><span id="local-6989586621679259958"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CalculateRouteSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-207"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser CalculateRouteSummary)
+-&gt; Value
+-&gt; Parser CalculateRouteSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;CalculateRouteSummary&quot;</span></span><span>
+</span><span id="line-209"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679259955"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679259955"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-210"></span><span>          </span><span class="annot"><span class="annottext">Text
+-&gt; Double
+-&gt; DistanceUnit
+-&gt; Double
+-&gt; Sensitive (NonEmpty Double)
+-&gt; CalculateRouteSummary
+</span><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#CalculateRouteSummary%27"><span class="hs-identifier hs-var">CalculateRouteSummary'</span></a></span><span>
+</span><span id="line-211"></span><span>            </span><span class="annot"><span class="annottext">(Text
+ -&gt; Double
+ -&gt; DistanceUnit
+ -&gt; Double
+ -&gt; Sensitive (NonEmpty Double)
+ -&gt; CalculateRouteSummary)
+-&gt; Parser Text
+-&gt; Parser
+     (Double
+      -&gt; DistanceUnit
+      -&gt; Double
+      -&gt; Sensitive (NonEmpty Double)
+      -&gt; CalculateRouteSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679259955"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataSource&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Double
+   -&gt; DistanceUnit
+   -&gt; Double
+   -&gt; Sensitive (NonEmpty Double)
+   -&gt; CalculateRouteSummary)
+-&gt; Parser Double
+-&gt; Parser
+     (DistanceUnit
+      -&gt; Double -&gt; Sensitive (NonEmpty Double) -&gt; CalculateRouteSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679259955"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Double
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Distance&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (DistanceUnit
+   -&gt; Double -&gt; Sensitive (NonEmpty Double) -&gt; CalculateRouteSummary)
+-&gt; Parser DistanceUnit
+-&gt; Parser
+     (Double -&gt; Sensitive (NonEmpty Double) -&gt; CalculateRouteSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679259955"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser DistanceUnit
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DistanceUnit&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Double -&gt; Sensitive (NonEmpty Double) -&gt; CalculateRouteSummary)
+-&gt; Parser Double
+-&gt; Parser (Sensitive (NonEmpty Double) -&gt; CalculateRouteSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679259955"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Double
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DurationSeconds&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>            </span><span class="annot"><span class="annottext">Parser (Sensitive (NonEmpty Double) -&gt; CalculateRouteSummary)
+-&gt; Parser (Sensitive (NonEmpty Double))
+-&gt; Parser CalculateRouteSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679259955"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Sensitive (NonEmpty Double))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RouteBBox&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259949"><span id="local-6989586621679259951"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#CalculateRouteSummary"><span class="hs-identifier hs-type">CalculateRouteSummary</span></a></span></span></span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259946"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.CalculateRouteSummary.html#CalculateRouteSummary"><span class="hs-identifier hs-type">CalculateRouteSummary</span></a></span></span><span>
+</span><span id="line-221"></span></pre></body></html>

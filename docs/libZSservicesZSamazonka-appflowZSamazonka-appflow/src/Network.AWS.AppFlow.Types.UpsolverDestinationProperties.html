@@ -1,0 +1,346 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AppFlow.Types.UpsolverDestinationProperties</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AppFlow.Types.UpsolverDestinationProperties</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.UpsolverS3OutputFormatConfig.html"><span class="hs-identifier">Network.AWS.AppFlow.Types.UpsolverS3OutputFormatConfig</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The properties that are applied when Upsolver is used as a destination.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newUpsolverDestinationProperties' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679327491"><span id="local-6989586621679327492"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpsolverDestinationProperties"><span class="annot"><a href="Network.AWS.AppFlow.Types.UpsolverDestinationProperties.html#UpsolverDestinationProperties"><span class="hs-identifier hs-var">UpsolverDestinationProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpsolverDestinationProperties%27"><span class="annot"><a href="Network.AWS.AppFlow.Types.UpsolverDestinationProperties.html#UpsolverDestinationProperties%27"><span class="hs-identifier hs-var">UpsolverDestinationProperties'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The object key for the destination Upsolver Amazon S3 bucket in which</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- Amazon AppFlow places the files.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AbucketPrefix%3AUpsolverDestinationProperties%27"><span class="annot"><span class="annottext">UpsolverDestinationProperties -&gt; Maybe Text
+</span><a href="Network.AWS.AppFlow.Types.UpsolverDestinationProperties.html#%24sel%3AbucketPrefix%3AUpsolverDestinationProperties%27"><span class="hs-identifier hs-var hs-var">bucketPrefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The Upsolver Amazon S3 bucket name in which Amazon AppFlow places the</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- transferred data.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AbucketName%3AUpsolverDestinationProperties%27"><span class="annot"><span class="annottext">UpsolverDestinationProperties -&gt; Text
+</span><a href="Network.AWS.AppFlow.Types.UpsolverDestinationProperties.html#%24sel%3AbucketName%3AUpsolverDestinationProperties%27"><span class="hs-identifier hs-var hs-var">bucketName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The configuration that determines how data is formatted when Upsolver is</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- used as the flow destination.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3As3OutputFormatConfig%3AUpsolverDestinationProperties%27"><span class="annot"><span class="annottext">UpsolverDestinationProperties -&gt; UpsolverS3OutputFormatConfig
+</span><a href="Network.AWS.AppFlow.Types.UpsolverDestinationProperties.html#%24sel%3As3OutputFormatConfig%3AUpsolverDestinationProperties%27"><span class="hs-identifier hs-var hs-var">s3OutputFormatConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.UpsolverS3OutputFormatConfig.html#UpsolverS3OutputFormatConfig"><span class="hs-identifier hs-type">UpsolverS3OutputFormatConfig</span></a></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679327483"><span id="local-6989586621679327485"><span class="annot"><span class="annottext">UpsolverDestinationProperties
+-&gt; UpsolverDestinationProperties -&gt; Bool
+(UpsolverDestinationProperties
+ -&gt; UpsolverDestinationProperties -&gt; Bool)
+-&gt; (UpsolverDestinationProperties
+    -&gt; UpsolverDestinationProperties -&gt; Bool)
+-&gt; Eq UpsolverDestinationProperties
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpsolverDestinationProperties
+-&gt; UpsolverDestinationProperties -&gt; Bool
+$c/= :: UpsolverDestinationProperties
+-&gt; UpsolverDestinationProperties -&gt; Bool
+== :: UpsolverDestinationProperties
+-&gt; UpsolverDestinationProperties -&gt; Bool
+$c== :: UpsolverDestinationProperties
+-&gt; UpsolverDestinationProperties -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327474"><span id="local-6989586621679327476"><span id="local-6989586621679327478"><span id="local-6989586621679327480"><span class="annot"><span class="annottext">ReadPrec [UpsolverDestinationProperties]
+ReadPrec UpsolverDestinationProperties
+Int -&gt; ReadS UpsolverDestinationProperties
+ReadS [UpsolverDestinationProperties]
+(Int -&gt; ReadS UpsolverDestinationProperties)
+-&gt; ReadS [UpsolverDestinationProperties]
+-&gt; ReadPrec UpsolverDestinationProperties
+-&gt; ReadPrec [UpsolverDestinationProperties]
+-&gt; Read UpsolverDestinationProperties
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpsolverDestinationProperties]
+$creadListPrec :: ReadPrec [UpsolverDestinationProperties]
+readPrec :: ReadPrec UpsolverDestinationProperties
+$creadPrec :: ReadPrec UpsolverDestinationProperties
+readList :: ReadS [UpsolverDestinationProperties]
+$creadList :: ReadS [UpsolverDestinationProperties]
+readsPrec :: Int -&gt; ReadS UpsolverDestinationProperties
+$creadsPrec :: Int -&gt; ReadS UpsolverDestinationProperties
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327467"><span id="local-6989586621679327469"><span id="local-6989586621679327471"><span class="annot"><span class="annottext">Int -&gt; UpsolverDestinationProperties -&gt; ShowS
+[UpsolverDestinationProperties] -&gt; ShowS
+UpsolverDestinationProperties -&gt; String
+(Int -&gt; UpsolverDestinationProperties -&gt; ShowS)
+-&gt; (UpsolverDestinationProperties -&gt; String)
+-&gt; ([UpsolverDestinationProperties] -&gt; ShowS)
+-&gt; Show UpsolverDestinationProperties
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpsolverDestinationProperties] -&gt; ShowS
+$cshowList :: [UpsolverDestinationProperties] -&gt; ShowS
+show :: UpsolverDestinationProperties -&gt; String
+$cshow :: UpsolverDestinationProperties -&gt; String
+showsPrec :: Int -&gt; UpsolverDestinationProperties -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpsolverDestinationProperties -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpsolverDestinationProperties
+ -&gt; Rep UpsolverDestinationProperties x)
+-&gt; (forall x.
+    Rep UpsolverDestinationProperties x
+    -&gt; UpsolverDestinationProperties)
+-&gt; Generic UpsolverDestinationProperties
+forall x.
+Rep UpsolverDestinationProperties x
+-&gt; UpsolverDestinationProperties
+forall x.
+UpsolverDestinationProperties
+-&gt; Rep UpsolverDestinationProperties x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpsolverDestinationProperties x
+-&gt; UpsolverDestinationProperties
+$cfrom :: forall x.
+UpsolverDestinationProperties
+-&gt; Rep UpsolverDestinationProperties x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Create a value of 'UpsolverDestinationProperties' with all optional fields omitted.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'bucketPrefix', 'upsolverDestinationProperties_bucketPrefix' - The object key for the destination Upsolver Amazon S3 bucket in which</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Amazon AppFlow places the files.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'bucketName', 'upsolverDestinationProperties_bucketName' - The Upsolver Amazon S3 bucket name in which Amazon AppFlow places the</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- transferred data.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 's3OutputFormatConfig', 'upsolverDestinationProperties_s3OutputFormatConfig' - The configuration that determines how data is formatted when Upsolver is</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- used as the flow destination.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.UpsolverDestinationProperties.html#newUpsolverDestinationProperties"><span class="hs-identifier hs-type">newUpsolverDestinationProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-comment">-- | 'bucketName'</span><span>
+</span><span id="line-61"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-comment">-- | 's3OutputFormatConfig'</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.UpsolverS3OutputFormatConfig.html#UpsolverS3OutputFormatConfig"><span class="hs-identifier hs-type">UpsolverS3OutputFormatConfig</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.UpsolverDestinationProperties.html#UpsolverDestinationProperties"><span class="hs-identifier hs-type">UpsolverDestinationProperties</span></a></span><span>
+</span><span id="line-65"></span><span id="newUpsolverDestinationProperties"><span class="annot"><span class="annottext">newUpsolverDestinationProperties :: Text
+-&gt; UpsolverS3OutputFormatConfig -&gt; UpsolverDestinationProperties
+</span><a href="Network.AWS.AppFlow.Types.UpsolverDestinationProperties.html#newUpsolverDestinationProperties"><span class="hs-identifier hs-var hs-var">newUpsolverDestinationProperties</span></a></span></span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679327461"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327461"><span class="hs-identifier hs-var">pBucketName_</span></a></span></span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679327460"><span class="annot"><span class="annottext">UpsolverS3OutputFormatConfig
+</span><a href="#local-6989586621679327460"><span class="hs-identifier hs-var">pS3OutputFormatConfig_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">UpsolverDestinationProperties' :: Maybe Text
+-&gt; Text
+-&gt; UpsolverS3OutputFormatConfig
+-&gt; UpsolverDestinationProperties
+</span><a href="Network.AWS.AppFlow.Types.UpsolverDestinationProperties.html#UpsolverDestinationProperties%27"><span class="hs-identifier hs-type">UpsolverDestinationProperties'</span></a></span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:bucketPrefix:UpsolverDestinationProperties' :: Maybe Text
+</span><a href="Network.AWS.AppFlow.Types.UpsolverDestinationProperties.html#%24sel%3AbucketPrefix%3AUpsolverDestinationProperties%27"><span class="hs-identifier hs-var">bucketPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">$sel:bucketName:UpsolverDestinationProperties' :: Text
+</span><a href="Network.AWS.AppFlow.Types.UpsolverDestinationProperties.html#%24sel%3AbucketName%3AUpsolverDestinationProperties%27"><span class="hs-identifier hs-var">bucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327461"><span class="hs-identifier hs-var">pBucketName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">$sel:s3OutputFormatConfig:UpsolverDestinationProperties' :: UpsolverS3OutputFormatConfig
+</span><a href="Network.AWS.AppFlow.Types.UpsolverDestinationProperties.html#%24sel%3As3OutputFormatConfig%3AUpsolverDestinationProperties%27"><span class="hs-identifier hs-var">s3OutputFormatConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">UpsolverS3OutputFormatConfig
+</span><a href="#local-6989586621679327460"><span class="hs-identifier hs-var">pS3OutputFormatConfig_</span></a></span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The object key for the destination Upsolver Amazon S3 bucket in which</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Amazon AppFlow places the files.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.UpsolverDestinationProperties.html#upsolverDestinationProperties_bucketPrefix"><span class="hs-identifier hs-type">upsolverDestinationProperties_bucketPrefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.UpsolverDestinationProperties.html#UpsolverDestinationProperties"><span class="hs-identifier hs-type">UpsolverDestinationProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="upsolverDestinationProperties_bucketPrefix"><span class="annot"><span class="annottext">upsolverDestinationProperties_bucketPrefix :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpsolverDestinationProperties -&gt; f UpsolverDestinationProperties
+</span><a href="Network.AWS.AppFlow.Types.UpsolverDestinationProperties.html#upsolverDestinationProperties_bucketPrefix"><span class="hs-identifier hs-var hs-var">upsolverDestinationProperties_bucketPrefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpsolverDestinationProperties -&gt; Maybe Text)
+-&gt; (UpsolverDestinationProperties
+    -&gt; Maybe Text -&gt; UpsolverDestinationProperties)
+-&gt; Lens
+     UpsolverDestinationProperties
+     UpsolverDestinationProperties
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.UpsolverDestinationProperties.html#UpsolverDestinationProperties%27"><span class="hs-identifier hs-type">UpsolverDestinationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327456"><span class="annot"><span class="annottext">Maybe Text
+bucketPrefix :: Maybe Text
+$sel:bucketPrefix:UpsolverDestinationProperties' :: UpsolverDestinationProperties -&gt; Maybe Text
+</span><a href="#local-6989586621679327456"><span class="hs-identifier hs-var hs-var">bucketPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679327456"><span class="hs-identifier hs-var">bucketPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679327455"><span class="annot"><span class="annottext">s :: UpsolverDestinationProperties
+</span><a href="#local-6989586621679327455"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.UpsolverDestinationProperties.html#UpsolverDestinationProperties%27"><span class="hs-identifier hs-type">UpsolverDestinationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679327454"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679327454"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpsolverDestinationProperties
+</span><a href="#local-6989586621679327455"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketPrefix:UpsolverDestinationProperties' :: Maybe Text
+</span><a href="Network.AWS.AppFlow.Types.UpsolverDestinationProperties.html#%24sel%3AbucketPrefix%3AUpsolverDestinationProperties%27"><span class="hs-identifier hs-var">bucketPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679327454"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.UpsolverDestinationProperties.html#UpsolverDestinationProperties"><span class="hs-identifier hs-type">UpsolverDestinationProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The Upsolver Amazon S3 bucket name in which Amazon AppFlow places the</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- transferred data.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.UpsolverDestinationProperties.html#upsolverDestinationProperties_bucketName"><span class="hs-identifier hs-type">upsolverDestinationProperties_bucketName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.UpsolverDestinationProperties.html#UpsolverDestinationProperties"><span class="hs-identifier hs-type">UpsolverDestinationProperties</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-84"></span><span id="upsolverDestinationProperties_bucketName"><span class="annot"><span class="annottext">upsolverDestinationProperties_bucketName :: (Text -&gt; f Text)
+-&gt; UpsolverDestinationProperties -&gt; f UpsolverDestinationProperties
+</span><a href="Network.AWS.AppFlow.Types.UpsolverDestinationProperties.html#upsolverDestinationProperties_bucketName"><span class="hs-identifier hs-var hs-var">upsolverDestinationProperties_bucketName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpsolverDestinationProperties -&gt; Text)
+-&gt; (UpsolverDestinationProperties
+    -&gt; Text -&gt; UpsolverDestinationProperties)
+-&gt; Lens
+     UpsolverDestinationProperties
+     UpsolverDestinationProperties
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.UpsolverDestinationProperties.html#UpsolverDestinationProperties%27"><span class="hs-identifier hs-type">UpsolverDestinationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327452"><span class="annot"><span class="annottext">Text
+bucketName :: Text
+$sel:bucketName:UpsolverDestinationProperties' :: UpsolverDestinationProperties -&gt; Text
+</span><a href="#local-6989586621679327452"><span class="hs-identifier hs-var hs-var">bucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327452"><span class="hs-identifier hs-var">bucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679327451"><span class="annot"><span class="annottext">s :: UpsolverDestinationProperties
+</span><a href="#local-6989586621679327451"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.UpsolverDestinationProperties.html#UpsolverDestinationProperties%27"><span class="hs-identifier hs-type">UpsolverDestinationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679327450"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327450"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpsolverDestinationProperties
+</span><a href="#local-6989586621679327451"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketName:UpsolverDestinationProperties' :: Text
+</span><a href="Network.AWS.AppFlow.Types.UpsolverDestinationProperties.html#%24sel%3AbucketName%3AUpsolverDestinationProperties%27"><span class="hs-identifier hs-var">bucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327450"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.UpsolverDestinationProperties.html#UpsolverDestinationProperties"><span class="hs-identifier hs-type">UpsolverDestinationProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The configuration that determines how data is formatted when Upsolver is</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- used as the flow destination.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.AppFlow.Types.UpsolverDestinationProperties.html#upsolverDestinationProperties_s3OutputFormatConfig"><span class="hs-identifier hs-type">upsolverDestinationProperties_s3OutputFormatConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.UpsolverDestinationProperties.html#UpsolverDestinationProperties"><span class="hs-identifier hs-type">UpsolverDestinationProperties</span></a></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.UpsolverS3OutputFormatConfig.html#UpsolverS3OutputFormatConfig"><span class="hs-identifier hs-type">UpsolverS3OutputFormatConfig</span></a></span><span>
+</span><span id="line-89"></span><span id="upsolverDestinationProperties_s3OutputFormatConfig"><span class="annot"><span class="annottext">upsolverDestinationProperties_s3OutputFormatConfig :: (UpsolverS3OutputFormatConfig -&gt; f UpsolverS3OutputFormatConfig)
+-&gt; UpsolverDestinationProperties -&gt; f UpsolverDestinationProperties
+</span><a href="Network.AWS.AppFlow.Types.UpsolverDestinationProperties.html#upsolverDestinationProperties_s3OutputFormatConfig"><span class="hs-identifier hs-var hs-var">upsolverDestinationProperties_s3OutputFormatConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpsolverDestinationProperties -&gt; UpsolverS3OutputFormatConfig)
+-&gt; (UpsolverDestinationProperties
+    -&gt; UpsolverS3OutputFormatConfig -&gt; UpsolverDestinationProperties)
+-&gt; Lens
+     UpsolverDestinationProperties
+     UpsolverDestinationProperties
+     UpsolverS3OutputFormatConfig
+     UpsolverS3OutputFormatConfig
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppFlow.Types.UpsolverDestinationProperties.html#UpsolverDestinationProperties%27"><span class="hs-identifier hs-type">UpsolverDestinationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327448"><span class="annot"><span class="annottext">UpsolverS3OutputFormatConfig
+s3OutputFormatConfig :: UpsolverS3OutputFormatConfig
+$sel:s3OutputFormatConfig:UpsolverDestinationProperties' :: UpsolverDestinationProperties -&gt; UpsolverS3OutputFormatConfig
+</span><a href="#local-6989586621679327448"><span class="hs-identifier hs-var hs-var">s3OutputFormatConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpsolverS3OutputFormatConfig
+</span><a href="#local-6989586621679327448"><span class="hs-identifier hs-var">s3OutputFormatConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679327447"><span class="annot"><span class="annottext">s :: UpsolverDestinationProperties
+</span><a href="#local-6989586621679327447"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppFlow.Types.UpsolverDestinationProperties.html#UpsolverDestinationProperties%27"><span class="hs-identifier hs-type">UpsolverDestinationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679327446"><span class="annot"><span class="annottext">UpsolverS3OutputFormatConfig
+</span><a href="#local-6989586621679327446"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpsolverDestinationProperties
+</span><a href="#local-6989586621679327447"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3OutputFormatConfig:UpsolverDestinationProperties' :: UpsolverS3OutputFormatConfig
+</span><a href="Network.AWS.AppFlow.Types.UpsolverDestinationProperties.html#%24sel%3As3OutputFormatConfig%3AUpsolverDestinationProperties%27"><span class="hs-identifier hs-var">s3OutputFormatConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UpsolverS3OutputFormatConfig
+</span><a href="#local-6989586621679327446"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.UpsolverDestinationProperties.html#UpsolverDestinationProperties"><span class="hs-identifier hs-type">UpsolverDestinationProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679327443"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.UpsolverDestinationProperties.html#UpsolverDestinationProperties"><span class="hs-identifier hs-type">UpsolverDestinationProperties</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679327441"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UpsolverDestinationProperties
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser UpsolverDestinationProperties)
+-&gt; Value
+-&gt; Parser UpsolverDestinationProperties
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;UpsolverDestinationProperties&quot;</span></span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679327438"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679327438"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Text
+-&gt; UpsolverS3OutputFormatConfig
+-&gt; UpsolverDestinationProperties
+</span><a href="Network.AWS.AppFlow.Types.UpsolverDestinationProperties.html#UpsolverDestinationProperties%27"><span class="hs-identifier hs-var">UpsolverDestinationProperties'</span></a></span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Text
+ -&gt; UpsolverS3OutputFormatConfig
+ -&gt; UpsolverDestinationProperties)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Text
+      -&gt; UpsolverS3OutputFormatConfig -&gt; UpsolverDestinationProperties)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679327438"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;bucketPrefix&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; UpsolverS3OutputFormatConfig -&gt; UpsolverDestinationProperties)
+-&gt; Parser Text
+-&gt; Parser
+     (UpsolverS3OutputFormatConfig -&gt; UpsolverDestinationProperties)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679327438"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;bucketName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (UpsolverS3OutputFormatConfig -&gt; UpsolverDestinationProperties)
+-&gt; Parser UpsolverS3OutputFormatConfig
+-&gt; Parser UpsolverDestinationProperties
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679327438"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser UpsolverS3OutputFormatConfig
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;s3OutputFormatConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679327431"><span id="local-6989586621679327433"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><a href="Network.AWS.AppFlow.Types.UpsolverDestinationProperties.html#UpsolverDestinationProperties"><span class="hs-identifier hs-type">UpsolverDestinationProperties</span></a></span></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679327428"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.UpsolverDestinationProperties.html#UpsolverDestinationProperties"><span class="hs-identifier hs-type">UpsolverDestinationProperties</span></a></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679327420"><span id="local-6989586621679327422"><span id="local-6989586621679327424"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.UpsolverDestinationProperties.html#UpsolverDestinationProperties"><span class="hs-identifier hs-type">UpsolverDestinationProperties</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679327418"><span class="annot"><span class="annottext">toJSON :: UpsolverDestinationProperties -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.UpsolverDestinationProperties.html#UpsolverDestinationProperties%27"><span class="hs-identifier hs-type">UpsolverDestinationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327414"><span id="local-6989586621679327415"><span id="local-6989586621679327416"><span class="annot"><span class="annottext">Maybe Text
+Text
+UpsolverS3OutputFormatConfig
+s3OutputFormatConfig :: UpsolverS3OutputFormatConfig
+bucketName :: Text
+bucketPrefix :: Maybe Text
+$sel:s3OutputFormatConfig:UpsolverDestinationProperties' :: UpsolverDestinationProperties -&gt; UpsolverS3OutputFormatConfig
+$sel:bucketName:UpsolverDestinationProperties' :: UpsolverDestinationProperties -&gt; Text
+$sel:bucketPrefix:UpsolverDestinationProperties' :: UpsolverDestinationProperties -&gt; Maybe Text
+</span><a href="#local-6989586621679327414"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-112"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;bucketPrefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679327416"><span class="hs-identifier hs-var">bucketPrefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;bucketName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327415"><span class="hs-identifier hs-var">bucketName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-115"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;s3OutputFormatConfig&quot;</span></span><span>
+</span><span id="line-116"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; UpsolverS3OutputFormatConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">UpsolverS3OutputFormatConfig
+</span><a href="#local-6989586621679327414"><span class="hs-identifier hs-var">s3OutputFormatConfig</span></a></span><span>
+</span><span id="line-117"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span></pre></body></html>

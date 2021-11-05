@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679153055"><span id="local-6989586621679153056"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="QueryParser"><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.QueryParser.html#QueryParser"><span class="hs-identifier hs-var">QueryParser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="QueryParser%27"><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.QueryParser.html#QueryParser%27"><span class="hs-identifier hs-var">QueryParser'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679153064"><span id="local-6989586621679153065"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="QueryParser"><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.QueryParser.html#QueryParser"><span class="hs-identifier hs-var">QueryParser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="QueryParser%27"><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.QueryParser.html#QueryParser%27"><span class="hs-identifier hs-var">QueryParser'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromQueryParser"><span class="annot"><span class="annottext">QueryParser -&gt; Text
 </span><a href="Network.AWS.CloudSearchDomains.Types.QueryParser.html#fromQueryParser"><span class="hs-identifier hs-var hs-var">fromQueryParser</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679153047"><span id="local-6989586621679153049"><span id="local-6989586621679153051"><span class="annot"><span class="annottext">Int -&gt; QueryParser -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679153056"><span id="local-6989586621679153058"><span id="local-6989586621679153060"><span class="annot"><span class="annottext">Int -&gt; QueryParser -&gt; ShowS
 [QueryParser] -&gt; ShowS
 QueryParser -&gt; String
 (Int -&gt; QueryParser -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: QueryParser -&gt; String
 showsPrec :: Int -&gt; QueryParser -&gt; ShowS
 $cshowsPrec :: Int -&gt; QueryParser -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679153038"><span id="local-6989586621679153040"><span id="local-6989586621679153042"><span id="local-6989586621679153044"><span class="annot"><span class="annottext">ReadPrec [QueryParser]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679153047"><span id="local-6989586621679153049"><span id="local-6989586621679153051"><span id="local-6989586621679153053"><span class="annot"><span class="annottext">ReadPrec [QueryParser]
 ReadPrec QueryParser
 Int -&gt; ReadS QueryParser
 ReadS [QueryParser]
@@ -74,7 +74,7 @@ $creadList :: ReadS [QueryParser]
 readsPrec :: Int -&gt; ReadS QueryParser
 $creadsPrec :: Int -&gt; ReadS QueryParser
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679153033"><span id="local-6989586621679153035"><span class="annot"><span class="annottext">QueryParser -&gt; QueryParser -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679153042"><span id="local-6989586621679153044"><span class="annot"><span class="annottext">QueryParser -&gt; QueryParser -&gt; Bool
 (QueryParser -&gt; QueryParser -&gt; Bool)
 -&gt; (QueryParser -&gt; QueryParser -&gt; Bool) -&gt; Eq QueryParser
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -83,7 +83,7 @@ $c/= :: QueryParser -&gt; QueryParser -&gt; Bool
 == :: QueryParser -&gt; QueryParser -&gt; Bool
 $c== :: QueryParser -&gt; QueryParser -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679153017"><span id="local-6989586621679153019"><span id="local-6989586621679153021"><span id="local-6989586621679153023"><span id="local-6989586621679153025"><span id="local-6989586621679153027"><span id="local-6989586621679153029"><span class="annot"><span class="annottext">Eq QueryParser
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679153026"><span id="local-6989586621679153028"><span id="local-6989586621679153030"><span id="local-6989586621679153032"><span id="local-6989586621679153034"><span id="local-6989586621679153036"><span id="local-6989586621679153038"><span class="annot"><span class="annottext">Eq QueryParser
 Eq QueryParser
 -&gt; (QueryParser -&gt; QueryParser -&gt; Ordering)
 -&gt; (QueryParser -&gt; QueryParser -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. QueryParser -&gt; Rep QueryParser x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679153009"><span id="local-6989586621679153011"><span class="annot"><span class="annottext">Int -&gt; QueryParser -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679153018"><span id="local-6989586621679153020"><span class="annot"><span class="annottext">Int -&gt; QueryParser -&gt; Int
 QueryParser -&gt; Int
 (Int -&gt; QueryParser -&gt; Int)
 -&gt; (QueryParser -&gt; Int) -&gt; Hashable QueryParser
@@ -144,49 +144,49 @@ $chash :: QueryParser -&gt; Int
 hashWithSalt :: Int -&gt; QueryParser -&gt; Int
 $chashWithSalt :: Int -&gt; QueryParser -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679153006"><span class="annot"><span class="annottext">QueryParser -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679153015"><span class="annot"><span class="annottext">QueryParser -&gt; ()
 (QueryParser -&gt; ()) -&gt; NFData QueryParser
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: QueryParser -&gt; ()
 $crnf :: QueryParser -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679153003"><span class="annot"><span class="annottext">Text -&gt; Either String QueryParser
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679153012"><span class="annot"><span class="annottext">Text -&gt; Either String QueryParser
 (Text -&gt; Either String QueryParser) -&gt; FromText QueryParser
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String QueryParser
 $cfromText :: Text -&gt; Either String QueryParser
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679153000"><span class="annot"><span class="annottext">QueryParser -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679153009"><span class="annot"><span class="annottext">QueryParser -&gt; Text
 (QueryParser -&gt; Text) -&gt; ToText QueryParser
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: QueryParser -&gt; Text
 $ctoText :: QueryParser -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679152997"><span class="annot"><span class="annottext">QueryParser -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679153006"><span class="annot"><span class="annottext">QueryParser -&gt; ByteString
 (QueryParser -&gt; ByteString) -&gt; ToByteString QueryParser
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: QueryParser -&gt; ByteString
 $ctoBS :: QueryParser -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679152994"><span class="annot"><span class="annottext">QueryParser -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679153003"><span class="annot"><span class="annottext">QueryParser -&gt; ByteStringBuilder
 (QueryParser -&gt; ByteStringBuilder) -&gt; ToLog QueryParser
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: QueryParser -&gt; ByteStringBuilder
 $cbuild :: QueryParser -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679152991"><span class="annot"><span class="annottext">HeaderName -&gt; QueryParser -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679153000"><span class="annot"><span class="annottext">HeaderName -&gt; QueryParser -&gt; [Header]
 (HeaderName -&gt; QueryParser -&gt; [Header]) -&gt; ToHeader QueryParser
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; QueryParser -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; QueryParser -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679152988"><span class="annot"><span class="annottext">QueryParser -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679152997"><span class="annot"><span class="annottext">QueryParser -&gt; QueryString
 (QueryParser -&gt; QueryString) -&gt; ToQuery QueryParser
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: QueryParser -&gt; QueryString
 $ctoQuery :: QueryParser -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679152983"><span id="local-6989586621679152985"><span class="annot"><span class="annottext">Value -&gt; Parser [QueryParser]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679152992"><span id="local-6989586621679152994"><span class="annot"><span class="annottext">Value -&gt; Parser [QueryParser]
 Value -&gt; Parser QueryParser
 (Value -&gt; Parser QueryParser)
 -&gt; (Value -&gt; Parser [QueryParser]) -&gt; FromJSON QueryParser
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [QueryParser]
 parseJSON :: Value -&gt; Parser QueryParser
 $cparseJSON :: Value -&gt; Parser QueryParser
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679152978"><span id="local-6989586621679152980"><span class="annot"><span class="annottext">FromJSONKeyFunction [QueryParser]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679152987"><span id="local-6989586621679152989"><span class="annot"><span class="annottext">FromJSONKeyFunction [QueryParser]
 FromJSONKeyFunction QueryParser
 FromJSONKeyFunction QueryParser
 -&gt; FromJSONKeyFunction [QueryParser] -&gt; FromJSONKey QueryParser
@@ -208,7 +208,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [QueryParser]
 fromJSONKey :: FromJSONKeyFunction QueryParser
 $cfromJSONKey :: FromJSONKeyFunction QueryParser
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679152969"><span id="local-6989586621679152971"><span id="local-6989586621679152973"><span id="local-6989586621679152975"><span class="annot"><span class="annottext">[QueryParser] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679152978"><span id="local-6989586621679152980"><span id="local-6989586621679152982"><span id="local-6989586621679152984"><span class="annot"><span class="annottext">[QueryParser] -&gt; Encoding
 [QueryParser] -&gt; Value
 QueryParser -&gt; Encoding
 QueryParser -&gt; Value
@@ -232,7 +232,7 @@ $ctoEncoding :: QueryParser -&gt; Encoding
 toJSON :: QueryParser -&gt; Value
 $ctoJSON :: QueryParser -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679152964"><span id="local-6989586621679152966"><span class="annot"><span class="annottext">ToJSONKeyFunction [QueryParser]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679152973"><span id="local-6989586621679152975"><span class="annot"><span class="annottext">ToJSONKeyFunction [QueryParser]
 ToJSONKeyFunction QueryParser
 ToJSONKeyFunction QueryParser
 -&gt; ToJSONKeyFunction [QueryParser] -&gt; ToJSONKey QueryParser
@@ -243,13 +243,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [QueryParser]
 toJSONKey :: ToJSONKeyFunction QueryParser
 $ctoJSONKey :: ToJSONKeyFunction QueryParser
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679152961"><span class="annot"><span class="annottext">[Node] -&gt; Either String QueryParser
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679152970"><span class="annot"><span class="annottext">[Node] -&gt; Either String QueryParser
 ([Node] -&gt; Either String QueryParser) -&gt; FromXML QueryParser
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String QueryParser
 $cparseXML :: [Node] -&gt; Either String QueryParser
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679152958"><span class="annot"><span class="annottext">QueryParser -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679152967"><span class="annot"><span class="annottext">QueryParser -&gt; XML
 (QueryParser -&gt; XML) -&gt; ToXML QueryParser
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: QueryParser -&gt; XML

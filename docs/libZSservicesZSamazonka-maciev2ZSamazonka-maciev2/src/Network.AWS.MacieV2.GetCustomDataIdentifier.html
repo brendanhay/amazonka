@@ -1,0 +1,1203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.MacieV2.GetCustomDataIdentifier</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves the criteria and other settings for a custom data identifier.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MacieV2.GetCustomDataIdentifier</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifier"><span class="hs-identifier">GetCustomDataIdentifier</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#newGetCustomDataIdentifier"><span class="hs-identifier">newGetCustomDataIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#getCustomDataIdentifier_id"><span class="hs-identifier">getCustomDataIdentifier_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse"><span class="hs-identifier">GetCustomDataIdentifierResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#newGetCustomDataIdentifierResponse"><span class="hs-identifier">newGetCustomDataIdentifierResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#getCustomDataIdentifierResponse_arn"><span class="hs-identifier">getCustomDataIdentifierResponse_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#getCustomDataIdentifierResponse_createdAt"><span class="hs-identifier">getCustomDataIdentifierResponse_createdAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#getCustomDataIdentifierResponse_regex"><span class="hs-identifier">getCustomDataIdentifierResponse_regex</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#getCustomDataIdentifierResponse_name"><span class="hs-identifier">getCustomDataIdentifierResponse_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#getCustomDataIdentifierResponse_keywords"><span class="hs-identifier">getCustomDataIdentifierResponse_keywords</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#getCustomDataIdentifierResponse_ignoreWords"><span class="hs-identifier">getCustomDataIdentifierResponse_ignoreWords</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#getCustomDataIdentifierResponse_id"><span class="hs-identifier">getCustomDataIdentifierResponse_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#getCustomDataIdentifierResponse_deleted"><span class="hs-identifier">getCustomDataIdentifierResponse_deleted</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#getCustomDataIdentifierResponse_maximumMatchDistance"><span class="hs-identifier">getCustomDataIdentifierResponse_maximumMatchDistance</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#getCustomDataIdentifierResponse_description"><span class="hs-identifier">getCustomDataIdentifierResponse_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#getCustomDataIdentifierResponse_tags"><span class="hs-identifier">getCustomDataIdentifierResponse_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#getCustomDataIdentifierResponse_httpStatus"><span class="hs-identifier">getCustomDataIdentifierResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.html"><span class="hs-identifier">Network.AWS.MacieV2.Types</span></a></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newGetCustomDataIdentifier' smart constructor.</span><span>
+</span><span id="line-60"></span><span id="local-6989586621679411529"><span id="local-6989586621679411530"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCustomDataIdentifier"><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifier"><span class="hs-identifier hs-var">GetCustomDataIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCustomDataIdentifier%27"><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifier%27"><span class="hs-identifier hs-var">GetCustomDataIdentifier'</span></a></span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier for the Amazon Macie resource or account that the</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- request applies to.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3Aid%3AGetCustomDataIdentifier%27"><span class="annot"><span class="annottext">GetCustomDataIdentifier -&gt; Text
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#%24sel%3Aid%3AGetCustomDataIdentifier%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679411523"><span id="local-6989586621679411525"><span class="annot"><span class="annottext">GetCustomDataIdentifier -&gt; GetCustomDataIdentifier -&gt; Bool
+(GetCustomDataIdentifier -&gt; GetCustomDataIdentifier -&gt; Bool)
+-&gt; (GetCustomDataIdentifier -&gt; GetCustomDataIdentifier -&gt; Bool)
+-&gt; Eq GetCustomDataIdentifier
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetCustomDataIdentifier -&gt; GetCustomDataIdentifier -&gt; Bool
+$c/= :: GetCustomDataIdentifier -&gt; GetCustomDataIdentifier -&gt; Bool
+== :: GetCustomDataIdentifier -&gt; GetCustomDataIdentifier -&gt; Bool
+$c== :: GetCustomDataIdentifier -&gt; GetCustomDataIdentifier -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679411514"><span id="local-6989586621679411516"><span id="local-6989586621679411518"><span id="local-6989586621679411520"><span class="annot"><span class="annottext">ReadPrec [GetCustomDataIdentifier]
+ReadPrec GetCustomDataIdentifier
+Int -&gt; ReadS GetCustomDataIdentifier
+ReadS [GetCustomDataIdentifier]
+(Int -&gt; ReadS GetCustomDataIdentifier)
+-&gt; ReadS [GetCustomDataIdentifier]
+-&gt; ReadPrec GetCustomDataIdentifier
+-&gt; ReadPrec [GetCustomDataIdentifier]
+-&gt; Read GetCustomDataIdentifier
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetCustomDataIdentifier]
+$creadListPrec :: ReadPrec [GetCustomDataIdentifier]
+readPrec :: ReadPrec GetCustomDataIdentifier
+$creadPrec :: ReadPrec GetCustomDataIdentifier
+readList :: ReadS [GetCustomDataIdentifier]
+$creadList :: ReadS [GetCustomDataIdentifier]
+readsPrec :: Int -&gt; ReadS GetCustomDataIdentifier
+$creadsPrec :: Int -&gt; ReadS GetCustomDataIdentifier
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679411507"><span id="local-6989586621679411509"><span id="local-6989586621679411511"><span class="annot"><span class="annottext">Int -&gt; GetCustomDataIdentifier -&gt; ShowS
+[GetCustomDataIdentifier] -&gt; ShowS
+GetCustomDataIdentifier -&gt; String
+(Int -&gt; GetCustomDataIdentifier -&gt; ShowS)
+-&gt; (GetCustomDataIdentifier -&gt; String)
+-&gt; ([GetCustomDataIdentifier] -&gt; ShowS)
+-&gt; Show GetCustomDataIdentifier
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetCustomDataIdentifier] -&gt; ShowS
+$cshowList :: [GetCustomDataIdentifier] -&gt; ShowS
+show :: GetCustomDataIdentifier -&gt; String
+$cshow :: GetCustomDataIdentifier -&gt; String
+showsPrec :: Int -&gt; GetCustomDataIdentifier -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetCustomDataIdentifier -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetCustomDataIdentifier -&gt; Rep GetCustomDataIdentifier x)
+-&gt; (forall x.
+    Rep GetCustomDataIdentifier x -&gt; GetCustomDataIdentifier)
+-&gt; Generic GetCustomDataIdentifier
+forall x. Rep GetCustomDataIdentifier x -&gt; GetCustomDataIdentifier
+forall x. GetCustomDataIdentifier -&gt; Rep GetCustomDataIdentifier x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetCustomDataIdentifier x -&gt; GetCustomDataIdentifier
+$cfrom :: forall x. GetCustomDataIdentifier -&gt; Rep GetCustomDataIdentifier x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Create a value of 'GetCustomDataIdentifier' with all optional fields omitted.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'id', 'getCustomDataIdentifier_id' - The unique identifier for the Amazon Macie resource or account that the</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- request applies to.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#newGetCustomDataIdentifier"><span class="hs-identifier hs-type">newGetCustomDataIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifier"><span class="hs-identifier hs-type">GetCustomDataIdentifier</span></a></span><span>
+</span><span id="line-81"></span><span id="newGetCustomDataIdentifier"><span class="annot"><span class="annottext">newGetCustomDataIdentifier :: Text -&gt; GetCustomDataIdentifier
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#newGetCustomDataIdentifier"><span class="hs-identifier hs-var hs-var">newGetCustomDataIdentifier</span></a></span></span><span> </span><span id="local-6989586621679411502"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679411502"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">GetCustomDataIdentifier' :: Text -&gt; GetCustomDataIdentifier
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifier%27"><span class="hs-identifier hs-type">GetCustomDataIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetCustomDataIdentifier' :: Text
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#%24sel%3Aid%3AGetCustomDataIdentifier%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679411502"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The unique identifier for the Amazon Macie resource or account that the</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- request applies to.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#getCustomDataIdentifier_id"><span class="hs-identifier hs-type">getCustomDataIdentifier_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifier"><span class="hs-identifier hs-type">GetCustomDataIdentifier</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-87"></span><span id="getCustomDataIdentifier_id"><span class="annot"><span class="annottext">getCustomDataIdentifier_id :: (Text -&gt; f Text)
+-&gt; GetCustomDataIdentifier -&gt; f GetCustomDataIdentifier
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#getCustomDataIdentifier_id"><span class="hs-identifier hs-var hs-var">getCustomDataIdentifier_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCustomDataIdentifier -&gt; Text)
+-&gt; (GetCustomDataIdentifier -&gt; Text -&gt; GetCustomDataIdentifier)
+-&gt; Lens GetCustomDataIdentifier GetCustomDataIdentifier Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifier%27"><span class="hs-identifier hs-type">GetCustomDataIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411499"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:GetCustomDataIdentifier' :: GetCustomDataIdentifier -&gt; Text
+</span><a href="#local-6989586621679411499"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679411499"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411498"><span class="annot"><span class="annottext">s :: GetCustomDataIdentifier
+</span><a href="#local-6989586621679411498"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifier%27"><span class="hs-identifier hs-type">GetCustomDataIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411497"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679411497"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCustomDataIdentifier
+</span><a href="#local-6989586621679411498"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetCustomDataIdentifier' :: Text
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#%24sel%3Aid%3AGetCustomDataIdentifier%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679411497"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifier"><span class="hs-identifier hs-type">GetCustomDataIdentifier</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifier"><span class="hs-identifier hs-type">GetCustomDataIdentifier</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-91"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifier"><span class="hs-identifier hs-type">GetCustomDataIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse</span></a></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679411493"><span class="annot"><span class="annottext">request :: GetCustomDataIdentifier -&gt; Request GetCustomDataIdentifier
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GetCustomDataIdentifier -&gt; Request GetCustomDataIdentifier
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.MacieV2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679411489"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetCustomDataIdentifier
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetCustomDataIdentifier)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetCustomDataIdentifier))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetCustomDataIdentifier
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetCustomDataIdentifier)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679411486"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679411486"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679411485"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679411485"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679411484"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679411484"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Int
+-&gt; GetCustomDataIdentifierResponse
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-var">GetCustomDataIdentifierResponse'</span></a></span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [Text]
+ -&gt; Maybe [Text]
+ -&gt; Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Int
+ -&gt; GetCustomDataIdentifierResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; GetCustomDataIdentifierResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679411484"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; GetCustomDataIdentifierResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; GetCustomDataIdentifierResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679411484"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; GetCustomDataIdentifierResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; GetCustomDataIdentifierResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679411484"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;regex&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; GetCustomDataIdentifierResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [Text]
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; GetCustomDataIdentifierResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679411484"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Text]
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; GetCustomDataIdentifierResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either
+     String
+     (Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; GetCustomDataIdentifierResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679411484"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;keywords&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; GetCustomDataIdentifierResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; GetCustomDataIdentifierResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679411484"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ignoreWords&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; GetCustomDataIdentifierResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Bool
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; GetCustomDataIdentifierResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679411484"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Bool
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; GetCustomDataIdentifierResponse)
+-&gt; Either String (Maybe Bool)
+-&gt; Either
+     String
+     (Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; GetCustomDataIdentifierResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679411484"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;deleted&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; GetCustomDataIdentifierResponse)
+-&gt; Either String (Maybe Int)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; GetCustomDataIdentifierResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679411484"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maximumMatchDistance&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; GetCustomDataIdentifierResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe (HashMap Text Text)
+      -&gt; Int -&gt; GetCustomDataIdentifierResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679411484"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (HashMap Text Text)
+   -&gt; Int -&gt; GetCustomDataIdentifierResponse)
+-&gt; Either String (Maybe (HashMap Text Text))
+-&gt; Either String (Int -&gt; GetCustomDataIdentifierResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679411484"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text)
+-&gt; Either String (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetCustomDataIdentifierResponse)
+-&gt; Either String Int
+-&gt; Either String GetCustomDataIdentifierResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679411486"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679411475"><span id="local-6989586621679411477"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifier"><span class="hs-identifier hs-type">GetCustomDataIdentifier</span></a></span></span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679411472"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifier"><span class="hs-identifier hs-type">GetCustomDataIdentifier</span></a></span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifier"><span class="hs-identifier hs-type">GetCustomDataIdentifier</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679411468"><span class="annot"><span class="annottext">toHeaders :: GetCustomDataIdentifier -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetCustomDataIdentifier -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-120"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-121"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-122"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-123"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifier"><span class="hs-identifier hs-type">GetCustomDataIdentifier</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679411462"><span class="annot"><span class="annottext">toPath :: GetCustomDataIdentifier -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifier%27"><span class="hs-identifier hs-type">GetCustomDataIdentifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411460"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:GetCustomDataIdentifier' :: GetCustomDataIdentifier -&gt; Text
+</span><a href="#local-6989586621679411460"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/custom-data-identifiers/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679411460"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifier"><span class="hs-identifier hs-type">GetCustomDataIdentifier</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679411456"><span class="annot"><span class="annottext">toQuery :: GetCustomDataIdentifier -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetCustomDataIdentifier -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | /See:/ 'newGetCustomDataIdentifierResponse' smart constructor.</span><span>
+</span><span id="line-136"></span><span id="local-6989586621679411453"><span id="local-6989586621679411454"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCustomDataIdentifierResponse"><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse"><span class="hs-identifier hs-var">GetCustomDataIdentifierResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCustomDataIdentifierResponse%27"><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-var">GetCustomDataIdentifierResponse'</span></a></span></span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the custom data identifier.</span><span>
+</span><span id="line-138"></span><span>    </span><span id="%24sel%3Aarn%3AGetCustomDataIdentifierResponse%27"><span class="annot"><span class="annottext">GetCustomDataIdentifierResponse -&gt; Maybe Text
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#%24sel%3Aarn%3AGetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- | The date and time, in UTC and extended ISO 8601 format, when the custom</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- data identifier was created.</span><span>
+</span><span id="line-141"></span><span>    </span><span id="%24sel%3AcreatedAt%3AGetCustomDataIdentifierResponse%27"><span class="annot"><span class="annottext">GetCustomDataIdentifierResponse -&gt; Maybe POSIX
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#%24sel%3AcreatedAt%3AGetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- | The regular expression (/regex/) that defines the pattern to match.</span><span>
+</span><span id="line-143"></span><span>    </span><span id="%24sel%3Aregex%3AGetCustomDataIdentifierResponse%27"><span class="annot"><span class="annottext">GetCustomDataIdentifierResponse -&gt; Maybe Text
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#%24sel%3Aregex%3AGetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-var hs-var">regex</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- | The custom name of the custom data identifier.</span><span>
+</span><span id="line-145"></span><span>    </span><span id="%24sel%3Aname%3AGetCustomDataIdentifierResponse%27"><span class="annot"><span class="annottext">GetCustomDataIdentifierResponse -&gt; Maybe Text
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#%24sel%3Aname%3AGetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- | An array that lists specific character sequences (keywords), one of</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- which must be within proximity (maximumMatchDistance) of the regular</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- expression to match. Keywords aren\'t case sensitive.</span><span>
+</span><span id="line-149"></span><span>    </span><span id="%24sel%3Akeywords%3AGetCustomDataIdentifierResponse%27"><span class="annot"><span class="annottext">GetCustomDataIdentifierResponse -&gt; Maybe [Text]
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#%24sel%3Akeywords%3AGetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-var hs-var">keywords</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- | An array that lists specific character sequences (ignore words) to</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- exclude from the results. If the text matched by the regular expression</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- is the same as any string in this array, Amazon Macie ignores it. Ignore</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- words are case sensitive.</span><span>
+</span><span id="line-154"></span><span>    </span><span id="%24sel%3AignoreWords%3AGetCustomDataIdentifierResponse%27"><span class="annot"><span class="annottext">GetCustomDataIdentifierResponse -&gt; Maybe [Text]
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#%24sel%3AignoreWords%3AGetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-var hs-var">ignoreWords</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the custom data identifier.</span><span>
+</span><span id="line-156"></span><span>    </span><span id="%24sel%3Aid%3AGetCustomDataIdentifierResponse%27"><span class="annot"><span class="annottext">GetCustomDataIdentifierResponse -&gt; Maybe Text
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#%24sel%3Aid%3AGetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- | Specifies whether the custom data identifier was deleted. If you delete</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- a custom data identifier, Amazon Macie doesn\'t delete it permanently.</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- Instead, it soft deletes the identifier.</span><span>
+</span><span id="line-160"></span><span>    </span><span id="%24sel%3Adeleted%3AGetCustomDataIdentifierResponse%27"><span class="annot"><span class="annottext">GetCustomDataIdentifierResponse -&gt; Maybe Bool
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#%24sel%3Adeleted%3AGetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-var hs-var">deleted</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- | The maximum number of characters that can exist between text that</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- matches the regex pattern and the character sequences specified by the</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- keywords array. Amazon Macie includes or excludes a result based on the</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- proximity of a keyword to text that matches the regex pattern.</span><span>
+</span><span id="line-165"></span><span>    </span><span id="%24sel%3AmaximumMatchDistance%3AGetCustomDataIdentifierResponse%27"><span class="annot"><span class="annottext">GetCustomDataIdentifierResponse -&gt; Maybe Int
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#%24sel%3AmaximumMatchDistance%3AGetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-var hs-var">maximumMatchDistance</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- | The custom description of the custom data identifier.</span><span>
+</span><span id="line-167"></span><span>    </span><span id="%24sel%3Adescription%3AGetCustomDataIdentifierResponse%27"><span class="annot"><span class="annottext">GetCustomDataIdentifierResponse -&gt; Maybe Text
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#%24sel%3Adescription%3AGetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-comment">-- | A map of key-value pairs that identifies the tags (keys and values) that</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- are associated with the custom data identifier.</span><span>
+</span><span id="line-170"></span><span>    </span><span id="%24sel%3Atags%3AGetCustomDataIdentifierResponse%27"><span class="annot"><span class="annottext">GetCustomDataIdentifierResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#%24sel%3Atags%3AGetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-172"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetCustomDataIdentifierResponse%27"><span class="annot"><span class="annottext">GetCustomDataIdentifierResponse -&gt; Int
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#%24sel%3AhttpStatus%3AGetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679411437"><span id="local-6989586621679411439"><span class="annot"><span class="annottext">GetCustomDataIdentifierResponse
+-&gt; GetCustomDataIdentifierResponse -&gt; Bool
+(GetCustomDataIdentifierResponse
+ -&gt; GetCustomDataIdentifierResponse -&gt; Bool)
+-&gt; (GetCustomDataIdentifierResponse
+    -&gt; GetCustomDataIdentifierResponse -&gt; Bool)
+-&gt; Eq GetCustomDataIdentifierResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetCustomDataIdentifierResponse
+-&gt; GetCustomDataIdentifierResponse -&gt; Bool
+$c/= :: GetCustomDataIdentifierResponse
+-&gt; GetCustomDataIdentifierResponse -&gt; Bool
+== :: GetCustomDataIdentifierResponse
+-&gt; GetCustomDataIdentifierResponse -&gt; Bool
+$c== :: GetCustomDataIdentifierResponse
+-&gt; GetCustomDataIdentifierResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679411429"><span id="local-6989586621679411431"><span id="local-6989586621679411433"><span id="local-6989586621679411435"><span class="annot"><span class="annottext">ReadPrec [GetCustomDataIdentifierResponse]
+ReadPrec GetCustomDataIdentifierResponse
+Int -&gt; ReadS GetCustomDataIdentifierResponse
+ReadS [GetCustomDataIdentifierResponse]
+(Int -&gt; ReadS GetCustomDataIdentifierResponse)
+-&gt; ReadS [GetCustomDataIdentifierResponse]
+-&gt; ReadPrec GetCustomDataIdentifierResponse
+-&gt; ReadPrec [GetCustomDataIdentifierResponse]
+-&gt; Read GetCustomDataIdentifierResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetCustomDataIdentifierResponse]
+$creadListPrec :: ReadPrec [GetCustomDataIdentifierResponse]
+readPrec :: ReadPrec GetCustomDataIdentifierResponse
+$creadPrec :: ReadPrec GetCustomDataIdentifierResponse
+readList :: ReadS [GetCustomDataIdentifierResponse]
+$creadList :: ReadS [GetCustomDataIdentifierResponse]
+readsPrec :: Int -&gt; ReadS GetCustomDataIdentifierResponse
+$creadsPrec :: Int -&gt; ReadS GetCustomDataIdentifierResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679411423"><span id="local-6989586621679411425"><span id="local-6989586621679411427"><span class="annot"><span class="annottext">Int -&gt; GetCustomDataIdentifierResponse -&gt; ShowS
+[GetCustomDataIdentifierResponse] -&gt; ShowS
+GetCustomDataIdentifierResponse -&gt; String
+(Int -&gt; GetCustomDataIdentifierResponse -&gt; ShowS)
+-&gt; (GetCustomDataIdentifierResponse -&gt; String)
+-&gt; ([GetCustomDataIdentifierResponse] -&gt; ShowS)
+-&gt; Show GetCustomDataIdentifierResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetCustomDataIdentifierResponse] -&gt; ShowS
+$cshowList :: [GetCustomDataIdentifierResponse] -&gt; ShowS
+show :: GetCustomDataIdentifierResponse -&gt; String
+$cshow :: GetCustomDataIdentifierResponse -&gt; String
+showsPrec :: Int -&gt; GetCustomDataIdentifierResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetCustomDataIdentifierResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetCustomDataIdentifierResponse
+ -&gt; Rep GetCustomDataIdentifierResponse x)
+-&gt; (forall x.
+    Rep GetCustomDataIdentifierResponse x
+    -&gt; GetCustomDataIdentifierResponse)
+-&gt; Generic GetCustomDataIdentifierResponse
+forall x.
+Rep GetCustomDataIdentifierResponse x
+-&gt; GetCustomDataIdentifierResponse
+forall x.
+GetCustomDataIdentifierResponse
+-&gt; Rep GetCustomDataIdentifierResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetCustomDataIdentifierResponse x
+-&gt; GetCustomDataIdentifierResponse
+$cfrom :: forall x.
+GetCustomDataIdentifierResponse
+-&gt; Rep GetCustomDataIdentifierResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- Create a value of 'GetCustomDataIdentifierResponse' with all optional fields omitted.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- 'arn', 'getCustomDataIdentifierResponse_arn' - The Amazon Resource Name (ARN) of the custom data identifier.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- 'createdAt', 'getCustomDataIdentifierResponse_createdAt' - The date and time, in UTC and extended ISO 8601 format, when the custom</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- data identifier was created.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- 'regex', 'getCustomDataIdentifierResponse_regex' - The regular expression (/regex/) that defines the pattern to match.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- 'name', 'getCustomDataIdentifierResponse_name' - The custom name of the custom data identifier.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 'keywords', 'getCustomDataIdentifierResponse_keywords' - An array that lists specific character sequences (keywords), one of</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- which must be within proximity (maximumMatchDistance) of the regular</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- expression to match. Keywords aren\'t case sensitive.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- 'ignoreWords', 'getCustomDataIdentifierResponse_ignoreWords' - An array that lists specific character sequences (ignore words) to</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- exclude from the results. If the text matched by the regular expression</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- is the same as any string in this array, Amazon Macie ignores it. Ignore</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- words are case sensitive.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- 'id', 'getCustomDataIdentifierResponse_id' - The unique identifier for the custom data identifier.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- 'deleted', 'getCustomDataIdentifierResponse_deleted' - Specifies whether the custom data identifier was deleted. If you delete</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- a custom data identifier, Amazon Macie doesn\'t delete it permanently.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- Instead, it soft deletes the identifier.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- 'maximumMatchDistance', 'getCustomDataIdentifierResponse_maximumMatchDistance' - The maximum number of characters that can exist between text that</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- matches the regex pattern and the character sequences specified by the</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- keywords array. Amazon Macie includes or excludes a result based on the</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- proximity of a keyword to text that matches the regex pattern.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- 'description', 'getCustomDataIdentifierResponse_description' - The custom description of the custom data identifier.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- 'tags', 'getCustomDataIdentifierResponse_tags' - A map of key-value pairs that identifies the tags (keys and values) that</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- are associated with the custom data identifier.</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- 'httpStatus', 'getCustomDataIdentifierResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#newGetCustomDataIdentifierResponse"><span class="hs-identifier hs-type">newGetCustomDataIdentifierResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-220"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-221"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-222"></span><span>  </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse</span></a></span><span>
+</span><span id="line-223"></span><span id="newGetCustomDataIdentifierResponse"><span class="annot"><span class="annottext">newGetCustomDataIdentifierResponse :: Int -&gt; GetCustomDataIdentifierResponse
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#newGetCustomDataIdentifierResponse"><span class="hs-identifier hs-var hs-var">newGetCustomDataIdentifierResponse</span></a></span></span><span> </span><span id="local-6989586621679411420"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679411420"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-224"></span><span>  </span><span class="annot"><span class="annottext">GetCustomDataIdentifierResponse' :: Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Int
+-&gt; GetCustomDataIdentifierResponse
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse'</span></a></span><span>
+</span><span id="line-225"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:arn:GetCustomDataIdentifierResponse' :: Maybe Text
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#%24sel%3Aarn%3AGetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-226"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAt:GetCustomDataIdentifierResponse' :: Maybe POSIX
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#%24sel%3AcreatedAt%3AGetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>      </span><span class="annot"><span class="annottext">$sel:regex:GetCustomDataIdentifierResponse' :: Maybe Text
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#%24sel%3Aregex%3AGetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-var">regex</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:GetCustomDataIdentifierResponse' :: Maybe Text
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#%24sel%3Aname%3AGetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>      </span><span class="annot"><span class="annottext">$sel:keywords:GetCustomDataIdentifierResponse' :: Maybe [Text]
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#%24sel%3Akeywords%3AGetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-var">keywords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>      </span><span class="annot"><span class="annottext">$sel:ignoreWords:GetCustomDataIdentifierResponse' :: Maybe [Text]
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#%24sel%3AignoreWords%3AGetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-var">ignoreWords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:GetCustomDataIdentifierResponse' :: Maybe Text
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#%24sel%3Aid%3AGetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>      </span><span class="annot"><span class="annottext">$sel:deleted:GetCustomDataIdentifierResponse' :: Maybe Bool
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#%24sel%3Adeleted%3AGetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-var">deleted</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>      </span><span class="annot"><span class="annottext">$sel:maximumMatchDistance:GetCustomDataIdentifierResponse' :: Maybe Int
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#%24sel%3AmaximumMatchDistance%3AGetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-var">maximumMatchDistance</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:GetCustomDataIdentifierResponse' :: Maybe Text
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#%24sel%3Adescription%3AGetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:GetCustomDataIdentifierResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#%24sel%3Atags%3AGetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetCustomDataIdentifierResponse' :: Int
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#%24sel%3AhttpStatus%3AGetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679411420"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-238"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the custom data identifier.</span><span>
+</span><span id="line-241"></span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#getCustomDataIdentifierResponse_arn"><span class="hs-identifier hs-type">getCustomDataIdentifierResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span id="getCustomDataIdentifierResponse_arn"><span class="annot"><span class="annottext">getCustomDataIdentifierResponse_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetCustomDataIdentifierResponse
+-&gt; f GetCustomDataIdentifierResponse
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#getCustomDataIdentifierResponse_arn"><span class="hs-identifier hs-var hs-var">getCustomDataIdentifierResponse_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCustomDataIdentifierResponse -&gt; Maybe Text)
+-&gt; (GetCustomDataIdentifierResponse
+    -&gt; Maybe Text -&gt; GetCustomDataIdentifierResponse)
+-&gt; Lens
+     GetCustomDataIdentifierResponse
+     GetCustomDataIdentifierResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411419"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:GetCustomDataIdentifierResponse' :: GetCustomDataIdentifierResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679411419"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679411419"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411418"><span class="annot"><span class="annottext">s :: GetCustomDataIdentifierResponse
+</span><a href="#local-6989586621679411418"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411417"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679411417"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCustomDataIdentifierResponse
+</span><a href="#local-6989586621679411418"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:GetCustomDataIdentifierResponse' :: Maybe Text
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#%24sel%3Aarn%3AGetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679411417"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- | The date and time, in UTC and extended ISO 8601 format, when the custom</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- data identifier was created.</span><span>
+</span><span id="line-246"></span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#getCustomDataIdentifierResponse_createdAt"><span class="hs-identifier hs-type">getCustomDataIdentifierResponse_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span id="getCustomDataIdentifierResponse_createdAt"><span class="annot"><span class="annottext">getCustomDataIdentifierResponse_createdAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetCustomDataIdentifierResponse
+-&gt; f GetCustomDataIdentifierResponse
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#getCustomDataIdentifierResponse_createdAt"><span class="hs-identifier hs-var hs-var">getCustomDataIdentifierResponse_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCustomDataIdentifierResponse -&gt; Maybe POSIX)
+-&gt; (GetCustomDataIdentifierResponse
+    -&gt; Maybe POSIX -&gt; GetCustomDataIdentifierResponse)
+-&gt; Lens
+     GetCustomDataIdentifierResponse
+     GetCustomDataIdentifierResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411416"><span class="annot"><span class="annottext">Maybe POSIX
+createdAt :: Maybe POSIX
+$sel:createdAt:GetCustomDataIdentifierResponse' :: GetCustomDataIdentifierResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679411416"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679411416"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411415"><span class="annot"><span class="annottext">s :: GetCustomDataIdentifierResponse
+</span><a href="#local-6989586621679411415"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411414"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679411414"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCustomDataIdentifierResponse
+</span><a href="#local-6989586621679411415"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:GetCustomDataIdentifierResponse' :: Maybe POSIX
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#%24sel%3AcreatedAt%3AGetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679411414"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; GetCustomDataIdentifierResponse
+ -&gt; f GetCustomDataIdentifierResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetCustomDataIdentifierResponse
+-&gt; f GetCustomDataIdentifierResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- | The regular expression (/regex/) that defines the pattern to match.</span><span>
+</span><span id="line-250"></span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#getCustomDataIdentifierResponse_regex"><span class="hs-identifier hs-type">getCustomDataIdentifierResponse_regex</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span id="getCustomDataIdentifierResponse_regex"><span class="annot"><span class="annottext">getCustomDataIdentifierResponse_regex :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetCustomDataIdentifierResponse
+-&gt; f GetCustomDataIdentifierResponse
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#getCustomDataIdentifierResponse_regex"><span class="hs-identifier hs-var hs-var">getCustomDataIdentifierResponse_regex</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCustomDataIdentifierResponse -&gt; Maybe Text)
+-&gt; (GetCustomDataIdentifierResponse
+    -&gt; Maybe Text -&gt; GetCustomDataIdentifierResponse)
+-&gt; Lens
+     GetCustomDataIdentifierResponse
+     GetCustomDataIdentifierResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411410"><span class="annot"><span class="annottext">Maybe Text
+regex :: Maybe Text
+$sel:regex:GetCustomDataIdentifierResponse' :: GetCustomDataIdentifierResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679411410"><span class="hs-identifier hs-var hs-var">regex</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679411410"><span class="hs-identifier hs-var">regex</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411409"><span class="annot"><span class="annottext">s :: GetCustomDataIdentifierResponse
+</span><a href="#local-6989586621679411409"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411408"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679411408"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCustomDataIdentifierResponse
+</span><a href="#local-6989586621679411409"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:regex:GetCustomDataIdentifierResponse' :: Maybe Text
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#%24sel%3Aregex%3AGetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-var">regex</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679411408"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- | The custom name of the custom data identifier.</span><span>
+</span><span id="line-254"></span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#getCustomDataIdentifierResponse_name"><span class="hs-identifier hs-type">getCustomDataIdentifierResponse_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span id="getCustomDataIdentifierResponse_name"><span class="annot"><span class="annottext">getCustomDataIdentifierResponse_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetCustomDataIdentifierResponse
+-&gt; f GetCustomDataIdentifierResponse
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#getCustomDataIdentifierResponse_name"><span class="hs-identifier hs-var hs-var">getCustomDataIdentifierResponse_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCustomDataIdentifierResponse -&gt; Maybe Text)
+-&gt; (GetCustomDataIdentifierResponse
+    -&gt; Maybe Text -&gt; GetCustomDataIdentifierResponse)
+-&gt; Lens
+     GetCustomDataIdentifierResponse
+     GetCustomDataIdentifierResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411407"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:GetCustomDataIdentifierResponse' :: GetCustomDataIdentifierResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679411407"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679411407"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411406"><span class="annot"><span class="annottext">s :: GetCustomDataIdentifierResponse
+</span><a href="#local-6989586621679411406"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411405"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679411405"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCustomDataIdentifierResponse
+</span><a href="#local-6989586621679411406"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetCustomDataIdentifierResponse' :: Maybe Text
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#%24sel%3Aname%3AGetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679411405"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- | An array that lists specific character sequences (keywords), one of</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- which must be within proximity (maximumMatchDistance) of the regular</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- expression to match. Keywords aren\'t case sensitive.</span><span>
+</span><span id="line-260"></span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#getCustomDataIdentifierResponse_keywords"><span class="hs-identifier hs-type">getCustomDataIdentifierResponse_keywords</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span id="getCustomDataIdentifierResponse_keywords"><span class="annot"><span class="annottext">getCustomDataIdentifierResponse_keywords :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; GetCustomDataIdentifierResponse
+-&gt; f GetCustomDataIdentifierResponse
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#getCustomDataIdentifierResponse_keywords"><span class="hs-identifier hs-var hs-var">getCustomDataIdentifierResponse_keywords</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCustomDataIdentifierResponse -&gt; Maybe [Text])
+-&gt; (GetCustomDataIdentifierResponse
+    -&gt; Maybe [Text] -&gt; GetCustomDataIdentifierResponse)
+-&gt; Lens
+     GetCustomDataIdentifierResponse
+     GetCustomDataIdentifierResponse
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411404"><span class="annot"><span class="annottext">Maybe [Text]
+keywords :: Maybe [Text]
+$sel:keywords:GetCustomDataIdentifierResponse' :: GetCustomDataIdentifierResponse -&gt; Maybe [Text]
+</span><a href="#local-6989586621679411404"><span class="hs-identifier hs-var hs-var">keywords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679411404"><span class="hs-identifier hs-var">keywords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411403"><span class="annot"><span class="annottext">s :: GetCustomDataIdentifierResponse
+</span><a href="#local-6989586621679411403"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411402"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679411402"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCustomDataIdentifierResponse
+</span><a href="#local-6989586621679411403"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keywords:GetCustomDataIdentifierResponse' :: Maybe [Text]
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#%24sel%3Akeywords%3AGetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-var">keywords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679411402"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; GetCustomDataIdentifierResponse
+ -&gt; f GetCustomDataIdentifierResponse)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; GetCustomDataIdentifierResponse
+-&gt; f GetCustomDataIdentifierResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- | An array that lists specific character sequences (ignore words) to</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- exclude from the results. If the text matched by the regular expression</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- is the same as any string in this array, Amazon Macie ignores it. Ignore</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- words are case sensitive.</span><span>
+</span><span id="line-267"></span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#getCustomDataIdentifierResponse_ignoreWords"><span class="hs-identifier hs-type">getCustomDataIdentifierResponse_ignoreWords</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span id="getCustomDataIdentifierResponse_ignoreWords"><span class="annot"><span class="annottext">getCustomDataIdentifierResponse_ignoreWords :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; GetCustomDataIdentifierResponse
+-&gt; f GetCustomDataIdentifierResponse
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#getCustomDataIdentifierResponse_ignoreWords"><span class="hs-identifier hs-var hs-var">getCustomDataIdentifierResponse_ignoreWords</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCustomDataIdentifierResponse -&gt; Maybe [Text])
+-&gt; (GetCustomDataIdentifierResponse
+    -&gt; Maybe [Text] -&gt; GetCustomDataIdentifierResponse)
+-&gt; Lens
+     GetCustomDataIdentifierResponse
+     GetCustomDataIdentifierResponse
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411400"><span class="annot"><span class="annottext">Maybe [Text]
+ignoreWords :: Maybe [Text]
+$sel:ignoreWords:GetCustomDataIdentifierResponse' :: GetCustomDataIdentifierResponse -&gt; Maybe [Text]
+</span><a href="#local-6989586621679411400"><span class="hs-identifier hs-var hs-var">ignoreWords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679411400"><span class="hs-identifier hs-var">ignoreWords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411399"><span class="annot"><span class="annottext">s :: GetCustomDataIdentifierResponse
+</span><a href="#local-6989586621679411399"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411398"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679411398"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCustomDataIdentifierResponse
+</span><a href="#local-6989586621679411399"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ignoreWords:GetCustomDataIdentifierResponse' :: Maybe [Text]
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#%24sel%3AignoreWords%3AGetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-var">ignoreWords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679411398"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; GetCustomDataIdentifierResponse
+ -&gt; f GetCustomDataIdentifierResponse)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; GetCustomDataIdentifierResponse
+-&gt; f GetCustomDataIdentifierResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-269"></span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- | The unique identifier for the custom data identifier.</span><span>
+</span><span id="line-271"></span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#getCustomDataIdentifierResponse_id"><span class="hs-identifier hs-type">getCustomDataIdentifierResponse_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span id="getCustomDataIdentifierResponse_id"><span class="annot"><span class="annottext">getCustomDataIdentifierResponse_id :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetCustomDataIdentifierResponse
+-&gt; f GetCustomDataIdentifierResponse
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#getCustomDataIdentifierResponse_id"><span class="hs-identifier hs-var hs-var">getCustomDataIdentifierResponse_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCustomDataIdentifierResponse -&gt; Maybe Text)
+-&gt; (GetCustomDataIdentifierResponse
+    -&gt; Maybe Text -&gt; GetCustomDataIdentifierResponse)
+-&gt; Lens
+     GetCustomDataIdentifierResponse
+     GetCustomDataIdentifierResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411397"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:GetCustomDataIdentifierResponse' :: GetCustomDataIdentifierResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679411397"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679411397"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411396"><span class="annot"><span class="annottext">s :: GetCustomDataIdentifierResponse
+</span><a href="#local-6989586621679411396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411395"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679411395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCustomDataIdentifierResponse
+</span><a href="#local-6989586621679411396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetCustomDataIdentifierResponse' :: Maybe Text
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#%24sel%3Aid%3AGetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679411395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- | Specifies whether the custom data identifier was deleted. If you delete</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- a custom data identifier, Amazon Macie doesn\'t delete it permanently.</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- Instead, it soft deletes the identifier.</span><span>
+</span><span id="line-277"></span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#getCustomDataIdentifierResponse_deleted"><span class="hs-identifier hs-type">getCustomDataIdentifierResponse_deleted</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-278"></span><span id="getCustomDataIdentifierResponse_deleted"><span class="annot"><span class="annottext">getCustomDataIdentifierResponse_deleted :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; GetCustomDataIdentifierResponse
+-&gt; f GetCustomDataIdentifierResponse
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#getCustomDataIdentifierResponse_deleted"><span class="hs-identifier hs-var hs-var">getCustomDataIdentifierResponse_deleted</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCustomDataIdentifierResponse -&gt; Maybe Bool)
+-&gt; (GetCustomDataIdentifierResponse
+    -&gt; Maybe Bool -&gt; GetCustomDataIdentifierResponse)
+-&gt; Lens
+     GetCustomDataIdentifierResponse
+     GetCustomDataIdentifierResponse
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411394"><span class="annot"><span class="annottext">Maybe Bool
+deleted :: Maybe Bool
+$sel:deleted:GetCustomDataIdentifierResponse' :: GetCustomDataIdentifierResponse -&gt; Maybe Bool
+</span><a href="#local-6989586621679411394"><span class="hs-identifier hs-var hs-var">deleted</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679411394"><span class="hs-identifier hs-var">deleted</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411393"><span class="annot"><span class="annottext">s :: GetCustomDataIdentifierResponse
+</span><a href="#local-6989586621679411393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411392"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679411392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCustomDataIdentifierResponse
+</span><a href="#local-6989586621679411393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deleted:GetCustomDataIdentifierResponse' :: Maybe Bool
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#%24sel%3Adeleted%3AGetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-var">deleted</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679411392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- | The maximum number of characters that can exist between text that</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- matches the regex pattern and the character sequences specified by the</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- keywords array. Amazon Macie includes or excludes a result based on the</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- proximity of a keyword to text that matches the regex pattern.</span><span>
+</span><span id="line-284"></span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#getCustomDataIdentifierResponse_maximumMatchDistance"><span class="hs-identifier hs-type">getCustomDataIdentifierResponse_maximumMatchDistance</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-285"></span><span id="getCustomDataIdentifierResponse_maximumMatchDistance"><span class="annot"><span class="annottext">getCustomDataIdentifierResponse_maximumMatchDistance :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; GetCustomDataIdentifierResponse
+-&gt; f GetCustomDataIdentifierResponse
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#getCustomDataIdentifierResponse_maximumMatchDistance"><span class="hs-identifier hs-var hs-var">getCustomDataIdentifierResponse_maximumMatchDistance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCustomDataIdentifierResponse -&gt; Maybe Int)
+-&gt; (GetCustomDataIdentifierResponse
+    -&gt; Maybe Int -&gt; GetCustomDataIdentifierResponse)
+-&gt; Lens
+     GetCustomDataIdentifierResponse
+     GetCustomDataIdentifierResponse
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411391"><span class="annot"><span class="annottext">Maybe Int
+maximumMatchDistance :: Maybe Int
+$sel:maximumMatchDistance:GetCustomDataIdentifierResponse' :: GetCustomDataIdentifierResponse -&gt; Maybe Int
+</span><a href="#local-6989586621679411391"><span class="hs-identifier hs-var hs-var">maximumMatchDistance</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679411391"><span class="hs-identifier hs-var">maximumMatchDistance</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411390"><span class="annot"><span class="annottext">s :: GetCustomDataIdentifierResponse
+</span><a href="#local-6989586621679411390"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411389"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679411389"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCustomDataIdentifierResponse
+</span><a href="#local-6989586621679411390"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumMatchDistance:GetCustomDataIdentifierResponse' :: Maybe Int
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#%24sel%3AmaximumMatchDistance%3AGetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-var">maximumMatchDistance</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679411389"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- | The custom description of the custom data identifier.</span><span>
+</span><span id="line-288"></span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#getCustomDataIdentifierResponse_description"><span class="hs-identifier hs-type">getCustomDataIdentifierResponse_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span id="getCustomDataIdentifierResponse_description"><span class="annot"><span class="annottext">getCustomDataIdentifierResponse_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetCustomDataIdentifierResponse
+-&gt; f GetCustomDataIdentifierResponse
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#getCustomDataIdentifierResponse_description"><span class="hs-identifier hs-var hs-var">getCustomDataIdentifierResponse_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCustomDataIdentifierResponse -&gt; Maybe Text)
+-&gt; (GetCustomDataIdentifierResponse
+    -&gt; Maybe Text -&gt; GetCustomDataIdentifierResponse)
+-&gt; Lens
+     GetCustomDataIdentifierResponse
+     GetCustomDataIdentifierResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411388"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:GetCustomDataIdentifierResponse' :: GetCustomDataIdentifierResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679411388"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679411388"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411387"><span class="annot"><span class="annottext">s :: GetCustomDataIdentifierResponse
+</span><a href="#local-6989586621679411387"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411386"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679411386"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCustomDataIdentifierResponse
+</span><a href="#local-6989586621679411387"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:GetCustomDataIdentifierResponse' :: Maybe Text
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#%24sel%3Adescription%3AGetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679411386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- | A map of key-value pairs that identifies the tags (keys and values) that</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- are associated with the custom data identifier.</span><span>
+</span><span id="line-293"></span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#getCustomDataIdentifierResponse_tags"><span class="hs-identifier hs-type">getCustomDataIdentifierResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-294"></span><span id="getCustomDataIdentifierResponse_tags"><span class="annot"><span class="annottext">getCustomDataIdentifierResponse_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; GetCustomDataIdentifierResponse
+-&gt; f GetCustomDataIdentifierResponse
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#getCustomDataIdentifierResponse_tags"><span class="hs-identifier hs-var hs-var">getCustomDataIdentifierResponse_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCustomDataIdentifierResponse -&gt; Maybe (HashMap Text Text))
+-&gt; (GetCustomDataIdentifierResponse
+    -&gt; Maybe (HashMap Text Text) -&gt; GetCustomDataIdentifierResponse)
+-&gt; Lens
+     GetCustomDataIdentifierResponse
+     GetCustomDataIdentifierResponse
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411385"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:GetCustomDataIdentifierResponse' :: GetCustomDataIdentifierResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679411385"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679411385"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411384"><span class="annot"><span class="annottext">s :: GetCustomDataIdentifierResponse
+</span><a href="#local-6989586621679411384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411383"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679411383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCustomDataIdentifierResponse
+</span><a href="#local-6989586621679411384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:GetCustomDataIdentifierResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#%24sel%3Atags%3AGetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679411383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; GetCustomDataIdentifierResponse
+ -&gt; f GetCustomDataIdentifierResponse)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; GetCustomDataIdentifierResponse
+-&gt; f GetCustomDataIdentifierResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-295"></span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-297"></span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#getCustomDataIdentifierResponse_httpStatus"><span class="hs-identifier hs-type">getCustomDataIdentifierResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-298"></span><span id="getCustomDataIdentifierResponse_httpStatus"><span class="annot"><span class="annottext">getCustomDataIdentifierResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetCustomDataIdentifierResponse
+-&gt; f GetCustomDataIdentifierResponse
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#getCustomDataIdentifierResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getCustomDataIdentifierResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCustomDataIdentifierResponse -&gt; Int)
+-&gt; (GetCustomDataIdentifierResponse
+    -&gt; Int -&gt; GetCustomDataIdentifierResponse)
+-&gt; Lens
+     GetCustomDataIdentifierResponse
+     GetCustomDataIdentifierResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411382"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetCustomDataIdentifierResponse' :: GetCustomDataIdentifierResponse -&gt; Int
+</span><a href="#local-6989586621679411382"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679411382"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411381"><span class="annot"><span class="annottext">s :: GetCustomDataIdentifierResponse
+</span><a href="#local-6989586621679411381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411380"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679411380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCustomDataIdentifierResponse
+</span><a href="#local-6989586621679411381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetCustomDataIdentifierResponse' :: Int
+</span><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#%24sel%3AhttpStatus%3AGetCustomDataIdentifierResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679411380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-299"></span><span>
+</span><span id="line-300"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-301"></span><span>  </span><span id="local-6989586621679411378"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-302"></span><span>    </span><span class="annot"><a href="Network.AWS.MacieV2.GetCustomDataIdentifier.html#GetCustomDataIdentifierResponse"><span class="hs-identifier hs-type">GetCustomDataIdentifierResponse</span></a></span></span><span>
+</span><span id="line-303"></span></pre></body></html>

@@ -1,0 +1,524 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.LakeFormation.Types.DataLakeSettings</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.LakeFormation.Types.DataLakeSettings</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LakeFormation.Types.DataLakePrincipal.html"><span class="hs-identifier">Network.AWS.LakeFormation.Types.DataLakePrincipal</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LakeFormation.Types.PrincipalPermissions.html"><span class="hs-identifier">Network.AWS.LakeFormation.Types.PrincipalPermissions</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | A structure representing a list of AWS Lake Formation principals</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- designated as data lake administrators and lists of principal permission</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- entries for default create database and default create table</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- permissions.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newDataLakeSettings' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679198689"><span id="local-6989586621679198690"></span></span><span class="hs-keyword">data</span><span> </span><span id="DataLakeSettings"><span class="annot"><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#DataLakeSettings"><span class="hs-identifier hs-var">DataLakeSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DataLakeSettings%27"><span class="annot"><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#DataLakeSettings%27"><span class="hs-identifier hs-var">DataLakeSettings'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of AWS Lake Formation principals. Supported principals are IAM</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- users or IAM roles.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AdataLakeAdmins%3ADataLakeSettings%27"><span class="annot"><span class="annottext">DataLakeSettings -&gt; Maybe [DataLakePrincipal]
+</span><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#%24sel%3AdataLakeAdmins%3ADataLakeSettings%27"><span class="hs-identifier hs-var hs-var">dataLakeAdmins</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.LakeFormation.Types.DataLakePrincipal.html#DataLakePrincipal"><span class="hs-identifier hs-type">DataLakePrincipal</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | A list of the resource-owning account IDs that the caller\'s account can</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- use to share their user access details (user ARNs). The user ARNs can be</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- logged in the resource owner\'s AWS CloudTrail log.</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- You may want to specify this property when you are in a high-trust</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- boundary, such as the same team or company.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AtrustedResourceOwners%3ADataLakeSettings%27"><span class="annot"><span class="annottext">DataLakeSettings -&gt; Maybe [Text]
+</span><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#%24sel%3AtrustedResourceOwners%3ADataLakeSettings%27"><span class="hs-identifier hs-var hs-var">trustedResourceOwners</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | A structure representing a list of up to three principal permissions</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- entries for default create database permissions.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AcreateDatabaseDefaultPermissions%3ADataLakeSettings%27"><span class="annot"><span class="annottext">DataLakeSettings -&gt; Maybe [PrincipalPermissions]
+</span><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#%24sel%3AcreateDatabaseDefaultPermissions%3ADataLakeSettings%27"><span class="hs-identifier hs-var hs-var">createDatabaseDefaultPermissions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.LakeFormation.Types.PrincipalPermissions.html#PrincipalPermissions"><span class="hs-identifier hs-type">PrincipalPermissions</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | A structure representing a list of up to three principal permissions</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- entries for default create table permissions.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AcreateTableDefaultPermissions%3ADataLakeSettings%27"><span class="annot"><span class="annottext">DataLakeSettings -&gt; Maybe [PrincipalPermissions]
+</span><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#%24sel%3AcreateTableDefaultPermissions%3ADataLakeSettings%27"><span class="hs-identifier hs-var hs-var">createTableDefaultPermissions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.LakeFormation.Types.PrincipalPermissions.html#PrincipalPermissions"><span class="hs-identifier hs-type">PrincipalPermissions</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679198680"><span id="local-6989586621679198682"><span class="annot"><span class="annottext">DataLakeSettings -&gt; DataLakeSettings -&gt; Bool
+(DataLakeSettings -&gt; DataLakeSettings -&gt; Bool)
+-&gt; (DataLakeSettings -&gt; DataLakeSettings -&gt; Bool)
+-&gt; Eq DataLakeSettings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DataLakeSettings -&gt; DataLakeSettings -&gt; Bool
+$c/= :: DataLakeSettings -&gt; DataLakeSettings -&gt; Bool
+== :: DataLakeSettings -&gt; DataLakeSettings -&gt; Bool
+$c== :: DataLakeSettings -&gt; DataLakeSettings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198671"><span id="local-6989586621679198673"><span id="local-6989586621679198675"><span id="local-6989586621679198677"><span class="annot"><span class="annottext">ReadPrec [DataLakeSettings]
+ReadPrec DataLakeSettings
+Int -&gt; ReadS DataLakeSettings
+ReadS [DataLakeSettings]
+(Int -&gt; ReadS DataLakeSettings)
+-&gt; ReadS [DataLakeSettings]
+-&gt; ReadPrec DataLakeSettings
+-&gt; ReadPrec [DataLakeSettings]
+-&gt; Read DataLakeSettings
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DataLakeSettings]
+$creadListPrec :: ReadPrec [DataLakeSettings]
+readPrec :: ReadPrec DataLakeSettings
+$creadPrec :: ReadPrec DataLakeSettings
+readList :: ReadS [DataLakeSettings]
+$creadList :: ReadS [DataLakeSettings]
+readsPrec :: Int -&gt; ReadS DataLakeSettings
+$creadsPrec :: Int -&gt; ReadS DataLakeSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198664"><span id="local-6989586621679198666"><span id="local-6989586621679198668"><span class="annot"><span class="annottext">Int -&gt; DataLakeSettings -&gt; ShowS
+[DataLakeSettings] -&gt; ShowS
+DataLakeSettings -&gt; String
+(Int -&gt; DataLakeSettings -&gt; ShowS)
+-&gt; (DataLakeSettings -&gt; String)
+-&gt; ([DataLakeSettings] -&gt; ShowS)
+-&gt; Show DataLakeSettings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DataLakeSettings] -&gt; ShowS
+$cshowList :: [DataLakeSettings] -&gt; ShowS
+show :: DataLakeSettings -&gt; String
+$cshow :: DataLakeSettings -&gt; String
+showsPrec :: Int -&gt; DataLakeSettings -&gt; ShowS
+$cshowsPrec :: Int -&gt; DataLakeSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DataLakeSettings -&gt; Rep DataLakeSettings x)
+-&gt; (forall x. Rep DataLakeSettings x -&gt; DataLakeSettings)
+-&gt; Generic DataLakeSettings
+forall x. Rep DataLakeSettings x -&gt; DataLakeSettings
+forall x. DataLakeSettings -&gt; Rep DataLakeSettings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DataLakeSettings x -&gt; DataLakeSettings
+$cfrom :: forall x. DataLakeSettings -&gt; Rep DataLakeSettings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Create a value of 'DataLakeSettings' with all optional fields omitted.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'dataLakeAdmins', 'dataLakeSettings_dataLakeAdmins' - A list of AWS Lake Formation principals. Supported principals are IAM</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- users or IAM roles.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'trustedResourceOwners', 'dataLakeSettings_trustedResourceOwners' - A list of the resource-owning account IDs that the caller\'s account can</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- use to share their user access details (user ARNs). The user ARNs can be</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- logged in the resource owner\'s AWS CloudTrail log.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- You may want to specify this property when you are in a high-trust</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- boundary, such as the same team or company.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'createDatabaseDefaultPermissions', 'dataLakeSettings_createDatabaseDefaultPermissions' - A structure representing a list of up to three principal permissions</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- entries for default create database permissions.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'createTableDefaultPermissions', 'dataLakeSettings_createTableDefaultPermissions' - A structure representing a list of up to three principal permissions</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- entries for default create table permissions.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#newDataLakeSettings"><span class="hs-identifier hs-type">newDataLakeSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#DataLakeSettings"><span class="hs-identifier hs-type">DataLakeSettings</span></a></span><span>
+</span><span id="line-79"></span><span id="newDataLakeSettings"><span class="annot"><span class="annottext">newDataLakeSettings :: DataLakeSettings
+</span><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#newDataLakeSettings"><span class="hs-identifier hs-var hs-var">newDataLakeSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">DataLakeSettings' :: Maybe [DataLakePrincipal]
+-&gt; Maybe [Text]
+-&gt; Maybe [PrincipalPermissions]
+-&gt; Maybe [PrincipalPermissions]
+-&gt; DataLakeSettings
+</span><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#DataLakeSettings%27"><span class="hs-identifier hs-type">DataLakeSettings'</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dataLakeAdmins:DataLakeSettings' :: Maybe [DataLakePrincipal]
+</span><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#%24sel%3AdataLakeAdmins%3ADataLakeSettings%27"><span class="hs-identifier hs-var">dataLakeAdmins</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DataLakePrincipal]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:trustedResourceOwners:DataLakeSettings' :: Maybe [Text]
+</span><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#%24sel%3AtrustedResourceOwners%3ADataLakeSettings%27"><span class="hs-identifier hs-var">trustedResourceOwners</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:createDatabaseDefaultPermissions:DataLakeSettings' :: Maybe [PrincipalPermissions]
+</span><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#%24sel%3AcreateDatabaseDefaultPermissions%3ADataLakeSettings%27"><span class="hs-identifier hs-var">createDatabaseDefaultPermissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PrincipalPermissions]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:createTableDefaultPermissions:DataLakeSettings' :: Maybe [PrincipalPermissions]
+</span><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#%24sel%3AcreateTableDefaultPermissions%3ADataLakeSettings%27"><span class="hs-identifier hs-var">createTableDefaultPermissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PrincipalPermissions]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | A list of AWS Lake Formation principals. Supported principals are IAM</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- users or IAM roles.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#dataLakeSettings_dataLakeAdmins"><span class="hs-identifier hs-type">dataLakeSettings_dataLakeAdmins</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#DataLakeSettings"><span class="hs-identifier hs-type">DataLakeSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.LakeFormation.Types.DataLakePrincipal.html#DataLakePrincipal"><span class="hs-identifier hs-type">DataLakePrincipal</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="dataLakeSettings_dataLakeAdmins"><span class="annot"><span class="annottext">dataLakeSettings_dataLakeAdmins :: (Maybe [DataLakePrincipal] -&gt; f (Maybe [DataLakePrincipal]))
+-&gt; DataLakeSettings -&gt; f DataLakeSettings
+</span><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#dataLakeSettings_dataLakeAdmins"><span class="hs-identifier hs-var hs-var">dataLakeSettings_dataLakeAdmins</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataLakeSettings -&gt; Maybe [DataLakePrincipal])
+-&gt; (DataLakeSettings
+    -&gt; Maybe [DataLakePrincipal] -&gt; DataLakeSettings)
+-&gt; Lens
+     DataLakeSettings
+     DataLakeSettings
+     (Maybe [DataLakePrincipal])
+     (Maybe [DataLakePrincipal])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#DataLakeSettings%27"><span class="hs-identifier hs-type">DataLakeSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198655"><span class="annot"><span class="annottext">Maybe [DataLakePrincipal]
+dataLakeAdmins :: Maybe [DataLakePrincipal]
+$sel:dataLakeAdmins:DataLakeSettings' :: DataLakeSettings -&gt; Maybe [DataLakePrincipal]
+</span><a href="#local-6989586621679198655"><span class="hs-identifier hs-var hs-var">dataLakeAdmins</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DataLakePrincipal]
+</span><a href="#local-6989586621679198655"><span class="hs-identifier hs-var">dataLakeAdmins</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198654"><span class="annot"><span class="annottext">s :: DataLakeSettings
+</span><a href="#local-6989586621679198654"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#DataLakeSettings%27"><span class="hs-identifier hs-type">DataLakeSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198653"><span class="annot"><span class="annottext">Maybe [DataLakePrincipal]
+</span><a href="#local-6989586621679198653"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataLakeSettings
+</span><a href="#local-6989586621679198654"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataLakeAdmins:DataLakeSettings' :: Maybe [DataLakePrincipal]
+</span><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#%24sel%3AdataLakeAdmins%3ADataLakeSettings%27"><span class="hs-identifier hs-var">dataLakeAdmins</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DataLakePrincipal]
+</span><a href="#local-6989586621679198653"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#DataLakeSettings"><span class="hs-identifier hs-type">DataLakeSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DataLakePrincipal] -&gt; f (Maybe [DataLakePrincipal]))
+ -&gt; DataLakeSettings -&gt; f DataLakeSettings)
+-&gt; ((Maybe [DataLakePrincipal] -&gt; f (Maybe [DataLakePrincipal]))
+    -&gt; Maybe [DataLakePrincipal] -&gt; f (Maybe [DataLakePrincipal]))
+-&gt; (Maybe [DataLakePrincipal] -&gt; f (Maybe [DataLakePrincipal]))
+-&gt; DataLakeSettings
+-&gt; f DataLakeSettings
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DataLakePrincipal]
+  [DataLakePrincipal]
+  [DataLakePrincipal]
+  [DataLakePrincipal]
+-&gt; Iso
+     (Maybe [DataLakePrincipal])
+     (Maybe [DataLakePrincipal])
+     (Maybe [DataLakePrincipal])
+     (Maybe [DataLakePrincipal])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DataLakePrincipal]
+  [DataLakePrincipal]
+  [DataLakePrincipal]
+  [DataLakePrincipal]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | A list of the resource-owning account IDs that the caller\'s account can</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- use to share their user access details (user ARNs). The user ARNs can be</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- logged in the resource owner\'s AWS CloudTrail log.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- You may want to specify this property when you are in a high-trust</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- boundary, such as the same team or company.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#dataLakeSettings_trustedResourceOwners"><span class="hs-identifier hs-type">dataLakeSettings_trustedResourceOwners</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#DataLakeSettings"><span class="hs-identifier hs-type">DataLakeSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="dataLakeSettings_trustedResourceOwners"><span class="annot"><span class="annottext">dataLakeSettings_trustedResourceOwners :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DataLakeSettings -&gt; f DataLakeSettings
+</span><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#dataLakeSettings_trustedResourceOwners"><span class="hs-identifier hs-var hs-var">dataLakeSettings_trustedResourceOwners</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataLakeSettings -&gt; Maybe [Text])
+-&gt; (DataLakeSettings -&gt; Maybe [Text] -&gt; DataLakeSettings)
+-&gt; Lens
+     DataLakeSettings DataLakeSettings (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#DataLakeSettings%27"><span class="hs-identifier hs-type">DataLakeSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198648"><span class="annot"><span class="annottext">Maybe [Text]
+trustedResourceOwners :: Maybe [Text]
+$sel:trustedResourceOwners:DataLakeSettings' :: DataLakeSettings -&gt; Maybe [Text]
+</span><a href="#local-6989586621679198648"><span class="hs-identifier hs-var hs-var">trustedResourceOwners</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679198648"><span class="hs-identifier hs-var">trustedResourceOwners</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198647"><span class="annot"><span class="annottext">s :: DataLakeSettings
+</span><a href="#local-6989586621679198647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#DataLakeSettings%27"><span class="hs-identifier hs-type">DataLakeSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198646"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679198646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataLakeSettings
+</span><a href="#local-6989586621679198647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trustedResourceOwners:DataLakeSettings' :: Maybe [Text]
+</span><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#%24sel%3AtrustedResourceOwners%3ADataLakeSettings%27"><span class="hs-identifier hs-var">trustedResourceOwners</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679198646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#DataLakeSettings"><span class="hs-identifier hs-type">DataLakeSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; DataLakeSettings -&gt; f DataLakeSettings)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DataLakeSettings
+-&gt; f DataLakeSettings
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | A structure representing a list of up to three principal permissions</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- entries for default create database permissions.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#dataLakeSettings_createDatabaseDefaultPermissions"><span class="hs-identifier hs-type">dataLakeSettings_createDatabaseDefaultPermissions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#DataLakeSettings"><span class="hs-identifier hs-type">DataLakeSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.LakeFormation.Types.PrincipalPermissions.html#PrincipalPermissions"><span class="hs-identifier hs-type">PrincipalPermissions</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="dataLakeSettings_createDatabaseDefaultPermissions"><span class="annot"><span class="annottext">dataLakeSettings_createDatabaseDefaultPermissions :: (Maybe [PrincipalPermissions] -&gt; f (Maybe [PrincipalPermissions]))
+-&gt; DataLakeSettings -&gt; f DataLakeSettings
+</span><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#dataLakeSettings_createDatabaseDefaultPermissions"><span class="hs-identifier hs-var hs-var">dataLakeSettings_createDatabaseDefaultPermissions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataLakeSettings -&gt; Maybe [PrincipalPermissions])
+-&gt; (DataLakeSettings
+    -&gt; Maybe [PrincipalPermissions] -&gt; DataLakeSettings)
+-&gt; Lens
+     DataLakeSettings
+     DataLakeSettings
+     (Maybe [PrincipalPermissions])
+     (Maybe [PrincipalPermissions])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#DataLakeSettings%27"><span class="hs-identifier hs-type">DataLakeSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198644"><span class="annot"><span class="annottext">Maybe [PrincipalPermissions]
+createDatabaseDefaultPermissions :: Maybe [PrincipalPermissions]
+$sel:createDatabaseDefaultPermissions:DataLakeSettings' :: DataLakeSettings -&gt; Maybe [PrincipalPermissions]
+</span><a href="#local-6989586621679198644"><span class="hs-identifier hs-var hs-var">createDatabaseDefaultPermissions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PrincipalPermissions]
+</span><a href="#local-6989586621679198644"><span class="hs-identifier hs-var">createDatabaseDefaultPermissions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198643"><span class="annot"><span class="annottext">s :: DataLakeSettings
+</span><a href="#local-6989586621679198643"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#DataLakeSettings%27"><span class="hs-identifier hs-type">DataLakeSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198642"><span class="annot"><span class="annottext">Maybe [PrincipalPermissions]
+</span><a href="#local-6989586621679198642"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataLakeSettings
+</span><a href="#local-6989586621679198643"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createDatabaseDefaultPermissions:DataLakeSettings' :: Maybe [PrincipalPermissions]
+</span><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#%24sel%3AcreateDatabaseDefaultPermissions%3ADataLakeSettings%27"><span class="hs-identifier hs-var">createDatabaseDefaultPermissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PrincipalPermissions]
+</span><a href="#local-6989586621679198642"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#DataLakeSettings"><span class="hs-identifier hs-type">DataLakeSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PrincipalPermissions] -&gt; f (Maybe [PrincipalPermissions]))
+ -&gt; DataLakeSettings -&gt; f DataLakeSettings)
+-&gt; ((Maybe [PrincipalPermissions]
+     -&gt; f (Maybe [PrincipalPermissions]))
+    -&gt; Maybe [PrincipalPermissions]
+    -&gt; f (Maybe [PrincipalPermissions]))
+-&gt; (Maybe [PrincipalPermissions]
+    -&gt; f (Maybe [PrincipalPermissions]))
+-&gt; DataLakeSettings
+-&gt; f DataLakeSettings
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PrincipalPermissions]
+  [PrincipalPermissions]
+  [PrincipalPermissions]
+  [PrincipalPermissions]
+-&gt; Iso
+     (Maybe [PrincipalPermissions])
+     (Maybe [PrincipalPermissions])
+     (Maybe [PrincipalPermissions])
+     (Maybe [PrincipalPermissions])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PrincipalPermissions]
+  [PrincipalPermissions]
+  [PrincipalPermissions]
+  [PrincipalPermissions]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | A structure representing a list of up to three principal permissions</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- entries for default create table permissions.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#dataLakeSettings_createTableDefaultPermissions"><span class="hs-identifier hs-type">dataLakeSettings_createTableDefaultPermissions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#DataLakeSettings"><span class="hs-identifier hs-type">DataLakeSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.LakeFormation.Types.PrincipalPermissions.html#PrincipalPermissions"><span class="hs-identifier hs-type">PrincipalPermissions</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="dataLakeSettings_createTableDefaultPermissions"><span class="annot"><span class="annottext">dataLakeSettings_createTableDefaultPermissions :: (Maybe [PrincipalPermissions] -&gt; f (Maybe [PrincipalPermissions]))
+-&gt; DataLakeSettings -&gt; f DataLakeSettings
+</span><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#dataLakeSettings_createTableDefaultPermissions"><span class="hs-identifier hs-var hs-var">dataLakeSettings_createTableDefaultPermissions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataLakeSettings -&gt; Maybe [PrincipalPermissions])
+-&gt; (DataLakeSettings
+    -&gt; Maybe [PrincipalPermissions] -&gt; DataLakeSettings)
+-&gt; Lens
+     DataLakeSettings
+     DataLakeSettings
+     (Maybe [PrincipalPermissions])
+     (Maybe [PrincipalPermissions])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#DataLakeSettings%27"><span class="hs-identifier hs-type">DataLakeSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198640"><span class="annot"><span class="annottext">Maybe [PrincipalPermissions]
+createTableDefaultPermissions :: Maybe [PrincipalPermissions]
+$sel:createTableDefaultPermissions:DataLakeSettings' :: DataLakeSettings -&gt; Maybe [PrincipalPermissions]
+</span><a href="#local-6989586621679198640"><span class="hs-identifier hs-var hs-var">createTableDefaultPermissions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PrincipalPermissions]
+</span><a href="#local-6989586621679198640"><span class="hs-identifier hs-var">createTableDefaultPermissions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198639"><span class="annot"><span class="annottext">s :: DataLakeSettings
+</span><a href="#local-6989586621679198639"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#DataLakeSettings%27"><span class="hs-identifier hs-type">DataLakeSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198638"><span class="annot"><span class="annottext">Maybe [PrincipalPermissions]
+</span><a href="#local-6989586621679198638"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataLakeSettings
+</span><a href="#local-6989586621679198639"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createTableDefaultPermissions:DataLakeSettings' :: Maybe [PrincipalPermissions]
+</span><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#%24sel%3AcreateTableDefaultPermissions%3ADataLakeSettings%27"><span class="hs-identifier hs-var">createTableDefaultPermissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PrincipalPermissions]
+</span><a href="#local-6989586621679198638"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#DataLakeSettings"><span class="hs-identifier hs-type">DataLakeSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PrincipalPermissions] -&gt; f (Maybe [PrincipalPermissions]))
+ -&gt; DataLakeSettings -&gt; f DataLakeSettings)
+-&gt; ((Maybe [PrincipalPermissions]
+     -&gt; f (Maybe [PrincipalPermissions]))
+    -&gt; Maybe [PrincipalPermissions]
+    -&gt; f (Maybe [PrincipalPermissions]))
+-&gt; (Maybe [PrincipalPermissions]
+    -&gt; f (Maybe [PrincipalPermissions]))
+-&gt; DataLakeSettings
+-&gt; f DataLakeSettings
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PrincipalPermissions]
+  [PrincipalPermissions]
+  [PrincipalPermissions]
+  [PrincipalPermissions]
+-&gt; Iso
+     (Maybe [PrincipalPermissions])
+     (Maybe [PrincipalPermissions])
+     (Maybe [PrincipalPermissions])
+     (Maybe [PrincipalPermissions])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PrincipalPermissions]
+  [PrincipalPermissions]
+  [PrincipalPermissions]
+  [PrincipalPermissions]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198635"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#DataLakeSettings"><span class="hs-identifier hs-type">DataLakeSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679198633"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DataLakeSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser DataLakeSettings)
+-&gt; Value
+-&gt; Parser DataLakeSettings
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;DataLakeSettings&quot;</span></span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679198630"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679198630"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-116"></span><span>          </span><span class="annot"><span class="annottext">Maybe [DataLakePrincipal]
+-&gt; Maybe [Text]
+-&gt; Maybe [PrincipalPermissions]
+-&gt; Maybe [PrincipalPermissions]
+-&gt; DataLakeSettings
+</span><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#DataLakeSettings%27"><span class="hs-identifier hs-var">DataLakeSettings'</span></a></span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [DataLakePrincipal]
+ -&gt; Maybe [Text]
+ -&gt; Maybe [PrincipalPermissions]
+ -&gt; Maybe [PrincipalPermissions]
+ -&gt; DataLakeSettings)
+-&gt; Parser (Maybe [DataLakePrincipal])
+-&gt; Parser
+     (Maybe [Text]
+      -&gt; Maybe [PrincipalPermissions]
+      -&gt; Maybe [PrincipalPermissions]
+      -&gt; DataLakeSettings)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679198630"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [DataLakePrincipal]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataLakeAdmins&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [DataLakePrincipal]))
+-&gt; Maybe [DataLakePrincipal] -&gt; Parser (Maybe [DataLakePrincipal])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [DataLakePrincipal]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text]
+   -&gt; Maybe [PrincipalPermissions]
+   -&gt; Maybe [PrincipalPermissions]
+   -&gt; DataLakeSettings)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser
+     (Maybe [PrincipalPermissions]
+      -&gt; Maybe [PrincipalPermissions] -&gt; DataLakeSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679198630"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TrustedResourceOwners&quot;</span></span><span>
+</span><span id="line-119"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-120"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [PrincipalPermissions]
+   -&gt; Maybe [PrincipalPermissions] -&gt; DataLakeSettings)
+-&gt; Parser (Maybe [PrincipalPermissions])
+-&gt; Parser (Maybe [PrincipalPermissions] -&gt; DataLakeSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679198630"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [PrincipalPermissions]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreateDatabaseDefaultPermissions&quot;</span></span><span>
+</span><span id="line-122"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [PrincipalPermissions]))
+-&gt; Maybe [PrincipalPermissions]
+-&gt; Parser (Maybe [PrincipalPermissions])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PrincipalPermissions]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-123"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [PrincipalPermissions] -&gt; DataLakeSettings)
+-&gt; Parser (Maybe [PrincipalPermissions]) -&gt; Parser DataLakeSettings
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679198630"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [PrincipalPermissions]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreateTableDefaultPermissions&quot;</span></span><span>
+</span><span id="line-125"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [PrincipalPermissions]))
+-&gt; Maybe [PrincipalPermissions]
+-&gt; Parser (Maybe [PrincipalPermissions])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PrincipalPermissions]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-126"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198623"><span id="local-6989586621679198625"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#DataLakeSettings"><span class="hs-identifier hs-type">DataLakeSettings</span></a></span></span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198620"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#DataLakeSettings"><span class="hs-identifier hs-type">DataLakeSettings</span></a></span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198612"><span id="local-6989586621679198614"><span id="local-6989586621679198616"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#DataLakeSettings"><span class="hs-identifier hs-type">DataLakeSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679198610"><span class="annot"><span class="annottext">toJSON :: DataLakeSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LakeFormation.Types.DataLakeSettings.html#DataLakeSettings%27"><span class="hs-identifier hs-type">DataLakeSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198605"><span id="local-6989586621679198606"><span id="local-6989586621679198607"><span id="local-6989586621679198608"><span class="annot"><span class="annottext">Maybe [Text]
+Maybe [DataLakePrincipal]
+Maybe [PrincipalPermissions]
+createTableDefaultPermissions :: Maybe [PrincipalPermissions]
+createDatabaseDefaultPermissions :: Maybe [PrincipalPermissions]
+trustedResourceOwners :: Maybe [Text]
+dataLakeAdmins :: Maybe [DataLakePrincipal]
+$sel:createTableDefaultPermissions:DataLakeSettings' :: DataLakeSettings -&gt; Maybe [PrincipalPermissions]
+$sel:createDatabaseDefaultPermissions:DataLakeSettings' :: DataLakeSettings -&gt; Maybe [PrincipalPermissions]
+$sel:trustedResourceOwners:DataLakeSettings' :: DataLakeSettings -&gt; Maybe [Text]
+$sel:dataLakeAdmins:DataLakeSettings' :: DataLakeSettings -&gt; Maybe [DataLakePrincipal]
+</span><a href="#local-6989586621679198605"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-137"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataLakeAdmins&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [DataLakePrincipal] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>              </span><span class="annot"><span class="annottext">([DataLakePrincipal] -&gt; Pair)
+-&gt; Maybe [DataLakePrincipal] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [DataLakePrincipal]
+</span><a href="#local-6989586621679198608"><span class="hs-identifier hs-var">dataLakeAdmins</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TrustedResourceOwners&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679198607"><span class="hs-identifier hs-var">trustedResourceOwners</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreateDatabaseDefaultPermissions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [PrincipalPermissions] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>              </span><span class="annot"><span class="annottext">([PrincipalPermissions] -&gt; Pair)
+-&gt; Maybe [PrincipalPermissions] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PrincipalPermissions]
+</span><a href="#local-6989586621679198606"><span class="hs-identifier hs-var">createDatabaseDefaultPermissions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreateTableDefaultPermissions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [PrincipalPermissions] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>              </span><span class="annot"><span class="annottext">([PrincipalPermissions] -&gt; Pair)
+-&gt; Maybe [PrincipalPermissions] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PrincipalPermissions]
+</span><a href="#local-6989586621679198605"><span class="hs-identifier hs-var">createTableDefaultPermissions</span></a></span><span>
+</span><span id="line-145"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span></pre></body></html>

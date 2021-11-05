@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Edge Manager agent version.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newAgentVersion' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621680288346"><span id="local-6989586621680288347"></span></span><span class="hs-keyword">data</span><span> </span><span id="AgentVersion"><span class="annot"><a href="Network.AWS.SageMaker.Types.AgentVersion.html#AgentVersion"><span class="hs-identifier hs-var">AgentVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AgentVersion%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.AgentVersion.html#AgentVersion%27"><span class="hs-identifier hs-var">AgentVersion'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621680288355"><span id="local-6989586621680288356"></span></span><span class="hs-keyword">data</span><span> </span><span id="AgentVersion"><span class="annot"><a href="Network.AWS.SageMaker.Types.AgentVersion.html#AgentVersion"><span class="hs-identifier hs-var">AgentVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AgentVersion%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.AgentVersion.html#AgentVersion%27"><span class="hs-identifier hs-var">AgentVersion'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Version of the agent.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Aversion%3AAgentVersion%27"><span class="annot"><span class="annottext">AgentVersion -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.AgentVersion.html#%24sel%3Aversion%3AAgentVersion%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AagentCount%3AAgentVersion%27"><span class="annot"><span class="annottext">AgentVersion -&gt; Integer
 </span><a href="Network.AWS.SageMaker.Types.AgentVersion.html#%24sel%3AagentCount%3AAgentVersion%27"><span class="hs-identifier hs-var hs-var">agentCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680288339"><span id="local-6989586621680288341"><span class="annot"><span class="annottext">AgentVersion -&gt; AgentVersion -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680288348"><span id="local-6989586621680288350"><span class="annot"><span class="annottext">AgentVersion -&gt; AgentVersion -&gt; Bool
 (AgentVersion -&gt; AgentVersion -&gt; Bool)
 -&gt; (AgentVersion -&gt; AgentVersion -&gt; Bool) -&gt; Eq AgentVersion
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AgentVersion -&gt; AgentVersion -&gt; Bool
 == :: AgentVersion -&gt; AgentVersion -&gt; Bool
 $c== :: AgentVersion -&gt; AgentVersion -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680288330"><span id="local-6989586621680288332"><span id="local-6989586621680288334"><span id="local-6989586621680288336"><span class="annot"><span class="annottext">ReadPrec [AgentVersion]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680288339"><span id="local-6989586621680288341"><span id="local-6989586621680288343"><span id="local-6989586621680288345"><span class="annot"><span class="annottext">ReadPrec [AgentVersion]
 ReadPrec AgentVersion
 Int -&gt; ReadS AgentVersion
 ReadS [AgentVersion]
@@ -62,7 +62,7 @@ readList :: ReadS [AgentVersion]
 $creadList :: ReadS [AgentVersion]
 readsPrec :: Int -&gt; ReadS AgentVersion
 $creadsPrec :: Int -&gt; ReadS AgentVersion
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680288323"><span id="local-6989586621680288325"><span id="local-6989586621680288327"><span class="annot"><span class="annottext">Int -&gt; AgentVersion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680288332"><span id="local-6989586621680288334"><span id="local-6989586621680288336"><span class="annot"><span class="annottext">Int -&gt; AgentVersion -&gt; ShowS
 [AgentVersion] -&gt; ShowS
 AgentVersion -&gt; String
 (Int -&gt; AgentVersion -&gt; ShowS)
@@ -106,17 +106,17 @@ $cfrom :: forall x. AgentVersion -&gt; Rep AgentVersion x
 </span><span id="line-52"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AgentVersion.html#AgentVersion"><span class="hs-identifier hs-type">AgentVersion</span></a></span><span>
 </span><span id="line-54"></span><span id="newAgentVersion"><span class="annot"><span class="annottext">newAgentVersion :: Text -&gt; Integer -&gt; AgentVersion
-</span><a href="Network.AWS.SageMaker.Types.AgentVersion.html#newAgentVersion"><span class="hs-identifier hs-var hs-var">newAgentVersion</span></a></span></span><span> </span><span id="local-6989586621680288317"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680288317"><span class="hs-identifier hs-var">pVersion_</span></a></span></span><span> </span><span id="local-6989586621680288316"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621680288316"><span class="hs-identifier hs-var">pAgentCount_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.Types.AgentVersion.html#newAgentVersion"><span class="hs-identifier hs-var hs-var">newAgentVersion</span></a></span></span><span> </span><span id="local-6989586621680288326"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680288326"><span class="hs-identifier hs-var">pVersion_</span></a></span></span><span> </span><span id="local-6989586621680288325"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621680288325"><span class="hs-identifier hs-var">pAgentCount_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">AgentVersion' :: Text -&gt; Integer -&gt; AgentVersion
 </span><a href="Network.AWS.SageMaker.Types.AgentVersion.html#AgentVersion%27"><span class="hs-identifier hs-type">AgentVersion'</span></a></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:version:AgentVersion' :: Text
 </span><a href="Network.AWS.SageMaker.Types.AgentVersion.html#%24sel%3Aversion%3AAgentVersion%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680288317"><span class="hs-identifier hs-var">pVersion_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680288326"><span class="hs-identifier hs-var">pVersion_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:agentCount:AgentVersion' :: Integer
 </span><a href="Network.AWS.SageMaker.Types.AgentVersion.html#%24sel%3AagentCount%3AAgentVersion%27"><span class="hs-identifier hs-var">agentCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621680288316"><span class="hs-identifier hs-var">pAgentCount_</span></a></span><span>
+</span><a href="#local-6989586621680288325"><span class="hs-identifier hs-var">pAgentCount_</span></a></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | Version of the agent.</span><span>
@@ -126,16 +126,16 @@ $cfrom :: forall x. AgentVersion -&gt; Rep AgentVersion x
 -&gt; (AgentVersion -&gt; Text -&gt; AgentVersion)
 -&gt; Lens AgentVersion AgentVersion Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AgentVersion.html#AgentVersion%27"><span class="hs-identifier hs-type">AgentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680288312"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AgentVersion.html#AgentVersion%27"><span class="hs-identifier hs-type">AgentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680288321"><span class="annot"><span class="annottext">Text
 version :: Text
 $sel:version:AgentVersion' :: AgentVersion -&gt; Text
-</span><a href="#local-6989586621680288312"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680288312"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680288311"><span class="annot"><span class="annottext">s :: AgentVersion
-</span><a href="#local-6989586621680288311"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AgentVersion.html#AgentVersion%27"><span class="hs-identifier hs-type">AgentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680288310"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680288310"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AgentVersion
-</span><a href="#local-6989586621680288311"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:AgentVersion' :: Text
+</span><a href="#local-6989586621680288321"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680288321"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680288320"><span class="annot"><span class="annottext">s :: AgentVersion
+</span><a href="#local-6989586621680288320"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AgentVersion.html#AgentVersion%27"><span class="hs-identifier hs-type">AgentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680288319"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680288319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AgentVersion
+</span><a href="#local-6989586621680288320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:AgentVersion' :: Text
 </span><a href="Network.AWS.SageMaker.Types.AgentVersion.html#%24sel%3Aversion%3AAgentVersion%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680288310"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AgentVersion.html#AgentVersion"><span class="hs-identifier hs-type">AgentVersion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680288319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AgentVersion.html#AgentVersion"><span class="hs-identifier hs-type">AgentVersion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | The number of Edge Manager agents.</span><span>
 </span><span id="line-65"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.AgentVersion.html#agentVersion_agentCount"><span class="hs-identifier hs-type">agentVersion_agentCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AgentVersion.html#AgentVersion"><span class="hs-identifier hs-type">AgentVersion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
@@ -144,19 +144,19 @@ $sel:version:AgentVersion' :: AgentVersion -&gt; Text
 -&gt; (AgentVersion -&gt; Integer -&gt; AgentVersion)
 -&gt; Lens AgentVersion AgentVersion Integer Integer
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AgentVersion.html#AgentVersion%27"><span class="hs-identifier hs-type">AgentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680288308"><span class="annot"><span class="annottext">Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AgentVersion.html#AgentVersion%27"><span class="hs-identifier hs-type">AgentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680288317"><span class="annot"><span class="annottext">Integer
 agentCount :: Integer
 $sel:agentCount:AgentVersion' :: AgentVersion -&gt; Integer
-</span><a href="#local-6989586621680288308"><span class="hs-identifier hs-var hs-var">agentCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621680288308"><span class="hs-identifier hs-var">agentCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680288307"><span class="annot"><span class="annottext">s :: AgentVersion
-</span><a href="#local-6989586621680288307"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AgentVersion.html#AgentVersion%27"><span class="hs-identifier hs-type">AgentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680288306"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621680288306"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AgentVersion
-</span><a href="#local-6989586621680288307"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:agentCount:AgentVersion' :: Integer
+</span><a href="#local-6989586621680288317"><span class="hs-identifier hs-var hs-var">agentCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621680288317"><span class="hs-identifier hs-var">agentCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680288316"><span class="annot"><span class="annottext">s :: AgentVersion
+</span><a href="#local-6989586621680288316"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AgentVersion.html#AgentVersion%27"><span class="hs-identifier hs-type">AgentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680288315"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621680288315"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AgentVersion
+</span><a href="#local-6989586621680288316"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:agentCount:AgentVersion' :: Integer
 </span><a href="Network.AWS.SageMaker.Types.AgentVersion.html#%24sel%3AagentCount%3AAgentVersion%27"><span class="hs-identifier hs-var">agentCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621680288306"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AgentVersion.html#AgentVersion"><span class="hs-identifier hs-type">AgentVersion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680288315"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AgentVersion.html#AgentVersion"><span class="hs-identifier hs-type">AgentVersion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680288303"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AgentVersion.html#AgentVersion"><span class="hs-identifier hs-type">AgentVersion</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621680288301"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AgentVersion
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680288312"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AgentVersion.html#AgentVersion"><span class="hs-identifier hs-type">AgentVersion</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621680288310"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AgentVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AgentVersion) -&gt; Value -&gt; Parser AgentVersion
@@ -164,15 +164,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AgentVersion&quot;</span></span><span>
-</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680288298"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680288298"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680288307"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680288307"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Integer -&gt; AgentVersion
 </span><a href="Network.AWS.SageMaker.Types.AgentVersion.html#AgentVersion%27"><span class="hs-identifier hs-var">AgentVersion'</span></a></span><span>
 </span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Integer -&gt; AgentVersion)
 -&gt; Parser Text -&gt; Parser (Integer -&gt; AgentVersion)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680288298"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680288307"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Version&quot;</span></span><span class="hs-special">)</span><span>
@@ -180,13 +180,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Integer -&gt; Parser AgentVersion
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680288298"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
+</span><a href="#local-6989586621680288307"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AgentCount&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680288292"><span id="local-6989586621680288294"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AgentVersion.html#AgentVersion"><span class="hs-identifier hs-type">AgentVersion</span></a></span></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680288301"><span id="local-6989586621680288303"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AgentVersion.html#AgentVersion"><span class="hs-identifier hs-type">AgentVersion</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680288289"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AgentVersion.html#AgentVersion"><span class="hs-identifier hs-type">AgentVersion</span></a></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680288298"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AgentVersion.html#AgentVersion"><span class="hs-identifier hs-type">AgentVersion</span></a></span></span><span>
 </span><span id="line-81"></span></pre></body></html>

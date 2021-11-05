@@ -56,7 +56,7 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newDescribeDBClusterEndpoints' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679795680"><span id="local-6989586621679795681"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDBClusterEndpoints"><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpoints"><span class="hs-identifier hs-var">DescribeDBClusterEndpoints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDBClusterEndpoints%27"><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpoints%27"><span class="hs-identifier hs-var">DescribeDBClusterEndpoints'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679795689"><span id="local-6989586621679795690"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDBClusterEndpoints"><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpoints"><span class="hs-identifier hs-var">DescribeDBClusterEndpoints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDBClusterEndpoints%27"><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpoints%27"><span class="hs-identifier hs-var">DescribeDBClusterEndpoints'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The DB cluster identifier of the DB cluster associated with the</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- endpoint. This parameter is stored as a lowercase string.</span><span>
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AdbClusterIdentifier%3ADescribeDBClusterEndpoints%27"><span class="annot"><span class="annottext">DescribeDBClusterEndpoints -&gt; Maybe Text
@@ -95,7 +95,7 @@
 </span><span id="line-91"></span><span>    </span><span id="%24sel%3AmaxRecords%3ADescribeDBClusterEndpoints%27"><span class="annot"><span class="annottext">DescribeDBClusterEndpoints -&gt; Maybe Int
 </span><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#%24sel%3AmaxRecords%3ADescribeDBClusterEndpoints%27"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-92"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-93"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679795670"><span id="local-6989586621679795672"><span class="annot"><span class="annottext">DescribeDBClusterEndpoints -&gt; DescribeDBClusterEndpoints -&gt; Bool
+</span><span id="line-93"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679795679"><span id="local-6989586621679795681"><span class="annot"><span class="annottext">DescribeDBClusterEndpoints -&gt; DescribeDBClusterEndpoints -&gt; Bool
 (DescribeDBClusterEndpoints -&gt; DescribeDBClusterEndpoints -&gt; Bool)
 -&gt; (DescribeDBClusterEndpoints
     -&gt; DescribeDBClusterEndpoints -&gt; Bool)
@@ -105,7 +105,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeDBClusterEndpoints -&gt; DescribeDBClusterEndpoints -&gt; Bool
 == :: DescribeDBClusterEndpoints -&gt; DescribeDBClusterEndpoints -&gt; Bool
 $c== :: DescribeDBClusterEndpoints -&gt; DescribeDBClusterEndpoints -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679795661"><span id="local-6989586621679795663"><span id="local-6989586621679795665"><span id="local-6989586621679795667"><span class="annot"><span class="annottext">ReadPrec [DescribeDBClusterEndpoints]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679795670"><span id="local-6989586621679795672"><span id="local-6989586621679795674"><span id="local-6989586621679795676"><span class="annot"><span class="annottext">ReadPrec [DescribeDBClusterEndpoints]
 ReadPrec DescribeDBClusterEndpoints
 Int -&gt; ReadS DescribeDBClusterEndpoints
 ReadS [DescribeDBClusterEndpoints]
@@ -125,7 +125,7 @@ readList :: ReadS [DescribeDBClusterEndpoints]
 $creadList :: ReadS [DescribeDBClusterEndpoints]
 readsPrec :: Int -&gt; ReadS DescribeDBClusterEndpoints
 $creadsPrec :: Int -&gt; ReadS DescribeDBClusterEndpoints
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679795654"><span id="local-6989586621679795656"><span id="local-6989586621679795658"><span class="annot"><span class="annottext">Int -&gt; DescribeDBClusterEndpoints -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679795663"><span id="local-6989586621679795665"><span id="local-6989586621679795667"><span class="annot"><span class="annottext">Int -&gt; DescribeDBClusterEndpoints -&gt; ShowS
 [DescribeDBClusterEndpoints] -&gt; ShowS
 DescribeDBClusterEndpoints -&gt; String
 (Int -&gt; DescribeDBClusterEndpoints -&gt; ShowS)
@@ -244,16 +244,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpoints%27"><span class="hs-identifier hs-type">DescribeDBClusterEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795648"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpoints%27"><span class="hs-identifier hs-type">DescribeDBClusterEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795657"><span class="annot"><span class="annottext">Maybe Text
 dbClusterIdentifier :: Maybe Text
 $sel:dbClusterIdentifier:DescribeDBClusterEndpoints' :: DescribeDBClusterEndpoints -&gt; Maybe Text
-</span><a href="#local-6989586621679795648"><span class="hs-identifier hs-var hs-var">dbClusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679795648"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679795647"><span class="annot"><span class="annottext">s :: DescribeDBClusterEndpoints
-</span><a href="#local-6989586621679795647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpoints%27"><span class="hs-identifier hs-type">DescribeDBClusterEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679795646"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679795646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBClusterEndpoints
-</span><a href="#local-6989586621679795647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbClusterIdentifier:DescribeDBClusterEndpoints' :: Maybe Text
+</span><a href="#local-6989586621679795657"><span class="hs-identifier hs-var hs-var">dbClusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679795657"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679795656"><span class="annot"><span class="annottext">s :: DescribeDBClusterEndpoints
+</span><a href="#local-6989586621679795656"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpoints%27"><span class="hs-identifier hs-type">DescribeDBClusterEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679795655"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679795655"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBClusterEndpoints
+</span><a href="#local-6989586621679795656"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbClusterIdentifier:DescribeDBClusterEndpoints' :: Maybe Text
 </span><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#%24sel%3AdbClusterIdentifier%3ADescribeDBClusterEndpoints%27"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679795646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpoints"><span class="hs-identifier hs-type">DescribeDBClusterEndpoints</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679795655"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpoints"><span class="hs-identifier hs-type">DescribeDBClusterEndpoints</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- | A set of name-value pairs that define which endpoints to include in the</span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- output. The filters are specified as name-value pairs, in the format</span><span>
@@ -278,16 +278,16 @@ $sel:dbClusterIdentifier:DescribeDBClusterEndpoints' :: DescribeDBClusterEndpoin
      (Maybe [Filter])
      (Maybe [Filter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpoints%27"><span class="hs-identifier hs-type">DescribeDBClusterEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795645"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpoints%27"><span class="hs-identifier hs-type">DescribeDBClusterEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795654"><span class="annot"><span class="annottext">Maybe [Filter]
 filters :: Maybe [Filter]
 $sel:filters:DescribeDBClusterEndpoints' :: DescribeDBClusterEndpoints -&gt; Maybe [Filter]
-</span><a href="#local-6989586621679795645"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621679795645"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679795644"><span class="annot"><span class="annottext">s :: DescribeDBClusterEndpoints
-</span><a href="#local-6989586621679795644"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpoints%27"><span class="hs-identifier hs-type">DescribeDBClusterEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679795643"><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621679795643"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBClusterEndpoints
-</span><a href="#local-6989586621679795644"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeDBClusterEndpoints' :: Maybe [Filter]
+</span><a href="#local-6989586621679795654"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679795654"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679795653"><span class="annot"><span class="annottext">s :: DescribeDBClusterEndpoints
+</span><a href="#local-6989586621679795653"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpoints%27"><span class="hs-identifier hs-type">DescribeDBClusterEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679795652"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679795652"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBClusterEndpoints
+</span><a href="#local-6989586621679795653"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeDBClusterEndpoints' :: Maybe [Filter]
 </span><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#%24sel%3Afilters%3ADescribeDBClusterEndpoints%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621679795643"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpoints"><span class="hs-identifier hs-type">DescribeDBClusterEndpoints</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
+</span><a href="#local-6989586621679795652"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpoints"><span class="hs-identifier hs-type">DescribeDBClusterEndpoints</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
  -&gt; DescribeDBClusterEndpoints -&gt; f DescribeDBClusterEndpoints)
 -&gt; ((Maybe [Filter] -&gt; f (Maybe [Filter]))
     -&gt; Maybe [Filter] -&gt; f (Maybe [Filter]))
@@ -319,16 +319,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpoints%27"><span class="hs-identifier hs-type">DescribeDBClusterEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795639"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpoints%27"><span class="hs-identifier hs-type">DescribeDBClusterEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795648"><span class="annot"><span class="annottext">Maybe Text
 dbClusterEndpointIdentifier :: Maybe Text
 $sel:dbClusterEndpointIdentifier:DescribeDBClusterEndpoints' :: DescribeDBClusterEndpoints -&gt; Maybe Text
-</span><a href="#local-6989586621679795639"><span class="hs-identifier hs-var hs-var">dbClusterEndpointIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679795639"><span class="hs-identifier hs-var">dbClusterEndpointIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679795638"><span class="annot"><span class="annottext">s :: DescribeDBClusterEndpoints
-</span><a href="#local-6989586621679795638"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpoints%27"><span class="hs-identifier hs-type">DescribeDBClusterEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679795637"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679795637"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBClusterEndpoints
-</span><a href="#local-6989586621679795638"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbClusterEndpointIdentifier:DescribeDBClusterEndpoints' :: Maybe Text
+</span><a href="#local-6989586621679795648"><span class="hs-identifier hs-var hs-var">dbClusterEndpointIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679795648"><span class="hs-identifier hs-var">dbClusterEndpointIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679795647"><span class="annot"><span class="annottext">s :: DescribeDBClusterEndpoints
+</span><a href="#local-6989586621679795647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpoints%27"><span class="hs-identifier hs-type">DescribeDBClusterEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679795646"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679795646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBClusterEndpoints
+</span><a href="#local-6989586621679795647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbClusterEndpointIdentifier:DescribeDBClusterEndpoints' :: Maybe Text
 </span><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#%24sel%3AdbClusterEndpointIdentifier%3ADescribeDBClusterEndpoints%27"><span class="hs-identifier hs-var">dbClusterEndpointIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679795637"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpoints"><span class="hs-identifier hs-type">DescribeDBClusterEndpoints</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679795646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpoints"><span class="hs-identifier hs-type">DescribeDBClusterEndpoints</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-comment">-- | An optional pagination token provided by a previous</span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- @DescribeDBClusterEndpoints@ request. If this parameter is specified,</span><span>
@@ -346,16 +346,16 @@ $sel:dbClusterEndpointIdentifier:DescribeDBClusterEndpoints' :: DescribeDBCluste
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpoints%27"><span class="hs-identifier hs-type">DescribeDBClusterEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795636"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpoints%27"><span class="hs-identifier hs-type">DescribeDBClusterEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795645"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:DescribeDBClusterEndpoints' :: DescribeDBClusterEndpoints -&gt; Maybe Text
-</span><a href="#local-6989586621679795636"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679795636"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679795635"><span class="annot"><span class="annottext">s :: DescribeDBClusterEndpoints
-</span><a href="#local-6989586621679795635"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpoints%27"><span class="hs-identifier hs-type">DescribeDBClusterEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679795634"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679795634"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBClusterEndpoints
-</span><a href="#local-6989586621679795635"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeDBClusterEndpoints' :: Maybe Text
+</span><a href="#local-6989586621679795645"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679795645"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679795644"><span class="annot"><span class="annottext">s :: DescribeDBClusterEndpoints
+</span><a href="#local-6989586621679795644"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpoints%27"><span class="hs-identifier hs-type">DescribeDBClusterEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679795643"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679795643"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBClusterEndpoints
+</span><a href="#local-6989586621679795644"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeDBClusterEndpoints' :: Maybe Text
 </span><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#%24sel%3Amarker%3ADescribeDBClusterEndpoints%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679795634"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpoints"><span class="hs-identifier hs-type">DescribeDBClusterEndpoints</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679795643"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpoints"><span class="hs-identifier hs-type">DescribeDBClusterEndpoints</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- | The maximum number of records to include in the response. If more</span><span>
 </span><span id="line-178"></span><span class="hs-comment">-- records exist than the specified @MaxRecords@ value, a pagination token</span><span>
@@ -377,30 +377,30 @@ $sel:marker:DescribeDBClusterEndpoints' :: DescribeDBClusterEndpoints -&gt; Mayb
      (Maybe Int)
      (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpoints%27"><span class="hs-identifier hs-type">DescribeDBClusterEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795633"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpoints%27"><span class="hs-identifier hs-type">DescribeDBClusterEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795642"><span class="annot"><span class="annottext">Maybe Int
 maxRecords :: Maybe Int
 $sel:maxRecords:DescribeDBClusterEndpoints' :: DescribeDBClusterEndpoints -&gt; Maybe Int
-</span><a href="#local-6989586621679795633"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679795633"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679795632"><span class="annot"><span class="annottext">s :: DescribeDBClusterEndpoints
-</span><a href="#local-6989586621679795632"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpoints%27"><span class="hs-identifier hs-type">DescribeDBClusterEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679795631"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679795631"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBClusterEndpoints
-</span><a href="#local-6989586621679795632"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeDBClusterEndpoints' :: Maybe Int
+</span><a href="#local-6989586621679795642"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679795642"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679795641"><span class="annot"><span class="annottext">s :: DescribeDBClusterEndpoints
+</span><a href="#local-6989586621679795641"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpoints%27"><span class="hs-identifier hs-type">DescribeDBClusterEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679795640"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679795640"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBClusterEndpoints
+</span><a href="#local-6989586621679795641"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeDBClusterEndpoints' :: Maybe Int
 </span><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#%24sel%3AmaxRecords%3ADescribeDBClusterEndpoints%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679795631"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpoints"><span class="hs-identifier hs-type">DescribeDBClusterEndpoints</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679795640"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpoints"><span class="hs-identifier hs-type">DescribeDBClusterEndpoints</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpoints"><span class="hs-identifier hs-type">DescribeDBClusterEndpoints</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-189"></span><span>  </span><span id="local-6989586621679795627"><span class="annot"><span class="annottext">page :: DescribeDBClusterEndpoints
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679795636"><span class="annot"><span class="annottext">page :: DescribeDBClusterEndpoints
 -&gt; AWSResponse DescribeDBClusterEndpoints
 -&gt; Maybe DescribeDBClusterEndpoints
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679795625"><span class="annot"><span class="annottext">DescribeDBClusterEndpoints
-</span><a href="#local-6989586621679795625"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679795624"><span class="annot"><span class="annottext">AWSResponse DescribeDBClusterEndpoints
-</span><a href="#local-6989586621679795624"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679795634"><span class="annot"><span class="annottext">DescribeDBClusterEndpoints
+</span><a href="#local-6989586621679795634"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679795633"><span class="annot"><span class="annottext">AWSResponse DescribeDBClusterEndpoints
+</span><a href="#local-6989586621679795633"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-190"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-191"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeDBClusterEndpoints
 DescribeDBClusterEndpointsResponse
-</span><a href="#local-6989586621679795624"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679795633"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">DescribeDBClusterEndpointsResponse
 -&gt; Getting (First Text) DescribeDBClusterEndpointsResponse Text
 -&gt; Maybe Text
@@ -430,7 +430,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-197"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeDBClusterEndpoints
 DescribeDBClusterEndpointsResponse
-</span><a href="#local-6989586621679795624"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679795633"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-198"></span><span>            </span><span class="annot"><span class="annottext">DescribeDBClusterEndpointsResponse
 -&gt; Getting
      (First [DBClusterEndpoint])
@@ -479,7 +479,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-204"></span><span>        </span><span class="annot"><span class="annottext">DescribeDBClusterEndpoints
-</span><a href="#local-6989586621679795625"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679795634"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-205"></span><span>          </span><span class="annot"><span class="annottext">DescribeDBClusterEndpoints
 -&gt; (DescribeDBClusterEndpoints -&gt; DescribeDBClusterEndpoints)
 -&gt; DescribeDBClusterEndpoints
@@ -502,7 +502,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeDBClusterEndpoints
 DescribeDBClusterEndpointsResponse
-</span><a href="#local-6989586621679795624"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679795633"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-207"></span><span>          </span><span class="annot"><span class="annottext">DescribeDBClusterEndpointsResponse
 -&gt; Getting (First Text) DescribeDBClusterEndpointsResponse Text
 -&gt; Maybe Text
@@ -528,13 +528,13 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-211"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-212"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpoints"><span class="hs-identifier hs-type">DescribeDBClusterEndpoints</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-213"></span><span>      </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpointsResponse"><span class="hs-identifier hs-type">DescribeDBClusterEndpointsResponse</span></a></span><span>
-</span><span id="line-214"></span><span>  </span><span id="local-6989586621679795615"><span class="annot"><span class="annottext">request :: DescribeDBClusterEndpoints -&gt; Request DescribeDBClusterEndpoints
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679795624"><span class="annot"><span class="annottext">request :: DescribeDBClusterEndpoints -&gt; Request DescribeDBClusterEndpoints
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeDBClusterEndpoints -&gt; Request DescribeDBClusterEndpoints
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-215"></span><span>  </span><span id="local-6989586621679795611"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-215"></span><span>  </span><span id="local-6989586621679795620"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeDBClusterEndpoints
 -&gt; ClientResponse ClientBody
@@ -565,10 +565,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-217"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DescribeDBClusterEndpointsResult&quot;</span></span><span>
-</span><span id="line-218"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679795608"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679795608"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679795607"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679795607"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679795606"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679795606"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-218"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679795617"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679795617"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679795616"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679795616"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679795615"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679795615"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-219"></span><span>          </span><span class="annot"><span class="annottext">Maybe [DBClusterEndpoint]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeDBClusterEndpointsResponse
 </span><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpointsResponse%27"><span class="hs-identifier hs-var">DescribeDBClusterEndpointsResponse'</span></a></span><span>
@@ -579,7 +579,7 @@ Text
      String (Maybe Text -&gt; Int -&gt; DescribeDBClusterEndpointsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679795606"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679795615"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DBClusterEndpoints&quot;</span></span><span>
@@ -608,7 +608,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String (Int -&gt; DescribeDBClusterEndpointsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679795606"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679795615"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
@@ -621,15 +621,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679795608"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679795617"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-226"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-227"></span><span>
-</span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679795595"><span id="local-6989586621679795597"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpoints"><span class="hs-identifier hs-type">DescribeDBClusterEndpoints</span></a></span></span></span><span>
+</span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679795604"><span id="local-6989586621679795606"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpoints"><span class="hs-identifier hs-type">DescribeDBClusterEndpoints</span></a></span></span></span><span>
 </span><span id="line-229"></span><span>
-</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679795592"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpoints"><span class="hs-identifier hs-type">DescribeDBClusterEndpoints</span></a></span></span><span>
+</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679795601"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpoints"><span class="hs-identifier hs-type">DescribeDBClusterEndpoints</span></a></span></span><span>
 </span><span id="line-231"></span><span>
 </span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpoints"><span class="hs-identifier hs-type">DescribeDBClusterEndpoints</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-233"></span><span>  </span><span id="local-6989586621679795588"><span class="annot"><span class="annottext">toHeaders :: DescribeDBClusterEndpoints -&gt; ResponseHeaders
+</span><span id="line-233"></span><span>  </span><span id="local-6989586621679795597"><span class="annot"><span class="annottext">toHeaders :: DescribeDBClusterEndpoints -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeDBClusterEndpoints -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -637,15 +637,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-234"></span><span>
 </span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpoints"><span class="hs-identifier hs-type">DescribeDBClusterEndpoints</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-236"></span><span>  </span><span id="local-6989586621679795583"><span class="annot"><span class="annottext">toPath :: DescribeDBClusterEndpoints -&gt; ByteString
+</span><span id="line-236"></span><span>  </span><span id="local-6989586621679795592"><span class="annot"><span class="annottext">toPath :: DescribeDBClusterEndpoints -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeDBClusterEndpoints -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-237"></span><span>
 </span><span id="line-238"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpoints"><span class="hs-identifier hs-type">DescribeDBClusterEndpoints</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-239"></span><span>  </span><span id="local-6989586621679795579"><span class="annot"><span class="annottext">toQuery :: DescribeDBClusterEndpoints -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpoints%27"><span class="hs-identifier hs-type">DescribeDBClusterEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795573"><span id="local-6989586621679795574"><span id="local-6989586621679795575"><span id="local-6989586621679795576"><span id="local-6989586621679795577"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-239"></span><span>  </span><span id="local-6989586621679795588"><span class="annot"><span class="annottext">toQuery :: DescribeDBClusterEndpoints -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpoints%27"><span class="hs-identifier hs-type">DescribeDBClusterEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795582"><span id="local-6989586621679795583"><span id="local-6989586621679795584"><span id="local-6989586621679795585"><span id="local-6989586621679795586"><span class="annot"><span class="annottext">Maybe Int
 Maybe [Filter]
 Maybe Text
 maxRecords :: Maybe Int
@@ -658,7 +658,7 @@ $sel:marker:DescribeDBClusterEndpoints' :: DescribeDBClusterEndpoints -&gt; Mayb
 $sel:dbClusterEndpointIdentifier:DescribeDBClusterEndpoints' :: DescribeDBClusterEndpoints -&gt; Maybe Text
 $sel:filters:DescribeDBClusterEndpoints' :: DescribeDBClusterEndpoints -&gt; Maybe [Filter]
 $sel:dbClusterIdentifier:DescribeDBClusterEndpoints' :: DescribeDBClusterEndpoints -&gt; Maybe Text
-</span><a href="#local-6989586621679795573"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679795582"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-240"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -678,7 +678,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;DBClusterIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679795577"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679795586"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-246"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Filters&quot;</span></span><span>
 </span><span id="line-247"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -694,27 +694,27 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Filter] -&gt; QueryString) -&gt; Maybe [Filter] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621679795576"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679795585"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-249"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DBClusterEndpointIdentifier&quot;</span></span><span>
 </span><span id="line-250"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679795575"><span class="hs-identifier hs-var">dbClusterEndpointIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679795584"><span class="hs-identifier hs-var">dbClusterEndpointIdentifier</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-251"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679795574"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679795583"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-252"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;MaxRecords&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679795573"><span class="hs-identifier hs-var">maxRecords</span></a></span><span>
+</span><a href="#local-6989586621679795582"><span class="hs-identifier hs-var">maxRecords</span></a></span><span>
 </span><span id="line-253"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-254"></span><span>
 </span><span id="line-255"></span><span class="hs-comment">-- | /See:/ 'newDescribeDBClusterEndpointsResponse' smart constructor.</span><span>
-</span><span id="line-256"></span><span id="local-6989586621679795569"><span id="local-6989586621679795570"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDBClusterEndpointsResponse"><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpointsResponse"><span class="hs-identifier hs-var">DescribeDBClusterEndpointsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDBClusterEndpointsResponse%27"><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpointsResponse%27"><span class="hs-identifier hs-var">DescribeDBClusterEndpointsResponse'</span></a></span></span><span>
+</span><span id="line-256"></span><span id="local-6989586621679795578"><span id="local-6989586621679795579"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDBClusterEndpointsResponse"><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpointsResponse"><span class="hs-identifier hs-var">DescribeDBClusterEndpointsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDBClusterEndpointsResponse%27"><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpointsResponse%27"><span class="hs-identifier hs-var">DescribeDBClusterEndpointsResponse'</span></a></span></span><span>
 </span><span id="line-257"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Contains the details of the endpoints associated with the cluster and</span><span>
 </span><span id="line-258"></span><span>    </span><span class="hs-comment">-- matching any filter conditions.</span><span>
 </span><span id="line-259"></span><span>    </span><span id="%24sel%3AdbClusterEndpoints%3ADescribeDBClusterEndpointsResponse%27"><span class="annot"><span class="annottext">DescribeDBClusterEndpointsResponse -&gt; Maybe [DBClusterEndpoint]
@@ -729,7 +729,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-266"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeDBClusterEndpointsResponse%27"><span class="annot"><span class="annottext">DescribeDBClusterEndpointsResponse -&gt; Int
 </span><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#%24sel%3AhttpStatus%3ADescribeDBClusterEndpointsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-267"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-268"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679795562"><span id="local-6989586621679795564"><span class="annot"><span class="annottext">DescribeDBClusterEndpointsResponse
+</span><span id="line-268"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679795571"><span id="local-6989586621679795573"><span class="annot"><span class="annottext">DescribeDBClusterEndpointsResponse
 -&gt; DescribeDBClusterEndpointsResponse -&gt; Bool
 (DescribeDBClusterEndpointsResponse
  -&gt; DescribeDBClusterEndpointsResponse -&gt; Bool)
@@ -745,7 +745,7 @@ $c/= :: DescribeDBClusterEndpointsResponse
 -&gt; DescribeDBClusterEndpointsResponse -&gt; Bool
 $c== :: DescribeDBClusterEndpointsResponse
 -&gt; DescribeDBClusterEndpointsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679795554"><span id="local-6989586621679795556"><span id="local-6989586621679795558"><span id="local-6989586621679795560"><span class="annot"><span class="annottext">ReadPrec [DescribeDBClusterEndpointsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679795563"><span id="local-6989586621679795565"><span id="local-6989586621679795567"><span id="local-6989586621679795569"><span class="annot"><span class="annottext">ReadPrec [DescribeDBClusterEndpointsResponse]
 ReadPrec DescribeDBClusterEndpointsResponse
 Int -&gt; ReadS DescribeDBClusterEndpointsResponse
 ReadS [DescribeDBClusterEndpointsResponse]
@@ -765,7 +765,7 @@ readList :: ReadS [DescribeDBClusterEndpointsResponse]
 $creadList :: ReadS [DescribeDBClusterEndpointsResponse]
 readsPrec :: Int -&gt; ReadS DescribeDBClusterEndpointsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeDBClusterEndpointsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679795548"><span id="local-6989586621679795550"><span id="local-6989586621679795552"><span class="annot"><span class="annottext">Int -&gt; DescribeDBClusterEndpointsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679795557"><span id="local-6989586621679795559"><span id="local-6989586621679795561"><span class="annot"><span class="annottext">Int -&gt; DescribeDBClusterEndpointsResponse -&gt; ShowS
 [DescribeDBClusterEndpointsResponse] -&gt; ShowS
 DescribeDBClusterEndpointsResponse -&gt; String
 (Int -&gt; DescribeDBClusterEndpointsResponse -&gt; ShowS)
@@ -825,8 +825,8 @@ DescribeDBClusterEndpointsResponse
 </span><span id="line-289"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-290"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpointsResponse"><span class="hs-identifier hs-type">DescribeDBClusterEndpointsResponse</span></a></span><span>
 </span><span id="line-291"></span><span id="newDescribeDBClusterEndpointsResponse"><span class="annot"><span class="annottext">newDescribeDBClusterEndpointsResponse :: Int -&gt; DescribeDBClusterEndpointsResponse
-</span><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#newDescribeDBClusterEndpointsResponse"><span class="hs-identifier hs-var hs-var">newDescribeDBClusterEndpointsResponse</span></a></span></span><span> </span><span id="local-6989586621679795545"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679795545"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#newDescribeDBClusterEndpointsResponse"><span class="hs-identifier hs-var hs-var">newDescribeDBClusterEndpointsResponse</span></a></span></span><span> </span><span id="local-6989586621679795554"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679795554"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-292"></span><span>  </span><span class="annot"><span class="annottext">DescribeDBClusterEndpointsResponse' :: Maybe [DBClusterEndpoint]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeDBClusterEndpointsResponse
 </span><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpointsResponse%27"><span class="hs-identifier hs-type">DescribeDBClusterEndpointsResponse'</span></a></span><span>
@@ -841,7 +841,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-296"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeDBClusterEndpointsResponse' :: Int
 </span><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#%24sel%3AhttpStatus%3ADescribeDBClusterEndpointsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679795545"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679795554"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-297"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-298"></span><span>
 </span><span id="line-299"></span><span class="hs-comment">-- | Contains the details of the endpoints associated with the cluster and</span><span>
@@ -856,16 +856,16 @@ forall a. Maybe a
 -&gt; Lens'
      DescribeDBClusterEndpointsResponse (Maybe [DBClusterEndpoint])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpointsResponse%27"><span class="hs-identifier hs-type">DescribeDBClusterEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795544"><span class="annot"><span class="annottext">Maybe [DBClusterEndpoint]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpointsResponse%27"><span class="hs-identifier hs-type">DescribeDBClusterEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795553"><span class="annot"><span class="annottext">Maybe [DBClusterEndpoint]
 dbClusterEndpoints :: Maybe [DBClusterEndpoint]
 $sel:dbClusterEndpoints:DescribeDBClusterEndpointsResponse' :: DescribeDBClusterEndpointsResponse -&gt; Maybe [DBClusterEndpoint]
-</span><a href="#local-6989586621679795544"><span class="hs-identifier hs-var hs-var">dbClusterEndpoints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DBClusterEndpoint]
-</span><a href="#local-6989586621679795544"><span class="hs-identifier hs-var">dbClusterEndpoints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679795543"><span class="annot"><span class="annottext">s :: DescribeDBClusterEndpointsResponse
-</span><a href="#local-6989586621679795543"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpointsResponse%27"><span class="hs-identifier hs-type">DescribeDBClusterEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679795542"><span class="annot"><span class="annottext">Maybe [DBClusterEndpoint]
-</span><a href="#local-6989586621679795542"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBClusterEndpointsResponse
-</span><a href="#local-6989586621679795543"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbClusterEndpoints:DescribeDBClusterEndpointsResponse' :: Maybe [DBClusterEndpoint]
+</span><a href="#local-6989586621679795553"><span class="hs-identifier hs-var hs-var">dbClusterEndpoints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DBClusterEndpoint]
+</span><a href="#local-6989586621679795553"><span class="hs-identifier hs-var">dbClusterEndpoints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679795552"><span class="annot"><span class="annottext">s :: DescribeDBClusterEndpointsResponse
+</span><a href="#local-6989586621679795552"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpointsResponse%27"><span class="hs-identifier hs-type">DescribeDBClusterEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679795551"><span class="annot"><span class="annottext">Maybe [DBClusterEndpoint]
+</span><a href="#local-6989586621679795551"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBClusterEndpointsResponse
+</span><a href="#local-6989586621679795552"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbClusterEndpoints:DescribeDBClusterEndpointsResponse' :: Maybe [DBClusterEndpoint]
 </span><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#%24sel%3AdbClusterEndpoints%3ADescribeDBClusterEndpointsResponse%27"><span class="hs-identifier hs-var">dbClusterEndpoints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DBClusterEndpoint]
-</span><a href="#local-6989586621679795542"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpointsResponse"><span class="hs-identifier hs-type">DescribeDBClusterEndpointsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DBClusterEndpoint] -&gt; f (Maybe [DBClusterEndpoint]))
+</span><a href="#local-6989586621679795551"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpointsResponse"><span class="hs-identifier hs-type">DescribeDBClusterEndpointsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DBClusterEndpoint] -&gt; f (Maybe [DBClusterEndpoint]))
  -&gt; DescribeDBClusterEndpointsResponse
  -&gt; f DescribeDBClusterEndpointsResponse)
 -&gt; ((Maybe [DBClusterEndpoint] -&gt; f (Maybe [DBClusterEndpoint]))
@@ -908,16 +908,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
     -&gt; Maybe Text -&gt; DescribeDBClusterEndpointsResponse)
 -&gt; Lens' DescribeDBClusterEndpointsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpointsResponse%27"><span class="hs-identifier hs-type">DescribeDBClusterEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795541"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpointsResponse%27"><span class="hs-identifier hs-type">DescribeDBClusterEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795550"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:DescribeDBClusterEndpointsResponse' :: DescribeDBClusterEndpointsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679795541"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679795541"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679795540"><span class="annot"><span class="annottext">s :: DescribeDBClusterEndpointsResponse
-</span><a href="#local-6989586621679795540"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpointsResponse%27"><span class="hs-identifier hs-type">DescribeDBClusterEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679795539"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679795539"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBClusterEndpointsResponse
-</span><a href="#local-6989586621679795540"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeDBClusterEndpointsResponse' :: Maybe Text
+</span><a href="#local-6989586621679795550"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679795550"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679795549"><span class="annot"><span class="annottext">s :: DescribeDBClusterEndpointsResponse
+</span><a href="#local-6989586621679795549"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpointsResponse%27"><span class="hs-identifier hs-type">DescribeDBClusterEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679795548"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679795548"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBClusterEndpointsResponse
+</span><a href="#local-6989586621679795549"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeDBClusterEndpointsResponse' :: Maybe Text
 </span><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#%24sel%3Amarker%3ADescribeDBClusterEndpointsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679795539"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpointsResponse"><span class="hs-identifier hs-type">DescribeDBClusterEndpointsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679795548"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpointsResponse"><span class="hs-identifier hs-type">DescribeDBClusterEndpointsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-310"></span><span>
 </span><span id="line-311"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-312"></span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#describeDBClusterEndpointsResponse_httpStatus"><span class="hs-identifier hs-type">describeDBClusterEndpointsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpointsResponse"><span class="hs-identifier hs-type">DescribeDBClusterEndpointsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -933,18 +933,18 @@ $sel:marker:DescribeDBClusterEndpointsResponse' :: DescribeDBClusterEndpointsRes
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpointsResponse%27"><span class="hs-identifier hs-type">DescribeDBClusterEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795538"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpointsResponse%27"><span class="hs-identifier hs-type">DescribeDBClusterEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795547"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeDBClusterEndpointsResponse' :: DescribeDBClusterEndpointsResponse -&gt; Int
-</span><a href="#local-6989586621679795538"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679795538"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679795537"><span class="annot"><span class="annottext">s :: DescribeDBClusterEndpointsResponse
-</span><a href="#local-6989586621679795537"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpointsResponse%27"><span class="hs-identifier hs-type">DescribeDBClusterEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679795536"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679795536"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBClusterEndpointsResponse
-</span><a href="#local-6989586621679795537"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeDBClusterEndpointsResponse' :: Int
+</span><a href="#local-6989586621679795547"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679795547"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679795546"><span class="annot"><span class="annottext">s :: DescribeDBClusterEndpointsResponse
+</span><a href="#local-6989586621679795546"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpointsResponse%27"><span class="hs-identifier hs-type">DescribeDBClusterEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679795545"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679795545"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBClusterEndpointsResponse
+</span><a href="#local-6989586621679795546"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeDBClusterEndpointsResponse' :: Int
 </span><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#%24sel%3AhttpStatus%3ADescribeDBClusterEndpointsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679795536"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpointsResponse"><span class="hs-identifier hs-type">DescribeDBClusterEndpointsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679795545"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpointsResponse"><span class="hs-identifier hs-type">DescribeDBClusterEndpointsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-314"></span><span>
 </span><span id="line-315"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-316"></span><span>  </span><span id="local-6989586621679795534"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-316"></span><span>  </span><span id="local-6989586621679795543"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-317"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBClusterEndpoints.html#DescribeDBClusterEndpointsResponse"><span class="hs-identifier hs-type">DescribeDBClusterEndpointsResponse</span></a></span></span><span>
 </span><span id="line-318"></span></pre></body></html>

@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621681109644"><span id="local-6989586621681109645"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FlowLogsResourceType"><span class="annot"><a href="Network.AWS.EC2.Types.FlowLogsResourceType.html#FlowLogsResourceType"><span class="hs-identifier hs-var">FlowLogsResourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FlowLogsResourceType%27"><span class="annot"><a href="Network.AWS.EC2.Types.FlowLogsResourceType.html#FlowLogsResourceType%27"><span class="hs-identifier hs-var">FlowLogsResourceType'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621681109653"><span id="local-6989586621681109654"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FlowLogsResourceType"><span class="annot"><a href="Network.AWS.EC2.Types.FlowLogsResourceType.html#FlowLogsResourceType"><span class="hs-identifier hs-var">FlowLogsResourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FlowLogsResourceType%27"><span class="annot"><a href="Network.AWS.EC2.Types.FlowLogsResourceType.html#FlowLogsResourceType%27"><span class="hs-identifier hs-var">FlowLogsResourceType'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFlowLogsResourceType"><span class="annot"><span class="annottext">FlowLogsResourceType -&gt; Text
 </span><a href="Network.AWS.EC2.Types.FlowLogsResourceType.html#fromFlowLogsResourceType"><span class="hs-identifier hs-var hs-var">fromFlowLogsResourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681109636"><span id="local-6989586621681109638"><span id="local-6989586621681109640"><span class="annot"><span class="annottext">Int -&gt; FlowLogsResourceType -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681109645"><span id="local-6989586621681109647"><span id="local-6989586621681109649"><span class="annot"><span class="annottext">Int -&gt; FlowLogsResourceType -&gt; ShowS
 [FlowLogsResourceType] -&gt; ShowS
 FlowLogsResourceType -&gt; String
 (Int -&gt; FlowLogsResourceType -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: FlowLogsResourceType -&gt; String
 showsPrec :: Int -&gt; FlowLogsResourceType -&gt; ShowS
 $cshowsPrec :: Int -&gt; FlowLogsResourceType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681109627"><span id="local-6989586621681109629"><span id="local-6989586621681109631"><span id="local-6989586621681109633"><span class="annot"><span class="annottext">ReadPrec [FlowLogsResourceType]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681109636"><span id="local-6989586621681109638"><span id="local-6989586621681109640"><span id="local-6989586621681109642"><span class="annot"><span class="annottext">ReadPrec [FlowLogsResourceType]
 ReadPrec FlowLogsResourceType
 Int -&gt; ReadS FlowLogsResourceType
 ReadS [FlowLogsResourceType]
@@ -74,7 +74,7 @@ $creadList :: ReadS [FlowLogsResourceType]
 readsPrec :: Int -&gt; ReadS FlowLogsResourceType
 $creadsPrec :: Int -&gt; ReadS FlowLogsResourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681109622"><span id="local-6989586621681109624"><span class="annot"><span class="annottext">FlowLogsResourceType -&gt; FlowLogsResourceType -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681109631"><span id="local-6989586621681109633"><span class="annot"><span class="annottext">FlowLogsResourceType -&gt; FlowLogsResourceType -&gt; Bool
 (FlowLogsResourceType -&gt; FlowLogsResourceType -&gt; Bool)
 -&gt; (FlowLogsResourceType -&gt; FlowLogsResourceType -&gt; Bool)
 -&gt; Eq FlowLogsResourceType
@@ -84,7 +84,7 @@ $c/= :: FlowLogsResourceType -&gt; FlowLogsResourceType -&gt; Bool
 == :: FlowLogsResourceType -&gt; FlowLogsResourceType -&gt; Bool
 $c== :: FlowLogsResourceType -&gt; FlowLogsResourceType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621681109606"><span id="local-6989586621681109608"><span id="local-6989586621681109610"><span id="local-6989586621681109612"><span id="local-6989586621681109614"><span id="local-6989586621681109616"><span id="local-6989586621681109618"><span class="annot"><span class="annottext">Eq FlowLogsResourceType
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681109615"><span id="local-6989586621681109617"><span id="local-6989586621681109619"><span id="local-6989586621681109621"><span id="local-6989586621681109623"><span id="local-6989586621681109625"><span id="local-6989586621681109627"><span class="annot"><span class="annottext">Eq FlowLogsResourceType
 Eq FlowLogsResourceType
 -&gt; (FlowLogsResourceType -&gt; FlowLogsResourceType -&gt; Ordering)
 -&gt; (FlowLogsResourceType -&gt; FlowLogsResourceType -&gt; Bool)
@@ -142,7 +142,7 @@ $cfrom :: forall x. FlowLogsResourceType -&gt; Rep FlowLogsResourceType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681109598"><span id="local-6989586621681109600"><span class="annot"><span class="annottext">Int -&gt; FlowLogsResourceType -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681109607"><span id="local-6989586621681109609"><span class="annot"><span class="annottext">Int -&gt; FlowLogsResourceType -&gt; Int
 FlowLogsResourceType -&gt; Int
 (Int -&gt; FlowLogsResourceType -&gt; Int)
 -&gt; (FlowLogsResourceType -&gt; Int) -&gt; Hashable FlowLogsResourceType
@@ -152,54 +152,54 @@ $chash :: FlowLogsResourceType -&gt; Int
 hashWithSalt :: Int -&gt; FlowLogsResourceType -&gt; Int
 $chashWithSalt :: Int -&gt; FlowLogsResourceType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681109595"><span class="annot"><span class="annottext">FlowLogsResourceType -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681109604"><span class="annot"><span class="annottext">FlowLogsResourceType -&gt; ()
 (FlowLogsResourceType -&gt; ()) -&gt; NFData FlowLogsResourceType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: FlowLogsResourceType -&gt; ()
 $crnf :: FlowLogsResourceType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681109592"><span class="annot"><span class="annottext">Text -&gt; Either String FlowLogsResourceType
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681109601"><span class="annot"><span class="annottext">Text -&gt; Either String FlowLogsResourceType
 (Text -&gt; Either String FlowLogsResourceType)
 -&gt; FromText FlowLogsResourceType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String FlowLogsResourceType
 $cfromText :: Text -&gt; Either String FlowLogsResourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681109589"><span class="annot"><span class="annottext">FlowLogsResourceType -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681109598"><span class="annot"><span class="annottext">FlowLogsResourceType -&gt; Text
 (FlowLogsResourceType -&gt; Text) -&gt; ToText FlowLogsResourceType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: FlowLogsResourceType -&gt; Text
 $ctoText :: FlowLogsResourceType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681109586"><span class="annot"><span class="annottext">FlowLogsResourceType -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681109595"><span class="annot"><span class="annottext">FlowLogsResourceType -&gt; ByteString
 (FlowLogsResourceType -&gt; ByteString)
 -&gt; ToByteString FlowLogsResourceType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: FlowLogsResourceType -&gt; ByteString
 $ctoBS :: FlowLogsResourceType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681109583"><span class="annot"><span class="annottext">FlowLogsResourceType -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681109592"><span class="annot"><span class="annottext">FlowLogsResourceType -&gt; ByteStringBuilder
 (FlowLogsResourceType -&gt; ByteStringBuilder)
 -&gt; ToLog FlowLogsResourceType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: FlowLogsResourceType -&gt; ByteStringBuilder
 $cbuild :: FlowLogsResourceType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681109580"><span class="annot"><span class="annottext">HeaderName -&gt; FlowLogsResourceType -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681109589"><span class="annot"><span class="annottext">HeaderName -&gt; FlowLogsResourceType -&gt; [Header]
 (HeaderName -&gt; FlowLogsResourceType -&gt; [Header])
 -&gt; ToHeader FlowLogsResourceType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; FlowLogsResourceType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; FlowLogsResourceType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681109577"><span class="annot"><span class="annottext">FlowLogsResourceType -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681109586"><span class="annot"><span class="annottext">FlowLogsResourceType -&gt; QueryString
 (FlowLogsResourceType -&gt; QueryString)
 -&gt; ToQuery FlowLogsResourceType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: FlowLogsResourceType -&gt; QueryString
 $ctoQuery :: FlowLogsResourceType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681109572"><span id="local-6989586621681109574"><span class="annot"><span class="annottext">Value -&gt; Parser [FlowLogsResourceType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681109581"><span id="local-6989586621681109583"><span class="annot"><span class="annottext">Value -&gt; Parser [FlowLogsResourceType]
 Value -&gt; Parser FlowLogsResourceType
 (Value -&gt; Parser FlowLogsResourceType)
 -&gt; (Value -&gt; Parser [FlowLogsResourceType])
@@ -211,7 +211,7 @@ $cparseJSONList :: Value -&gt; Parser [FlowLogsResourceType]
 parseJSON :: Value -&gt; Parser FlowLogsResourceType
 $cparseJSON :: Value -&gt; Parser FlowLogsResourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681109567"><span id="local-6989586621681109569"><span class="annot"><span class="annottext">FromJSONKeyFunction [FlowLogsResourceType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681109576"><span id="local-6989586621681109578"><span class="annot"><span class="annottext">FromJSONKeyFunction [FlowLogsResourceType]
 FromJSONKeyFunction FlowLogsResourceType
 FromJSONKeyFunction FlowLogsResourceType
 -&gt; FromJSONKeyFunction [FlowLogsResourceType]
@@ -223,7 +223,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [FlowLogsResourceType]
 fromJSONKey :: FromJSONKeyFunction FlowLogsResourceType
 $cfromJSONKey :: FromJSONKeyFunction FlowLogsResourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681109558"><span id="local-6989586621681109560"><span id="local-6989586621681109562"><span id="local-6989586621681109564"><span class="annot"><span class="annottext">[FlowLogsResourceType] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681109567"><span id="local-6989586621681109569"><span id="local-6989586621681109571"><span id="local-6989586621681109573"><span class="annot"><span class="annottext">[FlowLogsResourceType] -&gt; Encoding
 [FlowLogsResourceType] -&gt; Value
 FlowLogsResourceType -&gt; Encoding
 FlowLogsResourceType -&gt; Value
@@ -247,7 +247,7 @@ $ctoEncoding :: FlowLogsResourceType -&gt; Encoding
 toJSON :: FlowLogsResourceType -&gt; Value
 $ctoJSON :: FlowLogsResourceType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681109553"><span id="local-6989586621681109555"><span class="annot"><span class="annottext">ToJSONKeyFunction [FlowLogsResourceType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681109562"><span id="local-6989586621681109564"><span class="annot"><span class="annottext">ToJSONKeyFunction [FlowLogsResourceType]
 ToJSONKeyFunction FlowLogsResourceType
 ToJSONKeyFunction FlowLogsResourceType
 -&gt; ToJSONKeyFunction [FlowLogsResourceType]
@@ -259,14 +259,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [FlowLogsResourceType]
 toJSONKey :: ToJSONKeyFunction FlowLogsResourceType
 $ctoJSONKey :: ToJSONKeyFunction FlowLogsResourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681109550"><span class="annot"><span class="annottext">[Node] -&gt; Either String FlowLogsResourceType
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681109559"><span class="annot"><span class="annottext">[Node] -&gt; Either String FlowLogsResourceType
 ([Node] -&gt; Either String FlowLogsResourceType)
 -&gt; FromXML FlowLogsResourceType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String FlowLogsResourceType
 $cparseXML :: [Node] -&gt; Either String FlowLogsResourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681109547"><span class="annot"><span class="annottext">FlowLogsResourceType -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681109556"><span class="annot"><span class="annottext">FlowLogsResourceType -&gt; XML
 (FlowLogsResourceType -&gt; XML) -&gt; ToXML FlowLogsResourceType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: FlowLogsResourceType -&gt; XML

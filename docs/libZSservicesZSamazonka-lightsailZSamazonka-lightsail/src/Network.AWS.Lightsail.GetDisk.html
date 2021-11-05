@@ -47,12 +47,12 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newGetDisk' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679644916"><span id="local-6989586621679644917"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDisk"><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#GetDisk"><span class="hs-identifier hs-var">GetDisk</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDisk%27"><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#GetDisk%27"><span class="hs-identifier hs-var">GetDisk'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679644925"><span id="local-6989586621679644926"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDisk"><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#GetDisk"><span class="hs-identifier hs-var">GetDisk</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDisk%27"><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#GetDisk%27"><span class="hs-identifier hs-var">GetDisk'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the disk (e.g., @my-disk@).</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AdiskName%3AGetDisk%27"><span class="annot"><span class="annottext">GetDisk -&gt; Text
 </span><a href="Network.AWS.Lightsail.GetDisk.html#%24sel%3AdiskName%3AGetDisk%27"><span class="hs-identifier hs-var hs-var">diskName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679644910"><span id="local-6989586621679644912"><span class="annot"><span class="annottext">GetDisk -&gt; GetDisk -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679644919"><span id="local-6989586621679644921"><span class="annot"><span class="annottext">GetDisk -&gt; GetDisk -&gt; Bool
 (GetDisk -&gt; GetDisk -&gt; Bool)
 -&gt; (GetDisk -&gt; GetDisk -&gt; Bool) -&gt; Eq GetDisk
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetDisk -&gt; GetDisk -&gt; Bool
 == :: GetDisk -&gt; GetDisk -&gt; Bool
 $c== :: GetDisk -&gt; GetDisk -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679644901"><span id="local-6989586621679644903"><span id="local-6989586621679644905"><span id="local-6989586621679644907"><span class="annot"><span class="annottext">ReadPrec [GetDisk]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679644910"><span id="local-6989586621679644912"><span id="local-6989586621679644914"><span id="local-6989586621679644916"><span class="annot"><span class="annottext">ReadPrec [GetDisk]
 ReadPrec GetDisk
 Int -&gt; ReadS GetDisk
 ReadS [GetDisk]
@@ -80,7 +80,7 @@ readList :: ReadS [GetDisk]
 $creadList :: ReadS [GetDisk]
 readsPrec :: Int -&gt; ReadS GetDisk
 $creadsPrec :: Int -&gt; ReadS GetDisk
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679644894"><span id="local-6989586621679644896"><span id="local-6989586621679644898"><span class="annot"><span class="annottext">Int -&gt; GetDisk -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679644903"><span id="local-6989586621679644905"><span id="local-6989586621679644907"><span class="annot"><span class="annottext">Int -&gt; GetDisk -&gt; ShowS
 [GetDisk] -&gt; ShowS
 GetDisk -&gt; String
 (Int -&gt; GetDisk -&gt; ShowS)
@@ -117,12 +117,12 @@ $cfrom :: forall x. GetDisk -&gt; Rep GetDisk x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#GetDisk"><span class="hs-identifier hs-type">GetDisk</span></a></span><span>
 </span><span id="line-69"></span><span id="newGetDisk"><span class="annot"><span class="annottext">newGetDisk :: Text -&gt; GetDisk
-</span><a href="Network.AWS.Lightsail.GetDisk.html#newGetDisk"><span class="hs-identifier hs-var hs-var">newGetDisk</span></a></span></span><span> </span><span id="local-6989586621679644889"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679644889"><span class="hs-identifier hs-var">pDiskName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.GetDisk.html#newGetDisk"><span class="hs-identifier hs-var hs-var">newGetDisk</span></a></span></span><span> </span><span id="local-6989586621679644898"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679644898"><span class="hs-identifier hs-var">pDiskName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">GetDisk' :: Text -&gt; GetDisk
 </span><a href="Network.AWS.Lightsail.GetDisk.html#GetDisk%27"><span class="hs-identifier hs-type">GetDisk'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:diskName:GetDisk' :: Text
 </span><a href="Network.AWS.Lightsail.GetDisk.html#%24sel%3AdiskName%3AGetDisk%27"><span class="hs-identifier hs-var">diskName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679644889"><span class="hs-identifier hs-var">pDiskName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679644898"><span class="hs-identifier hs-var">pDiskName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | The name of the disk (e.g., @my-disk@).</span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#getDisk_diskName"><span class="hs-identifier hs-type">getDisk_diskName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#GetDisk"><span class="hs-identifier hs-type">GetDisk</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -130,25 +130,25 @@ $cfrom :: forall x. GetDisk -&gt; Rep GetDisk x
 </span><a href="Network.AWS.Lightsail.GetDisk.html#getDisk_diskName"><span class="hs-identifier hs-var hs-var">getDisk_diskName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDisk -&gt; Text)
 -&gt; (GetDisk -&gt; Text -&gt; GetDisk) -&gt; Lens GetDisk GetDisk Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#GetDisk%27"><span class="hs-identifier hs-type">GetDisk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679644886"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#GetDisk%27"><span class="hs-identifier hs-type">GetDisk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679644895"><span class="annot"><span class="annottext">Text
 diskName :: Text
 $sel:diskName:GetDisk' :: GetDisk -&gt; Text
-</span><a href="#local-6989586621679644886"><span class="hs-identifier hs-var hs-var">diskName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679644886"><span class="hs-identifier hs-var">diskName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679644885"><span class="annot"><span class="annottext">s :: GetDisk
-</span><a href="#local-6989586621679644885"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#GetDisk%27"><span class="hs-identifier hs-type">GetDisk'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679644884"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679644884"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDisk
-</span><a href="#local-6989586621679644885"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:diskName:GetDisk' :: Text
+</span><a href="#local-6989586621679644895"><span class="hs-identifier hs-var hs-var">diskName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679644895"><span class="hs-identifier hs-var">diskName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679644894"><span class="annot"><span class="annottext">s :: GetDisk
+</span><a href="#local-6989586621679644894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#GetDisk%27"><span class="hs-identifier hs-type">GetDisk'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679644893"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679644893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDisk
+</span><a href="#local-6989586621679644894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:diskName:GetDisk' :: Text
 </span><a href="Network.AWS.Lightsail.GetDisk.html#%24sel%3AdiskName%3AGetDisk%27"><span class="hs-identifier hs-var">diskName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679644884"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#GetDisk"><span class="hs-identifier hs-type">GetDisk</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679644893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#GetDisk"><span class="hs-identifier hs-type">GetDisk</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#GetDisk"><span class="hs-identifier hs-type">GetDisk</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#GetDisk"><span class="hs-identifier hs-type">GetDisk</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#GetDiskResponse"><span class="hs-identifier hs-type">GetDiskResponse</span></a></span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679644880"><span class="annot"><span class="annottext">request :: GetDisk -&gt; Request GetDisk
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679644889"><span class="annot"><span class="annottext">request :: GetDisk -&gt; Request GetDisk
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetDisk -&gt; Request GetDisk
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679644876"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679644885"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetDisk
 -&gt; ClientResponse ClientBody
@@ -172,10 +172,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679644873"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679644873"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679644872"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679644872"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679644871"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679644871"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679644882"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679644882"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679644881"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679644881"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679644880"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679644880"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Maybe Disk -&gt; Int -&gt; GetDiskResponse
 </span><a href="Network.AWS.Lightsail.GetDisk.html#GetDiskResponse%27"><span class="hs-identifier hs-var">GetDiskResponse'</span></a></span><span>
 </span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Disk -&gt; Int -&gt; GetDiskResponse)
@@ -183,7 +183,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetDiskResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679644871"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Disk)
+</span><a href="#local-6989586621679644880"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Disk)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;disk&quot;</span></span><span class="hs-special">)</span><span>
@@ -195,15 +195,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679644873"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679644882"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679644863"><span id="local-6989586621679644865"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#GetDisk"><span class="hs-identifier hs-type">GetDisk</span></a></span></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679644872"><span id="local-6989586621679644874"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#GetDisk"><span class="hs-identifier hs-type">GetDisk</span></a></span></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679644860"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#GetDisk"><span class="hs-identifier hs-type">GetDisk</span></a></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679644869"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#GetDisk"><span class="hs-identifier hs-type">GetDisk</span></a></span></span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#GetDisk"><span class="hs-identifier hs-type">GetDisk</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679644856"><span class="annot"><span class="annottext">toHeaders :: GetDisk -&gt; ResponseHeaders
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679644865"><span class="annot"><span class="annottext">toHeaders :: GetDisk -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetDisk -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -228,12 +228,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-101"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679644846"><span id="local-6989586621679644848"><span id="local-6989586621679644850"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#GetDisk"><span class="hs-identifier hs-type">GetDisk</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679644844"><span class="annot"><span class="annottext">toJSON :: GetDisk -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#GetDisk%27"><span class="hs-identifier hs-type">GetDisk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679644842"><span class="annot"><span class="annottext">Text
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679644855"><span id="local-6989586621679644857"><span id="local-6989586621679644859"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#GetDisk"><span class="hs-identifier hs-type">GetDisk</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679644853"><span class="annot"><span class="annottext">toJSON :: GetDisk -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#GetDisk%27"><span class="hs-identifier hs-type">GetDisk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679644851"><span class="annot"><span class="annottext">Text
 diskName :: Text
 $sel:diskName:GetDisk' :: GetDisk -&gt; Text
-</span><a href="#local-6989586621679644842"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679644851"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -245,18 +245,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;diskName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679644842"><span class="hs-identifier hs-var">diskName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679644851"><span class="hs-identifier hs-var">diskName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#GetDisk"><span class="hs-identifier hs-type">GetDisk</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679644836"><span class="annot"><span class="annottext">toPath :: GetDisk -&gt; ByteString
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679644845"><span class="annot"><span class="annottext">toPath :: GetDisk -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetDisk -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#GetDisk"><span class="hs-identifier hs-type">GetDisk</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679644832"><span class="annot"><span class="annottext">toQuery :: GetDisk -&gt; QueryString
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679644841"><span class="annot"><span class="annottext">toQuery :: GetDisk -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetDisk -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -264,7 +264,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | /See:/ 'newGetDiskResponse' smart constructor.</span><span>
-</span><span id="line-118"></span><span id="local-6989586621679644829"><span id="local-6989586621679644830"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDiskResponse"><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#GetDiskResponse"><span class="hs-identifier hs-var">GetDiskResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDiskResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#GetDiskResponse%27"><span class="hs-identifier hs-var">GetDiskResponse'</span></a></span></span><span>
+</span><span id="line-118"></span><span id="local-6989586621679644838"><span id="local-6989586621679644839"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDiskResponse"><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#GetDiskResponse"><span class="hs-identifier hs-var">GetDiskResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDiskResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#GetDiskResponse%27"><span class="hs-identifier hs-var">GetDiskResponse'</span></a></span></span><span>
 </span><span id="line-119"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object containing information about the disk.</span><span>
 </span><span id="line-120"></span><span>    </span><span id="%24sel%3Adisk%3AGetDiskResponse%27"><span class="annot"><span class="annottext">GetDiskResponse -&gt; Maybe Disk
 </span><a href="Network.AWS.Lightsail.GetDisk.html#%24sel%3Adisk%3AGetDiskResponse%27"><span class="hs-identifier hs-var hs-var">disk</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.Disk.html#Disk"><span class="hs-identifier hs-type">Disk</span></a></span><span class="hs-special">,</span><span>
@@ -272,7 +272,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-122"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetDiskResponse%27"><span class="annot"><span class="annottext">GetDiskResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.GetDisk.html#%24sel%3AhttpStatus%3AGetDiskResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-123"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679644823"><span id="local-6989586621679644825"><span class="annot"><span class="annottext">GetDiskResponse -&gt; GetDiskResponse -&gt; Bool
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679644832"><span id="local-6989586621679644834"><span class="annot"><span class="annottext">GetDiskResponse -&gt; GetDiskResponse -&gt; Bool
 (GetDiskResponse -&gt; GetDiskResponse -&gt; Bool)
 -&gt; (GetDiskResponse -&gt; GetDiskResponse -&gt; Bool)
 -&gt; Eq GetDiskResponse
@@ -281,7 +281,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetDiskResponse -&gt; GetDiskResponse -&gt; Bool
 == :: GetDiskResponse -&gt; GetDiskResponse -&gt; Bool
 $c== :: GetDiskResponse -&gt; GetDiskResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679644815"><span id="local-6989586621679644817"><span id="local-6989586621679644819"><span id="local-6989586621679644821"><span class="annot"><span class="annottext">ReadPrec [GetDiskResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679644824"><span id="local-6989586621679644826"><span id="local-6989586621679644828"><span id="local-6989586621679644830"><span class="annot"><span class="annottext">ReadPrec [GetDiskResponse]
 ReadPrec GetDiskResponse
 Int -&gt; ReadS GetDiskResponse
 ReadS [GetDiskResponse]
@@ -301,7 +301,7 @@ readList :: ReadS [GetDiskResponse]
 $creadList :: ReadS [GetDiskResponse]
 readsPrec :: Int -&gt; ReadS GetDiskResponse
 $creadsPrec :: Int -&gt; ReadS GetDiskResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679644809"><span id="local-6989586621679644811"><span id="local-6989586621679644813"><span class="annot"><span class="annottext">Int -&gt; GetDiskResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679644818"><span id="local-6989586621679644820"><span id="local-6989586621679644822"><span class="annot"><span class="annottext">Int -&gt; GetDiskResponse -&gt; ShowS
 [GetDiskResponse] -&gt; ShowS
 GetDiskResponse -&gt; String
 (Int -&gt; GetDiskResponse -&gt; ShowS)
@@ -343,8 +343,8 @@ $cfrom :: forall x. GetDiskResponse -&gt; Rep GetDiskResponse x
 </span><span id="line-139"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-140"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#GetDiskResponse"><span class="hs-identifier hs-type">GetDiskResponse</span></a></span><span>
 </span><span id="line-141"></span><span id="newGetDiskResponse"><span class="annot"><span class="annottext">newGetDiskResponse :: Int -&gt; GetDiskResponse
-</span><a href="Network.AWS.Lightsail.GetDisk.html#newGetDiskResponse"><span class="hs-identifier hs-var hs-var">newGetDiskResponse</span></a></span></span><span> </span><span id="local-6989586621679644806"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679644806"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.GetDisk.html#newGetDiskResponse"><span class="hs-identifier hs-var hs-var">newGetDiskResponse</span></a></span></span><span> </span><span id="local-6989586621679644815"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679644815"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>  </span><span class="annot"><span class="annottext">GetDiskResponse' :: Maybe Disk -&gt; Int -&gt; GetDiskResponse
 </span><a href="Network.AWS.Lightsail.GetDisk.html#GetDiskResponse%27"><span class="hs-identifier hs-type">GetDiskResponse'</span></a></span><span>
 </span><span id="line-143"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:disk:GetDiskResponse' :: Maybe Disk
@@ -353,7 +353,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetDiskResponse' :: Int
 </span><a href="Network.AWS.Lightsail.GetDisk.html#%24sel%3AhttpStatus%3AGetDiskResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679644806"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679644815"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-145"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | An object containing information about the disk.</span><span>
@@ -364,16 +364,16 @@ forall a. Maybe a
 -&gt; (GetDiskResponse -&gt; Maybe Disk -&gt; GetDiskResponse)
 -&gt; Lens GetDiskResponse GetDiskResponse (Maybe Disk) (Maybe Disk)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#GetDiskResponse%27"><span class="hs-identifier hs-type">GetDiskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679644805"><span class="annot"><span class="annottext">Maybe Disk
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#GetDiskResponse%27"><span class="hs-identifier hs-type">GetDiskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679644814"><span class="annot"><span class="annottext">Maybe Disk
 disk :: Maybe Disk
 $sel:disk:GetDiskResponse' :: GetDiskResponse -&gt; Maybe Disk
-</span><a href="#local-6989586621679644805"><span class="hs-identifier hs-var hs-var">disk</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Disk
-</span><a href="#local-6989586621679644805"><span class="hs-identifier hs-var">disk</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679644804"><span class="annot"><span class="annottext">s :: GetDiskResponse
-</span><a href="#local-6989586621679644804"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#GetDiskResponse%27"><span class="hs-identifier hs-type">GetDiskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679644803"><span class="annot"><span class="annottext">Maybe Disk
-</span><a href="#local-6989586621679644803"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDiskResponse
-</span><a href="#local-6989586621679644804"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:disk:GetDiskResponse' :: Maybe Disk
+</span><a href="#local-6989586621679644814"><span class="hs-identifier hs-var hs-var">disk</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Disk
+</span><a href="#local-6989586621679644814"><span class="hs-identifier hs-var">disk</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679644813"><span class="annot"><span class="annottext">s :: GetDiskResponse
+</span><a href="#local-6989586621679644813"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#GetDiskResponse%27"><span class="hs-identifier hs-type">GetDiskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679644812"><span class="annot"><span class="annottext">Maybe Disk
+</span><a href="#local-6989586621679644812"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDiskResponse
+</span><a href="#local-6989586621679644813"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:disk:GetDiskResponse' :: Maybe Disk
 </span><a href="Network.AWS.Lightsail.GetDisk.html#%24sel%3Adisk%3AGetDiskResponse%27"><span class="hs-identifier hs-var">disk</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Disk
-</span><a href="#local-6989586621679644803"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#GetDiskResponse"><span class="hs-identifier hs-type">GetDiskResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679644812"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#GetDiskResponse"><span class="hs-identifier hs-type">GetDiskResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-152"></span><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#getDiskResponse_httpStatus"><span class="hs-identifier hs-type">getDiskResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#GetDiskResponse"><span class="hs-identifier hs-type">GetDiskResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -382,16 +382,16 @@ $sel:disk:GetDiskResponse' :: GetDiskResponse -&gt; Maybe Disk
 -&gt; (GetDiskResponse -&gt; Int -&gt; GetDiskResponse)
 -&gt; Lens GetDiskResponse GetDiskResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#GetDiskResponse%27"><span class="hs-identifier hs-type">GetDiskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679644802"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#GetDiskResponse%27"><span class="hs-identifier hs-type">GetDiskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679644811"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetDiskResponse' :: GetDiskResponse -&gt; Int
-</span><a href="#local-6989586621679644802"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679644802"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679644801"><span class="annot"><span class="annottext">s :: GetDiskResponse
-</span><a href="#local-6989586621679644801"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#GetDiskResponse%27"><span class="hs-identifier hs-type">GetDiskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679644800"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679644800"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDiskResponse
-</span><a href="#local-6989586621679644801"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetDiskResponse' :: Int
+</span><a href="#local-6989586621679644811"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679644811"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679644810"><span class="annot"><span class="annottext">s :: GetDiskResponse
+</span><a href="#local-6989586621679644810"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#GetDiskResponse%27"><span class="hs-identifier hs-type">GetDiskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679644809"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679644809"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDiskResponse
+</span><a href="#local-6989586621679644810"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetDiskResponse' :: Int
 </span><a href="Network.AWS.Lightsail.GetDisk.html#%24sel%3AhttpStatus%3AGetDiskResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679644800"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#GetDiskResponse"><span class="hs-identifier hs-type">GetDiskResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679644809"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#GetDiskResponse"><span class="hs-identifier hs-type">GetDiskResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679644798"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#GetDiskResponse"><span class="hs-identifier hs-type">GetDiskResponse</span></a></span></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679644807"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetDisk.html#GetDiskResponse"><span class="hs-identifier hs-type">GetDiskResponse</span></a></span></span><span>
 </span><span id="line-156"></span></pre></body></html>

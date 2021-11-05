@@ -45,10 +45,10 @@
 </span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-46"></span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- | /See:/ 'newDescribeStorage' smart constructor.</span><span>
-</span><span id="line-48"></span><span id="local-6989586621679513470"><span id="local-6989586621679513471"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeStorage"><span class="annot"><a href="Network.AWS.Redshift.DescribeStorage.html#DescribeStorage"><span class="hs-identifier hs-var">DescribeStorage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeStorage%27"><span class="annot"><a href="Network.AWS.Redshift.DescribeStorage.html#DescribeStorage%27"><span class="hs-identifier hs-var">DescribeStorage'</span></a></span></span><span>
+</span><span id="line-48"></span><span id="local-6989586621679513479"><span id="local-6989586621679513480"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeStorage"><span class="annot"><a href="Network.AWS.Redshift.DescribeStorage.html#DescribeStorage"><span class="hs-identifier hs-var">DescribeStorage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeStorage%27"><span class="annot"><a href="Network.AWS.Redshift.DescribeStorage.html#DescribeStorage%27"><span class="hs-identifier hs-var">DescribeStorage'</span></a></span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679513465"><span id="local-6989586621679513467"><span class="annot"><span class="annottext">DescribeStorage -&gt; DescribeStorage -&gt; Bool
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679513474"><span id="local-6989586621679513476"><span class="annot"><span class="annottext">DescribeStorage -&gt; DescribeStorage -&gt; Bool
 (DescribeStorage -&gt; DescribeStorage -&gt; Bool)
 -&gt; (DescribeStorage -&gt; DescribeStorage -&gt; Bool)
 -&gt; Eq DescribeStorage
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeStorage -&gt; DescribeStorage -&gt; Bool
 == :: DescribeStorage -&gt; DescribeStorage -&gt; Bool
 $c== :: DescribeStorage -&gt; DescribeStorage -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679513456"><span id="local-6989586621679513458"><span id="local-6989586621679513460"><span id="local-6989586621679513462"><span class="annot"><span class="annottext">ReadPrec [DescribeStorage]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679513465"><span id="local-6989586621679513467"><span id="local-6989586621679513469"><span id="local-6989586621679513471"><span class="annot"><span class="annottext">ReadPrec [DescribeStorage]
 ReadPrec DescribeStorage
 Int -&gt; ReadS DescribeStorage
 ReadS [DescribeStorage]
@@ -77,7 +77,7 @@ readList :: ReadS [DescribeStorage]
 $creadList :: ReadS [DescribeStorage]
 readsPrec :: Int -&gt; ReadS DescribeStorage
 $creadsPrec :: Int -&gt; ReadS DescribeStorage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679513449"><span id="local-6989586621679513451"><span id="local-6989586621679513453"><span class="annot"><span class="annottext">Int -&gt; DescribeStorage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679513458"><span id="local-6989586621679513460"><span id="local-6989586621679513462"><span class="annot"><span class="annottext">Int -&gt; DescribeStorage -&gt; ShowS
 [DescribeStorage] -&gt; ShowS
 DescribeStorage -&gt; String
 (Int -&gt; DescribeStorage -&gt; ShowS)
@@ -117,12 +117,12 @@ $cfrom :: forall x. DescribeStorage -&gt; Rep DescribeStorage x
 </span><span id="line-62"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-63"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeStorage.html#DescribeStorage"><span class="hs-identifier hs-type">DescribeStorage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-64"></span><span>      </span><span class="annot"><a href="Network.AWS.Redshift.DescribeStorage.html#DescribeStorageResponse"><span class="hs-identifier hs-type">DescribeStorageResponse</span></a></span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679513441"><span class="annot"><span class="annottext">request :: DescribeStorage -&gt; Request DescribeStorage
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679513450"><span class="annot"><span class="annottext">request :: DescribeStorage -&gt; Request DescribeStorage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeStorage -&gt; Request DescribeStorage
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Redshift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679513437"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679513446"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeStorage
 -&gt; ClientResponse ClientBody
@@ -151,10 +151,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DescribeStorageResult&quot;</span></span><span>
-</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679513434"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679513434"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679513433"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679513433"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679513432"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679513432"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679513443"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679513443"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679513442"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679513442"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679513441"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679513441"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe Double -&gt; Maybe Double -&gt; Int -&gt; DescribeStorageResponse
 </span><a href="Network.AWS.Redshift.DescribeStorage.html#DescribeStorageResponse%27"><span class="hs-identifier hs-var">DescribeStorageResponse'</span></a></span><span>
 </span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Double -&gt; Maybe Double -&gt; Int -&gt; DescribeStorageResponse)
@@ -162,7 +162,7 @@ Text
 -&gt; Either String (Maybe Double -&gt; Int -&gt; DescribeStorageResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679513432"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
+</span><a href="#local-6989586621679513441"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TotalProvisionedStorageInMegaBytes&quot;</span></span><span class="hs-special">)</span><span>
@@ -171,7 +171,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; DescribeStorageResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679513432"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
+</span><a href="#local-6989586621679513441"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TotalBackupSizeInMegaBytes&quot;</span></span><span class="hs-special">)</span><span>
@@ -183,15 +183,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679513434"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679513443"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679513424"><span id="local-6989586621679513426"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeStorage.html#DescribeStorage"><span class="hs-identifier hs-type">DescribeStorage</span></a></span></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679513433"><span id="local-6989586621679513435"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeStorage.html#DescribeStorage"><span class="hs-identifier hs-type">DescribeStorage</span></a></span></span></span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679513421"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeStorage.html#DescribeStorage"><span class="hs-identifier hs-type">DescribeStorage</span></a></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679513430"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeStorage.html#DescribeStorage"><span class="hs-identifier hs-type">DescribeStorage</span></a></span></span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeStorage.html#DescribeStorage"><span class="hs-identifier hs-type">DescribeStorage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679513417"><span class="annot"><span class="annottext">toHeaders :: DescribeStorage -&gt; ResponseHeaders
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679513426"><span class="annot"><span class="annottext">toHeaders :: DescribeStorage -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeStorage -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -199,14 +199,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeStorage.html#DescribeStorage"><span class="hs-identifier hs-type">DescribeStorage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679513412"><span class="annot"><span class="annottext">toPath :: DescribeStorage -&gt; ByteString
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679513421"><span class="annot"><span class="annottext">toPath :: DescribeStorage -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeStorage -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeStorage.html#DescribeStorage"><span class="hs-identifier hs-type">DescribeStorage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679513408"><span class="annot"><span class="annottext">toQuery :: DescribeStorage -&gt; QueryString
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679513417"><span class="annot"><span class="annottext">toQuery :: DescribeStorage -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeStorage -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
@@ -230,7 +230,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | /See:/ 'newDescribeStorageResponse' smart constructor.</span><span>
-</span><span id="line-98"></span><span id="local-6989586621679513404"><span id="local-6989586621679513405"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeStorageResponse"><span class="annot"><a href="Network.AWS.Redshift.DescribeStorage.html#DescribeStorageResponse"><span class="hs-identifier hs-var">DescribeStorageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeStorageResponse%27"><span class="annot"><a href="Network.AWS.Redshift.DescribeStorage.html#DescribeStorageResponse%27"><span class="hs-identifier hs-var">DescribeStorageResponse'</span></a></span></span><span>
+</span><span id="line-98"></span><span id="local-6989586621679513413"><span id="local-6989586621679513414"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeStorageResponse"><span class="annot"><a href="Network.AWS.Redshift.DescribeStorage.html#DescribeStorageResponse"><span class="hs-identifier hs-var">DescribeStorageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeStorageResponse%27"><span class="annot"><a href="Network.AWS.Redshift.DescribeStorage.html#DescribeStorageResponse%27"><span class="hs-identifier hs-var">DescribeStorageResponse'</span></a></span></span><span>
 </span><span id="line-99"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The total amount of storage currently provisioned.</span><span>
 </span><span id="line-100"></span><span>    </span><span id="%24sel%3AtotalProvisionedStorageInMegaBytes%3ADescribeStorageResponse%27"><span class="annot"><span class="annottext">DescribeStorageResponse -&gt; Maybe Double
 </span><a href="Network.AWS.Redshift.DescribeStorage.html#%24sel%3AtotalProvisionedStorageInMegaBytes%3ADescribeStorageResponse%27"><span class="hs-identifier hs-var hs-var">totalProvisionedStorageInMegaBytes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
@@ -241,7 +241,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-104"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeStorageResponse%27"><span class="annot"><span class="annottext">DescribeStorageResponse -&gt; Int
 </span><a href="Network.AWS.Redshift.DescribeStorage.html#%24sel%3AhttpStatus%3ADescribeStorageResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-105"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-106"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679513397"><span id="local-6989586621679513399"><span class="annot"><span class="annottext">DescribeStorageResponse -&gt; DescribeStorageResponse -&gt; Bool
+</span><span id="line-106"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679513406"><span id="local-6989586621679513408"><span class="annot"><span class="annottext">DescribeStorageResponse -&gt; DescribeStorageResponse -&gt; Bool
 (DescribeStorageResponse -&gt; DescribeStorageResponse -&gt; Bool)
 -&gt; (DescribeStorageResponse -&gt; DescribeStorageResponse -&gt; Bool)
 -&gt; Eq DescribeStorageResponse
@@ -250,7 +250,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeStorageResponse -&gt; DescribeStorageResponse -&gt; Bool
 == :: DescribeStorageResponse -&gt; DescribeStorageResponse -&gt; Bool
 $c== :: DescribeStorageResponse -&gt; DescribeStorageResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679513389"><span id="local-6989586621679513391"><span id="local-6989586621679513393"><span id="local-6989586621679513395"><span class="annot"><span class="annottext">ReadPrec [DescribeStorageResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679513398"><span id="local-6989586621679513400"><span id="local-6989586621679513402"><span id="local-6989586621679513404"><span class="annot"><span class="annottext">ReadPrec [DescribeStorageResponse]
 ReadPrec DescribeStorageResponse
 Int -&gt; ReadS DescribeStorageResponse
 ReadS [DescribeStorageResponse]
@@ -270,7 +270,7 @@ readList :: ReadS [DescribeStorageResponse]
 $creadList :: ReadS [DescribeStorageResponse]
 readsPrec :: Int -&gt; ReadS DescribeStorageResponse
 $creadsPrec :: Int -&gt; ReadS DescribeStorageResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679513383"><span id="local-6989586621679513385"><span id="local-6989586621679513387"><span class="annot"><span class="annottext">Int -&gt; DescribeStorageResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679513392"><span id="local-6989586621679513394"><span id="local-6989586621679513396"><span class="annot"><span class="annottext">Int -&gt; DescribeStorageResponse -&gt; ShowS
 [DescribeStorageResponse] -&gt; ShowS
 DescribeStorageResponse -&gt; String
 (Int -&gt; DescribeStorageResponse -&gt; ShowS)
@@ -316,8 +316,8 @@ $cfrom :: forall x. DescribeStorageResponse -&gt; Rep DescribeStorageResponse x
 </span><span id="line-123"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-124"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.DescribeStorage.html#DescribeStorageResponse"><span class="hs-identifier hs-type">DescribeStorageResponse</span></a></span><span>
 </span><span id="line-125"></span><span id="newDescribeStorageResponse"><span class="annot"><span class="annottext">newDescribeStorageResponse :: Int -&gt; DescribeStorageResponse
-</span><a href="Network.AWS.Redshift.DescribeStorage.html#newDescribeStorageResponse"><span class="hs-identifier hs-var hs-var">newDescribeStorageResponse</span></a></span></span><span> </span><span id="local-6989586621679513380"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679513380"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Redshift.DescribeStorage.html#newDescribeStorageResponse"><span class="hs-identifier hs-var hs-var">newDescribeStorageResponse</span></a></span></span><span> </span><span id="local-6989586621679513389"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679513389"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>  </span><span class="annot"><span class="annottext">DescribeStorageResponse' :: Maybe Double -&gt; Maybe Double -&gt; Int -&gt; DescribeStorageResponse
 </span><a href="Network.AWS.Redshift.DescribeStorage.html#DescribeStorageResponse%27"><span class="hs-identifier hs-type">DescribeStorageResponse'</span></a></span><span>
 </span><span id="line-127"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:totalProvisionedStorageInMegaBytes:DescribeStorageResponse' :: Maybe Double
@@ -331,7 +331,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeStorageResponse' :: Int
 </span><a href="Network.AWS.Redshift.DescribeStorage.html#%24sel%3AhttpStatus%3ADescribeStorageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679513380"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679513389"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-131"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | The total amount of storage currently provisioned.</span><span>
@@ -347,16 +347,16 @@ forall a. Maybe a
      (Maybe Double)
      (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeStorage.html#DescribeStorageResponse%27"><span class="hs-identifier hs-type">DescribeStorageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679513377"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeStorage.html#DescribeStorageResponse%27"><span class="hs-identifier hs-type">DescribeStorageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679513386"><span class="annot"><span class="annottext">Maybe Double
 totalProvisionedStorageInMegaBytes :: Maybe Double
 $sel:totalProvisionedStorageInMegaBytes:DescribeStorageResponse' :: DescribeStorageResponse -&gt; Maybe Double
-</span><a href="#local-6989586621679513377"><span class="hs-identifier hs-var hs-var">totalProvisionedStorageInMegaBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679513377"><span class="hs-identifier hs-var">totalProvisionedStorageInMegaBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679513376"><span class="annot"><span class="annottext">s :: DescribeStorageResponse
-</span><a href="#local-6989586621679513376"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeStorage.html#DescribeStorageResponse%27"><span class="hs-identifier hs-type">DescribeStorageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679513375"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679513375"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStorageResponse
-</span><a href="#local-6989586621679513376"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalProvisionedStorageInMegaBytes:DescribeStorageResponse' :: Maybe Double
+</span><a href="#local-6989586621679513386"><span class="hs-identifier hs-var hs-var">totalProvisionedStorageInMegaBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679513386"><span class="hs-identifier hs-var">totalProvisionedStorageInMegaBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679513385"><span class="annot"><span class="annottext">s :: DescribeStorageResponse
+</span><a href="#local-6989586621679513385"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeStorage.html#DescribeStorageResponse%27"><span class="hs-identifier hs-type">DescribeStorageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679513384"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679513384"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStorageResponse
+</span><a href="#local-6989586621679513385"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalProvisionedStorageInMegaBytes:DescribeStorageResponse' :: Maybe Double
 </span><a href="Network.AWS.Redshift.DescribeStorage.html#%24sel%3AtotalProvisionedStorageInMegaBytes%3ADescribeStorageResponse%27"><span class="hs-identifier hs-var">totalProvisionedStorageInMegaBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679513375"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeStorage.html#DescribeStorageResponse"><span class="hs-identifier hs-type">DescribeStorageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679513384"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeStorage.html#DescribeStorageResponse"><span class="hs-identifier hs-type">DescribeStorageResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- | The total amount of storage currently used for snapshots.</span><span>
 </span><span id="line-138"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeStorage.html#describeStorageResponse_totalBackupSizeInMegaBytes"><span class="hs-identifier hs-type">describeStorageResponse_totalBackupSizeInMegaBytes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeStorage.html#DescribeStorageResponse"><span class="hs-identifier hs-type">DescribeStorageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
@@ -371,16 +371,16 @@ $sel:totalProvisionedStorageInMegaBytes:DescribeStorageResponse' :: DescribeStor
      (Maybe Double)
      (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeStorage.html#DescribeStorageResponse%27"><span class="hs-identifier hs-type">DescribeStorageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679513374"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeStorage.html#DescribeStorageResponse%27"><span class="hs-identifier hs-type">DescribeStorageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679513383"><span class="annot"><span class="annottext">Maybe Double
 totalBackupSizeInMegaBytes :: Maybe Double
 $sel:totalBackupSizeInMegaBytes:DescribeStorageResponse' :: DescribeStorageResponse -&gt; Maybe Double
-</span><a href="#local-6989586621679513374"><span class="hs-identifier hs-var hs-var">totalBackupSizeInMegaBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679513374"><span class="hs-identifier hs-var">totalBackupSizeInMegaBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679513373"><span class="annot"><span class="annottext">s :: DescribeStorageResponse
-</span><a href="#local-6989586621679513373"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeStorage.html#DescribeStorageResponse%27"><span class="hs-identifier hs-type">DescribeStorageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679513372"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679513372"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStorageResponse
-</span><a href="#local-6989586621679513373"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalBackupSizeInMegaBytes:DescribeStorageResponse' :: Maybe Double
+</span><a href="#local-6989586621679513383"><span class="hs-identifier hs-var hs-var">totalBackupSizeInMegaBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679513383"><span class="hs-identifier hs-var">totalBackupSizeInMegaBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679513382"><span class="annot"><span class="annottext">s :: DescribeStorageResponse
+</span><a href="#local-6989586621679513382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeStorage.html#DescribeStorageResponse%27"><span class="hs-identifier hs-type">DescribeStorageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679513381"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679513381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStorageResponse
+</span><a href="#local-6989586621679513382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalBackupSizeInMegaBytes:DescribeStorageResponse' :: Maybe Double
 </span><a href="Network.AWS.Redshift.DescribeStorage.html#%24sel%3AtotalBackupSizeInMegaBytes%3ADescribeStorageResponse%27"><span class="hs-identifier hs-var">totalBackupSizeInMegaBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679513372"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeStorage.html#DescribeStorageResponse"><span class="hs-identifier hs-type">DescribeStorageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679513381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeStorage.html#DescribeStorageResponse"><span class="hs-identifier hs-type">DescribeStorageResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-142"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeStorage.html#describeStorageResponse_httpStatus"><span class="hs-identifier hs-type">describeStorageResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeStorage.html#DescribeStorageResponse"><span class="hs-identifier hs-type">DescribeStorageResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -390,16 +390,16 @@ $sel:totalBackupSizeInMegaBytes:DescribeStorageResponse' :: DescribeStorageRespo
 -&gt; (DescribeStorageResponse -&gt; Int -&gt; DescribeStorageResponse)
 -&gt; Lens DescribeStorageResponse DescribeStorageResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeStorage.html#DescribeStorageResponse%27"><span class="hs-identifier hs-type">DescribeStorageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679513371"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeStorage.html#DescribeStorageResponse%27"><span class="hs-identifier hs-type">DescribeStorageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679513380"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeStorageResponse' :: DescribeStorageResponse -&gt; Int
-</span><a href="#local-6989586621679513371"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679513371"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679513370"><span class="annot"><span class="annottext">s :: DescribeStorageResponse
-</span><a href="#local-6989586621679513370"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeStorage.html#DescribeStorageResponse%27"><span class="hs-identifier hs-type">DescribeStorageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679513369"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679513369"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStorageResponse
-</span><a href="#local-6989586621679513370"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeStorageResponse' :: Int
+</span><a href="#local-6989586621679513380"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679513380"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679513379"><span class="annot"><span class="annottext">s :: DescribeStorageResponse
+</span><a href="#local-6989586621679513379"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeStorage.html#DescribeStorageResponse%27"><span class="hs-identifier hs-type">DescribeStorageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679513378"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679513378"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStorageResponse
+</span><a href="#local-6989586621679513379"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeStorageResponse' :: Int
 </span><a href="Network.AWS.Redshift.DescribeStorage.html#%24sel%3AhttpStatus%3ADescribeStorageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679513369"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeStorage.html#DescribeStorageResponse"><span class="hs-identifier hs-type">DescribeStorageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679513378"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeStorage.html#DescribeStorageResponse"><span class="hs-identifier hs-type">DescribeStorageResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679513367"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeStorage.html#DescribeStorageResponse"><span class="hs-identifier hs-type">DescribeStorageResponse</span></a></span></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679513376"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeStorage.html#DescribeStorageResponse"><span class="hs-identifier hs-type">DescribeStorageResponse</span></a></span></span><span>
 </span><span id="line-146"></span></pre></body></html>

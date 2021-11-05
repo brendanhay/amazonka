@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679246161"><span id="local-6989586621679246162"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReviewPolicyLevel"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewPolicyLevel.html#ReviewPolicyLevel"><span class="hs-identifier hs-var">ReviewPolicyLevel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReviewPolicyLevel%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewPolicyLevel.html#ReviewPolicyLevel%27"><span class="hs-identifier hs-var">ReviewPolicyLevel'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679246170"><span id="local-6989586621679246171"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReviewPolicyLevel"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewPolicyLevel.html#ReviewPolicyLevel"><span class="hs-identifier hs-var">ReviewPolicyLevel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReviewPolicyLevel%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ReviewPolicyLevel.html#ReviewPolicyLevel%27"><span class="hs-identifier hs-var">ReviewPolicyLevel'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromReviewPolicyLevel"><span class="annot"><span class="annottext">ReviewPolicyLevel -&gt; Text
 </span><a href="Network.AWS.MechanicalTurk.Types.ReviewPolicyLevel.html#fromReviewPolicyLevel"><span class="hs-identifier hs-var hs-var">fromReviewPolicyLevel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679246153"><span id="local-6989586621679246155"><span id="local-6989586621679246157"><span class="annot"><span class="annottext">Int -&gt; ReviewPolicyLevel -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679246162"><span id="local-6989586621679246164"><span id="local-6989586621679246166"><span class="annot"><span class="annottext">Int -&gt; ReviewPolicyLevel -&gt; ShowS
 [ReviewPolicyLevel] -&gt; ShowS
 ReviewPolicyLevel -&gt; String
 (Int -&gt; ReviewPolicyLevel -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ReviewPolicyLevel -&gt; String
 showsPrec :: Int -&gt; ReviewPolicyLevel -&gt; ShowS
 $cshowsPrec :: Int -&gt; ReviewPolicyLevel -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679246144"><span id="local-6989586621679246146"><span id="local-6989586621679246148"><span id="local-6989586621679246150"><span class="annot"><span class="annottext">ReadPrec [ReviewPolicyLevel]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679246153"><span id="local-6989586621679246155"><span id="local-6989586621679246157"><span id="local-6989586621679246159"><span class="annot"><span class="annottext">ReadPrec [ReviewPolicyLevel]
 ReadPrec ReviewPolicyLevel
 Int -&gt; ReadS ReviewPolicyLevel
 ReadS [ReviewPolicyLevel]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ReviewPolicyLevel]
 readsPrec :: Int -&gt; ReadS ReviewPolicyLevel
 $creadsPrec :: Int -&gt; ReadS ReviewPolicyLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679246139"><span id="local-6989586621679246141"><span class="annot"><span class="annottext">ReviewPolicyLevel -&gt; ReviewPolicyLevel -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679246148"><span id="local-6989586621679246150"><span class="annot"><span class="annottext">ReviewPolicyLevel -&gt; ReviewPolicyLevel -&gt; Bool
 (ReviewPolicyLevel -&gt; ReviewPolicyLevel -&gt; Bool)
 -&gt; (ReviewPolicyLevel -&gt; ReviewPolicyLevel -&gt; Bool)
 -&gt; Eq ReviewPolicyLevel
@@ -82,7 +82,7 @@ $c/= :: ReviewPolicyLevel -&gt; ReviewPolicyLevel -&gt; Bool
 == :: ReviewPolicyLevel -&gt; ReviewPolicyLevel -&gt; Bool
 $c== :: ReviewPolicyLevel -&gt; ReviewPolicyLevel -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679246123"><span id="local-6989586621679246125"><span id="local-6989586621679246127"><span id="local-6989586621679246129"><span id="local-6989586621679246131"><span id="local-6989586621679246133"><span id="local-6989586621679246135"><span class="annot"><span class="annottext">Eq ReviewPolicyLevel
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679246132"><span id="local-6989586621679246134"><span id="local-6989586621679246136"><span id="local-6989586621679246138"><span id="local-6989586621679246140"><span id="local-6989586621679246142"><span id="local-6989586621679246144"><span class="annot"><span class="annottext">Eq ReviewPolicyLevel
 Eq ReviewPolicyLevel
 -&gt; (ReviewPolicyLevel -&gt; ReviewPolicyLevel -&gt; Ordering)
 -&gt; (ReviewPolicyLevel -&gt; ReviewPolicyLevel -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. ReviewPolicyLevel -&gt; Rep ReviewPolicyLevel x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679246115"><span id="local-6989586621679246117"><span class="annot"><span class="annottext">Int -&gt; ReviewPolicyLevel -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679246124"><span id="local-6989586621679246126"><span class="annot"><span class="annottext">Int -&gt; ReviewPolicyLevel -&gt; Int
 ReviewPolicyLevel -&gt; Int
 (Int -&gt; ReviewPolicyLevel -&gt; Int)
 -&gt; (ReviewPolicyLevel -&gt; Int) -&gt; Hashable ReviewPolicyLevel
@@ -143,51 +143,51 @@ $chash :: ReviewPolicyLevel -&gt; Int
 hashWithSalt :: Int -&gt; ReviewPolicyLevel -&gt; Int
 $chashWithSalt :: Int -&gt; ReviewPolicyLevel -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679246112"><span class="annot"><span class="annottext">ReviewPolicyLevel -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679246121"><span class="annot"><span class="annottext">ReviewPolicyLevel -&gt; ()
 (ReviewPolicyLevel -&gt; ()) -&gt; NFData ReviewPolicyLevel
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ReviewPolicyLevel -&gt; ()
 $crnf :: ReviewPolicyLevel -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679246109"><span class="annot"><span class="annottext">Text -&gt; Either String ReviewPolicyLevel
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679246118"><span class="annot"><span class="annottext">Text -&gt; Either String ReviewPolicyLevel
 (Text -&gt; Either String ReviewPolicyLevel)
 -&gt; FromText ReviewPolicyLevel
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ReviewPolicyLevel
 $cfromText :: Text -&gt; Either String ReviewPolicyLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679246106"><span class="annot"><span class="annottext">ReviewPolicyLevel -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679246115"><span class="annot"><span class="annottext">ReviewPolicyLevel -&gt; Text
 (ReviewPolicyLevel -&gt; Text) -&gt; ToText ReviewPolicyLevel
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ReviewPolicyLevel -&gt; Text
 $ctoText :: ReviewPolicyLevel -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679246103"><span class="annot"><span class="annottext">ReviewPolicyLevel -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679246112"><span class="annot"><span class="annottext">ReviewPolicyLevel -&gt; ByteString
 (ReviewPolicyLevel -&gt; ByteString) -&gt; ToByteString ReviewPolicyLevel
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ReviewPolicyLevel -&gt; ByteString
 $ctoBS :: ReviewPolicyLevel -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679246100"><span class="annot"><span class="annottext">ReviewPolicyLevel -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679246109"><span class="annot"><span class="annottext">ReviewPolicyLevel -&gt; ByteStringBuilder
 (ReviewPolicyLevel -&gt; ByteStringBuilder) -&gt; ToLog ReviewPolicyLevel
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ReviewPolicyLevel -&gt; ByteStringBuilder
 $cbuild :: ReviewPolicyLevel -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679246097"><span class="annot"><span class="annottext">HeaderName -&gt; ReviewPolicyLevel -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679246106"><span class="annot"><span class="annottext">HeaderName -&gt; ReviewPolicyLevel -&gt; [Header]
 (HeaderName -&gt; ReviewPolicyLevel -&gt; [Header])
 -&gt; ToHeader ReviewPolicyLevel
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ReviewPolicyLevel -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ReviewPolicyLevel -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679246094"><span class="annot"><span class="annottext">ReviewPolicyLevel -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679246103"><span class="annot"><span class="annottext">ReviewPolicyLevel -&gt; QueryString
 (ReviewPolicyLevel -&gt; QueryString) -&gt; ToQuery ReviewPolicyLevel
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ReviewPolicyLevel -&gt; QueryString
 $ctoQuery :: ReviewPolicyLevel -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679246089"><span id="local-6989586621679246091"><span class="annot"><span class="annottext">Value -&gt; Parser [ReviewPolicyLevel]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679246098"><span id="local-6989586621679246100"><span class="annot"><span class="annottext">Value -&gt; Parser [ReviewPolicyLevel]
 Value -&gt; Parser ReviewPolicyLevel
 (Value -&gt; Parser ReviewPolicyLevel)
 -&gt; (Value -&gt; Parser [ReviewPolicyLevel])
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [ReviewPolicyLevel]
 parseJSON :: Value -&gt; Parser ReviewPolicyLevel
 $cparseJSON :: Value -&gt; Parser ReviewPolicyLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679246084"><span id="local-6989586621679246086"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReviewPolicyLevel]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679246093"><span id="local-6989586621679246095"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReviewPolicyLevel]
 FromJSONKeyFunction ReviewPolicyLevel
 FromJSONKeyFunction ReviewPolicyLevel
 -&gt; FromJSONKeyFunction [ReviewPolicyLevel]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ReviewPolicyLevel]
 fromJSONKey :: FromJSONKeyFunction ReviewPolicyLevel
 $cfromJSONKey :: FromJSONKeyFunction ReviewPolicyLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679246075"><span id="local-6989586621679246077"><span id="local-6989586621679246079"><span id="local-6989586621679246081"><span class="annot"><span class="annottext">[ReviewPolicyLevel] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679246084"><span id="local-6989586621679246086"><span id="local-6989586621679246088"><span id="local-6989586621679246090"><span class="annot"><span class="annottext">[ReviewPolicyLevel] -&gt; Encoding
 [ReviewPolicyLevel] -&gt; Value
 ReviewPolicyLevel -&gt; Encoding
 ReviewPolicyLevel -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: ReviewPolicyLevel -&gt; Encoding
 toJSON :: ReviewPolicyLevel -&gt; Value
 $ctoJSON :: ReviewPolicyLevel -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679246070"><span id="local-6989586621679246072"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReviewPolicyLevel]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679246079"><span id="local-6989586621679246081"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReviewPolicyLevel]
 ToJSONKeyFunction ReviewPolicyLevel
 ToJSONKeyFunction ReviewPolicyLevel
 -&gt; ToJSONKeyFunction [ReviewPolicyLevel]
@@ -247,14 +247,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ReviewPolicyLevel]
 toJSONKey :: ToJSONKeyFunction ReviewPolicyLevel
 $ctoJSONKey :: ToJSONKeyFunction ReviewPolicyLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679246067"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReviewPolicyLevel
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679246076"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReviewPolicyLevel
 ([Node] -&gt; Either String ReviewPolicyLevel)
 -&gt; FromXML ReviewPolicyLevel
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ReviewPolicyLevel
 $cparseXML :: [Node] -&gt; Either String ReviewPolicyLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679246064"><span class="annot"><span class="annottext">ReviewPolicyLevel -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679246073"><span class="annot"><span class="annottext">ReviewPolicyLevel -&gt; XML
 (ReviewPolicyLevel -&gt; XML) -&gt; ToXML ReviewPolicyLevel
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ReviewPolicyLevel -&gt; XML

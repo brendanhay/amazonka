@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679301986"><span id="local-6989586621679301987"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TrustType"><span class="annot"><a href="Network.AWS.DirectoryService.Types.TrustType.html#TrustType"><span class="hs-identifier hs-var">TrustType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TrustType%27"><span class="annot"><a href="Network.AWS.DirectoryService.Types.TrustType.html#TrustType%27"><span class="hs-identifier hs-var">TrustType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679301995"><span id="local-6989586621679301996"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TrustType"><span class="annot"><a href="Network.AWS.DirectoryService.Types.TrustType.html#TrustType"><span class="hs-identifier hs-var">TrustType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TrustType%27"><span class="annot"><a href="Network.AWS.DirectoryService.Types.TrustType.html#TrustType%27"><span class="hs-identifier hs-var">TrustType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTrustType"><span class="annot"><span class="annottext">TrustType -&gt; Text
 </span><a href="Network.AWS.DirectoryService.Types.TrustType.html#fromTrustType"><span class="hs-identifier hs-var hs-var">fromTrustType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679301978"><span id="local-6989586621679301980"><span id="local-6989586621679301982"><span class="annot"><span class="annottext">Int -&gt; TrustType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679301987"><span id="local-6989586621679301989"><span id="local-6989586621679301991"><span class="annot"><span class="annottext">Int -&gt; TrustType -&gt; ShowS
 [TrustType] -&gt; ShowS
 TrustType -&gt; String
 (Int -&gt; TrustType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: TrustType -&gt; String
 showsPrec :: Int -&gt; TrustType -&gt; ShowS
 $cshowsPrec :: Int -&gt; TrustType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679301969"><span id="local-6989586621679301971"><span id="local-6989586621679301973"><span id="local-6989586621679301975"><span class="annot"><span class="annottext">ReadPrec [TrustType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679301978"><span id="local-6989586621679301980"><span id="local-6989586621679301982"><span id="local-6989586621679301984"><span class="annot"><span class="annottext">ReadPrec [TrustType]
 ReadPrec TrustType
 Int -&gt; ReadS TrustType
 ReadS [TrustType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [TrustType]
 readsPrec :: Int -&gt; ReadS TrustType
 $creadsPrec :: Int -&gt; ReadS TrustType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679301964"><span id="local-6989586621679301966"><span class="annot"><span class="annottext">TrustType -&gt; TrustType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679301973"><span id="local-6989586621679301975"><span class="annot"><span class="annottext">TrustType -&gt; TrustType -&gt; Bool
 (TrustType -&gt; TrustType -&gt; Bool)
 -&gt; (TrustType -&gt; TrustType -&gt; Bool) -&gt; Eq TrustType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: TrustType -&gt; TrustType -&gt; Bool
 == :: TrustType -&gt; TrustType -&gt; Bool
 $c== :: TrustType -&gt; TrustType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679301948"><span id="local-6989586621679301950"><span id="local-6989586621679301952"><span id="local-6989586621679301954"><span id="local-6989586621679301956"><span id="local-6989586621679301958"><span id="local-6989586621679301960"><span class="annot"><span class="annottext">Eq TrustType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679301957"><span id="local-6989586621679301959"><span id="local-6989586621679301961"><span id="local-6989586621679301963"><span id="local-6989586621679301965"><span id="local-6989586621679301967"><span id="local-6989586621679301969"><span class="annot"><span class="annottext">Eq TrustType
 Eq TrustType
 -&gt; (TrustType -&gt; TrustType -&gt; Ordering)
 -&gt; (TrustType -&gt; TrustType -&gt; Bool)
@@ -131,7 +131,7 @@ $cfrom :: forall x. TrustType -&gt; Rep TrustType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679301940"><span id="local-6989586621679301942"><span class="annot"><span class="annottext">Int -&gt; TrustType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679301949"><span id="local-6989586621679301951"><span class="annot"><span class="annottext">Int -&gt; TrustType -&gt; Int
 TrustType -&gt; Int
 (Int -&gt; TrustType -&gt; Int)
 -&gt; (TrustType -&gt; Int) -&gt; Hashable TrustType
@@ -141,49 +141,49 @@ $chash :: TrustType -&gt; Int
 hashWithSalt :: Int -&gt; TrustType -&gt; Int
 $chashWithSalt :: Int -&gt; TrustType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679301937"><span class="annot"><span class="annottext">TrustType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679301946"><span class="annot"><span class="annottext">TrustType -&gt; ()
 (TrustType -&gt; ()) -&gt; NFData TrustType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TrustType -&gt; ()
 $crnf :: TrustType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679301934"><span class="annot"><span class="annottext">Text -&gt; Either String TrustType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679301943"><span class="annot"><span class="annottext">Text -&gt; Either String TrustType
 (Text -&gt; Either String TrustType) -&gt; FromText TrustType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TrustType
 $cfromText :: Text -&gt; Either String TrustType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679301931"><span class="annot"><span class="annottext">TrustType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679301940"><span class="annot"><span class="annottext">TrustType -&gt; Text
 (TrustType -&gt; Text) -&gt; ToText TrustType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TrustType -&gt; Text
 $ctoText :: TrustType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679301928"><span class="annot"><span class="annottext">TrustType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679301937"><span class="annot"><span class="annottext">TrustType -&gt; ByteString
 (TrustType -&gt; ByteString) -&gt; ToByteString TrustType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TrustType -&gt; ByteString
 $ctoBS :: TrustType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679301925"><span class="annot"><span class="annottext">TrustType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679301934"><span class="annot"><span class="annottext">TrustType -&gt; ByteStringBuilder
 (TrustType -&gt; ByteStringBuilder) -&gt; ToLog TrustType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TrustType -&gt; ByteStringBuilder
 $cbuild :: TrustType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679301922"><span class="annot"><span class="annottext">HeaderName -&gt; TrustType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679301931"><span class="annot"><span class="annottext">HeaderName -&gt; TrustType -&gt; [Header]
 (HeaderName -&gt; TrustType -&gt; [Header]) -&gt; ToHeader TrustType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TrustType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TrustType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679301919"><span class="annot"><span class="annottext">TrustType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679301928"><span class="annot"><span class="annottext">TrustType -&gt; QueryString
 (TrustType -&gt; QueryString) -&gt; ToQuery TrustType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TrustType -&gt; QueryString
 $ctoQuery :: TrustType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679301914"><span id="local-6989586621679301916"><span class="annot"><span class="annottext">Value -&gt; Parser [TrustType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679301923"><span id="local-6989586621679301925"><span class="annot"><span class="annottext">Value -&gt; Parser [TrustType]
 Value -&gt; Parser TrustType
 (Value -&gt; Parser TrustType)
 -&gt; (Value -&gt; Parser [TrustType]) -&gt; FromJSON TrustType
@@ -194,7 +194,7 @@ $cparseJSONList :: Value -&gt; Parser [TrustType]
 parseJSON :: Value -&gt; Parser TrustType
 $cparseJSON :: Value -&gt; Parser TrustType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679301909"><span id="local-6989586621679301911"><span class="annot"><span class="annottext">FromJSONKeyFunction [TrustType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679301918"><span id="local-6989586621679301920"><span class="annot"><span class="annottext">FromJSONKeyFunction [TrustType]
 FromJSONKeyFunction TrustType
 FromJSONKeyFunction TrustType
 -&gt; FromJSONKeyFunction [TrustType] -&gt; FromJSONKey TrustType
@@ -205,7 +205,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TrustType]
 fromJSONKey :: FromJSONKeyFunction TrustType
 $cfromJSONKey :: FromJSONKeyFunction TrustType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679301900"><span id="local-6989586621679301902"><span id="local-6989586621679301904"><span id="local-6989586621679301906"><span class="annot"><span class="annottext">[TrustType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679301909"><span id="local-6989586621679301911"><span id="local-6989586621679301913"><span id="local-6989586621679301915"><span class="annot"><span class="annottext">[TrustType] -&gt; Encoding
 [TrustType] -&gt; Value
 TrustType -&gt; Encoding
 TrustType -&gt; Value
@@ -229,7 +229,7 @@ $ctoEncoding :: TrustType -&gt; Encoding
 toJSON :: TrustType -&gt; Value
 $ctoJSON :: TrustType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679301895"><span id="local-6989586621679301897"><span class="annot"><span class="annottext">ToJSONKeyFunction [TrustType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679301904"><span id="local-6989586621679301906"><span class="annot"><span class="annottext">ToJSONKeyFunction [TrustType]
 ToJSONKeyFunction TrustType
 ToJSONKeyFunction TrustType
 -&gt; ToJSONKeyFunction [TrustType] -&gt; ToJSONKey TrustType
@@ -240,13 +240,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TrustType]
 toJSONKey :: ToJSONKeyFunction TrustType
 $ctoJSONKey :: ToJSONKeyFunction TrustType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679301892"><span class="annot"><span class="annottext">[Node] -&gt; Either String TrustType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679301901"><span class="annot"><span class="annottext">[Node] -&gt; Either String TrustType
 ([Node] -&gt; Either String TrustType) -&gt; FromXML TrustType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TrustType
 $cparseXML :: [Node] -&gt; Either String TrustType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679301889"><span class="annot"><span class="annottext">TrustType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679301898"><span class="annot"><span class="annottext">TrustType -&gt; XML
 (TrustType -&gt; XML) -&gt; ToXML TrustType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TrustType -&gt; XML

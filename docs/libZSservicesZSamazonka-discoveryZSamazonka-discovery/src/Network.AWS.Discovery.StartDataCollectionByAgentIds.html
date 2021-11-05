@@ -47,7 +47,7 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newStartDataCollectionByAgentIds' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679206568"><span id="local-6989586621679206569"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartDataCollectionByAgentIds"><span class="annot"><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#StartDataCollectionByAgentIds"><span class="hs-identifier hs-var">StartDataCollectionByAgentIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartDataCollectionByAgentIds%27"><span class="annot"><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#StartDataCollectionByAgentIds%27"><span class="hs-identifier hs-var">StartDataCollectionByAgentIds'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679206577"><span id="local-6989586621679206578"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartDataCollectionByAgentIds"><span class="annot"><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#StartDataCollectionByAgentIds"><span class="hs-identifier hs-var">StartDataCollectionByAgentIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartDataCollectionByAgentIds%27"><span class="annot"><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#StartDataCollectionByAgentIds%27"><span class="hs-identifier hs-var">StartDataCollectionByAgentIds'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IDs of the agents or connectors from which to start collecting data.</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">-- If you send a request to an agent\/connector ID that you do not have</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- permission to contact, according to your AWS account, the service does</span><span>
@@ -59,7 +59,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AagentIds%3AStartDataCollectionByAgentIds%27"><span class="annot"><span class="annottext">StartDataCollectionByAgentIds -&gt; [Text]
 </span><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#%24sel%3AagentIds%3AStartDataCollectionByAgentIds%27"><span class="hs-identifier hs-var hs-var">agentIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679206562"><span id="local-6989586621679206564"><span class="annot"><span class="annottext">StartDataCollectionByAgentIds
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679206571"><span id="local-6989586621679206573"><span class="annot"><span class="annottext">StartDataCollectionByAgentIds
 -&gt; StartDataCollectionByAgentIds -&gt; Bool
 (StartDataCollectionByAgentIds
  -&gt; StartDataCollectionByAgentIds -&gt; Bool)
@@ -75,7 +75,7 @@ $c/= :: StartDataCollectionByAgentIds
 -&gt; StartDataCollectionByAgentIds -&gt; Bool
 $c== :: StartDataCollectionByAgentIds
 -&gt; StartDataCollectionByAgentIds -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206553"><span id="local-6989586621679206555"><span id="local-6989586621679206557"><span id="local-6989586621679206559"><span class="annot"><span class="annottext">ReadPrec [StartDataCollectionByAgentIds]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206562"><span id="local-6989586621679206564"><span id="local-6989586621679206566"><span id="local-6989586621679206568"><span class="annot"><span class="annottext">ReadPrec [StartDataCollectionByAgentIds]
 ReadPrec StartDataCollectionByAgentIds
 Int -&gt; ReadS StartDataCollectionByAgentIds
 ReadS [StartDataCollectionByAgentIds]
@@ -95,7 +95,7 @@ readList :: ReadS [StartDataCollectionByAgentIds]
 $creadList :: ReadS [StartDataCollectionByAgentIds]
 readsPrec :: Int -&gt; ReadS StartDataCollectionByAgentIds
 $creadsPrec :: Int -&gt; ReadS StartDataCollectionByAgentIds
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206546"><span id="local-6989586621679206548"><span id="local-6989586621679206550"><span class="annot"><span class="annottext">Int -&gt; StartDataCollectionByAgentIds -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206555"><span id="local-6989586621679206557"><span id="local-6989586621679206559"><span class="annot"><span class="annottext">Int -&gt; StartDataCollectionByAgentIds -&gt; ShowS
 [StartDataCollectionByAgentIds] -&gt; ShowS
 StartDataCollectionByAgentIds -&gt; String
 (Int -&gt; StartDataCollectionByAgentIds -&gt; ShowS)
@@ -182,16 +182,16 @@ forall a. Monoid a =&gt; a
      [Text]
      [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#StartDataCollectionByAgentIds%27"><span class="hs-identifier hs-type">StartDataCollectionByAgentIds'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206539"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#StartDataCollectionByAgentIds%27"><span class="hs-identifier hs-type">StartDataCollectionByAgentIds'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206548"><span class="annot"><span class="annottext">[Text]
 agentIds :: [Text]
 $sel:agentIds:StartDataCollectionByAgentIds' :: StartDataCollectionByAgentIds -&gt; [Text]
-</span><a href="#local-6989586621679206539"><span class="hs-identifier hs-var hs-var">agentIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679206539"><span class="hs-identifier hs-var">agentIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206538"><span class="annot"><span class="annottext">s :: StartDataCollectionByAgentIds
-</span><a href="#local-6989586621679206538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#StartDataCollectionByAgentIds%27"><span class="hs-identifier hs-type">StartDataCollectionByAgentIds'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206537"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679206537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartDataCollectionByAgentIds
-</span><a href="#local-6989586621679206538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:agentIds:StartDataCollectionByAgentIds' :: [Text]
+</span><a href="#local-6989586621679206548"><span class="hs-identifier hs-var hs-var">agentIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679206548"><span class="hs-identifier hs-var">agentIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206547"><span class="annot"><span class="annottext">s :: StartDataCollectionByAgentIds
+</span><a href="#local-6989586621679206547"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#StartDataCollectionByAgentIds%27"><span class="hs-identifier hs-type">StartDataCollectionByAgentIds'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206546"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679206546"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartDataCollectionByAgentIds
+</span><a href="#local-6989586621679206547"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:agentIds:StartDataCollectionByAgentIds' :: [Text]
 </span><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#%24sel%3AagentIds%3AStartDataCollectionByAgentIds%27"><span class="hs-identifier hs-var">agentIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679206537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#StartDataCollectionByAgentIds"><span class="hs-identifier hs-type">StartDataCollectionByAgentIds</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679206546"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#StartDataCollectionByAgentIds"><span class="hs-identifier hs-type">StartDataCollectionByAgentIds</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; StartDataCollectionByAgentIds
  -&gt; f StartDataCollectionByAgentIds)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
@@ -210,7 +210,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-102"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-103"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#StartDataCollectionByAgentIds"><span class="hs-identifier hs-type">StartDataCollectionByAgentIds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>      </span><span class="annot"><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#StartDataCollectionByAgentIdsResponse"><span class="hs-identifier hs-type">StartDataCollectionByAgentIdsResponse</span></a></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679206531"><span class="annot"><span class="annottext">request :: StartDataCollectionByAgentIds
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679206540"><span class="annot"><span class="annottext">request :: StartDataCollectionByAgentIds
 -&gt; Request StartDataCollectionByAgentIds
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; StartDataCollectionByAgentIds
@@ -218,7 +218,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Discovery.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679206527"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679206536"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StartDataCollectionByAgentIds
 -&gt; ClientResponse ClientBody
@@ -244,10 +244,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679206524"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679206524"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679206523"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679206523"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679206522"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679206522"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679206533"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679206533"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679206532"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679206532"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679206531"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679206531"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">Maybe [AgentConfigurationStatus]
 -&gt; Int -&gt; StartDataCollectionByAgentIdsResponse
 </span><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#StartDataCollectionByAgentIdsResponse%27"><span class="hs-identifier hs-var">StartDataCollectionByAgentIdsResponse'</span></a></span><span>
@@ -257,7 +257,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; StartDataCollectionByAgentIdsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679206522"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679206531"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [AgentConfigurationStatus]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -279,17 +279,17 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679206524"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679206533"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679206513"><span id="local-6989586621679206515"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679206522"><span id="local-6989586621679206524"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#StartDataCollectionByAgentIds"><span class="hs-identifier hs-type">StartDataCollectionByAgentIds</span></a></span></span></span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206510"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#StartDataCollectionByAgentIds"><span class="hs-identifier hs-type">StartDataCollectionByAgentIds</span></a></span></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206519"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#StartDataCollectionByAgentIds"><span class="hs-identifier hs-type">StartDataCollectionByAgentIds</span></a></span></span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#StartDataCollectionByAgentIds"><span class="hs-identifier hs-type">StartDataCollectionByAgentIds</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679206506"><span class="annot"><span class="annottext">toHeaders :: StartDataCollectionByAgentIds -&gt; ResponseHeaders
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679206515"><span class="annot"><span class="annottext">toHeaders :: StartDataCollectionByAgentIds -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StartDataCollectionByAgentIds -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -316,12 +316,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-134"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206496"><span id="local-6989586621679206498"><span id="local-6989586621679206500"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#StartDataCollectionByAgentIds"><span class="hs-identifier hs-type">StartDataCollectionByAgentIds</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679206494"><span class="annot"><span class="annottext">toJSON :: StartDataCollectionByAgentIds -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#StartDataCollectionByAgentIds%27"><span class="hs-identifier hs-type">StartDataCollectionByAgentIds'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206492"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206505"><span id="local-6989586621679206507"><span id="local-6989586621679206509"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#StartDataCollectionByAgentIds"><span class="hs-identifier hs-type">StartDataCollectionByAgentIds</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679206503"><span class="annot"><span class="annottext">toJSON :: StartDataCollectionByAgentIds -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#StartDataCollectionByAgentIds%27"><span class="hs-identifier hs-type">StartDataCollectionByAgentIds'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206501"><span class="annot"><span class="annottext">[Text]
 agentIds :: [Text]
 $sel:agentIds:StartDataCollectionByAgentIds' :: StartDataCollectionByAgentIds -&gt; [Text]
-</span><a href="#local-6989586621679206492"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679206501"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -333,18 +333,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;agentIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679206492"><span class="hs-identifier hs-var">agentIds</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679206501"><span class="hs-identifier hs-var">agentIds</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#StartDataCollectionByAgentIds"><span class="hs-identifier hs-type">StartDataCollectionByAgentIds</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679206486"><span class="annot"><span class="annottext">toPath :: StartDataCollectionByAgentIds -&gt; ByteString
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679206495"><span class="annot"><span class="annottext">toPath :: StartDataCollectionByAgentIds -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StartDataCollectionByAgentIds -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#StartDataCollectionByAgentIds"><span class="hs-identifier hs-type">StartDataCollectionByAgentIds</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679206482"><span class="annot"><span class="annottext">toQuery :: StartDataCollectionByAgentIds -&gt; QueryString
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679206491"><span class="annot"><span class="annottext">toQuery :: StartDataCollectionByAgentIds -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StartDataCollectionByAgentIds -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -352,7 +352,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | /See:/ 'newStartDataCollectionByAgentIdsResponse' smart constructor.</span><span>
-</span><span id="line-151"></span><span id="local-6989586621679206479"><span id="local-6989586621679206480"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartDataCollectionByAgentIdsResponse"><span class="annot"><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#StartDataCollectionByAgentIdsResponse"><span class="hs-identifier hs-var">StartDataCollectionByAgentIdsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartDataCollectionByAgentIdsResponse%27"><span class="annot"><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#StartDataCollectionByAgentIdsResponse%27"><span class="hs-identifier hs-var">StartDataCollectionByAgentIdsResponse'</span></a></span></span><span>
+</span><span id="line-151"></span><span id="local-6989586621679206488"><span id="local-6989586621679206489"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartDataCollectionByAgentIdsResponse"><span class="annot"><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#StartDataCollectionByAgentIdsResponse"><span class="hs-identifier hs-var">StartDataCollectionByAgentIdsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartDataCollectionByAgentIdsResponse%27"><span class="annot"><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#StartDataCollectionByAgentIdsResponse%27"><span class="hs-identifier hs-var">StartDataCollectionByAgentIdsResponse'</span></a></span></span><span>
 </span><span id="line-152"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about agents or the connector that were instructed to start</span><span>
 </span><span id="line-153"></span><span>    </span><span class="hs-comment">-- collecting data. Information includes the agent\/connector ID, a</span><span>
 </span><span id="line-154"></span><span>    </span><span class="hs-comment">-- description of the operation performed, and whether the agent\/connector</span><span>
@@ -364,7 +364,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-158"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStartDataCollectionByAgentIdsResponse%27"><span class="annot"><span class="annottext">StartDataCollectionByAgentIdsResponse -&gt; Int
 </span><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#%24sel%3AhttpStatus%3AStartDataCollectionByAgentIdsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-159"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-160"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679206473"><span id="local-6989586621679206475"><span class="annot"><span class="annottext">StartDataCollectionByAgentIdsResponse
+</span><span id="line-160"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679206482"><span id="local-6989586621679206484"><span class="annot"><span class="annottext">StartDataCollectionByAgentIdsResponse
 -&gt; StartDataCollectionByAgentIdsResponse -&gt; Bool
 (StartDataCollectionByAgentIdsResponse
  -&gt; StartDataCollectionByAgentIdsResponse -&gt; Bool)
@@ -380,7 +380,7 @@ $c/= :: StartDataCollectionByAgentIdsResponse
 -&gt; StartDataCollectionByAgentIdsResponse -&gt; Bool
 $c== :: StartDataCollectionByAgentIdsResponse
 -&gt; StartDataCollectionByAgentIdsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206465"><span id="local-6989586621679206467"><span id="local-6989586621679206469"><span id="local-6989586621679206471"><span class="annot"><span class="annottext">ReadPrec [StartDataCollectionByAgentIdsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206474"><span id="local-6989586621679206476"><span id="local-6989586621679206478"><span id="local-6989586621679206480"><span class="annot"><span class="annottext">ReadPrec [StartDataCollectionByAgentIdsResponse]
 ReadPrec StartDataCollectionByAgentIdsResponse
 Int -&gt; ReadS StartDataCollectionByAgentIdsResponse
 ReadS [StartDataCollectionByAgentIdsResponse]
@@ -400,7 +400,7 @@ readList :: ReadS [StartDataCollectionByAgentIdsResponse]
 $creadList :: ReadS [StartDataCollectionByAgentIdsResponse]
 readsPrec :: Int -&gt; ReadS StartDataCollectionByAgentIdsResponse
 $creadsPrec :: Int -&gt; ReadS StartDataCollectionByAgentIdsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206459"><span id="local-6989586621679206461"><span id="local-6989586621679206463"><span class="annot"><span class="annottext">Int -&gt; StartDataCollectionByAgentIdsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206468"><span id="local-6989586621679206470"><span id="local-6989586621679206472"><span class="annot"><span class="annottext">Int -&gt; StartDataCollectionByAgentIdsResponse -&gt; ShowS
 [StartDataCollectionByAgentIdsResponse] -&gt; ShowS
 StartDataCollectionByAgentIdsResponse -&gt; String
 (Int -&gt; StartDataCollectionByAgentIdsResponse -&gt; ShowS)
@@ -457,8 +457,8 @@ StartDataCollectionByAgentIdsResponse
 </span><span id="line-178"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-179"></span><span>  </span><span class="annot"><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#StartDataCollectionByAgentIdsResponse"><span class="hs-identifier hs-type">StartDataCollectionByAgentIdsResponse</span></a></span><span>
 </span><span id="line-180"></span><span id="newStartDataCollectionByAgentIdsResponse"><span class="annot"><span class="annottext">newStartDataCollectionByAgentIdsResponse :: Int -&gt; StartDataCollectionByAgentIdsResponse
-</span><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#newStartDataCollectionByAgentIdsResponse"><span class="hs-identifier hs-var hs-var">newStartDataCollectionByAgentIdsResponse</span></a></span></span><span> </span><span id="local-6989586621679206456"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679206456"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#newStartDataCollectionByAgentIdsResponse"><span class="hs-identifier hs-var hs-var">newStartDataCollectionByAgentIdsResponse</span></a></span></span><span> </span><span id="local-6989586621679206465"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679206465"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-181"></span><span>  </span><span class="annot"><span class="annottext">StartDataCollectionByAgentIdsResponse' :: Maybe [AgentConfigurationStatus]
 -&gt; Int -&gt; StartDataCollectionByAgentIdsResponse
 </span><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#StartDataCollectionByAgentIdsResponse%27"><span class="hs-identifier hs-type">StartDataCollectionByAgentIdsResponse'</span></a></span><span>
@@ -469,7 +469,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StartDataCollectionByAgentIdsResponse' :: Int
 </span><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#%24sel%3AhttpStatus%3AStartDataCollectionByAgentIdsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679206456"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679206465"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-185"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-comment">-- | Information about agents or the connector that were instructed to start</span><span>
@@ -492,17 +492,17 @@ forall a. Maybe a
      (Maybe [AgentConfigurationStatus])
      (Maybe [AgentConfigurationStatus])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#StartDataCollectionByAgentIdsResponse%27"><span class="hs-identifier hs-type">StartDataCollectionByAgentIdsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206455"><span class="annot"><span class="annottext">Maybe [AgentConfigurationStatus]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#StartDataCollectionByAgentIdsResponse%27"><span class="hs-identifier hs-type">StartDataCollectionByAgentIdsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206464"><span class="annot"><span class="annottext">Maybe [AgentConfigurationStatus]
 agentsConfigurationStatus :: Maybe [AgentConfigurationStatus]
 $sel:agentsConfigurationStatus:StartDataCollectionByAgentIdsResponse' :: StartDataCollectionByAgentIdsResponse
 -&gt; Maybe [AgentConfigurationStatus]
-</span><a href="#local-6989586621679206455"><span class="hs-identifier hs-var hs-var">agentsConfigurationStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AgentConfigurationStatus]
-</span><a href="#local-6989586621679206455"><span class="hs-identifier hs-var">agentsConfigurationStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206454"><span class="annot"><span class="annottext">s :: StartDataCollectionByAgentIdsResponse
-</span><a href="#local-6989586621679206454"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#StartDataCollectionByAgentIdsResponse%27"><span class="hs-identifier hs-type">StartDataCollectionByAgentIdsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206453"><span class="annot"><span class="annottext">Maybe [AgentConfigurationStatus]
-</span><a href="#local-6989586621679206453"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartDataCollectionByAgentIdsResponse
-</span><a href="#local-6989586621679206454"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:agentsConfigurationStatus:StartDataCollectionByAgentIdsResponse' :: Maybe [AgentConfigurationStatus]
+</span><a href="#local-6989586621679206464"><span class="hs-identifier hs-var hs-var">agentsConfigurationStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AgentConfigurationStatus]
+</span><a href="#local-6989586621679206464"><span class="hs-identifier hs-var">agentsConfigurationStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206463"><span class="annot"><span class="annottext">s :: StartDataCollectionByAgentIdsResponse
+</span><a href="#local-6989586621679206463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#StartDataCollectionByAgentIdsResponse%27"><span class="hs-identifier hs-type">StartDataCollectionByAgentIdsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206462"><span class="annot"><span class="annottext">Maybe [AgentConfigurationStatus]
+</span><a href="#local-6989586621679206462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartDataCollectionByAgentIdsResponse
+</span><a href="#local-6989586621679206463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:agentsConfigurationStatus:StartDataCollectionByAgentIdsResponse' :: Maybe [AgentConfigurationStatus]
 </span><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#%24sel%3AagentsConfigurationStatus%3AStartDataCollectionByAgentIdsResponse%27"><span class="hs-identifier hs-var">agentsConfigurationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AgentConfigurationStatus]
-</span><a href="#local-6989586621679206453"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#StartDataCollectionByAgentIdsResponse"><span class="hs-identifier hs-type">StartDataCollectionByAgentIdsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AgentConfigurationStatus]
+</span><a href="#local-6989586621679206462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#StartDataCollectionByAgentIdsResponse"><span class="hs-identifier hs-type">StartDataCollectionByAgentIdsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AgentConfigurationStatus]
   -&gt; f (Maybe [AgentConfigurationStatus]))
  -&gt; StartDataCollectionByAgentIdsResponse
  -&gt; f StartDataCollectionByAgentIdsResponse)
@@ -550,18 +550,18 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#StartDataCollectionByAgentIdsResponse%27"><span class="hs-identifier hs-type">StartDataCollectionByAgentIdsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206451"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#StartDataCollectionByAgentIdsResponse%27"><span class="hs-identifier hs-type">StartDataCollectionByAgentIdsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206460"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:StartDataCollectionByAgentIdsResponse' :: StartDataCollectionByAgentIdsResponse -&gt; Int
-</span><a href="#local-6989586621679206451"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679206451"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206450"><span class="annot"><span class="annottext">s :: StartDataCollectionByAgentIdsResponse
-</span><a href="#local-6989586621679206450"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#StartDataCollectionByAgentIdsResponse%27"><span class="hs-identifier hs-type">StartDataCollectionByAgentIdsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206449"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679206449"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartDataCollectionByAgentIdsResponse
-</span><a href="#local-6989586621679206450"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartDataCollectionByAgentIdsResponse' :: Int
+</span><a href="#local-6989586621679206460"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679206460"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206459"><span class="annot"><span class="annottext">s :: StartDataCollectionByAgentIdsResponse
+</span><a href="#local-6989586621679206459"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#StartDataCollectionByAgentIdsResponse%27"><span class="hs-identifier hs-type">StartDataCollectionByAgentIdsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206458"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679206458"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartDataCollectionByAgentIdsResponse
+</span><a href="#local-6989586621679206459"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartDataCollectionByAgentIdsResponse' :: Int
 </span><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#%24sel%3AhttpStatus%3AStartDataCollectionByAgentIdsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679206449"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#StartDataCollectionByAgentIdsResponse"><span class="hs-identifier hs-type">StartDataCollectionByAgentIdsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679206458"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#StartDataCollectionByAgentIdsResponse"><span class="hs-identifier hs-type">StartDataCollectionByAgentIdsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-199"></span><span>  </span><span id="local-6989586621679206447"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679206456"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-200"></span><span>    </span><span class="annot"><a href="Network.AWS.Discovery.StartDataCollectionByAgentIds.html#StartDataCollectionByAgentIdsResponse"><span class="hs-identifier hs-type">StartDataCollectionByAgentIdsResponse</span></a></span></span><span>
 </span><span id="line-201"></span></pre></body></html>

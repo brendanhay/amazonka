@@ -44,10 +44,10 @@
 </span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-45"></span><span>
 </span><span id="line-46"></span><span class="hs-comment">-- | /See:/ 'newDescribeLoggingOptions' smart constructor.</span><span>
-</span><span id="line-47"></span><span id="local-6989586621679267074"><span id="local-6989586621679267075"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeLoggingOptions"><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeLoggingOptions.html#DescribeLoggingOptions"><span class="hs-identifier hs-var">DescribeLoggingOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeLoggingOptions%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeLoggingOptions.html#DescribeLoggingOptions%27"><span class="hs-identifier hs-var">DescribeLoggingOptions'</span></a></span></span><span>
+</span><span id="line-47"></span><span id="local-6989586621679267083"><span id="local-6989586621679267084"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeLoggingOptions"><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeLoggingOptions.html#DescribeLoggingOptions"><span class="hs-identifier hs-var">DescribeLoggingOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeLoggingOptions%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeLoggingOptions.html#DescribeLoggingOptions%27"><span class="hs-identifier hs-var">DescribeLoggingOptions'</span></a></span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679267069"><span id="local-6989586621679267071"><span class="annot"><span class="annottext">DescribeLoggingOptions -&gt; DescribeLoggingOptions -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679267078"><span id="local-6989586621679267080"><span class="annot"><span class="annottext">DescribeLoggingOptions -&gt; DescribeLoggingOptions -&gt; Bool
 (DescribeLoggingOptions -&gt; DescribeLoggingOptions -&gt; Bool)
 -&gt; (DescribeLoggingOptions -&gt; DescribeLoggingOptions -&gt; Bool)
 -&gt; Eq DescribeLoggingOptions
@@ -56,7 +56,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeLoggingOptions -&gt; DescribeLoggingOptions -&gt; Bool
 == :: DescribeLoggingOptions -&gt; DescribeLoggingOptions -&gt; Bool
 $c== :: DescribeLoggingOptions -&gt; DescribeLoggingOptions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267060"><span id="local-6989586621679267062"><span id="local-6989586621679267064"><span id="local-6989586621679267066"><span class="annot"><span class="annottext">ReadPrec [DescribeLoggingOptions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267069"><span id="local-6989586621679267071"><span id="local-6989586621679267073"><span id="local-6989586621679267075"><span class="annot"><span class="annottext">ReadPrec [DescribeLoggingOptions]
 ReadPrec DescribeLoggingOptions
 Int -&gt; ReadS DescribeLoggingOptions
 ReadS [DescribeLoggingOptions]
@@ -76,7 +76,7 @@ readList :: ReadS [DescribeLoggingOptions]
 $creadList :: ReadS [DescribeLoggingOptions]
 readsPrec :: Int -&gt; ReadS DescribeLoggingOptions
 $creadsPrec :: Int -&gt; ReadS DescribeLoggingOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267053"><span id="local-6989586621679267055"><span id="local-6989586621679267057"><span class="annot"><span class="annottext">Int -&gt; DescribeLoggingOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267062"><span id="local-6989586621679267064"><span id="local-6989586621679267066"><span class="annot"><span class="annottext">Int -&gt; DescribeLoggingOptions -&gt; ShowS
 [DescribeLoggingOptions] -&gt; ShowS
 DescribeLoggingOptions -&gt; String
 (Int -&gt; DescribeLoggingOptions -&gt; ShowS)
@@ -117,12 +117,12 @@ $cfrom :: forall x. DescribeLoggingOptions -&gt; Rep DescribeLoggingOptions x
 </span><span id="line-61"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-62"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeLoggingOptions.html#DescribeLoggingOptions"><span class="hs-identifier hs-type">DescribeLoggingOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-63"></span><span>      </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeLoggingOptions.html#DescribeLoggingOptionsResponse"><span class="hs-identifier hs-type">DescribeLoggingOptionsResponse</span></a></span><span>
-</span><span id="line-64"></span><span>  </span><span id="local-6989586621679267045"><span class="annot"><span class="annottext">request :: DescribeLoggingOptions -&gt; Request DescribeLoggingOptions
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621679267054"><span class="annot"><span class="annottext">request :: DescribeLoggingOptions -&gt; Request DescribeLoggingOptions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeLoggingOptions -&gt; Request DescribeLoggingOptions
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoTAnalytics.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679267041"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679267050"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeLoggingOptions
 -&gt; ClientResponse ClientBody
@@ -148,10 +148,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-67"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679267038"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679267038"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679267037"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679267037"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679267036"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679267036"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-67"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679267047"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679267047"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679267046"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679267046"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679267045"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679267045"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>          </span><span class="annot"><span class="annottext">Maybe LoggingOptions -&gt; Int -&gt; DescribeLoggingOptionsResponse
 </span><a href="Network.AWS.IoTAnalytics.DescribeLoggingOptions.html#DescribeLoggingOptionsResponse%27"><span class="hs-identifier hs-var">DescribeLoggingOptionsResponse'</span></a></span><span>
 </span><span id="line-69"></span><span>            </span><span class="annot"><span class="annottext">(Maybe LoggingOptions -&gt; Int -&gt; DescribeLoggingOptionsResponse)
@@ -159,7 +159,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DescribeLoggingOptionsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679267036"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe LoggingOptions)
+</span><a href="#local-6989586621679267045"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe LoggingOptions)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;loggingOptions&quot;</span></span><span class="hs-special">)</span><span>
@@ -172,15 +172,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679267038"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679267047"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267028"><span id="local-6989586621679267030"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeLoggingOptions.html#DescribeLoggingOptions"><span class="hs-identifier hs-type">DescribeLoggingOptions</span></a></span></span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267037"><span id="local-6989586621679267039"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeLoggingOptions.html#DescribeLoggingOptions"><span class="hs-identifier hs-type">DescribeLoggingOptions</span></a></span></span></span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267025"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeLoggingOptions.html#DescribeLoggingOptions"><span class="hs-identifier hs-type">DescribeLoggingOptions</span></a></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267034"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeLoggingOptions.html#DescribeLoggingOptions"><span class="hs-identifier hs-type">DescribeLoggingOptions</span></a></span></span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeLoggingOptions.html#DescribeLoggingOptions"><span class="hs-identifier hs-type">DescribeLoggingOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679267021"><span class="annot"><span class="annottext">toHeaders :: DescribeLoggingOptions -&gt; ResponseHeaders
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679267030"><span class="annot"><span class="annottext">toHeaders :: DescribeLoggingOptions -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeLoggingOptions -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -188,14 +188,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeLoggingOptions.html#DescribeLoggingOptions"><span class="hs-identifier hs-type">DescribeLoggingOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679267016"><span class="annot"><span class="annottext">toPath :: DescribeLoggingOptions -&gt; ByteString
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679267025"><span class="annot"><span class="annottext">toPath :: DescribeLoggingOptions -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeLoggingOptions -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/logging&quot;</span></span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeLoggingOptions.html#DescribeLoggingOptions"><span class="hs-identifier hs-type">DescribeLoggingOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679267012"><span class="annot"><span class="annottext">toQuery :: DescribeLoggingOptions -&gt; QueryString
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679267021"><span class="annot"><span class="annottext">toQuery :: DescribeLoggingOptions -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeLoggingOptions -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -203,7 +203,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | /See:/ 'newDescribeLoggingOptionsResponse' smart constructor.</span><span>
-</span><span id="line-87"></span><span id="local-6989586621679267009"><span id="local-6989586621679267010"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeLoggingOptionsResponse"><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeLoggingOptions.html#DescribeLoggingOptionsResponse"><span class="hs-identifier hs-var">DescribeLoggingOptionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeLoggingOptionsResponse%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeLoggingOptions.html#DescribeLoggingOptionsResponse%27"><span class="hs-identifier hs-var">DescribeLoggingOptionsResponse'</span></a></span></span><span>
+</span><span id="line-87"></span><span id="local-6989586621679267018"><span id="local-6989586621679267019"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeLoggingOptionsResponse"><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeLoggingOptions.html#DescribeLoggingOptionsResponse"><span class="hs-identifier hs-var">DescribeLoggingOptionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeLoggingOptionsResponse%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeLoggingOptions.html#DescribeLoggingOptionsResponse%27"><span class="hs-identifier hs-var">DescribeLoggingOptionsResponse'</span></a></span></span><span>
 </span><span id="line-88"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current settings of the IoT Analytics logging options.</span><span>
 </span><span id="line-89"></span><span>    </span><span id="%24sel%3AloggingOptions%3ADescribeLoggingOptionsResponse%27"><span class="annot"><span class="annottext">DescribeLoggingOptionsResponse -&gt; Maybe LoggingOptions
 </span><a href="Network.AWS.IoTAnalytics.DescribeLoggingOptions.html#%24sel%3AloggingOptions%3ADescribeLoggingOptionsResponse%27"><span class="hs-identifier hs-var hs-var">loggingOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.LoggingOptions.html#LoggingOptions"><span class="hs-identifier hs-type">LoggingOptions</span></a></span><span class="hs-special">,</span><span>
@@ -211,7 +211,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-91"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeLoggingOptionsResponse%27"><span class="annot"><span class="annottext">DescribeLoggingOptionsResponse -&gt; Int
 </span><a href="Network.AWS.IoTAnalytics.DescribeLoggingOptions.html#%24sel%3AhttpStatus%3ADescribeLoggingOptionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-92"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-93"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679267003"><span id="local-6989586621679267005"><span class="annot"><span class="annottext">DescribeLoggingOptionsResponse
+</span><span id="line-93"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679267012"><span id="local-6989586621679267014"><span class="annot"><span class="annottext">DescribeLoggingOptionsResponse
 -&gt; DescribeLoggingOptionsResponse -&gt; Bool
 (DescribeLoggingOptionsResponse
  -&gt; DescribeLoggingOptionsResponse -&gt; Bool)
@@ -227,7 +227,7 @@ $c/= :: DescribeLoggingOptionsResponse
 -&gt; DescribeLoggingOptionsResponse -&gt; Bool
 $c== :: DescribeLoggingOptionsResponse
 -&gt; DescribeLoggingOptionsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266995"><span id="local-6989586621679266997"><span id="local-6989586621679266999"><span id="local-6989586621679267001"><span class="annot"><span class="annottext">ReadPrec [DescribeLoggingOptionsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267004"><span id="local-6989586621679267006"><span id="local-6989586621679267008"><span id="local-6989586621679267010"><span class="annot"><span class="annottext">ReadPrec [DescribeLoggingOptionsResponse]
 ReadPrec DescribeLoggingOptionsResponse
 Int -&gt; ReadS DescribeLoggingOptionsResponse
 ReadS [DescribeLoggingOptionsResponse]
@@ -247,7 +247,7 @@ readList :: ReadS [DescribeLoggingOptionsResponse]
 $creadList :: ReadS [DescribeLoggingOptionsResponse]
 readsPrec :: Int -&gt; ReadS DescribeLoggingOptionsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeLoggingOptionsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266989"><span id="local-6989586621679266991"><span id="local-6989586621679266993"><span class="annot"><span class="annottext">Int -&gt; DescribeLoggingOptionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266998"><span id="local-6989586621679267000"><span id="local-6989586621679267002"><span class="annot"><span class="annottext">Int -&gt; DescribeLoggingOptionsResponse -&gt; ShowS
 [DescribeLoggingOptionsResponse] -&gt; ShowS
 DescribeLoggingOptionsResponse -&gt; String
 (Int -&gt; DescribeLoggingOptionsResponse -&gt; ShowS)
@@ -301,8 +301,8 @@ DescribeLoggingOptionsResponse
 </span><span id="line-108"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-109"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeLoggingOptions.html#DescribeLoggingOptionsResponse"><span class="hs-identifier hs-type">DescribeLoggingOptionsResponse</span></a></span><span>
 </span><span id="line-110"></span><span id="newDescribeLoggingOptionsResponse"><span class="annot"><span class="annottext">newDescribeLoggingOptionsResponse :: Int -&gt; DescribeLoggingOptionsResponse
-</span><a href="Network.AWS.IoTAnalytics.DescribeLoggingOptions.html#newDescribeLoggingOptionsResponse"><span class="hs-identifier hs-var hs-var">newDescribeLoggingOptionsResponse</span></a></span></span><span> </span><span id="local-6989586621679266986"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679266986"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoTAnalytics.DescribeLoggingOptions.html#newDescribeLoggingOptionsResponse"><span class="hs-identifier hs-var hs-var">newDescribeLoggingOptionsResponse</span></a></span></span><span> </span><span id="local-6989586621679266995"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679266995"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>  </span><span class="annot"><span class="annottext">DescribeLoggingOptionsResponse' :: Maybe LoggingOptions -&gt; Int -&gt; DescribeLoggingOptionsResponse
 </span><a href="Network.AWS.IoTAnalytics.DescribeLoggingOptions.html#DescribeLoggingOptionsResponse%27"><span class="hs-identifier hs-type">DescribeLoggingOptionsResponse'</span></a></span><span>
 </span><span id="line-112"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:loggingOptions:DescribeLoggingOptionsResponse' :: Maybe LoggingOptions
@@ -312,7 +312,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeLoggingOptionsResponse' :: Int
 </span><a href="Network.AWS.IoTAnalytics.DescribeLoggingOptions.html#%24sel%3AhttpStatus%3ADescribeLoggingOptionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679266986"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679266995"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-115"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | The current settings of the IoT Analytics logging options.</span><span>
@@ -329,16 +329,16 @@ forall a. Maybe a
      (Maybe LoggingOptions)
      (Maybe LoggingOptions)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeLoggingOptions.html#DescribeLoggingOptionsResponse%27"><span class="hs-identifier hs-type">DescribeLoggingOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266983"><span class="annot"><span class="annottext">Maybe LoggingOptions
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeLoggingOptions.html#DescribeLoggingOptionsResponse%27"><span class="hs-identifier hs-type">DescribeLoggingOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266992"><span class="annot"><span class="annottext">Maybe LoggingOptions
 loggingOptions :: Maybe LoggingOptions
 $sel:loggingOptions:DescribeLoggingOptionsResponse' :: DescribeLoggingOptionsResponse -&gt; Maybe LoggingOptions
-</span><a href="#local-6989586621679266983"><span class="hs-identifier hs-var hs-var">loggingOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LoggingOptions
-</span><a href="#local-6989586621679266983"><span class="hs-identifier hs-var">loggingOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266982"><span class="annot"><span class="annottext">s :: DescribeLoggingOptionsResponse
-</span><a href="#local-6989586621679266982"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeLoggingOptions.html#DescribeLoggingOptionsResponse%27"><span class="hs-identifier hs-type">DescribeLoggingOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266981"><span class="annot"><span class="annottext">Maybe LoggingOptions
-</span><a href="#local-6989586621679266981"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLoggingOptionsResponse
-</span><a href="#local-6989586621679266982"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loggingOptions:DescribeLoggingOptionsResponse' :: Maybe LoggingOptions
+</span><a href="#local-6989586621679266992"><span class="hs-identifier hs-var hs-var">loggingOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LoggingOptions
+</span><a href="#local-6989586621679266992"><span class="hs-identifier hs-var">loggingOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266991"><span class="annot"><span class="annottext">s :: DescribeLoggingOptionsResponse
+</span><a href="#local-6989586621679266991"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeLoggingOptions.html#DescribeLoggingOptionsResponse%27"><span class="hs-identifier hs-type">DescribeLoggingOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266990"><span class="annot"><span class="annottext">Maybe LoggingOptions
+</span><a href="#local-6989586621679266990"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLoggingOptionsResponse
+</span><a href="#local-6989586621679266991"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loggingOptions:DescribeLoggingOptionsResponse' :: Maybe LoggingOptions
 </span><a href="Network.AWS.IoTAnalytics.DescribeLoggingOptions.html#%24sel%3AloggingOptions%3ADescribeLoggingOptionsResponse%27"><span class="hs-identifier hs-var">loggingOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LoggingOptions
-</span><a href="#local-6989586621679266981"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeLoggingOptions.html#DescribeLoggingOptionsResponse"><span class="hs-identifier hs-type">DescribeLoggingOptionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679266990"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeLoggingOptions.html#DescribeLoggingOptionsResponse"><span class="hs-identifier hs-type">DescribeLoggingOptionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-122"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeLoggingOptions.html#describeLoggingOptionsResponse_httpStatus"><span class="hs-identifier hs-type">describeLoggingOptionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeLoggingOptions.html#DescribeLoggingOptionsResponse"><span class="hs-identifier hs-type">DescribeLoggingOptionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -354,18 +354,18 @@ $sel:loggingOptions:DescribeLoggingOptionsResponse' :: DescribeLoggingOptionsRes
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeLoggingOptions.html#DescribeLoggingOptionsResponse%27"><span class="hs-identifier hs-type">DescribeLoggingOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266980"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeLoggingOptions.html#DescribeLoggingOptionsResponse%27"><span class="hs-identifier hs-type">DescribeLoggingOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266989"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeLoggingOptionsResponse' :: DescribeLoggingOptionsResponse -&gt; Int
-</span><a href="#local-6989586621679266980"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679266980"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266979"><span class="annot"><span class="annottext">s :: DescribeLoggingOptionsResponse
-</span><a href="#local-6989586621679266979"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeLoggingOptions.html#DescribeLoggingOptionsResponse%27"><span class="hs-identifier hs-type">DescribeLoggingOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266978"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679266978"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLoggingOptionsResponse
-</span><a href="#local-6989586621679266979"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeLoggingOptionsResponse' :: Int
+</span><a href="#local-6989586621679266989"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679266989"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266988"><span class="annot"><span class="annottext">s :: DescribeLoggingOptionsResponse
+</span><a href="#local-6989586621679266988"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeLoggingOptions.html#DescribeLoggingOptionsResponse%27"><span class="hs-identifier hs-type">DescribeLoggingOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266987"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679266987"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLoggingOptionsResponse
+</span><a href="#local-6989586621679266988"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeLoggingOptionsResponse' :: Int
 </span><a href="Network.AWS.IoTAnalytics.DescribeLoggingOptions.html#%24sel%3AhttpStatus%3ADescribeLoggingOptionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679266978"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeLoggingOptions.html#DescribeLoggingOptionsResponse"><span class="hs-identifier hs-type">DescribeLoggingOptionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679266987"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeLoggingOptions.html#DescribeLoggingOptionsResponse"><span class="hs-identifier hs-type">DescribeLoggingOptionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679266976"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679266985"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-127"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DescribeLoggingOptions.html#DescribeLoggingOptionsResponse"><span class="hs-identifier hs-type">DescribeLoggingOptionsResponse</span></a></span></span><span>
 </span><span id="line-128"></span></pre></body></html>

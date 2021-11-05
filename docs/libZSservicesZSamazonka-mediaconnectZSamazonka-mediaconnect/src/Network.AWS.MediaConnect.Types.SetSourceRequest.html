@@ -1,0 +1,744 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConnect.Types.SetSourceRequest</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConnect.Types.SetSourceRequest</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html"><span class="hs-identifier">Network.AWS.MediaConnect.Types.Encryption</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.MediaStreamSourceConfigurationRequest.html"><span class="hs-identifier">Network.AWS.MediaConnect.Types.MediaStreamSourceConfigurationRequest</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Protocol.html"><span class="hs-identifier">Network.AWS.MediaConnect.Types.Protocol</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | The settings for the source of the flow.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newSetSourceRequest' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679270029"><span id="local-6989586621679270030"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetSourceRequest"><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest"><span class="hs-identifier hs-var">SetSourceRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetSourceRequest%27"><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest%27"><span class="hs-identifier hs-var">SetSourceRequest'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the entitlement that allows you to subscribe to this flow.</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- The entitlement is set by the flow originator, and the ARN is generated</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- as part of the originator\'s flow.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AentitlementArn%3ASetSourceRequest%27"><span class="annot"><span class="annottext">SetSourceRequest -&gt; Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#%24sel%3AentitlementArn%3ASetSourceRequest%27"><span class="hs-identifier hs-var hs-var">entitlementArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The maximum latency in milliseconds. This parameter applies only to</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- RIST-based and Zixi-based streams.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AmaxLatency%3ASetSourceRequest%27"><span class="annot"><span class="annottext">SetSourceRequest -&gt; Maybe Int
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#%24sel%3AmaxLatency%3ASetSourceRequest%27"><span class="hs-identifier hs-var hs-var">maxLatency</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The name of the VPC interface to use for this source.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AvpcInterfaceName%3ASetSourceRequest%27"><span class="annot"><span class="annottext">SetSourceRequest -&gt; Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#%24sel%3AvpcInterfaceName%3ASetSourceRequest%27"><span class="hs-identifier hs-var hs-var">vpcInterfaceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The type of encryption that is used on the content ingested from this</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- source.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Adecryption%3ASetSourceRequest%27"><span class="annot"><span class="annottext">SetSourceRequest -&gt; Maybe Encryption
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#%24sel%3Adecryption%3ASetSourceRequest%27"><span class="hs-identifier hs-var hs-var">decryption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The size of the buffer (in milliseconds) to use to sync incoming source</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- data.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AmaxSyncBuffer%3ASetSourceRequest%27"><span class="annot"><span class="annottext">SetSourceRequest -&gt; Maybe Int
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#%24sel%3AmaxSyncBuffer%3ASetSourceRequest%27"><span class="hs-identifier hs-var hs-var">maxSyncBuffer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The protocol that is used by the source.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Aprotocol%3ASetSourceRequest%27"><span class="annot"><span class="annottext">SetSourceRequest -&gt; Maybe Protocol
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#%24sel%3Aprotocol%3ASetSourceRequest%27"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Protocol.html#Protocol"><span class="hs-identifier hs-type">Protocol</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The name of the source.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Aname%3ASetSourceRequest%27"><span class="annot"><span class="annottext">SetSourceRequest -&gt; Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#%24sel%3Aname%3ASetSourceRequest%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The minimum latency in milliseconds for SRT-based streams. In streams</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- that use the SRT protocol, this value that you set on your MediaConnect</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- source or output represents the minimal potential latency of that</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- connection. The latency of the stream is set to the highest number</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- between the sender&#8217;s minimum latency and the receiver&#8217;s minimum latency.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AminLatency%3ASetSourceRequest%27"><span class="annot"><span class="annottext">SetSourceRequest -&gt; Maybe Int
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#%24sel%3AminLatency%3ASetSourceRequest%27"><span class="hs-identifier hs-var hs-var">minLatency</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The port that the flow will be listening on for incoming content.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AingestPort%3ASetSourceRequest%27"><span class="annot"><span class="annottext">SetSourceRequest -&gt; Maybe Int
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#%24sel%3AingestPort%3ASetSourceRequest%27"><span class="hs-identifier hs-var hs-var">ingestPort</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | A description for the source. This value is not used or seen outside of</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- the current AWS Elemental MediaConnect account.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3Adescription%3ASetSourceRequest%27"><span class="annot"><span class="annottext">SetSourceRequest -&gt; Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#%24sel%3Adescription%3ASetSourceRequest%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The media streams that are associated with the source, and the</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- parameters for those associations.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AmediaStreamSourceConfigurations%3ASetSourceRequest%27"><span class="annot"><span class="annottext">SetSourceRequest -&gt; Maybe [MediaStreamSourceConfigurationRequest]
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#%24sel%3AmediaStreamSourceConfigurations%3ASetSourceRequest%27"><span class="hs-identifier hs-var hs-var">mediaStreamSourceConfigurations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.MediaStreamSourceConfigurationRequest.html#MediaStreamSourceConfigurationRequest"><span class="hs-identifier hs-type">MediaStreamSourceConfigurationRequest</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The range of IP addresses that should be allowed to contribute content</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- to your source. These IP addresses should be in the form of a Classless</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- Inter-Domain Routing (CIDR) block; for example, 10.0.0.0\/16.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AwhitelistCidr%3ASetSourceRequest%27"><span class="annot"><span class="annottext">SetSourceRequest -&gt; Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#%24sel%3AwhitelistCidr%3ASetSourceRequest%27"><span class="hs-identifier hs-var hs-var">whitelistCidr</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AmaxBitrate%3ASetSourceRequest%27"><span class="annot"><span class="annottext">SetSourceRequest -&gt; Maybe Int
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#%24sel%3AmaxBitrate%3ASetSourceRequest%27"><span class="hs-identifier hs-var hs-var">maxBitrate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The stream ID that you want to use for this transport. This parameter</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- applies only to Zixi-based streams.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AstreamId%3ASetSourceRequest%27"><span class="annot"><span class="annottext">SetSourceRequest -&gt; Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#%24sel%3AstreamId%3ASetSourceRequest%27"><span class="hs-identifier hs-var hs-var">streamId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270010"><span id="local-6989586621679270012"><span class="annot"><span class="annottext">SetSourceRequest -&gt; SetSourceRequest -&gt; Bool
+(SetSourceRequest -&gt; SetSourceRequest -&gt; Bool)
+-&gt; (SetSourceRequest -&gt; SetSourceRequest -&gt; Bool)
+-&gt; Eq SetSourceRequest
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SetSourceRequest -&gt; SetSourceRequest -&gt; Bool
+$c/= :: SetSourceRequest -&gt; SetSourceRequest -&gt; Bool
+== :: SetSourceRequest -&gt; SetSourceRequest -&gt; Bool
+$c== :: SetSourceRequest -&gt; SetSourceRequest -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270001"><span id="local-6989586621679270003"><span id="local-6989586621679270005"><span id="local-6989586621679270007"><span class="annot"><span class="annottext">ReadPrec [SetSourceRequest]
+ReadPrec SetSourceRequest
+Int -&gt; ReadS SetSourceRequest
+ReadS [SetSourceRequest]
+(Int -&gt; ReadS SetSourceRequest)
+-&gt; ReadS [SetSourceRequest]
+-&gt; ReadPrec SetSourceRequest
+-&gt; ReadPrec [SetSourceRequest]
+-&gt; Read SetSourceRequest
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SetSourceRequest]
+$creadListPrec :: ReadPrec [SetSourceRequest]
+readPrec :: ReadPrec SetSourceRequest
+$creadPrec :: ReadPrec SetSourceRequest
+readList :: ReadS [SetSourceRequest]
+$creadList :: ReadS [SetSourceRequest]
+readsPrec :: Int -&gt; ReadS SetSourceRequest
+$creadsPrec :: Int -&gt; ReadS SetSourceRequest
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679269994"><span id="local-6989586621679269996"><span id="local-6989586621679269998"><span class="annot"><span class="annottext">Int -&gt; SetSourceRequest -&gt; ShowS
+[SetSourceRequest] -&gt; ShowS
+SetSourceRequest -&gt; String
+(Int -&gt; SetSourceRequest -&gt; ShowS)
+-&gt; (SetSourceRequest -&gt; String)
+-&gt; ([SetSourceRequest] -&gt; ShowS)
+-&gt; Show SetSourceRequest
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SetSourceRequest] -&gt; ShowS
+$cshowList :: [SetSourceRequest] -&gt; ShowS
+show :: SetSourceRequest -&gt; String
+$cshow :: SetSourceRequest -&gt; String
+showsPrec :: Int -&gt; SetSourceRequest -&gt; ShowS
+$cshowsPrec :: Int -&gt; SetSourceRequest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SetSourceRequest -&gt; Rep SetSourceRequest x)
+-&gt; (forall x. Rep SetSourceRequest x -&gt; SetSourceRequest)
+-&gt; Generic SetSourceRequest
+forall x. Rep SetSourceRequest x -&gt; SetSourceRequest
+forall x. SetSourceRequest -&gt; Rep SetSourceRequest x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SetSourceRequest x -&gt; SetSourceRequest
+$cfrom :: forall x. SetSourceRequest -&gt; Rep SetSourceRequest x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Create a value of 'SetSourceRequest' with all optional fields omitted.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'entitlementArn', 'setSourceRequest_entitlementArn' - The ARN of the entitlement that allows you to subscribe to this flow.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- The entitlement is set by the flow originator, and the ARN is generated</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- as part of the originator\'s flow.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'maxLatency', 'setSourceRequest_maxLatency' - The maximum latency in milliseconds. This parameter applies only to</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- RIST-based and Zixi-based streams.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'vpcInterfaceName', 'setSourceRequest_vpcInterfaceName' - The name of the VPC interface to use for this source.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'decryption', 'setSourceRequest_decryption' - The type of encryption that is used on the content ingested from this</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- source.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'maxSyncBuffer', 'setSourceRequest_maxSyncBuffer' - The size of the buffer (in milliseconds) to use to sync incoming source</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- data.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'protocol', 'setSourceRequest_protocol' - The protocol that is used by the source.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'name', 'setSourceRequest_name' - The name of the source.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'minLatency', 'setSourceRequest_minLatency' - The minimum latency in milliseconds for SRT-based streams. In streams</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- that use the SRT protocol, this value that you set on your MediaConnect</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- source or output represents the minimal potential latency of that</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- connection. The latency of the stream is set to the highest number</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- between the sender&#8217;s minimum latency and the receiver&#8217;s minimum latency.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'ingestPort', 'setSourceRequest_ingestPort' - The port that the flow will be listening on for incoming content.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'description', 'setSourceRequest_description' - A description for the source. This value is not used or seen outside of</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- the current AWS Elemental MediaConnect account.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'mediaStreamSourceConfigurations', 'setSourceRequest_mediaStreamSourceConfigurations' - The media streams that are associated with the source, and the</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- parameters for those associations.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'whitelistCidr', 'setSourceRequest_whitelistCidr' - The range of IP addresses that should be allowed to contribute content</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- to your source. These IP addresses should be in the form of a Classless</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- Inter-Domain Routing (CIDR) block; for example, 10.0.0.0\/16.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'maxBitrate', 'setSourceRequest_maxBitrate' - The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'streamId', 'setSourceRequest_streamId' - The stream ID that you want to use for this transport. This parameter</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- applies only to Zixi-based streams.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#newSetSourceRequest"><span class="hs-identifier hs-type">newSetSourceRequest</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest"><span class="hs-identifier hs-type">SetSourceRequest</span></a></span><span>
+</span><span id="line-129"></span><span id="newSetSourceRequest"><span class="annot"><span class="annottext">newSetSourceRequest :: SetSourceRequest
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#newSetSourceRequest"><span class="hs-identifier hs-var hs-var">newSetSourceRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><span class="annottext">SetSourceRequest' :: Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Encryption
+-&gt; Maybe Int
+-&gt; Maybe Protocol
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe [MediaStreamSourceConfigurationRequest]
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; SetSourceRequest
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest%27"><span class="hs-identifier hs-type">SetSourceRequest'</span></a></span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:entitlementArn:SetSourceRequest' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#%24sel%3AentitlementArn%3ASetSourceRequest%27"><span class="hs-identifier hs-var">entitlementArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxLatency:SetSourceRequest' :: Maybe Int
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#%24sel%3AmaxLatency%3ASetSourceRequest%27"><span class="hs-identifier hs-var">maxLatency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcInterfaceName:SetSourceRequest' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#%24sel%3AvpcInterfaceName%3ASetSourceRequest%27"><span class="hs-identifier hs-var">vpcInterfaceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:decryption:SetSourceRequest' :: Maybe Encryption
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#%24sel%3Adecryption%3ASetSourceRequest%27"><span class="hs-identifier hs-var">decryption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Encryption
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxSyncBuffer:SetSourceRequest' :: Maybe Int
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#%24sel%3AmaxSyncBuffer%3ASetSourceRequest%27"><span class="hs-identifier hs-var">maxSyncBuffer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">$sel:protocol:SetSourceRequest' :: Maybe Protocol
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#%24sel%3Aprotocol%3ASetSourceRequest%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Protocol
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:SetSourceRequest' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#%24sel%3Aname%3ASetSourceRequest%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:minLatency:SetSourceRequest' :: Maybe Int
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#%24sel%3AminLatency%3ASetSourceRequest%27"><span class="hs-identifier hs-var">minLatency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:ingestPort:SetSourceRequest' :: Maybe Int
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#%24sel%3AingestPort%3ASetSourceRequest%27"><span class="hs-identifier hs-var">ingestPort</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:SetSourceRequest' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#%24sel%3Adescription%3ASetSourceRequest%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:mediaStreamSourceConfigurations:SetSourceRequest' :: Maybe [MediaStreamSourceConfigurationRequest]
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#%24sel%3AmediaStreamSourceConfigurations%3ASetSourceRequest%27"><span class="hs-identifier hs-var">mediaStreamSourceConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MediaStreamSourceConfigurationRequest]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:whitelistCidr:SetSourceRequest' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#%24sel%3AwhitelistCidr%3ASetSourceRequest%27"><span class="hs-identifier hs-var">whitelistCidr</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxBitrate:SetSourceRequest' :: Maybe Int
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#%24sel%3AmaxBitrate%3ASetSourceRequest%27"><span class="hs-identifier hs-var">maxBitrate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:streamId:SetSourceRequest' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#%24sel%3AstreamId%3ASetSourceRequest%27"><span class="hs-identifier hs-var">streamId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The ARN of the entitlement that allows you to subscribe to this flow.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- The entitlement is set by the flow originator, and the ARN is generated</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- as part of the originator\'s flow.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#setSourceRequest_entitlementArn"><span class="hs-identifier hs-type">setSourceRequest_entitlementArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest"><span class="hs-identifier hs-type">SetSourceRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="setSourceRequest_entitlementArn"><span class="annot"><span class="annottext">setSourceRequest_entitlementArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SetSourceRequest -&gt; f SetSourceRequest
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#setSourceRequest_entitlementArn"><span class="hs-identifier hs-var hs-var">setSourceRequest_entitlementArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetSourceRequest -&gt; Maybe Text)
+-&gt; (SetSourceRequest -&gt; Maybe Text -&gt; SetSourceRequest)
+-&gt; Lens SetSourceRequest SetSourceRequest (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest%27"><span class="hs-identifier hs-type">SetSourceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269985"><span class="annot"><span class="annottext">Maybe Text
+entitlementArn :: Maybe Text
+$sel:entitlementArn:SetSourceRequest' :: SetSourceRequest -&gt; Maybe Text
+</span><a href="#local-6989586621679269985"><span class="hs-identifier hs-var hs-var">entitlementArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269985"><span class="hs-identifier hs-var">entitlementArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269984"><span class="annot"><span class="annottext">s :: SetSourceRequest
+</span><a href="#local-6989586621679269984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest%27"><span class="hs-identifier hs-type">SetSourceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269983"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetSourceRequest
+</span><a href="#local-6989586621679269984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entitlementArn:SetSourceRequest' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#%24sel%3AentitlementArn%3ASetSourceRequest%27"><span class="hs-identifier hs-var">entitlementArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest"><span class="hs-identifier hs-type">SetSourceRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | The maximum latency in milliseconds. This parameter applies only to</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- RIST-based and Zixi-based streams.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#setSourceRequest_maxLatency"><span class="hs-identifier hs-type">setSourceRequest_maxLatency</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest"><span class="hs-identifier hs-type">SetSourceRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span id="setSourceRequest_maxLatency"><span class="annot"><span class="annottext">setSourceRequest_maxLatency :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; SetSourceRequest -&gt; f SetSourceRequest
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#setSourceRequest_maxLatency"><span class="hs-identifier hs-var hs-var">setSourceRequest_maxLatency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetSourceRequest -&gt; Maybe Int)
+-&gt; (SetSourceRequest -&gt; Maybe Int -&gt; SetSourceRequest)
+-&gt; Lens SetSourceRequest SetSourceRequest (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest%27"><span class="hs-identifier hs-type">SetSourceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269981"><span class="annot"><span class="annottext">Maybe Int
+maxLatency :: Maybe Int
+$sel:maxLatency:SetSourceRequest' :: SetSourceRequest -&gt; Maybe Int
+</span><a href="#local-6989586621679269981"><span class="hs-identifier hs-var hs-var">maxLatency</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679269981"><span class="hs-identifier hs-var">maxLatency</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269980"><span class="annot"><span class="annottext">s :: SetSourceRequest
+</span><a href="#local-6989586621679269980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest%27"><span class="hs-identifier hs-type">SetSourceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269979"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679269979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetSourceRequest
+</span><a href="#local-6989586621679269980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxLatency:SetSourceRequest' :: Maybe Int
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#%24sel%3AmaxLatency%3ASetSourceRequest%27"><span class="hs-identifier hs-var">maxLatency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679269979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest"><span class="hs-identifier hs-type">SetSourceRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | The name of the VPC interface to use for this source.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#setSourceRequest_vpcInterfaceName"><span class="hs-identifier hs-type">setSourceRequest_vpcInterfaceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest"><span class="hs-identifier hs-type">SetSourceRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span id="setSourceRequest_vpcInterfaceName"><span class="annot"><span class="annottext">setSourceRequest_vpcInterfaceName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SetSourceRequest -&gt; f SetSourceRequest
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#setSourceRequest_vpcInterfaceName"><span class="hs-identifier hs-var hs-var">setSourceRequest_vpcInterfaceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetSourceRequest -&gt; Maybe Text)
+-&gt; (SetSourceRequest -&gt; Maybe Text -&gt; SetSourceRequest)
+-&gt; Lens SetSourceRequest SetSourceRequest (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest%27"><span class="hs-identifier hs-type">SetSourceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269977"><span class="annot"><span class="annottext">Maybe Text
+vpcInterfaceName :: Maybe Text
+$sel:vpcInterfaceName:SetSourceRequest' :: SetSourceRequest -&gt; Maybe Text
+</span><a href="#local-6989586621679269977"><span class="hs-identifier hs-var hs-var">vpcInterfaceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269977"><span class="hs-identifier hs-var">vpcInterfaceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269976"><span class="annot"><span class="annottext">s :: SetSourceRequest
+</span><a href="#local-6989586621679269976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest%27"><span class="hs-identifier hs-type">SetSourceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269975"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetSourceRequest
+</span><a href="#local-6989586621679269976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcInterfaceName:SetSourceRequest' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#%24sel%3AvpcInterfaceName%3ASetSourceRequest%27"><span class="hs-identifier hs-var">vpcInterfaceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest"><span class="hs-identifier hs-type">SetSourceRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | The type of encryption that is used on the content ingested from this</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- source.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#setSourceRequest_decryption"><span class="hs-identifier hs-type">setSourceRequest_decryption</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest"><span class="hs-identifier hs-type">SetSourceRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="setSourceRequest_decryption"><span class="annot"><span class="annottext">setSourceRequest_decryption :: (Maybe Encryption -&gt; f (Maybe Encryption))
+-&gt; SetSourceRequest -&gt; f SetSourceRequest
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#setSourceRequest_decryption"><span class="hs-identifier hs-var hs-var">setSourceRequest_decryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetSourceRequest -&gt; Maybe Encryption)
+-&gt; (SetSourceRequest -&gt; Maybe Encryption -&gt; SetSourceRequest)
+-&gt; Lens
+     SetSourceRequest
+     SetSourceRequest
+     (Maybe Encryption)
+     (Maybe Encryption)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest%27"><span class="hs-identifier hs-type">SetSourceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269973"><span class="annot"><span class="annottext">Maybe Encryption
+decryption :: Maybe Encryption
+$sel:decryption:SetSourceRequest' :: SetSourceRequest -&gt; Maybe Encryption
+</span><a href="#local-6989586621679269973"><span class="hs-identifier hs-var hs-var">decryption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Encryption
+</span><a href="#local-6989586621679269973"><span class="hs-identifier hs-var">decryption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269972"><span class="annot"><span class="annottext">s :: SetSourceRequest
+</span><a href="#local-6989586621679269972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest%27"><span class="hs-identifier hs-type">SetSourceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269971"><span class="annot"><span class="annottext">Maybe Encryption
+</span><a href="#local-6989586621679269971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetSourceRequest
+</span><a href="#local-6989586621679269972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:decryption:SetSourceRequest' :: Maybe Encryption
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#%24sel%3Adecryption%3ASetSourceRequest%27"><span class="hs-identifier hs-var">decryption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Encryption
+</span><a href="#local-6989586621679269971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest"><span class="hs-identifier hs-type">SetSourceRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | The size of the buffer (in milliseconds) to use to sync incoming source</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- data.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#setSourceRequest_maxSyncBuffer"><span class="hs-identifier hs-type">setSourceRequest_maxSyncBuffer</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest"><span class="hs-identifier hs-type">SetSourceRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span id="setSourceRequest_maxSyncBuffer"><span class="annot"><span class="annottext">setSourceRequest_maxSyncBuffer :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; SetSourceRequest -&gt; f SetSourceRequest
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#setSourceRequest_maxSyncBuffer"><span class="hs-identifier hs-var hs-var">setSourceRequest_maxSyncBuffer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetSourceRequest -&gt; Maybe Int)
+-&gt; (SetSourceRequest -&gt; Maybe Int -&gt; SetSourceRequest)
+-&gt; Lens SetSourceRequest SetSourceRequest (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest%27"><span class="hs-identifier hs-type">SetSourceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269969"><span class="annot"><span class="annottext">Maybe Int
+maxSyncBuffer :: Maybe Int
+$sel:maxSyncBuffer:SetSourceRequest' :: SetSourceRequest -&gt; Maybe Int
+</span><a href="#local-6989586621679269969"><span class="hs-identifier hs-var hs-var">maxSyncBuffer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679269969"><span class="hs-identifier hs-var">maxSyncBuffer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269968"><span class="annot"><span class="annottext">s :: SetSourceRequest
+</span><a href="#local-6989586621679269968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest%27"><span class="hs-identifier hs-type">SetSourceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269967"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679269967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetSourceRequest
+</span><a href="#local-6989586621679269968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxSyncBuffer:SetSourceRequest' :: Maybe Int
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#%24sel%3AmaxSyncBuffer%3ASetSourceRequest%27"><span class="hs-identifier hs-var">maxSyncBuffer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679269967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest"><span class="hs-identifier hs-type">SetSourceRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | The protocol that is used by the source.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#setSourceRequest_protocol"><span class="hs-identifier hs-type">setSourceRequest_protocol</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest"><span class="hs-identifier hs-type">SetSourceRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Protocol.html#Protocol"><span class="hs-identifier hs-type">Protocol</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span id="setSourceRequest_protocol"><span class="annot"><span class="annottext">setSourceRequest_protocol :: (Maybe Protocol -&gt; f (Maybe Protocol))
+-&gt; SetSourceRequest -&gt; f SetSourceRequest
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#setSourceRequest_protocol"><span class="hs-identifier hs-var hs-var">setSourceRequest_protocol</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetSourceRequest -&gt; Maybe Protocol)
+-&gt; (SetSourceRequest -&gt; Maybe Protocol -&gt; SetSourceRequest)
+-&gt; Lens
+     SetSourceRequest SetSourceRequest (Maybe Protocol) (Maybe Protocol)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest%27"><span class="hs-identifier hs-type">SetSourceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269965"><span class="annot"><span class="annottext">Maybe Protocol
+protocol :: Maybe Protocol
+$sel:protocol:SetSourceRequest' :: SetSourceRequest -&gt; Maybe Protocol
+</span><a href="#local-6989586621679269965"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Protocol
+</span><a href="#local-6989586621679269965"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269964"><span class="annot"><span class="annottext">s :: SetSourceRequest
+</span><a href="#local-6989586621679269964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest%27"><span class="hs-identifier hs-type">SetSourceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269963"><span class="annot"><span class="annottext">Maybe Protocol
+</span><a href="#local-6989586621679269963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetSourceRequest
+</span><a href="#local-6989586621679269964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocol:SetSourceRequest' :: Maybe Protocol
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#%24sel%3Aprotocol%3ASetSourceRequest%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Protocol
+</span><a href="#local-6989586621679269963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest"><span class="hs-identifier hs-type">SetSourceRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | The name of the source.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#setSourceRequest_name"><span class="hs-identifier hs-type">setSourceRequest_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest"><span class="hs-identifier hs-type">SetSourceRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span id="setSourceRequest_name"><span class="annot"><span class="annottext">setSourceRequest_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SetSourceRequest -&gt; f SetSourceRequest
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#setSourceRequest_name"><span class="hs-identifier hs-var hs-var">setSourceRequest_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetSourceRequest -&gt; Maybe Text)
+-&gt; (SetSourceRequest -&gt; Maybe Text -&gt; SetSourceRequest)
+-&gt; Lens SetSourceRequest SetSourceRequest (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest%27"><span class="hs-identifier hs-type">SetSourceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269961"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:SetSourceRequest' :: SetSourceRequest -&gt; Maybe Text
+</span><a href="#local-6989586621679269961"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269961"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269960"><span class="annot"><span class="annottext">s :: SetSourceRequest
+</span><a href="#local-6989586621679269960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest%27"><span class="hs-identifier hs-type">SetSourceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269959"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetSourceRequest
+</span><a href="#local-6989586621679269960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:SetSourceRequest' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#%24sel%3Aname%3ASetSourceRequest%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest"><span class="hs-identifier hs-type">SetSourceRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | The minimum latency in milliseconds for SRT-based streams. In streams</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- that use the SRT protocol, this value that you set on your MediaConnect</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- source or output represents the minimal potential latency of that</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- connection. The latency of the stream is set to the highest number</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- between the sender&#8217;s minimum latency and the receiver&#8217;s minimum latency.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#setSourceRequest_minLatency"><span class="hs-identifier hs-type">setSourceRequest_minLatency</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest"><span class="hs-identifier hs-type">SetSourceRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="setSourceRequest_minLatency"><span class="annot"><span class="annottext">setSourceRequest_minLatency :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; SetSourceRequest -&gt; f SetSourceRequest
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#setSourceRequest_minLatency"><span class="hs-identifier hs-var hs-var">setSourceRequest_minLatency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetSourceRequest -&gt; Maybe Int)
+-&gt; (SetSourceRequest -&gt; Maybe Int -&gt; SetSourceRequest)
+-&gt; Lens SetSourceRequest SetSourceRequest (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest%27"><span class="hs-identifier hs-type">SetSourceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269957"><span class="annot"><span class="annottext">Maybe Int
+minLatency :: Maybe Int
+$sel:minLatency:SetSourceRequest' :: SetSourceRequest -&gt; Maybe Int
+</span><a href="#local-6989586621679269957"><span class="hs-identifier hs-var hs-var">minLatency</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679269957"><span class="hs-identifier hs-var">minLatency</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269956"><span class="annot"><span class="annottext">s :: SetSourceRequest
+</span><a href="#local-6989586621679269956"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest%27"><span class="hs-identifier hs-type">SetSourceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269955"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679269955"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetSourceRequest
+</span><a href="#local-6989586621679269956"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minLatency:SetSourceRequest' :: Maybe Int
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#%24sel%3AminLatency%3ASetSourceRequest%27"><span class="hs-identifier hs-var">minLatency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679269955"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest"><span class="hs-identifier hs-type">SetSourceRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The port that the flow will be listening on for incoming content.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#setSourceRequest_ingestPort"><span class="hs-identifier hs-type">setSourceRequest_ingestPort</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest"><span class="hs-identifier hs-type">SetSourceRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="setSourceRequest_ingestPort"><span class="annot"><span class="annottext">setSourceRequest_ingestPort :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; SetSourceRequest -&gt; f SetSourceRequest
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#setSourceRequest_ingestPort"><span class="hs-identifier hs-var hs-var">setSourceRequest_ingestPort</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetSourceRequest -&gt; Maybe Int)
+-&gt; (SetSourceRequest -&gt; Maybe Int -&gt; SetSourceRequest)
+-&gt; Lens SetSourceRequest SetSourceRequest (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest%27"><span class="hs-identifier hs-type">SetSourceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269953"><span class="annot"><span class="annottext">Maybe Int
+ingestPort :: Maybe Int
+$sel:ingestPort:SetSourceRequest' :: SetSourceRequest -&gt; Maybe Int
+</span><a href="#local-6989586621679269953"><span class="hs-identifier hs-var hs-var">ingestPort</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679269953"><span class="hs-identifier hs-var">ingestPort</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269952"><span class="annot"><span class="annottext">s :: SetSourceRequest
+</span><a href="#local-6989586621679269952"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest%27"><span class="hs-identifier hs-type">SetSourceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269951"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679269951"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetSourceRequest
+</span><a href="#local-6989586621679269952"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ingestPort:SetSourceRequest' :: Maybe Int
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#%24sel%3AingestPort%3ASetSourceRequest%27"><span class="hs-identifier hs-var">ingestPort</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679269951"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest"><span class="hs-identifier hs-type">SetSourceRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | A description for the source. This value is not used or seen outside of</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- the current AWS Elemental MediaConnect account.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#setSourceRequest_description"><span class="hs-identifier hs-type">setSourceRequest_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest"><span class="hs-identifier hs-type">SetSourceRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span id="setSourceRequest_description"><span class="annot"><span class="annottext">setSourceRequest_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SetSourceRequest -&gt; f SetSourceRequest
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#setSourceRequest_description"><span class="hs-identifier hs-var hs-var">setSourceRequest_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetSourceRequest -&gt; Maybe Text)
+-&gt; (SetSourceRequest -&gt; Maybe Text -&gt; SetSourceRequest)
+-&gt; Lens SetSourceRequest SetSourceRequest (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest%27"><span class="hs-identifier hs-type">SetSourceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269949"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:SetSourceRequest' :: SetSourceRequest -&gt; Maybe Text
+</span><a href="#local-6989586621679269949"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269949"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269948"><span class="annot"><span class="annottext">s :: SetSourceRequest
+</span><a href="#local-6989586621679269948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest%27"><span class="hs-identifier hs-type">SetSourceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269947"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetSourceRequest
+</span><a href="#local-6989586621679269948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:SetSourceRequest' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#%24sel%3Adescription%3ASetSourceRequest%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest"><span class="hs-identifier hs-type">SetSourceRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | The media streams that are associated with the source, and the</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- parameters for those associations.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#setSourceRequest_mediaStreamSourceConfigurations"><span class="hs-identifier hs-type">setSourceRequest_mediaStreamSourceConfigurations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest"><span class="hs-identifier hs-type">SetSourceRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.MediaStreamSourceConfigurationRequest.html#MediaStreamSourceConfigurationRequest"><span class="hs-identifier hs-type">MediaStreamSourceConfigurationRequest</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span id="setSourceRequest_mediaStreamSourceConfigurations"><span class="annot"><span class="annottext">setSourceRequest_mediaStreamSourceConfigurations :: (Maybe [MediaStreamSourceConfigurationRequest]
+ -&gt; f (Maybe [MediaStreamSourceConfigurationRequest]))
+-&gt; SetSourceRequest -&gt; f SetSourceRequest
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#setSourceRequest_mediaStreamSourceConfigurations"><span class="hs-identifier hs-var hs-var">setSourceRequest_mediaStreamSourceConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetSourceRequest -&gt; Maybe [MediaStreamSourceConfigurationRequest])
+-&gt; (SetSourceRequest
+    -&gt; Maybe [MediaStreamSourceConfigurationRequest]
+    -&gt; SetSourceRequest)
+-&gt; Lens
+     SetSourceRequest
+     SetSourceRequest
+     (Maybe [MediaStreamSourceConfigurationRequest])
+     (Maybe [MediaStreamSourceConfigurationRequest])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest%27"><span class="hs-identifier hs-type">SetSourceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269945"><span class="annot"><span class="annottext">Maybe [MediaStreamSourceConfigurationRequest]
+mediaStreamSourceConfigurations :: Maybe [MediaStreamSourceConfigurationRequest]
+$sel:mediaStreamSourceConfigurations:SetSourceRequest' :: SetSourceRequest -&gt; Maybe [MediaStreamSourceConfigurationRequest]
+</span><a href="#local-6989586621679269945"><span class="hs-identifier hs-var hs-var">mediaStreamSourceConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MediaStreamSourceConfigurationRequest]
+</span><a href="#local-6989586621679269945"><span class="hs-identifier hs-var">mediaStreamSourceConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269944"><span class="annot"><span class="annottext">s :: SetSourceRequest
+</span><a href="#local-6989586621679269944"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest%27"><span class="hs-identifier hs-type">SetSourceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269943"><span class="annot"><span class="annottext">Maybe [MediaStreamSourceConfigurationRequest]
+</span><a href="#local-6989586621679269943"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetSourceRequest
+</span><a href="#local-6989586621679269944"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mediaStreamSourceConfigurations:SetSourceRequest' :: Maybe [MediaStreamSourceConfigurationRequest]
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#%24sel%3AmediaStreamSourceConfigurations%3ASetSourceRequest%27"><span class="hs-identifier hs-var">mediaStreamSourceConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MediaStreamSourceConfigurationRequest]
+</span><a href="#local-6989586621679269943"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest"><span class="hs-identifier hs-type">SetSourceRequest</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MediaStreamSourceConfigurationRequest]
+  -&gt; f (Maybe [MediaStreamSourceConfigurationRequest]))
+ -&gt; SetSourceRequest -&gt; f SetSourceRequest)
+-&gt; ((Maybe [MediaStreamSourceConfigurationRequest]
+     -&gt; f (Maybe [MediaStreamSourceConfigurationRequest]))
+    -&gt; Maybe [MediaStreamSourceConfigurationRequest]
+    -&gt; f (Maybe [MediaStreamSourceConfigurationRequest]))
+-&gt; (Maybe [MediaStreamSourceConfigurationRequest]
+    -&gt; f (Maybe [MediaStreamSourceConfigurationRequest]))
+-&gt; SetSourceRequest
+-&gt; f SetSourceRequest
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [MediaStreamSourceConfigurationRequest]
+  [MediaStreamSourceConfigurationRequest]
+  [MediaStreamSourceConfigurationRequest]
+  [MediaStreamSourceConfigurationRequest]
+-&gt; Iso
+     (Maybe [MediaStreamSourceConfigurationRequest])
+     (Maybe [MediaStreamSourceConfigurationRequest])
+     (Maybe [MediaStreamSourceConfigurationRequest])
+     (Maybe [MediaStreamSourceConfigurationRequest])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [MediaStreamSourceConfigurationRequest]
+  [MediaStreamSourceConfigurationRequest]
+  [MediaStreamSourceConfigurationRequest]
+  [MediaStreamSourceConfigurationRequest]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | The range of IP addresses that should be allowed to contribute content</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- to your source. These IP addresses should be in the form of a Classless</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- Inter-Domain Routing (CIDR) block; for example, 10.0.0.0\/16.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#setSourceRequest_whitelistCidr"><span class="hs-identifier hs-type">setSourceRequest_whitelistCidr</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest"><span class="hs-identifier hs-type">SetSourceRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span id="setSourceRequest_whitelistCidr"><span class="annot"><span class="annottext">setSourceRequest_whitelistCidr :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SetSourceRequest -&gt; f SetSourceRequest
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#setSourceRequest_whitelistCidr"><span class="hs-identifier hs-var hs-var">setSourceRequest_whitelistCidr</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetSourceRequest -&gt; Maybe Text)
+-&gt; (SetSourceRequest -&gt; Maybe Text -&gt; SetSourceRequest)
+-&gt; Lens SetSourceRequest SetSourceRequest (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest%27"><span class="hs-identifier hs-type">SetSourceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269938"><span class="annot"><span class="annottext">Maybe Text
+whitelistCidr :: Maybe Text
+$sel:whitelistCidr:SetSourceRequest' :: SetSourceRequest -&gt; Maybe Text
+</span><a href="#local-6989586621679269938"><span class="hs-identifier hs-var hs-var">whitelistCidr</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269938"><span class="hs-identifier hs-var">whitelistCidr</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269937"><span class="annot"><span class="annottext">s :: SetSourceRequest
+</span><a href="#local-6989586621679269937"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest%27"><span class="hs-identifier hs-type">SetSourceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269936"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269936"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetSourceRequest
+</span><a href="#local-6989586621679269937"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:whitelistCidr:SetSourceRequest' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#%24sel%3AwhitelistCidr%3ASetSourceRequest%27"><span class="hs-identifier hs-var">whitelistCidr</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269936"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest"><span class="hs-identifier hs-type">SetSourceRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#setSourceRequest_maxBitrate"><span class="hs-identifier hs-type">setSourceRequest_maxBitrate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest"><span class="hs-identifier hs-type">SetSourceRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span id="setSourceRequest_maxBitrate"><span class="annot"><span class="annottext">setSourceRequest_maxBitrate :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; SetSourceRequest -&gt; f SetSourceRequest
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#setSourceRequest_maxBitrate"><span class="hs-identifier hs-var hs-var">setSourceRequest_maxBitrate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetSourceRequest -&gt; Maybe Int)
+-&gt; (SetSourceRequest -&gt; Maybe Int -&gt; SetSourceRequest)
+-&gt; Lens SetSourceRequest SetSourceRequest (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest%27"><span class="hs-identifier hs-type">SetSourceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269934"><span class="annot"><span class="annottext">Maybe Int
+maxBitrate :: Maybe Int
+$sel:maxBitrate:SetSourceRequest' :: SetSourceRequest -&gt; Maybe Int
+</span><a href="#local-6989586621679269934"><span class="hs-identifier hs-var hs-var">maxBitrate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679269934"><span class="hs-identifier hs-var">maxBitrate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269933"><span class="annot"><span class="annottext">s :: SetSourceRequest
+</span><a href="#local-6989586621679269933"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest%27"><span class="hs-identifier hs-type">SetSourceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269932"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679269932"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetSourceRequest
+</span><a href="#local-6989586621679269933"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxBitrate:SetSourceRequest' :: Maybe Int
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#%24sel%3AmaxBitrate%3ASetSourceRequest%27"><span class="hs-identifier hs-var">maxBitrate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679269932"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest"><span class="hs-identifier hs-type">SetSourceRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | The stream ID that you want to use for this transport. This parameter</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- applies only to Zixi-based streams.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#setSourceRequest_streamId"><span class="hs-identifier hs-type">setSourceRequest_streamId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest"><span class="hs-identifier hs-type">SetSourceRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="setSourceRequest_streamId"><span class="annot"><span class="annottext">setSourceRequest_streamId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SetSourceRequest -&gt; f SetSourceRequest
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#setSourceRequest_streamId"><span class="hs-identifier hs-var hs-var">setSourceRequest_streamId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SetSourceRequest -&gt; Maybe Text)
+-&gt; (SetSourceRequest -&gt; Maybe Text -&gt; SetSourceRequest)
+-&gt; Lens SetSourceRequest SetSourceRequest (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest%27"><span class="hs-identifier hs-type">SetSourceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269930"><span class="annot"><span class="annottext">Maybe Text
+streamId :: Maybe Text
+$sel:streamId:SetSourceRequest' :: SetSourceRequest -&gt; Maybe Text
+</span><a href="#local-6989586621679269930"><span class="hs-identifier hs-var hs-var">streamId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269930"><span class="hs-identifier hs-var">streamId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269929"><span class="annot"><span class="annottext">s :: SetSourceRequest
+</span><a href="#local-6989586621679269929"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest%27"><span class="hs-identifier hs-type">SetSourceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269928"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269928"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetSourceRequest
+</span><a href="#local-6989586621679269929"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamId:SetSourceRequest' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#%24sel%3AstreamId%3ASetSourceRequest%27"><span class="hs-identifier hs-var">streamId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269928"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest"><span class="hs-identifier hs-type">SetSourceRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269924"><span id="local-6989586621679269926"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest"><span class="hs-identifier hs-type">SetSourceRequest</span></a></span></span></span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269921"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest"><span class="hs-identifier hs-type">SetSourceRequest</span></a></span></span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269913"><span id="local-6989586621679269915"><span id="local-6989586621679269917"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest"><span class="hs-identifier hs-type">SetSourceRequest</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-222"></span><span>  </span><span id="local-6989586621679269911"><span class="annot"><span class="annottext">toJSON :: SetSourceRequest -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.SetSourceRequest.html#SetSourceRequest%27"><span class="hs-identifier hs-type">SetSourceRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269896"><span id="local-6989586621679269897"><span id="local-6989586621679269898"><span id="local-6989586621679269899"><span id="local-6989586621679269900"><span id="local-6989586621679269901"><span id="local-6989586621679269902"><span id="local-6989586621679269903"><span id="local-6989586621679269904"><span id="local-6989586621679269905"><span id="local-6989586621679269906"><span id="local-6989586621679269907"><span id="local-6989586621679269908"><span id="local-6989586621679269909"><span class="annot"><span class="annottext">Maybe Int
+Maybe [MediaStreamSourceConfigurationRequest]
+Maybe Text
+Maybe Encryption
+Maybe Protocol
+streamId :: Maybe Text
+maxBitrate :: Maybe Int
+whitelistCidr :: Maybe Text
+mediaStreamSourceConfigurations :: Maybe [MediaStreamSourceConfigurationRequest]
+description :: Maybe Text
+ingestPort :: Maybe Int
+minLatency :: Maybe Int
+name :: Maybe Text
+protocol :: Maybe Protocol
+maxSyncBuffer :: Maybe Int
+decryption :: Maybe Encryption
+vpcInterfaceName :: Maybe Text
+maxLatency :: Maybe Int
+entitlementArn :: Maybe Text
+$sel:streamId:SetSourceRequest' :: SetSourceRequest -&gt; Maybe Text
+$sel:maxBitrate:SetSourceRequest' :: SetSourceRequest -&gt; Maybe Int
+$sel:whitelistCidr:SetSourceRequest' :: SetSourceRequest -&gt; Maybe Text
+$sel:mediaStreamSourceConfigurations:SetSourceRequest' :: SetSourceRequest -&gt; Maybe [MediaStreamSourceConfigurationRequest]
+$sel:description:SetSourceRequest' :: SetSourceRequest -&gt; Maybe Text
+$sel:ingestPort:SetSourceRequest' :: SetSourceRequest -&gt; Maybe Int
+$sel:minLatency:SetSourceRequest' :: SetSourceRequest -&gt; Maybe Int
+$sel:name:SetSourceRequest' :: SetSourceRequest -&gt; Maybe Text
+$sel:protocol:SetSourceRequest' :: SetSourceRequest -&gt; Maybe Protocol
+$sel:maxSyncBuffer:SetSourceRequest' :: SetSourceRequest -&gt; Maybe Int
+$sel:decryption:SetSourceRequest' :: SetSourceRequest -&gt; Maybe Encryption
+$sel:vpcInterfaceName:SetSourceRequest' :: SetSourceRequest -&gt; Maybe Text
+$sel:maxLatency:SetSourceRequest' :: SetSourceRequest -&gt; Maybe Int
+$sel:entitlementArn:SetSourceRequest' :: SetSourceRequest -&gt; Maybe Text
+</span><a href="#local-6989586621679269896"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-223"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-224"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-225"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;entitlementArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269909"><span class="hs-identifier hs-var">entitlementArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxLatency&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679269908"><span class="hs-identifier hs-var">maxLatency</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;vpcInterfaceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269907"><span class="hs-identifier hs-var">vpcInterfaceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;decryption&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Encryption -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Encryption -&gt; Pair) -&gt; Maybe Encryption -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Encryption
+</span><a href="#local-6989586621679269906"><span class="hs-identifier hs-var">decryption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxSyncBuffer&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679269905"><span class="hs-identifier hs-var">maxSyncBuffer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;protocol&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Protocol -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Protocol -&gt; Pair) -&gt; Maybe Protocol -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Protocol
+</span><a href="#local-6989586621679269904"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269903"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;minLatency&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679269902"><span class="hs-identifier hs-var">minLatency</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ingestPort&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679269901"><span class="hs-identifier hs-var">ingestPort</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269900"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;mediaStreamSourceConfigurations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [MediaStreamSourceConfigurationRequest] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>              </span><span class="annot"><span class="annottext">([MediaStreamSourceConfigurationRequest] -&gt; Pair)
+-&gt; Maybe [MediaStreamSourceConfigurationRequest] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [MediaStreamSourceConfigurationRequest]
+</span><a href="#local-6989586621679269899"><span class="hs-identifier hs-var">mediaStreamSourceConfigurations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;whitelistCidr&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269898"><span class="hs-identifier hs-var">whitelistCidr</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-240"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxBitrate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679269897"><span class="hs-identifier hs-var">maxBitrate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;streamId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269896"><span class="hs-identifier hs-var">streamId</span></a></span><span>
+</span><span id="line-242"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-243"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span></pre></body></html>

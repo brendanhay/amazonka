@@ -58,7 +58,7 @@
 </span><span id="line-58"></span><span class="hs-comment">-- | Represents the input of a @ListApplicationRevisions@ operation.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- /See:/ 'newListApplicationRevisions' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621679321760"><span id="local-6989586621679321761"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListApplicationRevisions"><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions"><span class="hs-identifier hs-var">ListApplicationRevisions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListApplicationRevisions%27"><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions%27"><span class="hs-identifier hs-var">ListApplicationRevisions'</span></a></span></span><span>
+</span><span id="line-61"></span><span id="local-6989586621679321769"><span id="local-6989586621679321770"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListApplicationRevisions"><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions"><span class="hs-identifier hs-var">ListApplicationRevisions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListApplicationRevisions%27"><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions%27"><span class="hs-identifier hs-var">ListApplicationRevisions'</span></a></span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A key prefix for the set of Amazon S3 objects to limit the search for</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- revisions.</span><span>
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3As3KeyPrefix%3AListApplicationRevisions%27"><span class="annot"><span class="annottext">ListApplicationRevisions -&gt; Maybe Text
@@ -115,7 +115,7 @@
 </span><span id="line-109"></span><span>    </span><span id="%24sel%3AapplicationName%3AListApplicationRevisions%27"><span class="annot"><span class="annottext">ListApplicationRevisions -&gt; Text
 </span><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#%24sel%3AapplicationName%3AListApplicationRevisions%27"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-110"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-111"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679321748"><span id="local-6989586621679321750"><span class="annot"><span class="annottext">ListApplicationRevisions -&gt; ListApplicationRevisions -&gt; Bool
+</span><span id="line-111"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679321757"><span id="local-6989586621679321759"><span class="annot"><span class="annottext">ListApplicationRevisions -&gt; ListApplicationRevisions -&gt; Bool
 (ListApplicationRevisions -&gt; ListApplicationRevisions -&gt; Bool)
 -&gt; (ListApplicationRevisions -&gt; ListApplicationRevisions -&gt; Bool)
 -&gt; Eq ListApplicationRevisions
@@ -124,7 +124,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListApplicationRevisions -&gt; ListApplicationRevisions -&gt; Bool
 == :: ListApplicationRevisions -&gt; ListApplicationRevisions -&gt; Bool
 $c== :: ListApplicationRevisions -&gt; ListApplicationRevisions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679321739"><span id="local-6989586621679321741"><span id="local-6989586621679321743"><span id="local-6989586621679321745"><span class="annot"><span class="annottext">ReadPrec [ListApplicationRevisions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679321748"><span id="local-6989586621679321750"><span id="local-6989586621679321752"><span id="local-6989586621679321754"><span class="annot"><span class="annottext">ReadPrec [ListApplicationRevisions]
 ReadPrec ListApplicationRevisions
 Int -&gt; ReadS ListApplicationRevisions
 ReadS [ListApplicationRevisions]
@@ -144,7 +144,7 @@ readList :: ReadS [ListApplicationRevisions]
 $creadList :: ReadS [ListApplicationRevisions]
 readsPrec :: Int -&gt; ReadS ListApplicationRevisions
 $creadsPrec :: Int -&gt; ReadS ListApplicationRevisions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679321732"><span id="local-6989586621679321734"><span id="local-6989586621679321736"><span class="annot"><span class="annottext">Int -&gt; ListApplicationRevisions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679321741"><span id="local-6989586621679321743"><span id="local-6989586621679321745"><span class="annot"><span class="annottext">Int -&gt; ListApplicationRevisions -&gt; ShowS
 [ListApplicationRevisions] -&gt; ShowS
 ListApplicationRevisions -&gt; String
 (Int -&gt; ListApplicationRevisions -&gt; ShowS)
@@ -236,8 +236,8 @@ ListApplicationRevisions -&gt; Rep ListApplicationRevisions x
 </span><span id="line-170"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-171"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions"><span class="hs-identifier hs-type">ListApplicationRevisions</span></a></span><span>
 </span><span id="line-172"></span><span id="newListApplicationRevisions"><span class="annot"><span class="annottext">newListApplicationRevisions :: Text -&gt; ListApplicationRevisions
-</span><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#newListApplicationRevisions"><span class="hs-identifier hs-var hs-var">newListApplicationRevisions</span></a></span></span><span> </span><span id="local-6989586621679321727"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679321727"><span class="hs-identifier hs-var">pApplicationName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#newListApplicationRevisions"><span class="hs-identifier hs-var hs-var">newListApplicationRevisions</span></a></span></span><span> </span><span id="local-6989586621679321736"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679321736"><span class="hs-identifier hs-var">pApplicationName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-173"></span><span>  </span><span class="annot"><span class="annottext">ListApplicationRevisions' :: Maybe Text
 -&gt; Maybe ListStateFilterAction
 -&gt; Maybe SortOrder
@@ -274,7 +274,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:applicationName:ListApplicationRevisions' :: Text
 </span><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#%24sel%3AapplicationName%3AListApplicationRevisions%27"><span class="hs-identifier hs-var">applicationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679321727"><span class="hs-identifier hs-var">pApplicationName_</span></a></span><span>
+</span><a href="#local-6989586621679321736"><span class="hs-identifier hs-var">pApplicationName_</span></a></span><span>
 </span><span id="line-182"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- | A key prefix for the set of Amazon S3 objects to limit the search for</span><span>
@@ -291,16 +291,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions%27"><span class="hs-identifier hs-type">ListApplicationRevisions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321725"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions%27"><span class="hs-identifier hs-type">ListApplicationRevisions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321734"><span class="annot"><span class="annottext">Maybe Text
 s3KeyPrefix :: Maybe Text
 $sel:s3KeyPrefix:ListApplicationRevisions' :: ListApplicationRevisions -&gt; Maybe Text
-</span><a href="#local-6989586621679321725"><span class="hs-identifier hs-var hs-var">s3KeyPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679321725"><span class="hs-identifier hs-var">s3KeyPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321724"><span class="annot"><span class="annottext">s :: ListApplicationRevisions
-</span><a href="#local-6989586621679321724"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions%27"><span class="hs-identifier hs-type">ListApplicationRevisions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321723"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679321723"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationRevisions
-</span><a href="#local-6989586621679321724"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3KeyPrefix:ListApplicationRevisions' :: Maybe Text
+</span><a href="#local-6989586621679321734"><span class="hs-identifier hs-var hs-var">s3KeyPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679321734"><span class="hs-identifier hs-var">s3KeyPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321733"><span class="annot"><span class="annottext">s :: ListApplicationRevisions
+</span><a href="#local-6989586621679321733"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions%27"><span class="hs-identifier hs-type">ListApplicationRevisions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321732"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679321732"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationRevisions
+</span><a href="#local-6989586621679321733"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3KeyPrefix:ListApplicationRevisions' :: Maybe Text
 </span><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#%24sel%3As3KeyPrefix%3AListApplicationRevisions%27"><span class="hs-identifier hs-var">s3KeyPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679321723"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions"><span class="hs-identifier hs-type">ListApplicationRevisions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679321732"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions"><span class="hs-identifier hs-type">ListApplicationRevisions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-comment">-- | Whether to list revisions based on whether the revision is the target</span><span>
 </span><span id="line-190"></span><span class="hs-comment">-- revision of a deployment group:</span><span>
@@ -324,16 +324,16 @@ $sel:s3KeyPrefix:ListApplicationRevisions' :: ListApplicationRevisions -&gt; May
      (Maybe ListStateFilterAction)
      (Maybe ListStateFilterAction)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions%27"><span class="hs-identifier hs-type">ListApplicationRevisions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321722"><span class="annot"><span class="annottext">Maybe ListStateFilterAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions%27"><span class="hs-identifier hs-type">ListApplicationRevisions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321731"><span class="annot"><span class="annottext">Maybe ListStateFilterAction
 deployed :: Maybe ListStateFilterAction
 $sel:deployed:ListApplicationRevisions' :: ListApplicationRevisions -&gt; Maybe ListStateFilterAction
-</span><a href="#local-6989586621679321722"><span class="hs-identifier hs-var hs-var">deployed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ListStateFilterAction
-</span><a href="#local-6989586621679321722"><span class="hs-identifier hs-var">deployed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321721"><span class="annot"><span class="annottext">s :: ListApplicationRevisions
-</span><a href="#local-6989586621679321721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions%27"><span class="hs-identifier hs-type">ListApplicationRevisions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321720"><span class="annot"><span class="annottext">Maybe ListStateFilterAction
-</span><a href="#local-6989586621679321720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationRevisions
-</span><a href="#local-6989586621679321721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deployed:ListApplicationRevisions' :: Maybe ListStateFilterAction
+</span><a href="#local-6989586621679321731"><span class="hs-identifier hs-var hs-var">deployed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ListStateFilterAction
+</span><a href="#local-6989586621679321731"><span class="hs-identifier hs-var">deployed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321730"><span class="annot"><span class="annottext">s :: ListApplicationRevisions
+</span><a href="#local-6989586621679321730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions%27"><span class="hs-identifier hs-type">ListApplicationRevisions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321729"><span class="annot"><span class="annottext">Maybe ListStateFilterAction
+</span><a href="#local-6989586621679321729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationRevisions
+</span><a href="#local-6989586621679321730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deployed:ListApplicationRevisions' :: Maybe ListStateFilterAction
 </span><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#%24sel%3Adeployed%3AListApplicationRevisions%27"><span class="hs-identifier hs-var">deployed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ListStateFilterAction
-</span><a href="#local-6989586621679321720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions"><span class="hs-identifier hs-type">ListApplicationRevisions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679321729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions"><span class="hs-identifier hs-type">ListApplicationRevisions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-comment">-- | The order in which to sort the list results:</span><span>
 </span><span id="line-203"></span><span class="hs-comment">--</span><span>
@@ -356,16 +356,16 @@ $sel:deployed:ListApplicationRevisions' :: ListApplicationRevisions -&gt; Maybe 
      (Maybe SortOrder)
      (Maybe SortOrder)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions%27"><span class="hs-identifier hs-type">ListApplicationRevisions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321719"><span class="annot"><span class="annottext">Maybe SortOrder
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions%27"><span class="hs-identifier hs-type">ListApplicationRevisions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321728"><span class="annot"><span class="annottext">Maybe SortOrder
 sortOrder :: Maybe SortOrder
 $sel:sortOrder:ListApplicationRevisions' :: ListApplicationRevisions -&gt; Maybe SortOrder
-</span><a href="#local-6989586621679321719"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
-</span><a href="#local-6989586621679321719"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321718"><span class="annot"><span class="annottext">s :: ListApplicationRevisions
-</span><a href="#local-6989586621679321718"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions%27"><span class="hs-identifier hs-type">ListApplicationRevisions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321717"><span class="annot"><span class="annottext">Maybe SortOrder
-</span><a href="#local-6989586621679321717"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationRevisions
-</span><a href="#local-6989586621679321718"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortOrder:ListApplicationRevisions' :: Maybe SortOrder
+</span><a href="#local-6989586621679321728"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621679321728"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321727"><span class="annot"><span class="annottext">s :: ListApplicationRevisions
+</span><a href="#local-6989586621679321727"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions%27"><span class="hs-identifier hs-type">ListApplicationRevisions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321726"><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621679321726"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationRevisions
+</span><a href="#local-6989586621679321727"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortOrder:ListApplicationRevisions' :: Maybe SortOrder
 </span><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#%24sel%3AsortOrder%3AListApplicationRevisions%27"><span class="hs-identifier hs-var">sortOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
-</span><a href="#local-6989586621679321717"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions"><span class="hs-identifier hs-type">ListApplicationRevisions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679321726"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions"><span class="hs-identifier hs-type">ListApplicationRevisions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-213"></span><span>
 </span><span id="line-214"></span><span class="hs-comment">-- | An identifier returned from the previous @ListApplicationRevisions@</span><span>
 </span><span id="line-215"></span><span class="hs-comment">-- call. It can be used to return the next set of applications in the list.</span><span>
@@ -381,16 +381,16 @@ $sel:sortOrder:ListApplicationRevisions' :: ListApplicationRevisions -&gt; Maybe
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions%27"><span class="hs-identifier hs-type">ListApplicationRevisions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321716"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions%27"><span class="hs-identifier hs-type">ListApplicationRevisions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321725"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListApplicationRevisions' :: ListApplicationRevisions -&gt; Maybe Text
-</span><a href="#local-6989586621679321716"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679321716"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321715"><span class="annot"><span class="annottext">s :: ListApplicationRevisions
-</span><a href="#local-6989586621679321715"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions%27"><span class="hs-identifier hs-type">ListApplicationRevisions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321714"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679321714"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationRevisions
-</span><a href="#local-6989586621679321715"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListApplicationRevisions' :: Maybe Text
+</span><a href="#local-6989586621679321725"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679321725"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321724"><span class="annot"><span class="annottext">s :: ListApplicationRevisions
+</span><a href="#local-6989586621679321724"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions%27"><span class="hs-identifier hs-type">ListApplicationRevisions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321723"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679321723"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationRevisions
+</span><a href="#local-6989586621679321724"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListApplicationRevisions' :: Maybe Text
 </span><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#%24sel%3AnextToken%3AListApplicationRevisions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679321714"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions"><span class="hs-identifier hs-type">ListApplicationRevisions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679321723"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions"><span class="hs-identifier hs-type">ListApplicationRevisions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-218"></span><span>
 </span><span id="line-219"></span><span class="hs-comment">-- | An Amazon S3 bucket name to limit the search for revisions.</span><span>
 </span><span id="line-220"></span><span class="hs-comment">--</span><span>
@@ -407,16 +407,16 @@ $sel:nextToken:ListApplicationRevisions' :: ListApplicationRevisions -&gt; Maybe
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions%27"><span class="hs-identifier hs-type">ListApplicationRevisions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321713"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions%27"><span class="hs-identifier hs-type">ListApplicationRevisions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321722"><span class="annot"><span class="annottext">Maybe Text
 s3Bucket :: Maybe Text
 $sel:s3Bucket:ListApplicationRevisions' :: ListApplicationRevisions -&gt; Maybe Text
-</span><a href="#local-6989586621679321713"><span class="hs-identifier hs-var hs-var">s3Bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679321713"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321712"><span class="annot"><span class="annottext">s :: ListApplicationRevisions
-</span><a href="#local-6989586621679321712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions%27"><span class="hs-identifier hs-type">ListApplicationRevisions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321711"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679321711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationRevisions
-</span><a href="#local-6989586621679321712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Bucket:ListApplicationRevisions' :: Maybe Text
+</span><a href="#local-6989586621679321722"><span class="hs-identifier hs-var hs-var">s3Bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679321722"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321721"><span class="annot"><span class="annottext">s :: ListApplicationRevisions
+</span><a href="#local-6989586621679321721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions%27"><span class="hs-identifier hs-type">ListApplicationRevisions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321720"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679321720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationRevisions
+</span><a href="#local-6989586621679321721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Bucket:ListApplicationRevisions' :: Maybe Text
 </span><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#%24sel%3As3Bucket%3AListApplicationRevisions%27"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679321711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions"><span class="hs-identifier hs-type">ListApplicationRevisions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679321720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions"><span class="hs-identifier hs-type">ListApplicationRevisions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-224"></span><span>
 </span><span id="line-225"></span><span class="hs-comment">-- | The column name to use to sort the list results:</span><span>
 </span><span id="line-226"></span><span class="hs-comment">--</span><span>
@@ -444,16 +444,16 @@ $sel:s3Bucket:ListApplicationRevisions' :: ListApplicationRevisions -&gt; Maybe 
      (Maybe ApplicationRevisionSortBy)
      (Maybe ApplicationRevisionSortBy)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions%27"><span class="hs-identifier hs-type">ListApplicationRevisions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321710"><span class="annot"><span class="annottext">Maybe ApplicationRevisionSortBy
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions%27"><span class="hs-identifier hs-type">ListApplicationRevisions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321719"><span class="annot"><span class="annottext">Maybe ApplicationRevisionSortBy
 sortBy :: Maybe ApplicationRevisionSortBy
 $sel:sortBy:ListApplicationRevisions' :: ListApplicationRevisions -&gt; Maybe ApplicationRevisionSortBy
-</span><a href="#local-6989586621679321710"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationRevisionSortBy
-</span><a href="#local-6989586621679321710"><span class="hs-identifier hs-var">sortBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321709"><span class="annot"><span class="annottext">s :: ListApplicationRevisions
-</span><a href="#local-6989586621679321709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions%27"><span class="hs-identifier hs-type">ListApplicationRevisions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321708"><span class="annot"><span class="annottext">Maybe ApplicationRevisionSortBy
-</span><a href="#local-6989586621679321708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationRevisions
-</span><a href="#local-6989586621679321709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortBy:ListApplicationRevisions' :: Maybe ApplicationRevisionSortBy
+</span><a href="#local-6989586621679321719"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationRevisionSortBy
+</span><a href="#local-6989586621679321719"><span class="hs-identifier hs-var">sortBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321718"><span class="annot"><span class="annottext">s :: ListApplicationRevisions
+</span><a href="#local-6989586621679321718"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions%27"><span class="hs-identifier hs-type">ListApplicationRevisions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321717"><span class="annot"><span class="annottext">Maybe ApplicationRevisionSortBy
+</span><a href="#local-6989586621679321717"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationRevisions
+</span><a href="#local-6989586621679321718"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortBy:ListApplicationRevisions' :: Maybe ApplicationRevisionSortBy
 </span><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#%24sel%3AsortBy%3AListApplicationRevisions%27"><span class="hs-identifier hs-var">sortBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationRevisionSortBy
-</span><a href="#local-6989586621679321708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions"><span class="hs-identifier hs-type">ListApplicationRevisions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679321717"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions"><span class="hs-identifier hs-type">ListApplicationRevisions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-240"></span><span>
 </span><span id="line-241"></span><span class="hs-comment">-- | The name of an AWS CodeDeploy application associated with the IAM user</span><span>
 </span><span id="line-242"></span><span class="hs-comment">-- or AWS account.</span><span>
@@ -464,30 +464,30 @@ $sel:sortBy:ListApplicationRevisions' :: ListApplicationRevisions -&gt; Maybe Ap
 -&gt; (ListApplicationRevisions -&gt; Text -&gt; ListApplicationRevisions)
 -&gt; Lens ListApplicationRevisions ListApplicationRevisions Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions%27"><span class="hs-identifier hs-type">ListApplicationRevisions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321707"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions%27"><span class="hs-identifier hs-type">ListApplicationRevisions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321716"><span class="annot"><span class="annottext">Text
 applicationName :: Text
 $sel:applicationName:ListApplicationRevisions' :: ListApplicationRevisions -&gt; Text
-</span><a href="#local-6989586621679321707"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679321707"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321706"><span class="annot"><span class="annottext">s :: ListApplicationRevisions
-</span><a href="#local-6989586621679321706"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions%27"><span class="hs-identifier hs-type">ListApplicationRevisions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321705"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679321705"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationRevisions
-</span><a href="#local-6989586621679321706"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationName:ListApplicationRevisions' :: Text
+</span><a href="#local-6989586621679321716"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679321716"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321715"><span class="annot"><span class="annottext">s :: ListApplicationRevisions
+</span><a href="#local-6989586621679321715"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions%27"><span class="hs-identifier hs-type">ListApplicationRevisions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321714"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679321714"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationRevisions
+</span><a href="#local-6989586621679321715"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationName:ListApplicationRevisions' :: Text
 </span><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#%24sel%3AapplicationName%3AListApplicationRevisions%27"><span class="hs-identifier hs-var">applicationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679321705"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions"><span class="hs-identifier hs-type">ListApplicationRevisions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679321714"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions"><span class="hs-identifier hs-type">ListApplicationRevisions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-245"></span><span>
 </span><span id="line-246"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions"><span class="hs-identifier hs-type">ListApplicationRevisions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-247"></span><span>  </span><span id="local-6989586621679321701"><span class="annot"><span class="annottext">page :: ListApplicationRevisions
+</span><span id="line-247"></span><span>  </span><span id="local-6989586621679321710"><span class="annot"><span class="annottext">page :: ListApplicationRevisions
 -&gt; AWSResponse ListApplicationRevisions
 -&gt; Maybe ListApplicationRevisions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679321699"><span class="annot"><span class="annottext">ListApplicationRevisions
-</span><a href="#local-6989586621679321699"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679321698"><span class="annot"><span class="annottext">AWSResponse ListApplicationRevisions
-</span><a href="#local-6989586621679321698"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679321708"><span class="annot"><span class="annottext">ListApplicationRevisions
+</span><a href="#local-6989586621679321708"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679321707"><span class="annot"><span class="annottext">AWSResponse ListApplicationRevisions
+</span><a href="#local-6989586621679321707"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-248"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-249"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListApplicationRevisions
 ListApplicationRevisionsResponse
-</span><a href="#local-6989586621679321698"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679321707"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-250"></span><span>            </span><span class="annot"><span class="annottext">ListApplicationRevisionsResponse
 -&gt; Getting (First Text) ListApplicationRevisionsResponse Text
 -&gt; Maybe Text
@@ -517,7 +517,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-255"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListApplicationRevisions
 ListApplicationRevisionsResponse
-</span><a href="#local-6989586621679321698"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679321707"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-256"></span><span>            </span><span class="annot"><span class="annottext">ListApplicationRevisionsResponse
 -&gt; Getting
      (First [RevisionLocation])
@@ -565,7 +565,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-262"></span><span>        </span><span class="annot"><span class="annottext">ListApplicationRevisions
-</span><a href="#local-6989586621679321699"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679321708"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-263"></span><span>          </span><span class="annot"><span class="annottext">ListApplicationRevisions
 -&gt; (ListApplicationRevisions -&gt; ListApplicationRevisions)
 -&gt; ListApplicationRevisions
@@ -586,7 +586,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListApplicationRevisions
 ListApplicationRevisionsResponse
-</span><a href="#local-6989586621679321698"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679321707"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-265"></span><span>          </span><span class="annot"><span class="annottext">ListApplicationRevisionsResponse
 -&gt; Getting (First Text) ListApplicationRevisionsResponse Text
 -&gt; Maybe Text
@@ -612,13 +612,13 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-269"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-270"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions"><span class="hs-identifier hs-type">ListApplicationRevisions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-271"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisionsResponse"><span class="hs-identifier hs-type">ListApplicationRevisionsResponse</span></a></span><span>
-</span><span id="line-272"></span><span>  </span><span id="local-6989586621679321688"><span class="annot"><span class="annottext">request :: ListApplicationRevisions -&gt; Request ListApplicationRevisions
+</span><span id="line-272"></span><span>  </span><span id="local-6989586621679321697"><span class="annot"><span class="annottext">request :: ListApplicationRevisions -&gt; Request ListApplicationRevisions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; ListApplicationRevisions -&gt; Request ListApplicationRevisions
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeDeploy.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-273"></span><span>  </span><span id="local-6989586621679321684"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-273"></span><span>  </span><span id="local-6989586621679321693"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListApplicationRevisions
 -&gt; ClientResponse ClientBody
@@ -644,10 +644,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-275"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679321681"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679321681"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679321680"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679321680"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679321679"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679321679"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-275"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679321690"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679321690"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679321689"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679321689"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679321688"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679321688"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-276"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [RevisionLocation]
 -&gt; Int
@@ -664,7 +664,7 @@ MonadResource m =&gt;
       -&gt; Int -&gt; ListApplicationRevisionsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679321679"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679321688"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -676,7 +676,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListApplicationRevisionsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679321679"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [RevisionLocation]))
+</span><a href="#local-6989586621679321688"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [RevisionLocation]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;revisions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [RevisionLocation]))
@@ -695,15 +695,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679321681"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679321690"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-280"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-281"></span><span>
-</span><span id="line-282"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321670"><span id="local-6989586621679321672"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions"><span class="hs-identifier hs-type">ListApplicationRevisions</span></a></span></span></span><span>
+</span><span id="line-282"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321679"><span id="local-6989586621679321681"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions"><span class="hs-identifier hs-type">ListApplicationRevisions</span></a></span></span></span><span>
 </span><span id="line-283"></span><span>
-</span><span id="line-284"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321667"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions"><span class="hs-identifier hs-type">ListApplicationRevisions</span></a></span></span><span>
+</span><span id="line-284"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321676"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions"><span class="hs-identifier hs-type">ListApplicationRevisions</span></a></span></span><span>
 </span><span id="line-285"></span><span>
 </span><span id="line-286"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions"><span class="hs-identifier hs-type">ListApplicationRevisions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-287"></span><span>  </span><span id="local-6989586621679321663"><span class="annot"><span class="annottext">toHeaders :: ListApplicationRevisions -&gt; ResponseHeaders
+</span><span id="line-287"></span><span>  </span><span id="local-6989586621679321672"><span class="annot"><span class="annottext">toHeaders :: ListApplicationRevisions -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-288"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListApplicationRevisions -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -730,9 +730,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-298"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-299"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-300"></span><span>
-</span><span id="line-301"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321653"><span id="local-6989586621679321655"><span id="local-6989586621679321657"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions"><span class="hs-identifier hs-type">ListApplicationRevisions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-302"></span><span>  </span><span id="local-6989586621679321651"><span class="annot"><span class="annottext">toJSON :: ListApplicationRevisions -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions%27"><span class="hs-identifier hs-type">ListApplicationRevisions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321643"><span id="local-6989586621679321644"><span id="local-6989586621679321645"><span id="local-6989586621679321646"><span id="local-6989586621679321647"><span id="local-6989586621679321648"><span id="local-6989586621679321649"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-301"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321662"><span id="local-6989586621679321664"><span id="local-6989586621679321666"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions"><span class="hs-identifier hs-type">ListApplicationRevisions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-302"></span><span>  </span><span id="local-6989586621679321660"><span class="annot"><span class="annottext">toJSON :: ListApplicationRevisions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions%27"><span class="hs-identifier hs-type">ListApplicationRevisions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321652"><span id="local-6989586621679321653"><span id="local-6989586621679321654"><span id="local-6989586621679321655"><span id="local-6989586621679321656"><span id="local-6989586621679321657"><span id="local-6989586621679321658"><span class="annot"><span class="annottext">Maybe Text
 Maybe ApplicationRevisionSortBy
 Maybe ListStateFilterAction
 Maybe SortOrder
@@ -751,7 +751,7 @@ $sel:nextToken:ListApplicationRevisions' :: ListApplicationRevisions -&gt; Maybe
 $sel:sortOrder:ListApplicationRevisions' :: ListApplicationRevisions -&gt; Maybe SortOrder
 $sel:deployed:ListApplicationRevisions' :: ListApplicationRevisions -&gt; Maybe ListStateFilterAction
 $sel:s3KeyPrefix:ListApplicationRevisions' :: ListApplicationRevisions -&gt; Maybe Text
-</span><a href="#local-6989586621679321643"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679321652"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-303"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-304"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -763,7 +763,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679321649"><span class="hs-identifier hs-var">s3KeyPrefix</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679321658"><span class="hs-identifier hs-var">s3KeyPrefix</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-306"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;deployed&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ListStateFilterAction -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -771,28 +771,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ListStateFilterAction -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ListStateFilterAction
-</span><a href="#local-6989586621679321648"><span class="hs-identifier hs-var">deployed</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679321657"><span class="hs-identifier hs-var">deployed</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-307"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sortOrder&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SortOrder -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SortOrder -&gt; Pair) -&gt; Maybe SortOrder -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
-</span><a href="#local-6989586621679321647"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679321656"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-308"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679321646"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679321655"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-309"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;s3Bucket&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679321645"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679321654"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-310"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sortBy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ApplicationRevisionSortBy -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -800,7 +800,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ApplicationRevisionSortBy -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationRevisionSortBy
-</span><a href="#local-6989586621679321644"><span class="hs-identifier hs-var">sortBy</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679321653"><span class="hs-identifier hs-var">sortBy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-311"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -808,19 +808,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;applicationName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679321643"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679321652"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-313"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-314"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-315"></span><span>
 </span><span id="line-316"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions"><span class="hs-identifier hs-type">ListApplicationRevisions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-317"></span><span>  </span><span id="local-6989586621679321637"><span class="annot"><span class="annottext">toPath :: ListApplicationRevisions -&gt; ByteString
+</span><span id="line-317"></span><span>  </span><span id="local-6989586621679321646"><span class="annot"><span class="annottext">toPath :: ListApplicationRevisions -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListApplicationRevisions -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-318"></span><span>
 </span><span id="line-319"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisions"><span class="hs-identifier hs-type">ListApplicationRevisions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-320"></span><span>  </span><span id="local-6989586621679321633"><span class="annot"><span class="annottext">toQuery :: ListApplicationRevisions -&gt; QueryString
+</span><span id="line-320"></span><span>  </span><span id="local-6989586621679321642"><span class="annot"><span class="annottext">toQuery :: ListApplicationRevisions -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListApplicationRevisions -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -830,7 +830,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-322"></span><span class="hs-comment">-- | Represents the output of a @ListApplicationRevisions@ operation.</span><span>
 </span><span id="line-323"></span><span class="hs-comment">--</span><span>
 </span><span id="line-324"></span><span class="hs-comment">-- /See:/ 'newListApplicationRevisionsResponse' smart constructor.</span><span>
-</span><span id="line-325"></span><span id="local-6989586621679321630"><span id="local-6989586621679321631"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListApplicationRevisionsResponse"><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisionsResponse"><span class="hs-identifier hs-var">ListApplicationRevisionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListApplicationRevisionsResponse%27"><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisionsResponse%27"><span class="hs-identifier hs-var">ListApplicationRevisionsResponse'</span></a></span></span><span>
+</span><span id="line-325"></span><span id="local-6989586621679321639"><span id="local-6989586621679321640"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListApplicationRevisionsResponse"><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisionsResponse"><span class="hs-identifier hs-var">ListApplicationRevisionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListApplicationRevisionsResponse%27"><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisionsResponse%27"><span class="hs-identifier hs-var">ListApplicationRevisionsResponse'</span></a></span></span><span>
 </span><span id="line-326"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If a large amount of information is returned, an identifier is also</span><span>
 </span><span id="line-327"></span><span>    </span><span class="hs-comment">-- returned. It can be used in a subsequent list application revisions call</span><span>
 </span><span id="line-328"></span><span>    </span><span class="hs-comment">-- to return the next set of application revisions in the list.</span><span>
@@ -843,7 +843,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-333"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListApplicationRevisionsResponse%27"><span class="annot"><span class="annottext">ListApplicationRevisionsResponse -&gt; Int
 </span><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#%24sel%3AhttpStatus%3AListApplicationRevisionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-334"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-335"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679321623"><span id="local-6989586621679321625"><span class="annot"><span class="annottext">ListApplicationRevisionsResponse
+</span><span id="line-335"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679321632"><span id="local-6989586621679321634"><span class="annot"><span class="annottext">ListApplicationRevisionsResponse
 -&gt; ListApplicationRevisionsResponse -&gt; Bool
 (ListApplicationRevisionsResponse
  -&gt; ListApplicationRevisionsResponse -&gt; Bool)
@@ -859,7 +859,7 @@ $c/= :: ListApplicationRevisionsResponse
 -&gt; ListApplicationRevisionsResponse -&gt; Bool
 $c== :: ListApplicationRevisionsResponse
 -&gt; ListApplicationRevisionsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679321615"><span id="local-6989586621679321617"><span id="local-6989586621679321619"><span id="local-6989586621679321621"><span class="annot"><span class="annottext">ReadPrec [ListApplicationRevisionsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679321624"><span id="local-6989586621679321626"><span id="local-6989586621679321628"><span id="local-6989586621679321630"><span class="annot"><span class="annottext">ReadPrec [ListApplicationRevisionsResponse]
 ReadPrec ListApplicationRevisionsResponse
 Int -&gt; ReadS ListApplicationRevisionsResponse
 ReadS [ListApplicationRevisionsResponse]
@@ -879,7 +879,7 @@ readList :: ReadS [ListApplicationRevisionsResponse]
 $creadList :: ReadS [ListApplicationRevisionsResponse]
 readsPrec :: Int -&gt; ReadS ListApplicationRevisionsResponse
 $creadsPrec :: Int -&gt; ReadS ListApplicationRevisionsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679321609"><span id="local-6989586621679321611"><span id="local-6989586621679321613"><span class="annot"><span class="annottext">Int -&gt; ListApplicationRevisionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679321618"><span id="local-6989586621679321620"><span id="local-6989586621679321622"><span class="annot"><span class="annottext">Int -&gt; ListApplicationRevisionsResponse -&gt; ShowS
 [ListApplicationRevisionsResponse] -&gt; ShowS
 ListApplicationRevisionsResponse -&gt; String
 (Int -&gt; ListApplicationRevisionsResponse -&gt; ShowS)
@@ -937,8 +937,8 @@ ListApplicationRevisionsResponse
 </span><span id="line-354"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-355"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisionsResponse"><span class="hs-identifier hs-type">ListApplicationRevisionsResponse</span></a></span><span>
 </span><span id="line-356"></span><span id="newListApplicationRevisionsResponse"><span class="annot"><span class="annottext">newListApplicationRevisionsResponse :: Int -&gt; ListApplicationRevisionsResponse
-</span><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#newListApplicationRevisionsResponse"><span class="hs-identifier hs-var hs-var">newListApplicationRevisionsResponse</span></a></span></span><span> </span><span id="local-6989586621679321606"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679321606"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#newListApplicationRevisionsResponse"><span class="hs-identifier hs-var hs-var">newListApplicationRevisionsResponse</span></a></span></span><span> </span><span id="local-6989586621679321615"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679321615"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-357"></span><span>  </span><span class="annot"><span class="annottext">ListApplicationRevisionsResponse' :: Maybe Text
 -&gt; Maybe [RevisionLocation]
 -&gt; Int
@@ -955,7 +955,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-361"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListApplicationRevisionsResponse' :: Int
 </span><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#%24sel%3AhttpStatus%3AListApplicationRevisionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679321606"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679321615"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-362"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-363"></span><span>
 </span><span id="line-364"></span><span class="hs-comment">-- | If a large amount of information is returned, an identifier is also</span><span>
@@ -970,16 +970,16 @@ forall a. Maybe a
     -&gt; Maybe Text -&gt; ListApplicationRevisionsResponse)
 -&gt; Lens' ListApplicationRevisionsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisionsResponse%27"><span class="hs-identifier hs-type">ListApplicationRevisionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321605"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisionsResponse%27"><span class="hs-identifier hs-type">ListApplicationRevisionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321614"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListApplicationRevisionsResponse' :: ListApplicationRevisionsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679321605"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679321605"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321604"><span class="annot"><span class="annottext">s :: ListApplicationRevisionsResponse
-</span><a href="#local-6989586621679321604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisionsResponse%27"><span class="hs-identifier hs-type">ListApplicationRevisionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321603"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679321603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationRevisionsResponse
-</span><a href="#local-6989586621679321604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListApplicationRevisionsResponse' :: Maybe Text
+</span><a href="#local-6989586621679321614"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679321614"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321613"><span class="annot"><span class="annottext">s :: ListApplicationRevisionsResponse
+</span><a href="#local-6989586621679321613"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisionsResponse%27"><span class="hs-identifier hs-type">ListApplicationRevisionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321612"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679321612"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationRevisionsResponse
+</span><a href="#local-6989586621679321613"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListApplicationRevisionsResponse' :: Maybe Text
 </span><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#%24sel%3AnextToken%3AListApplicationRevisionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679321603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisionsResponse"><span class="hs-identifier hs-type">ListApplicationRevisionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679321612"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisionsResponse"><span class="hs-identifier hs-type">ListApplicationRevisionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-369"></span><span>
 </span><span id="line-370"></span><span class="hs-comment">-- | A list of locations that contain the matching revisions.</span><span>
 </span><span id="line-371"></span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#listApplicationRevisionsResponse_revisions"><span class="hs-identifier hs-type">listApplicationRevisionsResponse_revisions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisionsResponse"><span class="hs-identifier hs-type">ListApplicationRevisionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation"><span class="hs-identifier hs-type">RevisionLocation</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -992,16 +992,16 @@ $sel:nextToken:ListApplicationRevisionsResponse' :: ListApplicationRevisionsResp
 -&gt; Lens'
      ListApplicationRevisionsResponse (Maybe [RevisionLocation])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisionsResponse%27"><span class="hs-identifier hs-type">ListApplicationRevisionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321602"><span class="annot"><span class="annottext">Maybe [RevisionLocation]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisionsResponse%27"><span class="hs-identifier hs-type">ListApplicationRevisionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321611"><span class="annot"><span class="annottext">Maybe [RevisionLocation]
 revisions :: Maybe [RevisionLocation]
 $sel:revisions:ListApplicationRevisionsResponse' :: ListApplicationRevisionsResponse -&gt; Maybe [RevisionLocation]
-</span><a href="#local-6989586621679321602"><span class="hs-identifier hs-var hs-var">revisions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RevisionLocation]
-</span><a href="#local-6989586621679321602"><span class="hs-identifier hs-var">revisions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321601"><span class="annot"><span class="annottext">s :: ListApplicationRevisionsResponse
-</span><a href="#local-6989586621679321601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisionsResponse%27"><span class="hs-identifier hs-type">ListApplicationRevisionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321600"><span class="annot"><span class="annottext">Maybe [RevisionLocation]
-</span><a href="#local-6989586621679321600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationRevisionsResponse
-</span><a href="#local-6989586621679321601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revisions:ListApplicationRevisionsResponse' :: Maybe [RevisionLocation]
+</span><a href="#local-6989586621679321611"><span class="hs-identifier hs-var hs-var">revisions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RevisionLocation]
+</span><a href="#local-6989586621679321611"><span class="hs-identifier hs-var">revisions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321610"><span class="annot"><span class="annottext">s :: ListApplicationRevisionsResponse
+</span><a href="#local-6989586621679321610"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisionsResponse%27"><span class="hs-identifier hs-type">ListApplicationRevisionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321609"><span class="annot"><span class="annottext">Maybe [RevisionLocation]
+</span><a href="#local-6989586621679321609"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationRevisionsResponse
+</span><a href="#local-6989586621679321610"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revisions:ListApplicationRevisionsResponse' :: Maybe [RevisionLocation]
 </span><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#%24sel%3Arevisions%3AListApplicationRevisionsResponse%27"><span class="hs-identifier hs-var">revisions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RevisionLocation]
-</span><a href="#local-6989586621679321600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisionsResponse"><span class="hs-identifier hs-type">ListApplicationRevisionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RevisionLocation] -&gt; f (Maybe [RevisionLocation]))
+</span><a href="#local-6989586621679321609"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisionsResponse"><span class="hs-identifier hs-type">ListApplicationRevisionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RevisionLocation] -&gt; f (Maybe [RevisionLocation]))
  -&gt; ListApplicationRevisionsResponse
  -&gt; f ListApplicationRevisionsResponse)
 -&gt; ((Maybe [RevisionLocation] -&gt; f (Maybe [RevisionLocation]))
@@ -1045,18 +1045,18 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisionsResponse%27"><span class="hs-identifier hs-type">ListApplicationRevisionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321597"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisionsResponse%27"><span class="hs-identifier hs-type">ListApplicationRevisionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321606"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListApplicationRevisionsResponse' :: ListApplicationRevisionsResponse -&gt; Int
-</span><a href="#local-6989586621679321597"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679321597"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321596"><span class="annot"><span class="annottext">s :: ListApplicationRevisionsResponse
-</span><a href="#local-6989586621679321596"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisionsResponse%27"><span class="hs-identifier hs-type">ListApplicationRevisionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321595"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679321595"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationRevisionsResponse
-</span><a href="#local-6989586621679321596"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListApplicationRevisionsResponse' :: Int
+</span><a href="#local-6989586621679321606"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679321606"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321605"><span class="annot"><span class="annottext">s :: ListApplicationRevisionsResponse
+</span><a href="#local-6989586621679321605"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisionsResponse%27"><span class="hs-identifier hs-type">ListApplicationRevisionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321604"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679321604"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationRevisionsResponse
+</span><a href="#local-6989586621679321605"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListApplicationRevisionsResponse' :: Int
 </span><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#%24sel%3AhttpStatus%3AListApplicationRevisionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679321595"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisionsResponse"><span class="hs-identifier hs-type">ListApplicationRevisionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679321604"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisionsResponse"><span class="hs-identifier hs-type">ListApplicationRevisionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-377"></span><span>
 </span><span id="line-378"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-379"></span><span>  </span><span id="local-6989586621679321593"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-379"></span><span>  </span><span id="local-6989586621679321602"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-380"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplicationRevisions.html#ListApplicationRevisionsResponse"><span class="hs-identifier hs-type">ListApplicationRevisionsResponse</span></a></span></span><span>
 </span><span id="line-381"></span></pre></body></html>

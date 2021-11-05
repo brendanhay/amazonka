@@ -1,0 +1,733 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ManagedBlockChain.CreateProposal</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a proposal for a change to the network that other members of the</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- network can vote on, for example, a proposal to add a new member to the</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- network. Any member can create a proposal.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- Applies only to Hyperledger Fabric.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ManagedBlockChain.CreateProposal</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposal"><span class="hs-identifier">CreateProposal</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#newCreateProposal"><span class="hs-identifier">newCreateProposal</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#createProposal_description"><span class="hs-identifier">createProposal_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#createProposal_tags"><span class="hs-identifier">createProposal_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#createProposal_clientRequestToken"><span class="hs-identifier">createProposal_clientRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#createProposal_networkId"><span class="hs-identifier">createProposal_networkId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#createProposal_memberId"><span class="hs-identifier">createProposal_memberId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#createProposal_actions"><span class="hs-identifier">createProposal_actions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposalResponse"><span class="hs-identifier">CreateProposalResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#newCreateProposalResponse"><span class="hs-identifier">newCreateProposalResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#createProposalResponse_proposalId"><span class="hs-identifier">createProposalResponse_proposalId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#createProposalResponse_httpStatus"><span class="hs-identifier">createProposalResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.html"><span class="hs-identifier">Network.AWS.ManagedBlockChain.Types</span></a></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newCreateProposal' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621679224840"><span id="local-6989586621679224841"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateProposal"><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposal"><span class="hs-identifier hs-var">CreateProposal</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateProposal%27"><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposal%27"><span class="hs-identifier hs-var">CreateProposal'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A description for the proposal that is visible to voting members, for</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- example, \&quot;Proposal to add Example Corp. as member.\&quot;</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3Adescription%3ACreateProposal%27"><span class="annot"><span class="annottext">CreateProposal -&gt; Maybe Text
+</span><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#%24sel%3Adescription%3ACreateProposal%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | Tags to assign to the proposal. Each tag consists of a key and optional</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- When specifying tags during creation, you can specify multiple key-value</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- pairs in a single request, with an overall maximum of 50 tags added to</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- each resource. If the proposal is for a network invitation, the</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- invitation inherits the tags added to the proposal.</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- For more information about tags, see</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html Tagging Resources&gt;</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- in the /Amazon Managed Blockchain Ethereum Developer Guide/, or</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html Tagging Resources&gt;</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- in the /Amazon Managed Blockchain Hyperledger Fabric Developer Guide/.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3Atags%3ACreateProposal%27"><span class="annot"><span class="annottext">CreateProposal -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#%24sel%3Atags%3ACreateProposal%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | A unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- idempotency of the operation. An idempotent operation completes no more</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- than one time. This identifier is required only if you make a service</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- request directly using an HTTP client. It is generated automatically if</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- you use an AWS SDK or the AWS CLI.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AclientRequestToken%3ACreateProposal%27"><span class="annot"><span class="annottext">CreateProposal -&gt; Text
+</span><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#%24sel%3AclientRequestToken%3ACreateProposal%27"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | The unique identifier of the network for which the proposal is made.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AnetworkId%3ACreateProposal%27"><span class="annot"><span class="annottext">CreateProposal -&gt; Text
+</span><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#%24sel%3AnetworkId%3ACreateProposal%27"><span class="hs-identifier hs-var hs-var">networkId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | The unique identifier of the member that is creating the proposal. This</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- identifier is especially useful for identifying the member making the</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- proposal when multiple members exist in a single AWS account.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3AmemberId%3ACreateProposal%27"><span class="annot"><span class="annottext">CreateProposal -&gt; Text
+</span><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#%24sel%3AmemberId%3ACreateProposal%27"><span class="hs-identifier hs-var hs-var">memberId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | The type of actions proposed, such as inviting a member or removing a</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- member. The types of @Actions@ in a proposal are mutually exclusive. For</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- example, a proposal with @Invitations@ actions cannot also contain</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- @Removals@ actions.</span><span>
+</span><span id="line-93"></span><span>    </span><span id="%24sel%3Aactions%3ACreateProposal%27"><span class="annot"><span class="annottext">CreateProposal -&gt; ProposalActions
+</span><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#%24sel%3Aactions%3ACreateProposal%27"><span class="hs-identifier hs-var hs-var">actions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.ProposalActions.html#ProposalActions"><span class="hs-identifier hs-type">ProposalActions</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679224829"><span id="local-6989586621679224831"><span class="annot"><span class="annottext">CreateProposal -&gt; CreateProposal -&gt; Bool
+(CreateProposal -&gt; CreateProposal -&gt; Bool)
+-&gt; (CreateProposal -&gt; CreateProposal -&gt; Bool) -&gt; Eq CreateProposal
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateProposal -&gt; CreateProposal -&gt; Bool
+$c/= :: CreateProposal -&gt; CreateProposal -&gt; Bool
+== :: CreateProposal -&gt; CreateProposal -&gt; Bool
+$c== :: CreateProposal -&gt; CreateProposal -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224820"><span id="local-6989586621679224822"><span id="local-6989586621679224824"><span id="local-6989586621679224826"><span class="annot"><span class="annottext">ReadPrec [CreateProposal]
+ReadPrec CreateProposal
+Int -&gt; ReadS CreateProposal
+ReadS [CreateProposal]
+(Int -&gt; ReadS CreateProposal)
+-&gt; ReadS [CreateProposal]
+-&gt; ReadPrec CreateProposal
+-&gt; ReadPrec [CreateProposal]
+-&gt; Read CreateProposal
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateProposal]
+$creadListPrec :: ReadPrec [CreateProposal]
+readPrec :: ReadPrec CreateProposal
+$creadPrec :: ReadPrec CreateProposal
+readList :: ReadS [CreateProposal]
+$creadList :: ReadS [CreateProposal]
+readsPrec :: Int -&gt; ReadS CreateProposal
+$creadsPrec :: Int -&gt; ReadS CreateProposal
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224813"><span id="local-6989586621679224815"><span id="local-6989586621679224817"><span class="annot"><span class="annottext">Int -&gt; CreateProposal -&gt; ShowS
+[CreateProposal] -&gt; ShowS
+CreateProposal -&gt; String
+(Int -&gt; CreateProposal -&gt; ShowS)
+-&gt; (CreateProposal -&gt; String)
+-&gt; ([CreateProposal] -&gt; ShowS)
+-&gt; Show CreateProposal
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateProposal] -&gt; ShowS
+$cshowList :: [CreateProposal] -&gt; ShowS
+show :: CreateProposal -&gt; String
+$cshow :: CreateProposal -&gt; String
+showsPrec :: Int -&gt; CreateProposal -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateProposal -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateProposal -&gt; Rep CreateProposal x)
+-&gt; (forall x. Rep CreateProposal x -&gt; CreateProposal)
+-&gt; Generic CreateProposal
+forall x. Rep CreateProposal x -&gt; CreateProposal
+forall x. CreateProposal -&gt; Rep CreateProposal x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateProposal x -&gt; CreateProposal
+$cfrom :: forall x. CreateProposal -&gt; Rep CreateProposal x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- Create a value of 'CreateProposal' with all optional fields omitted.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'description', 'createProposal_description' - A description for the proposal that is visible to voting members, for</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- example, \&quot;Proposal to add Example Corp. as member.\&quot;</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'tags', 'createProposal_tags' - Tags to assign to the proposal. Each tag consists of a key and optional</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- When specifying tags during creation, you can specify multiple key-value</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- pairs in a single request, with an overall maximum of 50 tags added to</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- each resource. If the proposal is for a network invitation, the</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- invitation inherits the tags added to the proposal.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- For more information about tags, see</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html Tagging Resources&gt;</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- in the /Amazon Managed Blockchain Ethereum Developer Guide/, or</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html Tagging Resources&gt;</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- in the /Amazon Managed Blockchain Hyperledger Fabric Developer Guide/.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'clientRequestToken', 'createProposal_clientRequestToken' - A unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- idempotency of the operation. An idempotent operation completes no more</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- than one time. This identifier is required only if you make a service</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- request directly using an HTTP client. It is generated automatically if</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- you use an AWS SDK or the AWS CLI.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'networkId', 'createProposal_networkId' - The unique identifier of the network for which the proposal is made.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 'memberId', 'createProposal_memberId' - The unique identifier of the member that is creating the proposal. This</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- identifier is especially useful for identifying the member making the</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- proposal when multiple members exist in a single AWS account.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'actions', 'createProposal_actions' - The type of actions proposed, such as inviting a member or removing a</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- member. The types of @Actions@ in a proposal are mutually exclusive. For</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- example, a proposal with @Invitations@ actions cannot also contain</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- @Removals@ actions.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#newCreateProposal"><span class="hs-identifier hs-type">newCreateProposal</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-comment">-- | 'clientRequestToken'</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-comment">-- | 'networkId'</span><span>
+</span><span id="line-142"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-comment">-- | 'memberId'</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-comment">-- | 'actions'</span><span>
+</span><span id="line-146"></span><span>  </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.ProposalActions.html#ProposalActions"><span class="hs-identifier hs-type">ProposalActions</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposal"><span class="hs-identifier hs-type">CreateProposal</span></a></span><span>
+</span><span id="line-148"></span><span id="newCreateProposal"><span class="annot"><span class="annottext">newCreateProposal :: Text -&gt; Text -&gt; Text -&gt; ProposalActions -&gt; CreateProposal
+</span><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#newCreateProposal"><span class="hs-identifier hs-var hs-var">newCreateProposal</span></a></span></span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679224808"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224808"><span class="hs-identifier hs-var">pClientRequestToken_</span></a></span></span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679224807"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224807"><span class="hs-identifier hs-var">pNetworkId_</span></a></span></span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679224806"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224806"><span class="hs-identifier hs-var">pMemberId_</span></a></span></span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679224805"><span class="annot"><span class="annottext">ProposalActions
+</span><a href="#local-6989586621679224805"><span class="hs-identifier hs-var">pActions_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">CreateProposal' :: Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; ProposalActions
+-&gt; CreateProposal
+</span><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposal%27"><span class="hs-identifier hs-type">CreateProposal'</span></a></span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:description:CreateProposal' :: Maybe Text
+</span><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#%24sel%3Adescription%3ACreateProposal%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateProposal' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#%24sel%3Atags%3ACreateProposal%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>        </span><span class="annot"><span class="annottext">$sel:clientRequestToken:CreateProposal' :: Text
+</span><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#%24sel%3AclientRequestToken%3ACreateProposal%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224808"><span class="hs-identifier hs-var">pClientRequestToken_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">$sel:networkId:CreateProposal' :: Text
+</span><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#%24sel%3AnetworkId%3ACreateProposal%27"><span class="hs-identifier hs-var">networkId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224807"><span class="hs-identifier hs-var">pNetworkId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">$sel:memberId:CreateProposal' :: Text
+</span><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#%24sel%3AmemberId%3ACreateProposal%27"><span class="hs-identifier hs-var">memberId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224806"><span class="hs-identifier hs-var">pMemberId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">$sel:actions:CreateProposal' :: ProposalActions
+</span><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#%24sel%3Aactions%3ACreateProposal%27"><span class="hs-identifier hs-var">actions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ProposalActions
+</span><a href="#local-6989586621679224805"><span class="hs-identifier hs-var">pActions_</span></a></span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | A description for the proposal that is visible to voting members, for</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- example, \&quot;Proposal to add Example Corp. as member.\&quot;</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#createProposal_description"><span class="hs-identifier hs-type">createProposal_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposal"><span class="hs-identifier hs-type">CreateProposal</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="createProposal_description"><span class="annot"><span class="annottext">createProposal_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateProposal -&gt; f CreateProposal
+</span><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#createProposal_description"><span class="hs-identifier hs-var hs-var">createProposal_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProposal -&gt; Maybe Text)
+-&gt; (CreateProposal -&gt; Maybe Text -&gt; CreateProposal)
+-&gt; Lens CreateProposal CreateProposal (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposal%27"><span class="hs-identifier hs-type">CreateProposal'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224802"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:CreateProposal' :: CreateProposal -&gt; Maybe Text
+</span><a href="#local-6989586621679224802"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679224802"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224801"><span class="annot"><span class="annottext">s :: CreateProposal
+</span><a href="#local-6989586621679224801"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposal%27"><span class="hs-identifier hs-type">CreateProposal'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224800"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679224800"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProposal
+</span><a href="#local-6989586621679224801"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateProposal' :: Maybe Text
+</span><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#%24sel%3Adescription%3ACreateProposal%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679224800"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposal"><span class="hs-identifier hs-type">CreateProposal</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | Tags to assign to the proposal. Each tag consists of a key and optional</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- When specifying tags during creation, you can specify multiple key-value</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- pairs in a single request, with an overall maximum of 50 tags added to</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- each resource. If the proposal is for a network invitation, the</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- invitation inherits the tags added to the proposal.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- For more information about tags, see</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html Tagging Resources&gt;</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- in the /Amazon Managed Blockchain Ethereum Developer Guide/, or</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html Tagging Resources&gt;</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- in the /Amazon Managed Blockchain Hyperledger Fabric Developer Guide/.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#createProposal_tags"><span class="hs-identifier hs-type">createProposal_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposal"><span class="hs-identifier hs-type">CreateProposal</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="createProposal_tags"><span class="annot"><span class="annottext">createProposal_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateProposal -&gt; f CreateProposal
+</span><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#createProposal_tags"><span class="hs-identifier hs-var hs-var">createProposal_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProposal -&gt; Maybe (HashMap Text Text))
+-&gt; (CreateProposal -&gt; Maybe (HashMap Text Text) -&gt; CreateProposal)
+-&gt; Lens
+     CreateProposal
+     CreateProposal
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposal%27"><span class="hs-identifier hs-type">CreateProposal'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224799"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:CreateProposal' :: CreateProposal -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679224799"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679224799"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224798"><span class="annot"><span class="annottext">s :: CreateProposal
+</span><a href="#local-6989586621679224798"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposal%27"><span class="hs-identifier hs-type">CreateProposal'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224797"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679224797"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProposal
+</span><a href="#local-6989586621679224798"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateProposal' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#%24sel%3Atags%3ACreateProposal%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679224797"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposal"><span class="hs-identifier hs-type">CreateProposal</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CreateProposal -&gt; f CreateProposal)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateProposal
+-&gt; f CreateProposal
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | A unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- idempotency of the operation. An idempotent operation completes no more</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- than one time. This identifier is required only if you make a service</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- request directly using an HTTP client. It is generated automatically if</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- you use an AWS SDK or the AWS CLI.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#createProposal_clientRequestToken"><span class="hs-identifier hs-type">createProposal_clientRequestToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposal"><span class="hs-identifier hs-type">CreateProposal</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-189"></span><span id="createProposal_clientRequestToken"><span class="annot"><span class="annottext">createProposal_clientRequestToken :: (Text -&gt; f Text) -&gt; CreateProposal -&gt; f CreateProposal
+</span><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#createProposal_clientRequestToken"><span class="hs-identifier hs-var hs-var">createProposal_clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProposal -&gt; Text)
+-&gt; (CreateProposal -&gt; Text -&gt; CreateProposal)
+-&gt; Lens CreateProposal CreateProposal Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposal%27"><span class="hs-identifier hs-type">CreateProposal'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224793"><span class="annot"><span class="annottext">Text
+clientRequestToken :: Text
+$sel:clientRequestToken:CreateProposal' :: CreateProposal -&gt; Text
+</span><a href="#local-6989586621679224793"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224793"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224792"><span class="annot"><span class="annottext">s :: CreateProposal
+</span><a href="#local-6989586621679224792"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposal%27"><span class="hs-identifier hs-type">CreateProposal'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224791"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224791"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProposal
+</span><a href="#local-6989586621679224792"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestToken:CreateProposal' :: Text
+</span><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#%24sel%3AclientRequestToken%3ACreateProposal%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224791"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposal"><span class="hs-identifier hs-type">CreateProposal</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- | The unique identifier of the network for which the proposal is made.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#createProposal_networkId"><span class="hs-identifier hs-type">createProposal_networkId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposal"><span class="hs-identifier hs-type">CreateProposal</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-193"></span><span id="createProposal_networkId"><span class="annot"><span class="annottext">createProposal_networkId :: (Text -&gt; f Text) -&gt; CreateProposal -&gt; f CreateProposal
+</span><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#createProposal_networkId"><span class="hs-identifier hs-var hs-var">createProposal_networkId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProposal -&gt; Text)
+-&gt; (CreateProposal -&gt; Text -&gt; CreateProposal)
+-&gt; Lens CreateProposal CreateProposal Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposal%27"><span class="hs-identifier hs-type">CreateProposal'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224790"><span class="annot"><span class="annottext">Text
+networkId :: Text
+$sel:networkId:CreateProposal' :: CreateProposal -&gt; Text
+</span><a href="#local-6989586621679224790"><span class="hs-identifier hs-var hs-var">networkId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224790"><span class="hs-identifier hs-var">networkId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224789"><span class="annot"><span class="annottext">s :: CreateProposal
+</span><a href="#local-6989586621679224789"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposal%27"><span class="hs-identifier hs-type">CreateProposal'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224788"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224788"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProposal
+</span><a href="#local-6989586621679224789"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkId:CreateProposal' :: Text
+</span><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#%24sel%3AnetworkId%3ACreateProposal%27"><span class="hs-identifier hs-var">networkId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224788"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposal"><span class="hs-identifier hs-type">CreateProposal</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | The unique identifier of the member that is creating the proposal. This</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- identifier is especially useful for identifying the member making the</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- proposal when multiple members exist in a single AWS account.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#createProposal_memberId"><span class="hs-identifier hs-type">createProposal_memberId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposal"><span class="hs-identifier hs-type">CreateProposal</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-199"></span><span id="createProposal_memberId"><span class="annot"><span class="annottext">createProposal_memberId :: (Text -&gt; f Text) -&gt; CreateProposal -&gt; f CreateProposal
+</span><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#createProposal_memberId"><span class="hs-identifier hs-var hs-var">createProposal_memberId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProposal -&gt; Text)
+-&gt; (CreateProposal -&gt; Text -&gt; CreateProposal)
+-&gt; Lens CreateProposal CreateProposal Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposal%27"><span class="hs-identifier hs-type">CreateProposal'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224787"><span class="annot"><span class="annottext">Text
+memberId :: Text
+$sel:memberId:CreateProposal' :: CreateProposal -&gt; Text
+</span><a href="#local-6989586621679224787"><span class="hs-identifier hs-var hs-var">memberId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224787"><span class="hs-identifier hs-var">memberId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224786"><span class="annot"><span class="annottext">s :: CreateProposal
+</span><a href="#local-6989586621679224786"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposal%27"><span class="hs-identifier hs-type">CreateProposal'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224785"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224785"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProposal
+</span><a href="#local-6989586621679224786"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:memberId:CreateProposal' :: Text
+</span><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#%24sel%3AmemberId%3ACreateProposal%27"><span class="hs-identifier hs-var">memberId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224785"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposal"><span class="hs-identifier hs-type">CreateProposal</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | The type of actions proposed, such as inviting a member or removing a</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- member. The types of @Actions@ in a proposal are mutually exclusive. For</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- example, a proposal with @Invitations@ actions cannot also contain</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- @Removals@ actions.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#createProposal_actions"><span class="hs-identifier hs-type">createProposal_actions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposal"><span class="hs-identifier hs-type">CreateProposal</span></a></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.ProposalActions.html#ProposalActions"><span class="hs-identifier hs-type">ProposalActions</span></a></span><span>
+</span><span id="line-206"></span><span id="createProposal_actions"><span class="annot"><span class="annottext">createProposal_actions :: (ProposalActions -&gt; f ProposalActions)
+-&gt; CreateProposal -&gt; f CreateProposal
+</span><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#createProposal_actions"><span class="hs-identifier hs-var hs-var">createProposal_actions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProposal -&gt; ProposalActions)
+-&gt; (CreateProposal -&gt; ProposalActions -&gt; CreateProposal)
+-&gt; Lens
+     CreateProposal CreateProposal ProposalActions ProposalActions
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposal%27"><span class="hs-identifier hs-type">CreateProposal'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224784"><span class="annot"><span class="annottext">ProposalActions
+actions :: ProposalActions
+$sel:actions:CreateProposal' :: CreateProposal -&gt; ProposalActions
+</span><a href="#local-6989586621679224784"><span class="hs-identifier hs-var hs-var">actions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProposalActions
+</span><a href="#local-6989586621679224784"><span class="hs-identifier hs-var">actions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224783"><span class="annot"><span class="annottext">s :: CreateProposal
+</span><a href="#local-6989586621679224783"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposal%27"><span class="hs-identifier hs-type">CreateProposal'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224782"><span class="annot"><span class="annottext">ProposalActions
+</span><a href="#local-6989586621679224782"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProposal
+</span><a href="#local-6989586621679224783"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actions:CreateProposal' :: ProposalActions
+</span><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#%24sel%3Aactions%3ACreateProposal%27"><span class="hs-identifier hs-var">actions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ProposalActions
+</span><a href="#local-6989586621679224782"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposal"><span class="hs-identifier hs-type">CreateProposal</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposal"><span class="hs-identifier hs-type">CreateProposal</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-209"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-210"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposal"><span class="hs-identifier hs-type">CreateProposal</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-211"></span><span>      </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposalResponse"><span class="hs-identifier hs-type">CreateProposalResponse</span></a></span><span>
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621679224778"><span class="annot"><span class="annottext">request :: CreateProposal -&gt; Request CreateProposal
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateProposal -&gt; Request CreateProposal
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ManagedBlockChain.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679224774"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateProposal
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateProposal)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-214"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateProposal))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateProposal
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateProposal)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-215"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679224771"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679224771"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679224770"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679224770"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679224769"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679224769"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-216"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreateProposalResponse
+</span><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposalResponse%27"><span class="hs-identifier hs-var">CreateProposalResponse'</span></a></span><span>
+</span><span id="line-217"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreateProposalResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CreateProposalResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679224769"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProposalId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateProposalResponse)
+-&gt; Either String Int -&gt; Either String CreateProposalResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679224771"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224761"><span id="local-6989586621679224763"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposal"><span class="hs-identifier hs-type">CreateProposal</span></a></span></span></span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224758"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposal"><span class="hs-identifier hs-type">CreateProposal</span></a></span></span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposal"><span class="hs-identifier hs-type">CreateProposal</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-226"></span><span>  </span><span id="local-6989586621679224754"><span class="annot"><span class="annottext">toHeaders :: CreateProposal -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-227"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateProposal -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-228"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-229"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-230"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-231"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-232"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-234"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224744"><span id="local-6989586621679224746"><span id="local-6989586621679224748"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposal"><span class="hs-identifier hs-type">CreateProposal</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-237"></span><span>  </span><span id="local-6989586621679224742"><span class="annot"><span class="annottext">toJSON :: CreateProposal -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposal%27"><span class="hs-identifier hs-type">CreateProposal'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224735"><span id="local-6989586621679224736"><span id="local-6989586621679224737"><span id="local-6989586621679224738"><span id="local-6989586621679224739"><span id="local-6989586621679224740"><span class="annot"><span class="annottext">Maybe Text
+Maybe (HashMap Text Text)
+Text
+ProposalActions
+actions :: ProposalActions
+memberId :: Text
+networkId :: Text
+clientRequestToken :: Text
+tags :: Maybe (HashMap Text Text)
+description :: Maybe Text
+$sel:actions:CreateProposal' :: CreateProposal -&gt; ProposalActions
+$sel:memberId:CreateProposal' :: CreateProposal -&gt; Text
+$sel:networkId:CreateProposal' :: CreateProposal -&gt; Text
+$sel:clientRequestToken:CreateProposal' :: CreateProposal -&gt; Text
+$sel:tags:CreateProposal' :: CreateProposal -&gt; Maybe (HashMap Text Text)
+$sel:description:CreateProposal' :: CreateProposal -&gt; Maybe Text
+</span><a href="#local-6989586621679224735"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-238"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-239"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-240"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679224740"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679224739"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-243"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClientRequestToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224738"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MemberId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224736"><span class="hs-identifier hs-var">memberId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Actions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ProposalActions -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ProposalActions
+</span><a href="#local-6989586621679224735"><span class="hs-identifier hs-var">actions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-247"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposal"><span class="hs-identifier hs-type">CreateProposal</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-250"></span><span>  </span><span id="local-6989586621679224729"><span class="annot"><span class="annottext">toPath :: CreateProposal -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposal%27"><span class="hs-identifier hs-type">CreateProposal'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224722"><span id="local-6989586621679224723"><span id="local-6989586621679224724"><span id="local-6989586621679224725"><span id="local-6989586621679224726"><span id="local-6989586621679224727"><span class="annot"><span class="annottext">Maybe Text
+Maybe (HashMap Text Text)
+Text
+ProposalActions
+actions :: ProposalActions
+memberId :: Text
+networkId :: Text
+clientRequestToken :: Text
+tags :: Maybe (HashMap Text Text)
+description :: Maybe Text
+$sel:actions:CreateProposal' :: CreateProposal -&gt; ProposalActions
+$sel:memberId:CreateProposal' :: CreateProposal -&gt; Text
+$sel:networkId:CreateProposal' :: CreateProposal -&gt; Text
+$sel:clientRequestToken:CreateProposal' :: CreateProposal -&gt; Text
+$sel:tags:CreateProposal' :: CreateProposal -&gt; Maybe (HashMap Text Text)
+$sel:description:CreateProposal' :: CreateProposal -&gt; Maybe Text
+</span><a href="#local-6989586621679224722"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-251"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-252"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/networks/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224724"><span class="hs-identifier hs-var">networkId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/proposals&quot;</span></span><span class="hs-special">]</span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposal"><span class="hs-identifier hs-type">CreateProposal</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-255"></span><span>  </span><span id="local-6989586621679224718"><span class="annot"><span class="annottext">toQuery :: CreateProposal -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateProposal -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- | /See:/ 'newCreateProposalResponse' smart constructor.</span><span>
+</span><span id="line-258"></span><span id="local-6989586621679224715"><span id="local-6989586621679224716"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateProposalResponse"><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposalResponse"><span class="hs-identifier hs-var">CreateProposalResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateProposalResponse%27"><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposalResponse%27"><span class="hs-identifier hs-var">CreateProposalResponse'</span></a></span></span><span>
+</span><span id="line-259"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier of the proposal.</span><span>
+</span><span id="line-260"></span><span>    </span><span id="%24sel%3AproposalId%3ACreateProposalResponse%27"><span class="annot"><span class="annottext">CreateProposalResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#%24sel%3AproposalId%3ACreateProposalResponse%27"><span class="hs-identifier hs-var hs-var">proposalId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-261"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-262"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateProposalResponse%27"><span class="annot"><span class="annottext">CreateProposalResponse -&gt; Int
+</span><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#%24sel%3AhttpStatus%3ACreateProposalResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-263"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-264"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679224709"><span id="local-6989586621679224711"><span class="annot"><span class="annottext">CreateProposalResponse -&gt; CreateProposalResponse -&gt; Bool
+(CreateProposalResponse -&gt; CreateProposalResponse -&gt; Bool)
+-&gt; (CreateProposalResponse -&gt; CreateProposalResponse -&gt; Bool)
+-&gt; Eq CreateProposalResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateProposalResponse -&gt; CreateProposalResponse -&gt; Bool
+$c/= :: CreateProposalResponse -&gt; CreateProposalResponse -&gt; Bool
+== :: CreateProposalResponse -&gt; CreateProposalResponse -&gt; Bool
+$c== :: CreateProposalResponse -&gt; CreateProposalResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224701"><span id="local-6989586621679224703"><span id="local-6989586621679224705"><span id="local-6989586621679224707"><span class="annot"><span class="annottext">ReadPrec [CreateProposalResponse]
+ReadPrec CreateProposalResponse
+Int -&gt; ReadS CreateProposalResponse
+ReadS [CreateProposalResponse]
+(Int -&gt; ReadS CreateProposalResponse)
+-&gt; ReadS [CreateProposalResponse]
+-&gt; ReadPrec CreateProposalResponse
+-&gt; ReadPrec [CreateProposalResponse]
+-&gt; Read CreateProposalResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateProposalResponse]
+$creadListPrec :: ReadPrec [CreateProposalResponse]
+readPrec :: ReadPrec CreateProposalResponse
+$creadPrec :: ReadPrec CreateProposalResponse
+readList :: ReadS [CreateProposalResponse]
+$creadList :: ReadS [CreateProposalResponse]
+readsPrec :: Int -&gt; ReadS CreateProposalResponse
+$creadsPrec :: Int -&gt; ReadS CreateProposalResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224695"><span id="local-6989586621679224697"><span id="local-6989586621679224699"><span class="annot"><span class="annottext">Int -&gt; CreateProposalResponse -&gt; ShowS
+[CreateProposalResponse] -&gt; ShowS
+CreateProposalResponse -&gt; String
+(Int -&gt; CreateProposalResponse -&gt; ShowS)
+-&gt; (CreateProposalResponse -&gt; String)
+-&gt; ([CreateProposalResponse] -&gt; ShowS)
+-&gt; Show CreateProposalResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateProposalResponse] -&gt; ShowS
+$cshowList :: [CreateProposalResponse] -&gt; ShowS
+show :: CreateProposalResponse -&gt; String
+$cshow :: CreateProposalResponse -&gt; String
+showsPrec :: Int -&gt; CreateProposalResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateProposalResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateProposalResponse -&gt; Rep CreateProposalResponse x)
+-&gt; (forall x.
+    Rep CreateProposalResponse x -&gt; CreateProposalResponse)
+-&gt; Generic CreateProposalResponse
+forall x. Rep CreateProposalResponse x -&gt; CreateProposalResponse
+forall x. CreateProposalResponse -&gt; Rep CreateProposalResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateProposalResponse x -&gt; CreateProposalResponse
+$cfrom :: forall x. CreateProposalResponse -&gt; Rep CreateProposalResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- Create a value of 'CreateProposalResponse' with all optional fields omitted.</span><span>
+</span><span id="line-268"></span><span class="hs-comment">--</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-270"></span><span class="hs-comment">--</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-273"></span><span class="hs-comment">--</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- 'proposalId', 'createProposalResponse_proposalId' - The unique identifier of the proposal.</span><span>
+</span><span id="line-275"></span><span class="hs-comment">--</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- 'httpStatus', 'createProposalResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-277"></span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#newCreateProposalResponse"><span class="hs-identifier hs-type">newCreateProposalResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-278"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-279"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-280"></span><span>  </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposalResponse"><span class="hs-identifier hs-type">CreateProposalResponse</span></a></span><span>
+</span><span id="line-281"></span><span id="newCreateProposalResponse"><span class="annot"><span class="annottext">newCreateProposalResponse :: Int -&gt; CreateProposalResponse
+</span><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#newCreateProposalResponse"><span class="hs-identifier hs-var hs-var">newCreateProposalResponse</span></a></span></span><span> </span><span id="local-6989586621679224692"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679224692"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-282"></span><span>  </span><span class="annot"><span class="annottext">CreateProposalResponse' :: Maybe Text -&gt; Int -&gt; CreateProposalResponse
+</span><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposalResponse%27"><span class="hs-identifier hs-type">CreateProposalResponse'</span></a></span><span>
+</span><span id="line-283"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:proposalId:CreateProposalResponse' :: Maybe Text
+</span><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#%24sel%3AproposalId%3ACreateProposalResponse%27"><span class="hs-identifier hs-var">proposalId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-284"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-285"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateProposalResponse' :: Int
+</span><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#%24sel%3AhttpStatus%3ACreateProposalResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679224692"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-286"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-287"></span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- | The unique identifier of the proposal.</span><span>
+</span><span id="line-289"></span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#createProposalResponse_proposalId"><span class="hs-identifier hs-type">createProposalResponse_proposalId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposalResponse"><span class="hs-identifier hs-type">CreateProposalResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span id="createProposalResponse_proposalId"><span class="annot"><span class="annottext">createProposalResponse_proposalId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateProposalResponse -&gt; f CreateProposalResponse
+</span><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#createProposalResponse_proposalId"><span class="hs-identifier hs-var hs-var">createProposalResponse_proposalId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProposalResponse -&gt; Maybe Text)
+-&gt; (CreateProposalResponse -&gt; Maybe Text -&gt; CreateProposalResponse)
+-&gt; Lens
+     CreateProposalResponse
+     CreateProposalResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposalResponse%27"><span class="hs-identifier hs-type">CreateProposalResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224691"><span class="annot"><span class="annottext">Maybe Text
+proposalId :: Maybe Text
+$sel:proposalId:CreateProposalResponse' :: CreateProposalResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679224691"><span class="hs-identifier hs-var hs-var">proposalId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679224691"><span class="hs-identifier hs-var">proposalId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224690"><span class="annot"><span class="annottext">s :: CreateProposalResponse
+</span><a href="#local-6989586621679224690"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposalResponse%27"><span class="hs-identifier hs-type">CreateProposalResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224689"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679224689"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProposalResponse
+</span><a href="#local-6989586621679224690"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:proposalId:CreateProposalResponse' :: Maybe Text
+</span><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#%24sel%3AproposalId%3ACreateProposalResponse%27"><span class="hs-identifier hs-var">proposalId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679224689"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposalResponse"><span class="hs-identifier hs-type">CreateProposalResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-293"></span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#createProposalResponse_httpStatus"><span class="hs-identifier hs-type">createProposalResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposalResponse"><span class="hs-identifier hs-type">CreateProposalResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-294"></span><span id="createProposalResponse_httpStatus"><span class="annot"><span class="annottext">createProposalResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateProposalResponse -&gt; f CreateProposalResponse
+</span><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#createProposalResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createProposalResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProposalResponse -&gt; Int)
+-&gt; (CreateProposalResponse -&gt; Int -&gt; CreateProposalResponse)
+-&gt; Lens CreateProposalResponse CreateProposalResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposalResponse%27"><span class="hs-identifier hs-type">CreateProposalResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224688"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateProposalResponse' :: CreateProposalResponse -&gt; Int
+</span><a href="#local-6989586621679224688"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679224688"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224687"><span class="annot"><span class="annottext">s :: CreateProposalResponse
+</span><a href="#local-6989586621679224687"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposalResponse%27"><span class="hs-identifier hs-type">CreateProposalResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224686"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679224686"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProposalResponse
+</span><a href="#local-6989586621679224687"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateProposalResponse' :: Int
+</span><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#%24sel%3AhttpStatus%3ACreateProposalResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679224686"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposalResponse"><span class="hs-identifier hs-type">CreateProposalResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-295"></span><span>
+</span><span id="line-296"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224684"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.CreateProposal.html#CreateProposalResponse"><span class="hs-identifier hs-type">CreateProposalResponse</span></a></span></span><span>
+</span><span id="line-297"></span></pre></body></html>

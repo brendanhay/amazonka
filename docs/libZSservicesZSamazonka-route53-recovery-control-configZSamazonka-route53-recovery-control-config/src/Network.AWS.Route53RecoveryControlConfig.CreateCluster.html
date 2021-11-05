@@ -1,0 +1,450 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Route53RecoveryControlConfig.CreateCluster</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Create a new cluster. A cluster is a set of redundant Regional endpoints</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- against which you can run API calls to update or get the state of one or</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- more routing controls. Each cluster has a name, status, Amazon Resource</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- Name (ARN), and an array of the five cluster endpoints (one for each</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- supported Amazon Web Services Region) that you can use with API calls to</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- the Amazon Route 53 Application Recovery Controller cluster data plane.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Route53RecoveryControlConfig.CreateCluster</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#CreateCluster"><span class="hs-identifier">CreateCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#newCreateCluster"><span class="hs-identifier">newCreateCluster</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#createCluster_clientToken"><span class="hs-identifier">createCluster_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#createCluster_clusterName"><span class="hs-identifier">createCluster_clusterName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#CreateClusterResponse"><span class="hs-identifier">CreateClusterResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#newCreateClusterResponse"><span class="hs-identifier">newCreateClusterResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#createClusterResponse_cluster"><span class="hs-identifier">createClusterResponse_cluster</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#createClusterResponse_httpStatus"><span class="hs-identifier">createClusterResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.html"><span class="hs-identifier">Network.AWS.Route53RecoveryControlConfig.Types</span></a></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | Creates a cluster.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- /See:/ 'newCreateCluster' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679179733"><span id="local-6989586621679179734"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateCluster"><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#CreateCluster"><span class="hs-identifier hs-var">CreateCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateCluster%27"><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#CreateCluster%27"><span class="hs-identifier hs-var">CreateCluster'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Unique client idempotency token.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AclientToken%3ACreateCluster%27"><span class="annot"><span class="annottext">CreateCluster -&gt; Maybe Text
+</span><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#%24sel%3AclientToken%3ACreateCluster%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The name of the cluster.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AclusterName%3ACreateCluster%27"><span class="annot"><span class="annottext">CreateCluster -&gt; Text
+</span><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#%24sel%3AclusterName%3ACreateCluster%27"><span class="hs-identifier hs-var hs-var">clusterName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179726"><span id="local-6989586621679179728"><span class="annot"><span class="annottext">CreateCluster -&gt; CreateCluster -&gt; Bool
+(CreateCluster -&gt; CreateCluster -&gt; Bool)
+-&gt; (CreateCluster -&gt; CreateCluster -&gt; Bool) -&gt; Eq CreateCluster
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateCluster -&gt; CreateCluster -&gt; Bool
+$c/= :: CreateCluster -&gt; CreateCluster -&gt; Bool
+== :: CreateCluster -&gt; CreateCluster -&gt; Bool
+$c== :: CreateCluster -&gt; CreateCluster -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179717"><span id="local-6989586621679179719"><span id="local-6989586621679179721"><span id="local-6989586621679179723"><span class="annot"><span class="annottext">ReadPrec [CreateCluster]
+ReadPrec CreateCluster
+Int -&gt; ReadS CreateCluster
+ReadS [CreateCluster]
+(Int -&gt; ReadS CreateCluster)
+-&gt; ReadS [CreateCluster]
+-&gt; ReadPrec CreateCluster
+-&gt; ReadPrec [CreateCluster]
+-&gt; Read CreateCluster
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateCluster]
+$creadListPrec :: ReadPrec [CreateCluster]
+readPrec :: ReadPrec CreateCluster
+$creadPrec :: ReadPrec CreateCluster
+readList :: ReadS [CreateCluster]
+$creadList :: ReadS [CreateCluster]
+readsPrec :: Int -&gt; ReadS CreateCluster
+$creadsPrec :: Int -&gt; ReadS CreateCluster
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179710"><span id="local-6989586621679179712"><span id="local-6989586621679179714"><span class="annot"><span class="annottext">Int -&gt; CreateCluster -&gt; ShowS
+[CreateCluster] -&gt; ShowS
+CreateCluster -&gt; String
+(Int -&gt; CreateCluster -&gt; ShowS)
+-&gt; (CreateCluster -&gt; String)
+-&gt; ([CreateCluster] -&gt; ShowS)
+-&gt; Show CreateCluster
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateCluster] -&gt; ShowS
+$cshowList :: [CreateCluster] -&gt; ShowS
+show :: CreateCluster -&gt; String
+$cshow :: CreateCluster -&gt; String
+showsPrec :: Int -&gt; CreateCluster -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateCluster -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateCluster -&gt; Rep CreateCluster x)
+-&gt; (forall x. Rep CreateCluster x -&gt; CreateCluster)
+-&gt; Generic CreateCluster
+forall x. Rep CreateCluster x -&gt; CreateCluster
+forall x. CreateCluster -&gt; Rep CreateCluster x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateCluster x -&gt; CreateCluster
+$cfrom :: forall x. CreateCluster -&gt; Rep CreateCluster x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Create a value of 'CreateCluster' with all optional fields omitted.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'clientToken', 'createCluster_clientToken' - Unique client idempotency token.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'clusterName', 'createCluster_clusterName' - The name of the cluster.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#newCreateCluster"><span class="hs-identifier hs-type">newCreateCluster</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-comment">-- | 'clusterName'</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#CreateCluster"><span class="hs-identifier hs-type">CreateCluster</span></a></span><span>
+</span><span id="line-81"></span><span id="newCreateCluster"><span class="annot"><span class="annottext">newCreateCluster :: Text -&gt; CreateCluster
+</span><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#newCreateCluster"><span class="hs-identifier hs-var hs-var">newCreateCluster</span></a></span></span><span> </span><span id="local-6989586621679179705"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179705"><span class="hs-identifier hs-var">pClusterName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">CreateCluster' :: Maybe Text -&gt; Text -&gt; CreateCluster
+</span><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#CreateCluster%27"><span class="hs-identifier hs-type">CreateCluster'</span></a></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientToken:CreateCluster' :: Maybe Text
+</span><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#%24sel%3AclientToken%3ACreateCluster%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterName:CreateCluster' :: Text
+</span><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#%24sel%3AclusterName%3ACreateCluster%27"><span class="hs-identifier hs-var">clusterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179705"><span class="hs-identifier hs-var">pClusterName_</span></a></span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | Unique client idempotency token.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#createCluster_clientToken"><span class="hs-identifier hs-type">createCluster_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#CreateCluster"><span class="hs-identifier hs-type">CreateCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="createCluster_clientToken"><span class="annot"><span class="annottext">createCluster_clientToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateCluster -&gt; f CreateCluster
+</span><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#createCluster_clientToken"><span class="hs-identifier hs-var hs-var">createCluster_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCluster -&gt; Maybe Text)
+-&gt; (CreateCluster -&gt; Maybe Text -&gt; CreateCluster)
+-&gt; Lens CreateCluster CreateCluster (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#CreateCluster%27"><span class="hs-identifier hs-type">CreateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179702"><span class="annot"><span class="annottext">Maybe Text
+clientToken :: Maybe Text
+$sel:clientToken:CreateCluster' :: CreateCluster -&gt; Maybe Text
+</span><a href="#local-6989586621679179702"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179702"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179701"><span class="annot"><span class="annottext">s :: CreateCluster
+</span><a href="#local-6989586621679179701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#CreateCluster%27"><span class="hs-identifier hs-type">CreateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179700"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCluster
+</span><a href="#local-6989586621679179701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:CreateCluster' :: Maybe Text
+</span><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#%24sel%3AclientToken%3ACreateCluster%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#CreateCluster"><span class="hs-identifier hs-type">CreateCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The name of the cluster.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#createCluster_clusterName"><span class="hs-identifier hs-type">createCluster_clusterName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#CreateCluster"><span class="hs-identifier hs-type">CreateCluster</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-93"></span><span id="createCluster_clusterName"><span class="annot"><span class="annottext">createCluster_clusterName :: (Text -&gt; f Text) -&gt; CreateCluster -&gt; f CreateCluster
+</span><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#createCluster_clusterName"><span class="hs-identifier hs-var hs-var">createCluster_clusterName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCluster -&gt; Text)
+-&gt; (CreateCluster -&gt; Text -&gt; CreateCluster)
+-&gt; Lens CreateCluster CreateCluster Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#CreateCluster%27"><span class="hs-identifier hs-type">CreateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179699"><span class="annot"><span class="annottext">Text
+clusterName :: Text
+$sel:clusterName:CreateCluster' :: CreateCluster -&gt; Text
+</span><a href="#local-6989586621679179699"><span class="hs-identifier hs-var hs-var">clusterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179699"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179698"><span class="annot"><span class="annottext">s :: CreateCluster
+</span><a href="#local-6989586621679179698"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#CreateCluster%27"><span class="hs-identifier hs-type">CreateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179697"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179697"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCluster
+</span><a href="#local-6989586621679179698"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterName:CreateCluster' :: Text
+</span><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#%24sel%3AclusterName%3ACreateCluster%27"><span class="hs-identifier hs-var">clusterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179697"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#CreateCluster"><span class="hs-identifier hs-type">CreateCluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#CreateCluster"><span class="hs-identifier hs-type">CreateCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-97"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#CreateCluster"><span class="hs-identifier hs-type">CreateCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#CreateClusterResponse"><span class="hs-identifier hs-type">CreateClusterResponse</span></a></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679179693"><span class="annot"><span class="annottext">request :: CreateCluster -&gt; Request CreateCluster
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateCluster -&gt; Request CreateCluster
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Route53RecoveryControlConfig.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679179689"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateCluster
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateCluster)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateCluster))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateCluster
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateCluster)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679179686"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179686"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679179685"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679179685"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679179684"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679179684"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe Cluster -&gt; Int -&gt; CreateClusterResponse
+</span><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#CreateClusterResponse%27"><span class="hs-identifier hs-var">CreateClusterResponse'</span></a></span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Cluster -&gt; Int -&gt; CreateClusterResponse)
+-&gt; Either String (Maybe Cluster)
+-&gt; Either String (Int -&gt; CreateClusterResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679179684"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Cluster)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Cluster&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateClusterResponse)
+-&gt; Either String Int -&gt; Either String CreateClusterResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179686"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179676"><span id="local-6989586621679179678"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#CreateCluster"><span class="hs-identifier hs-type">CreateCluster</span></a></span></span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179673"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#CreateCluster"><span class="hs-identifier hs-type">CreateCluster</span></a></span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#CreateCluster"><span class="hs-identifier hs-type">CreateCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679179669"><span class="annot"><span class="annottext">toHeaders :: CreateCluster -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateCluster -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-116"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-117"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-118"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-119"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179659"><span id="local-6989586621679179661"><span id="local-6989586621679179663"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#CreateCluster"><span class="hs-identifier hs-type">CreateCluster</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679179657"><span class="annot"><span class="annottext">toJSON :: CreateCluster -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#CreateCluster%27"><span class="hs-identifier hs-type">CreateCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179654"><span id="local-6989586621679179655"><span class="annot"><span class="annottext">Maybe Text
+Text
+clusterName :: Text
+clientToken :: Maybe Text
+$sel:clusterName:CreateCluster' :: CreateCluster -&gt; Text
+$sel:clientToken:CreateCluster' :: CreateCluster -&gt; Maybe Text
+</span><a href="#local-6989586621679179654"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-127"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179655"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClusterName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179654"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#CreateCluster"><span class="hs-identifier hs-type">CreateCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679179648"><span class="annot"><span class="annottext">toPath :: CreateCluster -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateCluster -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/cluster&quot;</span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#CreateCluster"><span class="hs-identifier hs-type">CreateCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679179644"><span class="annot"><span class="annottext">toQuery :: CreateCluster -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateCluster -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | /See:/ 'newCreateClusterResponse' smart constructor.</span><span>
+</span><span id="line-139"></span><span id="local-6989586621679179641"><span id="local-6989586621679179642"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateClusterResponse"><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#CreateClusterResponse"><span class="hs-identifier hs-var">CreateClusterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateClusterResponse%27"><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#CreateClusterResponse%27"><span class="hs-identifier hs-var">CreateClusterResponse'</span></a></span></span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The cluster that was created.</span><span>
+</span><span id="line-141"></span><span>    </span><span id="%24sel%3Acluster%3ACreateClusterResponse%27"><span class="annot"><span class="annottext">CreateClusterResponse -&gt; Maybe Cluster
+</span><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#%24sel%3Acluster%3ACreateClusterResponse%27"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-143"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateClusterResponse%27"><span class="annot"><span class="annottext">CreateClusterResponse -&gt; Int
+</span><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#%24sel%3AhttpStatus%3ACreateClusterResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179635"><span id="local-6989586621679179637"><span class="annot"><span class="annottext">CreateClusterResponse -&gt; CreateClusterResponse -&gt; Bool
+(CreateClusterResponse -&gt; CreateClusterResponse -&gt; Bool)
+-&gt; (CreateClusterResponse -&gt; CreateClusterResponse -&gt; Bool)
+-&gt; Eq CreateClusterResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateClusterResponse -&gt; CreateClusterResponse -&gt; Bool
+$c/= :: CreateClusterResponse -&gt; CreateClusterResponse -&gt; Bool
+== :: CreateClusterResponse -&gt; CreateClusterResponse -&gt; Bool
+$c== :: CreateClusterResponse -&gt; CreateClusterResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179627"><span id="local-6989586621679179629"><span id="local-6989586621679179631"><span id="local-6989586621679179633"><span class="annot"><span class="annottext">ReadPrec [CreateClusterResponse]
+ReadPrec CreateClusterResponse
+Int -&gt; ReadS CreateClusterResponse
+ReadS [CreateClusterResponse]
+(Int -&gt; ReadS CreateClusterResponse)
+-&gt; ReadS [CreateClusterResponse]
+-&gt; ReadPrec CreateClusterResponse
+-&gt; ReadPrec [CreateClusterResponse]
+-&gt; Read CreateClusterResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateClusterResponse]
+$creadListPrec :: ReadPrec [CreateClusterResponse]
+readPrec :: ReadPrec CreateClusterResponse
+$creadPrec :: ReadPrec CreateClusterResponse
+readList :: ReadS [CreateClusterResponse]
+$creadList :: ReadS [CreateClusterResponse]
+readsPrec :: Int -&gt; ReadS CreateClusterResponse
+$creadsPrec :: Int -&gt; ReadS CreateClusterResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179621"><span id="local-6989586621679179623"><span id="local-6989586621679179625"><span class="annot"><span class="annottext">Int -&gt; CreateClusterResponse -&gt; ShowS
+[CreateClusterResponse] -&gt; ShowS
+CreateClusterResponse -&gt; String
+(Int -&gt; CreateClusterResponse -&gt; ShowS)
+-&gt; (CreateClusterResponse -&gt; String)
+-&gt; ([CreateClusterResponse] -&gt; ShowS)
+-&gt; Show CreateClusterResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateClusterResponse] -&gt; ShowS
+$cshowList :: [CreateClusterResponse] -&gt; ShowS
+show :: CreateClusterResponse -&gt; String
+$cshow :: CreateClusterResponse -&gt; String
+showsPrec :: Int -&gt; CreateClusterResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateClusterResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateClusterResponse -&gt; Rep CreateClusterResponse x)
+-&gt; (forall x. Rep CreateClusterResponse x -&gt; CreateClusterResponse)
+-&gt; Generic CreateClusterResponse
+forall x. Rep CreateClusterResponse x -&gt; CreateClusterResponse
+forall x. CreateClusterResponse -&gt; Rep CreateClusterResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateClusterResponse x -&gt; CreateClusterResponse
+$cfrom :: forall x. CreateClusterResponse -&gt; Rep CreateClusterResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- Create a value of 'CreateClusterResponse' with all optional fields omitted.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- 'cluster', 'createClusterResponse_cluster' - The cluster that was created.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- 'httpStatus', 'createClusterResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#newCreateClusterResponse"><span class="hs-identifier hs-type">newCreateClusterResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#CreateClusterResponse"><span class="hs-identifier hs-type">CreateClusterResponse</span></a></span><span>
+</span><span id="line-162"></span><span id="newCreateClusterResponse"><span class="annot"><span class="annottext">newCreateClusterResponse :: Int -&gt; CreateClusterResponse
+</span><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#newCreateClusterResponse"><span class="hs-identifier hs-var hs-var">newCreateClusterResponse</span></a></span></span><span> </span><span id="local-6989586621679179618"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179618"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><span class="annottext">CreateClusterResponse' :: Maybe Cluster -&gt; Int -&gt; CreateClusterResponse
+</span><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#CreateClusterResponse%27"><span class="hs-identifier hs-type">CreateClusterResponse'</span></a></span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cluster:CreateClusterResponse' :: Maybe Cluster
+</span><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#%24sel%3Acluster%3ACreateClusterResponse%27"><span class="hs-identifier hs-var">cluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateClusterResponse' :: Int
+</span><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#%24sel%3AhttpStatus%3ACreateClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179618"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The cluster that was created.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#createClusterResponse_cluster"><span class="hs-identifier hs-type">createClusterResponse_cluster</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#CreateClusterResponse"><span class="hs-identifier hs-type">CreateClusterResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span id="createClusterResponse_cluster"><span class="annot"><span class="annottext">createClusterResponse_cluster :: (Maybe Cluster -&gt; f (Maybe Cluster))
+-&gt; CreateClusterResponse -&gt; f CreateClusterResponse
+</span><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#createClusterResponse_cluster"><span class="hs-identifier hs-var hs-var">createClusterResponse_cluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateClusterResponse -&gt; Maybe Cluster)
+-&gt; (CreateClusterResponse
+    -&gt; Maybe Cluster -&gt; CreateClusterResponse)
+-&gt; Lens
+     CreateClusterResponse
+     CreateClusterResponse
+     (Maybe Cluster)
+     (Maybe Cluster)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#CreateClusterResponse%27"><span class="hs-identifier hs-type">CreateClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179617"><span class="annot"><span class="annottext">Maybe Cluster
+cluster :: Maybe Cluster
+$sel:cluster:CreateClusterResponse' :: CreateClusterResponse -&gt; Maybe Cluster
+</span><a href="#local-6989586621679179617"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
+</span><a href="#local-6989586621679179617"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179616"><span class="annot"><span class="annottext">s :: CreateClusterResponse
+</span><a href="#local-6989586621679179616"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#CreateClusterResponse%27"><span class="hs-identifier hs-type">CreateClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179615"><span class="annot"><span class="annottext">Maybe Cluster
+</span><a href="#local-6989586621679179615"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateClusterResponse
+</span><a href="#local-6989586621679179616"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:CreateClusterResponse' :: Maybe Cluster
+</span><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#%24sel%3Acluster%3ACreateClusterResponse%27"><span class="hs-identifier hs-var">cluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
+</span><a href="#local-6989586621679179615"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#CreateClusterResponse"><span class="hs-identifier hs-type">CreateClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#createClusterResponse_httpStatus"><span class="hs-identifier hs-type">createClusterResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#CreateClusterResponse"><span class="hs-identifier hs-type">CreateClusterResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-174"></span><span id="createClusterResponse_httpStatus"><span class="annot"><span class="annottext">createClusterResponse_httpStatus :: (Int -&gt; f Int) -&gt; CreateClusterResponse -&gt; f CreateClusterResponse
+</span><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#createClusterResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createClusterResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateClusterResponse -&gt; Int)
+-&gt; (CreateClusterResponse -&gt; Int -&gt; CreateClusterResponse)
+-&gt; Lens CreateClusterResponse CreateClusterResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#CreateClusterResponse%27"><span class="hs-identifier hs-type">CreateClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179614"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateClusterResponse' :: CreateClusterResponse -&gt; Int
+</span><a href="#local-6989586621679179614"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179614"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179613"><span class="annot"><span class="annottext">s :: CreateClusterResponse
+</span><a href="#local-6989586621679179613"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#CreateClusterResponse%27"><span class="hs-identifier hs-type">CreateClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179612"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179612"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateClusterResponse
+</span><a href="#local-6989586621679179613"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateClusterResponse' :: Int
+</span><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#%24sel%3AhttpStatus%3ACreateClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179612"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#CreateClusterResponse"><span class="hs-identifier hs-type">CreateClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179610"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryControlConfig.CreateCluster.html#CreateClusterResponse"><span class="hs-identifier hs-type">CreateClusterResponse</span></a></span></span><span>
+</span><span id="line-177"></span></pre></body></html>

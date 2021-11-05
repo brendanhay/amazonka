@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Chime.DeleteAppInstanceUser</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes an @AppInstanceUser@.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Chime.DeleteAppInstanceUser</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.DeleteAppInstanceUser.html#DeleteAppInstanceUser"><span class="hs-identifier">DeleteAppInstanceUser</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.DeleteAppInstanceUser.html#newDeleteAppInstanceUser"><span class="hs-identifier">newDeleteAppInstanceUser</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.DeleteAppInstanceUser.html#deleteAppInstanceUser_appInstanceUserArn"><span class="hs-identifier">deleteAppInstanceUser_appInstanceUserArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.DeleteAppInstanceUser.html#DeleteAppInstanceUserResponse"><span class="hs-identifier">DeleteAppInstanceUserResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.DeleteAppInstanceUser.html#newDeleteAppInstanceUserResponse"><span class="hs-identifier">newDeleteAppInstanceUserResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.html"><span class="hs-identifier">Network.AWS.Chime.Types</span></a></span><span>
+</span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- | /See:/ 'newDeleteAppInstanceUser' smart constructor.</span><span>
+</span><span id="line-46"></span><span id="local-6989586621679549915"><span id="local-6989586621679549916"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAppInstanceUser"><span class="annot"><a href="Network.AWS.Chime.DeleteAppInstanceUser.html#DeleteAppInstanceUser"><span class="hs-identifier hs-var">DeleteAppInstanceUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAppInstanceUser%27"><span class="annot"><a href="Network.AWS.Chime.DeleteAppInstanceUser.html#DeleteAppInstanceUser%27"><span class="hs-identifier hs-var">DeleteAppInstanceUser'</span></a></span></span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the user request being deleted.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AappInstanceUserArn%3ADeleteAppInstanceUser%27"><span class="annot"><span class="annottext">DeleteAppInstanceUser -&gt; Text
+</span><a href="Network.AWS.Chime.DeleteAppInstanceUser.html#%24sel%3AappInstanceUserArn%3ADeleteAppInstanceUser%27"><span class="hs-identifier hs-var hs-var">appInstanceUserArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679549909"><span id="local-6989586621679549911"><span class="annot"><span class="annottext">DeleteAppInstanceUser -&gt; DeleteAppInstanceUser -&gt; Bool
+(DeleteAppInstanceUser -&gt; DeleteAppInstanceUser -&gt; Bool)
+-&gt; (DeleteAppInstanceUser -&gt; DeleteAppInstanceUser -&gt; Bool)
+-&gt; Eq DeleteAppInstanceUser
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteAppInstanceUser -&gt; DeleteAppInstanceUser -&gt; Bool
+$c/= :: DeleteAppInstanceUser -&gt; DeleteAppInstanceUser -&gt; Bool
+== :: DeleteAppInstanceUser -&gt; DeleteAppInstanceUser -&gt; Bool
+$c== :: DeleteAppInstanceUser -&gt; DeleteAppInstanceUser -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679549900"><span id="local-6989586621679549902"><span id="local-6989586621679549904"><span id="local-6989586621679549906"><span class="annot"><span class="annottext">ReadPrec [DeleteAppInstanceUser]
+ReadPrec DeleteAppInstanceUser
+Int -&gt; ReadS DeleteAppInstanceUser
+ReadS [DeleteAppInstanceUser]
+(Int -&gt; ReadS DeleteAppInstanceUser)
+-&gt; ReadS [DeleteAppInstanceUser]
+-&gt; ReadPrec DeleteAppInstanceUser
+-&gt; ReadPrec [DeleteAppInstanceUser]
+-&gt; Read DeleteAppInstanceUser
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteAppInstanceUser]
+$creadListPrec :: ReadPrec [DeleteAppInstanceUser]
+readPrec :: ReadPrec DeleteAppInstanceUser
+$creadPrec :: ReadPrec DeleteAppInstanceUser
+readList :: ReadS [DeleteAppInstanceUser]
+$creadList :: ReadS [DeleteAppInstanceUser]
+readsPrec :: Int -&gt; ReadS DeleteAppInstanceUser
+$creadsPrec :: Int -&gt; ReadS DeleteAppInstanceUser
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679549893"><span id="local-6989586621679549895"><span id="local-6989586621679549897"><span class="annot"><span class="annottext">Int -&gt; DeleteAppInstanceUser -&gt; ShowS
+[DeleteAppInstanceUser] -&gt; ShowS
+DeleteAppInstanceUser -&gt; String
+(Int -&gt; DeleteAppInstanceUser -&gt; ShowS)
+-&gt; (DeleteAppInstanceUser -&gt; String)
+-&gt; ([DeleteAppInstanceUser] -&gt; ShowS)
+-&gt; Show DeleteAppInstanceUser
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteAppInstanceUser] -&gt; ShowS
+$cshowList :: [DeleteAppInstanceUser] -&gt; ShowS
+show :: DeleteAppInstanceUser -&gt; String
+$cshow :: DeleteAppInstanceUser -&gt; String
+showsPrec :: Int -&gt; DeleteAppInstanceUser -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteAppInstanceUser -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteAppInstanceUser -&gt; Rep DeleteAppInstanceUser x)
+-&gt; (forall x. Rep DeleteAppInstanceUser x -&gt; DeleteAppInstanceUser)
+-&gt; Generic DeleteAppInstanceUser
+forall x. Rep DeleteAppInstanceUser x -&gt; DeleteAppInstanceUser
+forall x. DeleteAppInstanceUser -&gt; Rep DeleteAppInstanceUser x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteAppInstanceUser x -&gt; DeleteAppInstanceUser
+$cfrom :: forall x. DeleteAppInstanceUser -&gt; Rep DeleteAppInstanceUser x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Create a value of 'DeleteAppInstanceUser' with all optional fields omitted.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'appInstanceUserArn', 'deleteAppInstanceUser_appInstanceUserArn' - The ARN of the user request being deleted.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.Chime.DeleteAppInstanceUser.html#newDeleteAppInstanceUser"><span class="hs-identifier hs-type">newDeleteAppInstanceUser</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-comment">-- | 'appInstanceUserArn'</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.DeleteAppInstanceUser.html#DeleteAppInstanceUser"><span class="hs-identifier hs-type">DeleteAppInstanceUser</span></a></span><span>
+</span><span id="line-65"></span><span id="newDeleteAppInstanceUser"><span class="annot"><span class="annottext">newDeleteAppInstanceUser :: Text -&gt; DeleteAppInstanceUser
+</span><a href="Network.AWS.Chime.DeleteAppInstanceUser.html#newDeleteAppInstanceUser"><span class="hs-identifier hs-var hs-var">newDeleteAppInstanceUser</span></a></span></span><span> </span><span id="local-6989586621679549888"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679549888"><span class="hs-identifier hs-var">pAppInstanceUserArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><span class="annottext">DeleteAppInstanceUser' :: Text -&gt; DeleteAppInstanceUser
+</span><a href="Network.AWS.Chime.DeleteAppInstanceUser.html#DeleteAppInstanceUser%27"><span class="hs-identifier hs-type">DeleteAppInstanceUser'</span></a></span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:appInstanceUserArn:DeleteAppInstanceUser' :: Text
+</span><a href="Network.AWS.Chime.DeleteAppInstanceUser.html#%24sel%3AappInstanceUserArn%3ADeleteAppInstanceUser%27"><span class="hs-identifier hs-var">appInstanceUserArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679549888"><span class="hs-identifier hs-var">pAppInstanceUserArn_</span></a></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The ARN of the user request being deleted.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.Chime.DeleteAppInstanceUser.html#deleteAppInstanceUser_appInstanceUserArn"><span class="hs-identifier hs-type">deleteAppInstanceUser_appInstanceUserArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DeleteAppInstanceUser.html#DeleteAppInstanceUser"><span class="hs-identifier hs-type">DeleteAppInstanceUser</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-73"></span><span id="deleteAppInstanceUser_appInstanceUserArn"><span class="annot"><span class="annottext">deleteAppInstanceUser_appInstanceUserArn :: (Text -&gt; f Text)
+-&gt; DeleteAppInstanceUser -&gt; f DeleteAppInstanceUser
+</span><a href="Network.AWS.Chime.DeleteAppInstanceUser.html#deleteAppInstanceUser_appInstanceUserArn"><span class="hs-identifier hs-var hs-var">deleteAppInstanceUser_appInstanceUserArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteAppInstanceUser -&gt; Text)
+-&gt; (DeleteAppInstanceUser -&gt; Text -&gt; DeleteAppInstanceUser)
+-&gt; Lens DeleteAppInstanceUser DeleteAppInstanceUser Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.DeleteAppInstanceUser.html#DeleteAppInstanceUser%27"><span class="hs-identifier hs-type">DeleteAppInstanceUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679549885"><span class="annot"><span class="annottext">Text
+appInstanceUserArn :: Text
+$sel:appInstanceUserArn:DeleteAppInstanceUser' :: DeleteAppInstanceUser -&gt; Text
+</span><a href="#local-6989586621679549885"><span class="hs-identifier hs-var hs-var">appInstanceUserArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679549885"><span class="hs-identifier hs-var">appInstanceUserArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679549884"><span class="annot"><span class="annottext">s :: DeleteAppInstanceUser
+</span><a href="#local-6989586621679549884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.DeleteAppInstanceUser.html#DeleteAppInstanceUser%27"><span class="hs-identifier hs-type">DeleteAppInstanceUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679549883"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679549883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAppInstanceUser
+</span><a href="#local-6989586621679549884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appInstanceUserArn:DeleteAppInstanceUser' :: Text
+</span><a href="Network.AWS.Chime.DeleteAppInstanceUser.html#%24sel%3AappInstanceUserArn%3ADeleteAppInstanceUser%27"><span class="hs-identifier hs-var">appInstanceUserArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679549883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.DeleteAppInstanceUser.html#DeleteAppInstanceUser"><span class="hs-identifier hs-type">DeleteAppInstanceUser</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DeleteAppInstanceUser.html#DeleteAppInstanceUser"><span class="hs-identifier hs-type">DeleteAppInstanceUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-77"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DeleteAppInstanceUser.html#DeleteAppInstanceUser"><span class="hs-identifier hs-type">DeleteAppInstanceUser</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><a href="Network.AWS.Chime.DeleteAppInstanceUser.html#DeleteAppInstanceUserResponse"><span class="hs-identifier hs-type">DeleteAppInstanceUserResponse</span></a></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679549879"><span class="annot"><span class="annottext">request :: DeleteAppInstanceUser -&gt; Request DeleteAppInstanceUser
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteAppInstanceUser -&gt; Request DeleteAppInstanceUser
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Chime.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679549875"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteAppInstanceUser
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteAppInstanceUser)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse DeleteAppInstanceUser
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteAppInstanceUser
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteAppInstanceUser)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DeleteAppInstanceUser
+DeleteAppInstanceUserResponse
+</span><a href="Network.AWS.Chime.DeleteAppInstanceUser.html#DeleteAppInstanceUserResponse%27"><span class="hs-identifier hs-var">DeleteAppInstanceUserResponse'</span></a></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679549868"><span id="local-6989586621679549870"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DeleteAppInstanceUser.html#DeleteAppInstanceUser"><span class="hs-identifier hs-type">DeleteAppInstanceUser</span></a></span></span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679549865"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DeleteAppInstanceUser.html#DeleteAppInstanceUser"><span class="hs-identifier hs-type">DeleteAppInstanceUser</span></a></span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DeleteAppInstanceUser.html#DeleteAppInstanceUser"><span class="hs-identifier hs-type">DeleteAppInstanceUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679549861"><span class="annot"><span class="annottext">toHeaders :: DeleteAppInstanceUser -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteAppInstanceUser -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DeleteAppInstanceUser.html#DeleteAppInstanceUser"><span class="hs-identifier hs-type">DeleteAppInstanceUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679549856"><span class="annot"><span class="annottext">toPath :: DeleteAppInstanceUser -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DeleteAppInstanceUser.html#DeleteAppInstanceUser%27"><span class="hs-identifier hs-type">DeleteAppInstanceUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679549854"><span class="annot"><span class="annottext">Text
+appInstanceUserArn :: Text
+$sel:appInstanceUserArn:DeleteAppInstanceUser' :: DeleteAppInstanceUser -&gt; Text
+</span><a href="#local-6989586621679549854"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/app-instance-users/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679549854"><span class="hs-identifier hs-var">appInstanceUserArn</span></a></span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DeleteAppInstanceUser.html#DeleteAppInstanceUser"><span class="hs-identifier hs-type">DeleteAppInstanceUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679549850"><span class="annot"><span class="annottext">toQuery :: DeleteAppInstanceUser -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteAppInstanceUser -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | /See:/ 'newDeleteAppInstanceUserResponse' smart constructor.</span><span>
+</span><span id="line-101"></span><span id="local-6989586621679549847"><span id="local-6989586621679549848"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAppInstanceUserResponse"><span class="annot"><a href="Network.AWS.Chime.DeleteAppInstanceUser.html#DeleteAppInstanceUserResponse"><span class="hs-identifier hs-var">DeleteAppInstanceUserResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAppInstanceUserResponse%27"><span class="annot"><a href="Network.AWS.Chime.DeleteAppInstanceUser.html#DeleteAppInstanceUserResponse%27"><span class="hs-identifier hs-var">DeleteAppInstanceUserResponse'</span></a></span></span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679549843"><span id="local-6989586621679549845"><span class="annot"><span class="annottext">DeleteAppInstanceUserResponse
+-&gt; DeleteAppInstanceUserResponse -&gt; Bool
+(DeleteAppInstanceUserResponse
+ -&gt; DeleteAppInstanceUserResponse -&gt; Bool)
+-&gt; (DeleteAppInstanceUserResponse
+    -&gt; DeleteAppInstanceUserResponse -&gt; Bool)
+-&gt; Eq DeleteAppInstanceUserResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteAppInstanceUserResponse
+-&gt; DeleteAppInstanceUserResponse -&gt; Bool
+$c/= :: DeleteAppInstanceUserResponse
+-&gt; DeleteAppInstanceUserResponse -&gt; Bool
+== :: DeleteAppInstanceUserResponse
+-&gt; DeleteAppInstanceUserResponse -&gt; Bool
+$c== :: DeleteAppInstanceUserResponse
+-&gt; DeleteAppInstanceUserResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679549835"><span id="local-6989586621679549837"><span id="local-6989586621679549839"><span id="local-6989586621679549841"><span class="annot"><span class="annottext">ReadPrec [DeleteAppInstanceUserResponse]
+ReadPrec DeleteAppInstanceUserResponse
+Int -&gt; ReadS DeleteAppInstanceUserResponse
+ReadS [DeleteAppInstanceUserResponse]
+(Int -&gt; ReadS DeleteAppInstanceUserResponse)
+-&gt; ReadS [DeleteAppInstanceUserResponse]
+-&gt; ReadPrec DeleteAppInstanceUserResponse
+-&gt; ReadPrec [DeleteAppInstanceUserResponse]
+-&gt; Read DeleteAppInstanceUserResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteAppInstanceUserResponse]
+$creadListPrec :: ReadPrec [DeleteAppInstanceUserResponse]
+readPrec :: ReadPrec DeleteAppInstanceUserResponse
+$creadPrec :: ReadPrec DeleteAppInstanceUserResponse
+readList :: ReadS [DeleteAppInstanceUserResponse]
+$creadList :: ReadS [DeleteAppInstanceUserResponse]
+readsPrec :: Int -&gt; ReadS DeleteAppInstanceUserResponse
+$creadsPrec :: Int -&gt; ReadS DeleteAppInstanceUserResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679549829"><span id="local-6989586621679549831"><span id="local-6989586621679549833"><span class="annot"><span class="annottext">Int -&gt; DeleteAppInstanceUserResponse -&gt; ShowS
+[DeleteAppInstanceUserResponse] -&gt; ShowS
+DeleteAppInstanceUserResponse -&gt; String
+(Int -&gt; DeleteAppInstanceUserResponse -&gt; ShowS)
+-&gt; (DeleteAppInstanceUserResponse -&gt; String)
+-&gt; ([DeleteAppInstanceUserResponse] -&gt; ShowS)
+-&gt; Show DeleteAppInstanceUserResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteAppInstanceUserResponse] -&gt; ShowS
+$cshowList :: [DeleteAppInstanceUserResponse] -&gt; ShowS
+show :: DeleteAppInstanceUserResponse -&gt; String
+$cshow :: DeleteAppInstanceUserResponse -&gt; String
+showsPrec :: Int -&gt; DeleteAppInstanceUserResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteAppInstanceUserResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteAppInstanceUserResponse
+ -&gt; Rep DeleteAppInstanceUserResponse x)
+-&gt; (forall x.
+    Rep DeleteAppInstanceUserResponse x
+    -&gt; DeleteAppInstanceUserResponse)
+-&gt; Generic DeleteAppInstanceUserResponse
+forall x.
+Rep DeleteAppInstanceUserResponse x
+-&gt; DeleteAppInstanceUserResponse
+forall x.
+DeleteAppInstanceUserResponse
+-&gt; Rep DeleteAppInstanceUserResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteAppInstanceUserResponse x
+-&gt; DeleteAppInstanceUserResponse
+$cfrom :: forall x.
+DeleteAppInstanceUserResponse
+-&gt; Rep DeleteAppInstanceUserResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- Create a value of 'DeleteAppInstanceUserResponse' with all optional fields omitted.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.Chime.DeleteAppInstanceUser.html#newDeleteAppInstanceUserResponse"><span class="hs-identifier hs-type">newDeleteAppInstanceUserResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.DeleteAppInstanceUser.html#DeleteAppInstanceUserResponse"><span class="hs-identifier hs-type">DeleteAppInstanceUserResponse</span></a></span><span>
+</span><span id="line-112"></span><span id="newDeleteAppInstanceUserResponse"><span class="annot"><span class="annottext">newDeleteAppInstanceUserResponse :: DeleteAppInstanceUserResponse
+</span><a href="Network.AWS.Chime.DeleteAppInstanceUser.html#newDeleteAppInstanceUserResponse"><span class="hs-identifier hs-var hs-var">newDeleteAppInstanceUserResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><span class="annottext">DeleteAppInstanceUserResponse
+</span><a href="Network.AWS.Chime.DeleteAppInstanceUser.html#DeleteAppInstanceUserResponse%27"><span class="hs-identifier hs-var">DeleteAppInstanceUserResponse'</span></a></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679549825"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DeleteAppInstanceUser.html#DeleteAppInstanceUserResponse"><span class="hs-identifier hs-type">DeleteAppInstanceUserResponse</span></a></span></span><span>
+</span><span id="line-116"></span></pre></body></html>

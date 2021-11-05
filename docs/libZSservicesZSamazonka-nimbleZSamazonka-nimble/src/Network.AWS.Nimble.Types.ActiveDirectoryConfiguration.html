@@ -1,0 +1,374 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Nimble.Types.ActiveDirectoryConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Nimble.Types.ActiveDirectoryConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.Types.ActiveDirectoryComputerAttribute.html"><span class="hs-identifier">Network.AWS.Nimble.Types.ActiveDirectoryComputerAttribute</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The configuration for a Microsoft Active Directory (Microsoft AD) studio</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- resource.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newActiveDirectoryConfiguration' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679281563"><span id="local-6989586621679281564"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActiveDirectoryConfiguration"><span class="annot"><a href="Network.AWS.Nimble.Types.ActiveDirectoryConfiguration.html#ActiveDirectoryConfiguration"><span class="hs-identifier hs-var">ActiveDirectoryConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActiveDirectoryConfiguration%27"><span class="annot"><a href="Network.AWS.Nimble.Types.ActiveDirectoryConfiguration.html#ActiveDirectoryConfiguration%27"><span class="hs-identifier hs-var">ActiveDirectoryConfiguration'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The directory ID of the Directory Service for Microsoft Active Directory</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- to access using this studio component.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AdirectoryId%3AActiveDirectoryConfiguration%27"><span class="annot"><span class="annottext">ActiveDirectoryConfiguration -&gt; Maybe Text
+</span><a href="Network.AWS.Nimble.Types.ActiveDirectoryConfiguration.html#%24sel%3AdirectoryId%3AActiveDirectoryConfiguration%27"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | A collection of custom attributes for an Active Directory computer.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AcomputerAttributes%3AActiveDirectoryConfiguration%27"><span class="annot"><span class="annottext">ActiveDirectoryConfiguration
+-&gt; Maybe [ActiveDirectoryComputerAttribute]
+</span><a href="Network.AWS.Nimble.Types.ActiveDirectoryConfiguration.html#%24sel%3AcomputerAttributes%3AActiveDirectoryConfiguration%27"><span class="hs-identifier hs-var hs-var">computerAttributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Nimble.Types.ActiveDirectoryComputerAttribute.html#ActiveDirectoryComputerAttribute"><span class="hs-identifier hs-type">ActiveDirectoryComputerAttribute</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The distinguished name (DN) and organizational unit (OU) of an Active</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- Directory computer.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AorganizationalUnitDistinguishedName%3AActiveDirectoryConfiguration%27"><span class="annot"><span class="annottext">ActiveDirectoryConfiguration -&gt; Maybe Text
+</span><a href="Network.AWS.Nimble.Types.ActiveDirectoryConfiguration.html#%24sel%3AorganizationalUnitDistinguishedName%3AActiveDirectoryConfiguration%27"><span class="hs-identifier hs-var hs-var">organizationalUnitDistinguishedName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679281555"><span id="local-6989586621679281557"><span class="annot"><span class="annottext">ActiveDirectoryConfiguration
+-&gt; ActiveDirectoryConfiguration -&gt; Bool
+(ActiveDirectoryConfiguration
+ -&gt; ActiveDirectoryConfiguration -&gt; Bool)
+-&gt; (ActiveDirectoryConfiguration
+    -&gt; ActiveDirectoryConfiguration -&gt; Bool)
+-&gt; Eq ActiveDirectoryConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ActiveDirectoryConfiguration
+-&gt; ActiveDirectoryConfiguration -&gt; Bool
+$c/= :: ActiveDirectoryConfiguration
+-&gt; ActiveDirectoryConfiguration -&gt; Bool
+== :: ActiveDirectoryConfiguration
+-&gt; ActiveDirectoryConfiguration -&gt; Bool
+$c== :: ActiveDirectoryConfiguration
+-&gt; ActiveDirectoryConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281546"><span id="local-6989586621679281548"><span id="local-6989586621679281550"><span id="local-6989586621679281552"><span class="annot"><span class="annottext">ReadPrec [ActiveDirectoryConfiguration]
+ReadPrec ActiveDirectoryConfiguration
+Int -&gt; ReadS ActiveDirectoryConfiguration
+ReadS [ActiveDirectoryConfiguration]
+(Int -&gt; ReadS ActiveDirectoryConfiguration)
+-&gt; ReadS [ActiveDirectoryConfiguration]
+-&gt; ReadPrec ActiveDirectoryConfiguration
+-&gt; ReadPrec [ActiveDirectoryConfiguration]
+-&gt; Read ActiveDirectoryConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ActiveDirectoryConfiguration]
+$creadListPrec :: ReadPrec [ActiveDirectoryConfiguration]
+readPrec :: ReadPrec ActiveDirectoryConfiguration
+$creadPrec :: ReadPrec ActiveDirectoryConfiguration
+readList :: ReadS [ActiveDirectoryConfiguration]
+$creadList :: ReadS [ActiveDirectoryConfiguration]
+readsPrec :: Int -&gt; ReadS ActiveDirectoryConfiguration
+$creadsPrec :: Int -&gt; ReadS ActiveDirectoryConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281539"><span id="local-6989586621679281541"><span id="local-6989586621679281543"><span class="annot"><span class="annottext">Int -&gt; ActiveDirectoryConfiguration -&gt; ShowS
+[ActiveDirectoryConfiguration] -&gt; ShowS
+ActiveDirectoryConfiguration -&gt; String
+(Int -&gt; ActiveDirectoryConfiguration -&gt; ShowS)
+-&gt; (ActiveDirectoryConfiguration -&gt; String)
+-&gt; ([ActiveDirectoryConfiguration] -&gt; ShowS)
+-&gt; Show ActiveDirectoryConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ActiveDirectoryConfiguration] -&gt; ShowS
+$cshowList :: [ActiveDirectoryConfiguration] -&gt; ShowS
+show :: ActiveDirectoryConfiguration -&gt; String
+$cshow :: ActiveDirectoryConfiguration -&gt; String
+showsPrec :: Int -&gt; ActiveDirectoryConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; ActiveDirectoryConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ActiveDirectoryConfiguration -&gt; Rep ActiveDirectoryConfiguration x)
+-&gt; (forall x.
+    Rep ActiveDirectoryConfiguration x -&gt; ActiveDirectoryConfiguration)
+-&gt; Generic ActiveDirectoryConfiguration
+forall x.
+Rep ActiveDirectoryConfiguration x -&gt; ActiveDirectoryConfiguration
+forall x.
+ActiveDirectoryConfiguration -&gt; Rep ActiveDirectoryConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ActiveDirectoryConfiguration x -&gt; ActiveDirectoryConfiguration
+$cfrom :: forall x.
+ActiveDirectoryConfiguration -&gt; Rep ActiveDirectoryConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Create a value of 'ActiveDirectoryConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'directoryId', 'activeDirectoryConfiguration_directoryId' - The directory ID of the Directory Service for Microsoft Active Directory</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- to access using this studio component.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'computerAttributes', 'activeDirectoryConfiguration_computerAttributes' - A collection of custom attributes for an Active Directory computer.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'organizationalUnitDistinguishedName', 'activeDirectoryConfiguration_organizationalUnitDistinguishedName' - The distinguished name (DN) and organizational unit (OU) of an Active</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Directory computer.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.Nimble.Types.ActiveDirectoryConfiguration.html#newActiveDirectoryConfiguration"><span class="hs-identifier hs-type">newActiveDirectoryConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><a href="Network.AWS.Nimble.Types.ActiveDirectoryConfiguration.html#ActiveDirectoryConfiguration"><span class="hs-identifier hs-type">ActiveDirectoryConfiguration</span></a></span><span>
+</span><span id="line-60"></span><span id="newActiveDirectoryConfiguration"><span class="annot"><span class="annottext">newActiveDirectoryConfiguration :: ActiveDirectoryConfiguration
+</span><a href="Network.AWS.Nimble.Types.ActiveDirectoryConfiguration.html#newActiveDirectoryConfiguration"><span class="hs-identifier hs-var hs-var">newActiveDirectoryConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">ActiveDirectoryConfiguration' :: Maybe Text
+-&gt; Maybe [ActiveDirectoryComputerAttribute]
+-&gt; Maybe Text
+-&gt; ActiveDirectoryConfiguration
+</span><a href="Network.AWS.Nimble.Types.ActiveDirectoryConfiguration.html#ActiveDirectoryConfiguration%27"><span class="hs-identifier hs-type">ActiveDirectoryConfiguration'</span></a></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:directoryId:ActiveDirectoryConfiguration' :: Maybe Text
+</span><a href="Network.AWS.Nimble.Types.ActiveDirectoryConfiguration.html#%24sel%3AdirectoryId%3AActiveDirectoryConfiguration%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-63"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:computerAttributes:ActiveDirectoryConfiguration' :: Maybe [ActiveDirectoryComputerAttribute]
+</span><a href="Network.AWS.Nimble.Types.ActiveDirectoryConfiguration.html#%24sel%3AcomputerAttributes%3AActiveDirectoryConfiguration%27"><span class="hs-identifier hs-var">computerAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ActiveDirectoryComputerAttribute]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:organizationalUnitDistinguishedName:ActiveDirectoryConfiguration' :: Maybe Text
+</span><a href="Network.AWS.Nimble.Types.ActiveDirectoryConfiguration.html#%24sel%3AorganizationalUnitDistinguishedName%3AActiveDirectoryConfiguration%27"><span class="hs-identifier hs-var">organizationalUnitDistinguishedName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | The directory ID of the Directory Service for Microsoft Active Directory</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- to access using this studio component.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.Nimble.Types.ActiveDirectoryConfiguration.html#activeDirectoryConfiguration_directoryId"><span class="hs-identifier hs-type">activeDirectoryConfiguration_directoryId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.Types.ActiveDirectoryConfiguration.html#ActiveDirectoryConfiguration"><span class="hs-identifier hs-type">ActiveDirectoryConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="activeDirectoryConfiguration_directoryId"><span class="annot"><span class="annottext">activeDirectoryConfiguration_directoryId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ActiveDirectoryConfiguration -&gt; f ActiveDirectoryConfiguration
+</span><a href="Network.AWS.Nimble.Types.ActiveDirectoryConfiguration.html#activeDirectoryConfiguration_directoryId"><span class="hs-identifier hs-var hs-var">activeDirectoryConfiguration_directoryId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActiveDirectoryConfiguration -&gt; Maybe Text)
+-&gt; (ActiveDirectoryConfiguration
+    -&gt; Maybe Text -&gt; ActiveDirectoryConfiguration)
+-&gt; Lens
+     ActiveDirectoryConfiguration
+     ActiveDirectoryConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Nimble.Types.ActiveDirectoryConfiguration.html#ActiveDirectoryConfiguration%27"><span class="hs-identifier hs-type">ActiveDirectoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281530"><span class="annot"><span class="annottext">Maybe Text
+directoryId :: Maybe Text
+$sel:directoryId:ActiveDirectoryConfiguration' :: ActiveDirectoryConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679281530"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281530"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281529"><span class="annot"><span class="annottext">s :: ActiveDirectoryConfiguration
+</span><a href="#local-6989586621679281529"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Nimble.Types.ActiveDirectoryConfiguration.html#ActiveDirectoryConfiguration%27"><span class="hs-identifier hs-type">ActiveDirectoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281528"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281528"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActiveDirectoryConfiguration
+</span><a href="#local-6989586621679281529"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryId:ActiveDirectoryConfiguration' :: Maybe Text
+</span><a href="Network.AWS.Nimble.Types.ActiveDirectoryConfiguration.html#%24sel%3AdirectoryId%3AActiveDirectoryConfiguration%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281528"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.Types.ActiveDirectoryConfiguration.html#ActiveDirectoryConfiguration"><span class="hs-identifier hs-type">ActiveDirectoryConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | A collection of custom attributes for an Active Directory computer.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.Nimble.Types.ActiveDirectoryConfiguration.html#activeDirectoryConfiguration_computerAttributes"><span class="hs-identifier hs-type">activeDirectoryConfiguration_computerAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.Types.ActiveDirectoryConfiguration.html#ActiveDirectoryConfiguration"><span class="hs-identifier hs-type">ActiveDirectoryConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Nimble.Types.ActiveDirectoryComputerAttribute.html#ActiveDirectoryComputerAttribute"><span class="hs-identifier hs-type">ActiveDirectoryComputerAttribute</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="activeDirectoryConfiguration_computerAttributes"><span class="annot"><span class="annottext">activeDirectoryConfiguration_computerAttributes :: (Maybe [ActiveDirectoryComputerAttribute]
+ -&gt; f (Maybe [ActiveDirectoryComputerAttribute]))
+-&gt; ActiveDirectoryConfiguration -&gt; f ActiveDirectoryConfiguration
+</span><a href="Network.AWS.Nimble.Types.ActiveDirectoryConfiguration.html#activeDirectoryConfiguration_computerAttributes"><span class="hs-identifier hs-var hs-var">activeDirectoryConfiguration_computerAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActiveDirectoryConfiguration
+ -&gt; Maybe [ActiveDirectoryComputerAttribute])
+-&gt; (ActiveDirectoryConfiguration
+    -&gt; Maybe [ActiveDirectoryComputerAttribute]
+    -&gt; ActiveDirectoryConfiguration)
+-&gt; Lens
+     ActiveDirectoryConfiguration
+     ActiveDirectoryConfiguration
+     (Maybe [ActiveDirectoryComputerAttribute])
+     (Maybe [ActiveDirectoryComputerAttribute])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Nimble.Types.ActiveDirectoryConfiguration.html#ActiveDirectoryConfiguration%27"><span class="hs-identifier hs-type">ActiveDirectoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281526"><span class="annot"><span class="annottext">Maybe [ActiveDirectoryComputerAttribute]
+computerAttributes :: Maybe [ActiveDirectoryComputerAttribute]
+$sel:computerAttributes:ActiveDirectoryConfiguration' :: ActiveDirectoryConfiguration
+-&gt; Maybe [ActiveDirectoryComputerAttribute]
+</span><a href="#local-6989586621679281526"><span class="hs-identifier hs-var hs-var">computerAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ActiveDirectoryComputerAttribute]
+</span><a href="#local-6989586621679281526"><span class="hs-identifier hs-var">computerAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281525"><span class="annot"><span class="annottext">s :: ActiveDirectoryConfiguration
+</span><a href="#local-6989586621679281525"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Nimble.Types.ActiveDirectoryConfiguration.html#ActiveDirectoryConfiguration%27"><span class="hs-identifier hs-type">ActiveDirectoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281524"><span class="annot"><span class="annottext">Maybe [ActiveDirectoryComputerAttribute]
+</span><a href="#local-6989586621679281524"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActiveDirectoryConfiguration
+</span><a href="#local-6989586621679281525"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:computerAttributes:ActiveDirectoryConfiguration' :: Maybe [ActiveDirectoryComputerAttribute]
+</span><a href="Network.AWS.Nimble.Types.ActiveDirectoryConfiguration.html#%24sel%3AcomputerAttributes%3AActiveDirectoryConfiguration%27"><span class="hs-identifier hs-var">computerAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ActiveDirectoryComputerAttribute]
+</span><a href="#local-6989586621679281524"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.Types.ActiveDirectoryConfiguration.html#ActiveDirectoryConfiguration"><span class="hs-identifier hs-type">ActiveDirectoryConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ActiveDirectoryComputerAttribute]
+  -&gt; f (Maybe [ActiveDirectoryComputerAttribute]))
+ -&gt; ActiveDirectoryConfiguration -&gt; f ActiveDirectoryConfiguration)
+-&gt; ((Maybe [ActiveDirectoryComputerAttribute]
+     -&gt; f (Maybe [ActiveDirectoryComputerAttribute]))
+    -&gt; Maybe [ActiveDirectoryComputerAttribute]
+    -&gt; f (Maybe [ActiveDirectoryComputerAttribute]))
+-&gt; (Maybe [ActiveDirectoryComputerAttribute]
+    -&gt; f (Maybe [ActiveDirectoryComputerAttribute]))
+-&gt; ActiveDirectoryConfiguration
+-&gt; f ActiveDirectoryConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ActiveDirectoryComputerAttribute]
+  [ActiveDirectoryComputerAttribute]
+  [ActiveDirectoryComputerAttribute]
+  [ActiveDirectoryComputerAttribute]
+-&gt; Iso
+     (Maybe [ActiveDirectoryComputerAttribute])
+     (Maybe [ActiveDirectoryComputerAttribute])
+     (Maybe [ActiveDirectoryComputerAttribute])
+     (Maybe [ActiveDirectoryComputerAttribute])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ActiveDirectoryComputerAttribute]
+  [ActiveDirectoryComputerAttribute]
+  [ActiveDirectoryComputerAttribute]
+  [ActiveDirectoryComputerAttribute]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The distinguished name (DN) and organizational unit (OU) of an Active</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Directory computer.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.Nimble.Types.ActiveDirectoryConfiguration.html#activeDirectoryConfiguration_organizationalUnitDistinguishedName"><span class="hs-identifier hs-type">activeDirectoryConfiguration_organizationalUnitDistinguishedName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.Types.ActiveDirectoryConfiguration.html#ActiveDirectoryConfiguration"><span class="hs-identifier hs-type">ActiveDirectoryConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="activeDirectoryConfiguration_organizationalUnitDistinguishedName"><span class="annot"><span class="annottext">activeDirectoryConfiguration_organizationalUnitDistinguishedName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ActiveDirectoryConfiguration -&gt; f ActiveDirectoryConfiguration
+</span><a href="Network.AWS.Nimble.Types.ActiveDirectoryConfiguration.html#activeDirectoryConfiguration_organizationalUnitDistinguishedName"><span class="hs-identifier hs-var hs-var">activeDirectoryConfiguration_organizationalUnitDistinguishedName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActiveDirectoryConfiguration -&gt; Maybe Text)
+-&gt; (ActiveDirectoryConfiguration
+    -&gt; Maybe Text -&gt; ActiveDirectoryConfiguration)
+-&gt; Lens
+     ActiveDirectoryConfiguration
+     ActiveDirectoryConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Nimble.Types.ActiveDirectoryConfiguration.html#ActiveDirectoryConfiguration%27"><span class="hs-identifier hs-type">ActiveDirectoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281519"><span class="annot"><span class="annottext">Maybe Text
+organizationalUnitDistinguishedName :: Maybe Text
+$sel:organizationalUnitDistinguishedName:ActiveDirectoryConfiguration' :: ActiveDirectoryConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679281519"><span class="hs-identifier hs-var hs-var">organizationalUnitDistinguishedName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281519"><span class="hs-identifier hs-var">organizationalUnitDistinguishedName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281518"><span class="annot"><span class="annottext">s :: ActiveDirectoryConfiguration
+</span><a href="#local-6989586621679281518"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Nimble.Types.ActiveDirectoryConfiguration.html#ActiveDirectoryConfiguration%27"><span class="hs-identifier hs-type">ActiveDirectoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281517"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281517"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActiveDirectoryConfiguration
+</span><a href="#local-6989586621679281518"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationalUnitDistinguishedName:ActiveDirectoryConfiguration' :: Maybe Text
+</span><a href="Network.AWS.Nimble.Types.ActiveDirectoryConfiguration.html#%24sel%3AorganizationalUnitDistinguishedName%3AActiveDirectoryConfiguration%27"><span class="hs-identifier hs-var">organizationalUnitDistinguishedName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281517"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Nimble.Types.ActiveDirectoryConfiguration.html#ActiveDirectoryConfiguration"><span class="hs-identifier hs-type">ActiveDirectoryConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281514"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.Types.ActiveDirectoryConfiguration.html#ActiveDirectoryConfiguration"><span class="hs-identifier hs-type">ActiveDirectoryConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679281512"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ActiveDirectoryConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ActiveDirectoryConfiguration)
+-&gt; Value
+-&gt; Parser ActiveDirectoryConfiguration
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ActiveDirectoryConfiguration&quot;</span></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679281509"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679281509"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [ActiveDirectoryComputerAttribute]
+-&gt; Maybe Text
+-&gt; ActiveDirectoryConfiguration
+</span><a href="Network.AWS.Nimble.Types.ActiveDirectoryConfiguration.html#ActiveDirectoryConfiguration%27"><span class="hs-identifier hs-var">ActiveDirectoryConfiguration'</span></a></span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [ActiveDirectoryComputerAttribute]
+ -&gt; Maybe Text
+ -&gt; ActiveDirectoryConfiguration)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [ActiveDirectoryComputerAttribute]
+      -&gt; Maybe Text -&gt; ActiveDirectoryConfiguration)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679281509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;directoryId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [ActiveDirectoryComputerAttribute]
+   -&gt; Maybe Text -&gt; ActiveDirectoryConfiguration)
+-&gt; Parser (Maybe [ActiveDirectoryComputerAttribute])
+-&gt; Parser (Maybe Text -&gt; ActiveDirectoryConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679281509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser (Maybe (Maybe [ActiveDirectoryComputerAttribute]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;computerAttributes&quot;</span></span><span>
+</span><span id="line-91"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [ActiveDirectoryComputerAttribute]))
+-&gt; Maybe [ActiveDirectoryComputerAttribute]
+-&gt; Parser (Maybe [ActiveDirectoryComputerAttribute])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ActiveDirectoryComputerAttribute]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-92"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ActiveDirectoryConfiguration)
+-&gt; Parser (Maybe Text) -&gt; Parser ActiveDirectoryConfiguration
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679281509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;organizationalUnitDistinguishedName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679281502"><span id="local-6989586621679281504"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><a href="Network.AWS.Nimble.Types.ActiveDirectoryConfiguration.html#ActiveDirectoryConfiguration"><span class="hs-identifier hs-type">ActiveDirectoryConfiguration</span></a></span></span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281499"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.Types.ActiveDirectoryConfiguration.html#ActiveDirectoryConfiguration"><span class="hs-identifier hs-type">ActiveDirectoryConfiguration</span></a></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281491"><span id="local-6989586621679281493"><span id="local-6989586621679281495"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.Types.ActiveDirectoryConfiguration.html#ActiveDirectoryConfiguration"><span class="hs-identifier hs-type">ActiveDirectoryConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679281489"><span class="annot"><span class="annottext">toJSON :: ActiveDirectoryConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Nimble.Types.ActiveDirectoryConfiguration.html#ActiveDirectoryConfiguration%27"><span class="hs-identifier hs-type">ActiveDirectoryConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281485"><span id="local-6989586621679281486"><span id="local-6989586621679281487"><span class="annot"><span class="annottext">Maybe [ActiveDirectoryComputerAttribute]
+Maybe Text
+organizationalUnitDistinguishedName :: Maybe Text
+computerAttributes :: Maybe [ActiveDirectoryComputerAttribute]
+directoryId :: Maybe Text
+$sel:organizationalUnitDistinguishedName:ActiveDirectoryConfiguration' :: ActiveDirectoryConfiguration -&gt; Maybe Text
+$sel:computerAttributes:ActiveDirectoryConfiguration' :: ActiveDirectoryConfiguration
+-&gt; Maybe [ActiveDirectoryComputerAttribute]
+$sel:directoryId:ActiveDirectoryConfiguration' :: ActiveDirectoryConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679281485"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-106"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;directoryId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281487"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;computerAttributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ActiveDirectoryComputerAttribute] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>              </span><span class="annot"><span class="annottext">([ActiveDirectoryComputerAttribute] -&gt; Pair)
+-&gt; Maybe [ActiveDirectoryComputerAttribute] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ActiveDirectoryComputerAttribute]
+</span><a href="#local-6989586621679281486"><span class="hs-identifier hs-var">computerAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;organizationalUnitDistinguishedName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281485"><span class="hs-identifier hs-var">organizationalUnitDistinguishedName</span></a></span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span></pre></body></html>

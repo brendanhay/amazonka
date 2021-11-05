@@ -1,0 +1,630 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.DeploymentTarget.html"><span class="hs-identifier">Network.AWS.IoTThingsGraph.Types.DeploymentTarget</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html"><span class="hs-identifier">Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | An object that contains summary information about a system instance.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newSystemInstanceSummary' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679219127"><span id="local-6989586621679219128"></span></span><span class="hs-keyword">data</span><span> </span><span id="SystemInstanceSummary"><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#SystemInstanceSummary"><span class="hs-identifier hs-var">SystemInstanceSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SystemInstanceSummary%27"><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#SystemInstanceSummary%27"><span class="hs-identifier hs-var">SystemInstanceSummary'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the system instance.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Astatus%3ASystemInstanceSummary%27"><span class="annot"><span class="annottext">SystemInstanceSummary -&gt; Maybe SystemInstanceDeploymentStatus
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#%24sel%3Astatus%3ASystemInstanceSummary%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#SystemInstanceDeploymentStatus"><span class="hs-identifier hs-type">SystemInstanceDeploymentStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The ID of the Greengrass group where the system instance is deployed.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AgreengrassGroupName%3ASystemInstanceSummary%27"><span class="annot"><span class="annottext">SystemInstanceSummary -&gt; Maybe Text
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#%24sel%3AgreengrassGroupName%3ASystemInstanceSummary%27"><span class="hs-identifier hs-var hs-var">greengrassGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The ARN of the system instance.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aarn%3ASystemInstanceSummary%27"><span class="annot"><span class="annottext">SystemInstanceSummary -&gt; Maybe Text
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#%24sel%3Aarn%3ASystemInstanceSummary%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The date when the system instance was created.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AcreatedAt%3ASystemInstanceSummary%27"><span class="annot"><span class="annottext">SystemInstanceSummary -&gt; Maybe POSIX
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#%24sel%3AcreatedAt%3ASystemInstanceSummary%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The ID of the Greengrass group where the system instance is deployed.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AgreengrassGroupId%3ASystemInstanceSummary%27"><span class="annot"><span class="annottext">SystemInstanceSummary -&gt; Maybe Text
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#%24sel%3AgreengrassGroupId%3ASystemInstanceSummary%27"><span class="hs-identifier hs-var hs-var">greengrassGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The version of the Greengrass group where the system instance is</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- deployed.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AgreengrassGroupVersionId%3ASystemInstanceSummary%27"><span class="annot"><span class="annottext">SystemInstanceSummary -&gt; Maybe Text
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#%24sel%3AgreengrassGroupVersionId%3ASystemInstanceSummary%27"><span class="hs-identifier hs-var hs-var">greengrassGroupVersionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The ID of the system instance.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Aid%3ASystemInstanceSummary%27"><span class="annot"><span class="annottext">SystemInstanceSummary -&gt; Maybe Text
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#%24sel%3Aid%3ASystemInstanceSummary%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The date and time when the system instance was last updated.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AupdatedAt%3ASystemInstanceSummary%27"><span class="annot"><span class="annottext">SystemInstanceSummary -&gt; Maybe POSIX
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#%24sel%3AupdatedAt%3ASystemInstanceSummary%27"><span class="hs-identifier hs-var hs-var">updatedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The target of the system instance.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3Atarget%3ASystemInstanceSummary%27"><span class="annot"><span class="annottext">SystemInstanceSummary -&gt; Maybe DeploymentTarget
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#%24sel%3Atarget%3ASystemInstanceSummary%27"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.DeploymentTarget.html#DeploymentTarget"><span class="hs-identifier hs-type">DeploymentTarget</span></a></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679219113"><span id="local-6989586621679219115"><span class="annot"><span class="annottext">SystemInstanceSummary -&gt; SystemInstanceSummary -&gt; Bool
+(SystemInstanceSummary -&gt; SystemInstanceSummary -&gt; Bool)
+-&gt; (SystemInstanceSummary -&gt; SystemInstanceSummary -&gt; Bool)
+-&gt; Eq SystemInstanceSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SystemInstanceSummary -&gt; SystemInstanceSummary -&gt; Bool
+$c/= :: SystemInstanceSummary -&gt; SystemInstanceSummary -&gt; Bool
+== :: SystemInstanceSummary -&gt; SystemInstanceSummary -&gt; Bool
+$c== :: SystemInstanceSummary -&gt; SystemInstanceSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679219104"><span id="local-6989586621679219106"><span id="local-6989586621679219108"><span id="local-6989586621679219110"><span class="annot"><span class="annottext">ReadPrec [SystemInstanceSummary]
+ReadPrec SystemInstanceSummary
+Int -&gt; ReadS SystemInstanceSummary
+ReadS [SystemInstanceSummary]
+(Int -&gt; ReadS SystemInstanceSummary)
+-&gt; ReadS [SystemInstanceSummary]
+-&gt; ReadPrec SystemInstanceSummary
+-&gt; ReadPrec [SystemInstanceSummary]
+-&gt; Read SystemInstanceSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SystemInstanceSummary]
+$creadListPrec :: ReadPrec [SystemInstanceSummary]
+readPrec :: ReadPrec SystemInstanceSummary
+$creadPrec :: ReadPrec SystemInstanceSummary
+readList :: ReadS [SystemInstanceSummary]
+$creadList :: ReadS [SystemInstanceSummary]
+readsPrec :: Int -&gt; ReadS SystemInstanceSummary
+$creadsPrec :: Int -&gt; ReadS SystemInstanceSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679219097"><span id="local-6989586621679219099"><span id="local-6989586621679219101"><span class="annot"><span class="annottext">Int -&gt; SystemInstanceSummary -&gt; ShowS
+[SystemInstanceSummary] -&gt; ShowS
+SystemInstanceSummary -&gt; String
+(Int -&gt; SystemInstanceSummary -&gt; ShowS)
+-&gt; (SystemInstanceSummary -&gt; String)
+-&gt; ([SystemInstanceSummary] -&gt; ShowS)
+-&gt; Show SystemInstanceSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SystemInstanceSummary] -&gt; ShowS
+$cshowList :: [SystemInstanceSummary] -&gt; ShowS
+show :: SystemInstanceSummary -&gt; String
+$cshow :: SystemInstanceSummary -&gt; String
+showsPrec :: Int -&gt; SystemInstanceSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; SystemInstanceSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SystemInstanceSummary -&gt; Rep SystemInstanceSummary x)
+-&gt; (forall x. Rep SystemInstanceSummary x -&gt; SystemInstanceSummary)
+-&gt; Generic SystemInstanceSummary
+forall x. Rep SystemInstanceSummary x -&gt; SystemInstanceSummary
+forall x. SystemInstanceSummary -&gt; Rep SystemInstanceSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SystemInstanceSummary x -&gt; SystemInstanceSummary
+$cfrom :: forall x. SystemInstanceSummary -&gt; Rep SystemInstanceSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Create a value of 'SystemInstanceSummary' with all optional fields omitted.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'status', 'systemInstanceSummary_status' - The status of the system instance.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'greengrassGroupName', 'systemInstanceSummary_greengrassGroupName' - The ID of the Greengrass group where the system instance is deployed.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'arn', 'systemInstanceSummary_arn' - The ARN of the system instance.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'createdAt', 'systemInstanceSummary_createdAt' - The date when the system instance was created.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'greengrassGroupId', 'systemInstanceSummary_greengrassGroupId' - The ID of the Greengrass group where the system instance is deployed.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'greengrassGroupVersionId', 'systemInstanceSummary_greengrassGroupVersionId' - The version of the Greengrass group where the system instance is</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- deployed.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'id', 'systemInstanceSummary_id' - The ID of the system instance.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'updatedAt', 'systemInstanceSummary_updatedAt' - The date and time when the system instance was last updated.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'target', 'systemInstanceSummary_target' - The target of the system instance.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#newSystemInstanceSummary"><span class="hs-identifier hs-type">newSystemInstanceSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#SystemInstanceSummary"><span class="hs-identifier hs-type">SystemInstanceSummary</span></a></span><span>
+</span><span id="line-82"></span><span id="newSystemInstanceSummary"><span class="annot"><span class="annottext">newSystemInstanceSummary :: SystemInstanceSummary
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#newSystemInstanceSummary"><span class="hs-identifier hs-var hs-var">newSystemInstanceSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">SystemInstanceSummary' :: Maybe SystemInstanceDeploymentStatus
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe DeploymentTarget
+-&gt; SystemInstanceSummary
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#SystemInstanceSummary%27"><span class="hs-identifier hs-type">SystemInstanceSummary'</span></a></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:SystemInstanceSummary' :: Maybe SystemInstanceDeploymentStatus
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#%24sel%3Astatus%3ASystemInstanceSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SystemInstanceDeploymentStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:greengrassGroupName:SystemInstanceSummary' :: Maybe Text
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#%24sel%3AgreengrassGroupName%3ASystemInstanceSummary%27"><span class="hs-identifier hs-var">greengrassGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:SystemInstanceSummary' :: Maybe Text
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#%24sel%3Aarn%3ASystemInstanceSummary%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAt:SystemInstanceSummary' :: Maybe POSIX
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#%24sel%3AcreatedAt%3ASystemInstanceSummary%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:greengrassGroupId:SystemInstanceSummary' :: Maybe Text
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#%24sel%3AgreengrassGroupId%3ASystemInstanceSummary%27"><span class="hs-identifier hs-var">greengrassGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:greengrassGroupVersionId:SystemInstanceSummary' :: Maybe Text
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#%24sel%3AgreengrassGroupVersionId%3ASystemInstanceSummary%27"><span class="hs-identifier hs-var">greengrassGroupVersionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:SystemInstanceSummary' :: Maybe Text
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#%24sel%3Aid%3ASystemInstanceSummary%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:updatedAt:SystemInstanceSummary' :: Maybe POSIX
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#%24sel%3AupdatedAt%3ASystemInstanceSummary%27"><span class="hs-identifier hs-var">updatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:target:SystemInstanceSummary' :: Maybe DeploymentTarget
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#%24sel%3Atarget%3ASystemInstanceSummary%27"><span class="hs-identifier hs-var">target</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeploymentTarget
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The status of the system instance.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#systemInstanceSummary_status"><span class="hs-identifier hs-type">systemInstanceSummary_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#SystemInstanceSummary"><span class="hs-identifier hs-type">SystemInstanceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceDeploymentStatus.html#SystemInstanceDeploymentStatus"><span class="hs-identifier hs-type">SystemInstanceDeploymentStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="systemInstanceSummary_status"><span class="annot"><span class="annottext">systemInstanceSummary_status :: (Maybe SystemInstanceDeploymentStatus
+ -&gt; f (Maybe SystemInstanceDeploymentStatus))
+-&gt; SystemInstanceSummary -&gt; f SystemInstanceSummary
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#systemInstanceSummary_status"><span class="hs-identifier hs-var hs-var">systemInstanceSummary_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SystemInstanceSummary -&gt; Maybe SystemInstanceDeploymentStatus)
+-&gt; (SystemInstanceSummary
+    -&gt; Maybe SystemInstanceDeploymentStatus -&gt; SystemInstanceSummary)
+-&gt; Lens
+     SystemInstanceSummary
+     SystemInstanceSummary
+     (Maybe SystemInstanceDeploymentStatus)
+     (Maybe SystemInstanceDeploymentStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#SystemInstanceSummary%27"><span class="hs-identifier hs-type">SystemInstanceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219088"><span class="annot"><span class="annottext">Maybe SystemInstanceDeploymentStatus
+status :: Maybe SystemInstanceDeploymentStatus
+$sel:status:SystemInstanceSummary' :: SystemInstanceSummary -&gt; Maybe SystemInstanceDeploymentStatus
+</span><a href="#local-6989586621679219088"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SystemInstanceDeploymentStatus
+</span><a href="#local-6989586621679219088"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219087"><span class="annot"><span class="annottext">s :: SystemInstanceSummary
+</span><a href="#local-6989586621679219087"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#SystemInstanceSummary%27"><span class="hs-identifier hs-type">SystemInstanceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219086"><span class="annot"><span class="annottext">Maybe SystemInstanceDeploymentStatus
+</span><a href="#local-6989586621679219086"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SystemInstanceSummary
+</span><a href="#local-6989586621679219087"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:SystemInstanceSummary' :: Maybe SystemInstanceDeploymentStatus
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#%24sel%3Astatus%3ASystemInstanceSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SystemInstanceDeploymentStatus
+</span><a href="#local-6989586621679219086"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#SystemInstanceSummary"><span class="hs-identifier hs-type">SystemInstanceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The ID of the Greengrass group where the system instance is deployed.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#systemInstanceSummary_greengrassGroupName"><span class="hs-identifier hs-type">systemInstanceSummary_greengrassGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#SystemInstanceSummary"><span class="hs-identifier hs-type">SystemInstanceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="systemInstanceSummary_greengrassGroupName"><span class="annot"><span class="annottext">systemInstanceSummary_greengrassGroupName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SystemInstanceSummary -&gt; f SystemInstanceSummary
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#systemInstanceSummary_greengrassGroupName"><span class="hs-identifier hs-var hs-var">systemInstanceSummary_greengrassGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SystemInstanceSummary -&gt; Maybe Text)
+-&gt; (SystemInstanceSummary -&gt; Maybe Text -&gt; SystemInstanceSummary)
+-&gt; Lens
+     SystemInstanceSummary
+     SystemInstanceSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#SystemInstanceSummary%27"><span class="hs-identifier hs-type">SystemInstanceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219084"><span class="annot"><span class="annottext">Maybe Text
+greengrassGroupName :: Maybe Text
+$sel:greengrassGroupName:SystemInstanceSummary' :: SystemInstanceSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679219084"><span class="hs-identifier hs-var hs-var">greengrassGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219084"><span class="hs-identifier hs-var">greengrassGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219083"><span class="annot"><span class="annottext">s :: SystemInstanceSummary
+</span><a href="#local-6989586621679219083"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#SystemInstanceSummary%27"><span class="hs-identifier hs-type">SystemInstanceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219082"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219082"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SystemInstanceSummary
+</span><a href="#local-6989586621679219083"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:greengrassGroupName:SystemInstanceSummary' :: Maybe Text
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#%24sel%3AgreengrassGroupName%3ASystemInstanceSummary%27"><span class="hs-identifier hs-var">greengrassGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219082"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#SystemInstanceSummary"><span class="hs-identifier hs-type">SystemInstanceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The ARN of the system instance.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#systemInstanceSummary_arn"><span class="hs-identifier hs-type">systemInstanceSummary_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#SystemInstanceSummary"><span class="hs-identifier hs-type">SystemInstanceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="systemInstanceSummary_arn"><span class="annot"><span class="annottext">systemInstanceSummary_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SystemInstanceSummary -&gt; f SystemInstanceSummary
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#systemInstanceSummary_arn"><span class="hs-identifier hs-var hs-var">systemInstanceSummary_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SystemInstanceSummary -&gt; Maybe Text)
+-&gt; (SystemInstanceSummary -&gt; Maybe Text -&gt; SystemInstanceSummary)
+-&gt; Lens
+     SystemInstanceSummary
+     SystemInstanceSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#SystemInstanceSummary%27"><span class="hs-identifier hs-type">SystemInstanceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219080"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:SystemInstanceSummary' :: SystemInstanceSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679219080"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219080"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219079"><span class="annot"><span class="annottext">s :: SystemInstanceSummary
+</span><a href="#local-6989586621679219079"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#SystemInstanceSummary%27"><span class="hs-identifier hs-type">SystemInstanceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219078"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219078"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SystemInstanceSummary
+</span><a href="#local-6989586621679219079"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:SystemInstanceSummary' :: Maybe Text
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#%24sel%3Aarn%3ASystemInstanceSummary%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219078"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#SystemInstanceSummary"><span class="hs-identifier hs-type">SystemInstanceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The date when the system instance was created.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#systemInstanceSummary_createdAt"><span class="hs-identifier hs-type">systemInstanceSummary_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#SystemInstanceSummary"><span class="hs-identifier hs-type">SystemInstanceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="systemInstanceSummary_createdAt"><span class="annot"><span class="annottext">systemInstanceSummary_createdAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; SystemInstanceSummary -&gt; f SystemInstanceSummary
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#systemInstanceSummary_createdAt"><span class="hs-identifier hs-var hs-var">systemInstanceSummary_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SystemInstanceSummary -&gt; Maybe POSIX)
+-&gt; (SystemInstanceSummary -&gt; Maybe POSIX -&gt; SystemInstanceSummary)
+-&gt; Lens
+     SystemInstanceSummary
+     SystemInstanceSummary
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#SystemInstanceSummary%27"><span class="hs-identifier hs-type">SystemInstanceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219076"><span class="annot"><span class="annottext">Maybe POSIX
+createdAt :: Maybe POSIX
+$sel:createdAt:SystemInstanceSummary' :: SystemInstanceSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621679219076"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679219076"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219075"><span class="annot"><span class="annottext">s :: SystemInstanceSummary
+</span><a href="#local-6989586621679219075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#SystemInstanceSummary%27"><span class="hs-identifier hs-type">SystemInstanceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219074"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679219074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SystemInstanceSummary
+</span><a href="#local-6989586621679219075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:SystemInstanceSummary' :: Maybe POSIX
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#%24sel%3AcreatedAt%3ASystemInstanceSummary%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679219074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#SystemInstanceSummary"><span class="hs-identifier hs-type">SystemInstanceSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; SystemInstanceSummary -&gt; f SystemInstanceSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; SystemInstanceSummary
+-&gt; f SystemInstanceSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The ID of the Greengrass group where the system instance is deployed.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#systemInstanceSummary_greengrassGroupId"><span class="hs-identifier hs-type">systemInstanceSummary_greengrassGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#SystemInstanceSummary"><span class="hs-identifier hs-type">SystemInstanceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="systemInstanceSummary_greengrassGroupId"><span class="annot"><span class="annottext">systemInstanceSummary_greengrassGroupId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SystemInstanceSummary -&gt; f SystemInstanceSummary
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#systemInstanceSummary_greengrassGroupId"><span class="hs-identifier hs-var hs-var">systemInstanceSummary_greengrassGroupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SystemInstanceSummary -&gt; Maybe Text)
+-&gt; (SystemInstanceSummary -&gt; Maybe Text -&gt; SystemInstanceSummary)
+-&gt; Lens
+     SystemInstanceSummary
+     SystemInstanceSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#SystemInstanceSummary%27"><span class="hs-identifier hs-type">SystemInstanceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219069"><span class="annot"><span class="annottext">Maybe Text
+greengrassGroupId :: Maybe Text
+$sel:greengrassGroupId:SystemInstanceSummary' :: SystemInstanceSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679219069"><span class="hs-identifier hs-var hs-var">greengrassGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219069"><span class="hs-identifier hs-var">greengrassGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219068"><span class="annot"><span class="annottext">s :: SystemInstanceSummary
+</span><a href="#local-6989586621679219068"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#SystemInstanceSummary%27"><span class="hs-identifier hs-type">SystemInstanceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219067"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219067"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SystemInstanceSummary
+</span><a href="#local-6989586621679219068"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:greengrassGroupId:SystemInstanceSummary' :: Maybe Text
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#%24sel%3AgreengrassGroupId%3ASystemInstanceSummary%27"><span class="hs-identifier hs-var">greengrassGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219067"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#SystemInstanceSummary"><span class="hs-identifier hs-type">SystemInstanceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The version of the Greengrass group where the system instance is</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- deployed.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#systemInstanceSummary_greengrassGroupVersionId"><span class="hs-identifier hs-type">systemInstanceSummary_greengrassGroupVersionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#SystemInstanceSummary"><span class="hs-identifier hs-type">SystemInstanceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="systemInstanceSummary_greengrassGroupVersionId"><span class="annot"><span class="annottext">systemInstanceSummary_greengrassGroupVersionId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SystemInstanceSummary -&gt; f SystemInstanceSummary
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#systemInstanceSummary_greengrassGroupVersionId"><span class="hs-identifier hs-var hs-var">systemInstanceSummary_greengrassGroupVersionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SystemInstanceSummary -&gt; Maybe Text)
+-&gt; (SystemInstanceSummary -&gt; Maybe Text -&gt; SystemInstanceSummary)
+-&gt; Lens
+     SystemInstanceSummary
+     SystemInstanceSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#SystemInstanceSummary%27"><span class="hs-identifier hs-type">SystemInstanceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219065"><span class="annot"><span class="annottext">Maybe Text
+greengrassGroupVersionId :: Maybe Text
+$sel:greengrassGroupVersionId:SystemInstanceSummary' :: SystemInstanceSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679219065"><span class="hs-identifier hs-var hs-var">greengrassGroupVersionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219065"><span class="hs-identifier hs-var">greengrassGroupVersionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219064"><span class="annot"><span class="annottext">s :: SystemInstanceSummary
+</span><a href="#local-6989586621679219064"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#SystemInstanceSummary%27"><span class="hs-identifier hs-type">SystemInstanceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219063"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219063"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SystemInstanceSummary
+</span><a href="#local-6989586621679219064"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:greengrassGroupVersionId:SystemInstanceSummary' :: Maybe Text
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#%24sel%3AgreengrassGroupVersionId%3ASystemInstanceSummary%27"><span class="hs-identifier hs-var">greengrassGroupVersionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219063"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#SystemInstanceSummary"><span class="hs-identifier hs-type">SystemInstanceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The ID of the system instance.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#systemInstanceSummary_id"><span class="hs-identifier hs-type">systemInstanceSummary_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#SystemInstanceSummary"><span class="hs-identifier hs-type">SystemInstanceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="systemInstanceSummary_id"><span class="annot"><span class="annottext">systemInstanceSummary_id :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SystemInstanceSummary -&gt; f SystemInstanceSummary
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#systemInstanceSummary_id"><span class="hs-identifier hs-var hs-var">systemInstanceSummary_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SystemInstanceSummary -&gt; Maybe Text)
+-&gt; (SystemInstanceSummary -&gt; Maybe Text -&gt; SystemInstanceSummary)
+-&gt; Lens
+     SystemInstanceSummary
+     SystemInstanceSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#SystemInstanceSummary%27"><span class="hs-identifier hs-type">SystemInstanceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219061"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:SystemInstanceSummary' :: SystemInstanceSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679219061"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219061"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219060"><span class="annot"><span class="annottext">s :: SystemInstanceSummary
+</span><a href="#local-6989586621679219060"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#SystemInstanceSummary%27"><span class="hs-identifier hs-type">SystemInstanceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219059"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219059"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SystemInstanceSummary
+</span><a href="#local-6989586621679219060"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:SystemInstanceSummary' :: Maybe Text
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#%24sel%3Aid%3ASystemInstanceSummary%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219059"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#SystemInstanceSummary"><span class="hs-identifier hs-type">SystemInstanceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The date and time when the system instance was last updated.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#systemInstanceSummary_updatedAt"><span class="hs-identifier hs-type">systemInstanceSummary_updatedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#SystemInstanceSummary"><span class="hs-identifier hs-type">SystemInstanceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="systemInstanceSummary_updatedAt"><span class="annot"><span class="annottext">systemInstanceSummary_updatedAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; SystemInstanceSummary -&gt; f SystemInstanceSummary
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#systemInstanceSummary_updatedAt"><span class="hs-identifier hs-var hs-var">systemInstanceSummary_updatedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SystemInstanceSummary -&gt; Maybe POSIX)
+-&gt; (SystemInstanceSummary -&gt; Maybe POSIX -&gt; SystemInstanceSummary)
+-&gt; Lens
+     SystemInstanceSummary
+     SystemInstanceSummary
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#SystemInstanceSummary%27"><span class="hs-identifier hs-type">SystemInstanceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219057"><span class="annot"><span class="annottext">Maybe POSIX
+updatedAt :: Maybe POSIX
+$sel:updatedAt:SystemInstanceSummary' :: SystemInstanceSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621679219057"><span class="hs-identifier hs-var hs-var">updatedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679219057"><span class="hs-identifier hs-var">updatedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219056"><span class="annot"><span class="annottext">s :: SystemInstanceSummary
+</span><a href="#local-6989586621679219056"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#SystemInstanceSummary%27"><span class="hs-identifier hs-type">SystemInstanceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219055"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679219055"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SystemInstanceSummary
+</span><a href="#local-6989586621679219056"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updatedAt:SystemInstanceSummary' :: Maybe POSIX
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#%24sel%3AupdatedAt%3ASystemInstanceSummary%27"><span class="hs-identifier hs-var">updatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679219055"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#SystemInstanceSummary"><span class="hs-identifier hs-type">SystemInstanceSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; SystemInstanceSummary -&gt; f SystemInstanceSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; SystemInstanceSummary
+-&gt; f SystemInstanceSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The target of the system instance.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#systemInstanceSummary_target"><span class="hs-identifier hs-type">systemInstanceSummary_target</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#SystemInstanceSummary"><span class="hs-identifier hs-type">SystemInstanceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.DeploymentTarget.html#DeploymentTarget"><span class="hs-identifier hs-type">DeploymentTarget</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="systemInstanceSummary_target"><span class="annot"><span class="annottext">systemInstanceSummary_target :: (Maybe DeploymentTarget -&gt; f (Maybe DeploymentTarget))
+-&gt; SystemInstanceSummary -&gt; f SystemInstanceSummary
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#systemInstanceSummary_target"><span class="hs-identifier hs-var hs-var">systemInstanceSummary_target</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SystemInstanceSummary -&gt; Maybe DeploymentTarget)
+-&gt; (SystemInstanceSummary
+    -&gt; Maybe DeploymentTarget -&gt; SystemInstanceSummary)
+-&gt; Lens
+     SystemInstanceSummary
+     SystemInstanceSummary
+     (Maybe DeploymentTarget)
+     (Maybe DeploymentTarget)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#SystemInstanceSummary%27"><span class="hs-identifier hs-type">SystemInstanceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219053"><span class="annot"><span class="annottext">Maybe DeploymentTarget
+target :: Maybe DeploymentTarget
+$sel:target:SystemInstanceSummary' :: SystemInstanceSummary -&gt; Maybe DeploymentTarget
+</span><a href="#local-6989586621679219053"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeploymentTarget
+</span><a href="#local-6989586621679219053"><span class="hs-identifier hs-var">target</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219052"><span class="annot"><span class="annottext">s :: SystemInstanceSummary
+</span><a href="#local-6989586621679219052"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#SystemInstanceSummary%27"><span class="hs-identifier hs-type">SystemInstanceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219051"><span class="annot"><span class="annottext">Maybe DeploymentTarget
+</span><a href="#local-6989586621679219051"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SystemInstanceSummary
+</span><a href="#local-6989586621679219052"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:target:SystemInstanceSummary' :: Maybe DeploymentTarget
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#%24sel%3Atarget%3ASystemInstanceSummary%27"><span class="hs-identifier hs-var">target</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeploymentTarget
+</span><a href="#local-6989586621679219051"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#SystemInstanceSummary"><span class="hs-identifier hs-type">SystemInstanceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679219048"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#SystemInstanceSummary"><span class="hs-identifier hs-type">SystemInstanceSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679219046"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SystemInstanceSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser SystemInstanceSummary)
+-&gt; Value
+-&gt; Parser SystemInstanceSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;SystemInstanceSummary&quot;</span></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679219043"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679219043"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">Maybe SystemInstanceDeploymentStatus
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe DeploymentTarget
+-&gt; SystemInstanceSummary
+</span><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#SystemInstanceSummary%27"><span class="hs-identifier hs-var">SystemInstanceSummary'</span></a></span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">(Maybe SystemInstanceDeploymentStatus
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe DeploymentTarget
+ -&gt; SystemInstanceSummary)
+-&gt; Parser (Maybe SystemInstanceDeploymentStatus)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe DeploymentTarget
+      -&gt; SystemInstanceSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679219043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SystemInstanceDeploymentStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe DeploymentTarget
+   -&gt; SystemInstanceSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe DeploymentTarget
+      -&gt; SystemInstanceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679219043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;greengrassGroupName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe DeploymentTarget
+   -&gt; SystemInstanceSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe DeploymentTarget
+      -&gt; SystemInstanceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679219043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe DeploymentTarget
+   -&gt; SystemInstanceSummary)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe DeploymentTarget
+      -&gt; SystemInstanceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679219043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe DeploymentTarget
+   -&gt; SystemInstanceSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe DeploymentTarget
+      -&gt; SystemInstanceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679219043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;greengrassGroupId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe DeploymentTarget
+   -&gt; SystemInstanceSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX -&gt; Maybe DeploymentTarget -&gt; SystemInstanceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679219043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;greengrassGroupVersionId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX -&gt; Maybe DeploymentTarget -&gt; SystemInstanceSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX -&gt; Maybe DeploymentTarget -&gt; SystemInstanceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679219043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX -&gt; Maybe DeploymentTarget -&gt; SystemInstanceSummary)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe DeploymentTarget -&gt; SystemInstanceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679219043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;updatedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe DeploymentTarget -&gt; SystemInstanceSummary)
+-&gt; Parser (Maybe DeploymentTarget) -&gt; Parser SystemInstanceSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679219043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeploymentTarget)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;target&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679219037"><span id="local-6989586621679219039"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#SystemInstanceSummary"><span class="hs-identifier hs-type">SystemInstanceSummary</span></a></span></span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679219034"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.SystemInstanceSummary.html#SystemInstanceSummary"><span class="hs-identifier hs-type">SystemInstanceSummary</span></a></span></span><span>
+</span><span id="line-152"></span></pre></body></html>

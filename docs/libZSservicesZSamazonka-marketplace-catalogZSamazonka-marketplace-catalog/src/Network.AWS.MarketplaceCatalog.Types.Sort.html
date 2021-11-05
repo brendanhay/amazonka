@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MarketplaceCatalog.Types.Sort</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MarketplaceCatalog.Types.Sort</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.SortOrder.html"><span class="hs-identifier">Network.AWS.MarketplaceCatalog.Types.SortOrder</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | An object that contains two attributes, @SortBy@ and @SortOrder@.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newSort' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679159056"><span id="local-6989586621679159057"></span></span><span class="hs-keyword">data</span><span> </span><span id="Sort"><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.Sort.html#Sort"><span class="hs-identifier hs-var">Sort</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Sort%27"><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.Sort.html#Sort%27"><span class="hs-identifier hs-var">Sort'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The sorting order. Can be @ASCENDING@ or @DESCENDING@. The default value</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- is @DESCENDING@.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AsortOrder%3ASort%27"><span class="annot"><span class="annottext">Sort -&gt; Maybe SortOrder
+</span><a href="Network.AWS.MarketplaceCatalog.Types.Sort.html#%24sel%3AsortOrder%3ASort%27"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.SortOrder.html#SortOrder"><span class="hs-identifier hs-type">SortOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | For @ListEntities@, supported attributes include @LastModifiedDate@</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- (default), @Visibility@, @EntityId@, and @Name@.</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- For @ListChangeSets@, supported attributes include @StartTime@ and</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- @EndTime@.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AsortBy%3ASort%27"><span class="annot"><span class="annottext">Sort -&gt; Maybe Text
+</span><a href="Network.AWS.MarketplaceCatalog.Types.Sort.html#%24sel%3AsortBy%3ASort%27"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679159049"><span id="local-6989586621679159051"><span class="annot"><span class="annottext">Sort -&gt; Sort -&gt; Bool
+(Sort -&gt; Sort -&gt; Bool) -&gt; (Sort -&gt; Sort -&gt; Bool) -&gt; Eq Sort
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Sort -&gt; Sort -&gt; Bool
+$c/= :: Sort -&gt; Sort -&gt; Bool
+== :: Sort -&gt; Sort -&gt; Bool
+$c== :: Sort -&gt; Sort -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679159040"><span id="local-6989586621679159042"><span id="local-6989586621679159044"><span id="local-6989586621679159046"><span class="annot"><span class="annottext">ReadPrec [Sort]
+ReadPrec Sort
+Int -&gt; ReadS Sort
+ReadS [Sort]
+(Int -&gt; ReadS Sort)
+-&gt; ReadS [Sort] -&gt; ReadPrec Sort -&gt; ReadPrec [Sort] -&gt; Read Sort
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Sort]
+$creadListPrec :: ReadPrec [Sort]
+readPrec :: ReadPrec Sort
+$creadPrec :: ReadPrec Sort
+readList :: ReadS [Sort]
+$creadList :: ReadS [Sort]
+readsPrec :: Int -&gt; ReadS Sort
+$creadsPrec :: Int -&gt; ReadS Sort
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679159033"><span id="local-6989586621679159035"><span id="local-6989586621679159037"><span class="annot"><span class="annottext">Int -&gt; Sort -&gt; ShowS
+[Sort] -&gt; ShowS
+Sort -&gt; String
+(Int -&gt; Sort -&gt; ShowS)
+-&gt; (Sort -&gt; String) -&gt; ([Sort] -&gt; ShowS) -&gt; Show Sort
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Sort] -&gt; ShowS
+$cshowList :: [Sort] -&gt; ShowS
+show :: Sort -&gt; String
+$cshow :: Sort -&gt; String
+showsPrec :: Int -&gt; Sort -&gt; ShowS
+$cshowsPrec :: Int -&gt; Sort -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Sort -&gt; Rep Sort x)
+-&gt; (forall x. Rep Sort x -&gt; Sort) -&gt; Generic Sort
+forall x. Rep Sort x -&gt; Sort
+forall x. Sort -&gt; Rep Sort x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Sort x -&gt; Sort
+$cfrom :: forall x. Sort -&gt; Rep Sort x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Create a value of 'Sort' with all optional fields omitted.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'sortOrder', 'sort_sortOrder' - The sorting order. Can be @ASCENDING@ or @DESCENDING@. The default value</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- is @DESCENDING@.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'sortBy', 'sort_sortBy' - For @ListEntities@, supported attributes include @LastModifiedDate@</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- (default), @Visibility@, @EntityId@, and @Name@.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- For @ListChangeSets@, supported attributes include @StartTime@ and</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- @EndTime@.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.Sort.html#newSort"><span class="hs-identifier hs-type">newSort</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.Sort.html#Sort"><span class="hs-identifier hs-type">Sort</span></a></span><span>
+</span><span id="line-61"></span><span id="newSort"><span class="annot"><span class="annottext">newSort :: Sort
+</span><a href="Network.AWS.MarketplaceCatalog.Types.Sort.html#newSort"><span class="hs-identifier hs-var hs-var">newSort</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">Sort' :: Maybe SortOrder -&gt; Maybe Text -&gt; Sort
+</span><a href="Network.AWS.MarketplaceCatalog.Types.Sort.html#Sort%27"><span class="hs-identifier hs-type">Sort'</span></a></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sortOrder:Sort' :: Maybe SortOrder
+</span><a href="Network.AWS.MarketplaceCatalog.Types.Sort.html#%24sel%3AsortOrder%3ASort%27"><span class="hs-identifier hs-var">sortOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:sortBy:Sort' :: Maybe Text
+</span><a href="Network.AWS.MarketplaceCatalog.Types.Sort.html#%24sel%3AsortBy%3ASort%27"><span class="hs-identifier hs-var">sortBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | The sorting order. Can be @ASCENDING@ or @DESCENDING@. The default value</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- is @DESCENDING@.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.Sort.html#sort_sortOrder"><span class="hs-identifier hs-type">sort_sortOrder</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.Sort.html#Sort"><span class="hs-identifier hs-type">Sort</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.SortOrder.html#SortOrder"><span class="hs-identifier hs-type">SortOrder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="sort_sortOrder"><span class="annot"><span class="annottext">sort_sortOrder :: (Maybe SortOrder -&gt; f (Maybe SortOrder)) -&gt; Sort -&gt; f Sort
+</span><a href="Network.AWS.MarketplaceCatalog.Types.Sort.html#sort_sortOrder"><span class="hs-identifier hs-var hs-var">sort_sortOrder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Sort -&gt; Maybe SortOrder)
+-&gt; (Sort -&gt; Maybe SortOrder -&gt; Sort)
+-&gt; Lens Sort Sort (Maybe SortOrder) (Maybe SortOrder)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.Sort.html#Sort%27"><span class="hs-identifier hs-type">Sort'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159024"><span class="annot"><span class="annottext">Maybe SortOrder
+sortOrder :: Maybe SortOrder
+$sel:sortOrder:Sort' :: Sort -&gt; Maybe SortOrder
+</span><a href="#local-6989586621679159024"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621679159024"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159023"><span class="annot"><span class="annottext">s :: Sort
+</span><a href="#local-6989586621679159023"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.Sort.html#Sort%27"><span class="hs-identifier hs-type">Sort'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159022"><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621679159022"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sort
+</span><a href="#local-6989586621679159023"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortOrder:Sort' :: Maybe SortOrder
+</span><a href="Network.AWS.MarketplaceCatalog.Types.Sort.html#%24sel%3AsortOrder%3ASort%27"><span class="hs-identifier hs-var">sortOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621679159022"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.Sort.html#Sort"><span class="hs-identifier hs-type">Sort</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | For @ListEntities@, supported attributes include @LastModifiedDate@</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- (default), @Visibility@, @EntityId@, and @Name@.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- For @ListChangeSets@, supported attributes include @StartTime@ and</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- @EndTime@.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.Sort.html#sort_sortBy"><span class="hs-identifier hs-type">sort_sortBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.Sort.html#Sort"><span class="hs-identifier hs-type">Sort</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="sort_sortBy"><span class="annot"><span class="annottext">sort_sortBy :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Sort -&gt; f Sort
+</span><a href="Network.AWS.MarketplaceCatalog.Types.Sort.html#sort_sortBy"><span class="hs-identifier hs-var hs-var">sort_sortBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Sort -&gt; Maybe Text)
+-&gt; (Sort -&gt; Maybe Text -&gt; Sort)
+-&gt; Lens Sort Sort (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.Sort.html#Sort%27"><span class="hs-identifier hs-type">Sort'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159020"><span class="annot"><span class="annottext">Maybe Text
+sortBy :: Maybe Text
+$sel:sortBy:Sort' :: Sort -&gt; Maybe Text
+</span><a href="#local-6989586621679159020"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679159020"><span class="hs-identifier hs-var">sortBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159019"><span class="annot"><span class="annottext">s :: Sort
+</span><a href="#local-6989586621679159019"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.Sort.html#Sort%27"><span class="hs-identifier hs-type">Sort'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159018"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679159018"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sort
+</span><a href="#local-6989586621679159019"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortBy:Sort' :: Maybe Text
+</span><a href="Network.AWS.MarketplaceCatalog.Types.Sort.html#%24sel%3AsortBy%3ASort%27"><span class="hs-identifier hs-var">sortBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679159018"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.Sort.html#Sort"><span class="hs-identifier hs-type">Sort</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679159014"><span id="local-6989586621679159016"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.Sort.html#Sort"><span class="hs-identifier hs-type">Sort</span></a></span></span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679159011"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.Sort.html#Sort"><span class="hs-identifier hs-type">Sort</span></a></span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679159003"><span id="local-6989586621679159005"><span id="local-6989586621679159007"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.Sort.html#Sort"><span class="hs-identifier hs-type">Sort</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679159001"><span class="annot"><span class="annottext">toJSON :: Sort -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceCatalog.Types.Sort.html#Sort%27"><span class="hs-identifier hs-type">Sort'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679158998"><span id="local-6989586621679158999"><span class="annot"><span class="annottext">Maybe Text
+Maybe SortOrder
+sortBy :: Maybe Text
+sortOrder :: Maybe SortOrder
+$sel:sortBy:Sort' :: Sort -&gt; Maybe Text
+$sel:sortOrder:Sort' :: Sort -&gt; Maybe SortOrder
+</span><a href="#local-6989586621679158998"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-88"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SortOrder&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SortOrder -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SortOrder -&gt; Pair) -&gt; Maybe SortOrder -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621679158999"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SortBy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679158998"><span class="hs-identifier hs-var">sortBy</span></a></span><span>
+</span><span id="line-90"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span></pre></body></html>

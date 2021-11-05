@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newRemoveRoleFromDBCluster' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679779386"><span id="local-6989586621679779387"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveRoleFromDBCluster"><span class="annot"><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#RemoveRoleFromDBCluster"><span class="hs-identifier hs-var">RemoveRoleFromDBCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveRoleFromDBCluster%27"><span class="annot"><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#RemoveRoleFromDBCluster%27"><span class="hs-identifier hs-var">RemoveRoleFromDBCluster'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679779395"><span id="local-6989586621679779396"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveRoleFromDBCluster"><span class="annot"><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#RemoveRoleFromDBCluster"><span class="hs-identifier hs-var">RemoveRoleFromDBCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveRoleFromDBCluster%27"><span class="annot"><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#RemoveRoleFromDBCluster%27"><span class="hs-identifier hs-var">RemoveRoleFromDBCluster'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the feature for the DB cluster that the IAM role is to be</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- disassociated from. For the list of supported feature names, see</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- DBEngineVersion.</span><span>
@@ -65,7 +65,7 @@
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AroleArn%3ARemoveRoleFromDBCluster%27"><span class="annot"><span class="annottext">RemoveRoleFromDBCluster -&gt; Text
 </span><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#%24sel%3AroleArn%3ARemoveRoleFromDBCluster%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679779378"><span id="local-6989586621679779380"><span class="annot"><span class="annottext">RemoveRoleFromDBCluster -&gt; RemoveRoleFromDBCluster -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679779387"><span id="local-6989586621679779389"><span class="annot"><span class="annottext">RemoveRoleFromDBCluster -&gt; RemoveRoleFromDBCluster -&gt; Bool
 (RemoveRoleFromDBCluster -&gt; RemoveRoleFromDBCluster -&gt; Bool)
 -&gt; (RemoveRoleFromDBCluster -&gt; RemoveRoleFromDBCluster -&gt; Bool)
 -&gt; Eq RemoveRoleFromDBCluster
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RemoveRoleFromDBCluster -&gt; RemoveRoleFromDBCluster -&gt; Bool
 == :: RemoveRoleFromDBCluster -&gt; RemoveRoleFromDBCluster -&gt; Bool
 $c== :: RemoveRoleFromDBCluster -&gt; RemoveRoleFromDBCluster -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679779369"><span id="local-6989586621679779371"><span id="local-6989586621679779373"><span id="local-6989586621679779375"><span class="annot"><span class="annottext">ReadPrec [RemoveRoleFromDBCluster]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679779378"><span id="local-6989586621679779380"><span id="local-6989586621679779382"><span id="local-6989586621679779384"><span class="annot"><span class="annottext">ReadPrec [RemoveRoleFromDBCluster]
 ReadPrec RemoveRoleFromDBCluster
 Int -&gt; ReadS RemoveRoleFromDBCluster
 ReadS [RemoveRoleFromDBCluster]
@@ -94,7 +94,7 @@ readList :: ReadS [RemoveRoleFromDBCluster]
 $creadList :: ReadS [RemoveRoleFromDBCluster]
 readsPrec :: Int -&gt; ReadS RemoveRoleFromDBCluster
 $creadsPrec :: Int -&gt; ReadS RemoveRoleFromDBCluster
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679779362"><span id="local-6989586621679779364"><span id="local-6989586621679779366"><span class="annot"><span class="annottext">Int -&gt; RemoveRoleFromDBCluster -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679779371"><span id="local-6989586621679779373"><span id="local-6989586621679779375"><span class="annot"><span class="annottext">Int -&gt; RemoveRoleFromDBCluster -&gt; ShowS
 [RemoveRoleFromDBCluster] -&gt; ShowS
 RemoveRoleFromDBCluster -&gt; String
 (Int -&gt; RemoveRoleFromDBCluster -&gt; ShowS)
@@ -147,10 +147,10 @@ $cfrom :: forall x. RemoveRoleFromDBCluster -&gt; Rep RemoveRoleFromDBCluster x
 </span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#RemoveRoleFromDBCluster"><span class="hs-identifier hs-type">RemoveRoleFromDBCluster</span></a></span><span>
 </span><span id="line-90"></span><span id="newRemoveRoleFromDBCluster"><span class="annot"><span class="annottext">newRemoveRoleFromDBCluster :: Text -&gt; Text -&gt; RemoveRoleFromDBCluster
 </span><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#newRemoveRoleFromDBCluster"><span class="hs-identifier hs-var hs-var">newRemoveRoleFromDBCluster</span></a></span></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679779357"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679779357"><span class="hs-identifier hs-var">pDBClusterIdentifier_</span></a></span></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679779356"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679779356"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679779366"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679779366"><span class="hs-identifier hs-var">pDBClusterIdentifier_</span></a></span></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679779365"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679779365"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">RemoveRoleFromDBCluster' :: Maybe Text -&gt; Text -&gt; Text -&gt; RemoveRoleFromDBCluster
 </span><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#RemoveRoleFromDBCluster%27"><span class="hs-identifier hs-type">RemoveRoleFromDBCluster'</span></a></span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:featureName:RemoveRoleFromDBCluster' :: Maybe Text
@@ -160,10 +160,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">$sel:dbClusterIdentifier:RemoveRoleFromDBCluster' :: Text
 </span><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#%24sel%3AdbClusterIdentifier%3ARemoveRoleFromDBCluster%27"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679779357"><span class="hs-identifier hs-var">pDBClusterIdentifier_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679779366"><span class="hs-identifier hs-var">pDBClusterIdentifier_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">$sel:roleArn:RemoveRoleFromDBCluster' :: Text
 </span><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#%24sel%3AroleArn%3ARemoveRoleFromDBCluster%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679779356"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span>
+</span><a href="#local-6989586621679779365"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | The name of the feature for the DB cluster that the IAM role is to be</span><span>
@@ -181,16 +181,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#RemoveRoleFromDBCluster%27"><span class="hs-identifier hs-type">RemoveRoleFromDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679779353"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#RemoveRoleFromDBCluster%27"><span class="hs-identifier hs-type">RemoveRoleFromDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679779362"><span class="annot"><span class="annottext">Maybe Text
 featureName :: Maybe Text
 $sel:featureName:RemoveRoleFromDBCluster' :: RemoveRoleFromDBCluster -&gt; Maybe Text
-</span><a href="#local-6989586621679779353"><span class="hs-identifier hs-var hs-var">featureName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679779353"><span class="hs-identifier hs-var">featureName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679779352"><span class="annot"><span class="annottext">s :: RemoveRoleFromDBCluster
-</span><a href="#local-6989586621679779352"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#RemoveRoleFromDBCluster%27"><span class="hs-identifier hs-type">RemoveRoleFromDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679779351"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679779351"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveRoleFromDBCluster
-</span><a href="#local-6989586621679779352"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:featureName:RemoveRoleFromDBCluster' :: Maybe Text
+</span><a href="#local-6989586621679779362"><span class="hs-identifier hs-var hs-var">featureName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679779362"><span class="hs-identifier hs-var">featureName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679779361"><span class="annot"><span class="annottext">s :: RemoveRoleFromDBCluster
+</span><a href="#local-6989586621679779361"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#RemoveRoleFromDBCluster%27"><span class="hs-identifier hs-type">RemoveRoleFromDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679779360"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679779360"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveRoleFromDBCluster
+</span><a href="#local-6989586621679779361"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:featureName:RemoveRoleFromDBCluster' :: Maybe Text
 </span><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#%24sel%3AfeatureName%3ARemoveRoleFromDBCluster%27"><span class="hs-identifier hs-var">featureName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679779351"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#RemoveRoleFromDBCluster"><span class="hs-identifier hs-type">RemoveRoleFromDBCluster</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679779360"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#RemoveRoleFromDBCluster"><span class="hs-identifier hs-type">RemoveRoleFromDBCluster</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | The name of the DB cluster to disassociate the IAM role from.</span><span>
 </span><span id="line-107"></span><span class="annot"><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#removeRoleFromDBCluster_dbClusterIdentifier"><span class="hs-identifier hs-type">removeRoleFromDBCluster_dbClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#RemoveRoleFromDBCluster"><span class="hs-identifier hs-type">RemoveRoleFromDBCluster</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -200,16 +200,16 @@ $sel:featureName:RemoveRoleFromDBCluster' :: RemoveRoleFromDBCluster -&gt; Maybe
 -&gt; (RemoveRoleFromDBCluster -&gt; Text -&gt; RemoveRoleFromDBCluster)
 -&gt; Lens RemoveRoleFromDBCluster RemoveRoleFromDBCluster Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#RemoveRoleFromDBCluster%27"><span class="hs-identifier hs-type">RemoveRoleFromDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679779350"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#RemoveRoleFromDBCluster%27"><span class="hs-identifier hs-type">RemoveRoleFromDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679779359"><span class="annot"><span class="annottext">Text
 dbClusterIdentifier :: Text
 $sel:dbClusterIdentifier:RemoveRoleFromDBCluster' :: RemoveRoleFromDBCluster -&gt; Text
-</span><a href="#local-6989586621679779350"><span class="hs-identifier hs-var hs-var">dbClusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679779350"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679779349"><span class="annot"><span class="annottext">s :: RemoveRoleFromDBCluster
-</span><a href="#local-6989586621679779349"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#RemoveRoleFromDBCluster%27"><span class="hs-identifier hs-type">RemoveRoleFromDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679779348"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679779348"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveRoleFromDBCluster
-</span><a href="#local-6989586621679779349"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbClusterIdentifier:RemoveRoleFromDBCluster' :: Text
+</span><a href="#local-6989586621679779359"><span class="hs-identifier hs-var hs-var">dbClusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679779359"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679779358"><span class="annot"><span class="annottext">s :: RemoveRoleFromDBCluster
+</span><a href="#local-6989586621679779358"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#RemoveRoleFromDBCluster%27"><span class="hs-identifier hs-type">RemoveRoleFromDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679779357"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679779357"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveRoleFromDBCluster
+</span><a href="#local-6989586621679779358"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbClusterIdentifier:RemoveRoleFromDBCluster' :: Text
 </span><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#%24sel%3AdbClusterIdentifier%3ARemoveRoleFromDBCluster%27"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679779348"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#RemoveRoleFromDBCluster"><span class="hs-identifier hs-type">RemoveRoleFromDBCluster</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679779357"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#RemoveRoleFromDBCluster"><span class="hs-identifier hs-type">RemoveRoleFromDBCluster</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM role to disassociate from the</span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- Aurora DB cluster, for example</span><span>
@@ -221,28 +221,28 @@ $sel:dbClusterIdentifier:RemoveRoleFromDBCluster' :: RemoveRoleFromDBCluster -&g
 -&gt; (RemoveRoleFromDBCluster -&gt; Text -&gt; RemoveRoleFromDBCluster)
 -&gt; Lens RemoveRoleFromDBCluster RemoveRoleFromDBCluster Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#RemoveRoleFromDBCluster%27"><span class="hs-identifier hs-type">RemoveRoleFromDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679779347"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#RemoveRoleFromDBCluster%27"><span class="hs-identifier hs-type">RemoveRoleFromDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679779356"><span class="annot"><span class="annottext">Text
 roleArn :: Text
 $sel:roleArn:RemoveRoleFromDBCluster' :: RemoveRoleFromDBCluster -&gt; Text
-</span><a href="#local-6989586621679779347"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679779347"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679779346"><span class="annot"><span class="annottext">s :: RemoveRoleFromDBCluster
-</span><a href="#local-6989586621679779346"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#RemoveRoleFromDBCluster%27"><span class="hs-identifier hs-type">RemoveRoleFromDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679779345"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679779345"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveRoleFromDBCluster
-</span><a href="#local-6989586621679779346"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:RemoveRoleFromDBCluster' :: Text
+</span><a href="#local-6989586621679779356"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679779356"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679779355"><span class="annot"><span class="annottext">s :: RemoveRoleFromDBCluster
+</span><a href="#local-6989586621679779355"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#RemoveRoleFromDBCluster%27"><span class="hs-identifier hs-type">RemoveRoleFromDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679779354"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679779354"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveRoleFromDBCluster
+</span><a href="#local-6989586621679779355"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:RemoveRoleFromDBCluster' :: Text
 </span><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#%24sel%3AroleArn%3ARemoveRoleFromDBCluster%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679779345"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#RemoveRoleFromDBCluster"><span class="hs-identifier hs-type">RemoveRoleFromDBCluster</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679779354"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#RemoveRoleFromDBCluster"><span class="hs-identifier hs-type">RemoveRoleFromDBCluster</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#RemoveRoleFromDBCluster"><span class="hs-identifier hs-type">RemoveRoleFromDBCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-117"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-118"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#RemoveRoleFromDBCluster"><span class="hs-identifier hs-type">RemoveRoleFromDBCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>      </span><span class="annot"><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#RemoveRoleFromDBClusterResponse"><span class="hs-identifier hs-type">RemoveRoleFromDBClusterResponse</span></a></span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679779341"><span class="annot"><span class="annottext">request :: RemoveRoleFromDBCluster -&gt; Request RemoveRoleFromDBCluster
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679779350"><span class="annot"><span class="annottext">request :: RemoveRoleFromDBCluster -&gt; Request RemoveRoleFromDBCluster
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; RemoveRoleFromDBCluster -&gt; Request RemoveRoleFromDBCluster
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679779337"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679779346"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RemoveRoleFromDBCluster
 -&gt; ClientResponse ClientBody
@@ -269,12 +269,12 @@ AWSResponse a
 RemoveRoleFromDBClusterResponse
 </span><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#RemoveRoleFromDBClusterResponse%27"><span class="hs-identifier hs-var">RemoveRoleFromDBClusterResponse'</span></a></span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679779330"><span id="local-6989586621679779332"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#RemoveRoleFromDBCluster"><span class="hs-identifier hs-type">RemoveRoleFromDBCluster</span></a></span></span></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679779339"><span id="local-6989586621679779341"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#RemoveRoleFromDBCluster"><span class="hs-identifier hs-type">RemoveRoleFromDBCluster</span></a></span></span></span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679779327"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#RemoveRoleFromDBCluster"><span class="hs-identifier hs-type">RemoveRoleFromDBCluster</span></a></span></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679779336"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#RemoveRoleFromDBCluster"><span class="hs-identifier hs-type">RemoveRoleFromDBCluster</span></a></span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#RemoveRoleFromDBCluster"><span class="hs-identifier hs-type">RemoveRoleFromDBCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679779323"><span class="annot"><span class="annottext">toHeaders :: RemoveRoleFromDBCluster -&gt; [Header]
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679779332"><span class="annot"><span class="annottext">toHeaders :: RemoveRoleFromDBCluster -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; RemoveRoleFromDBCluster -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -282,15 +282,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#RemoveRoleFromDBCluster"><span class="hs-identifier hs-type">RemoveRoleFromDBCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679779318"><span class="annot"><span class="annottext">toPath :: RemoveRoleFromDBCluster -&gt; ByteString
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679779327"><span class="annot"><span class="annottext">toPath :: RemoveRoleFromDBCluster -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RemoveRoleFromDBCluster -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#RemoveRoleFromDBCluster"><span class="hs-identifier hs-type">RemoveRoleFromDBCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679779314"><span class="annot"><span class="annottext">toQuery :: RemoveRoleFromDBCluster -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#RemoveRoleFromDBCluster%27"><span class="hs-identifier hs-type">RemoveRoleFromDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679779310"><span id="local-6989586621679779311"><span id="local-6989586621679779312"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679779323"><span class="annot"><span class="annottext">toQuery :: RemoveRoleFromDBCluster -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#RemoveRoleFromDBCluster%27"><span class="hs-identifier hs-type">RemoveRoleFromDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679779319"><span id="local-6989586621679779320"><span id="local-6989586621679779321"><span class="annot"><span class="annottext">Maybe Text
 Text
 roleArn :: Text
 dbClusterIdentifier :: Text
@@ -298,7 +298,7 @@ featureName :: Maybe Text
 $sel:roleArn:RemoveRoleFromDBCluster' :: RemoveRoleFromDBCluster -&gt; Text
 $sel:dbClusterIdentifier:RemoveRoleFromDBCluster' :: RemoveRoleFromDBCluster -&gt; Text
 $sel:featureName:RemoveRoleFromDBCluster' :: RemoveRoleFromDBCluster -&gt; Maybe Text
-</span><a href="#local-6989586621679779310"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679779319"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -318,24 +318,24 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;FeatureName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679779312"><span class="hs-identifier hs-var">featureName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679779321"><span class="hs-identifier hs-var">featureName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DBClusterIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679779311"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679779320"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;RoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679779310"><span class="hs-identifier hs-var">roleArn</span></a></span><span>
+</span><a href="#local-6989586621679779319"><span class="hs-identifier hs-var">roleArn</span></a></span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | /See:/ 'newRemoveRoleFromDBClusterResponse' smart constructor.</span><span>
-</span><span id="line-148"></span><span id="local-6989586621679779307"><span id="local-6989586621679779308"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveRoleFromDBClusterResponse"><span class="annot"><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#RemoveRoleFromDBClusterResponse"><span class="hs-identifier hs-var">RemoveRoleFromDBClusterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveRoleFromDBClusterResponse%27"><span class="annot"><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#RemoveRoleFromDBClusterResponse%27"><span class="hs-identifier hs-var">RemoveRoleFromDBClusterResponse'</span></a></span></span><span>
+</span><span id="line-148"></span><span id="local-6989586621679779316"><span id="local-6989586621679779317"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveRoleFromDBClusterResponse"><span class="annot"><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#RemoveRoleFromDBClusterResponse"><span class="hs-identifier hs-var">RemoveRoleFromDBClusterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveRoleFromDBClusterResponse%27"><span class="annot"><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#RemoveRoleFromDBClusterResponse%27"><span class="hs-identifier hs-var">RemoveRoleFromDBClusterResponse'</span></a></span></span><span>
 </span><span id="line-149"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-150"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679779303"><span id="local-6989586621679779305"><span class="annot"><span class="annottext">RemoveRoleFromDBClusterResponse
+</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679779312"><span id="local-6989586621679779314"><span class="annot"><span class="annottext">RemoveRoleFromDBClusterResponse
 -&gt; RemoveRoleFromDBClusterResponse -&gt; Bool
 (RemoveRoleFromDBClusterResponse
  -&gt; RemoveRoleFromDBClusterResponse -&gt; Bool)
@@ -351,7 +351,7 @@ $c/= :: RemoveRoleFromDBClusterResponse
 -&gt; RemoveRoleFromDBClusterResponse -&gt; Bool
 $c== :: RemoveRoleFromDBClusterResponse
 -&gt; RemoveRoleFromDBClusterResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679779295"><span id="local-6989586621679779297"><span id="local-6989586621679779299"><span id="local-6989586621679779301"><span class="annot"><span class="annottext">ReadPrec [RemoveRoleFromDBClusterResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679779304"><span id="local-6989586621679779306"><span id="local-6989586621679779308"><span id="local-6989586621679779310"><span class="annot"><span class="annottext">ReadPrec [RemoveRoleFromDBClusterResponse]
 ReadPrec RemoveRoleFromDBClusterResponse
 Int -&gt; ReadS RemoveRoleFromDBClusterResponse
 ReadS [RemoveRoleFromDBClusterResponse]
@@ -371,7 +371,7 @@ readList :: ReadS [RemoveRoleFromDBClusterResponse]
 $creadList :: ReadS [RemoveRoleFromDBClusterResponse]
 readsPrec :: Int -&gt; ReadS RemoveRoleFromDBClusterResponse
 $creadsPrec :: Int -&gt; ReadS RemoveRoleFromDBClusterResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679779289"><span id="local-6989586621679779291"><span id="local-6989586621679779293"><span class="annot"><span class="annottext">Int -&gt; RemoveRoleFromDBClusterResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679779298"><span id="local-6989586621679779300"><span id="local-6989586621679779302"><span class="annot"><span class="annottext">Int -&gt; RemoveRoleFromDBClusterResponse -&gt; ShowS
 [RemoveRoleFromDBClusterResponse] -&gt; ShowS
 RemoveRoleFromDBClusterResponse -&gt; String
 (Int -&gt; RemoveRoleFromDBClusterResponse -&gt; ShowS)
@@ -421,6 +421,6 @@ RemoveRoleFromDBClusterResponse
 </span><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#RemoveRoleFromDBClusterResponse%27"><span class="hs-identifier hs-var">RemoveRoleFromDBClusterResponse'</span></a></span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679779285"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679779294"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-164"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.RemoveRoleFromDBCluster.html#RemoveRoleFromDBClusterResponse"><span class="hs-identifier hs-type">RemoveRoleFromDBClusterResponse</span></a></span></span><span>
 </span><span id="line-165"></span></pre></body></html>

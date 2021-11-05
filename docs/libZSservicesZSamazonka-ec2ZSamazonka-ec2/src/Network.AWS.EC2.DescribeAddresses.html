@@ -56,7 +56,7 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newDescribeAddresses' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621681272768"><span id="local-6989586621681272769"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAddresses"><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddresses"><span class="hs-identifier hs-var">DescribeAddresses</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAddresses%27"><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddresses%27"><span class="hs-identifier hs-var">DescribeAddresses'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621681272777"><span id="local-6989586621681272778"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAddresses"><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddresses"><span class="hs-identifier hs-var">DescribeAddresses</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAddresses%27"><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddresses%27"><span class="hs-identifier hs-var">DescribeAddresses'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One or more filters. Filter names and values are case-sensitive.</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- -   @allocation-id@ - [EC2-VPC] The allocation ID for the address.</span><span>
@@ -110,7 +110,7 @@
 </span><span id="line-107"></span><span>    </span><span id="%24sel%3AdryRun%3ADescribeAddresses%27"><span class="annot"><span class="annottext">DescribeAddresses -&gt; Maybe Bool
 </span><a href="Network.AWS.EC2.DescribeAddresses.html#%24sel%3AdryRun%3ADescribeAddresses%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-108"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-109"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681272759"><span id="local-6989586621681272761"><span class="annot"><span class="annottext">DescribeAddresses -&gt; DescribeAddresses -&gt; Bool
+</span><span id="line-109"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681272768"><span id="local-6989586621681272770"><span class="annot"><span class="annottext">DescribeAddresses -&gt; DescribeAddresses -&gt; Bool
 (DescribeAddresses -&gt; DescribeAddresses -&gt; Bool)
 -&gt; (DescribeAddresses -&gt; DescribeAddresses -&gt; Bool)
 -&gt; Eq DescribeAddresses
@@ -119,7 +119,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeAddresses -&gt; DescribeAddresses -&gt; Bool
 == :: DescribeAddresses -&gt; DescribeAddresses -&gt; Bool
 $c== :: DescribeAddresses -&gt; DescribeAddresses -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681272750"><span id="local-6989586621681272752"><span id="local-6989586621681272754"><span id="local-6989586621681272756"><span class="annot"><span class="annottext">ReadPrec [DescribeAddresses]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681272759"><span id="local-6989586621681272761"><span id="local-6989586621681272763"><span id="local-6989586621681272765"><span class="annot"><span class="annottext">ReadPrec [DescribeAddresses]
 ReadPrec DescribeAddresses
 Int -&gt; ReadS DescribeAddresses
 ReadS [DescribeAddresses]
@@ -139,7 +139,7 @@ readList :: ReadS [DescribeAddresses]
 $creadList :: ReadS [DescribeAddresses]
 readsPrec :: Int -&gt; ReadS DescribeAddresses
 $creadsPrec :: Int -&gt; ReadS DescribeAddresses
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681272743"><span id="local-6989586621681272745"><span id="local-6989586621681272747"><span class="annot"><span class="annottext">Int -&gt; DescribeAddresses -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681272752"><span id="local-6989586621681272754"><span id="local-6989586621681272756"><span class="annot"><span class="annottext">Int -&gt; DescribeAddresses -&gt; ShowS
 [DescribeAddresses] -&gt; ShowS
 DescribeAddresses -&gt; String
 (Int -&gt; DescribeAddresses -&gt; ShowS)
@@ -292,16 +292,16 @@ forall a. Maybe a
      (Maybe [Filter])
      (Maybe [Filter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddresses%27"><span class="hs-identifier hs-type">DescribeAddresses'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681272736"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddresses%27"><span class="hs-identifier hs-type">DescribeAddresses'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681272745"><span class="annot"><span class="annottext">Maybe [Filter]
 filters :: Maybe [Filter]
 $sel:filters:DescribeAddresses' :: DescribeAddresses -&gt; Maybe [Filter]
-</span><a href="#local-6989586621681272736"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681272736"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681272735"><span class="annot"><span class="annottext">s :: DescribeAddresses
-</span><a href="#local-6989586621681272735"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddresses%27"><span class="hs-identifier hs-type">DescribeAddresses'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681272734"><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681272734"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAddresses
-</span><a href="#local-6989586621681272735"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeAddresses' :: Maybe [Filter]
+</span><a href="#local-6989586621681272745"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681272745"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681272744"><span class="annot"><span class="annottext">s :: DescribeAddresses
+</span><a href="#local-6989586621681272744"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddresses%27"><span class="hs-identifier hs-type">DescribeAddresses'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681272743"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681272743"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAddresses
+</span><a href="#local-6989586621681272744"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeAddresses' :: Maybe [Filter]
 </span><a href="Network.AWS.EC2.DescribeAddresses.html#%24sel%3Afilters%3ADescribeAddresses%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681272734"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddresses"><span class="hs-identifier hs-type">DescribeAddresses</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
+</span><a href="#local-6989586621681272743"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddresses"><span class="hs-identifier hs-type">DescribeAddresses</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
  -&gt; DescribeAddresses -&gt; f DescribeAddresses)
 -&gt; ((Maybe [Filter] -&gt; f (Maybe [Filter]))
     -&gt; Maybe [Filter] -&gt; f (Maybe [Filter]))
@@ -330,16 +330,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      DescribeAddresses DescribeAddresses (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddresses%27"><span class="hs-identifier hs-type">DescribeAddresses'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681272730"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddresses%27"><span class="hs-identifier hs-type">DescribeAddresses'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681272739"><span class="annot"><span class="annottext">Maybe [Text]
 publicIps :: Maybe [Text]
 $sel:publicIps:DescribeAddresses' :: DescribeAddresses -&gt; Maybe [Text]
-</span><a href="#local-6989586621681272730"><span class="hs-identifier hs-var hs-var">publicIps</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681272730"><span class="hs-identifier hs-var">publicIps</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681272729"><span class="annot"><span class="annottext">s :: DescribeAddresses
-</span><a href="#local-6989586621681272729"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddresses%27"><span class="hs-identifier hs-type">DescribeAddresses'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681272728"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681272728"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAddresses
-</span><a href="#local-6989586621681272729"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publicIps:DescribeAddresses' :: Maybe [Text]
+</span><a href="#local-6989586621681272739"><span class="hs-identifier hs-var hs-var">publicIps</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681272739"><span class="hs-identifier hs-var">publicIps</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681272738"><span class="annot"><span class="annottext">s :: DescribeAddresses
+</span><a href="#local-6989586621681272738"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddresses%27"><span class="hs-identifier hs-type">DescribeAddresses'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681272737"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681272737"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAddresses
+</span><a href="#local-6989586621681272738"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publicIps:DescribeAddresses' :: Maybe [Text]
 </span><a href="Network.AWS.EC2.DescribeAddresses.html#%24sel%3ApublicIps%3ADescribeAddresses%27"><span class="hs-identifier hs-var">publicIps</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681272728"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddresses"><span class="hs-identifier hs-type">DescribeAddresses</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621681272737"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddresses"><span class="hs-identifier hs-type">DescribeAddresses</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DescribeAddresses -&gt; f DescribeAddresses)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -365,16 +365,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      DescribeAddresses DescribeAddresses (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddresses%27"><span class="hs-identifier hs-type">DescribeAddresses'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681272727"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddresses%27"><span class="hs-identifier hs-type">DescribeAddresses'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681272736"><span class="annot"><span class="annottext">Maybe [Text]
 allocationIds :: Maybe [Text]
 $sel:allocationIds:DescribeAddresses' :: DescribeAddresses -&gt; Maybe [Text]
-</span><a href="#local-6989586621681272727"><span class="hs-identifier hs-var hs-var">allocationIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681272727"><span class="hs-identifier hs-var">allocationIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681272726"><span class="annot"><span class="annottext">s :: DescribeAddresses
-</span><a href="#local-6989586621681272726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddresses%27"><span class="hs-identifier hs-type">DescribeAddresses'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681272725"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681272725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAddresses
-</span><a href="#local-6989586621681272726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allocationIds:DescribeAddresses' :: Maybe [Text]
+</span><a href="#local-6989586621681272736"><span class="hs-identifier hs-var hs-var">allocationIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681272736"><span class="hs-identifier hs-var">allocationIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681272735"><span class="annot"><span class="annottext">s :: DescribeAddresses
+</span><a href="#local-6989586621681272735"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddresses%27"><span class="hs-identifier hs-type">DescribeAddresses'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681272734"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681272734"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAddresses
+</span><a href="#local-6989586621681272735"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allocationIds:DescribeAddresses' :: Maybe [Text]
 </span><a href="Network.AWS.EC2.DescribeAddresses.html#%24sel%3AallocationIds%3ADescribeAddresses%27"><span class="hs-identifier hs-var">allocationIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681272725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddresses"><span class="hs-identifier hs-type">DescribeAddresses</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621681272734"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddresses"><span class="hs-identifier hs-type">DescribeAddresses</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DescribeAddresses -&gt; f DescribeAddresses)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -403,27 +403,27 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      DescribeAddresses DescribeAddresses (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddresses%27"><span class="hs-identifier hs-type">DescribeAddresses'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681272724"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddresses%27"><span class="hs-identifier hs-type">DescribeAddresses'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681272733"><span class="annot"><span class="annottext">Maybe Bool
 dryRun :: Maybe Bool
 $sel:dryRun:DescribeAddresses' :: DescribeAddresses -&gt; Maybe Bool
-</span><a href="#local-6989586621681272724"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681272724"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681272723"><span class="annot"><span class="annottext">s :: DescribeAddresses
-</span><a href="#local-6989586621681272723"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddresses%27"><span class="hs-identifier hs-type">DescribeAddresses'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681272722"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681272722"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAddresses
-</span><a href="#local-6989586621681272723"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DescribeAddresses' :: Maybe Bool
+</span><a href="#local-6989586621681272733"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681272733"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681272732"><span class="annot"><span class="annottext">s :: DescribeAddresses
+</span><a href="#local-6989586621681272732"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddresses%27"><span class="hs-identifier hs-type">DescribeAddresses'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681272731"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681272731"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAddresses
+</span><a href="#local-6989586621681272732"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DescribeAddresses' :: Maybe Bool
 </span><a href="Network.AWS.EC2.DescribeAddresses.html#%24sel%3AdryRun%3ADescribeAddresses%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681272722"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddresses"><span class="hs-identifier hs-type">DescribeAddresses</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681272731"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddresses"><span class="hs-identifier hs-type">DescribeAddresses</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-231"></span><span>
 </span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddresses"><span class="hs-identifier hs-type">DescribeAddresses</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-233"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-234"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddresses"><span class="hs-identifier hs-type">DescribeAddresses</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-235"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddressesResponse"><span class="hs-identifier hs-type">DescribeAddressesResponse</span></a></span><span>
-</span><span id="line-236"></span><span>  </span><span id="local-6989586621681272718"><span class="annot"><span class="annottext">request :: DescribeAddresses -&gt; Request DescribeAddresses
+</span><span id="line-236"></span><span>  </span><span id="local-6989586621681272727"><span class="annot"><span class="annottext">request :: DescribeAddresses -&gt; Request DescribeAddresses
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeAddresses -&gt; Request DescribeAddresses
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-237"></span><span>  </span><span id="local-6989586621681272714"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-237"></span><span>  </span><span id="local-6989586621681272723"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeAddresses
 -&gt; ClientResponse ClientBody
@@ -449,10 +449,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-239"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681272711"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681272711"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681272710"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681272710"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681272709"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681272709"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-239"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681272720"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681272720"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681272719"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681272719"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681272718"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681272718"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-240"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Address] -&gt; Int -&gt; DescribeAddressesResponse
 </span><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddressesResponse%27"><span class="hs-identifier hs-var">DescribeAddressesResponse'</span></a></span><span>
 </span><span id="line-241"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Address] -&gt; Int -&gt; DescribeAddressesResponse)
@@ -460,7 +460,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DescribeAddressesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681272709"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681272718"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;addressesSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -490,15 +490,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681272711"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681272720"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-245"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-246"></span><span>
-</span><span id="line-247"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681272698"><span id="local-6989586621681272700"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddresses"><span class="hs-identifier hs-type">DescribeAddresses</span></a></span></span></span><span>
+</span><span id="line-247"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681272707"><span id="local-6989586621681272709"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddresses"><span class="hs-identifier hs-type">DescribeAddresses</span></a></span></span></span><span>
 </span><span id="line-248"></span><span>
-</span><span id="line-249"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681272695"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddresses"><span class="hs-identifier hs-type">DescribeAddresses</span></a></span></span><span>
+</span><span id="line-249"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681272704"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddresses"><span class="hs-identifier hs-type">DescribeAddresses</span></a></span></span><span>
 </span><span id="line-250"></span><span>
 </span><span id="line-251"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddresses"><span class="hs-identifier hs-type">DescribeAddresses</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-252"></span><span>  </span><span id="local-6989586621681272691"><span class="annot"><span class="annottext">toHeaders :: DescribeAddresses -&gt; ResponseHeaders
+</span><span id="line-252"></span><span>  </span><span id="local-6989586621681272700"><span class="annot"><span class="annottext">toHeaders :: DescribeAddresses -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeAddresses -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -506,15 +506,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-253"></span><span>
 </span><span id="line-254"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddresses"><span class="hs-identifier hs-type">DescribeAddresses</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-255"></span><span>  </span><span id="local-6989586621681272686"><span class="annot"><span class="annottext">toPath :: DescribeAddresses -&gt; ByteString
+</span><span id="line-255"></span><span>  </span><span id="local-6989586621681272695"><span class="annot"><span class="annottext">toPath :: DescribeAddresses -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeAddresses -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-256"></span><span>
 </span><span id="line-257"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddresses"><span class="hs-identifier hs-type">DescribeAddresses</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-258"></span><span>  </span><span id="local-6989586621681272682"><span class="annot"><span class="annottext">toQuery :: DescribeAddresses -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddresses%27"><span class="hs-identifier hs-type">DescribeAddresses'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681272677"><span id="local-6989586621681272678"><span id="local-6989586621681272679"><span id="local-6989586621681272680"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-258"></span><span>  </span><span id="local-6989586621681272691"><span class="annot"><span class="annottext">toQuery :: DescribeAddresses -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddresses%27"><span class="hs-identifier hs-type">DescribeAddresses'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681272686"><span id="local-6989586621681272687"><span id="local-6989586621681272688"><span id="local-6989586621681272689"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [Text]
 Maybe [Filter]
 dryRun :: Maybe Bool
@@ -525,7 +525,7 @@ $sel:dryRun:DescribeAddresses' :: DescribeAddresses -&gt; Maybe Bool
 $sel:allocationIds:DescribeAddresses' :: DescribeAddresses -&gt; Maybe [Text]
 $sel:publicIps:DescribeAddresses' :: DescribeAddresses -&gt; Maybe [Text]
 $sel:filters:DescribeAddresses' :: DescribeAddresses -&gt; Maybe [Filter]
-</span><a href="#local-6989586621681272677"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681272686"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-259"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -552,7 +552,7 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Filter] -&gt; QueryString) -&gt; Maybe [Filter] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681272680"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681272689"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-266"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
@@ -564,7 +564,7 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;PublicIp&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681272679"><span class="hs-identifier hs-var">publicIps</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681272688"><span class="hs-identifier hs-var">publicIps</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-268"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
@@ -577,17 +577,17 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-270"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681272678"><span class="hs-identifier hs-var">allocationIds</span></a></span><span>
+</span><a href="#local-6989586621681272687"><span class="hs-identifier hs-var">allocationIds</span></a></span><span>
 </span><span id="line-271"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-272"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681272677"><span class="hs-identifier hs-var">dryRun</span></a></span><span>
+</span><a href="#local-6989586621681272686"><span class="hs-identifier hs-var">dryRun</span></a></span><span>
 </span><span id="line-273"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-274"></span><span>
 </span><span id="line-275"></span><span class="hs-comment">-- | /See:/ 'newDescribeAddressesResponse' smart constructor.</span><span>
-</span><span id="line-276"></span><span id="local-6989586621681272673"><span id="local-6989586621681272674"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAddressesResponse"><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddressesResponse"><span class="hs-identifier hs-var">DescribeAddressesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAddressesResponse%27"><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddressesResponse%27"><span class="hs-identifier hs-var">DescribeAddressesResponse'</span></a></span></span><span>
+</span><span id="line-276"></span><span id="local-6989586621681272682"><span id="local-6989586621681272683"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAddressesResponse"><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddressesResponse"><span class="hs-identifier hs-var">DescribeAddressesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAddressesResponse%27"><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddressesResponse%27"><span class="hs-identifier hs-var">DescribeAddressesResponse'</span></a></span></span><span>
 </span><span id="line-277"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the Elastic IP addresses.</span><span>
 </span><span id="line-278"></span><span>    </span><span id="%24sel%3Aaddresses%3ADescribeAddressesResponse%27"><span class="annot"><span class="annottext">DescribeAddressesResponse -&gt; Maybe [Address]
 </span><a href="Network.AWS.EC2.DescribeAddresses.html#%24sel%3Aaddresses%3ADescribeAddressesResponse%27"><span class="hs-identifier hs-var hs-var">addresses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Address.html#Address"><span class="hs-identifier hs-type">Address</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -595,7 +595,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-280"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeAddressesResponse%27"><span class="annot"><span class="annottext">DescribeAddressesResponse -&gt; Int
 </span><a href="Network.AWS.EC2.DescribeAddresses.html#%24sel%3AhttpStatus%3ADescribeAddressesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-281"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-282"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681272667"><span id="local-6989586621681272669"><span class="annot"><span class="annottext">DescribeAddressesResponse -&gt; DescribeAddressesResponse -&gt; Bool
+</span><span id="line-282"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681272676"><span id="local-6989586621681272678"><span class="annot"><span class="annottext">DescribeAddressesResponse -&gt; DescribeAddressesResponse -&gt; Bool
 (DescribeAddressesResponse -&gt; DescribeAddressesResponse -&gt; Bool)
 -&gt; (DescribeAddressesResponse -&gt; DescribeAddressesResponse -&gt; Bool)
 -&gt; Eq DescribeAddressesResponse
@@ -604,7 +604,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeAddressesResponse -&gt; DescribeAddressesResponse -&gt; Bool
 == :: DescribeAddressesResponse -&gt; DescribeAddressesResponse -&gt; Bool
 $c== :: DescribeAddressesResponse -&gt; DescribeAddressesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681272659"><span id="local-6989586621681272661"><span id="local-6989586621681272663"><span id="local-6989586621681272665"><span class="annot"><span class="annottext">ReadPrec [DescribeAddressesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681272668"><span id="local-6989586621681272670"><span id="local-6989586621681272672"><span id="local-6989586621681272674"><span class="annot"><span class="annottext">ReadPrec [DescribeAddressesResponse]
 ReadPrec DescribeAddressesResponse
 Int -&gt; ReadS DescribeAddressesResponse
 ReadS [DescribeAddressesResponse]
@@ -624,7 +624,7 @@ readList :: ReadS [DescribeAddressesResponse]
 $creadList :: ReadS [DescribeAddressesResponse]
 readsPrec :: Int -&gt; ReadS DescribeAddressesResponse
 $creadsPrec :: Int -&gt; ReadS DescribeAddressesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681272653"><span id="local-6989586621681272655"><span id="local-6989586621681272657"><span class="annot"><span class="annottext">Int -&gt; DescribeAddressesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681272662"><span id="local-6989586621681272664"><span id="local-6989586621681272666"><span class="annot"><span class="annottext">Int -&gt; DescribeAddressesResponse -&gt; ShowS
 [DescribeAddressesResponse] -&gt; ShowS
 DescribeAddressesResponse -&gt; String
 (Int -&gt; DescribeAddressesResponse -&gt; ShowS)
@@ -672,8 +672,8 @@ DescribeAddressesResponse -&gt; Rep DescribeAddressesResponse x
 </span><span id="line-297"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-298"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddressesResponse"><span class="hs-identifier hs-type">DescribeAddressesResponse</span></a></span><span>
 </span><span id="line-299"></span><span id="newDescribeAddressesResponse"><span class="annot"><span class="annottext">newDescribeAddressesResponse :: Int -&gt; DescribeAddressesResponse
-</span><a href="Network.AWS.EC2.DescribeAddresses.html#newDescribeAddressesResponse"><span class="hs-identifier hs-var hs-var">newDescribeAddressesResponse</span></a></span></span><span> </span><span id="local-6989586621681272650"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681272650"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.DescribeAddresses.html#newDescribeAddressesResponse"><span class="hs-identifier hs-var hs-var">newDescribeAddressesResponse</span></a></span></span><span> </span><span id="local-6989586621681272659"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681272659"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-300"></span><span>  </span><span class="annot"><span class="annottext">DescribeAddressesResponse' :: Maybe [Address] -&gt; Int -&gt; DescribeAddressesResponse
 </span><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddressesResponse%27"><span class="hs-identifier hs-type">DescribeAddressesResponse'</span></a></span><span>
 </span><span id="line-301"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:addresses:DescribeAddressesResponse' :: Maybe [Address]
@@ -683,7 +683,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-303"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAddressesResponse' :: Int
 </span><a href="Network.AWS.EC2.DescribeAddresses.html#%24sel%3AhttpStatus%3ADescribeAddressesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681272650"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621681272659"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-304"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-305"></span><span>
 </span><span id="line-306"></span><span class="hs-comment">-- | Information about the Elastic IP addresses.</span><span>
@@ -699,16 +699,16 @@ forall a. Maybe a
      (Maybe [Address])
      (Maybe [Address])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddressesResponse%27"><span class="hs-identifier hs-type">DescribeAddressesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681272649"><span class="annot"><span class="annottext">Maybe [Address]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddressesResponse%27"><span class="hs-identifier hs-type">DescribeAddressesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681272658"><span class="annot"><span class="annottext">Maybe [Address]
 addresses :: Maybe [Address]
 $sel:addresses:DescribeAddressesResponse' :: DescribeAddressesResponse -&gt; Maybe [Address]
-</span><a href="#local-6989586621681272649"><span class="hs-identifier hs-var hs-var">addresses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Address]
-</span><a href="#local-6989586621681272649"><span class="hs-identifier hs-var">addresses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681272648"><span class="annot"><span class="annottext">s :: DescribeAddressesResponse
-</span><a href="#local-6989586621681272648"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddressesResponse%27"><span class="hs-identifier hs-type">DescribeAddressesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681272647"><span class="annot"><span class="annottext">Maybe [Address]
-</span><a href="#local-6989586621681272647"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAddressesResponse
-</span><a href="#local-6989586621681272648"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addresses:DescribeAddressesResponse' :: Maybe [Address]
+</span><a href="#local-6989586621681272658"><span class="hs-identifier hs-var hs-var">addresses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Address]
+</span><a href="#local-6989586621681272658"><span class="hs-identifier hs-var">addresses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681272657"><span class="annot"><span class="annottext">s :: DescribeAddressesResponse
+</span><a href="#local-6989586621681272657"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddressesResponse%27"><span class="hs-identifier hs-type">DescribeAddressesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681272656"><span class="annot"><span class="annottext">Maybe [Address]
+</span><a href="#local-6989586621681272656"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAddressesResponse
+</span><a href="#local-6989586621681272657"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addresses:DescribeAddressesResponse' :: Maybe [Address]
 </span><a href="Network.AWS.EC2.DescribeAddresses.html#%24sel%3Aaddresses%3ADescribeAddressesResponse%27"><span class="hs-identifier hs-var">addresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Address]
-</span><a href="#local-6989586621681272647"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddressesResponse"><span class="hs-identifier hs-type">DescribeAddressesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Address] -&gt; f (Maybe [Address]))
+</span><a href="#local-6989586621681272656"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddressesResponse"><span class="hs-identifier hs-type">DescribeAddressesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Address] -&gt; f (Maybe [Address]))
  -&gt; DescribeAddressesResponse -&gt; f DescribeAddressesResponse)
 -&gt; ((Maybe [Address] -&gt; f (Maybe [Address]))
     -&gt; Maybe [Address] -&gt; f (Maybe [Address]))
@@ -737,16 +737,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (DescribeAddressesResponse -&gt; Int -&gt; DescribeAddressesResponse)
 -&gt; Lens DescribeAddressesResponse DescribeAddressesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddressesResponse%27"><span class="hs-identifier hs-type">DescribeAddressesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681272646"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddressesResponse%27"><span class="hs-identifier hs-type">DescribeAddressesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681272655"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeAddressesResponse' :: DescribeAddressesResponse -&gt; Int
-</span><a href="#local-6989586621681272646"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681272646"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681272645"><span class="annot"><span class="annottext">s :: DescribeAddressesResponse
-</span><a href="#local-6989586621681272645"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddressesResponse%27"><span class="hs-identifier hs-type">DescribeAddressesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681272644"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681272644"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAddressesResponse
-</span><a href="#local-6989586621681272645"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAddressesResponse' :: Int
+</span><a href="#local-6989586621681272655"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681272655"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681272654"><span class="annot"><span class="annottext">s :: DescribeAddressesResponse
+</span><a href="#local-6989586621681272654"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddressesResponse%27"><span class="hs-identifier hs-type">DescribeAddressesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681272653"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681272653"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAddressesResponse
+</span><a href="#local-6989586621681272654"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAddressesResponse' :: Int
 </span><a href="Network.AWS.EC2.DescribeAddresses.html#%24sel%3AhttpStatus%3ADescribeAddressesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681272644"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddressesResponse"><span class="hs-identifier hs-type">DescribeAddressesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681272653"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddressesResponse"><span class="hs-identifier hs-type">DescribeAddressesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-313"></span><span>
-</span><span id="line-314"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681272642"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddressesResponse"><span class="hs-identifier hs-type">DescribeAddressesResponse</span></a></span></span><span>
+</span><span id="line-314"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681272651"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeAddresses.html#DescribeAddressesResponse"><span class="hs-identifier hs-type">DescribeAddressesResponse</span></a></span></span><span>
 </span><span id="line-315"></span></pre></body></html>

@@ -26,11 +26,11 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Reference to an OutputDestination ID defined in the channel</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newOutputLocationRef' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679910261"><span id="local-6989586621679910262"></span></span><span class="hs-keyword">data</span><span> </span><span id="OutputLocationRef"><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputLocationRef.html#OutputLocationRef"><span class="hs-identifier hs-var">OutputLocationRef</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OutputLocationRef%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputLocationRef.html#OutputLocationRef%27"><span class="hs-identifier hs-var">OutputLocationRef'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679910270"><span id="local-6989586621679910271"></span></span><span class="hs-keyword">data</span><span> </span><span id="OutputLocationRef"><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputLocationRef.html#OutputLocationRef"><span class="hs-identifier hs-var">OutputLocationRef</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OutputLocationRef%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputLocationRef.html#OutputLocationRef%27"><span class="hs-identifier hs-var">OutputLocationRef'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AdestinationRefId%3AOutputLocationRef%27"><span class="annot"><span class="annottext">OutputLocationRef -&gt; Maybe Text
 </span><a href="Network.AWS.MediaLive.Types.OutputLocationRef.html#%24sel%3AdestinationRefId%3AOutputLocationRef%27"><span class="hs-identifier hs-var hs-var">destinationRefId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679910255"><span id="local-6989586621679910257"><span class="annot"><span class="annottext">OutputLocationRef -&gt; OutputLocationRef -&gt; Bool
+</span><span id="line-32"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679910264"><span id="local-6989586621679910266"><span class="annot"><span class="annottext">OutputLocationRef -&gt; OutputLocationRef -&gt; Bool
 (OutputLocationRef -&gt; OutputLocationRef -&gt; Bool)
 -&gt; (OutputLocationRef -&gt; OutputLocationRef -&gt; Bool)
 -&gt; Eq OutputLocationRef
@@ -39,7 +39,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: OutputLocationRef -&gt; OutputLocationRef -&gt; Bool
 == :: OutputLocationRef -&gt; OutputLocationRef -&gt; Bool
 $c== :: OutputLocationRef -&gt; OutputLocationRef -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679910246"><span id="local-6989586621679910248"><span id="local-6989586621679910250"><span id="local-6989586621679910252"><span class="annot"><span class="annottext">ReadPrec [OutputLocationRef]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679910255"><span id="local-6989586621679910257"><span id="local-6989586621679910259"><span id="local-6989586621679910261"><span class="annot"><span class="annottext">ReadPrec [OutputLocationRef]
 ReadPrec OutputLocationRef
 Int -&gt; ReadS OutputLocationRef
 ReadS [OutputLocationRef]
@@ -59,7 +59,7 @@ readList :: ReadS [OutputLocationRef]
 $creadList :: ReadS [OutputLocationRef]
 readsPrec :: Int -&gt; ReadS OutputLocationRef
 $creadsPrec :: Int -&gt; ReadS OutputLocationRef
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679910239"><span id="local-6989586621679910241"><span id="local-6989586621679910243"><span class="annot"><span class="annottext">Int -&gt; OutputLocationRef -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679910248"><span id="local-6989586621679910250"><span id="local-6989586621679910252"><span class="annot"><span class="annottext">Int -&gt; OutputLocationRef -&gt; ShowS
 [OutputLocationRef] -&gt; ShowS
 OutputLocationRef -&gt; String
 (Int -&gt; OutputLocationRef -&gt; ShowS)
@@ -116,19 +116,19 @@ forall a. Maybe a
 -&gt; Lens
      OutputLocationRef OutputLocationRef (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputLocationRef.html#OutputLocationRef%27"><span class="hs-identifier hs-type">OutputLocationRef'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679910230"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputLocationRef.html#OutputLocationRef%27"><span class="hs-identifier hs-type">OutputLocationRef'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679910239"><span class="annot"><span class="annottext">Maybe Text
 destinationRefId :: Maybe Text
 $sel:destinationRefId:OutputLocationRef' :: OutputLocationRef -&gt; Maybe Text
-</span><a href="#local-6989586621679910230"><span class="hs-identifier hs-var hs-var">destinationRefId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679910230"><span class="hs-identifier hs-var">destinationRefId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679910229"><span class="annot"><span class="annottext">s :: OutputLocationRef
-</span><a href="#local-6989586621679910229"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputLocationRef.html#OutputLocationRef%27"><span class="hs-identifier hs-type">OutputLocationRef'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679910228"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679910228"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputLocationRef
-</span><a href="#local-6989586621679910229"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationRefId:OutputLocationRef' :: Maybe Text
+</span><a href="#local-6989586621679910239"><span class="hs-identifier hs-var hs-var">destinationRefId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679910239"><span class="hs-identifier hs-var">destinationRefId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679910238"><span class="annot"><span class="annottext">s :: OutputLocationRef
+</span><a href="#local-6989586621679910238"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputLocationRef.html#OutputLocationRef%27"><span class="hs-identifier hs-type">OutputLocationRef'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679910237"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679910237"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputLocationRef
+</span><a href="#local-6989586621679910238"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationRefId:OutputLocationRef' :: Maybe Text
 </span><a href="Network.AWS.MediaLive.Types.OutputLocationRef.html#%24sel%3AdestinationRefId%3AOutputLocationRef%27"><span class="hs-identifier hs-var">destinationRefId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679910228"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputLocationRef.html#OutputLocationRef"><span class="hs-identifier hs-type">OutputLocationRef</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679910237"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputLocationRef.html#OutputLocationRef"><span class="hs-identifier hs-type">OutputLocationRef</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-54"></span><span>
-</span><span id="line-55"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679910225"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputLocationRef.html#OutputLocationRef"><span class="hs-identifier hs-type">OutputLocationRef</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-56"></span><span>  </span><span id="local-6989586621679910223"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OutputLocationRef
+</span><span id="line-55"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679910234"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputLocationRef.html#OutputLocationRef"><span class="hs-identifier hs-type">OutputLocationRef</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-56"></span><span>  </span><span id="local-6989586621679910232"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OutputLocationRef
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-57"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser OutputLocationRef)
@@ -138,30 +138,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;OutputLocationRef&quot;</span></span><span>
-</span><span id="line-59"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679910220"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679910220"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-59"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679910229"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679910229"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-60"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; OutputLocationRef
 </span><a href="Network.AWS.MediaLive.Types.OutputLocationRef.html#OutputLocationRef%27"><span class="hs-identifier hs-var">OutputLocationRef'</span></a></span><span>
 </span><span id="line-61"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; OutputLocationRef)
 -&gt; Parser (Maybe Text) -&gt; Parser OutputLocationRef
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679910220"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679910229"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;destinationRefId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679910214"><span id="local-6989586621679910216"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputLocationRef.html#OutputLocationRef"><span class="hs-identifier hs-type">OutputLocationRef</span></a></span></span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679910223"><span id="local-6989586621679910225"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputLocationRef.html#OutputLocationRef"><span class="hs-identifier hs-type">OutputLocationRef</span></a></span></span></span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679910211"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputLocationRef.html#OutputLocationRef"><span class="hs-identifier hs-type">OutputLocationRef</span></a></span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679910220"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputLocationRef.html#OutputLocationRef"><span class="hs-identifier hs-type">OutputLocationRef</span></a></span></span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679910203"><span id="local-6989586621679910205"><span id="local-6989586621679910207"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputLocationRef.html#OutputLocationRef"><span class="hs-identifier hs-type">OutputLocationRef</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679910201"><span class="annot"><span class="annottext">toJSON :: OutputLocationRef -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputLocationRef.html#OutputLocationRef%27"><span class="hs-identifier hs-type">OutputLocationRef'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679910199"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679910212"><span id="local-6989586621679910214"><span id="local-6989586621679910216"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputLocationRef.html#OutputLocationRef"><span class="hs-identifier hs-type">OutputLocationRef</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679910210"><span class="annot"><span class="annottext">toJSON :: OutputLocationRef -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputLocationRef.html#OutputLocationRef%27"><span class="hs-identifier hs-type">OutputLocationRef'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679910208"><span class="annot"><span class="annottext">Maybe Text
 destinationRefId :: Maybe Text
 $sel:destinationRefId:OutputLocationRef' :: OutputLocationRef -&gt; Maybe Text
-</span><a href="#local-6989586621679910199"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679910208"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -174,7 +174,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-73"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679910199"><span class="hs-identifier hs-var">destinationRefId</span></a></span><span>
+</span><a href="#local-6989586621679910208"><span class="hs-identifier hs-var">destinationRefId</span></a></span><span>
 </span><span id="line-74"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span></pre></body></html>

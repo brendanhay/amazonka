@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- required if @Enabled@ is set to true.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newSchemaConfiguration' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679277916"><span id="local-6989586621679277917"></span></span><span class="hs-keyword">data</span><span> </span><span id="SchemaConfiguration"><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration"><span class="hs-identifier hs-var">SchemaConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SchemaConfiguration%27"><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration%27"><span class="hs-identifier hs-var">SchemaConfiguration'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679277925"><span id="local-6989586621679277926"></span></span><span class="hs-keyword">data</span><span> </span><span id="SchemaConfiguration"><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration"><span class="hs-identifier hs-var">SchemaConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SchemaConfiguration%27"><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration%27"><span class="hs-identifier hs-var">SchemaConfiguration'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the table version for the output data schema. If you don\'t</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- specify this version ID, or if you set it to @LATEST@, Kinesis Data</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- Firehose uses the most recent version. This means that any updates to</span><span>
@@ -68,7 +68,7 @@
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AroleARN%3ASchemaConfiguration%27"><span class="annot"><span class="annottext">SchemaConfiguration -&gt; Maybe Text
 </span><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#%24sel%3AroleARN%3ASchemaConfiguration%27"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679277905"><span id="local-6989586621679277907"><span class="annot"><span class="annottext">SchemaConfiguration -&gt; SchemaConfiguration -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679277914"><span id="local-6989586621679277916"><span class="annot"><span class="annottext">SchemaConfiguration -&gt; SchemaConfiguration -&gt; Bool
 (SchemaConfiguration -&gt; SchemaConfiguration -&gt; Bool)
 -&gt; (SchemaConfiguration -&gt; SchemaConfiguration -&gt; Bool)
 -&gt; Eq SchemaConfiguration
@@ -77,7 +77,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SchemaConfiguration -&gt; SchemaConfiguration -&gt; Bool
 == :: SchemaConfiguration -&gt; SchemaConfiguration -&gt; Bool
 $c== :: SchemaConfiguration -&gt; SchemaConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679277896"><span id="local-6989586621679277898"><span id="local-6989586621679277900"><span id="local-6989586621679277902"><span class="annot"><span class="annottext">ReadPrec [SchemaConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679277905"><span id="local-6989586621679277907"><span id="local-6989586621679277909"><span id="local-6989586621679277911"><span class="annot"><span class="annottext">ReadPrec [SchemaConfiguration]
 ReadPrec SchemaConfiguration
 Int -&gt; ReadS SchemaConfiguration
 ReadS [SchemaConfiguration]
@@ -97,7 +97,7 @@ readList :: ReadS [SchemaConfiguration]
 $creadList :: ReadS [SchemaConfiguration]
 readsPrec :: Int -&gt; ReadS SchemaConfiguration
 $creadsPrec :: Int -&gt; ReadS SchemaConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679277889"><span id="local-6989586621679277891"><span id="local-6989586621679277893"><span class="annot"><span class="annottext">Int -&gt; SchemaConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679277898"><span id="local-6989586621679277900"><span id="local-6989586621679277902"><span class="annot"><span class="annottext">Int -&gt; SchemaConfiguration -&gt; ShowS
 [SchemaConfiguration] -&gt; ShowS
 SchemaConfiguration -&gt; String
 (Int -&gt; SchemaConfiguration -&gt; ShowS)
@@ -212,16 +212,16 @@ forall a. Maybe a
 -&gt; Lens
      SchemaConfiguration SchemaConfiguration (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration%27"><span class="hs-identifier hs-type">SchemaConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277880"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration%27"><span class="hs-identifier hs-type">SchemaConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277889"><span class="annot"><span class="annottext">Maybe Text
 versionId :: Maybe Text
 $sel:versionId:SchemaConfiguration' :: SchemaConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679277880"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679277880"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277879"><span class="annot"><span class="annottext">s :: SchemaConfiguration
-</span><a href="#local-6989586621679277879"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration%27"><span class="hs-identifier hs-type">SchemaConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277878"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679277878"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SchemaConfiguration
-</span><a href="#local-6989586621679277879"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionId:SchemaConfiguration' :: Maybe Text
+</span><a href="#local-6989586621679277889"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277889"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277888"><span class="annot"><span class="annottext">s :: SchemaConfiguration
+</span><a href="#local-6989586621679277888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration%27"><span class="hs-identifier hs-type">SchemaConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277887"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SchemaConfiguration
+</span><a href="#local-6989586621679277888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionId:SchemaConfiguration' :: Maybe Text
 </span><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#%24sel%3AversionId%3ASchemaConfiguration%27"><span class="hs-identifier hs-var">versionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679277878"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration"><span class="hs-identifier hs-type">SchemaConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679277887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration"><span class="hs-identifier hs-type">SchemaConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | The ID of the AWS Glue Data Catalog. If you don\'t supply this, the AWS</span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- account ID is used by default.</span><span>
@@ -233,16 +233,16 @@ $sel:versionId:SchemaConfiguration' :: SchemaConfiguration -&gt; Maybe Text
 -&gt; Lens
      SchemaConfiguration SchemaConfiguration (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration%27"><span class="hs-identifier hs-type">SchemaConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277876"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration%27"><span class="hs-identifier hs-type">SchemaConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277885"><span class="annot"><span class="annottext">Maybe Text
 catalogId :: Maybe Text
 $sel:catalogId:SchemaConfiguration' :: SchemaConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679277876"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679277876"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277875"><span class="annot"><span class="annottext">s :: SchemaConfiguration
-</span><a href="#local-6989586621679277875"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration%27"><span class="hs-identifier hs-type">SchemaConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277874"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679277874"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SchemaConfiguration
-</span><a href="#local-6989586621679277875"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:SchemaConfiguration' :: Maybe Text
+</span><a href="#local-6989586621679277885"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277885"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277884"><span class="annot"><span class="annottext">s :: SchemaConfiguration
+</span><a href="#local-6989586621679277884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration%27"><span class="hs-identifier hs-type">SchemaConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277883"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SchemaConfiguration
+</span><a href="#local-6989586621679277884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:SchemaConfiguration' :: Maybe Text
 </span><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#%24sel%3AcatalogId%3ASchemaConfiguration%27"><span class="hs-identifier hs-var">catalogId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679277874"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration"><span class="hs-identifier hs-type">SchemaConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679277883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration"><span class="hs-identifier hs-type">SchemaConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | Specifies the name of the AWS Glue database that contains the schema for</span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- the output data.</span><span>
@@ -258,16 +258,16 @@ $sel:catalogId:SchemaConfiguration' :: SchemaConfiguration -&gt; Maybe Text
 -&gt; Lens
      SchemaConfiguration SchemaConfiguration (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration%27"><span class="hs-identifier hs-type">SchemaConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277872"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration%27"><span class="hs-identifier hs-type">SchemaConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277881"><span class="annot"><span class="annottext">Maybe Text
 databaseName :: Maybe Text
 $sel:databaseName:SchemaConfiguration' :: SchemaConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679277872"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679277872"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277871"><span class="annot"><span class="annottext">s :: SchemaConfiguration
-</span><a href="#local-6989586621679277871"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration%27"><span class="hs-identifier hs-type">SchemaConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277870"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679277870"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SchemaConfiguration
-</span><a href="#local-6989586621679277871"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:SchemaConfiguration' :: Maybe Text
+</span><a href="#local-6989586621679277881"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277881"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277880"><span class="annot"><span class="annottext">s :: SchemaConfiguration
+</span><a href="#local-6989586621679277880"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration%27"><span class="hs-identifier hs-type">SchemaConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277879"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277879"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SchemaConfiguration
+</span><a href="#local-6989586621679277880"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:SchemaConfiguration' :: Maybe Text
 </span><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#%24sel%3AdatabaseName%3ASchemaConfiguration%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679277870"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration"><span class="hs-identifier hs-type">SchemaConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679277879"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration"><span class="hs-identifier hs-type">SchemaConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | If you don\'t specify an AWS Region, the default is the current Region.</span><span>
 </span><span id="line-140"></span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#schemaConfiguration_region"><span class="hs-identifier hs-type">schemaConfiguration_region</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration"><span class="hs-identifier hs-type">SchemaConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -278,16 +278,16 @@ $sel:databaseName:SchemaConfiguration' :: SchemaConfiguration -&gt; Maybe Text
 -&gt; Lens
      SchemaConfiguration SchemaConfiguration (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration%27"><span class="hs-identifier hs-type">SchemaConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277868"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration%27"><span class="hs-identifier hs-type">SchemaConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277877"><span class="annot"><span class="annottext">Maybe Text
 region :: Maybe Text
 $sel:region:SchemaConfiguration' :: SchemaConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679277868"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679277868"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277867"><span class="annot"><span class="annottext">s :: SchemaConfiguration
-</span><a href="#local-6989586621679277867"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration%27"><span class="hs-identifier hs-type">SchemaConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277866"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679277866"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SchemaConfiguration
-</span><a href="#local-6989586621679277867"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:region:SchemaConfiguration' :: Maybe Text
+</span><a href="#local-6989586621679277877"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277877"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277876"><span class="annot"><span class="annottext">s :: SchemaConfiguration
+</span><a href="#local-6989586621679277876"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration%27"><span class="hs-identifier hs-type">SchemaConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277875"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277875"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SchemaConfiguration
+</span><a href="#local-6989586621679277876"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:region:SchemaConfiguration' :: Maybe Text
 </span><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#%24sel%3Aregion%3ASchemaConfiguration%27"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679277866"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration"><span class="hs-identifier hs-type">SchemaConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679277875"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration"><span class="hs-identifier hs-type">SchemaConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | Specifies the AWS Glue table that contains the column information that</span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- constitutes your data schema.</span><span>
@@ -303,16 +303,16 @@ $sel:region:SchemaConfiguration' :: SchemaConfiguration -&gt; Maybe Text
 -&gt; Lens
      SchemaConfiguration SchemaConfiguration (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration%27"><span class="hs-identifier hs-type">SchemaConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277864"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration%27"><span class="hs-identifier hs-type">SchemaConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277873"><span class="annot"><span class="annottext">Maybe Text
 tableName :: Maybe Text
 $sel:tableName:SchemaConfiguration' :: SchemaConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679277864"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679277864"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277863"><span class="annot"><span class="annottext">s :: SchemaConfiguration
-</span><a href="#local-6989586621679277863"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration%27"><span class="hs-identifier hs-type">SchemaConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277862"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679277862"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SchemaConfiguration
-</span><a href="#local-6989586621679277863"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:SchemaConfiguration' :: Maybe Text
+</span><a href="#local-6989586621679277873"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277873"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277872"><span class="annot"><span class="annottext">s :: SchemaConfiguration
+</span><a href="#local-6989586621679277872"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration%27"><span class="hs-identifier hs-type">SchemaConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277871"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277871"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SchemaConfiguration
+</span><a href="#local-6989586621679277872"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:SchemaConfiguration' :: Maybe Text
 </span><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#%24sel%3AtableName%3ASchemaConfiguration%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679277862"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration"><span class="hs-identifier hs-type">SchemaConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679277871"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration"><span class="hs-identifier hs-type">SchemaConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | The role that Kinesis Data Firehose can use to access AWS Glue. This</span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- role must be in the same account you use for Kinesis Data Firehose.</span><span>
@@ -329,19 +329,19 @@ $sel:tableName:SchemaConfiguration' :: SchemaConfiguration -&gt; Maybe Text
 -&gt; Lens
      SchemaConfiguration SchemaConfiguration (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration%27"><span class="hs-identifier hs-type">SchemaConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277860"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration%27"><span class="hs-identifier hs-type">SchemaConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277869"><span class="annot"><span class="annottext">Maybe Text
 roleARN :: Maybe Text
 $sel:roleARN:SchemaConfiguration' :: SchemaConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679277860"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679277860"><span class="hs-identifier hs-var">roleARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277859"><span class="annot"><span class="annottext">s :: SchemaConfiguration
-</span><a href="#local-6989586621679277859"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration%27"><span class="hs-identifier hs-type">SchemaConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277858"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679277858"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SchemaConfiguration
-</span><a href="#local-6989586621679277859"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleARN:SchemaConfiguration' :: Maybe Text
+</span><a href="#local-6989586621679277869"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277869"><span class="hs-identifier hs-var">roleARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277868"><span class="annot"><span class="annottext">s :: SchemaConfiguration
+</span><a href="#local-6989586621679277868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration%27"><span class="hs-identifier hs-type">SchemaConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277867"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679277867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SchemaConfiguration
+</span><a href="#local-6989586621679277868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleARN:SchemaConfiguration' :: Maybe Text
 </span><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#%24sel%3AroleARN%3ASchemaConfiguration%27"><span class="hs-identifier hs-var">roleARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679277858"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration"><span class="hs-identifier hs-type">SchemaConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679277867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration"><span class="hs-identifier hs-type">SchemaConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
-</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277855"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration"><span class="hs-identifier hs-type">SchemaConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679277853"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SchemaConfiguration
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277864"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration"><span class="hs-identifier hs-type">SchemaConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679277862"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SchemaConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SchemaConfiguration)
@@ -351,8 +351,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SchemaConfiguration&quot;</span></span><span>
-</span><span id="line-166"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679277850"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679277850"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679277859"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679277859"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-167"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -378,7 +378,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; SchemaConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679277850"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679277859"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VersionId&quot;</span></span><span class="hs-special">)</span><span>
@@ -395,7 +395,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; SchemaConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679277850"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679277859"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CatalogId&quot;</span></span><span class="hs-special">)</span><span>
@@ -407,7 +407,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; SchemaConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679277850"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679277859"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DatabaseName&quot;</span></span><span class="hs-special">)</span><span>
@@ -417,7 +417,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; SchemaConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679277850"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679277859"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Region&quot;</span></span><span class="hs-special">)</span><span>
@@ -426,7 +426,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; SchemaConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679277850"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679277859"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TableName&quot;</span></span><span class="hs-special">)</span><span>
@@ -434,19 +434,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser SchemaConfiguration
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679277850"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679277859"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RoleARN&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277844"><span id="local-6989586621679277846"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration"><span class="hs-identifier hs-type">SchemaConfiguration</span></a></span></span></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277853"><span id="local-6989586621679277855"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration"><span class="hs-identifier hs-type">SchemaConfiguration</span></a></span></span></span><span>
 </span><span id="line-177"></span><span>
-</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277841"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration"><span class="hs-identifier hs-type">SchemaConfiguration</span></a></span></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277850"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration"><span class="hs-identifier hs-type">SchemaConfiguration</span></a></span></span><span>
 </span><span id="line-179"></span><span>
-</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277833"><span id="local-6989586621679277835"><span id="local-6989586621679277837"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration"><span class="hs-identifier hs-type">SchemaConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679277831"><span class="annot"><span class="annottext">toJSON :: SchemaConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration%27"><span class="hs-identifier hs-type">SchemaConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277824"><span id="local-6989586621679277825"><span id="local-6989586621679277826"><span id="local-6989586621679277827"><span id="local-6989586621679277828"><span id="local-6989586621679277829"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277842"><span id="local-6989586621679277844"><span id="local-6989586621679277846"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration"><span class="hs-identifier hs-type">SchemaConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679277840"><span class="annot"><span class="annottext">toJSON :: SchemaConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SchemaConfiguration.html#SchemaConfiguration%27"><span class="hs-identifier hs-type">SchemaConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277833"><span id="local-6989586621679277834"><span id="local-6989586621679277835"><span id="local-6989586621679277836"><span id="local-6989586621679277837"><span id="local-6989586621679277838"><span class="annot"><span class="annottext">Maybe Text
 roleARN :: Maybe Text
 tableName :: Maybe Text
 region :: Maybe Text
@@ -459,7 +459,7 @@ $sel:region:SchemaConfiguration' :: SchemaConfiguration -&gt; Maybe Text
 $sel:databaseName:SchemaConfiguration' :: SchemaConfiguration -&gt; Maybe Text
 $sel:catalogId:SchemaConfiguration' :: SchemaConfiguration -&gt; Maybe Text
 $sel:versionId:SchemaConfiguration' :: SchemaConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679277824"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679277833"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-183"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -471,42 +471,42 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679277829"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679277838"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-185"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CatalogId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679277828"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679277837"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-186"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DatabaseName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679277827"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679277836"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-187"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Region&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679277826"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679277835"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-188"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TableName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679277825"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679277834"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-189"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RoleARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679277824"><span class="hs-identifier hs-var">roleARN</span></a></span><span>
+</span><a href="#local-6989586621679277833"><span class="hs-identifier hs-var">roleARN</span></a></span><span>
 </span><span id="line-190"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-191"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span></pre></body></html>

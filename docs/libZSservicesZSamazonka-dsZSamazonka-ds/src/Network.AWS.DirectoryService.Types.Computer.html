@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Contains information about a computer account in a directory.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newComputer' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679294877"><span id="local-6989586621679294878"></span></span><span class="hs-keyword">data</span><span> </span><span id="Computer"><span class="annot"><a href="Network.AWS.DirectoryService.Types.Computer.html#Computer"><span class="hs-identifier hs-var">Computer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Computer%27"><span class="annot"><a href="Network.AWS.DirectoryService.Types.Computer.html#Computer%27"><span class="hs-identifier hs-var">Computer'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679294886"><span id="local-6989586621679294887"></span></span><span class="hs-keyword">data</span><span> </span><span id="Computer"><span class="annot"><a href="Network.AWS.DirectoryService.Types.Computer.html#Computer"><span class="hs-identifier hs-var">Computer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Computer%27"><span class="annot"><a href="Network.AWS.DirectoryService.Types.Computer.html#Computer%27"><span class="hs-identifier hs-var">Computer'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the computer.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AcomputerId%3AComputer%27"><span class="annot"><span class="annottext">Computer -&gt; Maybe Text
 </span><a href="Network.AWS.DirectoryService.Types.Computer.html#%24sel%3AcomputerId%3AComputer%27"><span class="hs-identifier hs-var hs-var">computerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -39,7 +39,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AcomputerName%3AComputer%27"><span class="annot"><span class="annottext">Computer -&gt; Maybe Text
 </span><a href="Network.AWS.DirectoryService.Types.Computer.html#%24sel%3AcomputerName%3AComputer%27"><span class="hs-identifier hs-var hs-var">computerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679294869"><span id="local-6989586621679294871"><span class="annot"><span class="annottext">Computer -&gt; Computer -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679294878"><span id="local-6989586621679294880"><span class="annot"><span class="annottext">Computer -&gt; Computer -&gt; Bool
 (Computer -&gt; Computer -&gt; Bool)
 -&gt; (Computer -&gt; Computer -&gt; Bool) -&gt; Eq Computer
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Computer -&gt; Computer -&gt; Bool
 == :: Computer -&gt; Computer -&gt; Bool
 $c== :: Computer -&gt; Computer -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294860"><span id="local-6989586621679294862"><span id="local-6989586621679294864"><span id="local-6989586621679294866"><span class="annot"><span class="annottext">ReadPrec [Computer]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294869"><span id="local-6989586621679294871"><span id="local-6989586621679294873"><span id="local-6989586621679294875"><span class="annot"><span class="annottext">ReadPrec [Computer]
 ReadPrec Computer
 Int -&gt; ReadS Computer
 ReadS [Computer]
@@ -67,7 +67,7 @@ readList :: ReadS [Computer]
 $creadList :: ReadS [Computer]
 readsPrec :: Int -&gt; ReadS Computer
 $creadsPrec :: Int -&gt; ReadS Computer
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294853"><span id="local-6989586621679294855"><span id="local-6989586621679294857"><span class="annot"><span class="annottext">Int -&gt; Computer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294862"><span id="local-6989586621679294864"><span id="local-6989586621679294866"><span class="annot"><span class="annottext">Int -&gt; Computer -&gt; ShowS
 [Computer] -&gt; ShowS
 Computer -&gt; String
 (Int -&gt; Computer -&gt; ShowS)
@@ -131,16 +131,16 @@ forall a. Maybe a
 -&gt; (Computer -&gt; Maybe Text -&gt; Computer)
 -&gt; Lens Computer Computer (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Computer.html#Computer%27"><span class="hs-identifier hs-type">Computer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294844"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Computer.html#Computer%27"><span class="hs-identifier hs-type">Computer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294853"><span class="annot"><span class="annottext">Maybe Text
 computerId :: Maybe Text
 $sel:computerId:Computer' :: Computer -&gt; Maybe Text
-</span><a href="#local-6989586621679294844"><span class="hs-identifier hs-var hs-var">computerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679294844"><span class="hs-identifier hs-var">computerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294843"><span class="annot"><span class="annottext">s :: Computer
-</span><a href="#local-6989586621679294843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Computer.html#Computer%27"><span class="hs-identifier hs-type">Computer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294842"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679294842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Computer
-</span><a href="#local-6989586621679294843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:computerId:Computer' :: Maybe Text
+</span><a href="#local-6989586621679294853"><span class="hs-identifier hs-var hs-var">computerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679294853"><span class="hs-identifier hs-var">computerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294852"><span class="annot"><span class="annottext">s :: Computer
+</span><a href="#local-6989586621679294852"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Computer.html#Computer%27"><span class="hs-identifier hs-type">Computer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294851"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679294851"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Computer
+</span><a href="#local-6989586621679294852"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:computerId:Computer' :: Maybe Text
 </span><a href="Network.AWS.DirectoryService.Types.Computer.html#%24sel%3AcomputerId%3AComputer%27"><span class="hs-identifier hs-var">computerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679294842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Computer.html#Computer"><span class="hs-identifier hs-type">Computer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679294851"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Computer.html#Computer"><span class="hs-identifier hs-type">Computer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | An array of Attribute objects containing the LDAP attributes that belong</span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- to the computer account.</span><span>
@@ -151,16 +151,16 @@ $sel:computerId:Computer' :: Computer -&gt; Maybe Text
 -&gt; (Computer -&gt; Maybe [Attribute] -&gt; Computer)
 -&gt; Lens Computer Computer (Maybe [Attribute]) (Maybe [Attribute])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Computer.html#Computer%27"><span class="hs-identifier hs-type">Computer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294840"><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Computer.html#Computer%27"><span class="hs-identifier hs-type">Computer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294849"><span class="annot"><span class="annottext">Maybe [Attribute]
 computerAttributes :: Maybe [Attribute]
 $sel:computerAttributes:Computer' :: Computer -&gt; Maybe [Attribute]
-</span><a href="#local-6989586621679294840"><span class="hs-identifier hs-var hs-var">computerAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
-</span><a href="#local-6989586621679294840"><span class="hs-identifier hs-var">computerAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294839"><span class="annot"><span class="annottext">s :: Computer
-</span><a href="#local-6989586621679294839"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Computer.html#Computer%27"><span class="hs-identifier hs-type">Computer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294838"><span class="annot"><span class="annottext">Maybe [Attribute]
-</span><a href="#local-6989586621679294838"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Computer
-</span><a href="#local-6989586621679294839"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:computerAttributes:Computer' :: Maybe [Attribute]
+</span><a href="#local-6989586621679294849"><span class="hs-identifier hs-var hs-var">computerAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679294849"><span class="hs-identifier hs-var">computerAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294848"><span class="annot"><span class="annottext">s :: Computer
+</span><a href="#local-6989586621679294848"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Computer.html#Computer%27"><span class="hs-identifier hs-type">Computer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294847"><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679294847"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Computer
+</span><a href="#local-6989586621679294848"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:computerAttributes:Computer' :: Maybe [Attribute]
 </span><a href="Network.AWS.DirectoryService.Types.Computer.html#%24sel%3AcomputerAttributes%3AComputer%27"><span class="hs-identifier hs-var">computerAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
-</span><a href="#local-6989586621679294838"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Computer.html#Computer"><span class="hs-identifier hs-type">Computer</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+</span><a href="#local-6989586621679294847"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Computer.html#Computer"><span class="hs-identifier hs-type">Computer</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Attribute] -&gt; f (Maybe [Attribute]))
  -&gt; Computer -&gt; f Computer)
 -&gt; ((Maybe [Attribute] -&gt; f (Maybe [Attribute]))
     -&gt; Maybe [Attribute] -&gt; f (Maybe [Attribute]))
@@ -188,27 +188,27 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (Computer -&gt; Maybe Text -&gt; Computer)
 -&gt; Lens Computer Computer (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Computer.html#Computer%27"><span class="hs-identifier hs-type">Computer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294833"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Computer.html#Computer%27"><span class="hs-identifier hs-type">Computer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294842"><span class="annot"><span class="annottext">Maybe Text
 computerName :: Maybe Text
 $sel:computerName:Computer' :: Computer -&gt; Maybe Text
-</span><a href="#local-6989586621679294833"><span class="hs-identifier hs-var hs-var">computerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679294833"><span class="hs-identifier hs-var">computerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294832"><span class="annot"><span class="annottext">s :: Computer
-</span><a href="#local-6989586621679294832"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Computer.html#Computer%27"><span class="hs-identifier hs-type">Computer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294831"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679294831"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Computer
-</span><a href="#local-6989586621679294832"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:computerName:Computer' :: Maybe Text
+</span><a href="#local-6989586621679294842"><span class="hs-identifier hs-var hs-var">computerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679294842"><span class="hs-identifier hs-var">computerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294841"><span class="annot"><span class="annottext">s :: Computer
+</span><a href="#local-6989586621679294841"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Computer.html#Computer%27"><span class="hs-identifier hs-type">Computer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294840"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679294840"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Computer
+</span><a href="#local-6989586621679294841"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:computerName:Computer' :: Maybe Text
 </span><a href="Network.AWS.DirectoryService.Types.Computer.html#%24sel%3AcomputerName%3AComputer%27"><span class="hs-identifier hs-var">computerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679294831"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Computer.html#Computer"><span class="hs-identifier hs-type">Computer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679294840"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Computer.html#Computer"><span class="hs-identifier hs-type">Computer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294828"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Computer.html#Computer"><span class="hs-identifier hs-type">Computer</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679294826"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Computer
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294837"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Computer.html#Computer"><span class="hs-identifier hs-type">Computer</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679294835"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Computer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Computer) -&gt; Value -&gt; Parser Computer
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Computer&quot;</span></span><span>
-</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679294823"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679294823"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679294832"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679294832"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Attribute] -&gt; Maybe Text -&gt; Computer
 </span><a href="Network.AWS.DirectoryService.Types.Computer.html#Computer%27"><span class="hs-identifier hs-var">Computer'</span></a></span><span>
 </span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Attribute] -&gt; Maybe Text -&gt; Computer)
@@ -216,7 +216,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe [Attribute] -&gt; Maybe Text -&gt; Computer)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679294823"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679294832"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ComputerId&quot;</span></span><span class="hs-special">)</span><span>
@@ -224,7 +224,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [Attribute]) -&gt; Parser (Maybe Text -&gt; Computer)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679294823"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Attribute]))
+</span><a href="#local-6989586621679294832"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Attribute]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ComputerAttributes&quot;</span></span><span>
@@ -239,13 +239,13 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Text) -&gt; Parser Computer
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679294823"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679294832"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ComputerName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294816"><span id="local-6989586621679294818"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Computer.html#Computer"><span class="hs-identifier hs-type">Computer</span></a></span></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294825"><span id="local-6989586621679294827"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Computer.html#Computer"><span class="hs-identifier hs-type">Computer</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294813"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Computer.html#Computer"><span class="hs-identifier hs-type">Computer</span></a></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294822"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Computer.html#Computer"><span class="hs-identifier hs-type">Computer</span></a></span></span><span>
 </span><span id="line-93"></span></pre></body></html>

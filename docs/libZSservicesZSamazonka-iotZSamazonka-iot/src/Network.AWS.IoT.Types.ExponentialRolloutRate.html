@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Allows you to create an exponential rate of rollout for a job.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newExponentialRolloutRate' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679794536"><span id="local-6989586621679794537"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExponentialRolloutRate"><span class="annot"><a href="Network.AWS.IoT.Types.ExponentialRolloutRate.html#ExponentialRolloutRate"><span class="hs-identifier hs-var">ExponentialRolloutRate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExponentialRolloutRate%27"><span class="annot"><a href="Network.AWS.IoT.Types.ExponentialRolloutRate.html#ExponentialRolloutRate%27"><span class="hs-identifier hs-var">ExponentialRolloutRate'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679794545"><span id="local-6989586621679794546"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExponentialRolloutRate"><span class="annot"><a href="Network.AWS.IoT.Types.ExponentialRolloutRate.html#ExponentialRolloutRate"><span class="hs-identifier hs-var">ExponentialRolloutRate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExponentialRolloutRate%27"><span class="annot"><a href="Network.AWS.IoT.Types.ExponentialRolloutRate.html#ExponentialRolloutRate%27"><span class="hs-identifier hs-var">ExponentialRolloutRate'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The minimum number of things that will be notified of a pending job, per</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- minute at the start of job rollout. This parameter allows you to define</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- the initial rate of rollout.</span><span>
@@ -43,7 +43,7 @@
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3ArateIncreaseCriteria%3AExponentialRolloutRate%27"><span class="annot"><span class="annottext">ExponentialRolloutRate -&gt; RateIncreaseCriteria
 </span><a href="Network.AWS.IoT.Types.ExponentialRolloutRate.html#%24sel%3ArateIncreaseCriteria%3AExponentialRolloutRate%27"><span class="hs-identifier hs-var hs-var">rateIncreaseCriteria</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RateIncreaseCriteria.html#RateIncreaseCriteria"><span class="hs-identifier hs-type">RateIncreaseCriteria</span></a></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679794528"><span id="local-6989586621679794530"><span class="annot"><span class="annottext">ExponentialRolloutRate -&gt; ExponentialRolloutRate -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679794537"><span id="local-6989586621679794539"><span class="annot"><span class="annottext">ExponentialRolloutRate -&gt; ExponentialRolloutRate -&gt; Bool
 (ExponentialRolloutRate -&gt; ExponentialRolloutRate -&gt; Bool)
 -&gt; (ExponentialRolloutRate -&gt; ExponentialRolloutRate -&gt; Bool)
 -&gt; Eq ExponentialRolloutRate
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ExponentialRolloutRate -&gt; ExponentialRolloutRate -&gt; Bool
 == :: ExponentialRolloutRate -&gt; ExponentialRolloutRate -&gt; Bool
 $c== :: ExponentialRolloutRate -&gt; ExponentialRolloutRate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679794519"><span id="local-6989586621679794521"><span id="local-6989586621679794523"><span id="local-6989586621679794525"><span class="annot"><span class="annottext">ReadPrec [ExponentialRolloutRate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679794528"><span id="local-6989586621679794530"><span id="local-6989586621679794532"><span id="local-6989586621679794534"><span class="annot"><span class="annottext">ReadPrec [ExponentialRolloutRate]
 ReadPrec ExponentialRolloutRate
 Int -&gt; ReadS ExponentialRolloutRate
 ReadS [ExponentialRolloutRate]
@@ -72,7 +72,7 @@ readList :: ReadS [ExponentialRolloutRate]
 $creadList :: ReadS [ExponentialRolloutRate]
 readsPrec :: Int -&gt; ReadS ExponentialRolloutRate
 $creadsPrec :: Int -&gt; ReadS ExponentialRolloutRate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679794512"><span id="local-6989586621679794514"><span id="local-6989586621679794516"><span class="annot"><span class="annottext">Int -&gt; ExponentialRolloutRate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679794521"><span id="local-6989586621679794523"><span id="local-6989586621679794525"><span class="annot"><span class="annottext">Int -&gt; ExponentialRolloutRate -&gt; ShowS
 [ExponentialRolloutRate] -&gt; ShowS
 ExponentialRolloutRate -&gt; String
 (Int -&gt; ExponentialRolloutRate -&gt; ShowS)
@@ -127,24 +127,24 @@ $cfrom :: forall x. ExponentialRolloutRate -&gt; Rep ExponentialRolloutRate x
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.ExponentialRolloutRate.html#ExponentialRolloutRate"><span class="hs-identifier hs-type">ExponentialRolloutRate</span></a></span><span>
 </span><span id="line-71"></span><span id="newExponentialRolloutRate"><span class="annot"><span class="annottext">newExponentialRolloutRate :: Natural -&gt; Double -&gt; RateIncreaseCriteria -&gt; ExponentialRolloutRate
 </span><a href="Network.AWS.IoT.Types.ExponentialRolloutRate.html#newExponentialRolloutRate"><span class="hs-identifier hs-var hs-var">newExponentialRolloutRate</span></a></span></span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679794506"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679794506"><span class="hs-identifier hs-var">pBaseRatePerMinute_</span></a></span></span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679794505"><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679794505"><span class="hs-identifier hs-var">pIncrementFactor_</span></a></span></span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679794504"><span class="annot"><span class="annottext">RateIncreaseCriteria
-</span><a href="#local-6989586621679794504"><span class="hs-identifier hs-var">pRateIncreaseCriteria_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679794515"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679794515"><span class="hs-identifier hs-var">pBaseRatePerMinute_</span></a></span></span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679794514"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679794514"><span class="hs-identifier hs-var">pIncrementFactor_</span></a></span></span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679794513"><span class="annot"><span class="annottext">RateIncreaseCriteria
+</span><a href="#local-6989586621679794513"><span class="hs-identifier hs-var">pRateIncreaseCriteria_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">ExponentialRolloutRate' :: Natural -&gt; Double -&gt; RateIncreaseCriteria -&gt; ExponentialRolloutRate
 </span><a href="Network.AWS.IoT.Types.ExponentialRolloutRate.html#ExponentialRolloutRate%27"><span class="hs-identifier hs-type">ExponentialRolloutRate'</span></a></span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:baseRatePerMinute:ExponentialRolloutRate' :: Natural
 </span><a href="Network.AWS.IoT.Types.ExponentialRolloutRate.html#%24sel%3AbaseRatePerMinute%3AExponentialRolloutRate%27"><span class="hs-identifier hs-var">baseRatePerMinute</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679794506"><span class="hs-identifier hs-var">pBaseRatePerMinute_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679794515"><span class="hs-identifier hs-var">pBaseRatePerMinute_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-78"></span><span>        </span><span class="annot"><span class="annottext">$sel:incrementFactor:ExponentialRolloutRate' :: Double
 </span><a href="Network.AWS.IoT.Types.ExponentialRolloutRate.html#%24sel%3AincrementFactor%3AExponentialRolloutRate%27"><span class="hs-identifier hs-var">incrementFactor</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679794505"><span class="hs-identifier hs-var">pIncrementFactor_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679794514"><span class="hs-identifier hs-var">pIncrementFactor_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>        </span><span class="annot"><span class="annottext">$sel:rateIncreaseCriteria:ExponentialRolloutRate' :: RateIncreaseCriteria
 </span><a href="Network.AWS.IoT.Types.ExponentialRolloutRate.html#%24sel%3ArateIncreaseCriteria%3AExponentialRolloutRate%27"><span class="hs-identifier hs-var">rateIncreaseCriteria</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RateIncreaseCriteria
-</span><a href="#local-6989586621679794504"><span class="hs-identifier hs-var">pRateIncreaseCriteria_</span></a></span><span>
+</span><a href="#local-6989586621679794513"><span class="hs-identifier hs-var">pRateIncreaseCriteria_</span></a></span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | The minimum number of things that will be notified of a pending job, per</span><span>
@@ -158,16 +158,16 @@ $cfrom :: forall x. ExponentialRolloutRate -&gt; Rep ExponentialRolloutRate x
 -&gt; Lens
      ExponentialRolloutRate ExponentialRolloutRate Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ExponentialRolloutRate.html#ExponentialRolloutRate%27"><span class="hs-identifier hs-type">ExponentialRolloutRate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679794500"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ExponentialRolloutRate.html#ExponentialRolloutRate%27"><span class="hs-identifier hs-type">ExponentialRolloutRate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679794509"><span class="annot"><span class="annottext">Natural
 baseRatePerMinute :: Natural
 $sel:baseRatePerMinute:ExponentialRolloutRate' :: ExponentialRolloutRate -&gt; Natural
-</span><a href="#local-6989586621679794500"><span class="hs-identifier hs-var hs-var">baseRatePerMinute</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679794500"><span class="hs-identifier hs-var">baseRatePerMinute</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679794499"><span class="annot"><span class="annottext">s :: ExponentialRolloutRate
-</span><a href="#local-6989586621679794499"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ExponentialRolloutRate.html#ExponentialRolloutRate%27"><span class="hs-identifier hs-type">ExponentialRolloutRate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679794498"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679794498"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExponentialRolloutRate
-</span><a href="#local-6989586621679794499"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:baseRatePerMinute:ExponentialRolloutRate' :: Natural
+</span><a href="#local-6989586621679794509"><span class="hs-identifier hs-var hs-var">baseRatePerMinute</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679794509"><span class="hs-identifier hs-var">baseRatePerMinute</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679794508"><span class="annot"><span class="annottext">s :: ExponentialRolloutRate
+</span><a href="#local-6989586621679794508"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ExponentialRolloutRate.html#ExponentialRolloutRate%27"><span class="hs-identifier hs-type">ExponentialRolloutRate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679794507"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679794507"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExponentialRolloutRate
+</span><a href="#local-6989586621679794508"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:baseRatePerMinute:ExponentialRolloutRate' :: Natural
 </span><a href="Network.AWS.IoT.Types.ExponentialRolloutRate.html#%24sel%3AbaseRatePerMinute%3AExponentialRolloutRate%27"><span class="hs-identifier hs-var">baseRatePerMinute</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679794498"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ExponentialRolloutRate.html#ExponentialRolloutRate"><span class="hs-identifier hs-type">ExponentialRolloutRate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679794507"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ExponentialRolloutRate.html#ExponentialRolloutRate"><span class="hs-identifier hs-type">ExponentialRolloutRate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | The exponential factor to increase the rate of rollout for a job.</span><span>
 </span><span id="line-89"></span><span class="hs-comment">--</span><span>
@@ -180,16 +180,16 @@ $sel:baseRatePerMinute:ExponentialRolloutRate' :: ExponentialRolloutRate -&gt; N
 -&gt; (ExponentialRolloutRate -&gt; Double -&gt; ExponentialRolloutRate)
 -&gt; Lens ExponentialRolloutRate ExponentialRolloutRate Double Double
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ExponentialRolloutRate.html#ExponentialRolloutRate%27"><span class="hs-identifier hs-type">ExponentialRolloutRate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679794496"><span class="annot"><span class="annottext">Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ExponentialRolloutRate.html#ExponentialRolloutRate%27"><span class="hs-identifier hs-type">ExponentialRolloutRate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679794505"><span class="annot"><span class="annottext">Double
 incrementFactor :: Double
 $sel:incrementFactor:ExponentialRolloutRate' :: ExponentialRolloutRate -&gt; Double
-</span><a href="#local-6989586621679794496"><span class="hs-identifier hs-var hs-var">incrementFactor</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679794496"><span class="hs-identifier hs-var">incrementFactor</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679794495"><span class="annot"><span class="annottext">s :: ExponentialRolloutRate
-</span><a href="#local-6989586621679794495"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ExponentialRolloutRate.html#ExponentialRolloutRate%27"><span class="hs-identifier hs-type">ExponentialRolloutRate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679794494"><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679794494"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExponentialRolloutRate
-</span><a href="#local-6989586621679794495"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:incrementFactor:ExponentialRolloutRate' :: Double
+</span><a href="#local-6989586621679794505"><span class="hs-identifier hs-var hs-var">incrementFactor</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679794505"><span class="hs-identifier hs-var">incrementFactor</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679794504"><span class="annot"><span class="annottext">s :: ExponentialRolloutRate
+</span><a href="#local-6989586621679794504"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ExponentialRolloutRate.html#ExponentialRolloutRate%27"><span class="hs-identifier hs-type">ExponentialRolloutRate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679794503"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679794503"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExponentialRolloutRate
+</span><a href="#local-6989586621679794504"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:incrementFactor:ExponentialRolloutRate' :: Double
 </span><a href="Network.AWS.IoT.Types.ExponentialRolloutRate.html#%24sel%3AincrementFactor%3AExponentialRolloutRate%27"><span class="hs-identifier hs-var">incrementFactor</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679794494"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ExponentialRolloutRate.html#ExponentialRolloutRate"><span class="hs-identifier hs-type">ExponentialRolloutRate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679794503"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ExponentialRolloutRate.html#ExponentialRolloutRate"><span class="hs-identifier hs-type">ExponentialRolloutRate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | The criteria to initiate the increase in rate of rollout for a job.</span><span>
 </span><span id="line-96"></span><span class="annot"><a href="Network.AWS.IoT.Types.ExponentialRolloutRate.html#exponentialRolloutRate_rateIncreaseCriteria"><span class="hs-identifier hs-type">exponentialRolloutRate_rateIncreaseCriteria</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ExponentialRolloutRate.html#ExponentialRolloutRate"><span class="hs-identifier hs-type">ExponentialRolloutRate</span></a></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RateIncreaseCriteria.html#RateIncreaseCriteria"><span class="hs-identifier hs-type">RateIncreaseCriteria</span></a></span><span>
@@ -204,19 +204,19 @@ $sel:incrementFactor:ExponentialRolloutRate' :: ExponentialRolloutRate -&gt; Dou
      RateIncreaseCriteria
      RateIncreaseCriteria
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ExponentialRolloutRate.html#ExponentialRolloutRate%27"><span class="hs-identifier hs-type">ExponentialRolloutRate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679794492"><span class="annot"><span class="annottext">RateIncreaseCriteria
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ExponentialRolloutRate.html#ExponentialRolloutRate%27"><span class="hs-identifier hs-type">ExponentialRolloutRate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679794501"><span class="annot"><span class="annottext">RateIncreaseCriteria
 rateIncreaseCriteria :: RateIncreaseCriteria
 $sel:rateIncreaseCriteria:ExponentialRolloutRate' :: ExponentialRolloutRate -&gt; RateIncreaseCriteria
-</span><a href="#local-6989586621679794492"><span class="hs-identifier hs-var hs-var">rateIncreaseCriteria</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RateIncreaseCriteria
-</span><a href="#local-6989586621679794492"><span class="hs-identifier hs-var">rateIncreaseCriteria</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679794491"><span class="annot"><span class="annottext">s :: ExponentialRolloutRate
-</span><a href="#local-6989586621679794491"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ExponentialRolloutRate.html#ExponentialRolloutRate%27"><span class="hs-identifier hs-type">ExponentialRolloutRate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679794490"><span class="annot"><span class="annottext">RateIncreaseCriteria
-</span><a href="#local-6989586621679794490"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExponentialRolloutRate
-</span><a href="#local-6989586621679794491"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rateIncreaseCriteria:ExponentialRolloutRate' :: RateIncreaseCriteria
+</span><a href="#local-6989586621679794501"><span class="hs-identifier hs-var hs-var">rateIncreaseCriteria</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RateIncreaseCriteria
+</span><a href="#local-6989586621679794501"><span class="hs-identifier hs-var">rateIncreaseCriteria</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679794500"><span class="annot"><span class="annottext">s :: ExponentialRolloutRate
+</span><a href="#local-6989586621679794500"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ExponentialRolloutRate.html#ExponentialRolloutRate%27"><span class="hs-identifier hs-type">ExponentialRolloutRate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679794499"><span class="annot"><span class="annottext">RateIncreaseCriteria
+</span><a href="#local-6989586621679794499"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExponentialRolloutRate
+</span><a href="#local-6989586621679794500"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rateIncreaseCriteria:ExponentialRolloutRate' :: RateIncreaseCriteria
 </span><a href="Network.AWS.IoT.Types.ExponentialRolloutRate.html#%24sel%3ArateIncreaseCriteria%3AExponentialRolloutRate%27"><span class="hs-identifier hs-var">rateIncreaseCriteria</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RateIncreaseCriteria
-</span><a href="#local-6989586621679794490"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ExponentialRolloutRate.html#ExponentialRolloutRate"><span class="hs-identifier hs-type">ExponentialRolloutRate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679794499"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ExponentialRolloutRate.html#ExponentialRolloutRate"><span class="hs-identifier hs-type">ExponentialRolloutRate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679794487"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ExponentialRolloutRate.html#ExponentialRolloutRate"><span class="hs-identifier hs-type">ExponentialRolloutRate</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679794485"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ExponentialRolloutRate
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679794496"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ExponentialRolloutRate.html#ExponentialRolloutRate"><span class="hs-identifier hs-type">ExponentialRolloutRate</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679794494"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ExponentialRolloutRate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ExponentialRolloutRate)
@@ -226,8 +226,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ExponentialRolloutRate&quot;</span></span><span>
-</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679794482"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679794482"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679794491"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679794491"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Natural -&gt; Double -&gt; RateIncreaseCriteria -&gt; ExponentialRolloutRate
 </span><a href="Network.AWS.IoT.Types.ExponentialRolloutRate.html#ExponentialRolloutRate%27"><span class="hs-identifier hs-var">ExponentialRolloutRate'</span></a></span><span>
 </span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">(Natural
@@ -237,7 +237,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Double -&gt; RateIncreaseCriteria -&gt; ExponentialRolloutRate)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679794482"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679794491"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;baseRatePerMinute&quot;</span></span><span class="hs-special">)</span><span>
@@ -246,7 +246,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (RateIncreaseCriteria -&gt; ExponentialRolloutRate)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679794482"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Double
+</span><a href="#local-6989586621679794491"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Double
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;incrementFactor&quot;</span></span><span class="hs-special">)</span><span>
@@ -254,19 +254,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser RateIncreaseCriteria -&gt; Parser ExponentialRolloutRate
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679794482"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser RateIncreaseCriteria
+</span><a href="#local-6989586621679794491"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser RateIncreaseCriteria
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;rateIncreaseCriteria&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679794476"><span id="local-6989586621679794478"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ExponentialRolloutRate.html#ExponentialRolloutRate"><span class="hs-identifier hs-type">ExponentialRolloutRate</span></a></span></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679794485"><span id="local-6989586621679794487"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ExponentialRolloutRate.html#ExponentialRolloutRate"><span class="hs-identifier hs-type">ExponentialRolloutRate</span></a></span></span></span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679794473"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ExponentialRolloutRate.html#ExponentialRolloutRate"><span class="hs-identifier hs-type">ExponentialRolloutRate</span></a></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679794482"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ExponentialRolloutRate.html#ExponentialRolloutRate"><span class="hs-identifier hs-type">ExponentialRolloutRate</span></a></span></span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679794465"><span id="local-6989586621679794467"><span id="local-6989586621679794469"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ExponentialRolloutRate.html#ExponentialRolloutRate"><span class="hs-identifier hs-type">ExponentialRolloutRate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679794463"><span class="annot"><span class="annottext">toJSON :: ExponentialRolloutRate -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ExponentialRolloutRate.html#ExponentialRolloutRate%27"><span class="hs-identifier hs-type">ExponentialRolloutRate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679794459"><span id="local-6989586621679794460"><span id="local-6989586621679794461"><span class="annot"><span class="annottext">Double
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679794474"><span id="local-6989586621679794476"><span id="local-6989586621679794478"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ExponentialRolloutRate.html#ExponentialRolloutRate"><span class="hs-identifier hs-type">ExponentialRolloutRate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679794472"><span class="annot"><span class="annottext">toJSON :: ExponentialRolloutRate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ExponentialRolloutRate.html#ExponentialRolloutRate%27"><span class="hs-identifier hs-type">ExponentialRolloutRate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679794468"><span id="local-6989586621679794469"><span id="local-6989586621679794470"><span class="annot"><span class="annottext">Double
 Natural
 RateIncreaseCriteria
 rateIncreaseCriteria :: RateIncreaseCriteria
@@ -275,7 +275,7 @@ baseRatePerMinute :: Natural
 $sel:rateIncreaseCriteria:ExponentialRolloutRate' :: ExponentialRolloutRate -&gt; RateIncreaseCriteria
 $sel:incrementFactor:ExponentialRolloutRate' :: ExponentialRolloutRate -&gt; Double
 $sel:baseRatePerMinute:ExponentialRolloutRate' :: ExponentialRolloutRate -&gt; Natural
-</span><a href="#local-6989586621679794459"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679794468"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -288,7 +288,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;baseRatePerMinute&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679794461"><span class="hs-identifier hs-var">baseRatePerMinute</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679794470"><span class="hs-identifier hs-var">baseRatePerMinute</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -296,7 +296,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;incrementFactor&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679794460"><span class="hs-identifier hs-var">incrementFactor</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679794469"><span class="hs-identifier hs-var">incrementFactor</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -305,7 +305,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-124"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; RateIncreaseCriteria -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">RateIncreaseCriteria
-</span><a href="#local-6989586621679794459"><span class="hs-identifier hs-var">rateIncreaseCriteria</span></a></span><span>
+</span><a href="#local-6989586621679794468"><span class="hs-identifier hs-var">rateIncreaseCriteria</span></a></span><span>
 </span><span id="line-125"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>

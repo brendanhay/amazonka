@@ -46,12 +46,12 @@
 </span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.html"><span class="hs-identifier">Network.AWS.SSM.Types</span></a></span><span>
 </span><span id="line-47"></span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newDeleteOpsMetadata' smart constructor.</span><span>
-</span><span id="line-49"></span><span id="local-6989586621679851344"><span id="local-6989586621679851345"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteOpsMetadata"><span class="annot"><a href="Network.AWS.SSM.DeleteOpsMetadata.html#DeleteOpsMetadata"><span class="hs-identifier hs-var">DeleteOpsMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteOpsMetadata%27"><span class="annot"><a href="Network.AWS.SSM.DeleteOpsMetadata.html#DeleteOpsMetadata%27"><span class="hs-identifier hs-var">DeleteOpsMetadata'</span></a></span></span><span>
+</span><span id="line-49"></span><span id="local-6989586621679851353"><span id="local-6989586621679851354"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteOpsMetadata"><span class="annot"><a href="Network.AWS.SSM.DeleteOpsMetadata.html#DeleteOpsMetadata"><span class="hs-identifier hs-var">DeleteOpsMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteOpsMetadata%27"><span class="annot"><a href="Network.AWS.SSM.DeleteOpsMetadata.html#DeleteOpsMetadata%27"><span class="hs-identifier hs-var">DeleteOpsMetadata'</span></a></span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of an OpsMetadata Object to delete.</span><span>
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3AopsMetadataArn%3ADeleteOpsMetadata%27"><span class="annot"><span class="annottext">DeleteOpsMetadata -&gt; Text
 </span><a href="Network.AWS.SSM.DeleteOpsMetadata.html#%24sel%3AopsMetadataArn%3ADeleteOpsMetadata%27"><span class="hs-identifier hs-var hs-var">opsMetadataArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679851338"><span id="local-6989586621679851340"><span class="annot"><span class="annottext">DeleteOpsMetadata -&gt; DeleteOpsMetadata -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679851347"><span id="local-6989586621679851349"><span class="annot"><span class="annottext">DeleteOpsMetadata -&gt; DeleteOpsMetadata -&gt; Bool
 (DeleteOpsMetadata -&gt; DeleteOpsMetadata -&gt; Bool)
 -&gt; (DeleteOpsMetadata -&gt; DeleteOpsMetadata -&gt; Bool)
 -&gt; Eq DeleteOpsMetadata
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteOpsMetadata -&gt; DeleteOpsMetadata -&gt; Bool
 == :: DeleteOpsMetadata -&gt; DeleteOpsMetadata -&gt; Bool
 $c== :: DeleteOpsMetadata -&gt; DeleteOpsMetadata -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679851329"><span id="local-6989586621679851331"><span id="local-6989586621679851333"><span id="local-6989586621679851335"><span class="annot"><span class="annottext">ReadPrec [DeleteOpsMetadata]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679851338"><span id="local-6989586621679851340"><span id="local-6989586621679851342"><span id="local-6989586621679851344"><span class="annot"><span class="annottext">ReadPrec [DeleteOpsMetadata]
 ReadPrec DeleteOpsMetadata
 Int -&gt; ReadS DeleteOpsMetadata
 ReadS [DeleteOpsMetadata]
@@ -80,7 +80,7 @@ readList :: ReadS [DeleteOpsMetadata]
 $creadList :: ReadS [DeleteOpsMetadata]
 readsPrec :: Int -&gt; ReadS DeleteOpsMetadata
 $creadsPrec :: Int -&gt; ReadS DeleteOpsMetadata
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679851322"><span id="local-6989586621679851324"><span id="local-6989586621679851326"><span class="annot"><span class="annottext">Int -&gt; DeleteOpsMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679851331"><span id="local-6989586621679851333"><span id="local-6989586621679851335"><span class="annot"><span class="annottext">Int -&gt; DeleteOpsMetadata -&gt; ShowS
 [DeleteOpsMetadata] -&gt; ShowS
 DeleteOpsMetadata -&gt; String
 (Int -&gt; DeleteOpsMetadata -&gt; ShowS)
@@ -120,14 +120,14 @@ $cfrom :: forall x. DeleteOpsMetadata -&gt; Rep DeleteOpsMetadata x
 </span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.DeleteOpsMetadata.html#DeleteOpsMetadata"><span class="hs-identifier hs-type">DeleteOpsMetadata</span></a></span><span>
 </span><span id="line-68"></span><span id="newDeleteOpsMetadata"><span class="annot"><span class="annottext">newDeleteOpsMetadata :: Text -&gt; DeleteOpsMetadata
-</span><a href="Network.AWS.SSM.DeleteOpsMetadata.html#newDeleteOpsMetadata"><span class="hs-identifier hs-var hs-var">newDeleteOpsMetadata</span></a></span></span><span> </span><span id="local-6989586621679851317"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679851317"><span class="hs-identifier hs-var">pOpsMetadataArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.DeleteOpsMetadata.html#newDeleteOpsMetadata"><span class="hs-identifier hs-var hs-var">newDeleteOpsMetadata</span></a></span></span><span> </span><span id="local-6989586621679851326"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679851326"><span class="hs-identifier hs-var">pOpsMetadataArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">DeleteOpsMetadata' :: Text -&gt; DeleteOpsMetadata
 </span><a href="Network.AWS.SSM.DeleteOpsMetadata.html#DeleteOpsMetadata%27"><span class="hs-identifier hs-type">DeleteOpsMetadata'</span></a></span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:opsMetadataArn:DeleteOpsMetadata' :: Text
 </span><a href="Network.AWS.SSM.DeleteOpsMetadata.html#%24sel%3AopsMetadataArn%3ADeleteOpsMetadata%27"><span class="hs-identifier hs-var">opsMetadataArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679851317"><span class="hs-identifier hs-var">pOpsMetadataArn_</span></a></span><span>
+</span><a href="#local-6989586621679851326"><span class="hs-identifier hs-var">pOpsMetadataArn_</span></a></span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of an OpsMetadata Object to delete.</span><span>
@@ -137,27 +137,27 @@ $cfrom :: forall x. DeleteOpsMetadata -&gt; Rep DeleteOpsMetadata x
 -&gt; (DeleteOpsMetadata -&gt; Text -&gt; DeleteOpsMetadata)
 -&gt; Lens DeleteOpsMetadata DeleteOpsMetadata Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DeleteOpsMetadata.html#DeleteOpsMetadata%27"><span class="hs-identifier hs-type">DeleteOpsMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679851314"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DeleteOpsMetadata.html#DeleteOpsMetadata%27"><span class="hs-identifier hs-type">DeleteOpsMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679851323"><span class="annot"><span class="annottext">Text
 opsMetadataArn :: Text
 $sel:opsMetadataArn:DeleteOpsMetadata' :: DeleteOpsMetadata -&gt; Text
-</span><a href="#local-6989586621679851314"><span class="hs-identifier hs-var hs-var">opsMetadataArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679851314"><span class="hs-identifier hs-var">opsMetadataArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679851313"><span class="annot"><span class="annottext">s :: DeleteOpsMetadata
-</span><a href="#local-6989586621679851313"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DeleteOpsMetadata.html#DeleteOpsMetadata%27"><span class="hs-identifier hs-type">DeleteOpsMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679851312"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679851312"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteOpsMetadata
-</span><a href="#local-6989586621679851313"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:opsMetadataArn:DeleteOpsMetadata' :: Text
+</span><a href="#local-6989586621679851323"><span class="hs-identifier hs-var hs-var">opsMetadataArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679851323"><span class="hs-identifier hs-var">opsMetadataArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679851322"><span class="annot"><span class="annottext">s :: DeleteOpsMetadata
+</span><a href="#local-6989586621679851322"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DeleteOpsMetadata.html#DeleteOpsMetadata%27"><span class="hs-identifier hs-type">DeleteOpsMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679851321"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679851321"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteOpsMetadata
+</span><a href="#local-6989586621679851322"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:opsMetadataArn:DeleteOpsMetadata' :: Text
 </span><a href="Network.AWS.SSM.DeleteOpsMetadata.html#%24sel%3AopsMetadataArn%3ADeleteOpsMetadata%27"><span class="hs-identifier hs-var">opsMetadataArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679851312"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteOpsMetadata.html#DeleteOpsMetadata"><span class="hs-identifier hs-type">DeleteOpsMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679851321"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteOpsMetadata.html#DeleteOpsMetadata"><span class="hs-identifier hs-type">DeleteOpsMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteOpsMetadata.html#DeleteOpsMetadata"><span class="hs-identifier hs-type">DeleteOpsMetadata</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-80"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteOpsMetadata.html#DeleteOpsMetadata"><span class="hs-identifier hs-type">DeleteOpsMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><a href="Network.AWS.SSM.DeleteOpsMetadata.html#DeleteOpsMetadataResponse"><span class="hs-identifier hs-type">DeleteOpsMetadataResponse</span></a></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679851308"><span class="annot"><span class="annottext">request :: DeleteOpsMetadata -&gt; Request DeleteOpsMetadata
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679851317"><span class="annot"><span class="annottext">request :: DeleteOpsMetadata -&gt; Request DeleteOpsMetadata
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteOpsMetadata -&gt; Request DeleteOpsMetadata
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679851304"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679851313"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteOpsMetadata
 -&gt; ClientResponse ClientBody
@@ -183,10 +183,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679851301"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679851301"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679851300"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679851300"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679851299"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679851299"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679851310"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679851310"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679851309"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679851309"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679851308"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679851308"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteOpsMetadataResponse
 </span><a href="Network.AWS.SSM.DeleteOpsMetadata.html#DeleteOpsMetadataResponse%27"><span class="hs-identifier hs-var">DeleteOpsMetadataResponse'</span></a></span><span>
 </span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteOpsMetadataResponse)
@@ -197,15 +197,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679851301"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679851310"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679851292"><span id="local-6989586621679851294"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteOpsMetadata.html#DeleteOpsMetadata"><span class="hs-identifier hs-type">DeleteOpsMetadata</span></a></span></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679851301"><span id="local-6989586621679851303"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteOpsMetadata.html#DeleteOpsMetadata"><span class="hs-identifier hs-type">DeleteOpsMetadata</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679851289"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteOpsMetadata.html#DeleteOpsMetadata"><span class="hs-identifier hs-type">DeleteOpsMetadata</span></a></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679851298"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteOpsMetadata.html#DeleteOpsMetadata"><span class="hs-identifier hs-type">DeleteOpsMetadata</span></a></span></span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteOpsMetadata.html#DeleteOpsMetadata"><span class="hs-identifier hs-type">DeleteOpsMetadata</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679851285"><span class="annot"><span class="annottext">toHeaders :: DeleteOpsMetadata -&gt; ResponseHeaders
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679851294"><span class="annot"><span class="annottext">toHeaders :: DeleteOpsMetadata -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteOpsMetadata -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -232,12 +232,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-106"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679851275"><span id="local-6989586621679851277"><span id="local-6989586621679851279"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteOpsMetadata.html#DeleteOpsMetadata"><span class="hs-identifier hs-type">DeleteOpsMetadata</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679851273"><span class="annot"><span class="annottext">toJSON :: DeleteOpsMetadata -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteOpsMetadata.html#DeleteOpsMetadata%27"><span class="hs-identifier hs-type">DeleteOpsMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679851271"><span class="annot"><span class="annottext">Text
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679851284"><span id="local-6989586621679851286"><span id="local-6989586621679851288"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteOpsMetadata.html#DeleteOpsMetadata"><span class="hs-identifier hs-type">DeleteOpsMetadata</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679851282"><span class="annot"><span class="annottext">toJSON :: DeleteOpsMetadata -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteOpsMetadata.html#DeleteOpsMetadata%27"><span class="hs-identifier hs-type">DeleteOpsMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679851280"><span class="annot"><span class="annottext">Text
 opsMetadataArn :: Text
 $sel:opsMetadataArn:DeleteOpsMetadata' :: DeleteOpsMetadata -&gt; Text
-</span><a href="#local-6989586621679851271"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679851280"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -250,19 +250,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;OpsMetadataArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679851271"><span class="hs-identifier hs-var">opsMetadataArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679851280"><span class="hs-identifier hs-var">opsMetadataArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteOpsMetadata.html#DeleteOpsMetadata"><span class="hs-identifier hs-type">DeleteOpsMetadata</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679851265"><span class="annot"><span class="annottext">toPath :: DeleteOpsMetadata -&gt; ByteString
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679851274"><span class="annot"><span class="annottext">toPath :: DeleteOpsMetadata -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteOpsMetadata -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteOpsMetadata.html#DeleteOpsMetadata"><span class="hs-identifier hs-type">DeleteOpsMetadata</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679851261"><span class="annot"><span class="annottext">toQuery :: DeleteOpsMetadata -&gt; QueryString
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679851270"><span class="annot"><span class="annottext">toQuery :: DeleteOpsMetadata -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteOpsMetadata -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -270,12 +270,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- | /See:/ 'newDeleteOpsMetadataResponse' smart constructor.</span><span>
-</span><span id="line-125"></span><span id="local-6989586621679851258"><span id="local-6989586621679851259"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteOpsMetadataResponse"><span class="annot"><a href="Network.AWS.SSM.DeleteOpsMetadata.html#DeleteOpsMetadataResponse"><span class="hs-identifier hs-var">DeleteOpsMetadataResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteOpsMetadataResponse%27"><span class="annot"><a href="Network.AWS.SSM.DeleteOpsMetadata.html#DeleteOpsMetadataResponse%27"><span class="hs-identifier hs-var">DeleteOpsMetadataResponse'</span></a></span></span><span>
+</span><span id="line-125"></span><span id="local-6989586621679851267"><span id="local-6989586621679851268"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteOpsMetadataResponse"><span class="annot"><a href="Network.AWS.SSM.DeleteOpsMetadata.html#DeleteOpsMetadataResponse"><span class="hs-identifier hs-var">DeleteOpsMetadataResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteOpsMetadataResponse%27"><span class="annot"><a href="Network.AWS.SSM.DeleteOpsMetadata.html#DeleteOpsMetadataResponse%27"><span class="hs-identifier hs-var">DeleteOpsMetadataResponse'</span></a></span></span><span>
 </span><span id="line-126"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-127"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteOpsMetadataResponse%27"><span class="annot"><span class="annottext">DeleteOpsMetadataResponse -&gt; Int
 </span><a href="Network.AWS.SSM.DeleteOpsMetadata.html#%24sel%3AhttpStatus%3ADeleteOpsMetadataResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-128"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-129"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679851253"><span id="local-6989586621679851255"><span class="annot"><span class="annottext">DeleteOpsMetadataResponse -&gt; DeleteOpsMetadataResponse -&gt; Bool
+</span><span id="line-129"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679851262"><span id="local-6989586621679851264"><span class="annot"><span class="annottext">DeleteOpsMetadataResponse -&gt; DeleteOpsMetadataResponse -&gt; Bool
 (DeleteOpsMetadataResponse -&gt; DeleteOpsMetadataResponse -&gt; Bool)
 -&gt; (DeleteOpsMetadataResponse -&gt; DeleteOpsMetadataResponse -&gt; Bool)
 -&gt; Eq DeleteOpsMetadataResponse
@@ -284,7 +284,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteOpsMetadataResponse -&gt; DeleteOpsMetadataResponse -&gt; Bool
 == :: DeleteOpsMetadataResponse -&gt; DeleteOpsMetadataResponse -&gt; Bool
 $c== :: DeleteOpsMetadataResponse -&gt; DeleteOpsMetadataResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679851245"><span id="local-6989586621679851247"><span id="local-6989586621679851249"><span id="local-6989586621679851251"><span class="annot"><span class="annottext">ReadPrec [DeleteOpsMetadataResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679851254"><span id="local-6989586621679851256"><span id="local-6989586621679851258"><span id="local-6989586621679851260"><span class="annot"><span class="annottext">ReadPrec [DeleteOpsMetadataResponse]
 ReadPrec DeleteOpsMetadataResponse
 Int -&gt; ReadS DeleteOpsMetadataResponse
 ReadS [DeleteOpsMetadataResponse]
@@ -304,7 +304,7 @@ readList :: ReadS [DeleteOpsMetadataResponse]
 $creadList :: ReadS [DeleteOpsMetadataResponse]
 readsPrec :: Int -&gt; ReadS DeleteOpsMetadataResponse
 $creadsPrec :: Int -&gt; ReadS DeleteOpsMetadataResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679851239"><span id="local-6989586621679851241"><span id="local-6989586621679851243"><span class="annot"><span class="annottext">Int -&gt; DeleteOpsMetadataResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679851248"><span id="local-6989586621679851250"><span id="local-6989586621679851252"><span class="annot"><span class="annottext">Int -&gt; DeleteOpsMetadataResponse -&gt; ShowS
 [DeleteOpsMetadataResponse] -&gt; ShowS
 DeleteOpsMetadataResponse -&gt; String
 (Int -&gt; DeleteOpsMetadataResponse -&gt; ShowS)
@@ -350,14 +350,14 @@ DeleteOpsMetadataResponse -&gt; Rep DeleteOpsMetadataResponse x
 </span><span id="line-142"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-143"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.DeleteOpsMetadata.html#DeleteOpsMetadataResponse"><span class="hs-identifier hs-type">DeleteOpsMetadataResponse</span></a></span><span>
 </span><span id="line-144"></span><span id="newDeleteOpsMetadataResponse"><span class="annot"><span class="annottext">newDeleteOpsMetadataResponse :: Int -&gt; DeleteOpsMetadataResponse
-</span><a href="Network.AWS.SSM.DeleteOpsMetadata.html#newDeleteOpsMetadataResponse"><span class="hs-identifier hs-var hs-var">newDeleteOpsMetadataResponse</span></a></span></span><span> </span><span id="local-6989586621679851236"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679851236"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.DeleteOpsMetadata.html#newDeleteOpsMetadataResponse"><span class="hs-identifier hs-var hs-var">newDeleteOpsMetadataResponse</span></a></span></span><span> </span><span id="local-6989586621679851245"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679851245"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>  </span><span class="annot"><span class="annottext">DeleteOpsMetadataResponse' :: Int -&gt; DeleteOpsMetadataResponse
 </span><a href="Network.AWS.SSM.DeleteOpsMetadata.html#DeleteOpsMetadataResponse%27"><span class="hs-identifier hs-type">DeleteOpsMetadataResponse'</span></a></span><span>
 </span><span id="line-146"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteOpsMetadataResponse' :: Int
 </span><a href="Network.AWS.SSM.DeleteOpsMetadata.html#%24sel%3AhttpStatus%3ADeleteOpsMetadataResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679851236"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679851245"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-148"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -368,16 +368,16 @@ DeleteOpsMetadataResponse -&gt; Rep DeleteOpsMetadataResponse x
 -&gt; (DeleteOpsMetadataResponse -&gt; Int -&gt; DeleteOpsMetadataResponse)
 -&gt; Lens DeleteOpsMetadataResponse DeleteOpsMetadataResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DeleteOpsMetadata.html#DeleteOpsMetadataResponse%27"><span class="hs-identifier hs-type">DeleteOpsMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679851235"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DeleteOpsMetadata.html#DeleteOpsMetadataResponse%27"><span class="hs-identifier hs-type">DeleteOpsMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679851244"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteOpsMetadataResponse' :: DeleteOpsMetadataResponse -&gt; Int
-</span><a href="#local-6989586621679851235"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679851235"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679851234"><span class="annot"><span class="annottext">s :: DeleteOpsMetadataResponse
-</span><a href="#local-6989586621679851234"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DeleteOpsMetadata.html#DeleteOpsMetadataResponse%27"><span class="hs-identifier hs-type">DeleteOpsMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679851233"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679851233"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteOpsMetadataResponse
-</span><a href="#local-6989586621679851234"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteOpsMetadataResponse' :: Int
+</span><a href="#local-6989586621679851244"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679851244"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679851243"><span class="annot"><span class="annottext">s :: DeleteOpsMetadataResponse
+</span><a href="#local-6989586621679851243"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DeleteOpsMetadata.html#DeleteOpsMetadataResponse%27"><span class="hs-identifier hs-type">DeleteOpsMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679851242"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679851242"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteOpsMetadataResponse
+</span><a href="#local-6989586621679851243"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteOpsMetadataResponse' :: Int
 </span><a href="Network.AWS.SSM.DeleteOpsMetadata.html#%24sel%3AhttpStatus%3ADeleteOpsMetadataResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679851233"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteOpsMetadata.html#DeleteOpsMetadataResponse"><span class="hs-identifier hs-type">DeleteOpsMetadataResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679851242"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteOpsMetadata.html#DeleteOpsMetadataResponse"><span class="hs-identifier hs-type">DeleteOpsMetadataResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679851231"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteOpsMetadata.html#DeleteOpsMetadataResponse"><span class="hs-identifier hs-type">DeleteOpsMetadataResponse</span></a></span></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679851240"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteOpsMetadata.html#DeleteOpsMetadataResponse"><span class="hs-identifier hs-type">DeleteOpsMetadataResponse</span></a></span></span><span>
 </span><span id="line-155"></span></pre></body></html>

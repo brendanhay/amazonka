@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- maintenance schedules.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newAutoTuneOptions' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679303526"><span id="local-6989586621679303527"></span></span><span class="hs-keyword">data</span><span> </span><span id="AutoTuneOptions"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneOptions.html#AutoTuneOptions"><span class="hs-identifier hs-var">AutoTuneOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoTuneOptions%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneOptions.html#AutoTuneOptions%27"><span class="hs-identifier hs-var">AutoTuneOptions'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679303535"><span id="local-6989586621679303536"></span></span><span class="hs-keyword">data</span><span> </span><span id="AutoTuneOptions"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneOptions.html#AutoTuneOptions"><span class="hs-identifier hs-var">AutoTuneOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoTuneOptions%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneOptions.html#AutoTuneOptions%27"><span class="hs-identifier hs-var">AutoTuneOptions'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the Auto-Tune desired state. Valid values are ENABLED,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- DISABLED.</span><span>
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AdesiredState%3AAutoTuneOptions%27"><span class="annot"><span class="annottext">AutoTuneOptions -&gt; Maybe AutoTuneDesiredState
@@ -46,7 +46,7 @@
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3AmaintenanceSchedules%3AAutoTuneOptions%27"><span class="annot"><span class="annottext">AutoTuneOptions -&gt; Maybe [AutoTuneMaintenanceSchedule]
 </span><a href="Network.AWS.ElasticSearch.Types.AutoTuneOptions.html#%24sel%3AmaintenanceSchedules%3AAutoTuneOptions%27"><span class="hs-identifier hs-var hs-var">maintenanceSchedules</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneMaintenanceSchedule.html#AutoTuneMaintenanceSchedule"><span class="hs-identifier hs-type">AutoTuneMaintenanceSchedule</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303518"><span id="local-6989586621679303520"><span class="annot"><span class="annottext">AutoTuneOptions -&gt; AutoTuneOptions -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303527"><span id="local-6989586621679303529"><span class="annot"><span class="annottext">AutoTuneOptions -&gt; AutoTuneOptions -&gt; Bool
 (AutoTuneOptions -&gt; AutoTuneOptions -&gt; Bool)
 -&gt; (AutoTuneOptions -&gt; AutoTuneOptions -&gt; Bool)
 -&gt; Eq AutoTuneOptions
@@ -55,7 +55,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AutoTuneOptions -&gt; AutoTuneOptions -&gt; Bool
 == :: AutoTuneOptions -&gt; AutoTuneOptions -&gt; Bool
 $c== :: AutoTuneOptions -&gt; AutoTuneOptions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303509"><span id="local-6989586621679303511"><span id="local-6989586621679303513"><span id="local-6989586621679303515"><span class="annot"><span class="annottext">ReadPrec [AutoTuneOptions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303518"><span id="local-6989586621679303520"><span id="local-6989586621679303522"><span id="local-6989586621679303524"><span class="annot"><span class="annottext">ReadPrec [AutoTuneOptions]
 ReadPrec AutoTuneOptions
 Int -&gt; ReadS AutoTuneOptions
 ReadS [AutoTuneOptions]
@@ -75,7 +75,7 @@ readList :: ReadS [AutoTuneOptions]
 $creadList :: ReadS [AutoTuneOptions]
 readsPrec :: Int -&gt; ReadS AutoTuneOptions
 $creadsPrec :: Int -&gt; ReadS AutoTuneOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303502"><span id="local-6989586621679303504"><span id="local-6989586621679303506"><span class="annot"><span class="annottext">Int -&gt; AutoTuneOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303511"><span id="local-6989586621679303513"><span id="local-6989586621679303515"><span class="annot"><span class="annottext">Int -&gt; AutoTuneOptions -&gt; ShowS
 [AutoTuneOptions] -&gt; ShowS
 AutoTuneOptions -&gt; String
 (Int -&gt; AutoTuneOptions -&gt; ShowS)
@@ -155,16 +155,16 @@ forall a. Maybe a
      (Maybe AutoTuneDesiredState)
      (Maybe AutoTuneDesiredState)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneOptions.html#AutoTuneOptions%27"><span class="hs-identifier hs-type">AutoTuneOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303493"><span class="annot"><span class="annottext">Maybe AutoTuneDesiredState
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneOptions.html#AutoTuneOptions%27"><span class="hs-identifier hs-type">AutoTuneOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303502"><span class="annot"><span class="annottext">Maybe AutoTuneDesiredState
 desiredState :: Maybe AutoTuneDesiredState
 $sel:desiredState:AutoTuneOptions' :: AutoTuneOptions -&gt; Maybe AutoTuneDesiredState
-</span><a href="#local-6989586621679303493"><span class="hs-identifier hs-var hs-var">desiredState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AutoTuneDesiredState
-</span><a href="#local-6989586621679303493"><span class="hs-identifier hs-var">desiredState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303492"><span class="annot"><span class="annottext">s :: AutoTuneOptions
-</span><a href="#local-6989586621679303492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneOptions.html#AutoTuneOptions%27"><span class="hs-identifier hs-type">AutoTuneOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303491"><span class="annot"><span class="annottext">Maybe AutoTuneDesiredState
-</span><a href="#local-6989586621679303491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoTuneOptions
-</span><a href="#local-6989586621679303492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:desiredState:AutoTuneOptions' :: Maybe AutoTuneDesiredState
+</span><a href="#local-6989586621679303502"><span class="hs-identifier hs-var hs-var">desiredState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AutoTuneDesiredState
+</span><a href="#local-6989586621679303502"><span class="hs-identifier hs-var">desiredState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303501"><span class="annot"><span class="annottext">s :: AutoTuneOptions
+</span><a href="#local-6989586621679303501"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneOptions.html#AutoTuneOptions%27"><span class="hs-identifier hs-type">AutoTuneOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303500"><span class="annot"><span class="annottext">Maybe AutoTuneDesiredState
+</span><a href="#local-6989586621679303500"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoTuneOptions
+</span><a href="#local-6989586621679303501"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:desiredState:AutoTuneOptions' :: Maybe AutoTuneDesiredState
 </span><a href="Network.AWS.ElasticSearch.Types.AutoTuneOptions.html#%24sel%3AdesiredState%3AAutoTuneOptions%27"><span class="hs-identifier hs-var">desiredState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AutoTuneDesiredState
-</span><a href="#local-6989586621679303491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneOptions.html#AutoTuneOptions"><span class="hs-identifier hs-type">AutoTuneOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679303500"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneOptions.html#AutoTuneOptions"><span class="hs-identifier hs-type">AutoTuneOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- | Specifies the rollback state while disabling Auto-Tune for the domain.</span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- Valid values are NO_ROLLBACK, DEFAULT_ROLLBACK.</span><span>
@@ -179,16 +179,16 @@ $sel:desiredState:AutoTuneOptions' :: AutoTuneOptions -&gt; Maybe AutoTuneDesire
      (Maybe RollbackOnDisable)
      (Maybe RollbackOnDisable)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneOptions.html#AutoTuneOptions%27"><span class="hs-identifier hs-type">AutoTuneOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303489"><span class="annot"><span class="annottext">Maybe RollbackOnDisable
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneOptions.html#AutoTuneOptions%27"><span class="hs-identifier hs-type">AutoTuneOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303498"><span class="annot"><span class="annottext">Maybe RollbackOnDisable
 rollbackOnDisable :: Maybe RollbackOnDisable
 $sel:rollbackOnDisable:AutoTuneOptions' :: AutoTuneOptions -&gt; Maybe RollbackOnDisable
-</span><a href="#local-6989586621679303489"><span class="hs-identifier hs-var hs-var">rollbackOnDisable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RollbackOnDisable
-</span><a href="#local-6989586621679303489"><span class="hs-identifier hs-var">rollbackOnDisable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303488"><span class="annot"><span class="annottext">s :: AutoTuneOptions
-</span><a href="#local-6989586621679303488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneOptions.html#AutoTuneOptions%27"><span class="hs-identifier hs-type">AutoTuneOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303487"><span class="annot"><span class="annottext">Maybe RollbackOnDisable
-</span><a href="#local-6989586621679303487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoTuneOptions
-</span><a href="#local-6989586621679303488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rollbackOnDisable:AutoTuneOptions' :: Maybe RollbackOnDisable
+</span><a href="#local-6989586621679303498"><span class="hs-identifier hs-var hs-var">rollbackOnDisable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RollbackOnDisable
+</span><a href="#local-6989586621679303498"><span class="hs-identifier hs-var">rollbackOnDisable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303497"><span class="annot"><span class="annottext">s :: AutoTuneOptions
+</span><a href="#local-6989586621679303497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneOptions.html#AutoTuneOptions%27"><span class="hs-identifier hs-type">AutoTuneOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303496"><span class="annot"><span class="annottext">Maybe RollbackOnDisable
+</span><a href="#local-6989586621679303496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoTuneOptions
+</span><a href="#local-6989586621679303497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rollbackOnDisable:AutoTuneOptions' :: Maybe RollbackOnDisable
 </span><a href="Network.AWS.ElasticSearch.Types.AutoTuneOptions.html#%24sel%3ArollbackOnDisable%3AAutoTuneOptions%27"><span class="hs-identifier hs-var">rollbackOnDisable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RollbackOnDisable
-</span><a href="#local-6989586621679303487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneOptions.html#AutoTuneOptions"><span class="hs-identifier hs-type">AutoTuneOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679303496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneOptions.html#AutoTuneOptions"><span class="hs-identifier hs-type">AutoTuneOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | Specifies list of maitenance schedules. See the</span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide&gt;</span><span>
@@ -206,16 +206,16 @@ $sel:rollbackOnDisable:AutoTuneOptions' :: AutoTuneOptions -&gt; Maybe RollbackO
      (Maybe [AutoTuneMaintenanceSchedule])
      (Maybe [AutoTuneMaintenanceSchedule])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneOptions.html#AutoTuneOptions%27"><span class="hs-identifier hs-type">AutoTuneOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303485"><span class="annot"><span class="annottext">Maybe [AutoTuneMaintenanceSchedule]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneOptions.html#AutoTuneOptions%27"><span class="hs-identifier hs-type">AutoTuneOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303494"><span class="annot"><span class="annottext">Maybe [AutoTuneMaintenanceSchedule]
 maintenanceSchedules :: Maybe [AutoTuneMaintenanceSchedule]
 $sel:maintenanceSchedules:AutoTuneOptions' :: AutoTuneOptions -&gt; Maybe [AutoTuneMaintenanceSchedule]
-</span><a href="#local-6989586621679303485"><span class="hs-identifier hs-var hs-var">maintenanceSchedules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AutoTuneMaintenanceSchedule]
-</span><a href="#local-6989586621679303485"><span class="hs-identifier hs-var">maintenanceSchedules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303484"><span class="annot"><span class="annottext">s :: AutoTuneOptions
-</span><a href="#local-6989586621679303484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneOptions.html#AutoTuneOptions%27"><span class="hs-identifier hs-type">AutoTuneOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303483"><span class="annot"><span class="annottext">Maybe [AutoTuneMaintenanceSchedule]
-</span><a href="#local-6989586621679303483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoTuneOptions
-</span><a href="#local-6989586621679303484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maintenanceSchedules:AutoTuneOptions' :: Maybe [AutoTuneMaintenanceSchedule]
+</span><a href="#local-6989586621679303494"><span class="hs-identifier hs-var hs-var">maintenanceSchedules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AutoTuneMaintenanceSchedule]
+</span><a href="#local-6989586621679303494"><span class="hs-identifier hs-var">maintenanceSchedules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303493"><span class="annot"><span class="annottext">s :: AutoTuneOptions
+</span><a href="#local-6989586621679303493"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneOptions.html#AutoTuneOptions%27"><span class="hs-identifier hs-type">AutoTuneOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303492"><span class="annot"><span class="annottext">Maybe [AutoTuneMaintenanceSchedule]
+</span><a href="#local-6989586621679303492"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoTuneOptions
+</span><a href="#local-6989586621679303493"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maintenanceSchedules:AutoTuneOptions' :: Maybe [AutoTuneMaintenanceSchedule]
 </span><a href="Network.AWS.ElasticSearch.Types.AutoTuneOptions.html#%24sel%3AmaintenanceSchedules%3AAutoTuneOptions%27"><span class="hs-identifier hs-var">maintenanceSchedules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AutoTuneMaintenanceSchedule]
-</span><a href="#local-6989586621679303483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneOptions.html#AutoTuneOptions"><span class="hs-identifier hs-type">AutoTuneOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AutoTuneMaintenanceSchedule]
+</span><a href="#local-6989586621679303492"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneOptions.html#AutoTuneOptions"><span class="hs-identifier hs-type">AutoTuneOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AutoTuneMaintenanceSchedule]
   -&gt; f (Maybe [AutoTuneMaintenanceSchedule]))
  -&gt; AutoTuneOptions -&gt; f AutoTuneOptions)
 -&gt; ((Maybe [AutoTuneMaintenanceSchedule]
@@ -248,8 +248,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303477"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneOptions.html#AutoTuneOptions"><span class="hs-identifier hs-type">AutoTuneOptions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679303475"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AutoTuneOptions
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303486"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneOptions.html#AutoTuneOptions"><span class="hs-identifier hs-type">AutoTuneOptions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679303484"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AutoTuneOptions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AutoTuneOptions)
@@ -259,8 +259,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AutoTuneOptions&quot;</span></span><span>
-</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679303472"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679303472"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679303481"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679303481"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Maybe AutoTuneDesiredState
 -&gt; Maybe RollbackOnDisable
 -&gt; Maybe [AutoTuneMaintenanceSchedule]
@@ -276,7 +276,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe [AutoTuneMaintenanceSchedule] -&gt; AutoTuneOptions)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679303472"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AutoTuneDesiredState)
+</span><a href="#local-6989586621679303481"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AutoTuneDesiredState)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DesiredState&quot;</span></span><span class="hs-special">)</span><span>
@@ -287,7 +287,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [AutoTuneMaintenanceSchedule] -&gt; AutoTuneOptions)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679303472"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RollbackOnDisable)
+</span><a href="#local-6989586621679303481"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RollbackOnDisable)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RollbackOnDisable&quot;</span></span><span class="hs-special">)</span><span>
@@ -296,7 +296,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser AutoTuneOptions
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679303472"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679303481"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (Maybe [AutoTuneMaintenanceSchedule]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -311,13 +311,13 @@ forall a. Monoid a =&gt; a
 </span><span id="line-100"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303465"><span id="local-6989586621679303467"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneOptions.html#AutoTuneOptions"><span class="hs-identifier hs-type">AutoTuneOptions</span></a></span></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303474"><span id="local-6989586621679303476"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneOptions.html#AutoTuneOptions"><span class="hs-identifier hs-type">AutoTuneOptions</span></a></span></span></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303462"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneOptions.html#AutoTuneOptions"><span class="hs-identifier hs-type">AutoTuneOptions</span></a></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303471"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneOptions.html#AutoTuneOptions"><span class="hs-identifier hs-type">AutoTuneOptions</span></a></span></span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303454"><span id="local-6989586621679303456"><span id="local-6989586621679303458"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneOptions.html#AutoTuneOptions"><span class="hs-identifier hs-type">AutoTuneOptions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679303452"><span class="annot"><span class="annottext">toJSON :: AutoTuneOptions -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneOptions.html#AutoTuneOptions%27"><span class="hs-identifier hs-type">AutoTuneOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303448"><span id="local-6989586621679303449"><span id="local-6989586621679303450"><span class="annot"><span class="annottext">Maybe [AutoTuneMaintenanceSchedule]
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303463"><span id="local-6989586621679303465"><span id="local-6989586621679303467"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneOptions.html#AutoTuneOptions"><span class="hs-identifier hs-type">AutoTuneOptions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679303461"><span class="annot"><span class="annottext">toJSON :: AutoTuneOptions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.AutoTuneOptions.html#AutoTuneOptions%27"><span class="hs-identifier hs-type">AutoTuneOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303457"><span id="local-6989586621679303458"><span id="local-6989586621679303459"><span class="annot"><span class="annottext">Maybe [AutoTuneMaintenanceSchedule]
 Maybe AutoTuneDesiredState
 Maybe RollbackOnDisable
 maintenanceSchedules :: Maybe [AutoTuneMaintenanceSchedule]
@@ -326,7 +326,7 @@ desiredState :: Maybe AutoTuneDesiredState
 $sel:maintenanceSchedules:AutoTuneOptions' :: AutoTuneOptions -&gt; Maybe [AutoTuneMaintenanceSchedule]
 $sel:rollbackOnDisable:AutoTuneOptions' :: AutoTuneOptions -&gt; Maybe RollbackOnDisable
 $sel:desiredState:AutoTuneOptions' :: AutoTuneOptions -&gt; Maybe AutoTuneDesiredState
-</span><a href="#local-6989586621679303448"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679303457"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -339,7 +339,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe AutoTuneDesiredState -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AutoTuneDesiredState
-</span><a href="#local-6989586621679303450"><span class="hs-identifier hs-var">desiredState</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679303459"><span class="hs-identifier hs-var">desiredState</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-112"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RollbackOnDisable&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RollbackOnDisable -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -348,7 +348,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe RollbackOnDisable -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RollbackOnDisable
-</span><a href="#local-6989586621679303449"><span class="hs-identifier hs-var">rollbackOnDisable</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679303458"><span class="hs-identifier hs-var">rollbackOnDisable</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-114"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaintenanceSchedules&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [AutoTuneMaintenanceSchedule] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -357,7 +357,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [AutoTuneMaintenanceSchedule] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AutoTuneMaintenanceSchedule]
-</span><a href="#local-6989586621679303448"><span class="hs-identifier hs-var">maintenanceSchedules</span></a></span><span>
+</span><a href="#local-6989586621679303457"><span class="hs-identifier hs-var">maintenanceSchedules</span></a></span><span>
 </span><span id="line-116"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span></pre></body></html>

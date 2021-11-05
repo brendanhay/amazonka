@@ -1,0 +1,437 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Grafana.AssociateLicense</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Assigns a Grafana Enterprise license to a workspace. Upgrading to</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Grafana Enterprise incurs additional fees. For more information, see</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/grafana/latest/userguide/upgrade-to-Grafana-Enterprise.html Upgrade a workspace to Grafana Enterprise&gt;.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Grafana.AssociateLicense</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.Grafana.AssociateLicense.html#AssociateLicense"><span class="hs-identifier">AssociateLicense</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.Grafana.AssociateLicense.html#newAssociateLicense"><span class="hs-identifier">newAssociateLicense</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Grafana.AssociateLicense.html#associateLicense_licenseType"><span class="hs-identifier">associateLicense_licenseType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Grafana.AssociateLicense.html#associateLicense_workspaceId"><span class="hs-identifier">associateLicense_workspaceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Grafana.AssociateLicense.html#AssociateLicenseResponse"><span class="hs-identifier">AssociateLicenseResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Grafana.AssociateLicense.html#newAssociateLicenseResponse"><span class="hs-identifier">newAssociateLicenseResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Grafana.AssociateLicense.html#associateLicenseResponse_httpStatus"><span class="hs-identifier">associateLicenseResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Grafana.AssociateLicense.html#associateLicenseResponse_workspace"><span class="hs-identifier">associateLicenseResponse_workspace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Grafana.Types.html"><span class="hs-identifier">Network.AWS.Grafana.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newAssociateLicense' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679189388"><span id="local-6989586621679189389"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateLicense"><span class="annot"><a href="Network.AWS.Grafana.AssociateLicense.html#AssociateLicense"><span class="hs-identifier hs-var">AssociateLicense</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateLicense%27"><span class="annot"><a href="Network.AWS.Grafana.AssociateLicense.html#AssociateLicense%27"><span class="hs-identifier hs-var">AssociateLicense'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of license to associate with the workspace.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AlicenseType%3AAssociateLicense%27"><span class="annot"><span class="annottext">AssociateLicense -&gt; LicenseType
+</span><a href="Network.AWS.Grafana.AssociateLicense.html#%24sel%3AlicenseType%3AAssociateLicense%27"><span class="hs-identifier hs-var hs-var">licenseType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Grafana.Types.LicenseType.html#LicenseType"><span class="hs-identifier hs-type">LicenseType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The ID of the workspace to associate the license with.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AworkspaceId%3AAssociateLicense%27"><span class="annot"><span class="annottext">AssociateLicense -&gt; Text
+</span><a href="Network.AWS.Grafana.AssociateLicense.html#%24sel%3AworkspaceId%3AAssociateLicense%27"><span class="hs-identifier hs-var hs-var">workspaceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679189381"><span id="local-6989586621679189383"><span class="annot"><span class="annottext">AssociateLicense -&gt; AssociateLicense -&gt; Bool
+(AssociateLicense -&gt; AssociateLicense -&gt; Bool)
+-&gt; (AssociateLicense -&gt; AssociateLicense -&gt; Bool)
+-&gt; Eq AssociateLicense
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssociateLicense -&gt; AssociateLicense -&gt; Bool
+$c/= :: AssociateLicense -&gt; AssociateLicense -&gt; Bool
+== :: AssociateLicense -&gt; AssociateLicense -&gt; Bool
+$c== :: AssociateLicense -&gt; AssociateLicense -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189372"><span id="local-6989586621679189374"><span id="local-6989586621679189376"><span id="local-6989586621679189378"><span class="annot"><span class="annottext">ReadPrec [AssociateLicense]
+ReadPrec AssociateLicense
+Int -&gt; ReadS AssociateLicense
+ReadS [AssociateLicense]
+(Int -&gt; ReadS AssociateLicense)
+-&gt; ReadS [AssociateLicense]
+-&gt; ReadPrec AssociateLicense
+-&gt; ReadPrec [AssociateLicense]
+-&gt; Read AssociateLicense
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssociateLicense]
+$creadListPrec :: ReadPrec [AssociateLicense]
+readPrec :: ReadPrec AssociateLicense
+$creadPrec :: ReadPrec AssociateLicense
+readList :: ReadS [AssociateLicense]
+$creadList :: ReadS [AssociateLicense]
+readsPrec :: Int -&gt; ReadS AssociateLicense
+$creadsPrec :: Int -&gt; ReadS AssociateLicense
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189365"><span id="local-6989586621679189367"><span id="local-6989586621679189369"><span class="annot"><span class="annottext">Int -&gt; AssociateLicense -&gt; ShowS
+[AssociateLicense] -&gt; ShowS
+AssociateLicense -&gt; String
+(Int -&gt; AssociateLicense -&gt; ShowS)
+-&gt; (AssociateLicense -&gt; String)
+-&gt; ([AssociateLicense] -&gt; ShowS)
+-&gt; Show AssociateLicense
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssociateLicense] -&gt; ShowS
+$cshowList :: [AssociateLicense] -&gt; ShowS
+show :: AssociateLicense -&gt; String
+$cshow :: AssociateLicense -&gt; String
+showsPrec :: Int -&gt; AssociateLicense -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssociateLicense -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AssociateLicense -&gt; Rep AssociateLicense x)
+-&gt; (forall x. Rep AssociateLicense x -&gt; AssociateLicense)
+-&gt; Generic AssociateLicense
+forall x. Rep AssociateLicense x -&gt; AssociateLicense
+forall x. AssociateLicense -&gt; Rep AssociateLicense x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AssociateLicense x -&gt; AssociateLicense
+$cfrom :: forall x. AssociateLicense -&gt; Rep AssociateLicense x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'AssociateLicense' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'licenseType', 'associateLicense_licenseType' - The type of license to associate with the workspace.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'workspaceId', 'associateLicense_workspaceId' - The ID of the workspace to associate the license with.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.Grafana.AssociateLicense.html#newAssociateLicense"><span class="hs-identifier hs-type">newAssociateLicense</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'licenseType'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.Grafana.Types.LicenseType.html#LicenseType"><span class="hs-identifier hs-type">LicenseType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-comment">-- | 'workspaceId'</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.Grafana.AssociateLicense.html#AssociateLicense"><span class="hs-identifier hs-type">AssociateLicense</span></a></span><span>
+</span><span id="line-78"></span><span id="newAssociateLicense"><span class="annot"><span class="annottext">newAssociateLicense :: LicenseType -&gt; Text -&gt; AssociateLicense
+</span><a href="Network.AWS.Grafana.AssociateLicense.html#newAssociateLicense"><span class="hs-identifier hs-var hs-var">newAssociateLicense</span></a></span></span><span> </span><span id="local-6989586621679189360"><span class="annot"><span class="annottext">LicenseType
+</span><a href="#local-6989586621679189360"><span class="hs-identifier hs-var">pLicenseType_</span></a></span></span><span> </span><span id="local-6989586621679189359"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679189359"><span class="hs-identifier hs-var">pWorkspaceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">AssociateLicense' :: LicenseType -&gt; Text -&gt; AssociateLicense
+</span><a href="Network.AWS.Grafana.AssociateLicense.html#AssociateLicense%27"><span class="hs-identifier hs-type">AssociateLicense'</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:licenseType:AssociateLicense' :: LicenseType
+</span><a href="Network.AWS.Grafana.AssociateLicense.html#%24sel%3AlicenseType%3AAssociateLicense%27"><span class="hs-identifier hs-var">licenseType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LicenseType
+</span><a href="#local-6989586621679189360"><span class="hs-identifier hs-var">pLicenseType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:workspaceId:AssociateLicense' :: Text
+</span><a href="Network.AWS.Grafana.AssociateLicense.html#%24sel%3AworkspaceId%3AAssociateLicense%27"><span class="hs-identifier hs-var">workspaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679189359"><span class="hs-identifier hs-var">pWorkspaceId_</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The type of license to associate with the workspace.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.Grafana.AssociateLicense.html#associateLicense_licenseType"><span class="hs-identifier hs-type">associateLicense_licenseType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.AssociateLicense.html#AssociateLicense"><span class="hs-identifier hs-type">AssociateLicense</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.Types.LicenseType.html#LicenseType"><span class="hs-identifier hs-type">LicenseType</span></a></span><span>
+</span><span id="line-86"></span><span id="associateLicense_licenseType"><span class="annot"><span class="annottext">associateLicense_licenseType :: (LicenseType -&gt; f LicenseType)
+-&gt; AssociateLicense -&gt; f AssociateLicense
+</span><a href="Network.AWS.Grafana.AssociateLicense.html#associateLicense_licenseType"><span class="hs-identifier hs-var hs-var">associateLicense_licenseType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateLicense -&gt; LicenseType)
+-&gt; (AssociateLicense -&gt; LicenseType -&gt; AssociateLicense)
+-&gt; Lens AssociateLicense AssociateLicense LicenseType LicenseType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Grafana.AssociateLicense.html#AssociateLicense%27"><span class="hs-identifier hs-type">AssociateLicense'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189356"><span class="annot"><span class="annottext">LicenseType
+licenseType :: LicenseType
+$sel:licenseType:AssociateLicense' :: AssociateLicense -&gt; LicenseType
+</span><a href="#local-6989586621679189356"><span class="hs-identifier hs-var hs-var">licenseType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LicenseType
+</span><a href="#local-6989586621679189356"><span class="hs-identifier hs-var">licenseType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189355"><span class="annot"><span class="annottext">s :: AssociateLicense
+</span><a href="#local-6989586621679189355"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Grafana.AssociateLicense.html#AssociateLicense%27"><span class="hs-identifier hs-type">AssociateLicense'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189354"><span class="annot"><span class="annottext">LicenseType
+</span><a href="#local-6989586621679189354"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateLicense
+</span><a href="#local-6989586621679189355"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:licenseType:AssociateLicense' :: LicenseType
+</span><a href="Network.AWS.Grafana.AssociateLicense.html#%24sel%3AlicenseType%3AAssociateLicense%27"><span class="hs-identifier hs-var">licenseType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LicenseType
+</span><a href="#local-6989586621679189354"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Grafana.AssociateLicense.html#AssociateLicense"><span class="hs-identifier hs-type">AssociateLicense</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The ID of the workspace to associate the license with.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Grafana.AssociateLicense.html#associateLicense_workspaceId"><span class="hs-identifier hs-type">associateLicense_workspaceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.AssociateLicense.html#AssociateLicense"><span class="hs-identifier hs-type">AssociateLicense</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-90"></span><span id="associateLicense_workspaceId"><span class="annot"><span class="annottext">associateLicense_workspaceId :: (Text -&gt; f Text) -&gt; AssociateLicense -&gt; f AssociateLicense
+</span><a href="Network.AWS.Grafana.AssociateLicense.html#associateLicense_workspaceId"><span class="hs-identifier hs-var hs-var">associateLicense_workspaceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateLicense -&gt; Text)
+-&gt; (AssociateLicense -&gt; Text -&gt; AssociateLicense)
+-&gt; Lens AssociateLicense AssociateLicense Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Grafana.AssociateLicense.html#AssociateLicense%27"><span class="hs-identifier hs-type">AssociateLicense'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189353"><span class="annot"><span class="annottext">Text
+workspaceId :: Text
+$sel:workspaceId:AssociateLicense' :: AssociateLicense -&gt; Text
+</span><a href="#local-6989586621679189353"><span class="hs-identifier hs-var hs-var">workspaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679189353"><span class="hs-identifier hs-var">workspaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189352"><span class="annot"><span class="annottext">s :: AssociateLicense
+</span><a href="#local-6989586621679189352"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Grafana.AssociateLicense.html#AssociateLicense%27"><span class="hs-identifier hs-type">AssociateLicense'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189351"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679189351"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateLicense
+</span><a href="#local-6989586621679189352"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workspaceId:AssociateLicense' :: Text
+</span><a href="Network.AWS.Grafana.AssociateLicense.html#%24sel%3AworkspaceId%3AAssociateLicense%27"><span class="hs-identifier hs-var">workspaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679189351"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Grafana.AssociateLicense.html#AssociateLicense"><span class="hs-identifier hs-type">AssociateLicense</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.AssociateLicense.html#AssociateLicense"><span class="hs-identifier hs-type">AssociateLicense</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-94"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.AssociateLicense.html#AssociateLicense"><span class="hs-identifier hs-type">AssociateLicense</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><a href="Network.AWS.Grafana.AssociateLicense.html#AssociateLicenseResponse"><span class="hs-identifier hs-type">AssociateLicenseResponse</span></a></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679189347"><span class="annot"><span class="annottext">request :: AssociateLicense -&gt; Request AssociateLicense
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AssociateLicense -&gt; Request AssociateLicense
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Grafana.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679189343"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy AssociateLicense
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse AssociateLicense)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse AssociateLicense))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy AssociateLicense
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse AssociateLicense)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679189340"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679189340"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679189339"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679189339"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679189338"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679189338"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; WorkspaceDescription -&gt; AssociateLicenseResponse
+</span><a href="Network.AWS.Grafana.AssociateLicense.html#AssociateLicenseResponse%27"><span class="hs-identifier hs-var">AssociateLicenseResponse'</span></a></span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; WorkspaceDescription -&gt; AssociateLicenseResponse)
+-&gt; Either String Int
+-&gt; Either String (WorkspaceDescription -&gt; AssociateLicenseResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679189340"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Either String (WorkspaceDescription -&gt; AssociateLicenseResponse)
+-&gt; Either String WorkspaceDescription
+-&gt; Either String AssociateLicenseResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679189338"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String WorkspaceDescription
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;workspace&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679189330"><span id="local-6989586621679189332"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.AssociateLicense.html#AssociateLicense"><span class="hs-identifier hs-type">AssociateLicense</span></a></span></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679189327"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.AssociateLicense.html#AssociateLicense"><span class="hs-identifier hs-type">AssociateLicense</span></a></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.AssociateLicense.html#AssociateLicense"><span class="hs-identifier hs-type">AssociateLicense</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679189323"><span class="annot"><span class="annottext">toHeaders :: AssociateLicense -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AssociateLicense -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-113"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-114"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-115"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-116"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679189313"><span id="local-6989586621679189315"><span id="local-6989586621679189317"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.AssociateLicense.html#AssociateLicense"><span class="hs-identifier hs-type">AssociateLicense</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679189311"><span class="annot"><span class="annottext">toJSON :: AssociateLicense -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; AssociateLicense -&gt; Value
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
+</span><span class="hs-identifier hs-var">Core.Object</span></span><span> </span><span class="annot"><span class="annottext">Object
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.AssociateLicense.html#AssociateLicense"><span class="hs-identifier hs-type">AssociateLicense</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679189306"><span class="annot"><span class="annottext">toPath :: AssociateLicense -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.AssociateLicense.html#AssociateLicense%27"><span class="hs-identifier hs-type">AssociateLicense'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189303"><span id="local-6989586621679189304"><span class="annot"><span class="annottext">Text
+LicenseType
+workspaceId :: Text
+licenseType :: LicenseType
+$sel:workspaceId:AssociateLicense' :: AssociateLicense -&gt; Text
+$sel:licenseType:AssociateLicense' :: AssociateLicense -&gt; LicenseType
+</span><a href="#local-6989586621679189303"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/workspaces/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679189303"><span class="hs-identifier hs-var">workspaceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/licenses/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">LicenseType -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">LicenseType
+</span><a href="#local-6989586621679189304"><span class="hs-identifier hs-var">licenseType</span></a></span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.AssociateLicense.html#AssociateLicense"><span class="hs-identifier hs-type">AssociateLicense</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679189299"><span class="annot"><span class="annottext">toQuery :: AssociateLicense -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AssociateLicense -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | /See:/ 'newAssociateLicenseResponse' smart constructor.</span><span>
+</span><span id="line-136"></span><span id="local-6989586621679189296"><span id="local-6989586621679189297"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateLicenseResponse"><span class="annot"><a href="Network.AWS.Grafana.AssociateLicense.html#AssociateLicenseResponse"><span class="hs-identifier hs-var">AssociateLicenseResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateLicenseResponse%27"><span class="annot"><a href="Network.AWS.Grafana.AssociateLicense.html#AssociateLicenseResponse%27"><span class="hs-identifier hs-var">AssociateLicenseResponse'</span></a></span></span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-138"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAssociateLicenseResponse%27"><span class="annot"><span class="annottext">AssociateLicenseResponse -&gt; Int
+</span><a href="Network.AWS.Grafana.AssociateLicense.html#%24sel%3AhttpStatus%3AAssociateLicenseResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- | A structure containing data about the workspace.</span><span>
+</span><span id="line-140"></span><span>    </span><span id="%24sel%3Aworkspace%3AAssociateLicenseResponse%27"><span class="annot"><span class="annottext">AssociateLicenseResponse -&gt; WorkspaceDescription
+</span><a href="Network.AWS.Grafana.AssociateLicense.html#%24sel%3Aworkspace%3AAssociateLicenseResponse%27"><span class="hs-identifier hs-var hs-var">workspace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Grafana.Types.WorkspaceDescription.html#WorkspaceDescription"><span class="hs-identifier hs-type">WorkspaceDescription</span></a></span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679189290"><span id="local-6989586621679189292"><span class="annot"><span class="annottext">AssociateLicenseResponse -&gt; AssociateLicenseResponse -&gt; Bool
+(AssociateLicenseResponse -&gt; AssociateLicenseResponse -&gt; Bool)
+-&gt; (AssociateLicenseResponse -&gt; AssociateLicenseResponse -&gt; Bool)
+-&gt; Eq AssociateLicenseResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssociateLicenseResponse -&gt; AssociateLicenseResponse -&gt; Bool
+$c/= :: AssociateLicenseResponse -&gt; AssociateLicenseResponse -&gt; Bool
+== :: AssociateLicenseResponse -&gt; AssociateLicenseResponse -&gt; Bool
+$c== :: AssociateLicenseResponse -&gt; AssociateLicenseResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189284"><span id="local-6989586621679189286"><span id="local-6989586621679189288"><span class="annot"><span class="annottext">Int -&gt; AssociateLicenseResponse -&gt; ShowS
+[AssociateLicenseResponse] -&gt; ShowS
+AssociateLicenseResponse -&gt; String
+(Int -&gt; AssociateLicenseResponse -&gt; ShowS)
+-&gt; (AssociateLicenseResponse -&gt; String)
+-&gt; ([AssociateLicenseResponse] -&gt; ShowS)
+-&gt; Show AssociateLicenseResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssociateLicenseResponse] -&gt; ShowS
+$cshowList :: [AssociateLicenseResponse] -&gt; ShowS
+show :: AssociateLicenseResponse -&gt; String
+$cshow :: AssociateLicenseResponse -&gt; String
+showsPrec :: Int -&gt; AssociateLicenseResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssociateLicenseResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AssociateLicenseResponse -&gt; Rep AssociateLicenseResponse x)
+-&gt; (forall x.
+    Rep AssociateLicenseResponse x -&gt; AssociateLicenseResponse)
+-&gt; Generic AssociateLicenseResponse
+forall x.
+Rep AssociateLicenseResponse x -&gt; AssociateLicenseResponse
+forall x.
+AssociateLicenseResponse -&gt; Rep AssociateLicenseResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AssociateLicenseResponse x -&gt; AssociateLicenseResponse
+$cfrom :: forall x.
+AssociateLicenseResponse -&gt; Rep AssociateLicenseResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- Create a value of 'AssociateLicenseResponse' with all optional fields omitted.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'httpStatus', 'associateLicenseResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'workspace', 'associateLicenseResponse_workspace' - A structure containing data about the workspace.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.Grafana.AssociateLicense.html#newAssociateLicenseResponse"><span class="hs-identifier hs-type">newAssociateLicenseResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-comment">-- | 'workspace'</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><a href="Network.AWS.Grafana.Types.WorkspaceDescription.html#WorkspaceDescription"><span class="hs-identifier hs-type">WorkspaceDescription</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><a href="Network.AWS.Grafana.AssociateLicense.html#AssociateLicenseResponse"><span class="hs-identifier hs-type">AssociateLicenseResponse</span></a></span><span>
+</span><span id="line-161"></span><span id="newAssociateLicenseResponse"><span class="annot"><span class="annottext">newAssociateLicenseResponse :: Int -&gt; WorkspaceDescription -&gt; AssociateLicenseResponse
+</span><a href="Network.AWS.Grafana.AssociateLicense.html#newAssociateLicenseResponse"><span class="hs-identifier hs-var hs-var">newAssociateLicenseResponse</span></a></span></span><span> </span><span id="local-6989586621679189281"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679189281"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679189280"><span class="annot"><span class="annottext">WorkspaceDescription
+</span><a href="#local-6989586621679189280"><span class="hs-identifier hs-var">pWorkspace_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><span class="annottext">AssociateLicenseResponse' :: Int -&gt; WorkspaceDescription -&gt; AssociateLicenseResponse
+</span><a href="Network.AWS.Grafana.AssociateLicense.html#AssociateLicenseResponse%27"><span class="hs-identifier hs-type">AssociateLicenseResponse'</span></a></span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateLicenseResponse' :: Int
+</span><a href="Network.AWS.Grafana.AssociateLicense.html#%24sel%3AhttpStatus%3AAssociateLicenseResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679189281"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:workspace:AssociateLicenseResponse' :: WorkspaceDescription
+</span><a href="Network.AWS.Grafana.AssociateLicense.html#%24sel%3Aworkspace%3AAssociateLicenseResponse%27"><span class="hs-identifier hs-var">workspace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">WorkspaceDescription
+</span><a href="#local-6989586621679189280"><span class="hs-identifier hs-var">pWorkspace_</span></a></span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.Grafana.AssociateLicense.html#associateLicenseResponse_httpStatus"><span class="hs-identifier hs-type">associateLicenseResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.AssociateLicense.html#AssociateLicenseResponse"><span class="hs-identifier hs-type">AssociateLicenseResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-170"></span><span id="associateLicenseResponse_httpStatus"><span class="annot"><span class="annottext">associateLicenseResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; AssociateLicenseResponse -&gt; f AssociateLicenseResponse
+</span><a href="Network.AWS.Grafana.AssociateLicense.html#associateLicenseResponse_httpStatus"><span class="hs-identifier hs-var hs-var">associateLicenseResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateLicenseResponse -&gt; Int)
+-&gt; (AssociateLicenseResponse -&gt; Int -&gt; AssociateLicenseResponse)
+-&gt; Lens AssociateLicenseResponse AssociateLicenseResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Grafana.AssociateLicense.html#AssociateLicenseResponse%27"><span class="hs-identifier hs-type">AssociateLicenseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189279"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:AssociateLicenseResponse' :: AssociateLicenseResponse -&gt; Int
+</span><a href="#local-6989586621679189279"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679189279"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189278"><span class="annot"><span class="annottext">s :: AssociateLicenseResponse
+</span><a href="#local-6989586621679189278"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Grafana.AssociateLicense.html#AssociateLicenseResponse%27"><span class="hs-identifier hs-type">AssociateLicenseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189277"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679189277"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateLicenseResponse
+</span><a href="#local-6989586621679189278"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateLicenseResponse' :: Int
+</span><a href="Network.AWS.Grafana.AssociateLicense.html#%24sel%3AhttpStatus%3AAssociateLicenseResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679189277"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Grafana.AssociateLicense.html#AssociateLicenseResponse"><span class="hs-identifier hs-type">AssociateLicenseResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | A structure containing data about the workspace.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Network.AWS.Grafana.AssociateLicense.html#associateLicenseResponse_workspace"><span class="hs-identifier hs-type">associateLicenseResponse_workspace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.AssociateLicense.html#AssociateLicenseResponse"><span class="hs-identifier hs-type">AssociateLicenseResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.Types.WorkspaceDescription.html#WorkspaceDescription"><span class="hs-identifier hs-type">WorkspaceDescription</span></a></span><span>
+</span><span id="line-174"></span><span id="associateLicenseResponse_workspace"><span class="annot"><span class="annottext">associateLicenseResponse_workspace :: (WorkspaceDescription -&gt; f WorkspaceDescription)
+-&gt; AssociateLicenseResponse -&gt; f AssociateLicenseResponse
+</span><a href="Network.AWS.Grafana.AssociateLicense.html#associateLicenseResponse_workspace"><span class="hs-identifier hs-var hs-var">associateLicenseResponse_workspace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateLicenseResponse -&gt; WorkspaceDescription)
+-&gt; (AssociateLicenseResponse
+    -&gt; WorkspaceDescription -&gt; AssociateLicenseResponse)
+-&gt; Lens
+     AssociateLicenseResponse
+     AssociateLicenseResponse
+     WorkspaceDescription
+     WorkspaceDescription
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Grafana.AssociateLicense.html#AssociateLicenseResponse%27"><span class="hs-identifier hs-type">AssociateLicenseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189276"><span class="annot"><span class="annottext">WorkspaceDescription
+workspace :: WorkspaceDescription
+$sel:workspace:AssociateLicenseResponse' :: AssociateLicenseResponse -&gt; WorkspaceDescription
+</span><a href="#local-6989586621679189276"><span class="hs-identifier hs-var hs-var">workspace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceDescription
+</span><a href="#local-6989586621679189276"><span class="hs-identifier hs-var">workspace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189275"><span class="annot"><span class="annottext">s :: AssociateLicenseResponse
+</span><a href="#local-6989586621679189275"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Grafana.AssociateLicense.html#AssociateLicenseResponse%27"><span class="hs-identifier hs-type">AssociateLicenseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189274"><span class="annot"><span class="annottext">WorkspaceDescription
+</span><a href="#local-6989586621679189274"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateLicenseResponse
+</span><a href="#local-6989586621679189275"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workspace:AssociateLicenseResponse' :: WorkspaceDescription
+</span><a href="Network.AWS.Grafana.AssociateLicense.html#%24sel%3Aworkspace%3AAssociateLicenseResponse%27"><span class="hs-identifier hs-var">workspace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">WorkspaceDescription
+</span><a href="#local-6989586621679189274"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Grafana.AssociateLicense.html#AssociateLicenseResponse"><span class="hs-identifier hs-type">AssociateLicenseResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679189272"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Grafana.AssociateLicense.html#AssociateLicenseResponse"><span class="hs-identifier hs-type">AssociateLicenseResponse</span></a></span></span><span>
+</span><span id="line-177"></span></pre></body></html>

@@ -1,0 +1,402 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DocumentDB.Types.DBSubnetGroup</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DocumentDB.Types.DBSubnetGroup</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.Subnet.html"><span class="hs-identifier">Network.AWS.DocumentDB.Types.Subnet</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Detailed information about a subnet group.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDBSubnetGroup' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679300601"><span id="local-6989586621679300602"></span></span><span class="hs-keyword">data</span><span> </span><span id="DBSubnetGroup"><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#DBSubnetGroup"><span class="hs-identifier hs-var">DBSubnetGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DBSubnetGroup%27"><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#DBSubnetGroup%27"><span class="hs-identifier hs-var">DBSubnetGroup'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the subnet group.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AdbSubnetGroupName%3ADBSubnetGroup%27"><span class="annot"><span class="annottext">DBSubnetGroup -&gt; Maybe Text
+</span><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#%24sel%3AdbSubnetGroupName%3ADBSubnetGroup%27"><span class="hs-identifier hs-var hs-var">dbSubnetGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Provides the virtual private cloud (VPC) ID of the subnet group.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AvpcId%3ADBSubnetGroup%27"><span class="annot"><span class="annottext">DBSubnetGroup -&gt; Maybe Text
+</span><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#%24sel%3AvpcId%3ADBSubnetGroup%27"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Detailed information about one or more subnets within a subnet group.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Asubnets%3ADBSubnetGroup%27"><span class="annot"><span class="annottext">DBSubnetGroup -&gt; Maybe [Subnet]
+</span><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#%24sel%3Asubnets%3ADBSubnetGroup%27"><span class="hs-identifier hs-var hs-var">subnets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.Subnet.html#Subnet"><span class="hs-identifier hs-type">Subnet</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Provides the description of the subnet group.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AdbSubnetGroupDescription%3ADBSubnetGroup%27"><span class="annot"><span class="annottext">DBSubnetGroup -&gt; Maybe Text
+</span><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#%24sel%3AdbSubnetGroupDescription%3ADBSubnetGroup%27"><span class="hs-identifier hs-var hs-var">dbSubnetGroupDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the DB subnet group.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AdbSubnetGroupArn%3ADBSubnetGroup%27"><span class="annot"><span class="annottext">DBSubnetGroup -&gt; Maybe Text
+</span><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#%24sel%3AdbSubnetGroupArn%3ADBSubnetGroup%27"><span class="hs-identifier hs-var hs-var">dbSubnetGroupArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Provides the status of the subnet group.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AsubnetGroupStatus%3ADBSubnetGroup%27"><span class="annot"><span class="annottext">DBSubnetGroup -&gt; Maybe Text
+</span><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#%24sel%3AsubnetGroupStatus%3ADBSubnetGroup%27"><span class="hs-identifier hs-var hs-var">subnetGroupStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679300590"><span id="local-6989586621679300592"><span class="annot"><span class="annottext">DBSubnetGroup -&gt; DBSubnetGroup -&gt; Bool
+(DBSubnetGroup -&gt; DBSubnetGroup -&gt; Bool)
+-&gt; (DBSubnetGroup -&gt; DBSubnetGroup -&gt; Bool) -&gt; Eq DBSubnetGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DBSubnetGroup -&gt; DBSubnetGroup -&gt; Bool
+$c/= :: DBSubnetGroup -&gt; DBSubnetGroup -&gt; Bool
+== :: DBSubnetGroup -&gt; DBSubnetGroup -&gt; Bool
+$c== :: DBSubnetGroup -&gt; DBSubnetGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300581"><span id="local-6989586621679300583"><span id="local-6989586621679300585"><span id="local-6989586621679300587"><span class="annot"><span class="annottext">ReadPrec [DBSubnetGroup]
+ReadPrec DBSubnetGroup
+Int -&gt; ReadS DBSubnetGroup
+ReadS [DBSubnetGroup]
+(Int -&gt; ReadS DBSubnetGroup)
+-&gt; ReadS [DBSubnetGroup]
+-&gt; ReadPrec DBSubnetGroup
+-&gt; ReadPrec [DBSubnetGroup]
+-&gt; Read DBSubnetGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DBSubnetGroup]
+$creadListPrec :: ReadPrec [DBSubnetGroup]
+readPrec :: ReadPrec DBSubnetGroup
+$creadPrec :: ReadPrec DBSubnetGroup
+readList :: ReadS [DBSubnetGroup]
+$creadList :: ReadS [DBSubnetGroup]
+readsPrec :: Int -&gt; ReadS DBSubnetGroup
+$creadsPrec :: Int -&gt; ReadS DBSubnetGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300574"><span id="local-6989586621679300576"><span id="local-6989586621679300578"><span class="annot"><span class="annottext">Int -&gt; DBSubnetGroup -&gt; ShowS
+[DBSubnetGroup] -&gt; ShowS
+DBSubnetGroup -&gt; String
+(Int -&gt; DBSubnetGroup -&gt; ShowS)
+-&gt; (DBSubnetGroup -&gt; String)
+-&gt; ([DBSubnetGroup] -&gt; ShowS)
+-&gt; Show DBSubnetGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DBSubnetGroup] -&gt; ShowS
+$cshowList :: [DBSubnetGroup] -&gt; ShowS
+show :: DBSubnetGroup -&gt; String
+$cshow :: DBSubnetGroup -&gt; String
+showsPrec :: Int -&gt; DBSubnetGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; DBSubnetGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DBSubnetGroup -&gt; Rep DBSubnetGroup x)
+-&gt; (forall x. Rep DBSubnetGroup x -&gt; DBSubnetGroup)
+-&gt; Generic DBSubnetGroup
+forall x. Rep DBSubnetGroup x -&gt; DBSubnetGroup
+forall x. DBSubnetGroup -&gt; Rep DBSubnetGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DBSubnetGroup x -&gt; DBSubnetGroup
+$cfrom :: forall x. DBSubnetGroup -&gt; Rep DBSubnetGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Create a value of 'DBSubnetGroup' with all optional fields omitted.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'dbSubnetGroupName', 'dbSubnetGroup_dbSubnetGroupName' - The name of the subnet group.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'vpcId', 'dbSubnetGroup_vpcId' - Provides the virtual private cloud (VPC) ID of the subnet group.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'subnets', 'dbSubnetGroup_subnets' - Detailed information about one or more subnets within a subnet group.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'dbSubnetGroupDescription', 'dbSubnetGroup_dbSubnetGroupDescription' - Provides the description of the subnet group.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'dbSubnetGroupArn', 'dbSubnetGroup_dbSubnetGroupArn' - The Amazon Resource Name (ARN) for the DB subnet group.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'subnetGroupStatus', 'dbSubnetGroup_subnetGroupStatus' - Provides the status of the subnet group.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#newDBSubnetGroup"><span class="hs-identifier hs-type">newDBSubnetGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#DBSubnetGroup"><span class="hs-identifier hs-type">DBSubnetGroup</span></a></span><span>
+</span><span id="line-67"></span><span id="newDBSubnetGroup"><span class="annot"><span class="annottext">newDBSubnetGroup :: DBSubnetGroup
+</span><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#newDBSubnetGroup"><span class="hs-identifier hs-var hs-var">newDBSubnetGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">DBSubnetGroup' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Subnet]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; DBSubnetGroup
+</span><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#DBSubnetGroup%27"><span class="hs-identifier hs-type">DBSubnetGroup'</span></a></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dbSubnetGroupName:DBSubnetGroup' :: Maybe Text
+</span><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#%24sel%3AdbSubnetGroupName%3ADBSubnetGroup%27"><span class="hs-identifier hs-var">dbSubnetGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcId:DBSubnetGroup' :: Maybe Text
+</span><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#%24sel%3AvpcId%3ADBSubnetGroup%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:subnets:DBSubnetGroup' :: Maybe [Subnet]
+</span><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#%24sel%3Asubnets%3ADBSubnetGroup%27"><span class="hs-identifier hs-var">subnets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Subnet]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:dbSubnetGroupDescription:DBSubnetGroup' :: Maybe Text
+</span><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#%24sel%3AdbSubnetGroupDescription%3ADBSubnetGroup%27"><span class="hs-identifier hs-var">dbSubnetGroupDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:dbSubnetGroupArn:DBSubnetGroup' :: Maybe Text
+</span><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#%24sel%3AdbSubnetGroupArn%3ADBSubnetGroup%27"><span class="hs-identifier hs-var">dbSubnetGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:subnetGroupStatus:DBSubnetGroup' :: Maybe Text
+</span><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#%24sel%3AsubnetGroupStatus%3ADBSubnetGroup%27"><span class="hs-identifier hs-var">subnetGroupStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The name of the subnet group.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#dbSubnetGroup_dbSubnetGroupName"><span class="hs-identifier hs-type">dbSubnetGroup_dbSubnetGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#DBSubnetGroup"><span class="hs-identifier hs-type">DBSubnetGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="dbSubnetGroup_dbSubnetGroupName"><span class="annot"><span class="annottext">dbSubnetGroup_dbSubnetGroupName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DBSubnetGroup -&gt; f DBSubnetGroup
+</span><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#dbSubnetGroup_dbSubnetGroupName"><span class="hs-identifier hs-var hs-var">dbSubnetGroup_dbSubnetGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBSubnetGroup -&gt; Maybe Text)
+-&gt; (DBSubnetGroup -&gt; Maybe Text -&gt; DBSubnetGroup)
+-&gt; Lens DBSubnetGroup DBSubnetGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#DBSubnetGroup%27"><span class="hs-identifier hs-type">DBSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300565"><span class="annot"><span class="annottext">Maybe Text
+dbSubnetGroupName :: Maybe Text
+$sel:dbSubnetGroupName:DBSubnetGroup' :: DBSubnetGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679300565"><span class="hs-identifier hs-var hs-var">dbSubnetGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300565"><span class="hs-identifier hs-var">dbSubnetGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300564"><span class="annot"><span class="annottext">s :: DBSubnetGroup
+</span><a href="#local-6989586621679300564"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#DBSubnetGroup%27"><span class="hs-identifier hs-type">DBSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300563"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300563"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBSubnetGroup
+</span><a href="#local-6989586621679300564"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbSubnetGroupName:DBSubnetGroup' :: Maybe Text
+</span><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#%24sel%3AdbSubnetGroupName%3ADBSubnetGroup%27"><span class="hs-identifier hs-var">dbSubnetGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300563"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#DBSubnetGroup"><span class="hs-identifier hs-type">DBSubnetGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | Provides the virtual private cloud (VPC) ID of the subnet group.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#dbSubnetGroup_vpcId"><span class="hs-identifier hs-type">dbSubnetGroup_vpcId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#DBSubnetGroup"><span class="hs-identifier hs-type">DBSubnetGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="dbSubnetGroup_vpcId"><span class="annot"><span class="annottext">dbSubnetGroup_vpcId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DBSubnetGroup -&gt; f DBSubnetGroup
+</span><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#dbSubnetGroup_vpcId"><span class="hs-identifier hs-var hs-var">dbSubnetGroup_vpcId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBSubnetGroup -&gt; Maybe Text)
+-&gt; (DBSubnetGroup -&gt; Maybe Text -&gt; DBSubnetGroup)
+-&gt; Lens DBSubnetGroup DBSubnetGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#DBSubnetGroup%27"><span class="hs-identifier hs-type">DBSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300561"><span class="annot"><span class="annottext">Maybe Text
+vpcId :: Maybe Text
+$sel:vpcId:DBSubnetGroup' :: DBSubnetGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679300561"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300561"><span class="hs-identifier hs-var">vpcId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300560"><span class="annot"><span class="annottext">s :: DBSubnetGroup
+</span><a href="#local-6989586621679300560"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#DBSubnetGroup%27"><span class="hs-identifier hs-type">DBSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300559"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300559"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBSubnetGroup
+</span><a href="#local-6989586621679300560"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcId:DBSubnetGroup' :: Maybe Text
+</span><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#%24sel%3AvpcId%3ADBSubnetGroup%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300559"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#DBSubnetGroup"><span class="hs-identifier hs-type">DBSubnetGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | Detailed information about one or more subnets within a subnet group.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#dbSubnetGroup_subnets"><span class="hs-identifier hs-type">dbSubnetGroup_subnets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#DBSubnetGroup"><span class="hs-identifier hs-type">DBSubnetGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.Subnet.html#Subnet"><span class="hs-identifier hs-type">Subnet</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="dbSubnetGroup_subnets"><span class="annot"><span class="annottext">dbSubnetGroup_subnets :: (Maybe [Subnet] -&gt; f (Maybe [Subnet]))
+-&gt; DBSubnetGroup -&gt; f DBSubnetGroup
+</span><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#dbSubnetGroup_subnets"><span class="hs-identifier hs-var hs-var">dbSubnetGroup_subnets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBSubnetGroup -&gt; Maybe [Subnet])
+-&gt; (DBSubnetGroup -&gt; Maybe [Subnet] -&gt; DBSubnetGroup)
+-&gt; Lens
+     DBSubnetGroup DBSubnetGroup (Maybe [Subnet]) (Maybe [Subnet])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#DBSubnetGroup%27"><span class="hs-identifier hs-type">DBSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300557"><span class="annot"><span class="annottext">Maybe [Subnet]
+subnets :: Maybe [Subnet]
+$sel:subnets:DBSubnetGroup' :: DBSubnetGroup -&gt; Maybe [Subnet]
+</span><a href="#local-6989586621679300557"><span class="hs-identifier hs-var hs-var">subnets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Subnet]
+</span><a href="#local-6989586621679300557"><span class="hs-identifier hs-var">subnets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300556"><span class="annot"><span class="annottext">s :: DBSubnetGroup
+</span><a href="#local-6989586621679300556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#DBSubnetGroup%27"><span class="hs-identifier hs-type">DBSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300555"><span class="annot"><span class="annottext">Maybe [Subnet]
+</span><a href="#local-6989586621679300555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBSubnetGroup
+</span><a href="#local-6989586621679300556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnets:DBSubnetGroup' :: Maybe [Subnet]
+</span><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#%24sel%3Asubnets%3ADBSubnetGroup%27"><span class="hs-identifier hs-var">subnets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Subnet]
+</span><a href="#local-6989586621679300555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#DBSubnetGroup"><span class="hs-identifier hs-type">DBSubnetGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Subnet] -&gt; f (Maybe [Subnet]))
+ -&gt; DBSubnetGroup -&gt; f DBSubnetGroup)
+-&gt; ((Maybe [Subnet] -&gt; f (Maybe [Subnet]))
+    -&gt; Maybe [Subnet] -&gt; f (Maybe [Subnet]))
+-&gt; (Maybe [Subnet] -&gt; f (Maybe [Subnet]))
+-&gt; DBSubnetGroup
+-&gt; f DBSubnetGroup
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Subnet] [Subnet] [Subnet] [Subnet]
+-&gt; Iso
+     (Maybe [Subnet]) (Maybe [Subnet]) (Maybe [Subnet]) (Maybe [Subnet])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Subnet] [Subnet] [Subnet] [Subnet]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | Provides the description of the subnet group.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#dbSubnetGroup_dbSubnetGroupDescription"><span class="hs-identifier hs-type">dbSubnetGroup_dbSubnetGroupDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#DBSubnetGroup"><span class="hs-identifier hs-type">DBSubnetGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="dbSubnetGroup_dbSubnetGroupDescription"><span class="annot"><span class="annottext">dbSubnetGroup_dbSubnetGroupDescription :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DBSubnetGroup -&gt; f DBSubnetGroup
+</span><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#dbSubnetGroup_dbSubnetGroupDescription"><span class="hs-identifier hs-var hs-var">dbSubnetGroup_dbSubnetGroupDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBSubnetGroup -&gt; Maybe Text)
+-&gt; (DBSubnetGroup -&gt; Maybe Text -&gt; DBSubnetGroup)
+-&gt; Lens DBSubnetGroup DBSubnetGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#DBSubnetGroup%27"><span class="hs-identifier hs-type">DBSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300550"><span class="annot"><span class="annottext">Maybe Text
+dbSubnetGroupDescription :: Maybe Text
+$sel:dbSubnetGroupDescription:DBSubnetGroup' :: DBSubnetGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679300550"><span class="hs-identifier hs-var hs-var">dbSubnetGroupDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300550"><span class="hs-identifier hs-var">dbSubnetGroupDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300549"><span class="annot"><span class="annottext">s :: DBSubnetGroup
+</span><a href="#local-6989586621679300549"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#DBSubnetGroup%27"><span class="hs-identifier hs-type">DBSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300548"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300548"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBSubnetGroup
+</span><a href="#local-6989586621679300549"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbSubnetGroupDescription:DBSubnetGroup' :: Maybe Text
+</span><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#%24sel%3AdbSubnetGroupDescription%3ADBSubnetGroup%27"><span class="hs-identifier hs-var">dbSubnetGroupDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300548"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#DBSubnetGroup"><span class="hs-identifier hs-type">DBSubnetGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the DB subnet group.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#dbSubnetGroup_dbSubnetGroupArn"><span class="hs-identifier hs-type">dbSubnetGroup_dbSubnetGroupArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#DBSubnetGroup"><span class="hs-identifier hs-type">DBSubnetGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="dbSubnetGroup_dbSubnetGroupArn"><span class="annot"><span class="annottext">dbSubnetGroup_dbSubnetGroupArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DBSubnetGroup -&gt; f DBSubnetGroup
+</span><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#dbSubnetGroup_dbSubnetGroupArn"><span class="hs-identifier hs-var hs-var">dbSubnetGroup_dbSubnetGroupArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBSubnetGroup -&gt; Maybe Text)
+-&gt; (DBSubnetGroup -&gt; Maybe Text -&gt; DBSubnetGroup)
+-&gt; Lens DBSubnetGroup DBSubnetGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#DBSubnetGroup%27"><span class="hs-identifier hs-type">DBSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300546"><span class="annot"><span class="annottext">Maybe Text
+dbSubnetGroupArn :: Maybe Text
+$sel:dbSubnetGroupArn:DBSubnetGroup' :: DBSubnetGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679300546"><span class="hs-identifier hs-var hs-var">dbSubnetGroupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300546"><span class="hs-identifier hs-var">dbSubnetGroupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300545"><span class="annot"><span class="annottext">s :: DBSubnetGroup
+</span><a href="#local-6989586621679300545"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#DBSubnetGroup%27"><span class="hs-identifier hs-type">DBSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300544"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300544"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBSubnetGroup
+</span><a href="#local-6989586621679300545"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbSubnetGroupArn:DBSubnetGroup' :: Maybe Text
+</span><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#%24sel%3AdbSubnetGroupArn%3ADBSubnetGroup%27"><span class="hs-identifier hs-var">dbSubnetGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300544"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#DBSubnetGroup"><span class="hs-identifier hs-type">DBSubnetGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | Provides the status of the subnet group.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#dbSubnetGroup_subnetGroupStatus"><span class="hs-identifier hs-type">dbSubnetGroup_subnetGroupStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#DBSubnetGroup"><span class="hs-identifier hs-type">DBSubnetGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="dbSubnetGroup_subnetGroupStatus"><span class="annot"><span class="annottext">dbSubnetGroup_subnetGroupStatus :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DBSubnetGroup -&gt; f DBSubnetGroup
+</span><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#dbSubnetGroup_subnetGroupStatus"><span class="hs-identifier hs-var hs-var">dbSubnetGroup_subnetGroupStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBSubnetGroup -&gt; Maybe Text)
+-&gt; (DBSubnetGroup -&gt; Maybe Text -&gt; DBSubnetGroup)
+-&gt; Lens DBSubnetGroup DBSubnetGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#DBSubnetGroup%27"><span class="hs-identifier hs-type">DBSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300542"><span class="annot"><span class="annottext">Maybe Text
+subnetGroupStatus :: Maybe Text
+$sel:subnetGroupStatus:DBSubnetGroup' :: DBSubnetGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679300542"><span class="hs-identifier hs-var hs-var">subnetGroupStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300542"><span class="hs-identifier hs-var">subnetGroupStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300541"><span class="annot"><span class="annottext">s :: DBSubnetGroup
+</span><a href="#local-6989586621679300541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#DBSubnetGroup%27"><span class="hs-identifier hs-type">DBSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300540"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBSubnetGroup
+</span><a href="#local-6989586621679300541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetGroupStatus:DBSubnetGroup' :: Maybe Text
+</span><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#%24sel%3AsubnetGroupStatus%3ADBSubnetGroup%27"><span class="hs-identifier hs-var">subnetGroupStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#DBSubnetGroup"><span class="hs-identifier hs-type">DBSubnetGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#DBSubnetGroup"><span class="hs-identifier hs-type">DBSubnetGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679300537"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DBSubnetGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679300535"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679300535"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Subnet]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; DBSubnetGroup
+</span><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#DBSubnetGroup%27"><span class="hs-identifier hs-var">DBSubnetGroup'</span></a></span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [Subnet]
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; DBSubnetGroup)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe [Subnet]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; DBSubnetGroup)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679300535"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DBSubnetGroupName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe [Subnet]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; DBSubnetGroup)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [Subnet]
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; DBSubnetGroup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679300535"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VpcId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Subnet]
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; DBSubnetGroup)
+-&gt; Either String (Maybe [Subnet])
+-&gt; Either
+     String (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; DBSubnetGroup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679300535"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Subnets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-107"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [Subnet]))
+-&gt; Either String (Maybe [Subnet])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Subnet])
+-&gt; [Node] -&gt; Either String (Maybe [Subnet])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Subnet]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Subnet&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; DBSubnetGroup)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Maybe Text -&gt; DBSubnetGroup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679300535"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DBSubnetGroupDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Text -&gt; DBSubnetGroup)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; DBSubnetGroup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679300535"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DBSubnetGroupArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; DBSubnetGroup)
+-&gt; Either String (Maybe Text) -&gt; Either String DBSubnetGroup
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679300535"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SubnetGroupStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300526"><span id="local-6989586621679300528"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#DBSubnetGroup"><span class="hs-identifier hs-type">DBSubnetGroup</span></a></span></span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300523"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBSubnetGroup.html#DBSubnetGroup"><span class="hs-identifier hs-type">DBSubnetGroup</span></a></span></span><span>
+</span><span id="line-116"></span></pre></body></html>

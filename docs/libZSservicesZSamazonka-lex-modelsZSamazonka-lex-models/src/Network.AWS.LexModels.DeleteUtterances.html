@@ -58,7 +58,7 @@
 </span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newDeleteUtterances' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621679326228"><span id="local-6989586621679326229"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteUtterances"><span class="annot"><a href="Network.AWS.LexModels.DeleteUtterances.html#DeleteUtterances"><span class="hs-identifier hs-var">DeleteUtterances</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteUtterances%27"><span class="annot"><a href="Network.AWS.LexModels.DeleteUtterances.html#DeleteUtterances%27"><span class="hs-identifier hs-var">DeleteUtterances'</span></a></span></span><span>
+</span><span id="line-61"></span><span id="local-6989586621679326237"><span id="local-6989586621679326238"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteUtterances"><span class="annot"><a href="Network.AWS.LexModels.DeleteUtterances.html#DeleteUtterances"><span class="hs-identifier hs-var">DeleteUtterances</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteUtterances%27"><span class="annot"><a href="Network.AWS.LexModels.DeleteUtterances.html#DeleteUtterances%27"><span class="hs-identifier hs-var">DeleteUtterances'</span></a></span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the bot that stored the utterances.</span><span>
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AbotName%3ADeleteUtterances%27"><span class="annot"><span class="annottext">DeleteUtterances -&gt; Text
 </span><a href="Network.AWS.LexModels.DeleteUtterances.html#%24sel%3AbotName%3ADeleteUtterances%27"><span class="hs-identifier hs-var hs-var">botName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -71,7 +71,7 @@
 </span><span id="line-70"></span><span>    </span><span id="%24sel%3AuserId%3ADeleteUtterances%27"><span class="annot"><span class="annottext">DeleteUtterances -&gt; Text
 </span><a href="Network.AWS.LexModels.DeleteUtterances.html#%24sel%3AuserId%3ADeleteUtterances%27"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326221"><span id="local-6989586621679326223"><span class="annot"><span class="annottext">DeleteUtterances -&gt; DeleteUtterances -&gt; Bool
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326230"><span id="local-6989586621679326232"><span class="annot"><span class="annottext">DeleteUtterances -&gt; DeleteUtterances -&gt; Bool
 (DeleteUtterances -&gt; DeleteUtterances -&gt; Bool)
 -&gt; (DeleteUtterances -&gt; DeleteUtterances -&gt; Bool)
 -&gt; Eq DeleteUtterances
@@ -80,7 +80,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteUtterances -&gt; DeleteUtterances -&gt; Bool
 == :: DeleteUtterances -&gt; DeleteUtterances -&gt; Bool
 $c== :: DeleteUtterances -&gt; DeleteUtterances -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326212"><span id="local-6989586621679326214"><span id="local-6989586621679326216"><span id="local-6989586621679326218"><span class="annot"><span class="annottext">ReadPrec [DeleteUtterances]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326221"><span id="local-6989586621679326223"><span id="local-6989586621679326225"><span id="local-6989586621679326227"><span class="annot"><span class="annottext">ReadPrec [DeleteUtterances]
 ReadPrec DeleteUtterances
 Int -&gt; ReadS DeleteUtterances
 ReadS [DeleteUtterances]
@@ -100,7 +100,7 @@ readList :: ReadS [DeleteUtterances]
 $creadList :: ReadS [DeleteUtterances]
 readsPrec :: Int -&gt; ReadS DeleteUtterances
 $creadsPrec :: Int -&gt; ReadS DeleteUtterances
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326205"><span id="local-6989586621679326207"><span id="local-6989586621679326209"><span class="annot"><span class="annottext">Int -&gt; DeleteUtterances -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326214"><span id="local-6989586621679326216"><span id="local-6989586621679326218"><span class="annot"><span class="annottext">Int -&gt; DeleteUtterances -&gt; ShowS
 [DeleteUtterances] -&gt; ShowS
 DeleteUtterances -&gt; String
 (Int -&gt; DeleteUtterances -&gt; ShowS)
@@ -149,17 +149,17 @@ $cfrom :: forall x. DeleteUtterances -&gt; Rep DeleteUtterances x
 </span><span id="line-94"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.LexModels.DeleteUtterances.html#DeleteUtterances"><span class="hs-identifier hs-type">DeleteUtterances</span></a></span><span>
 </span><span id="line-96"></span><span id="newDeleteUtterances"><span class="annot"><span class="annottext">newDeleteUtterances :: Text -&gt; Text -&gt; DeleteUtterances
-</span><a href="Network.AWS.LexModels.DeleteUtterances.html#newDeleteUtterances"><span class="hs-identifier hs-var hs-var">newDeleteUtterances</span></a></span></span><span> </span><span id="local-6989586621679326200"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326200"><span class="hs-identifier hs-var">pBotName_</span></a></span></span><span> </span><span id="local-6989586621679326199"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326199"><span class="hs-identifier hs-var">pUserId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.LexModels.DeleteUtterances.html#newDeleteUtterances"><span class="hs-identifier hs-var hs-var">newDeleteUtterances</span></a></span></span><span> </span><span id="local-6989586621679326209"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326209"><span class="hs-identifier hs-var">pBotName_</span></a></span></span><span> </span><span id="local-6989586621679326208"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326208"><span class="hs-identifier hs-var">pUserId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>  </span><span class="annot"><span class="annottext">DeleteUtterances' :: Text -&gt; Text -&gt; DeleteUtterances
 </span><a href="Network.AWS.LexModels.DeleteUtterances.html#DeleteUtterances%27"><span class="hs-identifier hs-type">DeleteUtterances'</span></a></span><span>
 </span><span id="line-98"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:botName:DeleteUtterances' :: Text
 </span><a href="Network.AWS.LexModels.DeleteUtterances.html#%24sel%3AbotName%3ADeleteUtterances%27"><span class="hs-identifier hs-var">botName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326200"><span class="hs-identifier hs-var">pBotName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679326209"><span class="hs-identifier hs-var">pBotName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:userId:DeleteUtterances' :: Text
 </span><a href="Network.AWS.LexModels.DeleteUtterances.html#%24sel%3AuserId%3ADeleteUtterances%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326199"><span class="hs-identifier hs-var">pUserId_</span></a></span><span>
+</span><a href="#local-6989586621679326208"><span class="hs-identifier hs-var">pUserId_</span></a></span><span>
 </span><span id="line-100"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | The name of the bot that stored the utterances.</span><span>
@@ -169,16 +169,16 @@ $cfrom :: forall x. DeleteUtterances -&gt; Rep DeleteUtterances x
 -&gt; (DeleteUtterances -&gt; Text -&gt; DeleteUtterances)
 -&gt; Lens DeleteUtterances DeleteUtterances Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.DeleteUtterances.html#DeleteUtterances%27"><span class="hs-identifier hs-type">DeleteUtterances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326196"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.DeleteUtterances.html#DeleteUtterances%27"><span class="hs-identifier hs-type">DeleteUtterances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326205"><span class="annot"><span class="annottext">Text
 botName :: Text
 $sel:botName:DeleteUtterances' :: DeleteUtterances -&gt; Text
-</span><a href="#local-6989586621679326196"><span class="hs-identifier hs-var hs-var">botName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326196"><span class="hs-identifier hs-var">botName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326195"><span class="annot"><span class="annottext">s :: DeleteUtterances
-</span><a href="#local-6989586621679326195"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.DeleteUtterances.html#DeleteUtterances%27"><span class="hs-identifier hs-type">DeleteUtterances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326194"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326194"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteUtterances
-</span><a href="#local-6989586621679326195"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:botName:DeleteUtterances' :: Text
+</span><a href="#local-6989586621679326205"><span class="hs-identifier hs-var hs-var">botName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326205"><span class="hs-identifier hs-var">botName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326204"><span class="annot"><span class="annottext">s :: DeleteUtterances
+</span><a href="#local-6989586621679326204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.DeleteUtterances.html#DeleteUtterances%27"><span class="hs-identifier hs-type">DeleteUtterances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326203"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteUtterances
+</span><a href="#local-6989586621679326204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:botName:DeleteUtterances' :: Text
 </span><a href="Network.AWS.LexModels.DeleteUtterances.html#%24sel%3AbotName%3ADeleteUtterances%27"><span class="hs-identifier hs-var">botName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326194"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteUtterances.html#DeleteUtterances"><span class="hs-identifier hs-type">DeleteUtterances</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679326203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteUtterances.html#DeleteUtterances"><span class="hs-identifier hs-type">DeleteUtterances</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | The unique identifier for the user that made the utterances. This is the</span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- user ID that was sent in the</span><span>
@@ -192,27 +192,27 @@ $sel:botName:DeleteUtterances' :: DeleteUtterances -&gt; Text
 -&gt; (DeleteUtterances -&gt; Text -&gt; DeleteUtterances)
 -&gt; Lens DeleteUtterances DeleteUtterances Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.DeleteUtterances.html#DeleteUtterances%27"><span class="hs-identifier hs-type">DeleteUtterances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326193"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.DeleteUtterances.html#DeleteUtterances%27"><span class="hs-identifier hs-type">DeleteUtterances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326202"><span class="annot"><span class="annottext">Text
 userId :: Text
 $sel:userId:DeleteUtterances' :: DeleteUtterances -&gt; Text
-</span><a href="#local-6989586621679326193"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326193"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326192"><span class="annot"><span class="annottext">s :: DeleteUtterances
-</span><a href="#local-6989586621679326192"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.DeleteUtterances.html#DeleteUtterances%27"><span class="hs-identifier hs-type">DeleteUtterances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326191"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326191"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteUtterances
-</span><a href="#local-6989586621679326192"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userId:DeleteUtterances' :: Text
+</span><a href="#local-6989586621679326202"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326202"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326201"><span class="annot"><span class="annottext">s :: DeleteUtterances
+</span><a href="#local-6989586621679326201"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.DeleteUtterances.html#DeleteUtterances%27"><span class="hs-identifier hs-type">DeleteUtterances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326200"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326200"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteUtterances
+</span><a href="#local-6989586621679326201"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userId:DeleteUtterances' :: Text
 </span><a href="Network.AWS.LexModels.DeleteUtterances.html#%24sel%3AuserId%3ADeleteUtterances%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326191"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteUtterances.html#DeleteUtterances"><span class="hs-identifier hs-type">DeleteUtterances</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679326200"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteUtterances.html#DeleteUtterances"><span class="hs-identifier hs-type">DeleteUtterances</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteUtterances.html#DeleteUtterances"><span class="hs-identifier hs-type">DeleteUtterances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-116"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-117"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteUtterances.html#DeleteUtterances"><span class="hs-identifier hs-type">DeleteUtterances</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>      </span><span class="annot"><a href="Network.AWS.LexModels.DeleteUtterances.html#DeleteUtterancesResponse"><span class="hs-identifier hs-type">DeleteUtterancesResponse</span></a></span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679326187"><span class="annot"><span class="annottext">request :: DeleteUtterances -&gt; Request DeleteUtterances
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679326196"><span class="annot"><span class="annottext">request :: DeleteUtterances -&gt; Request DeleteUtterances
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteUtterances -&gt; Request DeleteUtterances
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.LexModels.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679326183"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679326192"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteUtterances
 -&gt; ClientResponse ClientBody
@@ -236,12 +236,12 @@ AWSResponse a
 DeleteUtterancesResponse
 </span><a href="Network.AWS.LexModels.DeleteUtterances.html#DeleteUtterancesResponse%27"><span class="hs-identifier hs-var">DeleteUtterancesResponse'</span></a></span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326176"><span id="local-6989586621679326178"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteUtterances.html#DeleteUtterances"><span class="hs-identifier hs-type">DeleteUtterances</span></a></span></span></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326185"><span id="local-6989586621679326187"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteUtterances.html#DeleteUtterances"><span class="hs-identifier hs-type">DeleteUtterances</span></a></span></span></span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326173"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteUtterances.html#DeleteUtterances"><span class="hs-identifier hs-type">DeleteUtterances</span></a></span></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326182"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteUtterances.html#DeleteUtterances"><span class="hs-identifier hs-type">DeleteUtterances</span></a></span></span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteUtterances.html#DeleteUtterances"><span class="hs-identifier hs-type">DeleteUtterances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679326169"><span class="annot"><span class="annottext">toHeaders :: DeleteUtterances -&gt; [Header]
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679326178"><span class="annot"><span class="annottext">toHeaders :: DeleteUtterances -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteUtterances -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -261,13 +261,13 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteUtterances.html#DeleteUtterances"><span class="hs-identifier hs-type">DeleteUtterances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679326163"><span class="annot"><span class="annottext">toPath :: DeleteUtterances -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteUtterances.html#DeleteUtterances%27"><span class="hs-identifier hs-type">DeleteUtterances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326160"><span id="local-6989586621679326161"><span class="annot"><span class="annottext">Text
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679326172"><span class="annot"><span class="annottext">toPath :: DeleteUtterances -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteUtterances.html#DeleteUtterances%27"><span class="hs-identifier hs-type">DeleteUtterances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326169"><span id="local-6989586621679326170"><span class="annot"><span class="annottext">Text
 userId :: Text
 botName :: Text
 $sel:userId:DeleteUtterances' :: DeleteUtterances -&gt; Text
 $sel:botName:DeleteUtterances' :: DeleteUtterances -&gt; Text
-</span><a href="#local-6989586621679326160"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679326169"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -276,17 +276,17 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326161"><span class="hs-identifier hs-var">botName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679326170"><span class="hs-identifier hs-var">botName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/utterances/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326160"><span class="hs-identifier hs-var">userId</span></a></span><span>
+</span><a href="#local-6989586621679326169"><span class="hs-identifier hs-var">userId</span></a></span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteUtterances.html#DeleteUtterances"><span class="hs-identifier hs-type">DeleteUtterances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679326156"><span class="annot"><span class="annottext">toQuery :: DeleteUtterances -&gt; QueryString
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679326165"><span class="annot"><span class="annottext">toQuery :: DeleteUtterances -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteUtterances -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -294,10 +294,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | /See:/ 'newDeleteUtterancesResponse' smart constructor.</span><span>
-</span><span id="line-151"></span><span id="local-6989586621679326153"><span id="local-6989586621679326154"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteUtterancesResponse"><span class="annot"><a href="Network.AWS.LexModels.DeleteUtterances.html#DeleteUtterancesResponse"><span class="hs-identifier hs-var">DeleteUtterancesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteUtterancesResponse%27"><span class="annot"><a href="Network.AWS.LexModels.DeleteUtterances.html#DeleteUtterancesResponse%27"><span class="hs-identifier hs-var">DeleteUtterancesResponse'</span></a></span></span><span>
+</span><span id="line-151"></span><span id="local-6989586621679326162"><span id="local-6989586621679326163"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteUtterancesResponse"><span class="annot"><a href="Network.AWS.LexModels.DeleteUtterances.html#DeleteUtterancesResponse"><span class="hs-identifier hs-var">DeleteUtterancesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteUtterancesResponse%27"><span class="annot"><a href="Network.AWS.LexModels.DeleteUtterances.html#DeleteUtterancesResponse%27"><span class="hs-identifier hs-var">DeleteUtterancesResponse'</span></a></span></span><span>
 </span><span id="line-152"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-153"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326149"><span id="local-6989586621679326151"><span class="annot"><span class="annottext">DeleteUtterancesResponse -&gt; DeleteUtterancesResponse -&gt; Bool
+</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326158"><span id="local-6989586621679326160"><span class="annot"><span class="annottext">DeleteUtterancesResponse -&gt; DeleteUtterancesResponse -&gt; Bool
 (DeleteUtterancesResponse -&gt; DeleteUtterancesResponse -&gt; Bool)
 -&gt; (DeleteUtterancesResponse -&gt; DeleteUtterancesResponse -&gt; Bool)
 -&gt; Eq DeleteUtterancesResponse
@@ -306,7 +306,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteUtterancesResponse -&gt; DeleteUtterancesResponse -&gt; Bool
 == :: DeleteUtterancesResponse -&gt; DeleteUtterancesResponse -&gt; Bool
 $c== :: DeleteUtterancesResponse -&gt; DeleteUtterancesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326141"><span id="local-6989586621679326143"><span id="local-6989586621679326145"><span id="local-6989586621679326147"><span class="annot"><span class="annottext">ReadPrec [DeleteUtterancesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326150"><span id="local-6989586621679326152"><span id="local-6989586621679326154"><span id="local-6989586621679326156"><span class="annot"><span class="annottext">ReadPrec [DeleteUtterancesResponse]
 ReadPrec DeleteUtterancesResponse
 Int -&gt; ReadS DeleteUtterancesResponse
 ReadS [DeleteUtterancesResponse]
@@ -326,7 +326,7 @@ readList :: ReadS [DeleteUtterancesResponse]
 $creadList :: ReadS [DeleteUtterancesResponse]
 readsPrec :: Int -&gt; ReadS DeleteUtterancesResponse
 $creadsPrec :: Int -&gt; ReadS DeleteUtterancesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326135"><span id="local-6989586621679326137"><span id="local-6989586621679326139"><span class="annot"><span class="annottext">Int -&gt; DeleteUtterancesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326144"><span id="local-6989586621679326146"><span id="local-6989586621679326148"><span class="annot"><span class="annottext">Int -&gt; DeleteUtterancesResponse -&gt; ShowS
 [DeleteUtterancesResponse] -&gt; ShowS
 DeleteUtterancesResponse -&gt; String
 (Int -&gt; DeleteUtterancesResponse -&gt; ShowS)
@@ -369,5 +369,5 @@ DeleteUtterancesResponse -&gt; Rep DeleteUtterancesResponse x
 </span><span id="line-163"></span><span>  </span><span class="annot"><span class="annottext">DeleteUtterancesResponse
 </span><a href="Network.AWS.LexModels.DeleteUtterances.html#DeleteUtterancesResponse%27"><span class="hs-identifier hs-var">DeleteUtterancesResponse'</span></a></span><span>
 </span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326131"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteUtterances.html#DeleteUtterancesResponse"><span class="hs-identifier hs-type">DeleteUtterancesResponse</span></a></span></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326140"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteUtterances.html#DeleteUtterancesResponse"><span class="hs-identifier hs-type">DeleteUtterancesResponse</span></a></span></span><span>
 </span><span id="line-166"></span></pre></body></html>

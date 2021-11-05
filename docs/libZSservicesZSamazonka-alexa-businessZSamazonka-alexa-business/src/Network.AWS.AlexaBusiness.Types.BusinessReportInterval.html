@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679363595"><span id="local-6989586621679363596"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BusinessReportInterval"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportInterval.html#BusinessReportInterval"><span class="hs-identifier hs-var">BusinessReportInterval</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BusinessReportInterval%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportInterval.html#BusinessReportInterval%27"><span class="hs-identifier hs-var">BusinessReportInterval'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679363604"><span id="local-6989586621679363605"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BusinessReportInterval"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportInterval.html#BusinessReportInterval"><span class="hs-identifier hs-var">BusinessReportInterval</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BusinessReportInterval%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportInterval.html#BusinessReportInterval%27"><span class="hs-identifier hs-var">BusinessReportInterval'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBusinessReportInterval"><span class="annot"><span class="annottext">BusinessReportInterval -&gt; Text
 </span><a href="Network.AWS.AlexaBusiness.Types.BusinessReportInterval.html#fromBusinessReportInterval"><span class="hs-identifier hs-var hs-var">fromBusinessReportInterval</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679363587"><span id="local-6989586621679363589"><span id="local-6989586621679363591"><span class="annot"><span class="annottext">Int -&gt; BusinessReportInterval -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679363596"><span id="local-6989586621679363598"><span id="local-6989586621679363600"><span class="annot"><span class="annottext">Int -&gt; BusinessReportInterval -&gt; ShowS
 [BusinessReportInterval] -&gt; ShowS
 BusinessReportInterval -&gt; String
 (Int -&gt; BusinessReportInterval -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: BusinessReportInterval -&gt; String
 showsPrec :: Int -&gt; BusinessReportInterval -&gt; ShowS
 $cshowsPrec :: Int -&gt; BusinessReportInterval -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679363578"><span id="local-6989586621679363580"><span id="local-6989586621679363582"><span id="local-6989586621679363584"><span class="annot"><span class="annottext">ReadPrec [BusinessReportInterval]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679363587"><span id="local-6989586621679363589"><span id="local-6989586621679363591"><span id="local-6989586621679363593"><span class="annot"><span class="annottext">ReadPrec [BusinessReportInterval]
 ReadPrec BusinessReportInterval
 Int -&gt; ReadS BusinessReportInterval
 ReadS [BusinessReportInterval]
@@ -73,7 +73,7 @@ $creadList :: ReadS [BusinessReportInterval]
 readsPrec :: Int -&gt; ReadS BusinessReportInterval
 $creadsPrec :: Int -&gt; ReadS BusinessReportInterval
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679363573"><span id="local-6989586621679363575"><span class="annot"><span class="annottext">BusinessReportInterval -&gt; BusinessReportInterval -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679363582"><span id="local-6989586621679363584"><span class="annot"><span class="annottext">BusinessReportInterval -&gt; BusinessReportInterval -&gt; Bool
 (BusinessReportInterval -&gt; BusinessReportInterval -&gt; Bool)
 -&gt; (BusinessReportInterval -&gt; BusinessReportInterval -&gt; Bool)
 -&gt; Eq BusinessReportInterval
@@ -83,7 +83,7 @@ $c/= :: BusinessReportInterval -&gt; BusinessReportInterval -&gt; Bool
 == :: BusinessReportInterval -&gt; BusinessReportInterval -&gt; Bool
 $c== :: BusinessReportInterval -&gt; BusinessReportInterval -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679363557"><span id="local-6989586621679363559"><span id="local-6989586621679363561"><span id="local-6989586621679363563"><span id="local-6989586621679363565"><span id="local-6989586621679363567"><span id="local-6989586621679363569"><span class="annot"><span class="annottext">Eq BusinessReportInterval
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679363566"><span id="local-6989586621679363568"><span id="local-6989586621679363570"><span id="local-6989586621679363572"><span id="local-6989586621679363574"><span id="local-6989586621679363576"><span id="local-6989586621679363578"><span class="annot"><span class="annottext">Eq BusinessReportInterval
 Eq BusinessReportInterval
 -&gt; (BusinessReportInterval -&gt; BusinessReportInterval -&gt; Ordering)
 -&gt; (BusinessReportInterval -&gt; BusinessReportInterval -&gt; Bool)
@@ -142,7 +142,7 @@ $cfrom :: forall x. BusinessReportInterval -&gt; Rep BusinessReportInterval x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679363549"><span id="local-6989586621679363551"><span class="annot"><span class="annottext">Int -&gt; BusinessReportInterval -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679363558"><span id="local-6989586621679363560"><span class="annot"><span class="annottext">Int -&gt; BusinessReportInterval -&gt; Int
 BusinessReportInterval -&gt; Int
 (Int -&gt; BusinessReportInterval -&gt; Int)
 -&gt; (BusinessReportInterval -&gt; Int)
@@ -153,54 +153,54 @@ $chash :: BusinessReportInterval -&gt; Int
 hashWithSalt :: Int -&gt; BusinessReportInterval -&gt; Int
 $chashWithSalt :: Int -&gt; BusinessReportInterval -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679363546"><span class="annot"><span class="annottext">BusinessReportInterval -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679363555"><span class="annot"><span class="annottext">BusinessReportInterval -&gt; ()
 (BusinessReportInterval -&gt; ()) -&gt; NFData BusinessReportInterval
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: BusinessReportInterval -&gt; ()
 $crnf :: BusinessReportInterval -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679363543"><span class="annot"><span class="annottext">Text -&gt; Either String BusinessReportInterval
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679363552"><span class="annot"><span class="annottext">Text -&gt; Either String BusinessReportInterval
 (Text -&gt; Either String BusinessReportInterval)
 -&gt; FromText BusinessReportInterval
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String BusinessReportInterval
 $cfromText :: Text -&gt; Either String BusinessReportInterval
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679363540"><span class="annot"><span class="annottext">BusinessReportInterval -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679363549"><span class="annot"><span class="annottext">BusinessReportInterval -&gt; Text
 (BusinessReportInterval -&gt; Text) -&gt; ToText BusinessReportInterval
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: BusinessReportInterval -&gt; Text
 $ctoText :: BusinessReportInterval -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679363537"><span class="annot"><span class="annottext">BusinessReportInterval -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679363546"><span class="annot"><span class="annottext">BusinessReportInterval -&gt; ByteString
 (BusinessReportInterval -&gt; ByteString)
 -&gt; ToByteString BusinessReportInterval
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: BusinessReportInterval -&gt; ByteString
 $ctoBS :: BusinessReportInterval -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679363534"><span class="annot"><span class="annottext">BusinessReportInterval -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679363543"><span class="annot"><span class="annottext">BusinessReportInterval -&gt; ByteStringBuilder
 (BusinessReportInterval -&gt; ByteStringBuilder)
 -&gt; ToLog BusinessReportInterval
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: BusinessReportInterval -&gt; ByteStringBuilder
 $cbuild :: BusinessReportInterval -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679363531"><span class="annot"><span class="annottext">HeaderName -&gt; BusinessReportInterval -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679363540"><span class="annot"><span class="annottext">HeaderName -&gt; BusinessReportInterval -&gt; [Header]
 (HeaderName -&gt; BusinessReportInterval -&gt; [Header])
 -&gt; ToHeader BusinessReportInterval
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; BusinessReportInterval -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; BusinessReportInterval -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679363528"><span class="annot"><span class="annottext">BusinessReportInterval -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679363537"><span class="annot"><span class="annottext">BusinessReportInterval -&gt; QueryString
 (BusinessReportInterval -&gt; QueryString)
 -&gt; ToQuery BusinessReportInterval
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: BusinessReportInterval -&gt; QueryString
 $ctoQuery :: BusinessReportInterval -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679363523"><span id="local-6989586621679363525"><span class="annot"><span class="annottext">Value -&gt; Parser [BusinessReportInterval]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679363532"><span id="local-6989586621679363534"><span class="annot"><span class="annottext">Value -&gt; Parser [BusinessReportInterval]
 Value -&gt; Parser BusinessReportInterval
 (Value -&gt; Parser BusinessReportInterval)
 -&gt; (Value -&gt; Parser [BusinessReportInterval])
@@ -212,7 +212,7 @@ $cparseJSONList :: Value -&gt; Parser [BusinessReportInterval]
 parseJSON :: Value -&gt; Parser BusinessReportInterval
 $cparseJSON :: Value -&gt; Parser BusinessReportInterval
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679363518"><span id="local-6989586621679363520"><span class="annot"><span class="annottext">FromJSONKeyFunction [BusinessReportInterval]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679363527"><span id="local-6989586621679363529"><span class="annot"><span class="annottext">FromJSONKeyFunction [BusinessReportInterval]
 FromJSONKeyFunction BusinessReportInterval
 FromJSONKeyFunction BusinessReportInterval
 -&gt; FromJSONKeyFunction [BusinessReportInterval]
@@ -224,7 +224,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [BusinessReportInterval]
 fromJSONKey :: FromJSONKeyFunction BusinessReportInterval
 $cfromJSONKey :: FromJSONKeyFunction BusinessReportInterval
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679363509"><span id="local-6989586621679363511"><span id="local-6989586621679363513"><span id="local-6989586621679363515"><span class="annot"><span class="annottext">[BusinessReportInterval] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679363518"><span id="local-6989586621679363520"><span id="local-6989586621679363522"><span id="local-6989586621679363524"><span class="annot"><span class="annottext">[BusinessReportInterval] -&gt; Encoding
 [BusinessReportInterval] -&gt; Value
 BusinessReportInterval -&gt; Encoding
 BusinessReportInterval -&gt; Value
@@ -248,7 +248,7 @@ $ctoEncoding :: BusinessReportInterval -&gt; Encoding
 toJSON :: BusinessReportInterval -&gt; Value
 $ctoJSON :: BusinessReportInterval -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679363504"><span id="local-6989586621679363506"><span class="annot"><span class="annottext">ToJSONKeyFunction [BusinessReportInterval]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679363513"><span id="local-6989586621679363515"><span class="annot"><span class="annottext">ToJSONKeyFunction [BusinessReportInterval]
 ToJSONKeyFunction BusinessReportInterval
 ToJSONKeyFunction BusinessReportInterval
 -&gt; ToJSONKeyFunction [BusinessReportInterval]
@@ -260,14 +260,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [BusinessReportInterval]
 toJSONKey :: ToJSONKeyFunction BusinessReportInterval
 $ctoJSONKey :: ToJSONKeyFunction BusinessReportInterval
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679363501"><span class="annot"><span class="annottext">[Node] -&gt; Either String BusinessReportInterval
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679363510"><span class="annot"><span class="annottext">[Node] -&gt; Either String BusinessReportInterval
 ([Node] -&gt; Either String BusinessReportInterval)
 -&gt; FromXML BusinessReportInterval
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String BusinessReportInterval
 $cparseXML :: [Node] -&gt; Either String BusinessReportInterval
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679363498"><span class="annot"><span class="annottext">BusinessReportInterval -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679363507"><span class="annot"><span class="annottext">BusinessReportInterval -&gt; XML
 (BusinessReportInterval -&gt; XML) -&gt; ToXML BusinessReportInterval
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: BusinessReportInterval -&gt; XML

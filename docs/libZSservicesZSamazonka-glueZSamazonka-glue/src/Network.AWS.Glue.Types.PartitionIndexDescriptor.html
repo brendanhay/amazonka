@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | A descriptor for a partition index in a table.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newPartitionIndexDescriptor' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679692997"><span id="local-6989586621679692998"></span></span><span class="hs-keyword">data</span><span> </span><span id="PartitionIndexDescriptor"><span class="annot"><a href="Network.AWS.Glue.Types.PartitionIndexDescriptor.html#PartitionIndexDescriptor"><span class="hs-identifier hs-var">PartitionIndexDescriptor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PartitionIndexDescriptor%27"><span class="annot"><a href="Network.AWS.Glue.Types.PartitionIndexDescriptor.html#PartitionIndexDescriptor%27"><span class="hs-identifier hs-var">PartitionIndexDescriptor'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679693006"><span id="local-6989586621679693007"></span></span><span class="hs-keyword">data</span><span> </span><span id="PartitionIndexDescriptor"><span class="annot"><a href="Network.AWS.Glue.Types.PartitionIndexDescriptor.html#PartitionIndexDescriptor"><span class="hs-identifier hs-var">PartitionIndexDescriptor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PartitionIndexDescriptor%27"><span class="annot"><a href="Network.AWS.Glue.Types.PartitionIndexDescriptor.html#PartitionIndexDescriptor%27"><span class="hs-identifier hs-var">PartitionIndexDescriptor'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of errors that can occur when registering partition indexes for</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- an existing table.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AbackfillErrors%3APartitionIndexDescriptor%27"><span class="annot"><span class="annottext">PartitionIndexDescriptor -&gt; Maybe [BackfillError]
@@ -56,7 +56,7 @@
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AindexStatus%3APartitionIndexDescriptor%27"><span class="annot"><span class="annottext">PartitionIndexDescriptor -&gt; PartitionIndexStatus
 </span><a href="Network.AWS.Glue.Types.PartitionIndexDescriptor.html#%24sel%3AindexStatus%3APartitionIndexDescriptor%27"><span class="hs-identifier hs-var hs-var">indexStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionIndexStatus.html#PartitionIndexStatus"><span class="hs-identifier hs-type">PartitionIndexStatus</span></a></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679692988"><span id="local-6989586621679692990"><span class="annot"><span class="annottext">PartitionIndexDescriptor -&gt; PartitionIndexDescriptor -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679692997"><span id="local-6989586621679692999"><span class="annot"><span class="annottext">PartitionIndexDescriptor -&gt; PartitionIndexDescriptor -&gt; Bool
 (PartitionIndexDescriptor -&gt; PartitionIndexDescriptor -&gt; Bool)
 -&gt; (PartitionIndexDescriptor -&gt; PartitionIndexDescriptor -&gt; Bool)
 -&gt; Eq PartitionIndexDescriptor
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PartitionIndexDescriptor -&gt; PartitionIndexDescriptor -&gt; Bool
 == :: PartitionIndexDescriptor -&gt; PartitionIndexDescriptor -&gt; Bool
 $c== :: PartitionIndexDescriptor -&gt; PartitionIndexDescriptor -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679692979"><span id="local-6989586621679692981"><span id="local-6989586621679692983"><span id="local-6989586621679692985"><span class="annot"><span class="annottext">ReadPrec [PartitionIndexDescriptor]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679692988"><span id="local-6989586621679692990"><span id="local-6989586621679692992"><span id="local-6989586621679692994"><span class="annot"><span class="annottext">ReadPrec [PartitionIndexDescriptor]
 ReadPrec PartitionIndexDescriptor
 Int -&gt; ReadS PartitionIndexDescriptor
 ReadS [PartitionIndexDescriptor]
@@ -85,7 +85,7 @@ readList :: ReadS [PartitionIndexDescriptor]
 $creadList :: ReadS [PartitionIndexDescriptor]
 readsPrec :: Int -&gt; ReadS PartitionIndexDescriptor
 $creadsPrec :: Int -&gt; ReadS PartitionIndexDescriptor
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679692972"><span id="local-6989586621679692974"><span id="local-6989586621679692976"><span class="annot"><span class="annottext">Int -&gt; PartitionIndexDescriptor -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679692981"><span id="local-6989586621679692983"><span id="local-6989586621679692985"><span class="annot"><span class="annottext">Int -&gt; PartitionIndexDescriptor -&gt; ShowS
 [PartitionIndexDescriptor] -&gt; ShowS
 PartitionIndexDescriptor -&gt; String
 (Int -&gt; PartitionIndexDescriptor -&gt; ShowS)
@@ -158,12 +158,12 @@ PartitionIndexDescriptor -&gt; Rep PartitionIndexDescriptor x
 -&gt; PartitionIndexStatus
 -&gt; PartitionIndexDescriptor
 </span><a href="Network.AWS.Glue.Types.PartitionIndexDescriptor.html#newPartitionIndexDescriptor"><span class="hs-identifier hs-var hs-var">newPartitionIndexDescriptor</span></a></span></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679692966"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679692966"><span class="hs-identifier hs-var">pIndexName_</span></a></span></span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679692965"><span class="annot"><span class="annottext">NonEmpty KeySchemaElement
-</span><a href="#local-6989586621679692965"><span class="hs-identifier hs-var">pKeys_</span></a></span></span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679692964"><span class="annot"><span class="annottext">PartitionIndexStatus
-</span><a href="#local-6989586621679692964"><span class="hs-identifier hs-var">pIndexStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679692975"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679692975"><span class="hs-identifier hs-var">pIndexName_</span></a></span></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679692974"><span class="annot"><span class="annottext">NonEmpty KeySchemaElement
+</span><a href="#local-6989586621679692974"><span class="hs-identifier hs-var">pKeys_</span></a></span></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679692973"><span class="annot"><span class="annottext">PartitionIndexStatus
+</span><a href="#local-6989586621679692973"><span class="hs-identifier hs-var">pIndexStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">PartitionIndexDescriptor' :: Maybe [BackfillError]
 -&gt; Text
 -&gt; NonEmpty KeySchemaElement
@@ -177,7 +177,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">$sel:indexName:PartitionIndexDescriptor' :: Text
 </span><a href="Network.AWS.Glue.Types.PartitionIndexDescriptor.html#%24sel%3AindexName%3APartitionIndexDescriptor%27"><span class="hs-identifier hs-var">indexName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679692966"><span class="hs-identifier hs-var">pIndexName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679692975"><span class="hs-identifier hs-var">pIndexName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">$sel:keys:PartitionIndexDescriptor' :: NonEmpty KeySchemaElement
 </span><a href="Network.AWS.Glue.Types.PartitionIndexDescriptor.html#%24sel%3Akeys%3APartitionIndexDescriptor%27"><span class="hs-identifier hs-var">keys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged
   (NonEmpty KeySchemaElement) (Identity (NonEmpty KeySchemaElement))
@@ -191,10 +191,10 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty KeySchemaElement -&gt; NonEmpty KeySchemaElement
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty KeySchemaElement
-</span><a href="#local-6989586621679692965"><span class="hs-identifier hs-var">pKeys_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679692974"><span class="hs-identifier hs-var">pKeys_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">$sel:indexStatus:PartitionIndexDescriptor' :: PartitionIndexStatus
 </span><a href="Network.AWS.Glue.Types.PartitionIndexDescriptor.html#%24sel%3AindexStatus%3APartitionIndexDescriptor%27"><span class="hs-identifier hs-var">indexStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PartitionIndexStatus
-</span><a href="#local-6989586621679692964"><span class="hs-identifier hs-var">pIndexStatus_</span></a></span><span>
+</span><a href="#local-6989586621679692973"><span class="hs-identifier hs-var">pIndexStatus_</span></a></span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | A list of errors that can occur when registering partition indexes for</span><span>
@@ -211,16 +211,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (Maybe [BackfillError])
      (Maybe [BackfillError])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionIndexDescriptor.html#PartitionIndexDescriptor%27"><span class="hs-identifier hs-type">PartitionIndexDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679692958"><span class="annot"><span class="annottext">Maybe [BackfillError]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionIndexDescriptor.html#PartitionIndexDescriptor%27"><span class="hs-identifier hs-type">PartitionIndexDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679692967"><span class="annot"><span class="annottext">Maybe [BackfillError]
 backfillErrors :: Maybe [BackfillError]
 $sel:backfillErrors:PartitionIndexDescriptor' :: PartitionIndexDescriptor -&gt; Maybe [BackfillError]
-</span><a href="#local-6989586621679692958"><span class="hs-identifier hs-var hs-var">backfillErrors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BackfillError]
-</span><a href="#local-6989586621679692958"><span class="hs-identifier hs-var">backfillErrors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679692957"><span class="annot"><span class="annottext">s :: PartitionIndexDescriptor
-</span><a href="#local-6989586621679692957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionIndexDescriptor.html#PartitionIndexDescriptor%27"><span class="hs-identifier hs-type">PartitionIndexDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679692956"><span class="annot"><span class="annottext">Maybe [BackfillError]
-</span><a href="#local-6989586621679692956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PartitionIndexDescriptor
-</span><a href="#local-6989586621679692957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backfillErrors:PartitionIndexDescriptor' :: Maybe [BackfillError]
+</span><a href="#local-6989586621679692967"><span class="hs-identifier hs-var hs-var">backfillErrors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BackfillError]
+</span><a href="#local-6989586621679692967"><span class="hs-identifier hs-var">backfillErrors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679692966"><span class="annot"><span class="annottext">s :: PartitionIndexDescriptor
+</span><a href="#local-6989586621679692966"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionIndexDescriptor.html#PartitionIndexDescriptor%27"><span class="hs-identifier hs-type">PartitionIndexDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679692965"><span class="annot"><span class="annottext">Maybe [BackfillError]
+</span><a href="#local-6989586621679692965"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PartitionIndexDescriptor
+</span><a href="#local-6989586621679692966"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backfillErrors:PartitionIndexDescriptor' :: Maybe [BackfillError]
 </span><a href="Network.AWS.Glue.Types.PartitionIndexDescriptor.html#%24sel%3AbackfillErrors%3APartitionIndexDescriptor%27"><span class="hs-identifier hs-var">backfillErrors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [BackfillError]
-</span><a href="#local-6989586621679692956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionIndexDescriptor.html#PartitionIndexDescriptor"><span class="hs-identifier hs-type">PartitionIndexDescriptor</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BackfillError] -&gt; f (Maybe [BackfillError]))
+</span><a href="#local-6989586621679692965"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionIndexDescriptor.html#PartitionIndexDescriptor"><span class="hs-identifier hs-type">PartitionIndexDescriptor</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BackfillError] -&gt; f (Maybe [BackfillError]))
  -&gt; PartitionIndexDescriptor -&gt; f PartitionIndexDescriptor)
 -&gt; ((Maybe [BackfillError] -&gt; f (Maybe [BackfillError]))
     -&gt; Maybe [BackfillError] -&gt; f (Maybe [BackfillError]))
@@ -251,16 +251,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (PartitionIndexDescriptor -&gt; Text -&gt; PartitionIndexDescriptor)
 -&gt; Lens PartitionIndexDescriptor PartitionIndexDescriptor Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionIndexDescriptor.html#PartitionIndexDescriptor%27"><span class="hs-identifier hs-type">PartitionIndexDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679692952"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionIndexDescriptor.html#PartitionIndexDescriptor%27"><span class="hs-identifier hs-type">PartitionIndexDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679692961"><span class="annot"><span class="annottext">Text
 indexName :: Text
 $sel:indexName:PartitionIndexDescriptor' :: PartitionIndexDescriptor -&gt; Text
-</span><a href="#local-6989586621679692952"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679692952"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679692951"><span class="annot"><span class="annottext">s :: PartitionIndexDescriptor
-</span><a href="#local-6989586621679692951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionIndexDescriptor.html#PartitionIndexDescriptor%27"><span class="hs-identifier hs-type">PartitionIndexDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679692950"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679692950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PartitionIndexDescriptor
-</span><a href="#local-6989586621679692951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexName:PartitionIndexDescriptor' :: Text
+</span><a href="#local-6989586621679692961"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679692961"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679692960"><span class="annot"><span class="annottext">s :: PartitionIndexDescriptor
+</span><a href="#local-6989586621679692960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionIndexDescriptor.html#PartitionIndexDescriptor%27"><span class="hs-identifier hs-type">PartitionIndexDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679692959"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679692959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PartitionIndexDescriptor
+</span><a href="#local-6989586621679692960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexName:PartitionIndexDescriptor' :: Text
 </span><a href="Network.AWS.Glue.Types.PartitionIndexDescriptor.html#%24sel%3AindexName%3APartitionIndexDescriptor%27"><span class="hs-identifier hs-var">indexName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679692950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionIndexDescriptor.html#PartitionIndexDescriptor"><span class="hs-identifier hs-type">PartitionIndexDescriptor</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679692959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionIndexDescriptor.html#PartitionIndexDescriptor"><span class="hs-identifier hs-type">PartitionIndexDescriptor</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | A list of one or more keys, as @KeySchemaElement@ structures, for the</span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- partition index.</span><span>
@@ -276,16 +276,16 @@ $sel:indexName:PartitionIndexDescriptor' :: PartitionIndexDescriptor -&gt; Text
      (NonEmpty KeySchemaElement)
      (NonEmpty KeySchemaElement)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionIndexDescriptor.html#PartitionIndexDescriptor%27"><span class="hs-identifier hs-type">PartitionIndexDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679692948"><span class="annot"><span class="annottext">NonEmpty KeySchemaElement
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionIndexDescriptor.html#PartitionIndexDescriptor%27"><span class="hs-identifier hs-type">PartitionIndexDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679692957"><span class="annot"><span class="annottext">NonEmpty KeySchemaElement
 keys :: NonEmpty KeySchemaElement
 $sel:keys:PartitionIndexDescriptor' :: PartitionIndexDescriptor -&gt; NonEmpty KeySchemaElement
-</span><a href="#local-6989586621679692948"><span class="hs-identifier hs-var hs-var">keys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty KeySchemaElement
-</span><a href="#local-6989586621679692948"><span class="hs-identifier hs-var">keys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679692947"><span class="annot"><span class="annottext">s :: PartitionIndexDescriptor
-</span><a href="#local-6989586621679692947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionIndexDescriptor.html#PartitionIndexDescriptor%27"><span class="hs-identifier hs-type">PartitionIndexDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679692946"><span class="annot"><span class="annottext">NonEmpty KeySchemaElement
-</span><a href="#local-6989586621679692946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PartitionIndexDescriptor
-</span><a href="#local-6989586621679692947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keys:PartitionIndexDescriptor' :: NonEmpty KeySchemaElement
+</span><a href="#local-6989586621679692957"><span class="hs-identifier hs-var hs-var">keys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty KeySchemaElement
+</span><a href="#local-6989586621679692957"><span class="hs-identifier hs-var">keys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679692956"><span class="annot"><span class="annottext">s :: PartitionIndexDescriptor
+</span><a href="#local-6989586621679692956"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionIndexDescriptor.html#PartitionIndexDescriptor%27"><span class="hs-identifier hs-type">PartitionIndexDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679692955"><span class="annot"><span class="annottext">NonEmpty KeySchemaElement
+</span><a href="#local-6989586621679692955"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PartitionIndexDescriptor
+</span><a href="#local-6989586621679692956"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keys:PartitionIndexDescriptor' :: NonEmpty KeySchemaElement
 </span><a href="Network.AWS.Glue.Types.PartitionIndexDescriptor.html#%24sel%3Akeys%3APartitionIndexDescriptor%27"><span class="hs-identifier hs-var">keys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty KeySchemaElement
-</span><a href="#local-6989586621679692946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionIndexDescriptor.html#PartitionIndexDescriptor"><span class="hs-identifier hs-type">PartitionIndexDescriptor</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty KeySchemaElement -&gt; f (NonEmpty KeySchemaElement))
+</span><a href="#local-6989586621679692955"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionIndexDescriptor.html#PartitionIndexDescriptor"><span class="hs-identifier hs-type">PartitionIndexDescriptor</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty KeySchemaElement -&gt; f (NonEmpty KeySchemaElement))
  -&gt; PartitionIndexDescriptor -&gt; f PartitionIndexDescriptor)
 -&gt; ((NonEmpty KeySchemaElement -&gt; f (NonEmpty KeySchemaElement))
     -&gt; NonEmpty KeySchemaElement -&gt; f (NonEmpty KeySchemaElement))
@@ -322,19 +322,19 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      PartitionIndexStatus
      PartitionIndexStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionIndexDescriptor.html#PartitionIndexDescriptor%27"><span class="hs-identifier hs-type">PartitionIndexDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679692944"><span class="annot"><span class="annottext">PartitionIndexStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionIndexDescriptor.html#PartitionIndexDescriptor%27"><span class="hs-identifier hs-type">PartitionIndexDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679692953"><span class="annot"><span class="annottext">PartitionIndexStatus
 indexStatus :: PartitionIndexStatus
 $sel:indexStatus:PartitionIndexDescriptor' :: PartitionIndexDescriptor -&gt; PartitionIndexStatus
-</span><a href="#local-6989586621679692944"><span class="hs-identifier hs-var hs-var">indexStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PartitionIndexStatus
-</span><a href="#local-6989586621679692944"><span class="hs-identifier hs-var">indexStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679692943"><span class="annot"><span class="annottext">s :: PartitionIndexDescriptor
-</span><a href="#local-6989586621679692943"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionIndexDescriptor.html#PartitionIndexDescriptor%27"><span class="hs-identifier hs-type">PartitionIndexDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679692942"><span class="annot"><span class="annottext">PartitionIndexStatus
-</span><a href="#local-6989586621679692942"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PartitionIndexDescriptor
-</span><a href="#local-6989586621679692943"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexStatus:PartitionIndexDescriptor' :: PartitionIndexStatus
+</span><a href="#local-6989586621679692953"><span class="hs-identifier hs-var hs-var">indexStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PartitionIndexStatus
+</span><a href="#local-6989586621679692953"><span class="hs-identifier hs-var">indexStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679692952"><span class="annot"><span class="annottext">s :: PartitionIndexDescriptor
+</span><a href="#local-6989586621679692952"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionIndexDescriptor.html#PartitionIndexDescriptor%27"><span class="hs-identifier hs-type">PartitionIndexDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679692951"><span class="annot"><span class="annottext">PartitionIndexStatus
+</span><a href="#local-6989586621679692951"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PartitionIndexDescriptor
+</span><a href="#local-6989586621679692952"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexStatus:PartitionIndexDescriptor' :: PartitionIndexStatus
 </span><a href="Network.AWS.Glue.Types.PartitionIndexDescriptor.html#%24sel%3AindexStatus%3APartitionIndexDescriptor%27"><span class="hs-identifier hs-var">indexStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PartitionIndexStatus
-</span><a href="#local-6989586621679692942"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionIndexDescriptor.html#PartitionIndexDescriptor"><span class="hs-identifier hs-type">PartitionIndexDescriptor</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679692951"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionIndexDescriptor.html#PartitionIndexDescriptor"><span class="hs-identifier hs-type">PartitionIndexDescriptor</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679692939"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionIndexDescriptor.html#PartitionIndexDescriptor"><span class="hs-identifier hs-type">PartitionIndexDescriptor</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679692937"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PartitionIndexDescriptor
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679692948"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionIndexDescriptor.html#PartitionIndexDescriptor"><span class="hs-identifier hs-type">PartitionIndexDescriptor</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679692946"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PartitionIndexDescriptor
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PartitionIndexDescriptor)
@@ -344,8 +344,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PartitionIndexDescriptor&quot;</span></span><span>
-</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679692934"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679692934"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679692943"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679692943"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-139"></span><span>          </span><span class="annot"><span class="annottext">Maybe [BackfillError]
 -&gt; Text
 -&gt; NonEmpty KeySchemaElement
@@ -365,7 +365,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; PartitionIndexDescriptor)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679692934"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [BackfillError]))
+</span><a href="#local-6989586621679692943"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [BackfillError]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BackfillErrors&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [BackfillError]))
@@ -385,7 +385,7 @@ forall a. Monoid a =&gt; a
       -&gt; PartitionIndexStatus -&gt; PartitionIndexDescriptor)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679692934"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679692943"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IndexName&quot;</span></span><span class="hs-special">)</span><span>
@@ -396,7 +396,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (PartitionIndexStatus -&gt; PartitionIndexDescriptor)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679692934"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty KeySchemaElement)
+</span><a href="#local-6989586621679692943"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty KeySchemaElement)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Keys&quot;</span></span><span class="hs-special">)</span><span>
@@ -404,13 +404,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser PartitionIndexStatus -&gt; Parser PartitionIndexDescriptor
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679692934"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser PartitionIndexStatus
+</span><a href="#local-6989586621679692943"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser PartitionIndexStatus
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IndexStatus&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679692926"><span id="local-6989586621679692928"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionIndexDescriptor.html#PartitionIndexDescriptor"><span class="hs-identifier hs-type">PartitionIndexDescriptor</span></a></span></span></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679692935"><span id="local-6989586621679692937"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionIndexDescriptor.html#PartitionIndexDescriptor"><span class="hs-identifier hs-type">PartitionIndexDescriptor</span></a></span></span></span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679692923"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionIndexDescriptor.html#PartitionIndexDescriptor"><span class="hs-identifier hs-type">PartitionIndexDescriptor</span></a></span></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679692932"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionIndexDescriptor.html#PartitionIndexDescriptor"><span class="hs-identifier hs-type">PartitionIndexDescriptor</span></a></span></span><span>
 </span><span id="line-149"></span></pre></body></html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.IoTEvents.DeleteAlarmModel</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes an alarm model. Any alarm instances that were created based on</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- this alarm model are also deleted. This action can\'t be undone.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTEvents.DeleteAlarmModel</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTEvents.DeleteAlarmModel.html#DeleteAlarmModel"><span class="hs-identifier">DeleteAlarmModel</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTEvents.DeleteAlarmModel.html#newDeleteAlarmModel"><span class="hs-identifier">newDeleteAlarmModel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTEvents.DeleteAlarmModel.html#deleteAlarmModel_alarmModelName"><span class="hs-identifier">deleteAlarmModel_alarmModelName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTEvents.DeleteAlarmModel.html#DeleteAlarmModelResponse"><span class="hs-identifier">DeleteAlarmModelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTEvents.DeleteAlarmModel.html#newDeleteAlarmModelResponse"><span class="hs-identifier">newDeleteAlarmModelResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTEvents.DeleteAlarmModel.html#deleteAlarmModelResponse_httpStatus"><span class="hs-identifier">deleteAlarmModelResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.html"><span class="hs-identifier">Network.AWS.IoTEvents.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newDeleteAlarmModel' smart constructor.</span><span>
+</span><span id="line-50"></span><span id="local-6989586621679251860"><span id="local-6989586621679251861"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAlarmModel"><span class="annot"><a href="Network.AWS.IoTEvents.DeleteAlarmModel.html#DeleteAlarmModel"><span class="hs-identifier hs-var">DeleteAlarmModel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAlarmModel%27"><span class="annot"><a href="Network.AWS.IoTEvents.DeleteAlarmModel.html#DeleteAlarmModel%27"><span class="hs-identifier hs-var">DeleteAlarmModel'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the alarm model.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AalarmModelName%3ADeleteAlarmModel%27"><span class="annot"><span class="annottext">DeleteAlarmModel -&gt; Text
+</span><a href="Network.AWS.IoTEvents.DeleteAlarmModel.html#%24sel%3AalarmModelName%3ADeleteAlarmModel%27"><span class="hs-identifier hs-var hs-var">alarmModelName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679251854"><span id="local-6989586621679251856"><span class="annot"><span class="annottext">DeleteAlarmModel -&gt; DeleteAlarmModel -&gt; Bool
+(DeleteAlarmModel -&gt; DeleteAlarmModel -&gt; Bool)
+-&gt; (DeleteAlarmModel -&gt; DeleteAlarmModel -&gt; Bool)
+-&gt; Eq DeleteAlarmModel
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteAlarmModel -&gt; DeleteAlarmModel -&gt; Bool
+$c/= :: DeleteAlarmModel -&gt; DeleteAlarmModel -&gt; Bool
+== :: DeleteAlarmModel -&gt; DeleteAlarmModel -&gt; Bool
+$c== :: DeleteAlarmModel -&gt; DeleteAlarmModel -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251845"><span id="local-6989586621679251847"><span id="local-6989586621679251849"><span id="local-6989586621679251851"><span class="annot"><span class="annottext">ReadPrec [DeleteAlarmModel]
+ReadPrec DeleteAlarmModel
+Int -&gt; ReadS DeleteAlarmModel
+ReadS [DeleteAlarmModel]
+(Int -&gt; ReadS DeleteAlarmModel)
+-&gt; ReadS [DeleteAlarmModel]
+-&gt; ReadPrec DeleteAlarmModel
+-&gt; ReadPrec [DeleteAlarmModel]
+-&gt; Read DeleteAlarmModel
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteAlarmModel]
+$creadListPrec :: ReadPrec [DeleteAlarmModel]
+readPrec :: ReadPrec DeleteAlarmModel
+$creadPrec :: ReadPrec DeleteAlarmModel
+readList :: ReadS [DeleteAlarmModel]
+$creadList :: ReadS [DeleteAlarmModel]
+readsPrec :: Int -&gt; ReadS DeleteAlarmModel
+$creadsPrec :: Int -&gt; ReadS DeleteAlarmModel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251838"><span id="local-6989586621679251840"><span id="local-6989586621679251842"><span class="annot"><span class="annottext">Int -&gt; DeleteAlarmModel -&gt; ShowS
+[DeleteAlarmModel] -&gt; ShowS
+DeleteAlarmModel -&gt; String
+(Int -&gt; DeleteAlarmModel -&gt; ShowS)
+-&gt; (DeleteAlarmModel -&gt; String)
+-&gt; ([DeleteAlarmModel] -&gt; ShowS)
+-&gt; Show DeleteAlarmModel
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteAlarmModel] -&gt; ShowS
+$cshowList :: [DeleteAlarmModel] -&gt; ShowS
+show :: DeleteAlarmModel -&gt; String
+$cshow :: DeleteAlarmModel -&gt; String
+showsPrec :: Int -&gt; DeleteAlarmModel -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteAlarmModel -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteAlarmModel -&gt; Rep DeleteAlarmModel x)
+-&gt; (forall x. Rep DeleteAlarmModel x -&gt; DeleteAlarmModel)
+-&gt; Generic DeleteAlarmModel
+forall x. Rep DeleteAlarmModel x -&gt; DeleteAlarmModel
+forall x. DeleteAlarmModel -&gt; Rep DeleteAlarmModel x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteAlarmModel x -&gt; DeleteAlarmModel
+$cfrom :: forall x. DeleteAlarmModel -&gt; Rep DeleteAlarmModel x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Create a value of 'DeleteAlarmModel' with all optional fields omitted.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'alarmModelName', 'deleteAlarmModel_alarmModelName' - The name of the alarm model.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.IoTEvents.DeleteAlarmModel.html#newDeleteAlarmModel"><span class="hs-identifier hs-type">newDeleteAlarmModel</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-comment">-- | 'alarmModelName'</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTEvents.DeleteAlarmModel.html#DeleteAlarmModel"><span class="hs-identifier hs-type">DeleteAlarmModel</span></a></span><span>
+</span><span id="line-69"></span><span id="newDeleteAlarmModel"><span class="annot"><span class="annottext">newDeleteAlarmModel :: Text -&gt; DeleteAlarmModel
+</span><a href="Network.AWS.IoTEvents.DeleteAlarmModel.html#newDeleteAlarmModel"><span class="hs-identifier hs-var hs-var">newDeleteAlarmModel</span></a></span></span><span> </span><span id="local-6989586621679251833"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251833"><span class="hs-identifier hs-var">pAlarmModelName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">DeleteAlarmModel' :: Text -&gt; DeleteAlarmModel
+</span><a href="Network.AWS.IoTEvents.DeleteAlarmModel.html#DeleteAlarmModel%27"><span class="hs-identifier hs-type">DeleteAlarmModel'</span></a></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:alarmModelName:DeleteAlarmModel' :: Text
+</span><a href="Network.AWS.IoTEvents.DeleteAlarmModel.html#%24sel%3AalarmModelName%3ADeleteAlarmModel%27"><span class="hs-identifier hs-var">alarmModelName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251833"><span class="hs-identifier hs-var">pAlarmModelName_</span></a></span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | The name of the alarm model.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.IoTEvents.DeleteAlarmModel.html#deleteAlarmModel_alarmModelName"><span class="hs-identifier hs-type">deleteAlarmModel_alarmModelName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.DeleteAlarmModel.html#DeleteAlarmModel"><span class="hs-identifier hs-type">DeleteAlarmModel</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-77"></span><span id="deleteAlarmModel_alarmModelName"><span class="annot"><span class="annottext">deleteAlarmModel_alarmModelName :: (Text -&gt; f Text) -&gt; DeleteAlarmModel -&gt; f DeleteAlarmModel
+</span><a href="Network.AWS.IoTEvents.DeleteAlarmModel.html#deleteAlarmModel_alarmModelName"><span class="hs-identifier hs-var hs-var">deleteAlarmModel_alarmModelName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteAlarmModel -&gt; Text)
+-&gt; (DeleteAlarmModel -&gt; Text -&gt; DeleteAlarmModel)
+-&gt; Lens DeleteAlarmModel DeleteAlarmModel Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEvents.DeleteAlarmModel.html#DeleteAlarmModel%27"><span class="hs-identifier hs-type">DeleteAlarmModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251830"><span class="annot"><span class="annottext">Text
+alarmModelName :: Text
+$sel:alarmModelName:DeleteAlarmModel' :: DeleteAlarmModel -&gt; Text
+</span><a href="#local-6989586621679251830"><span class="hs-identifier hs-var hs-var">alarmModelName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251830"><span class="hs-identifier hs-var">alarmModelName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251829"><span class="annot"><span class="annottext">s :: DeleteAlarmModel
+</span><a href="#local-6989586621679251829"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEvents.DeleteAlarmModel.html#DeleteAlarmModel%27"><span class="hs-identifier hs-type">DeleteAlarmModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251828"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251828"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAlarmModel
+</span><a href="#local-6989586621679251829"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alarmModelName:DeleteAlarmModel' :: Text
+</span><a href="Network.AWS.IoTEvents.DeleteAlarmModel.html#%24sel%3AalarmModelName%3ADeleteAlarmModel%27"><span class="hs-identifier hs-var">alarmModelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251828"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.DeleteAlarmModel.html#DeleteAlarmModel"><span class="hs-identifier hs-type">DeleteAlarmModel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.DeleteAlarmModel.html#DeleteAlarmModel"><span class="hs-identifier hs-type">DeleteAlarmModel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-81"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.DeleteAlarmModel.html#DeleteAlarmModel"><span class="hs-identifier hs-type">DeleteAlarmModel</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><a href="Network.AWS.IoTEvents.DeleteAlarmModel.html#DeleteAlarmModelResponse"><span class="hs-identifier hs-type">DeleteAlarmModelResponse</span></a></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679251824"><span class="annot"><span class="annottext">request :: DeleteAlarmModel -&gt; Request DeleteAlarmModel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteAlarmModel -&gt; Request DeleteAlarmModel
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.IoTEvents.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679251820"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteAlarmModel
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteAlarmModel)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse DeleteAlarmModel))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteAlarmModel
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteAlarmModel)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679251817"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679251817"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679251816"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679251816"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679251815"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679251815"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteAlarmModelResponse
+</span><a href="Network.AWS.IoTEvents.DeleteAlarmModel.html#DeleteAlarmModelResponse%27"><span class="hs-identifier hs-var">DeleteAlarmModelResponse'</span></a></span><span>
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteAlarmModelResponse)
+-&gt; Either String Int -&gt; Either String DeleteAlarmModelResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679251817"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251808"><span id="local-6989586621679251810"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.DeleteAlarmModel.html#DeleteAlarmModel"><span class="hs-identifier hs-type">DeleteAlarmModel</span></a></span></span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251805"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.DeleteAlarmModel.html#DeleteAlarmModel"><span class="hs-identifier hs-type">DeleteAlarmModel</span></a></span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.DeleteAlarmModel.html#DeleteAlarmModel"><span class="hs-identifier hs-type">DeleteAlarmModel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679251801"><span class="annot"><span class="annottext">toHeaders :: DeleteAlarmModel -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteAlarmModel -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.DeleteAlarmModel.html#DeleteAlarmModel"><span class="hs-identifier hs-type">DeleteAlarmModel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679251796"><span class="annot"><span class="annottext">toPath :: DeleteAlarmModel -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.DeleteAlarmModel.html#DeleteAlarmModel%27"><span class="hs-identifier hs-type">DeleteAlarmModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251794"><span class="annot"><span class="annottext">Text
+alarmModelName :: Text
+$sel:alarmModelName:DeleteAlarmModel' :: DeleteAlarmModel -&gt; Text
+</span><a href="#local-6989586621679251794"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/alarm-models/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251794"><span class="hs-identifier hs-var">alarmModelName</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.DeleteAlarmModel.html#DeleteAlarmModel"><span class="hs-identifier hs-type">DeleteAlarmModel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679251790"><span class="annot"><span class="annottext">toQuery :: DeleteAlarmModel -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteAlarmModel -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | /See:/ 'newDeleteAlarmModelResponse' smart constructor.</span><span>
+</span><span id="line-107"></span><span id="local-6989586621679251787"><span id="local-6989586621679251788"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAlarmModelResponse"><span class="annot"><a href="Network.AWS.IoTEvents.DeleteAlarmModel.html#DeleteAlarmModelResponse"><span class="hs-identifier hs-var">DeleteAlarmModelResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAlarmModelResponse%27"><span class="annot"><a href="Network.AWS.IoTEvents.DeleteAlarmModel.html#DeleteAlarmModelResponse%27"><span class="hs-identifier hs-var">DeleteAlarmModelResponse'</span></a></span></span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-109"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteAlarmModelResponse%27"><span class="annot"><span class="annottext">DeleteAlarmModelResponse -&gt; Int
+</span><a href="Network.AWS.IoTEvents.DeleteAlarmModel.html#%24sel%3AhttpStatus%3ADeleteAlarmModelResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679251782"><span id="local-6989586621679251784"><span class="annot"><span class="annottext">DeleteAlarmModelResponse -&gt; DeleteAlarmModelResponse -&gt; Bool
+(DeleteAlarmModelResponse -&gt; DeleteAlarmModelResponse -&gt; Bool)
+-&gt; (DeleteAlarmModelResponse -&gt; DeleteAlarmModelResponse -&gt; Bool)
+-&gt; Eq DeleteAlarmModelResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteAlarmModelResponse -&gt; DeleteAlarmModelResponse -&gt; Bool
+$c/= :: DeleteAlarmModelResponse -&gt; DeleteAlarmModelResponse -&gt; Bool
+== :: DeleteAlarmModelResponse -&gt; DeleteAlarmModelResponse -&gt; Bool
+$c== :: DeleteAlarmModelResponse -&gt; DeleteAlarmModelResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251774"><span id="local-6989586621679251776"><span id="local-6989586621679251778"><span id="local-6989586621679251780"><span class="annot"><span class="annottext">ReadPrec [DeleteAlarmModelResponse]
+ReadPrec DeleteAlarmModelResponse
+Int -&gt; ReadS DeleteAlarmModelResponse
+ReadS [DeleteAlarmModelResponse]
+(Int -&gt; ReadS DeleteAlarmModelResponse)
+-&gt; ReadS [DeleteAlarmModelResponse]
+-&gt; ReadPrec DeleteAlarmModelResponse
+-&gt; ReadPrec [DeleteAlarmModelResponse]
+-&gt; Read DeleteAlarmModelResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteAlarmModelResponse]
+$creadListPrec :: ReadPrec [DeleteAlarmModelResponse]
+readPrec :: ReadPrec DeleteAlarmModelResponse
+$creadPrec :: ReadPrec DeleteAlarmModelResponse
+readList :: ReadS [DeleteAlarmModelResponse]
+$creadList :: ReadS [DeleteAlarmModelResponse]
+readsPrec :: Int -&gt; ReadS DeleteAlarmModelResponse
+$creadsPrec :: Int -&gt; ReadS DeleteAlarmModelResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251768"><span id="local-6989586621679251770"><span id="local-6989586621679251772"><span class="annot"><span class="annottext">Int -&gt; DeleteAlarmModelResponse -&gt; ShowS
+[DeleteAlarmModelResponse] -&gt; ShowS
+DeleteAlarmModelResponse -&gt; String
+(Int -&gt; DeleteAlarmModelResponse -&gt; ShowS)
+-&gt; (DeleteAlarmModelResponse -&gt; String)
+-&gt; ([DeleteAlarmModelResponse] -&gt; ShowS)
+-&gt; Show DeleteAlarmModelResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteAlarmModelResponse] -&gt; ShowS
+$cshowList :: [DeleteAlarmModelResponse] -&gt; ShowS
+show :: DeleteAlarmModelResponse -&gt; String
+$cshow :: DeleteAlarmModelResponse -&gt; String
+showsPrec :: Int -&gt; DeleteAlarmModelResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteAlarmModelResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteAlarmModelResponse -&gt; Rep DeleteAlarmModelResponse x)
+-&gt; (forall x.
+    Rep DeleteAlarmModelResponse x -&gt; DeleteAlarmModelResponse)
+-&gt; Generic DeleteAlarmModelResponse
+forall x.
+Rep DeleteAlarmModelResponse x -&gt; DeleteAlarmModelResponse
+forall x.
+DeleteAlarmModelResponse -&gt; Rep DeleteAlarmModelResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteAlarmModelResponse x -&gt; DeleteAlarmModelResponse
+$cfrom :: forall x.
+DeleteAlarmModelResponse -&gt; Rep DeleteAlarmModelResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- Create a value of 'DeleteAlarmModelResponse' with all optional fields omitted.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'httpStatus', 'deleteAlarmModelResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.IoTEvents.DeleteAlarmModel.html#newDeleteAlarmModelResponse"><span class="hs-identifier hs-type">newDeleteAlarmModelResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTEvents.DeleteAlarmModel.html#DeleteAlarmModelResponse"><span class="hs-identifier hs-type">DeleteAlarmModelResponse</span></a></span><span>
+</span><span id="line-126"></span><span id="newDeleteAlarmModelResponse"><span class="annot"><span class="annottext">newDeleteAlarmModelResponse :: Int -&gt; DeleteAlarmModelResponse
+</span><a href="Network.AWS.IoTEvents.DeleteAlarmModel.html#newDeleteAlarmModelResponse"><span class="hs-identifier hs-var hs-var">newDeleteAlarmModelResponse</span></a></span></span><span> </span><span id="local-6989586621679251765"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679251765"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><span class="annottext">DeleteAlarmModelResponse' :: Int -&gt; DeleteAlarmModelResponse
+</span><a href="Network.AWS.IoTEvents.DeleteAlarmModel.html#DeleteAlarmModelResponse%27"><span class="hs-identifier hs-type">DeleteAlarmModelResponse'</span></a></span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteAlarmModelResponse' :: Int
+</span><a href="Network.AWS.IoTEvents.DeleteAlarmModel.html#%24sel%3AhttpStatus%3ADeleteAlarmModelResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679251765"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.IoTEvents.DeleteAlarmModel.html#deleteAlarmModelResponse_httpStatus"><span class="hs-identifier hs-type">deleteAlarmModelResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.DeleteAlarmModel.html#DeleteAlarmModelResponse"><span class="hs-identifier hs-type">DeleteAlarmModelResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-134"></span><span id="deleteAlarmModelResponse_httpStatus"><span class="annot"><span class="annottext">deleteAlarmModelResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteAlarmModelResponse -&gt; f DeleteAlarmModelResponse
+</span><a href="Network.AWS.IoTEvents.DeleteAlarmModel.html#deleteAlarmModelResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteAlarmModelResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteAlarmModelResponse -&gt; Int)
+-&gt; (DeleteAlarmModelResponse -&gt; Int -&gt; DeleteAlarmModelResponse)
+-&gt; Lens DeleteAlarmModelResponse DeleteAlarmModelResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEvents.DeleteAlarmModel.html#DeleteAlarmModelResponse%27"><span class="hs-identifier hs-type">DeleteAlarmModelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251764"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteAlarmModelResponse' :: DeleteAlarmModelResponse -&gt; Int
+</span><a href="#local-6989586621679251764"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679251764"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251763"><span class="annot"><span class="annottext">s :: DeleteAlarmModelResponse
+</span><a href="#local-6989586621679251763"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEvents.DeleteAlarmModel.html#DeleteAlarmModelResponse%27"><span class="hs-identifier hs-type">DeleteAlarmModelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251762"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679251762"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAlarmModelResponse
+</span><a href="#local-6989586621679251763"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteAlarmModelResponse' :: Int
+</span><a href="Network.AWS.IoTEvents.DeleteAlarmModel.html#%24sel%3AhttpStatus%3ADeleteAlarmModelResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679251762"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.DeleteAlarmModel.html#DeleteAlarmModelResponse"><span class="hs-identifier hs-type">DeleteAlarmModelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251760"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.DeleteAlarmModel.html#DeleteAlarmModelResponse"><span class="hs-identifier hs-type">DeleteAlarmModelResponse</span></a></span></span><span>
+</span><span id="line-137"></span></pre></body></html>

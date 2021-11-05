@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | Burn In Teletext Grid Control</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679869121"><span id="local-6989586621679869122"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BurnInTeletextGridControl"><span class="annot"><a href="Network.AWS.MediaLive.Types.BurnInTeletextGridControl.html#BurnInTeletextGridControl"><span class="hs-identifier hs-var">BurnInTeletextGridControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BurnInTeletextGridControl%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.BurnInTeletextGridControl.html#BurnInTeletextGridControl%27"><span class="hs-identifier hs-var">BurnInTeletextGridControl'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679869130"><span id="local-6989586621679869131"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BurnInTeletextGridControl"><span class="annot"><a href="Network.AWS.MediaLive.Types.BurnInTeletextGridControl.html#BurnInTeletextGridControl"><span class="hs-identifier hs-var">BurnInTeletextGridControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BurnInTeletextGridControl%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.BurnInTeletextGridControl.html#BurnInTeletextGridControl%27"><span class="hs-identifier hs-var">BurnInTeletextGridControl'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBurnInTeletextGridControl"><span class="annot"><span class="annottext">BurnInTeletextGridControl -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.BurnInTeletextGridControl.html#fromBurnInTeletextGridControl"><span class="hs-identifier hs-var hs-var">fromBurnInTeletextGridControl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679869113"><span id="local-6989586621679869115"><span id="local-6989586621679869117"><span class="annot"><span class="annottext">Int -&gt; BurnInTeletextGridControl -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679869122"><span id="local-6989586621679869124"><span id="local-6989586621679869126"><span class="annot"><span class="annottext">Int -&gt; BurnInTeletextGridControl -&gt; ShowS
 [BurnInTeletextGridControl] -&gt; ShowS
 BurnInTeletextGridControl -&gt; String
 (Int -&gt; BurnInTeletextGridControl -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: BurnInTeletextGridControl -&gt; String
 showsPrec :: Int -&gt; BurnInTeletextGridControl -&gt; ShowS
 $cshowsPrec :: Int -&gt; BurnInTeletextGridControl -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679869104"><span id="local-6989586621679869106"><span id="local-6989586621679869108"><span id="local-6989586621679869110"><span class="annot"><span class="annottext">ReadPrec [BurnInTeletextGridControl]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679869113"><span id="local-6989586621679869115"><span id="local-6989586621679869117"><span id="local-6989586621679869119"><span class="annot"><span class="annottext">ReadPrec [BurnInTeletextGridControl]
 ReadPrec BurnInTeletextGridControl
 Int -&gt; ReadS BurnInTeletextGridControl
 ReadS [BurnInTeletextGridControl]
@@ -73,7 +73,7 @@ $creadList :: ReadS [BurnInTeletextGridControl]
 readsPrec :: Int -&gt; ReadS BurnInTeletextGridControl
 $creadsPrec :: Int -&gt; ReadS BurnInTeletextGridControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679869099"><span id="local-6989586621679869101"><span class="annot"><span class="annottext">BurnInTeletextGridControl -&gt; BurnInTeletextGridControl -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679869108"><span id="local-6989586621679869110"><span class="annot"><span class="annottext">BurnInTeletextGridControl -&gt; BurnInTeletextGridControl -&gt; Bool
 (BurnInTeletextGridControl -&gt; BurnInTeletextGridControl -&gt; Bool)
 -&gt; (BurnInTeletextGridControl -&gt; BurnInTeletextGridControl -&gt; Bool)
 -&gt; Eq BurnInTeletextGridControl
@@ -83,7 +83,7 @@ $c/= :: BurnInTeletextGridControl -&gt; BurnInTeletextGridControl -&gt; Bool
 == :: BurnInTeletextGridControl -&gt; BurnInTeletextGridControl -&gt; Bool
 $c== :: BurnInTeletextGridControl -&gt; BurnInTeletextGridControl -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679869083"><span id="local-6989586621679869085"><span id="local-6989586621679869087"><span id="local-6989586621679869089"><span id="local-6989586621679869091"><span id="local-6989586621679869093"><span id="local-6989586621679869095"><span class="annot"><span class="annottext">Eq BurnInTeletextGridControl
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679869092"><span id="local-6989586621679869094"><span id="local-6989586621679869096"><span id="local-6989586621679869098"><span id="local-6989586621679869100"><span id="local-6989586621679869102"><span id="local-6989586621679869104"><span class="annot"><span class="annottext">Eq BurnInTeletextGridControl
 Eq BurnInTeletextGridControl
 -&gt; (BurnInTeletextGridControl
     -&gt; BurnInTeletextGridControl -&gt; Ordering)
@@ -148,7 +148,7 @@ BurnInTeletextGridControl -&gt; Rep BurnInTeletextGridControl x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679869075"><span id="local-6989586621679869077"><span class="annot"><span class="annottext">Int -&gt; BurnInTeletextGridControl -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679869084"><span id="local-6989586621679869086"><span class="annot"><span class="annottext">Int -&gt; BurnInTeletextGridControl -&gt; Int
 BurnInTeletextGridControl -&gt; Int
 (Int -&gt; BurnInTeletextGridControl -&gt; Int)
 -&gt; (BurnInTeletextGridControl -&gt; Int)
@@ -159,56 +159,56 @@ $chash :: BurnInTeletextGridControl -&gt; Int
 hashWithSalt :: Int -&gt; BurnInTeletextGridControl -&gt; Int
 $chashWithSalt :: Int -&gt; BurnInTeletextGridControl -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679869072"><span class="annot"><span class="annottext">BurnInTeletextGridControl -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679869081"><span class="annot"><span class="annottext">BurnInTeletextGridControl -&gt; ()
 (BurnInTeletextGridControl -&gt; ())
 -&gt; NFData BurnInTeletextGridControl
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: BurnInTeletextGridControl -&gt; ()
 $crnf :: BurnInTeletextGridControl -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679869069"><span class="annot"><span class="annottext">Text -&gt; Either String BurnInTeletextGridControl
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679869078"><span class="annot"><span class="annottext">Text -&gt; Either String BurnInTeletextGridControl
 (Text -&gt; Either String BurnInTeletextGridControl)
 -&gt; FromText BurnInTeletextGridControl
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String BurnInTeletextGridControl
 $cfromText :: Text -&gt; Either String BurnInTeletextGridControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679869066"><span class="annot"><span class="annottext">BurnInTeletextGridControl -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679869075"><span class="annot"><span class="annottext">BurnInTeletextGridControl -&gt; Text
 (BurnInTeletextGridControl -&gt; Text)
 -&gt; ToText BurnInTeletextGridControl
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: BurnInTeletextGridControl -&gt; Text
 $ctoText :: BurnInTeletextGridControl -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679869063"><span class="annot"><span class="annottext">BurnInTeletextGridControl -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679869072"><span class="annot"><span class="annottext">BurnInTeletextGridControl -&gt; ByteString
 (BurnInTeletextGridControl -&gt; ByteString)
 -&gt; ToByteString BurnInTeletextGridControl
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: BurnInTeletextGridControl -&gt; ByteString
 $ctoBS :: BurnInTeletextGridControl -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679869060"><span class="annot"><span class="annottext">BurnInTeletextGridControl -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679869069"><span class="annot"><span class="annottext">BurnInTeletextGridControl -&gt; ByteStringBuilder
 (BurnInTeletextGridControl -&gt; ByteStringBuilder)
 -&gt; ToLog BurnInTeletextGridControl
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: BurnInTeletextGridControl -&gt; ByteStringBuilder
 $cbuild :: BurnInTeletextGridControl -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679869057"><span class="annot"><span class="annottext">HeaderName -&gt; BurnInTeletextGridControl -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679869066"><span class="annot"><span class="annottext">HeaderName -&gt; BurnInTeletextGridControl -&gt; [Header]
 (HeaderName -&gt; BurnInTeletextGridControl -&gt; [Header])
 -&gt; ToHeader BurnInTeletextGridControl
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; BurnInTeletextGridControl -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; BurnInTeletextGridControl -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679869054"><span class="annot"><span class="annottext">BurnInTeletextGridControl -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679869063"><span class="annot"><span class="annottext">BurnInTeletextGridControl -&gt; QueryString
 (BurnInTeletextGridControl -&gt; QueryString)
 -&gt; ToQuery BurnInTeletextGridControl
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: BurnInTeletextGridControl -&gt; QueryString
 $ctoQuery :: BurnInTeletextGridControl -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679869049"><span id="local-6989586621679869051"><span class="annot"><span class="annottext">Value -&gt; Parser [BurnInTeletextGridControl]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679869058"><span id="local-6989586621679869060"><span class="annot"><span class="annottext">Value -&gt; Parser [BurnInTeletextGridControl]
 Value -&gt; Parser BurnInTeletextGridControl
 (Value -&gt; Parser BurnInTeletextGridControl)
 -&gt; (Value -&gt; Parser [BurnInTeletextGridControl])
@@ -220,7 +220,7 @@ $cparseJSONList :: Value -&gt; Parser [BurnInTeletextGridControl]
 parseJSON :: Value -&gt; Parser BurnInTeletextGridControl
 $cparseJSON :: Value -&gt; Parser BurnInTeletextGridControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679869044"><span id="local-6989586621679869046"><span class="annot"><span class="annottext">FromJSONKeyFunction [BurnInTeletextGridControl]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679869053"><span id="local-6989586621679869055"><span class="annot"><span class="annottext">FromJSONKeyFunction [BurnInTeletextGridControl]
 FromJSONKeyFunction BurnInTeletextGridControl
 FromJSONKeyFunction BurnInTeletextGridControl
 -&gt; FromJSONKeyFunction [BurnInTeletextGridControl]
@@ -232,7 +232,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [BurnInTeletextGridControl]
 fromJSONKey :: FromJSONKeyFunction BurnInTeletextGridControl
 $cfromJSONKey :: FromJSONKeyFunction BurnInTeletextGridControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679869035"><span id="local-6989586621679869037"><span id="local-6989586621679869039"><span id="local-6989586621679869041"><span class="annot"><span class="annottext">[BurnInTeletextGridControl] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679869044"><span id="local-6989586621679869046"><span id="local-6989586621679869048"><span id="local-6989586621679869050"><span class="annot"><span class="annottext">[BurnInTeletextGridControl] -&gt; Encoding
 [BurnInTeletextGridControl] -&gt; Value
 BurnInTeletextGridControl -&gt; Encoding
 BurnInTeletextGridControl -&gt; Value
@@ -256,7 +256,7 @@ $ctoEncoding :: BurnInTeletextGridControl -&gt; Encoding
 toJSON :: BurnInTeletextGridControl -&gt; Value
 $ctoJSON :: BurnInTeletextGridControl -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679869030"><span id="local-6989586621679869032"><span class="annot"><span class="annottext">ToJSONKeyFunction [BurnInTeletextGridControl]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679869039"><span id="local-6989586621679869041"><span class="annot"><span class="annottext">ToJSONKeyFunction [BurnInTeletextGridControl]
 ToJSONKeyFunction BurnInTeletextGridControl
 ToJSONKeyFunction BurnInTeletextGridControl
 -&gt; ToJSONKeyFunction [BurnInTeletextGridControl]
@@ -268,14 +268,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [BurnInTeletextGridControl]
 toJSONKey :: ToJSONKeyFunction BurnInTeletextGridControl
 $ctoJSONKey :: ToJSONKeyFunction BurnInTeletextGridControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679869027"><span class="annot"><span class="annottext">[Node] -&gt; Either String BurnInTeletextGridControl
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679869036"><span class="annot"><span class="annottext">[Node] -&gt; Either String BurnInTeletextGridControl
 ([Node] -&gt; Either String BurnInTeletextGridControl)
 -&gt; FromXML BurnInTeletextGridControl
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String BurnInTeletextGridControl
 $cparseXML :: [Node] -&gt; Either String BurnInTeletextGridControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679869024"><span class="annot"><span class="annottext">BurnInTeletextGridControl -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679869033"><span class="annot"><span class="annottext">BurnInTeletextGridControl -&gt; XML
 (BurnInTeletextGridControl -&gt; XML)
 -&gt; ToXML BurnInTeletextGridControl
 forall a. (a -&gt; XML) -&gt; ToXML a

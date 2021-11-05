@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-comment">-- device certificate to inactive.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newUpdateDeviceCertificateParams' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679805864"><span id="local-6989586621679805865"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDeviceCertificateParams"><span class="annot"><a href="Network.AWS.IoT.Types.UpdateDeviceCertificateParams.html#UpdateDeviceCertificateParams"><span class="hs-identifier hs-var">UpdateDeviceCertificateParams</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDeviceCertificateParams%27"><span class="annot"><a href="Network.AWS.IoT.Types.UpdateDeviceCertificateParams.html#UpdateDeviceCertificateParams%27"><span class="hs-identifier hs-var">UpdateDeviceCertificateParams'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679805873"><span id="local-6989586621679805874"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDeviceCertificateParams"><span class="annot"><a href="Network.AWS.IoT.Types.UpdateDeviceCertificateParams.html#UpdateDeviceCertificateParams"><span class="hs-identifier hs-var">UpdateDeviceCertificateParams</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDeviceCertificateParams%27"><span class="annot"><a href="Network.AWS.IoT.Types.UpdateDeviceCertificateParams.html#UpdateDeviceCertificateParams%27"><span class="hs-identifier hs-var">UpdateDeviceCertificateParams'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The action that you want to apply to the device certificate. The only</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- supported value is @DEACTIVATE@.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Aaction%3AUpdateDeviceCertificateParams%27"><span class="annot"><span class="annottext">UpdateDeviceCertificateParams -&gt; DeviceCertificateUpdateAction
 </span><a href="Network.AWS.IoT.Types.UpdateDeviceCertificateParams.html#%24sel%3Aaction%3AUpdateDeviceCertificateParams%27"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DeviceCertificateUpdateAction.html#DeviceCertificateUpdateAction"><span class="hs-identifier hs-type">DeviceCertificateUpdateAction</span></a></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679805858"><span id="local-6989586621679805860"><span class="annot"><span class="annottext">UpdateDeviceCertificateParams
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679805867"><span id="local-6989586621679805869"><span class="annot"><span class="annottext">UpdateDeviceCertificateParams
 -&gt; UpdateDeviceCertificateParams -&gt; Bool
 (UpdateDeviceCertificateParams
  -&gt; UpdateDeviceCertificateParams -&gt; Bool)
@@ -50,7 +50,7 @@ $c/= :: UpdateDeviceCertificateParams
 -&gt; UpdateDeviceCertificateParams -&gt; Bool
 $c== :: UpdateDeviceCertificateParams
 -&gt; UpdateDeviceCertificateParams -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679805849"><span id="local-6989586621679805851"><span id="local-6989586621679805853"><span id="local-6989586621679805855"><span class="annot"><span class="annottext">ReadPrec [UpdateDeviceCertificateParams]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679805858"><span id="local-6989586621679805860"><span id="local-6989586621679805862"><span id="local-6989586621679805864"><span class="annot"><span class="annottext">ReadPrec [UpdateDeviceCertificateParams]
 ReadPrec UpdateDeviceCertificateParams
 Int -&gt; ReadS UpdateDeviceCertificateParams
 ReadS [UpdateDeviceCertificateParams]
@@ -70,7 +70,7 @@ readList :: ReadS [UpdateDeviceCertificateParams]
 $creadList :: ReadS [UpdateDeviceCertificateParams]
 readsPrec :: Int -&gt; ReadS UpdateDeviceCertificateParams
 $creadsPrec :: Int -&gt; ReadS UpdateDeviceCertificateParams
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679805842"><span id="local-6989586621679805844"><span id="local-6989586621679805846"><span class="annot"><span class="annottext">Int -&gt; UpdateDeviceCertificateParams -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679805851"><span id="local-6989586621679805853"><span id="local-6989586621679805855"><span class="annot"><span class="annottext">Int -&gt; UpdateDeviceCertificateParams -&gt; ShowS
 [UpdateDeviceCertificateParams] -&gt; ShowS
 UpdateDeviceCertificateParams -&gt; String
 (Int -&gt; UpdateDeviceCertificateParams -&gt; ShowS)
@@ -123,12 +123,12 @@ UpdateDeviceCertificateParams
 </span><span id="line-50"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.DeviceCertificateUpdateAction.html#DeviceCertificateUpdateAction"><span class="hs-identifier hs-type">DeviceCertificateUpdateAction</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.UpdateDeviceCertificateParams.html#UpdateDeviceCertificateParams"><span class="hs-identifier hs-type">UpdateDeviceCertificateParams</span></a></span><span>
 </span><span id="line-52"></span><span id="newUpdateDeviceCertificateParams"><span class="annot"><span class="annottext">newUpdateDeviceCertificateParams :: DeviceCertificateUpdateAction -&gt; UpdateDeviceCertificateParams
-</span><a href="Network.AWS.IoT.Types.UpdateDeviceCertificateParams.html#newUpdateDeviceCertificateParams"><span class="hs-identifier hs-var hs-var">newUpdateDeviceCertificateParams</span></a></span></span><span> </span><span id="local-6989586621679805836"><span class="annot"><span class="annottext">DeviceCertificateUpdateAction
-</span><a href="#local-6989586621679805836"><span class="hs-identifier hs-var">pAction_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.Types.UpdateDeviceCertificateParams.html#newUpdateDeviceCertificateParams"><span class="hs-identifier hs-var hs-var">newUpdateDeviceCertificateParams</span></a></span></span><span> </span><span id="local-6989586621679805845"><span class="annot"><span class="annottext">DeviceCertificateUpdateAction
+</span><a href="#local-6989586621679805845"><span class="hs-identifier hs-var">pAction_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">UpdateDeviceCertificateParams' :: DeviceCertificateUpdateAction -&gt; UpdateDeviceCertificateParams
 </span><a href="Network.AWS.IoT.Types.UpdateDeviceCertificateParams.html#UpdateDeviceCertificateParams%27"><span class="hs-identifier hs-type">UpdateDeviceCertificateParams'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:action:UpdateDeviceCertificateParams' :: DeviceCertificateUpdateAction
 </span><a href="Network.AWS.IoT.Types.UpdateDeviceCertificateParams.html#%24sel%3Aaction%3AUpdateDeviceCertificateParams%27"><span class="hs-identifier hs-var">action</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeviceCertificateUpdateAction
-</span><a href="#local-6989586621679805836"><span class="hs-identifier hs-var">pAction_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679805845"><span class="hs-identifier hs-var">pAction_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | The action that you want to apply to the device certificate. The only</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- supported value is @DEACTIVATE@.</span><span>
@@ -144,19 +144,19 @@ UpdateDeviceCertificateParams
      DeviceCertificateUpdateAction
      DeviceCertificateUpdateAction
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.UpdateDeviceCertificateParams.html#UpdateDeviceCertificateParams%27"><span class="hs-identifier hs-type">UpdateDeviceCertificateParams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805832"><span class="annot"><span class="annottext">DeviceCertificateUpdateAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.UpdateDeviceCertificateParams.html#UpdateDeviceCertificateParams%27"><span class="hs-identifier hs-type">UpdateDeviceCertificateParams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805841"><span class="annot"><span class="annottext">DeviceCertificateUpdateAction
 action :: DeviceCertificateUpdateAction
 $sel:action:UpdateDeviceCertificateParams' :: UpdateDeviceCertificateParams -&gt; DeviceCertificateUpdateAction
-</span><a href="#local-6989586621679805832"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceCertificateUpdateAction
-</span><a href="#local-6989586621679805832"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805831"><span class="annot"><span class="annottext">s :: UpdateDeviceCertificateParams
-</span><a href="#local-6989586621679805831"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.UpdateDeviceCertificateParams.html#UpdateDeviceCertificateParams%27"><span class="hs-identifier hs-type">UpdateDeviceCertificateParams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805830"><span class="annot"><span class="annottext">DeviceCertificateUpdateAction
-</span><a href="#local-6989586621679805830"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDeviceCertificateParams
-</span><a href="#local-6989586621679805831"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:action:UpdateDeviceCertificateParams' :: DeviceCertificateUpdateAction
+</span><a href="#local-6989586621679805841"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceCertificateUpdateAction
+</span><a href="#local-6989586621679805841"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805840"><span class="annot"><span class="annottext">s :: UpdateDeviceCertificateParams
+</span><a href="#local-6989586621679805840"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.UpdateDeviceCertificateParams.html#UpdateDeviceCertificateParams%27"><span class="hs-identifier hs-type">UpdateDeviceCertificateParams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805839"><span class="annot"><span class="annottext">DeviceCertificateUpdateAction
+</span><a href="#local-6989586621679805839"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDeviceCertificateParams
+</span><a href="#local-6989586621679805840"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:action:UpdateDeviceCertificateParams' :: DeviceCertificateUpdateAction
 </span><a href="Network.AWS.IoT.Types.UpdateDeviceCertificateParams.html#%24sel%3Aaction%3AUpdateDeviceCertificateParams%27"><span class="hs-identifier hs-var">action</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeviceCertificateUpdateAction
-</span><a href="#local-6989586621679805830"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.UpdateDeviceCertificateParams.html#UpdateDeviceCertificateParams"><span class="hs-identifier hs-type">UpdateDeviceCertificateParams</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679805839"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.UpdateDeviceCertificateParams.html#UpdateDeviceCertificateParams"><span class="hs-identifier hs-type">UpdateDeviceCertificateParams</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679805827"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.UpdateDeviceCertificateParams.html#UpdateDeviceCertificateParams"><span class="hs-identifier hs-type">UpdateDeviceCertificateParams</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-61"></span><span>  </span><span id="local-6989586621679805825"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UpdateDeviceCertificateParams
+</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679805836"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.UpdateDeviceCertificateParams.html#UpdateDeviceCertificateParams"><span class="hs-identifier hs-type">UpdateDeviceCertificateParams</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-61"></span><span>  </span><span id="local-6989586621679805834"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UpdateDeviceCertificateParams
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-62"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser UpdateDeviceCertificateParams)
@@ -166,8 +166,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;UpdateDeviceCertificateParams&quot;</span></span><span>
-</span><span id="line-64"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679805822"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679805822"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-64"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679805831"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679805831"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-65"></span><span>          </span><span class="annot"><span class="annottext">DeviceCertificateUpdateAction -&gt; UpdateDeviceCertificateParams
 </span><a href="Network.AWS.IoT.Types.UpdateDeviceCertificateParams.html#UpdateDeviceCertificateParams%27"><span class="hs-identifier hs-var">UpdateDeviceCertificateParams'</span></a></span><span>
 </span><span id="line-66"></span><span>            </span><span class="annot"><span class="annottext">(DeviceCertificateUpdateAction -&gt; UpdateDeviceCertificateParams)
@@ -175,24 +175,24 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser UpdateDeviceCertificateParams
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679805822"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser DeviceCertificateUpdateAction
+</span><a href="#local-6989586621679805831"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser DeviceCertificateUpdateAction
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;action&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679805816"><span id="local-6989586621679805818"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679805825"><span id="local-6989586621679805827"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.Types.UpdateDeviceCertificateParams.html#UpdateDeviceCertificateParams"><span class="hs-identifier hs-type">UpdateDeviceCertificateParams</span></a></span></span></span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679805813"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.UpdateDeviceCertificateParams.html#UpdateDeviceCertificateParams"><span class="hs-identifier hs-type">UpdateDeviceCertificateParams</span></a></span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679805822"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.UpdateDeviceCertificateParams.html#UpdateDeviceCertificateParams"><span class="hs-identifier hs-type">UpdateDeviceCertificateParams</span></a></span></span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679805805"><span id="local-6989586621679805807"><span id="local-6989586621679805809"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.UpdateDeviceCertificateParams.html#UpdateDeviceCertificateParams"><span class="hs-identifier hs-type">UpdateDeviceCertificateParams</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679805803"><span class="annot"><span class="annottext">toJSON :: UpdateDeviceCertificateParams -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.UpdateDeviceCertificateParams.html#UpdateDeviceCertificateParams%27"><span class="hs-identifier hs-type">UpdateDeviceCertificateParams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805801"><span class="annot"><span class="annottext">DeviceCertificateUpdateAction
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679805814"><span id="local-6989586621679805816"><span id="local-6989586621679805818"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.UpdateDeviceCertificateParams.html#UpdateDeviceCertificateParams"><span class="hs-identifier hs-type">UpdateDeviceCertificateParams</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679805812"><span class="annot"><span class="annottext">toJSON :: UpdateDeviceCertificateParams -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.UpdateDeviceCertificateParams.html#UpdateDeviceCertificateParams%27"><span class="hs-identifier hs-type">UpdateDeviceCertificateParams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805810"><span class="annot"><span class="annottext">DeviceCertificateUpdateAction
 action :: DeviceCertificateUpdateAction
 $sel:action:UpdateDeviceCertificateParams' :: UpdateDeviceCertificateParams -&gt; DeviceCertificateUpdateAction
-</span><a href="#local-6989586621679805801"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679805810"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -204,6 +204,6 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;action&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DeviceCertificateUpdateAction -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">DeviceCertificateUpdateAction
-</span><a href="#local-6989586621679805801"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679805810"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span></pre></body></html>

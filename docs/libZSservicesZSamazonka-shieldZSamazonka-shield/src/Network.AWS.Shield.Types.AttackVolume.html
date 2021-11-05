@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- statistics object is zero, this setting might be empty.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newAttackVolume' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679201596"><span id="local-6989586621679201597"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttackVolume"><span class="annot"><a href="Network.AWS.Shield.Types.AttackVolume.html#AttackVolume"><span class="hs-identifier hs-var">AttackVolume</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttackVolume%27"><span class="annot"><a href="Network.AWS.Shield.Types.AttackVolume.html#AttackVolume%27"><span class="hs-identifier hs-var">AttackVolume'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679201605"><span id="local-6989586621679201606"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttackVolume"><span class="annot"><a href="Network.AWS.Shield.Types.AttackVolume.html#AttackVolume"><span class="hs-identifier hs-var">AttackVolume</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttackVolume%27"><span class="annot"><a href="Network.AWS.Shield.Types.AttackVolume.html#AttackVolume%27"><span class="hs-identifier hs-var">AttackVolume'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A statistics object that uses packets per second as the unit. This is</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- included for network level attacks.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3ApacketsPerSecond%3AAttackVolume%27"><span class="annot"><span class="annottext">AttackVolume -&gt; Maybe AttackVolumeStatistics
@@ -44,7 +44,7 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3AbitsPerSecond%3AAttackVolume%27"><span class="annot"><span class="annottext">AttackVolume -&gt; Maybe AttackVolumeStatistics
 </span><a href="Network.AWS.Shield.Types.AttackVolume.html#%24sel%3AbitsPerSecond%3AAttackVolume%27"><span class="hs-identifier hs-var hs-var">bitsPerSecond</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackVolumeStatistics.html#AttackVolumeStatistics"><span class="hs-identifier hs-type">AttackVolumeStatistics</span></a></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679201588"><span id="local-6989586621679201590"><span class="annot"><span class="annottext">AttackVolume -&gt; AttackVolume -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679201597"><span id="local-6989586621679201599"><span class="annot"><span class="annottext">AttackVolume -&gt; AttackVolume -&gt; Bool
 (AttackVolume -&gt; AttackVolume -&gt; Bool)
 -&gt; (AttackVolume -&gt; AttackVolume -&gt; Bool) -&gt; Eq AttackVolume
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AttackVolume -&gt; AttackVolume -&gt; Bool
 == :: AttackVolume -&gt; AttackVolume -&gt; Bool
 $c== :: AttackVolume -&gt; AttackVolume -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201579"><span id="local-6989586621679201581"><span id="local-6989586621679201583"><span id="local-6989586621679201585"><span class="annot"><span class="annottext">ReadPrec [AttackVolume]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201588"><span id="local-6989586621679201590"><span id="local-6989586621679201592"><span id="local-6989586621679201594"><span class="annot"><span class="annottext">ReadPrec [AttackVolume]
 ReadPrec AttackVolume
 Int -&gt; ReadS AttackVolume
 ReadS [AttackVolume]
@@ -72,7 +72,7 @@ readList :: ReadS [AttackVolume]
 $creadList :: ReadS [AttackVolume]
 readsPrec :: Int -&gt; ReadS AttackVolume
 $creadsPrec :: Int -&gt; ReadS AttackVolume
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201572"><span id="local-6989586621679201574"><span id="local-6989586621679201576"><span class="annot"><span class="annottext">Int -&gt; AttackVolume -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201581"><span id="local-6989586621679201583"><span id="local-6989586621679201585"><span class="annot"><span class="annottext">Int -&gt; AttackVolume -&gt; ShowS
 [AttackVolume] -&gt; ShowS
 AttackVolume -&gt; String
 (Int -&gt; AttackVolume -&gt; ShowS)
@@ -151,16 +151,16 @@ forall a. Maybe a
      (Maybe AttackVolumeStatistics)
      (Maybe AttackVolumeStatistics)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackVolume.html#AttackVolume%27"><span class="hs-identifier hs-type">AttackVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201563"><span class="annot"><span class="annottext">Maybe AttackVolumeStatistics
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackVolume.html#AttackVolume%27"><span class="hs-identifier hs-type">AttackVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201572"><span class="annot"><span class="annottext">Maybe AttackVolumeStatistics
 packetsPerSecond :: Maybe AttackVolumeStatistics
 $sel:packetsPerSecond:AttackVolume' :: AttackVolume -&gt; Maybe AttackVolumeStatistics
-</span><a href="#local-6989586621679201563"><span class="hs-identifier hs-var hs-var">packetsPerSecond</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AttackVolumeStatistics
-</span><a href="#local-6989586621679201563"><span class="hs-identifier hs-var">packetsPerSecond</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201562"><span class="annot"><span class="annottext">s :: AttackVolume
-</span><a href="#local-6989586621679201562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackVolume.html#AttackVolume%27"><span class="hs-identifier hs-type">AttackVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201561"><span class="annot"><span class="annottext">Maybe AttackVolumeStatistics
-</span><a href="#local-6989586621679201561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttackVolume
-</span><a href="#local-6989586621679201562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:packetsPerSecond:AttackVolume' :: Maybe AttackVolumeStatistics
+</span><a href="#local-6989586621679201572"><span class="hs-identifier hs-var hs-var">packetsPerSecond</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AttackVolumeStatistics
+</span><a href="#local-6989586621679201572"><span class="hs-identifier hs-var">packetsPerSecond</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201571"><span class="annot"><span class="annottext">s :: AttackVolume
+</span><a href="#local-6989586621679201571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackVolume.html#AttackVolume%27"><span class="hs-identifier hs-type">AttackVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201570"><span class="annot"><span class="annottext">Maybe AttackVolumeStatistics
+</span><a href="#local-6989586621679201570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttackVolume
+</span><a href="#local-6989586621679201571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:packetsPerSecond:AttackVolume' :: Maybe AttackVolumeStatistics
 </span><a href="Network.AWS.Shield.Types.AttackVolume.html#%24sel%3ApacketsPerSecond%3AAttackVolume%27"><span class="hs-identifier hs-var">packetsPerSecond</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AttackVolumeStatistics
-</span><a href="#local-6989586621679201561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackVolume.html#AttackVolume"><span class="hs-identifier hs-type">AttackVolume</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679201570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackVolume.html#AttackVolume"><span class="hs-identifier hs-type">AttackVolume</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | A statistics object that uses requests per second as the unit. This is</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- included for application level attacks, and is only available for</span><span>
@@ -176,16 +176,16 @@ $sel:packetsPerSecond:AttackVolume' :: AttackVolume -&gt; Maybe AttackVolumeStat
      (Maybe AttackVolumeStatistics)
      (Maybe AttackVolumeStatistics)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackVolume.html#AttackVolume%27"><span class="hs-identifier hs-type">AttackVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201559"><span class="annot"><span class="annottext">Maybe AttackVolumeStatistics
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackVolume.html#AttackVolume%27"><span class="hs-identifier hs-type">AttackVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201568"><span class="annot"><span class="annottext">Maybe AttackVolumeStatistics
 requestsPerSecond :: Maybe AttackVolumeStatistics
 $sel:requestsPerSecond:AttackVolume' :: AttackVolume -&gt; Maybe AttackVolumeStatistics
-</span><a href="#local-6989586621679201559"><span class="hs-identifier hs-var hs-var">requestsPerSecond</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AttackVolumeStatistics
-</span><a href="#local-6989586621679201559"><span class="hs-identifier hs-var">requestsPerSecond</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201558"><span class="annot"><span class="annottext">s :: AttackVolume
-</span><a href="#local-6989586621679201558"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackVolume.html#AttackVolume%27"><span class="hs-identifier hs-type">AttackVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201557"><span class="annot"><span class="annottext">Maybe AttackVolumeStatistics
-</span><a href="#local-6989586621679201557"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttackVolume
-</span><a href="#local-6989586621679201558"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestsPerSecond:AttackVolume' :: Maybe AttackVolumeStatistics
+</span><a href="#local-6989586621679201568"><span class="hs-identifier hs-var hs-var">requestsPerSecond</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AttackVolumeStatistics
+</span><a href="#local-6989586621679201568"><span class="hs-identifier hs-var">requestsPerSecond</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201567"><span class="annot"><span class="annottext">s :: AttackVolume
+</span><a href="#local-6989586621679201567"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackVolume.html#AttackVolume%27"><span class="hs-identifier hs-type">AttackVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201566"><span class="annot"><span class="annottext">Maybe AttackVolumeStatistics
+</span><a href="#local-6989586621679201566"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttackVolume
+</span><a href="#local-6989586621679201567"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestsPerSecond:AttackVolume' :: Maybe AttackVolumeStatistics
 </span><a href="Network.AWS.Shield.Types.AttackVolume.html#%24sel%3ArequestsPerSecond%3AAttackVolume%27"><span class="hs-identifier hs-var">requestsPerSecond</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AttackVolumeStatistics
-</span><a href="#local-6989586621679201557"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackVolume.html#AttackVolume"><span class="hs-identifier hs-type">AttackVolume</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679201566"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackVolume.html#AttackVolume"><span class="hs-identifier hs-type">AttackVolume</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | A statistics object that uses bits per second as the unit. This is</span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- included for network level attacks.</span><span>
@@ -200,19 +200,19 @@ $sel:requestsPerSecond:AttackVolume' :: AttackVolume -&gt; Maybe AttackVolumeSta
      (Maybe AttackVolumeStatistics)
      (Maybe AttackVolumeStatistics)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackVolume.html#AttackVolume%27"><span class="hs-identifier hs-type">AttackVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201555"><span class="annot"><span class="annottext">Maybe AttackVolumeStatistics
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackVolume.html#AttackVolume%27"><span class="hs-identifier hs-type">AttackVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201564"><span class="annot"><span class="annottext">Maybe AttackVolumeStatistics
 bitsPerSecond :: Maybe AttackVolumeStatistics
 $sel:bitsPerSecond:AttackVolume' :: AttackVolume -&gt; Maybe AttackVolumeStatistics
-</span><a href="#local-6989586621679201555"><span class="hs-identifier hs-var hs-var">bitsPerSecond</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AttackVolumeStatistics
-</span><a href="#local-6989586621679201555"><span class="hs-identifier hs-var">bitsPerSecond</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201554"><span class="annot"><span class="annottext">s :: AttackVolume
-</span><a href="#local-6989586621679201554"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackVolume.html#AttackVolume%27"><span class="hs-identifier hs-type">AttackVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201553"><span class="annot"><span class="annottext">Maybe AttackVolumeStatistics
-</span><a href="#local-6989586621679201553"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttackVolume
-</span><a href="#local-6989586621679201554"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bitsPerSecond:AttackVolume' :: Maybe AttackVolumeStatistics
+</span><a href="#local-6989586621679201564"><span class="hs-identifier hs-var hs-var">bitsPerSecond</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AttackVolumeStatistics
+</span><a href="#local-6989586621679201564"><span class="hs-identifier hs-var">bitsPerSecond</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201563"><span class="annot"><span class="annottext">s :: AttackVolume
+</span><a href="#local-6989586621679201563"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.AttackVolume.html#AttackVolume%27"><span class="hs-identifier hs-type">AttackVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201562"><span class="annot"><span class="annottext">Maybe AttackVolumeStatistics
+</span><a href="#local-6989586621679201562"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttackVolume
+</span><a href="#local-6989586621679201563"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bitsPerSecond:AttackVolume' :: Maybe AttackVolumeStatistics
 </span><a href="Network.AWS.Shield.Types.AttackVolume.html#%24sel%3AbitsPerSecond%3AAttackVolume%27"><span class="hs-identifier hs-var">bitsPerSecond</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AttackVolumeStatistics
-</span><a href="#local-6989586621679201553"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackVolume.html#AttackVolume"><span class="hs-identifier hs-type">AttackVolume</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679201562"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackVolume.html#AttackVolume"><span class="hs-identifier hs-type">AttackVolume</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201550"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackVolume.html#AttackVolume"><span class="hs-identifier hs-type">AttackVolume</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679201548"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AttackVolume
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201559"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackVolume.html#AttackVolume"><span class="hs-identifier hs-type">AttackVolume</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679201557"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AttackVolume
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AttackVolume) -&gt; Value -&gt; Parser AttackVolume
@@ -220,8 +220,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AttackVolume&quot;</span></span><span>
-</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679201545"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679201545"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679201554"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201554"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">Maybe AttackVolumeStatistics
 -&gt; Maybe AttackVolumeStatistics
 -&gt; Maybe AttackVolumeStatistics
@@ -237,7 +237,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe AttackVolumeStatistics -&gt; AttackVolume)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679201545"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AttackVolumeStatistics)
+</span><a href="#local-6989586621679201554"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AttackVolumeStatistics)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PacketsPerSecond&quot;</span></span><span class="hs-special">)</span><span>
@@ -248,7 +248,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe AttackVolumeStatistics -&gt; AttackVolume)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679201545"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AttackVolumeStatistics)
+</span><a href="#local-6989586621679201554"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AttackVolumeStatistics)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RequestsPerSecond&quot;</span></span><span class="hs-special">)</span><span>
@@ -256,13 +256,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe AttackVolumeStatistics) -&gt; Parser AttackVolume
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679201545"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AttackVolumeStatistics)
+</span><a href="#local-6989586621679201554"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AttackVolumeStatistics)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BitsPerSecond&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201539"><span id="local-6989586621679201541"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackVolume.html#AttackVolume"><span class="hs-identifier hs-type">AttackVolume</span></a></span></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201548"><span id="local-6989586621679201550"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackVolume.html#AttackVolume"><span class="hs-identifier hs-type">AttackVolume</span></a></span></span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201536"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackVolume.html#AttackVolume"><span class="hs-identifier hs-type">AttackVolume</span></a></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679201545"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackVolume.html#AttackVolume"><span class="hs-identifier hs-type">AttackVolume</span></a></span></span><span>
 </span><span id="line-102"></span></pre></body></html>

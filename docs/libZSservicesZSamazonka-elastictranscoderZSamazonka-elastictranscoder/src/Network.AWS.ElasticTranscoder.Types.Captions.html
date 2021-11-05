@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | The captions to be created, if any.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newCaptions' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679210582"><span id="local-6989586621679210583"></span></span><span class="hs-keyword">data</span><span> </span><span id="Captions"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions"><span class="hs-identifier hs-var">Captions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Captions%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions%27"><span class="hs-identifier hs-var">Captions'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679210591"><span id="local-6989586621679210592"></span></span><span class="hs-keyword">data</span><span> </span><span id="Captions"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions"><span class="hs-identifier hs-var">Captions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Captions%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions%27"><span class="hs-identifier hs-var">Captions'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A policy that determines how Elastic Transcoder handles the existence of</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- multiple captions.</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -60,7 +60,7 @@
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AcaptionFormats%3ACaptions%27"><span class="annot"><span class="annottext">Captions -&gt; Maybe [CaptionFormat]
 </span><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#%24sel%3AcaptionFormats%3ACaptions%27"><span class="hs-identifier hs-var hs-var">captionFormats</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.CaptionFormat.html#CaptionFormat"><span class="hs-identifier hs-type">CaptionFormat</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210574"><span id="local-6989586621679210576"><span class="annot"><span class="annottext">Captions -&gt; Captions -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210583"><span id="local-6989586621679210585"><span class="annot"><span class="annottext">Captions -&gt; Captions -&gt; Bool
 (Captions -&gt; Captions -&gt; Bool)
 -&gt; (Captions -&gt; Captions -&gt; Bool) -&gt; Eq Captions
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Captions -&gt; Captions -&gt; Bool
 == :: Captions -&gt; Captions -&gt; Bool
 $c== :: Captions -&gt; Captions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210565"><span id="local-6989586621679210567"><span id="local-6989586621679210569"><span id="local-6989586621679210571"><span class="annot"><span class="annottext">ReadPrec [Captions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210574"><span id="local-6989586621679210576"><span id="local-6989586621679210578"><span id="local-6989586621679210580"><span class="annot"><span class="annottext">ReadPrec [Captions]
 ReadPrec Captions
 Int -&gt; ReadS Captions
 ReadS [Captions]
@@ -88,7 +88,7 @@ readList :: ReadS [Captions]
 $creadList :: ReadS [Captions]
 readsPrec :: Int -&gt; ReadS Captions
 $creadsPrec :: Int -&gt; ReadS Captions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210558"><span id="local-6989586621679210560"><span id="local-6989586621679210562"><span class="annot"><span class="annottext">Int -&gt; Captions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210567"><span id="local-6989586621679210569"><span id="local-6989586621679210571"><span class="annot"><span class="annottext">Int -&gt; Captions -&gt; ShowS
 [Captions] -&gt; ShowS
 Captions -&gt; String
 (Int -&gt; Captions -&gt; ShowS)
@@ -192,16 +192,16 @@ forall a. Maybe a
 -&gt; (Captions -&gt; Maybe Text -&gt; Captions)
 -&gt; Lens Captions Captions (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions%27"><span class="hs-identifier hs-type">Captions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210549"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions%27"><span class="hs-identifier hs-type">Captions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210558"><span class="annot"><span class="annottext">Maybe Text
 mergePolicy :: Maybe Text
 $sel:mergePolicy:Captions' :: Captions -&gt; Maybe Text
-</span><a href="#local-6989586621679210549"><span class="hs-identifier hs-var hs-var">mergePolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210549"><span class="hs-identifier hs-var">mergePolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210548"><span class="annot"><span class="annottext">s :: Captions
-</span><a href="#local-6989586621679210548"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions%27"><span class="hs-identifier hs-type">Captions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210547"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210547"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Captions
-</span><a href="#local-6989586621679210548"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mergePolicy:Captions' :: Maybe Text
+</span><a href="#local-6989586621679210558"><span class="hs-identifier hs-var hs-var">mergePolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210558"><span class="hs-identifier hs-var">mergePolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210557"><span class="annot"><span class="annottext">s :: Captions
+</span><a href="#local-6989586621679210557"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions%27"><span class="hs-identifier hs-type">Captions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210556"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210556"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Captions
+</span><a href="#local-6989586621679210557"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mergePolicy:Captions' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#%24sel%3AmergePolicy%3ACaptions%27"><span class="hs-identifier hs-var">mergePolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210547"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions"><span class="hs-identifier hs-type">Captions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210556"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions"><span class="hs-identifier hs-type">Captions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | Source files for the input sidecar captions used during the transcoding</span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- process. To omit all sidecar captions, leave @CaptionSources@ blank.</span><span>
@@ -213,16 +213,16 @@ $sel:mergePolicy:Captions' :: Captions -&gt; Maybe Text
 -&gt; Lens
      Captions Captions (Maybe [CaptionSource]) (Maybe [CaptionSource])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions%27"><span class="hs-identifier hs-type">Captions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210545"><span class="annot"><span class="annottext">Maybe [CaptionSource]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions%27"><span class="hs-identifier hs-type">Captions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210554"><span class="annot"><span class="annottext">Maybe [CaptionSource]
 captionSources :: Maybe [CaptionSource]
 $sel:captionSources:Captions' :: Captions -&gt; Maybe [CaptionSource]
-</span><a href="#local-6989586621679210545"><span class="hs-identifier hs-var hs-var">captionSources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CaptionSource]
-</span><a href="#local-6989586621679210545"><span class="hs-identifier hs-var">captionSources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210544"><span class="annot"><span class="annottext">s :: Captions
-</span><a href="#local-6989586621679210544"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions%27"><span class="hs-identifier hs-type">Captions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210543"><span class="annot"><span class="annottext">Maybe [CaptionSource]
-</span><a href="#local-6989586621679210543"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Captions
-</span><a href="#local-6989586621679210544"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:captionSources:Captions' :: Maybe [CaptionSource]
+</span><a href="#local-6989586621679210554"><span class="hs-identifier hs-var hs-var">captionSources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CaptionSource]
+</span><a href="#local-6989586621679210554"><span class="hs-identifier hs-var">captionSources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210553"><span class="annot"><span class="annottext">s :: Captions
+</span><a href="#local-6989586621679210553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions%27"><span class="hs-identifier hs-type">Captions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210552"><span class="annot"><span class="annottext">Maybe [CaptionSource]
+</span><a href="#local-6989586621679210552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Captions
+</span><a href="#local-6989586621679210553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:captionSources:Captions' :: Maybe [CaptionSource]
 </span><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#%24sel%3AcaptionSources%3ACaptions%27"><span class="hs-identifier hs-var">captionSources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CaptionSource]
-</span><a href="#local-6989586621679210543"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions"><span class="hs-identifier hs-type">Captions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CaptionSource] -&gt; f (Maybe [CaptionSource]))
+</span><a href="#local-6989586621679210552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions"><span class="hs-identifier hs-type">Captions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CaptionSource] -&gt; f (Maybe [CaptionSource]))
  -&gt; Captions -&gt; f Captions)
 -&gt; ((Maybe [CaptionSource] -&gt; f (Maybe [CaptionSource]))
     -&gt; Maybe [CaptionSource] -&gt; f (Maybe [CaptionSource]))
@@ -255,16 +255,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      Captions Captions (Maybe [CaptionFormat]) (Maybe [CaptionFormat])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions%27"><span class="hs-identifier hs-type">Captions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210538"><span class="annot"><span class="annottext">Maybe [CaptionFormat]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions%27"><span class="hs-identifier hs-type">Captions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210547"><span class="annot"><span class="annottext">Maybe [CaptionFormat]
 captionFormats :: Maybe [CaptionFormat]
 $sel:captionFormats:Captions' :: Captions -&gt; Maybe [CaptionFormat]
-</span><a href="#local-6989586621679210538"><span class="hs-identifier hs-var hs-var">captionFormats</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CaptionFormat]
-</span><a href="#local-6989586621679210538"><span class="hs-identifier hs-var">captionFormats</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210537"><span class="annot"><span class="annottext">s :: Captions
-</span><a href="#local-6989586621679210537"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions%27"><span class="hs-identifier hs-type">Captions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210536"><span class="annot"><span class="annottext">Maybe [CaptionFormat]
-</span><a href="#local-6989586621679210536"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Captions
-</span><a href="#local-6989586621679210537"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:captionFormats:Captions' :: Maybe [CaptionFormat]
+</span><a href="#local-6989586621679210547"><span class="hs-identifier hs-var hs-var">captionFormats</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CaptionFormat]
+</span><a href="#local-6989586621679210547"><span class="hs-identifier hs-var">captionFormats</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210546"><span class="annot"><span class="annottext">s :: Captions
+</span><a href="#local-6989586621679210546"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions%27"><span class="hs-identifier hs-type">Captions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210545"><span class="annot"><span class="annottext">Maybe [CaptionFormat]
+</span><a href="#local-6989586621679210545"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Captions
+</span><a href="#local-6989586621679210546"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:captionFormats:Captions' :: Maybe [CaptionFormat]
 </span><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#%24sel%3AcaptionFormats%3ACaptions%27"><span class="hs-identifier hs-var">captionFormats</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CaptionFormat]
-</span><a href="#local-6989586621679210536"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions"><span class="hs-identifier hs-type">Captions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CaptionFormat] -&gt; f (Maybe [CaptionFormat]))
+</span><a href="#local-6989586621679210545"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions"><span class="hs-identifier hs-type">Captions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CaptionFormat] -&gt; f (Maybe [CaptionFormat]))
  -&gt; Captions -&gt; f Captions)
 -&gt; ((Maybe [CaptionFormat] -&gt; f (Maybe [CaptionFormat]))
     -&gt; Maybe [CaptionFormat] -&gt; f (Maybe [CaptionFormat]))
@@ -287,16 +287,16 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210533"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions"><span class="hs-identifier hs-type">Captions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679210531"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Captions
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210542"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions"><span class="hs-identifier hs-type">Captions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679210540"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Captions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Captions) -&gt; Value -&gt; Parser Captions
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Captions&quot;</span></span><span>
-</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679210528"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210528"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679210537"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210537"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-143"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [CaptionSource] -&gt; Maybe [CaptionFormat] -&gt; Captions
 </span><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions%27"><span class="hs-identifier hs-var">Captions'</span></a></span><span>
@@ -307,7 +307,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe [CaptionSource] -&gt; Maybe [CaptionFormat] -&gt; Captions)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210528"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679210537"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MergePolicy&quot;</span></span><span class="hs-special">)</span><span>
@@ -316,7 +316,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [CaptionFormat] -&gt; Captions)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210528"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [CaptionSource]))
+</span><a href="#local-6989586621679210537"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [CaptionSource]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CaptionSources&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [CaptionSource]))
@@ -329,7 +329,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe [CaptionFormat]) -&gt; Parser Captions
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210528"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [CaptionFormat]))
+</span><a href="#local-6989586621679210537"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [CaptionFormat]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CaptionFormats&quot;</span></span><span>
@@ -342,13 +342,13 @@ forall a. Monoid a =&gt; a
 </span><span id="line-148"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210521"><span id="local-6989586621679210523"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions"><span class="hs-identifier hs-type">Captions</span></a></span></span></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210530"><span id="local-6989586621679210532"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions"><span class="hs-identifier hs-type">Captions</span></a></span></span></span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210518"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions"><span class="hs-identifier hs-type">Captions</span></a></span></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210527"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions"><span class="hs-identifier hs-type">Captions</span></a></span></span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210510"><span id="local-6989586621679210512"><span id="local-6989586621679210514"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions"><span class="hs-identifier hs-type">Captions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679210508"><span class="annot"><span class="annottext">toJSON :: Captions -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions%27"><span class="hs-identifier hs-type">Captions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210504"><span id="local-6989586621679210505"><span id="local-6989586621679210506"><span class="annot"><span class="annottext">Maybe [CaptionSource]
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210519"><span id="local-6989586621679210521"><span id="local-6989586621679210523"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions"><span class="hs-identifier hs-type">Captions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679210517"><span class="annot"><span class="annottext">toJSON :: Captions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Captions.html#Captions%27"><span class="hs-identifier hs-type">Captions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210513"><span id="local-6989586621679210514"><span id="local-6989586621679210515"><span class="annot"><span class="annottext">Maybe [CaptionSource]
 Maybe [CaptionFormat]
 Maybe Text
 captionFormats :: Maybe [CaptionFormat]
@@ -357,7 +357,7 @@ mergePolicy :: Maybe Text
 $sel:captionFormats:Captions' :: Captions -&gt; Maybe [CaptionFormat]
 $sel:captionSources:Captions' :: Captions -&gt; Maybe [CaptionSource]
 $sel:mergePolicy:Captions' :: Captions -&gt; Maybe Text
-</span><a href="#local-6989586621679210504"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679210513"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -369,7 +369,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210506"><span class="hs-identifier hs-var">mergePolicy</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679210515"><span class="hs-identifier hs-var">mergePolicy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CaptionSources&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [CaptionSource] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -377,7 +377,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-161"></span><span>              </span><span class="annot"><span class="annottext">([CaptionSource] -&gt; Pair) -&gt; Maybe [CaptionSource] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CaptionSource]
-</span><a href="#local-6989586621679210505"><span class="hs-identifier hs-var">captionSources</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679210514"><span class="hs-identifier hs-var">captionSources</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-162"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CaptionFormats&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [CaptionFormat] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -385,7 +385,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-163"></span><span>              </span><span class="annot"><span class="annottext">([CaptionFormat] -&gt; Pair) -&gt; Maybe [CaptionFormat] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CaptionFormat]
-</span><a href="#local-6989586621679210504"><span class="hs-identifier hs-var">captionFormats</span></a></span><span>
+</span><a href="#local-6989586621679210513"><span class="hs-identifier hs-var">captionFormats</span></a></span><span>
 </span><span id="line-164"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span></pre></body></html>

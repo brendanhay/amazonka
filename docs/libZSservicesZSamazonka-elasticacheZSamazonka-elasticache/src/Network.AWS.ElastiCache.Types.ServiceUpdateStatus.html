@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679405315"><span id="local-6989586621679405316"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ServiceUpdateStatus"><span class="annot"><a href="Network.AWS.ElastiCache.Types.ServiceUpdateStatus.html#ServiceUpdateStatus"><span class="hs-identifier hs-var">ServiceUpdateStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServiceUpdateStatus%27"><span class="annot"><a href="Network.AWS.ElastiCache.Types.ServiceUpdateStatus.html#ServiceUpdateStatus%27"><span class="hs-identifier hs-var">ServiceUpdateStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679405324"><span id="local-6989586621679405325"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ServiceUpdateStatus"><span class="annot"><a href="Network.AWS.ElastiCache.Types.ServiceUpdateStatus.html#ServiceUpdateStatus"><span class="hs-identifier hs-var">ServiceUpdateStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServiceUpdateStatus%27"><span class="annot"><a href="Network.AWS.ElastiCache.Types.ServiceUpdateStatus.html#ServiceUpdateStatus%27"><span class="hs-identifier hs-var">ServiceUpdateStatus'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromServiceUpdateStatus"><span class="annot"><span class="annottext">ServiceUpdateStatus -&gt; Text
 </span><a href="Network.AWS.ElastiCache.Types.ServiceUpdateStatus.html#fromServiceUpdateStatus"><span class="hs-identifier hs-var hs-var">fromServiceUpdateStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679405307"><span id="local-6989586621679405309"><span id="local-6989586621679405311"><span class="annot"><span class="annottext">Int -&gt; ServiceUpdateStatus -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679405316"><span id="local-6989586621679405318"><span id="local-6989586621679405320"><span class="annot"><span class="annottext">Int -&gt; ServiceUpdateStatus -&gt; ShowS
 [ServiceUpdateStatus] -&gt; ShowS
 ServiceUpdateStatus -&gt; String
 (Int -&gt; ServiceUpdateStatus -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: ServiceUpdateStatus -&gt; String
 showsPrec :: Int -&gt; ServiceUpdateStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; ServiceUpdateStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679405298"><span id="local-6989586621679405300"><span id="local-6989586621679405302"><span id="local-6989586621679405304"><span class="annot"><span class="annottext">ReadPrec [ServiceUpdateStatus]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679405307"><span id="local-6989586621679405309"><span id="local-6989586621679405311"><span id="local-6989586621679405313"><span class="annot"><span class="annottext">ReadPrec [ServiceUpdateStatus]
 ReadPrec ServiceUpdateStatus
 Int -&gt; ReadS ServiceUpdateStatus
 ReadS [ServiceUpdateStatus]
@@ -73,7 +73,7 @@ $creadList :: ReadS [ServiceUpdateStatus]
 readsPrec :: Int -&gt; ReadS ServiceUpdateStatus
 $creadsPrec :: Int -&gt; ReadS ServiceUpdateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679405293"><span id="local-6989586621679405295"><span class="annot"><span class="annottext">ServiceUpdateStatus -&gt; ServiceUpdateStatus -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679405302"><span id="local-6989586621679405304"><span class="annot"><span class="annottext">ServiceUpdateStatus -&gt; ServiceUpdateStatus -&gt; Bool
 (ServiceUpdateStatus -&gt; ServiceUpdateStatus -&gt; Bool)
 -&gt; (ServiceUpdateStatus -&gt; ServiceUpdateStatus -&gt; Bool)
 -&gt; Eq ServiceUpdateStatus
@@ -83,7 +83,7 @@ $c/= :: ServiceUpdateStatus -&gt; ServiceUpdateStatus -&gt; Bool
 == :: ServiceUpdateStatus -&gt; ServiceUpdateStatus -&gt; Bool
 $c== :: ServiceUpdateStatus -&gt; ServiceUpdateStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679405277"><span id="local-6989586621679405279"><span id="local-6989586621679405281"><span id="local-6989586621679405283"><span id="local-6989586621679405285"><span id="local-6989586621679405287"><span id="local-6989586621679405289"><span class="annot"><span class="annottext">Eq ServiceUpdateStatus
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679405286"><span id="local-6989586621679405288"><span id="local-6989586621679405290"><span id="local-6989586621679405292"><span id="local-6989586621679405294"><span id="local-6989586621679405296"><span id="local-6989586621679405298"><span class="annot"><span class="annottext">Eq ServiceUpdateStatus
 Eq ServiceUpdateStatus
 -&gt; (ServiceUpdateStatus -&gt; ServiceUpdateStatus -&gt; Ordering)
 -&gt; (ServiceUpdateStatus -&gt; ServiceUpdateStatus -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. ServiceUpdateStatus -&gt; Rep ServiceUpdateStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679405269"><span id="local-6989586621679405271"><span class="annot"><span class="annottext">Int -&gt; ServiceUpdateStatus -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679405278"><span id="local-6989586621679405280"><span class="annot"><span class="annottext">Int -&gt; ServiceUpdateStatus -&gt; Int
 ServiceUpdateStatus -&gt; Int
 (Int -&gt; ServiceUpdateStatus -&gt; Int)
 -&gt; (ServiceUpdateStatus -&gt; Int) -&gt; Hashable ServiceUpdateStatus
@@ -146,53 +146,53 @@ $chash :: ServiceUpdateStatus -&gt; Int
 hashWithSalt :: Int -&gt; ServiceUpdateStatus -&gt; Int
 $chashWithSalt :: Int -&gt; ServiceUpdateStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679405266"><span class="annot"><span class="annottext">ServiceUpdateStatus -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679405275"><span class="annot"><span class="annottext">ServiceUpdateStatus -&gt; ()
 (ServiceUpdateStatus -&gt; ()) -&gt; NFData ServiceUpdateStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ServiceUpdateStatus -&gt; ()
 $crnf :: ServiceUpdateStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679405263"><span class="annot"><span class="annottext">Text -&gt; Either String ServiceUpdateStatus
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679405272"><span class="annot"><span class="annottext">Text -&gt; Either String ServiceUpdateStatus
 (Text -&gt; Either String ServiceUpdateStatus)
 -&gt; FromText ServiceUpdateStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ServiceUpdateStatus
 $cfromText :: Text -&gt; Either String ServiceUpdateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679405260"><span class="annot"><span class="annottext">ServiceUpdateStatus -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679405269"><span class="annot"><span class="annottext">ServiceUpdateStatus -&gt; Text
 (ServiceUpdateStatus -&gt; Text) -&gt; ToText ServiceUpdateStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ServiceUpdateStatus -&gt; Text
 $ctoText :: ServiceUpdateStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679405257"><span class="annot"><span class="annottext">ServiceUpdateStatus -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679405266"><span class="annot"><span class="annottext">ServiceUpdateStatus -&gt; ByteString
 (ServiceUpdateStatus -&gt; ByteString)
 -&gt; ToByteString ServiceUpdateStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ServiceUpdateStatus -&gt; ByteString
 $ctoBS :: ServiceUpdateStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679405254"><span class="annot"><span class="annottext">ServiceUpdateStatus -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679405263"><span class="annot"><span class="annottext">ServiceUpdateStatus -&gt; ByteStringBuilder
 (ServiceUpdateStatus -&gt; ByteStringBuilder)
 -&gt; ToLog ServiceUpdateStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ServiceUpdateStatus -&gt; ByteStringBuilder
 $cbuild :: ServiceUpdateStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679405251"><span class="annot"><span class="annottext">HeaderName -&gt; ServiceUpdateStatus -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679405260"><span class="annot"><span class="annottext">HeaderName -&gt; ServiceUpdateStatus -&gt; [Header]
 (HeaderName -&gt; ServiceUpdateStatus -&gt; [Header])
 -&gt; ToHeader ServiceUpdateStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ServiceUpdateStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ServiceUpdateStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679405248"><span class="annot"><span class="annottext">ServiceUpdateStatus -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679405257"><span class="annot"><span class="annottext">ServiceUpdateStatus -&gt; QueryString
 (ServiceUpdateStatus -&gt; QueryString) -&gt; ToQuery ServiceUpdateStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ServiceUpdateStatus -&gt; QueryString
 $ctoQuery :: ServiceUpdateStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679405243"><span id="local-6989586621679405245"><span class="annot"><span class="annottext">Value -&gt; Parser [ServiceUpdateStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679405252"><span id="local-6989586621679405254"><span class="annot"><span class="annottext">Value -&gt; Parser [ServiceUpdateStatus]
 Value -&gt; Parser ServiceUpdateStatus
 (Value -&gt; Parser ServiceUpdateStatus)
 -&gt; (Value -&gt; Parser [ServiceUpdateStatus])
@@ -204,7 +204,7 @@ $cparseJSONList :: Value -&gt; Parser [ServiceUpdateStatus]
 parseJSON :: Value -&gt; Parser ServiceUpdateStatus
 $cparseJSON :: Value -&gt; Parser ServiceUpdateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679405238"><span id="local-6989586621679405240"><span class="annot"><span class="annottext">FromJSONKeyFunction [ServiceUpdateStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679405247"><span id="local-6989586621679405249"><span class="annot"><span class="annottext">FromJSONKeyFunction [ServiceUpdateStatus]
 FromJSONKeyFunction ServiceUpdateStatus
 FromJSONKeyFunction ServiceUpdateStatus
 -&gt; FromJSONKeyFunction [ServiceUpdateStatus]
@@ -216,7 +216,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ServiceUpdateStatus]
 fromJSONKey :: FromJSONKeyFunction ServiceUpdateStatus
 $cfromJSONKey :: FromJSONKeyFunction ServiceUpdateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679405229"><span id="local-6989586621679405231"><span id="local-6989586621679405233"><span id="local-6989586621679405235"><span class="annot"><span class="annottext">[ServiceUpdateStatus] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679405238"><span id="local-6989586621679405240"><span id="local-6989586621679405242"><span id="local-6989586621679405244"><span class="annot"><span class="annottext">[ServiceUpdateStatus] -&gt; Encoding
 [ServiceUpdateStatus] -&gt; Value
 ServiceUpdateStatus -&gt; Encoding
 ServiceUpdateStatus -&gt; Value
@@ -240,7 +240,7 @@ $ctoEncoding :: ServiceUpdateStatus -&gt; Encoding
 toJSON :: ServiceUpdateStatus -&gt; Value
 $ctoJSON :: ServiceUpdateStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679405224"><span id="local-6989586621679405226"><span class="annot"><span class="annottext">ToJSONKeyFunction [ServiceUpdateStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679405233"><span id="local-6989586621679405235"><span class="annot"><span class="annottext">ToJSONKeyFunction [ServiceUpdateStatus]
 ToJSONKeyFunction ServiceUpdateStatus
 ToJSONKeyFunction ServiceUpdateStatus
 -&gt; ToJSONKeyFunction [ServiceUpdateStatus]
@@ -252,14 +252,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ServiceUpdateStatus]
 toJSONKey :: ToJSONKeyFunction ServiceUpdateStatus
 $ctoJSONKey :: ToJSONKeyFunction ServiceUpdateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679405221"><span class="annot"><span class="annottext">[Node] -&gt; Either String ServiceUpdateStatus
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679405230"><span class="annot"><span class="annottext">[Node] -&gt; Either String ServiceUpdateStatus
 ([Node] -&gt; Either String ServiceUpdateStatus)
 -&gt; FromXML ServiceUpdateStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ServiceUpdateStatus
 $cparseXML :: [Node] -&gt; Either String ServiceUpdateStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679405218"><span class="annot"><span class="annottext">ServiceUpdateStatus -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679405227"><span class="annot"><span class="annottext">ServiceUpdateStatus -&gt; XML
 (ServiceUpdateStatus -&gt; XML) -&gt; ToXML ServiceUpdateStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ServiceUpdateStatus -&gt; XML

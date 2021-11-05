@@ -39,13 +39,13 @@
 </span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-41"></span><span>
-</span><span id="line-42"></span><span id="local-6989586621679424427"><span id="local-6989586621679424428"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ContextKeyTypeEnum"><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum"><span class="hs-identifier hs-var">ContextKeyTypeEnum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContextKeyTypeEnum%27"><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum%27"><span class="hs-identifier hs-var">ContextKeyTypeEnum'</span></a></span></span><span>
+</span><span id="line-42"></span><span id="local-6989586621679424436"><span id="local-6989586621679424437"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ContextKeyTypeEnum"><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum"><span class="hs-identifier hs-var">ContextKeyTypeEnum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContextKeyTypeEnum%27"><span class="annot"><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#ContextKeyTypeEnum%27"><span class="hs-identifier hs-var">ContextKeyTypeEnum'</span></a></span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromContextKeyTypeEnum"><span class="annot"><span class="annottext">ContextKeyTypeEnum -&gt; Text
 </span><a href="Network.AWS.IAM.Types.ContextKeyTypeEnum.html#fromContextKeyTypeEnum"><span class="hs-identifier hs-var hs-var">fromContextKeyTypeEnum</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-44"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679424419"><span id="local-6989586621679424421"><span id="local-6989586621679424423"><span class="annot"><span class="annottext">Int -&gt; ContextKeyTypeEnum -&gt; ShowS
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679424428"><span id="local-6989586621679424430"><span id="local-6989586621679424432"><span class="annot"><span class="annottext">Int -&gt; ContextKeyTypeEnum -&gt; ShowS
 [ContextKeyTypeEnum] -&gt; ShowS
 ContextKeyTypeEnum -&gt; String
 (Int -&gt; ContextKeyTypeEnum -&gt; ShowS)
@@ -61,7 +61,7 @@ $cshow :: ContextKeyTypeEnum -&gt; String
 showsPrec :: Int -&gt; ContextKeyTypeEnum -&gt; ShowS
 $cshowsPrec :: Int -&gt; ContextKeyTypeEnum -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679424410"><span id="local-6989586621679424412"><span id="local-6989586621679424414"><span id="local-6989586621679424416"><span class="annot"><span class="annottext">ReadPrec [ContextKeyTypeEnum]
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679424419"><span id="local-6989586621679424421"><span id="local-6989586621679424423"><span id="local-6989586621679424425"><span class="annot"><span class="annottext">ReadPrec [ContextKeyTypeEnum]
 ReadPrec ContextKeyTypeEnum
 Int -&gt; ReadS ContextKeyTypeEnum
 ReadS [ContextKeyTypeEnum]
@@ -82,7 +82,7 @@ $creadList :: ReadS [ContextKeyTypeEnum]
 readsPrec :: Int -&gt; ReadS ContextKeyTypeEnum
 $creadsPrec :: Int -&gt; ReadS ContextKeyTypeEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679424405"><span id="local-6989586621679424407"><span class="annot"><span class="annottext">ContextKeyTypeEnum -&gt; ContextKeyTypeEnum -&gt; Bool
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679424414"><span id="local-6989586621679424416"><span class="annot"><span class="annottext">ContextKeyTypeEnum -&gt; ContextKeyTypeEnum -&gt; Bool
 (ContextKeyTypeEnum -&gt; ContextKeyTypeEnum -&gt; Bool)
 -&gt; (ContextKeyTypeEnum -&gt; ContextKeyTypeEnum -&gt; Bool)
 -&gt; Eq ContextKeyTypeEnum
@@ -92,7 +92,7 @@ $c/= :: ContextKeyTypeEnum -&gt; ContextKeyTypeEnum -&gt; Bool
 == :: ContextKeyTypeEnum -&gt; ContextKeyTypeEnum -&gt; Bool
 $c== :: ContextKeyTypeEnum -&gt; ContextKeyTypeEnum -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679424389"><span id="local-6989586621679424391"><span id="local-6989586621679424393"><span id="local-6989586621679424395"><span id="local-6989586621679424397"><span id="local-6989586621679424399"><span id="local-6989586621679424401"><span class="annot"><span class="annottext">Eq ContextKeyTypeEnum
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679424398"><span id="local-6989586621679424400"><span id="local-6989586621679424402"><span id="local-6989586621679424404"><span id="local-6989586621679424406"><span id="local-6989586621679424408"><span id="local-6989586621679424410"><span class="annot"><span class="annottext">Eq ContextKeyTypeEnum
 Eq ContextKeyTypeEnum
 -&gt; (ContextKeyTypeEnum -&gt; ContextKeyTypeEnum -&gt; Ordering)
 -&gt; (ContextKeyTypeEnum -&gt; ContextKeyTypeEnum -&gt; Bool)
@@ -143,7 +143,7 @@ $cfrom :: forall x. ContextKeyTypeEnum -&gt; Rep ContextKeyTypeEnum x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679424381"><span id="local-6989586621679424383"><span class="annot"><span class="annottext">Int -&gt; ContextKeyTypeEnum -&gt; Int
+</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679424390"><span id="local-6989586621679424392"><span class="annot"><span class="annottext">Int -&gt; ContextKeyTypeEnum -&gt; Int
 ContextKeyTypeEnum -&gt; Int
 (Int -&gt; ContextKeyTypeEnum -&gt; Int)
 -&gt; (ContextKeyTypeEnum -&gt; Int) -&gt; Hashable ContextKeyTypeEnum
@@ -153,53 +153,53 @@ $chash :: ContextKeyTypeEnum -&gt; Int
 hashWithSalt :: Int -&gt; ContextKeyTypeEnum -&gt; Int
 $chashWithSalt :: Int -&gt; ContextKeyTypeEnum -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679424378"><span class="annot"><span class="annottext">ContextKeyTypeEnum -&gt; ()
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679424387"><span class="annot"><span class="annottext">ContextKeyTypeEnum -&gt; ()
 (ContextKeyTypeEnum -&gt; ()) -&gt; NFData ContextKeyTypeEnum
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ContextKeyTypeEnum -&gt; ()
 $crnf :: ContextKeyTypeEnum -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679424375"><span class="annot"><span class="annottext">Text -&gt; Either String ContextKeyTypeEnum
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679424384"><span class="annot"><span class="annottext">Text -&gt; Either String ContextKeyTypeEnum
 (Text -&gt; Either String ContextKeyTypeEnum)
 -&gt; FromText ContextKeyTypeEnum
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ContextKeyTypeEnum
 $cfromText :: Text -&gt; Either String ContextKeyTypeEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679424372"><span class="annot"><span class="annottext">ContextKeyTypeEnum -&gt; Text
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679424381"><span class="annot"><span class="annottext">ContextKeyTypeEnum -&gt; Text
 (ContextKeyTypeEnum -&gt; Text) -&gt; ToText ContextKeyTypeEnum
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ContextKeyTypeEnum -&gt; Text
 $ctoText :: ContextKeyTypeEnum -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679424369"><span class="annot"><span class="annottext">ContextKeyTypeEnum -&gt; ByteString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679424378"><span class="annot"><span class="annottext">ContextKeyTypeEnum -&gt; ByteString
 (ContextKeyTypeEnum -&gt; ByteString)
 -&gt; ToByteString ContextKeyTypeEnum
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ContextKeyTypeEnum -&gt; ByteString
 $ctoBS :: ContextKeyTypeEnum -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679424366"><span class="annot"><span class="annottext">ContextKeyTypeEnum -&gt; ByteStringBuilder
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679424375"><span class="annot"><span class="annottext">ContextKeyTypeEnum -&gt; ByteStringBuilder
 (ContextKeyTypeEnum -&gt; ByteStringBuilder)
 -&gt; ToLog ContextKeyTypeEnum
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ContextKeyTypeEnum -&gt; ByteStringBuilder
 $cbuild :: ContextKeyTypeEnum -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679424363"><span class="annot"><span class="annottext">HeaderName -&gt; ContextKeyTypeEnum -&gt; [Header]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679424372"><span class="annot"><span class="annottext">HeaderName -&gt; ContextKeyTypeEnum -&gt; [Header]
 (HeaderName -&gt; ContextKeyTypeEnum -&gt; [Header])
 -&gt; ToHeader ContextKeyTypeEnum
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ContextKeyTypeEnum -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ContextKeyTypeEnum -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679424360"><span class="annot"><span class="annottext">ContextKeyTypeEnum -&gt; QueryString
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679424369"><span class="annot"><span class="annottext">ContextKeyTypeEnum -&gt; QueryString
 (ContextKeyTypeEnum -&gt; QueryString) -&gt; ToQuery ContextKeyTypeEnum
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ContextKeyTypeEnum -&gt; QueryString
 $ctoQuery :: ContextKeyTypeEnum -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679424355"><span id="local-6989586621679424357"><span class="annot"><span class="annottext">Value -&gt; Parser [ContextKeyTypeEnum]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679424364"><span id="local-6989586621679424366"><span class="annot"><span class="annottext">Value -&gt; Parser [ContextKeyTypeEnum]
 Value -&gt; Parser ContextKeyTypeEnum
 (Value -&gt; Parser ContextKeyTypeEnum)
 -&gt; (Value -&gt; Parser [ContextKeyTypeEnum])
@@ -211,7 +211,7 @@ $cparseJSONList :: Value -&gt; Parser [ContextKeyTypeEnum]
 parseJSON :: Value -&gt; Parser ContextKeyTypeEnum
 $cparseJSON :: Value -&gt; Parser ContextKeyTypeEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679424350"><span id="local-6989586621679424352"><span class="annot"><span class="annottext">FromJSONKeyFunction [ContextKeyTypeEnum]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679424359"><span id="local-6989586621679424361"><span class="annot"><span class="annottext">FromJSONKeyFunction [ContextKeyTypeEnum]
 FromJSONKeyFunction ContextKeyTypeEnum
 FromJSONKeyFunction ContextKeyTypeEnum
 -&gt; FromJSONKeyFunction [ContextKeyTypeEnum]
@@ -223,7 +223,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ContextKeyTypeEnum]
 fromJSONKey :: FromJSONKeyFunction ContextKeyTypeEnum
 $cfromJSONKey :: FromJSONKeyFunction ContextKeyTypeEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679424341"><span id="local-6989586621679424343"><span id="local-6989586621679424345"><span id="local-6989586621679424347"><span class="annot"><span class="annottext">[ContextKeyTypeEnum] -&gt; Encoding
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679424350"><span id="local-6989586621679424352"><span id="local-6989586621679424354"><span id="local-6989586621679424356"><span class="annot"><span class="annottext">[ContextKeyTypeEnum] -&gt; Encoding
 [ContextKeyTypeEnum] -&gt; Value
 ContextKeyTypeEnum -&gt; Encoding
 ContextKeyTypeEnum -&gt; Value
@@ -247,7 +247,7 @@ $ctoEncoding :: ContextKeyTypeEnum -&gt; Encoding
 toJSON :: ContextKeyTypeEnum -&gt; Value
 $ctoJSON :: ContextKeyTypeEnum -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679424336"><span id="local-6989586621679424338"><span class="annot"><span class="annottext">ToJSONKeyFunction [ContextKeyTypeEnum]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679424345"><span id="local-6989586621679424347"><span class="annot"><span class="annottext">ToJSONKeyFunction [ContextKeyTypeEnum]
 ToJSONKeyFunction ContextKeyTypeEnum
 ToJSONKeyFunction ContextKeyTypeEnum
 -&gt; ToJSONKeyFunction [ContextKeyTypeEnum]
@@ -259,14 +259,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ContextKeyTypeEnum]
 toJSONKey :: ToJSONKeyFunction ContextKeyTypeEnum
 $ctoJSONKey :: ToJSONKeyFunction ContextKeyTypeEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679424333"><span class="annot"><span class="annottext">[Node] -&gt; Either String ContextKeyTypeEnum
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679424342"><span class="annot"><span class="annottext">[Node] -&gt; Either String ContextKeyTypeEnum
 ([Node] -&gt; Either String ContextKeyTypeEnum)
 -&gt; FromXML ContextKeyTypeEnum
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ContextKeyTypeEnum
 $cparseXML :: [Node] -&gt; Either String ContextKeyTypeEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679424330"><span class="annot"><span class="annottext">ContextKeyTypeEnum -&gt; XML
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679424339"><span class="annot"><span class="annottext">ContextKeyTypeEnum -&gt; XML
 (ContextKeyTypeEnum -&gt; XML) -&gt; ToXML ContextKeyTypeEnum
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ContextKeyTypeEnum -&gt; XML

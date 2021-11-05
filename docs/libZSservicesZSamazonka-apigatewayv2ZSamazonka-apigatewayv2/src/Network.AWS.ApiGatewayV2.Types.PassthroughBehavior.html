@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ApiGatewayV2.Types.PassthroughBehavior</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ApiGatewayV2.Types.PassthroughBehavior</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.PassthroughBehavior.html#PassthroughBehavior"><span class="hs-identifier">PassthroughBehavior</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.PassthroughBehavior.html#PassthroughBehavior_NEVER"><span class="hs-identifier">PassthroughBehavior_NEVER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.PassthroughBehavior.html#PassthroughBehavior_WHEN_NO_MATCH"><span class="hs-identifier">PassthroughBehavior_WHEN_NO_MATCH</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.PassthroughBehavior.html#PassthroughBehavior_WHEN_NO_TEMPLATES"><span class="hs-identifier">PassthroughBehavior_WHEN_NO_TEMPLATES</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- | Represents passthrough behavior for an integration response. Supported</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- only for WebSocket APIs.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679408560"><span id="local-6989586621679408561"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PassthroughBehavior"><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.PassthroughBehavior.html#PassthroughBehavior"><span class="hs-identifier hs-var">PassthroughBehavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PassthroughBehavior%27"><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.PassthroughBehavior.html#PassthroughBehavior%27"><span class="hs-identifier hs-var">PassthroughBehavior'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPassthroughBehavior"><span class="annot"><span class="annottext">PassthroughBehavior -&gt; Text
+</span><a href="Network.AWS.ApiGatewayV2.Types.PassthroughBehavior.html#fromPassthroughBehavior"><span class="hs-identifier hs-var hs-var">fromPassthroughBehavior</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679408552"><span id="local-6989586621679408554"><span id="local-6989586621679408556"><span class="annot"><span class="annottext">Int -&gt; PassthroughBehavior -&gt; ShowS
+[PassthroughBehavior] -&gt; ShowS
+PassthroughBehavior -&gt; String
+(Int -&gt; PassthroughBehavior -&gt; ShowS)
+-&gt; (PassthroughBehavior -&gt; String)
+-&gt; ([PassthroughBehavior] -&gt; ShowS)
+-&gt; Show PassthroughBehavior
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PassthroughBehavior] -&gt; ShowS
+$cshowList :: [PassthroughBehavior] -&gt; ShowS
+show :: PassthroughBehavior -&gt; String
+$cshow :: PassthroughBehavior -&gt; String
+showsPrec :: Int -&gt; PassthroughBehavior -&gt; ShowS
+$cshowsPrec :: Int -&gt; PassthroughBehavior -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679408543"><span id="local-6989586621679408545"><span id="local-6989586621679408547"><span id="local-6989586621679408549"><span class="annot"><span class="annottext">ReadPrec [PassthroughBehavior]
+ReadPrec PassthroughBehavior
+Int -&gt; ReadS PassthroughBehavior
+ReadS [PassthroughBehavior]
+(Int -&gt; ReadS PassthroughBehavior)
+-&gt; ReadS [PassthroughBehavior]
+-&gt; ReadPrec PassthroughBehavior
+-&gt; ReadPrec [PassthroughBehavior]
+-&gt; Read PassthroughBehavior
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PassthroughBehavior]
+$creadListPrec :: ReadPrec [PassthroughBehavior]
+readPrec :: ReadPrec PassthroughBehavior
+$creadPrec :: ReadPrec PassthroughBehavior
+readList :: ReadS [PassthroughBehavior]
+$creadList :: ReadS [PassthroughBehavior]
+readsPrec :: Int -&gt; ReadS PassthroughBehavior
+$creadsPrec :: Int -&gt; ReadS PassthroughBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679408538"><span id="local-6989586621679408540"><span class="annot"><span class="annottext">PassthroughBehavior -&gt; PassthroughBehavior -&gt; Bool
+(PassthroughBehavior -&gt; PassthroughBehavior -&gt; Bool)
+-&gt; (PassthroughBehavior -&gt; PassthroughBehavior -&gt; Bool)
+-&gt; Eq PassthroughBehavior
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PassthroughBehavior -&gt; PassthroughBehavior -&gt; Bool
+$c/= :: PassthroughBehavior -&gt; PassthroughBehavior -&gt; Bool
+== :: PassthroughBehavior -&gt; PassthroughBehavior -&gt; Bool
+$c== :: PassthroughBehavior -&gt; PassthroughBehavior -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679408522"><span id="local-6989586621679408524"><span id="local-6989586621679408526"><span id="local-6989586621679408528"><span id="local-6989586621679408530"><span id="local-6989586621679408532"><span id="local-6989586621679408534"><span class="annot"><span class="annottext">Eq PassthroughBehavior
+Eq PassthroughBehavior
+-&gt; (PassthroughBehavior -&gt; PassthroughBehavior -&gt; Ordering)
+-&gt; (PassthroughBehavior -&gt; PassthroughBehavior -&gt; Bool)
+-&gt; (PassthroughBehavior -&gt; PassthroughBehavior -&gt; Bool)
+-&gt; (PassthroughBehavior -&gt; PassthroughBehavior -&gt; Bool)
+-&gt; (PassthroughBehavior -&gt; PassthroughBehavior -&gt; Bool)
+-&gt; (PassthroughBehavior
+    -&gt; PassthroughBehavior -&gt; PassthroughBehavior)
+-&gt; (PassthroughBehavior
+    -&gt; PassthroughBehavior -&gt; PassthroughBehavior)
+-&gt; Ord PassthroughBehavior
+PassthroughBehavior -&gt; PassthroughBehavior -&gt; Bool
+PassthroughBehavior -&gt; PassthroughBehavior -&gt; Ordering
+PassthroughBehavior -&gt; PassthroughBehavior -&gt; PassthroughBehavior
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: PassthroughBehavior -&gt; PassthroughBehavior -&gt; PassthroughBehavior
+$cmin :: PassthroughBehavior -&gt; PassthroughBehavior -&gt; PassthroughBehavior
+max :: PassthroughBehavior -&gt; PassthroughBehavior -&gt; PassthroughBehavior
+$cmax :: PassthroughBehavior -&gt; PassthroughBehavior -&gt; PassthroughBehavior
+&gt;= :: PassthroughBehavior -&gt; PassthroughBehavior -&gt; Bool
+$c&gt;= :: PassthroughBehavior -&gt; PassthroughBehavior -&gt; Bool
+&gt; :: PassthroughBehavior -&gt; PassthroughBehavior -&gt; Bool
+$c&gt; :: PassthroughBehavior -&gt; PassthroughBehavior -&gt; Bool
+&lt;= :: PassthroughBehavior -&gt; PassthroughBehavior -&gt; Bool
+$c&lt;= :: PassthroughBehavior -&gt; PassthroughBehavior -&gt; Bool
+&lt; :: PassthroughBehavior -&gt; PassthroughBehavior -&gt; Bool
+$c&lt; :: PassthroughBehavior -&gt; PassthroughBehavior -&gt; Bool
+compare :: PassthroughBehavior -&gt; PassthroughBehavior -&gt; Ordering
+$ccompare :: PassthroughBehavior -&gt; PassthroughBehavior -&gt; Ordering
+$cp1Ord :: Eq PassthroughBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. PassthroughBehavior -&gt; Rep PassthroughBehavior x)
+-&gt; (forall x. Rep PassthroughBehavior x -&gt; PassthroughBehavior)
+-&gt; Generic PassthroughBehavior
+forall x. Rep PassthroughBehavior x -&gt; PassthroughBehavior
+forall x. PassthroughBehavior -&gt; Rep PassthroughBehavior x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PassthroughBehavior x -&gt; PassthroughBehavior
+$cfrom :: forall x. PassthroughBehavior -&gt; Rep PassthroughBehavior x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679408514"><span id="local-6989586621679408516"><span class="annot"><span class="annottext">Int -&gt; PassthroughBehavior -&gt; Int
+PassthroughBehavior -&gt; Int
+(Int -&gt; PassthroughBehavior -&gt; Int)
+-&gt; (PassthroughBehavior -&gt; Int) -&gt; Hashable PassthroughBehavior
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: PassthroughBehavior -&gt; Int
+$chash :: PassthroughBehavior -&gt; Int
+hashWithSalt :: Int -&gt; PassthroughBehavior -&gt; Int
+$chashWithSalt :: Int -&gt; PassthroughBehavior -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679408511"><span class="annot"><span class="annottext">PassthroughBehavior -&gt; ()
+(PassthroughBehavior -&gt; ()) -&gt; NFData PassthroughBehavior
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: PassthroughBehavior -&gt; ()
+$crnf :: PassthroughBehavior -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679408508"><span class="annot"><span class="annottext">Text -&gt; Either String PassthroughBehavior
+(Text -&gt; Either String PassthroughBehavior)
+-&gt; FromText PassthroughBehavior
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String PassthroughBehavior
+$cfromText :: Text -&gt; Either String PassthroughBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679408505"><span class="annot"><span class="annottext">PassthroughBehavior -&gt; Text
+(PassthroughBehavior -&gt; Text) -&gt; ToText PassthroughBehavior
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: PassthroughBehavior -&gt; Text
+$ctoText :: PassthroughBehavior -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679408502"><span class="annot"><span class="annottext">PassthroughBehavior -&gt; ByteString
+(PassthroughBehavior -&gt; ByteString)
+-&gt; ToByteString PassthroughBehavior
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: PassthroughBehavior -&gt; ByteString
+$ctoBS :: PassthroughBehavior -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679408499"><span class="annot"><span class="annottext">PassthroughBehavior -&gt; ByteStringBuilder
+(PassthroughBehavior -&gt; ByteStringBuilder)
+-&gt; ToLog PassthroughBehavior
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: PassthroughBehavior -&gt; ByteStringBuilder
+$cbuild :: PassthroughBehavior -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679408496"><span class="annot"><span class="annottext">HeaderName -&gt; PassthroughBehavior -&gt; [Header]
+(HeaderName -&gt; PassthroughBehavior -&gt; [Header])
+-&gt; ToHeader PassthroughBehavior
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; PassthroughBehavior -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; PassthroughBehavior -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679408493"><span class="annot"><span class="annottext">PassthroughBehavior -&gt; QueryString
+(PassthroughBehavior -&gt; QueryString) -&gt; ToQuery PassthroughBehavior
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: PassthroughBehavior -&gt; QueryString
+$ctoQuery :: PassthroughBehavior -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679408488"><span id="local-6989586621679408490"><span class="annot"><span class="annottext">Value -&gt; Parser [PassthroughBehavior]
+Value -&gt; Parser PassthroughBehavior
+(Value -&gt; Parser PassthroughBehavior)
+-&gt; (Value -&gt; Parser [PassthroughBehavior])
+-&gt; FromJSON PassthroughBehavior
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [PassthroughBehavior]
+$cparseJSONList :: Value -&gt; Parser [PassthroughBehavior]
+parseJSON :: Value -&gt; Parser PassthroughBehavior
+$cparseJSON :: Value -&gt; Parser PassthroughBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679408483"><span id="local-6989586621679408485"><span class="annot"><span class="annottext">FromJSONKeyFunction [PassthroughBehavior]
+FromJSONKeyFunction PassthroughBehavior
+FromJSONKeyFunction PassthroughBehavior
+-&gt; FromJSONKeyFunction [PassthroughBehavior]
+-&gt; FromJSONKey PassthroughBehavior
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [PassthroughBehavior]
+$cfromJSONKeyList :: FromJSONKeyFunction [PassthroughBehavior]
+fromJSONKey :: FromJSONKeyFunction PassthroughBehavior
+$cfromJSONKey :: FromJSONKeyFunction PassthroughBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679408474"><span id="local-6989586621679408476"><span id="local-6989586621679408478"><span id="local-6989586621679408480"><span class="annot"><span class="annottext">[PassthroughBehavior] -&gt; Encoding
+[PassthroughBehavior] -&gt; Value
+PassthroughBehavior -&gt; Encoding
+PassthroughBehavior -&gt; Value
+(PassthroughBehavior -&gt; Value)
+-&gt; (PassthroughBehavior -&gt; Encoding)
+-&gt; ([PassthroughBehavior] -&gt; Value)
+-&gt; ([PassthroughBehavior] -&gt; Encoding)
+-&gt; ToJSON PassthroughBehavior
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [PassthroughBehavior] -&gt; Encoding
+$ctoEncodingList :: [PassthroughBehavior] -&gt; Encoding
+toJSONList :: [PassthroughBehavior] -&gt; Value
+$ctoJSONList :: [PassthroughBehavior] -&gt; Value
+toEncoding :: PassthroughBehavior -&gt; Encoding
+$ctoEncoding :: PassthroughBehavior -&gt; Encoding
+toJSON :: PassthroughBehavior -&gt; Value
+$ctoJSON :: PassthroughBehavior -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679408469"><span id="local-6989586621679408471"><span class="annot"><span class="annottext">ToJSONKeyFunction [PassthroughBehavior]
+ToJSONKeyFunction PassthroughBehavior
+ToJSONKeyFunction PassthroughBehavior
+-&gt; ToJSONKeyFunction [PassthroughBehavior]
+-&gt; ToJSONKey PassthroughBehavior
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [PassthroughBehavior]
+$ctoJSONKeyList :: ToJSONKeyFunction [PassthroughBehavior]
+toJSONKey :: ToJSONKeyFunction PassthroughBehavior
+$ctoJSONKey :: ToJSONKeyFunction PassthroughBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679408466"><span class="annot"><span class="annottext">[Node] -&gt; Either String PassthroughBehavior
+([Node] -&gt; Either String PassthroughBehavior)
+-&gt; FromXML PassthroughBehavior
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String PassthroughBehavior
+$cparseXML :: [Node] -&gt; Either String PassthroughBehavior
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679408463"><span class="annot"><span class="annottext">PassthroughBehavior -&gt; XML
+(PassthroughBehavior -&gt; XML) -&gt; ToXML PassthroughBehavior
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: PassthroughBehavior -&gt; XML
+$ctoXML :: PassthroughBehavior -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.PassthroughBehavior.html#PassthroughBehavior_NEVER"><span class="hs-identifier hs-type">PassthroughBehavior_NEVER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.PassthroughBehavior.html#PassthroughBehavior"><span class="hs-identifier hs-type">PassthroughBehavior</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPassthroughBehavior_NEVER"><span id="%24mPassthroughBehavior_NEVER"><span id="PassthroughBehavior_NEVER"><span class="annot"><span class="annottext">$bPassthroughBehavior_NEVER :: PassthroughBehavior
+$mPassthroughBehavior_NEVER :: forall r. PassthroughBehavior -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ApiGatewayV2.Types.PassthroughBehavior.html#%24bPassthroughBehavior_NEVER"><span class="hs-identifier hs-var hs-var hs-var">PassthroughBehavior_NEVER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.PassthroughBehavior.html#PassthroughBehavior%27"><span class="hs-identifier hs-type">PassthroughBehavior'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NEVER&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.PassthroughBehavior.html#PassthroughBehavior_WHEN_NO_MATCH"><span class="hs-identifier hs-type">PassthroughBehavior_WHEN_NO_MATCH</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.PassthroughBehavior.html#PassthroughBehavior"><span class="hs-identifier hs-type">PassthroughBehavior</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPassthroughBehavior_WHEN_NO_MATCH"><span id="%24mPassthroughBehavior_WHEN_NO_MATCH"><span id="PassthroughBehavior_WHEN_NO_MATCH"><span class="annot"><span class="annottext">$bPassthroughBehavior_WHEN_NO_MATCH :: PassthroughBehavior
+$mPassthroughBehavior_WHEN_NO_MATCH :: forall r. PassthroughBehavior -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ApiGatewayV2.Types.PassthroughBehavior.html#%24bPassthroughBehavior_WHEN_NO_MATCH"><span class="hs-identifier hs-var hs-var hs-var">PassthroughBehavior_WHEN_NO_MATCH</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.PassthroughBehavior.html#PassthroughBehavior%27"><span class="hs-identifier hs-type">PassthroughBehavior'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WHEN_NO_MATCH&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.PassthroughBehavior.html#PassthroughBehavior_WHEN_NO_TEMPLATES"><span class="hs-identifier hs-type">PassthroughBehavior_WHEN_NO_TEMPLATES</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.PassthroughBehavior.html#PassthroughBehavior"><span class="hs-identifier hs-type">PassthroughBehavior</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPassthroughBehavior_WHEN_NO_TEMPLATES"><span id="%24mPassthroughBehavior_WHEN_NO_TEMPLATES"><span id="PassthroughBehavior_WHEN_NO_TEMPLATES"><span class="annot"><span class="annottext">$bPassthroughBehavior_WHEN_NO_TEMPLATES :: PassthroughBehavior
+$mPassthroughBehavior_WHEN_NO_TEMPLATES :: forall r. PassthroughBehavior -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ApiGatewayV2.Types.PassthroughBehavior.html#%24bPassthroughBehavior_WHEN_NO_TEMPLATES"><span class="hs-identifier hs-var hs-var hs-var">PassthroughBehavior_WHEN_NO_TEMPLATES</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.PassthroughBehavior.html#PassthroughBehavior%27"><span class="hs-identifier hs-type">PassthroughBehavior'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WHEN_NO_TEMPLATES&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.PassthroughBehavior.html#PassthroughBehavior_NEVER"><span class="hs-pragma hs-type">PassthroughBehavior_NEVER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.PassthroughBehavior.html#PassthroughBehavior_WHEN_NO_MATCH"><span class="hs-pragma hs-type">PassthroughBehavior_WHEN_NO_MATCH</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.PassthroughBehavior.html#PassthroughBehavior_WHEN_NO_TEMPLATES"><span class="hs-pragma hs-type">PassthroughBehavior_WHEN_NO_TEMPLATES</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.ApiGatewayV2.Types.PassthroughBehavior.html#PassthroughBehavior%27"><span class="hs-pragma hs-type">PassthroughBehavior'</span></a></span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-78"></span></pre></body></html>

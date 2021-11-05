@@ -1,0 +1,635 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.SecurityHub.DescribeStandards</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns a list of the available standards in Security Hub.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- For each standard, the results include the standard ARN, the name, and a</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- description.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SecurityHub.DescribeStandards</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#DescribeStandards"><span class="hs-identifier">DescribeStandards</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#newDescribeStandards"><span class="hs-identifier">newDescribeStandards</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#describeStandards_nextToken"><span class="hs-identifier">describeStandards_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#describeStandards_maxResults"><span class="hs-identifier">describeStandards_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#DescribeStandardsResponse"><span class="hs-identifier">DescribeStandardsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#newDescribeStandardsResponse"><span class="hs-identifier">newDescribeStandardsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#describeStandardsResponse_standards"><span class="hs-identifier">describeStandardsResponse_standards</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#describeStandardsResponse_nextToken"><span class="hs-identifier">describeStandardsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#describeStandardsResponse_httpStatus"><span class="hs-identifier">describeStandardsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.Types.html"><span class="hs-identifier">Network.AWS.SecurityHub.Types</span></a></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newDescribeStandards' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621680003864"><span id="local-6989586621680003865"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeStandards"><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#DescribeStandards"><span class="hs-identifier hs-var">DescribeStandards</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeStandards%27"><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#DescribeStandards%27"><span class="hs-identifier hs-var">DescribeStandards'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token that is required for pagination. On your first call to the</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- @DescribeStandards@ operation, set the value of this parameter to</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- @NULL@.</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- For subsequent calls to the operation, to continue listing data, set the</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- value of this parameter to the value returned from the previous</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- response.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeStandards%27"><span class="annot"><span class="annottext">DescribeStandards -&gt; Maybe Text
+</span><a href="Network.AWS.SecurityHub.DescribeStandards.html#%24sel%3AnextToken%3ADescribeStandards%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The maximum number of standards to return.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeStandards%27"><span class="annot"><span class="annottext">DescribeStandards -&gt; Maybe Natural
+</span><a href="Network.AWS.SecurityHub.DescribeStandards.html#%24sel%3AmaxResults%3ADescribeStandards%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680003857"><span id="local-6989586621680003859"><span class="annot"><span class="annottext">DescribeStandards -&gt; DescribeStandards -&gt; Bool
+(DescribeStandards -&gt; DescribeStandards -&gt; Bool)
+-&gt; (DescribeStandards -&gt; DescribeStandards -&gt; Bool)
+-&gt; Eq DescribeStandards
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeStandards -&gt; DescribeStandards -&gt; Bool
+$c/= :: DescribeStandards -&gt; DescribeStandards -&gt; Bool
+== :: DescribeStandards -&gt; DescribeStandards -&gt; Bool
+$c== :: DescribeStandards -&gt; DescribeStandards -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680003848"><span id="local-6989586621680003850"><span id="local-6989586621680003852"><span id="local-6989586621680003854"><span class="annot"><span class="annottext">ReadPrec [DescribeStandards]
+ReadPrec DescribeStandards
+Int -&gt; ReadS DescribeStandards
+ReadS [DescribeStandards]
+(Int -&gt; ReadS DescribeStandards)
+-&gt; ReadS [DescribeStandards]
+-&gt; ReadPrec DescribeStandards
+-&gt; ReadPrec [DescribeStandards]
+-&gt; Read DescribeStandards
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeStandards]
+$creadListPrec :: ReadPrec [DescribeStandards]
+readPrec :: ReadPrec DescribeStandards
+$creadPrec :: ReadPrec DescribeStandards
+readList :: ReadS [DescribeStandards]
+$creadList :: ReadS [DescribeStandards]
+readsPrec :: Int -&gt; ReadS DescribeStandards
+$creadsPrec :: Int -&gt; ReadS DescribeStandards
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680003841"><span id="local-6989586621680003843"><span id="local-6989586621680003845"><span class="annot"><span class="annottext">Int -&gt; DescribeStandards -&gt; ShowS
+[DescribeStandards] -&gt; ShowS
+DescribeStandards -&gt; String
+(Int -&gt; DescribeStandards -&gt; ShowS)
+-&gt; (DescribeStandards -&gt; String)
+-&gt; ([DescribeStandards] -&gt; ShowS)
+-&gt; Show DescribeStandards
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeStandards] -&gt; ShowS
+$cshowList :: [DescribeStandards] -&gt; ShowS
+show :: DescribeStandards -&gt; String
+$cshow :: DescribeStandards -&gt; String
+showsPrec :: Int -&gt; DescribeStandards -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeStandards -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeStandards -&gt; Rep DescribeStandards x)
+-&gt; (forall x. Rep DescribeStandards x -&gt; DescribeStandards)
+-&gt; Generic DescribeStandards
+forall x. Rep DescribeStandards x -&gt; DescribeStandards
+forall x. DescribeStandards -&gt; Rep DescribeStandards x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeStandards x -&gt; DescribeStandards
+$cfrom :: forall x. DescribeStandards -&gt; Rep DescribeStandards x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Create a value of 'DescribeStandards' with all optional fields omitted.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'nextToken', 'describeStandards_nextToken' - The token that is required for pagination. On your first call to the</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- @DescribeStandards@ operation, set the value of this parameter to</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- @NULL@.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- For subsequent calls to the operation, to continue listing data, set the</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- value of this parameter to the value returned from the previous</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- response.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'maxResults', 'describeStandards_maxResults' - The maximum number of standards to return.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#newDescribeStandards"><span class="hs-identifier hs-type">newDescribeStandards</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#DescribeStandards"><span class="hs-identifier hs-type">DescribeStandards</span></a></span><span>
+</span><span id="line-90"></span><span id="newDescribeStandards"><span class="annot"><span class="annottext">newDescribeStandards :: DescribeStandards
+</span><a href="Network.AWS.SecurityHub.DescribeStandards.html#newDescribeStandards"><span class="hs-identifier hs-var hs-var">newDescribeStandards</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="annottext">DescribeStandards' :: Maybe Text -&gt; Maybe Natural -&gt; DescribeStandards
+</span><a href="Network.AWS.SecurityHub.DescribeStandards.html#DescribeStandards%27"><span class="hs-identifier hs-type">DescribeStandards'</span></a></span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeStandards' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.DescribeStandards.html#%24sel%3AnextToken%3ADescribeStandards%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeStandards' :: Maybe Natural
+</span><a href="Network.AWS.SecurityHub.DescribeStandards.html#%24sel%3AmaxResults%3ADescribeStandards%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The token that is required for pagination. On your first call to the</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- @DescribeStandards@ operation, set the value of this parameter to</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- @NULL@.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- For subsequent calls to the operation, to continue listing data, set the</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- value of this parameter to the value returned from the previous</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- response.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#describeStandards_nextToken"><span class="hs-identifier hs-type">describeStandards_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#DescribeStandards"><span class="hs-identifier hs-type">DescribeStandards</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="describeStandards_nextToken"><span class="annot"><span class="annottext">describeStandards_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeStandards -&gt; f DescribeStandards
+</span><a href="Network.AWS.SecurityHub.DescribeStandards.html#describeStandards_nextToken"><span class="hs-identifier hs-var hs-var">describeStandards_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeStandards -&gt; Maybe Text)
+-&gt; (DescribeStandards -&gt; Maybe Text -&gt; DescribeStandards)
+-&gt; Lens
+     DescribeStandards DescribeStandards (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#DescribeStandards%27"><span class="hs-identifier hs-type">DescribeStandards'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680003835"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeStandards' :: DescribeStandards -&gt; Maybe Text
+</span><a href="#local-6989586621680003835"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680003835"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680003834"><span class="annot"><span class="annottext">s :: DescribeStandards
+</span><a href="#local-6989586621680003834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#DescribeStandards%27"><span class="hs-identifier hs-type">DescribeStandards'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680003833"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680003833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStandards
+</span><a href="#local-6989586621680003834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeStandards' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.DescribeStandards.html#%24sel%3AnextToken%3ADescribeStandards%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680003833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#DescribeStandards"><span class="hs-identifier hs-type">DescribeStandards</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The maximum number of standards to return.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#describeStandards_maxResults"><span class="hs-identifier hs-type">describeStandards_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#DescribeStandards"><span class="hs-identifier hs-type">DescribeStandards</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="describeStandards_maxResults"><span class="annot"><span class="annottext">describeStandards_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DescribeStandards -&gt; f DescribeStandards
+</span><a href="Network.AWS.SecurityHub.DescribeStandards.html#describeStandards_maxResults"><span class="hs-identifier hs-var hs-var">describeStandards_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeStandards -&gt; Maybe Natural)
+-&gt; (DescribeStandards -&gt; Maybe Natural -&gt; DescribeStandards)
+-&gt; Lens
+     DescribeStandards DescribeStandards (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#DescribeStandards%27"><span class="hs-identifier hs-type">DescribeStandards'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680003832"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:DescribeStandards' :: DescribeStandards -&gt; Maybe Natural
+</span><a href="#local-6989586621680003832"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680003832"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680003831"><span class="annot"><span class="annottext">s :: DescribeStandards
+</span><a href="#local-6989586621680003831"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#DescribeStandards%27"><span class="hs-identifier hs-type">DescribeStandards'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680003830"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680003830"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStandards
+</span><a href="#local-6989586621680003831"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeStandards' :: Maybe Natural
+</span><a href="Network.AWS.SecurityHub.DescribeStandards.html#%24sel%3AmaxResults%3ADescribeStandards%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680003830"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#DescribeStandards"><span class="hs-identifier hs-type">DescribeStandards</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#DescribeStandards"><span class="hs-identifier hs-type">DescribeStandards</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621680003826"><span class="annot"><span class="annottext">page :: DescribeStandards
+-&gt; AWSResponse DescribeStandards -&gt; Maybe DescribeStandards
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621680003824"><span class="annot"><span class="annottext">DescribeStandards
+</span><a href="#local-6989586621680003824"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621680003823"><span class="annot"><span class="annottext">AWSResponse DescribeStandards
+</span><a href="#local-6989586621680003823"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-113"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeStandards
+DescribeStandardsResponse
+</span><a href="#local-6989586621680003823"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">DescribeStandardsResponse
+-&gt; Getting (First Text) DescribeStandardsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeStandardsResponse
+-&gt; Const (First Text) DescribeStandardsResponse
+Lens' DescribeStandardsResponse (Maybe Text)
+</span><a href="Network.AWS.SecurityHub.DescribeStandards.html#describeStandardsResponse_nextToken"><span class="hs-identifier hs-var">describeStandardsResponse_nextToken</span></a></span><span>
+</span><span id="line-115"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeStandardsResponse
+ -&gt; Const (First Text) DescribeStandardsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeStandardsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-116"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeStandards
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [Standard] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-119"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeStandards
+DescribeStandardsResponse
+</span><a href="#local-6989586621680003823"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">DescribeStandardsResponse
+-&gt; Getting (First [Standard]) DescribeStandardsResponse [Standard]
+-&gt; Maybe [Standard]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [Standard] -&gt; Const (First [Standard]) (Maybe [Standard]))
+-&gt; DescribeStandardsResponse
+-&gt; Const (First [Standard]) DescribeStandardsResponse
+Lens' DescribeStandardsResponse (Maybe [Standard])
+</span><a href="Network.AWS.SecurityHub.DescribeStandards.html#describeStandardsResponse_standards"><span class="hs-identifier hs-var">describeStandardsResponse_standards</span></a></span><span>
+</span><span id="line-121"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [Standard] -&gt; Const (First [Standard]) (Maybe [Standard]))
+ -&gt; DescribeStandardsResponse
+ -&gt; Const (First [Standard]) DescribeStandardsResponse)
+-&gt; (([Standard] -&gt; Const (First [Standard]) [Standard])
+    -&gt; Maybe [Standard] -&gt; Const (First [Standard]) (Maybe [Standard]))
+-&gt; Getting (First [Standard]) DescribeStandardsResponse [Standard]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Standard] -&gt; Const (First [Standard]) [Standard])
+-&gt; Maybe [Standard] -&gt; Const (First [Standard]) (Maybe [Standard])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-122"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeStandards
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">DescribeStandards -&gt; Maybe DescribeStandards
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(DescribeStandards -&gt; Maybe DescribeStandards)
+-&gt; DescribeStandards -&gt; Maybe DescribeStandards
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">DescribeStandards
+</span><a href="#local-6989586621680003824"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">DescribeStandards
+-&gt; (DescribeStandards -&gt; DescribeStandards) -&gt; DescribeStandards
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; DescribeStandards -&gt; Identity DescribeStandards
+Lens DescribeStandards DescribeStandards (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.SecurityHub.DescribeStandards.html#describeStandards_nextToken"><span class="hs-identifier hs-var">describeStandards_nextToken</span></a></span><span>
+</span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; DescribeStandards -&gt; Identity DescribeStandards)
+-&gt; Maybe Text -&gt; DescribeStandards -&gt; DescribeStandards
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeStandards
+DescribeStandardsResponse
+</span><a href="#local-6989586621680003823"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">DescribeStandardsResponse
+-&gt; Getting (First Text) DescribeStandardsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeStandardsResponse
+-&gt; Const (First Text) DescribeStandardsResponse
+Lens' DescribeStandardsResponse (Maybe Text)
+</span><a href="Network.AWS.SecurityHub.DescribeStandards.html#describeStandardsResponse_nextToken"><span class="hs-identifier hs-var">describeStandardsResponse_nextToken</span></a></span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeStandardsResponse
+ -&gt; Const (First Text) DescribeStandardsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeStandardsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#DescribeStandards"><span class="hs-identifier hs-type">DescribeStandards</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-134"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#DescribeStandards"><span class="hs-identifier hs-type">DescribeStandards</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#DescribeStandardsResponse"><span class="hs-identifier hs-type">DescribeStandardsResponse</span></a></span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621680003813"><span class="annot"><span class="annottext">request :: DescribeStandards -&gt; Request DescribeStandards
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeStandards -&gt; Request DescribeStandards
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.SecurityHub.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621680003809"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeStandards
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeStandards)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeStandards))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeStandards
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeStandards)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680003806"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680003806"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680003805"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680003805"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680003804"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680003804"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-140"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Standard] -&gt; Maybe Text -&gt; Int -&gt; DescribeStandardsResponse
+</span><a href="Network.AWS.SecurityHub.DescribeStandards.html#DescribeStandardsResponse%27"><span class="hs-identifier hs-var">DescribeStandardsResponse'</span></a></span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Standard]
+ -&gt; Maybe Text -&gt; Int -&gt; DescribeStandardsResponse)
+-&gt; Either String (Maybe [Standard])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; DescribeStandardsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680003804"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Standard]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Standards&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Standard]))
+-&gt; Maybe [Standard] -&gt; Either String (Maybe [Standard])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Standard]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; DescribeStandardsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; DescribeStandardsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680003804"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeStandardsResponse)
+-&gt; Either String Int -&gt; Either String DescribeStandardsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680003806"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680003795"><span id="local-6989586621680003797"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#DescribeStandards"><span class="hs-identifier hs-type">DescribeStandards</span></a></span></span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680003792"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#DescribeStandards"><span class="hs-identifier hs-type">DescribeStandards</span></a></span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#DescribeStandards"><span class="hs-identifier hs-type">DescribeStandards</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621680003788"><span class="annot"><span class="annottext">toHeaders :: DescribeStandards -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeStandards -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-154"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-155"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-156"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-157"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#DescribeStandards"><span class="hs-identifier hs-type">DescribeStandards</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621680003782"><span class="annot"><span class="annottext">toPath :: DescribeStandards -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeStandards -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/standards&quot;</span></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#DescribeStandards"><span class="hs-identifier hs-type">DescribeStandards</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621680003778"><span class="annot"><span class="annottext">toQuery :: DescribeStandards -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#DescribeStandards%27"><span class="hs-identifier hs-type">DescribeStandards'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680003775"><span id="local-6989586621680003776"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:maxResults:DescribeStandards' :: DescribeStandards -&gt; Maybe Natural
+$sel:nextToken:DescribeStandards' :: DescribeStandards -&gt; Maybe Text
+</span><a href="#local-6989586621680003775"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680003776"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680003775"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | /See:/ 'newDescribeStandardsResponse' smart constructor.</span><span>
+</span><span id="line-172"></span><span id="local-6989586621680003772"><span id="local-6989586621680003773"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeStandardsResponse"><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#DescribeStandardsResponse"><span class="hs-identifier hs-var">DescribeStandardsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeStandardsResponse%27"><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#DescribeStandardsResponse%27"><span class="hs-identifier hs-var">DescribeStandardsResponse'</span></a></span></span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of available standards.</span><span>
+</span><span id="line-174"></span><span>    </span><span id="%24sel%3Astandards%3ADescribeStandardsResponse%27"><span class="annot"><span class="annottext">DescribeStandardsResponse -&gt; Maybe [Standard]
+</span><a href="Network.AWS.SecurityHub.DescribeStandards.html#%24sel%3Astandards%3ADescribeStandardsResponse%27"><span class="hs-identifier hs-var hs-var">standards</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.Standard.html#Standard"><span class="hs-identifier hs-type">Standard</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- | The pagination token to use to request the next page of results.</span><span>
+</span><span id="line-176"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeStandardsResponse%27"><span class="annot"><span class="annottext">DescribeStandardsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.SecurityHub.DescribeStandards.html#%24sel%3AnextToken%3ADescribeStandardsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-178"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeStandardsResponse%27"><span class="annot"><span class="annottext">DescribeStandardsResponse -&gt; Int
+</span><a href="Network.AWS.SecurityHub.DescribeStandards.html#%24sel%3AhttpStatus%3ADescribeStandardsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-179"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680003765"><span id="local-6989586621680003767"><span class="annot"><span class="annottext">DescribeStandardsResponse -&gt; DescribeStandardsResponse -&gt; Bool
+(DescribeStandardsResponse -&gt; DescribeStandardsResponse -&gt; Bool)
+-&gt; (DescribeStandardsResponse -&gt; DescribeStandardsResponse -&gt; Bool)
+-&gt; Eq DescribeStandardsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeStandardsResponse -&gt; DescribeStandardsResponse -&gt; Bool
+$c/= :: DescribeStandardsResponse -&gt; DescribeStandardsResponse -&gt; Bool
+== :: DescribeStandardsResponse -&gt; DescribeStandardsResponse -&gt; Bool
+$c== :: DescribeStandardsResponse -&gt; DescribeStandardsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680003757"><span id="local-6989586621680003759"><span id="local-6989586621680003761"><span id="local-6989586621680003763"><span class="annot"><span class="annottext">ReadPrec [DescribeStandardsResponse]
+ReadPrec DescribeStandardsResponse
+Int -&gt; ReadS DescribeStandardsResponse
+ReadS [DescribeStandardsResponse]
+(Int -&gt; ReadS DescribeStandardsResponse)
+-&gt; ReadS [DescribeStandardsResponse]
+-&gt; ReadPrec DescribeStandardsResponse
+-&gt; ReadPrec [DescribeStandardsResponse]
+-&gt; Read DescribeStandardsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeStandardsResponse]
+$creadListPrec :: ReadPrec [DescribeStandardsResponse]
+readPrec :: ReadPrec DescribeStandardsResponse
+$creadPrec :: ReadPrec DescribeStandardsResponse
+readList :: ReadS [DescribeStandardsResponse]
+$creadList :: ReadS [DescribeStandardsResponse]
+readsPrec :: Int -&gt; ReadS DescribeStandardsResponse
+$creadsPrec :: Int -&gt; ReadS DescribeStandardsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680003751"><span id="local-6989586621680003753"><span id="local-6989586621680003755"><span class="annot"><span class="annottext">Int -&gt; DescribeStandardsResponse -&gt; ShowS
+[DescribeStandardsResponse] -&gt; ShowS
+DescribeStandardsResponse -&gt; String
+(Int -&gt; DescribeStandardsResponse -&gt; ShowS)
+-&gt; (DescribeStandardsResponse -&gt; String)
+-&gt; ([DescribeStandardsResponse] -&gt; ShowS)
+-&gt; Show DescribeStandardsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeStandardsResponse] -&gt; ShowS
+$cshowList :: [DescribeStandardsResponse] -&gt; ShowS
+show :: DescribeStandardsResponse -&gt; String
+$cshow :: DescribeStandardsResponse -&gt; String
+showsPrec :: Int -&gt; DescribeStandardsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeStandardsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeStandardsResponse -&gt; Rep DescribeStandardsResponse x)
+-&gt; (forall x.
+    Rep DescribeStandardsResponse x -&gt; DescribeStandardsResponse)
+-&gt; Generic DescribeStandardsResponse
+forall x.
+Rep DescribeStandardsResponse x -&gt; DescribeStandardsResponse
+forall x.
+DescribeStandardsResponse -&gt; Rep DescribeStandardsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeStandardsResponse x -&gt; DescribeStandardsResponse
+$cfrom :: forall x.
+DescribeStandardsResponse -&gt; Rep DescribeStandardsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- Create a value of 'DescribeStandardsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'standards', 'describeStandardsResponse_standards' - A list of available standards.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- 'nextToken', 'describeStandardsResponse_nextToken' - The pagination token to use to request the next page of results.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- 'httpStatus', 'describeStandardsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#newDescribeStandardsResponse"><span class="hs-identifier hs-type">newDescribeStandardsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-196"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-197"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-198"></span><span>  </span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#DescribeStandardsResponse"><span class="hs-identifier hs-type">DescribeStandardsResponse</span></a></span><span>
+</span><span id="line-199"></span><span id="newDescribeStandardsResponse"><span class="annot"><span class="annottext">newDescribeStandardsResponse :: Int -&gt; DescribeStandardsResponse
+</span><a href="Network.AWS.SecurityHub.DescribeStandards.html#newDescribeStandardsResponse"><span class="hs-identifier hs-var hs-var">newDescribeStandardsResponse</span></a></span></span><span> </span><span id="local-6989586621680003748"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680003748"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-200"></span><span>  </span><span class="annot"><span class="annottext">DescribeStandardsResponse' :: Maybe [Standard] -&gt; Maybe Text -&gt; Int -&gt; DescribeStandardsResponse
+</span><a href="Network.AWS.SecurityHub.DescribeStandards.html#DescribeStandardsResponse%27"><span class="hs-identifier hs-type">DescribeStandardsResponse'</span></a></span><span>
+</span><span id="line-201"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:standards:DescribeStandardsResponse' :: Maybe [Standard]
+</span><a href="Network.AWS.SecurityHub.DescribeStandards.html#%24sel%3Astandards%3ADescribeStandardsResponse%27"><span class="hs-identifier hs-var">standards</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-202"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Standard]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeStandardsResponse' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.DescribeStandards.html#%24sel%3AnextToken%3ADescribeStandardsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeStandardsResponse' :: Int
+</span><a href="Network.AWS.SecurityHub.DescribeStandards.html#%24sel%3AhttpStatus%3ADescribeStandardsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680003748"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-205"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | A list of available standards.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#describeStandardsResponse_standards"><span class="hs-identifier hs-type">describeStandardsResponse_standards</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#DescribeStandardsResponse"><span class="hs-identifier hs-type">DescribeStandardsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SecurityHub.Types.Standard.html#Standard"><span class="hs-identifier hs-type">Standard</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span id="describeStandardsResponse_standards"><span class="annot"><span class="annottext">describeStandardsResponse_standards :: (Maybe [Standard] -&gt; f (Maybe [Standard]))
+-&gt; DescribeStandardsResponse -&gt; f DescribeStandardsResponse
+</span><a href="Network.AWS.SecurityHub.DescribeStandards.html#describeStandardsResponse_standards"><span class="hs-identifier hs-var hs-var">describeStandardsResponse_standards</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeStandardsResponse -&gt; Maybe [Standard])
+-&gt; (DescribeStandardsResponse
+    -&gt; Maybe [Standard] -&gt; DescribeStandardsResponse)
+-&gt; Lens' DescribeStandardsResponse (Maybe [Standard])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#DescribeStandardsResponse%27"><span class="hs-identifier hs-type">DescribeStandardsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680003747"><span class="annot"><span class="annottext">Maybe [Standard]
+standards :: Maybe [Standard]
+$sel:standards:DescribeStandardsResponse' :: DescribeStandardsResponse -&gt; Maybe [Standard]
+</span><a href="#local-6989586621680003747"><span class="hs-identifier hs-var hs-var">standards</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Standard]
+</span><a href="#local-6989586621680003747"><span class="hs-identifier hs-var">standards</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680003746"><span class="annot"><span class="annottext">s :: DescribeStandardsResponse
+</span><a href="#local-6989586621680003746"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#DescribeStandardsResponse%27"><span class="hs-identifier hs-type">DescribeStandardsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680003745"><span class="annot"><span class="annottext">Maybe [Standard]
+</span><a href="#local-6989586621680003745"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStandardsResponse
+</span><a href="#local-6989586621680003746"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:standards:DescribeStandardsResponse' :: Maybe [Standard]
+</span><a href="Network.AWS.SecurityHub.DescribeStandards.html#%24sel%3Astandards%3ADescribeStandardsResponse%27"><span class="hs-identifier hs-var">standards</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Standard]
+</span><a href="#local-6989586621680003745"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#DescribeStandardsResponse"><span class="hs-identifier hs-type">DescribeStandardsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Standard] -&gt; f (Maybe [Standard]))
+ -&gt; DescribeStandardsResponse -&gt; f DescribeStandardsResponse)
+-&gt; ((Maybe [Standard] -&gt; f (Maybe [Standard]))
+    -&gt; Maybe [Standard] -&gt; f (Maybe [Standard]))
+-&gt; (Maybe [Standard] -&gt; f (Maybe [Standard]))
+-&gt; DescribeStandardsResponse
+-&gt; f DescribeStandardsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Standard] [Standard] [Standard] [Standard]
+-&gt; Iso
+     (Maybe [Standard])
+     (Maybe [Standard])
+     (Maybe [Standard])
+     (Maybe [Standard])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Standard] [Standard] [Standard] [Standard]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | The pagination token to use to request the next page of results.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#describeStandardsResponse_nextToken"><span class="hs-identifier hs-type">describeStandardsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#DescribeStandardsResponse"><span class="hs-identifier hs-type">DescribeStandardsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span id="describeStandardsResponse_nextToken"><span class="annot"><span class="annottext">describeStandardsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeStandardsResponse -&gt; f DescribeStandardsResponse
+</span><a href="Network.AWS.SecurityHub.DescribeStandards.html#describeStandardsResponse_nextToken"><span class="hs-identifier hs-var hs-var">describeStandardsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeStandardsResponse -&gt; Maybe Text)
+-&gt; (DescribeStandardsResponse
+    -&gt; Maybe Text -&gt; DescribeStandardsResponse)
+-&gt; Lens' DescribeStandardsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#DescribeStandardsResponse%27"><span class="hs-identifier hs-type">DescribeStandardsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680003742"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeStandardsResponse' :: DescribeStandardsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621680003742"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680003742"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680003741"><span class="annot"><span class="annottext">s :: DescribeStandardsResponse
+</span><a href="#local-6989586621680003741"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#DescribeStandardsResponse%27"><span class="hs-identifier hs-type">DescribeStandardsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680003740"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680003740"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStandardsResponse
+</span><a href="#local-6989586621680003741"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeStandardsResponse' :: Maybe Text
+</span><a href="Network.AWS.SecurityHub.DescribeStandards.html#%24sel%3AnextToken%3ADescribeStandardsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680003740"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#DescribeStandardsResponse"><span class="hs-identifier hs-type">DescribeStandardsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#describeStandardsResponse_httpStatus"><span class="hs-identifier hs-type">describeStandardsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#DescribeStandardsResponse"><span class="hs-identifier hs-type">DescribeStandardsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-217"></span><span id="describeStandardsResponse_httpStatus"><span class="annot"><span class="annottext">describeStandardsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeStandardsResponse -&gt; f DescribeStandardsResponse
+</span><a href="Network.AWS.SecurityHub.DescribeStandards.html#describeStandardsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeStandardsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeStandardsResponse -&gt; Int)
+-&gt; (DescribeStandardsResponse -&gt; Int -&gt; DescribeStandardsResponse)
+-&gt; Lens DescribeStandardsResponse DescribeStandardsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#DescribeStandardsResponse%27"><span class="hs-identifier hs-type">DescribeStandardsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680003739"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeStandardsResponse' :: DescribeStandardsResponse -&gt; Int
+</span><a href="#local-6989586621680003739"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680003739"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680003738"><span class="annot"><span class="annottext">s :: DescribeStandardsResponse
+</span><a href="#local-6989586621680003738"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#DescribeStandardsResponse%27"><span class="hs-identifier hs-type">DescribeStandardsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680003737"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680003737"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeStandardsResponse
+</span><a href="#local-6989586621680003738"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeStandardsResponse' :: Int
+</span><a href="Network.AWS.SecurityHub.DescribeStandards.html#%24sel%3AhttpStatus%3ADescribeStandardsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680003737"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#DescribeStandardsResponse"><span class="hs-identifier hs-type">DescribeStandardsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680003735"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SecurityHub.DescribeStandards.html#DescribeStandardsResponse"><span class="hs-identifier hs-type">DescribeStandardsResponse</span></a></span></span><span>
+</span><span id="line-220"></span></pre></body></html>

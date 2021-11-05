@@ -35,13 +35,13 @@
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-37"></span><span>
-</span><span id="line-38"></span><span id="local-6989586621679177972"><span id="local-6989586621679177973"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ScalingPlanStatusCode"><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanStatusCode.html#ScalingPlanStatusCode"><span class="hs-identifier hs-var">ScalingPlanStatusCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScalingPlanStatusCode%27"><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanStatusCode.html#ScalingPlanStatusCode%27"><span class="hs-identifier hs-var">ScalingPlanStatusCode'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679177981"><span id="local-6989586621679177982"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ScalingPlanStatusCode"><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanStatusCode.html#ScalingPlanStatusCode"><span class="hs-identifier hs-var">ScalingPlanStatusCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScalingPlanStatusCode%27"><span class="annot"><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanStatusCode.html#ScalingPlanStatusCode%27"><span class="hs-identifier hs-var">ScalingPlanStatusCode'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromScalingPlanStatusCode"><span class="annot"><span class="annottext">ScalingPlanStatusCode -&gt; Text
 </span><a href="Network.AWS.AutoScalingPlans.Types.ScalingPlanStatusCode.html#fromScalingPlanStatusCode"><span class="hs-identifier hs-var hs-var">fromScalingPlanStatusCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679177964"><span id="local-6989586621679177966"><span id="local-6989586621679177968"><span class="annot"><span class="annottext">Int -&gt; ScalingPlanStatusCode -&gt; ShowS
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679177973"><span id="local-6989586621679177975"><span id="local-6989586621679177977"><span class="annot"><span class="annottext">Int -&gt; ScalingPlanStatusCode -&gt; ShowS
 [ScalingPlanStatusCode] -&gt; ShowS
 ScalingPlanStatusCode -&gt; String
 (Int -&gt; ScalingPlanStatusCode -&gt; ShowS)
@@ -57,7 +57,7 @@ $cshow :: ScalingPlanStatusCode -&gt; String
 showsPrec :: Int -&gt; ScalingPlanStatusCode -&gt; ShowS
 $cshowsPrec :: Int -&gt; ScalingPlanStatusCode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679177955"><span id="local-6989586621679177957"><span id="local-6989586621679177959"><span id="local-6989586621679177961"><span class="annot"><span class="annottext">ReadPrec [ScalingPlanStatusCode]
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679177964"><span id="local-6989586621679177966"><span id="local-6989586621679177968"><span id="local-6989586621679177970"><span class="annot"><span class="annottext">ReadPrec [ScalingPlanStatusCode]
 ReadPrec ScalingPlanStatusCode
 Int -&gt; ReadS ScalingPlanStatusCode
 ReadS [ScalingPlanStatusCode]
@@ -78,7 +78,7 @@ $creadList :: ReadS [ScalingPlanStatusCode]
 readsPrec :: Int -&gt; ReadS ScalingPlanStatusCode
 $creadsPrec :: Int -&gt; ReadS ScalingPlanStatusCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679177950"><span id="local-6989586621679177952"><span class="annot"><span class="annottext">ScalingPlanStatusCode -&gt; ScalingPlanStatusCode -&gt; Bool
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679177959"><span id="local-6989586621679177961"><span class="annot"><span class="annottext">ScalingPlanStatusCode -&gt; ScalingPlanStatusCode -&gt; Bool
 (ScalingPlanStatusCode -&gt; ScalingPlanStatusCode -&gt; Bool)
 -&gt; (ScalingPlanStatusCode -&gt; ScalingPlanStatusCode -&gt; Bool)
 -&gt; Eq ScalingPlanStatusCode
@@ -88,7 +88,7 @@ $c/= :: ScalingPlanStatusCode -&gt; ScalingPlanStatusCode -&gt; Bool
 == :: ScalingPlanStatusCode -&gt; ScalingPlanStatusCode -&gt; Bool
 $c== :: ScalingPlanStatusCode -&gt; ScalingPlanStatusCode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679177934"><span id="local-6989586621679177936"><span id="local-6989586621679177938"><span id="local-6989586621679177940"><span id="local-6989586621679177942"><span id="local-6989586621679177944"><span id="local-6989586621679177946"><span class="annot"><span class="annottext">Eq ScalingPlanStatusCode
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679177943"><span id="local-6989586621679177945"><span id="local-6989586621679177947"><span id="local-6989586621679177949"><span id="local-6989586621679177951"><span id="local-6989586621679177953"><span id="local-6989586621679177955"><span class="annot"><span class="annottext">Eq ScalingPlanStatusCode
 Eq ScalingPlanStatusCode
 -&gt; (ScalingPlanStatusCode -&gt; ScalingPlanStatusCode -&gt; Ordering)
 -&gt; (ScalingPlanStatusCode -&gt; ScalingPlanStatusCode -&gt; Bool)
@@ -146,7 +146,7 @@ $cfrom :: forall x. ScalingPlanStatusCode -&gt; Rep ScalingPlanStatusCode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679177926"><span id="local-6989586621679177928"><span class="annot"><span class="annottext">Int -&gt; ScalingPlanStatusCode -&gt; Int
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679177935"><span id="local-6989586621679177937"><span class="annot"><span class="annottext">Int -&gt; ScalingPlanStatusCode -&gt; Int
 ScalingPlanStatusCode -&gt; Int
 (Int -&gt; ScalingPlanStatusCode -&gt; Int)
 -&gt; (ScalingPlanStatusCode -&gt; Int) -&gt; Hashable ScalingPlanStatusCode
@@ -156,54 +156,54 @@ $chash :: ScalingPlanStatusCode -&gt; Int
 hashWithSalt :: Int -&gt; ScalingPlanStatusCode -&gt; Int
 $chashWithSalt :: Int -&gt; ScalingPlanStatusCode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679177923"><span class="annot"><span class="annottext">ScalingPlanStatusCode -&gt; ()
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679177932"><span class="annot"><span class="annottext">ScalingPlanStatusCode -&gt; ()
 (ScalingPlanStatusCode -&gt; ()) -&gt; NFData ScalingPlanStatusCode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ScalingPlanStatusCode -&gt; ()
 $crnf :: ScalingPlanStatusCode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679177920"><span class="annot"><span class="annottext">Text -&gt; Either String ScalingPlanStatusCode
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679177929"><span class="annot"><span class="annottext">Text -&gt; Either String ScalingPlanStatusCode
 (Text -&gt; Either String ScalingPlanStatusCode)
 -&gt; FromText ScalingPlanStatusCode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ScalingPlanStatusCode
 $cfromText :: Text -&gt; Either String ScalingPlanStatusCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679177917"><span class="annot"><span class="annottext">ScalingPlanStatusCode -&gt; Text
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679177926"><span class="annot"><span class="annottext">ScalingPlanStatusCode -&gt; Text
 (ScalingPlanStatusCode -&gt; Text) -&gt; ToText ScalingPlanStatusCode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ScalingPlanStatusCode -&gt; Text
 $ctoText :: ScalingPlanStatusCode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679177914"><span class="annot"><span class="annottext">ScalingPlanStatusCode -&gt; ByteString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679177923"><span class="annot"><span class="annottext">ScalingPlanStatusCode -&gt; ByteString
 (ScalingPlanStatusCode -&gt; ByteString)
 -&gt; ToByteString ScalingPlanStatusCode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ScalingPlanStatusCode -&gt; ByteString
 $ctoBS :: ScalingPlanStatusCode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679177911"><span class="annot"><span class="annottext">ScalingPlanStatusCode -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679177920"><span class="annot"><span class="annottext">ScalingPlanStatusCode -&gt; ByteStringBuilder
 (ScalingPlanStatusCode -&gt; ByteStringBuilder)
 -&gt; ToLog ScalingPlanStatusCode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ScalingPlanStatusCode -&gt; ByteStringBuilder
 $cbuild :: ScalingPlanStatusCode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679177908"><span class="annot"><span class="annottext">HeaderName -&gt; ScalingPlanStatusCode -&gt; [Header]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679177917"><span class="annot"><span class="annottext">HeaderName -&gt; ScalingPlanStatusCode -&gt; [Header]
 (HeaderName -&gt; ScalingPlanStatusCode -&gt; [Header])
 -&gt; ToHeader ScalingPlanStatusCode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ScalingPlanStatusCode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ScalingPlanStatusCode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679177905"><span class="annot"><span class="annottext">ScalingPlanStatusCode -&gt; QueryString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679177914"><span class="annot"><span class="annottext">ScalingPlanStatusCode -&gt; QueryString
 (ScalingPlanStatusCode -&gt; QueryString)
 -&gt; ToQuery ScalingPlanStatusCode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ScalingPlanStatusCode -&gt; QueryString
 $ctoQuery :: ScalingPlanStatusCode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679177900"><span id="local-6989586621679177902"><span class="annot"><span class="annottext">Value -&gt; Parser [ScalingPlanStatusCode]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679177909"><span id="local-6989586621679177911"><span class="annot"><span class="annottext">Value -&gt; Parser [ScalingPlanStatusCode]
 Value -&gt; Parser ScalingPlanStatusCode
 (Value -&gt; Parser ScalingPlanStatusCode)
 -&gt; (Value -&gt; Parser [ScalingPlanStatusCode])
@@ -215,7 +215,7 @@ $cparseJSONList :: Value -&gt; Parser [ScalingPlanStatusCode]
 parseJSON :: Value -&gt; Parser ScalingPlanStatusCode
 $cparseJSON :: Value -&gt; Parser ScalingPlanStatusCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679177895"><span id="local-6989586621679177897"><span class="annot"><span class="annottext">FromJSONKeyFunction [ScalingPlanStatusCode]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679177904"><span id="local-6989586621679177906"><span class="annot"><span class="annottext">FromJSONKeyFunction [ScalingPlanStatusCode]
 FromJSONKeyFunction ScalingPlanStatusCode
 FromJSONKeyFunction ScalingPlanStatusCode
 -&gt; FromJSONKeyFunction [ScalingPlanStatusCode]
@@ -227,7 +227,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ScalingPlanStatusCode]
 fromJSONKey :: FromJSONKeyFunction ScalingPlanStatusCode
 $cfromJSONKey :: FromJSONKeyFunction ScalingPlanStatusCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679177886"><span id="local-6989586621679177888"><span id="local-6989586621679177890"><span id="local-6989586621679177892"><span class="annot"><span class="annottext">[ScalingPlanStatusCode] -&gt; Encoding
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679177895"><span id="local-6989586621679177897"><span id="local-6989586621679177899"><span id="local-6989586621679177901"><span class="annot"><span class="annottext">[ScalingPlanStatusCode] -&gt; Encoding
 [ScalingPlanStatusCode] -&gt; Value
 ScalingPlanStatusCode -&gt; Encoding
 ScalingPlanStatusCode -&gt; Value
@@ -251,7 +251,7 @@ $ctoEncoding :: ScalingPlanStatusCode -&gt; Encoding
 toJSON :: ScalingPlanStatusCode -&gt; Value
 $ctoJSON :: ScalingPlanStatusCode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679177881"><span id="local-6989586621679177883"><span class="annot"><span class="annottext">ToJSONKeyFunction [ScalingPlanStatusCode]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679177890"><span id="local-6989586621679177892"><span class="annot"><span class="annottext">ToJSONKeyFunction [ScalingPlanStatusCode]
 ToJSONKeyFunction ScalingPlanStatusCode
 ToJSONKeyFunction ScalingPlanStatusCode
 -&gt; ToJSONKeyFunction [ScalingPlanStatusCode]
@@ -263,14 +263,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ScalingPlanStatusCode]
 toJSONKey :: ToJSONKeyFunction ScalingPlanStatusCode
 $ctoJSONKey :: ToJSONKeyFunction ScalingPlanStatusCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679177878"><span class="annot"><span class="annottext">[Node] -&gt; Either String ScalingPlanStatusCode
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679177887"><span class="annot"><span class="annottext">[Node] -&gt; Either String ScalingPlanStatusCode
 ([Node] -&gt; Either String ScalingPlanStatusCode)
 -&gt; FromXML ScalingPlanStatusCode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ScalingPlanStatusCode
 $cparseXML :: [Node] -&gt; Either String ScalingPlanStatusCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679177875"><span class="annot"><span class="annottext">ScalingPlanStatusCode -&gt; XML
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679177884"><span class="annot"><span class="annottext">ScalingPlanStatusCode -&gt; XML
 (ScalingPlanStatusCode -&gt; XML) -&gt; ToXML ScalingPlanStatusCode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ScalingPlanStatusCode -&gt; XML

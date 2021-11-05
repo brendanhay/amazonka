@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621679186316"><span id="local-6989586621679186317"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LifeCycleState"><span class="annot"><a href="Network.AWS.EFS.Types.LifeCycleState.html#LifeCycleState"><span class="hs-identifier hs-var">LifeCycleState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LifeCycleState%27"><span class="annot"><a href="Network.AWS.EFS.Types.LifeCycleState.html#LifeCycleState%27"><span class="hs-identifier hs-var">LifeCycleState'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679186325"><span id="local-6989586621679186326"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LifeCycleState"><span class="annot"><a href="Network.AWS.EFS.Types.LifeCycleState.html#LifeCycleState"><span class="hs-identifier hs-var">LifeCycleState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LifeCycleState%27"><span class="annot"><a href="Network.AWS.EFS.Types.LifeCycleState.html#LifeCycleState%27"><span class="hs-identifier hs-var">LifeCycleState'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLifeCycleState"><span class="annot"><span class="annottext">LifeCycleState -&gt; Text
 </span><a href="Network.AWS.EFS.Types.LifeCycleState.html#fromLifeCycleState"><span class="hs-identifier hs-var hs-var">fromLifeCycleState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679186308"><span id="local-6989586621679186310"><span id="local-6989586621679186312"><span class="annot"><span class="annottext">Int -&gt; LifeCycleState -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679186317"><span id="local-6989586621679186319"><span id="local-6989586621679186321"><span class="annot"><span class="annottext">Int -&gt; LifeCycleState -&gt; ShowS
 [LifeCycleState] -&gt; ShowS
 LifeCycleState -&gt; String
 (Int -&gt; LifeCycleState -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: LifeCycleState -&gt; String
 showsPrec :: Int -&gt; LifeCycleState -&gt; ShowS
 $cshowsPrec :: Int -&gt; LifeCycleState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679186299"><span id="local-6989586621679186301"><span id="local-6989586621679186303"><span id="local-6989586621679186305"><span class="annot"><span class="annottext">ReadPrec [LifeCycleState]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679186308"><span id="local-6989586621679186310"><span id="local-6989586621679186312"><span id="local-6989586621679186314"><span class="annot"><span class="annottext">ReadPrec [LifeCycleState]
 ReadPrec LifeCycleState
 Int -&gt; ReadS LifeCycleState
 ReadS [LifeCycleState]
@@ -76,7 +76,7 @@ $creadList :: ReadS [LifeCycleState]
 readsPrec :: Int -&gt; ReadS LifeCycleState
 $creadsPrec :: Int -&gt; ReadS LifeCycleState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679186294"><span id="local-6989586621679186296"><span class="annot"><span class="annottext">LifeCycleState -&gt; LifeCycleState -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679186303"><span id="local-6989586621679186305"><span class="annot"><span class="annottext">LifeCycleState -&gt; LifeCycleState -&gt; Bool
 (LifeCycleState -&gt; LifeCycleState -&gt; Bool)
 -&gt; (LifeCycleState -&gt; LifeCycleState -&gt; Bool) -&gt; Eq LifeCycleState
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -85,7 +85,7 @@ $c/= :: LifeCycleState -&gt; LifeCycleState -&gt; Bool
 == :: LifeCycleState -&gt; LifeCycleState -&gt; Bool
 $c== :: LifeCycleState -&gt; LifeCycleState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679186278"><span id="local-6989586621679186280"><span id="local-6989586621679186282"><span id="local-6989586621679186284"><span id="local-6989586621679186286"><span id="local-6989586621679186288"><span id="local-6989586621679186290"><span class="annot"><span class="annottext">Eq LifeCycleState
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679186287"><span id="local-6989586621679186289"><span id="local-6989586621679186291"><span id="local-6989586621679186293"><span id="local-6989586621679186295"><span id="local-6989586621679186297"><span id="local-6989586621679186299"><span class="annot"><span class="annottext">Eq LifeCycleState
 Eq LifeCycleState
 -&gt; (LifeCycleState -&gt; LifeCycleState -&gt; Ordering)
 -&gt; (LifeCycleState -&gt; LifeCycleState -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. LifeCycleState -&gt; Rep LifeCycleState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679186270"><span id="local-6989586621679186272"><span class="annot"><span class="annottext">Int -&gt; LifeCycleState -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679186279"><span id="local-6989586621679186281"><span class="annot"><span class="annottext">Int -&gt; LifeCycleState -&gt; Int
 LifeCycleState -&gt; Int
 (Int -&gt; LifeCycleState -&gt; Int)
 -&gt; (LifeCycleState -&gt; Int) -&gt; Hashable LifeCycleState
@@ -146,50 +146,50 @@ $chash :: LifeCycleState -&gt; Int
 hashWithSalt :: Int -&gt; LifeCycleState -&gt; Int
 $chashWithSalt :: Int -&gt; LifeCycleState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679186267"><span class="annot"><span class="annottext">LifeCycleState -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679186276"><span class="annot"><span class="annottext">LifeCycleState -&gt; ()
 (LifeCycleState -&gt; ()) -&gt; NFData LifeCycleState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: LifeCycleState -&gt; ()
 $crnf :: LifeCycleState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679186264"><span class="annot"><span class="annottext">Text -&gt; Either String LifeCycleState
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679186273"><span class="annot"><span class="annottext">Text -&gt; Either String LifeCycleState
 (Text -&gt; Either String LifeCycleState) -&gt; FromText LifeCycleState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String LifeCycleState
 $cfromText :: Text -&gt; Either String LifeCycleState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679186261"><span class="annot"><span class="annottext">LifeCycleState -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679186270"><span class="annot"><span class="annottext">LifeCycleState -&gt; Text
 (LifeCycleState -&gt; Text) -&gt; ToText LifeCycleState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: LifeCycleState -&gt; Text
 $ctoText :: LifeCycleState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679186258"><span class="annot"><span class="annottext">LifeCycleState -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679186267"><span class="annot"><span class="annottext">LifeCycleState -&gt; ByteString
 (LifeCycleState -&gt; ByteString) -&gt; ToByteString LifeCycleState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: LifeCycleState -&gt; ByteString
 $ctoBS :: LifeCycleState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679186255"><span class="annot"><span class="annottext">LifeCycleState -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679186264"><span class="annot"><span class="annottext">LifeCycleState -&gt; ByteStringBuilder
 (LifeCycleState -&gt; ByteStringBuilder) -&gt; ToLog LifeCycleState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: LifeCycleState -&gt; ByteStringBuilder
 $cbuild :: LifeCycleState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679186252"><span class="annot"><span class="annottext">HeaderName -&gt; LifeCycleState -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679186261"><span class="annot"><span class="annottext">HeaderName -&gt; LifeCycleState -&gt; [Header]
 (HeaderName -&gt; LifeCycleState -&gt; [Header])
 -&gt; ToHeader LifeCycleState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; LifeCycleState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; LifeCycleState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679186249"><span class="annot"><span class="annottext">LifeCycleState -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679186258"><span class="annot"><span class="annottext">LifeCycleState -&gt; QueryString
 (LifeCycleState -&gt; QueryString) -&gt; ToQuery LifeCycleState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: LifeCycleState -&gt; QueryString
 $ctoQuery :: LifeCycleState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679186244"><span id="local-6989586621679186246"><span class="annot"><span class="annottext">Value -&gt; Parser [LifeCycleState]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679186253"><span id="local-6989586621679186255"><span class="annot"><span class="annottext">Value -&gt; Parser [LifeCycleState]
 Value -&gt; Parser LifeCycleState
 (Value -&gt; Parser LifeCycleState)
 -&gt; (Value -&gt; Parser [LifeCycleState]) -&gt; FromJSON LifeCycleState
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [LifeCycleState]
 parseJSON :: Value -&gt; Parser LifeCycleState
 $cparseJSON :: Value -&gt; Parser LifeCycleState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679186239"><span id="local-6989586621679186241"><span class="annot"><span class="annottext">FromJSONKeyFunction [LifeCycleState]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679186248"><span id="local-6989586621679186250"><span class="annot"><span class="annottext">FromJSONKeyFunction [LifeCycleState]
 FromJSONKeyFunction LifeCycleState
 FromJSONKeyFunction LifeCycleState
 -&gt; FromJSONKeyFunction [LifeCycleState]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [LifeCycleState]
 fromJSONKey :: FromJSONKeyFunction LifeCycleState
 $cfromJSONKey :: FromJSONKeyFunction LifeCycleState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679186230"><span id="local-6989586621679186232"><span id="local-6989586621679186234"><span id="local-6989586621679186236"><span class="annot"><span class="annottext">[LifeCycleState] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679186239"><span id="local-6989586621679186241"><span id="local-6989586621679186243"><span id="local-6989586621679186245"><span class="annot"><span class="annottext">[LifeCycleState] -&gt; Encoding
 [LifeCycleState] -&gt; Value
 LifeCycleState -&gt; Encoding
 LifeCycleState -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: LifeCycleState -&gt; Encoding
 toJSON :: LifeCycleState -&gt; Value
 $ctoJSON :: LifeCycleState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679186225"><span id="local-6989586621679186227"><span class="annot"><span class="annottext">ToJSONKeyFunction [LifeCycleState]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679186234"><span id="local-6989586621679186236"><span class="annot"><span class="annottext">ToJSONKeyFunction [LifeCycleState]
 ToJSONKeyFunction LifeCycleState
 ToJSONKeyFunction LifeCycleState
 -&gt; ToJSONKeyFunction [LifeCycleState] -&gt; ToJSONKey LifeCycleState
@@ -247,13 +247,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [LifeCycleState]
 toJSONKey :: ToJSONKeyFunction LifeCycleState
 $ctoJSONKey :: ToJSONKeyFunction LifeCycleState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679186222"><span class="annot"><span class="annottext">[Node] -&gt; Either String LifeCycleState
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679186231"><span class="annot"><span class="annottext">[Node] -&gt; Either String LifeCycleState
 ([Node] -&gt; Either String LifeCycleState) -&gt; FromXML LifeCycleState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String LifeCycleState
 $cparseXML :: [Node] -&gt; Either String LifeCycleState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679186219"><span class="annot"><span class="annottext">LifeCycleState -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679186228"><span class="annot"><span class="annottext">LifeCycleState -&gt; XML
 (LifeCycleState -&gt; XML) -&gt; ToXML LifeCycleState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: LifeCycleState -&gt; XML

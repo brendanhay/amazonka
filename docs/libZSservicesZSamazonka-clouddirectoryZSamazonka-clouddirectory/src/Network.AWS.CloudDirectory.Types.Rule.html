@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- associated with the rule.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newRule' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679328079"><span id="local-6989586621679328080"></span></span><span class="hs-keyword">data</span><span> </span><span id="Rule"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Rule.html#Rule"><span class="hs-identifier hs-var">Rule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Rule%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Rule.html#Rule%27"><span class="hs-identifier hs-var">Rule'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679328088"><span id="local-6989586621679328089"></span></span><span class="hs-keyword">data</span><span> </span><span id="Rule"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Rule.html#Rule"><span class="hs-identifier hs-var">Rule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Rule%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Rule.html#Rule%27"><span class="hs-identifier hs-var">Rule'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The minimum and maximum parameters that are associated with the rule.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aparameters%3ARule%27"><span class="annot"><span class="annottext">Rule -&gt; Maybe (HashMap Text Text)
 </span><a href="Network.AWS.CloudDirectory.Types.Rule.html#%24sel%3Aparameters%3ARule%27"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -36,14 +36,14 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Atype%27%3ARule%27"><span class="annot"><span class="annottext">Rule -&gt; Maybe RuleType
 </span><a href="Network.AWS.CloudDirectory.Types.Rule.html#%24sel%3Atype%27%3ARule%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.RuleType.html#RuleType"><span class="hs-identifier hs-type">RuleType</span></a></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679328072"><span id="local-6989586621679328074"><span class="annot"><span class="annottext">Rule -&gt; Rule -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679328081"><span id="local-6989586621679328083"><span class="annot"><span class="annottext">Rule -&gt; Rule -&gt; Bool
 (Rule -&gt; Rule -&gt; Bool) -&gt; (Rule -&gt; Rule -&gt; Bool) -&gt; Eq Rule
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Rule -&gt; Rule -&gt; Bool
 $c/= :: Rule -&gt; Rule -&gt; Bool
 == :: Rule -&gt; Rule -&gt; Bool
 $c== :: Rule -&gt; Rule -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679328063"><span id="local-6989586621679328065"><span id="local-6989586621679328067"><span id="local-6989586621679328069"><span class="annot"><span class="annottext">ReadPrec [Rule]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679328072"><span id="local-6989586621679328074"><span id="local-6989586621679328076"><span id="local-6989586621679328078"><span class="annot"><span class="annottext">ReadPrec [Rule]
 ReadPrec Rule
 Int -&gt; ReadS Rule
 ReadS [Rule]
@@ -60,7 +60,7 @@ readList :: ReadS [Rule]
 $creadList :: ReadS [Rule]
 readsPrec :: Int -&gt; ReadS Rule
 $creadsPrec :: Int -&gt; ReadS Rule
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679328056"><span id="local-6989586621679328058"><span id="local-6989586621679328060"><span class="annot"><span class="annottext">Int -&gt; Rule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679328065"><span id="local-6989586621679328067"><span id="local-6989586621679328069"><span class="annot"><span class="annottext">Int -&gt; Rule -&gt; ShowS
 [Rule] -&gt; ShowS
 Rule -&gt; String
 (Int -&gt; Rule -&gt; ShowS)
@@ -119,16 +119,16 @@ forall a. Maybe a
 -&gt; Lens
      Rule Rule (Maybe (HashMap Text Text)) (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328047"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328056"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 parameters :: Maybe (HashMap Text Text)
 $sel:parameters:Rule' :: Rule -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679328047"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679328047"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328046"><span class="annot"><span class="annottext">s :: Rule
-</span><a href="#local-6989586621679328046"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328045"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679328045"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Rule
-</span><a href="#local-6989586621679328046"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameters:Rule' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679328056"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679328056"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328055"><span class="annot"><span class="annottext">s :: Rule
+</span><a href="#local-6989586621679328055"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328054"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679328054"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Rule
+</span><a href="#local-6989586621679328055"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameters:Rule' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.CloudDirectory.Types.Rule.html#%24sel%3Aparameters%3ARule%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679328045"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679328054"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; Rule -&gt; f Rule)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -164,27 +164,27 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (Rule -&gt; Maybe RuleType -&gt; Rule)
 -&gt; Lens Rule Rule (Maybe RuleType) (Maybe RuleType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328040"><span class="annot"><span class="annottext">Maybe RuleType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328049"><span class="annot"><span class="annottext">Maybe RuleType
 type' :: Maybe RuleType
 $sel:type':Rule' :: Rule -&gt; Maybe RuleType
-</span><a href="#local-6989586621679328040"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RuleType
-</span><a href="#local-6989586621679328040"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328039"><span class="annot"><span class="annottext">s :: Rule
-</span><a href="#local-6989586621679328039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328038"><span class="annot"><span class="annottext">Maybe RuleType
-</span><a href="#local-6989586621679328038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Rule
-</span><a href="#local-6989586621679328039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Rule' :: Maybe RuleType
+</span><a href="#local-6989586621679328049"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RuleType
+</span><a href="#local-6989586621679328049"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328048"><span class="annot"><span class="annottext">s :: Rule
+</span><a href="#local-6989586621679328048"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328047"><span class="annot"><span class="annottext">Maybe RuleType
+</span><a href="#local-6989586621679328047"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Rule
+</span><a href="#local-6989586621679328048"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Rule' :: Maybe RuleType
 </span><a href="Network.AWS.CloudDirectory.Types.Rule.html#%24sel%3Atype%27%3ARule%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RuleType
-</span><a href="#local-6989586621679328038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679328047"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328035"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679328033"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Rule
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328044"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679328042"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Rule
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Rule) -&gt; Value -&gt; Parser Rule
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Rule&quot;</span></span><span>
-</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679328030"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679328030"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679328039"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679328039"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text) -&gt; Maybe RuleType -&gt; Rule
 </span><a href="Network.AWS.CloudDirectory.Types.Rule.html#Rule%27"><span class="hs-identifier hs-var">Rule'</span></a></span><span>
 </span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (HashMap Text Text) -&gt; Maybe RuleType -&gt; Rule)
@@ -192,7 +192,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe RuleType -&gt; Rule)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679328030"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679328039"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Parameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
@@ -205,25 +205,25 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe RuleType) -&gt; Parser Rule
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679328030"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RuleType)
+</span><a href="#local-6989586621679328039"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RuleType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328023"><span id="local-6989586621679328025"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328032"><span id="local-6989586621679328034"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span></span></span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328020"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328029"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328012"><span id="local-6989586621679328014"><span id="local-6989586621679328016"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679328010"><span class="annot"><span class="annottext">toJSON :: Rule -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328007"><span id="local-6989586621679328008"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328021"><span id="local-6989586621679328023"><span id="local-6989586621679328025"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679328019"><span class="annot"><span class="annottext">toJSON :: Rule -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328016"><span id="local-6989586621679328017"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 Maybe RuleType
 type' :: Maybe RuleType
 parameters :: Maybe (HashMap Text Text)
 $sel:type':Rule' :: Rule -&gt; Maybe RuleType
 $sel:parameters:Rule' :: Rule -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679328007"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679328016"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -236,14 +236,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679328008"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679328017"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-85"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RuleType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(RuleType -&gt; Pair) -&gt; Maybe RuleType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RuleType
-</span><a href="#local-6989586621679328007"><span class="hs-identifier hs-var">type'</span></a></span><span>
+</span><a href="#local-6989586621679328016"><span class="hs-identifier hs-var">type'</span></a></span><span>
 </span><span id="line-86"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span></pre></body></html>

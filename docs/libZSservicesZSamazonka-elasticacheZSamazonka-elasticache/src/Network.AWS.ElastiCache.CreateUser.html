@@ -61,7 +61,7 @@
 </span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | /See:/ 'newCreateUser' smart constructor.</span><span>
-</span><span id="line-64"></span><span id="local-6989586621679422132"><span id="local-6989586621679422133"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateUser"><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser"><span class="hs-identifier hs-var">CreateUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateUser%27"><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-var">CreateUser'</span></a></span></span><span>
+</span><span id="line-64"></span><span id="local-6989586621679422141"><span id="local-6989586621679422142"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateUser"><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser"><span class="hs-identifier hs-var">CreateUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateUser%27"><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-var">CreateUser'</span></a></span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Passwords used for this user. You can create up to two passwords for</span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-comment">-- each user.</span><span>
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3Apasswords%3ACreateUser%27"><span class="annot"><span class="annottext">CreateUser -&gt; Maybe (NonEmpty Text)
@@ -86,7 +86,7 @@
 </span><span id="line-80"></span><span>    </span><span id="%24sel%3AaccessString%3ACreateUser%27"><span class="annot"><span class="annottext">CreateUser -&gt; Text
 </span><a href="Network.AWS.ElastiCache.CreateUser.html#%24sel%3AaccessString%3ACreateUser%27"><span class="hs-identifier hs-var hs-var">accessString</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679422120"><span id="local-6989586621679422122"><span class="annot"><span class="annottext">CreateUser -&gt; CreateUser -&gt; Bool
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679422129"><span id="local-6989586621679422131"><span class="annot"><span class="annottext">CreateUser -&gt; CreateUser -&gt; Bool
 (CreateUser -&gt; CreateUser -&gt; Bool)
 -&gt; (CreateUser -&gt; CreateUser -&gt; Bool) -&gt; Eq CreateUser
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -94,7 +94,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateUser -&gt; CreateUser -&gt; Bool
 == :: CreateUser -&gt; CreateUser -&gt; Bool
 $c== :: CreateUser -&gt; CreateUser -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679422111"><span id="local-6989586621679422113"><span id="local-6989586621679422115"><span id="local-6989586621679422117"><span class="annot"><span class="annottext">ReadPrec [CreateUser]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679422120"><span id="local-6989586621679422122"><span id="local-6989586621679422124"><span id="local-6989586621679422126"><span class="annot"><span class="annottext">ReadPrec [CreateUser]
 ReadPrec CreateUser
 Int -&gt; ReadS CreateUser
 ReadS [CreateUser]
@@ -114,7 +114,7 @@ readList :: ReadS [CreateUser]
 $creadList :: ReadS [CreateUser]
 readsPrec :: Int -&gt; ReadS CreateUser
 $creadsPrec :: Int -&gt; ReadS CreateUser
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679422104"><span id="local-6989586621679422106"><span id="local-6989586621679422108"><span class="annot"><span class="annottext">Int -&gt; CreateUser -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679422113"><span id="local-6989586621679422115"><span id="local-6989586621679422117"><span class="annot"><span class="annottext">Int -&gt; CreateUser -&gt; ShowS
 [CreateUser] -&gt; ShowS
 CreateUser -&gt; String
 (Int -&gt; CreateUser -&gt; ShowS)
@@ -174,14 +174,14 @@ $cfrom :: forall x. CreateUser -&gt; Rep CreateUser x
 </span><span id="line-116"></span><span>  </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span>
 </span><span id="line-117"></span><span id="newCreateUser"><span class="annot"><span class="annottext">newCreateUser :: Text -&gt; Text -&gt; Text -&gt; Text -&gt; CreateUser
 </span><a href="Network.AWS.ElastiCache.CreateUser.html#newCreateUser"><span class="hs-identifier hs-var hs-var">newCreateUser</span></a></span></span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679422099"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422099"><span class="hs-identifier hs-var">pUserId_</span></a></span></span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679422098"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422098"><span class="hs-identifier hs-var">pUserName_</span></a></span></span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679422097"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422097"><span class="hs-identifier hs-var">pEngine_</span></a></span></span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679422096"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422096"><span class="hs-identifier hs-var">pAccessString_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679422108"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679422108"><span class="hs-identifier hs-var">pUserId_</span></a></span></span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679422107"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679422107"><span class="hs-identifier hs-var">pUserName_</span></a></span></span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679422106"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679422106"><span class="hs-identifier hs-var">pEngine_</span></a></span></span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679422105"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679422105"><span class="hs-identifier hs-var">pAccessString_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">CreateUser' :: Maybe (NonEmpty Text)
 -&gt; Maybe Bool
 -&gt; Maybe [Tag]
@@ -205,16 +205,16 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">$sel:userId:CreateUser' :: Text
 </span><a href="Network.AWS.ElastiCache.CreateUser.html#%24sel%3AuserId%3ACreateUser%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422099"><span class="hs-identifier hs-var">pUserId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679422108"><span class="hs-identifier hs-var">pUserId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">$sel:userName:CreateUser' :: Text
 </span><a href="Network.AWS.ElastiCache.CreateUser.html#%24sel%3AuserName%3ACreateUser%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422098"><span class="hs-identifier hs-var">pUserName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679422107"><span class="hs-identifier hs-var">pUserName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">$sel:engine:CreateUser' :: Text
 </span><a href="Network.AWS.ElastiCache.CreateUser.html#%24sel%3Aengine%3ACreateUser%27"><span class="hs-identifier hs-var">engine</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422097"><span class="hs-identifier hs-var">pEngine_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679422106"><span class="hs-identifier hs-var">pEngine_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">$sel:accessString:CreateUser' :: Text
 </span><a href="Network.AWS.ElastiCache.CreateUser.html#%24sel%3AaccessString%3ACreateUser%27"><span class="hs-identifier hs-var">accessString</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422096"><span class="hs-identifier hs-var">pAccessString_</span></a></span><span>
+</span><a href="#local-6989586621679422105"><span class="hs-identifier hs-var">pAccessString_</span></a></span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- | Passwords used for this user. You can create up to two passwords for</span><span>
@@ -230,16 +230,16 @@ forall a. Maybe a
      (Maybe (NonEmpty Text))
      (Maybe (NonEmpty Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422093"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422102"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 passwords :: Maybe (NonEmpty Text)
 $sel:passwords:CreateUser' :: CreateUser -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679422093"><span class="hs-identifier hs-var hs-var">passwords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679422093"><span class="hs-identifier hs-var">passwords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422092"><span class="annot"><span class="annottext">s :: CreateUser
-</span><a href="#local-6989586621679422092"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422091"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679422091"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUser
-</span><a href="#local-6989586621679422092"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:passwords:CreateUser' :: Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679422102"><span class="hs-identifier hs-var hs-var">passwords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679422102"><span class="hs-identifier hs-var">passwords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422101"><span class="annot"><span class="annottext">s :: CreateUser
+</span><a href="#local-6989586621679422101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422100"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679422100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUser
+</span><a href="#local-6989586621679422101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:passwords:CreateUser' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.ElastiCache.CreateUser.html#%24sel%3Apasswords%3ACreateUser%27"><span class="hs-identifier hs-var">passwords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679422091"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621679422100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
  -&gt; CreateUser -&gt; f CreateUser)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
     -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -269,16 +269,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (CreateUser -&gt; Maybe Bool -&gt; CreateUser)
 -&gt; Lens CreateUser CreateUser (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422087"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422096"><span class="annot"><span class="annottext">Maybe Bool
 noPasswordRequired :: Maybe Bool
 $sel:noPasswordRequired:CreateUser' :: CreateUser -&gt; Maybe Bool
-</span><a href="#local-6989586621679422087"><span class="hs-identifier hs-var hs-var">noPasswordRequired</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679422087"><span class="hs-identifier hs-var">noPasswordRequired</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422086"><span class="annot"><span class="annottext">s :: CreateUser
-</span><a href="#local-6989586621679422086"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422085"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679422085"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUser
-</span><a href="#local-6989586621679422086"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:noPasswordRequired:CreateUser' :: Maybe Bool
+</span><a href="#local-6989586621679422096"><span class="hs-identifier hs-var hs-var">noPasswordRequired</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679422096"><span class="hs-identifier hs-var">noPasswordRequired</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422095"><span class="annot"><span class="annottext">s :: CreateUser
+</span><a href="#local-6989586621679422095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422094"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679422094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUser
+</span><a href="#local-6989586621679422095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:noPasswordRequired:CreateUser' :: Maybe Bool
 </span><a href="Network.AWS.ElastiCache.CreateUser.html#%24sel%3AnoPasswordRequired%3ACreateUser%27"><span class="hs-identifier hs-var">noPasswordRequired</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679422085"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679422094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- | A list of tags to be added to this resource. A tag is a key-value pair.</span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- A tag key must be accompanied by a tag value, although null is accepted.</span><span>
@@ -288,16 +288,16 @@ $sel:noPasswordRequired:CreateUser' :: CreateUser -&gt; Maybe Bool
 -&gt; (CreateUser -&gt; Maybe [Tag] -&gt; CreateUser)
 -&gt; Lens CreateUser CreateUser (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422084"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422093"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:CreateUser' :: CreateUser -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679422084"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679422084"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422083"><span class="annot"><span class="annottext">s :: CreateUser
-</span><a href="#local-6989586621679422083"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422082"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679422082"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUser
-</span><a href="#local-6989586621679422083"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateUser' :: Maybe [Tag]
+</span><a href="#local-6989586621679422093"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679422093"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422092"><span class="annot"><span class="annottext">s :: CreateUser
+</span><a href="#local-6989586621679422092"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422091"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679422091"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUser
+</span><a href="#local-6989586621679422092"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateUser' :: Maybe [Tag]
 </span><a href="Network.AWS.ElastiCache.CreateUser.html#%24sel%3Atags%3ACreateUser%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679422082"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; CreateUser -&gt; f CreateUser)
+</span><a href="#local-6989586621679422091"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; CreateUser -&gt; f CreateUser)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
 -&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -320,16 +320,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (CreateUser -&gt; Text -&gt; CreateUser)
 -&gt; Lens CreateUser CreateUser Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422081"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422090"><span class="annot"><span class="annottext">Text
 userId :: Text
 $sel:userId:CreateUser' :: CreateUser -&gt; Text
-</span><a href="#local-6989586621679422081"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422081"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422080"><span class="annot"><span class="annottext">s :: CreateUser
-</span><a href="#local-6989586621679422080"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422079"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422079"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUser
-</span><a href="#local-6989586621679422080"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userId:CreateUser' :: Text
+</span><a href="#local-6989586621679422090"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679422090"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422089"><span class="annot"><span class="annottext">s :: CreateUser
+</span><a href="#local-6989586621679422089"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422088"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679422088"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUser
+</span><a href="#local-6989586621679422089"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userId:CreateUser' :: Text
 </span><a href="Network.AWS.ElastiCache.CreateUser.html#%24sel%3AuserId%3ACreateUser%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422079"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679422088"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | The username of the user.</span><span>
 </span><span id="line-151"></span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#createUser_userName"><span class="hs-identifier hs-type">createUser_userName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -338,16 +338,16 @@ $sel:userId:CreateUser' :: CreateUser -&gt; Text
 -&gt; (CreateUser -&gt; Text -&gt; CreateUser)
 -&gt; Lens CreateUser CreateUser Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422078"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422087"><span class="annot"><span class="annottext">Text
 userName :: Text
 $sel:userName:CreateUser' :: CreateUser -&gt; Text
-</span><a href="#local-6989586621679422078"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422078"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422077"><span class="annot"><span class="annottext">s :: CreateUser
-</span><a href="#local-6989586621679422077"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422076"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422076"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUser
-</span><a href="#local-6989586621679422077"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:CreateUser' :: Text
+</span><a href="#local-6989586621679422087"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679422087"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422086"><span class="annot"><span class="annottext">s :: CreateUser
+</span><a href="#local-6989586621679422086"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422085"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679422085"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUser
+</span><a href="#local-6989586621679422086"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:CreateUser' :: Text
 </span><a href="Network.AWS.ElastiCache.CreateUser.html#%24sel%3AuserName%3ACreateUser%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422076"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679422085"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- | The current supported value is Redis.</span><span>
 </span><span id="line-155"></span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#createUser_engine"><span class="hs-identifier hs-type">createUser_engine</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -356,16 +356,16 @@ $sel:userName:CreateUser' :: CreateUser -&gt; Text
 -&gt; (CreateUser -&gt; Text -&gt; CreateUser)
 -&gt; Lens CreateUser CreateUser Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422075"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422084"><span class="annot"><span class="annottext">Text
 engine :: Text
 $sel:engine:CreateUser' :: CreateUser -&gt; Text
-</span><a href="#local-6989586621679422075"><span class="hs-identifier hs-var hs-var">engine</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422075"><span class="hs-identifier hs-var">engine</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422074"><span class="annot"><span class="annottext">s :: CreateUser
-</span><a href="#local-6989586621679422074"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422073"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422073"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUser
-</span><a href="#local-6989586621679422074"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engine:CreateUser' :: Text
+</span><a href="#local-6989586621679422084"><span class="hs-identifier hs-var hs-var">engine</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679422084"><span class="hs-identifier hs-var">engine</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422083"><span class="annot"><span class="annottext">s :: CreateUser
+</span><a href="#local-6989586621679422083"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422082"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679422082"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUser
+</span><a href="#local-6989586621679422083"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engine:CreateUser' :: Text
 </span><a href="Network.AWS.ElastiCache.CreateUser.html#%24sel%3Aengine%3ACreateUser%27"><span class="hs-identifier hs-var">engine</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422073"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679422082"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- | Access permissions string used for this user.</span><span>
 </span><span id="line-159"></span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#createUser_accessString"><span class="hs-identifier hs-type">createUser_accessString</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -374,25 +374,25 @@ $sel:engine:CreateUser' :: CreateUser -&gt; Text
 -&gt; (CreateUser -&gt; Text -&gt; CreateUser)
 -&gt; Lens CreateUser CreateUser Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422072"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422081"><span class="annot"><span class="annottext">Text
 accessString :: Text
 $sel:accessString:CreateUser' :: CreateUser -&gt; Text
-</span><a href="#local-6989586621679422072"><span class="hs-identifier hs-var hs-var">accessString</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422072"><span class="hs-identifier hs-var">accessString</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422071"><span class="annot"><span class="annottext">s :: CreateUser
-</span><a href="#local-6989586621679422071"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422070"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422070"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUser
-</span><a href="#local-6989586621679422071"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessString:CreateUser' :: Text
+</span><a href="#local-6989586621679422081"><span class="hs-identifier hs-var hs-var">accessString</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679422081"><span class="hs-identifier hs-var">accessString</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422080"><span class="annot"><span class="annottext">s :: CreateUser
+</span><a href="#local-6989586621679422080"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422079"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679422079"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUser
+</span><a href="#local-6989586621679422080"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessString:CreateUser' :: Text
 </span><a href="Network.AWS.ElastiCache.CreateUser.html#%24sel%3AaccessString%3ACreateUser%27"><span class="hs-identifier hs-var">accessString</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422070"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679422079"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-163"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621679422066"><span class="annot"><span class="annottext">request :: CreateUser -&gt; Request CreateUser
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679422075"><span class="annot"><span class="annottext">request :: CreateUser -&gt; Request CreateUser
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateUser -&gt; Request CreateUser
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ElastiCache.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679422062"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679422071"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateUser
 -&gt; ClientResponse ClientBody
@@ -421,20 +421,20 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreateUserResult&quot;</span></span><span>
-</span><span id="line-168"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422059"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679422059"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679422058"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679422058"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679422057"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679422057"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String User
+</span><span id="line-168"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422068"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679422068"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679422067"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679422067"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679422066"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679422066"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String User
 forall a. FromXML a =&gt; [Node] -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679422057"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679422066"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
-</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679422052"><span id="local-6989586621679422054"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span></span></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679422061"><span id="local-6989586621679422063"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span></span></span><span>
 </span><span id="line-171"></span><span>
-</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679422049"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679422058"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span></span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621679422045"><span class="annot"><span class="annottext">toHeaders :: CreateUser -&gt; ResponseHeaders
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679422054"><span class="annot"><span class="annottext">toHeaders :: CreateUser -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateUser -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -442,15 +442,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679422040"><span class="annot"><span class="annottext">toPath :: CreateUser -&gt; ByteString
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679422049"><span class="annot"><span class="annottext">toPath :: CreateUser -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateUser -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser"><span class="hs-identifier hs-type">CreateUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679422036"><span class="annot"><span class="annottext">toQuery :: CreateUser -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422028"><span id="local-6989586621679422029"><span id="local-6989586621679422030"><span id="local-6989586621679422031"><span id="local-6989586621679422032"><span id="local-6989586621679422033"><span id="local-6989586621679422034"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679422045"><span class="annot"><span class="annottext">toQuery :: CreateUser -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.CreateUser.html#CreateUser%27"><span class="hs-identifier hs-type">CreateUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422037"><span id="local-6989586621679422038"><span id="local-6989586621679422039"><span id="local-6989586621679422040"><span id="local-6989586621679422041"><span id="local-6989586621679422042"><span id="local-6989586621679422043"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [Tag]
 Maybe (NonEmpty Text)
 Text
@@ -468,7 +468,7 @@ $sel:userId:CreateUser' :: CreateUser -&gt; Text
 $sel:tags:CreateUser' :: CreateUser -&gt; Maybe [Tag]
 $sel:noPasswordRequired:CreateUser' :: CreateUser -&gt; Maybe Bool
 $sel:passwords:CreateUser' :: CreateUser -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679422028"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679422037"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -500,12 +500,12 @@ ByteString -&gt; a -&gt; QueryString
 -&gt; Maybe (NonEmpty Text) -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679422034"><span class="hs-identifier hs-var">passwords</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679422043"><span class="hs-identifier hs-var">passwords</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;NoPasswordRequired&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679422033"><span class="hs-identifier hs-var">noPasswordRequired</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679422042"><span class="hs-identifier hs-var">noPasswordRequired</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-191"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span>
 </span><span id="line-192"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -521,26 +521,26 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;Tag&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; QueryString) -&gt; Maybe [Tag] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679422032"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679422041"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-194"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;UserId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422031"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679422040"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-195"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;UserName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422030"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679422039"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-196"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Engine&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422029"><span class="hs-identifier hs-var">engine</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679422038"><span class="hs-identifier hs-var">engine</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-197"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;AccessString&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422028"><span class="hs-identifier hs-var">accessString</span></a></span><span>
+</span><a href="#local-6989586621679422037"><span class="hs-identifier hs-var">accessString</span></a></span><span>
 </span><span id="line-198"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-199"></span></pre></body></html>

@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679794979"><span id="local-6989586621679794980"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ExecutionMode"><span class="annot"><a href="Network.AWS.SSM.Types.ExecutionMode.html#ExecutionMode"><span class="hs-identifier hs-var">ExecutionMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExecutionMode%27"><span class="annot"><a href="Network.AWS.SSM.Types.ExecutionMode.html#ExecutionMode%27"><span class="hs-identifier hs-var">ExecutionMode'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679794988"><span id="local-6989586621679794989"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ExecutionMode"><span class="annot"><a href="Network.AWS.SSM.Types.ExecutionMode.html#ExecutionMode"><span class="hs-identifier hs-var">ExecutionMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExecutionMode%27"><span class="annot"><a href="Network.AWS.SSM.Types.ExecutionMode.html#ExecutionMode%27"><span class="hs-identifier hs-var">ExecutionMode'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromExecutionMode"><span class="annot"><span class="annottext">ExecutionMode -&gt; Text
 </span><a href="Network.AWS.SSM.Types.ExecutionMode.html#fromExecutionMode"><span class="hs-identifier hs-var hs-var">fromExecutionMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679794971"><span id="local-6989586621679794973"><span id="local-6989586621679794975"><span class="annot"><span class="annottext">Int -&gt; ExecutionMode -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679794980"><span id="local-6989586621679794982"><span id="local-6989586621679794984"><span class="annot"><span class="annottext">Int -&gt; ExecutionMode -&gt; ShowS
 [ExecutionMode] -&gt; ShowS
 ExecutionMode -&gt; String
 (Int -&gt; ExecutionMode -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ExecutionMode -&gt; String
 showsPrec :: Int -&gt; ExecutionMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; ExecutionMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679794962"><span id="local-6989586621679794964"><span id="local-6989586621679794966"><span id="local-6989586621679794968"><span class="annot"><span class="annottext">ReadPrec [ExecutionMode]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679794971"><span id="local-6989586621679794973"><span id="local-6989586621679794975"><span id="local-6989586621679794977"><span class="annot"><span class="annottext">ReadPrec [ExecutionMode]
 ReadPrec ExecutionMode
 Int -&gt; ReadS ExecutionMode
 ReadS [ExecutionMode]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ExecutionMode]
 readsPrec :: Int -&gt; ReadS ExecutionMode
 $creadsPrec :: Int -&gt; ReadS ExecutionMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679794957"><span id="local-6989586621679794959"><span class="annot"><span class="annottext">ExecutionMode -&gt; ExecutionMode -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679794966"><span id="local-6989586621679794968"><span class="annot"><span class="annottext">ExecutionMode -&gt; ExecutionMode -&gt; Bool
 (ExecutionMode -&gt; ExecutionMode -&gt; Bool)
 -&gt; (ExecutionMode -&gt; ExecutionMode -&gt; Bool) -&gt; Eq ExecutionMode
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: ExecutionMode -&gt; ExecutionMode -&gt; Bool
 == :: ExecutionMode -&gt; ExecutionMode -&gt; Bool
 $c== :: ExecutionMode -&gt; ExecutionMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679794941"><span id="local-6989586621679794943"><span id="local-6989586621679794945"><span id="local-6989586621679794947"><span id="local-6989586621679794949"><span id="local-6989586621679794951"><span id="local-6989586621679794953"><span class="annot"><span class="annottext">Eq ExecutionMode
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679794950"><span id="local-6989586621679794952"><span id="local-6989586621679794954"><span id="local-6989586621679794956"><span id="local-6989586621679794958"><span id="local-6989586621679794960"><span id="local-6989586621679794962"><span class="annot"><span class="annottext">Eq ExecutionMode
 Eq ExecutionMode
 -&gt; (ExecutionMode -&gt; ExecutionMode -&gt; Ordering)
 -&gt; (ExecutionMode -&gt; ExecutionMode -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. ExecutionMode -&gt; Rep ExecutionMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679794933"><span id="local-6989586621679794935"><span class="annot"><span class="annottext">Int -&gt; ExecutionMode -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679794942"><span id="local-6989586621679794944"><span class="annot"><span class="annottext">Int -&gt; ExecutionMode -&gt; Int
 ExecutionMode -&gt; Int
 (Int -&gt; ExecutionMode -&gt; Int)
 -&gt; (ExecutionMode -&gt; Int) -&gt; Hashable ExecutionMode
@@ -142,49 +142,49 @@ $chash :: ExecutionMode -&gt; Int
 hashWithSalt :: Int -&gt; ExecutionMode -&gt; Int
 $chashWithSalt :: Int -&gt; ExecutionMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679794930"><span class="annot"><span class="annottext">ExecutionMode -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679794939"><span class="annot"><span class="annottext">ExecutionMode -&gt; ()
 (ExecutionMode -&gt; ()) -&gt; NFData ExecutionMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ExecutionMode -&gt; ()
 $crnf :: ExecutionMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679794927"><span class="annot"><span class="annottext">Text -&gt; Either String ExecutionMode
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679794936"><span class="annot"><span class="annottext">Text -&gt; Either String ExecutionMode
 (Text -&gt; Either String ExecutionMode) -&gt; FromText ExecutionMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ExecutionMode
 $cfromText :: Text -&gt; Either String ExecutionMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679794924"><span class="annot"><span class="annottext">ExecutionMode -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679794933"><span class="annot"><span class="annottext">ExecutionMode -&gt; Text
 (ExecutionMode -&gt; Text) -&gt; ToText ExecutionMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ExecutionMode -&gt; Text
 $ctoText :: ExecutionMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679794921"><span class="annot"><span class="annottext">ExecutionMode -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679794930"><span class="annot"><span class="annottext">ExecutionMode -&gt; ByteString
 (ExecutionMode -&gt; ByteString) -&gt; ToByteString ExecutionMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ExecutionMode -&gt; ByteString
 $ctoBS :: ExecutionMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679794918"><span class="annot"><span class="annottext">ExecutionMode -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679794927"><span class="annot"><span class="annottext">ExecutionMode -&gt; ByteStringBuilder
 (ExecutionMode -&gt; ByteStringBuilder) -&gt; ToLog ExecutionMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ExecutionMode -&gt; ByteStringBuilder
 $cbuild :: ExecutionMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679794915"><span class="annot"><span class="annottext">HeaderName -&gt; ExecutionMode -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679794924"><span class="annot"><span class="annottext">HeaderName -&gt; ExecutionMode -&gt; [Header]
 (HeaderName -&gt; ExecutionMode -&gt; [Header]) -&gt; ToHeader ExecutionMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ExecutionMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ExecutionMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679794912"><span class="annot"><span class="annottext">ExecutionMode -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679794921"><span class="annot"><span class="annottext">ExecutionMode -&gt; QueryString
 (ExecutionMode -&gt; QueryString) -&gt; ToQuery ExecutionMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ExecutionMode -&gt; QueryString
 $ctoQuery :: ExecutionMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679794907"><span id="local-6989586621679794909"><span class="annot"><span class="annottext">Value -&gt; Parser [ExecutionMode]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679794916"><span id="local-6989586621679794918"><span class="annot"><span class="annottext">Value -&gt; Parser [ExecutionMode]
 Value -&gt; Parser ExecutionMode
 (Value -&gt; Parser ExecutionMode)
 -&gt; (Value -&gt; Parser [ExecutionMode]) -&gt; FromJSON ExecutionMode
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [ExecutionMode]
 parseJSON :: Value -&gt; Parser ExecutionMode
 $cparseJSON :: Value -&gt; Parser ExecutionMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679794902"><span id="local-6989586621679794904"><span class="annot"><span class="annottext">FromJSONKeyFunction [ExecutionMode]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679794911"><span id="local-6989586621679794913"><span class="annot"><span class="annottext">FromJSONKeyFunction [ExecutionMode]
 FromJSONKeyFunction ExecutionMode
 FromJSONKeyFunction ExecutionMode
 -&gt; FromJSONKeyFunction [ExecutionMode] -&gt; FromJSONKey ExecutionMode
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ExecutionMode]
 fromJSONKey :: FromJSONKeyFunction ExecutionMode
 $cfromJSONKey :: FromJSONKeyFunction ExecutionMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679794893"><span id="local-6989586621679794895"><span id="local-6989586621679794897"><span id="local-6989586621679794899"><span class="annot"><span class="annottext">[ExecutionMode] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679794902"><span id="local-6989586621679794904"><span id="local-6989586621679794906"><span id="local-6989586621679794908"><span class="annot"><span class="annottext">[ExecutionMode] -&gt; Encoding
 [ExecutionMode] -&gt; Value
 ExecutionMode -&gt; Encoding
 ExecutionMode -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: ExecutionMode -&gt; Encoding
 toJSON :: ExecutionMode -&gt; Value
 $ctoJSON :: ExecutionMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679794888"><span id="local-6989586621679794890"><span class="annot"><span class="annottext">ToJSONKeyFunction [ExecutionMode]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679794897"><span id="local-6989586621679794899"><span class="annot"><span class="annottext">ToJSONKeyFunction [ExecutionMode]
 ToJSONKeyFunction ExecutionMode
 ToJSONKeyFunction ExecutionMode
 -&gt; ToJSONKeyFunction [ExecutionMode] -&gt; ToJSONKey ExecutionMode
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ExecutionMode]
 toJSONKey :: ToJSONKeyFunction ExecutionMode
 $ctoJSONKey :: ToJSONKeyFunction ExecutionMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679794885"><span class="annot"><span class="annottext">[Node] -&gt; Either String ExecutionMode
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679794894"><span class="annot"><span class="annottext">[Node] -&gt; Either String ExecutionMode
 ([Node] -&gt; Either String ExecutionMode) -&gt; FromXML ExecutionMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ExecutionMode
 $cparseXML :: [Node] -&gt; Either String ExecutionMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679794882"><span class="annot"><span class="annottext">ExecutionMode -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679794891"><span class="annot"><span class="annottext">ExecutionMode -&gt; XML
 (ExecutionMode -&gt; XML) -&gt; ToXML ExecutionMode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ExecutionMode -&gt; XML

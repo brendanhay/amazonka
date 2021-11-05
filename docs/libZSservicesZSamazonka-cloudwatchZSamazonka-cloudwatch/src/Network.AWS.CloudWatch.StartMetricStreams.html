@@ -46,7 +46,7 @@
 </span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-47"></span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newStartMetricStreams' smart constructor.</span><span>
-</span><span id="line-49"></span><span id="local-6989586621679259627"><span id="local-6989586621679259628"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartMetricStreams"><span class="annot"><a href="Network.AWS.CloudWatch.StartMetricStreams.html#StartMetricStreams"><span class="hs-identifier hs-var">StartMetricStreams</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartMetricStreams%27"><span class="annot"><a href="Network.AWS.CloudWatch.StartMetricStreams.html#StartMetricStreams%27"><span class="hs-identifier hs-var">StartMetricStreams'</span></a></span></span><span>
+</span><span id="line-49"></span><span id="local-6989586621679259636"><span id="local-6989586621679259637"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartMetricStreams"><span class="annot"><a href="Network.AWS.CloudWatch.StartMetricStreams.html#StartMetricStreams"><span class="hs-identifier hs-var">StartMetricStreams</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartMetricStreams%27"><span class="annot"><a href="Network.AWS.CloudWatch.StartMetricStreams.html#StartMetricStreams%27"><span class="hs-identifier hs-var">StartMetricStreams'</span></a></span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The array of the names of metric streams to start streaming.</span><span>
 </span><span id="line-51"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">-- This is an \&quot;all or nothing\&quot; operation. If you do not have permission</span><span>
@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3Anames%3AStartMetricStreams%27"><span class="annot"><span class="annottext">StartMetricStreams -&gt; [Text]
 </span><a href="Network.AWS.CloudWatch.StartMetricStreams.html#%24sel%3Anames%3AStartMetricStreams%27"><span class="hs-identifier hs-var hs-var">names</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259621"><span id="local-6989586621679259623"><span class="annot"><span class="annottext">StartMetricStreams -&gt; StartMetricStreams -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259630"><span id="local-6989586621679259632"><span class="annot"><span class="annottext">StartMetricStreams -&gt; StartMetricStreams -&gt; Bool
 (StartMetricStreams -&gt; StartMetricStreams -&gt; Bool)
 -&gt; (StartMetricStreams -&gt; StartMetricStreams -&gt; Bool)
 -&gt; Eq StartMetricStreams
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StartMetricStreams -&gt; StartMetricStreams -&gt; Bool
 == :: StartMetricStreams -&gt; StartMetricStreams -&gt; Bool
 $c== :: StartMetricStreams -&gt; StartMetricStreams -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259612"><span id="local-6989586621679259614"><span id="local-6989586621679259616"><span id="local-6989586621679259618"><span class="annot"><span class="annottext">ReadPrec [StartMetricStreams]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259621"><span id="local-6989586621679259623"><span id="local-6989586621679259625"><span id="local-6989586621679259627"><span class="annot"><span class="annottext">ReadPrec [StartMetricStreams]
 ReadPrec StartMetricStreams
 Int -&gt; ReadS StartMetricStreams
 ReadS [StartMetricStreams]
@@ -84,7 +84,7 @@ readList :: ReadS [StartMetricStreams]
 $creadList :: ReadS [StartMetricStreams]
 readsPrec :: Int -&gt; ReadS StartMetricStreams
 $creadsPrec :: Int -&gt; ReadS StartMetricStreams
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259605"><span id="local-6989586621679259607"><span id="local-6989586621679259609"><span class="annot"><span class="annottext">Int -&gt; StartMetricStreams -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259614"><span id="local-6989586621679259616"><span id="local-6989586621679259618"><span class="annot"><span class="annottext">Int -&gt; StartMetricStreams -&gt; ShowS
 [StartMetricStreams] -&gt; ShowS
 StartMetricStreams -&gt; String
 (Int -&gt; StartMetricStreams -&gt; ShowS)
@@ -144,16 +144,16 @@ forall a. Monoid a =&gt; a
 -&gt; (StartMetricStreams -&gt; [Text] -&gt; StartMetricStreams)
 -&gt; Lens StartMetricStreams StartMetricStreams [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.StartMetricStreams.html#StartMetricStreams%27"><span class="hs-identifier hs-type">StartMetricStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259598"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.StartMetricStreams.html#StartMetricStreams%27"><span class="hs-identifier hs-type">StartMetricStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259607"><span class="annot"><span class="annottext">[Text]
 names :: [Text]
 $sel:names:StartMetricStreams' :: StartMetricStreams -&gt; [Text]
-</span><a href="#local-6989586621679259598"><span class="hs-identifier hs-var hs-var">names</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679259598"><span class="hs-identifier hs-var">names</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259597"><span class="annot"><span class="annottext">s :: StartMetricStreams
-</span><a href="#local-6989586621679259597"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.StartMetricStreams.html#StartMetricStreams%27"><span class="hs-identifier hs-type">StartMetricStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259596"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679259596"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartMetricStreams
-</span><a href="#local-6989586621679259597"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:names:StartMetricStreams' :: [Text]
+</span><a href="#local-6989586621679259607"><span class="hs-identifier hs-var hs-var">names</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679259607"><span class="hs-identifier hs-var">names</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259606"><span class="annot"><span class="annottext">s :: StartMetricStreams
+</span><a href="#local-6989586621679259606"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.StartMetricStreams.html#StartMetricStreams%27"><span class="hs-identifier hs-type">StartMetricStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259605"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679259605"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartMetricStreams
+</span><a href="#local-6989586621679259606"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:names:StartMetricStreams' :: [Text]
 </span><a href="Network.AWS.CloudWatch.StartMetricStreams.html#%24sel%3Anames%3AStartMetricStreams%27"><span class="hs-identifier hs-var">names</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679259596"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.StartMetricStreams.html#StartMetricStreams"><span class="hs-identifier hs-type">StartMetricStreams</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679259605"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.StartMetricStreams.html#StartMetricStreams"><span class="hs-identifier hs-type">StartMetricStreams</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; StartMetricStreams -&gt; f StartMetricStreams)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
@@ -168,12 +168,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-86"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-87"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.StartMetricStreams.html#StartMetricStreams"><span class="hs-identifier hs-type">StartMetricStreams</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudWatch.StartMetricStreams.html#StartMetricStreamsResponse"><span class="hs-identifier hs-type">StartMetricStreamsResponse</span></a></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679259590"><span class="annot"><span class="annottext">request :: StartMetricStreams -&gt; Request StartMetricStreams
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679259599"><span class="annot"><span class="annottext">request :: StartMetricStreams -&gt; Request StartMetricStreams
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StartMetricStreams -&gt; Request StartMetricStreams
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudWatch.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679259586"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679259595"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StartMetricStreams
 -&gt; ClientResponse ClientBody
@@ -204,10 +204,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StartMetricStreamsResult&quot;</span></span><span>
-</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679259583"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259583"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679259582"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679259582"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679259581"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679259581"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679259592"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259592"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679259591"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679259591"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679259590"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679259590"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; StartMetricStreamsResponse
 </span><a href="Network.AWS.CloudWatch.StartMetricStreams.html#StartMetricStreamsResponse%27"><span class="hs-identifier hs-var">StartMetricStreamsResponse'</span></a></span><span>
 </span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; StartMetricStreamsResponse)
@@ -218,15 +218,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259583"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259592"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259574"><span id="local-6989586621679259576"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.StartMetricStreams.html#StartMetricStreams"><span class="hs-identifier hs-type">StartMetricStreams</span></a></span></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259583"><span id="local-6989586621679259585"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.StartMetricStreams.html#StartMetricStreams"><span class="hs-identifier hs-type">StartMetricStreams</span></a></span></span></span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259571"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.StartMetricStreams.html#StartMetricStreams"><span class="hs-identifier hs-type">StartMetricStreams</span></a></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259580"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.StartMetricStreams.html#StartMetricStreams"><span class="hs-identifier hs-type">StartMetricStreams</span></a></span></span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.StartMetricStreams.html#StartMetricStreams"><span class="hs-identifier hs-type">StartMetricStreams</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679259567"><span class="annot"><span class="annottext">toHeaders :: StartMetricStreams -&gt; ResponseHeaders
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679259576"><span class="annot"><span class="annottext">toHeaders :: StartMetricStreams -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StartMetricStreams -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -234,18 +234,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.StartMetricStreams.html#StartMetricStreams"><span class="hs-identifier hs-type">StartMetricStreams</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679259562"><span class="annot"><span class="annottext">toPath :: StartMetricStreams -&gt; ByteString
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679259571"><span class="annot"><span class="annottext">toPath :: StartMetricStreams -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StartMetricStreams -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.StartMetricStreams.html#StartMetricStreams"><span class="hs-identifier hs-type">StartMetricStreams</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679259558"><span class="annot"><span class="annottext">toQuery :: StartMetricStreams -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.StartMetricStreams.html#StartMetricStreams%27"><span class="hs-identifier hs-type">StartMetricStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259556"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679259567"><span class="annot"><span class="annottext">toQuery :: StartMetricStreams -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.StartMetricStreams.html#StartMetricStreams%27"><span class="hs-identifier hs-type">StartMetricStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259565"><span class="annot"><span class="annottext">[Text]
 names :: [Text]
 $sel:names:StartMetricStreams' :: StartMetricStreams -&gt; [Text]
-</span><a href="#local-6989586621679259556"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679259565"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -270,16 +270,16 @@ forall a.
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679259556"><span class="hs-identifier hs-var">names</span></a></span><span>
+</span><a href="#local-6989586621679259565"><span class="hs-identifier hs-var">names</span></a></span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | /See:/ 'newStartMetricStreamsResponse' smart constructor.</span><span>
-</span><span id="line-119"></span><span id="local-6989586621679259552"><span id="local-6989586621679259553"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartMetricStreamsResponse"><span class="annot"><a href="Network.AWS.CloudWatch.StartMetricStreams.html#StartMetricStreamsResponse"><span class="hs-identifier hs-var">StartMetricStreamsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartMetricStreamsResponse%27"><span class="annot"><a href="Network.AWS.CloudWatch.StartMetricStreams.html#StartMetricStreamsResponse%27"><span class="hs-identifier hs-var">StartMetricStreamsResponse'</span></a></span></span><span>
+</span><span id="line-119"></span><span id="local-6989586621679259561"><span id="local-6989586621679259562"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartMetricStreamsResponse"><span class="annot"><a href="Network.AWS.CloudWatch.StartMetricStreams.html#StartMetricStreamsResponse"><span class="hs-identifier hs-var">StartMetricStreamsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartMetricStreamsResponse%27"><span class="annot"><a href="Network.AWS.CloudWatch.StartMetricStreams.html#StartMetricStreamsResponse%27"><span class="hs-identifier hs-var">StartMetricStreamsResponse'</span></a></span></span><span>
 </span><span id="line-120"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-121"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStartMetricStreamsResponse%27"><span class="annot"><span class="annottext">StartMetricStreamsResponse -&gt; Int
 </span><a href="Network.AWS.CloudWatch.StartMetricStreams.html#%24sel%3AhttpStatus%3AStartMetricStreamsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-122"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-123"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259547"><span id="local-6989586621679259549"><span class="annot"><span class="annottext">StartMetricStreamsResponse -&gt; StartMetricStreamsResponse -&gt; Bool
+</span><span id="line-123"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259556"><span id="local-6989586621679259558"><span class="annot"><span class="annottext">StartMetricStreamsResponse -&gt; StartMetricStreamsResponse -&gt; Bool
 (StartMetricStreamsResponse -&gt; StartMetricStreamsResponse -&gt; Bool)
 -&gt; (StartMetricStreamsResponse
     -&gt; StartMetricStreamsResponse -&gt; Bool)
@@ -289,7 +289,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StartMetricStreamsResponse -&gt; StartMetricStreamsResponse -&gt; Bool
 == :: StartMetricStreamsResponse -&gt; StartMetricStreamsResponse -&gt; Bool
 $c== :: StartMetricStreamsResponse -&gt; StartMetricStreamsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259539"><span id="local-6989586621679259541"><span id="local-6989586621679259543"><span id="local-6989586621679259545"><span class="annot"><span class="annottext">ReadPrec [StartMetricStreamsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259548"><span id="local-6989586621679259550"><span id="local-6989586621679259552"><span id="local-6989586621679259554"><span class="annot"><span class="annottext">ReadPrec [StartMetricStreamsResponse]
 ReadPrec StartMetricStreamsResponse
 Int -&gt; ReadS StartMetricStreamsResponse
 ReadS [StartMetricStreamsResponse]
@@ -309,7 +309,7 @@ readList :: ReadS [StartMetricStreamsResponse]
 $creadList :: ReadS [StartMetricStreamsResponse]
 readsPrec :: Int -&gt; ReadS StartMetricStreamsResponse
 $creadsPrec :: Int -&gt; ReadS StartMetricStreamsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259533"><span id="local-6989586621679259535"><span id="local-6989586621679259537"><span class="annot"><span class="annottext">Int -&gt; StartMetricStreamsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259542"><span id="local-6989586621679259544"><span id="local-6989586621679259546"><span class="annot"><span class="annottext">Int -&gt; StartMetricStreamsResponse -&gt; ShowS
 [StartMetricStreamsResponse] -&gt; ShowS
 StartMetricStreamsResponse -&gt; String
 (Int -&gt; StartMetricStreamsResponse -&gt; ShowS)
@@ -355,14 +355,14 @@ StartMetricStreamsResponse -&gt; Rep StartMetricStreamsResponse x
 </span><span id="line-136"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-137"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatch.StartMetricStreams.html#StartMetricStreamsResponse"><span class="hs-identifier hs-type">StartMetricStreamsResponse</span></a></span><span>
 </span><span id="line-138"></span><span id="newStartMetricStreamsResponse"><span class="annot"><span class="annottext">newStartMetricStreamsResponse :: Int -&gt; StartMetricStreamsResponse
-</span><a href="Network.AWS.CloudWatch.StartMetricStreams.html#newStartMetricStreamsResponse"><span class="hs-identifier hs-var hs-var">newStartMetricStreamsResponse</span></a></span></span><span> </span><span id="local-6989586621679259530"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259530"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatch.StartMetricStreams.html#newStartMetricStreamsResponse"><span class="hs-identifier hs-var hs-var">newStartMetricStreamsResponse</span></a></span></span><span> </span><span id="local-6989586621679259539"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259539"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>  </span><span class="annot"><span class="annottext">StartMetricStreamsResponse' :: Int -&gt; StartMetricStreamsResponse
 </span><a href="Network.AWS.CloudWatch.StartMetricStreams.html#StartMetricStreamsResponse%27"><span class="hs-identifier hs-type">StartMetricStreamsResponse'</span></a></span><span>
 </span><span id="line-140"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:StartMetricStreamsResponse' :: Int
 </span><a href="Network.AWS.CloudWatch.StartMetricStreams.html#%24sel%3AhttpStatus%3AStartMetricStreamsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259530"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679259539"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-142"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -375,16 +375,16 @@ StartMetricStreamsResponse -&gt; Rep StartMetricStreamsResponse x
 -&gt; Lens
      StartMetricStreamsResponse StartMetricStreamsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.StartMetricStreams.html#StartMetricStreamsResponse%27"><span class="hs-identifier hs-type">StartMetricStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259529"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.StartMetricStreams.html#StartMetricStreamsResponse%27"><span class="hs-identifier hs-type">StartMetricStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259538"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:StartMetricStreamsResponse' :: StartMetricStreamsResponse -&gt; Int
-</span><a href="#local-6989586621679259529"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259529"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259528"><span class="annot"><span class="annottext">s :: StartMetricStreamsResponse
-</span><a href="#local-6989586621679259528"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.StartMetricStreams.html#StartMetricStreamsResponse%27"><span class="hs-identifier hs-type">StartMetricStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259527"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259527"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartMetricStreamsResponse
-</span><a href="#local-6989586621679259528"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartMetricStreamsResponse' :: Int
+</span><a href="#local-6989586621679259538"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259538"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259537"><span class="annot"><span class="annottext">s :: StartMetricStreamsResponse
+</span><a href="#local-6989586621679259537"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.StartMetricStreams.html#StartMetricStreamsResponse%27"><span class="hs-identifier hs-type">StartMetricStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259536"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259536"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartMetricStreamsResponse
+</span><a href="#local-6989586621679259537"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartMetricStreamsResponse' :: Int
 </span><a href="Network.AWS.CloudWatch.StartMetricStreams.html#%24sel%3AhttpStatus%3AStartMetricStreamsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259527"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.StartMetricStreams.html#StartMetricStreamsResponse"><span class="hs-identifier hs-type">StartMetricStreamsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259536"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.StartMetricStreams.html#StartMetricStreamsResponse"><span class="hs-identifier hs-type">StartMetricStreamsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259525"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.StartMetricStreams.html#StartMetricStreamsResponse"><span class="hs-identifier hs-type">StartMetricStreamsResponse</span></a></span></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259534"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.StartMetricStreams.html#StartMetricStreamsResponse"><span class="hs-identifier hs-type">StartMetricStreamsResponse</span></a></span></span><span>
 </span><span id="line-149"></span></pre></body></html>

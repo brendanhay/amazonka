@@ -1,0 +1,865 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ApplicationInsights.ListConfigurationHistory</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists the INFO, WARN, and ERROR events for periodic configuration</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- updates performed by Application Insights. Examples of events</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- represented are:</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- -   INFO: creating a new alarm or updating an alarm threshold.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- -   WARN: alarm not created due to insufficient data points used to</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--     predict thresholds.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- -   ERROR: alarm not created due to permission errors or exceeding</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--     quotas.</span><span>
+</span><span id="line-34"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ApplicationInsights.ListConfigurationHistory</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistory"><span class="hs-identifier">ListConfigurationHistory</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#newListConfigurationHistory"><span class="hs-identifier">newListConfigurationHistory</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#listConfigurationHistory_resourceGroupName"><span class="hs-identifier">listConfigurationHistory_resourceGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#listConfigurationHistory_startTime"><span class="hs-identifier">listConfigurationHistory_startTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#listConfigurationHistory_eventStatus"><span class="hs-identifier">listConfigurationHistory_eventStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#listConfigurationHistory_nextToken"><span class="hs-identifier">listConfigurationHistory_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#listConfigurationHistory_endTime"><span class="hs-identifier">listConfigurationHistory_endTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#listConfigurationHistory_maxResults"><span class="hs-identifier">listConfigurationHistory_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistoryResponse"><span class="hs-identifier">ListConfigurationHistoryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#newListConfigurationHistoryResponse"><span class="hs-identifier">newListConfigurationHistoryResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#listConfigurationHistoryResponse_nextToken"><span class="hs-identifier">listConfigurationHistoryResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#listConfigurationHistoryResponse_eventList"><span class="hs-identifier">listConfigurationHistoryResponse_eventList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#listConfigurationHistoryResponse_httpStatus"><span class="hs-identifier">listConfigurationHistoryResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.html"><span class="hs-identifier">Network.AWS.ApplicationInsights.Types</span></a></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | /See:/ 'newListConfigurationHistory' smart constructor.</span><span>
+</span><span id="line-66"></span><span id="local-6989586621679219518"><span id="local-6989586621679219519"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListConfigurationHistory"><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistory"><span class="hs-identifier hs-var">ListConfigurationHistory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListConfigurationHistory%27"><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistory%27"><span class="hs-identifier hs-var">ListConfigurationHistory'</span></a></span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Resource group to which the application belongs.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AresourceGroupName%3AListConfigurationHistory%27"><span class="annot"><span class="annottext">ListConfigurationHistory -&gt; Maybe Text
+</span><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#%24sel%3AresourceGroupName%3AListConfigurationHistory%27"><span class="hs-identifier hs-var hs-var">resourceGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The start time of the event.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AstartTime%3AListConfigurationHistory%27"><span class="annot"><span class="annottext">ListConfigurationHistory -&gt; Maybe POSIX
+</span><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#%24sel%3AstartTime%3AListConfigurationHistory%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The status of the configuration update event. Possible values include</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- INFO, WARN, and ERROR.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AeventStatus%3AListConfigurationHistory%27"><span class="annot"><span class="annottext">ListConfigurationHistory -&gt; Maybe ConfigurationEventStatus
+</span><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#%24sel%3AeventStatus%3AListConfigurationHistory%27"><span class="hs-identifier hs-var hs-var">eventStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus.html#ConfigurationEventStatus"><span class="hs-identifier hs-type">ConfigurationEventStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The @NextToken@ value returned from a previous paginated</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- @ListConfigurationHistory@ request where @MaxResults@ was used and the</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- results exceeded the value of that parameter. Pagination continues from</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- the end of the previous results that returned the @NextToken@ value.</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- This value is @null@ when there are no more results to return.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AnextToken%3AListConfigurationHistory%27"><span class="annot"><span class="annottext">ListConfigurationHistory -&gt; Maybe Text
+</span><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#%24sel%3AnextToken%3AListConfigurationHistory%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The end time of the event.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AendTime%3AListConfigurationHistory%27"><span class="annot"><span class="annottext">ListConfigurationHistory -&gt; Maybe POSIX
+</span><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#%24sel%3AendTime%3AListConfigurationHistory%27"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | The maximum number of results returned by @ListConfigurationHistory@ in</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- paginated output. When this parameter is used,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- @ListConfigurationHistory@ returns only @MaxResults@ in a single page</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- along with a @NextToken@ response element. The remaining results of the</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- initial request can be seen by sending another</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- @ListConfigurationHistory@ request with the returned @NextToken@ value.</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- If this parameter is not used, then @ListConfigurationHistory@ returns</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- all results.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3AmaxResults%3AListConfigurationHistory%27"><span class="annot"><span class="annottext">ListConfigurationHistory -&gt; Maybe Natural
+</span><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#%24sel%3AmaxResults%3AListConfigurationHistory%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679219507"><span id="local-6989586621679219509"><span class="annot"><span class="annottext">ListConfigurationHistory -&gt; ListConfigurationHistory -&gt; Bool
+(ListConfigurationHistory -&gt; ListConfigurationHistory -&gt; Bool)
+-&gt; (ListConfigurationHistory -&gt; ListConfigurationHistory -&gt; Bool)
+-&gt; Eq ListConfigurationHistory
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListConfigurationHistory -&gt; ListConfigurationHistory -&gt; Bool
+$c/= :: ListConfigurationHistory -&gt; ListConfigurationHistory -&gt; Bool
+== :: ListConfigurationHistory -&gt; ListConfigurationHistory -&gt; Bool
+$c== :: ListConfigurationHistory -&gt; ListConfigurationHistory -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679219498"><span id="local-6989586621679219500"><span id="local-6989586621679219502"><span id="local-6989586621679219504"><span class="annot"><span class="annottext">ReadPrec [ListConfigurationHistory]
+ReadPrec ListConfigurationHistory
+Int -&gt; ReadS ListConfigurationHistory
+ReadS [ListConfigurationHistory]
+(Int -&gt; ReadS ListConfigurationHistory)
+-&gt; ReadS [ListConfigurationHistory]
+-&gt; ReadPrec ListConfigurationHistory
+-&gt; ReadPrec [ListConfigurationHistory]
+-&gt; Read ListConfigurationHistory
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListConfigurationHistory]
+$creadListPrec :: ReadPrec [ListConfigurationHistory]
+readPrec :: ReadPrec ListConfigurationHistory
+$creadPrec :: ReadPrec ListConfigurationHistory
+readList :: ReadS [ListConfigurationHistory]
+$creadList :: ReadS [ListConfigurationHistory]
+readsPrec :: Int -&gt; ReadS ListConfigurationHistory
+$creadsPrec :: Int -&gt; ReadS ListConfigurationHistory
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679219491"><span id="local-6989586621679219493"><span id="local-6989586621679219495"><span class="annot"><span class="annottext">Int -&gt; ListConfigurationHistory -&gt; ShowS
+[ListConfigurationHistory] -&gt; ShowS
+ListConfigurationHistory -&gt; String
+(Int -&gt; ListConfigurationHistory -&gt; ShowS)
+-&gt; (ListConfigurationHistory -&gt; String)
+-&gt; ([ListConfigurationHistory] -&gt; ShowS)
+-&gt; Show ListConfigurationHistory
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListConfigurationHistory] -&gt; ShowS
+$cshowList :: [ListConfigurationHistory] -&gt; ShowS
+show :: ListConfigurationHistory -&gt; String
+$cshow :: ListConfigurationHistory -&gt; String
+showsPrec :: Int -&gt; ListConfigurationHistory -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListConfigurationHistory -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListConfigurationHistory -&gt; Rep ListConfigurationHistory x)
+-&gt; (forall x.
+    Rep ListConfigurationHistory x -&gt; ListConfigurationHistory)
+-&gt; Generic ListConfigurationHistory
+forall x.
+Rep ListConfigurationHistory x -&gt; ListConfigurationHistory
+forall x.
+ListConfigurationHistory -&gt; Rep ListConfigurationHistory x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListConfigurationHistory x -&gt; ListConfigurationHistory
+$cfrom :: forall x.
+ListConfigurationHistory -&gt; Rep ListConfigurationHistory x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- Create a value of 'ListConfigurationHistory' with all optional fields omitted.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'resourceGroupName', 'listConfigurationHistory_resourceGroupName' - Resource group to which the application belongs.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'startTime', 'listConfigurationHistory_startTime' - The start time of the event.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'eventStatus', 'listConfigurationHistory_eventStatus' - The status of the configuration update event. Possible values include</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- INFO, WARN, and ERROR.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'nextToken', 'listConfigurationHistory_nextToken' - The @NextToken@ value returned from a previous paginated</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- @ListConfigurationHistory@ request where @MaxResults@ was used and the</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- results exceeded the value of that parameter. Pagination continues from</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- the end of the previous results that returned the @NextToken@ value.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- This value is @null@ when there are no more results to return.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'endTime', 'listConfigurationHistory_endTime' - The end time of the event.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'maxResults', 'listConfigurationHistory_maxResults' - The maximum number of results returned by @ListConfigurationHistory@ in</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- paginated output. When this parameter is used,</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- @ListConfigurationHistory@ returns only @MaxResults@ in a single page</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- along with a @NextToken@ response element. The remaining results of the</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- initial request can be seen by sending another</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- @ListConfigurationHistory@ request with the returned @NextToken@ value.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- If this parameter is not used, then @ListConfigurationHistory@ returns</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- all results.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#newListConfigurationHistory"><span class="hs-identifier hs-type">newListConfigurationHistory</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistory"><span class="hs-identifier hs-type">ListConfigurationHistory</span></a></span><span>
+</span><span id="line-127"></span><span id="newListConfigurationHistory"><span class="annot"><span class="annottext">newListConfigurationHistory :: ListConfigurationHistory
+</span><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#newListConfigurationHistory"><span class="hs-identifier hs-var hs-var">newListConfigurationHistory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><span class="annottext">ListConfigurationHistory' :: Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe ConfigurationEventStatus
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Natural
+-&gt; ListConfigurationHistory
+</span><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistory%27"><span class="hs-identifier hs-type">ListConfigurationHistory'</span></a></span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceGroupName:ListConfigurationHistory' :: Maybe Text
+</span><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#%24sel%3AresourceGroupName%3AListConfigurationHistory%27"><span class="hs-identifier hs-var">resourceGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTime:ListConfigurationHistory' :: Maybe POSIX
+</span><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#%24sel%3AstartTime%3AListConfigurationHistory%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventStatus:ListConfigurationHistory' :: Maybe ConfigurationEventStatus
+</span><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#%24sel%3AeventStatus%3AListConfigurationHistory%27"><span class="hs-identifier hs-var">eventStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigurationEventStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListConfigurationHistory' :: Maybe Text
+</span><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#%24sel%3AnextToken%3AListConfigurationHistory%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:endTime:ListConfigurationHistory' :: Maybe POSIX
+</span><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#%24sel%3AendTime%3AListConfigurationHistory%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListConfigurationHistory' :: Maybe Natural
+</span><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#%24sel%3AmaxResults%3AListConfigurationHistory%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | Resource group to which the application belongs.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#listConfigurationHistory_resourceGroupName"><span class="hs-identifier hs-type">listConfigurationHistory_resourceGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistory"><span class="hs-identifier hs-type">ListConfigurationHistory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="listConfigurationHistory_resourceGroupName"><span class="annot"><span class="annottext">listConfigurationHistory_resourceGroupName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListConfigurationHistory -&gt; f ListConfigurationHistory
+</span><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#listConfigurationHistory_resourceGroupName"><span class="hs-identifier hs-var hs-var">listConfigurationHistory_resourceGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListConfigurationHistory -&gt; Maybe Text)
+-&gt; (ListConfigurationHistory
+    -&gt; Maybe Text -&gt; ListConfigurationHistory)
+-&gt; Lens
+     ListConfigurationHistory
+     ListConfigurationHistory
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistory%27"><span class="hs-identifier hs-type">ListConfigurationHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219484"><span class="annot"><span class="annottext">Maybe Text
+resourceGroupName :: Maybe Text
+$sel:resourceGroupName:ListConfigurationHistory' :: ListConfigurationHistory -&gt; Maybe Text
+</span><a href="#local-6989586621679219484"><span class="hs-identifier hs-var hs-var">resourceGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219484"><span class="hs-identifier hs-var">resourceGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219483"><span class="annot"><span class="annottext">s :: ListConfigurationHistory
+</span><a href="#local-6989586621679219483"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistory%27"><span class="hs-identifier hs-type">ListConfigurationHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219482"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219482"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConfigurationHistory
+</span><a href="#local-6989586621679219483"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceGroupName:ListConfigurationHistory' :: Maybe Text
+</span><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#%24sel%3AresourceGroupName%3AListConfigurationHistory%27"><span class="hs-identifier hs-var">resourceGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219482"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistory"><span class="hs-identifier hs-type">ListConfigurationHistory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | The start time of the event.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#listConfigurationHistory_startTime"><span class="hs-identifier hs-type">listConfigurationHistory_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistory"><span class="hs-identifier hs-type">ListConfigurationHistory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="listConfigurationHistory_startTime"><span class="annot"><span class="annottext">listConfigurationHistory_startTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListConfigurationHistory -&gt; f ListConfigurationHistory
+</span><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#listConfigurationHistory_startTime"><span class="hs-identifier hs-var hs-var">listConfigurationHistory_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListConfigurationHistory -&gt; Maybe POSIX)
+-&gt; (ListConfigurationHistory
+    -&gt; Maybe POSIX -&gt; ListConfigurationHistory)
+-&gt; Lens
+     ListConfigurationHistory
+     ListConfigurationHistory
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistory%27"><span class="hs-identifier hs-type">ListConfigurationHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219481"><span class="annot"><span class="annottext">Maybe POSIX
+startTime :: Maybe POSIX
+$sel:startTime:ListConfigurationHistory' :: ListConfigurationHistory -&gt; Maybe POSIX
+</span><a href="#local-6989586621679219481"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679219481"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219480"><span class="annot"><span class="annottext">s :: ListConfigurationHistory
+</span><a href="#local-6989586621679219480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistory%27"><span class="hs-identifier hs-type">ListConfigurationHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219479"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679219479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConfigurationHistory
+</span><a href="#local-6989586621679219480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:ListConfigurationHistory' :: Maybe POSIX
+</span><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#%24sel%3AstartTime%3AListConfigurationHistory%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679219479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistory"><span class="hs-identifier hs-type">ListConfigurationHistory</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ListConfigurationHistory -&gt; f ListConfigurationHistory)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListConfigurationHistory
+-&gt; f ListConfigurationHistory
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The status of the configuration update event. Possible values include</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- INFO, WARN, and ERROR.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#listConfigurationHistory_eventStatus"><span class="hs-identifier hs-type">listConfigurationHistory_eventStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistory"><span class="hs-identifier hs-type">ListConfigurationHistory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ConfigurationEventStatus.html#ConfigurationEventStatus"><span class="hs-identifier hs-type">ConfigurationEventStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="listConfigurationHistory_eventStatus"><span class="annot"><span class="annottext">listConfigurationHistory_eventStatus :: (Maybe ConfigurationEventStatus
+ -&gt; f (Maybe ConfigurationEventStatus))
+-&gt; ListConfigurationHistory -&gt; f ListConfigurationHistory
+</span><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#listConfigurationHistory_eventStatus"><span class="hs-identifier hs-var hs-var">listConfigurationHistory_eventStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListConfigurationHistory -&gt; Maybe ConfigurationEventStatus)
+-&gt; (ListConfigurationHistory
+    -&gt; Maybe ConfigurationEventStatus -&gt; ListConfigurationHistory)
+-&gt; Lens
+     ListConfigurationHistory
+     ListConfigurationHistory
+     (Maybe ConfigurationEventStatus)
+     (Maybe ConfigurationEventStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistory%27"><span class="hs-identifier hs-type">ListConfigurationHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219475"><span class="annot"><span class="annottext">Maybe ConfigurationEventStatus
+eventStatus :: Maybe ConfigurationEventStatus
+$sel:eventStatus:ListConfigurationHistory' :: ListConfigurationHistory -&gt; Maybe ConfigurationEventStatus
+</span><a href="#local-6989586621679219475"><span class="hs-identifier hs-var hs-var">eventStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigurationEventStatus
+</span><a href="#local-6989586621679219475"><span class="hs-identifier hs-var">eventStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219474"><span class="annot"><span class="annottext">s :: ListConfigurationHistory
+</span><a href="#local-6989586621679219474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistory%27"><span class="hs-identifier hs-type">ListConfigurationHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219473"><span class="annot"><span class="annottext">Maybe ConfigurationEventStatus
+</span><a href="#local-6989586621679219473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConfigurationHistory
+</span><a href="#local-6989586621679219474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventStatus:ListConfigurationHistory' :: Maybe ConfigurationEventStatus
+</span><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#%24sel%3AeventStatus%3AListConfigurationHistory%27"><span class="hs-identifier hs-var">eventStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigurationEventStatus
+</span><a href="#local-6989586621679219473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistory"><span class="hs-identifier hs-type">ListConfigurationHistory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | The @NextToken@ value returned from a previous paginated</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- @ListConfigurationHistory@ request where @MaxResults@ was used and the</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- results exceeded the value of that parameter. Pagination continues from</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- the end of the previous results that returned the @NextToken@ value.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- This value is @null@ when there are no more results to return.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#listConfigurationHistory_nextToken"><span class="hs-identifier hs-type">listConfigurationHistory_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistory"><span class="hs-identifier hs-type">ListConfigurationHistory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span id="listConfigurationHistory_nextToken"><span class="annot"><span class="annottext">listConfigurationHistory_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListConfigurationHistory -&gt; f ListConfigurationHistory
+</span><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#listConfigurationHistory_nextToken"><span class="hs-identifier hs-var hs-var">listConfigurationHistory_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListConfigurationHistory -&gt; Maybe Text)
+-&gt; (ListConfigurationHistory
+    -&gt; Maybe Text -&gt; ListConfigurationHistory)
+-&gt; Lens
+     ListConfigurationHistory
+     ListConfigurationHistory
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistory%27"><span class="hs-identifier hs-type">ListConfigurationHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219472"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListConfigurationHistory' :: ListConfigurationHistory -&gt; Maybe Text
+</span><a href="#local-6989586621679219472"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219472"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219471"><span class="annot"><span class="annottext">s :: ListConfigurationHistory
+</span><a href="#local-6989586621679219471"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistory%27"><span class="hs-identifier hs-type">ListConfigurationHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219470"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219470"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConfigurationHistory
+</span><a href="#local-6989586621679219471"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListConfigurationHistory' :: Maybe Text
+</span><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#%24sel%3AnextToken%3AListConfigurationHistory%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219470"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistory"><span class="hs-identifier hs-type">ListConfigurationHistory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | The end time of the event.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#listConfigurationHistory_endTime"><span class="hs-identifier hs-type">listConfigurationHistory_endTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistory"><span class="hs-identifier hs-type">ListConfigurationHistory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="listConfigurationHistory_endTime"><span class="annot"><span class="annottext">listConfigurationHistory_endTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListConfigurationHistory -&gt; f ListConfigurationHistory
+</span><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#listConfigurationHistory_endTime"><span class="hs-identifier hs-var hs-var">listConfigurationHistory_endTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListConfigurationHistory -&gt; Maybe POSIX)
+-&gt; (ListConfigurationHistory
+    -&gt; Maybe POSIX -&gt; ListConfigurationHistory)
+-&gt; Lens
+     ListConfigurationHistory
+     ListConfigurationHistory
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistory%27"><span class="hs-identifier hs-type">ListConfigurationHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219469"><span class="annot"><span class="annottext">Maybe POSIX
+endTime :: Maybe POSIX
+$sel:endTime:ListConfigurationHistory' :: ListConfigurationHistory -&gt; Maybe POSIX
+</span><a href="#local-6989586621679219469"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679219469"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219468"><span class="annot"><span class="annottext">s :: ListConfigurationHistory
+</span><a href="#local-6989586621679219468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistory%27"><span class="hs-identifier hs-type">ListConfigurationHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219467"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679219467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConfigurationHistory
+</span><a href="#local-6989586621679219468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:ListConfigurationHistory' :: Maybe POSIX
+</span><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#%24sel%3AendTime%3AListConfigurationHistory%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679219467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistory"><span class="hs-identifier hs-type">ListConfigurationHistory</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ListConfigurationHistory -&gt; f ListConfigurationHistory)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListConfigurationHistory
+-&gt; f ListConfigurationHistory
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The maximum number of results returned by @ListConfigurationHistory@ in</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- paginated output. When this parameter is used,</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- @ListConfigurationHistory@ returns only @MaxResults@ in a single page</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- along with a @NextToken@ response element. The remaining results of the</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- initial request can be seen by sending another</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- @ListConfigurationHistory@ request with the returned @NextToken@ value.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- If this parameter is not used, then @ListConfigurationHistory@ returns</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- all results.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#listConfigurationHistory_maxResults"><span class="hs-identifier hs-type">listConfigurationHistory_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistory"><span class="hs-identifier hs-type">ListConfigurationHistory</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="listConfigurationHistory_maxResults"><span class="annot"><span class="annottext">listConfigurationHistory_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListConfigurationHistory -&gt; f ListConfigurationHistory
+</span><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#listConfigurationHistory_maxResults"><span class="hs-identifier hs-var hs-var">listConfigurationHistory_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListConfigurationHistory -&gt; Maybe Natural)
+-&gt; (ListConfigurationHistory
+    -&gt; Maybe Natural -&gt; ListConfigurationHistory)
+-&gt; Lens
+     ListConfigurationHistory
+     ListConfigurationHistory
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistory%27"><span class="hs-identifier hs-type">ListConfigurationHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219466"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListConfigurationHistory' :: ListConfigurationHistory -&gt; Maybe Natural
+</span><a href="#local-6989586621679219466"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679219466"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219465"><span class="annot"><span class="annottext">s :: ListConfigurationHistory
+</span><a href="#local-6989586621679219465"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistory%27"><span class="hs-identifier hs-type">ListConfigurationHistory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219464"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679219464"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConfigurationHistory
+</span><a href="#local-6989586621679219465"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListConfigurationHistory' :: Maybe Natural
+</span><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#%24sel%3AmaxResults%3AListConfigurationHistory%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679219464"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistory"><span class="hs-identifier hs-type">ListConfigurationHistory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistory"><span class="hs-identifier hs-type">ListConfigurationHistory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-175"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-176"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistory"><span class="hs-identifier hs-type">ListConfigurationHistory</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>      </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistoryResponse"><span class="hs-identifier hs-type">ListConfigurationHistoryResponse</span></a></span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679219460"><span class="annot"><span class="annottext">request :: ListConfigurationHistory -&gt; Request ListConfigurationHistory
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ListConfigurationHistory -&gt; Request ListConfigurationHistory
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ApplicationInsights.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679219456"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListConfigurationHistory
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListConfigurationHistory)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListConfigurationHistory))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListConfigurationHistory
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListConfigurationHistory)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679219453"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679219453"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679219452"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679219452"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679219451"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679219451"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-182"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [ConfigurationEvent]
+-&gt; Int
+-&gt; ListConfigurationHistoryResponse
+</span><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistoryResponse%27"><span class="hs-identifier hs-var">ListConfigurationHistoryResponse'</span></a></span><span>
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [ConfigurationEvent]
+ -&gt; Int
+ -&gt; ListConfigurationHistoryResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [ConfigurationEvent]
+      -&gt; Int -&gt; ListConfigurationHistoryResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679219451"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [ConfigurationEvent]
+   -&gt; Int -&gt; ListConfigurationHistoryResponse)
+-&gt; Either String (Maybe [ConfigurationEvent])
+-&gt; Either String (Int -&gt; ListConfigurationHistoryResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679219451"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [ConfigurationEvent]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EventList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ConfigurationEvent]))
+-&gt; Maybe [ConfigurationEvent]
+-&gt; Either String (Maybe [ConfigurationEvent])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ConfigurationEvent]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListConfigurationHistoryResponse)
+-&gt; Either String Int
+-&gt; Either String ListConfigurationHistoryResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679219453"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679219442"><span id="local-6989586621679219444"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistory"><span class="hs-identifier hs-type">ListConfigurationHistory</span></a></span></span></span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679219439"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistory"><span class="hs-identifier hs-type">ListConfigurationHistory</span></a></span></span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistory"><span class="hs-identifier hs-type">ListConfigurationHistory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679219435"><span class="annot"><span class="annottext">toHeaders :: ListConfigurationHistory -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-194"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListConfigurationHistory -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-195"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-196"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-197"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;EC2WindowsBarleyService.ListConfigurationHistory&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-198"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-199"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-201"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-202"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-203"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-205"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679219425"><span id="local-6989586621679219427"><span id="local-6989586621679219429"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistory"><span class="hs-identifier hs-type">ListConfigurationHistory</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679219423"><span class="annot"><span class="annottext">toJSON :: ListConfigurationHistory -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistory%27"><span class="hs-identifier hs-type">ListConfigurationHistory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219416"><span id="local-6989586621679219417"><span id="local-6989586621679219418"><span id="local-6989586621679219419"><span id="local-6989586621679219420"><span id="local-6989586621679219421"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Maybe POSIX
+Maybe ConfigurationEventStatus
+maxResults :: Maybe Natural
+endTime :: Maybe POSIX
+nextToken :: Maybe Text
+eventStatus :: Maybe ConfigurationEventStatus
+startTime :: Maybe POSIX
+resourceGroupName :: Maybe Text
+$sel:maxResults:ListConfigurationHistory' :: ListConfigurationHistory -&gt; Maybe Natural
+$sel:endTime:ListConfigurationHistory' :: ListConfigurationHistory -&gt; Maybe POSIX
+$sel:nextToken:ListConfigurationHistory' :: ListConfigurationHistory -&gt; Maybe Text
+$sel:eventStatus:ListConfigurationHistory' :: ListConfigurationHistory -&gt; Maybe ConfigurationEventStatus
+$sel:startTime:ListConfigurationHistory' :: ListConfigurationHistory -&gt; Maybe POSIX
+$sel:resourceGroupName:ListConfigurationHistory' :: ListConfigurationHistory -&gt; Maybe Text
+</span><a href="#local-6989586621679219416"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-209"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-210"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-211"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219421"><span class="hs-identifier hs-var">resourceGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679219420"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EventStatus&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ConfigurationEventStatus -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ConfigurationEventStatus -&gt; Pair)
+-&gt; Maybe ConfigurationEventStatus -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ConfigurationEventStatus
+</span><a href="#local-6989586621679219419"><span class="hs-identifier hs-var">eventStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219418"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679219417"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679219416"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-218"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-219"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistory"><span class="hs-identifier hs-type">ListConfigurationHistory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-222"></span><span>  </span><span id="local-6989586621679219410"><span class="annot"><span class="annottext">toPath :: ListConfigurationHistory -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListConfigurationHistory -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistory"><span class="hs-identifier hs-type">ListConfigurationHistory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-225"></span><span>  </span><span id="local-6989586621679219406"><span class="annot"><span class="annottext">toQuery :: ListConfigurationHistory -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListConfigurationHistory -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- | /See:/ 'newListConfigurationHistoryResponse' smart constructor.</span><span>
+</span><span id="line-228"></span><span id="local-6989586621679219403"><span id="local-6989586621679219404"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListConfigurationHistoryResponse"><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistoryResponse"><span class="hs-identifier hs-var">ListConfigurationHistoryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListConfigurationHistoryResponse%27"><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistoryResponse%27"><span class="hs-identifier hs-var">ListConfigurationHistoryResponse'</span></a></span></span><span>
+</span><span id="line-229"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @NextToken@ value to include in a future @ListConfigurationHistory@</span><span>
+</span><span id="line-230"></span><span>    </span><span class="hs-comment">-- request. When the results of a @ListConfigurationHistory@ request exceed</span><span>
+</span><span id="line-231"></span><span>    </span><span class="hs-comment">-- @MaxResults@, this value can be used to retrieve the next page of</span><span>
+</span><span id="line-232"></span><span>    </span><span class="hs-comment">-- results. This value is @null@ when there are no more results to return.</span><span>
+</span><span id="line-233"></span><span>    </span><span id="%24sel%3AnextToken%3AListConfigurationHistoryResponse%27"><span class="annot"><span class="annottext">ListConfigurationHistoryResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#%24sel%3AnextToken%3AListConfigurationHistoryResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>    </span><span class="hs-comment">-- | The list of configuration events and their corresponding details.</span><span>
+</span><span id="line-235"></span><span>    </span><span id="%24sel%3AeventList%3AListConfigurationHistoryResponse%27"><span class="annot"><span class="annottext">ListConfigurationHistoryResponse -&gt; Maybe [ConfigurationEvent]
+</span><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#%24sel%3AeventList%3AListConfigurationHistoryResponse%27"><span class="hs-identifier hs-var hs-var">eventList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ConfigurationEvent.html#ConfigurationEvent"><span class="hs-identifier hs-type">ConfigurationEvent</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-237"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListConfigurationHistoryResponse%27"><span class="annot"><span class="annottext">ListConfigurationHistoryResponse -&gt; Int
+</span><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#%24sel%3AhttpStatus%3AListConfigurationHistoryResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-238"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-239"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679219396"><span id="local-6989586621679219398"><span class="annot"><span class="annottext">ListConfigurationHistoryResponse
+-&gt; ListConfigurationHistoryResponse -&gt; Bool
+(ListConfigurationHistoryResponse
+ -&gt; ListConfigurationHistoryResponse -&gt; Bool)
+-&gt; (ListConfigurationHistoryResponse
+    -&gt; ListConfigurationHistoryResponse -&gt; Bool)
+-&gt; Eq ListConfigurationHistoryResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListConfigurationHistoryResponse
+-&gt; ListConfigurationHistoryResponse -&gt; Bool
+$c/= :: ListConfigurationHistoryResponse
+-&gt; ListConfigurationHistoryResponse -&gt; Bool
+== :: ListConfigurationHistoryResponse
+-&gt; ListConfigurationHistoryResponse -&gt; Bool
+$c== :: ListConfigurationHistoryResponse
+-&gt; ListConfigurationHistoryResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679219388"><span id="local-6989586621679219390"><span id="local-6989586621679219392"><span id="local-6989586621679219394"><span class="annot"><span class="annottext">ReadPrec [ListConfigurationHistoryResponse]
+ReadPrec ListConfigurationHistoryResponse
+Int -&gt; ReadS ListConfigurationHistoryResponse
+ReadS [ListConfigurationHistoryResponse]
+(Int -&gt; ReadS ListConfigurationHistoryResponse)
+-&gt; ReadS [ListConfigurationHistoryResponse]
+-&gt; ReadPrec ListConfigurationHistoryResponse
+-&gt; ReadPrec [ListConfigurationHistoryResponse]
+-&gt; Read ListConfigurationHistoryResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListConfigurationHistoryResponse]
+$creadListPrec :: ReadPrec [ListConfigurationHistoryResponse]
+readPrec :: ReadPrec ListConfigurationHistoryResponse
+$creadPrec :: ReadPrec ListConfigurationHistoryResponse
+readList :: ReadS [ListConfigurationHistoryResponse]
+$creadList :: ReadS [ListConfigurationHistoryResponse]
+readsPrec :: Int -&gt; ReadS ListConfigurationHistoryResponse
+$creadsPrec :: Int -&gt; ReadS ListConfigurationHistoryResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679219382"><span id="local-6989586621679219384"><span id="local-6989586621679219386"><span class="annot"><span class="annottext">Int -&gt; ListConfigurationHistoryResponse -&gt; ShowS
+[ListConfigurationHistoryResponse] -&gt; ShowS
+ListConfigurationHistoryResponse -&gt; String
+(Int -&gt; ListConfigurationHistoryResponse -&gt; ShowS)
+-&gt; (ListConfigurationHistoryResponse -&gt; String)
+-&gt; ([ListConfigurationHistoryResponse] -&gt; ShowS)
+-&gt; Show ListConfigurationHistoryResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListConfigurationHistoryResponse] -&gt; ShowS
+$cshowList :: [ListConfigurationHistoryResponse] -&gt; ShowS
+show :: ListConfigurationHistoryResponse -&gt; String
+$cshow :: ListConfigurationHistoryResponse -&gt; String
+showsPrec :: Int -&gt; ListConfigurationHistoryResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListConfigurationHistoryResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListConfigurationHistoryResponse
+ -&gt; Rep ListConfigurationHistoryResponse x)
+-&gt; (forall x.
+    Rep ListConfigurationHistoryResponse x
+    -&gt; ListConfigurationHistoryResponse)
+-&gt; Generic ListConfigurationHistoryResponse
+forall x.
+Rep ListConfigurationHistoryResponse x
+-&gt; ListConfigurationHistoryResponse
+forall x.
+ListConfigurationHistoryResponse
+-&gt; Rep ListConfigurationHistoryResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListConfigurationHistoryResponse x
+-&gt; ListConfigurationHistoryResponse
+$cfrom :: forall x.
+ListConfigurationHistoryResponse
+-&gt; Rep ListConfigurationHistoryResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- Create a value of 'ListConfigurationHistoryResponse' with all optional fields omitted.</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-245"></span><span class="hs-comment">--</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-248"></span><span class="hs-comment">--</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- 'nextToken', 'listConfigurationHistoryResponse_nextToken' - The @NextToken@ value to include in a future @ListConfigurationHistory@</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- request. When the results of a @ListConfigurationHistory@ request exceed</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- @MaxResults@, this value can be used to retrieve the next page of</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- results. This value is @null@ when there are no more results to return.</span><span>
+</span><span id="line-253"></span><span class="hs-comment">--</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- 'eventList', 'listConfigurationHistoryResponse_eventList' - The list of configuration events and their corresponding details.</span><span>
+</span><span id="line-255"></span><span class="hs-comment">--</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- 'httpStatus', 'listConfigurationHistoryResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-257"></span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#newListConfigurationHistoryResponse"><span class="hs-identifier hs-type">newListConfigurationHistoryResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-258"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-259"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-260"></span><span>  </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistoryResponse"><span class="hs-identifier hs-type">ListConfigurationHistoryResponse</span></a></span><span>
+</span><span id="line-261"></span><span id="newListConfigurationHistoryResponse"><span class="annot"><span class="annottext">newListConfigurationHistoryResponse :: Int -&gt; ListConfigurationHistoryResponse
+</span><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#newListConfigurationHistoryResponse"><span class="hs-identifier hs-var hs-var">newListConfigurationHistoryResponse</span></a></span></span><span> </span><span id="local-6989586621679219379"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679219379"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-262"></span><span>  </span><span class="annot"><span class="annottext">ListConfigurationHistoryResponse' :: Maybe Text
+-&gt; Maybe [ConfigurationEvent]
+-&gt; Int
+-&gt; ListConfigurationHistoryResponse
+</span><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistoryResponse%27"><span class="hs-identifier hs-type">ListConfigurationHistoryResponse'</span></a></span><span>
+</span><span id="line-263"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListConfigurationHistoryResponse' :: Maybe Text
+</span><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#%24sel%3AnextToken%3AListConfigurationHistoryResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-264"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventList:ListConfigurationHistoryResponse' :: Maybe [ConfigurationEvent]
+</span><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#%24sel%3AeventList%3AListConfigurationHistoryResponse%27"><span class="hs-identifier hs-var">eventList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ConfigurationEvent]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListConfigurationHistoryResponse' :: Int
+</span><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#%24sel%3AhttpStatus%3AListConfigurationHistoryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679219379"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-267"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-268"></span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- | The @NextToken@ value to include in a future @ListConfigurationHistory@</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- request. When the results of a @ListConfigurationHistory@ request exceed</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- @MaxResults@, this value can be used to retrieve the next page of</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- results. This value is @null@ when there are no more results to return.</span><span>
+</span><span id="line-273"></span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#listConfigurationHistoryResponse_nextToken"><span class="hs-identifier hs-type">listConfigurationHistoryResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistoryResponse"><span class="hs-identifier hs-type">ListConfigurationHistoryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span id="listConfigurationHistoryResponse_nextToken"><span class="annot"><span class="annottext">listConfigurationHistoryResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListConfigurationHistoryResponse
+-&gt; f ListConfigurationHistoryResponse
+</span><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#listConfigurationHistoryResponse_nextToken"><span class="hs-identifier hs-var hs-var">listConfigurationHistoryResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListConfigurationHistoryResponse -&gt; Maybe Text)
+-&gt; (ListConfigurationHistoryResponse
+    -&gt; Maybe Text -&gt; ListConfigurationHistoryResponse)
+-&gt; Lens
+     ListConfigurationHistoryResponse
+     ListConfigurationHistoryResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistoryResponse%27"><span class="hs-identifier hs-type">ListConfigurationHistoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219378"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListConfigurationHistoryResponse' :: ListConfigurationHistoryResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679219378"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219378"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219377"><span class="annot"><span class="annottext">s :: ListConfigurationHistoryResponse
+</span><a href="#local-6989586621679219377"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistoryResponse%27"><span class="hs-identifier hs-type">ListConfigurationHistoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219376"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219376"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConfigurationHistoryResponse
+</span><a href="#local-6989586621679219377"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListConfigurationHistoryResponse' :: Maybe Text
+</span><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#%24sel%3AnextToken%3AListConfigurationHistoryResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219376"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistoryResponse"><span class="hs-identifier hs-type">ListConfigurationHistoryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- | The list of configuration events and their corresponding details.</span><span>
+</span><span id="line-277"></span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#listConfigurationHistoryResponse_eventList"><span class="hs-identifier hs-type">listConfigurationHistoryResponse_eventList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistoryResponse"><span class="hs-identifier hs-type">ListConfigurationHistoryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ApplicationInsights.Types.ConfigurationEvent.html#ConfigurationEvent"><span class="hs-identifier hs-type">ConfigurationEvent</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-278"></span><span id="listConfigurationHistoryResponse_eventList"><span class="annot"><span class="annottext">listConfigurationHistoryResponse_eventList :: (Maybe [ConfigurationEvent] -&gt; f (Maybe [ConfigurationEvent]))
+-&gt; ListConfigurationHistoryResponse
+-&gt; f ListConfigurationHistoryResponse
+</span><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#listConfigurationHistoryResponse_eventList"><span class="hs-identifier hs-var hs-var">listConfigurationHistoryResponse_eventList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListConfigurationHistoryResponse -&gt; Maybe [ConfigurationEvent])
+-&gt; (ListConfigurationHistoryResponse
+    -&gt; Maybe [ConfigurationEvent] -&gt; ListConfigurationHistoryResponse)
+-&gt; Lens
+     ListConfigurationHistoryResponse
+     ListConfigurationHistoryResponse
+     (Maybe [ConfigurationEvent])
+     (Maybe [ConfigurationEvent])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistoryResponse%27"><span class="hs-identifier hs-type">ListConfigurationHistoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219375"><span class="annot"><span class="annottext">Maybe [ConfigurationEvent]
+eventList :: Maybe [ConfigurationEvent]
+$sel:eventList:ListConfigurationHistoryResponse' :: ListConfigurationHistoryResponse -&gt; Maybe [ConfigurationEvent]
+</span><a href="#local-6989586621679219375"><span class="hs-identifier hs-var hs-var">eventList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ConfigurationEvent]
+</span><a href="#local-6989586621679219375"><span class="hs-identifier hs-var">eventList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219374"><span class="annot"><span class="annottext">s :: ListConfigurationHistoryResponse
+</span><a href="#local-6989586621679219374"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistoryResponse%27"><span class="hs-identifier hs-type">ListConfigurationHistoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219373"><span class="annot"><span class="annottext">Maybe [ConfigurationEvent]
+</span><a href="#local-6989586621679219373"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConfigurationHistoryResponse
+</span><a href="#local-6989586621679219374"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventList:ListConfigurationHistoryResponse' :: Maybe [ConfigurationEvent]
+</span><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#%24sel%3AeventList%3AListConfigurationHistoryResponse%27"><span class="hs-identifier hs-var">eventList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ConfigurationEvent]
+</span><a href="#local-6989586621679219373"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistoryResponse"><span class="hs-identifier hs-type">ListConfigurationHistoryResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ConfigurationEvent] -&gt; f (Maybe [ConfigurationEvent]))
+ -&gt; ListConfigurationHistoryResponse
+ -&gt; f ListConfigurationHistoryResponse)
+-&gt; ((Maybe [ConfigurationEvent] -&gt; f (Maybe [ConfigurationEvent]))
+    -&gt; Maybe [ConfigurationEvent] -&gt; f (Maybe [ConfigurationEvent]))
+-&gt; (Maybe [ConfigurationEvent] -&gt; f (Maybe [ConfigurationEvent]))
+-&gt; ListConfigurationHistoryResponse
+-&gt; f ListConfigurationHistoryResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ConfigurationEvent]
+  [ConfigurationEvent]
+  [ConfigurationEvent]
+  [ConfigurationEvent]
+-&gt; Iso
+     (Maybe [ConfigurationEvent])
+     (Maybe [ConfigurationEvent])
+     (Maybe [ConfigurationEvent])
+     (Maybe [ConfigurationEvent])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ConfigurationEvent]
+  [ConfigurationEvent]
+  [ConfigurationEvent]
+  [ConfigurationEvent]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-279"></span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-281"></span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#listConfigurationHistoryResponse_httpStatus"><span class="hs-identifier hs-type">listConfigurationHistoryResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistoryResponse"><span class="hs-identifier hs-type">ListConfigurationHistoryResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-282"></span><span id="listConfigurationHistoryResponse_httpStatus"><span class="annot"><span class="annottext">listConfigurationHistoryResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListConfigurationHistoryResponse
+-&gt; f ListConfigurationHistoryResponse
+</span><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#listConfigurationHistoryResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listConfigurationHistoryResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListConfigurationHistoryResponse -&gt; Int)
+-&gt; (ListConfigurationHistoryResponse
+    -&gt; Int -&gt; ListConfigurationHistoryResponse)
+-&gt; Lens
+     ListConfigurationHistoryResponse
+     ListConfigurationHistoryResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistoryResponse%27"><span class="hs-identifier hs-type">ListConfigurationHistoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219371"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListConfigurationHistoryResponse' :: ListConfigurationHistoryResponse -&gt; Int
+</span><a href="#local-6989586621679219371"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679219371"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219370"><span class="annot"><span class="annottext">s :: ListConfigurationHistoryResponse
+</span><a href="#local-6989586621679219370"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistoryResponse%27"><span class="hs-identifier hs-type">ListConfigurationHistoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219369"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679219369"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConfigurationHistoryResponse
+</span><a href="#local-6989586621679219370"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListConfigurationHistoryResponse' :: Int
+</span><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#%24sel%3AhttpStatus%3AListConfigurationHistoryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679219369"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistoryResponse"><span class="hs-identifier hs-type">ListConfigurationHistoryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span>
+</span><span id="line-284"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-285"></span><span>  </span><span id="local-6989586621679219367"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-286"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationInsights.ListConfigurationHistory.html#ListConfigurationHistoryResponse"><span class="hs-identifier hs-type">ListConfigurationHistoryResponse</span></a></span></span><span>
+</span><span id="line-287"></span></pre></body></html>

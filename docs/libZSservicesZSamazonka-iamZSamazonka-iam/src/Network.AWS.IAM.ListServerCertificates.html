@@ -69,7 +69,7 @@
 </span><span id="line-69"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | /See:/ 'newListServerCertificates' smart constructor.</span><span>
-</span><span id="line-72"></span><span id="local-6989586621679440404"><span id="local-6989586621679440405"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListServerCertificates"><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificates"><span class="hs-identifier hs-var">ListServerCertificates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListServerCertificates%27"><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificates%27"><span class="hs-identifier hs-var">ListServerCertificates'</span></a></span></span><span>
+</span><span id="line-72"></span><span id="local-6989586621679440413"><span id="local-6989586621679440414"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListServerCertificates"><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificates"><span class="hs-identifier hs-var">ListServerCertificates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListServerCertificates%27"><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificates%27"><span class="hs-identifier hs-var">ListServerCertificates'</span></a></span></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The path prefix for filtering the results. For example:</span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-comment">-- @\/company\/servercerts@ would get all server certificates for which the</span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-comment">-- path starts with @\/company\/servercerts@.</span><span>
@@ -102,7 +102,7 @@
 </span><span id="line-100"></span><span>    </span><span id="%24sel%3AmaxItems%3AListServerCertificates%27"><span class="annot"><span class="annottext">ListServerCertificates -&gt; Maybe Natural
 </span><a href="Network.AWS.IAM.ListServerCertificates.html#%24sel%3AmaxItems%3AListServerCertificates%27"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-101"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-102"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679440396"><span id="local-6989586621679440398"><span class="annot"><span class="annottext">ListServerCertificates -&gt; ListServerCertificates -&gt; Bool
+</span><span id="line-102"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679440405"><span id="local-6989586621679440407"><span class="annot"><span class="annottext">ListServerCertificates -&gt; ListServerCertificates -&gt; Bool
 (ListServerCertificates -&gt; ListServerCertificates -&gt; Bool)
 -&gt; (ListServerCertificates -&gt; ListServerCertificates -&gt; Bool)
 -&gt; Eq ListServerCertificates
@@ -111,7 +111,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListServerCertificates -&gt; ListServerCertificates -&gt; Bool
 == :: ListServerCertificates -&gt; ListServerCertificates -&gt; Bool
 $c== :: ListServerCertificates -&gt; ListServerCertificates -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440387"><span id="local-6989586621679440389"><span id="local-6989586621679440391"><span id="local-6989586621679440393"><span class="annot"><span class="annottext">ReadPrec [ListServerCertificates]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440396"><span id="local-6989586621679440398"><span id="local-6989586621679440400"><span id="local-6989586621679440402"><span class="annot"><span class="annottext">ReadPrec [ListServerCertificates]
 ReadPrec ListServerCertificates
 Int -&gt; ReadS ListServerCertificates
 ReadS [ListServerCertificates]
@@ -131,7 +131,7 @@ readList :: ReadS [ListServerCertificates]
 $creadList :: ReadS [ListServerCertificates]
 readsPrec :: Int -&gt; ReadS ListServerCertificates
 $creadsPrec :: Int -&gt; ReadS ListServerCertificates
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440380"><span id="local-6989586621679440382"><span id="local-6989586621679440384"><span class="annot"><span class="annottext">Int -&gt; ListServerCertificates -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440389"><span id="local-6989586621679440391"><span id="local-6989586621679440393"><span class="annot"><span class="annottext">Int -&gt; ListServerCertificates -&gt; ShowS
 [ListServerCertificates] -&gt; ShowS
 ListServerCertificates -&gt; String
 (Int -&gt; ListServerCertificates -&gt; ShowS)
@@ -237,16 +237,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificates%27"><span class="hs-identifier hs-type">ListServerCertificates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440374"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificates%27"><span class="hs-identifier hs-type">ListServerCertificates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440383"><span class="annot"><span class="annottext">Maybe Text
 pathPrefix :: Maybe Text
 $sel:pathPrefix:ListServerCertificates' :: ListServerCertificates -&gt; Maybe Text
-</span><a href="#local-6989586621679440374"><span class="hs-identifier hs-var hs-var">pathPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440374"><span class="hs-identifier hs-var">pathPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440373"><span class="annot"><span class="annottext">s :: ListServerCertificates
-</span><a href="#local-6989586621679440373"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificates%27"><span class="hs-identifier hs-type">ListServerCertificates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440372"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440372"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListServerCertificates
-</span><a href="#local-6989586621679440373"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pathPrefix:ListServerCertificates' :: Maybe Text
+</span><a href="#local-6989586621679440383"><span class="hs-identifier hs-var hs-var">pathPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440383"><span class="hs-identifier hs-var">pathPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440382"><span class="annot"><span class="annottext">s :: ListServerCertificates
+</span><a href="#local-6989586621679440382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificates%27"><span class="hs-identifier hs-type">ListServerCertificates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440381"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListServerCertificates
+</span><a href="#local-6989586621679440382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pathPrefix:ListServerCertificates' :: Maybe Text
 </span><a href="Network.AWS.IAM.ListServerCertificates.html#%24sel%3ApathPrefix%3AListServerCertificates%27"><span class="hs-identifier hs-var">pathPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440372"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificates"><span class="hs-identifier hs-type">ListServerCertificates</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificates"><span class="hs-identifier hs-type">ListServerCertificates</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- | Use this parameter only when paginating results and only after you</span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- receive a response indicating that the results are truncated. Set it to</span><span>
@@ -263,16 +263,16 @@ $sel:pathPrefix:ListServerCertificates' :: ListServerCertificates -&gt; Maybe Te
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificates%27"><span class="hs-identifier hs-type">ListServerCertificates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440371"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificates%27"><span class="hs-identifier hs-type">ListServerCertificates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440380"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:ListServerCertificates' :: ListServerCertificates -&gt; Maybe Text
-</span><a href="#local-6989586621679440371"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440371"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440370"><span class="annot"><span class="annottext">s :: ListServerCertificates
-</span><a href="#local-6989586621679440370"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificates%27"><span class="hs-identifier hs-type">ListServerCertificates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440369"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440369"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListServerCertificates
-</span><a href="#local-6989586621679440370"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListServerCertificates' :: Maybe Text
+</span><a href="#local-6989586621679440380"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440380"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440379"><span class="annot"><span class="annottext">s :: ListServerCertificates
+</span><a href="#local-6989586621679440379"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificates%27"><span class="hs-identifier hs-type">ListServerCertificates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440378"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440378"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListServerCertificates
+</span><a href="#local-6989586621679440379"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListServerCertificates' :: Maybe Text
 </span><a href="Network.AWS.IAM.ListServerCertificates.html#%24sel%3Amarker%3AListServerCertificates%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440369"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificates"><span class="hs-identifier hs-type">ListServerCertificates</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440378"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificates"><span class="hs-identifier hs-type">ListServerCertificates</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- | Use this only when paginating results to indicate the maximum number of</span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- items you want in the response. If additional items exist beyond the</span><span>
@@ -295,30 +295,30 @@ $sel:marker:ListServerCertificates' :: ListServerCertificates -&gt; Maybe Text
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificates%27"><span class="hs-identifier hs-type">ListServerCertificates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440368"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificates%27"><span class="hs-identifier hs-type">ListServerCertificates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440377"><span class="annot"><span class="annottext">Maybe Natural
 maxItems :: Maybe Natural
 $sel:maxItems:ListServerCertificates' :: ListServerCertificates -&gt; Maybe Natural
-</span><a href="#local-6989586621679440368"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679440368"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440367"><span class="annot"><span class="annottext">s :: ListServerCertificates
-</span><a href="#local-6989586621679440367"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificates%27"><span class="hs-identifier hs-type">ListServerCertificates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440366"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679440366"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListServerCertificates
-</span><a href="#local-6989586621679440367"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListServerCertificates' :: Maybe Natural
+</span><a href="#local-6989586621679440377"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679440377"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440376"><span class="annot"><span class="annottext">s :: ListServerCertificates
+</span><a href="#local-6989586621679440376"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificates%27"><span class="hs-identifier hs-type">ListServerCertificates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440375"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679440375"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListServerCertificates
+</span><a href="#local-6989586621679440376"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListServerCertificates' :: Maybe Natural
 </span><a href="Network.AWS.IAM.ListServerCertificates.html#%24sel%3AmaxItems%3AListServerCertificates%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679440366"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificates"><span class="hs-identifier hs-type">ListServerCertificates</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440375"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificates"><span class="hs-identifier hs-type">ListServerCertificates</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificates"><span class="hs-identifier hs-type">ListServerCertificates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621679440362"><span class="annot"><span class="annottext">page :: ListServerCertificates
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679440371"><span class="annot"><span class="annottext">page :: ListServerCertificates
 -&gt; AWSResponse ListServerCertificates
 -&gt; Maybe ListServerCertificates
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679440360"><span class="annot"><span class="annottext">ListServerCertificates
-</span><a href="#local-6989586621679440360"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679440359"><span class="annot"><span class="annottext">AWSResponse ListServerCertificates
-</span><a href="#local-6989586621679440359"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679440369"><span class="annot"><span class="annottext">ListServerCertificates
+</span><a href="#local-6989586621679440369"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679440368"><span class="annot"><span class="annottext">AWSResponse ListServerCertificates
+</span><a href="#local-6989586621679440368"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-185"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-186"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListServerCertificates
 ListServerCertificatesResponse
-</span><a href="#local-6989586621679440359"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679440368"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">ListServerCertificatesResponse
 -&gt; Getting (First Bool) ListServerCertificatesResponse Bool
 -&gt; Maybe Bool
@@ -348,7 +348,7 @@ forall a. Maybe a -&gt; Bool
 </span><span class="hs-identifier hs-var">Prelude.isNothing</span></span><span>
 </span><span id="line-192"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListServerCertificates
 ListServerCertificatesResponse
-</span><a href="#local-6989586621679440359"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679440368"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">ListServerCertificatesResponse
 -&gt; Getting (First Text) ListServerCertificatesResponse Text
 -&gt; Maybe Text
@@ -382,7 +382,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-199"></span><span>        </span><span class="annot"><span class="annottext">ListServerCertificates
-</span><a href="#local-6989586621679440360"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679440369"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-200"></span><span>          </span><span class="annot"><span class="annottext">ListServerCertificates
 -&gt; (ListServerCertificates -&gt; ListServerCertificates)
 -&gt; ListServerCertificates
@@ -401,7 +401,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListServerCertificates
 ListServerCertificatesResponse
-</span><a href="#local-6989586621679440359"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679440368"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-202"></span><span>          </span><span class="annot"><span class="annottext">ListServerCertificatesResponse
 -&gt; Getting (First Text) ListServerCertificatesResponse Text
 -&gt; Maybe Text
@@ -427,12 +427,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-206"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-207"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificates"><span class="hs-identifier hs-type">ListServerCertificates</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-208"></span><span>      </span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificatesResponse"><span class="hs-identifier hs-type">ListServerCertificatesResponse</span></a></span><span>
-</span><span id="line-209"></span><span>  </span><span id="local-6989586621679440348"><span class="annot"><span class="annottext">request :: ListServerCertificates -&gt; Request ListServerCertificates
+</span><span id="line-209"></span><span>  </span><span id="local-6989586621679440357"><span class="annot"><span class="annottext">request :: ListServerCertificates -&gt; Request ListServerCertificates
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListServerCertificates -&gt; Request ListServerCertificates
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-210"></span><span>  </span><span id="local-6989586621679440344"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-210"></span><span>  </span><span id="local-6989586621679440353"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListServerCertificates
 -&gt; ClientResponse ClientBody
@@ -463,10 +463,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-212"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ListServerCertificatesResult&quot;</span></span><span>
-</span><span id="line-213"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679440341"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679440341"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679440340"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679440340"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679440339"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679440339"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-213"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679440350"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679440350"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679440349"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679440349"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679440348"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679440348"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-214"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Bool
 -&gt; Int
@@ -487,7 +487,7 @@ Text
       -&gt; ListServerCertificatesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679440339"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679440348"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
@@ -504,7 +504,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; [ServerCertificateMetadata] -&gt; ListServerCertificatesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679440339"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679440348"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IsTruncated&quot;</span></span><span class="hs-special">)</span><span>
@@ -522,7 +522,7 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679440341"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440350"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-218"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   ([ServerCertificateMetadata] -&gt; ListServerCertificatesResponse)
@@ -530,7 +530,7 @@ forall a. Enum a =&gt; a -&gt; Int
 -&gt; Either String ListServerCertificatesResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679440339"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679440348"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ServerCertificateMetadataList&quot;</span></span><span>
@@ -550,12 +550,12 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span id="line-221"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-223"></span><span>
-</span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440329"><span id="local-6989586621679440331"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificates"><span class="hs-identifier hs-type">ListServerCertificates</span></a></span></span></span><span>
+</span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440338"><span id="local-6989586621679440340"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificates"><span class="hs-identifier hs-type">ListServerCertificates</span></a></span></span></span><span>
 </span><span id="line-225"></span><span>
-</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440326"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificates"><span class="hs-identifier hs-type">ListServerCertificates</span></a></span></span><span>
+</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440335"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificates"><span class="hs-identifier hs-type">ListServerCertificates</span></a></span></span><span>
 </span><span id="line-227"></span><span>
 </span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificates"><span class="hs-identifier hs-type">ListServerCertificates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-229"></span><span>  </span><span id="local-6989586621679440322"><span class="annot"><span class="annottext">toHeaders :: ListServerCertificates -&gt; ResponseHeaders
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621679440331"><span class="annot"><span class="annottext">toHeaders :: ListServerCertificates -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListServerCertificates -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -563,15 +563,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-230"></span><span>
 </span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificates"><span class="hs-identifier hs-type">ListServerCertificates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-232"></span><span>  </span><span id="local-6989586621679440317"><span class="annot"><span class="annottext">toPath :: ListServerCertificates -&gt; ByteString
+</span><span id="line-232"></span><span>  </span><span id="local-6989586621679440326"><span class="annot"><span class="annottext">toPath :: ListServerCertificates -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListServerCertificates -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-233"></span><span>
 </span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificates"><span class="hs-identifier hs-type">ListServerCertificates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-235"></span><span>  </span><span id="local-6989586621679440313"><span class="annot"><span class="annottext">toQuery :: ListServerCertificates -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificates%27"><span class="hs-identifier hs-type">ListServerCertificates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440309"><span id="local-6989586621679440310"><span id="local-6989586621679440311"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-235"></span><span>  </span><span id="local-6989586621679440322"><span class="annot"><span class="annottext">toQuery :: ListServerCertificates -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificates%27"><span class="hs-identifier hs-type">ListServerCertificates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440318"><span id="local-6989586621679440319"><span id="local-6989586621679440320"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 maxItems :: Maybe Natural
 marker :: Maybe Text
@@ -579,7 +579,7 @@ pathPrefix :: Maybe Text
 $sel:maxItems:ListServerCertificates' :: ListServerCertificates -&gt; Maybe Natural
 $sel:marker:ListServerCertificates' :: ListServerCertificates -&gt; Maybe Text
 $sel:pathPrefix:ListServerCertificates' :: ListServerCertificates -&gt; Maybe Text
-</span><a href="#local-6989586621679440309"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679440318"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-236"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -599,23 +599,23 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;PathPrefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440311"><span class="hs-identifier hs-var">pathPrefix</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679440320"><span class="hs-identifier hs-var">pathPrefix</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-242"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440310"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679440319"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-243"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;MaxItems&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679440309"><span class="hs-identifier hs-var">maxItems</span></a></span><span>
+</span><a href="#local-6989586621679440318"><span class="hs-identifier hs-var">maxItems</span></a></span><span>
 </span><span id="line-244"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-245"></span><span>
 </span><span id="line-246"></span><span class="hs-comment">-- | Contains the response to a successful ListServerCertificates request.</span><span>
 </span><span id="line-247"></span><span class="hs-comment">--</span><span>
 </span><span id="line-248"></span><span class="hs-comment">-- /See:/ 'newListServerCertificatesResponse' smart constructor.</span><span>
-</span><span id="line-249"></span><span id="local-6989586621679440306"><span id="local-6989586621679440307"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListServerCertificatesResponse"><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificatesResponse"><span class="hs-identifier hs-var">ListServerCertificatesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListServerCertificatesResponse%27"><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificatesResponse%27"><span class="hs-identifier hs-var">ListServerCertificatesResponse'</span></a></span></span><span>
+</span><span id="line-249"></span><span id="local-6989586621679440315"><span id="local-6989586621679440316"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListServerCertificatesResponse"><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificatesResponse"><span class="hs-identifier hs-var">ListServerCertificatesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListServerCertificatesResponse%27"><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificatesResponse%27"><span class="hs-identifier hs-var">ListServerCertificatesResponse'</span></a></span></span><span>
 </span><span id="line-250"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When @IsTruncated@ is @true@, this element is present and contains the</span><span>
 </span><span id="line-251"></span><span>    </span><span class="hs-comment">-- value to use for the @Marker@ parameter in a subsequent pagination</span><span>
 </span><span id="line-252"></span><span>    </span><span class="hs-comment">-- request.</span><span>
@@ -637,7 +637,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-265"></span><span>    </span><span id="%24sel%3AserverCertificateMetadataList%3AListServerCertificatesResponse%27"><span class="annot"><span class="annottext">ListServerCertificatesResponse -&gt; [ServerCertificateMetadata]
 </span><a href="Network.AWS.IAM.ListServerCertificates.html#%24sel%3AserverCertificateMetadataList%3AListServerCertificatesResponse%27"><span class="hs-identifier hs-var hs-var">serverCertificateMetadataList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IAM.Types.ServerCertificateMetadata.html#ServerCertificateMetadata"><span class="hs-identifier hs-type">ServerCertificateMetadata</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-266"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-267"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679440298"><span id="local-6989586621679440300"><span class="annot"><span class="annottext">ListServerCertificatesResponse
+</span><span id="line-267"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679440307"><span id="local-6989586621679440309"><span class="annot"><span class="annottext">ListServerCertificatesResponse
 -&gt; ListServerCertificatesResponse -&gt; Bool
 (ListServerCertificatesResponse
  -&gt; ListServerCertificatesResponse -&gt; Bool)
@@ -653,7 +653,7 @@ $c/= :: ListServerCertificatesResponse
 -&gt; ListServerCertificatesResponse -&gt; Bool
 $c== :: ListServerCertificatesResponse
 -&gt; ListServerCertificatesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440290"><span id="local-6989586621679440292"><span id="local-6989586621679440294"><span id="local-6989586621679440296"><span class="annot"><span class="annottext">ReadPrec [ListServerCertificatesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440299"><span id="local-6989586621679440301"><span id="local-6989586621679440303"><span id="local-6989586621679440305"><span class="annot"><span class="annottext">ReadPrec [ListServerCertificatesResponse]
 ReadPrec ListServerCertificatesResponse
 Int -&gt; ReadS ListServerCertificatesResponse
 ReadS [ListServerCertificatesResponse]
@@ -673,7 +673,7 @@ readList :: ReadS [ListServerCertificatesResponse]
 $creadList :: ReadS [ListServerCertificatesResponse]
 readsPrec :: Int -&gt; ReadS ListServerCertificatesResponse
 $creadsPrec :: Int -&gt; ReadS ListServerCertificatesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440284"><span id="local-6989586621679440286"><span id="local-6989586621679440288"><span class="annot"><span class="annottext">Int -&gt; ListServerCertificatesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440293"><span id="local-6989586621679440295"><span id="local-6989586621679440297"><span class="annot"><span class="annottext">Int -&gt; ListServerCertificatesResponse -&gt; ShowS
 [ListServerCertificatesResponse] -&gt; ShowS
 ListServerCertificatesResponse -&gt; String
 (Int -&gt; ListServerCertificatesResponse -&gt; ShowS)
@@ -739,8 +739,8 @@ ListServerCertificatesResponse
 </span><span id="line-294"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-295"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificatesResponse"><span class="hs-identifier hs-type">ListServerCertificatesResponse</span></a></span><span>
 </span><span id="line-296"></span><span id="newListServerCertificatesResponse"><span class="annot"><span class="annottext">newListServerCertificatesResponse :: Int -&gt; ListServerCertificatesResponse
-</span><a href="Network.AWS.IAM.ListServerCertificates.html#newListServerCertificatesResponse"><span class="hs-identifier hs-var hs-var">newListServerCertificatesResponse</span></a></span></span><span> </span><span id="local-6989586621679440281"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679440281"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IAM.ListServerCertificates.html#newListServerCertificatesResponse"><span class="hs-identifier hs-var hs-var">newListServerCertificatesResponse</span></a></span></span><span> </span><span id="local-6989586621679440290"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679440290"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-297"></span><span>  </span><span class="annot"><span class="annottext">ListServerCertificatesResponse' :: Maybe Text
 -&gt; Maybe Bool
 -&gt; Int
@@ -758,7 +758,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-301"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListServerCertificatesResponse' :: Int
 </span><a href="Network.AWS.IAM.ListServerCertificates.html#%24sel%3AhttpStatus%3AListServerCertificatesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679440281"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679440290"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-302"></span><span>      </span><span class="annot"><span class="annottext">$sel:serverCertificateMetadataList:ListServerCertificatesResponse' :: [ServerCertificateMetadata]
 </span><a href="Network.AWS.IAM.ListServerCertificates.html#%24sel%3AserverCertificateMetadataList%3AListServerCertificatesResponse%27"><span class="hs-identifier hs-var">serverCertificateMetadataList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-303"></span><span>        </span><span class="annot"><span class="annottext">[ServerCertificateMetadata]
@@ -778,16 +778,16 @@ forall a. Monoid a =&gt; a
     -&gt; Maybe Text -&gt; ListServerCertificatesResponse)
 -&gt; Lens' ListServerCertificatesResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificatesResponse%27"><span class="hs-identifier hs-type">ListServerCertificatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440280"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificatesResponse%27"><span class="hs-identifier hs-type">ListServerCertificatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440289"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:ListServerCertificatesResponse' :: ListServerCertificatesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679440280"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440280"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440279"><span class="annot"><span class="annottext">s :: ListServerCertificatesResponse
-</span><a href="#local-6989586621679440279"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificatesResponse%27"><span class="hs-identifier hs-type">ListServerCertificatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440278"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440278"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListServerCertificatesResponse
-</span><a href="#local-6989586621679440279"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListServerCertificatesResponse' :: Maybe Text
+</span><a href="#local-6989586621679440289"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440289"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440288"><span class="annot"><span class="annottext">s :: ListServerCertificatesResponse
+</span><a href="#local-6989586621679440288"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificatesResponse%27"><span class="hs-identifier hs-type">ListServerCertificatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440287"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440287"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListServerCertificatesResponse
+</span><a href="#local-6989586621679440288"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListServerCertificatesResponse' :: Maybe Text
 </span><a href="Network.AWS.IAM.ListServerCertificates.html#%24sel%3Amarker%3AListServerCertificatesResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679440278"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificatesResponse"><span class="hs-identifier hs-type">ListServerCertificatesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440287"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificatesResponse"><span class="hs-identifier hs-type">ListServerCertificatesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-311"></span><span>
 </span><span id="line-312"></span><span class="hs-comment">-- | A flag that indicates whether there are more items to return. If your</span><span>
 </span><span id="line-313"></span><span class="hs-comment">-- results were truncated, you can make a subsequent pagination request</span><span>
@@ -805,16 +805,16 @@ $sel:marker:ListServerCertificatesResponse' :: ListServerCertificatesResponse -&
     -&gt; Maybe Bool -&gt; ListServerCertificatesResponse)
 -&gt; Lens' ListServerCertificatesResponse (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificatesResponse%27"><span class="hs-identifier hs-type">ListServerCertificatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440277"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificatesResponse%27"><span class="hs-identifier hs-type">ListServerCertificatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440286"><span class="annot"><span class="annottext">Maybe Bool
 isTruncated :: Maybe Bool
 $sel:isTruncated:ListServerCertificatesResponse' :: ListServerCertificatesResponse -&gt; Maybe Bool
-</span><a href="#local-6989586621679440277"><span class="hs-identifier hs-var hs-var">isTruncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679440277"><span class="hs-identifier hs-var">isTruncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440276"><span class="annot"><span class="annottext">s :: ListServerCertificatesResponse
-</span><a href="#local-6989586621679440276"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificatesResponse%27"><span class="hs-identifier hs-type">ListServerCertificatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440275"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679440275"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListServerCertificatesResponse
-</span><a href="#local-6989586621679440276"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isTruncated:ListServerCertificatesResponse' :: Maybe Bool
+</span><a href="#local-6989586621679440286"><span class="hs-identifier hs-var hs-var">isTruncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679440286"><span class="hs-identifier hs-var">isTruncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440285"><span class="annot"><span class="annottext">s :: ListServerCertificatesResponse
+</span><a href="#local-6989586621679440285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificatesResponse%27"><span class="hs-identifier hs-type">ListServerCertificatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440284"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679440284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListServerCertificatesResponse
+</span><a href="#local-6989586621679440285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isTruncated:ListServerCertificatesResponse' :: Maybe Bool
 </span><a href="Network.AWS.IAM.ListServerCertificates.html#%24sel%3AisTruncated%3AListServerCertificatesResponse%27"><span class="hs-identifier hs-var">isTruncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679440275"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificatesResponse"><span class="hs-identifier hs-type">ListServerCertificatesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificatesResponse"><span class="hs-identifier hs-type">ListServerCertificatesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-321"></span><span>
 </span><span id="line-322"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-323"></span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#listServerCertificatesResponse_httpStatus"><span class="hs-identifier hs-type">listServerCertificatesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificatesResponse"><span class="hs-identifier hs-type">ListServerCertificatesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -830,16 +830,16 @@ $sel:isTruncated:ListServerCertificatesResponse' :: ListServerCertificatesRespon
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificatesResponse%27"><span class="hs-identifier hs-type">ListServerCertificatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440274"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificatesResponse%27"><span class="hs-identifier hs-type">ListServerCertificatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440283"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListServerCertificatesResponse' :: ListServerCertificatesResponse -&gt; Int
-</span><a href="#local-6989586621679440274"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679440274"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440273"><span class="annot"><span class="annottext">s :: ListServerCertificatesResponse
-</span><a href="#local-6989586621679440273"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificatesResponse%27"><span class="hs-identifier hs-type">ListServerCertificatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440272"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679440272"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListServerCertificatesResponse
-</span><a href="#local-6989586621679440273"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListServerCertificatesResponse' :: Int
+</span><a href="#local-6989586621679440283"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679440283"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440282"><span class="annot"><span class="annottext">s :: ListServerCertificatesResponse
+</span><a href="#local-6989586621679440282"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificatesResponse%27"><span class="hs-identifier hs-type">ListServerCertificatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440281"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679440281"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListServerCertificatesResponse
+</span><a href="#local-6989586621679440282"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListServerCertificatesResponse' :: Int
 </span><a href="Network.AWS.IAM.ListServerCertificates.html#%24sel%3AhttpStatus%3AListServerCertificatesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679440272"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificatesResponse"><span class="hs-identifier hs-type">ListServerCertificatesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440281"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificatesResponse"><span class="hs-identifier hs-type">ListServerCertificatesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-325"></span><span>
 </span><span id="line-326"></span><span class="hs-comment">-- | A list of server certificates.</span><span>
 </span><span id="line-327"></span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#listServerCertificatesResponse_serverCertificateMetadataList"><span class="hs-identifier hs-type">listServerCertificatesResponse_serverCertificateMetadataList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificatesResponse"><span class="hs-identifier hs-type">ListServerCertificatesResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IAM.Types.ServerCertificateMetadata.html#ServerCertificateMetadata"><span class="hs-identifier hs-type">ServerCertificateMetadata</span></a></span><span class="hs-special">]</span><span>
@@ -855,16 +855,16 @@ $sel:httpStatus:ListServerCertificatesResponse' :: ListServerCertificatesRespons
      [ServerCertificateMetadata]
      [ServerCertificateMetadata]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificatesResponse%27"><span class="hs-identifier hs-type">ListServerCertificatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440271"><span class="annot"><span class="annottext">[ServerCertificateMetadata]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificatesResponse%27"><span class="hs-identifier hs-type">ListServerCertificatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440280"><span class="annot"><span class="annottext">[ServerCertificateMetadata]
 serverCertificateMetadataList :: [ServerCertificateMetadata]
 $sel:serverCertificateMetadataList:ListServerCertificatesResponse' :: ListServerCertificatesResponse -&gt; [ServerCertificateMetadata]
-</span><a href="#local-6989586621679440271"><span class="hs-identifier hs-var hs-var">serverCertificateMetadataList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ServerCertificateMetadata]
-</span><a href="#local-6989586621679440271"><span class="hs-identifier hs-var">serverCertificateMetadataList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440270"><span class="annot"><span class="annottext">s :: ListServerCertificatesResponse
-</span><a href="#local-6989586621679440270"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificatesResponse%27"><span class="hs-identifier hs-type">ListServerCertificatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440269"><span class="annot"><span class="annottext">[ServerCertificateMetadata]
-</span><a href="#local-6989586621679440269"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListServerCertificatesResponse
-</span><a href="#local-6989586621679440270"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverCertificateMetadataList:ListServerCertificatesResponse' :: [ServerCertificateMetadata]
+</span><a href="#local-6989586621679440280"><span class="hs-identifier hs-var hs-var">serverCertificateMetadataList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ServerCertificateMetadata]
+</span><a href="#local-6989586621679440280"><span class="hs-identifier hs-var">serverCertificateMetadataList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440279"><span class="annot"><span class="annottext">s :: ListServerCertificatesResponse
+</span><a href="#local-6989586621679440279"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificatesResponse%27"><span class="hs-identifier hs-type">ListServerCertificatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440278"><span class="annot"><span class="annottext">[ServerCertificateMetadata]
+</span><a href="#local-6989586621679440278"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListServerCertificatesResponse
+</span><a href="#local-6989586621679440279"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverCertificateMetadataList:ListServerCertificatesResponse' :: [ServerCertificateMetadata]
 </span><a href="Network.AWS.IAM.ListServerCertificates.html#%24sel%3AserverCertificateMetadataList%3AListServerCertificatesResponse%27"><span class="hs-identifier hs-var">serverCertificateMetadataList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ServerCertificateMetadata]
-</span><a href="#local-6989586621679440269"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificatesResponse"><span class="hs-identifier hs-type">ListServerCertificatesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ServerCertificateMetadata] -&gt; f [ServerCertificateMetadata])
+</span><a href="#local-6989586621679440278"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificatesResponse"><span class="hs-identifier hs-type">ListServerCertificatesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ServerCertificateMetadata] -&gt; f [ServerCertificateMetadata])
  -&gt; ListServerCertificatesResponse
  -&gt; f ListServerCertificatesResponse)
 -&gt; (([ServerCertificateMetadata] -&gt; f [ServerCertificateMetadata])
@@ -879,6 +879,6 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-329"></span><span>
 </span><span id="line-330"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-331"></span><span>  </span><span id="local-6989586621679440266"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-331"></span><span>  </span><span id="local-6989586621679440275"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-332"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.ListServerCertificates.html#ListServerCertificatesResponse"><span class="hs-identifier hs-type">ListServerCertificatesResponse</span></a></span></span><span>
 </span><span id="line-333"></span></pre></body></html>

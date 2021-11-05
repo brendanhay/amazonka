@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Describes the upload.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newUploadMetadata' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679264664"><span id="local-6989586621679264665"></span></span><span class="hs-keyword">data</span><span> </span><span id="UploadMetadata"><span class="annot"><a href="Network.AWS.WorkDocs.Types.UploadMetadata.html#UploadMetadata"><span class="hs-identifier hs-var">UploadMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UploadMetadata%27"><span class="annot"><a href="Network.AWS.WorkDocs.Types.UploadMetadata.html#UploadMetadata%27"><span class="hs-identifier hs-var">UploadMetadata'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679264673"><span id="local-6989586621679264674"></span></span><span class="hs-keyword">data</span><span> </span><span id="UploadMetadata"><span class="annot"><a href="Network.AWS.WorkDocs.Types.UploadMetadata.html#UploadMetadata"><span class="hs-identifier hs-var">UploadMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UploadMetadata%27"><span class="annot"><a href="Network.AWS.WorkDocs.Types.UploadMetadata.html#UploadMetadata%27"><span class="hs-identifier hs-var">UploadMetadata'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The URL of the upload.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AuploadUrl%3AUploadMetadata%27"><span class="annot"><span class="annottext">UploadMetadata -&gt; Maybe (Sensitive Text)
 </span><a href="Network.AWS.WorkDocs.Types.UploadMetadata.html#%24sel%3AuploadUrl%3AUploadMetadata%27"><span class="hs-identifier hs-var hs-var">uploadUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AsignedHeaders%3AUploadMetadata%27"><span class="annot"><span class="annottext">UploadMetadata -&gt; Maybe (HashMap Text Text)
 </span><a href="Network.AWS.WorkDocs.Types.UploadMetadata.html#%24sel%3AsignedHeaders%3AUploadMetadata%27"><span class="hs-identifier hs-var hs-var">signedHeaders</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679264657"><span id="local-6989586621679264659"><span class="annot"><span class="annottext">UploadMetadata -&gt; UploadMetadata -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679264666"><span id="local-6989586621679264668"><span class="annot"><span class="annottext">UploadMetadata -&gt; UploadMetadata -&gt; Bool
 (UploadMetadata -&gt; UploadMetadata -&gt; Bool)
 -&gt; (UploadMetadata -&gt; UploadMetadata -&gt; Bool) -&gt; Eq UploadMetadata
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UploadMetadata -&gt; UploadMetadata -&gt; Bool
 == :: UploadMetadata -&gt; UploadMetadata -&gt; Bool
 $c== :: UploadMetadata -&gt; UploadMetadata -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264650"><span id="local-6989586621679264652"><span id="local-6989586621679264654"><span class="annot"><span class="annottext">Int -&gt; UploadMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264659"><span id="local-6989586621679264661"><span id="local-6989586621679264663"><span class="annot"><span class="annottext">Int -&gt; UploadMetadata -&gt; ShowS
 [UploadMetadata] -&gt; ShowS
 UploadMetadata -&gt; String
 (Int -&gt; UploadMetadata -&gt; ShowS)
@@ -108,16 +108,16 @@ forall a. Maybe a
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UploadMetadata.html#UploadMetadata%27"><span class="hs-identifier hs-type">UploadMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264641"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UploadMetadata.html#UploadMetadata%27"><span class="hs-identifier hs-type">UploadMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264650"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 uploadUrl :: Maybe (Sensitive Text)
 $sel:uploadUrl:UploadMetadata' :: UploadMetadata -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679264641"><span class="hs-identifier hs-var hs-var">uploadUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679264641"><span class="hs-identifier hs-var">uploadUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264640"><span class="annot"><span class="annottext">s :: UploadMetadata
-</span><a href="#local-6989586621679264640"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UploadMetadata.html#UploadMetadata%27"><span class="hs-identifier hs-type">UploadMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264639"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679264639"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadMetadata
-</span><a href="#local-6989586621679264640"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uploadUrl:UploadMetadata' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679264650"><span class="hs-identifier hs-var hs-var">uploadUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679264650"><span class="hs-identifier hs-var">uploadUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264649"><span class="annot"><span class="annottext">s :: UploadMetadata
+</span><a href="#local-6989586621679264649"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UploadMetadata.html#UploadMetadata%27"><span class="hs-identifier hs-type">UploadMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264648"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679264648"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadMetadata
+</span><a href="#local-6989586621679264649"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uploadUrl:UploadMetadata' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.WorkDocs.Types.UploadMetadata.html#%24sel%3AuploadUrl%3AUploadMetadata%27"><span class="hs-identifier hs-var">uploadUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679264639"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UploadMetadata.html#UploadMetadata"><span class="hs-identifier hs-type">UploadMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679264648"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UploadMetadata.html#UploadMetadata"><span class="hs-identifier hs-type">UploadMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; UploadMetadata -&gt; f UploadMetadata)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -150,16 +150,16 @@ forall a. Iso' (Sensitive a) a
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UploadMetadata.html#UploadMetadata%27"><span class="hs-identifier hs-type">UploadMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264634"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UploadMetadata.html#UploadMetadata%27"><span class="hs-identifier hs-type">UploadMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264643"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 signedHeaders :: Maybe (HashMap Text Text)
 $sel:signedHeaders:UploadMetadata' :: UploadMetadata -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679264634"><span class="hs-identifier hs-var hs-var">signedHeaders</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679264634"><span class="hs-identifier hs-var">signedHeaders</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264633"><span class="annot"><span class="annottext">s :: UploadMetadata
-</span><a href="#local-6989586621679264633"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UploadMetadata.html#UploadMetadata%27"><span class="hs-identifier hs-type">UploadMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264632"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679264632"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadMetadata
-</span><a href="#local-6989586621679264633"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signedHeaders:UploadMetadata' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679264643"><span class="hs-identifier hs-var hs-var">signedHeaders</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679264643"><span class="hs-identifier hs-var">signedHeaders</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264642"><span class="annot"><span class="annottext">s :: UploadMetadata
+</span><a href="#local-6989586621679264642"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UploadMetadata.html#UploadMetadata%27"><span class="hs-identifier hs-type">UploadMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264641"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679264641"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UploadMetadata
+</span><a href="#local-6989586621679264642"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signedHeaders:UploadMetadata' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.WorkDocs.Types.UploadMetadata.html#%24sel%3AsignedHeaders%3AUploadMetadata%27"><span class="hs-identifier hs-var">signedHeaders</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679264632"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UploadMetadata.html#UploadMetadata"><span class="hs-identifier hs-type">UploadMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679264641"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UploadMetadata.html#UploadMetadata"><span class="hs-identifier hs-type">UploadMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; UploadMetadata -&gt; f UploadMetadata)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -188,8 +188,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264628"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UploadMetadata.html#UploadMetadata"><span class="hs-identifier hs-type">UploadMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679264626"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UploadMetadata
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264637"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UploadMetadata.html#UploadMetadata"><span class="hs-identifier hs-type">UploadMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679264635"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UploadMetadata
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser UploadMetadata)
@@ -199,8 +199,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;UploadMetadata&quot;</span></span><span>
-</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679264623"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679264623"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679264632"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679264632"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 -&gt; Maybe (HashMap Text Text) -&gt; UploadMetadata
 </span><a href="Network.AWS.WorkDocs.Types.UploadMetadata.html#UploadMetadata%27"><span class="hs-identifier hs-var">UploadMetadata'</span></a></span><span>
@@ -210,7 +210,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe (HashMap Text Text) -&gt; UploadMetadata)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679264623"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+</span><a href="#local-6989586621679264632"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UploadUrl&quot;</span></span><span class="hs-special">)</span><span>
@@ -218,7 +218,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe (HashMap Text Text)) -&gt; Parser UploadMetadata
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679264623"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679264632"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SignedHeaders&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
@@ -229,7 +229,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264616"><span id="local-6989586621679264618"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UploadMetadata.html#UploadMetadata"><span class="hs-identifier hs-type">UploadMetadata</span></a></span></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264625"><span id="local-6989586621679264627"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UploadMetadata.html#UploadMetadata"><span class="hs-identifier hs-type">UploadMetadata</span></a></span></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264613"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UploadMetadata.html#UploadMetadata"><span class="hs-identifier hs-type">UploadMetadata</span></a></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264622"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.UploadMetadata.html#UploadMetadata"><span class="hs-identifier hs-type">UploadMetadata</span></a></span></span><span>
 </span><span id="line-77"></span></pre></body></html>

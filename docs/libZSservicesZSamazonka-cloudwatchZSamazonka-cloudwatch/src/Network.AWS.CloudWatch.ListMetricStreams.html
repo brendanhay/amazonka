@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newListMetricStreams' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679262155"><span id="local-6989586621679262156"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListMetricStreams"><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreams"><span class="hs-identifier hs-var">ListMetricStreams</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListMetricStreams%27"><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreams%27"><span class="hs-identifier hs-var">ListMetricStreams'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679262164"><span id="local-6989586621679262165"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListMetricStreams"><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreams"><span class="hs-identifier hs-var">ListMetricStreams</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListMetricStreams%27"><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreams%27"><span class="hs-identifier hs-var">ListMetricStreams'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Include this value, if it was returned by the previous call, to get the</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- next set of metric streams.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AnextToken%3AListMetricStreams%27"><span class="annot"><span class="annottext">ListMetricStreams -&gt; Maybe Text
@@ -58,7 +58,7 @@
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AmaxResults%3AListMetricStreams%27"><span class="annot"><span class="annottext">ListMetricStreams -&gt; Maybe Natural
 </span><a href="Network.AWS.CloudWatch.ListMetricStreams.html#%24sel%3AmaxResults%3AListMetricStreams%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679262148"><span id="local-6989586621679262150"><span class="annot"><span class="annottext">ListMetricStreams -&gt; ListMetricStreams -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679262157"><span id="local-6989586621679262159"><span class="annot"><span class="annottext">ListMetricStreams -&gt; ListMetricStreams -&gt; Bool
 (ListMetricStreams -&gt; ListMetricStreams -&gt; Bool)
 -&gt; (ListMetricStreams -&gt; ListMetricStreams -&gt; Bool)
 -&gt; Eq ListMetricStreams
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListMetricStreams -&gt; ListMetricStreams -&gt; Bool
 == :: ListMetricStreams -&gt; ListMetricStreams -&gt; Bool
 $c== :: ListMetricStreams -&gt; ListMetricStreams -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262139"><span id="local-6989586621679262141"><span id="local-6989586621679262143"><span id="local-6989586621679262145"><span class="annot"><span class="annottext">ReadPrec [ListMetricStreams]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262148"><span id="local-6989586621679262150"><span id="local-6989586621679262152"><span id="local-6989586621679262154"><span class="annot"><span class="annottext">ReadPrec [ListMetricStreams]
 ReadPrec ListMetricStreams
 Int -&gt; ReadS ListMetricStreams
 ReadS [ListMetricStreams]
@@ -87,7 +87,7 @@ readList :: ReadS [ListMetricStreams]
 $creadList :: ReadS [ListMetricStreams]
 readsPrec :: Int -&gt; ReadS ListMetricStreams
 $creadsPrec :: Int -&gt; ReadS ListMetricStreams
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262132"><span id="local-6989586621679262134"><span id="local-6989586621679262136"><span class="annot"><span class="annottext">Int -&gt; ListMetricStreams -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262141"><span id="local-6989586621679262143"><span id="local-6989586621679262145"><span class="annot"><span class="annottext">Int -&gt; ListMetricStreams -&gt; ShowS
 [ListMetricStreams] -&gt; ShowS
 ListMetricStreams -&gt; String
 (Int -&gt; ListMetricStreams -&gt; ShowS)
@@ -151,16 +151,16 @@ forall a. Maybe a
 -&gt; Lens
      ListMetricStreams ListMetricStreams (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreams%27"><span class="hs-identifier hs-type">ListMetricStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262125"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreams%27"><span class="hs-identifier hs-type">ListMetricStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262134"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListMetricStreams' :: ListMetricStreams -&gt; Maybe Text
-</span><a href="#local-6989586621679262125"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262125"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262124"><span class="annot"><span class="annottext">s :: ListMetricStreams
-</span><a href="#local-6989586621679262124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreams%27"><span class="hs-identifier hs-type">ListMetricStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262123"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMetricStreams
-</span><a href="#local-6989586621679262124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListMetricStreams' :: Maybe Text
+</span><a href="#local-6989586621679262134"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262134"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262133"><span class="annot"><span class="annottext">s :: ListMetricStreams
+</span><a href="#local-6989586621679262133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreams%27"><span class="hs-identifier hs-type">ListMetricStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262132"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMetricStreams
+</span><a href="#local-6989586621679262133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListMetricStreams' :: Maybe Text
 </span><a href="Network.AWS.CloudWatch.ListMetricStreams.html#%24sel%3AnextToken%3AListMetricStreams%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreams"><span class="hs-identifier hs-type">ListMetricStreams</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679262132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreams"><span class="hs-identifier hs-type">ListMetricStreams</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | The maximum number of results to return in one operation.</span><span>
 </span><span id="line-87"></span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#listMetricStreams_maxResults"><span class="hs-identifier hs-type">listMetricStreams_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreams"><span class="hs-identifier hs-type">ListMetricStreams</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -171,27 +171,27 @@ $sel:nextToken:ListMetricStreams' :: ListMetricStreams -&gt; Maybe Text
 -&gt; Lens
      ListMetricStreams ListMetricStreams (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreams%27"><span class="hs-identifier hs-type">ListMetricStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262122"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreams%27"><span class="hs-identifier hs-type">ListMetricStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262131"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListMetricStreams' :: ListMetricStreams -&gt; Maybe Natural
-</span><a href="#local-6989586621679262122"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679262122"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262121"><span class="annot"><span class="annottext">s :: ListMetricStreams
-</span><a href="#local-6989586621679262121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreams%27"><span class="hs-identifier hs-type">ListMetricStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262120"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679262120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMetricStreams
-</span><a href="#local-6989586621679262121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListMetricStreams' :: Maybe Natural
+</span><a href="#local-6989586621679262131"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679262131"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262130"><span class="annot"><span class="annottext">s :: ListMetricStreams
+</span><a href="#local-6989586621679262130"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreams%27"><span class="hs-identifier hs-type">ListMetricStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262129"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679262129"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMetricStreams
+</span><a href="#local-6989586621679262130"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListMetricStreams' :: Maybe Natural
 </span><a href="Network.AWS.CloudWatch.ListMetricStreams.html#%24sel%3AmaxResults%3AListMetricStreams%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679262120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreams"><span class="hs-identifier hs-type">ListMetricStreams</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679262129"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreams"><span class="hs-identifier hs-type">ListMetricStreams</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreams"><span class="hs-identifier hs-type">ListMetricStreams</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-91"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-92"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreams"><span class="hs-identifier hs-type">ListMetricStreams</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreamsResponse"><span class="hs-identifier hs-type">ListMetricStreamsResponse</span></a></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679262116"><span class="annot"><span class="annottext">request :: ListMetricStreams -&gt; Request ListMetricStreams
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679262125"><span class="annot"><span class="annottext">request :: ListMetricStreams -&gt; Request ListMetricStreams
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListMetricStreams -&gt; Request ListMetricStreams
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudWatch.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679262112"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679262121"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListMetricStreams
 -&gt; ClientResponse ClientBody
@@ -222,10 +222,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ListMetricStreamsResult&quot;</span></span><span>
-</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679262109"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679262109"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679262108"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679262108"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679262107"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679262107"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679262118"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679262118"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679262117"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679262117"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679262116"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679262116"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Maybe [MetricStreamEntry]
 -&gt; Maybe Text -&gt; Int -&gt; ListMetricStreamsResponse
 </span><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreamsResponse%27"><span class="hs-identifier hs-var">ListMetricStreamsResponse'</span></a></span><span>
@@ -235,7 +235,7 @@ Text
 -&gt; Either String (Maybe Text -&gt; Int -&gt; ListMetricStreamsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679262107"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679262116"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Entries&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -262,7 +262,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String (Int -&gt; ListMetricStreamsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679262107"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679262116"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -274,15 +274,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679262109"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679262118"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262096"><span id="local-6989586621679262098"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreams"><span class="hs-identifier hs-type">ListMetricStreams</span></a></span></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262105"><span id="local-6989586621679262107"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreams"><span class="hs-identifier hs-type">ListMetricStreams</span></a></span></span></span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262093"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreams"><span class="hs-identifier hs-type">ListMetricStreams</span></a></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262102"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreams"><span class="hs-identifier hs-type">ListMetricStreams</span></a></span></span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreams"><span class="hs-identifier hs-type">ListMetricStreams</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679262089"><span class="annot"><span class="annottext">toHeaders :: ListMetricStreams -&gt; ResponseHeaders
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679262098"><span class="annot"><span class="annottext">toHeaders :: ListMetricStreams -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListMetricStreams -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -290,21 +290,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreams"><span class="hs-identifier hs-type">ListMetricStreams</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679262084"><span class="annot"><span class="annottext">toPath :: ListMetricStreams -&gt; ByteString
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679262093"><span class="annot"><span class="annottext">toPath :: ListMetricStreams -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListMetricStreams -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreams"><span class="hs-identifier hs-type">ListMetricStreams</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679262080"><span class="annot"><span class="annottext">toQuery :: ListMetricStreams -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreams%27"><span class="hs-identifier hs-type">ListMetricStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262077"><span id="local-6989586621679262078"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679262089"><span class="annot"><span class="annottext">toQuery :: ListMetricStreams -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreams%27"><span class="hs-identifier hs-type">ListMetricStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262086"><span id="local-6989586621679262087"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 maxResults :: Maybe Natural
 nextToken :: Maybe Text
 $sel:maxResults:ListMetricStreams' :: ListMetricStreams -&gt; Maybe Natural
 $sel:nextToken:ListMetricStreams' :: ListMetricStreams -&gt; Maybe Text
-</span><a href="#local-6989586621679262077"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679262086"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -324,16 +324,16 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262078"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679262087"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679262077"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679262086"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | /See:/ 'newListMetricStreamsResponse' smart constructor.</span><span>
-</span><span id="line-129"></span><span id="local-6989586621679262074"><span id="local-6989586621679262075"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListMetricStreamsResponse"><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreamsResponse"><span class="hs-identifier hs-var">ListMetricStreamsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListMetricStreamsResponse%27"><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreamsResponse%27"><span class="hs-identifier hs-var">ListMetricStreamsResponse'</span></a></span></span><span>
+</span><span id="line-129"></span><span id="local-6989586621679262083"><span id="local-6989586621679262084"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListMetricStreamsResponse"><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreamsResponse"><span class="hs-identifier hs-var">ListMetricStreamsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListMetricStreamsResponse%27"><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreamsResponse%27"><span class="hs-identifier hs-var">ListMetricStreamsResponse'</span></a></span></span><span>
 </span><span id="line-130"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The array of metric stream information.</span><span>
 </span><span id="line-131"></span><span>    </span><span id="%24sel%3Aentries%3AListMetricStreamsResponse%27"><span class="annot"><span class="annottext">ListMetricStreamsResponse -&gt; Maybe [MetricStreamEntry]
 </span><a href="Network.AWS.CloudWatch.ListMetricStreams.html#%24sel%3Aentries%3AListMetricStreamsResponse%27"><span class="hs-identifier hs-var hs-var">entries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStreamEntry.html#MetricStreamEntry"><span class="hs-identifier hs-type">MetricStreamEntry</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -346,7 +346,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-137"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListMetricStreamsResponse%27"><span class="annot"><span class="annottext">ListMetricStreamsResponse -&gt; Int
 </span><a href="Network.AWS.CloudWatch.ListMetricStreams.html#%24sel%3AhttpStatus%3AListMetricStreamsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-138"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679262067"><span id="local-6989586621679262069"><span class="annot"><span class="annottext">ListMetricStreamsResponse -&gt; ListMetricStreamsResponse -&gt; Bool
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679262076"><span id="local-6989586621679262078"><span class="annot"><span class="annottext">ListMetricStreamsResponse -&gt; ListMetricStreamsResponse -&gt; Bool
 (ListMetricStreamsResponse -&gt; ListMetricStreamsResponse -&gt; Bool)
 -&gt; (ListMetricStreamsResponse -&gt; ListMetricStreamsResponse -&gt; Bool)
 -&gt; Eq ListMetricStreamsResponse
@@ -355,7 +355,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListMetricStreamsResponse -&gt; ListMetricStreamsResponse -&gt; Bool
 == :: ListMetricStreamsResponse -&gt; ListMetricStreamsResponse -&gt; Bool
 $c== :: ListMetricStreamsResponse -&gt; ListMetricStreamsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262059"><span id="local-6989586621679262061"><span id="local-6989586621679262063"><span id="local-6989586621679262065"><span class="annot"><span class="annottext">ReadPrec [ListMetricStreamsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262068"><span id="local-6989586621679262070"><span id="local-6989586621679262072"><span id="local-6989586621679262074"><span class="annot"><span class="annottext">ReadPrec [ListMetricStreamsResponse]
 ReadPrec ListMetricStreamsResponse
 Int -&gt; ReadS ListMetricStreamsResponse
 ReadS [ListMetricStreamsResponse]
@@ -375,7 +375,7 @@ readList :: ReadS [ListMetricStreamsResponse]
 $creadList :: ReadS [ListMetricStreamsResponse]
 readsPrec :: Int -&gt; ReadS ListMetricStreamsResponse
 $creadsPrec :: Int -&gt; ReadS ListMetricStreamsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262053"><span id="local-6989586621679262055"><span id="local-6989586621679262057"><span class="annot"><span class="annottext">Int -&gt; ListMetricStreamsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262062"><span id="local-6989586621679262064"><span id="local-6989586621679262066"><span class="annot"><span class="annottext">Int -&gt; ListMetricStreamsResponse -&gt; ShowS
 [ListMetricStreamsResponse] -&gt; ShowS
 ListMetricStreamsResponse -&gt; String
 (Int -&gt; ListMetricStreamsResponse -&gt; ShowS)
@@ -427,8 +427,8 @@ ListMetricStreamsResponse -&gt; Rep ListMetricStreamsResponse x
 </span><span id="line-158"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-159"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreamsResponse"><span class="hs-identifier hs-type">ListMetricStreamsResponse</span></a></span><span>
 </span><span id="line-160"></span><span id="newListMetricStreamsResponse"><span class="annot"><span class="annottext">newListMetricStreamsResponse :: Int -&gt; ListMetricStreamsResponse
-</span><a href="Network.AWS.CloudWatch.ListMetricStreams.html#newListMetricStreamsResponse"><span class="hs-identifier hs-var hs-var">newListMetricStreamsResponse</span></a></span></span><span> </span><span id="local-6989586621679262050"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679262050"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatch.ListMetricStreams.html#newListMetricStreamsResponse"><span class="hs-identifier hs-var hs-var">newListMetricStreamsResponse</span></a></span></span><span> </span><span id="local-6989586621679262059"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679262059"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-161"></span><span>  </span><span class="annot"><span class="annottext">ListMetricStreamsResponse' :: Maybe [MetricStreamEntry]
 -&gt; Maybe Text -&gt; Int -&gt; ListMetricStreamsResponse
 </span><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreamsResponse%27"><span class="hs-identifier hs-type">ListMetricStreamsResponse'</span></a></span><span>
@@ -443,7 +443,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListMetricStreamsResponse' :: Int
 </span><a href="Network.AWS.CloudWatch.ListMetricStreams.html#%24sel%3AhttpStatus%3AListMetricStreamsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679262050"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679262059"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-166"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | The array of metric stream information.</span><span>
@@ -459,16 +459,16 @@ forall a. Maybe a
      (Maybe [MetricStreamEntry])
      (Maybe [MetricStreamEntry])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreamsResponse%27"><span class="hs-identifier hs-type">ListMetricStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262049"><span class="annot"><span class="annottext">Maybe [MetricStreamEntry]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreamsResponse%27"><span class="hs-identifier hs-type">ListMetricStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262058"><span class="annot"><span class="annottext">Maybe [MetricStreamEntry]
 entries :: Maybe [MetricStreamEntry]
 $sel:entries:ListMetricStreamsResponse' :: ListMetricStreamsResponse -&gt; Maybe [MetricStreamEntry]
-</span><a href="#local-6989586621679262049"><span class="hs-identifier hs-var hs-var">entries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MetricStreamEntry]
-</span><a href="#local-6989586621679262049"><span class="hs-identifier hs-var">entries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262048"><span class="annot"><span class="annottext">s :: ListMetricStreamsResponse
-</span><a href="#local-6989586621679262048"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreamsResponse%27"><span class="hs-identifier hs-type">ListMetricStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262047"><span class="annot"><span class="annottext">Maybe [MetricStreamEntry]
-</span><a href="#local-6989586621679262047"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMetricStreamsResponse
-</span><a href="#local-6989586621679262048"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entries:ListMetricStreamsResponse' :: Maybe [MetricStreamEntry]
+</span><a href="#local-6989586621679262058"><span class="hs-identifier hs-var hs-var">entries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MetricStreamEntry]
+</span><a href="#local-6989586621679262058"><span class="hs-identifier hs-var">entries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262057"><span class="annot"><span class="annottext">s :: ListMetricStreamsResponse
+</span><a href="#local-6989586621679262057"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreamsResponse%27"><span class="hs-identifier hs-type">ListMetricStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262056"><span class="annot"><span class="annottext">Maybe [MetricStreamEntry]
+</span><a href="#local-6989586621679262056"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMetricStreamsResponse
+</span><a href="#local-6989586621679262057"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entries:ListMetricStreamsResponse' :: Maybe [MetricStreamEntry]
 </span><a href="Network.AWS.CloudWatch.ListMetricStreams.html#%24sel%3Aentries%3AListMetricStreamsResponse%27"><span class="hs-identifier hs-var">entries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MetricStreamEntry]
-</span><a href="#local-6989586621679262047"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreamsResponse"><span class="hs-identifier hs-type">ListMetricStreamsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MetricStreamEntry] -&gt; f (Maybe [MetricStreamEntry]))
+</span><a href="#local-6989586621679262056"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreamsResponse"><span class="hs-identifier hs-type">ListMetricStreamsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MetricStreamEntry] -&gt; f (Maybe [MetricStreamEntry]))
  -&gt; ListMetricStreamsResponse -&gt; f ListMetricStreamsResponse)
 -&gt; ((Maybe [MetricStreamEntry] -&gt; f (Maybe [MetricStreamEntry]))
     -&gt; Maybe [MetricStreamEntry] -&gt; f (Maybe [MetricStreamEntry]))
@@ -512,16 +512,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreamsResponse%27"><span class="hs-identifier hs-type">ListMetricStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262043"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreamsResponse%27"><span class="hs-identifier hs-type">ListMetricStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262052"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListMetricStreamsResponse' :: ListMetricStreamsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679262043"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262043"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262042"><span class="annot"><span class="annottext">s :: ListMetricStreamsResponse
-</span><a href="#local-6989586621679262042"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreamsResponse%27"><span class="hs-identifier hs-type">ListMetricStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262041"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262041"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMetricStreamsResponse
-</span><a href="#local-6989586621679262042"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListMetricStreamsResponse' :: Maybe Text
+</span><a href="#local-6989586621679262052"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262052"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262051"><span class="annot"><span class="annottext">s :: ListMetricStreamsResponse
+</span><a href="#local-6989586621679262051"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreamsResponse%27"><span class="hs-identifier hs-type">ListMetricStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262050"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262050"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMetricStreamsResponse
+</span><a href="#local-6989586621679262051"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListMetricStreamsResponse' :: Maybe Text
 </span><a href="Network.AWS.CloudWatch.ListMetricStreams.html#%24sel%3AnextToken%3AListMetricStreamsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262041"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreamsResponse"><span class="hs-identifier hs-type">ListMetricStreamsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679262050"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreamsResponse"><span class="hs-identifier hs-type">ListMetricStreamsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-179"></span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#listMetricStreamsResponse_httpStatus"><span class="hs-identifier hs-type">listMetricStreamsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreamsResponse"><span class="hs-identifier hs-type">ListMetricStreamsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -531,16 +531,16 @@ $sel:nextToken:ListMetricStreamsResponse' :: ListMetricStreamsResponse -&gt; May
 -&gt; (ListMetricStreamsResponse -&gt; Int -&gt; ListMetricStreamsResponse)
 -&gt; Lens ListMetricStreamsResponse ListMetricStreamsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreamsResponse%27"><span class="hs-identifier hs-type">ListMetricStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262040"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreamsResponse%27"><span class="hs-identifier hs-type">ListMetricStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262049"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListMetricStreamsResponse' :: ListMetricStreamsResponse -&gt; Int
-</span><a href="#local-6989586621679262040"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679262040"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262039"><span class="annot"><span class="annottext">s :: ListMetricStreamsResponse
-</span><a href="#local-6989586621679262039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreamsResponse%27"><span class="hs-identifier hs-type">ListMetricStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262038"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679262038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMetricStreamsResponse
-</span><a href="#local-6989586621679262039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListMetricStreamsResponse' :: Int
+</span><a href="#local-6989586621679262049"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679262049"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262048"><span class="annot"><span class="annottext">s :: ListMetricStreamsResponse
+</span><a href="#local-6989586621679262048"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreamsResponse%27"><span class="hs-identifier hs-type">ListMetricStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262047"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679262047"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMetricStreamsResponse
+</span><a href="#local-6989586621679262048"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListMetricStreamsResponse' :: Int
 </span><a href="Network.AWS.CloudWatch.ListMetricStreams.html#%24sel%3AhttpStatus%3AListMetricStreamsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679262038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreamsResponse"><span class="hs-identifier hs-type">ListMetricStreamsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679262047"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreamsResponse"><span class="hs-identifier hs-type">ListMetricStreamsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>
-</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262036"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreamsResponse"><span class="hs-identifier hs-type">ListMetricStreamsResponse</span></a></span></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262045"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.ListMetricStreams.html#ListMetricStreamsResponse"><span class="hs-identifier hs-type">ListMetricStreamsResponse</span></a></span></span><span>
 </span><span id="line-183"></span></pre></body></html>

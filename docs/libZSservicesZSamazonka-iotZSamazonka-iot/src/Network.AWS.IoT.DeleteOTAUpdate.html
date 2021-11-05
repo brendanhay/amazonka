@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newDeleteOTAUpdate' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679844351"><span id="local-6989586621679844352"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteOTAUpdate"><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdate"><span class="hs-identifier hs-var">DeleteOTAUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteOTAUpdate%27"><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdate%27"><span class="hs-identifier hs-var">DeleteOTAUpdate'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679844360"><span id="local-6989586621679844361"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteOTAUpdate"><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdate"><span class="hs-identifier hs-var">DeleteOTAUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteOTAUpdate%27"><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdate%27"><span class="hs-identifier hs-var">DeleteOTAUpdate'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When true, deletes the IoT job created by the OTAUpdate process even if</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- it is \&quot;IN_PROGRESS\&quot;. Otherwise, if the job is not in a terminal state</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- (\&quot;COMPLETED\&quot; or \&quot;CANCELED\&quot;) an exception will occur. The default is</span><span>
@@ -68,7 +68,7 @@
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3AotaUpdateId%3ADeleteOTAUpdate%27"><span class="annot"><span class="annottext">DeleteOTAUpdate -&gt; Text
 </span><a href="Network.AWS.IoT.DeleteOTAUpdate.html#%24sel%3AotaUpdateId%3ADeleteOTAUpdate%27"><span class="hs-identifier hs-var hs-var">otaUpdateId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679844343"><span id="local-6989586621679844345"><span class="annot"><span class="annottext">DeleteOTAUpdate -&gt; DeleteOTAUpdate -&gt; Bool
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679844352"><span id="local-6989586621679844354"><span class="annot"><span class="annottext">DeleteOTAUpdate -&gt; DeleteOTAUpdate -&gt; Bool
 (DeleteOTAUpdate -&gt; DeleteOTAUpdate -&gt; Bool)
 -&gt; (DeleteOTAUpdate -&gt; DeleteOTAUpdate -&gt; Bool)
 -&gt; Eq DeleteOTAUpdate
@@ -77,7 +77,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteOTAUpdate -&gt; DeleteOTAUpdate -&gt; Bool
 == :: DeleteOTAUpdate -&gt; DeleteOTAUpdate -&gt; Bool
 $c== :: DeleteOTAUpdate -&gt; DeleteOTAUpdate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679844334"><span id="local-6989586621679844336"><span id="local-6989586621679844338"><span id="local-6989586621679844340"><span class="annot"><span class="annottext">ReadPrec [DeleteOTAUpdate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679844343"><span id="local-6989586621679844345"><span id="local-6989586621679844347"><span id="local-6989586621679844349"><span class="annot"><span class="annottext">ReadPrec [DeleteOTAUpdate]
 ReadPrec DeleteOTAUpdate
 Int -&gt; ReadS DeleteOTAUpdate
 ReadS [DeleteOTAUpdate]
@@ -97,7 +97,7 @@ readList :: ReadS [DeleteOTAUpdate]
 $creadList :: ReadS [DeleteOTAUpdate]
 readsPrec :: Int -&gt; ReadS DeleteOTAUpdate
 $creadsPrec :: Int -&gt; ReadS DeleteOTAUpdate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679844327"><span id="local-6989586621679844329"><span id="local-6989586621679844331"><span class="annot"><span class="annottext">Int -&gt; DeleteOTAUpdate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679844336"><span id="local-6989586621679844338"><span id="local-6989586621679844340"><span class="annot"><span class="annottext">Int -&gt; DeleteOTAUpdate -&gt; ShowS
 [DeleteOTAUpdate] -&gt; ShowS
 DeleteOTAUpdate -&gt; String
 (Int -&gt; DeleteOTAUpdate -&gt; ShowS)
@@ -146,8 +146,8 @@ $cfrom :: forall x. DeleteOTAUpdate -&gt; Rep DeleteOTAUpdate x
 </span><span id="line-90"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdate"><span class="hs-identifier hs-type">DeleteOTAUpdate</span></a></span><span>
 </span><span id="line-92"></span><span id="newDeleteOTAUpdate"><span class="annot"><span class="annottext">newDeleteOTAUpdate :: Text -&gt; DeleteOTAUpdate
-</span><a href="Network.AWS.IoT.DeleteOTAUpdate.html#newDeleteOTAUpdate"><span class="hs-identifier hs-var hs-var">newDeleteOTAUpdate</span></a></span></span><span> </span><span id="local-6989586621679844322"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679844322"><span class="hs-identifier hs-var">pOtaUpdateId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.DeleteOTAUpdate.html#newDeleteOTAUpdate"><span class="hs-identifier hs-var hs-var">newDeleteOTAUpdate</span></a></span></span><span> </span><span id="local-6989586621679844331"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679844331"><span class="hs-identifier hs-var">pOtaUpdateId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>  </span><span class="annot"><span class="annottext">DeleteOTAUpdate' :: Maybe Bool -&gt; Maybe Bool -&gt; Text -&gt; DeleteOTAUpdate
 </span><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdate%27"><span class="hs-identifier hs-type">DeleteOTAUpdate'</span></a></span><span>
 </span><span id="line-94"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:forceDeleteAWSJob:DeleteOTAUpdate' :: Maybe Bool
@@ -161,7 +161,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:otaUpdateId:DeleteOTAUpdate' :: Text
 </span><a href="Network.AWS.IoT.DeleteOTAUpdate.html#%24sel%3AotaUpdateId%3ADeleteOTAUpdate%27"><span class="hs-identifier hs-var">otaUpdateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679844322"><span class="hs-identifier hs-var">pOtaUpdateId_</span></a></span><span>
+</span><a href="#local-6989586621679844331"><span class="hs-identifier hs-var">pOtaUpdateId_</span></a></span><span>
 </span><span id="line-98"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | When true, deletes the IoT job created by the OTAUpdate process even if</span><span>
@@ -175,16 +175,16 @@ forall a. Maybe a
 -&gt; (DeleteOTAUpdate -&gt; Maybe Bool -&gt; DeleteOTAUpdate)
 -&gt; Lens DeleteOTAUpdate DeleteOTAUpdate (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdate%27"><span class="hs-identifier hs-type">DeleteOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679844319"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdate%27"><span class="hs-identifier hs-type">DeleteOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679844328"><span class="annot"><span class="annottext">Maybe Bool
 forceDeleteAWSJob :: Maybe Bool
 $sel:forceDeleteAWSJob:DeleteOTAUpdate' :: DeleteOTAUpdate -&gt; Maybe Bool
-</span><a href="#local-6989586621679844319"><span class="hs-identifier hs-var hs-var">forceDeleteAWSJob</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679844319"><span class="hs-identifier hs-var">forceDeleteAWSJob</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679844318"><span class="annot"><span class="annottext">s :: DeleteOTAUpdate
-</span><a href="#local-6989586621679844318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdate%27"><span class="hs-identifier hs-type">DeleteOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679844317"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679844317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteOTAUpdate
-</span><a href="#local-6989586621679844318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:forceDeleteAWSJob:DeleteOTAUpdate' :: Maybe Bool
+</span><a href="#local-6989586621679844328"><span class="hs-identifier hs-var hs-var">forceDeleteAWSJob</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679844328"><span class="hs-identifier hs-var">forceDeleteAWSJob</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679844327"><span class="annot"><span class="annottext">s :: DeleteOTAUpdate
+</span><a href="#local-6989586621679844327"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdate%27"><span class="hs-identifier hs-type">DeleteOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679844326"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679844326"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteOTAUpdate
+</span><a href="#local-6989586621679844327"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:forceDeleteAWSJob:DeleteOTAUpdate' :: Maybe Bool
 </span><a href="Network.AWS.IoT.DeleteOTAUpdate.html#%24sel%3AforceDeleteAWSJob%3ADeleteOTAUpdate%27"><span class="hs-identifier hs-var">forceDeleteAWSJob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679844317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdate"><span class="hs-identifier hs-type">DeleteOTAUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679844326"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdate"><span class="hs-identifier hs-type">DeleteOTAUpdate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | When true, the stream created by the OTAUpdate process is deleted when</span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- the OTA update is deleted. Ignored if the stream specified in the</span><span>
@@ -196,16 +196,16 @@ $sel:forceDeleteAWSJob:DeleteOTAUpdate' :: DeleteOTAUpdate -&gt; Maybe Bool
 -&gt; (DeleteOTAUpdate -&gt; Maybe Bool -&gt; DeleteOTAUpdate)
 -&gt; Lens DeleteOTAUpdate DeleteOTAUpdate (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdate%27"><span class="hs-identifier hs-type">DeleteOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679844316"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdate%27"><span class="hs-identifier hs-type">DeleteOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679844325"><span class="annot"><span class="annottext">Maybe Bool
 deleteStream :: Maybe Bool
 $sel:deleteStream:DeleteOTAUpdate' :: DeleteOTAUpdate -&gt; Maybe Bool
-</span><a href="#local-6989586621679844316"><span class="hs-identifier hs-var hs-var">deleteStream</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679844316"><span class="hs-identifier hs-var">deleteStream</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679844315"><span class="annot"><span class="annottext">s :: DeleteOTAUpdate
-</span><a href="#local-6989586621679844315"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdate%27"><span class="hs-identifier hs-type">DeleteOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679844314"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679844314"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteOTAUpdate
-</span><a href="#local-6989586621679844315"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deleteStream:DeleteOTAUpdate' :: Maybe Bool
+</span><a href="#local-6989586621679844325"><span class="hs-identifier hs-var hs-var">deleteStream</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679844325"><span class="hs-identifier hs-var">deleteStream</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679844324"><span class="annot"><span class="annottext">s :: DeleteOTAUpdate
+</span><a href="#local-6989586621679844324"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdate%27"><span class="hs-identifier hs-type">DeleteOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679844323"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679844323"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteOTAUpdate
+</span><a href="#local-6989586621679844324"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deleteStream:DeleteOTAUpdate' :: Maybe Bool
 </span><a href="Network.AWS.IoT.DeleteOTAUpdate.html#%24sel%3AdeleteStream%3ADeleteOTAUpdate%27"><span class="hs-identifier hs-var">deleteStream</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679844314"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdate"><span class="hs-identifier hs-type">DeleteOTAUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679844323"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdate"><span class="hs-identifier hs-type">DeleteOTAUpdate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | The ID of the OTA update to delete.</span><span>
 </span><span id="line-114"></span><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#deleteOTAUpdate_otaUpdateId"><span class="hs-identifier hs-type">deleteOTAUpdate_otaUpdateId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdate"><span class="hs-identifier hs-type">DeleteOTAUpdate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -214,27 +214,27 @@ $sel:deleteStream:DeleteOTAUpdate' :: DeleteOTAUpdate -&gt; Maybe Bool
 -&gt; (DeleteOTAUpdate -&gt; Text -&gt; DeleteOTAUpdate)
 -&gt; Lens DeleteOTAUpdate DeleteOTAUpdate Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdate%27"><span class="hs-identifier hs-type">DeleteOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679844313"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdate%27"><span class="hs-identifier hs-type">DeleteOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679844322"><span class="annot"><span class="annottext">Text
 otaUpdateId :: Text
 $sel:otaUpdateId:DeleteOTAUpdate' :: DeleteOTAUpdate -&gt; Text
-</span><a href="#local-6989586621679844313"><span class="hs-identifier hs-var hs-var">otaUpdateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679844313"><span class="hs-identifier hs-var">otaUpdateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679844312"><span class="annot"><span class="annottext">s :: DeleteOTAUpdate
-</span><a href="#local-6989586621679844312"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdate%27"><span class="hs-identifier hs-type">DeleteOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679844311"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679844311"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteOTAUpdate
-</span><a href="#local-6989586621679844312"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:otaUpdateId:DeleteOTAUpdate' :: Text
+</span><a href="#local-6989586621679844322"><span class="hs-identifier hs-var hs-var">otaUpdateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679844322"><span class="hs-identifier hs-var">otaUpdateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679844321"><span class="annot"><span class="annottext">s :: DeleteOTAUpdate
+</span><a href="#local-6989586621679844321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdate%27"><span class="hs-identifier hs-type">DeleteOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679844320"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679844320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteOTAUpdate
+</span><a href="#local-6989586621679844321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:otaUpdateId:DeleteOTAUpdate' :: Text
 </span><a href="Network.AWS.IoT.DeleteOTAUpdate.html#%24sel%3AotaUpdateId%3ADeleteOTAUpdate%27"><span class="hs-identifier hs-var">otaUpdateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679844311"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdate"><span class="hs-identifier hs-type">DeleteOTAUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679844320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdate"><span class="hs-identifier hs-type">DeleteOTAUpdate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdate"><span class="hs-identifier hs-type">DeleteOTAUpdate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-118"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-119"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdate"><span class="hs-identifier hs-type">DeleteOTAUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdateResponse"><span class="hs-identifier hs-type">DeleteOTAUpdateResponse</span></a></span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679844307"><span class="annot"><span class="annottext">request :: DeleteOTAUpdate -&gt; Request DeleteOTAUpdate
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679844316"><span class="annot"><span class="annottext">request :: DeleteOTAUpdate -&gt; Request DeleteOTAUpdate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteOTAUpdate -&gt; Request DeleteOTAUpdate
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679844303"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679844312"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteOTAUpdate
 -&gt; ClientResponse ClientBody
@@ -258,10 +258,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679844300"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679844300"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679844299"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679844299"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679844298"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679844298"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679844309"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679844309"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679844308"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679844308"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679844307"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679844307"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteOTAUpdateResponse
 </span><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdateResponse%27"><span class="hs-identifier hs-var">DeleteOTAUpdateResponse'</span></a></span><span>
 </span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteOTAUpdateResponse)
@@ -272,15 +272,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679844300"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679844309"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679844291"><span id="local-6989586621679844293"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdate"><span class="hs-identifier hs-type">DeleteOTAUpdate</span></a></span></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679844300"><span id="local-6989586621679844302"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdate"><span class="hs-identifier hs-type">DeleteOTAUpdate</span></a></span></span></span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679844288"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdate"><span class="hs-identifier hs-type">DeleteOTAUpdate</span></a></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679844297"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdate"><span class="hs-identifier hs-type">DeleteOTAUpdate</span></a></span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdate"><span class="hs-identifier hs-type">DeleteOTAUpdate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679844284"><span class="annot"><span class="annottext">toHeaders :: DeleteOTAUpdate -&gt; ResponseHeaders
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679844293"><span class="annot"><span class="annottext">toHeaders :: DeleteOTAUpdate -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteOTAUpdate -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -288,8 +288,8 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdate"><span class="hs-identifier hs-type">DeleteOTAUpdate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679844279"><span class="annot"><span class="annottext">toPath :: DeleteOTAUpdate -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdate%27"><span class="hs-identifier hs-type">DeleteOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679844275"><span id="local-6989586621679844276"><span id="local-6989586621679844277"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679844288"><span class="annot"><span class="annottext">toPath :: DeleteOTAUpdate -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdate%27"><span class="hs-identifier hs-type">DeleteOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679844284"><span id="local-6989586621679844285"><span id="local-6989586621679844286"><span class="annot"><span class="annottext">Maybe Bool
 Text
 otaUpdateId :: Text
 deleteStream :: Maybe Bool
@@ -297,7 +297,7 @@ forceDeleteAWSJob :: Maybe Bool
 $sel:otaUpdateId:DeleteOTAUpdate' :: DeleteOTAUpdate -&gt; Text
 $sel:deleteStream:DeleteOTAUpdate' :: DeleteOTAUpdate -&gt; Maybe Bool
 $sel:forceDeleteAWSJob:DeleteOTAUpdate' :: DeleteOTAUpdate -&gt; Maybe Bool
-</span><a href="#local-6989586621679844275"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679844284"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -305,11 +305,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/otaUpdates/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679844275"><span class="hs-identifier hs-var">otaUpdateId</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679844284"><span class="hs-identifier hs-var">otaUpdateId</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdate"><span class="hs-identifier hs-type">DeleteOTAUpdate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679844271"><span class="annot"><span class="annottext">toQuery :: DeleteOTAUpdate -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdate%27"><span class="hs-identifier hs-type">DeleteOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679844267"><span id="local-6989586621679844268"><span id="local-6989586621679844269"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679844280"><span class="annot"><span class="annottext">toQuery :: DeleteOTAUpdate -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdate%27"><span class="hs-identifier hs-type">DeleteOTAUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679844276"><span id="local-6989586621679844277"><span id="local-6989586621679844278"><span class="annot"><span class="annottext">Maybe Bool
 Text
 otaUpdateId :: Text
 deleteStream :: Maybe Bool
@@ -317,7 +317,7 @@ forceDeleteAWSJob :: Maybe Bool
 $sel:otaUpdateId:DeleteOTAUpdate' :: DeleteOTAUpdate -&gt; Text
 $sel:deleteStream:DeleteOTAUpdate' :: DeleteOTAUpdate -&gt; Maybe Bool
 $sel:forceDeleteAWSJob:DeleteOTAUpdate' :: DeleteOTAUpdate -&gt; Maybe Bool
-</span><a href="#local-6989586621679844267"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679844276"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -325,21 +325,21 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;forceDeleteAWSJob&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679844269"><span class="hs-identifier hs-var">forceDeleteAWSJob</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679844278"><span class="hs-identifier hs-var">forceDeleteAWSJob</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;deleteStream&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679844268"><span class="hs-identifier hs-var">deleteStream</span></a></span><span>
+</span><a href="#local-6989586621679844277"><span class="hs-identifier hs-var">deleteStream</span></a></span><span>
 </span><span id="line-146"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- | /See:/ 'newDeleteOTAUpdateResponse' smart constructor.</span><span>
-</span><span id="line-149"></span><span id="local-6989586621679844264"><span id="local-6989586621679844265"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteOTAUpdateResponse"><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdateResponse"><span class="hs-identifier hs-var">DeleteOTAUpdateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteOTAUpdateResponse%27"><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdateResponse%27"><span class="hs-identifier hs-var">DeleteOTAUpdateResponse'</span></a></span></span><span>
+</span><span id="line-149"></span><span id="local-6989586621679844273"><span id="local-6989586621679844274"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteOTAUpdateResponse"><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdateResponse"><span class="hs-identifier hs-var">DeleteOTAUpdateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteOTAUpdateResponse%27"><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdateResponse%27"><span class="hs-identifier hs-var">DeleteOTAUpdateResponse'</span></a></span></span><span>
 </span><span id="line-150"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-151"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteOTAUpdateResponse%27"><span class="annot"><span class="annottext">DeleteOTAUpdateResponse -&gt; Int
 </span><a href="Network.AWS.IoT.DeleteOTAUpdate.html#%24sel%3AhttpStatus%3ADeleteOTAUpdateResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-152"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-153"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679844259"><span id="local-6989586621679844261"><span class="annot"><span class="annottext">DeleteOTAUpdateResponse -&gt; DeleteOTAUpdateResponse -&gt; Bool
+</span><span id="line-153"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679844268"><span id="local-6989586621679844270"><span class="annot"><span class="annottext">DeleteOTAUpdateResponse -&gt; DeleteOTAUpdateResponse -&gt; Bool
 (DeleteOTAUpdateResponse -&gt; DeleteOTAUpdateResponse -&gt; Bool)
 -&gt; (DeleteOTAUpdateResponse -&gt; DeleteOTAUpdateResponse -&gt; Bool)
 -&gt; Eq DeleteOTAUpdateResponse
@@ -348,7 +348,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteOTAUpdateResponse -&gt; DeleteOTAUpdateResponse -&gt; Bool
 == :: DeleteOTAUpdateResponse -&gt; DeleteOTAUpdateResponse -&gt; Bool
 $c== :: DeleteOTAUpdateResponse -&gt; DeleteOTAUpdateResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679844251"><span id="local-6989586621679844253"><span id="local-6989586621679844255"><span id="local-6989586621679844257"><span class="annot"><span class="annottext">ReadPrec [DeleteOTAUpdateResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679844260"><span id="local-6989586621679844262"><span id="local-6989586621679844264"><span id="local-6989586621679844266"><span class="annot"><span class="annottext">ReadPrec [DeleteOTAUpdateResponse]
 ReadPrec DeleteOTAUpdateResponse
 Int -&gt; ReadS DeleteOTAUpdateResponse
 ReadS [DeleteOTAUpdateResponse]
@@ -368,7 +368,7 @@ readList :: ReadS [DeleteOTAUpdateResponse]
 $creadList :: ReadS [DeleteOTAUpdateResponse]
 readsPrec :: Int -&gt; ReadS DeleteOTAUpdateResponse
 $creadsPrec :: Int -&gt; ReadS DeleteOTAUpdateResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679844245"><span id="local-6989586621679844247"><span id="local-6989586621679844249"><span class="annot"><span class="annottext">Int -&gt; DeleteOTAUpdateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679844254"><span id="local-6989586621679844256"><span id="local-6989586621679844258"><span class="annot"><span class="annottext">Int -&gt; DeleteOTAUpdateResponse -&gt; ShowS
 [DeleteOTAUpdateResponse] -&gt; ShowS
 DeleteOTAUpdateResponse -&gt; String
 (Int -&gt; DeleteOTAUpdateResponse -&gt; ShowS)
@@ -410,12 +410,12 @@ $cfrom :: forall x. DeleteOTAUpdateResponse -&gt; Rep DeleteOTAUpdateResponse x
 </span><span id="line-166"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-167"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdateResponse"><span class="hs-identifier hs-type">DeleteOTAUpdateResponse</span></a></span><span>
 </span><span id="line-168"></span><span id="newDeleteOTAUpdateResponse"><span class="annot"><span class="annottext">newDeleteOTAUpdateResponse :: Int -&gt; DeleteOTAUpdateResponse
-</span><a href="Network.AWS.IoT.DeleteOTAUpdate.html#newDeleteOTAUpdateResponse"><span class="hs-identifier hs-var hs-var">newDeleteOTAUpdateResponse</span></a></span></span><span> </span><span id="local-6989586621679844242"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679844242"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.DeleteOTAUpdate.html#newDeleteOTAUpdateResponse"><span class="hs-identifier hs-var hs-var">newDeleteOTAUpdateResponse</span></a></span></span><span> </span><span id="local-6989586621679844251"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679844251"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-169"></span><span>  </span><span class="annot"><span class="annottext">DeleteOTAUpdateResponse' :: Int -&gt; DeleteOTAUpdateResponse
 </span><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdateResponse%27"><span class="hs-identifier hs-type">DeleteOTAUpdateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteOTAUpdateResponse' :: Int
 </span><a href="Network.AWS.IoT.DeleteOTAUpdate.html#%24sel%3AhttpStatus%3ADeleteOTAUpdateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679844242"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679844251"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-172"></span><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#deleteOTAUpdateResponse_httpStatus"><span class="hs-identifier hs-type">deleteOTAUpdateResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdateResponse"><span class="hs-identifier hs-type">DeleteOTAUpdateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -425,16 +425,16 @@ $cfrom :: forall x. DeleteOTAUpdateResponse -&gt; Rep DeleteOTAUpdateResponse x
 -&gt; (DeleteOTAUpdateResponse -&gt; Int -&gt; DeleteOTAUpdateResponse)
 -&gt; Lens DeleteOTAUpdateResponse DeleteOTAUpdateResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdateResponse%27"><span class="hs-identifier hs-type">DeleteOTAUpdateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679844241"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdateResponse%27"><span class="hs-identifier hs-type">DeleteOTAUpdateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679844250"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteOTAUpdateResponse' :: DeleteOTAUpdateResponse -&gt; Int
-</span><a href="#local-6989586621679844241"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679844241"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679844240"><span class="annot"><span class="annottext">s :: DeleteOTAUpdateResponse
-</span><a href="#local-6989586621679844240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdateResponse%27"><span class="hs-identifier hs-type">DeleteOTAUpdateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679844239"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679844239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteOTAUpdateResponse
-</span><a href="#local-6989586621679844240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteOTAUpdateResponse' :: Int
+</span><a href="#local-6989586621679844250"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679844250"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679844249"><span class="annot"><span class="annottext">s :: DeleteOTAUpdateResponse
+</span><a href="#local-6989586621679844249"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdateResponse%27"><span class="hs-identifier hs-type">DeleteOTAUpdateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679844248"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679844248"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteOTAUpdateResponse
+</span><a href="#local-6989586621679844249"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteOTAUpdateResponse' :: Int
 </span><a href="Network.AWS.IoT.DeleteOTAUpdate.html#%24sel%3AhttpStatus%3ADeleteOTAUpdateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679844239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdateResponse"><span class="hs-identifier hs-type">DeleteOTAUpdateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679844248"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdateResponse"><span class="hs-identifier hs-type">DeleteOTAUpdateResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679844237"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdateResponse"><span class="hs-identifier hs-type">DeleteOTAUpdateResponse</span></a></span></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679844246"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteOTAUpdate.html#DeleteOTAUpdateResponse"><span class="hs-identifier hs-type">DeleteOTAUpdateResponse</span></a></span></span><span>
 </span><span id="line-176"></span></pre></body></html>

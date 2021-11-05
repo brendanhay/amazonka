@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.html"><span class="hs-identifier">Network.AWS.WorkDocs.Types</span></a></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newDeleteLabels' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679272451"><span id="local-6989586621679272452"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteLabels"><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabels"><span class="hs-identifier hs-var">DeleteLabels</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteLabels%27"><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabels%27"><span class="hs-identifier hs-var">DeleteLabels'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679272460"><span id="local-6989586621679272461"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteLabels"><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabels"><span class="hs-identifier hs-var">DeleteLabels</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteLabels%27"><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabels%27"><span class="hs-identifier hs-var">DeleteLabels'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Flag to request removal of all labels from the specified resource.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AdeleteAll%3ADeleteLabels%27"><span class="annot"><span class="annottext">DeleteLabels -&gt; Maybe Bool
 </span><a href="Network.AWS.WorkDocs.DeleteLabels.html#%24sel%3AdeleteAll%3ADeleteLabels%27"><span class="hs-identifier hs-var hs-var">deleteAll</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
@@ -64,7 +64,7 @@
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AresourceId%3ADeleteLabels%27"><span class="annot"><span class="annottext">DeleteLabels -&gt; Text
 </span><a href="Network.AWS.WorkDocs.DeleteLabels.html#%24sel%3AresourceId%3ADeleteLabels%27"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679272442"><span id="local-6989586621679272444"><span class="annot"><span class="annottext">DeleteLabels -&gt; DeleteLabels -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679272451"><span id="local-6989586621679272453"><span class="annot"><span class="annottext">DeleteLabels -&gt; DeleteLabels -&gt; Bool
 (DeleteLabels -&gt; DeleteLabels -&gt; Bool)
 -&gt; (DeleteLabels -&gt; DeleteLabels -&gt; Bool) -&gt; Eq DeleteLabels
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -72,7 +72,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteLabels -&gt; DeleteLabels -&gt; Bool
 == :: DeleteLabels -&gt; DeleteLabels -&gt; Bool
 $c== :: DeleteLabels -&gt; DeleteLabels -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272435"><span id="local-6989586621679272437"><span id="local-6989586621679272439"><span class="annot"><span class="annottext">Int -&gt; DeleteLabels -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272444"><span id="local-6989586621679272446"><span id="local-6989586621679272448"><span class="annot"><span class="annottext">Int -&gt; DeleteLabels -&gt; ShowS
 [DeleteLabels] -&gt; ShowS
 DeleteLabels -&gt; String
 (Int -&gt; DeleteLabels -&gt; ShowS)
@@ -119,8 +119,8 @@ $cfrom :: forall x. DeleteLabels -&gt; Rep DeleteLabels x
 </span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabels"><span class="hs-identifier hs-type">DeleteLabels</span></a></span><span>
 </span><span id="line-85"></span><span id="newDeleteLabels"><span class="annot"><span class="annottext">newDeleteLabels :: Text -&gt; DeleteLabels
-</span><a href="Network.AWS.WorkDocs.DeleteLabels.html#newDeleteLabels"><span class="hs-identifier hs-var hs-var">newDeleteLabels</span></a></span></span><span> </span><span id="local-6989586621679272430"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679272430"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WorkDocs.DeleteLabels.html#newDeleteLabels"><span class="hs-identifier hs-var hs-var">newDeleteLabels</span></a></span></span><span> </span><span id="local-6989586621679272439"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272439"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">DeleteLabels' :: Maybe Bool
 -&gt; Maybe (Sensitive Text) -&gt; Maybe [Text] -&gt; Text -&gt; DeleteLabels
 </span><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabels%27"><span class="hs-identifier hs-type">DeleteLabels'</span></a></span><span>
@@ -138,7 +138,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceId:DeleteLabels' :: Text
 </span><a href="Network.AWS.WorkDocs.DeleteLabels.html#%24sel%3AresourceId%3ADeleteLabels%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679272430"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span>
+</span><a href="#local-6989586621679272439"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | Flag to request removal of all labels from the specified resource.</span><span>
@@ -148,16 +148,16 @@ forall a. Maybe a
 -&gt; (DeleteLabels -&gt; Maybe Bool -&gt; DeleteLabels)
 -&gt; Lens DeleteLabels DeleteLabels (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabels%27"><span class="hs-identifier hs-type">DeleteLabels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272427"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabels%27"><span class="hs-identifier hs-type">DeleteLabels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272436"><span class="annot"><span class="annottext">Maybe Bool
 deleteAll :: Maybe Bool
 $sel:deleteAll:DeleteLabels' :: DeleteLabels -&gt; Maybe Bool
-</span><a href="#local-6989586621679272427"><span class="hs-identifier hs-var hs-var">deleteAll</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679272427"><span class="hs-identifier hs-var">deleteAll</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272426"><span class="annot"><span class="annottext">s :: DeleteLabels
-</span><a href="#local-6989586621679272426"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabels%27"><span class="hs-identifier hs-type">DeleteLabels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272425"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679272425"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLabels
-</span><a href="#local-6989586621679272426"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deleteAll:DeleteLabels' :: Maybe Bool
+</span><a href="#local-6989586621679272436"><span class="hs-identifier hs-var hs-var">deleteAll</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679272436"><span class="hs-identifier hs-var">deleteAll</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272435"><span class="annot"><span class="annottext">s :: DeleteLabels
+</span><a href="#local-6989586621679272435"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabels%27"><span class="hs-identifier hs-type">DeleteLabels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272434"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679272434"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLabels
+</span><a href="#local-6989586621679272435"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deleteAll:DeleteLabels' :: Maybe Bool
 </span><a href="Network.AWS.WorkDocs.DeleteLabels.html#%24sel%3AdeleteAll%3ADeleteLabels%27"><span class="hs-identifier hs-var">deleteAll</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679272425"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabels"><span class="hs-identifier hs-type">DeleteLabels</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679272434"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabels"><span class="hs-identifier hs-type">DeleteLabels</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | Amazon WorkDocs authentication token. Not required when using AWS</span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- administrator credentials to access the API.</span><span>
@@ -171,16 +171,16 @@ $sel:deleteAll:DeleteLabels' :: DeleteLabels -&gt; Maybe Bool
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabels%27"><span class="hs-identifier hs-type">DeleteLabels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272424"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabels%27"><span class="hs-identifier hs-type">DeleteLabels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272433"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 authenticationToken :: Maybe (Sensitive Text)
 $sel:authenticationToken:DeleteLabels' :: DeleteLabels -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679272424"><span class="hs-identifier hs-var hs-var">authenticationToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679272424"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272423"><span class="annot"><span class="annottext">s :: DeleteLabels
-</span><a href="#local-6989586621679272423"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabels%27"><span class="hs-identifier hs-type">DeleteLabels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272422"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679272422"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLabels
-</span><a href="#local-6989586621679272423"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticationToken:DeleteLabels' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679272433"><span class="hs-identifier hs-var hs-var">authenticationToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679272433"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272432"><span class="annot"><span class="annottext">s :: DeleteLabels
+</span><a href="#local-6989586621679272432"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabels%27"><span class="hs-identifier hs-type">DeleteLabels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272431"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679272431"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLabels
+</span><a href="#local-6989586621679272432"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticationToken:DeleteLabels' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.WorkDocs.DeleteLabels.html#%24sel%3AauthenticationToken%3ADeleteLabels%27"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679272422"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabels"><span class="hs-identifier hs-type">DeleteLabels</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679272431"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabels"><span class="hs-identifier hs-type">DeleteLabels</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; DeleteLabels -&gt; f DeleteLabels)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -209,16 +209,16 @@ forall a. Iso' (Sensitive a) a
 -&gt; (DeleteLabels -&gt; Maybe [Text] -&gt; DeleteLabels)
 -&gt; Lens DeleteLabels DeleteLabels (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabels%27"><span class="hs-identifier hs-type">DeleteLabels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272418"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabels%27"><span class="hs-identifier hs-type">DeleteLabels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272427"><span class="annot"><span class="annottext">Maybe [Text]
 labels :: Maybe [Text]
 $sel:labels:DeleteLabels' :: DeleteLabels -&gt; Maybe [Text]
-</span><a href="#local-6989586621679272418"><span class="hs-identifier hs-var hs-var">labels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679272418"><span class="hs-identifier hs-var">labels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272417"><span class="annot"><span class="annottext">s :: DeleteLabels
-</span><a href="#local-6989586621679272417"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabels%27"><span class="hs-identifier hs-type">DeleteLabels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272416"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679272416"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLabels
-</span><a href="#local-6989586621679272417"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:labels:DeleteLabels' :: Maybe [Text]
+</span><a href="#local-6989586621679272427"><span class="hs-identifier hs-var hs-var">labels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679272427"><span class="hs-identifier hs-var">labels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272426"><span class="annot"><span class="annottext">s :: DeleteLabels
+</span><a href="#local-6989586621679272426"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabels%27"><span class="hs-identifier hs-type">DeleteLabels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272425"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679272425"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLabels
+</span><a href="#local-6989586621679272426"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:labels:DeleteLabels' :: Maybe [Text]
 </span><a href="Network.AWS.WorkDocs.DeleteLabels.html#%24sel%3Alabels%3ADeleteLabels%27"><span class="hs-identifier hs-var">labels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679272416"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabels"><span class="hs-identifier hs-type">DeleteLabels</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679272425"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabels"><span class="hs-identifier hs-type">DeleteLabels</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DeleteLabels -&gt; f DeleteLabels)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -242,25 +242,25 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (DeleteLabels -&gt; Text -&gt; DeleteLabels)
 -&gt; Lens DeleteLabels DeleteLabels Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabels%27"><span class="hs-identifier hs-type">DeleteLabels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272414"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabels%27"><span class="hs-identifier hs-type">DeleteLabels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272423"><span class="annot"><span class="annottext">Text
 resourceId :: Text
 $sel:resourceId:DeleteLabels' :: DeleteLabels -&gt; Text
-</span><a href="#local-6989586621679272414"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679272414"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272413"><span class="annot"><span class="annottext">s :: DeleteLabels
-</span><a href="#local-6989586621679272413"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabels%27"><span class="hs-identifier hs-type">DeleteLabels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272412"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679272412"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLabels
-</span><a href="#local-6989586621679272413"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:DeleteLabels' :: Text
+</span><a href="#local-6989586621679272423"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272423"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272422"><span class="annot"><span class="annottext">s :: DeleteLabels
+</span><a href="#local-6989586621679272422"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabels%27"><span class="hs-identifier hs-type">DeleteLabels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272421"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272421"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLabels
+</span><a href="#local-6989586621679272422"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:DeleteLabels' :: Text
 </span><a href="Network.AWS.WorkDocs.DeleteLabels.html#%24sel%3AresourceId%3ADeleteLabels%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679272412"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabels"><span class="hs-identifier hs-type">DeleteLabels</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679272421"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabels"><span class="hs-identifier hs-type">DeleteLabels</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabels"><span class="hs-identifier hs-type">DeleteLabels</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-111"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabels"><span class="hs-identifier hs-type">DeleteLabels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabelsResponse"><span class="hs-identifier hs-type">DeleteLabelsResponse</span></a></span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679272408"><span class="annot"><span class="annottext">request :: DeleteLabels -&gt; Request DeleteLabels
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679272417"><span class="annot"><span class="annottext">request :: DeleteLabels -&gt; Request DeleteLabels
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteLabels -&gt; Request DeleteLabels
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.WorkDocs.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679272404"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679272413"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteLabels
 -&gt; ClientResponse ClientBody
@@ -284,10 +284,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679272401"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679272401"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679272400"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679272400"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679272399"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679272399"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679272410"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679272410"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679272409"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679272409"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679272408"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679272408"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-116"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteLabelsResponse
 </span><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabelsResponse%27"><span class="hs-identifier hs-var">DeleteLabelsResponse'</span></a></span><span>
 </span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteLabelsResponse)
@@ -298,16 +298,47 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679272401"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679272410"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272392"><span id="local-6989586621679272394"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabels"><span class="hs-identifier hs-type">DeleteLabels</span></a></span></span></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272401"><span id="local-6989586621679272403"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabels"><span class="hs-identifier hs-type">DeleteLabels</span></a></span></span></span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272389"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabels"><span class="hs-identifier hs-type">DeleteLabels</span></a></span></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272398"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabels"><span class="hs-identifier hs-type">DeleteLabels</span></a></span></span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabels"><span class="hs-identifier hs-type">DeleteLabels</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679272385"><span class="annot"><span class="annottext">toHeaders :: DeleteLabels -&gt; ResponseHeaders
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabels%27"><span class="hs-identifier hs-type">DeleteLabels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272380"><span id="local-6989586621679272381"><span id="local-6989586621679272382"><span id="local-6989586621679272383"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679272394"><span class="annot"><span class="annottext">toHeaders :: DeleteLabels -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabels%27"><span class="hs-identifier hs-type">DeleteLabels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272389"><span id="local-6989586621679272390"><span id="local-6989586621679272391"><span id="local-6989586621679272392"><span class="annot"><span class="annottext">Maybe Bool
+Maybe [Text]
+Maybe (Sensitive Text)
+Text
+resourceId :: Text
+labels :: Maybe [Text]
+authenticationToken :: Maybe (Sensitive Text)
+deleteAll :: Maybe Bool
+$sel:resourceId:DeleteLabels' :: DeleteLabels -&gt; Text
+$sel:labels:DeleteLabels' :: DeleteLabels -&gt; Maybe [Text]
+$sel:authenticationToken:DeleteLabels' :: DeleteLabels -&gt; Maybe (Sensitive Text)
+$sel:deleteAll:DeleteLabels' :: DeleteLabels -&gt; Maybe Bool
+</span><a href="#local-6989586621679272389"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Authentication&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe (Sensitive Text) -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679272391"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabels"><span class="hs-identifier hs-type">DeleteLabels</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679272385"><span class="annot"><span class="annottext">toPath :: DeleteLabels -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabels%27"><span class="hs-identifier hs-type">DeleteLabels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272380"><span id="local-6989586621679272381"><span id="local-6989586621679272382"><span id="local-6989586621679272383"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [Text]
 Maybe (Sensitive Text)
 Text
@@ -320,25 +351,22 @@ $sel:labels:DeleteLabels' :: DeleteLabels -&gt; Maybe [Text]
 $sel:authenticationToken:DeleteLabels' :: DeleteLabels -&gt; Maybe (Sensitive Text)
 $sel:deleteAll:DeleteLabels' :: DeleteLabels -&gt; Maybe Bool
 </span><a href="#local-6989586621679272380"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
-</span><span id="line-127"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
-</span><span class="hs-string">&quot;Authentication&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe (Sensitive Text) -&gt; ResponseHeaders
-forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
-</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679272382"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
-</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
-</span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
-forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
-</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span>      </span><span class="hs-special">]</span><span>
-</span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabels"><span class="hs-identifier hs-type">DeleteLabels</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679272376"><span class="annot"><span class="annottext">toPath :: DeleteLabels -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabels%27"><span class="hs-identifier hs-type">DeleteLabels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272371"><span id="local-6989586621679272372"><span id="local-6989586621679272373"><span id="local-6989586621679272374"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-135"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/api/v1/resources/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272380"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/labels&quot;</span></span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabels"><span class="hs-identifier hs-type">DeleteLabels</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679272376"><span class="annot"><span class="annottext">toQuery :: DeleteLabels -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabels%27"><span class="hs-identifier hs-type">DeleteLabels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272371"><span id="local-6989586621679272372"><span id="local-6989586621679272373"><span id="local-6989586621679272374"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [Text]
 Maybe (Sensitive Text)
 Text
@@ -351,34 +379,6 @@ $sel:labels:DeleteLabels' :: DeleteLabels -&gt; Maybe [Text]
 $sel:authenticationToken:DeleteLabels' :: DeleteLabels -&gt; Maybe (Sensitive Text)
 $sel:deleteAll:DeleteLabels' :: DeleteLabels -&gt; Maybe Bool
 </span><a href="#local-6989586621679272371"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
-forall a. Monoid a =&gt; [a] -&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
-</span><span id="line-135"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;/api/v1/resources/&quot;</span></span><span class="hs-special">,</span><span>
-</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
-forall a. ToByteString a =&gt; a -&gt; ByteString
-</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679272371"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;/labels&quot;</span></span><span>
-</span><span id="line-138"></span><span>      </span><span class="hs-special">]</span><span>
-</span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabels"><span class="hs-identifier hs-type">DeleteLabels</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679272367"><span class="annot"><span class="annottext">toQuery :: DeleteLabels -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabels%27"><span class="hs-identifier hs-type">DeleteLabels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272362"><span id="local-6989586621679272363"><span id="local-6989586621679272364"><span id="local-6989586621679272365"><span class="annot"><span class="annottext">Maybe Bool
-Maybe [Text]
-Maybe (Sensitive Text)
-Text
-resourceId :: Text
-labels :: Maybe [Text]
-authenticationToken :: Maybe (Sensitive Text)
-deleteAll :: Maybe Bool
-$sel:resourceId:DeleteLabels' :: DeleteLabels -&gt; Text
-$sel:labels:DeleteLabels' :: DeleteLabels -&gt; Maybe [Text]
-$sel:authenticationToken:DeleteLabels' :: DeleteLabels -&gt; Maybe (Sensitive Text)
-$sel:deleteAll:DeleteLabels' :: DeleteLabels -&gt; Maybe Bool
-</span><a href="#local-6989586621679272362"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -386,7 +386,7 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;deleteAll&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679272365"><span class="hs-identifier hs-var">deleteAll</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679272374"><span class="hs-identifier hs-var">deleteAll</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;labels&quot;</span></span><span>
 </span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -402,16 +402,16 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679272363"><span class="hs-identifier hs-var">labels</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679272372"><span class="hs-identifier hs-var">labels</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- | /See:/ 'newDeleteLabelsResponse' smart constructor.</span><span>
-</span><span id="line-150"></span><span id="local-6989586621679272358"><span id="local-6989586621679272359"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteLabelsResponse"><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabelsResponse"><span class="hs-identifier hs-var">DeleteLabelsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteLabelsResponse%27"><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabelsResponse%27"><span class="hs-identifier hs-var">DeleteLabelsResponse'</span></a></span></span><span>
+</span><span id="line-150"></span><span id="local-6989586621679272367"><span id="local-6989586621679272368"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteLabelsResponse"><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabelsResponse"><span class="hs-identifier hs-var">DeleteLabelsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteLabelsResponse%27"><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabelsResponse%27"><span class="hs-identifier hs-var">DeleteLabelsResponse'</span></a></span></span><span>
 </span><span id="line-151"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-152"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteLabelsResponse%27"><span class="annot"><span class="annottext">DeleteLabelsResponse -&gt; Int
 </span><a href="Network.AWS.WorkDocs.DeleteLabels.html#%24sel%3AhttpStatus%3ADeleteLabelsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-153"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679272353"><span id="local-6989586621679272355"><span class="annot"><span class="annottext">DeleteLabelsResponse -&gt; DeleteLabelsResponse -&gt; Bool
+</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679272362"><span id="local-6989586621679272364"><span class="annot"><span class="annottext">DeleteLabelsResponse -&gt; DeleteLabelsResponse -&gt; Bool
 (DeleteLabelsResponse -&gt; DeleteLabelsResponse -&gt; Bool)
 -&gt; (DeleteLabelsResponse -&gt; DeleteLabelsResponse -&gt; Bool)
 -&gt; Eq DeleteLabelsResponse
@@ -420,7 +420,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteLabelsResponse -&gt; DeleteLabelsResponse -&gt; Bool
 == :: DeleteLabelsResponse -&gt; DeleteLabelsResponse -&gt; Bool
 $c== :: DeleteLabelsResponse -&gt; DeleteLabelsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272345"><span id="local-6989586621679272347"><span id="local-6989586621679272349"><span id="local-6989586621679272351"><span class="annot"><span class="annottext">ReadPrec [DeleteLabelsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272354"><span id="local-6989586621679272356"><span id="local-6989586621679272358"><span id="local-6989586621679272360"><span class="annot"><span class="annottext">ReadPrec [DeleteLabelsResponse]
 ReadPrec DeleteLabelsResponse
 Int -&gt; ReadS DeleteLabelsResponse
 ReadS [DeleteLabelsResponse]
@@ -440,7 +440,7 @@ readList :: ReadS [DeleteLabelsResponse]
 $creadList :: ReadS [DeleteLabelsResponse]
 readsPrec :: Int -&gt; ReadS DeleteLabelsResponse
 $creadsPrec :: Int -&gt; ReadS DeleteLabelsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272338"><span id="local-6989586621679272340"><span id="local-6989586621679272342"><span class="annot"><span class="annottext">Int -&gt; DeleteLabelsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272347"><span id="local-6989586621679272349"><span id="local-6989586621679272351"><span class="annot"><span class="annottext">Int -&gt; DeleteLabelsResponse -&gt; ShowS
 [DeleteLabelsResponse] -&gt; ShowS
 DeleteLabelsResponse -&gt; String
 (Int -&gt; DeleteLabelsResponse -&gt; ShowS)
@@ -480,12 +480,12 @@ $cfrom :: forall x. DeleteLabelsResponse -&gt; Rep DeleteLabelsResponse x
 </span><span id="line-167"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-168"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabelsResponse"><span class="hs-identifier hs-type">DeleteLabelsResponse</span></a></span><span>
 </span><span id="line-169"></span><span id="newDeleteLabelsResponse"><span class="annot"><span class="annottext">newDeleteLabelsResponse :: Int -&gt; DeleteLabelsResponse
-</span><a href="Network.AWS.WorkDocs.DeleteLabels.html#newDeleteLabelsResponse"><span class="hs-identifier hs-var hs-var">newDeleteLabelsResponse</span></a></span></span><span> </span><span id="local-6989586621679272335"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679272335"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WorkDocs.DeleteLabels.html#newDeleteLabelsResponse"><span class="hs-identifier hs-var hs-var">newDeleteLabelsResponse</span></a></span></span><span> </span><span id="local-6989586621679272344"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679272344"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>  </span><span class="annot"><span class="annottext">DeleteLabelsResponse' :: Int -&gt; DeleteLabelsResponse
 </span><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabelsResponse%27"><span class="hs-identifier hs-type">DeleteLabelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteLabelsResponse' :: Int
 </span><a href="Network.AWS.WorkDocs.DeleteLabels.html#%24sel%3AhttpStatus%3ADeleteLabelsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679272335"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679272344"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-173"></span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#deleteLabelsResponse_httpStatus"><span class="hs-identifier hs-type">deleteLabelsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabelsResponse"><span class="hs-identifier hs-type">DeleteLabelsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -494,16 +494,16 @@ $cfrom :: forall x. DeleteLabelsResponse -&gt; Rep DeleteLabelsResponse x
 -&gt; (DeleteLabelsResponse -&gt; Int -&gt; DeleteLabelsResponse)
 -&gt; Lens DeleteLabelsResponse DeleteLabelsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabelsResponse%27"><span class="hs-identifier hs-type">DeleteLabelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272334"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabelsResponse%27"><span class="hs-identifier hs-type">DeleteLabelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272343"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteLabelsResponse' :: DeleteLabelsResponse -&gt; Int
-</span><a href="#local-6989586621679272334"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679272334"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272333"><span class="annot"><span class="annottext">s :: DeleteLabelsResponse
-</span><a href="#local-6989586621679272333"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabelsResponse%27"><span class="hs-identifier hs-type">DeleteLabelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272332"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679272332"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLabelsResponse
-</span><a href="#local-6989586621679272333"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteLabelsResponse' :: Int
+</span><a href="#local-6989586621679272343"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679272343"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272342"><span class="annot"><span class="annottext">s :: DeleteLabelsResponse
+</span><a href="#local-6989586621679272342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabelsResponse%27"><span class="hs-identifier hs-type">DeleteLabelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272341"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679272341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLabelsResponse
+</span><a href="#local-6989586621679272342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteLabelsResponse' :: Int
 </span><a href="Network.AWS.WorkDocs.DeleteLabels.html#%24sel%3AhttpStatus%3ADeleteLabelsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679272332"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabelsResponse"><span class="hs-identifier hs-type">DeleteLabelsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679272341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabelsResponse"><span class="hs-identifier hs-type">DeleteLabelsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272330"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabelsResponse"><span class="hs-identifier hs-type">DeleteLabelsResponse</span></a></span></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272339"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.DeleteLabels.html#DeleteLabelsResponse"><span class="hs-identifier hs-type">DeleteLabelsResponse</span></a></span></span><span>
 </span><span id="line-177"></span></pre></body></html>

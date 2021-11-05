@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- CreateBucketAccessKey action.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newAccessKeyLastUsed' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679603350"><span id="local-6989586621679603351"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccessKeyLastUsed"><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessKeyLastUsed.html#AccessKeyLastUsed"><span class="hs-identifier hs-var">AccessKeyLastUsed</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccessKeyLastUsed%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessKeyLastUsed.html#AccessKeyLastUsed%27"><span class="hs-identifier hs-var">AccessKeyLastUsed'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679603359"><span id="local-6989586621679603360"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccessKeyLastUsed"><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessKeyLastUsed.html#AccessKeyLastUsed"><span class="hs-identifier hs-var">AccessKeyLastUsed</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccessKeyLastUsed%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessKeyLastUsed.html#AccessKeyLastUsed%27"><span class="hs-identifier hs-var">AccessKeyLastUsed'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date and time when the access key was most recently used.</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- This value is null if the access key has not been used.</span><span>
@@ -47,7 +47,7 @@
 </span><span id="line-45"></span><span>    </span><span id="%24sel%3Aregion%3AAccessKeyLastUsed%27"><span class="annot"><span class="annottext">AccessKeyLastUsed -&gt; Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.AccessKeyLastUsed.html#%24sel%3Aregion%3AAccessKeyLastUsed%27"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679603342"><span id="local-6989586621679603344"><span class="annot"><span class="annottext">AccessKeyLastUsed -&gt; AccessKeyLastUsed -&gt; Bool
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679603351"><span id="local-6989586621679603353"><span class="annot"><span class="annottext">AccessKeyLastUsed -&gt; AccessKeyLastUsed -&gt; Bool
 (AccessKeyLastUsed -&gt; AccessKeyLastUsed -&gt; Bool)
 -&gt; (AccessKeyLastUsed -&gt; AccessKeyLastUsed -&gt; Bool)
 -&gt; Eq AccessKeyLastUsed
@@ -56,7 +56,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AccessKeyLastUsed -&gt; AccessKeyLastUsed -&gt; Bool
 == :: AccessKeyLastUsed -&gt; AccessKeyLastUsed -&gt; Bool
 $c== :: AccessKeyLastUsed -&gt; AccessKeyLastUsed -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679603333"><span id="local-6989586621679603335"><span id="local-6989586621679603337"><span id="local-6989586621679603339"><span class="annot"><span class="annottext">ReadPrec [AccessKeyLastUsed]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679603342"><span id="local-6989586621679603344"><span id="local-6989586621679603346"><span id="local-6989586621679603348"><span class="annot"><span class="annottext">ReadPrec [AccessKeyLastUsed]
 ReadPrec AccessKeyLastUsed
 Int -&gt; ReadS AccessKeyLastUsed
 ReadS [AccessKeyLastUsed]
@@ -76,7 +76,7 @@ readList :: ReadS [AccessKeyLastUsed]
 $creadList :: ReadS [AccessKeyLastUsed]
 readsPrec :: Int -&gt; ReadS AccessKeyLastUsed
 $creadsPrec :: Int -&gt; ReadS AccessKeyLastUsed
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679603326"><span id="local-6989586621679603328"><span id="local-6989586621679603330"><span class="annot"><span class="annottext">Int -&gt; AccessKeyLastUsed -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679603335"><span id="local-6989586621679603337"><span id="local-6989586621679603339"><span class="annot"><span class="annottext">Int -&gt; AccessKeyLastUsed -&gt; ShowS
 [AccessKeyLastUsed] -&gt; ShowS
 AccessKeyLastUsed -&gt; String
 (Int -&gt; AccessKeyLastUsed -&gt; ShowS)
@@ -153,16 +153,16 @@ forall a. Maybe a
 -&gt; Lens
      AccessKeyLastUsed AccessKeyLastUsed (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessKeyLastUsed.html#AccessKeyLastUsed%27"><span class="hs-identifier hs-type">AccessKeyLastUsed'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603317"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessKeyLastUsed.html#AccessKeyLastUsed%27"><span class="hs-identifier hs-type">AccessKeyLastUsed'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603326"><span class="annot"><span class="annottext">Maybe POSIX
 lastUsedDate :: Maybe POSIX
 $sel:lastUsedDate:AccessKeyLastUsed' :: AccessKeyLastUsed -&gt; Maybe POSIX
-</span><a href="#local-6989586621679603317"><span class="hs-identifier hs-var hs-var">lastUsedDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679603317"><span class="hs-identifier hs-var">lastUsedDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603316"><span class="annot"><span class="annottext">s :: AccessKeyLastUsed
-</span><a href="#local-6989586621679603316"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessKeyLastUsed.html#AccessKeyLastUsed%27"><span class="hs-identifier hs-type">AccessKeyLastUsed'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603315"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679603315"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessKeyLastUsed
-</span><a href="#local-6989586621679603316"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUsedDate:AccessKeyLastUsed' :: Maybe POSIX
+</span><a href="#local-6989586621679603326"><span class="hs-identifier hs-var hs-var">lastUsedDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679603326"><span class="hs-identifier hs-var">lastUsedDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603325"><span class="annot"><span class="annottext">s :: AccessKeyLastUsed
+</span><a href="#local-6989586621679603325"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessKeyLastUsed.html#AccessKeyLastUsed%27"><span class="hs-identifier hs-type">AccessKeyLastUsed'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603324"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679603324"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessKeyLastUsed
+</span><a href="#local-6989586621679603325"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUsedDate:AccessKeyLastUsed' :: Maybe POSIX
 </span><a href="Network.AWS.Lightsail.Types.AccessKeyLastUsed.html#%24sel%3AlastUsedDate%3AAccessKeyLastUsed%27"><span class="hs-identifier hs-var">lastUsedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679603315"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessKeyLastUsed.html#AccessKeyLastUsed"><span class="hs-identifier hs-type">AccessKeyLastUsed</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679603324"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessKeyLastUsed.html#AccessKeyLastUsed"><span class="hs-identifier hs-type">AccessKeyLastUsed</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; AccessKeyLastUsed -&gt; f AccessKeyLastUsed)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -191,16 +191,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; Lens
      AccessKeyLastUsed AccessKeyLastUsed (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessKeyLastUsed.html#AccessKeyLastUsed%27"><span class="hs-identifier hs-type">AccessKeyLastUsed'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603310"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessKeyLastUsed.html#AccessKeyLastUsed%27"><span class="hs-identifier hs-type">AccessKeyLastUsed'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603319"><span class="annot"><span class="annottext">Maybe Text
 serviceName :: Maybe Text
 $sel:serviceName:AccessKeyLastUsed' :: AccessKeyLastUsed -&gt; Maybe Text
-</span><a href="#local-6989586621679603310"><span class="hs-identifier hs-var hs-var">serviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679603310"><span class="hs-identifier hs-var">serviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603309"><span class="annot"><span class="annottext">s :: AccessKeyLastUsed
-</span><a href="#local-6989586621679603309"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessKeyLastUsed.html#AccessKeyLastUsed%27"><span class="hs-identifier hs-type">AccessKeyLastUsed'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603308"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679603308"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessKeyLastUsed
-</span><a href="#local-6989586621679603309"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceName:AccessKeyLastUsed' :: Maybe Text
+</span><a href="#local-6989586621679603319"><span class="hs-identifier hs-var hs-var">serviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679603319"><span class="hs-identifier hs-var">serviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603318"><span class="annot"><span class="annottext">s :: AccessKeyLastUsed
+</span><a href="#local-6989586621679603318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessKeyLastUsed.html#AccessKeyLastUsed%27"><span class="hs-identifier hs-type">AccessKeyLastUsed'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603317"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679603317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessKeyLastUsed
+</span><a href="#local-6989586621679603318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceName:AccessKeyLastUsed' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.AccessKeyLastUsed.html#%24sel%3AserviceName%3AAccessKeyLastUsed%27"><span class="hs-identifier hs-var">serviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679603308"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessKeyLastUsed.html#AccessKeyLastUsed"><span class="hs-identifier hs-type">AccessKeyLastUsed</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679603317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessKeyLastUsed.html#AccessKeyLastUsed"><span class="hs-identifier hs-type">AccessKeyLastUsed</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The AWS Region where this access key was most recently used.</span><span>
 </span><span id="line-92"></span><span class="hs-comment">--</span><span>
@@ -213,19 +213,19 @@ $sel:serviceName:AccessKeyLastUsed' :: AccessKeyLastUsed -&gt; Maybe Text
 -&gt; Lens
      AccessKeyLastUsed AccessKeyLastUsed (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessKeyLastUsed.html#AccessKeyLastUsed%27"><span class="hs-identifier hs-type">AccessKeyLastUsed'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603306"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessKeyLastUsed.html#AccessKeyLastUsed%27"><span class="hs-identifier hs-type">AccessKeyLastUsed'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603315"><span class="annot"><span class="annottext">Maybe Text
 region :: Maybe Text
 $sel:region:AccessKeyLastUsed' :: AccessKeyLastUsed -&gt; Maybe Text
-</span><a href="#local-6989586621679603306"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679603306"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603305"><span class="annot"><span class="annottext">s :: AccessKeyLastUsed
-</span><a href="#local-6989586621679603305"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessKeyLastUsed.html#AccessKeyLastUsed%27"><span class="hs-identifier hs-type">AccessKeyLastUsed'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603304"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679603304"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessKeyLastUsed
-</span><a href="#local-6989586621679603305"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:region:AccessKeyLastUsed' :: Maybe Text
+</span><a href="#local-6989586621679603315"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679603315"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603314"><span class="annot"><span class="annottext">s :: AccessKeyLastUsed
+</span><a href="#local-6989586621679603314"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessKeyLastUsed.html#AccessKeyLastUsed%27"><span class="hs-identifier hs-type">AccessKeyLastUsed'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603313"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679603313"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessKeyLastUsed
+</span><a href="#local-6989586621679603314"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:region:AccessKeyLastUsed' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.AccessKeyLastUsed.html#%24sel%3Aregion%3AAccessKeyLastUsed%27"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679603304"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessKeyLastUsed.html#AccessKeyLastUsed"><span class="hs-identifier hs-type">AccessKeyLastUsed</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679603313"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessKeyLastUsed.html#AccessKeyLastUsed"><span class="hs-identifier hs-type">AccessKeyLastUsed</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603301"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessKeyLastUsed.html#AccessKeyLastUsed"><span class="hs-identifier hs-type">AccessKeyLastUsed</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679603299"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AccessKeyLastUsed
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603310"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessKeyLastUsed.html#AccessKeyLastUsed"><span class="hs-identifier hs-type">AccessKeyLastUsed</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679603308"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AccessKeyLastUsed
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AccessKeyLastUsed)
@@ -235,8 +235,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AccessKeyLastUsed&quot;</span></span><span>
-</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679603296"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679603296"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679603305"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679603305"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX -&gt; Maybe Text -&gt; Maybe Text -&gt; AccessKeyLastUsed
 </span><a href="Network.AWS.Lightsail.Types.AccessKeyLastUsed.html#AccessKeyLastUsed%27"><span class="hs-identifier hs-var">AccessKeyLastUsed'</span></a></span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX -&gt; Maybe Text -&gt; Maybe Text -&gt; AccessKeyLastUsed)
@@ -244,7 +244,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; AccessKeyLastUsed)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679603296"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679603305"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;lastUsedDate&quot;</span></span><span class="hs-special">)</span><span>
@@ -252,7 +252,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; AccessKeyLastUsed)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679603296"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679603305"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;serviceName&quot;</span></span><span class="hs-special">)</span><span>
@@ -260,13 +260,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser AccessKeyLastUsed
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679603296"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679603305"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;region&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603290"><span id="local-6989586621679603292"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessKeyLastUsed.html#AccessKeyLastUsed"><span class="hs-identifier hs-type">AccessKeyLastUsed</span></a></span></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603299"><span id="local-6989586621679603301"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessKeyLastUsed.html#AccessKeyLastUsed"><span class="hs-identifier hs-type">AccessKeyLastUsed</span></a></span></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603287"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessKeyLastUsed.html#AccessKeyLastUsed"><span class="hs-identifier hs-type">AccessKeyLastUsed</span></a></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603296"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessKeyLastUsed.html#AccessKeyLastUsed"><span class="hs-identifier hs-type">AccessKeyLastUsed</span></a></span></span><span>
 </span><span id="line-111"></span></pre></body></html>

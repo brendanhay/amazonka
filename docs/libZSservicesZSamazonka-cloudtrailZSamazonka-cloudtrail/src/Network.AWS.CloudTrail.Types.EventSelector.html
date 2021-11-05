@@ -40,7 +40,7 @@
 </span><span id="line-40"></span><span class="hs-comment">-- trail.</span><span>
 </span><span id="line-41"></span><span class="hs-comment">--</span><span>
 </span><span id="line-42"></span><span class="hs-comment">-- /See:/ 'newEventSelector' smart constructor.</span><span>
-</span><span id="line-43"></span><span id="local-6989586621679196132"><span id="local-6989586621679196133"></span></span><span class="hs-keyword">data</span><span> </span><span id="EventSelector"><span class="annot"><a href="Network.AWS.CloudTrail.Types.EventSelector.html#EventSelector"><span class="hs-identifier hs-var">EventSelector</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EventSelector%27"><span class="annot"><a href="Network.AWS.CloudTrail.Types.EventSelector.html#EventSelector%27"><span class="hs-identifier hs-var">EventSelector'</span></a></span></span><span>
+</span><span id="line-43"></span><span id="local-6989586621679196141"><span id="local-6989586621679196142"></span></span><span class="hs-keyword">data</span><span> </span><span id="EventSelector"><span class="annot"><a href="Network.AWS.CloudTrail.Types.EventSelector.html#EventSelector"><span class="hs-identifier hs-var">EventSelector</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EventSelector%27"><span class="annot"><a href="Network.AWS.CloudTrail.Types.EventSelector.html#EventSelector%27"><span class="hs-identifier hs-var">EventSelector'</span></a></span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | CloudTrail supports data event logging for Amazon S3 objects, Lambda</span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-comment">-- functions, and Amazon DynamoDB tables with basic event selectors. You</span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-comment">-- can specify up to 250 resources for an individual event selector, but</span><span>
@@ -88,7 +88,7 @@
 </span><span id="line-85"></span><span>    </span><span id="%24sel%3AincludeManagementEvents%3AEventSelector%27"><span class="annot"><span class="annottext">EventSelector -&gt; Maybe Bool
 </span><a href="Network.AWS.CloudTrail.Types.EventSelector.html#%24sel%3AincludeManagementEvents%3AEventSelector%27"><span class="hs-identifier hs-var hs-var">includeManagementEvents</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-86"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-87"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679196123"><span id="local-6989586621679196125"><span class="annot"><span class="annottext">EventSelector -&gt; EventSelector -&gt; Bool
+</span><span id="line-87"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679196132"><span id="local-6989586621679196134"><span class="annot"><span class="annottext">EventSelector -&gt; EventSelector -&gt; Bool
 (EventSelector -&gt; EventSelector -&gt; Bool)
 -&gt; (EventSelector -&gt; EventSelector -&gt; Bool) -&gt; Eq EventSelector
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -96,7 +96,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EventSelector -&gt; EventSelector -&gt; Bool
 == :: EventSelector -&gt; EventSelector -&gt; Bool
 $c== :: EventSelector -&gt; EventSelector -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679196114"><span id="local-6989586621679196116"><span id="local-6989586621679196118"><span id="local-6989586621679196120"><span class="annot"><span class="annottext">ReadPrec [EventSelector]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679196123"><span id="local-6989586621679196125"><span id="local-6989586621679196127"><span id="local-6989586621679196129"><span class="annot"><span class="annottext">ReadPrec [EventSelector]
 ReadPrec EventSelector
 Int -&gt; ReadS EventSelector
 ReadS [EventSelector]
@@ -116,7 +116,7 @@ readList :: ReadS [EventSelector]
 $creadList :: ReadS [EventSelector]
 readsPrec :: Int -&gt; ReadS EventSelector
 $creadsPrec :: Int -&gt; ReadS EventSelector
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679196107"><span id="local-6989586621679196109"><span id="local-6989586621679196111"><span class="annot"><span class="annottext">Int -&gt; EventSelector -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679196116"><span id="local-6989586621679196118"><span id="local-6989586621679196120"><span class="annot"><span class="annottext">Int -&gt; EventSelector -&gt; ShowS
 [EventSelector] -&gt; ShowS
 EventSelector -&gt; String
 (Int -&gt; EventSelector -&gt; ShowS)
@@ -242,16 +242,16 @@ forall a. Maybe a
      (Maybe [DataResource])
      (Maybe [DataResource])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.EventSelector.html#EventSelector%27"><span class="hs-identifier hs-type">EventSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196098"><span class="annot"><span class="annottext">Maybe [DataResource]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.EventSelector.html#EventSelector%27"><span class="hs-identifier hs-type">EventSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196107"><span class="annot"><span class="annottext">Maybe [DataResource]
 dataResources :: Maybe [DataResource]
 $sel:dataResources:EventSelector' :: EventSelector -&gt; Maybe [DataResource]
-</span><a href="#local-6989586621679196098"><span class="hs-identifier hs-var hs-var">dataResources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DataResource]
-</span><a href="#local-6989586621679196098"><span class="hs-identifier hs-var">dataResources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196097"><span class="annot"><span class="annottext">s :: EventSelector
-</span><a href="#local-6989586621679196097"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.EventSelector.html#EventSelector%27"><span class="hs-identifier hs-type">EventSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196096"><span class="annot"><span class="annottext">Maybe [DataResource]
-</span><a href="#local-6989586621679196096"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventSelector
-</span><a href="#local-6989586621679196097"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataResources:EventSelector' :: Maybe [DataResource]
+</span><a href="#local-6989586621679196107"><span class="hs-identifier hs-var hs-var">dataResources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DataResource]
+</span><a href="#local-6989586621679196107"><span class="hs-identifier hs-var">dataResources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196106"><span class="annot"><span class="annottext">s :: EventSelector
+</span><a href="#local-6989586621679196106"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.EventSelector.html#EventSelector%27"><span class="hs-identifier hs-type">EventSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196105"><span class="annot"><span class="annottext">Maybe [DataResource]
+</span><a href="#local-6989586621679196105"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventSelector
+</span><a href="#local-6989586621679196106"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataResources:EventSelector' :: Maybe [DataResource]
 </span><a href="Network.AWS.CloudTrail.Types.EventSelector.html#%24sel%3AdataResources%3AEventSelector%27"><span class="hs-identifier hs-var">dataResources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DataResource]
-</span><a href="#local-6989586621679196096"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.EventSelector.html#EventSelector"><span class="hs-identifier hs-type">EventSelector</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DataResource] -&gt; f (Maybe [DataResource]))
+</span><a href="#local-6989586621679196105"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.EventSelector.html#EventSelector"><span class="hs-identifier hs-type">EventSelector</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DataResource] -&gt; f (Maybe [DataResource]))
  -&gt; EventSelector -&gt; f EventSelector)
 -&gt; ((Maybe [DataResource] -&gt; f (Maybe [DataResource]))
     -&gt; Maybe [DataResource] -&gt; f (Maybe [DataResource]))
@@ -288,16 +288,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe ReadWriteType)
      (Maybe ReadWriteType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.EventSelector.html#EventSelector%27"><span class="hs-identifier hs-type">EventSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196091"><span class="annot"><span class="annottext">Maybe ReadWriteType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.EventSelector.html#EventSelector%27"><span class="hs-identifier hs-type">EventSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196100"><span class="annot"><span class="annottext">Maybe ReadWriteType
 readWriteType :: Maybe ReadWriteType
 $sel:readWriteType:EventSelector' :: EventSelector -&gt; Maybe ReadWriteType
-</span><a href="#local-6989586621679196091"><span class="hs-identifier hs-var hs-var">readWriteType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReadWriteType
-</span><a href="#local-6989586621679196091"><span class="hs-identifier hs-var">readWriteType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196090"><span class="annot"><span class="annottext">s :: EventSelector
-</span><a href="#local-6989586621679196090"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.EventSelector.html#EventSelector%27"><span class="hs-identifier hs-type">EventSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196089"><span class="annot"><span class="annottext">Maybe ReadWriteType
-</span><a href="#local-6989586621679196089"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventSelector
-</span><a href="#local-6989586621679196090"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:readWriteType:EventSelector' :: Maybe ReadWriteType
+</span><a href="#local-6989586621679196100"><span class="hs-identifier hs-var hs-var">readWriteType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReadWriteType
+</span><a href="#local-6989586621679196100"><span class="hs-identifier hs-var">readWriteType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196099"><span class="annot"><span class="annottext">s :: EventSelector
+</span><a href="#local-6989586621679196099"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.EventSelector.html#EventSelector%27"><span class="hs-identifier hs-type">EventSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196098"><span class="annot"><span class="annottext">Maybe ReadWriteType
+</span><a href="#local-6989586621679196098"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventSelector
+</span><a href="#local-6989586621679196099"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:readWriteType:EventSelector' :: Maybe ReadWriteType
 </span><a href="Network.AWS.CloudTrail.Types.EventSelector.html#%24sel%3AreadWriteType%3AEventSelector%27"><span class="hs-identifier hs-var">readWriteType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReadWriteType
-</span><a href="#local-6989586621679196089"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.EventSelector.html#EventSelector"><span class="hs-identifier hs-type">EventSelector</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679196098"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.EventSelector.html#EventSelector"><span class="hs-identifier hs-type">EventSelector</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- | An optional list of service event sources from which you do not want</span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- management events to be logged on your trail. In this release, the list</span><span>
@@ -313,16 +313,16 @@ $sel:readWriteType:EventSelector' :: EventSelector -&gt; Maybe ReadWriteType
 -&gt; (EventSelector -&gt; Maybe [Text] -&gt; EventSelector)
 -&gt; Lens EventSelector EventSelector (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.EventSelector.html#EventSelector%27"><span class="hs-identifier hs-type">EventSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196087"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.EventSelector.html#EventSelector%27"><span class="hs-identifier hs-type">EventSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196096"><span class="annot"><span class="annottext">Maybe [Text]
 excludeManagementEventSources :: Maybe [Text]
 $sel:excludeManagementEventSources:EventSelector' :: EventSelector -&gt; Maybe [Text]
-</span><a href="#local-6989586621679196087"><span class="hs-identifier hs-var hs-var">excludeManagementEventSources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679196087"><span class="hs-identifier hs-var">excludeManagementEventSources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196086"><span class="annot"><span class="annottext">s :: EventSelector
-</span><a href="#local-6989586621679196086"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.EventSelector.html#EventSelector%27"><span class="hs-identifier hs-type">EventSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196085"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679196085"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventSelector
-</span><a href="#local-6989586621679196086"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:excludeManagementEventSources:EventSelector' :: Maybe [Text]
+</span><a href="#local-6989586621679196096"><span class="hs-identifier hs-var hs-var">excludeManagementEventSources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679196096"><span class="hs-identifier hs-var">excludeManagementEventSources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196095"><span class="annot"><span class="annottext">s :: EventSelector
+</span><a href="#local-6989586621679196095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.EventSelector.html#EventSelector%27"><span class="hs-identifier hs-type">EventSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196094"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679196094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventSelector
+</span><a href="#local-6989586621679196095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:excludeManagementEventSources:EventSelector' :: Maybe [Text]
 </span><a href="Network.AWS.CloudTrail.Types.EventSelector.html#%24sel%3AexcludeManagementEventSources%3AEventSelector%27"><span class="hs-identifier hs-var">excludeManagementEventSources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679196085"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.EventSelector.html#EventSelector"><span class="hs-identifier hs-type">EventSelector</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679196094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.EventSelector.html#EventSelector"><span class="hs-identifier hs-type">EventSelector</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; EventSelector -&gt; f EventSelector)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -359,19 +359,19 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (EventSelector -&gt; Maybe Bool -&gt; EventSelector)
 -&gt; Lens EventSelector EventSelector (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.EventSelector.html#EventSelector%27"><span class="hs-identifier hs-type">EventSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196083"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.EventSelector.html#EventSelector%27"><span class="hs-identifier hs-type">EventSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196092"><span class="annot"><span class="annottext">Maybe Bool
 includeManagementEvents :: Maybe Bool
 $sel:includeManagementEvents:EventSelector' :: EventSelector -&gt; Maybe Bool
-</span><a href="#local-6989586621679196083"><span class="hs-identifier hs-var hs-var">includeManagementEvents</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679196083"><span class="hs-identifier hs-var">includeManagementEvents</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196082"><span class="annot"><span class="annottext">s :: EventSelector
-</span><a href="#local-6989586621679196082"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.EventSelector.html#EventSelector%27"><span class="hs-identifier hs-type">EventSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196081"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679196081"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventSelector
-</span><a href="#local-6989586621679196082"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeManagementEvents:EventSelector' :: Maybe Bool
+</span><a href="#local-6989586621679196092"><span class="hs-identifier hs-var hs-var">includeManagementEvents</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679196092"><span class="hs-identifier hs-var">includeManagementEvents</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196091"><span class="annot"><span class="annottext">s :: EventSelector
+</span><a href="#local-6989586621679196091"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.EventSelector.html#EventSelector%27"><span class="hs-identifier hs-type">EventSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196090"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679196090"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventSelector
+</span><a href="#local-6989586621679196091"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeManagementEvents:EventSelector' :: Maybe Bool
 </span><a href="Network.AWS.CloudTrail.Types.EventSelector.html#%24sel%3AincludeManagementEvents%3AEventSelector%27"><span class="hs-identifier hs-var">includeManagementEvents</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679196081"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.EventSelector.html#EventSelector"><span class="hs-identifier hs-type">EventSelector</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679196090"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.EventSelector.html#EventSelector"><span class="hs-identifier hs-type">EventSelector</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-197"></span><span>
-</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196078"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.EventSelector.html#EventSelector"><span class="hs-identifier hs-type">EventSelector</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-199"></span><span>  </span><span id="local-6989586621679196076"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EventSelector
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196087"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.EventSelector.html#EventSelector"><span class="hs-identifier hs-type">EventSelector</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679196085"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EventSelector
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-200"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser EventSelector)
@@ -381,8 +381,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-201"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EventSelector&quot;</span></span><span>
-</span><span id="line-202"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679196073"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679196073"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-202"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679196082"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679196082"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-203"></span><span>          </span><span class="annot"><span class="annottext">Maybe [DataResource]
 -&gt; Maybe ReadWriteType
 -&gt; Maybe [Text]
@@ -400,7 +400,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe [Text] -&gt; Maybe Bool -&gt; EventSelector)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679196073"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [DataResource]))
+</span><a href="#local-6989586621679196082"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [DataResource]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DataResources&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [DataResource]))
@@ -416,7 +416,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe [Text] -&gt; Maybe Bool -&gt; EventSelector)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679196073"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ReadWriteType)
+</span><a href="#local-6989586621679196082"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ReadWriteType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReadWriteType&quot;</span></span><span class="hs-special">)</span><span>
@@ -424,7 +424,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [Text]) -&gt; Parser (Maybe Bool -&gt; EventSelector)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679196073"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679196082"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ExcludeManagementEventSources&quot;</span></span><span>
@@ -439,19 +439,19 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Bool) -&gt; Parser EventSelector
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679196073"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679196082"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IncludeManagementEvents&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-210"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-211"></span><span>
-</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196066"><span id="local-6989586621679196068"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.EventSelector.html#EventSelector"><span class="hs-identifier hs-type">EventSelector</span></a></span></span></span><span>
+</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196075"><span id="local-6989586621679196077"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.EventSelector.html#EventSelector"><span class="hs-identifier hs-type">EventSelector</span></a></span></span></span><span>
 </span><span id="line-213"></span><span>
-</span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196063"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.EventSelector.html#EventSelector"><span class="hs-identifier hs-type">EventSelector</span></a></span></span><span>
+</span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196072"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.EventSelector.html#EventSelector"><span class="hs-identifier hs-type">EventSelector</span></a></span></span><span>
 </span><span id="line-215"></span><span>
-</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196055"><span id="local-6989586621679196057"><span id="local-6989586621679196059"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.EventSelector.html#EventSelector"><span class="hs-identifier hs-type">EventSelector</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-217"></span><span>  </span><span id="local-6989586621679196053"><span class="annot"><span class="annottext">toJSON :: EventSelector -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.EventSelector.html#EventSelector%27"><span class="hs-identifier hs-type">EventSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196048"><span id="local-6989586621679196049"><span id="local-6989586621679196050"><span id="local-6989586621679196051"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196064"><span id="local-6989586621679196066"><span id="local-6989586621679196068"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.EventSelector.html#EventSelector"><span class="hs-identifier hs-type">EventSelector</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621679196062"><span class="annot"><span class="annottext">toJSON :: EventSelector -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.EventSelector.html#EventSelector%27"><span class="hs-identifier hs-type">EventSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196057"><span id="local-6989586621679196058"><span id="local-6989586621679196059"><span id="local-6989586621679196060"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [Text]
 Maybe [DataResource]
 Maybe ReadWriteType
@@ -463,7 +463,7 @@ $sel:includeManagementEvents:EventSelector' :: EventSelector -&gt; Maybe Bool
 $sel:excludeManagementEventSources:EventSelector' :: EventSelector -&gt; Maybe [Text]
 $sel:readWriteType:EventSelector' :: EventSelector -&gt; Maybe ReadWriteType
 $sel:dataResources:EventSelector' :: EventSelector -&gt; Maybe [DataResource]
-</span><a href="#local-6989586621679196048"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679196057"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-218"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-219"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -475,14 +475,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([DataResource] -&gt; Pair) -&gt; Maybe [DataResource] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [DataResource]
-</span><a href="#local-6989586621679196051"><span class="hs-identifier hs-var">dataResources</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679196060"><span class="hs-identifier hs-var">dataResources</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-221"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReadWriteType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ReadWriteType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ReadWriteType -&gt; Pair) -&gt; Maybe ReadWriteType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ReadWriteType
-</span><a href="#local-6989586621679196050"><span class="hs-identifier hs-var">readWriteType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679196059"><span class="hs-identifier hs-var">readWriteType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-222"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ExcludeManagementEventSources&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -490,7 +490,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-223"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679196049"><span class="hs-identifier hs-var">excludeManagementEventSources</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679196058"><span class="hs-identifier hs-var">excludeManagementEventSources</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-224"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IncludeManagementEvents&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -498,7 +498,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-225"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679196048"><span class="hs-identifier hs-var">includeManagementEvents</span></a></span><span>
+</span><a href="#local-6989586621679196057"><span class="hs-identifier hs-var">includeManagementEvents</span></a></span><span>
 </span><span id="line-226"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-227"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-228"></span></pre></body></html>

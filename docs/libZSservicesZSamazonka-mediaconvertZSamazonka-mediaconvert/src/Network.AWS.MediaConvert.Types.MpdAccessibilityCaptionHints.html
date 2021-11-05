@@ -35,13 +35,13 @@
 </span><span id="line-35"></span><span class="hs-comment">-- and play embedded 608 captions. Keep the default value, Exclude</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- (EXCLUDE), to leave these elements out. When you enable this setting,</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- this is the markup that MediaConvert includes in your manifest:</span><span>
-</span><span id="line-38"></span><span id="local-6989586621679991335"><span id="local-6989586621679991336"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MpdAccessibilityCaptionHints"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdAccessibilityCaptionHints.html#MpdAccessibilityCaptionHints"><span class="hs-identifier hs-var">MpdAccessibilityCaptionHints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MpdAccessibilityCaptionHints%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdAccessibilityCaptionHints.html#MpdAccessibilityCaptionHints%27"><span class="hs-identifier hs-var">MpdAccessibilityCaptionHints'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679991344"><span id="local-6989586621679991345"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MpdAccessibilityCaptionHints"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdAccessibilityCaptionHints.html#MpdAccessibilityCaptionHints"><span class="hs-identifier hs-var">MpdAccessibilityCaptionHints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MpdAccessibilityCaptionHints%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MpdAccessibilityCaptionHints.html#MpdAccessibilityCaptionHints%27"><span class="hs-identifier hs-var">MpdAccessibilityCaptionHints'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMpdAccessibilityCaptionHints"><span class="annot"><span class="annottext">MpdAccessibilityCaptionHints -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.MpdAccessibilityCaptionHints.html#fromMpdAccessibilityCaptionHints"><span class="hs-identifier hs-var hs-var">fromMpdAccessibilityCaptionHints</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679991327"><span id="local-6989586621679991329"><span id="local-6989586621679991331"><span class="annot"><span class="annottext">Int -&gt; MpdAccessibilityCaptionHints -&gt; ShowS
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679991336"><span id="local-6989586621679991338"><span id="local-6989586621679991340"><span class="annot"><span class="annottext">Int -&gt; MpdAccessibilityCaptionHints -&gt; ShowS
 [MpdAccessibilityCaptionHints] -&gt; ShowS
 MpdAccessibilityCaptionHints -&gt; String
 (Int -&gt; MpdAccessibilityCaptionHints -&gt; ShowS)
@@ -57,7 +57,7 @@ $cshow :: MpdAccessibilityCaptionHints -&gt; String
 showsPrec :: Int -&gt; MpdAccessibilityCaptionHints -&gt; ShowS
 $cshowsPrec :: Int -&gt; MpdAccessibilityCaptionHints -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679991318"><span id="local-6989586621679991320"><span id="local-6989586621679991322"><span id="local-6989586621679991324"><span class="annot"><span class="annottext">ReadPrec [MpdAccessibilityCaptionHints]
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679991327"><span id="local-6989586621679991329"><span id="local-6989586621679991331"><span id="local-6989586621679991333"><span class="annot"><span class="annottext">ReadPrec [MpdAccessibilityCaptionHints]
 ReadPrec MpdAccessibilityCaptionHints
 Int -&gt; ReadS MpdAccessibilityCaptionHints
 ReadS [MpdAccessibilityCaptionHints]
@@ -78,7 +78,7 @@ $creadList :: ReadS [MpdAccessibilityCaptionHints]
 readsPrec :: Int -&gt; ReadS MpdAccessibilityCaptionHints
 $creadsPrec :: Int -&gt; ReadS MpdAccessibilityCaptionHints
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679991313"><span id="local-6989586621679991315"><span class="annot"><span class="annottext">MpdAccessibilityCaptionHints
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679991322"><span id="local-6989586621679991324"><span class="annot"><span class="annottext">MpdAccessibilityCaptionHints
 -&gt; MpdAccessibilityCaptionHints -&gt; Bool
 (MpdAccessibilityCaptionHints
  -&gt; MpdAccessibilityCaptionHints -&gt; Bool)
@@ -95,7 +95,7 @@ $c/= :: MpdAccessibilityCaptionHints
 $c== :: MpdAccessibilityCaptionHints
 -&gt; MpdAccessibilityCaptionHints -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679991297"><span id="local-6989586621679991299"><span id="local-6989586621679991301"><span id="local-6989586621679991303"><span id="local-6989586621679991305"><span id="local-6989586621679991307"><span id="local-6989586621679991309"><span class="annot"><span class="annottext">Eq MpdAccessibilityCaptionHints
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679991306"><span id="local-6989586621679991308"><span id="local-6989586621679991310"><span id="local-6989586621679991312"><span id="local-6989586621679991314"><span id="local-6989586621679991316"><span id="local-6989586621679991318"><span class="annot"><span class="annottext">Eq MpdAccessibilityCaptionHints
 Eq MpdAccessibilityCaptionHints
 -&gt; (MpdAccessibilityCaptionHints
     -&gt; MpdAccessibilityCaptionHints -&gt; Ordering)
@@ -176,7 +176,7 @@ MpdAccessibilityCaptionHints -&gt; Rep MpdAccessibilityCaptionHints x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679991289"><span id="local-6989586621679991291"><span class="annot"><span class="annottext">Int -&gt; MpdAccessibilityCaptionHints -&gt; Int
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679991298"><span id="local-6989586621679991300"><span class="annot"><span class="annottext">Int -&gt; MpdAccessibilityCaptionHints -&gt; Int
 MpdAccessibilityCaptionHints -&gt; Int
 (Int -&gt; MpdAccessibilityCaptionHints -&gt; Int)
 -&gt; (MpdAccessibilityCaptionHints -&gt; Int)
@@ -187,56 +187,56 @@ $chash :: MpdAccessibilityCaptionHints -&gt; Int
 hashWithSalt :: Int -&gt; MpdAccessibilityCaptionHints -&gt; Int
 $chashWithSalt :: Int -&gt; MpdAccessibilityCaptionHints -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679991286"><span class="annot"><span class="annottext">MpdAccessibilityCaptionHints -&gt; ()
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679991295"><span class="annot"><span class="annottext">MpdAccessibilityCaptionHints -&gt; ()
 (MpdAccessibilityCaptionHints -&gt; ())
 -&gt; NFData MpdAccessibilityCaptionHints
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: MpdAccessibilityCaptionHints -&gt; ()
 $crnf :: MpdAccessibilityCaptionHints -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679991283"><span class="annot"><span class="annottext">Text -&gt; Either String MpdAccessibilityCaptionHints
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679991292"><span class="annot"><span class="annottext">Text -&gt; Either String MpdAccessibilityCaptionHints
 (Text -&gt; Either String MpdAccessibilityCaptionHints)
 -&gt; FromText MpdAccessibilityCaptionHints
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String MpdAccessibilityCaptionHints
 $cfromText :: Text -&gt; Either String MpdAccessibilityCaptionHints
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679991280"><span class="annot"><span class="annottext">MpdAccessibilityCaptionHints -&gt; Text
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679991289"><span class="annot"><span class="annottext">MpdAccessibilityCaptionHints -&gt; Text
 (MpdAccessibilityCaptionHints -&gt; Text)
 -&gt; ToText MpdAccessibilityCaptionHints
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: MpdAccessibilityCaptionHints -&gt; Text
 $ctoText :: MpdAccessibilityCaptionHints -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679991277"><span class="annot"><span class="annottext">MpdAccessibilityCaptionHints -&gt; ByteString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679991286"><span class="annot"><span class="annottext">MpdAccessibilityCaptionHints -&gt; ByteString
 (MpdAccessibilityCaptionHints -&gt; ByteString)
 -&gt; ToByteString MpdAccessibilityCaptionHints
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: MpdAccessibilityCaptionHints -&gt; ByteString
 $ctoBS :: MpdAccessibilityCaptionHints -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679991274"><span class="annot"><span class="annottext">MpdAccessibilityCaptionHints -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679991283"><span class="annot"><span class="annottext">MpdAccessibilityCaptionHints -&gt; ByteStringBuilder
 (MpdAccessibilityCaptionHints -&gt; ByteStringBuilder)
 -&gt; ToLog MpdAccessibilityCaptionHints
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: MpdAccessibilityCaptionHints -&gt; ByteStringBuilder
 $cbuild :: MpdAccessibilityCaptionHints -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679991271"><span class="annot"><span class="annottext">HeaderName -&gt; MpdAccessibilityCaptionHints -&gt; [Header]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679991280"><span class="annot"><span class="annottext">HeaderName -&gt; MpdAccessibilityCaptionHints -&gt; [Header]
 (HeaderName -&gt; MpdAccessibilityCaptionHints -&gt; [Header])
 -&gt; ToHeader MpdAccessibilityCaptionHints
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; MpdAccessibilityCaptionHints -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; MpdAccessibilityCaptionHints -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679991268"><span class="annot"><span class="annottext">MpdAccessibilityCaptionHints -&gt; QueryString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679991277"><span class="annot"><span class="annottext">MpdAccessibilityCaptionHints -&gt; QueryString
 (MpdAccessibilityCaptionHints -&gt; QueryString)
 -&gt; ToQuery MpdAccessibilityCaptionHints
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: MpdAccessibilityCaptionHints -&gt; QueryString
 $ctoQuery :: MpdAccessibilityCaptionHints -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679991263"><span id="local-6989586621679991265"><span class="annot"><span class="annottext">Value -&gt; Parser [MpdAccessibilityCaptionHints]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679991272"><span id="local-6989586621679991274"><span class="annot"><span class="annottext">Value -&gt; Parser [MpdAccessibilityCaptionHints]
 Value -&gt; Parser MpdAccessibilityCaptionHints
 (Value -&gt; Parser MpdAccessibilityCaptionHints)
 -&gt; (Value -&gt; Parser [MpdAccessibilityCaptionHints])
@@ -248,7 +248,7 @@ $cparseJSONList :: Value -&gt; Parser [MpdAccessibilityCaptionHints]
 parseJSON :: Value -&gt; Parser MpdAccessibilityCaptionHints
 $cparseJSON :: Value -&gt; Parser MpdAccessibilityCaptionHints
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679991258"><span id="local-6989586621679991260"><span class="annot"><span class="annottext">FromJSONKeyFunction [MpdAccessibilityCaptionHints]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679991267"><span id="local-6989586621679991269"><span class="annot"><span class="annottext">FromJSONKeyFunction [MpdAccessibilityCaptionHints]
 FromJSONKeyFunction MpdAccessibilityCaptionHints
 FromJSONKeyFunction MpdAccessibilityCaptionHints
 -&gt; FromJSONKeyFunction [MpdAccessibilityCaptionHints]
@@ -260,7 +260,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [MpdAccessibilityCaptionHints]
 fromJSONKey :: FromJSONKeyFunction MpdAccessibilityCaptionHints
 $cfromJSONKey :: FromJSONKeyFunction MpdAccessibilityCaptionHints
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679991249"><span id="local-6989586621679991251"><span id="local-6989586621679991253"><span id="local-6989586621679991255"><span class="annot"><span class="annottext">[MpdAccessibilityCaptionHints] -&gt; Encoding
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679991258"><span id="local-6989586621679991260"><span id="local-6989586621679991262"><span id="local-6989586621679991264"><span class="annot"><span class="annottext">[MpdAccessibilityCaptionHints] -&gt; Encoding
 [MpdAccessibilityCaptionHints] -&gt; Value
 MpdAccessibilityCaptionHints -&gt; Encoding
 MpdAccessibilityCaptionHints -&gt; Value
@@ -284,7 +284,7 @@ $ctoEncoding :: MpdAccessibilityCaptionHints -&gt; Encoding
 toJSON :: MpdAccessibilityCaptionHints -&gt; Value
 $ctoJSON :: MpdAccessibilityCaptionHints -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679991244"><span id="local-6989586621679991246"><span class="annot"><span class="annottext">ToJSONKeyFunction [MpdAccessibilityCaptionHints]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679991253"><span id="local-6989586621679991255"><span class="annot"><span class="annottext">ToJSONKeyFunction [MpdAccessibilityCaptionHints]
 ToJSONKeyFunction MpdAccessibilityCaptionHints
 ToJSONKeyFunction MpdAccessibilityCaptionHints
 -&gt; ToJSONKeyFunction [MpdAccessibilityCaptionHints]
@@ -296,14 +296,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [MpdAccessibilityCaptionHints]
 toJSONKey :: ToJSONKeyFunction MpdAccessibilityCaptionHints
 $ctoJSONKey :: ToJSONKeyFunction MpdAccessibilityCaptionHints
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679991241"><span class="annot"><span class="annottext">[Node] -&gt; Either String MpdAccessibilityCaptionHints
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679991250"><span class="annot"><span class="annottext">[Node] -&gt; Either String MpdAccessibilityCaptionHints
 ([Node] -&gt; Either String MpdAccessibilityCaptionHints)
 -&gt; FromXML MpdAccessibilityCaptionHints
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String MpdAccessibilityCaptionHints
 $cparseXML :: [Node] -&gt; Either String MpdAccessibilityCaptionHints
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679991238"><span class="annot"><span class="annottext">MpdAccessibilityCaptionHints -&gt; XML
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679991247"><span class="annot"><span class="annottext">MpdAccessibilityCaptionHints -&gt; XML
 (MpdAccessibilityCaptionHints -&gt; XML)
 -&gt; ToXML MpdAccessibilityCaptionHints
 forall a. (a -&gt; XML) -&gt; ToXML a

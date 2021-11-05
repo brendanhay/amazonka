@@ -1,0 +1,450 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoTSiteWise.Types.AssetProperty</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTSiteWise.Types.AssetProperty</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PropertyDataType.html"><span class="hs-identifier">Network.AWS.IoTSiteWise.Types.PropertyDataType</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PropertyNotification.html"><span class="hs-identifier">Network.AWS.IoTSiteWise.Types.PropertyNotification</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Contains asset property information.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newAssetProperty' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679342899"><span id="local-6989586621679342900"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssetProperty"><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#AssetProperty"><span class="hs-identifier hs-var">AssetProperty</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssetProperty%27"><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#AssetProperty%27"><span class="hs-identifier hs-var">AssetProperty'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The data type of the structure for this property. This parameter exists</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- on properties that have the @STRUCT@ data type.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AdataTypeSpec%3AAssetProperty%27"><span class="annot"><span class="annottext">AssetProperty -&gt; Maybe Text
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#%24sel%3AdataTypeSpec%3AAssetProperty%27"><span class="hs-identifier hs-var hs-var">dataTypeSpec</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The asset property\'s notification topic and state. For more</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html UpdateAssetProperty&gt;.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Anotification%3AAssetProperty%27"><span class="annot"><span class="annottext">AssetProperty -&gt; Maybe PropertyNotification
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#%24sel%3Anotification%3AAssetProperty%27"><span class="hs-identifier hs-var hs-var">notification</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PropertyNotification.html#PropertyNotification"><span class="hs-identifier hs-type">PropertyNotification</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The alias that identifies the property, such as an OPC-UA server data</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- stream path (for example,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- @\/company\/windfarm\/3\/turbine\/7\/temperature@). For more</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html Mapping industrial data streams to asset properties&gt;</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- in the /IoT SiteWise User Guide/.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Aalias%3AAssetProperty%27"><span class="annot"><span class="annottext">AssetProperty -&gt; Maybe Text
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#%24sel%3Aalias%3AAssetProperty%27"><span class="hs-identifier hs-var hs-var">alias</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The unit (such as @Newtons@ or @RPM@) of the asset property.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Aunit%3AAssetProperty%27"><span class="annot"><span class="annottext">AssetProperty -&gt; Maybe Text
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#%24sel%3Aunit%3AAssetProperty%27"><span class="hs-keyword hs-var hs-var">unit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The ID of the asset property.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Aid%3AAssetProperty%27"><span class="annot"><span class="annottext">AssetProperty -&gt; Text
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#%24sel%3Aid%3AAssetProperty%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The name of the property.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Aname%3AAssetProperty%27"><span class="annot"><span class="annottext">AssetProperty -&gt; Text
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#%24sel%3Aname%3AAssetProperty%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The data type of the asset property.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AdataType%3AAssetProperty%27"><span class="annot"><span class="annottext">AssetProperty -&gt; PropertyDataType
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#%24sel%3AdataType%3AAssetProperty%27"><span class="hs-identifier hs-var hs-var">dataType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PropertyDataType.html#PropertyDataType"><span class="hs-identifier hs-type">PropertyDataType</span></a></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679342887"><span id="local-6989586621679342889"><span class="annot"><span class="annottext">AssetProperty -&gt; AssetProperty -&gt; Bool
+(AssetProperty -&gt; AssetProperty -&gt; Bool)
+-&gt; (AssetProperty -&gt; AssetProperty -&gt; Bool) -&gt; Eq AssetProperty
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssetProperty -&gt; AssetProperty -&gt; Bool
+$c/= :: AssetProperty -&gt; AssetProperty -&gt; Bool
+== :: AssetProperty -&gt; AssetProperty -&gt; Bool
+$c== :: AssetProperty -&gt; AssetProperty -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342878"><span id="local-6989586621679342880"><span id="local-6989586621679342882"><span id="local-6989586621679342884"><span class="annot"><span class="annottext">ReadPrec [AssetProperty]
+ReadPrec AssetProperty
+Int -&gt; ReadS AssetProperty
+ReadS [AssetProperty]
+(Int -&gt; ReadS AssetProperty)
+-&gt; ReadS [AssetProperty]
+-&gt; ReadPrec AssetProperty
+-&gt; ReadPrec [AssetProperty]
+-&gt; Read AssetProperty
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssetProperty]
+$creadListPrec :: ReadPrec [AssetProperty]
+readPrec :: ReadPrec AssetProperty
+$creadPrec :: ReadPrec AssetProperty
+readList :: ReadS [AssetProperty]
+$creadList :: ReadS [AssetProperty]
+readsPrec :: Int -&gt; ReadS AssetProperty
+$creadsPrec :: Int -&gt; ReadS AssetProperty
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342871"><span id="local-6989586621679342873"><span id="local-6989586621679342875"><span class="annot"><span class="annottext">Int -&gt; AssetProperty -&gt; ShowS
+[AssetProperty] -&gt; ShowS
+AssetProperty -&gt; String
+(Int -&gt; AssetProperty -&gt; ShowS)
+-&gt; (AssetProperty -&gt; String)
+-&gt; ([AssetProperty] -&gt; ShowS)
+-&gt; Show AssetProperty
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssetProperty] -&gt; ShowS
+$cshowList :: [AssetProperty] -&gt; ShowS
+show :: AssetProperty -&gt; String
+$cshow :: AssetProperty -&gt; String
+showsPrec :: Int -&gt; AssetProperty -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssetProperty -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AssetProperty -&gt; Rep AssetProperty x)
+-&gt; (forall x. Rep AssetProperty x -&gt; AssetProperty)
+-&gt; Generic AssetProperty
+forall x. Rep AssetProperty x -&gt; AssetProperty
+forall x. AssetProperty -&gt; Rep AssetProperty x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AssetProperty x -&gt; AssetProperty
+$cfrom :: forall x. AssetProperty -&gt; Rep AssetProperty x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'AssetProperty' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'dataTypeSpec', 'assetProperty_dataTypeSpec' - The data type of the structure for this property. This parameter exists</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- on properties that have the @STRUCT@ data type.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'notification', 'assetProperty_notification' - The asset property\'s notification topic and state. For more</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html UpdateAssetProperty&gt;.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'alias', 'assetProperty_alias' - The alias that identifies the property, such as an OPC-UA server data</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- stream path (for example,</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- @\/company\/windfarm\/3\/turbine\/7\/temperature@). For more</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html Mapping industrial data streams to asset properties&gt;</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- in the /IoT SiteWise User Guide/.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'unit', 'assetProperty_unit' - The unit (such as @Newtons@ or @RPM@) of the asset property.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'id', 'assetProperty_id' - The ID of the asset property.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'name', 'assetProperty_name' - The name of the property.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'dataType', 'assetProperty_dataType' - The data type of the asset property.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#newAssetProperty"><span class="hs-identifier hs-type">newAssetProperty</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-comment">-- | 'dataType'</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PropertyDataType.html#PropertyDataType"><span class="hs-identifier hs-type">PropertyDataType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#AssetProperty"><span class="hs-identifier hs-type">AssetProperty</span></a></span><span>
+</span><span id="line-94"></span><span id="newAssetProperty"><span class="annot"><span class="annottext">newAssetProperty :: Text -&gt; Text -&gt; PropertyDataType -&gt; AssetProperty
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#newAssetProperty"><span class="hs-identifier hs-var hs-var">newAssetProperty</span></a></span></span><span> </span><span id="local-6989586621679342865"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679342865"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span id="local-6989586621679342864"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679342864"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679342863"><span class="annot"><span class="annottext">PropertyDataType
+</span><a href="#local-6989586621679342863"><span class="hs-identifier hs-var">pDataType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="annottext">AssetProperty' :: Maybe Text
+-&gt; Maybe PropertyNotification
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; PropertyDataType
+-&gt; AssetProperty
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#AssetProperty%27"><span class="hs-identifier hs-type">AssetProperty'</span></a></span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dataTypeSpec:AssetProperty' :: Maybe Text
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#%24sel%3AdataTypeSpec%3AAssetProperty%27"><span class="hs-identifier hs-var">dataTypeSpec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:notification:AssetProperty' :: Maybe PropertyNotification
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#%24sel%3Anotification%3AAssetProperty%27"><span class="hs-identifier hs-var">notification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PropertyNotification
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:alias:AssetProperty' :: Maybe Text
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#%24sel%3Aalias%3AAssetProperty%27"><span class="hs-identifier hs-var">alias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:unit:AssetProperty' :: Maybe Text
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#%24sel%3Aunit%3AAssetProperty%27"><span class="hs-keyword hs-var">unit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:AssetProperty' :: Text
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#%24sel%3Aid%3AAssetProperty%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679342865"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:AssetProperty' :: Text
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#%24sel%3Aname%3AAssetProperty%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679342864"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataType:AssetProperty' :: PropertyDataType
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#%24sel%3AdataType%3AAssetProperty%27"><span class="hs-identifier hs-var">dataType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PropertyDataType
+</span><a href="#local-6989586621679342863"><span class="hs-identifier hs-var">pDataType_</span></a></span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The data type of the structure for this property. This parameter exists</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- on properties that have the @STRUCT@ data type.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#assetProperty_dataTypeSpec"><span class="hs-identifier hs-type">assetProperty_dataTypeSpec</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#AssetProperty"><span class="hs-identifier hs-type">AssetProperty</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="assetProperty_dataTypeSpec"><span class="annot"><span class="annottext">assetProperty_dataTypeSpec :: (Maybe Text -&gt; f (Maybe Text)) -&gt; AssetProperty -&gt; f AssetProperty
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#assetProperty_dataTypeSpec"><span class="hs-identifier hs-var hs-var">assetProperty_dataTypeSpec</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssetProperty -&gt; Maybe Text)
+-&gt; (AssetProperty -&gt; Maybe Text -&gt; AssetProperty)
+-&gt; Lens AssetProperty AssetProperty (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#AssetProperty%27"><span class="hs-identifier hs-type">AssetProperty'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342859"><span class="annot"><span class="annottext">Maybe Text
+dataTypeSpec :: Maybe Text
+$sel:dataTypeSpec:AssetProperty' :: AssetProperty -&gt; Maybe Text
+</span><a href="#local-6989586621679342859"><span class="hs-identifier hs-var hs-var">dataTypeSpec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342859"><span class="hs-identifier hs-var">dataTypeSpec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342858"><span class="annot"><span class="annottext">s :: AssetProperty
+</span><a href="#local-6989586621679342858"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#AssetProperty%27"><span class="hs-identifier hs-type">AssetProperty'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342857"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342857"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetProperty
+</span><a href="#local-6989586621679342858"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataTypeSpec:AssetProperty' :: Maybe Text
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#%24sel%3AdataTypeSpec%3AAssetProperty%27"><span class="hs-identifier hs-var">dataTypeSpec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342857"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#AssetProperty"><span class="hs-identifier hs-type">AssetProperty</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The asset property\'s notification topic and state. For more</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html UpdateAssetProperty&gt;.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#assetProperty_notification"><span class="hs-identifier hs-type">assetProperty_notification</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#AssetProperty"><span class="hs-identifier hs-type">AssetProperty</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PropertyNotification.html#PropertyNotification"><span class="hs-identifier hs-type">PropertyNotification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="assetProperty_notification"><span class="annot"><span class="annottext">assetProperty_notification :: (Maybe PropertyNotification -&gt; f (Maybe PropertyNotification))
+-&gt; AssetProperty -&gt; f AssetProperty
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#assetProperty_notification"><span class="hs-identifier hs-var hs-var">assetProperty_notification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssetProperty -&gt; Maybe PropertyNotification)
+-&gt; (AssetProperty -&gt; Maybe PropertyNotification -&gt; AssetProperty)
+-&gt; Lens
+     AssetProperty
+     AssetProperty
+     (Maybe PropertyNotification)
+     (Maybe PropertyNotification)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#AssetProperty%27"><span class="hs-identifier hs-type">AssetProperty'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342855"><span class="annot"><span class="annottext">Maybe PropertyNotification
+notification :: Maybe PropertyNotification
+$sel:notification:AssetProperty' :: AssetProperty -&gt; Maybe PropertyNotification
+</span><a href="#local-6989586621679342855"><span class="hs-identifier hs-var hs-var">notification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PropertyNotification
+</span><a href="#local-6989586621679342855"><span class="hs-identifier hs-var">notification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342854"><span class="annot"><span class="annottext">s :: AssetProperty
+</span><a href="#local-6989586621679342854"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#AssetProperty%27"><span class="hs-identifier hs-type">AssetProperty'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342853"><span class="annot"><span class="annottext">Maybe PropertyNotification
+</span><a href="#local-6989586621679342853"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetProperty
+</span><a href="#local-6989586621679342854"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notification:AssetProperty' :: Maybe PropertyNotification
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#%24sel%3Anotification%3AAssetProperty%27"><span class="hs-identifier hs-var">notification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PropertyNotification
+</span><a href="#local-6989586621679342853"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#AssetProperty"><span class="hs-identifier hs-type">AssetProperty</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The alias that identifies the property, such as an OPC-UA server data</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- stream path (for example,</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- @\/company\/windfarm\/3\/turbine\/7\/temperature@). For more</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html Mapping industrial data streams to asset properties&gt;</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- in the /IoT SiteWise User Guide/.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#assetProperty_alias"><span class="hs-identifier hs-type">assetProperty_alias</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#AssetProperty"><span class="hs-identifier hs-type">AssetProperty</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="assetProperty_alias"><span class="annot"><span class="annottext">assetProperty_alias :: (Maybe Text -&gt; f (Maybe Text)) -&gt; AssetProperty -&gt; f AssetProperty
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#assetProperty_alias"><span class="hs-identifier hs-var hs-var">assetProperty_alias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssetProperty -&gt; Maybe Text)
+-&gt; (AssetProperty -&gt; Maybe Text -&gt; AssetProperty)
+-&gt; Lens AssetProperty AssetProperty (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#AssetProperty%27"><span class="hs-identifier hs-type">AssetProperty'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342851"><span class="annot"><span class="annottext">Maybe Text
+alias :: Maybe Text
+$sel:alias:AssetProperty' :: AssetProperty -&gt; Maybe Text
+</span><a href="#local-6989586621679342851"><span class="hs-identifier hs-var hs-var">alias</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342851"><span class="hs-identifier hs-var">alias</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342850"><span class="annot"><span class="annottext">s :: AssetProperty
+</span><a href="#local-6989586621679342850"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#AssetProperty%27"><span class="hs-identifier hs-type">AssetProperty'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342849"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342849"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetProperty
+</span><a href="#local-6989586621679342850"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alias:AssetProperty' :: Maybe Text
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#%24sel%3Aalias%3AAssetProperty%27"><span class="hs-identifier hs-var">alias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342849"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#AssetProperty"><span class="hs-identifier hs-type">AssetProperty</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The unit (such as @Newtons@ or @RPM@) of the asset property.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#assetProperty_unit"><span class="hs-identifier hs-type">assetProperty_unit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#AssetProperty"><span class="hs-identifier hs-type">AssetProperty</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="assetProperty_unit"><span class="annot"><span class="annottext">assetProperty_unit :: (Maybe Text -&gt; f (Maybe Text)) -&gt; AssetProperty -&gt; f AssetProperty
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#assetProperty_unit"><span class="hs-identifier hs-var hs-var">assetProperty_unit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssetProperty -&gt; Maybe Text)
+-&gt; (AssetProperty -&gt; Maybe Text -&gt; AssetProperty)
+-&gt; Lens AssetProperty AssetProperty (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#AssetProperty%27"><span class="hs-identifier hs-type">AssetProperty'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342847"><span class="annot"><span class="annottext">Maybe Text
+unit :: Maybe Text
+$sel:unit:AssetProperty' :: AssetProperty -&gt; Maybe Text
+</span><a href="#local-6989586621679342847"><span class="hs-keyword hs-var hs-var">unit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342847"><span class="hs-keyword hs-var">unit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342846"><span class="annot"><span class="annottext">s :: AssetProperty
+</span><a href="#local-6989586621679342846"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#AssetProperty%27"><span class="hs-identifier hs-type">AssetProperty'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342845"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342845"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetProperty
+</span><a href="#local-6989586621679342846"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unit:AssetProperty' :: Maybe Text
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#%24sel%3Aunit%3AAssetProperty%27"><span class="hs-keyword hs-var">unit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342845"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#AssetProperty"><span class="hs-identifier hs-type">AssetProperty</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The ID of the asset property.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#assetProperty_id"><span class="hs-identifier hs-type">assetProperty_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#AssetProperty"><span class="hs-identifier hs-type">AssetProperty</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-131"></span><span id="assetProperty_id"><span class="annot"><span class="annottext">assetProperty_id :: (Text -&gt; f Text) -&gt; AssetProperty -&gt; f AssetProperty
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#assetProperty_id"><span class="hs-identifier hs-var hs-var">assetProperty_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssetProperty -&gt; Text)
+-&gt; (AssetProperty -&gt; Text -&gt; AssetProperty)
+-&gt; Lens AssetProperty AssetProperty Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#AssetProperty%27"><span class="hs-identifier hs-type">AssetProperty'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342843"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:AssetProperty' :: AssetProperty -&gt; Text
+</span><a href="#local-6989586621679342843"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679342843"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342842"><span class="annot"><span class="annottext">s :: AssetProperty
+</span><a href="#local-6989586621679342842"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#AssetProperty%27"><span class="hs-identifier hs-type">AssetProperty'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342841"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679342841"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetProperty
+</span><a href="#local-6989586621679342842"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:AssetProperty' :: Text
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#%24sel%3Aid%3AAssetProperty%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679342841"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#AssetProperty"><span class="hs-identifier hs-type">AssetProperty</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The name of the property.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#assetProperty_name"><span class="hs-identifier hs-type">assetProperty_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#AssetProperty"><span class="hs-identifier hs-type">AssetProperty</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-135"></span><span id="assetProperty_name"><span class="annot"><span class="annottext">assetProperty_name :: (Text -&gt; f Text) -&gt; AssetProperty -&gt; f AssetProperty
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#assetProperty_name"><span class="hs-identifier hs-var hs-var">assetProperty_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssetProperty -&gt; Text)
+-&gt; (AssetProperty -&gt; Text -&gt; AssetProperty)
+-&gt; Lens AssetProperty AssetProperty Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#AssetProperty%27"><span class="hs-identifier hs-type">AssetProperty'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342839"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:AssetProperty' :: AssetProperty -&gt; Text
+</span><a href="#local-6989586621679342839"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679342839"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342838"><span class="annot"><span class="annottext">s :: AssetProperty
+</span><a href="#local-6989586621679342838"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#AssetProperty%27"><span class="hs-identifier hs-type">AssetProperty'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342837"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679342837"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetProperty
+</span><a href="#local-6989586621679342838"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:AssetProperty' :: Text
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#%24sel%3Aname%3AAssetProperty%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679342837"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#AssetProperty"><span class="hs-identifier hs-type">AssetProperty</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The data type of the asset property.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#assetProperty_dataType"><span class="hs-identifier hs-type">assetProperty_dataType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#AssetProperty"><span class="hs-identifier hs-type">AssetProperty</span></a></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PropertyDataType.html#PropertyDataType"><span class="hs-identifier hs-type">PropertyDataType</span></a></span><span>
+</span><span id="line-139"></span><span id="assetProperty_dataType"><span class="annot"><span class="annottext">assetProperty_dataType :: (PropertyDataType -&gt; f PropertyDataType)
+-&gt; AssetProperty -&gt; f AssetProperty
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#assetProperty_dataType"><span class="hs-identifier hs-var hs-var">assetProperty_dataType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssetProperty -&gt; PropertyDataType)
+-&gt; (AssetProperty -&gt; PropertyDataType -&gt; AssetProperty)
+-&gt; Lens
+     AssetProperty AssetProperty PropertyDataType PropertyDataType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#AssetProperty%27"><span class="hs-identifier hs-type">AssetProperty'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342835"><span class="annot"><span class="annottext">PropertyDataType
+dataType :: PropertyDataType
+$sel:dataType:AssetProperty' :: AssetProperty -&gt; PropertyDataType
+</span><a href="#local-6989586621679342835"><span class="hs-identifier hs-var hs-var">dataType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PropertyDataType
+</span><a href="#local-6989586621679342835"><span class="hs-identifier hs-var">dataType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342834"><span class="annot"><span class="annottext">s :: AssetProperty
+</span><a href="#local-6989586621679342834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#AssetProperty%27"><span class="hs-identifier hs-type">AssetProperty'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342833"><span class="annot"><span class="annottext">PropertyDataType
+</span><a href="#local-6989586621679342833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetProperty
+</span><a href="#local-6989586621679342834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataType:AssetProperty' :: PropertyDataType
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#%24sel%3AdataType%3AAssetProperty%27"><span class="hs-identifier hs-var">dataType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PropertyDataType
+</span><a href="#local-6989586621679342833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#AssetProperty"><span class="hs-identifier hs-type">AssetProperty</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342830"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#AssetProperty"><span class="hs-identifier hs-type">AssetProperty</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679342828"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AssetProperty
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AssetProperty)
+-&gt; Value
+-&gt; Parser AssetProperty
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AssetProperty&quot;</span></span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679342825"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679342825"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-146"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe PropertyNotification
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; PropertyDataType
+-&gt; AssetProperty
+</span><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#AssetProperty%27"><span class="hs-identifier hs-var">AssetProperty'</span></a></span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe PropertyNotification
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; PropertyDataType
+ -&gt; AssetProperty)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe PropertyNotification
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; PropertyDataType
+      -&gt; AssetProperty)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679342825"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dataTypeSpec&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe PropertyNotification
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; PropertyDataType
+   -&gt; AssetProperty)
+-&gt; Parser (Maybe PropertyNotification)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; PropertyDataType -&gt; AssetProperty)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679342825"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PropertyNotification)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;notification&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; PropertyDataType -&gt; AssetProperty)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Text -&gt; Text -&gt; PropertyDataType -&gt; AssetProperty)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679342825"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;alias&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Text -&gt; Text -&gt; PropertyDataType -&gt; AssetProperty)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Text -&gt; Text -&gt; PropertyDataType -&gt; AssetProperty)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679342825"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;unit&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; PropertyDataType -&gt; AssetProperty)
+-&gt; Parser Text
+-&gt; Parser (Text -&gt; PropertyDataType -&gt; AssetProperty)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679342825"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; PropertyDataType -&gt; AssetProperty)
+-&gt; Parser Text -&gt; Parser (PropertyDataType -&gt; AssetProperty)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679342825"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Parser (PropertyDataType -&gt; AssetProperty)
+-&gt; Parser PropertyDataType -&gt; Parser AssetProperty
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679342825"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser PropertyDataType
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dataType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342818"><span id="local-6989586621679342820"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#AssetProperty"><span class="hs-identifier hs-type">AssetProperty</span></a></span></span></span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342815"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.AssetProperty.html#AssetProperty"><span class="hs-identifier hs-type">AssetProperty</span></a></span></span><span>
+</span><span id="line-159"></span></pre></body></html>

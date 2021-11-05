@@ -63,7 +63,7 @@
 </span><span id="line-63"></span><span class="hs-comment">-- account.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- /See:/ 'newListXssMatchSets' smart constructor.</span><span>
-</span><span id="line-66"></span><span id="local-6989586621679310146"><span id="local-6989586621679310147"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListXssMatchSets"><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSets"><span class="hs-identifier hs-var">ListXssMatchSets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListXssMatchSets%27"><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSets%27"><span class="hs-identifier hs-var">ListXssMatchSets'</span></a></span></span><span>
+</span><span id="line-66"></span><span id="local-6989586621679310155"><span id="local-6989586621679310156"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListXssMatchSets"><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSets"><span class="hs-identifier hs-var">ListXssMatchSets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListXssMatchSets%27"><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSets%27"><span class="hs-identifier hs-var">ListXssMatchSets'</span></a></span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If you specify a value for @Limit@ and you have more XssMatchSet objects</span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-comment">-- than the value of @Limit@, AWS WAF returns a @NextMarker@ value in the</span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-comment">-- response that allows you to list another group of @XssMatchSets@. For</span><span>
@@ -79,7 +79,7 @@
 </span><span id="line-78"></span><span>    </span><span id="%24sel%3Alimit%3AListXssMatchSets%27"><span class="annot"><span class="annottext">ListXssMatchSets -&gt; Maybe Natural
 </span><a href="Network.AWS.WAF.ListXssMatchSets.html#%24sel%3Alimit%3AListXssMatchSets%27"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679310139"><span id="local-6989586621679310141"><span class="annot"><span class="annottext">ListXssMatchSets -&gt; ListXssMatchSets -&gt; Bool
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679310148"><span id="local-6989586621679310150"><span class="annot"><span class="annottext">ListXssMatchSets -&gt; ListXssMatchSets -&gt; Bool
 (ListXssMatchSets -&gt; ListXssMatchSets -&gt; Bool)
 -&gt; (ListXssMatchSets -&gt; ListXssMatchSets -&gt; Bool)
 -&gt; Eq ListXssMatchSets
@@ -88,7 +88,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListXssMatchSets -&gt; ListXssMatchSets -&gt; Bool
 == :: ListXssMatchSets -&gt; ListXssMatchSets -&gt; Bool
 $c== :: ListXssMatchSets -&gt; ListXssMatchSets -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310130"><span id="local-6989586621679310132"><span id="local-6989586621679310134"><span id="local-6989586621679310136"><span class="annot"><span class="annottext">ReadPrec [ListXssMatchSets]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310139"><span id="local-6989586621679310141"><span id="local-6989586621679310143"><span id="local-6989586621679310145"><span class="annot"><span class="annottext">ReadPrec [ListXssMatchSets]
 ReadPrec ListXssMatchSets
 Int -&gt; ReadS ListXssMatchSets
 ReadS [ListXssMatchSets]
@@ -108,7 +108,7 @@ readList :: ReadS [ListXssMatchSets]
 $creadList :: ReadS [ListXssMatchSets]
 readsPrec :: Int -&gt; ReadS ListXssMatchSets
 $creadsPrec :: Int -&gt; ReadS ListXssMatchSets
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310123"><span id="local-6989586621679310125"><span id="local-6989586621679310127"><span class="annot"><span class="annottext">Int -&gt; ListXssMatchSets -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310132"><span id="local-6989586621679310134"><span id="local-6989586621679310136"><span class="annot"><span class="annottext">Int -&gt; ListXssMatchSets -&gt; ShowS
 [ListXssMatchSets] -&gt; ShowS
 ListXssMatchSets -&gt; String
 (Int -&gt; ListXssMatchSets -&gt; ShowS)
@@ -182,16 +182,16 @@ forall a. Maybe a
 -&gt; (ListXssMatchSets -&gt; Maybe Text -&gt; ListXssMatchSets)
 -&gt; Lens ListXssMatchSets ListXssMatchSets (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSets%27"><span class="hs-identifier hs-type">ListXssMatchSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310117"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSets%27"><span class="hs-identifier hs-type">ListXssMatchSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310126"><span class="annot"><span class="annottext">Maybe Text
 nextMarker :: Maybe Text
 $sel:nextMarker:ListXssMatchSets' :: ListXssMatchSets -&gt; Maybe Text
-</span><a href="#local-6989586621679310117"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310117"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310116"><span class="annot"><span class="annottext">s :: ListXssMatchSets
-</span><a href="#local-6989586621679310116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSets%27"><span class="hs-identifier hs-type">ListXssMatchSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310115"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListXssMatchSets
-</span><a href="#local-6989586621679310116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListXssMatchSets' :: Maybe Text
+</span><a href="#local-6989586621679310126"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310126"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310125"><span class="annot"><span class="annottext">s :: ListXssMatchSets
+</span><a href="#local-6989586621679310125"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSets%27"><span class="hs-identifier hs-type">ListXssMatchSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310124"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310124"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListXssMatchSets
+</span><a href="#local-6989586621679310125"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListXssMatchSets' :: Maybe Text
 </span><a href="Network.AWS.WAF.ListXssMatchSets.html#%24sel%3AnextMarker%3AListXssMatchSets%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSets"><span class="hs-identifier hs-type">ListXssMatchSets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679310124"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSets"><span class="hs-identifier hs-type">ListXssMatchSets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | Specifies the number of XssMatchSet objects that you want AWS WAF to</span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- return for this request. If you have more @XssMatchSet@ objects than the</span><span>
@@ -205,29 +205,29 @@ $sel:nextMarker:ListXssMatchSets' :: ListXssMatchSets -&gt; Maybe Text
 -&gt; Lens
      ListXssMatchSets ListXssMatchSets (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSets%27"><span class="hs-identifier hs-type">ListXssMatchSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310114"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSets%27"><span class="hs-identifier hs-type">ListXssMatchSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310123"><span class="annot"><span class="annottext">Maybe Natural
 limit :: Maybe Natural
 $sel:limit:ListXssMatchSets' :: ListXssMatchSets -&gt; Maybe Natural
-</span><a href="#local-6989586621679310114"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679310114"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310113"><span class="annot"><span class="annottext">s :: ListXssMatchSets
-</span><a href="#local-6989586621679310113"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSets%27"><span class="hs-identifier hs-type">ListXssMatchSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310112"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679310112"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListXssMatchSets
-</span><a href="#local-6989586621679310113"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListXssMatchSets' :: Maybe Natural
+</span><a href="#local-6989586621679310123"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679310123"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310122"><span class="annot"><span class="annottext">s :: ListXssMatchSets
+</span><a href="#local-6989586621679310122"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSets%27"><span class="hs-identifier hs-type">ListXssMatchSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310121"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679310121"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListXssMatchSets
+</span><a href="#local-6989586621679310122"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListXssMatchSets' :: Maybe Natural
 </span><a href="Network.AWS.WAF.ListXssMatchSets.html#%24sel%3Alimit%3AListXssMatchSets%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679310112"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSets"><span class="hs-identifier hs-type">ListXssMatchSets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679310121"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSets"><span class="hs-identifier hs-type">ListXssMatchSets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSets"><span class="hs-identifier hs-type">ListXssMatchSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679310108"><span class="annot"><span class="annottext">page :: ListXssMatchSets
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679310117"><span class="annot"><span class="annottext">page :: ListXssMatchSets
 -&gt; AWSResponse ListXssMatchSets -&gt; Maybe ListXssMatchSets
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679310106"><span class="annot"><span class="annottext">ListXssMatchSets
-</span><a href="#local-6989586621679310106"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679310105"><span class="annot"><span class="annottext">AWSResponse ListXssMatchSets
-</span><a href="#local-6989586621679310105"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679310115"><span class="annot"><span class="annottext">ListXssMatchSets
+</span><a href="#local-6989586621679310115"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679310114"><span class="annot"><span class="annottext">AWSResponse ListXssMatchSets
+</span><a href="#local-6989586621679310114"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-127"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-128"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListXssMatchSets
 ListXssMatchSetsResponse
-</span><a href="#local-6989586621679310105"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679310114"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">ListXssMatchSetsResponse
 -&gt; Getting (First Text) ListXssMatchSetsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -256,7 +256,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-134"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListXssMatchSets
 ListXssMatchSetsResponse
-</span><a href="#local-6989586621679310105"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679310114"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">ListXssMatchSetsResponse
 -&gt; Getting
      (First [XssMatchSetSummary])
@@ -302,7 +302,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-141"></span><span>        </span><span class="annot"><span class="annottext">ListXssMatchSets
-</span><a href="#local-6989586621679310106"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679310115"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">ListXssMatchSets
 -&gt; (ListXssMatchSets -&gt; ListXssMatchSets) -&gt; ListXssMatchSets
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -316,7 +316,7 @@ Lens ListXssMatchSets ListXssMatchSets (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListXssMatchSets
 ListXssMatchSetsResponse
-</span><a href="#local-6989586621679310105"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679310114"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-144"></span><span>          </span><span class="annot"><span class="annottext">ListXssMatchSetsResponse
 -&gt; Getting (First Text) ListXssMatchSetsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -341,12 +341,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-148"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-149"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSets"><span class="hs-identifier hs-type">ListXssMatchSets</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-150"></span><span>      </span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSetsResponse"><span class="hs-identifier hs-type">ListXssMatchSetsResponse</span></a></span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679310095"><span class="annot"><span class="annottext">request :: ListXssMatchSets -&gt; Request ListXssMatchSets
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679310104"><span class="annot"><span class="annottext">request :: ListXssMatchSets -&gt; Request ListXssMatchSets
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListXssMatchSets -&gt; Request ListXssMatchSets
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.WAF.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679310091"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679310100"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListXssMatchSets
 -&gt; ClientResponse ClientBody
@@ -370,10 +370,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679310088"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679310088"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679310087"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679310087"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679310086"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679310086"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679310097"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679310097"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679310096"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679310096"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679310095"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679310095"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-155"></span><span>          </span><span class="annot"><span class="annottext">Maybe [XssMatchSetSummary]
 -&gt; Maybe Text -&gt; Int -&gt; ListXssMatchSetsResponse
 </span><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSetsResponse%27"><span class="hs-identifier hs-var">ListXssMatchSetsResponse'</span></a></span><span>
@@ -383,7 +383,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; ListXssMatchSetsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679310086"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679310095"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [XssMatchSetSummary]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -399,7 +399,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; ListXssMatchSetsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679310086"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679310095"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextMarker&quot;</span></span><span class="hs-special">)</span><span>
@@ -411,15 +411,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679310088"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679310097"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310077"><span id="local-6989586621679310079"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSets"><span class="hs-identifier hs-type">ListXssMatchSets</span></a></span></span></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310086"><span id="local-6989586621679310088"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSets"><span class="hs-identifier hs-type">ListXssMatchSets</span></a></span></span></span><span>
 </span><span id="line-162"></span><span>
-</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310074"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSets"><span class="hs-identifier hs-type">ListXssMatchSets</span></a></span></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310083"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSets"><span class="hs-identifier hs-type">ListXssMatchSets</span></a></span></span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSets"><span class="hs-identifier hs-type">ListXssMatchSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679310070"><span class="annot"><span class="annottext">toHeaders :: ListXssMatchSets -&gt; ResponseHeaders
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679310079"><span class="annot"><span class="annottext">toHeaders :: ListXssMatchSets -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListXssMatchSets -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -446,15 +446,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-177"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-178"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>
-</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310060"><span id="local-6989586621679310062"><span id="local-6989586621679310064"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSets"><span class="hs-identifier hs-type">ListXssMatchSets</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679310058"><span class="annot"><span class="annottext">toJSON :: ListXssMatchSets -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSets%27"><span class="hs-identifier hs-type">ListXssMatchSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310055"><span id="local-6989586621679310056"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310069"><span id="local-6989586621679310071"><span id="local-6989586621679310073"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSets"><span class="hs-identifier hs-type">ListXssMatchSets</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679310067"><span class="annot"><span class="annottext">toJSON :: ListXssMatchSets -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSets%27"><span class="hs-identifier hs-type">ListXssMatchSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310064"><span id="local-6989586621679310065"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 limit :: Maybe Natural
 nextMarker :: Maybe Text
 $sel:limit:ListXssMatchSets' :: ListXssMatchSets -&gt; Maybe Natural
 $sel:nextMarker:ListXssMatchSets' :: ListXssMatchSets -&gt; Maybe Text
-</span><a href="#local-6989586621679310055"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679310064"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-183"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -466,26 +466,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310056"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679310065"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-185"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679310055"><span class="hs-identifier hs-var">limit</span></a></span><span>
+</span><a href="#local-6989586621679310064"><span class="hs-identifier hs-var">limit</span></a></span><span>
 </span><span id="line-186"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-187"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSets"><span class="hs-identifier hs-type">ListXssMatchSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-190"></span><span>  </span><span id="local-6989586621679310049"><span class="annot"><span class="annottext">toPath :: ListXssMatchSets -&gt; ByteString
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679310058"><span class="annot"><span class="annottext">toPath :: ListXssMatchSets -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListXssMatchSets -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSets"><span class="hs-identifier hs-type">ListXssMatchSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-193"></span><span>  </span><span id="local-6989586621679310045"><span class="annot"><span class="annottext">toQuery :: ListXssMatchSets -&gt; QueryString
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679310054"><span class="annot"><span class="annottext">toQuery :: ListXssMatchSets -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListXssMatchSets -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -495,7 +495,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-195"></span><span class="hs-comment">-- | The response to a ListXssMatchSets request.</span><span>
 </span><span id="line-196"></span><span class="hs-comment">--</span><span>
 </span><span id="line-197"></span><span class="hs-comment">-- /See:/ 'newListXssMatchSetsResponse' smart constructor.</span><span>
-</span><span id="line-198"></span><span id="local-6989586621679310042"><span id="local-6989586621679310043"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListXssMatchSetsResponse"><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSetsResponse"><span class="hs-identifier hs-var">ListXssMatchSetsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListXssMatchSetsResponse%27"><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSetsResponse%27"><span class="hs-identifier hs-var">ListXssMatchSetsResponse'</span></a></span></span><span>
+</span><span id="line-198"></span><span id="local-6989586621679310051"><span id="local-6989586621679310052"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListXssMatchSetsResponse"><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSetsResponse"><span class="hs-identifier hs-var">ListXssMatchSetsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListXssMatchSetsResponse%27"><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSetsResponse%27"><span class="hs-identifier hs-var">ListXssMatchSetsResponse'</span></a></span></span><span>
 </span><span id="line-199"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of XssMatchSetSummary objects.</span><span>
 </span><span id="line-200"></span><span>    </span><span id="%24sel%3AxssMatchSets%3AListXssMatchSetsResponse%27"><span class="annot"><span class="annottext">ListXssMatchSetsResponse -&gt; Maybe [XssMatchSetSummary]
 </span><a href="Network.AWS.WAF.ListXssMatchSets.html#%24sel%3AxssMatchSets%3AListXssMatchSetsResponse%27"><span class="hs-identifier hs-var hs-var">xssMatchSets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WAF.Types.XssMatchSetSummary.html#XssMatchSetSummary"><span class="hs-identifier hs-type">XssMatchSetSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -510,7 +510,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-208"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListXssMatchSetsResponse%27"><span class="annot"><span class="annottext">ListXssMatchSetsResponse -&gt; Int
 </span><a href="Network.AWS.WAF.ListXssMatchSets.html#%24sel%3AhttpStatus%3AListXssMatchSetsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-209"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-210"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679310035"><span id="local-6989586621679310037"><span class="annot"><span class="annottext">ListXssMatchSetsResponse -&gt; ListXssMatchSetsResponse -&gt; Bool
+</span><span id="line-210"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679310044"><span id="local-6989586621679310046"><span class="annot"><span class="annottext">ListXssMatchSetsResponse -&gt; ListXssMatchSetsResponse -&gt; Bool
 (ListXssMatchSetsResponse -&gt; ListXssMatchSetsResponse -&gt; Bool)
 -&gt; (ListXssMatchSetsResponse -&gt; ListXssMatchSetsResponse -&gt; Bool)
 -&gt; Eq ListXssMatchSetsResponse
@@ -519,7 +519,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListXssMatchSetsResponse -&gt; ListXssMatchSetsResponse -&gt; Bool
 == :: ListXssMatchSetsResponse -&gt; ListXssMatchSetsResponse -&gt; Bool
 $c== :: ListXssMatchSetsResponse -&gt; ListXssMatchSetsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310027"><span id="local-6989586621679310029"><span id="local-6989586621679310031"><span id="local-6989586621679310033"><span class="annot"><span class="annottext">ReadPrec [ListXssMatchSetsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310036"><span id="local-6989586621679310038"><span id="local-6989586621679310040"><span id="local-6989586621679310042"><span class="annot"><span class="annottext">ReadPrec [ListXssMatchSetsResponse]
 ReadPrec ListXssMatchSetsResponse
 Int -&gt; ReadS ListXssMatchSetsResponse
 ReadS [ListXssMatchSetsResponse]
@@ -539,7 +539,7 @@ readList :: ReadS [ListXssMatchSetsResponse]
 $creadList :: ReadS [ListXssMatchSetsResponse]
 readsPrec :: Int -&gt; ReadS ListXssMatchSetsResponse
 $creadsPrec :: Int -&gt; ReadS ListXssMatchSetsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310021"><span id="local-6989586621679310023"><span id="local-6989586621679310025"><span class="annot"><span class="annottext">Int -&gt; ListXssMatchSetsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310030"><span id="local-6989586621679310032"><span id="local-6989586621679310034"><span class="annot"><span class="annottext">Int -&gt; ListXssMatchSetsResponse -&gt; ShowS
 [ListXssMatchSetsResponse] -&gt; ShowS
 ListXssMatchSetsResponse -&gt; String
 (Int -&gt; ListXssMatchSetsResponse -&gt; ShowS)
@@ -593,8 +593,8 @@ ListXssMatchSetsResponse -&gt; Rep ListXssMatchSetsResponse x
 </span><span id="line-231"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-232"></span><span>  </span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSetsResponse"><span class="hs-identifier hs-type">ListXssMatchSetsResponse</span></a></span><span>
 </span><span id="line-233"></span><span id="newListXssMatchSetsResponse"><span class="annot"><span class="annottext">newListXssMatchSetsResponse :: Int -&gt; ListXssMatchSetsResponse
-</span><a href="Network.AWS.WAF.ListXssMatchSets.html#newListXssMatchSetsResponse"><span class="hs-identifier hs-var hs-var">newListXssMatchSetsResponse</span></a></span></span><span> </span><span id="local-6989586621679310018"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679310018"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WAF.ListXssMatchSets.html#newListXssMatchSetsResponse"><span class="hs-identifier hs-var hs-var">newListXssMatchSetsResponse</span></a></span></span><span> </span><span id="local-6989586621679310027"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679310027"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-234"></span><span>  </span><span class="annot"><span class="annottext">ListXssMatchSetsResponse' :: Maybe [XssMatchSetSummary]
 -&gt; Maybe Text -&gt; Int -&gt; ListXssMatchSetsResponse
 </span><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSetsResponse%27"><span class="hs-identifier hs-type">ListXssMatchSetsResponse'</span></a></span><span>
@@ -609,7 +609,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-238"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListXssMatchSetsResponse' :: Int
 </span><a href="Network.AWS.WAF.ListXssMatchSets.html#%24sel%3AhttpStatus%3AListXssMatchSetsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679310018"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679310027"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-239"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-240"></span><span>
 </span><span id="line-241"></span><span class="hs-comment">-- | An array of XssMatchSetSummary objects.</span><span>
@@ -621,16 +621,16 @@ forall a. Maybe a
     -&gt; Maybe [XssMatchSetSummary] -&gt; ListXssMatchSetsResponse)
 -&gt; Lens' ListXssMatchSetsResponse (Maybe [XssMatchSetSummary])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSetsResponse%27"><span class="hs-identifier hs-type">ListXssMatchSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310017"><span class="annot"><span class="annottext">Maybe [XssMatchSetSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSetsResponse%27"><span class="hs-identifier hs-type">ListXssMatchSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310026"><span class="annot"><span class="annottext">Maybe [XssMatchSetSummary]
 xssMatchSets :: Maybe [XssMatchSetSummary]
 $sel:xssMatchSets:ListXssMatchSetsResponse' :: ListXssMatchSetsResponse -&gt; Maybe [XssMatchSetSummary]
-</span><a href="#local-6989586621679310017"><span class="hs-identifier hs-var hs-var">xssMatchSets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [XssMatchSetSummary]
-</span><a href="#local-6989586621679310017"><span class="hs-identifier hs-var">xssMatchSets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310016"><span class="annot"><span class="annottext">s :: ListXssMatchSetsResponse
-</span><a href="#local-6989586621679310016"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSetsResponse%27"><span class="hs-identifier hs-type">ListXssMatchSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310015"><span class="annot"><span class="annottext">Maybe [XssMatchSetSummary]
-</span><a href="#local-6989586621679310015"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListXssMatchSetsResponse
-</span><a href="#local-6989586621679310016"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:xssMatchSets:ListXssMatchSetsResponse' :: Maybe [XssMatchSetSummary]
+</span><a href="#local-6989586621679310026"><span class="hs-identifier hs-var hs-var">xssMatchSets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [XssMatchSetSummary]
+</span><a href="#local-6989586621679310026"><span class="hs-identifier hs-var">xssMatchSets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310025"><span class="annot"><span class="annottext">s :: ListXssMatchSetsResponse
+</span><a href="#local-6989586621679310025"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSetsResponse%27"><span class="hs-identifier hs-type">ListXssMatchSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310024"><span class="annot"><span class="annottext">Maybe [XssMatchSetSummary]
+</span><a href="#local-6989586621679310024"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListXssMatchSetsResponse
+</span><a href="#local-6989586621679310025"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:xssMatchSets:ListXssMatchSetsResponse' :: Maybe [XssMatchSetSummary]
 </span><a href="Network.AWS.WAF.ListXssMatchSets.html#%24sel%3AxssMatchSets%3AListXssMatchSetsResponse%27"><span class="hs-identifier hs-var">xssMatchSets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [XssMatchSetSummary]
-</span><a href="#local-6989586621679310015"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSetsResponse"><span class="hs-identifier hs-type">ListXssMatchSetsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [XssMatchSetSummary] -&gt; f (Maybe [XssMatchSetSummary]))
+</span><a href="#local-6989586621679310024"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSetsResponse"><span class="hs-identifier hs-type">ListXssMatchSetsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [XssMatchSetSummary] -&gt; f (Maybe [XssMatchSetSummary]))
  -&gt; ListXssMatchSetsResponse -&gt; f ListXssMatchSetsResponse)
 -&gt; ((Maybe [XssMatchSetSummary] -&gt; f (Maybe [XssMatchSetSummary]))
     -&gt; Maybe [XssMatchSetSummary] -&gt; f (Maybe [XssMatchSetSummary]))
@@ -672,16 +672,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
     -&gt; Maybe Text -&gt; ListXssMatchSetsResponse)
 -&gt; Lens' ListXssMatchSetsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSetsResponse%27"><span class="hs-identifier hs-type">ListXssMatchSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310012"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSetsResponse%27"><span class="hs-identifier hs-type">ListXssMatchSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310021"><span class="annot"><span class="annottext">Maybe Text
 nextMarker :: Maybe Text
 $sel:nextMarker:ListXssMatchSetsResponse' :: ListXssMatchSetsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679310012"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310012"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310011"><span class="annot"><span class="annottext">s :: ListXssMatchSetsResponse
-</span><a href="#local-6989586621679310011"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSetsResponse%27"><span class="hs-identifier hs-type">ListXssMatchSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310010"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310010"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListXssMatchSetsResponse
-</span><a href="#local-6989586621679310011"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListXssMatchSetsResponse' :: Maybe Text
+</span><a href="#local-6989586621679310021"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310021"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310020"><span class="annot"><span class="annottext">s :: ListXssMatchSetsResponse
+</span><a href="#local-6989586621679310020"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSetsResponse%27"><span class="hs-identifier hs-type">ListXssMatchSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310019"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310019"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListXssMatchSetsResponse
+</span><a href="#local-6989586621679310020"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListXssMatchSetsResponse' :: Maybe Text
 </span><a href="Network.AWS.WAF.ListXssMatchSets.html#%24sel%3AnextMarker%3AListXssMatchSetsResponse%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310010"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSetsResponse"><span class="hs-identifier hs-type">ListXssMatchSetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679310019"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSetsResponse"><span class="hs-identifier hs-type">ListXssMatchSetsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-252"></span><span>
 </span><span id="line-253"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-254"></span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#listXssMatchSetsResponse_httpStatus"><span class="hs-identifier hs-type">listXssMatchSetsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSetsResponse"><span class="hs-identifier hs-type">ListXssMatchSetsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -691,16 +691,16 @@ $sel:nextMarker:ListXssMatchSetsResponse' :: ListXssMatchSetsResponse -&gt; Mayb
 -&gt; (ListXssMatchSetsResponse -&gt; Int -&gt; ListXssMatchSetsResponse)
 -&gt; Lens ListXssMatchSetsResponse ListXssMatchSetsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSetsResponse%27"><span class="hs-identifier hs-type">ListXssMatchSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310009"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSetsResponse%27"><span class="hs-identifier hs-type">ListXssMatchSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310018"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListXssMatchSetsResponse' :: ListXssMatchSetsResponse -&gt; Int
-</span><a href="#local-6989586621679310009"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679310009"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310008"><span class="annot"><span class="annottext">s :: ListXssMatchSetsResponse
-</span><a href="#local-6989586621679310008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSetsResponse%27"><span class="hs-identifier hs-type">ListXssMatchSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310007"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679310007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListXssMatchSetsResponse
-</span><a href="#local-6989586621679310008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListXssMatchSetsResponse' :: Int
+</span><a href="#local-6989586621679310018"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679310018"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310017"><span class="annot"><span class="annottext">s :: ListXssMatchSetsResponse
+</span><a href="#local-6989586621679310017"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSetsResponse%27"><span class="hs-identifier hs-type">ListXssMatchSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310016"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679310016"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListXssMatchSetsResponse
+</span><a href="#local-6989586621679310017"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListXssMatchSetsResponse' :: Int
 </span><a href="Network.AWS.WAF.ListXssMatchSets.html#%24sel%3AhttpStatus%3AListXssMatchSetsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679310007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSetsResponse"><span class="hs-identifier hs-type">ListXssMatchSetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679310016"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSetsResponse"><span class="hs-identifier hs-type">ListXssMatchSetsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-256"></span><span>
-</span><span id="line-257"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310005"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSetsResponse"><span class="hs-identifier hs-type">ListXssMatchSetsResponse</span></a></span></span><span>
+</span><span id="line-257"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310014"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.ListXssMatchSets.html#ListXssMatchSetsResponse"><span class="hs-identifier hs-type">ListXssMatchSetsResponse</span></a></span></span><span>
 </span><span id="line-258"></span></pre></body></html>

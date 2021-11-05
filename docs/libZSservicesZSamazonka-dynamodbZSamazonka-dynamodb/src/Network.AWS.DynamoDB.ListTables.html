@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-comment">-- | Represents the input of a @ListTables@ operation.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- /See:/ 'newListTables' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679388682"><span id="local-6989586621679388683"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTables"><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTables"><span class="hs-identifier hs-var">ListTables</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTables%27"><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTables%27"><span class="hs-identifier hs-var">ListTables'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679388691"><span id="local-6989586621679388692"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTables"><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTables"><span class="hs-identifier hs-var">ListTables</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTables%27"><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTables%27"><span class="hs-identifier hs-var">ListTables'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The first table name that this operation will evaluate. Use the value</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- that was returned for @LastEvaluatedTableName@ in a previous operation,</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- so that you can obtain the next page of results.</span><span>
@@ -66,7 +66,7 @@
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3Alimit%3AListTables%27"><span class="annot"><span class="annottext">ListTables -&gt; Maybe Natural
 </span><a href="Network.AWS.DynamoDB.ListTables.html#%24sel%3Alimit%3AListTables%27"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388675"><span id="local-6989586621679388677"><span class="annot"><span class="annottext">ListTables -&gt; ListTables -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388684"><span id="local-6989586621679388686"><span class="annot"><span class="annottext">ListTables -&gt; ListTables -&gt; Bool
 (ListTables -&gt; ListTables -&gt; Bool)
 -&gt; (ListTables -&gt; ListTables -&gt; Bool) -&gt; Eq ListTables
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListTables -&gt; ListTables -&gt; Bool
 == :: ListTables -&gt; ListTables -&gt; Bool
 $c== :: ListTables -&gt; ListTables -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388666"><span id="local-6989586621679388668"><span id="local-6989586621679388670"><span id="local-6989586621679388672"><span class="annot"><span class="annottext">ReadPrec [ListTables]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388675"><span id="local-6989586621679388677"><span id="local-6989586621679388679"><span id="local-6989586621679388681"><span class="annot"><span class="annottext">ReadPrec [ListTables]
 ReadPrec ListTables
 Int -&gt; ReadS ListTables
 ReadS [ListTables]
@@ -94,7 +94,7 @@ readList :: ReadS [ListTables]
 $creadList :: ReadS [ListTables]
 readsPrec :: Int -&gt; ReadS ListTables
 $creadsPrec :: Int -&gt; ReadS ListTables
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388659"><span id="local-6989586621679388661"><span id="local-6989586621679388663"><span class="annot"><span class="annottext">Int -&gt; ListTables -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388668"><span id="local-6989586621679388670"><span id="local-6989586621679388672"><span class="annot"><span class="annottext">Int -&gt; ListTables -&gt; ShowS
 [ListTables] -&gt; ShowS
 ListTables -&gt; String
 (Int -&gt; ListTables -&gt; ShowS)
@@ -159,16 +159,16 @@ forall a. Maybe a
 -&gt; (ListTables -&gt; Maybe Text -&gt; ListTables)
 -&gt; Lens ListTables ListTables (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTables%27"><span class="hs-identifier hs-type">ListTables'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388653"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTables%27"><span class="hs-identifier hs-type">ListTables'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388662"><span class="annot"><span class="annottext">Maybe Text
 exclusiveStartTableName :: Maybe Text
 $sel:exclusiveStartTableName:ListTables' :: ListTables -&gt; Maybe Text
-</span><a href="#local-6989586621679388653"><span class="hs-identifier hs-var hs-var">exclusiveStartTableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388653"><span class="hs-identifier hs-var">exclusiveStartTableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388652"><span class="annot"><span class="annottext">s :: ListTables
-</span><a href="#local-6989586621679388652"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTables%27"><span class="hs-identifier hs-type">ListTables'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388651"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388651"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTables
-</span><a href="#local-6989586621679388652"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exclusiveStartTableName:ListTables' :: Maybe Text
+</span><a href="#local-6989586621679388662"><span class="hs-identifier hs-var hs-var">exclusiveStartTableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388662"><span class="hs-identifier hs-var">exclusiveStartTableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388661"><span class="annot"><span class="annottext">s :: ListTables
+</span><a href="#local-6989586621679388661"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTables%27"><span class="hs-identifier hs-type">ListTables'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388660"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388660"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTables
+</span><a href="#local-6989586621679388661"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exclusiveStartTableName:ListTables' :: Maybe Text
 </span><a href="Network.AWS.DynamoDB.ListTables.html#%24sel%3AexclusiveStartTableName%3AListTables%27"><span class="hs-identifier hs-var">exclusiveStartTableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388651"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTables"><span class="hs-identifier hs-type">ListTables</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388660"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTables"><span class="hs-identifier hs-type">ListTables</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | A maximum number of table names to return. If this parameter is not</span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- specified, the limit is 100.</span><span>
@@ -178,28 +178,28 @@ $sel:exclusiveStartTableName:ListTables' :: ListTables -&gt; Maybe Text
 -&gt; (ListTables -&gt; Maybe Natural -&gt; ListTables)
 -&gt; Lens ListTables ListTables (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTables%27"><span class="hs-identifier hs-type">ListTables'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388650"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTables%27"><span class="hs-identifier hs-type">ListTables'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388659"><span class="annot"><span class="annottext">Maybe Natural
 limit :: Maybe Natural
 $sel:limit:ListTables' :: ListTables -&gt; Maybe Natural
-</span><a href="#local-6989586621679388650"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679388650"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388649"><span class="annot"><span class="annottext">s :: ListTables
-</span><a href="#local-6989586621679388649"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTables%27"><span class="hs-identifier hs-type">ListTables'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388648"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679388648"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTables
-</span><a href="#local-6989586621679388649"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListTables' :: Maybe Natural
+</span><a href="#local-6989586621679388659"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679388659"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388658"><span class="annot"><span class="annottext">s :: ListTables
+</span><a href="#local-6989586621679388658"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTables%27"><span class="hs-identifier hs-type">ListTables'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388657"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679388657"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTables
+</span><a href="#local-6989586621679388658"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListTables' :: Maybe Natural
 </span><a href="Network.AWS.DynamoDB.ListTables.html#%24sel%3Alimit%3AListTables%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679388648"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTables"><span class="hs-identifier hs-type">ListTables</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388657"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTables"><span class="hs-identifier hs-type">ListTables</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTables"><span class="hs-identifier hs-type">ListTables</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679388644"><span class="annot"><span class="annottext">page :: ListTables -&gt; AWSResponse ListTables -&gt; Maybe ListTables
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679388642"><span class="annot"><span class="annottext">ListTables
-</span><a href="#local-6989586621679388642"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679388641"><span class="annot"><span class="annottext">AWSResponse ListTables
-</span><a href="#local-6989586621679388641"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679388653"><span class="annot"><span class="annottext">page :: ListTables -&gt; AWSResponse ListTables -&gt; Maybe ListTables
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679388651"><span class="annot"><span class="annottext">ListTables
+</span><a href="#local-6989586621679388651"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679388650"><span class="annot"><span class="annottext">AWSResponse ListTables
+</span><a href="#local-6989586621679388650"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-105"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-106"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListTables
 ListTablesResponse
-</span><a href="#local-6989586621679388641"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679388650"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">ListTablesResponse
 -&gt; Getting (First Text) ListTablesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -226,7 +226,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-112"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListTables
 ListTablesResponse
-</span><a href="#local-6989586621679388641"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679388650"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">ListTablesResponse
 -&gt; Getting (First [Text]) ListTablesResponse [Text] -&gt; Maybe [Text]
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -255,7 +255,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">ListTables
-</span><a href="#local-6989586621679388642"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679388651"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">ListTables -&gt; (ListTables -&gt; ListTables) -&gt; ListTables
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -268,7 +268,7 @@ Lens ListTables ListTables (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListTables
 ListTablesResponse
-</span><a href="#local-6989586621679388641"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679388650"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">ListTablesResponse
 -&gt; Getting (First Text) ListTablesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -289,12 +289,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTables"><span class="hs-identifier hs-type">ListTables</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-125"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTables"><span class="hs-identifier hs-type">ListTables</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTablesResponse"><span class="hs-identifier hs-type">ListTablesResponse</span></a></span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679388631"><span class="annot"><span class="annottext">request :: ListTables -&gt; Request ListTables
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679388640"><span class="annot"><span class="annottext">request :: ListTables -&gt; Request ListTables
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListTables -&gt; Request ListTables
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DynamoDB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679388627"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679388636"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListTables
 -&gt; ClientResponse ClientBody
@@ -318,10 +318,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679388624"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388624"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679388623"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679388623"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679388622"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679388622"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679388633"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388633"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679388632"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679388632"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679388631"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679388631"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-130"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; ListTablesResponse
 </span><a href="Network.AWS.DynamoDB.ListTables.html#ListTablesResponse%27"><span class="hs-identifier hs-var">ListTablesResponse'</span></a></span><span>
 </span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; ListTablesResponse)
@@ -329,7 +329,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe [Text] -&gt; Int -&gt; ListTablesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679388622"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679388631"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LastEvaluatedTableName&quot;</span></span><span class="hs-special">)</span><span>
@@ -338,7 +338,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListTablesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679388622"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679388631"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TableNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
@@ -355,15 +355,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388624"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388633"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388613"><span id="local-6989586621679388615"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTables"><span class="hs-identifier hs-type">ListTables</span></a></span></span></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388622"><span id="local-6989586621679388624"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTables"><span class="hs-identifier hs-type">ListTables</span></a></span></span></span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388610"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTables"><span class="hs-identifier hs-type">ListTables</span></a></span></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388619"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTables"><span class="hs-identifier hs-type">ListTables</span></a></span></span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTables"><span class="hs-identifier hs-type">ListTables</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679388606"><span class="annot"><span class="annottext">toHeaders :: ListTables -&gt; ResponseHeaders
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679388615"><span class="annot"><span class="annottext">toHeaders :: ListTables -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListTables -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -390,15 +390,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-152"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-153"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388596"><span id="local-6989586621679388598"><span id="local-6989586621679388600"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTables"><span class="hs-identifier hs-type">ListTables</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679388594"><span class="annot"><span class="annottext">toJSON :: ListTables -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTables%27"><span class="hs-identifier hs-type">ListTables'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388591"><span id="local-6989586621679388592"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388605"><span id="local-6989586621679388607"><span id="local-6989586621679388609"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTables"><span class="hs-identifier hs-type">ListTables</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679388603"><span class="annot"><span class="annottext">toJSON :: ListTables -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTables%27"><span class="hs-identifier hs-type">ListTables'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388600"><span id="local-6989586621679388601"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 limit :: Maybe Natural
 exclusiveStartTableName :: Maybe Text
 $sel:limit:ListTables' :: ListTables -&gt; Maybe Natural
 $sel:exclusiveStartTableName:ListTables' :: ListTables -&gt; Maybe Text
-</span><a href="#local-6989586621679388591"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679388600"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -411,26 +411,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-160"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388592"><span class="hs-identifier hs-var">exclusiveStartTableName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679388601"><span class="hs-identifier hs-var">exclusiveStartTableName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679388591"><span class="hs-identifier hs-var">limit</span></a></span><span>
+</span><a href="#local-6989586621679388600"><span class="hs-identifier hs-var">limit</span></a></span><span>
 </span><span id="line-162"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-163"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTables"><span class="hs-identifier hs-type">ListTables</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679388585"><span class="annot"><span class="annottext">toPath :: ListTables -&gt; ByteString
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679388594"><span class="annot"><span class="annottext">toPath :: ListTables -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListTables -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTables"><span class="hs-identifier hs-type">ListTables</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621679388581"><span class="annot"><span class="annottext">toQuery :: ListTables -&gt; QueryString
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679388590"><span class="annot"><span class="annottext">toQuery :: ListTables -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListTables -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -440,7 +440,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-171"></span><span class="hs-comment">-- | Represents the output of a @ListTables@ operation.</span><span>
 </span><span id="line-172"></span><span class="hs-comment">--</span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- /See:/ 'newListTablesResponse' smart constructor.</span><span>
-</span><span id="line-174"></span><span id="local-6989586621679388578"><span id="local-6989586621679388579"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTablesResponse"><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTablesResponse"><span class="hs-identifier hs-var">ListTablesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTablesResponse%27"><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTablesResponse%27"><span class="hs-identifier hs-var">ListTablesResponse'</span></a></span></span><span>
+</span><span id="line-174"></span><span id="local-6989586621679388587"><span id="local-6989586621679388588"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTablesResponse"><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTablesResponse"><span class="hs-identifier hs-var">ListTablesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTablesResponse%27"><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTablesResponse%27"><span class="hs-identifier hs-var">ListTablesResponse'</span></a></span></span><span>
 </span><span id="line-175"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the last table in the current page of results. Use this</span><span>
 </span><span id="line-176"></span><span>    </span><span class="hs-comment">-- value as the @ExclusiveStartTableName@ in a new request to obtain the</span><span>
 </span><span id="line-177"></span><span>    </span><span class="hs-comment">-- next page of results, until all the table names are returned.</span><span>
@@ -461,7 +461,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-190"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListTablesResponse%27"><span class="annot"><span class="annottext">ListTablesResponse -&gt; Int
 </span><a href="Network.AWS.DynamoDB.ListTables.html#%24sel%3AhttpStatus%3AListTablesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-191"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-192"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388571"><span id="local-6989586621679388573"><span class="annot"><span class="annottext">ListTablesResponse -&gt; ListTablesResponse -&gt; Bool
+</span><span id="line-192"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388580"><span id="local-6989586621679388582"><span class="annot"><span class="annottext">ListTablesResponse -&gt; ListTablesResponse -&gt; Bool
 (ListTablesResponse -&gt; ListTablesResponse -&gt; Bool)
 -&gt; (ListTablesResponse -&gt; ListTablesResponse -&gt; Bool)
 -&gt; Eq ListTablesResponse
@@ -470,7 +470,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListTablesResponse -&gt; ListTablesResponse -&gt; Bool
 == :: ListTablesResponse -&gt; ListTablesResponse -&gt; Bool
 $c== :: ListTablesResponse -&gt; ListTablesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388563"><span id="local-6989586621679388565"><span id="local-6989586621679388567"><span id="local-6989586621679388569"><span class="annot"><span class="annottext">ReadPrec [ListTablesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388572"><span id="local-6989586621679388574"><span id="local-6989586621679388576"><span id="local-6989586621679388578"><span class="annot"><span class="annottext">ReadPrec [ListTablesResponse]
 ReadPrec ListTablesResponse
 Int -&gt; ReadS ListTablesResponse
 ReadS [ListTablesResponse]
@@ -490,7 +490,7 @@ readList :: ReadS [ListTablesResponse]
 $creadList :: ReadS [ListTablesResponse]
 readsPrec :: Int -&gt; ReadS ListTablesResponse
 $creadsPrec :: Int -&gt; ReadS ListTablesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388557"><span id="local-6989586621679388559"><span id="local-6989586621679388561"><span class="annot"><span class="annottext">Int -&gt; ListTablesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388566"><span id="local-6989586621679388568"><span id="local-6989586621679388570"><span class="annot"><span class="annottext">Int -&gt; ListTablesResponse -&gt; ShowS
 [ListTablesResponse] -&gt; ShowS
 ListTablesResponse -&gt; String
 (Int -&gt; ListTablesResponse -&gt; ShowS)
@@ -544,8 +544,8 @@ $cfrom :: forall x. ListTablesResponse -&gt; Rep ListTablesResponse x
 </span><span id="line-219"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-220"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTablesResponse"><span class="hs-identifier hs-type">ListTablesResponse</span></a></span><span>
 </span><span id="line-221"></span><span id="newListTablesResponse"><span class="annot"><span class="annottext">newListTablesResponse :: Int -&gt; ListTablesResponse
-</span><a href="Network.AWS.DynamoDB.ListTables.html#newListTablesResponse"><span class="hs-identifier hs-var hs-var">newListTablesResponse</span></a></span></span><span> </span><span id="local-6989586621679388554"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388554"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DynamoDB.ListTables.html#newListTablesResponse"><span class="hs-identifier hs-var hs-var">newListTablesResponse</span></a></span></span><span> </span><span id="local-6989586621679388563"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388563"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-222"></span><span>  </span><span class="annot"><span class="annottext">ListTablesResponse' :: Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; ListTablesResponse
 </span><a href="Network.AWS.DynamoDB.ListTables.html#ListTablesResponse%27"><span class="hs-identifier hs-type">ListTablesResponse'</span></a></span><span>
 </span><span id="line-223"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastEvaluatedTableName:ListTablesResponse' :: Maybe Text
@@ -559,7 +559,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-226"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListTablesResponse' :: Int
 </span><a href="Network.AWS.DynamoDB.ListTables.html#%24sel%3AhttpStatus%3AListTablesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388554"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679388563"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-227"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-228"></span><span>
 </span><span id="line-229"></span><span class="hs-comment">-- | The name of the last table in the current page of results. Use this</span><span>
@@ -575,16 +575,16 @@ forall a. Maybe a
 -&gt; (ListTablesResponse -&gt; Maybe Text -&gt; ListTablesResponse)
 -&gt; Lens' ListTablesResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTablesResponse%27"><span class="hs-identifier hs-type">ListTablesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388553"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTablesResponse%27"><span class="hs-identifier hs-type">ListTablesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388562"><span class="annot"><span class="annottext">Maybe Text
 lastEvaluatedTableName :: Maybe Text
 $sel:lastEvaluatedTableName:ListTablesResponse' :: ListTablesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679388553"><span class="hs-identifier hs-var hs-var">lastEvaluatedTableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388553"><span class="hs-identifier hs-var">lastEvaluatedTableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388552"><span class="annot"><span class="annottext">s :: ListTablesResponse
-</span><a href="#local-6989586621679388552"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTablesResponse%27"><span class="hs-identifier hs-type">ListTablesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388551"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388551"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTablesResponse
-</span><a href="#local-6989586621679388552"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastEvaluatedTableName:ListTablesResponse' :: Maybe Text
+</span><a href="#local-6989586621679388562"><span class="hs-identifier hs-var hs-var">lastEvaluatedTableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388562"><span class="hs-identifier hs-var">lastEvaluatedTableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388561"><span class="annot"><span class="annottext">s :: ListTablesResponse
+</span><a href="#local-6989586621679388561"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTablesResponse%27"><span class="hs-identifier hs-type">ListTablesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388560"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388560"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTablesResponse
+</span><a href="#local-6989586621679388561"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastEvaluatedTableName:ListTablesResponse' :: Maybe Text
 </span><a href="Network.AWS.DynamoDB.ListTables.html#%24sel%3AlastEvaluatedTableName%3AListTablesResponse%27"><span class="hs-identifier hs-var">lastEvaluatedTableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388551"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTablesResponse"><span class="hs-identifier hs-type">ListTablesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388560"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTablesResponse"><span class="hs-identifier hs-type">ListTablesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-237"></span><span>
 </span><span id="line-238"></span><span class="hs-comment">-- | The names of the tables associated with the current account at the</span><span>
 </span><span id="line-239"></span><span class="hs-comment">-- current endpoint. The maximum size of this array is 100.</span><span>
@@ -599,16 +599,16 @@ $sel:lastEvaluatedTableName:ListTablesResponse' :: ListTablesResponse -&gt; Mayb
 -&gt; (ListTablesResponse -&gt; Maybe [Text] -&gt; ListTablesResponse)
 -&gt; Lens' ListTablesResponse (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTablesResponse%27"><span class="hs-identifier hs-type">ListTablesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388550"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTablesResponse%27"><span class="hs-identifier hs-type">ListTablesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388559"><span class="annot"><span class="annottext">Maybe [Text]
 tableNames :: Maybe [Text]
 $sel:tableNames:ListTablesResponse' :: ListTablesResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621679388550"><span class="hs-identifier hs-var hs-var">tableNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679388550"><span class="hs-identifier hs-var">tableNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388549"><span class="annot"><span class="annottext">s :: ListTablesResponse
-</span><a href="#local-6989586621679388549"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTablesResponse%27"><span class="hs-identifier hs-type">ListTablesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388548"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679388548"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTablesResponse
-</span><a href="#local-6989586621679388549"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableNames:ListTablesResponse' :: Maybe [Text]
+</span><a href="#local-6989586621679388559"><span class="hs-identifier hs-var hs-var">tableNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679388559"><span class="hs-identifier hs-var">tableNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388558"><span class="annot"><span class="annottext">s :: ListTablesResponse
+</span><a href="#local-6989586621679388558"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTablesResponse%27"><span class="hs-identifier hs-type">ListTablesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388557"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679388557"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTablesResponse
+</span><a href="#local-6989586621679388558"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableNames:ListTablesResponse' :: Maybe [Text]
 </span><a href="Network.AWS.DynamoDB.ListTables.html#%24sel%3AtableNames%3AListTablesResponse%27"><span class="hs-identifier hs-var">tableNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679388548"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTablesResponse"><span class="hs-identifier hs-type">ListTablesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679388557"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTablesResponse"><span class="hs-identifier hs-type">ListTablesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ListTablesResponse -&gt; f ListTablesResponse)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -632,16 +632,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ListTablesResponse -&gt; Int -&gt; ListTablesResponse)
 -&gt; Lens ListTablesResponse ListTablesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTablesResponse%27"><span class="hs-identifier hs-type">ListTablesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388545"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTablesResponse%27"><span class="hs-identifier hs-type">ListTablesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388554"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListTablesResponse' :: ListTablesResponse -&gt; Int
-</span><a href="#local-6989586621679388545"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388545"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388544"><span class="annot"><span class="annottext">s :: ListTablesResponse
-</span><a href="#local-6989586621679388544"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTablesResponse%27"><span class="hs-identifier hs-type">ListTablesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388543"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388543"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTablesResponse
-</span><a href="#local-6989586621679388544"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListTablesResponse' :: Int
+</span><a href="#local-6989586621679388554"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388554"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388553"><span class="annot"><span class="annottext">s :: ListTablesResponse
+</span><a href="#local-6989586621679388553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTablesResponse%27"><span class="hs-identifier hs-type">ListTablesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388552"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTablesResponse
+</span><a href="#local-6989586621679388553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListTablesResponse' :: Int
 </span><a href="Network.AWS.DynamoDB.ListTables.html#%24sel%3AhttpStatus%3AListTablesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388543"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTablesResponse"><span class="hs-identifier hs-type">ListTablesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTablesResponse"><span class="hs-identifier hs-type">ListTablesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-250"></span><span>
-</span><span id="line-251"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388541"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTablesResponse"><span class="hs-identifier hs-type">ListTablesResponse</span></a></span></span><span>
+</span><span id="line-251"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388550"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.ListTables.html#ListTablesResponse"><span class="hs-identifier hs-type">ListTablesResponse</span></a></span></span><span>
 </span><span id="line-252"></span></pre></body></html>

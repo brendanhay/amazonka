@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679332014"><span id="local-6989586621679332015"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MonitorType"><span class="annot"><a href="Network.AWS.CostExplorer.Types.MonitorType.html#MonitorType"><span class="hs-identifier hs-var">MonitorType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MonitorType%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.MonitorType.html#MonitorType%27"><span class="hs-identifier hs-var">MonitorType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679332023"><span id="local-6989586621679332024"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MonitorType"><span class="annot"><a href="Network.AWS.CostExplorer.Types.MonitorType.html#MonitorType"><span class="hs-identifier hs-var">MonitorType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MonitorType%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.MonitorType.html#MonitorType%27"><span class="hs-identifier hs-var">MonitorType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMonitorType"><span class="annot"><span class="annottext">MonitorType -&gt; Text
 </span><a href="Network.AWS.CostExplorer.Types.MonitorType.html#fromMonitorType"><span class="hs-identifier hs-var hs-var">fromMonitorType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679332006"><span id="local-6989586621679332008"><span id="local-6989586621679332010"><span class="annot"><span class="annottext">Int -&gt; MonitorType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679332015"><span id="local-6989586621679332017"><span id="local-6989586621679332019"><span class="annot"><span class="annottext">Int -&gt; MonitorType -&gt; ShowS
 [MonitorType] -&gt; ShowS
 MonitorType -&gt; String
 (Int -&gt; MonitorType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: MonitorType -&gt; String
 showsPrec :: Int -&gt; MonitorType -&gt; ShowS
 $cshowsPrec :: Int -&gt; MonitorType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679331997"><span id="local-6989586621679331999"><span id="local-6989586621679332001"><span id="local-6989586621679332003"><span class="annot"><span class="annottext">ReadPrec [MonitorType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679332006"><span id="local-6989586621679332008"><span id="local-6989586621679332010"><span id="local-6989586621679332012"><span class="annot"><span class="annottext">ReadPrec [MonitorType]
 ReadPrec MonitorType
 Int -&gt; ReadS MonitorType
 ReadS [MonitorType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [MonitorType]
 readsPrec :: Int -&gt; ReadS MonitorType
 $creadsPrec :: Int -&gt; ReadS MonitorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679331992"><span id="local-6989586621679331994"><span class="annot"><span class="annottext">MonitorType -&gt; MonitorType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679332001"><span id="local-6989586621679332003"><span class="annot"><span class="annottext">MonitorType -&gt; MonitorType -&gt; Bool
 (MonitorType -&gt; MonitorType -&gt; Bool)
 -&gt; (MonitorType -&gt; MonitorType -&gt; Bool) -&gt; Eq MonitorType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: MonitorType -&gt; MonitorType -&gt; Bool
 == :: MonitorType -&gt; MonitorType -&gt; Bool
 $c== :: MonitorType -&gt; MonitorType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679331976"><span id="local-6989586621679331978"><span id="local-6989586621679331980"><span id="local-6989586621679331982"><span id="local-6989586621679331984"><span id="local-6989586621679331986"><span id="local-6989586621679331988"><span class="annot"><span class="annottext">Eq MonitorType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679331985"><span id="local-6989586621679331987"><span id="local-6989586621679331989"><span id="local-6989586621679331991"><span id="local-6989586621679331993"><span id="local-6989586621679331995"><span id="local-6989586621679331997"><span class="annot"><span class="annottext">Eq MonitorType
 Eq MonitorType
 -&gt; (MonitorType -&gt; MonitorType -&gt; Ordering)
 -&gt; (MonitorType -&gt; MonitorType -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. MonitorType -&gt; Rep MonitorType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679331968"><span id="local-6989586621679331970"><span class="annot"><span class="annottext">Int -&gt; MonitorType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679331977"><span id="local-6989586621679331979"><span class="annot"><span class="annottext">Int -&gt; MonitorType -&gt; Int
 MonitorType -&gt; Int
 (Int -&gt; MonitorType -&gt; Int)
 -&gt; (MonitorType -&gt; Int) -&gt; Hashable MonitorType
@@ -142,49 +142,49 @@ $chash :: MonitorType -&gt; Int
 hashWithSalt :: Int -&gt; MonitorType -&gt; Int
 $chashWithSalt :: Int -&gt; MonitorType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679331965"><span class="annot"><span class="annottext">MonitorType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679331974"><span class="annot"><span class="annottext">MonitorType -&gt; ()
 (MonitorType -&gt; ()) -&gt; NFData MonitorType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: MonitorType -&gt; ()
 $crnf :: MonitorType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679331962"><span class="annot"><span class="annottext">Text -&gt; Either String MonitorType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679331971"><span class="annot"><span class="annottext">Text -&gt; Either String MonitorType
 (Text -&gt; Either String MonitorType) -&gt; FromText MonitorType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String MonitorType
 $cfromText :: Text -&gt; Either String MonitorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679331959"><span class="annot"><span class="annottext">MonitorType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679331968"><span class="annot"><span class="annottext">MonitorType -&gt; Text
 (MonitorType -&gt; Text) -&gt; ToText MonitorType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: MonitorType -&gt; Text
 $ctoText :: MonitorType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679331956"><span class="annot"><span class="annottext">MonitorType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679331965"><span class="annot"><span class="annottext">MonitorType -&gt; ByteString
 (MonitorType -&gt; ByteString) -&gt; ToByteString MonitorType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: MonitorType -&gt; ByteString
 $ctoBS :: MonitorType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679331953"><span class="annot"><span class="annottext">MonitorType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679331962"><span class="annot"><span class="annottext">MonitorType -&gt; ByteStringBuilder
 (MonitorType -&gt; ByteStringBuilder) -&gt; ToLog MonitorType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: MonitorType -&gt; ByteStringBuilder
 $cbuild :: MonitorType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679331950"><span class="annot"><span class="annottext">HeaderName -&gt; MonitorType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679331959"><span class="annot"><span class="annottext">HeaderName -&gt; MonitorType -&gt; [Header]
 (HeaderName -&gt; MonitorType -&gt; [Header]) -&gt; ToHeader MonitorType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; MonitorType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; MonitorType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679331947"><span class="annot"><span class="annottext">MonitorType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679331956"><span class="annot"><span class="annottext">MonitorType -&gt; QueryString
 (MonitorType -&gt; QueryString) -&gt; ToQuery MonitorType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: MonitorType -&gt; QueryString
 $ctoQuery :: MonitorType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679331942"><span id="local-6989586621679331944"><span class="annot"><span class="annottext">Value -&gt; Parser [MonitorType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679331951"><span id="local-6989586621679331953"><span class="annot"><span class="annottext">Value -&gt; Parser [MonitorType]
 Value -&gt; Parser MonitorType
 (Value -&gt; Parser MonitorType)
 -&gt; (Value -&gt; Parser [MonitorType]) -&gt; FromJSON MonitorType
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [MonitorType]
 parseJSON :: Value -&gt; Parser MonitorType
 $cparseJSON :: Value -&gt; Parser MonitorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679331937"><span id="local-6989586621679331939"><span class="annot"><span class="annottext">FromJSONKeyFunction [MonitorType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679331946"><span id="local-6989586621679331948"><span class="annot"><span class="annottext">FromJSONKeyFunction [MonitorType]
 FromJSONKeyFunction MonitorType
 FromJSONKeyFunction MonitorType
 -&gt; FromJSONKeyFunction [MonitorType] -&gt; FromJSONKey MonitorType
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [MonitorType]
 fromJSONKey :: FromJSONKeyFunction MonitorType
 $cfromJSONKey :: FromJSONKeyFunction MonitorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679331928"><span id="local-6989586621679331930"><span id="local-6989586621679331932"><span id="local-6989586621679331934"><span class="annot"><span class="annottext">[MonitorType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679331937"><span id="local-6989586621679331939"><span id="local-6989586621679331941"><span id="local-6989586621679331943"><span class="annot"><span class="annottext">[MonitorType] -&gt; Encoding
 [MonitorType] -&gt; Value
 MonitorType -&gt; Encoding
 MonitorType -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: MonitorType -&gt; Encoding
 toJSON :: MonitorType -&gt; Value
 $ctoJSON :: MonitorType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679331923"><span id="local-6989586621679331925"><span class="annot"><span class="annottext">ToJSONKeyFunction [MonitorType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679331932"><span id="local-6989586621679331934"><span class="annot"><span class="annottext">ToJSONKeyFunction [MonitorType]
 ToJSONKeyFunction MonitorType
 ToJSONKeyFunction MonitorType
 -&gt; ToJSONKeyFunction [MonitorType] -&gt; ToJSONKey MonitorType
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [MonitorType]
 toJSONKey :: ToJSONKeyFunction MonitorType
 $ctoJSONKey :: ToJSONKeyFunction MonitorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679331920"><span class="annot"><span class="annottext">[Node] -&gt; Either String MonitorType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679331929"><span class="annot"><span class="annottext">[Node] -&gt; Either String MonitorType
 ([Node] -&gt; Either String MonitorType) -&gt; FromXML MonitorType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String MonitorType
 $cparseXML :: [Node] -&gt; Either String MonitorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679331917"><span class="annot"><span class="annottext">MonitorType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679331926"><span class="annot"><span class="annottext">MonitorType -&gt; XML
 (MonitorType -&gt; XML) -&gt; ToXML MonitorType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: MonitorType -&gt; XML

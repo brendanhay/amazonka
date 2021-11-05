@@ -59,12 +59,12 @@
 </span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newPutReplicationConfiguration' smart constructor.</span><span>
-</span><span id="line-62"></span><span id="local-6989586621679237784"><span id="local-6989586621679237785"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutReplicationConfiguration"><span class="annot"><a href="Network.AWS.ECR.PutReplicationConfiguration.html#PutReplicationConfiguration"><span class="hs-identifier hs-var">PutReplicationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutReplicationConfiguration%27"><span class="annot"><a href="Network.AWS.ECR.PutReplicationConfiguration.html#PutReplicationConfiguration%27"><span class="hs-identifier hs-var">PutReplicationConfiguration'</span></a></span></span><span>
+</span><span id="line-62"></span><span id="local-6989586621679237793"><span id="local-6989586621679237794"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutReplicationConfiguration"><span class="annot"><a href="Network.AWS.ECR.PutReplicationConfiguration.html#PutReplicationConfiguration"><span class="hs-identifier hs-var">PutReplicationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutReplicationConfiguration%27"><span class="annot"><a href="Network.AWS.ECR.PutReplicationConfiguration.html#PutReplicationConfiguration%27"><span class="hs-identifier hs-var">PutReplicationConfiguration'</span></a></span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object representing the replication configuration for a registry.</span><span>
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AreplicationConfiguration%3APutReplicationConfiguration%27"><span class="annot"><span class="annottext">PutReplicationConfiguration -&gt; ReplicationConfiguration
 </span><a href="Network.AWS.ECR.PutReplicationConfiguration.html#%24sel%3AreplicationConfiguration%3APutReplicationConfiguration%27"><span class="hs-identifier hs-var hs-var">replicationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.ReplicationConfiguration.html#ReplicationConfiguration"><span class="hs-identifier hs-type">ReplicationConfiguration</span></a></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679237778"><span id="local-6989586621679237780"><span class="annot"><span class="annottext">PutReplicationConfiguration -&gt; PutReplicationConfiguration -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679237787"><span id="local-6989586621679237789"><span class="annot"><span class="annottext">PutReplicationConfiguration -&gt; PutReplicationConfiguration -&gt; Bool
 (PutReplicationConfiguration
  -&gt; PutReplicationConfiguration -&gt; Bool)
 -&gt; (PutReplicationConfiguration
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutReplicationConfiguration -&gt; PutReplicationConfiguration -&gt; Bool
 == :: PutReplicationConfiguration -&gt; PutReplicationConfiguration -&gt; Bool
 $c== :: PutReplicationConfiguration -&gt; PutReplicationConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237769"><span id="local-6989586621679237771"><span id="local-6989586621679237773"><span id="local-6989586621679237775"><span class="annot"><span class="annottext">ReadPrec [PutReplicationConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237778"><span id="local-6989586621679237780"><span id="local-6989586621679237782"><span id="local-6989586621679237784"><span class="annot"><span class="annottext">ReadPrec [PutReplicationConfiguration]
 ReadPrec PutReplicationConfiguration
 Int -&gt; ReadS PutReplicationConfiguration
 ReadS [PutReplicationConfiguration]
@@ -95,7 +95,7 @@ readList :: ReadS [PutReplicationConfiguration]
 $creadList :: ReadS [PutReplicationConfiguration]
 readsPrec :: Int -&gt; ReadS PutReplicationConfiguration
 $creadsPrec :: Int -&gt; ReadS PutReplicationConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237762"><span id="local-6989586621679237764"><span id="local-6989586621679237766"><span class="annot"><span class="annottext">Int -&gt; PutReplicationConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237771"><span id="local-6989586621679237773"><span id="local-6989586621679237775"><span class="annot"><span class="annottext">Int -&gt; PutReplicationConfiguration -&gt; ShowS
 [PutReplicationConfiguration] -&gt; ShowS
 PutReplicationConfiguration -&gt; String
 (Int -&gt; PutReplicationConfiguration -&gt; ShowS)
@@ -142,14 +142,14 @@ PutReplicationConfiguration -&gt; Rep PutReplicationConfiguration x
 </span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.ECR.PutReplicationConfiguration.html#PutReplicationConfiguration"><span class="hs-identifier hs-type">PutReplicationConfiguration</span></a></span><span>
 </span><span id="line-81"></span><span id="newPutReplicationConfiguration"><span class="annot"><span class="annottext">newPutReplicationConfiguration :: ReplicationConfiguration -&gt; PutReplicationConfiguration
 </span><a href="Network.AWS.ECR.PutReplicationConfiguration.html#newPutReplicationConfiguration"><span class="hs-identifier hs-var hs-var">newPutReplicationConfiguration</span></a></span></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679237757"><span class="annot"><span class="annottext">ReplicationConfiguration
-</span><a href="#local-6989586621679237757"><span class="hs-identifier hs-var">pReplicationConfiguration_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679237766"><span class="annot"><span class="annottext">ReplicationConfiguration
+</span><a href="#local-6989586621679237766"><span class="hs-identifier hs-var">pReplicationConfiguration_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">PutReplicationConfiguration' :: ReplicationConfiguration -&gt; PutReplicationConfiguration
 </span><a href="Network.AWS.ECR.PutReplicationConfiguration.html#PutReplicationConfiguration%27"><span class="hs-identifier hs-type">PutReplicationConfiguration'</span></a></span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:replicationConfiguration:PutReplicationConfiguration' :: ReplicationConfiguration
 </span><a href="Network.AWS.ECR.PutReplicationConfiguration.html#%24sel%3AreplicationConfiguration%3APutReplicationConfiguration%27"><span class="hs-identifier hs-var">replicationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">ReplicationConfiguration
-</span><a href="#local-6989586621679237757"><span class="hs-identifier hs-var">pReplicationConfiguration_</span></a></span><span>
+</span><a href="#local-6989586621679237766"><span class="hs-identifier hs-var">pReplicationConfiguration_</span></a></span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | An object representing the replication configuration for a registry.</span><span>
@@ -165,29 +165,29 @@ PutReplicationConfiguration -&gt; Rep PutReplicationConfiguration x
      ReplicationConfiguration
      ReplicationConfiguration
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.PutReplicationConfiguration.html#PutReplicationConfiguration%27"><span class="hs-identifier hs-type">PutReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237754"><span class="annot"><span class="annottext">ReplicationConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.PutReplicationConfiguration.html#PutReplicationConfiguration%27"><span class="hs-identifier hs-type">PutReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237763"><span class="annot"><span class="annottext">ReplicationConfiguration
 replicationConfiguration :: ReplicationConfiguration
 $sel:replicationConfiguration:PutReplicationConfiguration' :: PutReplicationConfiguration -&gt; ReplicationConfiguration
-</span><a href="#local-6989586621679237754"><span class="hs-identifier hs-var hs-var">replicationConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationConfiguration
-</span><a href="#local-6989586621679237754"><span class="hs-identifier hs-var">replicationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237753"><span class="annot"><span class="annottext">s :: PutReplicationConfiguration
-</span><a href="#local-6989586621679237753"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.PutReplicationConfiguration.html#PutReplicationConfiguration%27"><span class="hs-identifier hs-type">PutReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237752"><span class="annot"><span class="annottext">ReplicationConfiguration
-</span><a href="#local-6989586621679237752"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutReplicationConfiguration
-</span><a href="#local-6989586621679237753"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationConfiguration:PutReplicationConfiguration' :: ReplicationConfiguration
+</span><a href="#local-6989586621679237763"><span class="hs-identifier hs-var hs-var">replicationConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationConfiguration
+</span><a href="#local-6989586621679237763"><span class="hs-identifier hs-var">replicationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237762"><span class="annot"><span class="annottext">s :: PutReplicationConfiguration
+</span><a href="#local-6989586621679237762"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.PutReplicationConfiguration.html#PutReplicationConfiguration%27"><span class="hs-identifier hs-type">PutReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237761"><span class="annot"><span class="annottext">ReplicationConfiguration
+</span><a href="#local-6989586621679237761"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutReplicationConfiguration
+</span><a href="#local-6989586621679237762"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationConfiguration:PutReplicationConfiguration' :: ReplicationConfiguration
 </span><a href="Network.AWS.ECR.PutReplicationConfiguration.html#%24sel%3AreplicationConfiguration%3APutReplicationConfiguration%27"><span class="hs-identifier hs-var">replicationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ReplicationConfiguration
-</span><a href="#local-6989586621679237752"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutReplicationConfiguration.html#PutReplicationConfiguration"><span class="hs-identifier hs-type">PutReplicationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679237761"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutReplicationConfiguration.html#PutReplicationConfiguration"><span class="hs-identifier hs-type">PutReplicationConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutReplicationConfiguration.html#PutReplicationConfiguration"><span class="hs-identifier hs-type">PutReplicationConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-93"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-94"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutReplicationConfiguration.html#PutReplicationConfiguration"><span class="hs-identifier hs-type">PutReplicationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><a href="Network.AWS.ECR.PutReplicationConfiguration.html#PutReplicationConfigurationResponse"><span class="hs-identifier hs-type">PutReplicationConfigurationResponse</span></a></span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679237748"><span class="annot"><span class="annottext">request :: PutReplicationConfiguration -&gt; Request PutReplicationConfiguration
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679237757"><span class="annot"><span class="annottext">request :: PutReplicationConfiguration -&gt; Request PutReplicationConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; PutReplicationConfiguration
 -&gt; Request PutReplicationConfiguration
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ECR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679237744"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679237753"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutReplicationConfiguration
 -&gt; ClientResponse ClientBody
@@ -213,10 +213,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679237741"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679237741"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679237740"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679237740"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679237739"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679237739"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679237750"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237750"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679237749"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679237749"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679237748"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237748"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe ReplicationConfiguration
 -&gt; Int -&gt; PutReplicationConfigurationResponse
 </span><a href="Network.AWS.ECR.PutReplicationConfiguration.html#PutReplicationConfigurationResponse%27"><span class="hs-identifier hs-var">PutReplicationConfigurationResponse'</span></a></span><span>
@@ -226,7 +226,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; PutReplicationConfigurationResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679237739"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ReplicationConfiguration)
+</span><a href="#local-6989586621679237748"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ReplicationConfiguration)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;replicationConfiguration&quot;</span></span><span class="hs-special">)</span><span>
@@ -239,15 +239,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679237741"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679237750"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237731"><span id="local-6989586621679237733"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutReplicationConfiguration.html#PutReplicationConfiguration"><span class="hs-identifier hs-type">PutReplicationConfiguration</span></a></span></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237740"><span id="local-6989586621679237742"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutReplicationConfiguration.html#PutReplicationConfiguration"><span class="hs-identifier hs-type">PutReplicationConfiguration</span></a></span></span></span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237728"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutReplicationConfiguration.html#PutReplicationConfiguration"><span class="hs-identifier hs-type">PutReplicationConfiguration</span></a></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237737"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutReplicationConfiguration.html#PutReplicationConfiguration"><span class="hs-identifier hs-type">PutReplicationConfiguration</span></a></span></span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutReplicationConfiguration.html#PutReplicationConfiguration"><span class="hs-identifier hs-type">PutReplicationConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679237724"><span class="annot"><span class="annottext">toHeaders :: PutReplicationConfiguration -&gt; ResponseHeaders
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679237733"><span class="annot"><span class="annottext">toHeaders :: PutReplicationConfiguration -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutReplicationConfiguration -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -274,12 +274,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-121"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237714"><span id="local-6989586621679237716"><span id="local-6989586621679237718"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutReplicationConfiguration.html#PutReplicationConfiguration"><span class="hs-identifier hs-type">PutReplicationConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679237712"><span class="annot"><span class="annottext">toJSON :: PutReplicationConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutReplicationConfiguration.html#PutReplicationConfiguration%27"><span class="hs-identifier hs-type">PutReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237710"><span class="annot"><span class="annottext">ReplicationConfiguration
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237723"><span id="local-6989586621679237725"><span id="local-6989586621679237727"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutReplicationConfiguration.html#PutReplicationConfiguration"><span class="hs-identifier hs-type">PutReplicationConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679237721"><span class="annot"><span class="annottext">toJSON :: PutReplicationConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutReplicationConfiguration.html#PutReplicationConfiguration%27"><span class="hs-identifier hs-type">PutReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237719"><span class="annot"><span class="annottext">ReplicationConfiguration
 replicationConfiguration :: ReplicationConfiguration
 $sel:replicationConfiguration:PutReplicationConfiguration' :: PutReplicationConfiguration -&gt; ReplicationConfiguration
-</span><a href="#local-6989586621679237710"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679237719"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -293,20 +293,20 @@ forall a. a -&gt; Maybe a
 </span><span id="line-130"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; ReplicationConfiguration -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ReplicationConfiguration
-</span><a href="#local-6989586621679237710"><span class="hs-identifier hs-var">replicationConfiguration</span></a></span><span>
+</span><a href="#local-6989586621679237719"><span class="hs-identifier hs-var">replicationConfiguration</span></a></span><span>
 </span><span id="line-131"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutReplicationConfiguration.html#PutReplicationConfiguration"><span class="hs-identifier hs-type">PutReplicationConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679237704"><span class="annot"><span class="annottext">toPath :: PutReplicationConfiguration -&gt; ByteString
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679237713"><span class="annot"><span class="annottext">toPath :: PutReplicationConfiguration -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutReplicationConfiguration -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutReplicationConfiguration.html#PutReplicationConfiguration"><span class="hs-identifier hs-type">PutReplicationConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679237700"><span class="annot"><span class="annottext">toQuery :: PutReplicationConfiguration -&gt; QueryString
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679237709"><span class="annot"><span class="annottext">toQuery :: PutReplicationConfiguration -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutReplicationConfiguration -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -314,7 +314,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- | /See:/ 'newPutReplicationConfigurationResponse' smart constructor.</span><span>
-</span><span id="line-142"></span><span id="local-6989586621679237697"><span id="local-6989586621679237698"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutReplicationConfigurationResponse"><span class="annot"><a href="Network.AWS.ECR.PutReplicationConfiguration.html#PutReplicationConfigurationResponse"><span class="hs-identifier hs-var">PutReplicationConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutReplicationConfigurationResponse%27"><span class="annot"><a href="Network.AWS.ECR.PutReplicationConfiguration.html#PutReplicationConfigurationResponse%27"><span class="hs-identifier hs-var">PutReplicationConfigurationResponse'</span></a></span></span><span>
+</span><span id="line-142"></span><span id="local-6989586621679237706"><span id="local-6989586621679237707"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutReplicationConfigurationResponse"><span class="annot"><a href="Network.AWS.ECR.PutReplicationConfiguration.html#PutReplicationConfigurationResponse"><span class="hs-identifier hs-var">PutReplicationConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutReplicationConfigurationResponse%27"><span class="annot"><a href="Network.AWS.ECR.PutReplicationConfiguration.html#PutReplicationConfigurationResponse%27"><span class="hs-identifier hs-var">PutReplicationConfigurationResponse'</span></a></span></span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The contents of the replication configuration for the registry.</span><span>
 </span><span id="line-144"></span><span>    </span><span id="%24sel%3AreplicationConfiguration%3APutReplicationConfigurationResponse%27"><span class="annot"><span class="annottext">PutReplicationConfigurationResponse
 -&gt; Maybe ReplicationConfiguration
@@ -323,7 +323,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-146"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutReplicationConfigurationResponse%27"><span class="annot"><span class="annottext">PutReplicationConfigurationResponse -&gt; Int
 </span><a href="Network.AWS.ECR.PutReplicationConfiguration.html#%24sel%3AhttpStatus%3APutReplicationConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-147"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-148"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679237691"><span id="local-6989586621679237693"><span class="annot"><span class="annottext">PutReplicationConfigurationResponse
+</span><span id="line-148"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679237700"><span id="local-6989586621679237702"><span class="annot"><span class="annottext">PutReplicationConfigurationResponse
 -&gt; PutReplicationConfigurationResponse -&gt; Bool
 (PutReplicationConfigurationResponse
  -&gt; PutReplicationConfigurationResponse -&gt; Bool)
@@ -339,7 +339,7 @@ $c/= :: PutReplicationConfigurationResponse
 -&gt; PutReplicationConfigurationResponse -&gt; Bool
 $c== :: PutReplicationConfigurationResponse
 -&gt; PutReplicationConfigurationResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237683"><span id="local-6989586621679237685"><span id="local-6989586621679237687"><span id="local-6989586621679237689"><span class="annot"><span class="annottext">ReadPrec [PutReplicationConfigurationResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237692"><span id="local-6989586621679237694"><span id="local-6989586621679237696"><span id="local-6989586621679237698"><span class="annot"><span class="annottext">ReadPrec [PutReplicationConfigurationResponse]
 ReadPrec PutReplicationConfigurationResponse
 Int -&gt; ReadS PutReplicationConfigurationResponse
 ReadS [PutReplicationConfigurationResponse]
@@ -359,7 +359,7 @@ readList :: ReadS [PutReplicationConfigurationResponse]
 $creadList :: ReadS [PutReplicationConfigurationResponse]
 readsPrec :: Int -&gt; ReadS PutReplicationConfigurationResponse
 $creadsPrec :: Int -&gt; ReadS PutReplicationConfigurationResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237677"><span id="local-6989586621679237679"><span id="local-6989586621679237681"><span class="annot"><span class="annottext">Int -&gt; PutReplicationConfigurationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237686"><span id="local-6989586621679237688"><span id="local-6989586621679237690"><span class="annot"><span class="annottext">Int -&gt; PutReplicationConfigurationResponse -&gt; ShowS
 [PutReplicationConfigurationResponse] -&gt; ShowS
 PutReplicationConfigurationResponse -&gt; String
 (Int -&gt; PutReplicationConfigurationResponse -&gt; ShowS)
@@ -413,8 +413,8 @@ PutReplicationConfigurationResponse
 </span><span id="line-163"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-164"></span><span>  </span><span class="annot"><a href="Network.AWS.ECR.PutReplicationConfiguration.html#PutReplicationConfigurationResponse"><span class="hs-identifier hs-type">PutReplicationConfigurationResponse</span></a></span><span>
 </span><span id="line-165"></span><span id="newPutReplicationConfigurationResponse"><span class="annot"><span class="annottext">newPutReplicationConfigurationResponse :: Int -&gt; PutReplicationConfigurationResponse
-</span><a href="Network.AWS.ECR.PutReplicationConfiguration.html#newPutReplicationConfigurationResponse"><span class="hs-identifier hs-var hs-var">newPutReplicationConfigurationResponse</span></a></span></span><span> </span><span id="local-6989586621679237674"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679237674"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ECR.PutReplicationConfiguration.html#newPutReplicationConfigurationResponse"><span class="hs-identifier hs-var hs-var">newPutReplicationConfigurationResponse</span></a></span></span><span> </span><span id="local-6989586621679237683"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237683"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-166"></span><span>  </span><span class="annot"><span class="annottext">PutReplicationConfigurationResponse' :: Maybe ReplicationConfiguration
 -&gt; Int -&gt; PutReplicationConfigurationResponse
 </span><a href="Network.AWS.ECR.PutReplicationConfiguration.html#PutReplicationConfigurationResponse%27"><span class="hs-identifier hs-type">PutReplicationConfigurationResponse'</span></a></span><span>
@@ -425,7 +425,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:PutReplicationConfigurationResponse' :: Int
 </span><a href="Network.AWS.ECR.PutReplicationConfiguration.html#%24sel%3AhttpStatus%3APutReplicationConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679237674"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679237683"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-170"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | The contents of the replication configuration for the registry.</span><span>
@@ -445,17 +445,17 @@ forall a. Maybe a
      (Maybe ReplicationConfiguration)
      (Maybe ReplicationConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.PutReplicationConfiguration.html#PutReplicationConfigurationResponse%27"><span class="hs-identifier hs-type">PutReplicationConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237673"><span class="annot"><span class="annottext">Maybe ReplicationConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.PutReplicationConfiguration.html#PutReplicationConfigurationResponse%27"><span class="hs-identifier hs-type">PutReplicationConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237682"><span class="annot"><span class="annottext">Maybe ReplicationConfiguration
 replicationConfiguration :: Maybe ReplicationConfiguration
 $sel:replicationConfiguration:PutReplicationConfigurationResponse' :: PutReplicationConfigurationResponse
 -&gt; Maybe ReplicationConfiguration
-</span><a href="#local-6989586621679237673"><span class="hs-identifier hs-var hs-var">replicationConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationConfiguration
-</span><a href="#local-6989586621679237673"><span class="hs-identifier hs-var">replicationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237672"><span class="annot"><span class="annottext">s :: PutReplicationConfigurationResponse
-</span><a href="#local-6989586621679237672"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.PutReplicationConfiguration.html#PutReplicationConfigurationResponse%27"><span class="hs-identifier hs-type">PutReplicationConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237671"><span class="annot"><span class="annottext">Maybe ReplicationConfiguration
-</span><a href="#local-6989586621679237671"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutReplicationConfigurationResponse
-</span><a href="#local-6989586621679237672"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationConfiguration:PutReplicationConfigurationResponse' :: Maybe ReplicationConfiguration
+</span><a href="#local-6989586621679237682"><span class="hs-identifier hs-var hs-var">replicationConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationConfiguration
+</span><a href="#local-6989586621679237682"><span class="hs-identifier hs-var">replicationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237681"><span class="annot"><span class="annottext">s :: PutReplicationConfigurationResponse
+</span><a href="#local-6989586621679237681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.PutReplicationConfiguration.html#PutReplicationConfigurationResponse%27"><span class="hs-identifier hs-type">PutReplicationConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237680"><span class="annot"><span class="annottext">Maybe ReplicationConfiguration
+</span><a href="#local-6989586621679237680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutReplicationConfigurationResponse
+</span><a href="#local-6989586621679237681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationConfiguration:PutReplicationConfigurationResponse' :: Maybe ReplicationConfiguration
 </span><a href="Network.AWS.ECR.PutReplicationConfiguration.html#%24sel%3AreplicationConfiguration%3APutReplicationConfigurationResponse%27"><span class="hs-identifier hs-var">replicationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationConfiguration
-</span><a href="#local-6989586621679237671"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutReplicationConfiguration.html#PutReplicationConfigurationResponse"><span class="hs-identifier hs-type">PutReplicationConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679237680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutReplicationConfiguration.html#PutReplicationConfigurationResponse"><span class="hs-identifier hs-type">PutReplicationConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-177"></span><span class="annot"><a href="Network.AWS.ECR.PutReplicationConfiguration.html#putReplicationConfigurationResponse_httpStatus"><span class="hs-identifier hs-type">putReplicationConfigurationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutReplicationConfiguration.html#PutReplicationConfigurationResponse"><span class="hs-identifier hs-type">PutReplicationConfigurationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -471,18 +471,18 @@ $sel:replicationConfiguration:PutReplicationConfigurationResponse' :: PutReplica
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.PutReplicationConfiguration.html#PutReplicationConfigurationResponse%27"><span class="hs-identifier hs-type">PutReplicationConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237670"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.PutReplicationConfiguration.html#PutReplicationConfigurationResponse%27"><span class="hs-identifier hs-type">PutReplicationConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237679"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:PutReplicationConfigurationResponse' :: PutReplicationConfigurationResponse -&gt; Int
-</span><a href="#local-6989586621679237670"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679237670"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237669"><span class="annot"><span class="annottext">s :: PutReplicationConfigurationResponse
-</span><a href="#local-6989586621679237669"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.PutReplicationConfiguration.html#PutReplicationConfigurationResponse%27"><span class="hs-identifier hs-type">PutReplicationConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237668"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679237668"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutReplicationConfigurationResponse
-</span><a href="#local-6989586621679237669"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutReplicationConfigurationResponse' :: Int
+</span><a href="#local-6989586621679237679"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237679"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237678"><span class="annot"><span class="annottext">s :: PutReplicationConfigurationResponse
+</span><a href="#local-6989586621679237678"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.PutReplicationConfiguration.html#PutReplicationConfigurationResponse%27"><span class="hs-identifier hs-type">PutReplicationConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237677"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237677"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutReplicationConfigurationResponse
+</span><a href="#local-6989586621679237678"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutReplicationConfigurationResponse' :: Int
 </span><a href="Network.AWS.ECR.PutReplicationConfiguration.html#%24sel%3AhttpStatus%3APutReplicationConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679237668"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutReplicationConfiguration.html#PutReplicationConfigurationResponse"><span class="hs-identifier hs-type">PutReplicationConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679237677"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.PutReplicationConfiguration.html#PutReplicationConfigurationResponse"><span class="hs-identifier hs-type">PutReplicationConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679237666"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679237675"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-182"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.PutReplicationConfiguration.html#PutReplicationConfigurationResponse"><span class="hs-identifier hs-type">PutReplicationConfigurationResponse</span></a></span></span><span>
 </span><span id="line-183"></span></pre></body></html>

@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621680306839"><span id="local-6989586621680306840"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FlowDefinitionStatus"><span class="annot"><a href="Network.AWS.SageMaker.Types.FlowDefinitionStatus.html#FlowDefinitionStatus"><span class="hs-identifier hs-var">FlowDefinitionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FlowDefinitionStatus%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.FlowDefinitionStatus.html#FlowDefinitionStatus%27"><span class="hs-identifier hs-var">FlowDefinitionStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621680306848"><span id="local-6989586621680306849"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FlowDefinitionStatus"><span class="annot"><a href="Network.AWS.SageMaker.Types.FlowDefinitionStatus.html#FlowDefinitionStatus"><span class="hs-identifier hs-var">FlowDefinitionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FlowDefinitionStatus%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.FlowDefinitionStatus.html#FlowDefinitionStatus%27"><span class="hs-identifier hs-var">FlowDefinitionStatus'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFlowDefinitionStatus"><span class="annot"><span class="annottext">FlowDefinitionStatus -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.FlowDefinitionStatus.html#fromFlowDefinitionStatus"><span class="hs-identifier hs-var hs-var">fromFlowDefinitionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680306831"><span id="local-6989586621680306833"><span id="local-6989586621680306835"><span class="annot"><span class="annottext">Int -&gt; FlowDefinitionStatus -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680306840"><span id="local-6989586621680306842"><span id="local-6989586621680306844"><span class="annot"><span class="annottext">Int -&gt; FlowDefinitionStatus -&gt; ShowS
 [FlowDefinitionStatus] -&gt; ShowS
 FlowDefinitionStatus -&gt; String
 (Int -&gt; FlowDefinitionStatus -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: FlowDefinitionStatus -&gt; String
 showsPrec :: Int -&gt; FlowDefinitionStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; FlowDefinitionStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621680306822"><span id="local-6989586621680306824"><span id="local-6989586621680306826"><span id="local-6989586621680306828"><span class="annot"><span class="annottext">ReadPrec [FlowDefinitionStatus]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680306831"><span id="local-6989586621680306833"><span id="local-6989586621680306835"><span id="local-6989586621680306837"><span class="annot"><span class="annottext">ReadPrec [FlowDefinitionStatus]
 ReadPrec FlowDefinitionStatus
 Int -&gt; ReadS FlowDefinitionStatus
 ReadS [FlowDefinitionStatus]
@@ -74,7 +74,7 @@ $creadList :: ReadS [FlowDefinitionStatus]
 readsPrec :: Int -&gt; ReadS FlowDefinitionStatus
 $creadsPrec :: Int -&gt; ReadS FlowDefinitionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621680306817"><span id="local-6989586621680306819"><span class="annot"><span class="annottext">FlowDefinitionStatus -&gt; FlowDefinitionStatus -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621680306826"><span id="local-6989586621680306828"><span class="annot"><span class="annottext">FlowDefinitionStatus -&gt; FlowDefinitionStatus -&gt; Bool
 (FlowDefinitionStatus -&gt; FlowDefinitionStatus -&gt; Bool)
 -&gt; (FlowDefinitionStatus -&gt; FlowDefinitionStatus -&gt; Bool)
 -&gt; Eq FlowDefinitionStatus
@@ -84,7 +84,7 @@ $c/= :: FlowDefinitionStatus -&gt; FlowDefinitionStatus -&gt; Bool
 == :: FlowDefinitionStatus -&gt; FlowDefinitionStatus -&gt; Bool
 $c== :: FlowDefinitionStatus -&gt; FlowDefinitionStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621680306801"><span id="local-6989586621680306803"><span id="local-6989586621680306805"><span id="local-6989586621680306807"><span id="local-6989586621680306809"><span id="local-6989586621680306811"><span id="local-6989586621680306813"><span class="annot"><span class="annottext">Eq FlowDefinitionStatus
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621680306810"><span id="local-6989586621680306812"><span id="local-6989586621680306814"><span id="local-6989586621680306816"><span id="local-6989586621680306818"><span id="local-6989586621680306820"><span id="local-6989586621680306822"><span class="annot"><span class="annottext">Eq FlowDefinitionStatus
 Eq FlowDefinitionStatus
 -&gt; (FlowDefinitionStatus -&gt; FlowDefinitionStatus -&gt; Ordering)
 -&gt; (FlowDefinitionStatus -&gt; FlowDefinitionStatus -&gt; Bool)
@@ -142,7 +142,7 @@ $cfrom :: forall x. FlowDefinitionStatus -&gt; Rep FlowDefinitionStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680306793"><span id="local-6989586621680306795"><span class="annot"><span class="annottext">Int -&gt; FlowDefinitionStatus -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680306802"><span id="local-6989586621680306804"><span class="annot"><span class="annottext">Int -&gt; FlowDefinitionStatus -&gt; Int
 FlowDefinitionStatus -&gt; Int
 (Int -&gt; FlowDefinitionStatus -&gt; Int)
 -&gt; (FlowDefinitionStatus -&gt; Int) -&gt; Hashable FlowDefinitionStatus
@@ -152,54 +152,54 @@ $chash :: FlowDefinitionStatus -&gt; Int
 hashWithSalt :: Int -&gt; FlowDefinitionStatus -&gt; Int
 $chashWithSalt :: Int -&gt; FlowDefinitionStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680306790"><span class="annot"><span class="annottext">FlowDefinitionStatus -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680306799"><span class="annot"><span class="annottext">FlowDefinitionStatus -&gt; ()
 (FlowDefinitionStatus -&gt; ()) -&gt; NFData FlowDefinitionStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: FlowDefinitionStatus -&gt; ()
 $crnf :: FlowDefinitionStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680306787"><span class="annot"><span class="annottext">Text -&gt; Either String FlowDefinitionStatus
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680306796"><span class="annot"><span class="annottext">Text -&gt; Either String FlowDefinitionStatus
 (Text -&gt; Either String FlowDefinitionStatus)
 -&gt; FromText FlowDefinitionStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String FlowDefinitionStatus
 $cfromText :: Text -&gt; Either String FlowDefinitionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680306784"><span class="annot"><span class="annottext">FlowDefinitionStatus -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680306793"><span class="annot"><span class="annottext">FlowDefinitionStatus -&gt; Text
 (FlowDefinitionStatus -&gt; Text) -&gt; ToText FlowDefinitionStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: FlowDefinitionStatus -&gt; Text
 $ctoText :: FlowDefinitionStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680306781"><span class="annot"><span class="annottext">FlowDefinitionStatus -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680306790"><span class="annot"><span class="annottext">FlowDefinitionStatus -&gt; ByteString
 (FlowDefinitionStatus -&gt; ByteString)
 -&gt; ToByteString FlowDefinitionStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: FlowDefinitionStatus -&gt; ByteString
 $ctoBS :: FlowDefinitionStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680306778"><span class="annot"><span class="annottext">FlowDefinitionStatus -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680306787"><span class="annot"><span class="annottext">FlowDefinitionStatus -&gt; ByteStringBuilder
 (FlowDefinitionStatus -&gt; ByteStringBuilder)
 -&gt; ToLog FlowDefinitionStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: FlowDefinitionStatus -&gt; ByteStringBuilder
 $cbuild :: FlowDefinitionStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680306775"><span class="annot"><span class="annottext">HeaderName -&gt; FlowDefinitionStatus -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680306784"><span class="annot"><span class="annottext">HeaderName -&gt; FlowDefinitionStatus -&gt; [Header]
 (HeaderName -&gt; FlowDefinitionStatus -&gt; [Header])
 -&gt; ToHeader FlowDefinitionStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; FlowDefinitionStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; FlowDefinitionStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680306772"><span class="annot"><span class="annottext">FlowDefinitionStatus -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680306781"><span class="annot"><span class="annottext">FlowDefinitionStatus -&gt; QueryString
 (FlowDefinitionStatus -&gt; QueryString)
 -&gt; ToQuery FlowDefinitionStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: FlowDefinitionStatus -&gt; QueryString
 $ctoQuery :: FlowDefinitionStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680306767"><span id="local-6989586621680306769"><span class="annot"><span class="annottext">Value -&gt; Parser [FlowDefinitionStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680306776"><span id="local-6989586621680306778"><span class="annot"><span class="annottext">Value -&gt; Parser [FlowDefinitionStatus]
 Value -&gt; Parser FlowDefinitionStatus
 (Value -&gt; Parser FlowDefinitionStatus)
 -&gt; (Value -&gt; Parser [FlowDefinitionStatus])
@@ -211,7 +211,7 @@ $cparseJSONList :: Value -&gt; Parser [FlowDefinitionStatus]
 parseJSON :: Value -&gt; Parser FlowDefinitionStatus
 $cparseJSON :: Value -&gt; Parser FlowDefinitionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680306762"><span id="local-6989586621680306764"><span class="annot"><span class="annottext">FromJSONKeyFunction [FlowDefinitionStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680306771"><span id="local-6989586621680306773"><span class="annot"><span class="annottext">FromJSONKeyFunction [FlowDefinitionStatus]
 FromJSONKeyFunction FlowDefinitionStatus
 FromJSONKeyFunction FlowDefinitionStatus
 -&gt; FromJSONKeyFunction [FlowDefinitionStatus]
@@ -223,7 +223,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [FlowDefinitionStatus]
 fromJSONKey :: FromJSONKeyFunction FlowDefinitionStatus
 $cfromJSONKey :: FromJSONKeyFunction FlowDefinitionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680306753"><span id="local-6989586621680306755"><span id="local-6989586621680306757"><span id="local-6989586621680306759"><span class="annot"><span class="annottext">[FlowDefinitionStatus] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680306762"><span id="local-6989586621680306764"><span id="local-6989586621680306766"><span id="local-6989586621680306768"><span class="annot"><span class="annottext">[FlowDefinitionStatus] -&gt; Encoding
 [FlowDefinitionStatus] -&gt; Value
 FlowDefinitionStatus -&gt; Encoding
 FlowDefinitionStatus -&gt; Value
@@ -247,7 +247,7 @@ $ctoEncoding :: FlowDefinitionStatus -&gt; Encoding
 toJSON :: FlowDefinitionStatus -&gt; Value
 $ctoJSON :: FlowDefinitionStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680306748"><span id="local-6989586621680306750"><span class="annot"><span class="annottext">ToJSONKeyFunction [FlowDefinitionStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680306757"><span id="local-6989586621680306759"><span class="annot"><span class="annottext">ToJSONKeyFunction [FlowDefinitionStatus]
 ToJSONKeyFunction FlowDefinitionStatus
 ToJSONKeyFunction FlowDefinitionStatus
 -&gt; ToJSONKeyFunction [FlowDefinitionStatus]
@@ -259,14 +259,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [FlowDefinitionStatus]
 toJSONKey :: ToJSONKeyFunction FlowDefinitionStatus
 $ctoJSONKey :: ToJSONKeyFunction FlowDefinitionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680306745"><span class="annot"><span class="annottext">[Node] -&gt; Either String FlowDefinitionStatus
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680306754"><span class="annot"><span class="annottext">[Node] -&gt; Either String FlowDefinitionStatus
 ([Node] -&gt; Either String FlowDefinitionStatus)
 -&gt; FromXML FlowDefinitionStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String FlowDefinitionStatus
 $cparseXML :: [Node] -&gt; Either String FlowDefinitionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680306742"><span class="annot"><span class="annottext">FlowDefinitionStatus -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680306751"><span class="annot"><span class="annottext">FlowDefinitionStatus -&gt; XML
 (FlowDefinitionStatus -&gt; XML) -&gt; ToXML FlowDefinitionStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: FlowDefinitionStatus -&gt; XML

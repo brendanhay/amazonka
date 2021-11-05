@@ -29,18 +29,18 @@
 </span><span id="line-29"></span><span class="hs-comment">-- debug a failed model training.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newAsset' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679330009"><span id="local-6989586621679330010"></span></span><span class="hs-keyword">data</span><span> </span><span id="Asset"><span class="annot"><a href="Network.AWS.Rekognition.Types.Asset.html#Asset"><span class="hs-identifier hs-var">Asset</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Asset%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.Asset.html#Asset%27"><span class="hs-identifier hs-var">Asset'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679330018"><span id="local-6989586621679330019"></span></span><span class="hs-keyword">data</span><span> </span><span id="Asset"><span class="annot"><a href="Network.AWS.Rekognition.Types.Asset.html#Asset"><span class="hs-identifier hs-var">Asset</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Asset%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.Asset.html#Asset%27"><span class="hs-identifier hs-var">Asset'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AgroundTruthManifest%3AAsset%27"><span class="annot"><span class="annottext">Asset -&gt; Maybe GroundTruthManifest
 </span><a href="Network.AWS.Rekognition.Types.Asset.html#%24sel%3AgroundTruthManifest%3AAsset%27"><span class="hs-identifier hs-var hs-var">groundTruthManifest</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.GroundTruthManifest.html#GroundTruthManifest"><span class="hs-identifier hs-type">GroundTruthManifest</span></a></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679330003"><span id="local-6989586621679330005"><span class="annot"><span class="annottext">Asset -&gt; Asset -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679330012"><span id="local-6989586621679330014"><span class="annot"><span class="annottext">Asset -&gt; Asset -&gt; Bool
 (Asset -&gt; Asset -&gt; Bool) -&gt; (Asset -&gt; Asset -&gt; Bool) -&gt; Eq Asset
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Asset -&gt; Asset -&gt; Bool
 $c/= :: Asset -&gt; Asset -&gt; Bool
 == :: Asset -&gt; Asset -&gt; Bool
 $c== :: Asset -&gt; Asset -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329994"><span id="local-6989586621679329996"><span id="local-6989586621679329998"><span id="local-6989586621679330000"><span class="annot"><span class="annottext">ReadPrec [Asset]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330003"><span id="local-6989586621679330005"><span id="local-6989586621679330007"><span id="local-6989586621679330009"><span class="annot"><span class="annottext">ReadPrec [Asset]
 ReadPrec Asset
 Int -&gt; ReadS Asset
 ReadS [Asset]
@@ -60,7 +60,7 @@ readList :: ReadS [Asset]
 $creadList :: ReadS [Asset]
 readsPrec :: Int -&gt; ReadS Asset
 $creadsPrec :: Int -&gt; ReadS Asset
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329987"><span id="local-6989586621679329989"><span id="local-6989586621679329991"><span class="annot"><span class="annottext">Int -&gt; Asset -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329996"><span id="local-6989586621679329998"><span id="local-6989586621679330000"><span class="annot"><span class="annottext">Int -&gt; Asset -&gt; ShowS
 [Asset] -&gt; ShowS
 Asset -&gt; String
 (Int -&gt; Asset -&gt; ShowS)
@@ -111,49 +111,49 @@ forall a. Maybe a
 -&gt; Lens
      Asset Asset (Maybe GroundTruthManifest) (Maybe GroundTruthManifest)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Asset.html#Asset%27"><span class="hs-identifier hs-type">Asset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329978"><span class="annot"><span class="annottext">Maybe GroundTruthManifest
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Asset.html#Asset%27"><span class="hs-identifier hs-type">Asset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329987"><span class="annot"><span class="annottext">Maybe GroundTruthManifest
 groundTruthManifest :: Maybe GroundTruthManifest
 $sel:groundTruthManifest:Asset' :: Asset -&gt; Maybe GroundTruthManifest
-</span><a href="#local-6989586621679329978"><span class="hs-identifier hs-var hs-var">groundTruthManifest</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GroundTruthManifest
-</span><a href="#local-6989586621679329978"><span class="hs-identifier hs-var">groundTruthManifest</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329977"><span class="annot"><span class="annottext">s :: Asset
-</span><a href="#local-6989586621679329977"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Asset.html#Asset%27"><span class="hs-identifier hs-type">Asset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329976"><span class="annot"><span class="annottext">Maybe GroundTruthManifest
-</span><a href="#local-6989586621679329976"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Asset
-</span><a href="#local-6989586621679329977"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groundTruthManifest:Asset' :: Maybe GroundTruthManifest
+</span><a href="#local-6989586621679329987"><span class="hs-identifier hs-var hs-var">groundTruthManifest</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GroundTruthManifest
+</span><a href="#local-6989586621679329987"><span class="hs-identifier hs-var">groundTruthManifest</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329986"><span class="annot"><span class="annottext">s :: Asset
+</span><a href="#local-6989586621679329986"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Asset.html#Asset%27"><span class="hs-identifier hs-type">Asset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329985"><span class="annot"><span class="annottext">Maybe GroundTruthManifest
+</span><a href="#local-6989586621679329985"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Asset
+</span><a href="#local-6989586621679329986"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groundTruthManifest:Asset' :: Maybe GroundTruthManifest
 </span><a href="Network.AWS.Rekognition.Types.Asset.html#%24sel%3AgroundTruthManifest%3AAsset%27"><span class="hs-identifier hs-var">groundTruthManifest</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GroundTruthManifest
-</span><a href="#local-6989586621679329976"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Asset.html#Asset"><span class="hs-identifier hs-type">Asset</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679329985"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Asset.html#Asset"><span class="hs-identifier hs-type">Asset</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-54"></span><span>
-</span><span id="line-55"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329973"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Asset.html#Asset"><span class="hs-identifier hs-type">Asset</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-56"></span><span>  </span><span id="local-6989586621679329971"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Asset
+</span><span id="line-55"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329982"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Asset.html#Asset"><span class="hs-identifier hs-type">Asset</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-56"></span><span>  </span><span id="local-6989586621679329980"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Asset
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-57"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Asset) -&gt; Value -&gt; Parser Asset
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Asset&quot;</span></span><span>
-</span><span id="line-59"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679329968"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679329968"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-59"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679329977"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679329977"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-60"></span><span>          </span><span class="annot"><span class="annottext">Maybe GroundTruthManifest -&gt; Asset
 </span><a href="Network.AWS.Rekognition.Types.Asset.html#Asset%27"><span class="hs-identifier hs-var">Asset'</span></a></span><span>
 </span><span id="line-61"></span><span>            </span><span class="annot"><span class="annottext">(Maybe GroundTruthManifest -&gt; Asset)
 -&gt; Parser (Maybe GroundTruthManifest) -&gt; Parser Asset
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679329968"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe GroundTruthManifest)
+</span><a href="#local-6989586621679329977"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe GroundTruthManifest)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GroundTruthManifest&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329962"><span id="local-6989586621679329964"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Asset.html#Asset"><span class="hs-identifier hs-type">Asset</span></a></span></span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329971"><span id="local-6989586621679329973"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Asset.html#Asset"><span class="hs-identifier hs-type">Asset</span></a></span></span></span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329959"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Asset.html#Asset"><span class="hs-identifier hs-type">Asset</span></a></span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329968"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Asset.html#Asset"><span class="hs-identifier hs-type">Asset</span></a></span></span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329951"><span id="local-6989586621679329953"><span id="local-6989586621679329955"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Asset.html#Asset"><span class="hs-identifier hs-type">Asset</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679329949"><span class="annot"><span class="annottext">toJSON :: Asset -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Asset.html#Asset%27"><span class="hs-identifier hs-type">Asset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329947"><span class="annot"><span class="annottext">Maybe GroundTruthManifest
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329960"><span id="local-6989586621679329962"><span id="local-6989586621679329964"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Asset.html#Asset"><span class="hs-identifier hs-type">Asset</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679329958"><span class="annot"><span class="annottext">toJSON :: Asset -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Asset.html#Asset%27"><span class="hs-identifier hs-type">Asset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329956"><span class="annot"><span class="annottext">Maybe GroundTruthManifest
 groundTruthManifest :: Maybe GroundTruthManifest
 $sel:groundTruthManifest:Asset' :: Asset -&gt; Maybe GroundTruthManifest
-</span><a href="#local-6989586621679329947"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679329956"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -167,7 +167,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe GroundTruthManifest -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe GroundTruthManifest
-</span><a href="#local-6989586621679329947"><span class="hs-identifier hs-var">groundTruthManifest</span></a></span><span>
+</span><a href="#local-6989586621679329956"><span class="hs-identifier hs-var">groundTruthManifest</span></a></span><span>
 </span><span id="line-74"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span></pre></body></html>

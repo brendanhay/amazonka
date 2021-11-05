@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- type, and status.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newDestination' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679299155"><span id="local-6989586621679299156"></span></span><span class="hs-keyword">data</span><span> </span><span id="Destination"><span class="annot"><a href="Network.AWS.GuardDuty.Types.Destination.html#Destination"><span class="hs-identifier hs-var">Destination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Destination%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.Destination.html#Destination%27"><span class="hs-identifier hs-var">Destination'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679299164"><span id="local-6989586621679299165"></span></span><span class="hs-keyword">data</span><span> </span><span id="Destination"><span class="annot"><a href="Network.AWS.GuardDuty.Types.Destination.html#Destination"><span class="hs-identifier hs-var">Destination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Destination%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.Destination.html#Destination%27"><span class="hs-identifier hs-var">Destination'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique ID of the publishing destination.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AdestinationId%3ADestination%27"><span class="annot"><span class="annottext">Destination -&gt; Text
 </span><a href="Network.AWS.GuardDuty.Types.Destination.html#%24sel%3AdestinationId%3ADestination%27"><span class="hs-identifier hs-var hs-var">destinationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -41,7 +41,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3Astatus%3ADestination%27"><span class="annot"><span class="annottext">Destination -&gt; PublishingStatus
 </span><a href="Network.AWS.GuardDuty.Types.Destination.html#%24sel%3Astatus%3ADestination%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.PublishingStatus.html#PublishingStatus"><span class="hs-identifier hs-type">PublishingStatus</span></a></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299147"><span id="local-6989586621679299149"><span class="annot"><span class="annottext">Destination -&gt; Destination -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299156"><span id="local-6989586621679299158"><span class="annot"><span class="annottext">Destination -&gt; Destination -&gt; Bool
 (Destination -&gt; Destination -&gt; Bool)
 -&gt; (Destination -&gt; Destination -&gt; Bool) -&gt; Eq Destination
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Destination -&gt; Destination -&gt; Bool
 == :: Destination -&gt; Destination -&gt; Bool
 $c== :: Destination -&gt; Destination -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299138"><span id="local-6989586621679299140"><span id="local-6989586621679299142"><span id="local-6989586621679299144"><span class="annot"><span class="annottext">ReadPrec [Destination]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299147"><span id="local-6989586621679299149"><span id="local-6989586621679299151"><span id="local-6989586621679299153"><span class="annot"><span class="annottext">ReadPrec [Destination]
 ReadPrec Destination
 Int -&gt; ReadS Destination
 ReadS [Destination]
@@ -69,7 +69,7 @@ readList :: ReadS [Destination]
 $creadList :: ReadS [Destination]
 readsPrec :: Int -&gt; ReadS Destination
 $creadsPrec :: Int -&gt; ReadS Destination
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299131"><span id="local-6989586621679299133"><span id="local-6989586621679299135"><span class="annot"><span class="annottext">Int -&gt; Destination -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299140"><span id="local-6989586621679299142"><span id="local-6989586621679299144"><span class="annot"><span class="annottext">Int -&gt; Destination -&gt; ShowS
 [Destination] -&gt; ShowS
 Destination -&gt; String
 (Int -&gt; Destination -&gt; ShowS)
@@ -119,23 +119,23 @@ $cfrom :: forall x. Destination -&gt; Rep Destination x
 </span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span>
 </span><span id="line-65"></span><span id="newDestination"><span class="annot"><span class="annottext">newDestination :: Text -&gt; DestinationType -&gt; PublishingStatus -&gt; Destination
 </span><a href="Network.AWS.GuardDuty.Types.Destination.html#newDestination"><span class="hs-identifier hs-var hs-var">newDestination</span></a></span></span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679299125"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299125"><span class="hs-identifier hs-var">pDestinationId_</span></a></span></span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679299124"><span class="annot"><span class="annottext">DestinationType
-</span><a href="#local-6989586621679299124"><span class="hs-identifier hs-var">pDestinationType_</span></a></span></span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679299123"><span class="annot"><span class="annottext">PublishingStatus
-</span><a href="#local-6989586621679299123"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679299134"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299134"><span class="hs-identifier hs-var">pDestinationId_</span></a></span></span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679299133"><span class="annot"><span class="annottext">DestinationType
+</span><a href="#local-6989586621679299133"><span class="hs-identifier hs-var">pDestinationType_</span></a></span></span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679299132"><span class="annot"><span class="annottext">PublishingStatus
+</span><a href="#local-6989586621679299132"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">Destination' :: Text -&gt; DestinationType -&gt; PublishingStatus -&gt; Destination
 </span><a href="Network.AWS.GuardDuty.Types.Destination.html#Destination%27"><span class="hs-identifier hs-type">Destination'</span></a></span><span>
 </span><span id="line-70"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:destinationId:Destination' :: Text
 </span><a href="Network.AWS.GuardDuty.Types.Destination.html#%24sel%3AdestinationId%3ADestination%27"><span class="hs-identifier hs-var">destinationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299125"><span class="hs-identifier hs-var">pDestinationId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679299134"><span class="hs-identifier hs-var">pDestinationId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">$sel:destinationType:Destination' :: DestinationType
 </span><a href="Network.AWS.GuardDuty.Types.Destination.html#%24sel%3AdestinationType%3ADestination%27"><span class="hs-identifier hs-var">destinationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DestinationType
-</span><a href="#local-6989586621679299124"><span class="hs-identifier hs-var">pDestinationType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679299133"><span class="hs-identifier hs-var">pDestinationType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">$sel:status:Destination' :: PublishingStatus
 </span><a href="Network.AWS.GuardDuty.Types.Destination.html#%24sel%3Astatus%3ADestination%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PublishingStatus
-</span><a href="#local-6989586621679299123"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><a href="#local-6989586621679299132"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | The unique ID of the publishing destination.</span><span>
@@ -145,16 +145,16 @@ $cfrom :: forall x. Destination -&gt; Rep Destination x
 -&gt; (Destination -&gt; Text -&gt; Destination)
 -&gt; Lens Destination Destination Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Destination.html#Destination%27"><span class="hs-identifier hs-type">Destination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299119"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Destination.html#Destination%27"><span class="hs-identifier hs-type">Destination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299128"><span class="annot"><span class="annottext">Text
 destinationId :: Text
 $sel:destinationId:Destination' :: Destination -&gt; Text
-</span><a href="#local-6989586621679299119"><span class="hs-identifier hs-var hs-var">destinationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299119"><span class="hs-identifier hs-var">destinationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299118"><span class="annot"><span class="annottext">s :: Destination
-</span><a href="#local-6989586621679299118"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Destination.html#Destination%27"><span class="hs-identifier hs-type">Destination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299117"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299117"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Destination
-</span><a href="#local-6989586621679299118"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationId:Destination' :: Text
+</span><a href="#local-6989586621679299128"><span class="hs-identifier hs-var hs-var">destinationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299128"><span class="hs-identifier hs-var">destinationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299127"><span class="annot"><span class="annottext">s :: Destination
+</span><a href="#local-6989586621679299127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Destination.html#Destination%27"><span class="hs-identifier hs-type">Destination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299126"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679299126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Destination
+</span><a href="#local-6989586621679299127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationId:Destination' :: Text
 </span><a href="Network.AWS.GuardDuty.Types.Destination.html#%24sel%3AdestinationId%3ADestination%27"><span class="hs-identifier hs-var">destinationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679299117"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679299126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- | The type of resource used for the publishing destination. Currently,</span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- only Amazon S3 buckets are supported.</span><span>
@@ -165,16 +165,16 @@ $sel:destinationId:Destination' :: Destination -&gt; Text
 -&gt; (Destination -&gt; DestinationType -&gt; Destination)
 -&gt; Lens Destination Destination DestinationType DestinationType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Destination.html#Destination%27"><span class="hs-identifier hs-type">Destination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299115"><span class="annot"><span class="annottext">DestinationType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Destination.html#Destination%27"><span class="hs-identifier hs-type">Destination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299124"><span class="annot"><span class="annottext">DestinationType
 destinationType :: DestinationType
 $sel:destinationType:Destination' :: Destination -&gt; DestinationType
-</span><a href="#local-6989586621679299115"><span class="hs-identifier hs-var hs-var">destinationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DestinationType
-</span><a href="#local-6989586621679299115"><span class="hs-identifier hs-var">destinationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299114"><span class="annot"><span class="annottext">s :: Destination
-</span><a href="#local-6989586621679299114"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Destination.html#Destination%27"><span class="hs-identifier hs-type">Destination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299113"><span class="annot"><span class="annottext">DestinationType
-</span><a href="#local-6989586621679299113"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Destination
-</span><a href="#local-6989586621679299114"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationType:Destination' :: DestinationType
+</span><a href="#local-6989586621679299124"><span class="hs-identifier hs-var hs-var">destinationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DestinationType
+</span><a href="#local-6989586621679299124"><span class="hs-identifier hs-var">destinationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299123"><span class="annot"><span class="annottext">s :: Destination
+</span><a href="#local-6989586621679299123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Destination.html#Destination%27"><span class="hs-identifier hs-type">Destination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299122"><span class="annot"><span class="annottext">DestinationType
+</span><a href="#local-6989586621679299122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Destination
+</span><a href="#local-6989586621679299123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationType:Destination' :: DestinationType
 </span><a href="Network.AWS.GuardDuty.Types.Destination.html#%24sel%3AdestinationType%3ADestination%27"><span class="hs-identifier hs-var">destinationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DestinationType
-</span><a href="#local-6989586621679299113"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679299122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | The status of the publishing destination.</span><span>
 </span><span id="line-85"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Destination.html#destination_status"><span class="hs-identifier hs-type">destination_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.PublishingStatus.html#PublishingStatus"><span class="hs-identifier hs-type">PublishingStatus</span></a></span><span>
@@ -184,19 +184,19 @@ $sel:destinationType:Destination' :: Destination -&gt; DestinationType
 -&gt; (Destination -&gt; PublishingStatus -&gt; Destination)
 -&gt; Lens Destination Destination PublishingStatus PublishingStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Destination.html#Destination%27"><span class="hs-identifier hs-type">Destination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299111"><span class="annot"><span class="annottext">PublishingStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Destination.html#Destination%27"><span class="hs-identifier hs-type">Destination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299120"><span class="annot"><span class="annottext">PublishingStatus
 status :: PublishingStatus
 $sel:status:Destination' :: Destination -&gt; PublishingStatus
-</span><a href="#local-6989586621679299111"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublishingStatus
-</span><a href="#local-6989586621679299111"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299110"><span class="annot"><span class="annottext">s :: Destination
-</span><a href="#local-6989586621679299110"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Destination.html#Destination%27"><span class="hs-identifier hs-type">Destination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299109"><span class="annot"><span class="annottext">PublishingStatus
-</span><a href="#local-6989586621679299109"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Destination
-</span><a href="#local-6989586621679299110"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Destination' :: PublishingStatus
+</span><a href="#local-6989586621679299120"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublishingStatus
+</span><a href="#local-6989586621679299120"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299119"><span class="annot"><span class="annottext">s :: Destination
+</span><a href="#local-6989586621679299119"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Destination.html#Destination%27"><span class="hs-identifier hs-type">Destination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299118"><span class="annot"><span class="annottext">PublishingStatus
+</span><a href="#local-6989586621679299118"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Destination
+</span><a href="#local-6989586621679299119"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Destination' :: PublishingStatus
 </span><a href="Network.AWS.GuardDuty.Types.Destination.html#%24sel%3Astatus%3ADestination%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PublishingStatus
-</span><a href="#local-6989586621679299109"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679299118"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299106"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679299104"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Destination
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299115"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679299113"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Destination
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Destination) -&gt; Value -&gt; Parser Destination
@@ -204,8 +204,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Destination&quot;</span></span><span>
-</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679299101"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679299101"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679299110"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299110"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; DestinationType -&gt; PublishingStatus -&gt; Destination
 </span><a href="Network.AWS.GuardDuty.Types.Destination.html#Destination%27"><span class="hs-identifier hs-var">Destination'</span></a></span><span>
 </span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; DestinationType -&gt; PublishingStatus -&gt; Destination)
@@ -213,7 +213,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (DestinationType -&gt; PublishingStatus -&gt; Destination)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679299101"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679299110"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;destinationId&quot;</span></span><span class="hs-special">)</span><span>
@@ -222,7 +222,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (PublishingStatus -&gt; Destination)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679299101"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser DestinationType
+</span><a href="#local-6989586621679299110"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser DestinationType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;destinationType&quot;</span></span><span class="hs-special">)</span><span>
@@ -230,13 +230,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser PublishingStatus -&gt; Parser Destination
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679299101"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser PublishingStatus
+</span><a href="#local-6989586621679299110"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser PublishingStatus
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299095"><span id="local-6989586621679299097"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299104"><span id="local-6989586621679299106"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span></span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299092"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299101"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span></span><span>
 </span><span id="line-102"></span></pre></body></html>

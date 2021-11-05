@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Placeholder documentation for VideoBlackFailoverSettings</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newVideoBlackFailoverSettings' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679929068"><span id="local-6989586621679929069"></span></span><span class="hs-keyword">data</span><span> </span><span id="VideoBlackFailoverSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoBlackFailoverSettings.html#VideoBlackFailoverSettings"><span class="hs-identifier hs-var">VideoBlackFailoverSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VideoBlackFailoverSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoBlackFailoverSettings.html#VideoBlackFailoverSettings%27"><span class="hs-identifier hs-var">VideoBlackFailoverSettings'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679929077"><span id="local-6989586621679929078"></span></span><span class="hs-keyword">data</span><span> </span><span id="VideoBlackFailoverSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoBlackFailoverSettings.html#VideoBlackFailoverSettings"><span class="hs-identifier hs-var">VideoBlackFailoverSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VideoBlackFailoverSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoBlackFailoverSettings.html#VideoBlackFailoverSettings%27"><span class="hs-identifier hs-var">VideoBlackFailoverSettings'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The amount of time (in milliseconds) that the active input must be black</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- before automatic input failover occurs.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AvideoBlackThresholdMsec%3AVideoBlackFailoverSettings%27"><span class="annot"><span class="annottext">VideoBlackFailoverSettings -&gt; Maybe Natural
@@ -44,7 +44,7 @@
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3AblackDetectThreshold%3AVideoBlackFailoverSettings%27"><span class="annot"><span class="annottext">VideoBlackFailoverSettings -&gt; Maybe Double
 </span><a href="Network.AWS.MediaLive.Types.VideoBlackFailoverSettings.html#%24sel%3AblackDetectThreshold%3AVideoBlackFailoverSettings%27"><span class="hs-identifier hs-var hs-var">blackDetectThreshold</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679929061"><span id="local-6989586621679929063"><span class="annot"><span class="annottext">VideoBlackFailoverSettings -&gt; VideoBlackFailoverSettings -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679929070"><span id="local-6989586621679929072"><span class="annot"><span class="annottext">VideoBlackFailoverSettings -&gt; VideoBlackFailoverSettings -&gt; Bool
 (VideoBlackFailoverSettings -&gt; VideoBlackFailoverSettings -&gt; Bool)
 -&gt; (VideoBlackFailoverSettings
     -&gt; VideoBlackFailoverSettings -&gt; Bool)
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: VideoBlackFailoverSettings -&gt; VideoBlackFailoverSettings -&gt; Bool
 == :: VideoBlackFailoverSettings -&gt; VideoBlackFailoverSettings -&gt; Bool
 $c== :: VideoBlackFailoverSettings -&gt; VideoBlackFailoverSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679929052"><span id="local-6989586621679929054"><span id="local-6989586621679929056"><span id="local-6989586621679929058"><span class="annot"><span class="annottext">ReadPrec [VideoBlackFailoverSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679929061"><span id="local-6989586621679929063"><span id="local-6989586621679929065"><span id="local-6989586621679929067"><span class="annot"><span class="annottext">ReadPrec [VideoBlackFailoverSettings]
 ReadPrec VideoBlackFailoverSettings
 Int -&gt; ReadS VideoBlackFailoverSettings
 ReadS [VideoBlackFailoverSettings]
@@ -74,7 +74,7 @@ readList :: ReadS [VideoBlackFailoverSettings]
 $creadList :: ReadS [VideoBlackFailoverSettings]
 readsPrec :: Int -&gt; ReadS VideoBlackFailoverSettings
 $creadsPrec :: Int -&gt; ReadS VideoBlackFailoverSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679929045"><span id="local-6989586621679929047"><span id="local-6989586621679929049"><span class="annot"><span class="annottext">Int -&gt; VideoBlackFailoverSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679929054"><span id="local-6989586621679929056"><span id="local-6989586621679929058"><span class="annot"><span class="annottext">Int -&gt; VideoBlackFailoverSettings -&gt; ShowS
 [VideoBlackFailoverSettings] -&gt; ShowS
 VideoBlackFailoverSettings -&gt; String
 (Int -&gt; VideoBlackFailoverSettings -&gt; ShowS)
@@ -158,16 +158,16 @@ forall a. Maybe a
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoBlackFailoverSettings.html#VideoBlackFailoverSettings%27"><span class="hs-identifier hs-type">VideoBlackFailoverSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679929036"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoBlackFailoverSettings.html#VideoBlackFailoverSettings%27"><span class="hs-identifier hs-type">VideoBlackFailoverSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679929045"><span class="annot"><span class="annottext">Maybe Natural
 videoBlackThresholdMsec :: Maybe Natural
 $sel:videoBlackThresholdMsec:VideoBlackFailoverSettings' :: VideoBlackFailoverSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679929036"><span class="hs-identifier hs-var hs-var">videoBlackThresholdMsec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679929036"><span class="hs-identifier hs-var">videoBlackThresholdMsec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679929035"><span class="annot"><span class="annottext">s :: VideoBlackFailoverSettings
-</span><a href="#local-6989586621679929035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoBlackFailoverSettings.html#VideoBlackFailoverSettings%27"><span class="hs-identifier hs-type">VideoBlackFailoverSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679929034"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679929034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoBlackFailoverSettings
-</span><a href="#local-6989586621679929035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:videoBlackThresholdMsec:VideoBlackFailoverSettings' :: Maybe Natural
+</span><a href="#local-6989586621679929045"><span class="hs-identifier hs-var hs-var">videoBlackThresholdMsec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679929045"><span class="hs-identifier hs-var">videoBlackThresholdMsec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679929044"><span class="annot"><span class="annottext">s :: VideoBlackFailoverSettings
+</span><a href="#local-6989586621679929044"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoBlackFailoverSettings.html#VideoBlackFailoverSettings%27"><span class="hs-identifier hs-type">VideoBlackFailoverSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679929043"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679929043"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoBlackFailoverSettings
+</span><a href="#local-6989586621679929044"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:videoBlackThresholdMsec:VideoBlackFailoverSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaLive.Types.VideoBlackFailoverSettings.html#%24sel%3AvideoBlackThresholdMsec%3AVideoBlackFailoverSettings%27"><span class="hs-identifier hs-var">videoBlackThresholdMsec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679929034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoBlackFailoverSettings.html#VideoBlackFailoverSettings"><span class="hs-identifier hs-type">VideoBlackFailoverSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679929043"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoBlackFailoverSettings.html#VideoBlackFailoverSettings"><span class="hs-identifier hs-type">VideoBlackFailoverSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | A value used in calculating the threshold below which MediaLive</span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- considers a pixel to be \'black\'. For the input to be considered black,</span><span>
@@ -191,19 +191,19 @@ $sel:videoBlackThresholdMsec:VideoBlackFailoverSettings' :: VideoBlackFailoverSe
      (Maybe Double)
      (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoBlackFailoverSettings.html#VideoBlackFailoverSettings%27"><span class="hs-identifier hs-type">VideoBlackFailoverSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679929032"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoBlackFailoverSettings.html#VideoBlackFailoverSettings%27"><span class="hs-identifier hs-type">VideoBlackFailoverSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679929041"><span class="annot"><span class="annottext">Maybe Double
 blackDetectThreshold :: Maybe Double
 $sel:blackDetectThreshold:VideoBlackFailoverSettings' :: VideoBlackFailoverSettings -&gt; Maybe Double
-</span><a href="#local-6989586621679929032"><span class="hs-identifier hs-var hs-var">blackDetectThreshold</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679929032"><span class="hs-identifier hs-var">blackDetectThreshold</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679929031"><span class="annot"><span class="annottext">s :: VideoBlackFailoverSettings
-</span><a href="#local-6989586621679929031"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoBlackFailoverSettings.html#VideoBlackFailoverSettings%27"><span class="hs-identifier hs-type">VideoBlackFailoverSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679929030"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679929030"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoBlackFailoverSettings
-</span><a href="#local-6989586621679929031"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blackDetectThreshold:VideoBlackFailoverSettings' :: Maybe Double
+</span><a href="#local-6989586621679929041"><span class="hs-identifier hs-var hs-var">blackDetectThreshold</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679929041"><span class="hs-identifier hs-var">blackDetectThreshold</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679929040"><span class="annot"><span class="annottext">s :: VideoBlackFailoverSettings
+</span><a href="#local-6989586621679929040"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoBlackFailoverSettings.html#VideoBlackFailoverSettings%27"><span class="hs-identifier hs-type">VideoBlackFailoverSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679929039"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679929039"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoBlackFailoverSettings
+</span><a href="#local-6989586621679929040"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blackDetectThreshold:VideoBlackFailoverSettings' :: Maybe Double
 </span><a href="Network.AWS.MediaLive.Types.VideoBlackFailoverSettings.html#%24sel%3AblackDetectThreshold%3AVideoBlackFailoverSettings%27"><span class="hs-identifier hs-var">blackDetectThreshold</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679929030"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoBlackFailoverSettings.html#VideoBlackFailoverSettings"><span class="hs-identifier hs-type">VideoBlackFailoverSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679929039"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoBlackFailoverSettings.html#VideoBlackFailoverSettings"><span class="hs-identifier hs-type">VideoBlackFailoverSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679929027"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoBlackFailoverSettings.html#VideoBlackFailoverSettings"><span class="hs-identifier hs-type">VideoBlackFailoverSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679929025"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VideoBlackFailoverSettings
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679929036"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoBlackFailoverSettings.html#VideoBlackFailoverSettings"><span class="hs-identifier hs-type">VideoBlackFailoverSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679929034"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VideoBlackFailoverSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser VideoBlackFailoverSettings)
@@ -213,8 +213,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;VideoBlackFailoverSettings&quot;</span></span><span>
-</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679929022"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679929022"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679929031"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679929031"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural -&gt; Maybe Double -&gt; VideoBlackFailoverSettings
 </span><a href="Network.AWS.MediaLive.Types.VideoBlackFailoverSettings.html#VideoBlackFailoverSettings%27"><span class="hs-identifier hs-var">VideoBlackFailoverSettings'</span></a></span><span>
 </span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural -&gt; Maybe Double -&gt; VideoBlackFailoverSettings)
@@ -222,7 +222,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Double -&gt; VideoBlackFailoverSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679929022"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679929031"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;videoBlackThresholdMsec&quot;</span></span><span class="hs-special">)</span><span>
@@ -230,25 +230,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Double) -&gt; Parser VideoBlackFailoverSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679929022"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679929031"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;blackDetectThreshold&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679929016"><span id="local-6989586621679929018"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoBlackFailoverSettings.html#VideoBlackFailoverSettings"><span class="hs-identifier hs-type">VideoBlackFailoverSettings</span></a></span></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679929025"><span id="local-6989586621679929027"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoBlackFailoverSettings.html#VideoBlackFailoverSettings"><span class="hs-identifier hs-type">VideoBlackFailoverSettings</span></a></span></span></span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679929013"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoBlackFailoverSettings.html#VideoBlackFailoverSettings"><span class="hs-identifier hs-type">VideoBlackFailoverSettings</span></a></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679929022"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoBlackFailoverSettings.html#VideoBlackFailoverSettings"><span class="hs-identifier hs-type">VideoBlackFailoverSettings</span></a></span></span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679929005"><span id="local-6989586621679929007"><span id="local-6989586621679929009"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoBlackFailoverSettings.html#VideoBlackFailoverSettings"><span class="hs-identifier hs-type">VideoBlackFailoverSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679929003"><span class="annot"><span class="annottext">toJSON :: VideoBlackFailoverSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoBlackFailoverSettings.html#VideoBlackFailoverSettings%27"><span class="hs-identifier hs-type">VideoBlackFailoverSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679929000"><span id="local-6989586621679929001"><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679929014"><span id="local-6989586621679929016"><span id="local-6989586621679929018"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoBlackFailoverSettings.html#VideoBlackFailoverSettings"><span class="hs-identifier hs-type">VideoBlackFailoverSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679929012"><span class="annot"><span class="annottext">toJSON :: VideoBlackFailoverSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoBlackFailoverSettings.html#VideoBlackFailoverSettings%27"><span class="hs-identifier hs-type">VideoBlackFailoverSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679929009"><span id="local-6989586621679929010"><span class="annot"><span class="annottext">Maybe Double
 Maybe Natural
 blackDetectThreshold :: Maybe Double
 videoBlackThresholdMsec :: Maybe Natural
 $sel:blackDetectThreshold:VideoBlackFailoverSettings' :: VideoBlackFailoverSettings -&gt; Maybe Double
 $sel:videoBlackThresholdMsec:VideoBlackFailoverSettings' :: VideoBlackFailoverSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679929000"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679929009"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -261,7 +261,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-114"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679929001"><span class="hs-identifier hs-var">videoBlackThresholdMsec</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679929010"><span class="hs-identifier hs-var">videoBlackThresholdMsec</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-115"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;blackDetectThreshold&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -269,7 +269,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-116"></span><span>              </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679929000"><span class="hs-identifier hs-var">blackDetectThreshold</span></a></span><span>
+</span><a href="#local-6989586621679929009"><span class="hs-identifier hs-var">blackDetectThreshold</span></a></span><span>
 </span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span></pre></body></html>

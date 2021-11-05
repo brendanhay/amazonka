@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-comment">-- | Contains the inputs for the CreateComputer operation.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newCreateComputer' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679314589"><span id="local-6989586621679314590"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateComputer"><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer"><span class="hs-identifier hs-var">CreateComputer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateComputer%27"><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer%27"><span class="hs-identifier hs-var">CreateComputer'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679314598"><span id="local-6989586621679314599"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateComputer"><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer"><span class="hs-identifier hs-var">CreateComputer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateComputer%27"><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer%27"><span class="hs-identifier hs-var">CreateComputer'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of Attribute objects that contain any LDAP attributes to apply</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- to the computer account.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AcomputerAttributes%3ACreateComputer%27"><span class="annot"><span class="annottext">CreateComputer -&gt; Maybe [Attribute]
@@ -73,7 +73,7 @@
 </span><span id="line-69"></span><span>    </span><span id="%24sel%3Apassword%3ACreateComputer%27"><span class="annot"><span class="annottext">CreateComputer -&gt; Sensitive Text
 </span><a href="Network.AWS.DirectoryService.CreateComputer.html#%24sel%3Apassword%3ACreateComputer%27"><span class="hs-identifier hs-var hs-var">password</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679314579"><span id="local-6989586621679314581"><span class="annot"><span class="annottext">CreateComputer -&gt; CreateComputer -&gt; Bool
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679314588"><span id="local-6989586621679314590"><span class="annot"><span class="annottext">CreateComputer -&gt; CreateComputer -&gt; Bool
 (CreateComputer -&gt; CreateComputer -&gt; Bool)
 -&gt; (CreateComputer -&gt; CreateComputer -&gt; Bool) -&gt; Eq CreateComputer
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateComputer -&gt; CreateComputer -&gt; Bool
 == :: CreateComputer -&gt; CreateComputer -&gt; Bool
 $c== :: CreateComputer -&gt; CreateComputer -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314572"><span id="local-6989586621679314574"><span id="local-6989586621679314576"><span class="annot"><span class="annottext">Int -&gt; CreateComputer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314581"><span id="local-6989586621679314583"><span id="local-6989586621679314585"><span class="annot"><span class="annottext">Int -&gt; CreateComputer -&gt; ShowS
 [CreateComputer] -&gt; ShowS
 CreateComputer -&gt; String
 (Int -&gt; CreateComputer -&gt; ShowS)
@@ -137,12 +137,12 @@ $cfrom :: forall x. CreateComputer -&gt; Rep CreateComputer x
 </span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer"><span class="hs-identifier hs-type">CreateComputer</span></a></span><span>
 </span><span id="line-101"></span><span id="newCreateComputer"><span class="annot"><span class="annottext">newCreateComputer :: Text -&gt; Text -&gt; Text -&gt; CreateComputer
 </span><a href="Network.AWS.DirectoryService.CreateComputer.html#newCreateComputer"><span class="hs-identifier hs-var hs-var">newCreateComputer</span></a></span></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679314567"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679314567"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679314566"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679314566"><span class="hs-identifier hs-var">pComputerName_</span></a></span></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679314565"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679314565"><span class="hs-identifier hs-var">pPassword_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679314576"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314576"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679314575"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314575"><span class="hs-identifier hs-var">pComputerName_</span></a></span></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679314574"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314574"><span class="hs-identifier hs-var">pPassword_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">CreateComputer' :: Maybe [Attribute]
 -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; Sensitive Text -&gt; CreateComputer
 </span><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer%27"><span class="hs-identifier hs-type">CreateComputer'</span></a></span><span>
@@ -158,10 +158,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">$sel:directoryId:CreateComputer' :: Text
 </span><a href="Network.AWS.DirectoryService.CreateComputer.html#%24sel%3AdirectoryId%3ACreateComputer%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679314567"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679314576"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">$sel:computerName:CreateComputer' :: Text
 </span><a href="Network.AWS.DirectoryService.CreateComputer.html#%24sel%3AcomputerName%3ACreateComputer%27"><span class="hs-identifier hs-var">computerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679314566"><span class="hs-identifier hs-var">pComputerName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679314575"><span class="hs-identifier hs-var">pComputerName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">$sel:password:CreateComputer' :: Sensitive Text
 </span><a href="Network.AWS.DirectoryService.CreateComputer.html#%24sel%3Apassword%3ACreateComputer%27"><span class="hs-identifier hs-var">password</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
 -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
@@ -171,7 +171,7 @@ forall a. Iso' (Sensitive a) a
 -&gt; Text -&gt; Sensitive Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679314565"><span class="hs-identifier hs-var">pPassword_</span></a></span><span>
+</span><a href="#local-6989586621679314574"><span class="hs-identifier hs-var">pPassword_</span></a></span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | An array of Attribute objects that contain any LDAP attributes to apply</span><span>
@@ -187,16 +187,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (Maybe [Attribute])
      (Maybe [Attribute])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer%27"><span class="hs-identifier hs-type">CreateComputer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314560"><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer%27"><span class="hs-identifier hs-type">CreateComputer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314569"><span class="annot"><span class="annottext">Maybe [Attribute]
 computerAttributes :: Maybe [Attribute]
 $sel:computerAttributes:CreateComputer' :: CreateComputer -&gt; Maybe [Attribute]
-</span><a href="#local-6989586621679314560"><span class="hs-identifier hs-var hs-var">computerAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
-</span><a href="#local-6989586621679314560"><span class="hs-identifier hs-var">computerAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314559"><span class="annot"><span class="annottext">s :: CreateComputer
-</span><a href="#local-6989586621679314559"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer%27"><span class="hs-identifier hs-type">CreateComputer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314558"><span class="annot"><span class="annottext">Maybe [Attribute]
-</span><a href="#local-6989586621679314558"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateComputer
-</span><a href="#local-6989586621679314559"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:computerAttributes:CreateComputer' :: Maybe [Attribute]
+</span><a href="#local-6989586621679314569"><span class="hs-identifier hs-var hs-var">computerAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679314569"><span class="hs-identifier hs-var">computerAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314568"><span class="annot"><span class="annottext">s :: CreateComputer
+</span><a href="#local-6989586621679314568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer%27"><span class="hs-identifier hs-type">CreateComputer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314567"><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679314567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateComputer
+</span><a href="#local-6989586621679314568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:computerAttributes:CreateComputer' :: Maybe [Attribute]
 </span><a href="Network.AWS.DirectoryService.CreateComputer.html#%24sel%3AcomputerAttributes%3ACreateComputer%27"><span class="hs-identifier hs-var">computerAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
-</span><a href="#local-6989586621679314558"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer"><span class="hs-identifier hs-type">CreateComputer</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+</span><a href="#local-6989586621679314567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer"><span class="hs-identifier hs-type">CreateComputer</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Attribute] -&gt; f (Maybe [Attribute]))
  -&gt; CreateComputer -&gt; f CreateComputer)
 -&gt; ((Maybe [Attribute] -&gt; f (Maybe [Attribute]))
     -&gt; Maybe [Attribute] -&gt; f (Maybe [Attribute]))
@@ -226,16 +226,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (CreateComputer -&gt; Maybe Text -&gt; CreateComputer)
 -&gt; Lens CreateComputer CreateComputer (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer%27"><span class="hs-identifier hs-type">CreateComputer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314554"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer%27"><span class="hs-identifier hs-type">CreateComputer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314563"><span class="annot"><span class="annottext">Maybe Text
 organizationalUnitDistinguishedName :: Maybe Text
 $sel:organizationalUnitDistinguishedName:CreateComputer' :: CreateComputer -&gt; Maybe Text
-</span><a href="#local-6989586621679314554"><span class="hs-identifier hs-var hs-var">organizationalUnitDistinguishedName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679314554"><span class="hs-identifier hs-var">organizationalUnitDistinguishedName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314553"><span class="annot"><span class="annottext">s :: CreateComputer
-</span><a href="#local-6989586621679314553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer%27"><span class="hs-identifier hs-type">CreateComputer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314552"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679314552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateComputer
-</span><a href="#local-6989586621679314553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationalUnitDistinguishedName:CreateComputer' :: Maybe Text
+</span><a href="#local-6989586621679314563"><span class="hs-identifier hs-var hs-var">organizationalUnitDistinguishedName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679314563"><span class="hs-identifier hs-var">organizationalUnitDistinguishedName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314562"><span class="annot"><span class="annottext">s :: CreateComputer
+</span><a href="#local-6989586621679314562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer%27"><span class="hs-identifier hs-type">CreateComputer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314561"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679314561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateComputer
+</span><a href="#local-6989586621679314562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationalUnitDistinguishedName:CreateComputer' :: Maybe Text
 </span><a href="Network.AWS.DirectoryService.CreateComputer.html#%24sel%3AorganizationalUnitDistinguishedName%3ACreateComputer%27"><span class="hs-identifier hs-var">organizationalUnitDistinguishedName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679314552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer"><span class="hs-identifier hs-type">CreateComputer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679314561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer"><span class="hs-identifier hs-type">CreateComputer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | The identifier of the directory in which to create the computer account.</span><span>
 </span><span id="line-126"></span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#createComputer_directoryId"><span class="hs-identifier hs-type">createComputer_directoryId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer"><span class="hs-identifier hs-type">CreateComputer</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -244,16 +244,16 @@ $sel:organizationalUnitDistinguishedName:CreateComputer' :: CreateComputer -&gt;
 -&gt; (CreateComputer -&gt; Text -&gt; CreateComputer)
 -&gt; Lens CreateComputer CreateComputer Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer%27"><span class="hs-identifier hs-type">CreateComputer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314551"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer%27"><span class="hs-identifier hs-type">CreateComputer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314560"><span class="annot"><span class="annottext">Text
 directoryId :: Text
 $sel:directoryId:CreateComputer' :: CreateComputer -&gt; Text
-</span><a href="#local-6989586621679314551"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679314551"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314550"><span class="annot"><span class="annottext">s :: CreateComputer
-</span><a href="#local-6989586621679314550"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer%27"><span class="hs-identifier hs-type">CreateComputer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314549"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679314549"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateComputer
-</span><a href="#local-6989586621679314550"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryId:CreateComputer' :: Text
+</span><a href="#local-6989586621679314560"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314560"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314559"><span class="annot"><span class="annottext">s :: CreateComputer
+</span><a href="#local-6989586621679314559"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer%27"><span class="hs-identifier hs-type">CreateComputer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314558"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314558"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateComputer
+</span><a href="#local-6989586621679314559"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryId:CreateComputer' :: Text
 </span><a href="Network.AWS.DirectoryService.CreateComputer.html#%24sel%3AdirectoryId%3ACreateComputer%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679314549"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer"><span class="hs-identifier hs-type">CreateComputer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679314558"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer"><span class="hs-identifier hs-type">CreateComputer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | The name of the computer account.</span><span>
 </span><span id="line-130"></span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#createComputer_computerName"><span class="hs-identifier hs-type">createComputer_computerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer"><span class="hs-identifier hs-type">CreateComputer</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -262,16 +262,16 @@ $sel:directoryId:CreateComputer' :: CreateComputer -&gt; Text
 -&gt; (CreateComputer -&gt; Text -&gt; CreateComputer)
 -&gt; Lens CreateComputer CreateComputer Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer%27"><span class="hs-identifier hs-type">CreateComputer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314548"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer%27"><span class="hs-identifier hs-type">CreateComputer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314557"><span class="annot"><span class="annottext">Text
 computerName :: Text
 $sel:computerName:CreateComputer' :: CreateComputer -&gt; Text
-</span><a href="#local-6989586621679314548"><span class="hs-identifier hs-var hs-var">computerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679314548"><span class="hs-identifier hs-var">computerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314547"><span class="annot"><span class="annottext">s :: CreateComputer
-</span><a href="#local-6989586621679314547"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer%27"><span class="hs-identifier hs-type">CreateComputer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314546"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679314546"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateComputer
-</span><a href="#local-6989586621679314547"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:computerName:CreateComputer' :: Text
+</span><a href="#local-6989586621679314557"><span class="hs-identifier hs-var hs-var">computerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314557"><span class="hs-identifier hs-var">computerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314556"><span class="annot"><span class="annottext">s :: CreateComputer
+</span><a href="#local-6989586621679314556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer%27"><span class="hs-identifier hs-type">CreateComputer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314555"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateComputer
+</span><a href="#local-6989586621679314556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:computerName:CreateComputer' :: Text
 </span><a href="Network.AWS.DirectoryService.CreateComputer.html#%24sel%3AcomputerName%3ACreateComputer%27"><span class="hs-identifier hs-var">computerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679314546"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer"><span class="hs-identifier hs-type">CreateComputer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679314555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer"><span class="hs-identifier hs-type">CreateComputer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | A one-time password that is used to join the computer to the directory.</span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- You should generate a random, strong password to use for this parameter.</span><span>
@@ -282,16 +282,16 @@ $sel:computerName:CreateComputer' :: CreateComputer -&gt; Text
 -&gt; Lens
      CreateComputer CreateComputer (Sensitive Text) (Sensitive Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer%27"><span class="hs-identifier hs-type">CreateComputer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314545"><span class="annot"><span class="annottext">Sensitive Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer%27"><span class="hs-identifier hs-type">CreateComputer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314554"><span class="annot"><span class="annottext">Sensitive Text
 password :: Sensitive Text
 $sel:password:CreateComputer' :: CreateComputer -&gt; Sensitive Text
-</span><a href="#local-6989586621679314545"><span class="hs-identifier hs-var hs-var">password</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679314545"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314544"><span class="annot"><span class="annottext">s :: CreateComputer
-</span><a href="#local-6989586621679314544"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer%27"><span class="hs-identifier hs-type">CreateComputer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314543"><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679314543"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateComputer
-</span><a href="#local-6989586621679314544"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:password:CreateComputer' :: Sensitive Text
+</span><a href="#local-6989586621679314554"><span class="hs-identifier hs-var hs-var">password</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679314554"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314553"><span class="annot"><span class="annottext">s :: CreateComputer
+</span><a href="#local-6989586621679314553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer%27"><span class="hs-identifier hs-type">CreateComputer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314552"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679314552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateComputer
+</span><a href="#local-6989586621679314553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:password:CreateComputer' :: Sensitive Text
 </span><a href="Network.AWS.DirectoryService.CreateComputer.html#%24sel%3Apassword%3ACreateComputer%27"><span class="hs-identifier hs-var">password</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679314543"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer"><span class="hs-identifier hs-type">CreateComputer</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+</span><a href="#local-6989586621679314552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer"><span class="hs-identifier hs-type">CreateComputer</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
  -&gt; CreateComputer -&gt; f CreateComputer)
 -&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
 -&gt; (Text -&gt; f Text)
@@ -306,12 +306,12 @@ forall a. Iso' (Sensitive a) a
 </span><span id="line-139"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-140"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer"><span class="hs-identifier hs-type">CreateComputer</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>      </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputerResponse"><span class="hs-identifier hs-type">CreateComputerResponse</span></a></span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679314539"><span class="annot"><span class="annottext">request :: CreateComputer -&gt; Request CreateComputer
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679314548"><span class="annot"><span class="annottext">request :: CreateComputer -&gt; Request CreateComputer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateComputer -&gt; Request CreateComputer
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DirectoryService.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679314535"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679314544"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateComputer
 -&gt; ClientResponse ClientBody
@@ -335,10 +335,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679314532"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679314532"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679314531"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679314531"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679314530"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679314530"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679314541"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679314541"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679314540"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679314540"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679314539"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679314539"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-146"></span><span>          </span><span class="annot"><span class="annottext">Maybe Computer -&gt; Int -&gt; CreateComputerResponse
 </span><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputerResponse%27"><span class="hs-identifier hs-var">CreateComputerResponse'</span></a></span><span>
 </span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Computer -&gt; Int -&gt; CreateComputerResponse)
@@ -346,7 +346,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CreateComputerResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679314530"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Computer)
+</span><a href="#local-6989586621679314539"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Computer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Computer&quot;</span></span><span class="hs-special">)</span><span>
@@ -358,15 +358,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679314532"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679314541"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314522"><span id="local-6989586621679314524"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer"><span class="hs-identifier hs-type">CreateComputer</span></a></span></span></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314531"><span id="local-6989586621679314533"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer"><span class="hs-identifier hs-type">CreateComputer</span></a></span></span></span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314519"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer"><span class="hs-identifier hs-type">CreateComputer</span></a></span></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314528"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer"><span class="hs-identifier hs-type">CreateComputer</span></a></span></span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer"><span class="hs-identifier hs-type">CreateComputer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679314515"><span class="annot"><span class="annottext">toHeaders :: CreateComputer -&gt; ResponseHeaders
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679314524"><span class="annot"><span class="annottext">toHeaders :: CreateComputer -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateComputer -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -393,9 +393,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-167"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-168"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
-</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314505"><span id="local-6989586621679314507"><span id="local-6989586621679314509"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer"><span class="hs-identifier hs-type">CreateComputer</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-171"></span><span>  </span><span id="local-6989586621679314503"><span class="annot"><span class="annottext">toJSON :: CreateComputer -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer%27"><span class="hs-identifier hs-type">CreateComputer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314497"><span id="local-6989586621679314498"><span id="local-6989586621679314499"><span id="local-6989586621679314500"><span id="local-6989586621679314501"><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314514"><span id="local-6989586621679314516"><span id="local-6989586621679314518"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer"><span class="hs-identifier hs-type">CreateComputer</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679314512"><span class="annot"><span class="annottext">toJSON :: CreateComputer -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer%27"><span class="hs-identifier hs-type">CreateComputer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314506"><span id="local-6989586621679314507"><span id="local-6989586621679314508"><span id="local-6989586621679314509"><span id="local-6989586621679314510"><span class="annot"><span class="annottext">Maybe [Attribute]
 Maybe Text
 Text
 Sensitive Text
@@ -409,7 +409,7 @@ $sel:computerName:CreateComputer' :: CreateComputer -&gt; Text
 $sel:directoryId:CreateComputer' :: CreateComputer -&gt; Text
 $sel:organizationalUnitDistinguishedName:CreateComputer' :: CreateComputer -&gt; Maybe Text
 $sel:computerAttributes:CreateComputer' :: CreateComputer -&gt; Maybe [Attribute]
-</span><a href="#local-6989586621679314497"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679314506"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-172"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-173"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -422,7 +422,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-175"></span><span>              </span><span class="annot"><span class="annottext">([Attribute] -&gt; Pair) -&gt; Maybe [Attribute] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
-</span><a href="#local-6989586621679314501"><span class="hs-identifier hs-var">computerAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679314510"><span class="hs-identifier hs-var">computerAttributes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-176"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OrganizationalUnitDistinguishedName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -430,40 +430,40 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-177"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679314500"><span class="hs-identifier hs-var">organizationalUnitDistinguishedName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679314509"><span class="hs-identifier hs-var">organizationalUnitDistinguishedName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DirectoryId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679314499"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679314508"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ComputerName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679314498"><span class="hs-identifier hs-var">computerName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679314507"><span class="hs-identifier hs-var">computerName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Password&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679314497"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679314506"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-182"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer"><span class="hs-identifier hs-type">CreateComputer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-185"></span><span>  </span><span id="local-6989586621679314491"><span class="annot"><span class="annottext">toPath :: CreateComputer -&gt; ByteString
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679314500"><span class="annot"><span class="annottext">toPath :: CreateComputer -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateComputer -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputer"><span class="hs-identifier hs-type">CreateComputer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-188"></span><span>  </span><span id="local-6989586621679314487"><span class="annot"><span class="annottext">toQuery :: CreateComputer -&gt; QueryString
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679314496"><span class="annot"><span class="annottext">toQuery :: CreateComputer -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateComputer -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -473,7 +473,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-190"></span><span class="hs-comment">-- | Contains the results for the CreateComputer operation.</span><span>
 </span><span id="line-191"></span><span class="hs-comment">--</span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- /See:/ 'newCreateComputerResponse' smart constructor.</span><span>
-</span><span id="line-193"></span><span id="local-6989586621679314484"><span id="local-6989586621679314485"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateComputerResponse"><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputerResponse"><span class="hs-identifier hs-var">CreateComputerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateComputerResponse%27"><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputerResponse%27"><span class="hs-identifier hs-var">CreateComputerResponse'</span></a></span></span><span>
+</span><span id="line-193"></span><span id="local-6989586621679314493"><span id="local-6989586621679314494"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateComputerResponse"><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputerResponse"><span class="hs-identifier hs-var">CreateComputerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateComputerResponse%27"><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputerResponse%27"><span class="hs-identifier hs-var">CreateComputerResponse'</span></a></span></span><span>
 </span><span id="line-194"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A Computer object that represents the computer account.</span><span>
 </span><span id="line-195"></span><span>    </span><span id="%24sel%3Acomputer%3ACreateComputerResponse%27"><span class="annot"><span class="annottext">CreateComputerResponse -&gt; Maybe Computer
 </span><a href="Network.AWS.DirectoryService.CreateComputer.html#%24sel%3Acomputer%3ACreateComputerResponse%27"><span class="hs-identifier hs-var hs-var">computer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Computer.html#Computer"><span class="hs-identifier hs-type">Computer</span></a></span><span class="hs-special">,</span><span>
@@ -481,7 +481,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-197"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateComputerResponse%27"><span class="annot"><span class="annottext">CreateComputerResponse -&gt; Int
 </span><a href="Network.AWS.DirectoryService.CreateComputer.html#%24sel%3AhttpStatus%3ACreateComputerResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-198"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-199"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679314478"><span id="local-6989586621679314480"><span class="annot"><span class="annottext">CreateComputerResponse -&gt; CreateComputerResponse -&gt; Bool
+</span><span id="line-199"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679314487"><span id="local-6989586621679314489"><span class="annot"><span class="annottext">CreateComputerResponse -&gt; CreateComputerResponse -&gt; Bool
 (CreateComputerResponse -&gt; CreateComputerResponse -&gt; Bool)
 -&gt; (CreateComputerResponse -&gt; CreateComputerResponse -&gt; Bool)
 -&gt; Eq CreateComputerResponse
@@ -490,7 +490,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateComputerResponse -&gt; CreateComputerResponse -&gt; Bool
 == :: CreateComputerResponse -&gt; CreateComputerResponse -&gt; Bool
 $c== :: CreateComputerResponse -&gt; CreateComputerResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314470"><span id="local-6989586621679314472"><span id="local-6989586621679314474"><span id="local-6989586621679314476"><span class="annot"><span class="annottext">ReadPrec [CreateComputerResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314479"><span id="local-6989586621679314481"><span id="local-6989586621679314483"><span id="local-6989586621679314485"><span class="annot"><span class="annottext">ReadPrec [CreateComputerResponse]
 ReadPrec CreateComputerResponse
 Int -&gt; ReadS CreateComputerResponse
 ReadS [CreateComputerResponse]
@@ -510,7 +510,7 @@ readList :: ReadS [CreateComputerResponse]
 $creadList :: ReadS [CreateComputerResponse]
 readsPrec :: Int -&gt; ReadS CreateComputerResponse
 $creadsPrec :: Int -&gt; ReadS CreateComputerResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314463"><span id="local-6989586621679314465"><span id="local-6989586621679314467"><span class="annot"><span class="annottext">Int -&gt; CreateComputerResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314472"><span id="local-6989586621679314474"><span id="local-6989586621679314476"><span class="annot"><span class="annottext">Int -&gt; CreateComputerResponse -&gt; ShowS
 [CreateComputerResponse] -&gt; ShowS
 CreateComputerResponse -&gt; String
 (Int -&gt; CreateComputerResponse -&gt; ShowS)
@@ -553,8 +553,8 @@ $cfrom :: forall x. CreateComputerResponse -&gt; Rep CreateComputerResponse x
 </span><span id="line-214"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-215"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputerResponse"><span class="hs-identifier hs-type">CreateComputerResponse</span></a></span><span>
 </span><span id="line-216"></span><span id="newCreateComputerResponse"><span class="annot"><span class="annottext">newCreateComputerResponse :: Int -&gt; CreateComputerResponse
-</span><a href="Network.AWS.DirectoryService.CreateComputer.html#newCreateComputerResponse"><span class="hs-identifier hs-var hs-var">newCreateComputerResponse</span></a></span></span><span> </span><span id="local-6989586621679314460"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679314460"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DirectoryService.CreateComputer.html#newCreateComputerResponse"><span class="hs-identifier hs-var hs-var">newCreateComputerResponse</span></a></span></span><span> </span><span id="local-6989586621679314469"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679314469"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-217"></span><span>  </span><span class="annot"><span class="annottext">CreateComputerResponse' :: Maybe Computer -&gt; Int -&gt; CreateComputerResponse
 </span><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputerResponse%27"><span class="hs-identifier hs-type">CreateComputerResponse'</span></a></span><span>
 </span><span id="line-218"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:computer:CreateComputerResponse' :: Maybe Computer
@@ -563,7 +563,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateComputerResponse' :: Int
 </span><a href="Network.AWS.DirectoryService.CreateComputer.html#%24sel%3AhttpStatus%3ACreateComputerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679314460"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679314469"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-220"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-221"></span><span>
 </span><span id="line-222"></span><span class="hs-comment">-- | A Computer object that represents the computer account.</span><span>
@@ -579,16 +579,16 @@ forall a. Maybe a
      (Maybe Computer)
      (Maybe Computer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputerResponse%27"><span class="hs-identifier hs-type">CreateComputerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314459"><span class="annot"><span class="annottext">Maybe Computer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputerResponse%27"><span class="hs-identifier hs-type">CreateComputerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314468"><span class="annot"><span class="annottext">Maybe Computer
 computer :: Maybe Computer
 $sel:computer:CreateComputerResponse' :: CreateComputerResponse -&gt; Maybe Computer
-</span><a href="#local-6989586621679314459"><span class="hs-identifier hs-var hs-var">computer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Computer
-</span><a href="#local-6989586621679314459"><span class="hs-identifier hs-var">computer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314458"><span class="annot"><span class="annottext">s :: CreateComputerResponse
-</span><a href="#local-6989586621679314458"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputerResponse%27"><span class="hs-identifier hs-type">CreateComputerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314457"><span class="annot"><span class="annottext">Maybe Computer
-</span><a href="#local-6989586621679314457"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateComputerResponse
-</span><a href="#local-6989586621679314458"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:computer:CreateComputerResponse' :: Maybe Computer
+</span><a href="#local-6989586621679314468"><span class="hs-identifier hs-var hs-var">computer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Computer
+</span><a href="#local-6989586621679314468"><span class="hs-identifier hs-var">computer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314467"><span class="annot"><span class="annottext">s :: CreateComputerResponse
+</span><a href="#local-6989586621679314467"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputerResponse%27"><span class="hs-identifier hs-type">CreateComputerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314466"><span class="annot"><span class="annottext">Maybe Computer
+</span><a href="#local-6989586621679314466"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateComputerResponse
+</span><a href="#local-6989586621679314467"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:computer:CreateComputerResponse' :: Maybe Computer
 </span><a href="Network.AWS.DirectoryService.CreateComputer.html#%24sel%3Acomputer%3ACreateComputerResponse%27"><span class="hs-identifier hs-var">computer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Computer
-</span><a href="#local-6989586621679314457"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputerResponse"><span class="hs-identifier hs-type">CreateComputerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679314466"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputerResponse"><span class="hs-identifier hs-type">CreateComputerResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-225"></span><span>
 </span><span id="line-226"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-227"></span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#createComputerResponse_httpStatus"><span class="hs-identifier hs-type">createComputerResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputerResponse"><span class="hs-identifier hs-type">CreateComputerResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -598,16 +598,16 @@ $sel:computer:CreateComputerResponse' :: CreateComputerResponse -&gt; Maybe Comp
 -&gt; (CreateComputerResponse -&gt; Int -&gt; CreateComputerResponse)
 -&gt; Lens CreateComputerResponse CreateComputerResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputerResponse%27"><span class="hs-identifier hs-type">CreateComputerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314456"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputerResponse%27"><span class="hs-identifier hs-type">CreateComputerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314465"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateComputerResponse' :: CreateComputerResponse -&gt; Int
-</span><a href="#local-6989586621679314456"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679314456"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314455"><span class="annot"><span class="annottext">s :: CreateComputerResponse
-</span><a href="#local-6989586621679314455"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputerResponse%27"><span class="hs-identifier hs-type">CreateComputerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314454"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679314454"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateComputerResponse
-</span><a href="#local-6989586621679314455"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateComputerResponse' :: Int
+</span><a href="#local-6989586621679314465"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679314465"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314464"><span class="annot"><span class="annottext">s :: CreateComputerResponse
+</span><a href="#local-6989586621679314464"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputerResponse%27"><span class="hs-identifier hs-type">CreateComputerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314463"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679314463"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateComputerResponse
+</span><a href="#local-6989586621679314464"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateComputerResponse' :: Int
 </span><a href="Network.AWS.DirectoryService.CreateComputer.html#%24sel%3AhttpStatus%3ACreateComputerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679314454"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputerResponse"><span class="hs-identifier hs-type">CreateComputerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679314463"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputerResponse"><span class="hs-identifier hs-type">CreateComputerResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-229"></span><span>
-</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314452"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputerResponse"><span class="hs-identifier hs-type">CreateComputerResponse</span></a></span></span><span>
+</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314461"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateComputer.html#CreateComputerResponse"><span class="hs-identifier hs-type">CreateComputerResponse</span></a></span></span><span>
 </span><span id="line-231"></span></pre></body></html>

@@ -32,7 +32,7 @@
 </span><span id="line-32"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/rekognition/latest/dg/api-video-roles.html#api-video-roles-all-topics Giving access to multiple Amazon SNS topics&gt;.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newNotificationChannel' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679326542"><span id="local-6989586621679326543"></span></span><span class="hs-keyword">data</span><span> </span><span id="NotificationChannel"><span class="annot"><a href="Network.AWS.Rekognition.Types.NotificationChannel.html#NotificationChannel"><span class="hs-identifier hs-var">NotificationChannel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NotificationChannel%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.NotificationChannel.html#NotificationChannel%27"><span class="hs-identifier hs-var">NotificationChannel'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679326551"><span id="local-6989586621679326552"></span></span><span class="hs-keyword">data</span><span> </span><span id="NotificationChannel"><span class="annot"><a href="Network.AWS.Rekognition.Types.NotificationChannel.html#NotificationChannel"><span class="hs-identifier hs-var">NotificationChannel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NotificationChannel%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.NotificationChannel.html#NotificationChannel%27"><span class="hs-identifier hs-var">NotificationChannel'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon SNS topic to which Amazon Rekognition to posts the completion</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- status.</span><span>
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AsNSTopicArn%3ANotificationChannel%27"><span class="annot"><span class="annottext">NotificationChannel -&gt; Text
@@ -42,7 +42,7 @@
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3AroleArn%3ANotificationChannel%27"><span class="annot"><span class="annottext">NotificationChannel -&gt; Text
 </span><a href="Network.AWS.Rekognition.Types.NotificationChannel.html#%24sel%3AroleArn%3ANotificationChannel%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326535"><span id="local-6989586621679326537"><span class="annot"><span class="annottext">NotificationChannel -&gt; NotificationChannel -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326544"><span id="local-6989586621679326546"><span class="annot"><span class="annottext">NotificationChannel -&gt; NotificationChannel -&gt; Bool
 (NotificationChannel -&gt; NotificationChannel -&gt; Bool)
 -&gt; (NotificationChannel -&gt; NotificationChannel -&gt; Bool)
 -&gt; Eq NotificationChannel
@@ -51,7 +51,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: NotificationChannel -&gt; NotificationChannel -&gt; Bool
 == :: NotificationChannel -&gt; NotificationChannel -&gt; Bool
 $c== :: NotificationChannel -&gt; NotificationChannel -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326526"><span id="local-6989586621679326528"><span id="local-6989586621679326530"><span id="local-6989586621679326532"><span class="annot"><span class="annottext">ReadPrec [NotificationChannel]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326535"><span id="local-6989586621679326537"><span id="local-6989586621679326539"><span id="local-6989586621679326541"><span class="annot"><span class="annottext">ReadPrec [NotificationChannel]
 ReadPrec NotificationChannel
 Int -&gt; ReadS NotificationChannel
 ReadS [NotificationChannel]
@@ -71,7 +71,7 @@ readList :: ReadS [NotificationChannel]
 $creadList :: ReadS [NotificationChannel]
 readsPrec :: Int -&gt; ReadS NotificationChannel
 $creadsPrec :: Int -&gt; ReadS NotificationChannel
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326519"><span id="local-6989586621679326521"><span id="local-6989586621679326523"><span class="annot"><span class="annottext">Int -&gt; NotificationChannel -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326528"><span id="local-6989586621679326530"><span id="local-6989586621679326532"><span class="annot"><span class="annottext">Int -&gt; NotificationChannel -&gt; ShowS
 [NotificationChannel] -&gt; ShowS
 NotificationChannel -&gt; String
 (Int -&gt; NotificationChannel -&gt; ShowS)
@@ -117,17 +117,17 @@ $cfrom :: forall x. NotificationChannel -&gt; Rep NotificationChannel x
 </span><span id="line-62"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.Types.NotificationChannel.html#NotificationChannel"><span class="hs-identifier hs-type">NotificationChannel</span></a></span><span>
 </span><span id="line-64"></span><span id="newNotificationChannel"><span class="annot"><span class="annottext">newNotificationChannel :: Text -&gt; Text -&gt; NotificationChannel
-</span><a href="Network.AWS.Rekognition.Types.NotificationChannel.html#newNotificationChannel"><span class="hs-identifier hs-var hs-var">newNotificationChannel</span></a></span></span><span> </span><span id="local-6989586621679326513"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326513"><span class="hs-identifier hs-var">pSNSTopicArn_</span></a></span></span><span> </span><span id="local-6989586621679326512"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326512"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Rekognition.Types.NotificationChannel.html#newNotificationChannel"><span class="hs-identifier hs-var hs-var">newNotificationChannel</span></a></span></span><span> </span><span id="local-6989586621679326522"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326522"><span class="hs-identifier hs-var">pSNSTopicArn_</span></a></span></span><span> </span><span id="local-6989586621679326521"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326521"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">NotificationChannel' :: Text -&gt; Text -&gt; NotificationChannel
 </span><a href="Network.AWS.Rekognition.Types.NotificationChannel.html#NotificationChannel%27"><span class="hs-identifier hs-type">NotificationChannel'</span></a></span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sNSTopicArn:NotificationChannel' :: Text
 </span><a href="Network.AWS.Rekognition.Types.NotificationChannel.html#%24sel%3AsNSTopicArn%3ANotificationChannel%27"><span class="hs-identifier hs-var">sNSTopicArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326513"><span class="hs-identifier hs-var">pSNSTopicArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679326522"><span class="hs-identifier hs-var">pSNSTopicArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleArn:NotificationChannel' :: Text
 </span><a href="Network.AWS.Rekognition.Types.NotificationChannel.html#%24sel%3AroleArn%3ANotificationChannel%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326512"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span>
+</span><a href="#local-6989586621679326521"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | The Amazon SNS topic to which Amazon Rekognition to posts the completion</span><span>
@@ -138,16 +138,16 @@ $cfrom :: forall x. NotificationChannel -&gt; Rep NotificationChannel x
 -&gt; (NotificationChannel -&gt; Text -&gt; NotificationChannel)
 -&gt; Lens NotificationChannel NotificationChannel Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.NotificationChannel.html#NotificationChannel%27"><span class="hs-identifier hs-type">NotificationChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326508"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.NotificationChannel.html#NotificationChannel%27"><span class="hs-identifier hs-type">NotificationChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326517"><span class="annot"><span class="annottext">Text
 sNSTopicArn :: Text
 $sel:sNSTopicArn:NotificationChannel' :: NotificationChannel -&gt; Text
-</span><a href="#local-6989586621679326508"><span class="hs-identifier hs-var hs-var">sNSTopicArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326508"><span class="hs-identifier hs-var">sNSTopicArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326507"><span class="annot"><span class="annottext">s :: NotificationChannel
-</span><a href="#local-6989586621679326507"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.NotificationChannel.html#NotificationChannel%27"><span class="hs-identifier hs-type">NotificationChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326506"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326506"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NotificationChannel
-</span><a href="#local-6989586621679326507"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sNSTopicArn:NotificationChannel' :: Text
+</span><a href="#local-6989586621679326517"><span class="hs-identifier hs-var hs-var">sNSTopicArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326517"><span class="hs-identifier hs-var">sNSTopicArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326516"><span class="annot"><span class="annottext">s :: NotificationChannel
+</span><a href="#local-6989586621679326516"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.NotificationChannel.html#NotificationChannel%27"><span class="hs-identifier hs-type">NotificationChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326515"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326515"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NotificationChannel
+</span><a href="#local-6989586621679326516"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sNSTopicArn:NotificationChannel' :: Text
 </span><a href="Network.AWS.Rekognition.Types.NotificationChannel.html#%24sel%3AsNSTopicArn%3ANotificationChannel%27"><span class="hs-identifier hs-var">sNSTopicArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326506"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.NotificationChannel.html#NotificationChannel"><span class="hs-identifier hs-type">NotificationChannel</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679326515"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.NotificationChannel.html#NotificationChannel"><span class="hs-identifier hs-type">NotificationChannel</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | The ARN of an IAM role that gives Amazon Rekognition publishing</span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- permissions to the Amazon SNS topic.</span><span>
@@ -157,29 +157,29 @@ $sel:sNSTopicArn:NotificationChannel' :: NotificationChannel -&gt; Text
 -&gt; (NotificationChannel -&gt; Text -&gt; NotificationChannel)
 -&gt; Lens NotificationChannel NotificationChannel Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.NotificationChannel.html#NotificationChannel%27"><span class="hs-identifier hs-type">NotificationChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326504"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.NotificationChannel.html#NotificationChannel%27"><span class="hs-identifier hs-type">NotificationChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326513"><span class="annot"><span class="annottext">Text
 roleArn :: Text
 $sel:roleArn:NotificationChannel' :: NotificationChannel -&gt; Text
-</span><a href="#local-6989586621679326504"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326504"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326503"><span class="annot"><span class="annottext">s :: NotificationChannel
-</span><a href="#local-6989586621679326503"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.NotificationChannel.html#NotificationChannel%27"><span class="hs-identifier hs-type">NotificationChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326502"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326502"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NotificationChannel
-</span><a href="#local-6989586621679326503"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:NotificationChannel' :: Text
+</span><a href="#local-6989586621679326513"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326513"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326512"><span class="annot"><span class="annottext">s :: NotificationChannel
+</span><a href="#local-6989586621679326512"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.NotificationChannel.html#NotificationChannel%27"><span class="hs-identifier hs-type">NotificationChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326511"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326511"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NotificationChannel
+</span><a href="#local-6989586621679326512"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:NotificationChannel' :: Text
 </span><a href="Network.AWS.Rekognition.Types.NotificationChannel.html#%24sel%3AroleArn%3ANotificationChannel%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326502"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.NotificationChannel.html#NotificationChannel"><span class="hs-identifier hs-type">NotificationChannel</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679326511"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.NotificationChannel.html#NotificationChannel"><span class="hs-identifier hs-type">NotificationChannel</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326498"><span id="local-6989586621679326500"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.NotificationChannel.html#NotificationChannel"><span class="hs-identifier hs-type">NotificationChannel</span></a></span></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326507"><span id="local-6989586621679326509"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.NotificationChannel.html#NotificationChannel"><span class="hs-identifier hs-type">NotificationChannel</span></a></span></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326495"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.NotificationChannel.html#NotificationChannel"><span class="hs-identifier hs-type">NotificationChannel</span></a></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326504"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.NotificationChannel.html#NotificationChannel"><span class="hs-identifier hs-type">NotificationChannel</span></a></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326487"><span id="local-6989586621679326489"><span id="local-6989586621679326491"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.NotificationChannel.html#NotificationChannel"><span class="hs-identifier hs-type">NotificationChannel</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679326485"><span class="annot"><span class="annottext">toJSON :: NotificationChannel -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.NotificationChannel.html#NotificationChannel%27"><span class="hs-identifier hs-type">NotificationChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326482"><span id="local-6989586621679326483"><span class="annot"><span class="annottext">Text
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326496"><span id="local-6989586621679326498"><span id="local-6989586621679326500"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.NotificationChannel.html#NotificationChannel"><span class="hs-identifier hs-type">NotificationChannel</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679326494"><span class="annot"><span class="annottext">toJSON :: NotificationChannel -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.NotificationChannel.html#NotificationChannel%27"><span class="hs-identifier hs-type">NotificationChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326491"><span id="local-6989586621679326492"><span class="annot"><span class="annottext">Text
 roleArn :: Text
 sNSTopicArn :: Text
 $sel:roleArn:NotificationChannel' :: NotificationChannel -&gt; Text
 $sel:sNSTopicArn:NotificationChannel' :: NotificationChannel -&gt; Text
-</span><a href="#local-6989586621679326482"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679326491"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -191,14 +191,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;SNSTopicArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326483"><span class="hs-identifier hs-var">sNSTopicArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679326492"><span class="hs-identifier hs-var">sNSTopicArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326482"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679326491"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span></pre></body></html>

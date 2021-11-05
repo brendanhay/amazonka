@@ -26,13 +26,13 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Details identifying the users with permissions to use the action type.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newActionTypePermissions' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679275050"><span id="local-6989586621679275051"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActionTypePermissions"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypePermissions.html#ActionTypePermissions"><span class="hs-identifier hs-var">ActionTypePermissions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActionTypePermissions%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypePermissions.html#ActionTypePermissions%27"><span class="hs-identifier hs-var">ActionTypePermissions'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679275059"><span id="local-6989586621679275060"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActionTypePermissions"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypePermissions.html#ActionTypePermissions"><span class="hs-identifier hs-var">ActionTypePermissions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActionTypePermissions%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypePermissions.html#ActionTypePermissions%27"><span class="hs-identifier hs-var">ActionTypePermissions'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of AWS account IDs with access to use the action type in their</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- pipelines.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AallowedAccounts%3AActionTypePermissions%27"><span class="annot"><span class="annottext">ActionTypePermissions -&gt; NonEmpty Text
 </span><a href="Network.AWS.CodePipeline.Types.ActionTypePermissions.html#%24sel%3AallowedAccounts%3AActionTypePermissions%27"><span class="hs-identifier hs-var hs-var">allowedAccounts</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275044"><span id="local-6989586621679275046"><span class="annot"><span class="annottext">ActionTypePermissions -&gt; ActionTypePermissions -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275053"><span id="local-6989586621679275055"><span class="annot"><span class="annottext">ActionTypePermissions -&gt; ActionTypePermissions -&gt; Bool
 (ActionTypePermissions -&gt; ActionTypePermissions -&gt; Bool)
 -&gt; (ActionTypePermissions -&gt; ActionTypePermissions -&gt; Bool)
 -&gt; Eq ActionTypePermissions
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ActionTypePermissions -&gt; ActionTypePermissions -&gt; Bool
 == :: ActionTypePermissions -&gt; ActionTypePermissions -&gt; Bool
 $c== :: ActionTypePermissions -&gt; ActionTypePermissions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275035"><span id="local-6989586621679275037"><span id="local-6989586621679275039"><span id="local-6989586621679275041"><span class="annot"><span class="annottext">ReadPrec [ActionTypePermissions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275044"><span id="local-6989586621679275046"><span id="local-6989586621679275048"><span id="local-6989586621679275050"><span class="annot"><span class="annottext">ReadPrec [ActionTypePermissions]
 ReadPrec ActionTypePermissions
 Int -&gt; ReadS ActionTypePermissions
 ReadS [ActionTypePermissions]
@@ -61,7 +61,7 @@ readList :: ReadS [ActionTypePermissions]
 $creadList :: ReadS [ActionTypePermissions]
 readsPrec :: Int -&gt; ReadS ActionTypePermissions
 $creadsPrec :: Int -&gt; ReadS ActionTypePermissions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275028"><span id="local-6989586621679275030"><span id="local-6989586621679275032"><span class="annot"><span class="annottext">Int -&gt; ActionTypePermissions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275037"><span id="local-6989586621679275039"><span id="local-6989586621679275041"><span class="annot"><span class="annottext">Int -&gt; ActionTypePermissions -&gt; ShowS
 [ActionTypePermissions] -&gt; ShowS
 ActionTypePermissions -&gt; String
 (Int -&gt; ActionTypePermissions -&gt; ShowS)
@@ -102,8 +102,8 @@ $cfrom :: forall x. ActionTypePermissions -&gt; Rep ActionTypePermissions x
 </span><span id="line-48"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-49"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypePermissions.html#ActionTypePermissions"><span class="hs-identifier hs-type">ActionTypePermissions</span></a></span><span>
 </span><span id="line-50"></span><span id="newActionTypePermissions"><span class="annot"><span class="annottext">newActionTypePermissions :: NonEmpty Text -&gt; ActionTypePermissions
-</span><a href="Network.AWS.CodePipeline.Types.ActionTypePermissions.html#newActionTypePermissions"><span class="hs-identifier hs-var hs-var">newActionTypePermissions</span></a></span></span><span> </span><span id="local-6989586621679275022"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679275022"><span class="hs-identifier hs-var">pAllowedAccounts_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodePipeline.Types.ActionTypePermissions.html#newActionTypePermissions"><span class="hs-identifier hs-var hs-var">newActionTypePermissions</span></a></span></span><span> </span><span id="local-6989586621679275031"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679275031"><span class="hs-identifier hs-var">pAllowedAccounts_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">ActionTypePermissions' :: NonEmpty Text -&gt; ActionTypePermissions
 </span><a href="Network.AWS.CodePipeline.Types.ActionTypePermissions.html#ActionTypePermissions%27"><span class="hs-identifier hs-type">ActionTypePermissions'</span></a></span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:allowedAccounts:ActionTypePermissions' :: NonEmpty Text
@@ -116,7 +116,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty Text -&gt; NonEmpty Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679275022"><span class="hs-identifier hs-var">pAllowedAccounts_</span></a></span><span>
+</span><a href="#local-6989586621679275031"><span class="hs-identifier hs-var">pAllowedAccounts_</span></a></span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | A list of AWS account IDs with access to use the action type in their</span><span>
@@ -133,16 +133,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (NonEmpty Text)
      (NonEmpty Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypePermissions.html#ActionTypePermissions%27"><span class="hs-identifier hs-type">ActionTypePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275016"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypePermissions.html#ActionTypePermissions%27"><span class="hs-identifier hs-type">ActionTypePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275025"><span class="annot"><span class="annottext">NonEmpty Text
 allowedAccounts :: NonEmpty Text
 $sel:allowedAccounts:ActionTypePermissions' :: ActionTypePermissions -&gt; NonEmpty Text
-</span><a href="#local-6989586621679275016"><span class="hs-identifier hs-var hs-var">allowedAccounts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679275016"><span class="hs-identifier hs-var">allowedAccounts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275015"><span class="annot"><span class="annottext">s :: ActionTypePermissions
-</span><a href="#local-6989586621679275015"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypePermissions.html#ActionTypePermissions%27"><span class="hs-identifier hs-type">ActionTypePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275014"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679275014"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionTypePermissions
-</span><a href="#local-6989586621679275015"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowedAccounts:ActionTypePermissions' :: NonEmpty Text
+</span><a href="#local-6989586621679275025"><span class="hs-identifier hs-var hs-var">allowedAccounts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679275025"><span class="hs-identifier hs-var">allowedAccounts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275024"><span class="annot"><span class="annottext">s :: ActionTypePermissions
+</span><a href="#local-6989586621679275024"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypePermissions.html#ActionTypePermissions%27"><span class="hs-identifier hs-type">ActionTypePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275023"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679275023"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionTypePermissions
+</span><a href="#local-6989586621679275024"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowedAccounts:ActionTypePermissions' :: NonEmpty Text
 </span><a href="Network.AWS.CodePipeline.Types.ActionTypePermissions.html#%24sel%3AallowedAccounts%3AActionTypePermissions%27"><span class="hs-identifier hs-var">allowedAccounts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679275014"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypePermissions.html#ActionTypePermissions"><span class="hs-identifier hs-type">ActionTypePermissions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+</span><a href="#local-6989586621679275023"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypePermissions.html#ActionTypePermissions"><span class="hs-identifier hs-type">ActionTypePermissions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
  -&gt; ActionTypePermissions -&gt; f ActionTypePermissions)
 -&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
     -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
@@ -155,8 +155,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275010"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypePermissions.html#ActionTypePermissions"><span class="hs-identifier hs-type">ActionTypePermissions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-62"></span><span>  </span><span id="local-6989586621679275008"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ActionTypePermissions
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275019"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypePermissions.html#ActionTypePermissions"><span class="hs-identifier hs-type">ActionTypePermissions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-62"></span><span>  </span><span id="local-6989586621679275017"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ActionTypePermissions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-63"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ActionTypePermissions)
@@ -166,30 +166,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ActionTypePermissions&quot;</span></span><span>
-</span><span id="line-65"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679275005"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679275005"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-65"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679275014"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679275014"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-66"></span><span>          </span><span class="annot"><span class="annottext">NonEmpty Text -&gt; ActionTypePermissions
 </span><a href="Network.AWS.CodePipeline.Types.ActionTypePermissions.html#ActionTypePermissions%27"><span class="hs-identifier hs-var">ActionTypePermissions'</span></a></span><span>
 </span><span id="line-67"></span><span>            </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; ActionTypePermissions)
 -&gt; Parser (NonEmpty Text) -&gt; Parser ActionTypePermissions
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679275005"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty Text)
+</span><a href="#local-6989586621679275014"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;allowedAccounts&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274999"><span id="local-6989586621679275001"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypePermissions.html#ActionTypePermissions"><span class="hs-identifier hs-type">ActionTypePermissions</span></a></span></span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275008"><span id="local-6989586621679275010"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypePermissions.html#ActionTypePermissions"><span class="hs-identifier hs-type">ActionTypePermissions</span></a></span></span></span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274996"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypePermissions.html#ActionTypePermissions"><span class="hs-identifier hs-type">ActionTypePermissions</span></a></span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275005"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypePermissions.html#ActionTypePermissions"><span class="hs-identifier hs-type">ActionTypePermissions</span></a></span></span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274988"><span id="local-6989586621679274990"><span id="local-6989586621679274992"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypePermissions.html#ActionTypePermissions"><span class="hs-identifier hs-type">ActionTypePermissions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679274986"><span class="annot"><span class="annottext">toJSON :: ActionTypePermissions -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypePermissions.html#ActionTypePermissions%27"><span class="hs-identifier hs-type">ActionTypePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274984"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274997"><span id="local-6989586621679274999"><span id="local-6989586621679275001"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypePermissions.html#ActionTypePermissions"><span class="hs-identifier hs-type">ActionTypePermissions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679274995"><span class="annot"><span class="annottext">toJSON :: ActionTypePermissions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionTypePermissions.html#ActionTypePermissions%27"><span class="hs-identifier hs-type">ActionTypePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274993"><span class="annot"><span class="annottext">NonEmpty Text
 allowedAccounts :: NonEmpty Text
 $sel:allowedAccounts:ActionTypePermissions' :: ActionTypePermissions -&gt; NonEmpty Text
-</span><a href="#local-6989586621679274984"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679274993"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -202,7 +202,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;allowedAccounts&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679274984"><span class="hs-identifier hs-var">allowedAccounts</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274993"><span class="hs-identifier hs-var">allowedAccounts</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span></pre></body></html>

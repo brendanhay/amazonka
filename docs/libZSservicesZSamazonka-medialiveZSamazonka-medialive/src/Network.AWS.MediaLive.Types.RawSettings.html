@@ -26,10 +26,10 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Raw Settings</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newRawSettings' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679911638"><span id="local-6989586621679911639"></span></span><span class="hs-keyword">data</span><span> </span><span id="RawSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.RawSettings.html#RawSettings"><span class="hs-identifier hs-var">RawSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RawSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.RawSettings.html#RawSettings%27"><span class="hs-identifier hs-var">RawSettings'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679911647"><span id="local-6989586621679911648"></span></span><span class="hs-keyword">data</span><span> </span><span id="RawSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.RawSettings.html#RawSettings"><span class="hs-identifier hs-var">RawSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RawSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.RawSettings.html#RawSettings%27"><span class="hs-identifier hs-var">RawSettings'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679911633"><span id="local-6989586621679911635"><span class="annot"><span class="annottext">RawSettings -&gt; RawSettings -&gt; Bool
+</span><span id="line-32"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679911642"><span id="local-6989586621679911644"><span class="annot"><span class="annottext">RawSettings -&gt; RawSettings -&gt; Bool
 (RawSettings -&gt; RawSettings -&gt; Bool)
 -&gt; (RawSettings -&gt; RawSettings -&gt; Bool) -&gt; Eq RawSettings
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -37,7 +37,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RawSettings -&gt; RawSettings -&gt; Bool
 == :: RawSettings -&gt; RawSettings -&gt; Bool
 $c== :: RawSettings -&gt; RawSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679911624"><span id="local-6989586621679911626"><span id="local-6989586621679911628"><span id="local-6989586621679911630"><span class="annot"><span class="annottext">ReadPrec [RawSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679911633"><span id="local-6989586621679911635"><span id="local-6989586621679911637"><span id="local-6989586621679911639"><span class="annot"><span class="annottext">ReadPrec [RawSettings]
 ReadPrec RawSettings
 Int -&gt; ReadS RawSettings
 ReadS [RawSettings]
@@ -57,7 +57,7 @@ readList :: ReadS [RawSettings]
 $creadList :: ReadS [RawSettings]
 readsPrec :: Int -&gt; ReadS RawSettings
 $creadsPrec :: Int -&gt; ReadS RawSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679911617"><span id="local-6989586621679911619"><span id="local-6989586621679911621"><span class="annot"><span class="annottext">Int -&gt; RawSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679911626"><span id="local-6989586621679911628"><span id="local-6989586621679911630"><span class="annot"><span class="annottext">Int -&gt; RawSettings -&gt; ShowS
 [RawSettings] -&gt; ShowS
 RawSettings -&gt; String
 (Int -&gt; RawSettings -&gt; ShowS)
@@ -93,8 +93,8 @@ $cfrom :: forall x. RawSettings -&gt; Rep RawSettings x
 </span><a href="Network.AWS.MediaLive.Types.RawSettings.html#newRawSettings"><span class="hs-identifier hs-var hs-var">newRawSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RawSettings
 </span><a href="Network.AWS.MediaLive.Types.RawSettings.html#RawSettings%27"><span class="hs-identifier hs-var">RawSettings'</span></a></span><span>
 </span><span id="line-41"></span><span>
-</span><span id="line-42"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679911609"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RawSettings.html#RawSettings"><span class="hs-identifier hs-type">RawSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-43"></span><span>  </span><span id="local-6989586621679911607"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RawSettings
+</span><span id="line-42"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679911618"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RawSettings.html#RawSettings"><span class="hs-identifier hs-type">RawSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>  </span><span id="local-6989586621679911616"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RawSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser RawSettings) -&gt; Value -&gt; Parser RawSettings
@@ -102,18 +102,18 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-45"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;RawSettings&quot;</span></span><span>
-</span><span id="line-46"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679911604"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679911604"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RawSettings -&gt; Parser RawSettings
+</span><span id="line-46"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679911613"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679911613"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RawSettings -&gt; Parser RawSettings
 forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="annot"><span class="annottext">RawSettings
 </span><a href="Network.AWS.MediaLive.Types.RawSettings.html#RawSettings%27"><span class="hs-identifier hs-var">RawSettings'</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>
-</span><span id="line-48"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679911600"><span id="local-6989586621679911602"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RawSettings.html#RawSettings"><span class="hs-identifier hs-type">RawSettings</span></a></span></span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679911609"><span id="local-6989586621679911611"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RawSettings.html#RawSettings"><span class="hs-identifier hs-type">RawSettings</span></a></span></span></span><span>
 </span><span id="line-49"></span><span>
-</span><span id="line-50"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679911597"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RawSettings.html#RawSettings"><span class="hs-identifier hs-type">RawSettings</span></a></span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679911606"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RawSettings.html#RawSettings"><span class="hs-identifier hs-type">RawSettings</span></a></span></span><span>
 </span><span id="line-51"></span><span>
-</span><span id="line-52"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679911589"><span id="local-6989586621679911591"><span id="local-6989586621679911593"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RawSettings.html#RawSettings"><span class="hs-identifier hs-type">RawSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-53"></span><span>  </span><span id="local-6989586621679911587"><span class="annot"><span class="annottext">toJSON :: RawSettings -&gt; Value
+</span><span id="line-52"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679911598"><span id="local-6989586621679911600"><span id="local-6989586621679911602"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RawSettings.html#RawSettings"><span class="hs-identifier hs-type">RawSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-53"></span><span>  </span><span id="local-6989586621679911596"><span class="annot"><span class="annottext">toJSON :: RawSettings -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; RawSettings -&gt; Value
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value

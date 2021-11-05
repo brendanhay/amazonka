@@ -48,7 +48,7 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDeleteTags' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679209673"><span id="local-6989586621679209674"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTags"><span class="annot"><a href="Network.AWS.Discovery.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-var">DeleteTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTags%27"><span class="annot"><a href="Network.AWS.Discovery.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-var">DeleteTags'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679209682"><span id="local-6989586621679209683"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTags"><span class="annot"><a href="Network.AWS.Discovery.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-var">DeleteTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTags%27"><span class="annot"><a href="Network.AWS.Discovery.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-var">DeleteTags'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Tags that you want to delete from one or more configuration items.</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- Specify the tags that you want to delete in a /key/-/value/ format. For</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- example:</span><span>
@@ -60,7 +60,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AconfigurationIds%3ADeleteTags%27"><span class="annot"><span class="annottext">DeleteTags -&gt; [Text]
 </span><a href="Network.AWS.Discovery.DeleteTags.html#%24sel%3AconfigurationIds%3ADeleteTags%27"><span class="hs-identifier hs-var hs-var">configurationIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679209666"><span id="local-6989586621679209668"><span class="annot"><span class="annottext">DeleteTags -&gt; DeleteTags -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679209675"><span id="local-6989586621679209677"><span class="annot"><span class="annottext">DeleteTags -&gt; DeleteTags -&gt; Bool
 (DeleteTags -&gt; DeleteTags -&gt; Bool)
 -&gt; (DeleteTags -&gt; DeleteTags -&gt; Bool) -&gt; Eq DeleteTags
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteTags -&gt; DeleteTags -&gt; Bool
 == :: DeleteTags -&gt; DeleteTags -&gt; Bool
 $c== :: DeleteTags -&gt; DeleteTags -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209657"><span id="local-6989586621679209659"><span id="local-6989586621679209661"><span id="local-6989586621679209663"><span class="annot"><span class="annottext">ReadPrec [DeleteTags]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209666"><span id="local-6989586621679209668"><span id="local-6989586621679209670"><span id="local-6989586621679209672"><span class="annot"><span class="annottext">ReadPrec [DeleteTags]
 ReadPrec DeleteTags
 Int -&gt; ReadS DeleteTags
 ReadS [DeleteTags]
@@ -88,7 +88,7 @@ readList :: ReadS [DeleteTags]
 $creadList :: ReadS [DeleteTags]
 readsPrec :: Int -&gt; ReadS DeleteTags
 $creadsPrec :: Int -&gt; ReadS DeleteTags
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209650"><span id="local-6989586621679209652"><span id="local-6989586621679209654"><span class="annot"><span class="annottext">Int -&gt; DeleteTags -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209659"><span id="local-6989586621679209661"><span id="local-6989586621679209663"><span class="annot"><span class="annottext">Int -&gt; DeleteTags -&gt; ShowS
 [DeleteTags] -&gt; ShowS
 DeleteTags -&gt; String
 (Int -&gt; DeleteTags -&gt; ShowS)
@@ -155,16 +155,16 @@ forall a. Monoid a =&gt; a
 -&gt; (DeleteTags -&gt; Maybe [Tag] -&gt; DeleteTags)
 -&gt; Lens DeleteTags DeleteTags (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-type">DeleteTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209643"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-type">DeleteTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209652"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:DeleteTags' :: DeleteTags -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679209643"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679209643"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209642"><span class="annot"><span class="annottext">s :: DeleteTags
-</span><a href="#local-6989586621679209642"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-type">DeleteTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209641"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679209641"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTags
-</span><a href="#local-6989586621679209642"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:DeleteTags' :: Maybe [Tag]
+</span><a href="#local-6989586621679209652"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679209652"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209651"><span class="annot"><span class="annottext">s :: DeleteTags
+</span><a href="#local-6989586621679209651"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-type">DeleteTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209650"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679209650"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTags
+</span><a href="#local-6989586621679209651"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:DeleteTags' :: Maybe [Tag]
 </span><a href="Network.AWS.Discovery.DeleteTags.html#%24sel%3Atags%3ADeleteTags%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679209641"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; DeleteTags -&gt; f DeleteTags)
+</span><a href="#local-6989586621679209650"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; DeleteTags -&gt; f DeleteTags)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
 -&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -187,16 +187,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (DeleteTags -&gt; [Text] -&gt; DeleteTags)
 -&gt; Lens DeleteTags DeleteTags [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-type">DeleteTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209637"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-type">DeleteTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209646"><span class="annot"><span class="annottext">[Text]
 configurationIds :: [Text]
 $sel:configurationIds:DeleteTags' :: DeleteTags -&gt; [Text]
-</span><a href="#local-6989586621679209637"><span class="hs-identifier hs-var hs-var">configurationIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679209637"><span class="hs-identifier hs-var">configurationIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209636"><span class="annot"><span class="annottext">s :: DeleteTags
-</span><a href="#local-6989586621679209636"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-type">DeleteTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209635"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679209635"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTags
-</span><a href="#local-6989586621679209636"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationIds:DeleteTags' :: [Text]
+</span><a href="#local-6989586621679209646"><span class="hs-identifier hs-var hs-var">configurationIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679209646"><span class="hs-identifier hs-var">configurationIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209645"><span class="annot"><span class="annottext">s :: DeleteTags
+</span><a href="#local-6989586621679209645"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-type">DeleteTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209644"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679209644"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTags
+</span><a href="#local-6989586621679209645"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationIds:DeleteTags' :: [Text]
 </span><a href="Network.AWS.Discovery.DeleteTags.html#%24sel%3AconfigurationIds%3ADeleteTags%27"><span class="hs-identifier hs-var">configurationIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679209635"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; DeleteTags -&gt; f DeleteTags)
+</span><a href="#local-6989586621679209644"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; DeleteTags -&gt; f DeleteTags)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
 -&gt; DeleteTags
@@ -208,12 +208,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-99"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DeleteTags.html#DeleteTagsResponse"><span class="hs-identifier hs-type">DeleteTagsResponse</span></a></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679209631"><span class="annot"><span class="annottext">request :: DeleteTags -&gt; Request DeleteTags
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679209640"><span class="annot"><span class="annottext">request :: DeleteTags -&gt; Request DeleteTags
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteTags -&gt; Request DeleteTags
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Discovery.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679209627"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679209636"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteTags
 -&gt; ClientResponse ClientBody
@@ -235,10 +235,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679209624"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679209624"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679209623"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679209623"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679209622"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679209622"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679209633"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679209633"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679209632"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679209632"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679209631"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679209631"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteTagsResponse
 </span><a href="Network.AWS.Discovery.DeleteTags.html#DeleteTagsResponse%27"><span class="hs-identifier hs-var">DeleteTagsResponse'</span></a></span><span>
 </span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteTagsResponse)
@@ -249,15 +249,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679209624"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679209633"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209615"><span id="local-6989586621679209617"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209624"><span id="local-6989586621679209626"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209612"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209621"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679209608"><span class="annot"><span class="annottext">toHeaders :: DeleteTags -&gt; ResponseHeaders
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679209617"><span class="annot"><span class="annottext">toHeaders :: DeleteTags -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteTags -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -284,15 +284,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209598"><span id="local-6989586621679209600"><span id="local-6989586621679209602"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679209596"><span class="annot"><span class="annottext">toJSON :: DeleteTags -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-type">DeleteTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209593"><span id="local-6989586621679209594"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209607"><span id="local-6989586621679209609"><span id="local-6989586621679209611"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679209605"><span class="annot"><span class="annottext">toJSON :: DeleteTags -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-type">DeleteTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209602"><span id="local-6989586621679209603"><span class="annot"><span class="annottext">[Text]
 Maybe [Tag]
 configurationIds :: [Text]
 tags :: Maybe [Tag]
 $sel:configurationIds:DeleteTags' :: DeleteTags -&gt; [Text]
 $sel:tags:DeleteTags' :: DeleteTags -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679209593"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679209602"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -304,7 +304,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679209594"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679209603"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -312,19 +312,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;configurationIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679209593"><span class="hs-identifier hs-var">configurationIds</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679209602"><span class="hs-identifier hs-var">configurationIds</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679209587"><span class="annot"><span class="annottext">toPath :: DeleteTags -&gt; ByteString
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679209596"><span class="annot"><span class="annottext">toPath :: DeleteTags -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteTags -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679209583"><span class="annot"><span class="annottext">toQuery :: DeleteTags -&gt; QueryString
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679209592"><span class="annot"><span class="annottext">toQuery :: DeleteTags -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteTags -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -332,12 +332,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | /See:/ 'newDeleteTagsResponse' smart constructor.</span><span>
-</span><span id="line-144"></span><span id="local-6989586621679209580"><span id="local-6989586621679209581"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTagsResponse"><span class="annot"><a href="Network.AWS.Discovery.DeleteTags.html#DeleteTagsResponse"><span class="hs-identifier hs-var">DeleteTagsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTagsResponse%27"><span class="annot"><a href="Network.AWS.Discovery.DeleteTags.html#DeleteTagsResponse%27"><span class="hs-identifier hs-var">DeleteTagsResponse'</span></a></span></span><span>
+</span><span id="line-144"></span><span id="local-6989586621679209589"><span id="local-6989586621679209590"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTagsResponse"><span class="annot"><a href="Network.AWS.Discovery.DeleteTags.html#DeleteTagsResponse"><span class="hs-identifier hs-var">DeleteTagsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTagsResponse%27"><span class="annot"><a href="Network.AWS.Discovery.DeleteTags.html#DeleteTagsResponse%27"><span class="hs-identifier hs-var">DeleteTagsResponse'</span></a></span></span><span>
 </span><span id="line-145"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-146"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteTagsResponse%27"><span class="annot"><span class="annottext">DeleteTagsResponse -&gt; Int
 </span><a href="Network.AWS.Discovery.DeleteTags.html#%24sel%3AhttpStatus%3ADeleteTagsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-147"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-148"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679209575"><span id="local-6989586621679209577"><span class="annot"><span class="annottext">DeleteTagsResponse -&gt; DeleteTagsResponse -&gt; Bool
+</span><span id="line-148"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679209584"><span id="local-6989586621679209586"><span class="annot"><span class="annottext">DeleteTagsResponse -&gt; DeleteTagsResponse -&gt; Bool
 (DeleteTagsResponse -&gt; DeleteTagsResponse -&gt; Bool)
 -&gt; (DeleteTagsResponse -&gt; DeleteTagsResponse -&gt; Bool)
 -&gt; Eq DeleteTagsResponse
@@ -346,7 +346,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteTagsResponse -&gt; DeleteTagsResponse -&gt; Bool
 == :: DeleteTagsResponse -&gt; DeleteTagsResponse -&gt; Bool
 $c== :: DeleteTagsResponse -&gt; DeleteTagsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209567"><span id="local-6989586621679209569"><span id="local-6989586621679209571"><span id="local-6989586621679209573"><span class="annot"><span class="annottext">ReadPrec [DeleteTagsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209576"><span id="local-6989586621679209578"><span id="local-6989586621679209580"><span id="local-6989586621679209582"><span class="annot"><span class="annottext">ReadPrec [DeleteTagsResponse]
 ReadPrec DeleteTagsResponse
 Int -&gt; ReadS DeleteTagsResponse
 ReadS [DeleteTagsResponse]
@@ -366,7 +366,7 @@ readList :: ReadS [DeleteTagsResponse]
 $creadList :: ReadS [DeleteTagsResponse]
 readsPrec :: Int -&gt; ReadS DeleteTagsResponse
 $creadsPrec :: Int -&gt; ReadS DeleteTagsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209561"><span id="local-6989586621679209563"><span id="local-6989586621679209565"><span class="annot"><span class="annottext">Int -&gt; DeleteTagsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209570"><span id="local-6989586621679209572"><span id="local-6989586621679209574"><span class="annot"><span class="annottext">Int -&gt; DeleteTagsResponse -&gt; ShowS
 [DeleteTagsResponse] -&gt; ShowS
 DeleteTagsResponse -&gt; String
 (Int -&gt; DeleteTagsResponse -&gt; ShowS)
@@ -406,12 +406,12 @@ $cfrom :: forall x. DeleteTagsResponse -&gt; Rep DeleteTagsResponse x
 </span><span id="line-161"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-162"></span><span>  </span><span class="annot"><a href="Network.AWS.Discovery.DeleteTags.html#DeleteTagsResponse"><span class="hs-identifier hs-type">DeleteTagsResponse</span></a></span><span>
 </span><span id="line-163"></span><span id="newDeleteTagsResponse"><span class="annot"><span class="annottext">newDeleteTagsResponse :: Int -&gt; DeleteTagsResponse
-</span><a href="Network.AWS.Discovery.DeleteTags.html#newDeleteTagsResponse"><span class="hs-identifier hs-var hs-var">newDeleteTagsResponse</span></a></span></span><span> </span><span id="local-6989586621679209558"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679209558"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Discovery.DeleteTags.html#newDeleteTagsResponse"><span class="hs-identifier hs-var hs-var">newDeleteTagsResponse</span></a></span></span><span> </span><span id="local-6989586621679209567"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679209567"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-164"></span><span>  </span><span class="annot"><span class="annottext">DeleteTagsResponse' :: Int -&gt; DeleteTagsResponse
 </span><a href="Network.AWS.Discovery.DeleteTags.html#DeleteTagsResponse%27"><span class="hs-identifier hs-type">DeleteTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteTagsResponse' :: Int
 </span><a href="Network.AWS.Discovery.DeleteTags.html#%24sel%3AhttpStatus%3ADeleteTagsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679209558"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679209567"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-167"></span><span class="annot"><a href="Network.AWS.Discovery.DeleteTags.html#deleteTagsResponse_httpStatus"><span class="hs-identifier hs-type">deleteTagsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DeleteTags.html#DeleteTagsResponse"><span class="hs-identifier hs-type">DeleteTagsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -420,16 +420,16 @@ $cfrom :: forall x. DeleteTagsResponse -&gt; Rep DeleteTagsResponse x
 -&gt; (DeleteTagsResponse -&gt; Int -&gt; DeleteTagsResponse)
 -&gt; Lens DeleteTagsResponse DeleteTagsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.DeleteTags.html#DeleteTagsResponse%27"><span class="hs-identifier hs-type">DeleteTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209557"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.DeleteTags.html#DeleteTagsResponse%27"><span class="hs-identifier hs-type">DeleteTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209566"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteTagsResponse' :: DeleteTagsResponse -&gt; Int
-</span><a href="#local-6989586621679209557"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679209557"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209556"><span class="annot"><span class="annottext">s :: DeleteTagsResponse
-</span><a href="#local-6989586621679209556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.DeleteTags.html#DeleteTagsResponse%27"><span class="hs-identifier hs-type">DeleteTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209555"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679209555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTagsResponse
-</span><a href="#local-6989586621679209556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteTagsResponse' :: Int
+</span><a href="#local-6989586621679209566"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679209566"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209565"><span class="annot"><span class="annottext">s :: DeleteTagsResponse
+</span><a href="#local-6989586621679209565"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.DeleteTags.html#DeleteTagsResponse%27"><span class="hs-identifier hs-type">DeleteTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209564"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679209564"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTagsResponse
+</span><a href="#local-6989586621679209565"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteTagsResponse' :: Int
 </span><a href="Network.AWS.Discovery.DeleteTags.html#%24sel%3AhttpStatus%3ADeleteTagsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679209555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DeleteTags.html#DeleteTagsResponse"><span class="hs-identifier hs-type">DeleteTagsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679209564"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DeleteTags.html#DeleteTagsResponse"><span class="hs-identifier hs-type">DeleteTagsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
-</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209553"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DeleteTags.html#DeleteTagsResponse"><span class="hs-identifier hs-type">DeleteTagsResponse</span></a></span></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209562"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DeleteTags.html#DeleteTagsResponse"><span class="hs-identifier hs-type">DeleteTagsResponse</span></a></span></span><span>
 </span><span id="line-171"></span></pre></body></html>

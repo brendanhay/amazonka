@@ -48,7 +48,7 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDescribeNodegroup' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679274797"><span id="local-6989586621679274798"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeNodegroup"><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroup"><span class="hs-identifier hs-var">DescribeNodegroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeNodegroup%27"><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroup%27"><span class="hs-identifier hs-var">DescribeNodegroup'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679274806"><span id="local-6989586621679274807"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeNodegroup"><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroup"><span class="hs-identifier hs-var">DescribeNodegroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeNodegroup%27"><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroup%27"><span class="hs-identifier hs-var">DescribeNodegroup'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the Amazon EKS cluster associated with the node group.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AclusterName%3ADescribeNodegroup%27"><span class="annot"><span class="annottext">DescribeNodegroup -&gt; Text
 </span><a href="Network.AWS.EKS.DescribeNodegroup.html#%24sel%3AclusterName%3ADescribeNodegroup%27"><span class="hs-identifier hs-var hs-var">clusterName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -56,7 +56,7 @@
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AnodegroupName%3ADescribeNodegroup%27"><span class="annot"><span class="annottext">DescribeNodegroup -&gt; Text
 </span><a href="Network.AWS.EKS.DescribeNodegroup.html#%24sel%3AnodegroupName%3ADescribeNodegroup%27"><span class="hs-identifier hs-var hs-var">nodegroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274790"><span id="local-6989586621679274792"><span class="annot"><span class="annottext">DescribeNodegroup -&gt; DescribeNodegroup -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274799"><span id="local-6989586621679274801"><span class="annot"><span class="annottext">DescribeNodegroup -&gt; DescribeNodegroup -&gt; Bool
 (DescribeNodegroup -&gt; DescribeNodegroup -&gt; Bool)
 -&gt; (DescribeNodegroup -&gt; DescribeNodegroup -&gt; Bool)
 -&gt; Eq DescribeNodegroup
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeNodegroup -&gt; DescribeNodegroup -&gt; Bool
 == :: DescribeNodegroup -&gt; DescribeNodegroup -&gt; Bool
 $c== :: DescribeNodegroup -&gt; DescribeNodegroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274781"><span id="local-6989586621679274783"><span id="local-6989586621679274785"><span id="local-6989586621679274787"><span class="annot"><span class="annottext">ReadPrec [DescribeNodegroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274790"><span id="local-6989586621679274792"><span id="local-6989586621679274794"><span id="local-6989586621679274796"><span class="annot"><span class="annottext">ReadPrec [DescribeNodegroup]
 ReadPrec DescribeNodegroup
 Int -&gt; ReadS DescribeNodegroup
 ReadS [DescribeNodegroup]
@@ -85,7 +85,7 @@ readList :: ReadS [DescribeNodegroup]
 $creadList :: ReadS [DescribeNodegroup]
 readsPrec :: Int -&gt; ReadS DescribeNodegroup
 $creadsPrec :: Int -&gt; ReadS DescribeNodegroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274774"><span id="local-6989586621679274776"><span id="local-6989586621679274778"><span class="annot"><span class="annottext">Int -&gt; DescribeNodegroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274783"><span id="local-6989586621679274785"><span id="local-6989586621679274787"><span class="annot"><span class="annottext">Int -&gt; DescribeNodegroup -&gt; ShowS
 [DescribeNodegroup] -&gt; ShowS
 DescribeNodegroup -&gt; String
 (Int -&gt; DescribeNodegroup -&gt; ShowS)
@@ -129,17 +129,17 @@ $cfrom :: forall x. DescribeNodegroup -&gt; Rep DescribeNodegroup x
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroup"><span class="hs-identifier hs-type">DescribeNodegroup</span></a></span><span>
 </span><span id="line-76"></span><span id="newDescribeNodegroup"><span class="annot"><span class="annottext">newDescribeNodegroup :: Text -&gt; Text -&gt; DescribeNodegroup
-</span><a href="Network.AWS.EKS.DescribeNodegroup.html#newDescribeNodegroup"><span class="hs-identifier hs-var hs-var">newDescribeNodegroup</span></a></span></span><span> </span><span id="local-6989586621679274769"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274769"><span class="hs-identifier hs-var">pClusterName_</span></a></span></span><span> </span><span id="local-6989586621679274768"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274768"><span class="hs-identifier hs-var">pNodegroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EKS.DescribeNodegroup.html#newDescribeNodegroup"><span class="hs-identifier hs-var hs-var">newDescribeNodegroup</span></a></span></span><span> </span><span id="local-6989586621679274778"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274778"><span class="hs-identifier hs-var">pClusterName_</span></a></span></span><span> </span><span id="local-6989586621679274777"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274777"><span class="hs-identifier hs-var">pNodegroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">DescribeNodegroup' :: Text -&gt; Text -&gt; DescribeNodegroup
 </span><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroup%27"><span class="hs-identifier hs-type">DescribeNodegroup'</span></a></span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clusterName:DescribeNodegroup' :: Text
 </span><a href="Network.AWS.EKS.DescribeNodegroup.html#%24sel%3AclusterName%3ADescribeNodegroup%27"><span class="hs-identifier hs-var">clusterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274769"><span class="hs-identifier hs-var">pClusterName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679274778"><span class="hs-identifier hs-var">pClusterName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:nodegroupName:DescribeNodegroup' :: Text
 </span><a href="Network.AWS.EKS.DescribeNodegroup.html#%24sel%3AnodegroupName%3ADescribeNodegroup%27"><span class="hs-identifier hs-var">nodegroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274768"><span class="hs-identifier hs-var">pNodegroupName_</span></a></span><span>
+</span><a href="#local-6989586621679274777"><span class="hs-identifier hs-var">pNodegroupName_</span></a></span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | The name of the Amazon EKS cluster associated with the node group.</span><span>
@@ -149,16 +149,16 @@ $cfrom :: forall x. DescribeNodegroup -&gt; Rep DescribeNodegroup x
 -&gt; (DescribeNodegroup -&gt; Text -&gt; DescribeNodegroup)
 -&gt; Lens DescribeNodegroup DescribeNodegroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroup%27"><span class="hs-identifier hs-type">DescribeNodegroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274765"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroup%27"><span class="hs-identifier hs-type">DescribeNodegroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274774"><span class="annot"><span class="annottext">Text
 clusterName :: Text
 $sel:clusterName:DescribeNodegroup' :: DescribeNodegroup -&gt; Text
-</span><a href="#local-6989586621679274765"><span class="hs-identifier hs-var hs-var">clusterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274765"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274764"><span class="annot"><span class="annottext">s :: DescribeNodegroup
-</span><a href="#local-6989586621679274764"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroup%27"><span class="hs-identifier hs-type">DescribeNodegroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274763"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274763"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNodegroup
-</span><a href="#local-6989586621679274764"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterName:DescribeNodegroup' :: Text
+</span><a href="#local-6989586621679274774"><span class="hs-identifier hs-var hs-var">clusterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274774"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274773"><span class="annot"><span class="annottext">s :: DescribeNodegroup
+</span><a href="#local-6989586621679274773"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroup%27"><span class="hs-identifier hs-type">DescribeNodegroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274772"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274772"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNodegroup
+</span><a href="#local-6989586621679274773"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterName:DescribeNodegroup' :: Text
 </span><a href="Network.AWS.EKS.DescribeNodegroup.html#%24sel%3AclusterName%3ADescribeNodegroup%27"><span class="hs-identifier hs-var">clusterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274763"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroup"><span class="hs-identifier hs-type">DescribeNodegroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274772"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroup"><span class="hs-identifier hs-type">DescribeNodegroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | The name of the node group to describe.</span><span>
 </span><span id="line-87"></span><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#describeNodegroup_nodegroupName"><span class="hs-identifier hs-type">describeNodegroup_nodegroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroup"><span class="hs-identifier hs-type">DescribeNodegroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -167,27 +167,27 @@ $sel:clusterName:DescribeNodegroup' :: DescribeNodegroup -&gt; Text
 -&gt; (DescribeNodegroup -&gt; Text -&gt; DescribeNodegroup)
 -&gt; Lens DescribeNodegroup DescribeNodegroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroup%27"><span class="hs-identifier hs-type">DescribeNodegroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274762"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroup%27"><span class="hs-identifier hs-type">DescribeNodegroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274771"><span class="annot"><span class="annottext">Text
 nodegroupName :: Text
 $sel:nodegroupName:DescribeNodegroup' :: DescribeNodegroup -&gt; Text
-</span><a href="#local-6989586621679274762"><span class="hs-identifier hs-var hs-var">nodegroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274762"><span class="hs-identifier hs-var">nodegroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274761"><span class="annot"><span class="annottext">s :: DescribeNodegroup
-</span><a href="#local-6989586621679274761"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroup%27"><span class="hs-identifier hs-type">DescribeNodegroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274760"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274760"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNodegroup
-</span><a href="#local-6989586621679274761"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodegroupName:DescribeNodegroup' :: Text
+</span><a href="#local-6989586621679274771"><span class="hs-identifier hs-var hs-var">nodegroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274771"><span class="hs-identifier hs-var">nodegroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274770"><span class="annot"><span class="annottext">s :: DescribeNodegroup
+</span><a href="#local-6989586621679274770"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroup%27"><span class="hs-identifier hs-type">DescribeNodegroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274769"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274769"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNodegroup
+</span><a href="#local-6989586621679274770"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodegroupName:DescribeNodegroup' :: Text
 </span><a href="Network.AWS.EKS.DescribeNodegroup.html#%24sel%3AnodegroupName%3ADescribeNodegroup%27"><span class="hs-identifier hs-var">nodegroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274760"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroup"><span class="hs-identifier hs-type">DescribeNodegroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274769"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroup"><span class="hs-identifier hs-type">DescribeNodegroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroup"><span class="hs-identifier hs-type">DescribeNodegroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-91"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-92"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroup"><span class="hs-identifier hs-type">DescribeNodegroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>      </span><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroupResponse"><span class="hs-identifier hs-type">DescribeNodegroupResponse</span></a></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679274756"><span class="annot"><span class="annottext">request :: DescribeNodegroup -&gt; Request DescribeNodegroup
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679274765"><span class="annot"><span class="annottext">request :: DescribeNodegroup -&gt; Request DescribeNodegroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeNodegroup -&gt; Request DescribeNodegroup
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EKS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679274752"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679274761"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeNodegroup
 -&gt; ClientResponse ClientBody
@@ -213,10 +213,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679274749"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679274749"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679274748"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679274748"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679274747"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274747"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679274758"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679274758"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679274757"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679274757"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679274756"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274756"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe Nodegroup -&gt; Int -&gt; DescribeNodegroupResponse
 </span><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroupResponse%27"><span class="hs-identifier hs-var">DescribeNodegroupResponse'</span></a></span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Nodegroup -&gt; Int -&gt; DescribeNodegroupResponse)
@@ -224,7 +224,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DescribeNodegroupResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274747"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Nodegroup)
+</span><a href="#local-6989586621679274756"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Nodegroup)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nodegroup&quot;</span></span><span class="hs-special">)</span><span>
@@ -236,15 +236,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679274749"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274758"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274739"><span id="local-6989586621679274741"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroup"><span class="hs-identifier hs-type">DescribeNodegroup</span></a></span></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274748"><span id="local-6989586621679274750"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroup"><span class="hs-identifier hs-type">DescribeNodegroup</span></a></span></span></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274736"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroup"><span class="hs-identifier hs-type">DescribeNodegroup</span></a></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274745"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroup"><span class="hs-identifier hs-type">DescribeNodegroup</span></a></span></span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroup"><span class="hs-identifier hs-type">DescribeNodegroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679274732"><span class="annot"><span class="annottext">toHeaders :: DescribeNodegroup -&gt; ResponseHeaders
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679274741"><span class="annot"><span class="annottext">toHeaders :: DescribeNodegroup -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeNodegroup -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -264,13 +264,13 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroup"><span class="hs-identifier hs-type">DescribeNodegroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679274726"><span class="annot"><span class="annottext">toPath :: DescribeNodegroup -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroup%27"><span class="hs-identifier hs-type">DescribeNodegroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274723"><span id="local-6989586621679274724"><span class="annot"><span class="annottext">Text
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679274735"><span class="annot"><span class="annottext">toPath :: DescribeNodegroup -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroup%27"><span class="hs-identifier hs-type">DescribeNodegroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274732"><span id="local-6989586621679274733"><span class="annot"><span class="annottext">Text
 nodegroupName :: Text
 clusterName :: Text
 $sel:nodegroupName:DescribeNodegroup' :: DescribeNodegroup -&gt; Text
 $sel:clusterName:DescribeNodegroup' :: DescribeNodegroup -&gt; Text
-</span><a href="#local-6989586621679274723"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679274732"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -279,17 +279,17 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274724"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679274733"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/node-groups/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274723"><span class="hs-identifier hs-var">nodegroupName</span></a></span><span>
+</span><a href="#local-6989586621679274732"><span class="hs-identifier hs-var">nodegroupName</span></a></span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroup"><span class="hs-identifier hs-type">DescribeNodegroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679274719"><span class="annot"><span class="annottext">toQuery :: DescribeNodegroup -&gt; QueryString
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679274728"><span class="annot"><span class="annottext">toQuery :: DescribeNodegroup -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeNodegroup -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -297,7 +297,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | /See:/ 'newDescribeNodegroupResponse' smart constructor.</span><span>
-</span><span id="line-131"></span><span id="local-6989586621679274716"><span id="local-6989586621679274717"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeNodegroupResponse"><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroupResponse"><span class="hs-identifier hs-var">DescribeNodegroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeNodegroupResponse%27"><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroupResponse%27"><span class="hs-identifier hs-var">DescribeNodegroupResponse'</span></a></span></span><span>
+</span><span id="line-131"></span><span id="local-6989586621679274725"><span id="local-6989586621679274726"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeNodegroupResponse"><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroupResponse"><span class="hs-identifier hs-var">DescribeNodegroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeNodegroupResponse%27"><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroupResponse%27"><span class="hs-identifier hs-var">DescribeNodegroupResponse'</span></a></span></span><span>
 </span><span id="line-132"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The full description of your node group.</span><span>
 </span><span id="line-133"></span><span>    </span><span id="%24sel%3Anodegroup%3ADescribeNodegroupResponse%27"><span class="annot"><span class="annottext">DescribeNodegroupResponse -&gt; Maybe Nodegroup
 </span><a href="Network.AWS.EKS.DescribeNodegroup.html#%24sel%3Anodegroup%3ADescribeNodegroupResponse%27"><span class="hs-identifier hs-var hs-var">nodegroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Nodegroup.html#Nodegroup"><span class="hs-identifier hs-type">Nodegroup</span></a></span><span class="hs-special">,</span><span>
@@ -305,7 +305,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-135"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeNodegroupResponse%27"><span class="annot"><span class="annottext">DescribeNodegroupResponse -&gt; Int
 </span><a href="Network.AWS.EKS.DescribeNodegroup.html#%24sel%3AhttpStatus%3ADescribeNodegroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-136"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274710"><span id="local-6989586621679274712"><span class="annot"><span class="annottext">DescribeNodegroupResponse -&gt; DescribeNodegroupResponse -&gt; Bool
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274719"><span id="local-6989586621679274721"><span class="annot"><span class="annottext">DescribeNodegroupResponse -&gt; DescribeNodegroupResponse -&gt; Bool
 (DescribeNodegroupResponse -&gt; DescribeNodegroupResponse -&gt; Bool)
 -&gt; (DescribeNodegroupResponse -&gt; DescribeNodegroupResponse -&gt; Bool)
 -&gt; Eq DescribeNodegroupResponse
@@ -314,7 +314,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeNodegroupResponse -&gt; DescribeNodegroupResponse -&gt; Bool
 == :: DescribeNodegroupResponse -&gt; DescribeNodegroupResponse -&gt; Bool
 $c== :: DescribeNodegroupResponse -&gt; DescribeNodegroupResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274702"><span id="local-6989586621679274704"><span id="local-6989586621679274706"><span id="local-6989586621679274708"><span class="annot"><span class="annottext">ReadPrec [DescribeNodegroupResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274711"><span id="local-6989586621679274713"><span id="local-6989586621679274715"><span id="local-6989586621679274717"><span class="annot"><span class="annottext">ReadPrec [DescribeNodegroupResponse]
 ReadPrec DescribeNodegroupResponse
 Int -&gt; ReadS DescribeNodegroupResponse
 ReadS [DescribeNodegroupResponse]
@@ -334,7 +334,7 @@ readList :: ReadS [DescribeNodegroupResponse]
 $creadList :: ReadS [DescribeNodegroupResponse]
 readsPrec :: Int -&gt; ReadS DescribeNodegroupResponse
 $creadsPrec :: Int -&gt; ReadS DescribeNodegroupResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274696"><span id="local-6989586621679274698"><span id="local-6989586621679274700"><span class="annot"><span class="annottext">Int -&gt; DescribeNodegroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274705"><span id="local-6989586621679274707"><span id="local-6989586621679274709"><span class="annot"><span class="annottext">Int -&gt; DescribeNodegroupResponse -&gt; ShowS
 [DescribeNodegroupResponse] -&gt; ShowS
 DescribeNodegroupResponse -&gt; String
 (Int -&gt; DescribeNodegroupResponse -&gt; ShowS)
@@ -382,8 +382,8 @@ DescribeNodegroupResponse -&gt; Rep DescribeNodegroupResponse x
 </span><span id="line-152"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-153"></span><span>  </span><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroupResponse"><span class="hs-identifier hs-type">DescribeNodegroupResponse</span></a></span><span>
 </span><span id="line-154"></span><span id="newDescribeNodegroupResponse"><span class="annot"><span class="annottext">newDescribeNodegroupResponse :: Int -&gt; DescribeNodegroupResponse
-</span><a href="Network.AWS.EKS.DescribeNodegroup.html#newDescribeNodegroupResponse"><span class="hs-identifier hs-var hs-var">newDescribeNodegroupResponse</span></a></span></span><span> </span><span id="local-6989586621679274693"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679274693"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EKS.DescribeNodegroup.html#newDescribeNodegroupResponse"><span class="hs-identifier hs-var hs-var">newDescribeNodegroupResponse</span></a></span></span><span> </span><span id="local-6989586621679274702"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679274702"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>  </span><span class="annot"><span class="annottext">DescribeNodegroupResponse' :: Maybe Nodegroup -&gt; Int -&gt; DescribeNodegroupResponse
 </span><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroupResponse%27"><span class="hs-identifier hs-type">DescribeNodegroupResponse'</span></a></span><span>
 </span><span id="line-156"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nodegroup:DescribeNodegroupResponse' :: Maybe Nodegroup
@@ -393,7 +393,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeNodegroupResponse' :: Int
 </span><a href="Network.AWS.EKS.DescribeNodegroup.html#%24sel%3AhttpStatus%3ADescribeNodegroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679274693"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679274702"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-159"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- | The full description of your node group.</span><span>
@@ -409,16 +409,16 @@ forall a. Maybe a
      (Maybe Nodegroup)
      (Maybe Nodegroup)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroupResponse%27"><span class="hs-identifier hs-type">DescribeNodegroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274692"><span class="annot"><span class="annottext">Maybe Nodegroup
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroupResponse%27"><span class="hs-identifier hs-type">DescribeNodegroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274701"><span class="annot"><span class="annottext">Maybe Nodegroup
 nodegroup :: Maybe Nodegroup
 $sel:nodegroup:DescribeNodegroupResponse' :: DescribeNodegroupResponse -&gt; Maybe Nodegroup
-</span><a href="#local-6989586621679274692"><span class="hs-identifier hs-var hs-var">nodegroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Nodegroup
-</span><a href="#local-6989586621679274692"><span class="hs-identifier hs-var">nodegroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274691"><span class="annot"><span class="annottext">s :: DescribeNodegroupResponse
-</span><a href="#local-6989586621679274691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroupResponse%27"><span class="hs-identifier hs-type">DescribeNodegroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274690"><span class="annot"><span class="annottext">Maybe Nodegroup
-</span><a href="#local-6989586621679274690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNodegroupResponse
-</span><a href="#local-6989586621679274691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodegroup:DescribeNodegroupResponse' :: Maybe Nodegroup
+</span><a href="#local-6989586621679274701"><span class="hs-identifier hs-var hs-var">nodegroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Nodegroup
+</span><a href="#local-6989586621679274701"><span class="hs-identifier hs-var">nodegroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274700"><span class="annot"><span class="annottext">s :: DescribeNodegroupResponse
+</span><a href="#local-6989586621679274700"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroupResponse%27"><span class="hs-identifier hs-type">DescribeNodegroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274699"><span class="annot"><span class="annottext">Maybe Nodegroup
+</span><a href="#local-6989586621679274699"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNodegroupResponse
+</span><a href="#local-6989586621679274700"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodegroup:DescribeNodegroupResponse' :: Maybe Nodegroup
 </span><a href="Network.AWS.EKS.DescribeNodegroup.html#%24sel%3Anodegroup%3ADescribeNodegroupResponse%27"><span class="hs-identifier hs-var">nodegroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Nodegroup
-</span><a href="#local-6989586621679274690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroupResponse"><span class="hs-identifier hs-type">DescribeNodegroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274699"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroupResponse"><span class="hs-identifier hs-type">DescribeNodegroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-166"></span><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#describeNodegroupResponse_httpStatus"><span class="hs-identifier hs-type">describeNodegroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroupResponse"><span class="hs-identifier hs-type">DescribeNodegroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -428,16 +428,16 @@ $sel:nodegroup:DescribeNodegroupResponse' :: DescribeNodegroupResponse -&gt; May
 -&gt; (DescribeNodegroupResponse -&gt; Int -&gt; DescribeNodegroupResponse)
 -&gt; Lens DescribeNodegroupResponse DescribeNodegroupResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroupResponse%27"><span class="hs-identifier hs-type">DescribeNodegroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274689"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroupResponse%27"><span class="hs-identifier hs-type">DescribeNodegroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274698"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeNodegroupResponse' :: DescribeNodegroupResponse -&gt; Int
-</span><a href="#local-6989586621679274689"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679274689"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274688"><span class="annot"><span class="annottext">s :: DescribeNodegroupResponse
-</span><a href="#local-6989586621679274688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroupResponse%27"><span class="hs-identifier hs-type">DescribeNodegroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274687"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679274687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNodegroupResponse
-</span><a href="#local-6989586621679274688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeNodegroupResponse' :: Int
+</span><a href="#local-6989586621679274698"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679274698"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274697"><span class="annot"><span class="annottext">s :: DescribeNodegroupResponse
+</span><a href="#local-6989586621679274697"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroupResponse%27"><span class="hs-identifier hs-type">DescribeNodegroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274696"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679274696"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNodegroupResponse
+</span><a href="#local-6989586621679274697"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeNodegroupResponse' :: Int
 </span><a href="Network.AWS.EKS.DescribeNodegroup.html#%24sel%3AhttpStatus%3ADescribeNodegroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679274687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroupResponse"><span class="hs-identifier hs-type">DescribeNodegroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274696"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroupResponse"><span class="hs-identifier hs-type">DescribeNodegroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274685"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroupResponse"><span class="hs-identifier hs-type">DescribeNodegroupResponse</span></a></span></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274694"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeNodegroup.html#DescribeNodegroupResponse"><span class="hs-identifier hs-type">DescribeNodegroupResponse</span></a></span></span><span>
 </span><span id="line-170"></span></pre></body></html>

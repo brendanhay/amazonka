@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoTSiteWise.Types.PortalState</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTSiteWise.Types.PortalState</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PortalState.html#PortalState"><span class="hs-identifier">PortalState</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PortalState.html#PortalState_ACTIVE"><span class="hs-identifier">PortalState_ACTIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PortalState.html#PortalState_CREATING"><span class="hs-identifier">PortalState_CREATING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PortalState.html#PortalState_DELETING"><span class="hs-identifier">PortalState_DELETING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PortalState.html#PortalState_FAILED"><span class="hs-identifier">PortalState_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PortalState.html#PortalState_UPDATING"><span class="hs-identifier">PortalState_UPDATING</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679341804"><span id="local-6989586621679341805"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PortalState"><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PortalState.html#PortalState"><span class="hs-identifier hs-var">PortalState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PortalState%27"><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PortalState.html#PortalState%27"><span class="hs-identifier hs-var">PortalState'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPortalState"><span class="annot"><span class="annottext">PortalState -&gt; Text
+</span><a href="Network.AWS.IoTSiteWise.Types.PortalState.html#fromPortalState"><span class="hs-identifier hs-var hs-var">fromPortalState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679341796"><span id="local-6989586621679341798"><span id="local-6989586621679341800"><span class="annot"><span class="annottext">Int -&gt; PortalState -&gt; ShowS
+[PortalState] -&gt; ShowS
+PortalState -&gt; String
+(Int -&gt; PortalState -&gt; ShowS)
+-&gt; (PortalState -&gt; String)
+-&gt; ([PortalState] -&gt; ShowS)
+-&gt; Show PortalState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PortalState] -&gt; ShowS
+$cshowList :: [PortalState] -&gt; ShowS
+show :: PortalState -&gt; String
+$cshow :: PortalState -&gt; String
+showsPrec :: Int -&gt; PortalState -&gt; ShowS
+$cshowsPrec :: Int -&gt; PortalState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679341787"><span id="local-6989586621679341789"><span id="local-6989586621679341791"><span id="local-6989586621679341793"><span class="annot"><span class="annottext">ReadPrec [PortalState]
+ReadPrec PortalState
+Int -&gt; ReadS PortalState
+ReadS [PortalState]
+(Int -&gt; ReadS PortalState)
+-&gt; ReadS [PortalState]
+-&gt; ReadPrec PortalState
+-&gt; ReadPrec [PortalState]
+-&gt; Read PortalState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PortalState]
+$creadListPrec :: ReadPrec [PortalState]
+readPrec :: ReadPrec PortalState
+$creadPrec :: ReadPrec PortalState
+readList :: ReadS [PortalState]
+$creadList :: ReadS [PortalState]
+readsPrec :: Int -&gt; ReadS PortalState
+$creadsPrec :: Int -&gt; ReadS PortalState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679341782"><span id="local-6989586621679341784"><span class="annot"><span class="annottext">PortalState -&gt; PortalState -&gt; Bool
+(PortalState -&gt; PortalState -&gt; Bool)
+-&gt; (PortalState -&gt; PortalState -&gt; Bool) -&gt; Eq PortalState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PortalState -&gt; PortalState -&gt; Bool
+$c/= :: PortalState -&gt; PortalState -&gt; Bool
+== :: PortalState -&gt; PortalState -&gt; Bool
+$c== :: PortalState -&gt; PortalState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679341766"><span id="local-6989586621679341768"><span id="local-6989586621679341770"><span id="local-6989586621679341772"><span id="local-6989586621679341774"><span id="local-6989586621679341776"><span id="local-6989586621679341778"><span class="annot"><span class="annottext">Eq PortalState
+Eq PortalState
+-&gt; (PortalState -&gt; PortalState -&gt; Ordering)
+-&gt; (PortalState -&gt; PortalState -&gt; Bool)
+-&gt; (PortalState -&gt; PortalState -&gt; Bool)
+-&gt; (PortalState -&gt; PortalState -&gt; Bool)
+-&gt; (PortalState -&gt; PortalState -&gt; Bool)
+-&gt; (PortalState -&gt; PortalState -&gt; PortalState)
+-&gt; (PortalState -&gt; PortalState -&gt; PortalState)
+-&gt; Ord PortalState
+PortalState -&gt; PortalState -&gt; Bool
+PortalState -&gt; PortalState -&gt; Ordering
+PortalState -&gt; PortalState -&gt; PortalState
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: PortalState -&gt; PortalState -&gt; PortalState
+$cmin :: PortalState -&gt; PortalState -&gt; PortalState
+max :: PortalState -&gt; PortalState -&gt; PortalState
+$cmax :: PortalState -&gt; PortalState -&gt; PortalState
+&gt;= :: PortalState -&gt; PortalState -&gt; Bool
+$c&gt;= :: PortalState -&gt; PortalState -&gt; Bool
+&gt; :: PortalState -&gt; PortalState -&gt; Bool
+$c&gt; :: PortalState -&gt; PortalState -&gt; Bool
+&lt;= :: PortalState -&gt; PortalState -&gt; Bool
+$c&lt;= :: PortalState -&gt; PortalState -&gt; Bool
+&lt; :: PortalState -&gt; PortalState -&gt; Bool
+$c&lt; :: PortalState -&gt; PortalState -&gt; Bool
+compare :: PortalState -&gt; PortalState -&gt; Ordering
+$ccompare :: PortalState -&gt; PortalState -&gt; Ordering
+$cp1Ord :: Eq PortalState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. PortalState -&gt; Rep PortalState x)
+-&gt; (forall x. Rep PortalState x -&gt; PortalState)
+-&gt; Generic PortalState
+forall x. Rep PortalState x -&gt; PortalState
+forall x. PortalState -&gt; Rep PortalState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PortalState x -&gt; PortalState
+$cfrom :: forall x. PortalState -&gt; Rep PortalState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679341758"><span id="local-6989586621679341760"><span class="annot"><span class="annottext">Int -&gt; PortalState -&gt; Int
+PortalState -&gt; Int
+(Int -&gt; PortalState -&gt; Int)
+-&gt; (PortalState -&gt; Int) -&gt; Hashable PortalState
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: PortalState -&gt; Int
+$chash :: PortalState -&gt; Int
+hashWithSalt :: Int -&gt; PortalState -&gt; Int
+$chashWithSalt :: Int -&gt; PortalState -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679341755"><span class="annot"><span class="annottext">PortalState -&gt; ()
+(PortalState -&gt; ()) -&gt; NFData PortalState
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: PortalState -&gt; ()
+$crnf :: PortalState -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679341752"><span class="annot"><span class="annottext">Text -&gt; Either String PortalState
+(Text -&gt; Either String PortalState) -&gt; FromText PortalState
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String PortalState
+$cfromText :: Text -&gt; Either String PortalState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679341749"><span class="annot"><span class="annottext">PortalState -&gt; Text
+(PortalState -&gt; Text) -&gt; ToText PortalState
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: PortalState -&gt; Text
+$ctoText :: PortalState -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679341746"><span class="annot"><span class="annottext">PortalState -&gt; ByteString
+(PortalState -&gt; ByteString) -&gt; ToByteString PortalState
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: PortalState -&gt; ByteString
+$ctoBS :: PortalState -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679341743"><span class="annot"><span class="annottext">PortalState -&gt; ByteStringBuilder
+(PortalState -&gt; ByteStringBuilder) -&gt; ToLog PortalState
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: PortalState -&gt; ByteStringBuilder
+$cbuild :: PortalState -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679341740"><span class="annot"><span class="annottext">HeaderName -&gt; PortalState -&gt; [Header]
+(HeaderName -&gt; PortalState -&gt; [Header]) -&gt; ToHeader PortalState
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; PortalState -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; PortalState -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679341737"><span class="annot"><span class="annottext">PortalState -&gt; QueryString
+(PortalState -&gt; QueryString) -&gt; ToQuery PortalState
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: PortalState -&gt; QueryString
+$ctoQuery :: PortalState -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679341732"><span id="local-6989586621679341734"><span class="annot"><span class="annottext">Value -&gt; Parser [PortalState]
+Value -&gt; Parser PortalState
+(Value -&gt; Parser PortalState)
+-&gt; (Value -&gt; Parser [PortalState]) -&gt; FromJSON PortalState
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [PortalState]
+$cparseJSONList :: Value -&gt; Parser [PortalState]
+parseJSON :: Value -&gt; Parser PortalState
+$cparseJSON :: Value -&gt; Parser PortalState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679341727"><span id="local-6989586621679341729"><span class="annot"><span class="annottext">FromJSONKeyFunction [PortalState]
+FromJSONKeyFunction PortalState
+FromJSONKeyFunction PortalState
+-&gt; FromJSONKeyFunction [PortalState] -&gt; FromJSONKey PortalState
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [PortalState]
+$cfromJSONKeyList :: FromJSONKeyFunction [PortalState]
+fromJSONKey :: FromJSONKeyFunction PortalState
+$cfromJSONKey :: FromJSONKeyFunction PortalState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679341718"><span id="local-6989586621679341720"><span id="local-6989586621679341722"><span id="local-6989586621679341724"><span class="annot"><span class="annottext">[PortalState] -&gt; Encoding
+[PortalState] -&gt; Value
+PortalState -&gt; Encoding
+PortalState -&gt; Value
+(PortalState -&gt; Value)
+-&gt; (PortalState -&gt; Encoding)
+-&gt; ([PortalState] -&gt; Value)
+-&gt; ([PortalState] -&gt; Encoding)
+-&gt; ToJSON PortalState
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [PortalState] -&gt; Encoding
+$ctoEncodingList :: [PortalState] -&gt; Encoding
+toJSONList :: [PortalState] -&gt; Value
+$ctoJSONList :: [PortalState] -&gt; Value
+toEncoding :: PortalState -&gt; Encoding
+$ctoEncoding :: PortalState -&gt; Encoding
+toJSON :: PortalState -&gt; Value
+$ctoJSON :: PortalState -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679341713"><span id="local-6989586621679341715"><span class="annot"><span class="annottext">ToJSONKeyFunction [PortalState]
+ToJSONKeyFunction PortalState
+ToJSONKeyFunction PortalState
+-&gt; ToJSONKeyFunction [PortalState] -&gt; ToJSONKey PortalState
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [PortalState]
+$ctoJSONKeyList :: ToJSONKeyFunction [PortalState]
+toJSONKey :: ToJSONKeyFunction PortalState
+$ctoJSONKey :: ToJSONKeyFunction PortalState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679341710"><span class="annot"><span class="annottext">[Node] -&gt; Either String PortalState
+([Node] -&gt; Either String PortalState) -&gt; FromXML PortalState
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String PortalState
+$cparseXML :: [Node] -&gt; Either String PortalState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679341707"><span class="annot"><span class="annottext">PortalState -&gt; XML
+(PortalState -&gt; XML) -&gt; ToXML PortalState
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: PortalState -&gt; XML
+$ctoXML :: PortalState -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PortalState.html#PortalState_ACTIVE"><span class="hs-identifier hs-type">PortalState_ACTIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PortalState.html#PortalState"><span class="hs-identifier hs-type">PortalState</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPortalState_ACTIVE"><span id="%24mPortalState_ACTIVE"><span id="PortalState_ACTIVE"><span class="annot"><span class="annottext">$bPortalState_ACTIVE :: PortalState
+$mPortalState_ACTIVE :: forall r. PortalState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoTSiteWise.Types.PortalState.html#%24bPortalState_ACTIVE"><span class="hs-identifier hs-var hs-var hs-var">PortalState_ACTIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PortalState.html#PortalState%27"><span class="hs-identifier hs-type">PortalState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACTIVE&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PortalState.html#PortalState_CREATING"><span class="hs-identifier hs-type">PortalState_CREATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PortalState.html#PortalState"><span class="hs-identifier hs-type">PortalState</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPortalState_CREATING"><span id="%24mPortalState_CREATING"><span id="PortalState_CREATING"><span class="annot"><span class="annottext">$bPortalState_CREATING :: PortalState
+$mPortalState_CREATING :: forall r. PortalState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoTSiteWise.Types.PortalState.html#%24bPortalState_CREATING"><span class="hs-identifier hs-var hs-var hs-var">PortalState_CREATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PortalState.html#PortalState%27"><span class="hs-identifier hs-type">PortalState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATING&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PortalState.html#PortalState_DELETING"><span class="hs-identifier hs-type">PortalState_DELETING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PortalState.html#PortalState"><span class="hs-identifier hs-type">PortalState</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPortalState_DELETING"><span id="%24mPortalState_DELETING"><span id="PortalState_DELETING"><span class="annot"><span class="annottext">$bPortalState_DELETING :: PortalState
+$mPortalState_DELETING :: forall r. PortalState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoTSiteWise.Types.PortalState.html#%24bPortalState_DELETING"><span class="hs-identifier hs-var hs-var hs-var">PortalState_DELETING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PortalState.html#PortalState%27"><span class="hs-identifier hs-type">PortalState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETING&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PortalState.html#PortalState_FAILED"><span class="hs-identifier hs-type">PortalState_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PortalState.html#PortalState"><span class="hs-identifier hs-type">PortalState</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPortalState_FAILED"><span id="%24mPortalState_FAILED"><span id="PortalState_FAILED"><span class="annot"><span class="annottext">$bPortalState_FAILED :: PortalState
+$mPortalState_FAILED :: forall r. PortalState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoTSiteWise.Types.PortalState.html#%24bPortalState_FAILED"><span class="hs-identifier hs-var hs-var hs-var">PortalState_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PortalState.html#PortalState%27"><span class="hs-identifier hs-type">PortalState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PortalState.html#PortalState_UPDATING"><span class="hs-identifier hs-type">PortalState_UPDATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PortalState.html#PortalState"><span class="hs-identifier hs-type">PortalState</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPortalState_UPDATING"><span id="%24mPortalState_UPDATING"><span id="PortalState_UPDATING"><span class="annot"><span class="annottext">$bPortalState_UPDATING :: PortalState
+$mPortalState_UPDATING :: forall r. PortalState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoTSiteWise.Types.PortalState.html#%24bPortalState_UPDATING"><span class="hs-identifier hs-var hs-var hs-var">PortalState_UPDATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PortalState.html#PortalState%27"><span class="hs-identifier hs-type">PortalState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UPDATING&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PortalState.html#PortalState_ACTIVE"><span class="hs-pragma hs-type">PortalState_ACTIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PortalState.html#PortalState_CREATING"><span class="hs-pragma hs-type">PortalState_CREATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PortalState.html#PortalState_DELETING"><span class="hs-pragma hs-type">PortalState_DELETING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PortalState.html#PortalState_FAILED"><span class="hs-pragma hs-type">PortalState_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PortalState.html#PortalState_UPDATING"><span class="hs-pragma hs-type">PortalState_UPDATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.PortalState.html#PortalState%27"><span class="hs-pragma hs-type">PortalState'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

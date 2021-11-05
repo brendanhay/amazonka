@@ -49,12 +49,12 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newDescribeResourceGroups' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679256223"><span id="local-6989586621679256224"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeResourceGroups"><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroups"><span class="hs-identifier hs-var">DescribeResourceGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeResourceGroups%27"><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroups%27"><span class="hs-identifier hs-var">DescribeResourceGroups'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679256232"><span id="local-6989586621679256233"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeResourceGroups"><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroups"><span class="hs-identifier hs-var">DescribeResourceGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeResourceGroups%27"><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroups%27"><span class="hs-identifier hs-var">DescribeResourceGroups'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN that specifies the resource group that you want to describe.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AresourceGroupArns%3ADescribeResourceGroups%27"><span class="annot"><span class="annottext">DescribeResourceGroups -&gt; NonEmpty Text
 </span><a href="Network.AWS.Inspector.DescribeResourceGroups.html#%24sel%3AresourceGroupArns%3ADescribeResourceGroups%27"><span class="hs-identifier hs-var hs-var">resourceGroupArns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256217"><span id="local-6989586621679256219"><span class="annot"><span class="annottext">DescribeResourceGroups -&gt; DescribeResourceGroups -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256226"><span id="local-6989586621679256228"><span class="annot"><span class="annottext">DescribeResourceGroups -&gt; DescribeResourceGroups -&gt; Bool
 (DescribeResourceGroups -&gt; DescribeResourceGroups -&gt; Bool)
 -&gt; (DescribeResourceGroups -&gt; DescribeResourceGroups -&gt; Bool)
 -&gt; Eq DescribeResourceGroups
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeResourceGroups -&gt; DescribeResourceGroups -&gt; Bool
 == :: DescribeResourceGroups -&gt; DescribeResourceGroups -&gt; Bool
 $c== :: DescribeResourceGroups -&gt; DescribeResourceGroups -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256208"><span id="local-6989586621679256210"><span id="local-6989586621679256212"><span id="local-6989586621679256214"><span class="annot"><span class="annottext">ReadPrec [DescribeResourceGroups]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256217"><span id="local-6989586621679256219"><span id="local-6989586621679256221"><span id="local-6989586621679256223"><span class="annot"><span class="annottext">ReadPrec [DescribeResourceGroups]
 ReadPrec DescribeResourceGroups
 Int -&gt; ReadS DescribeResourceGroups
 ReadS [DescribeResourceGroups]
@@ -83,7 +83,7 @@ readList :: ReadS [DescribeResourceGroups]
 $creadList :: ReadS [DescribeResourceGroups]
 readsPrec :: Int -&gt; ReadS DescribeResourceGroups
 $creadsPrec :: Int -&gt; ReadS DescribeResourceGroups
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256201"><span id="local-6989586621679256203"><span id="local-6989586621679256205"><span class="annot"><span class="annottext">Int -&gt; DescribeResourceGroups -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256210"><span id="local-6989586621679256212"><span id="local-6989586621679256214"><span class="annot"><span class="annottext">Int -&gt; DescribeResourceGroups -&gt; ShowS
 [DescribeResourceGroups] -&gt; ShowS
 DescribeResourceGroups -&gt; String
 (Int -&gt; DescribeResourceGroups -&gt; ShowS)
@@ -124,8 +124,8 @@ $cfrom :: forall x. DescribeResourceGroups -&gt; Rep DescribeResourceGroups x
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroups"><span class="hs-identifier hs-type">DescribeResourceGroups</span></a></span><span>
 </span><span id="line-71"></span><span id="newDescribeResourceGroups"><span class="annot"><span class="annottext">newDescribeResourceGroups :: NonEmpty Text -&gt; DescribeResourceGroups
-</span><a href="Network.AWS.Inspector.DescribeResourceGroups.html#newDescribeResourceGroups"><span class="hs-identifier hs-var hs-var">newDescribeResourceGroups</span></a></span></span><span> </span><span id="local-6989586621679256196"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679256196"><span class="hs-identifier hs-var">pResourceGroupArns_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Inspector.DescribeResourceGroups.html#newDescribeResourceGroups"><span class="hs-identifier hs-var hs-var">newDescribeResourceGroups</span></a></span></span><span> </span><span id="local-6989586621679256205"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679256205"><span class="hs-identifier hs-var">pResourceGroupArns_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">DescribeResourceGroups' :: NonEmpty Text -&gt; DescribeResourceGroups
 </span><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroups%27"><span class="hs-identifier hs-type">DescribeResourceGroups'</span></a></span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceGroupArns:DescribeResourceGroups' :: NonEmpty Text
@@ -138,7 +138,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty Text -&gt; NonEmpty Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679256196"><span class="hs-identifier hs-var">pResourceGroupArns_</span></a></span><span>
+</span><a href="#local-6989586621679256205"><span class="hs-identifier hs-var">pResourceGroupArns_</span></a></span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | The ARN that specifies the resource group that you want to describe.</span><span>
@@ -154,16 +154,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (NonEmpty Text)
      (NonEmpty Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroups%27"><span class="hs-identifier hs-type">DescribeResourceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256191"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroups%27"><span class="hs-identifier hs-type">DescribeResourceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256200"><span class="annot"><span class="annottext">NonEmpty Text
 resourceGroupArns :: NonEmpty Text
 $sel:resourceGroupArns:DescribeResourceGroups' :: DescribeResourceGroups -&gt; NonEmpty Text
-</span><a href="#local-6989586621679256191"><span class="hs-identifier hs-var hs-var">resourceGroupArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679256191"><span class="hs-identifier hs-var">resourceGroupArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256190"><span class="annot"><span class="annottext">s :: DescribeResourceGroups
-</span><a href="#local-6989586621679256190"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroups%27"><span class="hs-identifier hs-type">DescribeResourceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256189"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679256189"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeResourceGroups
-</span><a href="#local-6989586621679256190"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceGroupArns:DescribeResourceGroups' :: NonEmpty Text
+</span><a href="#local-6989586621679256200"><span class="hs-identifier hs-var hs-var">resourceGroupArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679256200"><span class="hs-identifier hs-var">resourceGroupArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256199"><span class="annot"><span class="annottext">s :: DescribeResourceGroups
+</span><a href="#local-6989586621679256199"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroups%27"><span class="hs-identifier hs-type">DescribeResourceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256198"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679256198"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeResourceGroups
+</span><a href="#local-6989586621679256199"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceGroupArns:DescribeResourceGroups' :: NonEmpty Text
 </span><a href="Network.AWS.Inspector.DescribeResourceGroups.html#%24sel%3AresourceGroupArns%3ADescribeResourceGroups%27"><span class="hs-identifier hs-var">resourceGroupArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679256189"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroups"><span class="hs-identifier hs-type">DescribeResourceGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+</span><a href="#local-6989586621679256198"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroups"><span class="hs-identifier hs-type">DescribeResourceGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
  -&gt; DescribeResourceGroups -&gt; f DescribeResourceGroups)
 -&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
     -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
@@ -180,12 +180,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-82"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-83"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroups"><span class="hs-identifier hs-type">DescribeResourceGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroupsResponse"><span class="hs-identifier hs-type">DescribeResourceGroupsResponse</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679256184"><span class="annot"><span class="annottext">request :: DescribeResourceGroups -&gt; Request DescribeResourceGroups
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679256193"><span class="annot"><span class="annottext">request :: DescribeResourceGroups -&gt; Request DescribeResourceGroups
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeResourceGroups -&gt; Request DescribeResourceGroups
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Inspector.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679256180"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679256189"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeResourceGroups
 -&gt; ClientResponse ClientBody
@@ -211,10 +211,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679256177"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679256177"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679256176"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679256176"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679256175"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679256175"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679256186"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256186"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679256185"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679256185"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679256184"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679256184"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Int
 -&gt; [ResourceGroup]
 -&gt; HashMap Text FailedItemDetails
@@ -236,7 +236,7 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679256177"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679256186"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   ([ResourceGroup]
@@ -248,7 +248,7 @@ forall a. Enum a =&gt; a -&gt; Int
      (HashMap Text FailedItemDetails -&gt; DescribeResourceGroupsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679256175"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [ResourceGroup])
+</span><a href="#local-6989586621679256184"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [ResourceGroup])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;resourceGroups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [ResourceGroup])
@@ -264,7 +264,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String DescribeResourceGroupsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679256175"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679256184"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (HashMap Text FailedItemDetails))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -277,12 +277,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256166"><span id="local-6989586621679256168"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroups"><span class="hs-identifier hs-type">DescribeResourceGroups</span></a></span></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256175"><span id="local-6989586621679256177"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroups"><span class="hs-identifier hs-type">DescribeResourceGroups</span></a></span></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256163"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroups"><span class="hs-identifier hs-type">DescribeResourceGroups</span></a></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256172"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroups"><span class="hs-identifier hs-type">DescribeResourceGroups</span></a></span></span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroups"><span class="hs-identifier hs-type">DescribeResourceGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679256159"><span class="annot"><span class="annottext">toHeaders :: DescribeResourceGroups -&gt; ResponseHeaders
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679256168"><span class="annot"><span class="annottext">toHeaders :: DescribeResourceGroups -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeResourceGroups -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -309,12 +309,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-111"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256149"><span id="local-6989586621679256151"><span id="local-6989586621679256153"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroups"><span class="hs-identifier hs-type">DescribeResourceGroups</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679256147"><span class="annot"><span class="annottext">toJSON :: DescribeResourceGroups -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroups%27"><span class="hs-identifier hs-type">DescribeResourceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256145"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256158"><span id="local-6989586621679256160"><span id="local-6989586621679256162"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroups"><span class="hs-identifier hs-type">DescribeResourceGroups</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679256156"><span class="annot"><span class="annottext">toJSON :: DescribeResourceGroups -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroups%27"><span class="hs-identifier hs-type">DescribeResourceGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256154"><span class="annot"><span class="annottext">NonEmpty Text
 resourceGroupArns :: NonEmpty Text
 $sel:resourceGroupArns:DescribeResourceGroups' :: DescribeResourceGroups -&gt; NonEmpty Text
-</span><a href="#local-6989586621679256145"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679256154"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -327,19 +327,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;resourceGroupArns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679256145"><span class="hs-identifier hs-var">resourceGroupArns</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679256154"><span class="hs-identifier hs-var">resourceGroupArns</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroups"><span class="hs-identifier hs-type">DescribeResourceGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679256139"><span class="annot"><span class="annottext">toPath :: DescribeResourceGroups -&gt; ByteString
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679256148"><span class="annot"><span class="annottext">toPath :: DescribeResourceGroups -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeResourceGroups -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroups"><span class="hs-identifier hs-type">DescribeResourceGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679256135"><span class="annot"><span class="annottext">toQuery :: DescribeResourceGroups -&gt; QueryString
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679256144"><span class="annot"><span class="annottext">toQuery :: DescribeResourceGroups -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeResourceGroups -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -347,7 +347,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | /See:/ 'newDescribeResourceGroupsResponse' smart constructor.</span><span>
-</span><span id="line-130"></span><span id="local-6989586621679256132"><span id="local-6989586621679256133"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeResourceGroupsResponse"><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroupsResponse"><span class="hs-identifier hs-var">DescribeResourceGroupsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeResourceGroupsResponse%27"><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroupsResponse%27"><span class="hs-identifier hs-var">DescribeResourceGroupsResponse'</span></a></span></span><span>
+</span><span id="line-130"></span><span id="local-6989586621679256141"><span id="local-6989586621679256142"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeResourceGroupsResponse"><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroupsResponse"><span class="hs-identifier hs-var">DescribeResourceGroupsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeResourceGroupsResponse%27"><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroupsResponse%27"><span class="hs-identifier hs-var">DescribeResourceGroupsResponse'</span></a></span></span><span>
 </span><span id="line-131"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-132"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeResourceGroupsResponse%27"><span class="annot"><span class="annottext">DescribeResourceGroupsResponse -&gt; Int
 </span><a href="Network.AWS.Inspector.DescribeResourceGroups.html#%24sel%3AhttpStatus%3ADescribeResourceGroupsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -359,7 +359,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-137"></span><span>    </span><span id="%24sel%3AfailedItems%3ADescribeResourceGroupsResponse%27"><span class="annot"><span class="annottext">DescribeResourceGroupsResponse -&gt; HashMap Text FailedItemDetails
 </span><a href="Network.AWS.Inspector.DescribeResourceGroups.html#%24sel%3AfailedItems%3ADescribeResourceGroupsResponse%27"><span class="hs-identifier hs-var hs-var">failedItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FailedItemDetails.html#FailedItemDetails"><span class="hs-identifier hs-type">FailedItemDetails</span></a></span><span>
 </span><span id="line-138"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256125"><span id="local-6989586621679256127"><span class="annot"><span class="annottext">DescribeResourceGroupsResponse
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256134"><span id="local-6989586621679256136"><span class="annot"><span class="annottext">DescribeResourceGroupsResponse
 -&gt; DescribeResourceGroupsResponse -&gt; Bool
 (DescribeResourceGroupsResponse
  -&gt; DescribeResourceGroupsResponse -&gt; Bool)
@@ -375,7 +375,7 @@ $c/= :: DescribeResourceGroupsResponse
 -&gt; DescribeResourceGroupsResponse -&gt; Bool
 $c== :: DescribeResourceGroupsResponse
 -&gt; DescribeResourceGroupsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256117"><span id="local-6989586621679256119"><span id="local-6989586621679256121"><span id="local-6989586621679256123"><span class="annot"><span class="annottext">ReadPrec [DescribeResourceGroupsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256126"><span id="local-6989586621679256128"><span id="local-6989586621679256130"><span id="local-6989586621679256132"><span class="annot"><span class="annottext">ReadPrec [DescribeResourceGroupsResponse]
 ReadPrec DescribeResourceGroupsResponse
 Int -&gt; ReadS DescribeResourceGroupsResponse
 ReadS [DescribeResourceGroupsResponse]
@@ -395,7 +395,7 @@ readList :: ReadS [DescribeResourceGroupsResponse]
 $creadList :: ReadS [DescribeResourceGroupsResponse]
 readsPrec :: Int -&gt; ReadS DescribeResourceGroupsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeResourceGroupsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256111"><span id="local-6989586621679256113"><span id="local-6989586621679256115"><span class="annot"><span class="annottext">Int -&gt; DescribeResourceGroupsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256120"><span id="local-6989586621679256122"><span id="local-6989586621679256124"><span class="annot"><span class="annottext">Int -&gt; DescribeResourceGroupsResponse -&gt; ShowS
 [DescribeResourceGroupsResponse] -&gt; ShowS
 DescribeResourceGroupsResponse -&gt; String
 (Int -&gt; DescribeResourceGroupsResponse -&gt; ShowS)
@@ -452,8 +452,8 @@ DescribeResourceGroupsResponse
 </span><span id="line-157"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-158"></span><span>  </span><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroupsResponse"><span class="hs-identifier hs-type">DescribeResourceGroupsResponse</span></a></span><span>
 </span><span id="line-159"></span><span id="newDescribeResourceGroupsResponse"><span class="annot"><span class="annottext">newDescribeResourceGroupsResponse :: Int -&gt; DescribeResourceGroupsResponse
-</span><a href="Network.AWS.Inspector.DescribeResourceGroups.html#newDescribeResourceGroupsResponse"><span class="hs-identifier hs-var hs-var">newDescribeResourceGroupsResponse</span></a></span></span><span> </span><span id="local-6989586621679256108"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679256108"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Inspector.DescribeResourceGroups.html#newDescribeResourceGroupsResponse"><span class="hs-identifier hs-var hs-var">newDescribeResourceGroupsResponse</span></a></span></span><span> </span><span id="local-6989586621679256117"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256117"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-160"></span><span>  </span><span class="annot"><span class="annottext">DescribeResourceGroupsResponse' :: Int
 -&gt; [ResourceGroup]
 -&gt; HashMap Text FailedItemDetails
@@ -462,7 +462,7 @@ DescribeResourceGroupsResponse
 </span><span id="line-161"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeResourceGroupsResponse' :: Int
 </span><a href="Network.AWS.Inspector.DescribeResourceGroups.html#%24sel%3AhttpStatus%3ADescribeResourceGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679256108"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679256117"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceGroups:DescribeResourceGroupsResponse' :: [ResourceGroup]
 </span><a href="Network.AWS.Inspector.DescribeResourceGroups.html#%24sel%3AresourceGroups%3ADescribeResourceGroupsResponse%27"><span class="hs-identifier hs-var">resourceGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ResourceGroup]
 forall a. Monoid a =&gt; a
@@ -487,16 +487,16 @@ forall a. Monoid a =&gt; a
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroupsResponse%27"><span class="hs-identifier hs-type">DescribeResourceGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256107"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroupsResponse%27"><span class="hs-identifier hs-type">DescribeResourceGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256116"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeResourceGroupsResponse' :: DescribeResourceGroupsResponse -&gt; Int
-</span><a href="#local-6989586621679256107"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679256107"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256106"><span class="annot"><span class="annottext">s :: DescribeResourceGroupsResponse
-</span><a href="#local-6989586621679256106"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroupsResponse%27"><span class="hs-identifier hs-type">DescribeResourceGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256105"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679256105"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeResourceGroupsResponse
-</span><a href="#local-6989586621679256106"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeResourceGroupsResponse' :: Int
+</span><a href="#local-6989586621679256116"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256116"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256115"><span class="annot"><span class="annottext">s :: DescribeResourceGroupsResponse
+</span><a href="#local-6989586621679256115"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroupsResponse%27"><span class="hs-identifier hs-type">DescribeResourceGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256114"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256114"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeResourceGroupsResponse
+</span><a href="#local-6989586621679256115"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeResourceGroupsResponse' :: Int
 </span><a href="Network.AWS.Inspector.DescribeResourceGroups.html#%24sel%3AhttpStatus%3ADescribeResourceGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679256105"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroupsResponse"><span class="hs-identifier hs-type">DescribeResourceGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679256114"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroupsResponse"><span class="hs-identifier hs-type">DescribeResourceGroupsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- | Information about a resource group.</span><span>
 </span><span id="line-172"></span><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#describeResourceGroupsResponse_resourceGroups"><span class="hs-identifier hs-type">describeResourceGroupsResponse_resourceGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroupsResponse"><span class="hs-identifier hs-type">DescribeResourceGroupsResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Inspector.Types.ResourceGroup.html#ResourceGroup"><span class="hs-identifier hs-type">ResourceGroup</span></a></span><span class="hs-special">]</span><span>
@@ -512,16 +512,16 @@ $sel:httpStatus:DescribeResourceGroupsResponse' :: DescribeResourceGroupsRespons
      [ResourceGroup]
      [ResourceGroup]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroupsResponse%27"><span class="hs-identifier hs-type">DescribeResourceGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256104"><span class="annot"><span class="annottext">[ResourceGroup]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroupsResponse%27"><span class="hs-identifier hs-type">DescribeResourceGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256113"><span class="annot"><span class="annottext">[ResourceGroup]
 resourceGroups :: [ResourceGroup]
 $sel:resourceGroups:DescribeResourceGroupsResponse' :: DescribeResourceGroupsResponse -&gt; [ResourceGroup]
-</span><a href="#local-6989586621679256104"><span class="hs-identifier hs-var hs-var">resourceGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ResourceGroup]
-</span><a href="#local-6989586621679256104"><span class="hs-identifier hs-var">resourceGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256103"><span class="annot"><span class="annottext">s :: DescribeResourceGroupsResponse
-</span><a href="#local-6989586621679256103"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroupsResponse%27"><span class="hs-identifier hs-type">DescribeResourceGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256102"><span class="annot"><span class="annottext">[ResourceGroup]
-</span><a href="#local-6989586621679256102"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeResourceGroupsResponse
-</span><a href="#local-6989586621679256103"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceGroups:DescribeResourceGroupsResponse' :: [ResourceGroup]
+</span><a href="#local-6989586621679256113"><span class="hs-identifier hs-var hs-var">resourceGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ResourceGroup]
+</span><a href="#local-6989586621679256113"><span class="hs-identifier hs-var">resourceGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256112"><span class="annot"><span class="annottext">s :: DescribeResourceGroupsResponse
+</span><a href="#local-6989586621679256112"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroupsResponse%27"><span class="hs-identifier hs-type">DescribeResourceGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256111"><span class="annot"><span class="annottext">[ResourceGroup]
+</span><a href="#local-6989586621679256111"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeResourceGroupsResponse
+</span><a href="#local-6989586621679256112"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceGroups:DescribeResourceGroupsResponse' :: [ResourceGroup]
 </span><a href="Network.AWS.Inspector.DescribeResourceGroups.html#%24sel%3AresourceGroups%3ADescribeResourceGroupsResponse%27"><span class="hs-identifier hs-var">resourceGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ResourceGroup]
-</span><a href="#local-6989586621679256102"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroupsResponse"><span class="hs-identifier hs-type">DescribeResourceGroupsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ResourceGroup] -&gt; f [ResourceGroup])
+</span><a href="#local-6989586621679256111"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroupsResponse"><span class="hs-identifier hs-type">DescribeResourceGroupsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ResourceGroup] -&gt; f [ResourceGroup])
  -&gt; DescribeResourceGroupsResponse
  -&gt; f DescribeResourceGroupsResponse)
 -&gt; (([ResourceGroup] -&gt; f [ResourceGroup])
@@ -552,16 +552,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (HashMap Text FailedItemDetails)
      (HashMap Text FailedItemDetails)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroupsResponse%27"><span class="hs-identifier hs-type">DescribeResourceGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256101"><span class="annot"><span class="annottext">HashMap Text FailedItemDetails
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroupsResponse%27"><span class="hs-identifier hs-type">DescribeResourceGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256110"><span class="annot"><span class="annottext">HashMap Text FailedItemDetails
 failedItems :: HashMap Text FailedItemDetails
 $sel:failedItems:DescribeResourceGroupsResponse' :: DescribeResourceGroupsResponse -&gt; HashMap Text FailedItemDetails
-</span><a href="#local-6989586621679256101"><span class="hs-identifier hs-var hs-var">failedItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text FailedItemDetails
-</span><a href="#local-6989586621679256101"><span class="hs-identifier hs-var">failedItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256100"><span class="annot"><span class="annottext">s :: DescribeResourceGroupsResponse
-</span><a href="#local-6989586621679256100"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroupsResponse%27"><span class="hs-identifier hs-type">DescribeResourceGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256099"><span class="annot"><span class="annottext">HashMap Text FailedItemDetails
-</span><a href="#local-6989586621679256099"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeResourceGroupsResponse
-</span><a href="#local-6989586621679256100"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failedItems:DescribeResourceGroupsResponse' :: HashMap Text FailedItemDetails
+</span><a href="#local-6989586621679256110"><span class="hs-identifier hs-var hs-var">failedItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text FailedItemDetails
+</span><a href="#local-6989586621679256110"><span class="hs-identifier hs-var">failedItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256109"><span class="annot"><span class="annottext">s :: DescribeResourceGroupsResponse
+</span><a href="#local-6989586621679256109"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroupsResponse%27"><span class="hs-identifier hs-type">DescribeResourceGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256108"><span class="annot"><span class="annottext">HashMap Text FailedItemDetails
+</span><a href="#local-6989586621679256108"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeResourceGroupsResponse
+</span><a href="#local-6989586621679256109"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failedItems:DescribeResourceGroupsResponse' :: HashMap Text FailedItemDetails
 </span><a href="Network.AWS.Inspector.DescribeResourceGroups.html#%24sel%3AfailedItems%3ADescribeResourceGroupsResponse%27"><span class="hs-identifier hs-var">failedItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text FailedItemDetails
-</span><a href="#local-6989586621679256099"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroupsResponse"><span class="hs-identifier hs-type">DescribeResourceGroupsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text FailedItemDetails
+</span><a href="#local-6989586621679256108"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroupsResponse"><span class="hs-identifier hs-type">DescribeResourceGroupsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text FailedItemDetails
   -&gt; f (HashMap Text FailedItemDetails))
  -&gt; DescribeResourceGroupsResponse
  -&gt; f DescribeResourceGroupsResponse)
@@ -582,6 +582,6 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679256097"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679256106"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-182"></span><span>    </span><span class="annot"><a href="Network.AWS.Inspector.DescribeResourceGroups.html#DescribeResourceGroupsResponse"><span class="hs-identifier hs-type">DescribeResourceGroupsResponse</span></a></span></span><span>
 </span><span id="line-183"></span></pre></body></html>

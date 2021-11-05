@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679244829"><span id="local-6989586621679244830"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DependentServiceName"><span class="annot"><a href="Network.AWS.FMS.Types.DependentServiceName.html#DependentServiceName"><span class="hs-identifier hs-var">DependentServiceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DependentServiceName%27"><span class="annot"><a href="Network.AWS.FMS.Types.DependentServiceName.html#DependentServiceName%27"><span class="hs-identifier hs-var">DependentServiceName'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679244838"><span id="local-6989586621679244839"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DependentServiceName"><span class="annot"><a href="Network.AWS.FMS.Types.DependentServiceName.html#DependentServiceName"><span class="hs-identifier hs-var">DependentServiceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DependentServiceName%27"><span class="annot"><a href="Network.AWS.FMS.Types.DependentServiceName.html#DependentServiceName%27"><span class="hs-identifier hs-var">DependentServiceName'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDependentServiceName"><span class="annot"><span class="annottext">DependentServiceName -&gt; Text
 </span><a href="Network.AWS.FMS.Types.DependentServiceName.html#fromDependentServiceName"><span class="hs-identifier hs-var hs-var">fromDependentServiceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679244821"><span id="local-6989586621679244823"><span id="local-6989586621679244825"><span class="annot"><span class="annottext">Int -&gt; DependentServiceName -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679244830"><span id="local-6989586621679244832"><span id="local-6989586621679244834"><span class="annot"><span class="annottext">Int -&gt; DependentServiceName -&gt; ShowS
 [DependentServiceName] -&gt; ShowS
 DependentServiceName -&gt; String
 (Int -&gt; DependentServiceName -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: DependentServiceName -&gt; String
 showsPrec :: Int -&gt; DependentServiceName -&gt; ShowS
 $cshowsPrec :: Int -&gt; DependentServiceName -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679244812"><span id="local-6989586621679244814"><span id="local-6989586621679244816"><span id="local-6989586621679244818"><span class="annot"><span class="annottext">ReadPrec [DependentServiceName]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679244821"><span id="local-6989586621679244823"><span id="local-6989586621679244825"><span id="local-6989586621679244827"><span class="annot"><span class="annottext">ReadPrec [DependentServiceName]
 ReadPrec DependentServiceName
 Int -&gt; ReadS DependentServiceName
 ReadS [DependentServiceName]
@@ -74,7 +74,7 @@ $creadList :: ReadS [DependentServiceName]
 readsPrec :: Int -&gt; ReadS DependentServiceName
 $creadsPrec :: Int -&gt; ReadS DependentServiceName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679244807"><span id="local-6989586621679244809"><span class="annot"><span class="annottext">DependentServiceName -&gt; DependentServiceName -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679244816"><span id="local-6989586621679244818"><span class="annot"><span class="annottext">DependentServiceName -&gt; DependentServiceName -&gt; Bool
 (DependentServiceName -&gt; DependentServiceName -&gt; Bool)
 -&gt; (DependentServiceName -&gt; DependentServiceName -&gt; Bool)
 -&gt; Eq DependentServiceName
@@ -84,7 +84,7 @@ $c/= :: DependentServiceName -&gt; DependentServiceName -&gt; Bool
 == :: DependentServiceName -&gt; DependentServiceName -&gt; Bool
 $c== :: DependentServiceName -&gt; DependentServiceName -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679244791"><span id="local-6989586621679244793"><span id="local-6989586621679244795"><span id="local-6989586621679244797"><span id="local-6989586621679244799"><span id="local-6989586621679244801"><span id="local-6989586621679244803"><span class="annot"><span class="annottext">Eq DependentServiceName
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679244800"><span id="local-6989586621679244802"><span id="local-6989586621679244804"><span id="local-6989586621679244806"><span id="local-6989586621679244808"><span id="local-6989586621679244810"><span id="local-6989586621679244812"><span class="annot"><span class="annottext">Eq DependentServiceName
 Eq DependentServiceName
 -&gt; (DependentServiceName -&gt; DependentServiceName -&gt; Ordering)
 -&gt; (DependentServiceName -&gt; DependentServiceName -&gt; Bool)
@@ -142,7 +142,7 @@ $cfrom :: forall x. DependentServiceName -&gt; Rep DependentServiceName x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679244783"><span id="local-6989586621679244785"><span class="annot"><span class="annottext">Int -&gt; DependentServiceName -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679244792"><span id="local-6989586621679244794"><span class="annot"><span class="annottext">Int -&gt; DependentServiceName -&gt; Int
 DependentServiceName -&gt; Int
 (Int -&gt; DependentServiceName -&gt; Int)
 -&gt; (DependentServiceName -&gt; Int) -&gt; Hashable DependentServiceName
@@ -152,54 +152,54 @@ $chash :: DependentServiceName -&gt; Int
 hashWithSalt :: Int -&gt; DependentServiceName -&gt; Int
 $chashWithSalt :: Int -&gt; DependentServiceName -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679244780"><span class="annot"><span class="annottext">DependentServiceName -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679244789"><span class="annot"><span class="annottext">DependentServiceName -&gt; ()
 (DependentServiceName -&gt; ()) -&gt; NFData DependentServiceName
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DependentServiceName -&gt; ()
 $crnf :: DependentServiceName -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679244777"><span class="annot"><span class="annottext">Text -&gt; Either String DependentServiceName
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679244786"><span class="annot"><span class="annottext">Text -&gt; Either String DependentServiceName
 (Text -&gt; Either String DependentServiceName)
 -&gt; FromText DependentServiceName
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DependentServiceName
 $cfromText :: Text -&gt; Either String DependentServiceName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679244774"><span class="annot"><span class="annottext">DependentServiceName -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679244783"><span class="annot"><span class="annottext">DependentServiceName -&gt; Text
 (DependentServiceName -&gt; Text) -&gt; ToText DependentServiceName
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DependentServiceName -&gt; Text
 $ctoText :: DependentServiceName -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679244771"><span class="annot"><span class="annottext">DependentServiceName -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679244780"><span class="annot"><span class="annottext">DependentServiceName -&gt; ByteString
 (DependentServiceName -&gt; ByteString)
 -&gt; ToByteString DependentServiceName
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DependentServiceName -&gt; ByteString
 $ctoBS :: DependentServiceName -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679244768"><span class="annot"><span class="annottext">DependentServiceName -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679244777"><span class="annot"><span class="annottext">DependentServiceName -&gt; ByteStringBuilder
 (DependentServiceName -&gt; ByteStringBuilder)
 -&gt; ToLog DependentServiceName
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DependentServiceName -&gt; ByteStringBuilder
 $cbuild :: DependentServiceName -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679244765"><span class="annot"><span class="annottext">HeaderName -&gt; DependentServiceName -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679244774"><span class="annot"><span class="annottext">HeaderName -&gt; DependentServiceName -&gt; [Header]
 (HeaderName -&gt; DependentServiceName -&gt; [Header])
 -&gt; ToHeader DependentServiceName
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DependentServiceName -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DependentServiceName -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679244762"><span class="annot"><span class="annottext">DependentServiceName -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679244771"><span class="annot"><span class="annottext">DependentServiceName -&gt; QueryString
 (DependentServiceName -&gt; QueryString)
 -&gt; ToQuery DependentServiceName
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DependentServiceName -&gt; QueryString
 $ctoQuery :: DependentServiceName -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679244757"><span id="local-6989586621679244759"><span class="annot"><span class="annottext">Value -&gt; Parser [DependentServiceName]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679244766"><span id="local-6989586621679244768"><span class="annot"><span class="annottext">Value -&gt; Parser [DependentServiceName]
 Value -&gt; Parser DependentServiceName
 (Value -&gt; Parser DependentServiceName)
 -&gt; (Value -&gt; Parser [DependentServiceName])
@@ -211,7 +211,7 @@ $cparseJSONList :: Value -&gt; Parser [DependentServiceName]
 parseJSON :: Value -&gt; Parser DependentServiceName
 $cparseJSON :: Value -&gt; Parser DependentServiceName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679244752"><span id="local-6989586621679244754"><span class="annot"><span class="annottext">FromJSONKeyFunction [DependentServiceName]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679244761"><span id="local-6989586621679244763"><span class="annot"><span class="annottext">FromJSONKeyFunction [DependentServiceName]
 FromJSONKeyFunction DependentServiceName
 FromJSONKeyFunction DependentServiceName
 -&gt; FromJSONKeyFunction [DependentServiceName]
@@ -223,7 +223,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DependentServiceName]
 fromJSONKey :: FromJSONKeyFunction DependentServiceName
 $cfromJSONKey :: FromJSONKeyFunction DependentServiceName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679244743"><span id="local-6989586621679244745"><span id="local-6989586621679244747"><span id="local-6989586621679244749"><span class="annot"><span class="annottext">[DependentServiceName] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679244752"><span id="local-6989586621679244754"><span id="local-6989586621679244756"><span id="local-6989586621679244758"><span class="annot"><span class="annottext">[DependentServiceName] -&gt; Encoding
 [DependentServiceName] -&gt; Value
 DependentServiceName -&gt; Encoding
 DependentServiceName -&gt; Value
@@ -247,7 +247,7 @@ $ctoEncoding :: DependentServiceName -&gt; Encoding
 toJSON :: DependentServiceName -&gt; Value
 $ctoJSON :: DependentServiceName -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679244738"><span id="local-6989586621679244740"><span class="annot"><span class="annottext">ToJSONKeyFunction [DependentServiceName]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679244747"><span id="local-6989586621679244749"><span class="annot"><span class="annottext">ToJSONKeyFunction [DependentServiceName]
 ToJSONKeyFunction DependentServiceName
 ToJSONKeyFunction DependentServiceName
 -&gt; ToJSONKeyFunction [DependentServiceName]
@@ -259,14 +259,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DependentServiceName]
 toJSONKey :: ToJSONKeyFunction DependentServiceName
 $ctoJSONKey :: ToJSONKeyFunction DependentServiceName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679244735"><span class="annot"><span class="annottext">[Node] -&gt; Either String DependentServiceName
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679244744"><span class="annot"><span class="annottext">[Node] -&gt; Either String DependentServiceName
 ([Node] -&gt; Either String DependentServiceName)
 -&gt; FromXML DependentServiceName
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DependentServiceName
 $cparseXML :: [Node] -&gt; Either String DependentServiceName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679244732"><span class="annot"><span class="annottext">DependentServiceName -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679244741"><span class="annot"><span class="annottext">DependentServiceName -&gt; XML
 (DependentServiceName -&gt; XML) -&gt; ToXML DependentServiceName
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DependentServiceName -&gt; XML

@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Task object encapsulating task information.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newTask' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679170409"><span id="local-6989586621679170410"></span></span><span class="hs-keyword">data</span><span> </span><span id="Task"><span class="annot"><a href="Network.AWS.MigrationHub.Types.Task.html#Task"><span class="hs-identifier hs-var">Task</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Task%27"><span class="annot"><a href="Network.AWS.MigrationHub.Types.Task.html#Task%27"><span class="hs-identifier hs-var">Task'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679170418"><span id="local-6989586621679170419"></span></span><span class="hs-keyword">data</span><span> </span><span id="Task"><span class="annot"><a href="Network.AWS.MigrationHub.Types.Task.html#Task"><span class="hs-identifier hs-var">Task</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Task%27"><span class="annot"><a href="Network.AWS.MigrationHub.Types.Task.html#Task%27"><span class="hs-identifier hs-var">Task'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indication of the percentage completion of the task.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AprogressPercent%3ATask%27"><span class="annot"><span class="annottext">Task -&gt; Maybe Natural
 </span><a href="Network.AWS.MigrationHub.Types.Task.html#%24sel%3AprogressPercent%3ATask%27"><span class="hs-identifier hs-var hs-var">progressPercent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
@@ -40,14 +40,14 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3Astatus%3ATask%27"><span class="annot"><span class="annottext">Task -&gt; MigrationStatus
 </span><a href="Network.AWS.MigrationHub.Types.Task.html#%24sel%3Astatus%3ATask%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.MigrationStatus.html#MigrationStatus"><span class="hs-identifier hs-type">MigrationStatus</span></a></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679170401"><span id="local-6989586621679170403"><span class="annot"><span class="annottext">Task -&gt; Task -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679170410"><span id="local-6989586621679170412"><span class="annot"><span class="annottext">Task -&gt; Task -&gt; Bool
 (Task -&gt; Task -&gt; Bool) -&gt; (Task -&gt; Task -&gt; Bool) -&gt; Eq Task
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Task -&gt; Task -&gt; Bool
 $c/= :: Task -&gt; Task -&gt; Bool
 == :: Task -&gt; Task -&gt; Bool
 $c== :: Task -&gt; Task -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679170392"><span id="local-6989586621679170394"><span id="local-6989586621679170396"><span id="local-6989586621679170398"><span class="annot"><span class="annottext">ReadPrec [Task]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679170401"><span id="local-6989586621679170403"><span id="local-6989586621679170405"><span id="local-6989586621679170407"><span class="annot"><span class="annottext">ReadPrec [Task]
 ReadPrec Task
 Int -&gt; ReadS Task
 ReadS [Task]
@@ -64,7 +64,7 @@ readList :: ReadS [Task]
 $creadList :: ReadS [Task]
 readsPrec :: Int -&gt; ReadS Task
 $creadsPrec :: Int -&gt; ReadS Task
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679170385"><span id="local-6989586621679170387"><span id="local-6989586621679170389"><span class="annot"><span class="annottext">Int -&gt; Task -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679170394"><span id="local-6989586621679170396"><span id="local-6989586621679170398"><span class="annot"><span class="annottext">Int -&gt; Task -&gt; ShowS
 [Task] -&gt; ShowS
 Task -&gt; String
 (Int -&gt; Task -&gt; ShowS)
@@ -107,8 +107,8 @@ $cfrom :: forall x. Task -&gt; Rep Task x
 </span><span id="line-59"></span><span>  </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.MigrationStatus.html#MigrationStatus"><span class="hs-identifier hs-type">MigrationStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-60"></span><span>  </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.Task.html#Task"><span class="hs-identifier hs-type">Task</span></a></span><span>
 </span><span id="line-61"></span><span id="newTask"><span class="annot"><span class="annottext">newTask :: MigrationStatus -&gt; Task
-</span><a href="Network.AWS.MigrationHub.Types.Task.html#newTask"><span class="hs-identifier hs-var hs-var">newTask</span></a></span></span><span> </span><span id="local-6989586621679170379"><span class="annot"><span class="annottext">MigrationStatus
-</span><a href="#local-6989586621679170379"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MigrationHub.Types.Task.html#newTask"><span class="hs-identifier hs-var hs-var">newTask</span></a></span></span><span> </span><span id="local-6989586621679170388"><span class="annot"><span class="annottext">MigrationStatus
+</span><a href="#local-6989586621679170388"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">Task' :: Maybe Natural -&gt; Maybe Text -&gt; MigrationStatus -&gt; Task
 </span><a href="Network.AWS.MigrationHub.Types.Task.html#Task%27"><span class="hs-identifier hs-type">Task'</span></a></span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:progressPercent:Task' :: Maybe Natural
@@ -121,7 +121,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:Task' :: MigrationStatus
 </span><a href="Network.AWS.MigrationHub.Types.Task.html#%24sel%3Astatus%3ATask%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MigrationStatus
-</span><a href="#local-6989586621679170379"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><a href="#local-6989586621679170388"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | Indication of the percentage completion of the task.</span><span>
@@ -131,16 +131,16 @@ forall a. Maybe a
 -&gt; (Task -&gt; Maybe Natural -&gt; Task)
 -&gt; Lens Task Task (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.Types.Task.html#Task%27"><span class="hs-identifier hs-type">Task'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170375"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.Types.Task.html#Task%27"><span class="hs-identifier hs-type">Task'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170384"><span class="annot"><span class="annottext">Maybe Natural
 progressPercent :: Maybe Natural
 $sel:progressPercent:Task' :: Task -&gt; Maybe Natural
-</span><a href="#local-6989586621679170375"><span class="hs-identifier hs-var hs-var">progressPercent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679170375"><span class="hs-identifier hs-var">progressPercent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170374"><span class="annot"><span class="annottext">s :: Task
-</span><a href="#local-6989586621679170374"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.Types.Task.html#Task%27"><span class="hs-identifier hs-type">Task'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170373"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679170373"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Task
-</span><a href="#local-6989586621679170374"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:progressPercent:Task' :: Maybe Natural
+</span><a href="#local-6989586621679170384"><span class="hs-identifier hs-var hs-var">progressPercent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679170384"><span class="hs-identifier hs-var">progressPercent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170383"><span class="annot"><span class="annottext">s :: Task
+</span><a href="#local-6989586621679170383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.Types.Task.html#Task%27"><span class="hs-identifier hs-type">Task'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170382"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679170382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Task
+</span><a href="#local-6989586621679170383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:progressPercent:Task' :: Maybe Natural
 </span><a href="Network.AWS.MigrationHub.Types.Task.html#%24sel%3AprogressPercent%3ATask%27"><span class="hs-identifier hs-var">progressPercent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679170373"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.Task.html#Task"><span class="hs-identifier hs-type">Task</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679170382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.Task.html#Task"><span class="hs-identifier hs-type">Task</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | Details of task status as notified by a migration tool. A tool might use</span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- this field to provide clarifying information about the status that is</span><span>
@@ -151,16 +151,16 @@ $sel:progressPercent:Task' :: Task -&gt; Maybe Natural
 -&gt; (Task -&gt; Maybe Text -&gt; Task)
 -&gt; Lens Task Task (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.Types.Task.html#Task%27"><span class="hs-identifier hs-type">Task'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170371"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.Types.Task.html#Task%27"><span class="hs-identifier hs-type">Task'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170380"><span class="annot"><span class="annottext">Maybe Text
 statusDetail :: Maybe Text
 $sel:statusDetail:Task' :: Task -&gt; Maybe Text
-</span><a href="#local-6989586621679170371"><span class="hs-identifier hs-var hs-var">statusDetail</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679170371"><span class="hs-identifier hs-var">statusDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170370"><span class="annot"><span class="annottext">s :: Task
-</span><a href="#local-6989586621679170370"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.Types.Task.html#Task%27"><span class="hs-identifier hs-type">Task'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170369"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679170369"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Task
-</span><a href="#local-6989586621679170370"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusDetail:Task' :: Maybe Text
+</span><a href="#local-6989586621679170380"><span class="hs-identifier hs-var hs-var">statusDetail</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679170380"><span class="hs-identifier hs-var">statusDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170379"><span class="annot"><span class="annottext">s :: Task
+</span><a href="#local-6989586621679170379"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.Types.Task.html#Task%27"><span class="hs-identifier hs-type">Task'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170378"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679170378"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Task
+</span><a href="#local-6989586621679170379"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusDetail:Task' :: Maybe Text
 </span><a href="Network.AWS.MigrationHub.Types.Task.html#%24sel%3AstatusDetail%3ATask%27"><span class="hs-identifier hs-var">statusDetail</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679170369"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.Task.html#Task"><span class="hs-identifier hs-type">Task</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679170378"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.Task.html#Task"><span class="hs-identifier hs-type">Task</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | Status of the task - Not Started, In-Progress, Complete.</span><span>
 </span><span id="line-79"></span><span class="annot"><a href="Network.AWS.MigrationHub.Types.Task.html#task_status"><span class="hs-identifier hs-type">task_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.Task.html#Task"><span class="hs-identifier hs-type">Task</span></a></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.MigrationStatus.html#MigrationStatus"><span class="hs-identifier hs-type">MigrationStatus</span></a></span><span>
@@ -169,27 +169,27 @@ $sel:statusDetail:Task' :: Task -&gt; Maybe Text
 -&gt; (Task -&gt; MigrationStatus -&gt; Task)
 -&gt; Lens Task Task MigrationStatus MigrationStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.Types.Task.html#Task%27"><span class="hs-identifier hs-type">Task'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170367"><span class="annot"><span class="annottext">MigrationStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MigrationHub.Types.Task.html#Task%27"><span class="hs-identifier hs-type">Task'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170376"><span class="annot"><span class="annottext">MigrationStatus
 status :: MigrationStatus
 $sel:status:Task' :: Task -&gt; MigrationStatus
-</span><a href="#local-6989586621679170367"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MigrationStatus
-</span><a href="#local-6989586621679170367"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170366"><span class="annot"><span class="annottext">s :: Task
-</span><a href="#local-6989586621679170366"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.Types.Task.html#Task%27"><span class="hs-identifier hs-type">Task'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170365"><span class="annot"><span class="annottext">MigrationStatus
-</span><a href="#local-6989586621679170365"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Task
-</span><a href="#local-6989586621679170366"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Task' :: MigrationStatus
+</span><a href="#local-6989586621679170376"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MigrationStatus
+</span><a href="#local-6989586621679170376"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170375"><span class="annot"><span class="annottext">s :: Task
+</span><a href="#local-6989586621679170375"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MigrationHub.Types.Task.html#Task%27"><span class="hs-identifier hs-type">Task'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170374"><span class="annot"><span class="annottext">MigrationStatus
+</span><a href="#local-6989586621679170374"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Task
+</span><a href="#local-6989586621679170375"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Task' :: MigrationStatus
 </span><a href="Network.AWS.MigrationHub.Types.Task.html#%24sel%3Astatus%3ATask%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MigrationStatus
-</span><a href="#local-6989586621679170365"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.Task.html#Task"><span class="hs-identifier hs-type">Task</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679170374"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.Task.html#Task"><span class="hs-identifier hs-type">Task</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170362"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.Task.html#Task"><span class="hs-identifier hs-type">Task</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679170360"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Task
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170371"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.Task.html#Task"><span class="hs-identifier hs-type">Task</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679170369"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Task
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Task) -&gt; Value -&gt; Parser Task
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Task&quot;</span></span><span>
-</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679170357"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679170357"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679170366"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679170366"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural -&gt; Maybe Text -&gt; MigrationStatus -&gt; Task
 </span><a href="Network.AWS.MigrationHub.Types.Task.html#Task%27"><span class="hs-identifier hs-var">Task'</span></a></span><span>
 </span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural -&gt; Maybe Text -&gt; MigrationStatus -&gt; Task)
@@ -197,7 +197,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; MigrationStatus -&gt; Task)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679170357"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679170366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ProgressPercent&quot;</span></span><span class="hs-special">)</span><span>
@@ -205,7 +205,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (MigrationStatus -&gt; Task)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679170357"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679170366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StatusDetail&quot;</span></span><span class="hs-special">)</span><span>
@@ -213,19 +213,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser MigrationStatus -&gt; Parser Task
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679170357"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser MigrationStatus
+</span><a href="#local-6989586621679170366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser MigrationStatus
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170350"><span id="local-6989586621679170352"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.Task.html#Task"><span class="hs-identifier hs-type">Task</span></a></span></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170359"><span id="local-6989586621679170361"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.Task.html#Task"><span class="hs-identifier hs-type">Task</span></a></span></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170347"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.Task.html#Task"><span class="hs-identifier hs-type">Task</span></a></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170356"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.Task.html#Task"><span class="hs-identifier hs-type">Task</span></a></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170339"><span id="local-6989586621679170341"><span id="local-6989586621679170343"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.Task.html#Task"><span class="hs-identifier hs-type">Task</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679170337"><span class="annot"><span class="annottext">toJSON :: Task -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.Task.html#Task%27"><span class="hs-identifier hs-type">Task'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170333"><span id="local-6989586621679170334"><span id="local-6989586621679170335"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170348"><span id="local-6989586621679170350"><span id="local-6989586621679170352"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.Task.html#Task"><span class="hs-identifier hs-type">Task</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679170346"><span class="annot"><span class="annottext">toJSON :: Task -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MigrationHub.Types.Task.html#Task%27"><span class="hs-identifier hs-type">Task'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170342"><span id="local-6989586621679170343"><span id="local-6989586621679170344"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 MigrationStatus
 status :: MigrationStatus
@@ -234,7 +234,7 @@ progressPercent :: Maybe Natural
 $sel:status:Task' :: Task -&gt; MigrationStatus
 $sel:statusDetail:Task' :: Task -&gt; Maybe Text
 $sel:progressPercent:Task' :: Task -&gt; Maybe Natural
-</span><a href="#local-6989586621679170333"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679170342"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -247,21 +247,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-102"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679170335"><span class="hs-identifier hs-var">progressPercent</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679170344"><span class="hs-identifier hs-var">progressPercent</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-103"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StatusDetail&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679170334"><span class="hs-identifier hs-var">statusDetail</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679170343"><span class="hs-identifier hs-var">statusDetail</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MigrationStatus -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">MigrationStatus
-</span><a href="#local-6989586621679170333"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679170342"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span></pre></body></html>

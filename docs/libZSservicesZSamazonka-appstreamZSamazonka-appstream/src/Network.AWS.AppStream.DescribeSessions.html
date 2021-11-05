@@ -59,7 +59,7 @@
 </span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newDescribeSessions' smart constructor.</span><span>
-</span><span id="line-62"></span><span id="local-6989586621679297157"><span id="local-6989586621679297158"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeSessions"><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions"><span class="hs-identifier hs-var">DescribeSessions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeSessions%27"><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions%27"><span class="hs-identifier hs-var">DescribeSessions'</span></a></span></span><span>
+</span><span id="line-62"></span><span id="local-6989586621679297166"><span id="local-6989586621679297167"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeSessions"><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions"><span class="hs-identifier hs-var">DescribeSessions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeSessions%27"><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions%27"><span class="hs-identifier hs-var">DescribeSessions'</span></a></span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The user identifier (ID). If you specify a user ID, you must also</span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">-- specify the authentication type.</span><span>
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AuserId%3ADescribeSessions%27"><span class="annot"><span class="annottext">DescribeSessions -&gt; Maybe Text
@@ -84,7 +84,7 @@
 </span><span id="line-79"></span><span>    </span><span id="%24sel%3AfleetName%3ADescribeSessions%27"><span class="annot"><span class="annottext">DescribeSessions -&gt; Text
 </span><a href="Network.AWS.AppStream.DescribeSessions.html#%24sel%3AfleetName%3ADescribeSessions%27"><span class="hs-identifier hs-var hs-var">fleetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-80"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297146"><span id="local-6989586621679297148"><span class="annot"><span class="annottext">DescribeSessions -&gt; DescribeSessions -&gt; Bool
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297155"><span id="local-6989586621679297157"><span class="annot"><span class="annottext">DescribeSessions -&gt; DescribeSessions -&gt; Bool
 (DescribeSessions -&gt; DescribeSessions -&gt; Bool)
 -&gt; (DescribeSessions -&gt; DescribeSessions -&gt; Bool)
 -&gt; Eq DescribeSessions
@@ -93,7 +93,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeSessions -&gt; DescribeSessions -&gt; Bool
 == :: DescribeSessions -&gt; DescribeSessions -&gt; Bool
 $c== :: DescribeSessions -&gt; DescribeSessions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297137"><span id="local-6989586621679297139"><span id="local-6989586621679297141"><span id="local-6989586621679297143"><span class="annot"><span class="annottext">ReadPrec [DescribeSessions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297146"><span id="local-6989586621679297148"><span id="local-6989586621679297150"><span id="local-6989586621679297152"><span class="annot"><span class="annottext">ReadPrec [DescribeSessions]
 ReadPrec DescribeSessions
 Int -&gt; ReadS DescribeSessions
 ReadS [DescribeSessions]
@@ -113,7 +113,7 @@ readList :: ReadS [DescribeSessions]
 $creadList :: ReadS [DescribeSessions]
 readsPrec :: Int -&gt; ReadS DescribeSessions
 $creadsPrec :: Int -&gt; ReadS DescribeSessions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297130"><span id="local-6989586621679297132"><span id="local-6989586621679297134"><span class="annot"><span class="annottext">Int -&gt; DescribeSessions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297139"><span id="local-6989586621679297141"><span id="local-6989586621679297143"><span class="annot"><span class="annottext">Int -&gt; DescribeSessions -&gt; ShowS
 [DescribeSessions] -&gt; ShowS
 DescribeSessions -&gt; String
 (Int -&gt; DescribeSessions -&gt; ShowS)
@@ -170,9 +170,9 @@ $cfrom :: forall x. DescribeSessions -&gt; Rep DescribeSessions x
 </span><span id="line-111"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-112"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions"><span class="hs-identifier hs-type">DescribeSessions</span></a></span><span>
 </span><span id="line-113"></span><span id="newDescribeSessions"><span class="annot"><span class="annottext">newDescribeSessions :: Text -&gt; Text -&gt; DescribeSessions
-</span><a href="Network.AWS.AppStream.DescribeSessions.html#newDescribeSessions"><span class="hs-identifier hs-var hs-var">newDescribeSessions</span></a></span></span><span> </span><span id="local-6989586621679297125"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297125"><span class="hs-identifier hs-var">pStackName_</span></a></span></span><span> </span><span id="local-6989586621679297124"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297124"><span class="hs-identifier hs-var">pFleetName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AppStream.DescribeSessions.html#newDescribeSessions"><span class="hs-identifier hs-var hs-var">newDescribeSessions</span></a></span></span><span> </span><span id="local-6989586621679297134"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297134"><span class="hs-identifier hs-var">pStackName_</span></a></span></span><span> </span><span id="local-6989586621679297133"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297133"><span class="hs-identifier hs-var">pFleetName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>  </span><span class="annot"><span class="annottext">DescribeSessions' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Int
@@ -199,10 +199,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:stackName:DescribeSessions' :: Text
 </span><a href="Network.AWS.AppStream.DescribeSessions.html#%24sel%3AstackName%3ADescribeSessions%27"><span class="hs-identifier hs-var">stackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297125"><span class="hs-identifier hs-var">pStackName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679297134"><span class="hs-identifier hs-var">pStackName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:fleetName:DescribeSessions' :: Text
 </span><a href="Network.AWS.AppStream.DescribeSessions.html#%24sel%3AfleetName%3ADescribeSessions%27"><span class="hs-identifier hs-var">fleetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297124"><span class="hs-identifier hs-var">pFleetName_</span></a></span><span>
+</span><a href="#local-6989586621679297133"><span class="hs-identifier hs-var">pFleetName_</span></a></span><span>
 </span><span id="line-121"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | The user identifier (ID). If you specify a user ID, you must also</span><span>
@@ -214,16 +214,16 @@ forall a. Maybe a
 -&gt; (DescribeSessions -&gt; Maybe Text -&gt; DescribeSessions)
 -&gt; Lens DescribeSessions DescribeSessions (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions%27"><span class="hs-identifier hs-type">DescribeSessions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297122"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions%27"><span class="hs-identifier hs-type">DescribeSessions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297131"><span class="annot"><span class="annottext">Maybe Text
 userId :: Maybe Text
 $sel:userId:DescribeSessions' :: DescribeSessions -&gt; Maybe Text
-</span><a href="#local-6989586621679297122"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297122"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297121"><span class="annot"><span class="annottext">s :: DescribeSessions
-</span><a href="#local-6989586621679297121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions%27"><span class="hs-identifier hs-type">DescribeSessions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297120"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSessions
-</span><a href="#local-6989586621679297121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userId:DescribeSessions' :: Maybe Text
+</span><a href="#local-6989586621679297131"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297131"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297130"><span class="annot"><span class="annottext">s :: DescribeSessions
+</span><a href="#local-6989586621679297130"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions%27"><span class="hs-identifier hs-type">DescribeSessions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297129"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297129"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSessions
+</span><a href="#local-6989586621679297130"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userId:DescribeSessions' :: Maybe Text
 </span><a href="Network.AWS.AppStream.DescribeSessions.html#%24sel%3AuserId%3ADescribeSessions%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions"><span class="hs-identifier hs-type">DescribeSessions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679297129"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions"><span class="hs-identifier hs-type">DescribeSessions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | The pagination token to use to retrieve the next page of results for</span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- this operation. If this value is null, it retrieves the first page.</span><span>
@@ -234,16 +234,16 @@ $sel:userId:DescribeSessions' :: DescribeSessions -&gt; Maybe Text
 -&gt; (DescribeSessions -&gt; Maybe Text -&gt; DescribeSessions)
 -&gt; Lens DescribeSessions DescribeSessions (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions%27"><span class="hs-identifier hs-type">DescribeSessions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297119"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions%27"><span class="hs-identifier hs-type">DescribeSessions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297128"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeSessions' :: DescribeSessions -&gt; Maybe Text
-</span><a href="#local-6989586621679297119"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297119"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297118"><span class="annot"><span class="annottext">s :: DescribeSessions
-</span><a href="#local-6989586621679297118"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions%27"><span class="hs-identifier hs-type">DescribeSessions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297117"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297117"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSessions
-</span><a href="#local-6989586621679297118"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeSessions' :: Maybe Text
+</span><a href="#local-6989586621679297128"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297128"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297127"><span class="annot"><span class="annottext">s :: DescribeSessions
+</span><a href="#local-6989586621679297127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions%27"><span class="hs-identifier hs-type">DescribeSessions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297126"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSessions
+</span><a href="#local-6989586621679297127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeSessions' :: Maybe Text
 </span><a href="Network.AWS.AppStream.DescribeSessions.html#%24sel%3AnextToken%3ADescribeSessions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297117"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions"><span class="hs-identifier hs-type">DescribeSessions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679297126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions"><span class="hs-identifier hs-type">DescribeSessions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | The size of each page of results. The default value is 20 and the</span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- maximum value is 50.</span><span>
@@ -254,16 +254,16 @@ $sel:nextToken:DescribeSessions' :: DescribeSessions -&gt; Maybe Text
 -&gt; (DescribeSessions -&gt; Maybe Int -&gt; DescribeSessions)
 -&gt; Lens DescribeSessions DescribeSessions (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions%27"><span class="hs-identifier hs-type">DescribeSessions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297116"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions%27"><span class="hs-identifier hs-type">DescribeSessions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297125"><span class="annot"><span class="annottext">Maybe Int
 limit :: Maybe Int
 $sel:limit:DescribeSessions' :: DescribeSessions -&gt; Maybe Int
-</span><a href="#local-6989586621679297116"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679297116"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297115"><span class="annot"><span class="annottext">s :: DescribeSessions
-</span><a href="#local-6989586621679297115"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions%27"><span class="hs-identifier hs-type">DescribeSessions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297114"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679297114"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSessions
-</span><a href="#local-6989586621679297115"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:DescribeSessions' :: Maybe Int
+</span><a href="#local-6989586621679297125"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679297125"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297124"><span class="annot"><span class="annottext">s :: DescribeSessions
+</span><a href="#local-6989586621679297124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions%27"><span class="hs-identifier hs-type">DescribeSessions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297123"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679297123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSessions
+</span><a href="#local-6989586621679297124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:DescribeSessions' :: Maybe Int
 </span><a href="Network.AWS.AppStream.DescribeSessions.html#%24sel%3Alimit%3ADescribeSessions%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679297114"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions"><span class="hs-identifier hs-type">DescribeSessions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679297123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions"><span class="hs-identifier hs-type">DescribeSessions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | The authentication method. Specify @API@ for a user authenticated using</span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- a streaming URL or @SAML@ for a SAML federated user. The default is to</span><span>
@@ -280,16 +280,16 @@ $sel:limit:DescribeSessions' :: DescribeSessions -&gt; Maybe Int
      (Maybe AuthenticationType)
      (Maybe AuthenticationType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions%27"><span class="hs-identifier hs-type">DescribeSessions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297113"><span class="annot"><span class="annottext">Maybe AuthenticationType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions%27"><span class="hs-identifier hs-type">DescribeSessions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297122"><span class="annot"><span class="annottext">Maybe AuthenticationType
 authenticationType :: Maybe AuthenticationType
 $sel:authenticationType:DescribeSessions' :: DescribeSessions -&gt; Maybe AuthenticationType
-</span><a href="#local-6989586621679297113"><span class="hs-identifier hs-var hs-var">authenticationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuthenticationType
-</span><a href="#local-6989586621679297113"><span class="hs-identifier hs-var">authenticationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297112"><span class="annot"><span class="annottext">s :: DescribeSessions
-</span><a href="#local-6989586621679297112"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions%27"><span class="hs-identifier hs-type">DescribeSessions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297111"><span class="annot"><span class="annottext">Maybe AuthenticationType
-</span><a href="#local-6989586621679297111"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSessions
-</span><a href="#local-6989586621679297112"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticationType:DescribeSessions' :: Maybe AuthenticationType
+</span><a href="#local-6989586621679297122"><span class="hs-identifier hs-var hs-var">authenticationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuthenticationType
+</span><a href="#local-6989586621679297122"><span class="hs-identifier hs-var">authenticationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297121"><span class="annot"><span class="annottext">s :: DescribeSessions
+</span><a href="#local-6989586621679297121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions%27"><span class="hs-identifier hs-type">DescribeSessions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297120"><span class="annot"><span class="annottext">Maybe AuthenticationType
+</span><a href="#local-6989586621679297120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSessions
+</span><a href="#local-6989586621679297121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticationType:DescribeSessions' :: Maybe AuthenticationType
 </span><a href="Network.AWS.AppStream.DescribeSessions.html#%24sel%3AauthenticationType%3ADescribeSessions%27"><span class="hs-identifier hs-var">authenticationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuthenticationType
-</span><a href="#local-6989586621679297111"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions"><span class="hs-identifier hs-type">DescribeSessions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679297120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions"><span class="hs-identifier hs-type">DescribeSessions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- | The name of the stack. This value is case-sensitive.</span><span>
 </span><span id="line-145"></span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#describeSessions_stackName"><span class="hs-identifier hs-type">describeSessions_stackName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions"><span class="hs-identifier hs-type">DescribeSessions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -298,16 +298,16 @@ $sel:authenticationType:DescribeSessions' :: DescribeSessions -&gt; Maybe Authen
 -&gt; (DescribeSessions -&gt; Text -&gt; DescribeSessions)
 -&gt; Lens DescribeSessions DescribeSessions Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions%27"><span class="hs-identifier hs-type">DescribeSessions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297110"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions%27"><span class="hs-identifier hs-type">DescribeSessions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297119"><span class="annot"><span class="annottext">Text
 stackName :: Text
 $sel:stackName:DescribeSessions' :: DescribeSessions -&gt; Text
-</span><a href="#local-6989586621679297110"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297110"><span class="hs-identifier hs-var">stackName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297109"><span class="annot"><span class="annottext">s :: DescribeSessions
-</span><a href="#local-6989586621679297109"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions%27"><span class="hs-identifier hs-type">DescribeSessions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297108"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297108"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSessions
-</span><a href="#local-6989586621679297109"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackName:DescribeSessions' :: Text
+</span><a href="#local-6989586621679297119"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297119"><span class="hs-identifier hs-var">stackName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297118"><span class="annot"><span class="annottext">s :: DescribeSessions
+</span><a href="#local-6989586621679297118"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions%27"><span class="hs-identifier hs-type">DescribeSessions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297117"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297117"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSessions
+</span><a href="#local-6989586621679297118"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackName:DescribeSessions' :: Text
 </span><a href="Network.AWS.AppStream.DescribeSessions.html#%24sel%3AstackName%3ADescribeSessions%27"><span class="hs-identifier hs-var">stackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297108"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions"><span class="hs-identifier hs-type">DescribeSessions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679297117"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions"><span class="hs-identifier hs-type">DescribeSessions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- | The name of the fleet. This value is case-sensitive.</span><span>
 </span><span id="line-149"></span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#describeSessions_fleetName"><span class="hs-identifier hs-type">describeSessions_fleetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions"><span class="hs-identifier hs-type">DescribeSessions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -316,29 +316,29 @@ $sel:stackName:DescribeSessions' :: DescribeSessions -&gt; Text
 -&gt; (DescribeSessions -&gt; Text -&gt; DescribeSessions)
 -&gt; Lens DescribeSessions DescribeSessions Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions%27"><span class="hs-identifier hs-type">DescribeSessions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297107"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions%27"><span class="hs-identifier hs-type">DescribeSessions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297116"><span class="annot"><span class="annottext">Text
 fleetName :: Text
 $sel:fleetName:DescribeSessions' :: DescribeSessions -&gt; Text
-</span><a href="#local-6989586621679297107"><span class="hs-identifier hs-var hs-var">fleetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297107"><span class="hs-identifier hs-var">fleetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297106"><span class="annot"><span class="annottext">s :: DescribeSessions
-</span><a href="#local-6989586621679297106"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions%27"><span class="hs-identifier hs-type">DescribeSessions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297105"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297105"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSessions
-</span><a href="#local-6989586621679297106"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetName:DescribeSessions' :: Text
+</span><a href="#local-6989586621679297116"><span class="hs-identifier hs-var hs-var">fleetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297116"><span class="hs-identifier hs-var">fleetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297115"><span class="annot"><span class="annottext">s :: DescribeSessions
+</span><a href="#local-6989586621679297115"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions%27"><span class="hs-identifier hs-type">DescribeSessions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297114"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297114"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSessions
+</span><a href="#local-6989586621679297115"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetName:DescribeSessions' :: Text
 </span><a href="Network.AWS.AppStream.DescribeSessions.html#%24sel%3AfleetName%3ADescribeSessions%27"><span class="hs-identifier hs-var">fleetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297105"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions"><span class="hs-identifier hs-type">DescribeSessions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679297114"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions"><span class="hs-identifier hs-type">DescribeSessions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions"><span class="hs-identifier hs-type">DescribeSessions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679297101"><span class="annot"><span class="annottext">page :: DescribeSessions
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679297110"><span class="annot"><span class="annottext">page :: DescribeSessions
 -&gt; AWSResponse DescribeSessions -&gt; Maybe DescribeSessions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679297099"><span class="annot"><span class="annottext">DescribeSessions
-</span><a href="#local-6989586621679297099"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679297098"><span class="annot"><span class="annottext">AWSResponse DescribeSessions
-</span><a href="#local-6989586621679297098"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679297108"><span class="annot"><span class="annottext">DescribeSessions
+</span><a href="#local-6989586621679297108"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679297107"><span class="annot"><span class="annottext">AWSResponse DescribeSessions
+</span><a href="#local-6989586621679297107"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-154"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-155"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeSessions
 DescribeSessionsResponse
-</span><a href="#local-6989586621679297098"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679297107"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">DescribeSessionsResponse
 -&gt; Getting (First Text) DescribeSessionsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -367,7 +367,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-161"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeSessions
 DescribeSessionsResponse
-</span><a href="#local-6989586621679297098"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679297107"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">DescribeSessionsResponse
 -&gt; Getting (First [Session]) DescribeSessionsResponse [Session]
 -&gt; Maybe [Session]
@@ -401,7 +401,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">DescribeSessions
-</span><a href="#local-6989586621679297099"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679297108"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-169"></span><span>          </span><span class="annot"><span class="annottext">DescribeSessions
 -&gt; (DescribeSessions -&gt; DescribeSessions) -&gt; DescribeSessions
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -415,7 +415,7 @@ Lens DescribeSessions DescribeSessions (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeSessions
 DescribeSessionsResponse
-</span><a href="#local-6989586621679297098"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679297107"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-171"></span><span>          </span><span class="annot"><span class="annottext">DescribeSessionsResponse
 -&gt; Getting (First Text) DescribeSessionsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -440,12 +440,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-175"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-176"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions"><span class="hs-identifier hs-type">DescribeSessions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-177"></span><span>      </span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessionsResponse"><span class="hs-identifier hs-type">DescribeSessionsResponse</span></a></span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679297088"><span class="annot"><span class="annottext">request :: DescribeSessions -&gt; Request DescribeSessions
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679297097"><span class="annot"><span class="annottext">request :: DescribeSessions -&gt; Request DescribeSessions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeSessions -&gt; Request DescribeSessions
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AppStream.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679297084"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679297093"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeSessions
 -&gt; ClientResponse ClientBody
@@ -469,10 +469,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-181"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679297081"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679297081"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679297080"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679297080"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679297079"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297079"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679297090"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679297090"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679297089"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679297089"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679297088"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679297088"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-182"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Session] -&gt; Int -&gt; DescribeSessionsResponse
 </span><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessionsResponse%27"><span class="hs-identifier hs-var">DescribeSessionsResponse'</span></a></span><span>
 </span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Session] -&gt; Int -&gt; DescribeSessionsResponse)
@@ -481,7 +481,7 @@ MonadResource m =&gt;
      String (Maybe [Session] -&gt; Int -&gt; DescribeSessionsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297079"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679297088"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -490,7 +490,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; DescribeSessionsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297079"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Session]))
+</span><a href="#local-6989586621679297088"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Session]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Sessions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Session]))
@@ -507,15 +507,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679297081"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679297090"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>
-</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297070"><span id="local-6989586621679297072"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions"><span class="hs-identifier hs-type">DescribeSessions</span></a></span></span></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297079"><span id="local-6989586621679297081"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions"><span class="hs-identifier hs-type">DescribeSessions</span></a></span></span></span><span>
 </span><span id="line-189"></span><span>
-</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297067"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions"><span class="hs-identifier hs-type">DescribeSessions</span></a></span></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297076"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions"><span class="hs-identifier hs-type">DescribeSessions</span></a></span></span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions"><span class="hs-identifier hs-type">DescribeSessions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-193"></span><span>  </span><span id="local-6989586621679297063"><span class="annot"><span class="annottext">toHeaders :: DescribeSessions -&gt; ResponseHeaders
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679297072"><span class="annot"><span class="annottext">toHeaders :: DescribeSessions -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-194"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeSessions -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -542,9 +542,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-204"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-205"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>
-</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297053"><span id="local-6989586621679297055"><span id="local-6989586621679297057"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions"><span class="hs-identifier hs-type">DescribeSessions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-208"></span><span>  </span><span id="local-6989586621679297051"><span class="annot"><span class="annottext">toJSON :: DescribeSessions -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions%27"><span class="hs-identifier hs-type">DescribeSessions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297044"><span id="local-6989586621679297045"><span id="local-6989586621679297046"><span id="local-6989586621679297047"><span id="local-6989586621679297048"><span id="local-6989586621679297049"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297062"><span id="local-6989586621679297064"><span id="local-6989586621679297066"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions"><span class="hs-identifier hs-type">DescribeSessions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679297060"><span class="annot"><span class="annottext">toJSON :: DescribeSessions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions%27"><span class="hs-identifier hs-type">DescribeSessions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297053"><span id="local-6989586621679297054"><span id="local-6989586621679297055"><span id="local-6989586621679297056"><span id="local-6989586621679297057"><span id="local-6989586621679297058"><span class="annot"><span class="annottext">Maybe Int
 Maybe Text
 Maybe AuthenticationType
 Text
@@ -560,7 +560,7 @@ $sel:authenticationType:DescribeSessions' :: DescribeSessions -&gt; Maybe Authen
 $sel:limit:DescribeSessions' :: DescribeSessions -&gt; Maybe Int
 $sel:nextToken:DescribeSessions' :: DescribeSessions -&gt; Maybe Text
 $sel:userId:DescribeSessions' :: DescribeSessions -&gt; Maybe Text
-</span><a href="#local-6989586621679297044"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679297053"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-209"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-210"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -572,21 +572,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297049"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679297058"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-212"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297048"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679297057"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-213"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679297047"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679297056"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-214"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AuthenticationType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AuthenticationType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -595,33 +595,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe AuthenticationType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AuthenticationType
-</span><a href="#local-6989586621679297046"><span class="hs-identifier hs-var">authenticationType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679297055"><span class="hs-identifier hs-var">authenticationType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-216"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StackName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297045"><span class="hs-identifier hs-var">stackName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679297054"><span class="hs-identifier hs-var">stackName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-217"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FleetName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297044"><span class="hs-identifier hs-var">fleetName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679297053"><span class="hs-identifier hs-var">fleetName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-218"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-219"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-220"></span><span>
 </span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions"><span class="hs-identifier hs-type">DescribeSessions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-222"></span><span>  </span><span id="local-6989586621679297038"><span class="annot"><span class="annottext">toPath :: DescribeSessions -&gt; ByteString
+</span><span id="line-222"></span><span>  </span><span id="local-6989586621679297047"><span class="annot"><span class="annottext">toPath :: DescribeSessions -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeSessions -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-223"></span><span>
 </span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessions"><span class="hs-identifier hs-type">DescribeSessions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-225"></span><span>  </span><span id="local-6989586621679297034"><span class="annot"><span class="annottext">toQuery :: DescribeSessions -&gt; QueryString
+</span><span id="line-225"></span><span>  </span><span id="local-6989586621679297043"><span class="annot"><span class="annottext">toQuery :: DescribeSessions -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeSessions -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -629,7 +629,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-226"></span><span>
 </span><span id="line-227"></span><span class="hs-comment">-- | /See:/ 'newDescribeSessionsResponse' smart constructor.</span><span>
-</span><span id="line-228"></span><span id="local-6989586621679297031"><span id="local-6989586621679297032"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeSessionsResponse"><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessionsResponse"><span class="hs-identifier hs-var">DescribeSessionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeSessionsResponse%27"><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessionsResponse%27"><span class="hs-identifier hs-var">DescribeSessionsResponse'</span></a></span></span><span>
+</span><span id="line-228"></span><span id="local-6989586621679297040"><span id="local-6989586621679297041"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeSessionsResponse"><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessionsResponse"><span class="hs-identifier hs-var">DescribeSessionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeSessionsResponse%27"><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessionsResponse%27"><span class="hs-identifier hs-var">DescribeSessionsResponse'</span></a></span></span><span>
 </span><span id="line-229"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The pagination token to use to retrieve the next page of results for</span><span>
 </span><span id="line-230"></span><span>    </span><span class="hs-comment">-- this operation. If there are no more pages, this value is null.</span><span>
 </span><span id="line-231"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeSessionsResponse%27"><span class="annot"><span class="annottext">DescribeSessionsResponse -&gt; Maybe Text
@@ -641,7 +641,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-235"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeSessionsResponse%27"><span class="annot"><span class="annottext">DescribeSessionsResponse -&gt; Int
 </span><a href="Network.AWS.AppStream.DescribeSessions.html#%24sel%3AhttpStatus%3ADescribeSessionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-236"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-237"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297024"><span id="local-6989586621679297026"><span class="annot"><span class="annottext">DescribeSessionsResponse -&gt; DescribeSessionsResponse -&gt; Bool
+</span><span id="line-237"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297033"><span id="local-6989586621679297035"><span class="annot"><span class="annottext">DescribeSessionsResponse -&gt; DescribeSessionsResponse -&gt; Bool
 (DescribeSessionsResponse -&gt; DescribeSessionsResponse -&gt; Bool)
 -&gt; (DescribeSessionsResponse -&gt; DescribeSessionsResponse -&gt; Bool)
 -&gt; Eq DescribeSessionsResponse
@@ -650,7 +650,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeSessionsResponse -&gt; DescribeSessionsResponse -&gt; Bool
 == :: DescribeSessionsResponse -&gt; DescribeSessionsResponse -&gt; Bool
 $c== :: DescribeSessionsResponse -&gt; DescribeSessionsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297016"><span id="local-6989586621679297018"><span id="local-6989586621679297020"><span id="local-6989586621679297022"><span class="annot"><span class="annottext">ReadPrec [DescribeSessionsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297025"><span id="local-6989586621679297027"><span id="local-6989586621679297029"><span id="local-6989586621679297031"><span class="annot"><span class="annottext">ReadPrec [DescribeSessionsResponse]
 ReadPrec DescribeSessionsResponse
 Int -&gt; ReadS DescribeSessionsResponse
 ReadS [DescribeSessionsResponse]
@@ -670,7 +670,7 @@ readList :: ReadS [DescribeSessionsResponse]
 $creadList :: ReadS [DescribeSessionsResponse]
 readsPrec :: Int -&gt; ReadS DescribeSessionsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeSessionsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297010"><span id="local-6989586621679297012"><span id="local-6989586621679297014"><span class="annot"><span class="annottext">Int -&gt; DescribeSessionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297019"><span id="local-6989586621679297021"><span id="local-6989586621679297023"><span class="annot"><span class="annottext">Int -&gt; DescribeSessionsResponse -&gt; ShowS
 [DescribeSessionsResponse] -&gt; ShowS
 DescribeSessionsResponse -&gt; String
 (Int -&gt; DescribeSessionsResponse -&gt; ShowS)
@@ -721,8 +721,8 @@ DescribeSessionsResponse -&gt; Rep DescribeSessionsResponse x
 </span><span id="line-255"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-256"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessionsResponse"><span class="hs-identifier hs-type">DescribeSessionsResponse</span></a></span><span>
 </span><span id="line-257"></span><span id="newDescribeSessionsResponse"><span class="annot"><span class="annottext">newDescribeSessionsResponse :: Int -&gt; DescribeSessionsResponse
-</span><a href="Network.AWS.AppStream.DescribeSessions.html#newDescribeSessionsResponse"><span class="hs-identifier hs-var hs-var">newDescribeSessionsResponse</span></a></span></span><span> </span><span id="local-6989586621679297007"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679297007"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AppStream.DescribeSessions.html#newDescribeSessionsResponse"><span class="hs-identifier hs-var hs-var">newDescribeSessionsResponse</span></a></span></span><span> </span><span id="local-6989586621679297016"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679297016"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-258"></span><span>  </span><span class="annot"><span class="annottext">DescribeSessionsResponse' :: Maybe Text -&gt; Maybe [Session] -&gt; Int -&gt; DescribeSessionsResponse
 </span><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessionsResponse%27"><span class="hs-identifier hs-type">DescribeSessionsResponse'</span></a></span><span>
 </span><span id="line-259"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeSessionsResponse' :: Maybe Text
@@ -736,7 +736,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-262"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeSessionsResponse' :: Int
 </span><a href="Network.AWS.AppStream.DescribeSessions.html#%24sel%3AhttpStatus%3ADescribeSessionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679297007"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679297016"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-263"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-264"></span><span>
 </span><span id="line-265"></span><span class="hs-comment">-- | The pagination token to use to retrieve the next page of results for</span><span>
@@ -749,16 +749,16 @@ forall a. Maybe a
     -&gt; Maybe Text -&gt; DescribeSessionsResponse)
 -&gt; Lens' DescribeSessionsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessionsResponse%27"><span class="hs-identifier hs-type">DescribeSessionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297006"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessionsResponse%27"><span class="hs-identifier hs-type">DescribeSessionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297015"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeSessionsResponse' :: DescribeSessionsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679297006"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297006"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297005"><span class="annot"><span class="annottext">s :: DescribeSessionsResponse
-</span><a href="#local-6989586621679297005"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessionsResponse%27"><span class="hs-identifier hs-type">DescribeSessionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297004"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297004"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSessionsResponse
-</span><a href="#local-6989586621679297005"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeSessionsResponse' :: Maybe Text
+</span><a href="#local-6989586621679297015"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297015"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297014"><span class="annot"><span class="annottext">s :: DescribeSessionsResponse
+</span><a href="#local-6989586621679297014"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessionsResponse%27"><span class="hs-identifier hs-type">DescribeSessionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297013"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297013"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSessionsResponse
+</span><a href="#local-6989586621679297014"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeSessionsResponse' :: Maybe Text
 </span><a href="Network.AWS.AppStream.DescribeSessions.html#%24sel%3AnextToken%3ADescribeSessionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297004"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessionsResponse"><span class="hs-identifier hs-type">DescribeSessionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679297013"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessionsResponse"><span class="hs-identifier hs-type">DescribeSessionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-269"></span><span>
 </span><span id="line-270"></span><span class="hs-comment">-- | Information about the streaming sessions.</span><span>
 </span><span id="line-271"></span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#describeSessionsResponse_sessions"><span class="hs-identifier hs-type">describeSessionsResponse_sessions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessionsResponse"><span class="hs-identifier hs-type">DescribeSessionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AppStream.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -769,16 +769,16 @@ $sel:nextToken:DescribeSessionsResponse' :: DescribeSessionsResponse -&gt; Maybe
     -&gt; Maybe [Session] -&gt; DescribeSessionsResponse)
 -&gt; Lens' DescribeSessionsResponse (Maybe [Session])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessionsResponse%27"><span class="hs-identifier hs-type">DescribeSessionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297003"><span class="annot"><span class="annottext">Maybe [Session]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessionsResponse%27"><span class="hs-identifier hs-type">DescribeSessionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297012"><span class="annot"><span class="annottext">Maybe [Session]
 sessions :: Maybe [Session]
 $sel:sessions:DescribeSessionsResponse' :: DescribeSessionsResponse -&gt; Maybe [Session]
-</span><a href="#local-6989586621679297003"><span class="hs-identifier hs-var hs-var">sessions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Session]
-</span><a href="#local-6989586621679297003"><span class="hs-identifier hs-var">sessions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297002"><span class="annot"><span class="annottext">s :: DescribeSessionsResponse
-</span><a href="#local-6989586621679297002"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessionsResponse%27"><span class="hs-identifier hs-type">DescribeSessionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297001"><span class="annot"><span class="annottext">Maybe [Session]
-</span><a href="#local-6989586621679297001"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSessionsResponse
-</span><a href="#local-6989586621679297002"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sessions:DescribeSessionsResponse' :: Maybe [Session]
+</span><a href="#local-6989586621679297012"><span class="hs-identifier hs-var hs-var">sessions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Session]
+</span><a href="#local-6989586621679297012"><span class="hs-identifier hs-var">sessions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297011"><span class="annot"><span class="annottext">s :: DescribeSessionsResponse
+</span><a href="#local-6989586621679297011"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessionsResponse%27"><span class="hs-identifier hs-type">DescribeSessionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297010"><span class="annot"><span class="annottext">Maybe [Session]
+</span><a href="#local-6989586621679297010"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSessionsResponse
+</span><a href="#local-6989586621679297011"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sessions:DescribeSessionsResponse' :: Maybe [Session]
 </span><a href="Network.AWS.AppStream.DescribeSessions.html#%24sel%3Asessions%3ADescribeSessionsResponse%27"><span class="hs-identifier hs-var">sessions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Session]
-</span><a href="#local-6989586621679297001"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessionsResponse"><span class="hs-identifier hs-type">DescribeSessionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Session] -&gt; f (Maybe [Session]))
+</span><a href="#local-6989586621679297010"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessionsResponse"><span class="hs-identifier hs-type">DescribeSessionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Session] -&gt; f (Maybe [Session]))
  -&gt; DescribeSessionsResponse -&gt; f DescribeSessionsResponse)
 -&gt; ((Maybe [Session] -&gt; f (Maybe [Session]))
     -&gt; Maybe [Session] -&gt; f (Maybe [Session]))
@@ -807,16 +807,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (DescribeSessionsResponse -&gt; Int -&gt; DescribeSessionsResponse)
 -&gt; Lens DescribeSessionsResponse DescribeSessionsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessionsResponse%27"><span class="hs-identifier hs-type">DescribeSessionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296998"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessionsResponse%27"><span class="hs-identifier hs-type">DescribeSessionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297007"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeSessionsResponse' :: DescribeSessionsResponse -&gt; Int
-</span><a href="#local-6989586621679296998"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679296998"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296997"><span class="annot"><span class="annottext">s :: DescribeSessionsResponse
-</span><a href="#local-6989586621679296997"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessionsResponse%27"><span class="hs-identifier hs-type">DescribeSessionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296996"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679296996"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSessionsResponse
-</span><a href="#local-6989586621679296997"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeSessionsResponse' :: Int
+</span><a href="#local-6989586621679297007"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679297007"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297006"><span class="annot"><span class="annottext">s :: DescribeSessionsResponse
+</span><a href="#local-6989586621679297006"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessionsResponse%27"><span class="hs-identifier hs-type">DescribeSessionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297005"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679297005"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSessionsResponse
+</span><a href="#local-6989586621679297006"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeSessionsResponse' :: Int
 </span><a href="Network.AWS.AppStream.DescribeSessions.html#%24sel%3AhttpStatus%3ADescribeSessionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679296996"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessionsResponse"><span class="hs-identifier hs-type">DescribeSessionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679297005"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessionsResponse"><span class="hs-identifier hs-type">DescribeSessionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-277"></span><span>
-</span><span id="line-278"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296994"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessionsResponse"><span class="hs-identifier hs-type">DescribeSessionsResponse</span></a></span></span><span>
+</span><span id="line-278"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297003"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.DescribeSessions.html#DescribeSessionsResponse"><span class="hs-identifier hs-type">DescribeSessionsResponse</span></a></span></span><span>
 </span><span id="line-279"></span></pre></body></html>

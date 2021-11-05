@@ -61,7 +61,7 @@
 </span><span id="line-61"></span><span class="hs-comment">-- specified with either the @imageTag@ or @imageDigest@.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- /See:/ 'newBatchDeleteImage' smart constructor.</span><span>
-</span><span id="line-64"></span><span id="local-6989586621679244442"><span id="local-6989586621679244443"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDeleteImage"><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImage"><span class="hs-identifier hs-var">BatchDeleteImage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDeleteImage%27"><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImage%27"><span class="hs-identifier hs-var">BatchDeleteImage'</span></a></span></span><span>
+</span><span id="line-64"></span><span id="local-6989586621679244451"><span id="local-6989586621679244452"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDeleteImage"><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImage"><span class="hs-identifier hs-var">BatchDeleteImage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDeleteImage%27"><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImage%27"><span class="hs-identifier hs-var">BatchDeleteImage'</span></a></span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Web Services account ID associated with the registry that</span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-comment">-- contains the image to delete. If you do not specify a registry, the</span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-comment">-- default registry is assumed.</span><span>
@@ -76,7 +76,7 @@
 </span><span id="line-74"></span><span>    </span><span id="%24sel%3AimageIds%3ABatchDeleteImage%27"><span class="annot"><span class="annottext">BatchDeleteImage -&gt; [ImageIdentifier]
 </span><a href="Network.AWS.ECR.BatchDeleteImage.html#%24sel%3AimageIds%3ABatchDeleteImage%27"><span class="hs-identifier hs-var hs-var">imageIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ECR.Types.ImageIdentifier.html#ImageIdentifier"><span class="hs-identifier hs-type">ImageIdentifier</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679244434"><span id="local-6989586621679244436"><span class="annot"><span class="annottext">BatchDeleteImage -&gt; BatchDeleteImage -&gt; Bool
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679244443"><span id="local-6989586621679244445"><span class="annot"><span class="annottext">BatchDeleteImage -&gt; BatchDeleteImage -&gt; Bool
 (BatchDeleteImage -&gt; BatchDeleteImage -&gt; Bool)
 -&gt; (BatchDeleteImage -&gt; BatchDeleteImage -&gt; Bool)
 -&gt; Eq BatchDeleteImage
@@ -85,7 +85,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BatchDeleteImage -&gt; BatchDeleteImage -&gt; Bool
 == :: BatchDeleteImage -&gt; BatchDeleteImage -&gt; Bool
 $c== :: BatchDeleteImage -&gt; BatchDeleteImage -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244425"><span id="local-6989586621679244427"><span id="local-6989586621679244429"><span id="local-6989586621679244431"><span class="annot"><span class="annottext">ReadPrec [BatchDeleteImage]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244434"><span id="local-6989586621679244436"><span id="local-6989586621679244438"><span id="local-6989586621679244440"><span class="annot"><span class="annottext">ReadPrec [BatchDeleteImage]
 ReadPrec BatchDeleteImage
 Int -&gt; ReadS BatchDeleteImage
 ReadS [BatchDeleteImage]
@@ -105,7 +105,7 @@ readList :: ReadS [BatchDeleteImage]
 $creadList :: ReadS [BatchDeleteImage]
 readsPrec :: Int -&gt; ReadS BatchDeleteImage
 $creadsPrec :: Int -&gt; ReadS BatchDeleteImage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244418"><span id="local-6989586621679244420"><span id="local-6989586621679244422"><span class="annot"><span class="annottext">Int -&gt; BatchDeleteImage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244427"><span id="local-6989586621679244429"><span id="local-6989586621679244431"><span class="annot"><span class="annottext">Int -&gt; BatchDeleteImage -&gt; ShowS
 [BatchDeleteImage] -&gt; ShowS
 BatchDeleteImage -&gt; String
 (Int -&gt; BatchDeleteImage -&gt; ShowS)
@@ -153,8 +153,8 @@ $cfrom :: forall x. BatchDeleteImage -&gt; Rep BatchDeleteImage x
 </span><span id="line-97"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-98"></span><span>  </span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImage"><span class="hs-identifier hs-type">BatchDeleteImage</span></a></span><span>
 </span><span id="line-99"></span><span id="newBatchDeleteImage"><span class="annot"><span class="annottext">newBatchDeleteImage :: Text -&gt; BatchDeleteImage
-</span><a href="Network.AWS.ECR.BatchDeleteImage.html#newBatchDeleteImage"><span class="hs-identifier hs-var hs-var">newBatchDeleteImage</span></a></span></span><span> </span><span id="local-6989586621679244413"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679244413"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ECR.BatchDeleteImage.html#newBatchDeleteImage"><span class="hs-identifier hs-var hs-var">newBatchDeleteImage</span></a></span></span><span> </span><span id="local-6989586621679244422"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244422"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>  </span><span class="annot"><span class="annottext">BatchDeleteImage' :: Maybe Text -&gt; Text -&gt; [ImageIdentifier] -&gt; BatchDeleteImage
 </span><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImage%27"><span class="hs-identifier hs-type">BatchDeleteImage'</span></a></span><span>
 </span><span id="line-101"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:registryId:BatchDeleteImage' :: Maybe Text
@@ -163,7 +163,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:repositoryName:BatchDeleteImage' :: Text
 </span><a href="Network.AWS.ECR.BatchDeleteImage.html#%24sel%3ArepositoryName%3ABatchDeleteImage%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679244413"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679244422"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:imageIds:BatchDeleteImage' :: [ImageIdentifier]
 </span><a href="Network.AWS.ECR.BatchDeleteImage.html#%24sel%3AimageIds%3ABatchDeleteImage%27"><span class="hs-identifier hs-var">imageIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ImageIdentifier]
 forall a. Monoid a =&gt; a
@@ -180,16 +180,16 @@ forall a. Monoid a =&gt; a
 -&gt; (BatchDeleteImage -&gt; Maybe Text -&gt; BatchDeleteImage)
 -&gt; Lens BatchDeleteImage BatchDeleteImage (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImage%27"><span class="hs-identifier hs-type">BatchDeleteImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244410"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImage%27"><span class="hs-identifier hs-type">BatchDeleteImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244419"><span class="annot"><span class="annottext">Maybe Text
 registryId :: Maybe Text
 $sel:registryId:BatchDeleteImage' :: BatchDeleteImage -&gt; Maybe Text
-</span><a href="#local-6989586621679244410"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679244410"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244409"><span class="annot"><span class="annottext">s :: BatchDeleteImage
-</span><a href="#local-6989586621679244409"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImage%27"><span class="hs-identifier hs-type">BatchDeleteImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244408"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679244408"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteImage
-</span><a href="#local-6989586621679244409"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryId:BatchDeleteImage' :: Maybe Text
+</span><a href="#local-6989586621679244419"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244419"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244418"><span class="annot"><span class="annottext">s :: BatchDeleteImage
+</span><a href="#local-6989586621679244418"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImage%27"><span class="hs-identifier hs-type">BatchDeleteImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244417"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244417"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteImage
+</span><a href="#local-6989586621679244418"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryId:BatchDeleteImage' :: Maybe Text
 </span><a href="Network.AWS.ECR.BatchDeleteImage.html#%24sel%3AregistryId%3ABatchDeleteImage%27"><span class="hs-identifier hs-var">registryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679244408"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImage"><span class="hs-identifier hs-type">BatchDeleteImage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679244417"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImage"><span class="hs-identifier hs-type">BatchDeleteImage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- | The repository that contains the image to delete.</span><span>
 </span><span id="line-113"></span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#batchDeleteImage_repositoryName"><span class="hs-identifier hs-type">batchDeleteImage_repositoryName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImage"><span class="hs-identifier hs-type">BatchDeleteImage</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -198,16 +198,16 @@ $sel:registryId:BatchDeleteImage' :: BatchDeleteImage -&gt; Maybe Text
 -&gt; (BatchDeleteImage -&gt; Text -&gt; BatchDeleteImage)
 -&gt; Lens BatchDeleteImage BatchDeleteImage Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImage%27"><span class="hs-identifier hs-type">BatchDeleteImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244407"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImage%27"><span class="hs-identifier hs-type">BatchDeleteImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244416"><span class="annot"><span class="annottext">Text
 repositoryName :: Text
 $sel:repositoryName:BatchDeleteImage' :: BatchDeleteImage -&gt; Text
-</span><a href="#local-6989586621679244407"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679244407"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244406"><span class="annot"><span class="annottext">s :: BatchDeleteImage
-</span><a href="#local-6989586621679244406"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImage%27"><span class="hs-identifier hs-type">BatchDeleteImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244405"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679244405"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteImage
-</span><a href="#local-6989586621679244406"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:BatchDeleteImage' :: Text
+</span><a href="#local-6989586621679244416"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244416"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244415"><span class="annot"><span class="annottext">s :: BatchDeleteImage
+</span><a href="#local-6989586621679244415"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImage%27"><span class="hs-identifier hs-type">BatchDeleteImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244414"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244414"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteImage
+</span><a href="#local-6989586621679244415"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:BatchDeleteImage' :: Text
 </span><a href="Network.AWS.ECR.BatchDeleteImage.html#%24sel%3ArepositoryName%3ABatchDeleteImage%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679244405"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImage"><span class="hs-identifier hs-type">BatchDeleteImage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679244414"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImage"><span class="hs-identifier hs-type">BatchDeleteImage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | A list of image ID references that correspond to images to delete. The</span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- format of the @imageIds@ reference is @imageTag=tag@ or</span><span>
@@ -223,16 +223,16 @@ $sel:repositoryName:BatchDeleteImage' :: BatchDeleteImage -&gt; Text
      [ImageIdentifier]
      [ImageIdentifier]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImage%27"><span class="hs-identifier hs-type">BatchDeleteImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244404"><span class="annot"><span class="annottext">[ImageIdentifier]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImage%27"><span class="hs-identifier hs-type">BatchDeleteImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244413"><span class="annot"><span class="annottext">[ImageIdentifier]
 imageIds :: [ImageIdentifier]
 $sel:imageIds:BatchDeleteImage' :: BatchDeleteImage -&gt; [ImageIdentifier]
-</span><a href="#local-6989586621679244404"><span class="hs-identifier hs-var hs-var">imageIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ImageIdentifier]
-</span><a href="#local-6989586621679244404"><span class="hs-identifier hs-var">imageIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244403"><span class="annot"><span class="annottext">s :: BatchDeleteImage
-</span><a href="#local-6989586621679244403"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImage%27"><span class="hs-identifier hs-type">BatchDeleteImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244402"><span class="annot"><span class="annottext">[ImageIdentifier]
-</span><a href="#local-6989586621679244402"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteImage
-</span><a href="#local-6989586621679244403"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageIds:BatchDeleteImage' :: [ImageIdentifier]
+</span><a href="#local-6989586621679244413"><span class="hs-identifier hs-var hs-var">imageIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ImageIdentifier]
+</span><a href="#local-6989586621679244413"><span class="hs-identifier hs-var">imageIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244412"><span class="annot"><span class="annottext">s :: BatchDeleteImage
+</span><a href="#local-6989586621679244412"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImage%27"><span class="hs-identifier hs-type">BatchDeleteImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244411"><span class="annot"><span class="annottext">[ImageIdentifier]
+</span><a href="#local-6989586621679244411"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteImage
+</span><a href="#local-6989586621679244412"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageIds:BatchDeleteImage' :: [ImageIdentifier]
 </span><a href="Network.AWS.ECR.BatchDeleteImage.html#%24sel%3AimageIds%3ABatchDeleteImage%27"><span class="hs-identifier hs-var">imageIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ImageIdentifier]
-</span><a href="#local-6989586621679244402"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImage"><span class="hs-identifier hs-type">BatchDeleteImage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ImageIdentifier] -&gt; f [ImageIdentifier])
+</span><a href="#local-6989586621679244411"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImage"><span class="hs-identifier hs-type">BatchDeleteImage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ImageIdentifier] -&gt; f [ImageIdentifier])
  -&gt; BatchDeleteImage -&gt; f BatchDeleteImage)
 -&gt; (([ImageIdentifier] -&gt; f [ImageIdentifier])
     -&gt; [ImageIdentifier] -&gt; f [ImageIdentifier])
@@ -249,12 +249,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-123"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-124"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImage"><span class="hs-identifier hs-type">BatchDeleteImage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>      </span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImageResponse"><span class="hs-identifier hs-type">BatchDeleteImageResponse</span></a></span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679244396"><span class="annot"><span class="annottext">request :: BatchDeleteImage -&gt; Request BatchDeleteImage
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679244405"><span class="annot"><span class="annottext">request :: BatchDeleteImage -&gt; Request BatchDeleteImage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; BatchDeleteImage -&gt; Request BatchDeleteImage
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ECR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679244392"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679244401"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy BatchDeleteImage
 -&gt; ClientResponse ClientBody
@@ -278,10 +278,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679244389"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679244389"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679244388"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679244388"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679244387"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679244387"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679244398"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679244398"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679244397"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679244397"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679244396"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244396"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-130"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ImageFailure]
 -&gt; Maybe [ImageIdentifier] -&gt; Int -&gt; BatchDeleteImageResponse
 </span><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImageResponse%27"><span class="hs-identifier hs-var">BatchDeleteImageResponse'</span></a></span><span>
@@ -292,7 +292,7 @@ MonadResource m =&gt;
      String (Maybe [ImageIdentifier] -&gt; Int -&gt; BatchDeleteImageResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679244387"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ImageFailure]))
+</span><a href="#local-6989586621679244396"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ImageFailure]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;failures&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ImageFailure]))
@@ -307,7 +307,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; BatchDeleteImageResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679244387"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ImageIdentifier]))
+</span><a href="#local-6989586621679244396"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ImageIdentifier]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;imageIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ImageIdentifier]))
@@ -325,15 +325,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679244389"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679244398"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244378"><span id="local-6989586621679244380"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImage"><span class="hs-identifier hs-type">BatchDeleteImage</span></a></span></span></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244387"><span id="local-6989586621679244389"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImage"><span class="hs-identifier hs-type">BatchDeleteImage</span></a></span></span></span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244375"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImage"><span class="hs-identifier hs-type">BatchDeleteImage</span></a></span></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244384"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImage"><span class="hs-identifier hs-type">BatchDeleteImage</span></a></span></span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImage"><span class="hs-identifier hs-type">BatchDeleteImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679244371"><span class="annot"><span class="annottext">toHeaders :: BatchDeleteImage -&gt; ResponseHeaders
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679244380"><span class="annot"><span class="annottext">toHeaders :: BatchDeleteImage -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; BatchDeleteImage -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -360,9 +360,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-152"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-153"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244361"><span id="local-6989586621679244363"><span id="local-6989586621679244365"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImage"><span class="hs-identifier hs-type">BatchDeleteImage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679244359"><span class="annot"><span class="annottext">toJSON :: BatchDeleteImage -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImage%27"><span class="hs-identifier hs-type">BatchDeleteImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244355"><span id="local-6989586621679244356"><span id="local-6989586621679244357"><span class="annot"><span class="annottext">[ImageIdentifier]
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244370"><span id="local-6989586621679244372"><span id="local-6989586621679244374"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImage"><span class="hs-identifier hs-type">BatchDeleteImage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679244368"><span class="annot"><span class="annottext">toJSON :: BatchDeleteImage -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImage%27"><span class="hs-identifier hs-type">BatchDeleteImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244364"><span id="local-6989586621679244365"><span id="local-6989586621679244366"><span class="annot"><span class="annottext">[ImageIdentifier]
 Maybe Text
 Text
 imageIds :: [ImageIdentifier]
@@ -371,7 +371,7 @@ registryId :: Maybe Text
 $sel:imageIds:BatchDeleteImage' :: BatchDeleteImage -&gt; [ImageIdentifier]
 $sel:repositoryName:BatchDeleteImage' :: BatchDeleteImage -&gt; Text
 $sel:registryId:BatchDeleteImage' :: BatchDeleteImage -&gt; Maybe Text
-</span><a href="#local-6989586621679244355"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679244364"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -383,7 +383,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679244357"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679244366"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -391,26 +391,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;repositoryName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679244356"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679244365"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;imageIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ImageIdentifier] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[ImageIdentifier]
-</span><a href="#local-6989586621679244355"><span class="hs-identifier hs-var">imageIds</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679244364"><span class="hs-identifier hs-var">imageIds</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImage"><span class="hs-identifier hs-type">BatchDeleteImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679244349"><span class="annot"><span class="annottext">toPath :: BatchDeleteImage -&gt; ByteString
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679244358"><span class="annot"><span class="annottext">toPath :: BatchDeleteImage -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; BatchDeleteImage -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImage"><span class="hs-identifier hs-type">BatchDeleteImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679244345"><span class="annot"><span class="annottext">toQuery :: BatchDeleteImage -&gt; QueryString
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679244354"><span class="annot"><span class="annottext">toQuery :: BatchDeleteImage -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; BatchDeleteImage -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -418,7 +418,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | /See:/ 'newBatchDeleteImageResponse' smart constructor.</span><span>
-</span><span id="line-173"></span><span id="local-6989586621679244342"><span id="local-6989586621679244343"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDeleteImageResponse"><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImageResponse"><span class="hs-identifier hs-var">BatchDeleteImageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDeleteImageResponse%27"><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImageResponse%27"><span class="hs-identifier hs-var">BatchDeleteImageResponse'</span></a></span></span><span>
+</span><span id="line-173"></span><span id="local-6989586621679244351"><span id="local-6989586621679244352"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDeleteImageResponse"><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImageResponse"><span class="hs-identifier hs-var">BatchDeleteImageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDeleteImageResponse%27"><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImageResponse%27"><span class="hs-identifier hs-var">BatchDeleteImageResponse'</span></a></span></span><span>
 </span><span id="line-174"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Any failures associated with the call.</span><span>
 </span><span id="line-175"></span><span>    </span><span id="%24sel%3Afailures%3ABatchDeleteImageResponse%27"><span class="annot"><span class="annottext">BatchDeleteImageResponse -&gt; Maybe [ImageFailure]
 </span><a href="Network.AWS.ECR.BatchDeleteImage.html#%24sel%3Afailures%3ABatchDeleteImageResponse%27"><span class="hs-identifier hs-var hs-var">failures</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailure.html#ImageFailure"><span class="hs-identifier hs-type">ImageFailure</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -429,7 +429,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-179"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchDeleteImageResponse%27"><span class="annot"><span class="annottext">BatchDeleteImageResponse -&gt; Int
 </span><a href="Network.AWS.ECR.BatchDeleteImage.html#%24sel%3AhttpStatus%3ABatchDeleteImageResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-180"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-181"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679244335"><span id="local-6989586621679244337"><span class="annot"><span class="annottext">BatchDeleteImageResponse -&gt; BatchDeleteImageResponse -&gt; Bool
+</span><span id="line-181"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679244344"><span id="local-6989586621679244346"><span class="annot"><span class="annottext">BatchDeleteImageResponse -&gt; BatchDeleteImageResponse -&gt; Bool
 (BatchDeleteImageResponse -&gt; BatchDeleteImageResponse -&gt; Bool)
 -&gt; (BatchDeleteImageResponse -&gt; BatchDeleteImageResponse -&gt; Bool)
 -&gt; Eq BatchDeleteImageResponse
@@ -438,7 +438,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BatchDeleteImageResponse -&gt; BatchDeleteImageResponse -&gt; Bool
 == :: BatchDeleteImageResponse -&gt; BatchDeleteImageResponse -&gt; Bool
 $c== :: BatchDeleteImageResponse -&gt; BatchDeleteImageResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244327"><span id="local-6989586621679244329"><span id="local-6989586621679244331"><span id="local-6989586621679244333"><span class="annot"><span class="annottext">ReadPrec [BatchDeleteImageResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244336"><span id="local-6989586621679244338"><span id="local-6989586621679244340"><span id="local-6989586621679244342"><span class="annot"><span class="annottext">ReadPrec [BatchDeleteImageResponse]
 ReadPrec BatchDeleteImageResponse
 Int -&gt; ReadS BatchDeleteImageResponse
 ReadS [BatchDeleteImageResponse]
@@ -458,7 +458,7 @@ readList :: ReadS [BatchDeleteImageResponse]
 $creadList :: ReadS [BatchDeleteImageResponse]
 readsPrec :: Int -&gt; ReadS BatchDeleteImageResponse
 $creadsPrec :: Int -&gt; ReadS BatchDeleteImageResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244321"><span id="local-6989586621679244323"><span id="local-6989586621679244325"><span class="annot"><span class="annottext">Int -&gt; BatchDeleteImageResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244330"><span id="local-6989586621679244332"><span id="local-6989586621679244334"><span class="annot"><span class="annottext">Int -&gt; BatchDeleteImageResponse -&gt; ShowS
 [BatchDeleteImageResponse] -&gt; ShowS
 BatchDeleteImageResponse -&gt; String
 (Int -&gt; BatchDeleteImageResponse -&gt; ShowS)
@@ -508,8 +508,8 @@ BatchDeleteImageResponse -&gt; Rep BatchDeleteImageResponse x
 </span><span id="line-198"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-199"></span><span>  </span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImageResponse"><span class="hs-identifier hs-type">BatchDeleteImageResponse</span></a></span><span>
 </span><span id="line-200"></span><span id="newBatchDeleteImageResponse"><span class="annot"><span class="annottext">newBatchDeleteImageResponse :: Int -&gt; BatchDeleteImageResponse
-</span><a href="Network.AWS.ECR.BatchDeleteImage.html#newBatchDeleteImageResponse"><span class="hs-identifier hs-var hs-var">newBatchDeleteImageResponse</span></a></span></span><span> </span><span id="local-6989586621679244318"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679244318"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ECR.BatchDeleteImage.html#newBatchDeleteImageResponse"><span class="hs-identifier hs-var hs-var">newBatchDeleteImageResponse</span></a></span></span><span> </span><span id="local-6989586621679244327"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679244327"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-201"></span><span>  </span><span class="annot"><span class="annottext">BatchDeleteImageResponse' :: Maybe [ImageFailure]
 -&gt; Maybe [ImageIdentifier] -&gt; Int -&gt; BatchDeleteImageResponse
 </span><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImageResponse%27"><span class="hs-identifier hs-type">BatchDeleteImageResponse'</span></a></span><span>
@@ -524,7 +524,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-205"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchDeleteImageResponse' :: Int
 </span><a href="Network.AWS.ECR.BatchDeleteImage.html#%24sel%3AhttpStatus%3ABatchDeleteImageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679244318"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679244327"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-206"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-207"></span><span>
 </span><span id="line-208"></span><span class="hs-comment">-- | Any failures associated with the call.</span><span>
@@ -540,16 +540,16 @@ forall a. Maybe a
      (Maybe [ImageFailure])
      (Maybe [ImageFailure])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImageResponse%27"><span class="hs-identifier hs-type">BatchDeleteImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244317"><span class="annot"><span class="annottext">Maybe [ImageFailure]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImageResponse%27"><span class="hs-identifier hs-type">BatchDeleteImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244326"><span class="annot"><span class="annottext">Maybe [ImageFailure]
 failures :: Maybe [ImageFailure]
 $sel:failures:BatchDeleteImageResponse' :: BatchDeleteImageResponse -&gt; Maybe [ImageFailure]
-</span><a href="#local-6989586621679244317"><span class="hs-identifier hs-var hs-var">failures</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ImageFailure]
-</span><a href="#local-6989586621679244317"><span class="hs-identifier hs-var">failures</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244316"><span class="annot"><span class="annottext">s :: BatchDeleteImageResponse
-</span><a href="#local-6989586621679244316"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImageResponse%27"><span class="hs-identifier hs-type">BatchDeleteImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244315"><span class="annot"><span class="annottext">Maybe [ImageFailure]
-</span><a href="#local-6989586621679244315"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteImageResponse
-</span><a href="#local-6989586621679244316"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failures:BatchDeleteImageResponse' :: Maybe [ImageFailure]
+</span><a href="#local-6989586621679244326"><span class="hs-identifier hs-var hs-var">failures</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ImageFailure]
+</span><a href="#local-6989586621679244326"><span class="hs-identifier hs-var">failures</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244325"><span class="annot"><span class="annottext">s :: BatchDeleteImageResponse
+</span><a href="#local-6989586621679244325"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImageResponse%27"><span class="hs-identifier hs-type">BatchDeleteImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244324"><span class="annot"><span class="annottext">Maybe [ImageFailure]
+</span><a href="#local-6989586621679244324"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteImageResponse
+</span><a href="#local-6989586621679244325"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failures:BatchDeleteImageResponse' :: Maybe [ImageFailure]
 </span><a href="Network.AWS.ECR.BatchDeleteImage.html#%24sel%3Afailures%3ABatchDeleteImageResponse%27"><span class="hs-identifier hs-var">failures</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ImageFailure]
-</span><a href="#local-6989586621679244315"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImageResponse"><span class="hs-identifier hs-type">BatchDeleteImageResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ImageFailure] -&gt; f (Maybe [ImageFailure]))
+</span><a href="#local-6989586621679244324"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImageResponse"><span class="hs-identifier hs-type">BatchDeleteImageResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ImageFailure] -&gt; f (Maybe [ImageFailure]))
  -&gt; BatchDeleteImageResponse -&gt; f BatchDeleteImageResponse)
 -&gt; ((Maybe [ImageFailure] -&gt; f (Maybe [ImageFailure]))
     -&gt; Maybe [ImageFailure] -&gt; f (Maybe [ImageFailure]))
@@ -583,16 +583,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [ImageIdentifier])
      (Maybe [ImageIdentifier])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImageResponse%27"><span class="hs-identifier hs-type">BatchDeleteImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244313"><span class="annot"><span class="annottext">Maybe [ImageIdentifier]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImageResponse%27"><span class="hs-identifier hs-type">BatchDeleteImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244322"><span class="annot"><span class="annottext">Maybe [ImageIdentifier]
 imageIds :: Maybe [ImageIdentifier]
 $sel:imageIds:BatchDeleteImageResponse' :: BatchDeleteImageResponse -&gt; Maybe [ImageIdentifier]
-</span><a href="#local-6989586621679244313"><span class="hs-identifier hs-var hs-var">imageIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ImageIdentifier]
-</span><a href="#local-6989586621679244313"><span class="hs-identifier hs-var">imageIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244312"><span class="annot"><span class="annottext">s :: BatchDeleteImageResponse
-</span><a href="#local-6989586621679244312"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImageResponse%27"><span class="hs-identifier hs-type">BatchDeleteImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244311"><span class="annot"><span class="annottext">Maybe [ImageIdentifier]
-</span><a href="#local-6989586621679244311"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteImageResponse
-</span><a href="#local-6989586621679244312"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageIds:BatchDeleteImageResponse' :: Maybe [ImageIdentifier]
+</span><a href="#local-6989586621679244322"><span class="hs-identifier hs-var hs-var">imageIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ImageIdentifier]
+</span><a href="#local-6989586621679244322"><span class="hs-identifier hs-var">imageIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244321"><span class="annot"><span class="annottext">s :: BatchDeleteImageResponse
+</span><a href="#local-6989586621679244321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImageResponse%27"><span class="hs-identifier hs-type">BatchDeleteImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244320"><span class="annot"><span class="annottext">Maybe [ImageIdentifier]
+</span><a href="#local-6989586621679244320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteImageResponse
+</span><a href="#local-6989586621679244321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageIds:BatchDeleteImageResponse' :: Maybe [ImageIdentifier]
 </span><a href="Network.AWS.ECR.BatchDeleteImage.html#%24sel%3AimageIds%3ABatchDeleteImageResponse%27"><span class="hs-identifier hs-var">imageIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ImageIdentifier]
-</span><a href="#local-6989586621679244311"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImageResponse"><span class="hs-identifier hs-type">BatchDeleteImageResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ImageIdentifier] -&gt; f (Maybe [ImageIdentifier]))
+</span><a href="#local-6989586621679244320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImageResponse"><span class="hs-identifier hs-type">BatchDeleteImageResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ImageIdentifier] -&gt; f (Maybe [ImageIdentifier]))
  -&gt; BatchDeleteImageResponse -&gt; f BatchDeleteImageResponse)
 -&gt; ((Maybe [ImageIdentifier] -&gt; f (Maybe [ImageIdentifier]))
     -&gt; Maybe [ImageIdentifier] -&gt; f (Maybe [ImageIdentifier]))
@@ -629,16 +629,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (BatchDeleteImageResponse -&gt; Int -&gt; BatchDeleteImageResponse)
 -&gt; Lens BatchDeleteImageResponse BatchDeleteImageResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImageResponse%27"><span class="hs-identifier hs-type">BatchDeleteImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244310"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImageResponse%27"><span class="hs-identifier hs-type">BatchDeleteImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244319"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:BatchDeleteImageResponse' :: BatchDeleteImageResponse -&gt; Int
-</span><a href="#local-6989586621679244310"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679244310"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244309"><span class="annot"><span class="annottext">s :: BatchDeleteImageResponse
-</span><a href="#local-6989586621679244309"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImageResponse%27"><span class="hs-identifier hs-type">BatchDeleteImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244308"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679244308"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteImageResponse
-</span><a href="#local-6989586621679244309"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchDeleteImageResponse' :: Int
+</span><a href="#local-6989586621679244319"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679244319"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244318"><span class="annot"><span class="annottext">s :: BatchDeleteImageResponse
+</span><a href="#local-6989586621679244318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImageResponse%27"><span class="hs-identifier hs-type">BatchDeleteImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244317"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679244317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDeleteImageResponse
+</span><a href="#local-6989586621679244318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchDeleteImageResponse' :: Int
 </span><a href="Network.AWS.ECR.BatchDeleteImage.html#%24sel%3AhttpStatus%3ABatchDeleteImageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679244308"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImageResponse"><span class="hs-identifier hs-type">BatchDeleteImageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679244317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImageResponse"><span class="hs-identifier hs-type">BatchDeleteImageResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-219"></span><span>
-</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244306"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImageResponse"><span class="hs-identifier hs-type">BatchDeleteImageResponse</span></a></span></span><span>
+</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244315"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchDeleteImage.html#BatchDeleteImageResponse"><span class="hs-identifier hs-type">BatchDeleteImageResponse</span></a></span></span><span>
 </span><span id="line-221"></span></pre></body></html>

@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679450058"><span id="local-6989586621679450059"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ContainerInstanceField"><span class="annot"><a href="Network.AWS.ECS.Types.ContainerInstanceField.html#ContainerInstanceField"><span class="hs-identifier hs-var">ContainerInstanceField</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContainerInstanceField%27"><span class="annot"><a href="Network.AWS.ECS.Types.ContainerInstanceField.html#ContainerInstanceField%27"><span class="hs-identifier hs-var">ContainerInstanceField'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679450067"><span id="local-6989586621679450068"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ContainerInstanceField"><span class="annot"><a href="Network.AWS.ECS.Types.ContainerInstanceField.html#ContainerInstanceField"><span class="hs-identifier hs-var">ContainerInstanceField</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContainerInstanceField%27"><span class="annot"><a href="Network.AWS.ECS.Types.ContainerInstanceField.html#ContainerInstanceField%27"><span class="hs-identifier hs-var">ContainerInstanceField'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromContainerInstanceField"><span class="annot"><span class="annottext">ContainerInstanceField -&gt; Text
 </span><a href="Network.AWS.ECS.Types.ContainerInstanceField.html#fromContainerInstanceField"><span class="hs-identifier hs-var hs-var">fromContainerInstanceField</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679450050"><span id="local-6989586621679450052"><span id="local-6989586621679450054"><span class="annot"><span class="annottext">Int -&gt; ContainerInstanceField -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679450059"><span id="local-6989586621679450061"><span id="local-6989586621679450063"><span class="annot"><span class="annottext">Int -&gt; ContainerInstanceField -&gt; ShowS
 [ContainerInstanceField] -&gt; ShowS
 ContainerInstanceField -&gt; String
 (Int -&gt; ContainerInstanceField -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: ContainerInstanceField -&gt; String
 showsPrec :: Int -&gt; ContainerInstanceField -&gt; ShowS
 $cshowsPrec :: Int -&gt; ContainerInstanceField -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679450041"><span id="local-6989586621679450043"><span id="local-6989586621679450045"><span id="local-6989586621679450047"><span class="annot"><span class="annottext">ReadPrec [ContainerInstanceField]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679450050"><span id="local-6989586621679450052"><span id="local-6989586621679450054"><span id="local-6989586621679450056"><span class="annot"><span class="annottext">ReadPrec [ContainerInstanceField]
 ReadPrec ContainerInstanceField
 Int -&gt; ReadS ContainerInstanceField
 ReadS [ContainerInstanceField]
@@ -71,7 +71,7 @@ $creadList :: ReadS [ContainerInstanceField]
 readsPrec :: Int -&gt; ReadS ContainerInstanceField
 $creadsPrec :: Int -&gt; ReadS ContainerInstanceField
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679450036"><span id="local-6989586621679450038"><span class="annot"><span class="annottext">ContainerInstanceField -&gt; ContainerInstanceField -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679450045"><span id="local-6989586621679450047"><span class="annot"><span class="annottext">ContainerInstanceField -&gt; ContainerInstanceField -&gt; Bool
 (ContainerInstanceField -&gt; ContainerInstanceField -&gt; Bool)
 -&gt; (ContainerInstanceField -&gt; ContainerInstanceField -&gt; Bool)
 -&gt; Eq ContainerInstanceField
@@ -81,7 +81,7 @@ $c/= :: ContainerInstanceField -&gt; ContainerInstanceField -&gt; Bool
 == :: ContainerInstanceField -&gt; ContainerInstanceField -&gt; Bool
 $c== :: ContainerInstanceField -&gt; ContainerInstanceField -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679450020"><span id="local-6989586621679450022"><span id="local-6989586621679450024"><span id="local-6989586621679450026"><span id="local-6989586621679450028"><span id="local-6989586621679450030"><span id="local-6989586621679450032"><span class="annot"><span class="annottext">Eq ContainerInstanceField
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679450029"><span id="local-6989586621679450031"><span id="local-6989586621679450033"><span id="local-6989586621679450035"><span id="local-6989586621679450037"><span id="local-6989586621679450039"><span id="local-6989586621679450041"><span class="annot"><span class="annottext">Eq ContainerInstanceField
 Eq ContainerInstanceField
 -&gt; (ContainerInstanceField -&gt; ContainerInstanceField -&gt; Ordering)
 -&gt; (ContainerInstanceField -&gt; ContainerInstanceField -&gt; Bool)
@@ -140,7 +140,7 @@ $cfrom :: forall x. ContainerInstanceField -&gt; Rep ContainerInstanceField x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679450012"><span id="local-6989586621679450014"><span class="annot"><span class="annottext">Int -&gt; ContainerInstanceField -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679450021"><span id="local-6989586621679450023"><span class="annot"><span class="annottext">Int -&gt; ContainerInstanceField -&gt; Int
 ContainerInstanceField -&gt; Int
 (Int -&gt; ContainerInstanceField -&gt; Int)
 -&gt; (ContainerInstanceField -&gt; Int)
@@ -151,54 +151,54 @@ $chash :: ContainerInstanceField -&gt; Int
 hashWithSalt :: Int -&gt; ContainerInstanceField -&gt; Int
 $chashWithSalt :: Int -&gt; ContainerInstanceField -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679450009"><span class="annot"><span class="annottext">ContainerInstanceField -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679450018"><span class="annot"><span class="annottext">ContainerInstanceField -&gt; ()
 (ContainerInstanceField -&gt; ()) -&gt; NFData ContainerInstanceField
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ContainerInstanceField -&gt; ()
 $crnf :: ContainerInstanceField -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679450006"><span class="annot"><span class="annottext">Text -&gt; Either String ContainerInstanceField
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679450015"><span class="annot"><span class="annottext">Text -&gt; Either String ContainerInstanceField
 (Text -&gt; Either String ContainerInstanceField)
 -&gt; FromText ContainerInstanceField
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ContainerInstanceField
 $cfromText :: Text -&gt; Either String ContainerInstanceField
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679450003"><span class="annot"><span class="annottext">ContainerInstanceField -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679450012"><span class="annot"><span class="annottext">ContainerInstanceField -&gt; Text
 (ContainerInstanceField -&gt; Text) -&gt; ToText ContainerInstanceField
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ContainerInstanceField -&gt; Text
 $ctoText :: ContainerInstanceField -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679450000"><span class="annot"><span class="annottext">ContainerInstanceField -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679450009"><span class="annot"><span class="annottext">ContainerInstanceField -&gt; ByteString
 (ContainerInstanceField -&gt; ByteString)
 -&gt; ToByteString ContainerInstanceField
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ContainerInstanceField -&gt; ByteString
 $ctoBS :: ContainerInstanceField -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679449997"><span class="annot"><span class="annottext">ContainerInstanceField -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679450006"><span class="annot"><span class="annottext">ContainerInstanceField -&gt; ByteStringBuilder
 (ContainerInstanceField -&gt; ByteStringBuilder)
 -&gt; ToLog ContainerInstanceField
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ContainerInstanceField -&gt; ByteStringBuilder
 $cbuild :: ContainerInstanceField -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679449994"><span class="annot"><span class="annottext">HeaderName -&gt; ContainerInstanceField -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679450003"><span class="annot"><span class="annottext">HeaderName -&gt; ContainerInstanceField -&gt; [Header]
 (HeaderName -&gt; ContainerInstanceField -&gt; [Header])
 -&gt; ToHeader ContainerInstanceField
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ContainerInstanceField -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ContainerInstanceField -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679449991"><span class="annot"><span class="annottext">ContainerInstanceField -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679450000"><span class="annot"><span class="annottext">ContainerInstanceField -&gt; QueryString
 (ContainerInstanceField -&gt; QueryString)
 -&gt; ToQuery ContainerInstanceField
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ContainerInstanceField -&gt; QueryString
 $ctoQuery :: ContainerInstanceField -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679449986"><span id="local-6989586621679449988"><span class="annot"><span class="annottext">Value -&gt; Parser [ContainerInstanceField]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679449995"><span id="local-6989586621679449997"><span class="annot"><span class="annottext">Value -&gt; Parser [ContainerInstanceField]
 Value -&gt; Parser ContainerInstanceField
 (Value -&gt; Parser ContainerInstanceField)
 -&gt; (Value -&gt; Parser [ContainerInstanceField])
@@ -210,7 +210,7 @@ $cparseJSONList :: Value -&gt; Parser [ContainerInstanceField]
 parseJSON :: Value -&gt; Parser ContainerInstanceField
 $cparseJSON :: Value -&gt; Parser ContainerInstanceField
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679449981"><span id="local-6989586621679449983"><span class="annot"><span class="annottext">FromJSONKeyFunction [ContainerInstanceField]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679449990"><span id="local-6989586621679449992"><span class="annot"><span class="annottext">FromJSONKeyFunction [ContainerInstanceField]
 FromJSONKeyFunction ContainerInstanceField
 FromJSONKeyFunction ContainerInstanceField
 -&gt; FromJSONKeyFunction [ContainerInstanceField]
@@ -222,7 +222,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ContainerInstanceField]
 fromJSONKey :: FromJSONKeyFunction ContainerInstanceField
 $cfromJSONKey :: FromJSONKeyFunction ContainerInstanceField
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679449972"><span id="local-6989586621679449974"><span id="local-6989586621679449976"><span id="local-6989586621679449978"><span class="annot"><span class="annottext">[ContainerInstanceField] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679449981"><span id="local-6989586621679449983"><span id="local-6989586621679449985"><span id="local-6989586621679449987"><span class="annot"><span class="annottext">[ContainerInstanceField] -&gt; Encoding
 [ContainerInstanceField] -&gt; Value
 ContainerInstanceField -&gt; Encoding
 ContainerInstanceField -&gt; Value
@@ -246,7 +246,7 @@ $ctoEncoding :: ContainerInstanceField -&gt; Encoding
 toJSON :: ContainerInstanceField -&gt; Value
 $ctoJSON :: ContainerInstanceField -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679449967"><span id="local-6989586621679449969"><span class="annot"><span class="annottext">ToJSONKeyFunction [ContainerInstanceField]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679449976"><span id="local-6989586621679449978"><span class="annot"><span class="annottext">ToJSONKeyFunction [ContainerInstanceField]
 ToJSONKeyFunction ContainerInstanceField
 ToJSONKeyFunction ContainerInstanceField
 -&gt; ToJSONKeyFunction [ContainerInstanceField]
@@ -258,14 +258,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ContainerInstanceField]
 toJSONKey :: ToJSONKeyFunction ContainerInstanceField
 $ctoJSONKey :: ToJSONKeyFunction ContainerInstanceField
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679449964"><span class="annot"><span class="annottext">[Node] -&gt; Either String ContainerInstanceField
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679449973"><span class="annot"><span class="annottext">[Node] -&gt; Either String ContainerInstanceField
 ([Node] -&gt; Either String ContainerInstanceField)
 -&gt; FromXML ContainerInstanceField
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ContainerInstanceField
 $cparseXML :: [Node] -&gt; Either String ContainerInstanceField
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679449961"><span class="annot"><span class="annottext">ContainerInstanceField -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679449970"><span class="annot"><span class="annottext">ContainerInstanceField -&gt; XML
 (ContainerInstanceField -&gt; XML) -&gt; ToXML ContainerInstanceField
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ContainerInstanceField -&gt; XML

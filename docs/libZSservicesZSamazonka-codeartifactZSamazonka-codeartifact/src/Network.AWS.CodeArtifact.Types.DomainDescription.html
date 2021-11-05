@@ -1,0 +1,592 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.CodeArtifact.Types.DomainDescription</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodeArtifact.Types.DomainDescription</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainStatus.html"><span class="hs-identifier">Network.AWS.CodeArtifact.Types.DomainStatus</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Information about a domain. A domain is a container for repositories.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- When you create a domain, it is empty until you add one or more</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- repositories.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newDomainDescription' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679229699"><span id="local-6989586621679229700"></span></span><span class="hs-keyword">data</span><span> </span><span id="DomainDescription"><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#DomainDescription"><span class="hs-identifier hs-var">DomainDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DomainDescription%27"><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#DomainDescription%27"><span class="hs-identifier hs-var">DomainDescription'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The total size of all assets in the domain.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AassetSizeBytes%3ADomainDescription%27"><span class="annot"><span class="annottext">DomainDescription -&gt; Maybe Integer
+</span><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#%24sel%3AassetSizeBytes%3ADomainDescription%27"><span class="hs-identifier hs-var hs-var">assetSizeBytes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The current status of a domain. The valid values are</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- -   @Active@</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- -   @Deleted@</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Astatus%3ADomainDescription%27"><span class="annot"><span class="annottext">DomainDescription -&gt; Maybe DomainStatus
+</span><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#%24sel%3Astatus%3ADomainDescription%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainStatus.html#DomainStatus"><span class="hs-identifier hs-type">DomainStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the domain.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Aarn%3ADomainDescription%27"><span class="annot"><span class="annottext">DomainDescription -&gt; Maybe Text
+</span><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#%24sel%3Aarn%3ADomainDescription%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | A timestamp that represents the date and time the domain was created.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AcreatedTime%3ADomainDescription%27"><span class="annot"><span class="annottext">DomainDescription -&gt; Maybe POSIX
+</span><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#%24sel%3AcreatedTime%3ADomainDescription%27"><span class="hs-identifier hs-var hs-var">createdTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Amazon S3 bucket that is used to</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- store package assets in the domain.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3As3BucketArn%3ADomainDescription%27"><span class="annot"><span class="annottext">DomainDescription -&gt; Maybe Text
+</span><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#%24sel%3As3BucketArn%3ADomainDescription%27"><span class="hs-identifier hs-var hs-var">s3BucketArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The AWS account ID that owns the domain.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Aowner%3ADomainDescription%27"><span class="annot"><span class="annottext">DomainDescription -&gt; Maybe Text
+</span><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#%24sel%3Aowner%3ADomainDescription%27"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The number of repositories in the domain.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3ArepositoryCount%3ADomainDescription%27"><span class="annot"><span class="annottext">DomainDescription -&gt; Maybe Int
+</span><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#%24sel%3ArepositoryCount%3ADomainDescription%27"><span class="hs-identifier hs-var hs-var">repositoryCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The name of the domain.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Aname%3ADomainDescription%27"><span class="annot"><span class="annottext">DomainDescription -&gt; Maybe Text
+</span><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#%24sel%3Aname%3ADomainDescription%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The ARN of an AWS Key Management Service (AWS KMS) key associated with a</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- domain.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AencryptionKey%3ADomainDescription%27"><span class="annot"><span class="annottext">DomainDescription -&gt; Maybe Text
+</span><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#%24sel%3AencryptionKey%3ADomainDescription%27"><span class="hs-identifier hs-var hs-var">encryptionKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229685"><span id="local-6989586621679229687"><span class="annot"><span class="annottext">DomainDescription -&gt; DomainDescription -&gt; Bool
+(DomainDescription -&gt; DomainDescription -&gt; Bool)
+-&gt; (DomainDescription -&gt; DomainDescription -&gt; Bool)
+-&gt; Eq DomainDescription
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DomainDescription -&gt; DomainDescription -&gt; Bool
+$c/= :: DomainDescription -&gt; DomainDescription -&gt; Bool
+== :: DomainDescription -&gt; DomainDescription -&gt; Bool
+$c== :: DomainDescription -&gt; DomainDescription -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229676"><span id="local-6989586621679229678"><span id="local-6989586621679229680"><span id="local-6989586621679229682"><span class="annot"><span class="annottext">ReadPrec [DomainDescription]
+ReadPrec DomainDescription
+Int -&gt; ReadS DomainDescription
+ReadS [DomainDescription]
+(Int -&gt; ReadS DomainDescription)
+-&gt; ReadS [DomainDescription]
+-&gt; ReadPrec DomainDescription
+-&gt; ReadPrec [DomainDescription]
+-&gt; Read DomainDescription
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DomainDescription]
+$creadListPrec :: ReadPrec [DomainDescription]
+readPrec :: ReadPrec DomainDescription
+$creadPrec :: ReadPrec DomainDescription
+readList :: ReadS [DomainDescription]
+$creadList :: ReadS [DomainDescription]
+readsPrec :: Int -&gt; ReadS DomainDescription
+$creadsPrec :: Int -&gt; ReadS DomainDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229669"><span id="local-6989586621679229671"><span id="local-6989586621679229673"><span class="annot"><span class="annottext">Int -&gt; DomainDescription -&gt; ShowS
+[DomainDescription] -&gt; ShowS
+DomainDescription -&gt; String
+(Int -&gt; DomainDescription -&gt; ShowS)
+-&gt; (DomainDescription -&gt; String)
+-&gt; ([DomainDescription] -&gt; ShowS)
+-&gt; Show DomainDescription
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DomainDescription] -&gt; ShowS
+$cshowList :: [DomainDescription] -&gt; ShowS
+show :: DomainDescription -&gt; String
+$cshow :: DomainDescription -&gt; String
+showsPrec :: Int -&gt; DomainDescription -&gt; ShowS
+$cshowsPrec :: Int -&gt; DomainDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DomainDescription -&gt; Rep DomainDescription x)
+-&gt; (forall x. Rep DomainDescription x -&gt; DomainDescription)
+-&gt; Generic DomainDescription
+forall x. Rep DomainDescription x -&gt; DomainDescription
+forall x. DomainDescription -&gt; Rep DomainDescription x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DomainDescription x -&gt; DomainDescription
+$cfrom :: forall x. DomainDescription -&gt; Rep DomainDescription x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'DomainDescription' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'assetSizeBytes', 'domainDescription_assetSizeBytes' - The total size of all assets in the domain.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'status', 'domainDescription_status' - The current status of a domain. The valid values are</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- -   @Active@</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- -   @Deleted@</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'arn', 'domainDescription_arn' - The Amazon Resource Name (ARN) of the domain.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'createdTime', 'domainDescription_createdTime' - A timestamp that represents the date and time the domain was created.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 's3BucketArn', 'domainDescription_s3BucketArn' - The Amazon Resource Name (ARN) of the Amazon S3 bucket that is used to</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- store package assets in the domain.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'owner', 'domainDescription_owner' - The AWS account ID that owns the domain.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'repositoryCount', 'domainDescription_repositoryCount' - The number of repositories in the domain.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'name', 'domainDescription_name' - The name of the domain.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'encryptionKey', 'domainDescription_encryptionKey' - The ARN of an AWS Key Management Service (AWS KMS) key associated with a</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- domain.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#newDomainDescription"><span class="hs-identifier hs-type">newDomainDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#DomainDescription"><span class="hs-identifier hs-type">DomainDescription</span></a></span><span>
+</span><span id="line-93"></span><span id="newDomainDescription"><span class="annot"><span class="annottext">newDomainDescription :: DomainDescription
+</span><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#newDomainDescription"><span class="hs-identifier hs-var hs-var">newDomainDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><span class="annottext">DomainDescription' :: Maybe Integer
+-&gt; Maybe DomainStatus
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; DomainDescription
+</span><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#DomainDescription%27"><span class="hs-identifier hs-type">DomainDescription'</span></a></span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:assetSizeBytes:DomainDescription' :: Maybe Integer
+</span><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#%24sel%3AassetSizeBytes%3ADomainDescription%27"><span class="hs-identifier hs-var">assetSizeBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:DomainDescription' :: Maybe DomainStatus
+</span><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#%24sel%3Astatus%3ADomainDescription%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DomainStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:DomainDescription' :: Maybe Text
+</span><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#%24sel%3Aarn%3ADomainDescription%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdTime:DomainDescription' :: Maybe POSIX
+</span><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#%24sel%3AcreatedTime%3ADomainDescription%27"><span class="hs-identifier hs-var">createdTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3BucketArn:DomainDescription' :: Maybe Text
+</span><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#%24sel%3As3BucketArn%3ADomainDescription%27"><span class="hs-identifier hs-var">s3BucketArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:owner:DomainDescription' :: Maybe Text
+</span><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#%24sel%3Aowner%3ADomainDescription%27"><span class="hs-identifier hs-var">owner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:repositoryCount:DomainDescription' :: Maybe Int
+</span><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#%24sel%3ArepositoryCount%3ADomainDescription%27"><span class="hs-identifier hs-var">repositoryCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:DomainDescription' :: Maybe Text
+</span><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#%24sel%3Aname%3ADomainDescription%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:encryptionKey:DomainDescription' :: Maybe Text
+</span><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#%24sel%3AencryptionKey%3ADomainDescription%27"><span class="hs-identifier hs-var">encryptionKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The total size of all assets in the domain.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#domainDescription_assetSizeBytes"><span class="hs-identifier hs-type">domainDescription_assetSizeBytes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#DomainDescription"><span class="hs-identifier hs-type">DomainDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="domainDescription_assetSizeBytes"><span class="annot"><span class="annottext">domainDescription_assetSizeBytes :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; DomainDescription -&gt; f DomainDescription
+</span><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#domainDescription_assetSizeBytes"><span class="hs-identifier hs-var hs-var">domainDescription_assetSizeBytes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainDescription -&gt; Maybe Integer)
+-&gt; (DomainDescription -&gt; Maybe Integer -&gt; DomainDescription)
+-&gt; Lens
+     DomainDescription DomainDescription (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#DomainDescription%27"><span class="hs-identifier hs-type">DomainDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229660"><span class="annot"><span class="annottext">Maybe Integer
+assetSizeBytes :: Maybe Integer
+$sel:assetSizeBytes:DomainDescription' :: DomainDescription -&gt; Maybe Integer
+</span><a href="#local-6989586621679229660"><span class="hs-identifier hs-var hs-var">assetSizeBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679229660"><span class="hs-identifier hs-var">assetSizeBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229659"><span class="annot"><span class="annottext">s :: DomainDescription
+</span><a href="#local-6989586621679229659"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#DomainDescription%27"><span class="hs-identifier hs-type">DomainDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229658"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679229658"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainDescription
+</span><a href="#local-6989586621679229659"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assetSizeBytes:DomainDescription' :: Maybe Integer
+</span><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#%24sel%3AassetSizeBytes%3ADomainDescription%27"><span class="hs-identifier hs-var">assetSizeBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679229658"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#DomainDescription"><span class="hs-identifier hs-type">DomainDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The current status of a domain. The valid values are</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- -   @Active@</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- -   @Deleted@</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#domainDescription_status"><span class="hs-identifier hs-type">domainDescription_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#DomainDescription"><span class="hs-identifier hs-type">DomainDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainStatus.html#DomainStatus"><span class="hs-identifier hs-type">DomainStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="domainDescription_status"><span class="annot"><span class="annottext">domainDescription_status :: (Maybe DomainStatus -&gt; f (Maybe DomainStatus))
+-&gt; DomainDescription -&gt; f DomainDescription
+</span><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#domainDescription_status"><span class="hs-identifier hs-var hs-var">domainDescription_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainDescription -&gt; Maybe DomainStatus)
+-&gt; (DomainDescription -&gt; Maybe DomainStatus -&gt; DomainDescription)
+-&gt; Lens
+     DomainDescription
+     DomainDescription
+     (Maybe DomainStatus)
+     (Maybe DomainStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#DomainDescription%27"><span class="hs-identifier hs-type">DomainDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229656"><span class="annot"><span class="annottext">Maybe DomainStatus
+status :: Maybe DomainStatus
+$sel:status:DomainDescription' :: DomainDescription -&gt; Maybe DomainStatus
+</span><a href="#local-6989586621679229656"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DomainStatus
+</span><a href="#local-6989586621679229656"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229655"><span class="annot"><span class="annottext">s :: DomainDescription
+</span><a href="#local-6989586621679229655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#DomainDescription%27"><span class="hs-identifier hs-type">DomainDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229654"><span class="annot"><span class="annottext">Maybe DomainStatus
+</span><a href="#local-6989586621679229654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainDescription
+</span><a href="#local-6989586621679229655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DomainDescription' :: Maybe DomainStatus
+</span><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#%24sel%3Astatus%3ADomainDescription%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DomainStatus
+</span><a href="#local-6989586621679229654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#DomainDescription"><span class="hs-identifier hs-type">DomainDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the domain.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#domainDescription_arn"><span class="hs-identifier hs-type">domainDescription_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#DomainDescription"><span class="hs-identifier hs-type">DomainDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="domainDescription_arn"><span class="annot"><span class="annottext">domainDescription_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DomainDescription -&gt; f DomainDescription
+</span><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#domainDescription_arn"><span class="hs-identifier hs-var hs-var">domainDescription_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainDescription -&gt; Maybe Text)
+-&gt; (DomainDescription -&gt; Maybe Text -&gt; DomainDescription)
+-&gt; Lens
+     DomainDescription DomainDescription (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#DomainDescription%27"><span class="hs-identifier hs-type">DomainDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229652"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:DomainDescription' :: DomainDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679229652"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229652"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229651"><span class="annot"><span class="annottext">s :: DomainDescription
+</span><a href="#local-6989586621679229651"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#DomainDescription%27"><span class="hs-identifier hs-type">DomainDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229650"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229650"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainDescription
+</span><a href="#local-6989586621679229651"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:DomainDescription' :: Maybe Text
+</span><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#%24sel%3Aarn%3ADomainDescription%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229650"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#DomainDescription"><span class="hs-identifier hs-type">DomainDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | A timestamp that represents the date and time the domain was created.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#domainDescription_createdTime"><span class="hs-identifier hs-type">domainDescription_createdTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#DomainDescription"><span class="hs-identifier hs-type">DomainDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="domainDescription_createdTime"><span class="annot"><span class="annottext">domainDescription_createdTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DomainDescription -&gt; f DomainDescription
+</span><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#domainDescription_createdTime"><span class="hs-identifier hs-var hs-var">domainDescription_createdTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainDescription -&gt; Maybe POSIX)
+-&gt; (DomainDescription -&gt; Maybe POSIX -&gt; DomainDescription)
+-&gt; Lens
+     DomainDescription DomainDescription (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#DomainDescription%27"><span class="hs-identifier hs-type">DomainDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229648"><span class="annot"><span class="annottext">Maybe POSIX
+createdTime :: Maybe POSIX
+$sel:createdTime:DomainDescription' :: DomainDescription -&gt; Maybe POSIX
+</span><a href="#local-6989586621679229648"><span class="hs-identifier hs-var hs-var">createdTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679229648"><span class="hs-identifier hs-var">createdTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229647"><span class="annot"><span class="annottext">s :: DomainDescription
+</span><a href="#local-6989586621679229647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#DomainDescription%27"><span class="hs-identifier hs-type">DomainDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229646"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679229646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainDescription
+</span><a href="#local-6989586621679229647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdTime:DomainDescription' :: Maybe POSIX
+</span><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#%24sel%3AcreatedTime%3ADomainDescription%27"><span class="hs-identifier hs-var">createdTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679229646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#DomainDescription"><span class="hs-identifier hs-type">DomainDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DomainDescription -&gt; f DomainDescription)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DomainDescription
+-&gt; f DomainDescription
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Amazon S3 bucket that is used to</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- store package assets in the domain.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#domainDescription_s3BucketArn"><span class="hs-identifier hs-type">domainDescription_s3BucketArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#DomainDescription"><span class="hs-identifier hs-type">DomainDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="domainDescription_s3BucketArn"><span class="annot"><span class="annottext">domainDescription_s3BucketArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DomainDescription -&gt; f DomainDescription
+</span><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#domainDescription_s3BucketArn"><span class="hs-identifier hs-var hs-var">domainDescription_s3BucketArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainDescription -&gt; Maybe Text)
+-&gt; (DomainDescription -&gt; Maybe Text -&gt; DomainDescription)
+-&gt; Lens
+     DomainDescription DomainDescription (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#DomainDescription%27"><span class="hs-identifier hs-type">DomainDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229641"><span class="annot"><span class="annottext">Maybe Text
+s3BucketArn :: Maybe Text
+$sel:s3BucketArn:DomainDescription' :: DomainDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679229641"><span class="hs-identifier hs-var hs-var">s3BucketArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229641"><span class="hs-identifier hs-var">s3BucketArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229640"><span class="annot"><span class="annottext">s :: DomainDescription
+</span><a href="#local-6989586621679229640"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#DomainDescription%27"><span class="hs-identifier hs-type">DomainDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229639"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229639"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainDescription
+</span><a href="#local-6989586621679229640"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3BucketArn:DomainDescription' :: Maybe Text
+</span><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#%24sel%3As3BucketArn%3ADomainDescription%27"><span class="hs-identifier hs-var">s3BucketArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229639"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#DomainDescription"><span class="hs-identifier hs-type">DomainDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The AWS account ID that owns the domain.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#domainDescription_owner"><span class="hs-identifier hs-type">domainDescription_owner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#DomainDescription"><span class="hs-identifier hs-type">DomainDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="domainDescription_owner"><span class="annot"><span class="annottext">domainDescription_owner :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DomainDescription -&gt; f DomainDescription
+</span><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#domainDescription_owner"><span class="hs-identifier hs-var hs-var">domainDescription_owner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainDescription -&gt; Maybe Text)
+-&gt; (DomainDescription -&gt; Maybe Text -&gt; DomainDescription)
+-&gt; Lens
+     DomainDescription DomainDescription (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#DomainDescription%27"><span class="hs-identifier hs-type">DomainDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229637"><span class="annot"><span class="annottext">Maybe Text
+owner :: Maybe Text
+$sel:owner:DomainDescription' :: DomainDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679229637"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229637"><span class="hs-identifier hs-var">owner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229636"><span class="annot"><span class="annottext">s :: DomainDescription
+</span><a href="#local-6989586621679229636"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#DomainDescription%27"><span class="hs-identifier hs-type">DomainDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229635"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229635"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainDescription
+</span><a href="#local-6989586621679229636"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:owner:DomainDescription' :: Maybe Text
+</span><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#%24sel%3Aowner%3ADomainDescription%27"><span class="hs-identifier hs-var">owner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229635"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#DomainDescription"><span class="hs-identifier hs-type">DomainDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | The number of repositories in the domain.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#domainDescription_repositoryCount"><span class="hs-identifier hs-type">domainDescription_repositoryCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#DomainDescription"><span class="hs-identifier hs-type">DomainDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="domainDescription_repositoryCount"><span class="annot"><span class="annottext">domainDescription_repositoryCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; DomainDescription -&gt; f DomainDescription
+</span><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#domainDescription_repositoryCount"><span class="hs-identifier hs-var hs-var">domainDescription_repositoryCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainDescription -&gt; Maybe Int)
+-&gt; (DomainDescription -&gt; Maybe Int -&gt; DomainDescription)
+-&gt; Lens DomainDescription DomainDescription (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#DomainDescription%27"><span class="hs-identifier hs-type">DomainDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229633"><span class="annot"><span class="annottext">Maybe Int
+repositoryCount :: Maybe Int
+$sel:repositoryCount:DomainDescription' :: DomainDescription -&gt; Maybe Int
+</span><a href="#local-6989586621679229633"><span class="hs-identifier hs-var hs-var">repositoryCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679229633"><span class="hs-identifier hs-var">repositoryCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229632"><span class="annot"><span class="annottext">s :: DomainDescription
+</span><a href="#local-6989586621679229632"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#DomainDescription%27"><span class="hs-identifier hs-type">DomainDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229631"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679229631"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainDescription
+</span><a href="#local-6989586621679229632"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryCount:DomainDescription' :: Maybe Int
+</span><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#%24sel%3ArepositoryCount%3ADomainDescription%27"><span class="hs-identifier hs-var">repositoryCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679229631"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#DomainDescription"><span class="hs-identifier hs-type">DomainDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | The name of the domain.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#domainDescription_name"><span class="hs-identifier hs-type">domainDescription_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#DomainDescription"><span class="hs-identifier hs-type">DomainDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="domainDescription_name"><span class="annot"><span class="annottext">domainDescription_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DomainDescription -&gt; f DomainDescription
+</span><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#domainDescription_name"><span class="hs-identifier hs-var hs-var">domainDescription_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainDescription -&gt; Maybe Text)
+-&gt; (DomainDescription -&gt; Maybe Text -&gt; DomainDescription)
+-&gt; Lens
+     DomainDescription DomainDescription (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#DomainDescription%27"><span class="hs-identifier hs-type">DomainDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229629"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:DomainDescription' :: DomainDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679229629"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229629"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229628"><span class="annot"><span class="annottext">s :: DomainDescription
+</span><a href="#local-6989586621679229628"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#DomainDescription%27"><span class="hs-identifier hs-type">DomainDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229627"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229627"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainDescription
+</span><a href="#local-6989586621679229628"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DomainDescription' :: Maybe Text
+</span><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#%24sel%3Aname%3ADomainDescription%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229627"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#DomainDescription"><span class="hs-identifier hs-type">DomainDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | The ARN of an AWS Key Management Service (AWS KMS) key associated with a</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- domain.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#domainDescription_encryptionKey"><span class="hs-identifier hs-type">domainDescription_encryptionKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#DomainDescription"><span class="hs-identifier hs-type">DomainDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="domainDescription_encryptionKey"><span class="annot"><span class="annottext">domainDescription_encryptionKey :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DomainDescription -&gt; f DomainDescription
+</span><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#domainDescription_encryptionKey"><span class="hs-identifier hs-var hs-var">domainDescription_encryptionKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainDescription -&gt; Maybe Text)
+-&gt; (DomainDescription -&gt; Maybe Text -&gt; DomainDescription)
+-&gt; Lens
+     DomainDescription DomainDescription (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#DomainDescription%27"><span class="hs-identifier hs-type">DomainDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229625"><span class="annot"><span class="annottext">Maybe Text
+encryptionKey :: Maybe Text
+$sel:encryptionKey:DomainDescription' :: DomainDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679229625"><span class="hs-identifier hs-var hs-var">encryptionKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229625"><span class="hs-identifier hs-var">encryptionKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229624"><span class="annot"><span class="annottext">s :: DomainDescription
+</span><a href="#local-6989586621679229624"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#DomainDescription%27"><span class="hs-identifier hs-type">DomainDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229623"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229623"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainDescription
+</span><a href="#local-6989586621679229624"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionKey:DomainDescription' :: Maybe Text
+</span><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#%24sel%3AencryptionKey%3ADomainDescription%27"><span class="hs-identifier hs-var">encryptionKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229623"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#DomainDescription"><span class="hs-identifier hs-type">DomainDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229620"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#DomainDescription"><span class="hs-identifier hs-type">DomainDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679229618"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DomainDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser DomainDescription)
+-&gt; Value
+-&gt; Parser DomainDescription
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;DomainDescription&quot;</span></span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679229615"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229615"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-154"></span><span>          </span><span class="annot"><span class="annottext">Maybe Integer
+-&gt; Maybe DomainStatus
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; DomainDescription
+</span><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#DomainDescription%27"><span class="hs-identifier hs-var">DomainDescription'</span></a></span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Integer
+ -&gt; Maybe DomainStatus
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; DomainDescription)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser
+     (Maybe DomainStatus
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; DomainDescription)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229615"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;assetSizeBytes&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DomainStatus
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; DomainDescription)
+-&gt; Parser (Maybe DomainStatus)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; DomainDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229615"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DomainStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; DomainDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; DomainDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229615"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; DomainDescription)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; DomainDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229615"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; DomainDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Int -&gt; Maybe Text -&gt; Maybe Text -&gt; DomainDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229615"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;s3BucketArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Int -&gt; Maybe Text -&gt; Maybe Text -&gt; DomainDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Int -&gt; Maybe Text -&gt; Maybe Text -&gt; DomainDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229615"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;owner&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; Maybe Text -&gt; Maybe Text -&gt; DomainDescription)
+-&gt; Parser (Maybe Int)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; DomainDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229615"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;repositoryCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; DomainDescription)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; DomainDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229615"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; DomainDescription)
+-&gt; Parser (Maybe Text) -&gt; Parser DomainDescription
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229615"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;encryptionKey&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229609"><span id="local-6989586621679229611"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#DomainDescription"><span class="hs-identifier hs-type">DomainDescription</span></a></span></span></span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229606"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.DomainDescription.html#DomainDescription"><span class="hs-identifier hs-type">DomainDescription</span></a></span></span><span>
+</span><span id="line-169"></span></pre></body></html>

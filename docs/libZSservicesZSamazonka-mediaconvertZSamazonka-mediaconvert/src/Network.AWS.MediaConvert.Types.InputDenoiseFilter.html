@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-comment">-- | Enable Denoise (InputDenoiseFilter) to filter noise from the input.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- Default is disabled. Only applicable to MPEG2, H.264, H.265, and</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- uncompressed video inputs.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679981915"><span id="local-6989586621679981916"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InputDenoiseFilter"><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputDenoiseFilter.html#InputDenoiseFilter"><span class="hs-identifier hs-var">InputDenoiseFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputDenoiseFilter%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputDenoiseFilter.html#InputDenoiseFilter%27"><span class="hs-identifier hs-var">InputDenoiseFilter'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679981924"><span id="local-6989586621679981925"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InputDenoiseFilter"><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputDenoiseFilter.html#InputDenoiseFilter"><span class="hs-identifier hs-var">InputDenoiseFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputDenoiseFilter%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.InputDenoiseFilter.html#InputDenoiseFilter%27"><span class="hs-identifier hs-var">InputDenoiseFilter'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInputDenoiseFilter"><span class="annot"><span class="annottext">InputDenoiseFilter -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.InputDenoiseFilter.html#fromInputDenoiseFilter"><span class="hs-identifier hs-var hs-var">fromInputDenoiseFilter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679981907"><span id="local-6989586621679981909"><span id="local-6989586621679981911"><span class="annot"><span class="annottext">Int -&gt; InputDenoiseFilter -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679981916"><span id="local-6989586621679981918"><span id="local-6989586621679981920"><span class="annot"><span class="annottext">Int -&gt; InputDenoiseFilter -&gt; ShowS
 [InputDenoiseFilter] -&gt; ShowS
 InputDenoiseFilter -&gt; String
 (Int -&gt; InputDenoiseFilter -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: InputDenoiseFilter -&gt; String
 showsPrec :: Int -&gt; InputDenoiseFilter -&gt; ShowS
 $cshowsPrec :: Int -&gt; InputDenoiseFilter -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679981898"><span id="local-6989586621679981900"><span id="local-6989586621679981902"><span id="local-6989586621679981904"><span class="annot"><span class="annottext">ReadPrec [InputDenoiseFilter]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679981907"><span id="local-6989586621679981909"><span id="local-6989586621679981911"><span id="local-6989586621679981913"><span class="annot"><span class="annottext">ReadPrec [InputDenoiseFilter]
 ReadPrec InputDenoiseFilter
 Int -&gt; ReadS InputDenoiseFilter
 ReadS [InputDenoiseFilter]
@@ -75,7 +75,7 @@ $creadList :: ReadS [InputDenoiseFilter]
 readsPrec :: Int -&gt; ReadS InputDenoiseFilter
 $creadsPrec :: Int -&gt; ReadS InputDenoiseFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679981893"><span id="local-6989586621679981895"><span class="annot"><span class="annottext">InputDenoiseFilter -&gt; InputDenoiseFilter -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679981902"><span id="local-6989586621679981904"><span class="annot"><span class="annottext">InputDenoiseFilter -&gt; InputDenoiseFilter -&gt; Bool
 (InputDenoiseFilter -&gt; InputDenoiseFilter -&gt; Bool)
 -&gt; (InputDenoiseFilter -&gt; InputDenoiseFilter -&gt; Bool)
 -&gt; Eq InputDenoiseFilter
@@ -85,7 +85,7 @@ $c/= :: InputDenoiseFilter -&gt; InputDenoiseFilter -&gt; Bool
 == :: InputDenoiseFilter -&gt; InputDenoiseFilter -&gt; Bool
 $c== :: InputDenoiseFilter -&gt; InputDenoiseFilter -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679981877"><span id="local-6989586621679981879"><span id="local-6989586621679981881"><span id="local-6989586621679981883"><span id="local-6989586621679981885"><span id="local-6989586621679981887"><span id="local-6989586621679981889"><span class="annot"><span class="annottext">Eq InputDenoiseFilter
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679981886"><span id="local-6989586621679981888"><span id="local-6989586621679981890"><span id="local-6989586621679981892"><span id="local-6989586621679981894"><span id="local-6989586621679981896"><span id="local-6989586621679981898"><span class="annot"><span class="annottext">Eq InputDenoiseFilter
 Eq InputDenoiseFilter
 -&gt; (InputDenoiseFilter -&gt; InputDenoiseFilter -&gt; Ordering)
 -&gt; (InputDenoiseFilter -&gt; InputDenoiseFilter -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. InputDenoiseFilter -&gt; Rep InputDenoiseFilter x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679981869"><span id="local-6989586621679981871"><span class="annot"><span class="annottext">Int -&gt; InputDenoiseFilter -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679981878"><span id="local-6989586621679981880"><span class="annot"><span class="annottext">Int -&gt; InputDenoiseFilter -&gt; Int
 InputDenoiseFilter -&gt; Int
 (Int -&gt; InputDenoiseFilter -&gt; Int)
 -&gt; (InputDenoiseFilter -&gt; Int) -&gt; Hashable InputDenoiseFilter
@@ -146,53 +146,53 @@ $chash :: InputDenoiseFilter -&gt; Int
 hashWithSalt :: Int -&gt; InputDenoiseFilter -&gt; Int
 $chashWithSalt :: Int -&gt; InputDenoiseFilter -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679981866"><span class="annot"><span class="annottext">InputDenoiseFilter -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679981875"><span class="annot"><span class="annottext">InputDenoiseFilter -&gt; ()
 (InputDenoiseFilter -&gt; ()) -&gt; NFData InputDenoiseFilter
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: InputDenoiseFilter -&gt; ()
 $crnf :: InputDenoiseFilter -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679981863"><span class="annot"><span class="annottext">Text -&gt; Either String InputDenoiseFilter
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679981872"><span class="annot"><span class="annottext">Text -&gt; Either String InputDenoiseFilter
 (Text -&gt; Either String InputDenoiseFilter)
 -&gt; FromText InputDenoiseFilter
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String InputDenoiseFilter
 $cfromText :: Text -&gt; Either String InputDenoiseFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679981860"><span class="annot"><span class="annottext">InputDenoiseFilter -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679981869"><span class="annot"><span class="annottext">InputDenoiseFilter -&gt; Text
 (InputDenoiseFilter -&gt; Text) -&gt; ToText InputDenoiseFilter
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: InputDenoiseFilter -&gt; Text
 $ctoText :: InputDenoiseFilter -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679981857"><span class="annot"><span class="annottext">InputDenoiseFilter -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679981866"><span class="annot"><span class="annottext">InputDenoiseFilter -&gt; ByteString
 (InputDenoiseFilter -&gt; ByteString)
 -&gt; ToByteString InputDenoiseFilter
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: InputDenoiseFilter -&gt; ByteString
 $ctoBS :: InputDenoiseFilter -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679981854"><span class="annot"><span class="annottext">InputDenoiseFilter -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679981863"><span class="annot"><span class="annottext">InputDenoiseFilter -&gt; ByteStringBuilder
 (InputDenoiseFilter -&gt; ByteStringBuilder)
 -&gt; ToLog InputDenoiseFilter
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: InputDenoiseFilter -&gt; ByteStringBuilder
 $cbuild :: InputDenoiseFilter -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679981851"><span class="annot"><span class="annottext">HeaderName -&gt; InputDenoiseFilter -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679981860"><span class="annot"><span class="annottext">HeaderName -&gt; InputDenoiseFilter -&gt; [Header]
 (HeaderName -&gt; InputDenoiseFilter -&gt; [Header])
 -&gt; ToHeader InputDenoiseFilter
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; InputDenoiseFilter -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; InputDenoiseFilter -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679981848"><span class="annot"><span class="annottext">InputDenoiseFilter -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679981857"><span class="annot"><span class="annottext">InputDenoiseFilter -&gt; QueryString
 (InputDenoiseFilter -&gt; QueryString) -&gt; ToQuery InputDenoiseFilter
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: InputDenoiseFilter -&gt; QueryString
 $ctoQuery :: InputDenoiseFilter -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679981843"><span id="local-6989586621679981845"><span class="annot"><span class="annottext">Value -&gt; Parser [InputDenoiseFilter]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679981852"><span id="local-6989586621679981854"><span class="annot"><span class="annottext">Value -&gt; Parser [InputDenoiseFilter]
 Value -&gt; Parser InputDenoiseFilter
 (Value -&gt; Parser InputDenoiseFilter)
 -&gt; (Value -&gt; Parser [InputDenoiseFilter])
@@ -204,7 +204,7 @@ $cparseJSONList :: Value -&gt; Parser [InputDenoiseFilter]
 parseJSON :: Value -&gt; Parser InputDenoiseFilter
 $cparseJSON :: Value -&gt; Parser InputDenoiseFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679981838"><span id="local-6989586621679981840"><span class="annot"><span class="annottext">FromJSONKeyFunction [InputDenoiseFilter]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679981847"><span id="local-6989586621679981849"><span class="annot"><span class="annottext">FromJSONKeyFunction [InputDenoiseFilter]
 FromJSONKeyFunction InputDenoiseFilter
 FromJSONKeyFunction InputDenoiseFilter
 -&gt; FromJSONKeyFunction [InputDenoiseFilter]
@@ -216,7 +216,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [InputDenoiseFilter]
 fromJSONKey :: FromJSONKeyFunction InputDenoiseFilter
 $cfromJSONKey :: FromJSONKeyFunction InputDenoiseFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679981829"><span id="local-6989586621679981831"><span id="local-6989586621679981833"><span id="local-6989586621679981835"><span class="annot"><span class="annottext">[InputDenoiseFilter] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679981838"><span id="local-6989586621679981840"><span id="local-6989586621679981842"><span id="local-6989586621679981844"><span class="annot"><span class="annottext">[InputDenoiseFilter] -&gt; Encoding
 [InputDenoiseFilter] -&gt; Value
 InputDenoiseFilter -&gt; Encoding
 InputDenoiseFilter -&gt; Value
@@ -240,7 +240,7 @@ $ctoEncoding :: InputDenoiseFilter -&gt; Encoding
 toJSON :: InputDenoiseFilter -&gt; Value
 $ctoJSON :: InputDenoiseFilter -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679981824"><span id="local-6989586621679981826"><span class="annot"><span class="annottext">ToJSONKeyFunction [InputDenoiseFilter]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679981833"><span id="local-6989586621679981835"><span class="annot"><span class="annottext">ToJSONKeyFunction [InputDenoiseFilter]
 ToJSONKeyFunction InputDenoiseFilter
 ToJSONKeyFunction InputDenoiseFilter
 -&gt; ToJSONKeyFunction [InputDenoiseFilter]
@@ -252,14 +252,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [InputDenoiseFilter]
 toJSONKey :: ToJSONKeyFunction InputDenoiseFilter
 $ctoJSONKey :: ToJSONKeyFunction InputDenoiseFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679981821"><span class="annot"><span class="annottext">[Node] -&gt; Either String InputDenoiseFilter
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679981830"><span class="annot"><span class="annottext">[Node] -&gt; Either String InputDenoiseFilter
 ([Node] -&gt; Either String InputDenoiseFilter)
 -&gt; FromXML InputDenoiseFilter
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String InputDenoiseFilter
 $cparseXML :: [Node] -&gt; Either String InputDenoiseFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679981818"><span class="annot"><span class="annottext">InputDenoiseFilter -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679981827"><span class="annot"><span class="annottext">InputDenoiseFilter -&gt; XML
 (InputDenoiseFilter -&gt; XML) -&gt; ToXML InputDenoiseFilter
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: InputDenoiseFilter -&gt; XML

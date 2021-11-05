@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Summary information about an AWS Mobile Hub project.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newProjectSummary' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679153934"><span id="local-6989586621679153935"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProjectSummary"><span class="annot"><a href="Network.AWS.Mobile.Types.ProjectSummary.html#ProjectSummary"><span class="hs-identifier hs-var">ProjectSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProjectSummary%27"><span class="annot"><a href="Network.AWS.Mobile.Types.ProjectSummary.html#ProjectSummary%27"><span class="hs-identifier hs-var">ProjectSummary'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679153943"><span id="local-6989586621679153944"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProjectSummary"><span class="annot"><a href="Network.AWS.Mobile.Types.ProjectSummary.html#ProjectSummary"><span class="hs-identifier hs-var">ProjectSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProjectSummary%27"><span class="annot"><a href="Network.AWS.Mobile.Types.ProjectSummary.html#ProjectSummary%27"><span class="hs-identifier hs-var">ProjectSummary'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Name of the project.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Aname%3AProjectSummary%27"><span class="annot"><span class="annottext">ProjectSummary -&gt; Maybe Text
 </span><a href="Network.AWS.Mobile.Types.ProjectSummary.html#%24sel%3Aname%3AProjectSummary%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AprojectId%3AProjectSummary%27"><span class="annot"><span class="annottext">ProjectSummary -&gt; Maybe Text
 </span><a href="Network.AWS.Mobile.Types.ProjectSummary.html#%24sel%3AprojectId%3AProjectSummary%27"><span class="hs-identifier hs-var hs-var">projectId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679153927"><span id="local-6989586621679153929"><span class="annot"><span class="annottext">ProjectSummary -&gt; ProjectSummary -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679153936"><span id="local-6989586621679153938"><span class="annot"><span class="annottext">ProjectSummary -&gt; ProjectSummary -&gt; Bool
 (ProjectSummary -&gt; ProjectSummary -&gt; Bool)
 -&gt; (ProjectSummary -&gt; ProjectSummary -&gt; Bool) -&gt; Eq ProjectSummary
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ProjectSummary -&gt; ProjectSummary -&gt; Bool
 == :: ProjectSummary -&gt; ProjectSummary -&gt; Bool
 $c== :: ProjectSummary -&gt; ProjectSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679153918"><span id="local-6989586621679153920"><span id="local-6989586621679153922"><span id="local-6989586621679153924"><span class="annot"><span class="annottext">ReadPrec [ProjectSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679153927"><span id="local-6989586621679153929"><span id="local-6989586621679153931"><span id="local-6989586621679153933"><span class="annot"><span class="annottext">ReadPrec [ProjectSummary]
 ReadPrec ProjectSummary
 Int -&gt; ReadS ProjectSummary
 ReadS [ProjectSummary]
@@ -62,7 +62,7 @@ readList :: ReadS [ProjectSummary]
 $creadList :: ReadS [ProjectSummary]
 readsPrec :: Int -&gt; ReadS ProjectSummary
 $creadsPrec :: Int -&gt; ReadS ProjectSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679153911"><span id="local-6989586621679153913"><span id="local-6989586621679153915"><span class="annot"><span class="annottext">Int -&gt; ProjectSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679153920"><span id="local-6989586621679153922"><span id="local-6989586621679153924"><span class="annot"><span class="annottext">Int -&gt; ProjectSummary -&gt; ShowS
 [ProjectSummary] -&gt; ShowS
 ProjectSummary -&gt; String
 (Int -&gt; ProjectSummary -&gt; ShowS)
@@ -123,16 +123,16 @@ forall a. Maybe a
 -&gt; (ProjectSummary -&gt; Maybe Text -&gt; ProjectSummary)
 -&gt; Lens ProjectSummary ProjectSummary (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Mobile.Types.ProjectSummary.html#ProjectSummary%27"><span class="hs-identifier hs-type">ProjectSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153902"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Mobile.Types.ProjectSummary.html#ProjectSummary%27"><span class="hs-identifier hs-type">ProjectSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153911"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:ProjectSummary' :: ProjectSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679153902"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679153902"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679153901"><span class="annot"><span class="annottext">s :: ProjectSummary
-</span><a href="#local-6989586621679153901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Mobile.Types.ProjectSummary.html#ProjectSummary%27"><span class="hs-identifier hs-type">ProjectSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679153900"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679153900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectSummary
-</span><a href="#local-6989586621679153901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ProjectSummary' :: Maybe Text
+</span><a href="#local-6989586621679153911"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679153911"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679153910"><span class="annot"><span class="annottext">s :: ProjectSummary
+</span><a href="#local-6989586621679153910"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Mobile.Types.ProjectSummary.html#ProjectSummary%27"><span class="hs-identifier hs-type">ProjectSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679153909"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679153909"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectSummary
+</span><a href="#local-6989586621679153910"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ProjectSummary' :: Maybe Text
 </span><a href="Network.AWS.Mobile.Types.ProjectSummary.html#%24sel%3Aname%3AProjectSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679153900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Mobile.Types.ProjectSummary.html#ProjectSummary"><span class="hs-identifier hs-type">ProjectSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679153909"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Mobile.Types.ProjectSummary.html#ProjectSummary"><span class="hs-identifier hs-type">ProjectSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | Unique project identifier.</span><span>
 </span><span id="line-61"></span><span class="annot"><a href="Network.AWS.Mobile.Types.ProjectSummary.html#projectSummary_projectId"><span class="hs-identifier hs-type">projectSummary_projectId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.Types.ProjectSummary.html#ProjectSummary"><span class="hs-identifier hs-type">ProjectSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -142,19 +142,19 @@ $sel:name:ProjectSummary' :: ProjectSummary -&gt; Maybe Text
 -&gt; (ProjectSummary -&gt; Maybe Text -&gt; ProjectSummary)
 -&gt; Lens ProjectSummary ProjectSummary (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Mobile.Types.ProjectSummary.html#ProjectSummary%27"><span class="hs-identifier hs-type">ProjectSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153898"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Mobile.Types.ProjectSummary.html#ProjectSummary%27"><span class="hs-identifier hs-type">ProjectSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153907"><span class="annot"><span class="annottext">Maybe Text
 projectId :: Maybe Text
 $sel:projectId:ProjectSummary' :: ProjectSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679153898"><span class="hs-identifier hs-var hs-var">projectId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679153898"><span class="hs-identifier hs-var">projectId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679153897"><span class="annot"><span class="annottext">s :: ProjectSummary
-</span><a href="#local-6989586621679153897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Mobile.Types.ProjectSummary.html#ProjectSummary%27"><span class="hs-identifier hs-type">ProjectSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679153896"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679153896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectSummary
-</span><a href="#local-6989586621679153897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectId:ProjectSummary' :: Maybe Text
+</span><a href="#local-6989586621679153907"><span class="hs-identifier hs-var hs-var">projectId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679153907"><span class="hs-identifier hs-var">projectId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679153906"><span class="annot"><span class="annottext">s :: ProjectSummary
+</span><a href="#local-6989586621679153906"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Mobile.Types.ProjectSummary.html#ProjectSummary%27"><span class="hs-identifier hs-type">ProjectSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679153905"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679153905"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectSummary
+</span><a href="#local-6989586621679153906"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectId:ProjectSummary' :: Maybe Text
 </span><a href="Network.AWS.Mobile.Types.ProjectSummary.html#%24sel%3AprojectId%3AProjectSummary%27"><span class="hs-identifier hs-var">projectId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679153896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Mobile.Types.ProjectSummary.html#ProjectSummary"><span class="hs-identifier hs-type">ProjectSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679153905"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Mobile.Types.ProjectSummary.html#ProjectSummary"><span class="hs-identifier hs-type">ProjectSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679153893"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.Types.ProjectSummary.html#ProjectSummary"><span class="hs-identifier hs-type">ProjectSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679153891"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProjectSummary
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679153902"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.Types.ProjectSummary.html#ProjectSummary"><span class="hs-identifier hs-type">ProjectSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679153900"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProjectSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ProjectSummary)
@@ -164,15 +164,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ProjectSummary&quot;</span></span><span>
-</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679153888"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679153888"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679153897"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679153897"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; ProjectSummary
 </span><a href="Network.AWS.Mobile.Types.ProjectSummary.html#ProjectSummary%27"><span class="hs-identifier hs-var">ProjectSummary'</span></a></span><span>
 </span><span id="line-70"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; ProjectSummary)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; ProjectSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679153888"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679153897"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
@@ -180,13 +180,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser ProjectSummary
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679153888"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679153897"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;projectId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679153882"><span id="local-6989586621679153884"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.Types.ProjectSummary.html#ProjectSummary"><span class="hs-identifier hs-type">ProjectSummary</span></a></span></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679153891"><span id="local-6989586621679153893"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.Types.ProjectSummary.html#ProjectSummary"><span class="hs-identifier hs-type">ProjectSummary</span></a></span></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679153879"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.Types.ProjectSummary.html#ProjectSummary"><span class="hs-identifier hs-type">ProjectSummary</span></a></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679153888"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.Types.ProjectSummary.html#ProjectSummary"><span class="hs-identifier hs-type">ProjectSummary</span></a></span></span><span>
 </span><span id="line-77"></span></pre></body></html>

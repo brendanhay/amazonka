@@ -109,7 +109,7 @@
 </span><span id="line-109"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | /See:/ 'newCreateGrant' smart constructor.</span><span>
-</span><span id="line-112"></span><span id="local-6989586621679260053"><span id="local-6989586621679260054"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateGrant"><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant"><span class="hs-identifier hs-var">CreateGrant</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateGrant%27"><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant%27"><span class="hs-identifier hs-var">CreateGrant'</span></a></span></span><span>
+</span><span id="line-112"></span><span id="local-6989586621679260062"><span id="local-6989586621679260063"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateGrant"><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant"><span class="hs-identifier hs-var">CreateGrant</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateGrant%27"><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant%27"><span class="hs-identifier hs-var">CreateGrant'</span></a></span></span><span>
 </span><span id="line-113"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The principal that has permission to use the RetireGrant operation to</span><span>
 </span><span id="line-114"></span><span>    </span><span class="hs-comment">-- retire the grant.</span><span>
 </span><span id="line-115"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -223,7 +223,7 @@
 </span><span id="line-217"></span><span>    </span><span id="%24sel%3Aoperations%3ACreateGrant%27"><span class="annot"><span class="annottext">CreateGrant -&gt; [GrantOperation]
 </span><a href="Network.AWS.KMS.CreateGrant.html#%24sel%3Aoperations%3ACreateGrant%27"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.KMS.Types.GrantOperation.html#GrantOperation"><span class="hs-identifier hs-type">GrantOperation</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-218"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-219"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679260041"><span id="local-6989586621679260043"><span class="annot"><span class="annottext">CreateGrant -&gt; CreateGrant -&gt; Bool
+</span><span id="line-219"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679260050"><span id="local-6989586621679260052"><span class="annot"><span class="annottext">CreateGrant -&gt; CreateGrant -&gt; Bool
 (CreateGrant -&gt; CreateGrant -&gt; Bool)
 -&gt; (CreateGrant -&gt; CreateGrant -&gt; Bool) -&gt; Eq CreateGrant
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -231,7 +231,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateGrant -&gt; CreateGrant -&gt; Bool
 == :: CreateGrant -&gt; CreateGrant -&gt; Bool
 $c== :: CreateGrant -&gt; CreateGrant -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260032"><span id="local-6989586621679260034"><span id="local-6989586621679260036"><span id="local-6989586621679260038"><span class="annot"><span class="annottext">ReadPrec [CreateGrant]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260041"><span id="local-6989586621679260043"><span id="local-6989586621679260045"><span id="local-6989586621679260047"><span class="annot"><span class="annottext">ReadPrec [CreateGrant]
 ReadPrec CreateGrant
 Int -&gt; ReadS CreateGrant
 ReadS [CreateGrant]
@@ -251,7 +251,7 @@ readList :: ReadS [CreateGrant]
 $creadList :: ReadS [CreateGrant]
 readsPrec :: Int -&gt; ReadS CreateGrant
 $creadsPrec :: Int -&gt; ReadS CreateGrant
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260025"><span id="local-6989586621679260027"><span id="local-6989586621679260029"><span class="annot"><span class="annottext">Int -&gt; CreateGrant -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260034"><span id="local-6989586621679260036"><span id="local-6989586621679260038"><span class="annot"><span class="annottext">Int -&gt; CreateGrant -&gt; ShowS
 [CreateGrant] -&gt; ShowS
 CreateGrant -&gt; String
 (Int -&gt; CreateGrant -&gt; ShowS)
@@ -396,9 +396,9 @@ $cfrom :: forall x. CreateGrant -&gt; Rep CreateGrant x
 </span><span id="line-337"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-338"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant"><span class="hs-identifier hs-type">CreateGrant</span></a></span><span>
 </span><span id="line-339"></span><span id="newCreateGrant"><span class="annot"><span class="annottext">newCreateGrant :: Text -&gt; Text -&gt; CreateGrant
-</span><a href="Network.AWS.KMS.CreateGrant.html#newCreateGrant"><span class="hs-identifier hs-var hs-var">newCreateGrant</span></a></span></span><span> </span><span id="local-6989586621679260020"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679260020"><span class="hs-identifier hs-var">pKeyId_</span></a></span></span><span> </span><span id="local-6989586621679260019"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679260019"><span class="hs-identifier hs-var">pGranteePrincipal_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.KMS.CreateGrant.html#newCreateGrant"><span class="hs-identifier hs-var hs-var">newCreateGrant</span></a></span></span><span> </span><span id="local-6989586621679260029"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260029"><span class="hs-identifier hs-var">pKeyId_</span></a></span></span><span> </span><span id="local-6989586621679260028"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260028"><span class="hs-identifier hs-var">pGranteePrincipal_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-340"></span><span>  </span><span class="annot"><span class="annottext">CreateGrant' :: Maybe Text
 -&gt; Maybe [Text]
 -&gt; Maybe GrantConstraints
@@ -426,10 +426,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-345"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyId:CreateGrant' :: Text
 </span><a href="Network.AWS.KMS.CreateGrant.html#%24sel%3AkeyId%3ACreateGrant%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679260020"><span class="hs-identifier hs-var">pKeyId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679260029"><span class="hs-identifier hs-var">pKeyId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-346"></span><span>      </span><span class="annot"><span class="annottext">$sel:granteePrincipal:CreateGrant' :: Text
 </span><a href="Network.AWS.KMS.CreateGrant.html#%24sel%3AgranteePrincipal%3ACreateGrant%27"><span class="hs-identifier hs-var">granteePrincipal</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679260019"><span class="hs-identifier hs-var">pGranteePrincipal_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679260028"><span class="hs-identifier hs-var">pGranteePrincipal_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-347"></span><span>      </span><span class="annot"><span class="annottext">$sel:operations:CreateGrant' :: [GrantOperation]
 </span><a href="Network.AWS.KMS.CreateGrant.html#%24sel%3Aoperations%3ACreateGrant%27"><span class="hs-identifier hs-var">operations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[GrantOperation]
 forall a. Monoid a =&gt; a
@@ -460,16 +460,16 @@ forall a. Monoid a =&gt; a
 -&gt; (CreateGrant -&gt; Maybe Text -&gt; CreateGrant)
 -&gt; Lens CreateGrant CreateGrant (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant%27"><span class="hs-identifier hs-type">CreateGrant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260016"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant%27"><span class="hs-identifier hs-type">CreateGrant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260025"><span class="annot"><span class="annottext">Maybe Text
 retiringPrincipal :: Maybe Text
 $sel:retiringPrincipal:CreateGrant' :: CreateGrant -&gt; Maybe Text
-</span><a href="#local-6989586621679260016"><span class="hs-identifier hs-var hs-var">retiringPrincipal</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679260016"><span class="hs-identifier hs-var">retiringPrincipal</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260015"><span class="annot"><span class="annottext">s :: CreateGrant
-</span><a href="#local-6989586621679260015"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant%27"><span class="hs-identifier hs-type">CreateGrant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260014"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679260014"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGrant
-</span><a href="#local-6989586621679260015"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retiringPrincipal:CreateGrant' :: Maybe Text
+</span><a href="#local-6989586621679260025"><span class="hs-identifier hs-var hs-var">retiringPrincipal</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260025"><span class="hs-identifier hs-var">retiringPrincipal</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260024"><span class="annot"><span class="annottext">s :: CreateGrant
+</span><a href="#local-6989586621679260024"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant%27"><span class="hs-identifier hs-type">CreateGrant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260023"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260023"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGrant
+</span><a href="#local-6989586621679260024"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retiringPrincipal:CreateGrant' :: Maybe Text
 </span><a href="Network.AWS.KMS.CreateGrant.html#%24sel%3AretiringPrincipal%3ACreateGrant%27"><span class="hs-identifier hs-var">retiringPrincipal</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679260014"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant"><span class="hs-identifier hs-type">CreateGrant</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679260023"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant"><span class="hs-identifier hs-type">CreateGrant</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-370"></span><span>
 </span><span id="line-371"></span><span class="hs-comment">-- | A list of grant tokens.</span><span>
 </span><span id="line-372"></span><span class="hs-comment">--</span><span>
@@ -486,16 +486,16 @@ $sel:retiringPrincipal:CreateGrant' :: CreateGrant -&gt; Maybe Text
 -&gt; (CreateGrant -&gt; Maybe [Text] -&gt; CreateGrant)
 -&gt; Lens CreateGrant CreateGrant (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant%27"><span class="hs-identifier hs-type">CreateGrant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260013"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant%27"><span class="hs-identifier hs-type">CreateGrant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260022"><span class="annot"><span class="annottext">Maybe [Text]
 grantTokens :: Maybe [Text]
 $sel:grantTokens:CreateGrant' :: CreateGrant -&gt; Maybe [Text]
-</span><a href="#local-6989586621679260013"><span class="hs-identifier hs-var hs-var">grantTokens</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679260013"><span class="hs-identifier hs-var">grantTokens</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260012"><span class="annot"><span class="annottext">s :: CreateGrant
-</span><a href="#local-6989586621679260012"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant%27"><span class="hs-identifier hs-type">CreateGrant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260011"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679260011"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGrant
-</span><a href="#local-6989586621679260012"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grantTokens:CreateGrant' :: Maybe [Text]
+</span><a href="#local-6989586621679260022"><span class="hs-identifier hs-var hs-var">grantTokens</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679260022"><span class="hs-identifier hs-var">grantTokens</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260021"><span class="annot"><span class="annottext">s :: CreateGrant
+</span><a href="#local-6989586621679260021"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant%27"><span class="hs-identifier hs-type">CreateGrant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260020"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679260020"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGrant
+</span><a href="#local-6989586621679260021"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grantTokens:CreateGrant' :: Maybe [Text]
 </span><a href="Network.AWS.KMS.CreateGrant.html#%24sel%3AgrantTokens%3ACreateGrant%27"><span class="hs-identifier hs-var">grantTokens</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679260011"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant"><span class="hs-identifier hs-type">CreateGrant</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679260020"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant"><span class="hs-identifier hs-type">CreateGrant</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; CreateGrant -&gt; f CreateGrant)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -545,16 +545,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe GrantConstraints)
      (Maybe GrantConstraints)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant%27"><span class="hs-identifier hs-type">CreateGrant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260007"><span class="annot"><span class="annottext">Maybe GrantConstraints
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant%27"><span class="hs-identifier hs-type">CreateGrant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260016"><span class="annot"><span class="annottext">Maybe GrantConstraints
 constraints :: Maybe GrantConstraints
 $sel:constraints:CreateGrant' :: CreateGrant -&gt; Maybe GrantConstraints
-</span><a href="#local-6989586621679260007"><span class="hs-identifier hs-var hs-var">constraints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GrantConstraints
-</span><a href="#local-6989586621679260007"><span class="hs-identifier hs-var">constraints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260006"><span class="annot"><span class="annottext">s :: CreateGrant
-</span><a href="#local-6989586621679260006"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant%27"><span class="hs-identifier hs-type">CreateGrant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260005"><span class="annot"><span class="annottext">Maybe GrantConstraints
-</span><a href="#local-6989586621679260005"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGrant
-</span><a href="#local-6989586621679260006"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:constraints:CreateGrant' :: Maybe GrantConstraints
+</span><a href="#local-6989586621679260016"><span class="hs-identifier hs-var hs-var">constraints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GrantConstraints
+</span><a href="#local-6989586621679260016"><span class="hs-identifier hs-var">constraints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260015"><span class="annot"><span class="annottext">s :: CreateGrant
+</span><a href="#local-6989586621679260015"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant%27"><span class="hs-identifier hs-type">CreateGrant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260014"><span class="annot"><span class="annottext">Maybe GrantConstraints
+</span><a href="#local-6989586621679260014"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGrant
+</span><a href="#local-6989586621679260015"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:constraints:CreateGrant' :: Maybe GrantConstraints
 </span><a href="Network.AWS.KMS.CreateGrant.html#%24sel%3Aconstraints%3ACreateGrant%27"><span class="hs-identifier hs-var">constraints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GrantConstraints
-</span><a href="#local-6989586621679260005"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant"><span class="hs-identifier hs-type">CreateGrant</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679260014"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant"><span class="hs-identifier hs-type">CreateGrant</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-407"></span><span>
 </span><span id="line-408"></span><span class="hs-comment">-- | A friendly name for the grant. Use this value to prevent the unintended</span><span>
 </span><span id="line-409"></span><span class="hs-comment">-- creation of duplicate grants when retrying this request.</span><span>
@@ -576,16 +576,16 @@ $sel:constraints:CreateGrant' :: CreateGrant -&gt; Maybe GrantConstraints
 -&gt; (CreateGrant -&gt; Maybe Text -&gt; CreateGrant)
 -&gt; Lens CreateGrant CreateGrant (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant%27"><span class="hs-identifier hs-type">CreateGrant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260004"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant%27"><span class="hs-identifier hs-type">CreateGrant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260013"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:CreateGrant' :: CreateGrant -&gt; Maybe Text
-</span><a href="#local-6989586621679260004"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679260004"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260003"><span class="annot"><span class="annottext">s :: CreateGrant
-</span><a href="#local-6989586621679260003"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant%27"><span class="hs-identifier hs-type">CreateGrant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260002"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679260002"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGrant
-</span><a href="#local-6989586621679260003"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateGrant' :: Maybe Text
+</span><a href="#local-6989586621679260013"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260013"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260012"><span class="annot"><span class="annottext">s :: CreateGrant
+</span><a href="#local-6989586621679260012"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant%27"><span class="hs-identifier hs-type">CreateGrant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260011"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260011"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGrant
+</span><a href="#local-6989586621679260012"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateGrant' :: Maybe Text
 </span><a href="Network.AWS.KMS.CreateGrant.html#%24sel%3Aname%3ACreateGrant%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679260002"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant"><span class="hs-identifier hs-type">CreateGrant</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679260011"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant"><span class="hs-identifier hs-type">CreateGrant</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-424"></span><span>
 </span><span id="line-425"></span><span class="hs-comment">-- | Identifies the KMS key for the grant. The grant gives principals</span><span>
 </span><span id="line-426"></span><span class="hs-comment">-- permission to use this KMS key.</span><span>
@@ -608,16 +608,16 @@ $sel:name:CreateGrant' :: CreateGrant -&gt; Maybe Text
 -&gt; (CreateGrant -&gt; Text -&gt; CreateGrant)
 -&gt; Lens CreateGrant CreateGrant Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant%27"><span class="hs-identifier hs-type">CreateGrant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260001"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant%27"><span class="hs-identifier hs-type">CreateGrant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260010"><span class="annot"><span class="annottext">Text
 keyId :: Text
 $sel:keyId:CreateGrant' :: CreateGrant -&gt; Text
-</span><a href="#local-6989586621679260001"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679260001"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260000"><span class="annot"><span class="annottext">s :: CreateGrant
-</span><a href="#local-6989586621679260000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant%27"><span class="hs-identifier hs-type">CreateGrant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259999"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGrant
-</span><a href="#local-6989586621679260000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:CreateGrant' :: Text
+</span><a href="#local-6989586621679260010"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260010"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260009"><span class="annot"><span class="annottext">s :: CreateGrant
+</span><a href="#local-6989586621679260009"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant%27"><span class="hs-identifier hs-type">CreateGrant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260008"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260008"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGrant
+</span><a href="#local-6989586621679260009"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:CreateGrant' :: Text
 </span><a href="Network.AWS.KMS.CreateGrant.html#%24sel%3AkeyId%3ACreateGrant%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant"><span class="hs-identifier hs-type">CreateGrant</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679260008"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant"><span class="hs-identifier hs-type">CreateGrant</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-442"></span><span>
 </span><span id="line-443"></span><span class="hs-comment">-- | The identity that gets the permissions specified in the grant.</span><span>
 </span><span id="line-444"></span><span class="hs-comment">--</span><span>
@@ -636,16 +636,16 @@ $sel:keyId:CreateGrant' :: CreateGrant -&gt; Text
 -&gt; (CreateGrant -&gt; Text -&gt; CreateGrant)
 -&gt; Lens CreateGrant CreateGrant Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant%27"><span class="hs-identifier hs-type">CreateGrant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259998"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant%27"><span class="hs-identifier hs-type">CreateGrant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260007"><span class="annot"><span class="annottext">Text
 granteePrincipal :: Text
 $sel:granteePrincipal:CreateGrant' :: CreateGrant -&gt; Text
-</span><a href="#local-6989586621679259998"><span class="hs-identifier hs-var hs-var">granteePrincipal</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259998"><span class="hs-identifier hs-var">granteePrincipal</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259997"><span class="annot"><span class="annottext">s :: CreateGrant
-</span><a href="#local-6989586621679259997"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant%27"><span class="hs-identifier hs-type">CreateGrant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259996"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259996"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGrant
-</span><a href="#local-6989586621679259997"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:granteePrincipal:CreateGrant' :: Text
+</span><a href="#local-6989586621679260007"><span class="hs-identifier hs-var hs-var">granteePrincipal</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260007"><span class="hs-identifier hs-var">granteePrincipal</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260006"><span class="annot"><span class="annottext">s :: CreateGrant
+</span><a href="#local-6989586621679260006"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant%27"><span class="hs-identifier hs-type">CreateGrant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260005"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260005"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGrant
+</span><a href="#local-6989586621679260006"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:granteePrincipal:CreateGrant' :: Text
 </span><a href="Network.AWS.KMS.CreateGrant.html#%24sel%3AgranteePrincipal%3ACreateGrant%27"><span class="hs-identifier hs-var">granteePrincipal</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259996"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant"><span class="hs-identifier hs-type">CreateGrant</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679260005"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant"><span class="hs-identifier hs-type">CreateGrant</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-456"></span><span>
 </span><span id="line-457"></span><span class="hs-comment">-- | A list of operations that the grant permits.</span><span>
 </span><span id="line-458"></span><span class="hs-comment">--</span><span>
@@ -663,16 +663,16 @@ $sel:granteePrincipal:CreateGrant' :: CreateGrant -&gt; Text
 -&gt; (CreateGrant -&gt; [GrantOperation] -&gt; CreateGrant)
 -&gt; Lens CreateGrant CreateGrant [GrantOperation] [GrantOperation]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant%27"><span class="hs-identifier hs-type">CreateGrant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259995"><span class="annot"><span class="annottext">[GrantOperation]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant%27"><span class="hs-identifier hs-type">CreateGrant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260004"><span class="annot"><span class="annottext">[GrantOperation]
 operations :: [GrantOperation]
 $sel:operations:CreateGrant' :: CreateGrant -&gt; [GrantOperation]
-</span><a href="#local-6989586621679259995"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[GrantOperation]
-</span><a href="#local-6989586621679259995"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259994"><span class="annot"><span class="annottext">s :: CreateGrant
-</span><a href="#local-6989586621679259994"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant%27"><span class="hs-identifier hs-type">CreateGrant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259993"><span class="annot"><span class="annottext">[GrantOperation]
-</span><a href="#local-6989586621679259993"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGrant
-</span><a href="#local-6989586621679259994"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:CreateGrant' :: [GrantOperation]
+</span><a href="#local-6989586621679260004"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[GrantOperation]
+</span><a href="#local-6989586621679260004"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260003"><span class="annot"><span class="annottext">s :: CreateGrant
+</span><a href="#local-6989586621679260003"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant%27"><span class="hs-identifier hs-type">CreateGrant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260002"><span class="annot"><span class="annottext">[GrantOperation]
+</span><a href="#local-6989586621679260002"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGrant
+</span><a href="#local-6989586621679260003"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:CreateGrant' :: [GrantOperation]
 </span><a href="Network.AWS.KMS.CreateGrant.html#%24sel%3Aoperations%3ACreateGrant%27"><span class="hs-identifier hs-var">operations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[GrantOperation]
-</span><a href="#local-6989586621679259993"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant"><span class="hs-identifier hs-type">CreateGrant</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([GrantOperation] -&gt; f [GrantOperation])
+</span><a href="#local-6989586621679260002"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant"><span class="hs-identifier hs-type">CreateGrant</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([GrantOperation] -&gt; f [GrantOperation])
  -&gt; CreateGrant -&gt; f CreateGrant)
 -&gt; (([GrantOperation] -&gt; f [GrantOperation])
     -&gt; [GrantOperation] -&gt; f [GrantOperation])
@@ -687,12 +687,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-468"></span><span>
 </span><span id="line-469"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant"><span class="hs-identifier hs-type">CreateGrant</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-470"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant"><span class="hs-identifier hs-type">CreateGrant</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrantResponse"><span class="hs-identifier hs-type">CreateGrantResponse</span></a></span><span>
-</span><span id="line-471"></span><span>  </span><span id="local-6989586621679259989"><span class="annot"><span class="annottext">request :: CreateGrant -&gt; Request CreateGrant
+</span><span id="line-471"></span><span>  </span><span id="local-6989586621679259998"><span class="annot"><span class="annottext">request :: CreateGrant -&gt; Request CreateGrant
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateGrant -&gt; Request CreateGrant
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.KMS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-472"></span><span>  </span><span id="local-6989586621679259985"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-472"></span><span>  </span><span id="local-6989586621679259994"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateGrant
 -&gt; ClientResponse ClientBody
@@ -716,10 +716,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-474"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679259982"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259982"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679259981"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679259981"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679259980"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259980"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-474"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679259991"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259991"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679259990"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679259990"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679259989"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679259989"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-475"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateGrantResponse
 </span><a href="Network.AWS.KMS.CreateGrant.html#CreateGrantResponse%27"><span class="hs-identifier hs-var">CreateGrantResponse'</span></a></span><span>
 </span><span id="line-476"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateGrantResponse)
@@ -727,7 +727,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; CreateGrantResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259980"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679259989"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GrantId&quot;</span></span><span class="hs-special">)</span><span>
@@ -736,7 +736,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; CreateGrantResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259980"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679259989"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GrantToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -748,15 +748,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259982"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259991"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-479"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-480"></span><span>
-</span><span id="line-481"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259972"><span id="local-6989586621679259974"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant"><span class="hs-identifier hs-type">CreateGrant</span></a></span></span></span><span>
+</span><span id="line-481"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259981"><span id="local-6989586621679259983"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant"><span class="hs-identifier hs-type">CreateGrant</span></a></span></span></span><span>
 </span><span id="line-482"></span><span>
-</span><span id="line-483"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259969"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant"><span class="hs-identifier hs-type">CreateGrant</span></a></span></span><span>
+</span><span id="line-483"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259978"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant"><span class="hs-identifier hs-type">CreateGrant</span></a></span></span><span>
 </span><span id="line-484"></span><span>
 </span><span id="line-485"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant"><span class="hs-identifier hs-type">CreateGrant</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-486"></span><span>  </span><span id="local-6989586621679259965"><span class="annot"><span class="annottext">toHeaders :: CreateGrant -&gt; ResponseHeaders
+</span><span id="line-486"></span><span>  </span><span id="local-6989586621679259974"><span class="annot"><span class="annottext">toHeaders :: CreateGrant -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-487"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateGrant -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -781,9 +781,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-495"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-496"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-497"></span><span>
-</span><span id="line-498"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259955"><span id="local-6989586621679259957"><span id="local-6989586621679259959"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant"><span class="hs-identifier hs-type">CreateGrant</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-499"></span><span>  </span><span id="local-6989586621679259953"><span class="annot"><span class="annottext">toJSON :: CreateGrant -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant%27"><span class="hs-identifier hs-type">CreateGrant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259945"><span id="local-6989586621679259946"><span id="local-6989586621679259947"><span id="local-6989586621679259948"><span id="local-6989586621679259949"><span id="local-6989586621679259950"><span id="local-6989586621679259951"><span class="annot"><span class="annottext">[GrantOperation]
+</span><span id="line-498"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259964"><span id="local-6989586621679259966"><span id="local-6989586621679259968"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant"><span class="hs-identifier hs-type">CreateGrant</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-499"></span><span>  </span><span id="local-6989586621679259962"><span class="annot"><span class="annottext">toJSON :: CreateGrant -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant%27"><span class="hs-identifier hs-type">CreateGrant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259954"><span id="local-6989586621679259955"><span id="local-6989586621679259956"><span id="local-6989586621679259957"><span id="local-6989586621679259958"><span id="local-6989586621679259959"><span id="local-6989586621679259960"><span class="annot"><span class="annottext">[GrantOperation]
 Maybe [Text]
 Maybe Text
 Maybe GrantConstraints
@@ -802,7 +802,7 @@ $sel:name:CreateGrant' :: CreateGrant -&gt; Maybe Text
 $sel:constraints:CreateGrant' :: CreateGrant -&gt; Maybe GrantConstraints
 $sel:grantTokens:CreateGrant' :: CreateGrant -&gt; Maybe [Text]
 $sel:retiringPrincipal:CreateGrant' :: CreateGrant -&gt; Maybe Text
-</span><a href="#local-6989586621679259945"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679259954"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-500"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-501"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -815,35 +815,35 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-503"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259951"><span class="hs-identifier hs-var">retiringPrincipal</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679259960"><span class="hs-identifier hs-var">retiringPrincipal</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-504"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GrantTokens&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679259950"><span class="hs-identifier hs-var">grantTokens</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679259959"><span class="hs-identifier hs-var">grantTokens</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-505"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Constraints&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; GrantConstraints -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(GrantConstraints -&gt; Pair) -&gt; Maybe GrantConstraints -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe GrantConstraints
-</span><a href="#local-6989586621679259949"><span class="hs-identifier hs-var">constraints</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679259958"><span class="hs-identifier hs-var">constraints</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-506"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259948"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679259957"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-507"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259947"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679259956"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-508"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -851,26 +851,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;GranteePrincipal&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259946"><span class="hs-identifier hs-var">granteePrincipal</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679259955"><span class="hs-identifier hs-var">granteePrincipal</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-510"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Operations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [GrantOperation] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[GrantOperation]
-</span><a href="#local-6989586621679259945"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259954"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-511"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-512"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-513"></span><span>
 </span><span id="line-514"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant"><span class="hs-identifier hs-type">CreateGrant</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-515"></span><span>  </span><span id="local-6989586621679259939"><span class="annot"><span class="annottext">toPath :: CreateGrant -&gt; ByteString
+</span><span id="line-515"></span><span>  </span><span id="local-6989586621679259948"><span class="annot"><span class="annottext">toPath :: CreateGrant -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateGrant -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-516"></span><span>
 </span><span id="line-517"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrant"><span class="hs-identifier hs-type">CreateGrant</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-518"></span><span>  </span><span id="local-6989586621679259935"><span class="annot"><span class="annottext">toQuery :: CreateGrant -&gt; QueryString
+</span><span id="line-518"></span><span>  </span><span id="local-6989586621679259944"><span class="annot"><span class="annottext">toQuery :: CreateGrant -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateGrant -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -878,7 +878,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-519"></span><span>
 </span><span id="line-520"></span><span class="hs-comment">-- | /See:/ 'newCreateGrantResponse' smart constructor.</span><span>
-</span><span id="line-521"></span><span id="local-6989586621679259932"><span id="local-6989586621679259933"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateGrantResponse"><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrantResponse"><span class="hs-identifier hs-var">CreateGrantResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateGrantResponse%27"><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrantResponse%27"><span class="hs-identifier hs-var">CreateGrantResponse'</span></a></span></span><span>
+</span><span id="line-521"></span><span id="local-6989586621679259941"><span id="local-6989586621679259942"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateGrantResponse"><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrantResponse"><span class="hs-identifier hs-var">CreateGrantResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateGrantResponse%27"><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrantResponse%27"><span class="hs-identifier hs-var">CreateGrantResponse'</span></a></span></span><span>
 </span><span id="line-522"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier for the grant.</span><span>
 </span><span id="line-523"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-524"></span><span>    </span><span class="hs-comment">-- You can use the @GrantId@ in a ListGrants, RetireGrant, or RevokeGrant</span><span>
@@ -900,7 +900,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-538"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateGrantResponse%27"><span class="annot"><span class="annottext">CreateGrantResponse -&gt; Int
 </span><a href="Network.AWS.KMS.CreateGrant.html#%24sel%3AhttpStatus%3ACreateGrantResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-539"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-540"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259925"><span id="local-6989586621679259927"><span class="annot"><span class="annottext">CreateGrantResponse -&gt; CreateGrantResponse -&gt; Bool
+</span><span id="line-540"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259934"><span id="local-6989586621679259936"><span class="annot"><span class="annottext">CreateGrantResponse -&gt; CreateGrantResponse -&gt; Bool
 (CreateGrantResponse -&gt; CreateGrantResponse -&gt; Bool)
 -&gt; (CreateGrantResponse -&gt; CreateGrantResponse -&gt; Bool)
 -&gt; Eq CreateGrantResponse
@@ -909,7 +909,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateGrantResponse -&gt; CreateGrantResponse -&gt; Bool
 == :: CreateGrantResponse -&gt; CreateGrantResponse -&gt; Bool
 $c== :: CreateGrantResponse -&gt; CreateGrantResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259917"><span id="local-6989586621679259919"><span id="local-6989586621679259921"><span id="local-6989586621679259923"><span class="annot"><span class="annottext">ReadPrec [CreateGrantResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259926"><span id="local-6989586621679259928"><span id="local-6989586621679259930"><span id="local-6989586621679259932"><span class="annot"><span class="annottext">ReadPrec [CreateGrantResponse]
 ReadPrec CreateGrantResponse
 Int -&gt; ReadS CreateGrantResponse
 ReadS [CreateGrantResponse]
@@ -929,7 +929,7 @@ readList :: ReadS [CreateGrantResponse]
 $creadList :: ReadS [CreateGrantResponse]
 readsPrec :: Int -&gt; ReadS CreateGrantResponse
 $creadsPrec :: Int -&gt; ReadS CreateGrantResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259911"><span id="local-6989586621679259913"><span id="local-6989586621679259915"><span class="annot"><span class="annottext">Int -&gt; CreateGrantResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259920"><span id="local-6989586621679259922"><span id="local-6989586621679259924"><span class="annot"><span class="annottext">Int -&gt; CreateGrantResponse -&gt; ShowS
 [CreateGrantResponse] -&gt; ShowS
 CreateGrantResponse -&gt; String
 (Int -&gt; CreateGrantResponse -&gt; ShowS)
@@ -984,8 +984,8 @@ $cfrom :: forall x. CreateGrantResponse -&gt; Rep CreateGrantResponse x
 </span><span id="line-568"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-569"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrantResponse"><span class="hs-identifier hs-type">CreateGrantResponse</span></a></span><span>
 </span><span id="line-570"></span><span id="newCreateGrantResponse"><span class="annot"><span class="annottext">newCreateGrantResponse :: Int -&gt; CreateGrantResponse
-</span><a href="Network.AWS.KMS.CreateGrant.html#newCreateGrantResponse"><span class="hs-identifier hs-var hs-var">newCreateGrantResponse</span></a></span></span><span> </span><span id="local-6989586621679259908"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259908"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.KMS.CreateGrant.html#newCreateGrantResponse"><span class="hs-identifier hs-var hs-var">newCreateGrantResponse</span></a></span></span><span> </span><span id="local-6989586621679259917"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259917"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-571"></span><span>  </span><span class="annot"><span class="annottext">CreateGrantResponse' :: Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateGrantResponse
 </span><a href="Network.AWS.KMS.CreateGrant.html#CreateGrantResponse%27"><span class="hs-identifier hs-type">CreateGrantResponse'</span></a></span><span>
 </span><span id="line-572"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:grantId:CreateGrantResponse' :: Maybe Text
@@ -998,7 +998,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-574"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateGrantResponse' :: Int
 </span><a href="Network.AWS.KMS.CreateGrant.html#%24sel%3AhttpStatus%3ACreateGrantResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259908"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679259917"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-575"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-576"></span><span>
 </span><span id="line-577"></span><span class="hs-comment">-- | The unique identifier for the grant.</span><span>
@@ -1013,16 +1013,16 @@ forall a. Maybe a
 -&gt; Lens
      CreateGrantResponse CreateGrantResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrantResponse%27"><span class="hs-identifier hs-type">CreateGrantResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259907"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrantResponse%27"><span class="hs-identifier hs-type">CreateGrantResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259916"><span class="annot"><span class="annottext">Maybe Text
 grantId :: Maybe Text
 $sel:grantId:CreateGrantResponse' :: CreateGrantResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679259907"><span class="hs-identifier hs-var hs-var">grantId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259907"><span class="hs-identifier hs-var">grantId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259906"><span class="annot"><span class="annottext">s :: CreateGrantResponse
-</span><a href="#local-6989586621679259906"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrantResponse%27"><span class="hs-identifier hs-type">CreateGrantResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259905"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259905"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGrantResponse
-</span><a href="#local-6989586621679259906"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grantId:CreateGrantResponse' :: Maybe Text
+</span><a href="#local-6989586621679259916"><span class="hs-identifier hs-var hs-var">grantId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259916"><span class="hs-identifier hs-var">grantId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259915"><span class="annot"><span class="annottext">s :: CreateGrantResponse
+</span><a href="#local-6989586621679259915"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrantResponse%27"><span class="hs-identifier hs-type">CreateGrantResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259914"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259914"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGrantResponse
+</span><a href="#local-6989586621679259915"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grantId:CreateGrantResponse' :: Maybe Text
 </span><a href="Network.AWS.KMS.CreateGrant.html#%24sel%3AgrantId%3ACreateGrantResponse%27"><span class="hs-identifier hs-var">grantId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259905"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrantResponse"><span class="hs-identifier hs-type">CreateGrantResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259914"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrantResponse"><span class="hs-identifier hs-type">CreateGrantResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-583"></span><span>
 </span><span id="line-584"></span><span class="hs-comment">-- | The grant token.</span><span>
 </span><span id="line-585"></span><span class="hs-comment">--</span><span>
@@ -1041,16 +1041,16 @@ $sel:grantId:CreateGrantResponse' :: CreateGrantResponse -&gt; Maybe Text
 -&gt; Lens
      CreateGrantResponse CreateGrantResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrantResponse%27"><span class="hs-identifier hs-type">CreateGrantResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259904"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrantResponse%27"><span class="hs-identifier hs-type">CreateGrantResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259913"><span class="annot"><span class="annottext">Maybe Text
 grantToken :: Maybe Text
 $sel:grantToken:CreateGrantResponse' :: CreateGrantResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679259904"><span class="hs-identifier hs-var hs-var">grantToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259904"><span class="hs-identifier hs-var">grantToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259903"><span class="annot"><span class="annottext">s :: CreateGrantResponse
-</span><a href="#local-6989586621679259903"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrantResponse%27"><span class="hs-identifier hs-type">CreateGrantResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259902"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259902"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGrantResponse
-</span><a href="#local-6989586621679259903"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grantToken:CreateGrantResponse' :: Maybe Text
+</span><a href="#local-6989586621679259913"><span class="hs-identifier hs-var hs-var">grantToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259913"><span class="hs-identifier hs-var">grantToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259912"><span class="annot"><span class="annottext">s :: CreateGrantResponse
+</span><a href="#local-6989586621679259912"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrantResponse%27"><span class="hs-identifier hs-type">CreateGrantResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259911"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259911"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGrantResponse
+</span><a href="#local-6989586621679259912"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grantToken:CreateGrantResponse' :: Maybe Text
 </span><a href="Network.AWS.KMS.CreateGrant.html#%24sel%3AgrantToken%3ACreateGrantResponse%27"><span class="hs-identifier hs-var">grantToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259902"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrantResponse"><span class="hs-identifier hs-type">CreateGrantResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259911"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrantResponse"><span class="hs-identifier hs-type">CreateGrantResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-595"></span><span>
 </span><span id="line-596"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-597"></span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#createGrantResponse_httpStatus"><span class="hs-identifier hs-type">createGrantResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrantResponse"><span class="hs-identifier hs-type">CreateGrantResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -1059,16 +1059,16 @@ $sel:grantToken:CreateGrantResponse' :: CreateGrantResponse -&gt; Maybe Text
 -&gt; (CreateGrantResponse -&gt; Int -&gt; CreateGrantResponse)
 -&gt; Lens CreateGrantResponse CreateGrantResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrantResponse%27"><span class="hs-identifier hs-type">CreateGrantResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259901"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrantResponse%27"><span class="hs-identifier hs-type">CreateGrantResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259910"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateGrantResponse' :: CreateGrantResponse -&gt; Int
-</span><a href="#local-6989586621679259901"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259901"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259900"><span class="annot"><span class="annottext">s :: CreateGrantResponse
-</span><a href="#local-6989586621679259900"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrantResponse%27"><span class="hs-identifier hs-type">CreateGrantResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259899"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259899"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGrantResponse
-</span><a href="#local-6989586621679259900"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateGrantResponse' :: Int
+</span><a href="#local-6989586621679259910"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259910"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259909"><span class="annot"><span class="annottext">s :: CreateGrantResponse
+</span><a href="#local-6989586621679259909"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrantResponse%27"><span class="hs-identifier hs-type">CreateGrantResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259908"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259908"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateGrantResponse
+</span><a href="#local-6989586621679259909"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateGrantResponse' :: Int
 </span><a href="Network.AWS.KMS.CreateGrant.html#%24sel%3AhttpStatus%3ACreateGrantResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259899"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrantResponse"><span class="hs-identifier hs-type">CreateGrantResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259908"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrantResponse"><span class="hs-identifier hs-type">CreateGrantResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-599"></span><span>
-</span><span id="line-600"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259897"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrantResponse"><span class="hs-identifier hs-type">CreateGrantResponse</span></a></span></span><span>
+</span><span id="line-600"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259906"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.CreateGrant.html#CreateGrantResponse"><span class="hs-identifier hs-type">CreateGrantResponse</span></a></span></span><span>
 </span><span id="line-601"></span></pre></body></html>

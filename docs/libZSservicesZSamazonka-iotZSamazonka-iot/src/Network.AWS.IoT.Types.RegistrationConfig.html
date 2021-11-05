@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The registration configuration.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newRegistrationConfig' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679794779"><span id="local-6989586621679794780"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegistrationConfig"><span class="annot"><a href="Network.AWS.IoT.Types.RegistrationConfig.html#RegistrationConfig"><span class="hs-identifier hs-var">RegistrationConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegistrationConfig%27"><span class="annot"><a href="Network.AWS.IoT.Types.RegistrationConfig.html#RegistrationConfig%27"><span class="hs-identifier hs-var">RegistrationConfig'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679794788"><span id="local-6989586621679794789"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegistrationConfig"><span class="annot"><a href="Network.AWS.IoT.Types.RegistrationConfig.html#RegistrationConfig"><span class="hs-identifier hs-var">RegistrationConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegistrationConfig%27"><span class="annot"><a href="Network.AWS.IoT.Types.RegistrationConfig.html#RegistrationConfig%27"><span class="hs-identifier hs-var">RegistrationConfig'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The template body.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AtemplateBody%3ARegistrationConfig%27"><span class="annot"><span class="annottext">RegistrationConfig -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.Types.RegistrationConfig.html#%24sel%3AtemplateBody%3ARegistrationConfig%27"><span class="hs-identifier hs-var hs-var">templateBody</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AroleArn%3ARegistrationConfig%27"><span class="annot"><span class="annottext">RegistrationConfig -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.Types.RegistrationConfig.html#%24sel%3AroleArn%3ARegistrationConfig%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679794772"><span id="local-6989586621679794774"><span class="annot"><span class="annottext">RegistrationConfig -&gt; RegistrationConfig -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679794781"><span id="local-6989586621679794783"><span class="annot"><span class="annottext">RegistrationConfig -&gt; RegistrationConfig -&gt; Bool
 (RegistrationConfig -&gt; RegistrationConfig -&gt; Bool)
 -&gt; (RegistrationConfig -&gt; RegistrationConfig -&gt; Bool)
 -&gt; Eq RegistrationConfig
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RegistrationConfig -&gt; RegistrationConfig -&gt; Bool
 == :: RegistrationConfig -&gt; RegistrationConfig -&gt; Bool
 $c== :: RegistrationConfig -&gt; RegistrationConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679794763"><span id="local-6989586621679794765"><span id="local-6989586621679794767"><span id="local-6989586621679794769"><span class="annot"><span class="annottext">ReadPrec [RegistrationConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679794772"><span id="local-6989586621679794774"><span id="local-6989586621679794776"><span id="local-6989586621679794778"><span class="annot"><span class="annottext">ReadPrec [RegistrationConfig]
 ReadPrec RegistrationConfig
 Int -&gt; ReadS RegistrationConfig
 ReadS [RegistrationConfig]
@@ -63,7 +63,7 @@ readList :: ReadS [RegistrationConfig]
 $creadList :: ReadS [RegistrationConfig]
 readsPrec :: Int -&gt; ReadS RegistrationConfig
 $creadsPrec :: Int -&gt; ReadS RegistrationConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679794756"><span id="local-6989586621679794758"><span id="local-6989586621679794760"><span class="annot"><span class="annottext">Int -&gt; RegistrationConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679794765"><span id="local-6989586621679794767"><span id="local-6989586621679794769"><span class="annot"><span class="annottext">Int -&gt; RegistrationConfig -&gt; ShowS
 [RegistrationConfig] -&gt; ShowS
 RegistrationConfig -&gt; String
 (Int -&gt; RegistrationConfig -&gt; ShowS)
@@ -125,16 +125,16 @@ forall a. Maybe a
 -&gt; Lens
      RegistrationConfig RegistrationConfig (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.RegistrationConfig.html#RegistrationConfig%27"><span class="hs-identifier hs-type">RegistrationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679794747"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.RegistrationConfig.html#RegistrationConfig%27"><span class="hs-identifier hs-type">RegistrationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679794756"><span class="annot"><span class="annottext">Maybe Text
 templateBody :: Maybe Text
 $sel:templateBody:RegistrationConfig' :: RegistrationConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679794747"><span class="hs-identifier hs-var hs-var">templateBody</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679794747"><span class="hs-identifier hs-var">templateBody</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679794746"><span class="annot"><span class="annottext">s :: RegistrationConfig
-</span><a href="#local-6989586621679794746"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.RegistrationConfig.html#RegistrationConfig%27"><span class="hs-identifier hs-type">RegistrationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679794745"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679794745"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegistrationConfig
-</span><a href="#local-6989586621679794746"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateBody:RegistrationConfig' :: Maybe Text
+</span><a href="#local-6989586621679794756"><span class="hs-identifier hs-var hs-var">templateBody</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679794756"><span class="hs-identifier hs-var">templateBody</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679794755"><span class="annot"><span class="annottext">s :: RegistrationConfig
+</span><a href="#local-6989586621679794755"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.RegistrationConfig.html#RegistrationConfig%27"><span class="hs-identifier hs-type">RegistrationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679794754"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679794754"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegistrationConfig
+</span><a href="#local-6989586621679794755"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateBody:RegistrationConfig' :: Maybe Text
 </span><a href="Network.AWS.IoT.Types.RegistrationConfig.html#%24sel%3AtemplateBody%3ARegistrationConfig%27"><span class="hs-identifier hs-var">templateBody</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679794745"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RegistrationConfig.html#RegistrationConfig"><span class="hs-identifier hs-type">RegistrationConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679794754"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RegistrationConfig.html#RegistrationConfig"><span class="hs-identifier hs-type">RegistrationConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | The ARN of the role.</span><span>
 </span><span id="line-61"></span><span class="annot"><a href="Network.AWS.IoT.Types.RegistrationConfig.html#registrationConfig_roleArn"><span class="hs-identifier hs-type">registrationConfig_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RegistrationConfig.html#RegistrationConfig"><span class="hs-identifier hs-type">RegistrationConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -145,19 +145,19 @@ $sel:templateBody:RegistrationConfig' :: RegistrationConfig -&gt; Maybe Text
 -&gt; Lens
      RegistrationConfig RegistrationConfig (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.RegistrationConfig.html#RegistrationConfig%27"><span class="hs-identifier hs-type">RegistrationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679794743"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.RegistrationConfig.html#RegistrationConfig%27"><span class="hs-identifier hs-type">RegistrationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679794752"><span class="annot"><span class="annottext">Maybe Text
 roleArn :: Maybe Text
 $sel:roleArn:RegistrationConfig' :: RegistrationConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679794743"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679794743"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679794742"><span class="annot"><span class="annottext">s :: RegistrationConfig
-</span><a href="#local-6989586621679794742"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.RegistrationConfig.html#RegistrationConfig%27"><span class="hs-identifier hs-type">RegistrationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679794741"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679794741"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegistrationConfig
-</span><a href="#local-6989586621679794742"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:RegistrationConfig' :: Maybe Text
+</span><a href="#local-6989586621679794752"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679794752"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679794751"><span class="annot"><span class="annottext">s :: RegistrationConfig
+</span><a href="#local-6989586621679794751"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.RegistrationConfig.html#RegistrationConfig%27"><span class="hs-identifier hs-type">RegistrationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679794750"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679794750"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegistrationConfig
+</span><a href="#local-6989586621679794751"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:RegistrationConfig' :: Maybe Text
 </span><a href="Network.AWS.IoT.Types.RegistrationConfig.html#%24sel%3AroleArn%3ARegistrationConfig%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679794741"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RegistrationConfig.html#RegistrationConfig"><span class="hs-identifier hs-type">RegistrationConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679794750"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RegistrationConfig.html#RegistrationConfig"><span class="hs-identifier hs-type">RegistrationConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679794738"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RegistrationConfig.html#RegistrationConfig"><span class="hs-identifier hs-type">RegistrationConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679794736"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RegistrationConfig
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679794747"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RegistrationConfig.html#RegistrationConfig"><span class="hs-identifier hs-type">RegistrationConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679794745"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RegistrationConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser RegistrationConfig)
@@ -167,15 +167,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;RegistrationConfig&quot;</span></span><span>
-</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679794733"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679794733"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679794742"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679794742"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; RegistrationConfig
 </span><a href="Network.AWS.IoT.Types.RegistrationConfig.html#RegistrationConfig%27"><span class="hs-identifier hs-var">RegistrationConfig'</span></a></span><span>
 </span><span id="line-70"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; RegistrationConfig)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; RegistrationConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679794733"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679794742"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;templateBody&quot;</span></span><span class="hs-special">)</span><span>
@@ -183,24 +183,24 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser RegistrationConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679794733"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679794742"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;roleArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679794727"><span id="local-6989586621679794729"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RegistrationConfig.html#RegistrationConfig"><span class="hs-identifier hs-type">RegistrationConfig</span></a></span></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679794736"><span id="local-6989586621679794738"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RegistrationConfig.html#RegistrationConfig"><span class="hs-identifier hs-type">RegistrationConfig</span></a></span></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679794724"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RegistrationConfig.html#RegistrationConfig"><span class="hs-identifier hs-type">RegistrationConfig</span></a></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679794733"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RegistrationConfig.html#RegistrationConfig"><span class="hs-identifier hs-type">RegistrationConfig</span></a></span></span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679794716"><span id="local-6989586621679794718"><span id="local-6989586621679794720"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RegistrationConfig.html#RegistrationConfig"><span class="hs-identifier hs-type">RegistrationConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679794714"><span class="annot"><span class="annottext">toJSON :: RegistrationConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RegistrationConfig.html#RegistrationConfig%27"><span class="hs-identifier hs-type">RegistrationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679794711"><span id="local-6989586621679794712"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679794725"><span id="local-6989586621679794727"><span id="local-6989586621679794729"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RegistrationConfig.html#RegistrationConfig"><span class="hs-identifier hs-type">RegistrationConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679794723"><span class="annot"><span class="annottext">toJSON :: RegistrationConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RegistrationConfig.html#RegistrationConfig%27"><span class="hs-identifier hs-type">RegistrationConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679794720"><span id="local-6989586621679794721"><span class="annot"><span class="annottext">Maybe Text
 roleArn :: Maybe Text
 templateBody :: Maybe Text
 $sel:roleArn:RegistrationConfig' :: RegistrationConfig -&gt; Maybe Text
 $sel:templateBody:RegistrationConfig' :: RegistrationConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679794711"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679794720"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -212,14 +212,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679794712"><span class="hs-identifier hs-var">templateBody</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679794721"><span class="hs-identifier hs-var">templateBody</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;roleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679794711"><span class="hs-identifier hs-var">roleArn</span></a></span><span>
+</span><a href="#local-6989586621679794720"><span class="hs-identifier hs-var">roleArn</span></a></span><span>
 </span><span id="line-84"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span></pre></body></html>

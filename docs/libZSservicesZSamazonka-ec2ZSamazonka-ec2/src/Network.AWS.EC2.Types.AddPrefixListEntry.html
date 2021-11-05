@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | An entry for a prefix list.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAddPrefixListEntry' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621681084477"><span id="local-6989586621681084478"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddPrefixListEntry"><span class="annot"><a href="Network.AWS.EC2.Types.AddPrefixListEntry.html#AddPrefixListEntry"><span class="hs-identifier hs-var">AddPrefixListEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddPrefixListEntry%27"><span class="annot"><a href="Network.AWS.EC2.Types.AddPrefixListEntry.html#AddPrefixListEntry%27"><span class="hs-identifier hs-var">AddPrefixListEntry'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621681084486"><span id="local-6989586621681084487"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddPrefixListEntry"><span class="annot"><a href="Network.AWS.EC2.Types.AddPrefixListEntry.html#AddPrefixListEntry"><span class="hs-identifier hs-var">AddPrefixListEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddPrefixListEntry%27"><span class="annot"><a href="Network.AWS.EC2.Types.AddPrefixListEntry.html#AddPrefixListEntry%27"><span class="hs-identifier hs-var">AddPrefixListEntry'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A description for the entry.</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- Constraints: Up to 255 characters in length.</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Acidr%3AAddPrefixListEntry%27"><span class="annot"><span class="annottext">AddPrefixListEntry -&gt; Text
 </span><a href="Network.AWS.EC2.Types.AddPrefixListEntry.html#%24sel%3Acidr%3AAddPrefixListEntry%27"><span class="hs-identifier hs-var hs-var">cidr</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681084470"><span id="local-6989586621681084472"><span class="annot"><span class="annottext">AddPrefixListEntry -&gt; AddPrefixListEntry -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681084479"><span id="local-6989586621681084481"><span class="annot"><span class="annottext">AddPrefixListEntry -&gt; AddPrefixListEntry -&gt; Bool
 (AddPrefixListEntry -&gt; AddPrefixListEntry -&gt; Bool)
 -&gt; (AddPrefixListEntry -&gt; AddPrefixListEntry -&gt; Bool)
 -&gt; Eq AddPrefixListEntry
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AddPrefixListEntry -&gt; AddPrefixListEntry -&gt; Bool
 == :: AddPrefixListEntry -&gt; AddPrefixListEntry -&gt; Bool
 $c== :: AddPrefixListEntry -&gt; AddPrefixListEntry -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681084461"><span id="local-6989586621681084463"><span id="local-6989586621681084465"><span id="local-6989586621681084467"><span class="annot"><span class="annottext">ReadPrec [AddPrefixListEntry]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681084470"><span id="local-6989586621681084472"><span id="local-6989586621681084474"><span id="local-6989586621681084476"><span class="annot"><span class="annottext">ReadPrec [AddPrefixListEntry]
 ReadPrec AddPrefixListEntry
 Int -&gt; ReadS AddPrefixListEntry
 ReadS [AddPrefixListEntry]
@@ -66,7 +66,7 @@ readList :: ReadS [AddPrefixListEntry]
 $creadList :: ReadS [AddPrefixListEntry]
 readsPrec :: Int -&gt; ReadS AddPrefixListEntry
 $creadsPrec :: Int -&gt; ReadS AddPrefixListEntry
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681084454"><span id="local-6989586621681084456"><span id="local-6989586621681084458"><span class="annot"><span class="annottext">Int -&gt; AddPrefixListEntry -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681084463"><span id="local-6989586621681084465"><span id="local-6989586621681084467"><span class="annot"><span class="annottext">Int -&gt; AddPrefixListEntry -&gt; ShowS
 [AddPrefixListEntry] -&gt; ShowS
 AddPrefixListEntry -&gt; String
 (Int -&gt; AddPrefixListEntry -&gt; ShowS)
@@ -110,8 +110,8 @@ $cfrom :: forall x. AddPrefixListEntry -&gt; Rep AddPrefixListEntry x
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.AddPrefixListEntry.html#AddPrefixListEntry"><span class="hs-identifier hs-type">AddPrefixListEntry</span></a></span><span>
 </span><span id="line-57"></span><span id="newAddPrefixListEntry"><span class="annot"><span class="annottext">newAddPrefixListEntry :: Text -&gt; AddPrefixListEntry
-</span><a href="Network.AWS.EC2.Types.AddPrefixListEntry.html#newAddPrefixListEntry"><span class="hs-identifier hs-var hs-var">newAddPrefixListEntry</span></a></span></span><span> </span><span id="local-6989586621681084448"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681084448"><span class="hs-identifier hs-var">pCidr_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.Types.AddPrefixListEntry.html#newAddPrefixListEntry"><span class="hs-identifier hs-var hs-var">newAddPrefixListEntry</span></a></span></span><span> </span><span id="local-6989586621681084457"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681084457"><span class="hs-identifier hs-var">pCidr_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">AddPrefixListEntry' :: Maybe Text -&gt; Text -&gt; AddPrefixListEntry
 </span><a href="Network.AWS.EC2.Types.AddPrefixListEntry.html#AddPrefixListEntry%27"><span class="hs-identifier hs-type">AddPrefixListEntry'</span></a></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:description:AddPrefixListEntry' :: Maybe Text
@@ -120,7 +120,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:cidr:AddPrefixListEntry' :: Text
 </span><a href="Network.AWS.EC2.Types.AddPrefixListEntry.html#%24sel%3Acidr%3AAddPrefixListEntry%27"><span class="hs-identifier hs-var">cidr</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681084448"><span class="hs-identifier hs-var">pCidr_</span></a></span><span>
+</span><a href="#local-6989586621681084457"><span class="hs-identifier hs-var">pCidr_</span></a></span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | A description for the entry.</span><span>
@@ -134,16 +134,16 @@ forall a. Maybe a
 -&gt; Lens
      AddPrefixListEntry AddPrefixListEntry (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.AddPrefixListEntry.html#AddPrefixListEntry%27"><span class="hs-identifier hs-type">AddPrefixListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681084444"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.AddPrefixListEntry.html#AddPrefixListEntry%27"><span class="hs-identifier hs-type">AddPrefixListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681084453"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:AddPrefixListEntry' :: AddPrefixListEntry -&gt; Maybe Text
-</span><a href="#local-6989586621681084444"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681084444"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681084443"><span class="annot"><span class="annottext">s :: AddPrefixListEntry
-</span><a href="#local-6989586621681084443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.AddPrefixListEntry.html#AddPrefixListEntry%27"><span class="hs-identifier hs-type">AddPrefixListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681084442"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681084442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddPrefixListEntry
-</span><a href="#local-6989586621681084443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:AddPrefixListEntry' :: Maybe Text
+</span><a href="#local-6989586621681084453"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681084453"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681084452"><span class="annot"><span class="annottext">s :: AddPrefixListEntry
+</span><a href="#local-6989586621681084452"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.AddPrefixListEntry.html#AddPrefixListEntry%27"><span class="hs-identifier hs-type">AddPrefixListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681084451"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681084451"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddPrefixListEntry
+</span><a href="#local-6989586621681084452"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:AddPrefixListEntry' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.AddPrefixListEntry.html#%24sel%3Adescription%3AAddPrefixListEntry%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681084442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AddPrefixListEntry.html#AddPrefixListEntry"><span class="hs-identifier hs-type">AddPrefixListEntry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681084451"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AddPrefixListEntry.html#AddPrefixListEntry"><span class="hs-identifier hs-type">AddPrefixListEntry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | The CIDR block.</span><span>
 </span><span id="line-70"></span><span class="annot"><a href="Network.AWS.EC2.Types.AddPrefixListEntry.html#addPrefixListEntry_cidr"><span class="hs-identifier hs-type">addPrefixListEntry_cidr</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AddPrefixListEntry.html#AddPrefixListEntry"><span class="hs-identifier hs-type">AddPrefixListEntry</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -152,30 +152,30 @@ $sel:description:AddPrefixListEntry' :: AddPrefixListEntry -&gt; Maybe Text
 -&gt; (AddPrefixListEntry -&gt; Text -&gt; AddPrefixListEntry)
 -&gt; Lens AddPrefixListEntry AddPrefixListEntry Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.AddPrefixListEntry.html#AddPrefixListEntry%27"><span class="hs-identifier hs-type">AddPrefixListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681084440"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.AddPrefixListEntry.html#AddPrefixListEntry%27"><span class="hs-identifier hs-type">AddPrefixListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681084449"><span class="annot"><span class="annottext">Text
 cidr :: Text
 $sel:cidr:AddPrefixListEntry' :: AddPrefixListEntry -&gt; Text
-</span><a href="#local-6989586621681084440"><span class="hs-identifier hs-var hs-var">cidr</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681084440"><span class="hs-identifier hs-var">cidr</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681084439"><span class="annot"><span class="annottext">s :: AddPrefixListEntry
-</span><a href="#local-6989586621681084439"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.AddPrefixListEntry.html#AddPrefixListEntry%27"><span class="hs-identifier hs-type">AddPrefixListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681084438"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681084438"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddPrefixListEntry
-</span><a href="#local-6989586621681084439"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cidr:AddPrefixListEntry' :: Text
+</span><a href="#local-6989586621681084449"><span class="hs-identifier hs-var hs-var">cidr</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681084449"><span class="hs-identifier hs-var">cidr</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681084448"><span class="annot"><span class="annottext">s :: AddPrefixListEntry
+</span><a href="#local-6989586621681084448"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.AddPrefixListEntry.html#AddPrefixListEntry%27"><span class="hs-identifier hs-type">AddPrefixListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681084447"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681084447"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddPrefixListEntry
+</span><a href="#local-6989586621681084448"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cidr:AddPrefixListEntry' :: Text
 </span><a href="Network.AWS.EC2.Types.AddPrefixListEntry.html#%24sel%3Acidr%3AAddPrefixListEntry%27"><span class="hs-identifier hs-var">cidr</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681084438"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AddPrefixListEntry.html#AddPrefixListEntry"><span class="hs-identifier hs-type">AddPrefixListEntry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681084447"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AddPrefixListEntry.html#AddPrefixListEntry"><span class="hs-identifier hs-type">AddPrefixListEntry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681084434"><span id="local-6989586621681084436"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AddPrefixListEntry.html#AddPrefixListEntry"><span class="hs-identifier hs-type">AddPrefixListEntry</span></a></span></span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681084443"><span id="local-6989586621681084445"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AddPrefixListEntry.html#AddPrefixListEntry"><span class="hs-identifier hs-type">AddPrefixListEntry</span></a></span></span></span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681084431"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AddPrefixListEntry.html#AddPrefixListEntry"><span class="hs-identifier hs-type">AddPrefixListEntry</span></a></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681084440"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AddPrefixListEntry.html#AddPrefixListEntry"><span class="hs-identifier hs-type">AddPrefixListEntry</span></a></span></span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AddPrefixListEntry.html#AddPrefixListEntry"><span class="hs-identifier hs-type">AddPrefixListEntry</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621681084427"><span class="annot"><span class="annottext">toQuery :: AddPrefixListEntry -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AddPrefixListEntry.html#AddPrefixListEntry%27"><span class="hs-identifier hs-type">AddPrefixListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681084424"><span id="local-6989586621681084425"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621681084436"><span class="annot"><span class="annottext">toQuery :: AddPrefixListEntry -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AddPrefixListEntry.html#AddPrefixListEntry%27"><span class="hs-identifier hs-type">AddPrefixListEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681084433"><span id="local-6989586621681084434"><span class="annot"><span class="annottext">Maybe Text
 Text
 cidr :: Text
 description :: Maybe Text
 $sel:cidr:AddPrefixListEntry' :: AddPrefixListEntry -&gt; Text
 $sel:description:AddPrefixListEntry' :: AddPrefixListEntry -&gt; Maybe Text
-</span><a href="#local-6989586621681084424"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681084433"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -183,11 +183,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681084425"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681084434"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Cidr&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681084424"><span class="hs-identifier hs-var">cidr</span></a></span><span>
+</span><a href="#local-6989586621681084433"><span class="hs-identifier hs-var">cidr</span></a></span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-83"></span></pre></body></html>

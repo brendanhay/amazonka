@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DataSync.Types.Gid</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DataSync.Types.Gid</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.Gid.html#Gid"><span class="hs-identifier">Gid</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.DataSync.Types.Gid.html#Gid_BOTH"><span class="hs-identifier">Gid_BOTH</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.DataSync.Types.Gid.html#Gid_INT_VALUE"><span class="hs-identifier">Gid_INT_VALUE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.DataSync.Types.Gid.html#Gid_NAME"><span class="hs-identifier">Gid_NAME</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.DataSync.Types.Gid.html#Gid_NONE"><span class="hs-identifier">Gid_NONE</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679248140"><span id="local-6989586621679248141"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Gid"><span class="annot"><a href="Network.AWS.DataSync.Types.Gid.html#Gid"><span class="hs-identifier hs-var">Gid</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Gid%27"><span class="annot"><a href="Network.AWS.DataSync.Types.Gid.html#Gid%27"><span class="hs-identifier hs-var">Gid'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromGid"><span class="annot"><span class="annottext">Gid -&gt; Text
+</span><a href="Network.AWS.DataSync.Types.Gid.html#fromGid"><span class="hs-identifier hs-var hs-var">fromGid</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679248132"><span id="local-6989586621679248134"><span id="local-6989586621679248136"><span class="annot"><span class="annottext">Int -&gt; Gid -&gt; ShowS
+[Gid] -&gt; ShowS
+Gid -&gt; String
+(Int -&gt; Gid -&gt; ShowS)
+-&gt; (Gid -&gt; String) -&gt; ([Gid] -&gt; ShowS) -&gt; Show Gid
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Gid] -&gt; ShowS
+$cshowList :: [Gid] -&gt; ShowS
+show :: Gid -&gt; String
+$cshow :: Gid -&gt; String
+showsPrec :: Int -&gt; Gid -&gt; ShowS
+$cshowsPrec :: Int -&gt; Gid -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679248123"><span id="local-6989586621679248125"><span id="local-6989586621679248127"><span id="local-6989586621679248129"><span class="annot"><span class="annottext">ReadPrec [Gid]
+ReadPrec Gid
+Int -&gt; ReadS Gid
+ReadS [Gid]
+(Int -&gt; ReadS Gid)
+-&gt; ReadS [Gid] -&gt; ReadPrec Gid -&gt; ReadPrec [Gid] -&gt; Read Gid
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Gid]
+$creadListPrec :: ReadPrec [Gid]
+readPrec :: ReadPrec Gid
+$creadPrec :: ReadPrec Gid
+readList :: ReadS [Gid]
+$creadList :: ReadS [Gid]
+readsPrec :: Int -&gt; ReadS Gid
+$creadsPrec :: Int -&gt; ReadS Gid
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679248118"><span id="local-6989586621679248120"><span class="annot"><span class="annottext">Gid -&gt; Gid -&gt; Bool
+(Gid -&gt; Gid -&gt; Bool) -&gt; (Gid -&gt; Gid -&gt; Bool) -&gt; Eq Gid
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Gid -&gt; Gid -&gt; Bool
+$c/= :: Gid -&gt; Gid -&gt; Bool
+== :: Gid -&gt; Gid -&gt; Bool
+$c== :: Gid -&gt; Gid -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679248102"><span id="local-6989586621679248104"><span id="local-6989586621679248106"><span id="local-6989586621679248108"><span id="local-6989586621679248110"><span id="local-6989586621679248112"><span id="local-6989586621679248114"><span class="annot"><span class="annottext">Eq Gid
+Eq Gid
+-&gt; (Gid -&gt; Gid -&gt; Ordering)
+-&gt; (Gid -&gt; Gid -&gt; Bool)
+-&gt; (Gid -&gt; Gid -&gt; Bool)
+-&gt; (Gid -&gt; Gid -&gt; Bool)
+-&gt; (Gid -&gt; Gid -&gt; Bool)
+-&gt; (Gid -&gt; Gid -&gt; Gid)
+-&gt; (Gid -&gt; Gid -&gt; Gid)
+-&gt; Ord Gid
+Gid -&gt; Gid -&gt; Bool
+Gid -&gt; Gid -&gt; Ordering
+Gid -&gt; Gid -&gt; Gid
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: Gid -&gt; Gid -&gt; Gid
+$cmin :: Gid -&gt; Gid -&gt; Gid
+max :: Gid -&gt; Gid -&gt; Gid
+$cmax :: Gid -&gt; Gid -&gt; Gid
+&gt;= :: Gid -&gt; Gid -&gt; Bool
+$c&gt;= :: Gid -&gt; Gid -&gt; Bool
+&gt; :: Gid -&gt; Gid -&gt; Bool
+$c&gt; :: Gid -&gt; Gid -&gt; Bool
+&lt;= :: Gid -&gt; Gid -&gt; Bool
+$c&lt;= :: Gid -&gt; Gid -&gt; Bool
+&lt; :: Gid -&gt; Gid -&gt; Bool
+$c&lt; :: Gid -&gt; Gid -&gt; Bool
+compare :: Gid -&gt; Gid -&gt; Ordering
+$ccompare :: Gid -&gt; Gid -&gt; Ordering
+$cp1Ord :: Eq Gid
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x. Gid -&gt; Rep Gid x)
+-&gt; (forall x. Rep Gid x -&gt; Gid) -&gt; Generic Gid
+forall x. Rep Gid x -&gt; Gid
+forall x. Gid -&gt; Rep Gid x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Gid x -&gt; Gid
+$cfrom :: forall x. Gid -&gt; Rep Gid x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679248094"><span id="local-6989586621679248096"><span class="annot"><span class="annottext">Int -&gt; Gid -&gt; Int
+Gid -&gt; Int
+(Int -&gt; Gid -&gt; Int) -&gt; (Gid -&gt; Int) -&gt; Hashable Gid
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: Gid -&gt; Int
+$chash :: Gid -&gt; Int
+hashWithSalt :: Int -&gt; Gid -&gt; Int
+$chashWithSalt :: Int -&gt; Gid -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679248091"><span class="annot"><span class="annottext">Gid -&gt; ()
+(Gid -&gt; ()) -&gt; NFData Gid
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: Gid -&gt; ()
+$crnf :: Gid -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679248088"><span class="annot"><span class="annottext">Text -&gt; Either String Gid
+(Text -&gt; Either String Gid) -&gt; FromText Gid
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String Gid
+$cfromText :: Text -&gt; Either String Gid
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679248085"><span class="annot"><span class="annottext">Gid -&gt; Text
+(Gid -&gt; Text) -&gt; ToText Gid
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: Gid -&gt; Text
+$ctoText :: Gid -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679248082"><span class="annot"><span class="annottext">Gid -&gt; ByteString
+(Gid -&gt; ByteString) -&gt; ToByteString Gid
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: Gid -&gt; ByteString
+$ctoBS :: Gid -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679248079"><span class="annot"><span class="annottext">Gid -&gt; ByteStringBuilder
+(Gid -&gt; ByteStringBuilder) -&gt; ToLog Gid
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: Gid -&gt; ByteStringBuilder
+$cbuild :: Gid -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679248076"><span class="annot"><span class="annottext">HeaderName -&gt; Gid -&gt; [Header]
+(HeaderName -&gt; Gid -&gt; [Header]) -&gt; ToHeader Gid
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; Gid -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; Gid -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679248073"><span class="annot"><span class="annottext">Gid -&gt; QueryString
+(Gid -&gt; QueryString) -&gt; ToQuery Gid
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: Gid -&gt; QueryString
+$ctoQuery :: Gid -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679248068"><span id="local-6989586621679248070"><span class="annot"><span class="annottext">Value -&gt; Parser [Gid]
+Value -&gt; Parser Gid
+(Value -&gt; Parser Gid) -&gt; (Value -&gt; Parser [Gid]) -&gt; FromJSON Gid
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [Gid]
+$cparseJSONList :: Value -&gt; Parser [Gid]
+parseJSON :: Value -&gt; Parser Gid
+$cparseJSON :: Value -&gt; Parser Gid
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679248063"><span id="local-6989586621679248065"><span class="annot"><span class="annottext">FromJSONKeyFunction [Gid]
+FromJSONKeyFunction Gid
+FromJSONKeyFunction Gid
+-&gt; FromJSONKeyFunction [Gid] -&gt; FromJSONKey Gid
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [Gid]
+$cfromJSONKeyList :: FromJSONKeyFunction [Gid]
+fromJSONKey :: FromJSONKeyFunction Gid
+$cfromJSONKey :: FromJSONKeyFunction Gid
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679248054"><span id="local-6989586621679248056"><span id="local-6989586621679248058"><span id="local-6989586621679248060"><span class="annot"><span class="annottext">[Gid] -&gt; Encoding
+[Gid] -&gt; Value
+Gid -&gt; Encoding
+Gid -&gt; Value
+(Gid -&gt; Value)
+-&gt; (Gid -&gt; Encoding)
+-&gt; ([Gid] -&gt; Value)
+-&gt; ([Gid] -&gt; Encoding)
+-&gt; ToJSON Gid
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [Gid] -&gt; Encoding
+$ctoEncodingList :: [Gid] -&gt; Encoding
+toJSONList :: [Gid] -&gt; Value
+$ctoJSONList :: [Gid] -&gt; Value
+toEncoding :: Gid -&gt; Encoding
+$ctoEncoding :: Gid -&gt; Encoding
+toJSON :: Gid -&gt; Value
+$ctoJSON :: Gid -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679248049"><span id="local-6989586621679248051"><span class="annot"><span class="annottext">ToJSONKeyFunction [Gid]
+ToJSONKeyFunction Gid
+ToJSONKeyFunction Gid -&gt; ToJSONKeyFunction [Gid] -&gt; ToJSONKey Gid
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [Gid]
+$ctoJSONKeyList :: ToJSONKeyFunction [Gid]
+toJSONKey :: ToJSONKeyFunction Gid
+$ctoJSONKey :: ToJSONKeyFunction Gid
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679248046"><span class="annot"><span class="annottext">[Node] -&gt; Either String Gid
+([Node] -&gt; Either String Gid) -&gt; FromXML Gid
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String Gid
+$cparseXML :: [Node] -&gt; Either String Gid
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679248043"><span class="annot"><span class="annottext">Gid -&gt; XML
+(Gid -&gt; XML) -&gt; ToXML Gid
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: Gid -&gt; XML
+$ctoXML :: Gid -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.Gid.html#Gid_BOTH"><span class="hs-identifier hs-type">Gid_BOTH</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.Gid.html#Gid"><span class="hs-identifier hs-type">Gid</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGid_BOTH"><span id="%24mGid_BOTH"><span id="Gid_BOTH"><span class="annot"><span class="annottext">$bGid_BOTH :: Gid
+$mGid_BOTH :: forall r. Gid -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DataSync.Types.Gid.html#%24bGid_BOTH"><span class="hs-identifier hs-var hs-var hs-var">Gid_BOTH</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.Gid.html#Gid%27"><span class="hs-identifier hs-type">Gid'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BOTH&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.Gid.html#Gid_INT_VALUE"><span class="hs-identifier hs-type">Gid_INT_VALUE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.Gid.html#Gid"><span class="hs-identifier hs-type">Gid</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGid_INT_VALUE"><span id="%24mGid_INT_VALUE"><span id="Gid_INT_VALUE"><span class="annot"><span class="annottext">$bGid_INT_VALUE :: Gid
+$mGid_INT_VALUE :: forall r. Gid -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DataSync.Types.Gid.html#%24bGid_INT_VALUE"><span class="hs-identifier hs-var hs-var hs-var">Gid_INT_VALUE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.Gid.html#Gid%27"><span class="hs-identifier hs-type">Gid'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INT_VALUE&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.Gid.html#Gid_NAME"><span class="hs-identifier hs-type">Gid_NAME</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.Gid.html#Gid"><span class="hs-identifier hs-type">Gid</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGid_NAME"><span id="%24mGid_NAME"><span id="Gid_NAME"><span class="annot"><span class="annottext">$bGid_NAME :: Gid
+$mGid_NAME :: forall r. Gid -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DataSync.Types.Gid.html#%24bGid_NAME"><span class="hs-identifier hs-var hs-var hs-var">Gid_NAME</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.Gid.html#Gid%27"><span class="hs-identifier hs-type">Gid'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NAME&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.Gid.html#Gid_NONE"><span class="hs-identifier hs-type">Gid_NONE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.Gid.html#Gid"><span class="hs-identifier hs-type">Gid</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGid_NONE"><span id="%24mGid_NONE"><span id="Gid_NONE"><span class="annot"><span class="annottext">$bGid_NONE :: Gid
+$mGid_NONE :: forall r. Gid -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DataSync.Types.Gid.html#%24bGid_NONE"><span class="hs-identifier hs-var hs-var hs-var">Gid_NONE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.Gid.html#Gid%27"><span class="hs-identifier hs-type">Gid'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NONE&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.DataSync.Types.Gid.html#Gid_BOTH"><span class="hs-pragma hs-type">Gid_BOTH</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.DataSync.Types.Gid.html#Gid_INT_VALUE"><span class="hs-pragma hs-type">Gid_INT_VALUE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.DataSync.Types.Gid.html#Gid_NAME"><span class="hs-pragma hs-type">Gid_NAME</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.DataSync.Types.Gid.html#Gid_NONE"><span class="hs-pragma hs-type">Gid_NONE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.DataSync.Types.Gid.html#Gid%27"><span class="hs-pragma hs-type">Gid'</span></a></span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-78"></span></pre></body></html>

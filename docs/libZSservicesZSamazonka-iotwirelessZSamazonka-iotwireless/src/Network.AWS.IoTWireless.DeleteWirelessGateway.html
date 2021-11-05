@@ -1,0 +1,362 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.IoTWireless.DeleteWirelessGateway</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes a wireless gateway.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTWireless.DeleteWirelessGateway</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.DeleteWirelessGateway.html#DeleteWirelessGateway"><span class="hs-identifier">DeleteWirelessGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.DeleteWirelessGateway.html#newDeleteWirelessGateway"><span class="hs-identifier">newDeleteWirelessGateway</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.DeleteWirelessGateway.html#deleteWirelessGateway_id"><span class="hs-identifier">deleteWirelessGateway_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.DeleteWirelessGateway.html#DeleteWirelessGatewayResponse"><span class="hs-identifier">DeleteWirelessGatewayResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.DeleteWirelessGateway.html#newDeleteWirelessGatewayResponse"><span class="hs-identifier">newDeleteWirelessGatewayResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.DeleteWirelessGateway.html#deleteWirelessGatewayResponse_httpStatus"><span class="hs-identifier">deleteWirelessGatewayResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types</span></a></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newDeleteWirelessGateway' smart constructor.</span><span>
+</span><span id="line-49"></span><span id="local-6989586621679289096"><span id="local-6989586621679289097"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteWirelessGateway"><span class="annot"><a href="Network.AWS.IoTWireless.DeleteWirelessGateway.html#DeleteWirelessGateway"><span class="hs-identifier hs-var">DeleteWirelessGateway</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteWirelessGateway%27"><span class="annot"><a href="Network.AWS.IoTWireless.DeleteWirelessGateway.html#DeleteWirelessGateway%27"><span class="hs-identifier hs-var">DeleteWirelessGateway'</span></a></span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the resource to delete.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Aid%3ADeleteWirelessGateway%27"><span class="annot"><span class="annottext">DeleteWirelessGateway -&gt; Text
+</span><a href="Network.AWS.IoTWireless.DeleteWirelessGateway.html#%24sel%3Aid%3ADeleteWirelessGateway%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679289090"><span id="local-6989586621679289092"><span class="annot"><span class="annottext">DeleteWirelessGateway -&gt; DeleteWirelessGateway -&gt; Bool
+(DeleteWirelessGateway -&gt; DeleteWirelessGateway -&gt; Bool)
+-&gt; (DeleteWirelessGateway -&gt; DeleteWirelessGateway -&gt; Bool)
+-&gt; Eq DeleteWirelessGateway
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteWirelessGateway -&gt; DeleteWirelessGateway -&gt; Bool
+$c/= :: DeleteWirelessGateway -&gt; DeleteWirelessGateway -&gt; Bool
+== :: DeleteWirelessGateway -&gt; DeleteWirelessGateway -&gt; Bool
+$c== :: DeleteWirelessGateway -&gt; DeleteWirelessGateway -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289081"><span id="local-6989586621679289083"><span id="local-6989586621679289085"><span id="local-6989586621679289087"><span class="annot"><span class="annottext">ReadPrec [DeleteWirelessGateway]
+ReadPrec DeleteWirelessGateway
+Int -&gt; ReadS DeleteWirelessGateway
+ReadS [DeleteWirelessGateway]
+(Int -&gt; ReadS DeleteWirelessGateway)
+-&gt; ReadS [DeleteWirelessGateway]
+-&gt; ReadPrec DeleteWirelessGateway
+-&gt; ReadPrec [DeleteWirelessGateway]
+-&gt; Read DeleteWirelessGateway
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteWirelessGateway]
+$creadListPrec :: ReadPrec [DeleteWirelessGateway]
+readPrec :: ReadPrec DeleteWirelessGateway
+$creadPrec :: ReadPrec DeleteWirelessGateway
+readList :: ReadS [DeleteWirelessGateway]
+$creadList :: ReadS [DeleteWirelessGateway]
+readsPrec :: Int -&gt; ReadS DeleteWirelessGateway
+$creadsPrec :: Int -&gt; ReadS DeleteWirelessGateway
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289074"><span id="local-6989586621679289076"><span id="local-6989586621679289078"><span class="annot"><span class="annottext">Int -&gt; DeleteWirelessGateway -&gt; ShowS
+[DeleteWirelessGateway] -&gt; ShowS
+DeleteWirelessGateway -&gt; String
+(Int -&gt; DeleteWirelessGateway -&gt; ShowS)
+-&gt; (DeleteWirelessGateway -&gt; String)
+-&gt; ([DeleteWirelessGateway] -&gt; ShowS)
+-&gt; Show DeleteWirelessGateway
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteWirelessGateway] -&gt; ShowS
+$cshowList :: [DeleteWirelessGateway] -&gt; ShowS
+show :: DeleteWirelessGateway -&gt; String
+$cshow :: DeleteWirelessGateway -&gt; String
+showsPrec :: Int -&gt; DeleteWirelessGateway -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteWirelessGateway -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteWirelessGateway -&gt; Rep DeleteWirelessGateway x)
+-&gt; (forall x. Rep DeleteWirelessGateway x -&gt; DeleteWirelessGateway)
+-&gt; Generic DeleteWirelessGateway
+forall x. Rep DeleteWirelessGateway x -&gt; DeleteWirelessGateway
+forall x. DeleteWirelessGateway -&gt; Rep DeleteWirelessGateway x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteWirelessGateway x -&gt; DeleteWirelessGateway
+$cfrom :: forall x. DeleteWirelessGateway -&gt; Rep DeleteWirelessGateway x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Create a value of 'DeleteWirelessGateway' with all optional fields omitted.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'id', 'deleteWirelessGateway_id' - The ID of the resource to delete.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.IoTWireless.DeleteWirelessGateway.html#newDeleteWirelessGateway"><span class="hs-identifier hs-type">newDeleteWirelessGateway</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTWireless.DeleteWirelessGateway.html#DeleteWirelessGateway"><span class="hs-identifier hs-type">DeleteWirelessGateway</span></a></span><span>
+</span><span id="line-68"></span><span id="newDeleteWirelessGateway"><span class="annot"><span class="annottext">newDeleteWirelessGateway :: Text -&gt; DeleteWirelessGateway
+</span><a href="Network.AWS.IoTWireless.DeleteWirelessGateway.html#newDeleteWirelessGateway"><span class="hs-identifier hs-var hs-var">newDeleteWirelessGateway</span></a></span></span><span> </span><span id="local-6989586621679289069"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679289069"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">DeleteWirelessGateway' :: Text -&gt; DeleteWirelessGateway
+</span><a href="Network.AWS.IoTWireless.DeleteWirelessGateway.html#DeleteWirelessGateway%27"><span class="hs-identifier hs-type">DeleteWirelessGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DeleteWirelessGateway' :: Text
+</span><a href="Network.AWS.IoTWireless.DeleteWirelessGateway.html#%24sel%3Aid%3ADeleteWirelessGateway%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679289069"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The ID of the resource to delete.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.IoTWireless.DeleteWirelessGateway.html#deleteWirelessGateway_id"><span class="hs-identifier hs-type">deleteWirelessGateway_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.DeleteWirelessGateway.html#DeleteWirelessGateway"><span class="hs-identifier hs-type">DeleteWirelessGateway</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-73"></span><span id="deleteWirelessGateway_id"><span class="annot"><span class="annottext">deleteWirelessGateway_id :: (Text -&gt; f Text)
+-&gt; DeleteWirelessGateway -&gt; f DeleteWirelessGateway
+</span><a href="Network.AWS.IoTWireless.DeleteWirelessGateway.html#deleteWirelessGateway_id"><span class="hs-identifier hs-var hs-var">deleteWirelessGateway_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteWirelessGateway -&gt; Text)
+-&gt; (DeleteWirelessGateway -&gt; Text -&gt; DeleteWirelessGateway)
+-&gt; Lens DeleteWirelessGateway DeleteWirelessGateway Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTWireless.DeleteWirelessGateway.html#DeleteWirelessGateway%27"><span class="hs-identifier hs-type">DeleteWirelessGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289066"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:DeleteWirelessGateway' :: DeleteWirelessGateway -&gt; Text
+</span><a href="#local-6989586621679289066"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679289066"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289065"><span class="annot"><span class="annottext">s :: DeleteWirelessGateway
+</span><a href="#local-6989586621679289065"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTWireless.DeleteWirelessGateway.html#DeleteWirelessGateway%27"><span class="hs-identifier hs-type">DeleteWirelessGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289064"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679289064"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteWirelessGateway
+</span><a href="#local-6989586621679289065"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DeleteWirelessGateway' :: Text
+</span><a href="Network.AWS.IoTWireless.DeleteWirelessGateway.html#%24sel%3Aid%3ADeleteWirelessGateway%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679289064"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.DeleteWirelessGateway.html#DeleteWirelessGateway"><span class="hs-identifier hs-type">DeleteWirelessGateway</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.DeleteWirelessGateway.html#DeleteWirelessGateway"><span class="hs-identifier hs-type">DeleteWirelessGateway</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-77"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.DeleteWirelessGateway.html#DeleteWirelessGateway"><span class="hs-identifier hs-type">DeleteWirelessGateway</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><a href="Network.AWS.IoTWireless.DeleteWirelessGateway.html#DeleteWirelessGatewayResponse"><span class="hs-identifier hs-type">DeleteWirelessGatewayResponse</span></a></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679289060"><span class="annot"><span class="annottext">request :: DeleteWirelessGateway -&gt; Request DeleteWirelessGateway
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteWirelessGateway -&gt; Request DeleteWirelessGateway
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.IoTWireless.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679289056"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteWirelessGateway
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteWirelessGateway)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse DeleteWirelessGateway))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteWirelessGateway
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteWirelessGateway)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679289053"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679289053"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679289052"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679289052"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679289051"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679289051"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteWirelessGatewayResponse
+</span><a href="Network.AWS.IoTWireless.DeleteWirelessGateway.html#DeleteWirelessGatewayResponse%27"><span class="hs-identifier hs-var">DeleteWirelessGatewayResponse'</span></a></span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteWirelessGatewayResponse)
+-&gt; Either String Int -&gt; Either String DeleteWirelessGatewayResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679289053"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289044"><span id="local-6989586621679289046"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.DeleteWirelessGateway.html#DeleteWirelessGateway"><span class="hs-identifier hs-type">DeleteWirelessGateway</span></a></span></span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289041"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.DeleteWirelessGateway.html#DeleteWirelessGateway"><span class="hs-identifier hs-type">DeleteWirelessGateway</span></a></span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.DeleteWirelessGateway.html#DeleteWirelessGateway"><span class="hs-identifier hs-type">DeleteWirelessGateway</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679289037"><span class="annot"><span class="annottext">toHeaders :: DeleteWirelessGateway -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteWirelessGateway -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.DeleteWirelessGateway.html#DeleteWirelessGateway"><span class="hs-identifier hs-type">DeleteWirelessGateway</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679289032"><span class="annot"><span class="annottext">toPath :: DeleteWirelessGateway -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.DeleteWirelessGateway.html#DeleteWirelessGateway%27"><span class="hs-identifier hs-type">DeleteWirelessGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289030"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:DeleteWirelessGateway' :: DeleteWirelessGateway -&gt; Text
+</span><a href="#local-6989586621679289030"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/wireless-gateways/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679289030"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.DeleteWirelessGateway.html#DeleteWirelessGateway"><span class="hs-identifier hs-type">DeleteWirelessGateway</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679289026"><span class="annot"><span class="annottext">toQuery :: DeleteWirelessGateway -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteWirelessGateway -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | /See:/ 'newDeleteWirelessGatewayResponse' smart constructor.</span><span>
+</span><span id="line-103"></span><span id="local-6989586621679289023"><span id="local-6989586621679289024"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteWirelessGatewayResponse"><span class="annot"><a href="Network.AWS.IoTWireless.DeleteWirelessGateway.html#DeleteWirelessGatewayResponse"><span class="hs-identifier hs-var">DeleteWirelessGatewayResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteWirelessGatewayResponse%27"><span class="annot"><a href="Network.AWS.IoTWireless.DeleteWirelessGateway.html#DeleteWirelessGatewayResponse%27"><span class="hs-identifier hs-var">DeleteWirelessGatewayResponse'</span></a></span></span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-105"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteWirelessGatewayResponse%27"><span class="annot"><span class="annottext">DeleteWirelessGatewayResponse -&gt; Int
+</span><a href="Network.AWS.IoTWireless.DeleteWirelessGateway.html#%24sel%3AhttpStatus%3ADeleteWirelessGatewayResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-106"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679289018"><span id="local-6989586621679289020"><span class="annot"><span class="annottext">DeleteWirelessGatewayResponse
+-&gt; DeleteWirelessGatewayResponse -&gt; Bool
+(DeleteWirelessGatewayResponse
+ -&gt; DeleteWirelessGatewayResponse -&gt; Bool)
+-&gt; (DeleteWirelessGatewayResponse
+    -&gt; DeleteWirelessGatewayResponse -&gt; Bool)
+-&gt; Eq DeleteWirelessGatewayResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteWirelessGatewayResponse
+-&gt; DeleteWirelessGatewayResponse -&gt; Bool
+$c/= :: DeleteWirelessGatewayResponse
+-&gt; DeleteWirelessGatewayResponse -&gt; Bool
+== :: DeleteWirelessGatewayResponse
+-&gt; DeleteWirelessGatewayResponse -&gt; Bool
+$c== :: DeleteWirelessGatewayResponse
+-&gt; DeleteWirelessGatewayResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289010"><span id="local-6989586621679289012"><span id="local-6989586621679289014"><span id="local-6989586621679289016"><span class="annot"><span class="annottext">ReadPrec [DeleteWirelessGatewayResponse]
+ReadPrec DeleteWirelessGatewayResponse
+Int -&gt; ReadS DeleteWirelessGatewayResponse
+ReadS [DeleteWirelessGatewayResponse]
+(Int -&gt; ReadS DeleteWirelessGatewayResponse)
+-&gt; ReadS [DeleteWirelessGatewayResponse]
+-&gt; ReadPrec DeleteWirelessGatewayResponse
+-&gt; ReadPrec [DeleteWirelessGatewayResponse]
+-&gt; Read DeleteWirelessGatewayResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteWirelessGatewayResponse]
+$creadListPrec :: ReadPrec [DeleteWirelessGatewayResponse]
+readPrec :: ReadPrec DeleteWirelessGatewayResponse
+$creadPrec :: ReadPrec DeleteWirelessGatewayResponse
+readList :: ReadS [DeleteWirelessGatewayResponse]
+$creadList :: ReadS [DeleteWirelessGatewayResponse]
+readsPrec :: Int -&gt; ReadS DeleteWirelessGatewayResponse
+$creadsPrec :: Int -&gt; ReadS DeleteWirelessGatewayResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289004"><span id="local-6989586621679289006"><span id="local-6989586621679289008"><span class="annot"><span class="annottext">Int -&gt; DeleteWirelessGatewayResponse -&gt; ShowS
+[DeleteWirelessGatewayResponse] -&gt; ShowS
+DeleteWirelessGatewayResponse -&gt; String
+(Int -&gt; DeleteWirelessGatewayResponse -&gt; ShowS)
+-&gt; (DeleteWirelessGatewayResponse -&gt; String)
+-&gt; ([DeleteWirelessGatewayResponse] -&gt; ShowS)
+-&gt; Show DeleteWirelessGatewayResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteWirelessGatewayResponse] -&gt; ShowS
+$cshowList :: [DeleteWirelessGatewayResponse] -&gt; ShowS
+show :: DeleteWirelessGatewayResponse -&gt; String
+$cshow :: DeleteWirelessGatewayResponse -&gt; String
+showsPrec :: Int -&gt; DeleteWirelessGatewayResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteWirelessGatewayResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteWirelessGatewayResponse
+ -&gt; Rep DeleteWirelessGatewayResponse x)
+-&gt; (forall x.
+    Rep DeleteWirelessGatewayResponse x
+    -&gt; DeleteWirelessGatewayResponse)
+-&gt; Generic DeleteWirelessGatewayResponse
+forall x.
+Rep DeleteWirelessGatewayResponse x
+-&gt; DeleteWirelessGatewayResponse
+forall x.
+DeleteWirelessGatewayResponse
+-&gt; Rep DeleteWirelessGatewayResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteWirelessGatewayResponse x
+-&gt; DeleteWirelessGatewayResponse
+$cfrom :: forall x.
+DeleteWirelessGatewayResponse
+-&gt; Rep DeleteWirelessGatewayResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- Create a value of 'DeleteWirelessGatewayResponse' with all optional fields omitted.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'httpStatus', 'deleteWirelessGatewayResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.IoTWireless.DeleteWirelessGateway.html#newDeleteWirelessGatewayResponse"><span class="hs-identifier hs-type">newDeleteWirelessGatewayResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-119"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTWireless.DeleteWirelessGateway.html#DeleteWirelessGatewayResponse"><span class="hs-identifier hs-type">DeleteWirelessGatewayResponse</span></a></span><span>
+</span><span id="line-122"></span><span id="newDeleteWirelessGatewayResponse"><span class="annot"><span class="annottext">newDeleteWirelessGatewayResponse :: Int -&gt; DeleteWirelessGatewayResponse
+</span><a href="Network.AWS.IoTWireless.DeleteWirelessGateway.html#newDeleteWirelessGatewayResponse"><span class="hs-identifier hs-var hs-var">newDeleteWirelessGatewayResponse</span></a></span></span><span> </span><span id="local-6989586621679289001"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679289001"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><span class="annottext">DeleteWirelessGatewayResponse' :: Int -&gt; DeleteWirelessGatewayResponse
+</span><a href="Network.AWS.IoTWireless.DeleteWirelessGateway.html#DeleteWirelessGatewayResponse%27"><span class="hs-identifier hs-type">DeleteWirelessGatewayResponse'</span></a></span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteWirelessGatewayResponse' :: Int
+</span><a href="Network.AWS.IoTWireless.DeleteWirelessGateway.html#%24sel%3AhttpStatus%3ADeleteWirelessGatewayResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679289001"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.IoTWireless.DeleteWirelessGateway.html#deleteWirelessGatewayResponse_httpStatus"><span class="hs-identifier hs-type">deleteWirelessGatewayResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.DeleteWirelessGateway.html#DeleteWirelessGatewayResponse"><span class="hs-identifier hs-type">DeleteWirelessGatewayResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-130"></span><span id="deleteWirelessGatewayResponse_httpStatus"><span class="annot"><span class="annottext">deleteWirelessGatewayResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteWirelessGatewayResponse -&gt; f DeleteWirelessGatewayResponse
+</span><a href="Network.AWS.IoTWireless.DeleteWirelessGateway.html#deleteWirelessGatewayResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteWirelessGatewayResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteWirelessGatewayResponse -&gt; Int)
+-&gt; (DeleteWirelessGatewayResponse
+    -&gt; Int -&gt; DeleteWirelessGatewayResponse)
+-&gt; Lens
+     DeleteWirelessGatewayResponse DeleteWirelessGatewayResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTWireless.DeleteWirelessGateway.html#DeleteWirelessGatewayResponse%27"><span class="hs-identifier hs-type">DeleteWirelessGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289000"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteWirelessGatewayResponse' :: DeleteWirelessGatewayResponse -&gt; Int
+</span><a href="#local-6989586621679289000"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679289000"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288999"><span class="annot"><span class="annottext">s :: DeleteWirelessGatewayResponse
+</span><a href="#local-6989586621679288999"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTWireless.DeleteWirelessGateway.html#DeleteWirelessGatewayResponse%27"><span class="hs-identifier hs-type">DeleteWirelessGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288998"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679288998"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteWirelessGatewayResponse
+</span><a href="#local-6989586621679288999"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteWirelessGatewayResponse' :: Int
+</span><a href="Network.AWS.IoTWireless.DeleteWirelessGateway.html#%24sel%3AhttpStatus%3ADeleteWirelessGatewayResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679288998"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.DeleteWirelessGateway.html#DeleteWirelessGatewayResponse"><span class="hs-identifier hs-type">DeleteWirelessGatewayResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288996"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.DeleteWirelessGateway.html#DeleteWirelessGatewayResponse"><span class="hs-identifier hs-type">DeleteWirelessGatewayResponse</span></a></span></span><span>
+</span><span id="line-133"></span></pre></body></html>

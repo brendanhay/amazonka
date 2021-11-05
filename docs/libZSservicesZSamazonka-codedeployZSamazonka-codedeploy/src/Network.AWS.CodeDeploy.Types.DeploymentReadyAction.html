@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679306749"><span id="local-6989586621679306750"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeploymentReadyAction"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentReadyAction.html#DeploymentReadyAction"><span class="hs-identifier hs-var">DeploymentReadyAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeploymentReadyAction%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentReadyAction.html#DeploymentReadyAction%27"><span class="hs-identifier hs-var">DeploymentReadyAction'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679306758"><span id="local-6989586621679306759"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeploymentReadyAction"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentReadyAction.html#DeploymentReadyAction"><span class="hs-identifier hs-var">DeploymentReadyAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeploymentReadyAction%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentReadyAction.html#DeploymentReadyAction%27"><span class="hs-identifier hs-var">DeploymentReadyAction'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDeploymentReadyAction"><span class="annot"><span class="annottext">DeploymentReadyAction -&gt; Text
 </span><a href="Network.AWS.CodeDeploy.Types.DeploymentReadyAction.html#fromDeploymentReadyAction"><span class="hs-identifier hs-var hs-var">fromDeploymentReadyAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679306741"><span id="local-6989586621679306743"><span id="local-6989586621679306745"><span class="annot"><span class="annottext">Int -&gt; DeploymentReadyAction -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679306750"><span id="local-6989586621679306752"><span id="local-6989586621679306754"><span class="annot"><span class="annottext">Int -&gt; DeploymentReadyAction -&gt; ShowS
 [DeploymentReadyAction] -&gt; ShowS
 DeploymentReadyAction -&gt; String
 (Int -&gt; DeploymentReadyAction -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: DeploymentReadyAction -&gt; String
 showsPrec :: Int -&gt; DeploymentReadyAction -&gt; ShowS
 $cshowsPrec :: Int -&gt; DeploymentReadyAction -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679306732"><span id="local-6989586621679306734"><span id="local-6989586621679306736"><span id="local-6989586621679306738"><span class="annot"><span class="annottext">ReadPrec [DeploymentReadyAction]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679306741"><span id="local-6989586621679306743"><span id="local-6989586621679306745"><span id="local-6989586621679306747"><span class="annot"><span class="annottext">ReadPrec [DeploymentReadyAction]
 ReadPrec DeploymentReadyAction
 Int -&gt; ReadS DeploymentReadyAction
 ReadS [DeploymentReadyAction]
@@ -72,7 +72,7 @@ $creadList :: ReadS [DeploymentReadyAction]
 readsPrec :: Int -&gt; ReadS DeploymentReadyAction
 $creadsPrec :: Int -&gt; ReadS DeploymentReadyAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679306727"><span id="local-6989586621679306729"><span class="annot"><span class="annottext">DeploymentReadyAction -&gt; DeploymentReadyAction -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679306736"><span id="local-6989586621679306738"><span class="annot"><span class="annottext">DeploymentReadyAction -&gt; DeploymentReadyAction -&gt; Bool
 (DeploymentReadyAction -&gt; DeploymentReadyAction -&gt; Bool)
 -&gt; (DeploymentReadyAction -&gt; DeploymentReadyAction -&gt; Bool)
 -&gt; Eq DeploymentReadyAction
@@ -82,7 +82,7 @@ $c/= :: DeploymentReadyAction -&gt; DeploymentReadyAction -&gt; Bool
 == :: DeploymentReadyAction -&gt; DeploymentReadyAction -&gt; Bool
 $c== :: DeploymentReadyAction -&gt; DeploymentReadyAction -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679306711"><span id="local-6989586621679306713"><span id="local-6989586621679306715"><span id="local-6989586621679306717"><span id="local-6989586621679306719"><span id="local-6989586621679306721"><span id="local-6989586621679306723"><span class="annot"><span class="annottext">Eq DeploymentReadyAction
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679306720"><span id="local-6989586621679306722"><span id="local-6989586621679306724"><span id="local-6989586621679306726"><span id="local-6989586621679306728"><span id="local-6989586621679306730"><span id="local-6989586621679306732"><span class="annot"><span class="annottext">Eq DeploymentReadyAction
 Eq DeploymentReadyAction
 -&gt; (DeploymentReadyAction -&gt; DeploymentReadyAction -&gt; Ordering)
 -&gt; (DeploymentReadyAction -&gt; DeploymentReadyAction -&gt; Bool)
@@ -140,7 +140,7 @@ $cfrom :: forall x. DeploymentReadyAction -&gt; Rep DeploymentReadyAction x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679306703"><span id="local-6989586621679306705"><span class="annot"><span class="annottext">Int -&gt; DeploymentReadyAction -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679306712"><span id="local-6989586621679306714"><span class="annot"><span class="annottext">Int -&gt; DeploymentReadyAction -&gt; Int
 DeploymentReadyAction -&gt; Int
 (Int -&gt; DeploymentReadyAction -&gt; Int)
 -&gt; (DeploymentReadyAction -&gt; Int) -&gt; Hashable DeploymentReadyAction
@@ -150,54 +150,54 @@ $chash :: DeploymentReadyAction -&gt; Int
 hashWithSalt :: Int -&gt; DeploymentReadyAction -&gt; Int
 $chashWithSalt :: Int -&gt; DeploymentReadyAction -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679306700"><span class="annot"><span class="annottext">DeploymentReadyAction -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679306709"><span class="annot"><span class="annottext">DeploymentReadyAction -&gt; ()
 (DeploymentReadyAction -&gt; ()) -&gt; NFData DeploymentReadyAction
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DeploymentReadyAction -&gt; ()
 $crnf :: DeploymentReadyAction -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679306697"><span class="annot"><span class="annottext">Text -&gt; Either String DeploymentReadyAction
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679306706"><span class="annot"><span class="annottext">Text -&gt; Either String DeploymentReadyAction
 (Text -&gt; Either String DeploymentReadyAction)
 -&gt; FromText DeploymentReadyAction
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DeploymentReadyAction
 $cfromText :: Text -&gt; Either String DeploymentReadyAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679306694"><span class="annot"><span class="annottext">DeploymentReadyAction -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679306703"><span class="annot"><span class="annottext">DeploymentReadyAction -&gt; Text
 (DeploymentReadyAction -&gt; Text) -&gt; ToText DeploymentReadyAction
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DeploymentReadyAction -&gt; Text
 $ctoText :: DeploymentReadyAction -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679306691"><span class="annot"><span class="annottext">DeploymentReadyAction -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679306700"><span class="annot"><span class="annottext">DeploymentReadyAction -&gt; ByteString
 (DeploymentReadyAction -&gt; ByteString)
 -&gt; ToByteString DeploymentReadyAction
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DeploymentReadyAction -&gt; ByteString
 $ctoBS :: DeploymentReadyAction -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679306688"><span class="annot"><span class="annottext">DeploymentReadyAction -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679306697"><span class="annot"><span class="annottext">DeploymentReadyAction -&gt; ByteStringBuilder
 (DeploymentReadyAction -&gt; ByteStringBuilder)
 -&gt; ToLog DeploymentReadyAction
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DeploymentReadyAction -&gt; ByteStringBuilder
 $cbuild :: DeploymentReadyAction -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679306685"><span class="annot"><span class="annottext">HeaderName -&gt; DeploymentReadyAction -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679306694"><span class="annot"><span class="annottext">HeaderName -&gt; DeploymentReadyAction -&gt; [Header]
 (HeaderName -&gt; DeploymentReadyAction -&gt; [Header])
 -&gt; ToHeader DeploymentReadyAction
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DeploymentReadyAction -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DeploymentReadyAction -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679306682"><span class="annot"><span class="annottext">DeploymentReadyAction -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679306691"><span class="annot"><span class="annottext">DeploymentReadyAction -&gt; QueryString
 (DeploymentReadyAction -&gt; QueryString)
 -&gt; ToQuery DeploymentReadyAction
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DeploymentReadyAction -&gt; QueryString
 $ctoQuery :: DeploymentReadyAction -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679306677"><span id="local-6989586621679306679"><span class="annot"><span class="annottext">Value -&gt; Parser [DeploymentReadyAction]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679306686"><span id="local-6989586621679306688"><span class="annot"><span class="annottext">Value -&gt; Parser [DeploymentReadyAction]
 Value -&gt; Parser DeploymentReadyAction
 (Value -&gt; Parser DeploymentReadyAction)
 -&gt; (Value -&gt; Parser [DeploymentReadyAction])
@@ -209,7 +209,7 @@ $cparseJSONList :: Value -&gt; Parser [DeploymentReadyAction]
 parseJSON :: Value -&gt; Parser DeploymentReadyAction
 $cparseJSON :: Value -&gt; Parser DeploymentReadyAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679306672"><span id="local-6989586621679306674"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeploymentReadyAction]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679306681"><span id="local-6989586621679306683"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeploymentReadyAction]
 FromJSONKeyFunction DeploymentReadyAction
 FromJSONKeyFunction DeploymentReadyAction
 -&gt; FromJSONKeyFunction [DeploymentReadyAction]
@@ -221,7 +221,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DeploymentReadyAction]
 fromJSONKey :: FromJSONKeyFunction DeploymentReadyAction
 $cfromJSONKey :: FromJSONKeyFunction DeploymentReadyAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679306663"><span id="local-6989586621679306665"><span id="local-6989586621679306667"><span id="local-6989586621679306669"><span class="annot"><span class="annottext">[DeploymentReadyAction] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679306672"><span id="local-6989586621679306674"><span id="local-6989586621679306676"><span id="local-6989586621679306678"><span class="annot"><span class="annottext">[DeploymentReadyAction] -&gt; Encoding
 [DeploymentReadyAction] -&gt; Value
 DeploymentReadyAction -&gt; Encoding
 DeploymentReadyAction -&gt; Value
@@ -245,7 +245,7 @@ $ctoEncoding :: DeploymentReadyAction -&gt; Encoding
 toJSON :: DeploymentReadyAction -&gt; Value
 $ctoJSON :: DeploymentReadyAction -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679306658"><span id="local-6989586621679306660"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeploymentReadyAction]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679306667"><span id="local-6989586621679306669"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeploymentReadyAction]
 ToJSONKeyFunction DeploymentReadyAction
 ToJSONKeyFunction DeploymentReadyAction
 -&gt; ToJSONKeyFunction [DeploymentReadyAction]
@@ -257,14 +257,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DeploymentReadyAction]
 toJSONKey :: ToJSONKeyFunction DeploymentReadyAction
 $ctoJSONKey :: ToJSONKeyFunction DeploymentReadyAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679306655"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeploymentReadyAction
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679306664"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeploymentReadyAction
 ([Node] -&gt; Either String DeploymentReadyAction)
 -&gt; FromXML DeploymentReadyAction
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DeploymentReadyAction
 $cparseXML :: [Node] -&gt; Either String DeploymentReadyAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679306652"><span class="annot"><span class="annottext">DeploymentReadyAction -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679306661"><span class="annot"><span class="annottext">DeploymentReadyAction -&gt; XML
 (DeploymentReadyAction -&gt; XML) -&gt; ToXML DeploymentReadyAction
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DeploymentReadyAction -&gt; XML

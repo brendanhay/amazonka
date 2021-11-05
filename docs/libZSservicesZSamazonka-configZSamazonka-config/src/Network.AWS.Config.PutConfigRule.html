@@ -80,7 +80,7 @@
 </span><span id="line-80"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | /See:/ 'newPutConfigRule' smart constructor.</span><span>
-</span><span id="line-83"></span><span id="local-6989586621679416867"><span id="local-6989586621679416868"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutConfigRule"><span class="annot"><a href="Network.AWS.Config.PutConfigRule.html#PutConfigRule"><span class="hs-identifier hs-var">PutConfigRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutConfigRule%27"><span class="annot"><a href="Network.AWS.Config.PutConfigRule.html#PutConfigRule%27"><span class="hs-identifier hs-var">PutConfigRule'</span></a></span></span><span>
+</span><span id="line-83"></span><span id="local-6989586621679416876"><span id="local-6989586621679416877"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutConfigRule"><span class="annot"><a href="Network.AWS.Config.PutConfigRule.html#PutConfigRule"><span class="hs-identifier hs-var">PutConfigRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutConfigRule%27"><span class="annot"><a href="Network.AWS.Config.PutConfigRule.html#PutConfigRule%27"><span class="hs-identifier hs-var">PutConfigRule'</span></a></span></span><span>
 </span><span id="line-84"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of tag object.</span><span>
 </span><span id="line-85"></span><span>    </span><span id="%24sel%3Atags%3APutConfigRule%27"><span class="annot"><span class="annottext">PutConfigRule -&gt; Maybe [Tag]
 </span><a href="Network.AWS.Config.PutConfigRule.html#%24sel%3Atags%3APutConfigRule%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Config.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -88,7 +88,7 @@
 </span><span id="line-87"></span><span>    </span><span id="%24sel%3AconfigRule%3APutConfigRule%27"><span class="annot"><span class="annottext">PutConfigRule -&gt; ConfigRule
 </span><a href="Network.AWS.Config.PutConfigRule.html#%24sel%3AconfigRule%3APutConfigRule%27"><span class="hs-identifier hs-var hs-var">configRule</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigRule.html#ConfigRule"><span class="hs-identifier hs-type">ConfigRule</span></a></span><span>
 </span><span id="line-88"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-89"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679416860"><span id="local-6989586621679416862"><span class="annot"><span class="annottext">PutConfigRule -&gt; PutConfigRule -&gt; Bool
+</span><span id="line-89"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679416869"><span id="local-6989586621679416871"><span class="annot"><span class="annottext">PutConfigRule -&gt; PutConfigRule -&gt; Bool
 (PutConfigRule -&gt; PutConfigRule -&gt; Bool)
 -&gt; (PutConfigRule -&gt; PutConfigRule -&gt; Bool) -&gt; Eq PutConfigRule
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -96,7 +96,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutConfigRule -&gt; PutConfigRule -&gt; Bool
 == :: PutConfigRule -&gt; PutConfigRule -&gt; Bool
 $c== :: PutConfigRule -&gt; PutConfigRule -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416851"><span id="local-6989586621679416853"><span id="local-6989586621679416855"><span id="local-6989586621679416857"><span class="annot"><span class="annottext">ReadPrec [PutConfigRule]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416860"><span id="local-6989586621679416862"><span id="local-6989586621679416864"><span id="local-6989586621679416866"><span class="annot"><span class="annottext">ReadPrec [PutConfigRule]
 ReadPrec PutConfigRule
 Int -&gt; ReadS PutConfigRule
 ReadS [PutConfigRule]
@@ -116,7 +116,7 @@ readList :: ReadS [PutConfigRule]
 $creadList :: ReadS [PutConfigRule]
 readsPrec :: Int -&gt; ReadS PutConfigRule
 $creadsPrec :: Int -&gt; ReadS PutConfigRule
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416844"><span id="local-6989586621679416846"><span id="local-6989586621679416848"><span class="annot"><span class="annottext">Int -&gt; PutConfigRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416853"><span id="local-6989586621679416855"><span id="local-6989586621679416857"><span class="annot"><span class="annottext">Int -&gt; PutConfigRule -&gt; ShowS
 [PutConfigRule] -&gt; ShowS
 PutConfigRule -&gt; String
 (Int -&gt; PutConfigRule -&gt; ShowS)
@@ -158,8 +158,8 @@ $cfrom :: forall x. PutConfigRule -&gt; Rep PutConfigRule x
 </span><span id="line-104"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigRule.html#ConfigRule"><span class="hs-identifier hs-type">ConfigRule</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-105"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.PutConfigRule.html#PutConfigRule"><span class="hs-identifier hs-type">PutConfigRule</span></a></span><span>
 </span><span id="line-106"></span><span id="newPutConfigRule"><span class="annot"><span class="annottext">newPutConfigRule :: ConfigRule -&gt; PutConfigRule
-</span><a href="Network.AWS.Config.PutConfigRule.html#newPutConfigRule"><span class="hs-identifier hs-var hs-var">newPutConfigRule</span></a></span></span><span> </span><span id="local-6989586621679416839"><span class="annot"><span class="annottext">ConfigRule
-</span><a href="#local-6989586621679416839"><span class="hs-identifier hs-var">pConfigRule_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Config.PutConfigRule.html#newPutConfigRule"><span class="hs-identifier hs-var hs-var">newPutConfigRule</span></a></span></span><span> </span><span id="local-6989586621679416848"><span class="annot"><span class="annottext">ConfigRule
+</span><a href="#local-6989586621679416848"><span class="hs-identifier hs-var">pConfigRule_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>  </span><span class="annot"><span class="annottext">PutConfigRule' :: Maybe [Tag] -&gt; ConfigRule -&gt; PutConfigRule
 </span><a href="Network.AWS.Config.PutConfigRule.html#PutConfigRule%27"><span class="hs-identifier hs-type">PutConfigRule'</span></a></span><span>
 </span><span id="line-108"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tags:PutConfigRule' :: Maybe [Tag]
@@ -168,7 +168,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:configRule:PutConfigRule' :: ConfigRule
 </span><a href="Network.AWS.Config.PutConfigRule.html#%24sel%3AconfigRule%3APutConfigRule%27"><span class="hs-identifier hs-var">configRule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ConfigRule
-</span><a href="#local-6989586621679416839"><span class="hs-identifier hs-var">pConfigRule_</span></a></span><span>
+</span><a href="#local-6989586621679416848"><span class="hs-identifier hs-var">pConfigRule_</span></a></span><span>
 </span><span id="line-110"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- | An array of tag object.</span><span>
@@ -179,16 +179,16 @@ forall a. Maybe a
 -&gt; (PutConfigRule -&gt; Maybe [Tag] -&gt; PutConfigRule)
 -&gt; Lens PutConfigRule PutConfigRule (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.PutConfigRule.html#PutConfigRule%27"><span class="hs-identifier hs-type">PutConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416836"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.PutConfigRule.html#PutConfigRule%27"><span class="hs-identifier hs-type">PutConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416845"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:PutConfigRule' :: PutConfigRule -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679416836"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679416836"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416835"><span class="annot"><span class="annottext">s :: PutConfigRule
-</span><a href="#local-6989586621679416835"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.PutConfigRule.html#PutConfigRule%27"><span class="hs-identifier hs-type">PutConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416834"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679416834"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutConfigRule
-</span><a href="#local-6989586621679416835"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:PutConfigRule' :: Maybe [Tag]
+</span><a href="#local-6989586621679416845"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679416845"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416844"><span class="annot"><span class="annottext">s :: PutConfigRule
+</span><a href="#local-6989586621679416844"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.PutConfigRule.html#PutConfigRule%27"><span class="hs-identifier hs-type">PutConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416843"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679416843"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutConfigRule
+</span><a href="#local-6989586621679416844"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:PutConfigRule' :: Maybe [Tag]
 </span><a href="Network.AWS.Config.PutConfigRule.html#%24sel%3Atags%3APutConfigRule%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679416834"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.PutConfigRule.html#PutConfigRule"><span class="hs-identifier hs-type">PutConfigRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621679416843"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.PutConfigRule.html#PutConfigRule"><span class="hs-identifier hs-type">PutConfigRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; PutConfigRule -&gt; f PutConfigRule)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -212,27 +212,27 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (PutConfigRule -&gt; ConfigRule -&gt; PutConfigRule)
 -&gt; Lens PutConfigRule PutConfigRule ConfigRule ConfigRule
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.PutConfigRule.html#PutConfigRule%27"><span class="hs-identifier hs-type">PutConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416830"><span class="annot"><span class="annottext">ConfigRule
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.PutConfigRule.html#PutConfigRule%27"><span class="hs-identifier hs-type">PutConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416839"><span class="annot"><span class="annottext">ConfigRule
 configRule :: ConfigRule
 $sel:configRule:PutConfigRule' :: PutConfigRule -&gt; ConfigRule
-</span><a href="#local-6989586621679416830"><span class="hs-identifier hs-var hs-var">configRule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigRule
-</span><a href="#local-6989586621679416830"><span class="hs-identifier hs-var">configRule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416829"><span class="annot"><span class="annottext">s :: PutConfigRule
-</span><a href="#local-6989586621679416829"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.PutConfigRule.html#PutConfigRule%27"><span class="hs-identifier hs-type">PutConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416828"><span class="annot"><span class="annottext">ConfigRule
-</span><a href="#local-6989586621679416828"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutConfigRule
-</span><a href="#local-6989586621679416829"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configRule:PutConfigRule' :: ConfigRule
+</span><a href="#local-6989586621679416839"><span class="hs-identifier hs-var hs-var">configRule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigRule
+</span><a href="#local-6989586621679416839"><span class="hs-identifier hs-var">configRule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416838"><span class="annot"><span class="annottext">s :: PutConfigRule
+</span><a href="#local-6989586621679416838"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.PutConfigRule.html#PutConfigRule%27"><span class="hs-identifier hs-type">PutConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416837"><span class="annot"><span class="annottext">ConfigRule
+</span><a href="#local-6989586621679416837"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutConfigRule
+</span><a href="#local-6989586621679416838"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configRule:PutConfigRule' :: ConfigRule
 </span><a href="Network.AWS.Config.PutConfigRule.html#%24sel%3AconfigRule%3APutConfigRule%27"><span class="hs-identifier hs-var">configRule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ConfigRule
-</span><a href="#local-6989586621679416828"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.PutConfigRule.html#PutConfigRule"><span class="hs-identifier hs-type">PutConfigRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679416837"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.PutConfigRule.html#PutConfigRule"><span class="hs-identifier hs-type">PutConfigRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutConfigRule.html#PutConfigRule"><span class="hs-identifier hs-type">PutConfigRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-121"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-122"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutConfigRule.html#PutConfigRule"><span class="hs-identifier hs-type">PutConfigRule</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>      </span><span class="annot"><a href="Network.AWS.Config.PutConfigRule.html#PutConfigRuleResponse"><span class="hs-identifier hs-type">PutConfigRuleResponse</span></a></span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679416824"><span class="annot"><span class="annottext">request :: PutConfigRule -&gt; Request PutConfigRule
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679416833"><span class="annot"><span class="annottext">request :: PutConfigRule -&gt; Request PutConfigRule
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutConfigRule -&gt; Request PutConfigRule
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Config.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679416820"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679416829"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutConfigRule
 -&gt; ClientResponse ClientBody
@@ -256,12 +256,12 @@ AWSResponse a
 PutConfigRuleResponse
 </span><a href="Network.AWS.Config.PutConfigRule.html#PutConfigRuleResponse%27"><span class="hs-identifier hs-var">PutConfigRuleResponse'</span></a></span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416813"><span id="local-6989586621679416815"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutConfigRule.html#PutConfigRule"><span class="hs-identifier hs-type">PutConfigRule</span></a></span></span></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416822"><span id="local-6989586621679416824"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutConfigRule.html#PutConfigRule"><span class="hs-identifier hs-type">PutConfigRule</span></a></span></span></span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416810"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutConfigRule.html#PutConfigRule"><span class="hs-identifier hs-type">PutConfigRule</span></a></span></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416819"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutConfigRule.html#PutConfigRule"><span class="hs-identifier hs-type">PutConfigRule</span></a></span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutConfigRule.html#PutConfigRule"><span class="hs-identifier hs-type">PutConfigRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679416806"><span class="annot"><span class="annottext">toHeaders :: PutConfigRule -&gt; [Header]
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679416815"><span class="annot"><span class="annottext">toHeaders :: PutConfigRule -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; PutConfigRule -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -288,15 +288,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-144"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416796"><span id="local-6989586621679416798"><span id="local-6989586621679416800"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutConfigRule.html#PutConfigRule"><span class="hs-identifier hs-type">PutConfigRule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679416794"><span class="annot"><span class="annottext">toJSON :: PutConfigRule -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutConfigRule.html#PutConfigRule%27"><span class="hs-identifier hs-type">PutConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416791"><span id="local-6989586621679416792"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416805"><span id="local-6989586621679416807"><span id="local-6989586621679416809"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutConfigRule.html#PutConfigRule"><span class="hs-identifier hs-type">PutConfigRule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679416803"><span class="annot"><span class="annottext">toJSON :: PutConfigRule -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutConfigRule.html#PutConfigRule%27"><span class="hs-identifier hs-type">PutConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416800"><span id="local-6989586621679416801"><span class="annot"><span class="annottext">Maybe [Tag]
 ConfigRule
 configRule :: ConfigRule
 tags :: Maybe [Tag]
 $sel:configRule:PutConfigRule' :: PutConfigRule -&gt; ConfigRule
 $sel:tags:PutConfigRule' :: PutConfigRule -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679416791"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679416800"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -308,26 +308,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679416792"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679416801"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConfigRule&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ConfigRule -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ConfigRule
-</span><a href="#local-6989586621679416791"><span class="hs-identifier hs-var">configRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679416800"><span class="hs-identifier hs-var">configRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutConfigRule.html#PutConfigRule"><span class="hs-identifier hs-type">PutConfigRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679416784"><span class="annot"><span class="annottext">toPath :: PutConfigRule -&gt; ByteString
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679416793"><span class="annot"><span class="annottext">toPath :: PutConfigRule -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutConfigRule -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutConfigRule.html#PutConfigRule"><span class="hs-identifier hs-type">PutConfigRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679416780"><span class="annot"><span class="annottext">toQuery :: PutConfigRule -&gt; QueryString
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679416789"><span class="annot"><span class="annottext">toQuery :: PutConfigRule -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutConfigRule -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -335,10 +335,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- | /See:/ 'newPutConfigRuleResponse' smart constructor.</span><span>
-</span><span id="line-163"></span><span id="local-6989586621679416777"><span id="local-6989586621679416778"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutConfigRuleResponse"><span class="annot"><a href="Network.AWS.Config.PutConfigRule.html#PutConfigRuleResponse"><span class="hs-identifier hs-var">PutConfigRuleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutConfigRuleResponse%27"><span class="annot"><a href="Network.AWS.Config.PutConfigRule.html#PutConfigRuleResponse%27"><span class="hs-identifier hs-var">PutConfigRuleResponse'</span></a></span></span><span>
+</span><span id="line-163"></span><span id="local-6989586621679416786"><span id="local-6989586621679416787"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutConfigRuleResponse"><span class="annot"><a href="Network.AWS.Config.PutConfigRule.html#PutConfigRuleResponse"><span class="hs-identifier hs-var">PutConfigRuleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutConfigRuleResponse%27"><span class="annot"><a href="Network.AWS.Config.PutConfigRule.html#PutConfigRuleResponse%27"><span class="hs-identifier hs-var">PutConfigRuleResponse'</span></a></span></span><span>
 </span><span id="line-164"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-165"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-166"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679416773"><span id="local-6989586621679416775"><span class="annot"><span class="annottext">PutConfigRuleResponse -&gt; PutConfigRuleResponse -&gt; Bool
+</span><span id="line-166"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679416782"><span id="local-6989586621679416784"><span class="annot"><span class="annottext">PutConfigRuleResponse -&gt; PutConfigRuleResponse -&gt; Bool
 (PutConfigRuleResponse -&gt; PutConfigRuleResponse -&gt; Bool)
 -&gt; (PutConfigRuleResponse -&gt; PutConfigRuleResponse -&gt; Bool)
 -&gt; Eq PutConfigRuleResponse
@@ -347,7 +347,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutConfigRuleResponse -&gt; PutConfigRuleResponse -&gt; Bool
 == :: PutConfigRuleResponse -&gt; PutConfigRuleResponse -&gt; Bool
 $c== :: PutConfigRuleResponse -&gt; PutConfigRuleResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416765"><span id="local-6989586621679416767"><span id="local-6989586621679416769"><span id="local-6989586621679416771"><span class="annot"><span class="annottext">ReadPrec [PutConfigRuleResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416774"><span id="local-6989586621679416776"><span id="local-6989586621679416778"><span id="local-6989586621679416780"><span class="annot"><span class="annottext">ReadPrec [PutConfigRuleResponse]
 ReadPrec PutConfigRuleResponse
 Int -&gt; ReadS PutConfigRuleResponse
 ReadS [PutConfigRuleResponse]
@@ -367,7 +367,7 @@ readList :: ReadS [PutConfigRuleResponse]
 $creadList :: ReadS [PutConfigRuleResponse]
 readsPrec :: Int -&gt; ReadS PutConfigRuleResponse
 $creadsPrec :: Int -&gt; ReadS PutConfigRuleResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416759"><span id="local-6989586621679416761"><span id="local-6989586621679416763"><span class="annot"><span class="annottext">Int -&gt; PutConfigRuleResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416768"><span id="local-6989586621679416770"><span id="local-6989586621679416772"><span class="annot"><span class="annottext">Int -&gt; PutConfigRuleResponse -&gt; ShowS
 [PutConfigRuleResponse] -&gt; ShowS
 PutConfigRuleResponse -&gt; String
 (Int -&gt; PutConfigRuleResponse -&gt; ShowS)
@@ -403,5 +403,5 @@ $cfrom :: forall x. PutConfigRuleResponse -&gt; Rep PutConfigRuleResponse x
 </span><a href="Network.AWS.Config.PutConfigRule.html#newPutConfigRuleResponse"><span class="hs-identifier hs-var hs-var">newPutConfigRuleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PutConfigRuleResponse
 </span><a href="Network.AWS.Config.PutConfigRule.html#PutConfigRuleResponse%27"><span class="hs-identifier hs-var">PutConfigRuleResponse'</span></a></span><span>
 </span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416755"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutConfigRule.html#PutConfigRuleResponse"><span class="hs-identifier hs-type">PutConfigRuleResponse</span></a></span></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416764"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutConfigRule.html#PutConfigRuleResponse"><span class="hs-identifier hs-type">PutConfigRuleResponse</span></a></span></span><span>
 </span><span id="line-177"></span></pre></body></html>

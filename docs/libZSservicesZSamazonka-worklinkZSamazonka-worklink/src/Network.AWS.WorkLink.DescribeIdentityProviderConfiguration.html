@@ -1,0 +1,621 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.WorkLink.DescribeIdentityProviderConfiguration</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Describes the identity provider configuration of the specified fleet.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.WorkLink.DescribeIdentityProviderConfiguration</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#DescribeIdentityProviderConfiguration"><span class="hs-identifier">DescribeIdentityProviderConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#newDescribeIdentityProviderConfiguration"><span class="hs-identifier">newDescribeIdentityProviderConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#describeIdentityProviderConfiguration_fleetArn"><span class="hs-identifier">describeIdentityProviderConfiguration_fleetArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#DescribeIdentityProviderConfigurationResponse"><span class="hs-identifier">DescribeIdentityProviderConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#newDescribeIdentityProviderConfigurationResponse"><span class="hs-identifier">newDescribeIdentityProviderConfigurationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#describeIdentityProviderConfigurationResponse_identityProviderType"><span class="hs-identifier">describeIdentityProviderConfigurationResponse_identityProviderType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#describeIdentityProviderConfigurationResponse_serviceProviderSamlMetadata"><span class="hs-identifier">describeIdentityProviderConfigurationResponse_serviceProviderSamlMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#describeIdentityProviderConfigurationResponse_identityProviderSamlMetadata"><span class="hs-identifier">describeIdentityProviderConfigurationResponse_identityProviderSamlMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#describeIdentityProviderConfigurationResponse_httpStatus"><span class="hs-identifier">describeIdentityProviderConfigurationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.Types.html"><span class="hs-identifier">Network.AWS.WorkLink.Types</span></a></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newDescribeIdentityProviderConfiguration' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679194488"><span id="local-6989586621679194489"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeIdentityProviderConfiguration"><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#DescribeIdentityProviderConfiguration"><span class="hs-identifier hs-var">DescribeIdentityProviderConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeIdentityProviderConfiguration%27"><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#DescribeIdentityProviderConfiguration%27"><span class="hs-identifier hs-var">DescribeIdentityProviderConfiguration'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the fleet.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AfleetArn%3ADescribeIdentityProviderConfiguration%27"><span class="annot"><span class="annottext">DescribeIdentityProviderConfiguration -&gt; Text
+</span><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#%24sel%3AfleetArn%3ADescribeIdentityProviderConfiguration%27"><span class="hs-identifier hs-var hs-var">fleetArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679194482"><span id="local-6989586621679194484"><span class="annot"><span class="annottext">DescribeIdentityProviderConfiguration
+-&gt; DescribeIdentityProviderConfiguration -&gt; Bool
+(DescribeIdentityProviderConfiguration
+ -&gt; DescribeIdentityProviderConfiguration -&gt; Bool)
+-&gt; (DescribeIdentityProviderConfiguration
+    -&gt; DescribeIdentityProviderConfiguration -&gt; Bool)
+-&gt; Eq DescribeIdentityProviderConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeIdentityProviderConfiguration
+-&gt; DescribeIdentityProviderConfiguration -&gt; Bool
+$c/= :: DescribeIdentityProviderConfiguration
+-&gt; DescribeIdentityProviderConfiguration -&gt; Bool
+== :: DescribeIdentityProviderConfiguration
+-&gt; DescribeIdentityProviderConfiguration -&gt; Bool
+$c== :: DescribeIdentityProviderConfiguration
+-&gt; DescribeIdentityProviderConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194473"><span id="local-6989586621679194475"><span id="local-6989586621679194477"><span id="local-6989586621679194479"><span class="annot"><span class="annottext">ReadPrec [DescribeIdentityProviderConfiguration]
+ReadPrec DescribeIdentityProviderConfiguration
+Int -&gt; ReadS DescribeIdentityProviderConfiguration
+ReadS [DescribeIdentityProviderConfiguration]
+(Int -&gt; ReadS DescribeIdentityProviderConfiguration)
+-&gt; ReadS [DescribeIdentityProviderConfiguration]
+-&gt; ReadPrec DescribeIdentityProviderConfiguration
+-&gt; ReadPrec [DescribeIdentityProviderConfiguration]
+-&gt; Read DescribeIdentityProviderConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeIdentityProviderConfiguration]
+$creadListPrec :: ReadPrec [DescribeIdentityProviderConfiguration]
+readPrec :: ReadPrec DescribeIdentityProviderConfiguration
+$creadPrec :: ReadPrec DescribeIdentityProviderConfiguration
+readList :: ReadS [DescribeIdentityProviderConfiguration]
+$creadList :: ReadS [DescribeIdentityProviderConfiguration]
+readsPrec :: Int -&gt; ReadS DescribeIdentityProviderConfiguration
+$creadsPrec :: Int -&gt; ReadS DescribeIdentityProviderConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194466"><span id="local-6989586621679194468"><span id="local-6989586621679194470"><span class="annot"><span class="annottext">Int -&gt; DescribeIdentityProviderConfiguration -&gt; ShowS
+[DescribeIdentityProviderConfiguration] -&gt; ShowS
+DescribeIdentityProviderConfiguration -&gt; String
+(Int -&gt; DescribeIdentityProviderConfiguration -&gt; ShowS)
+-&gt; (DescribeIdentityProviderConfiguration -&gt; String)
+-&gt; ([DescribeIdentityProviderConfiguration] -&gt; ShowS)
+-&gt; Show DescribeIdentityProviderConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeIdentityProviderConfiguration] -&gt; ShowS
+$cshowList :: [DescribeIdentityProviderConfiguration] -&gt; ShowS
+show :: DescribeIdentityProviderConfiguration -&gt; String
+$cshow :: DescribeIdentityProviderConfiguration -&gt; String
+showsPrec :: Int -&gt; DescribeIdentityProviderConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeIdentityProviderConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeIdentityProviderConfiguration
+ -&gt; Rep DescribeIdentityProviderConfiguration x)
+-&gt; (forall x.
+    Rep DescribeIdentityProviderConfiguration x
+    -&gt; DescribeIdentityProviderConfiguration)
+-&gt; Generic DescribeIdentityProviderConfiguration
+forall x.
+Rep DescribeIdentityProviderConfiguration x
+-&gt; DescribeIdentityProviderConfiguration
+forall x.
+DescribeIdentityProviderConfiguration
+-&gt; Rep DescribeIdentityProviderConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeIdentityProviderConfiguration x
+-&gt; DescribeIdentityProviderConfiguration
+$cfrom :: forall x.
+DescribeIdentityProviderConfiguration
+-&gt; Rep DescribeIdentityProviderConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Create a value of 'DescribeIdentityProviderConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'fleetArn', 'describeIdentityProviderConfiguration_fleetArn' - The ARN of the fleet.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#newDescribeIdentityProviderConfiguration"><span class="hs-identifier hs-type">newDescribeIdentityProviderConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-comment">-- | 'fleetArn'</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#DescribeIdentityProviderConfiguration"><span class="hs-identifier hs-type">DescribeIdentityProviderConfiguration</span></a></span><span>
+</span><span id="line-71"></span><span id="newDescribeIdentityProviderConfiguration"><span class="annot"><span class="annottext">newDescribeIdentityProviderConfiguration :: Text -&gt; DescribeIdentityProviderConfiguration
+</span><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#newDescribeIdentityProviderConfiguration"><span class="hs-identifier hs-var hs-var">newDescribeIdentityProviderConfiguration</span></a></span></span><span> </span><span id="local-6989586621679194461"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679194461"><span class="hs-identifier hs-var">pFleetArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">DescribeIdentityProviderConfiguration' :: Text -&gt; DescribeIdentityProviderConfiguration
+</span><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#DescribeIdentityProviderConfiguration%27"><span class="hs-identifier hs-type">DescribeIdentityProviderConfiguration'</span></a></span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:fleetArn:DescribeIdentityProviderConfiguration' :: Text
+</span><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#%24sel%3AfleetArn%3ADescribeIdentityProviderConfiguration%27"><span class="hs-identifier hs-var">fleetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679194461"><span class="hs-identifier hs-var">pFleetArn_</span></a></span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The ARN of the fleet.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#describeIdentityProviderConfiguration_fleetArn"><span class="hs-identifier hs-type">describeIdentityProviderConfiguration_fleetArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#DescribeIdentityProviderConfiguration"><span class="hs-identifier hs-type">DescribeIdentityProviderConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-79"></span><span id="describeIdentityProviderConfiguration_fleetArn"><span class="annot"><span class="annottext">describeIdentityProviderConfiguration_fleetArn :: (Text -&gt; f Text)
+-&gt; DescribeIdentityProviderConfiguration
+-&gt; f DescribeIdentityProviderConfiguration
+</span><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#describeIdentityProviderConfiguration_fleetArn"><span class="hs-identifier hs-var hs-var">describeIdentityProviderConfiguration_fleetArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeIdentityProviderConfiguration -&gt; Text)
+-&gt; (DescribeIdentityProviderConfiguration
+    -&gt; Text -&gt; DescribeIdentityProviderConfiguration)
+-&gt; Lens
+     DescribeIdentityProviderConfiguration
+     DescribeIdentityProviderConfiguration
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#DescribeIdentityProviderConfiguration%27"><span class="hs-identifier hs-type">DescribeIdentityProviderConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194458"><span class="annot"><span class="annottext">Text
+fleetArn :: Text
+$sel:fleetArn:DescribeIdentityProviderConfiguration' :: DescribeIdentityProviderConfiguration -&gt; Text
+</span><a href="#local-6989586621679194458"><span class="hs-identifier hs-var hs-var">fleetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679194458"><span class="hs-identifier hs-var">fleetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194457"><span class="annot"><span class="annottext">s :: DescribeIdentityProviderConfiguration
+</span><a href="#local-6989586621679194457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#DescribeIdentityProviderConfiguration%27"><span class="hs-identifier hs-type">DescribeIdentityProviderConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194456"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679194456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIdentityProviderConfiguration
+</span><a href="#local-6989586621679194457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetArn:DescribeIdentityProviderConfiguration' :: Text
+</span><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#%24sel%3AfleetArn%3ADescribeIdentityProviderConfiguration%27"><span class="hs-identifier hs-var">fleetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679194456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#DescribeIdentityProviderConfiguration"><span class="hs-identifier hs-type">DescribeIdentityProviderConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#DescribeIdentityProviderConfiguration"><span class="hs-identifier hs-type">DescribeIdentityProviderConfiguration</span></a></span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-86"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#DescribeIdentityProviderConfiguration"><span class="hs-identifier hs-type">DescribeIdentityProviderConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#DescribeIdentityProviderConfigurationResponse"><span class="hs-identifier hs-type">DescribeIdentityProviderConfigurationResponse</span></a></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679194452"><span class="annot"><span class="annottext">request :: DescribeIdentityProviderConfiguration
+-&gt; Request DescribeIdentityProviderConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeIdentityProviderConfiguration
+-&gt; Request DescribeIdentityProviderConfiguration
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.WorkLink.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679194448"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeIdentityProviderConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse DescribeIdentityProviderConfiguration)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either
+      String (AWSResponse DescribeIdentityProviderConfiguration))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeIdentityProviderConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse DescribeIdentityProviderConfiguration)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679194445"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679194445"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679194444"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679194444"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679194443"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679194443"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">Maybe IdentityProviderType
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; DescribeIdentityProviderConfigurationResponse
+</span><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#DescribeIdentityProviderConfigurationResponse%27"><span class="hs-identifier hs-var">DescribeIdentityProviderConfigurationResponse'</span></a></span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">(Maybe IdentityProviderType
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; DescribeIdentityProviderConfigurationResponse)
+-&gt; Either String (Maybe IdentityProviderType)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeIdentityProviderConfigurationResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679194443"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe IdentityProviderType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IdentityProviderType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeIdentityProviderConfigurationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Int -&gt; DescribeIdentityProviderConfigurationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679194443"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceProviderSamlMetadata&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Int -&gt; DescribeIdentityProviderConfigurationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Int -&gt; DescribeIdentityProviderConfigurationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679194443"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IdentityProviderSamlMetadata&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String (Int -&gt; DescribeIdentityProviderConfigurationResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeIdentityProviderConfigurationResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679194445"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679194435"><span id="local-6989586621679194437"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#DescribeIdentityProviderConfiguration"><span class="hs-identifier hs-type">DescribeIdentityProviderConfiguration</span></a></span></span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679194432"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#DescribeIdentityProviderConfiguration"><span class="hs-identifier hs-type">DescribeIdentityProviderConfiguration</span></a></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#DescribeIdentityProviderConfiguration"><span class="hs-identifier hs-type">DescribeIdentityProviderConfiguration</span></a></span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679194428"><span class="annot"><span class="annottext">toHeaders :: DescribeIdentityProviderConfiguration -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; DescribeIdentityProviderConfiguration -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-115"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-116"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-117"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-118"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679194418"><span id="local-6989586621679194420"><span id="local-6989586621679194422"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#DescribeIdentityProviderConfiguration"><span class="hs-identifier hs-type">DescribeIdentityProviderConfiguration</span></a></span></span></span></span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679194416"><span class="annot"><span class="annottext">toJSON :: DescribeIdentityProviderConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#DescribeIdentityProviderConfiguration%27"><span class="hs-identifier hs-type">DescribeIdentityProviderConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194414"><span class="annot"><span class="annottext">Text
+fleetArn :: Text
+$sel:fleetArn:DescribeIdentityProviderConfiguration' :: DescribeIdentityProviderConfiguration -&gt; Text
+</span><a href="#local-6989586621679194414"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-129"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FleetArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679194414"><span class="hs-identifier hs-var">fleetArn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#DescribeIdentityProviderConfiguration"><span class="hs-identifier hs-type">DescribeIdentityProviderConfiguration</span></a></span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679194408"><span class="annot"><span class="annottext">toPath :: DescribeIdentityProviderConfiguration -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeIdentityProviderConfiguration -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/describeIdentityProviderConfiguration&quot;</span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-141"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#DescribeIdentityProviderConfiguration"><span class="hs-identifier hs-type">DescribeIdentityProviderConfiguration</span></a></span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679194404"><span class="annot"><span class="annottext">toQuery :: DescribeIdentityProviderConfiguration -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeIdentityProviderConfiguration -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | /See:/ 'newDescribeIdentityProviderConfigurationResponse' smart constructor.</span><span>
+</span><span id="line-147"></span><span id="local-6989586621679194401"><span id="local-6989586621679194402"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeIdentityProviderConfigurationResponse"><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#DescribeIdentityProviderConfigurationResponse"><span class="hs-identifier hs-var">DescribeIdentityProviderConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeIdentityProviderConfigurationResponse%27"><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#DescribeIdentityProviderConfigurationResponse%27"><span class="hs-identifier hs-var">DescribeIdentityProviderConfigurationResponse'</span></a></span></span><span>
+</span><span id="line-148"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of identity provider.</span><span>
+</span><span id="line-149"></span><span>    </span><span id="%24sel%3AidentityProviderType%3ADescribeIdentityProviderConfigurationResponse%27"><span class="annot"><span class="annottext">DescribeIdentityProviderConfigurationResponse
+-&gt; Maybe IdentityProviderType
+</span><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#%24sel%3AidentityProviderType%3ADescribeIdentityProviderConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">identityProviderType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.Types.IdentityProviderType.html#IdentityProviderType"><span class="hs-identifier hs-type">IdentityProviderType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- | The SAML metadata document uploaded to the user&#8217;s identity provider.</span><span>
+</span><span id="line-151"></span><span>    </span><span id="%24sel%3AserviceProviderSamlMetadata%3ADescribeIdentityProviderConfigurationResponse%27"><span class="annot"><span class="annottext">DescribeIdentityProviderConfigurationResponse -&gt; Maybe Text
+</span><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#%24sel%3AserviceProviderSamlMetadata%3ADescribeIdentityProviderConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">serviceProviderSamlMetadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- | The SAML metadata document provided by the user&#8217;s identity provider.</span><span>
+</span><span id="line-153"></span><span>    </span><span id="%24sel%3AidentityProviderSamlMetadata%3ADescribeIdentityProviderConfigurationResponse%27"><span class="annot"><span class="annottext">DescribeIdentityProviderConfigurationResponse -&gt; Maybe Text
+</span><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#%24sel%3AidentityProviderSamlMetadata%3ADescribeIdentityProviderConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">identityProviderSamlMetadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-155"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeIdentityProviderConfigurationResponse%27"><span class="annot"><span class="annottext">DescribeIdentityProviderConfigurationResponse -&gt; Int
+</span><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#%24sel%3AhttpStatus%3ADescribeIdentityProviderConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679194393"><span id="local-6989586621679194395"><span class="annot"><span class="annottext">DescribeIdentityProviderConfigurationResponse
+-&gt; DescribeIdentityProviderConfigurationResponse -&gt; Bool
+(DescribeIdentityProviderConfigurationResponse
+ -&gt; DescribeIdentityProviderConfigurationResponse -&gt; Bool)
+-&gt; (DescribeIdentityProviderConfigurationResponse
+    -&gt; DescribeIdentityProviderConfigurationResponse -&gt; Bool)
+-&gt; Eq DescribeIdentityProviderConfigurationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeIdentityProviderConfigurationResponse
+-&gt; DescribeIdentityProviderConfigurationResponse -&gt; Bool
+$c/= :: DescribeIdentityProviderConfigurationResponse
+-&gt; DescribeIdentityProviderConfigurationResponse -&gt; Bool
+== :: DescribeIdentityProviderConfigurationResponse
+-&gt; DescribeIdentityProviderConfigurationResponse -&gt; Bool
+$c== :: DescribeIdentityProviderConfigurationResponse
+-&gt; DescribeIdentityProviderConfigurationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194385"><span id="local-6989586621679194387"><span id="local-6989586621679194389"><span id="local-6989586621679194391"><span class="annot"><span class="annottext">ReadPrec [DescribeIdentityProviderConfigurationResponse]
+ReadPrec DescribeIdentityProviderConfigurationResponse
+Int -&gt; ReadS DescribeIdentityProviderConfigurationResponse
+ReadS [DescribeIdentityProviderConfigurationResponse]
+(Int -&gt; ReadS DescribeIdentityProviderConfigurationResponse)
+-&gt; ReadS [DescribeIdentityProviderConfigurationResponse]
+-&gt; ReadPrec DescribeIdentityProviderConfigurationResponse
+-&gt; ReadPrec [DescribeIdentityProviderConfigurationResponse]
+-&gt; Read DescribeIdentityProviderConfigurationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeIdentityProviderConfigurationResponse]
+$creadListPrec :: ReadPrec [DescribeIdentityProviderConfigurationResponse]
+readPrec :: ReadPrec DescribeIdentityProviderConfigurationResponse
+$creadPrec :: ReadPrec DescribeIdentityProviderConfigurationResponse
+readList :: ReadS [DescribeIdentityProviderConfigurationResponse]
+$creadList :: ReadS [DescribeIdentityProviderConfigurationResponse]
+readsPrec :: Int -&gt; ReadS DescribeIdentityProviderConfigurationResponse
+$creadsPrec :: Int -&gt; ReadS DescribeIdentityProviderConfigurationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194379"><span id="local-6989586621679194381"><span id="local-6989586621679194383"><span class="annot"><span class="annottext">Int -&gt; DescribeIdentityProviderConfigurationResponse -&gt; ShowS
+[DescribeIdentityProviderConfigurationResponse] -&gt; ShowS
+DescribeIdentityProviderConfigurationResponse -&gt; String
+(Int -&gt; DescribeIdentityProviderConfigurationResponse -&gt; ShowS)
+-&gt; (DescribeIdentityProviderConfigurationResponse -&gt; String)
+-&gt; ([DescribeIdentityProviderConfigurationResponse] -&gt; ShowS)
+-&gt; Show DescribeIdentityProviderConfigurationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeIdentityProviderConfigurationResponse] -&gt; ShowS
+$cshowList :: [DescribeIdentityProviderConfigurationResponse] -&gt; ShowS
+show :: DescribeIdentityProviderConfigurationResponse -&gt; String
+$cshow :: DescribeIdentityProviderConfigurationResponse -&gt; String
+showsPrec :: Int -&gt; DescribeIdentityProviderConfigurationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeIdentityProviderConfigurationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeIdentityProviderConfigurationResponse
+ -&gt; Rep DescribeIdentityProviderConfigurationResponse x)
+-&gt; (forall x.
+    Rep DescribeIdentityProviderConfigurationResponse x
+    -&gt; DescribeIdentityProviderConfigurationResponse)
+-&gt; Generic DescribeIdentityProviderConfigurationResponse
+forall x.
+Rep DescribeIdentityProviderConfigurationResponse x
+-&gt; DescribeIdentityProviderConfigurationResponse
+forall x.
+DescribeIdentityProviderConfigurationResponse
+-&gt; Rep DescribeIdentityProviderConfigurationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeIdentityProviderConfigurationResponse x
+-&gt; DescribeIdentityProviderConfigurationResponse
+$cfrom :: forall x.
+DescribeIdentityProviderConfigurationResponse
+-&gt; Rep DescribeIdentityProviderConfigurationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- Create a value of 'DescribeIdentityProviderConfigurationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- 'identityProviderType', 'describeIdentityProviderConfigurationResponse_identityProviderType' - The type of identity provider.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- 'serviceProviderSamlMetadata', 'describeIdentityProviderConfigurationResponse_serviceProviderSamlMetadata' - The SAML metadata document uploaded to the user&#8217;s identity provider.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 'identityProviderSamlMetadata', 'describeIdentityProviderConfigurationResponse_identityProviderSamlMetadata' - The SAML metadata document provided by the user&#8217;s identity provider.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- 'httpStatus', 'describeIdentityProviderConfigurationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#newDescribeIdentityProviderConfigurationResponse"><span class="hs-identifier hs-type">newDescribeIdentityProviderConfigurationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-175"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-176"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#DescribeIdentityProviderConfigurationResponse"><span class="hs-identifier hs-type">DescribeIdentityProviderConfigurationResponse</span></a></span><span>
+</span><span id="line-178"></span><span id="newDescribeIdentityProviderConfigurationResponse"><span class="annot"><span class="annottext">newDescribeIdentityProviderConfigurationResponse :: Int -&gt; DescribeIdentityProviderConfigurationResponse
+</span><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#newDescribeIdentityProviderConfigurationResponse"><span class="hs-identifier hs-var hs-var">newDescribeIdentityProviderConfigurationResponse</span></a></span></span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679194376"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679194376"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><span class="annottext">DescribeIdentityProviderConfigurationResponse' :: Maybe IdentityProviderType
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; DescribeIdentityProviderConfigurationResponse
+</span><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#DescribeIdentityProviderConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeIdentityProviderConfigurationResponse'</span></a></span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:identityProviderType:DescribeIdentityProviderConfigurationResponse' :: Maybe IdentityProviderType
+</span><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#%24sel%3AidentityProviderType%3ADescribeIdentityProviderConfigurationResponse%27"><span class="hs-identifier hs-var">identityProviderType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>          </span><span class="annot"><span class="annottext">Maybe IdentityProviderType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>        </span><span class="annot"><span class="annottext">$sel:serviceProviderSamlMetadata:DescribeIdentityProviderConfigurationResponse' :: Maybe Text
+</span><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#%24sel%3AserviceProviderSamlMetadata%3ADescribeIdentityProviderConfigurationResponse%27"><span class="hs-identifier hs-var">serviceProviderSamlMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-184"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">$sel:identityProviderSamlMetadata:DescribeIdentityProviderConfigurationResponse' :: Maybe Text
+</span><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#%24sel%3AidentityProviderSamlMetadata%3ADescribeIdentityProviderConfigurationResponse%27"><span class="hs-identifier hs-var">identityProviderSamlMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-186"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeIdentityProviderConfigurationResponse' :: Int
+</span><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#%24sel%3AhttpStatus%3ADescribeIdentityProviderConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679194376"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-188"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | The type of identity provider.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#describeIdentityProviderConfigurationResponse_identityProviderType"><span class="hs-identifier hs-type">describeIdentityProviderConfigurationResponse_identityProviderType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#DescribeIdentityProviderConfigurationResponse"><span class="hs-identifier hs-type">DescribeIdentityProviderConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.Types.IdentityProviderType.html#IdentityProviderType"><span class="hs-identifier hs-type">IdentityProviderType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span id="describeIdentityProviderConfigurationResponse_identityProviderType"><span class="annot"><span class="annottext">describeIdentityProviderConfigurationResponse_identityProviderType :: (Maybe IdentityProviderType -&gt; f (Maybe IdentityProviderType))
+-&gt; DescribeIdentityProviderConfigurationResponse
+-&gt; f DescribeIdentityProviderConfigurationResponse
+</span><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#describeIdentityProviderConfigurationResponse_identityProviderType"><span class="hs-identifier hs-var hs-var">describeIdentityProviderConfigurationResponse_identityProviderType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeIdentityProviderConfigurationResponse
+ -&gt; Maybe IdentityProviderType)
+-&gt; (DescribeIdentityProviderConfigurationResponse
+    -&gt; Maybe IdentityProviderType
+    -&gt; DescribeIdentityProviderConfigurationResponse)
+-&gt; Lens
+     DescribeIdentityProviderConfigurationResponse
+     DescribeIdentityProviderConfigurationResponse
+     (Maybe IdentityProviderType)
+     (Maybe IdentityProviderType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#DescribeIdentityProviderConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeIdentityProviderConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194375"><span class="annot"><span class="annottext">Maybe IdentityProviderType
+identityProviderType :: Maybe IdentityProviderType
+$sel:identityProviderType:DescribeIdentityProviderConfigurationResponse' :: DescribeIdentityProviderConfigurationResponse
+-&gt; Maybe IdentityProviderType
+</span><a href="#local-6989586621679194375"><span class="hs-identifier hs-var hs-var">identityProviderType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IdentityProviderType
+</span><a href="#local-6989586621679194375"><span class="hs-identifier hs-var">identityProviderType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194374"><span class="annot"><span class="annottext">s :: DescribeIdentityProviderConfigurationResponse
+</span><a href="#local-6989586621679194374"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#DescribeIdentityProviderConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeIdentityProviderConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194373"><span class="annot"><span class="annottext">Maybe IdentityProviderType
+</span><a href="#local-6989586621679194373"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIdentityProviderConfigurationResponse
+</span><a href="#local-6989586621679194374"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityProviderType:DescribeIdentityProviderConfigurationResponse' :: Maybe IdentityProviderType
+</span><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#%24sel%3AidentityProviderType%3ADescribeIdentityProviderConfigurationResponse%27"><span class="hs-identifier hs-var">identityProviderType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IdentityProviderType
+</span><a href="#local-6989586621679194373"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#DescribeIdentityProviderConfigurationResponse"><span class="hs-identifier hs-type">DescribeIdentityProviderConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | The SAML metadata document uploaded to the user&#8217;s identity provider.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#describeIdentityProviderConfigurationResponse_serviceProviderSamlMetadata"><span class="hs-identifier hs-type">describeIdentityProviderConfigurationResponse_serviceProviderSamlMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#DescribeIdentityProviderConfigurationResponse"><span class="hs-identifier hs-type">DescribeIdentityProviderConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span id="describeIdentityProviderConfigurationResponse_serviceProviderSamlMetadata"><span class="annot"><span class="annottext">describeIdentityProviderConfigurationResponse_serviceProviderSamlMetadata :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeIdentityProviderConfigurationResponse
+-&gt; f DescribeIdentityProviderConfigurationResponse
+</span><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#describeIdentityProviderConfigurationResponse_serviceProviderSamlMetadata"><span class="hs-identifier hs-var hs-var">describeIdentityProviderConfigurationResponse_serviceProviderSamlMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeIdentityProviderConfigurationResponse -&gt; Maybe Text)
+-&gt; (DescribeIdentityProviderConfigurationResponse
+    -&gt; Maybe Text -&gt; DescribeIdentityProviderConfigurationResponse)
+-&gt; Lens
+     DescribeIdentityProviderConfigurationResponse
+     DescribeIdentityProviderConfigurationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#DescribeIdentityProviderConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeIdentityProviderConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194372"><span class="annot"><span class="annottext">Maybe Text
+serviceProviderSamlMetadata :: Maybe Text
+$sel:serviceProviderSamlMetadata:DescribeIdentityProviderConfigurationResponse' :: DescribeIdentityProviderConfigurationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679194372"><span class="hs-identifier hs-var hs-var">serviceProviderSamlMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194372"><span class="hs-identifier hs-var">serviceProviderSamlMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194371"><span class="annot"><span class="annottext">s :: DescribeIdentityProviderConfigurationResponse
+</span><a href="#local-6989586621679194371"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#DescribeIdentityProviderConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeIdentityProviderConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194370"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194370"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIdentityProviderConfigurationResponse
+</span><a href="#local-6989586621679194371"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceProviderSamlMetadata:DescribeIdentityProviderConfigurationResponse' :: Maybe Text
+</span><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#%24sel%3AserviceProviderSamlMetadata%3ADescribeIdentityProviderConfigurationResponse%27"><span class="hs-identifier hs-var">serviceProviderSamlMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194370"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#DescribeIdentityProviderConfigurationResponse"><span class="hs-identifier hs-type">DescribeIdentityProviderConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- | The SAML metadata document provided by the user&#8217;s identity provider.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#describeIdentityProviderConfigurationResponse_identityProviderSamlMetadata"><span class="hs-identifier hs-type">describeIdentityProviderConfigurationResponse_identityProviderSamlMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#DescribeIdentityProviderConfigurationResponse"><span class="hs-identifier hs-type">DescribeIdentityProviderConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span id="describeIdentityProviderConfigurationResponse_identityProviderSamlMetadata"><span class="annot"><span class="annottext">describeIdentityProviderConfigurationResponse_identityProviderSamlMetadata :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeIdentityProviderConfigurationResponse
+-&gt; f DescribeIdentityProviderConfigurationResponse
+</span><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#describeIdentityProviderConfigurationResponse_identityProviderSamlMetadata"><span class="hs-identifier hs-var hs-var">describeIdentityProviderConfigurationResponse_identityProviderSamlMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeIdentityProviderConfigurationResponse -&gt; Maybe Text)
+-&gt; (DescribeIdentityProviderConfigurationResponse
+    -&gt; Maybe Text -&gt; DescribeIdentityProviderConfigurationResponse)
+-&gt; Lens
+     DescribeIdentityProviderConfigurationResponse
+     DescribeIdentityProviderConfigurationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#DescribeIdentityProviderConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeIdentityProviderConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194369"><span class="annot"><span class="annottext">Maybe Text
+identityProviderSamlMetadata :: Maybe Text
+$sel:identityProviderSamlMetadata:DescribeIdentityProviderConfigurationResponse' :: DescribeIdentityProviderConfigurationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679194369"><span class="hs-identifier hs-var hs-var">identityProviderSamlMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194369"><span class="hs-identifier hs-var">identityProviderSamlMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194368"><span class="annot"><span class="annottext">s :: DescribeIdentityProviderConfigurationResponse
+</span><a href="#local-6989586621679194368"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#DescribeIdentityProviderConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeIdentityProviderConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194367"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194367"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIdentityProviderConfigurationResponse
+</span><a href="#local-6989586621679194368"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityProviderSamlMetadata:DescribeIdentityProviderConfigurationResponse' :: Maybe Text
+</span><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#%24sel%3AidentityProviderSamlMetadata%3ADescribeIdentityProviderConfigurationResponse%27"><span class="hs-identifier hs-var">identityProviderSamlMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679194367"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#DescribeIdentityProviderConfigurationResponse"><span class="hs-identifier hs-type">DescribeIdentityProviderConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#describeIdentityProviderConfigurationResponse_httpStatus"><span class="hs-identifier hs-type">describeIdentityProviderConfigurationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#DescribeIdentityProviderConfigurationResponse"><span class="hs-identifier hs-type">DescribeIdentityProviderConfigurationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-204"></span><span id="describeIdentityProviderConfigurationResponse_httpStatus"><span class="annot"><span class="annottext">describeIdentityProviderConfigurationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeIdentityProviderConfigurationResponse
+-&gt; f DescribeIdentityProviderConfigurationResponse
+</span><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#describeIdentityProviderConfigurationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeIdentityProviderConfigurationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeIdentityProviderConfigurationResponse -&gt; Int)
+-&gt; (DescribeIdentityProviderConfigurationResponse
+    -&gt; Int -&gt; DescribeIdentityProviderConfigurationResponse)
+-&gt; Lens
+     DescribeIdentityProviderConfigurationResponse
+     DescribeIdentityProviderConfigurationResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#DescribeIdentityProviderConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeIdentityProviderConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194366"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeIdentityProviderConfigurationResponse' :: DescribeIdentityProviderConfigurationResponse -&gt; Int
+</span><a href="#local-6989586621679194366"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679194366"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194365"><span class="annot"><span class="annottext">s :: DescribeIdentityProviderConfigurationResponse
+</span><a href="#local-6989586621679194365"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#DescribeIdentityProviderConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeIdentityProviderConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194364"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679194364"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIdentityProviderConfigurationResponse
+</span><a href="#local-6989586621679194365"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeIdentityProviderConfigurationResponse' :: Int
+</span><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#%24sel%3AhttpStatus%3ADescribeIdentityProviderConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679194364"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#DescribeIdentityProviderConfigurationResponse"><span class="hs-identifier hs-type">DescribeIdentityProviderConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679194362"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkLink.DescribeIdentityProviderConfiguration.html#DescribeIdentityProviderConfigurationResponse"><span class="hs-identifier hs-type">DescribeIdentityProviderConfigurationResponse</span></a></span></span><span>
+</span><span id="line-209"></span></pre></body></html>

@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- object versions at a specific period in the object\'s lifetime.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newNoncurrentVersionExpiration' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679544865"><span id="local-6989586621679544866"></span></span><span class="hs-keyword">data</span><span> </span><span id="NoncurrentVersionExpiration"><span class="annot"><a href="Network.AWS.S3.Types.NoncurrentVersionExpiration.html#NoncurrentVersionExpiration"><span class="hs-identifier hs-var">NoncurrentVersionExpiration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NoncurrentVersionExpiration%27"><span class="annot"><a href="Network.AWS.S3.Types.NoncurrentVersionExpiration.html#NoncurrentVersionExpiration%27"><span class="hs-identifier hs-var">NoncurrentVersionExpiration'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679544874"><span id="local-6989586621679544875"></span></span><span class="hs-keyword">data</span><span> </span><span id="NoncurrentVersionExpiration"><span class="annot"><a href="Network.AWS.S3.Types.NoncurrentVersionExpiration.html#NoncurrentVersionExpiration"><span class="hs-identifier hs-var">NoncurrentVersionExpiration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NoncurrentVersionExpiration%27"><span class="annot"><a href="Network.AWS.S3.Types.NoncurrentVersionExpiration.html#NoncurrentVersionExpiration%27"><span class="hs-identifier hs-var">NoncurrentVersionExpiration'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the number of days an object is noncurrent before Amazon S3</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- can perform the associated action. For information about the noncurrent</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- days calculations, see</span><span>
@@ -40,7 +40,7 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3AnoncurrentDays%3ANoncurrentVersionExpiration%27"><span class="annot"><span class="annottext">NoncurrentVersionExpiration -&gt; Int
 </span><a href="Network.AWS.S3.Types.NoncurrentVersionExpiration.html#%24sel%3AnoncurrentDays%3ANoncurrentVersionExpiration%27"><span class="hs-identifier hs-var hs-var">noncurrentDays</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679544859"><span id="local-6989586621679544861"><span class="annot"><span class="annottext">NoncurrentVersionExpiration -&gt; NoncurrentVersionExpiration -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679544868"><span id="local-6989586621679544870"><span class="annot"><span class="annottext">NoncurrentVersionExpiration -&gt; NoncurrentVersionExpiration -&gt; Bool
 (NoncurrentVersionExpiration
  -&gt; NoncurrentVersionExpiration -&gt; Bool)
 -&gt; (NoncurrentVersionExpiration
@@ -51,7 +51,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: NoncurrentVersionExpiration -&gt; NoncurrentVersionExpiration -&gt; Bool
 == :: NoncurrentVersionExpiration -&gt; NoncurrentVersionExpiration -&gt; Bool
 $c== :: NoncurrentVersionExpiration -&gt; NoncurrentVersionExpiration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679544850"><span id="local-6989586621679544852"><span id="local-6989586621679544854"><span id="local-6989586621679544856"><span class="annot"><span class="annottext">ReadPrec [NoncurrentVersionExpiration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679544859"><span id="local-6989586621679544861"><span id="local-6989586621679544863"><span id="local-6989586621679544865"><span class="annot"><span class="annottext">ReadPrec [NoncurrentVersionExpiration]
 ReadPrec NoncurrentVersionExpiration
 Int -&gt; ReadS NoncurrentVersionExpiration
 ReadS [NoncurrentVersionExpiration]
@@ -71,7 +71,7 @@ readList :: ReadS [NoncurrentVersionExpiration]
 $creadList :: ReadS [NoncurrentVersionExpiration]
 readsPrec :: Int -&gt; ReadS NoncurrentVersionExpiration
 $creadsPrec :: Int -&gt; ReadS NoncurrentVersionExpiration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679544843"><span id="local-6989586621679544845"><span id="local-6989586621679544847"><span class="annot"><span class="annottext">Int -&gt; NoncurrentVersionExpiration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679544852"><span id="local-6989586621679544854"><span id="local-6989586621679544856"><span class="annot"><span class="annottext">Int -&gt; NoncurrentVersionExpiration -&gt; ShowS
 [NoncurrentVersionExpiration] -&gt; ShowS
 NoncurrentVersionExpiration -&gt; String
 (Int -&gt; NoncurrentVersionExpiration -&gt; ShowS)
@@ -121,14 +121,14 @@ NoncurrentVersionExpiration -&gt; Rep NoncurrentVersionExpiration x
 </span><span id="line-59"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-60"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.NoncurrentVersionExpiration.html#NoncurrentVersionExpiration"><span class="hs-identifier hs-type">NoncurrentVersionExpiration</span></a></span><span>
 </span><span id="line-61"></span><span id="newNoncurrentVersionExpiration"><span class="annot"><span class="annottext">newNoncurrentVersionExpiration :: Int -&gt; NoncurrentVersionExpiration
-</span><a href="Network.AWS.S3.Types.NoncurrentVersionExpiration.html#newNoncurrentVersionExpiration"><span class="hs-identifier hs-var hs-var">newNoncurrentVersionExpiration</span></a></span></span><span> </span><span id="local-6989586621679544837"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679544837"><span class="hs-identifier hs-var">pNoncurrentDays_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.Types.NoncurrentVersionExpiration.html#newNoncurrentVersionExpiration"><span class="hs-identifier hs-var hs-var">newNoncurrentVersionExpiration</span></a></span></span><span> </span><span id="local-6989586621679544846"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679544846"><span class="hs-identifier hs-var">pNoncurrentDays_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">NoncurrentVersionExpiration' :: Int -&gt; NoncurrentVersionExpiration
 </span><a href="Network.AWS.S3.Types.NoncurrentVersionExpiration.html#NoncurrentVersionExpiration%27"><span class="hs-identifier hs-type">NoncurrentVersionExpiration'</span></a></span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:noncurrentDays:NoncurrentVersionExpiration' :: Int
 </span><a href="Network.AWS.S3.Types.NoncurrentVersionExpiration.html#%24sel%3AnoncurrentDays%3ANoncurrentVersionExpiration%27"><span class="hs-identifier hs-var">noncurrentDays</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-64"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679544837"><span class="hs-identifier hs-var">pNoncurrentDays_</span></a></span><span>
+</span><a href="#local-6989586621679544846"><span class="hs-identifier hs-var">pNoncurrentDays_</span></a></span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | Specifies the number of days an object is noncurrent before Amazon S3</span><span>
@@ -145,42 +145,42 @@ NoncurrentVersionExpiration -&gt; Rep NoncurrentVersionExpiration x
 -&gt; Lens
      NoncurrentVersionExpiration NoncurrentVersionExpiration Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.NoncurrentVersionExpiration.html#NoncurrentVersionExpiration%27"><span class="hs-identifier hs-type">NoncurrentVersionExpiration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679544833"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.NoncurrentVersionExpiration.html#NoncurrentVersionExpiration%27"><span class="hs-identifier hs-type">NoncurrentVersionExpiration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679544842"><span class="annot"><span class="annottext">Int
 noncurrentDays :: Int
 $sel:noncurrentDays:NoncurrentVersionExpiration' :: NoncurrentVersionExpiration -&gt; Int
-</span><a href="#local-6989586621679544833"><span class="hs-identifier hs-var hs-var">noncurrentDays</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679544833"><span class="hs-identifier hs-var">noncurrentDays</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679544832"><span class="annot"><span class="annottext">s :: NoncurrentVersionExpiration
-</span><a href="#local-6989586621679544832"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.NoncurrentVersionExpiration.html#NoncurrentVersionExpiration%27"><span class="hs-identifier hs-type">NoncurrentVersionExpiration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679544831"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679544831"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NoncurrentVersionExpiration
-</span><a href="#local-6989586621679544832"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:noncurrentDays:NoncurrentVersionExpiration' :: Int
+</span><a href="#local-6989586621679544842"><span class="hs-identifier hs-var hs-var">noncurrentDays</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679544842"><span class="hs-identifier hs-var">noncurrentDays</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679544841"><span class="annot"><span class="annottext">s :: NoncurrentVersionExpiration
+</span><a href="#local-6989586621679544841"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.NoncurrentVersionExpiration.html#NoncurrentVersionExpiration%27"><span class="hs-identifier hs-type">NoncurrentVersionExpiration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679544840"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679544840"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NoncurrentVersionExpiration
+</span><a href="#local-6989586621679544841"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:noncurrentDays:NoncurrentVersionExpiration' :: Int
 </span><a href="Network.AWS.S3.Types.NoncurrentVersionExpiration.html#%24sel%3AnoncurrentDays%3ANoncurrentVersionExpiration%27"><span class="hs-identifier hs-var">noncurrentDays</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679544831"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.NoncurrentVersionExpiration.html#NoncurrentVersionExpiration"><span class="hs-identifier hs-type">NoncurrentVersionExpiration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679544840"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.NoncurrentVersionExpiration.html#NoncurrentVersionExpiration"><span class="hs-identifier hs-type">NoncurrentVersionExpiration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.NoncurrentVersionExpiration.html#NoncurrentVersionExpiration"><span class="hs-identifier hs-type">NoncurrentVersionExpiration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679544828"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String NoncurrentVersionExpiration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679544826"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679544826"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679544837"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String NoncurrentVersionExpiration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679544835"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679544835"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">Int -&gt; NoncurrentVersionExpiration
 </span><a href="Network.AWS.S3.Types.NoncurrentVersionExpiration.html#NoncurrentVersionExpiration%27"><span class="hs-identifier hs-var">NoncurrentVersionExpiration'</span></a></span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">(Int -&gt; NoncurrentVersionExpiration)
 -&gt; Either String Int -&gt; Either String NoncurrentVersionExpiration
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679544826"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
+</span><a href="#local-6989586621679544835"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NoncurrentDays&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679544820"><span id="local-6989586621679544822"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.NoncurrentVersionExpiration.html#NoncurrentVersionExpiration"><span class="hs-identifier hs-type">NoncurrentVersionExpiration</span></a></span></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679544829"><span id="local-6989586621679544831"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.NoncurrentVersionExpiration.html#NoncurrentVersionExpiration"><span class="hs-identifier hs-type">NoncurrentVersionExpiration</span></a></span></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679544817"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.NoncurrentVersionExpiration.html#NoncurrentVersionExpiration"><span class="hs-identifier hs-type">NoncurrentVersionExpiration</span></a></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679544826"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.NoncurrentVersionExpiration.html#NoncurrentVersionExpiration"><span class="hs-identifier hs-type">NoncurrentVersionExpiration</span></a></span></span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.NoncurrentVersionExpiration.html#NoncurrentVersionExpiration"><span class="hs-identifier hs-type">NoncurrentVersionExpiration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679544813"><span class="annot"><span class="annottext">toXML :: NoncurrentVersionExpiration -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.NoncurrentVersionExpiration.html#NoncurrentVersionExpiration%27"><span class="hs-identifier hs-type">NoncurrentVersionExpiration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679544811"><span class="annot"><span class="annottext">Int
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679544822"><span class="annot"><span class="annottext">toXML :: NoncurrentVersionExpiration -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.NoncurrentVersionExpiration.html#NoncurrentVersionExpiration%27"><span class="hs-identifier hs-type">NoncurrentVersionExpiration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679544820"><span class="annot"><span class="annottext">Int
 noncurrentDays :: Int
 $sel:noncurrentDays:NoncurrentVersionExpiration' :: NoncurrentVersionExpiration -&gt; Int
-</span><a href="#local-6989586621679544811"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679544820"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -188,5 +188,5 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;NoncurrentDays&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Int -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679544811"><span class="hs-identifier hs-var">noncurrentDays</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679544820"><span class="hs-identifier hs-var">noncurrentDays</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-88"></span></pre></body></html>

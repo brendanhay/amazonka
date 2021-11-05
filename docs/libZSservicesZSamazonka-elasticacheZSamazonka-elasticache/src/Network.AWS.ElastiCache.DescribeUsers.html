@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newDescribeUsers' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679415181"><span id="local-6989586621679415182"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeUsers"><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-var">DescribeUsers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeUsers%27"><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-var">DescribeUsers'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679415190"><span id="local-6989586621679415191"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeUsers"><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-var">DescribeUsers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeUsers%27"><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-var">DescribeUsers'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Filter to determine the list of User IDs to return.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3Afilters%3ADescribeUsers%27"><span class="annot"><span class="annottext">DescribeUsers -&gt; Maybe [Filter]
 </span><a href="Network.AWS.ElastiCache.DescribeUsers.html#%24sel%3Afilters%3ADescribeUsers%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -76,7 +76,7 @@
 </span><span id="line-72"></span><span>    </span><span id="%24sel%3AmaxRecords%3ADescribeUsers%27"><span class="annot"><span class="annottext">DescribeUsers -&gt; Maybe Int
 </span><a href="Network.AWS.ElastiCache.DescribeUsers.html#%24sel%3AmaxRecords%3ADescribeUsers%27"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679415171"><span id="local-6989586621679415173"><span class="annot"><span class="annottext">DescribeUsers -&gt; DescribeUsers -&gt; Bool
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679415180"><span id="local-6989586621679415182"><span class="annot"><span class="annottext">DescribeUsers -&gt; DescribeUsers -&gt; Bool
 (DescribeUsers -&gt; DescribeUsers -&gt; Bool)
 -&gt; (DescribeUsers -&gt; DescribeUsers -&gt; Bool) -&gt; Eq DescribeUsers
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -84,7 +84,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeUsers -&gt; DescribeUsers -&gt; Bool
 == :: DescribeUsers -&gt; DescribeUsers -&gt; Bool
 $c== :: DescribeUsers -&gt; DescribeUsers -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679415162"><span id="local-6989586621679415164"><span id="local-6989586621679415166"><span id="local-6989586621679415168"><span class="annot"><span class="annottext">ReadPrec [DescribeUsers]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679415171"><span id="local-6989586621679415173"><span id="local-6989586621679415175"><span id="local-6989586621679415177"><span class="annot"><span class="annottext">ReadPrec [DescribeUsers]
 ReadPrec DescribeUsers
 Int -&gt; ReadS DescribeUsers
 ReadS [DescribeUsers]
@@ -104,7 +104,7 @@ readList :: ReadS [DescribeUsers]
 $creadList :: ReadS [DescribeUsers]
 readsPrec :: Int -&gt; ReadS DescribeUsers
 $creadsPrec :: Int -&gt; ReadS DescribeUsers
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679415155"><span id="local-6989586621679415157"><span id="local-6989586621679415159"><span class="annot"><span class="annottext">Int -&gt; DescribeUsers -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679415164"><span id="local-6989586621679415166"><span id="local-6989586621679415168"><span class="annot"><span class="annottext">Int -&gt; DescribeUsers -&gt; ShowS
 [DescribeUsers] -&gt; ShowS
 DescribeUsers -&gt; String
 (Int -&gt; DescribeUsers -&gt; ShowS)
@@ -194,16 +194,16 @@ forall a. Maybe a
 -&gt; Lens
      DescribeUsers DescribeUsers (Maybe [Filter]) (Maybe [Filter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-type">DescribeUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415149"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-type">DescribeUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415158"><span class="annot"><span class="annottext">Maybe [Filter]
 filters :: Maybe [Filter]
 $sel:filters:DescribeUsers' :: DescribeUsers -&gt; Maybe [Filter]
-</span><a href="#local-6989586621679415149"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621679415149"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415148"><span class="annot"><span class="annottext">s :: DescribeUsers
-</span><a href="#local-6989586621679415148"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-type">DescribeUsers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415147"><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621679415147"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsers
-</span><a href="#local-6989586621679415148"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeUsers' :: Maybe [Filter]
+</span><a href="#local-6989586621679415158"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679415158"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415157"><span class="annot"><span class="annottext">s :: DescribeUsers
+</span><a href="#local-6989586621679415157"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-type">DescribeUsers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415156"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679415156"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsers
+</span><a href="#local-6989586621679415157"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeUsers' :: Maybe [Filter]
 </span><a href="Network.AWS.ElastiCache.DescribeUsers.html#%24sel%3Afilters%3ADescribeUsers%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621679415147"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
+</span><a href="#local-6989586621679415156"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
  -&gt; DescribeUsers -&gt; f DescribeUsers)
 -&gt; ((Maybe [Filter] -&gt; f (Maybe [Filter]))
     -&gt; Maybe [Filter] -&gt; f (Maybe [Filter]))
@@ -228,16 +228,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (DescribeUsers -&gt; Maybe Text -&gt; DescribeUsers)
 -&gt; Lens DescribeUsers DescribeUsers (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-type">DescribeUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415143"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-type">DescribeUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415152"><span class="annot"><span class="annottext">Maybe Text
 engine :: Maybe Text
 $sel:engine:DescribeUsers' :: DescribeUsers -&gt; Maybe Text
-</span><a href="#local-6989586621679415143"><span class="hs-identifier hs-var hs-var">engine</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679415143"><span class="hs-identifier hs-var">engine</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415142"><span class="annot"><span class="annottext">s :: DescribeUsers
-</span><a href="#local-6989586621679415142"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-type">DescribeUsers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415141"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679415141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsers
-</span><a href="#local-6989586621679415142"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engine:DescribeUsers' :: Maybe Text
+</span><a href="#local-6989586621679415152"><span class="hs-identifier hs-var hs-var">engine</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415152"><span class="hs-identifier hs-var">engine</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415151"><span class="annot"><span class="annottext">s :: DescribeUsers
+</span><a href="#local-6989586621679415151"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-type">DescribeUsers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415150"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415150"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsers
+</span><a href="#local-6989586621679415151"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engine:DescribeUsers' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.DescribeUsers.html#%24sel%3Aengine%3ADescribeUsers%27"><span class="hs-identifier hs-var">engine</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679415141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679415150"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | The ID of the user.</span><span>
 </span><span id="line-118"></span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#describeUsers_userId"><span class="hs-identifier hs-type">describeUsers_userId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -246,16 +246,16 @@ $sel:engine:DescribeUsers' :: DescribeUsers -&gt; Maybe Text
 -&gt; (DescribeUsers -&gt; Maybe Text -&gt; DescribeUsers)
 -&gt; Lens DescribeUsers DescribeUsers (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-type">DescribeUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415140"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-type">DescribeUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415149"><span class="annot"><span class="annottext">Maybe Text
 userId :: Maybe Text
 $sel:userId:DescribeUsers' :: DescribeUsers -&gt; Maybe Text
-</span><a href="#local-6989586621679415140"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679415140"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415139"><span class="annot"><span class="annottext">s :: DescribeUsers
-</span><a href="#local-6989586621679415139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-type">DescribeUsers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415138"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679415138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsers
-</span><a href="#local-6989586621679415139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userId:DescribeUsers' :: Maybe Text
+</span><a href="#local-6989586621679415149"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415149"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415148"><span class="annot"><span class="annottext">s :: DescribeUsers
+</span><a href="#local-6989586621679415148"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-type">DescribeUsers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415147"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415147"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsers
+</span><a href="#local-6989586621679415148"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userId:DescribeUsers' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.DescribeUsers.html#%24sel%3AuserId%3ADescribeUsers%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679415138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679415147"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | An optional marker returned from a prior request. Use this marker for</span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- pagination of results from this operation. If this parameter is</span><span>
@@ -267,16 +267,16 @@ $sel:userId:DescribeUsers' :: DescribeUsers -&gt; Maybe Text
 -&gt; (DescribeUsers -&gt; Maybe Text -&gt; DescribeUsers)
 -&gt; Lens DescribeUsers DescribeUsers (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-type">DescribeUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415137"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-type">DescribeUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415146"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:DescribeUsers' :: DescribeUsers -&gt; Maybe Text
-</span><a href="#local-6989586621679415137"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679415137"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415136"><span class="annot"><span class="annottext">s :: DescribeUsers
-</span><a href="#local-6989586621679415136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-type">DescribeUsers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415135"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679415135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsers
-</span><a href="#local-6989586621679415136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeUsers' :: Maybe Text
+</span><a href="#local-6989586621679415146"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415146"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415145"><span class="annot"><span class="annottext">s :: DescribeUsers
+</span><a href="#local-6989586621679415145"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-type">DescribeUsers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415144"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415144"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsers
+</span><a href="#local-6989586621679415145"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeUsers' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.DescribeUsers.html#%24sel%3Amarker%3ADescribeUsers%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679415135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679415144"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | The maximum number of records to include in the response. If more</span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- records exist than the specified MaxRecords value, a marker is included</span><span>
@@ -287,28 +287,28 @@ $sel:marker:DescribeUsers' :: DescribeUsers -&gt; Maybe Text
 -&gt; (DescribeUsers -&gt; Maybe Int -&gt; DescribeUsers)
 -&gt; Lens DescribeUsers DescribeUsers (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-type">DescribeUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415134"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-type">DescribeUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415143"><span class="annot"><span class="annottext">Maybe Int
 maxRecords :: Maybe Int
 $sel:maxRecords:DescribeUsers' :: DescribeUsers -&gt; Maybe Int
-</span><a href="#local-6989586621679415134"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679415134"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415133"><span class="annot"><span class="annottext">s :: DescribeUsers
-</span><a href="#local-6989586621679415133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-type">DescribeUsers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415132"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679415132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsers
-</span><a href="#local-6989586621679415133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeUsers' :: Maybe Int
+</span><a href="#local-6989586621679415143"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679415143"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415142"><span class="annot"><span class="annottext">s :: DescribeUsers
+</span><a href="#local-6989586621679415142"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-type">DescribeUsers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415141"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679415141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsers
+</span><a href="#local-6989586621679415142"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeUsers' :: Maybe Int
 </span><a href="Network.AWS.ElastiCache.DescribeUsers.html#%24sel%3AmaxRecords%3ADescribeUsers%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679415132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679415141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679415128"><span class="annot"><span class="annottext">page :: DescribeUsers -&gt; AWSResponse DescribeUsers -&gt; Maybe DescribeUsers
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679415126"><span class="annot"><span class="annottext">DescribeUsers
-</span><a href="#local-6989586621679415126"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679415125"><span class="annot"><span class="annottext">AWSResponse DescribeUsers
-</span><a href="#local-6989586621679415125"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679415137"><span class="annot"><span class="annottext">page :: DescribeUsers -&gt; AWSResponse DescribeUsers -&gt; Maybe DescribeUsers
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679415135"><span class="annot"><span class="annottext">DescribeUsers
+</span><a href="#local-6989586621679415135"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679415134"><span class="annot"><span class="annottext">AWSResponse DescribeUsers
+</span><a href="#local-6989586621679415134"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-136"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-137"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeUsers
 DescribeUsersResponse
-</span><a href="#local-6989586621679415125"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679415134"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">DescribeUsersResponse
 -&gt; Getting (First Text) DescribeUsersResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -336,7 +336,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-142"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeUsers
 DescribeUsersResponse
-</span><a href="#local-6989586621679415125"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679415134"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">DescribeUsersResponse
 -&gt; Getting (First [User]) DescribeUsersResponse [User]
 -&gt; Maybe [User]
@@ -369,7 +369,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">DescribeUsers
-</span><a href="#local-6989586621679415126"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679415135"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-149"></span><span>          </span><span class="annot"><span class="annottext">DescribeUsers -&gt; (DescribeUsers -&gt; DescribeUsers) -&gt; DescribeUsers
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -382,7 +382,7 @@ Lens DescribeUsers DescribeUsers (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeUsers
 DescribeUsersResponse
-</span><a href="#local-6989586621679415125"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679415134"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-151"></span><span>          </span><span class="annot"><span class="annottext">DescribeUsersResponse
 -&gt; Getting (First Text) DescribeUsersResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -406,12 +406,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-154"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-155"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-156"></span><span>      </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsersResponse"><span class="hs-identifier hs-type">DescribeUsersResponse</span></a></span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679415116"><span class="annot"><span class="annottext">request :: DescribeUsers -&gt; Request DescribeUsers
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679415125"><span class="annot"><span class="annottext">request :: DescribeUsers -&gt; Request DescribeUsers
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeUsers -&gt; Request DescribeUsers
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ElastiCache.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679415112"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679415121"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeUsers
 -&gt; ClientResponse ClientBody
@@ -440,10 +440,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DescribeUsersResult&quot;</span></span><span>
-</span><span id="line-161"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679415109"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679415109"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679415108"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679415108"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679415107"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679415107"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679415118"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415118"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679415117"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679415117"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679415116"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679415116"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-162"></span><span>          </span><span class="annot"><span class="annottext">Maybe [User] -&gt; Maybe Text -&gt; Int -&gt; DescribeUsersResponse
 </span><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsersResponse%27"><span class="hs-identifier hs-var">DescribeUsersResponse'</span></a></span><span>
 </span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [User] -&gt; Maybe Text -&gt; Int -&gt; DescribeUsersResponse)
@@ -451,7 +451,7 @@ Text
 -&gt; Either String (Maybe Text -&gt; Int -&gt; DescribeUsersResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679415107"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679415116"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Users&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -478,7 +478,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String (Int -&gt; DescribeUsersResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679415107"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679415116"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
@@ -490,15 +490,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679415109"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679415118"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
-</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679415096"><span id="local-6989586621679415098"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span></span></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679415105"><span id="local-6989586621679415107"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span></span></span><span>
 </span><span id="line-171"></span><span>
-</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679415093"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679415102"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span></span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621679415089"><span class="annot"><span class="annottext">toHeaders :: DescribeUsers -&gt; ResponseHeaders
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679415098"><span class="annot"><span class="annottext">toHeaders :: DescribeUsers -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeUsers -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -506,15 +506,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679415084"><span class="annot"><span class="annottext">toPath :: DescribeUsers -&gt; ByteString
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679415093"><span class="annot"><span class="annottext">toPath :: DescribeUsers -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeUsers -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679415080"><span class="annot"><span class="annottext">toQuery :: DescribeUsers -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-type">DescribeUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415074"><span id="local-6989586621679415075"><span id="local-6989586621679415076"><span id="local-6989586621679415077"><span id="local-6989586621679415078"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679415089"><span class="annot"><span class="annottext">toQuery :: DescribeUsers -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-type">DescribeUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415083"><span id="local-6989586621679415084"><span id="local-6989586621679415085"><span id="local-6989586621679415086"><span id="local-6989586621679415087"><span class="annot"><span class="annottext">Maybe Int
 Maybe [Filter]
 Maybe Text
 maxRecords :: Maybe Int
@@ -527,7 +527,7 @@ $sel:marker:DescribeUsers' :: DescribeUsers -&gt; Maybe Text
 $sel:userId:DescribeUsers' :: DescribeUsers -&gt; Maybe Text
 $sel:engine:DescribeUsers' :: DescribeUsers -&gt; Maybe Text
 $sel:filters:DescribeUsers' :: DescribeUsers -&gt; Maybe [Filter]
-</span><a href="#local-6989586621679415074"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679415083"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -558,31 +558,31 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Filter] -&gt; QueryString) -&gt; Maybe [Filter] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621679415078"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679415087"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Engine&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679415077"><span class="hs-identifier hs-var">engine</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679415086"><span class="hs-identifier hs-var">engine</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-191"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;UserId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679415076"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679415085"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-192"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679415075"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679415084"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-193"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;MaxRecords&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679415074"><span class="hs-identifier hs-var">maxRecords</span></a></span><span>
+</span><a href="#local-6989586621679415083"><span class="hs-identifier hs-var">maxRecords</span></a></span><span>
 </span><span id="line-194"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-comment">-- | /See:/ 'newDescribeUsersResponse' smart constructor.</span><span>
-</span><span id="line-197"></span><span id="local-6989586621679415070"><span id="local-6989586621679415071"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeUsersResponse"><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsersResponse"><span class="hs-identifier hs-var">DescribeUsersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeUsersResponse%27"><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsersResponse%27"><span class="hs-identifier hs-var">DescribeUsersResponse'</span></a></span></span><span>
+</span><span id="line-197"></span><span id="local-6989586621679415079"><span id="local-6989586621679415080"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeUsersResponse"><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsersResponse"><span class="hs-identifier hs-var">DescribeUsersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeUsersResponse%27"><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsersResponse%27"><span class="hs-identifier hs-var">DescribeUsersResponse'</span></a></span></span><span>
 </span><span id="line-198"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of users.</span><span>
 </span><span id="line-199"></span><span>    </span><span id="%24sel%3Ausers%3ADescribeUsersResponse%27"><span class="annot"><span class="annottext">DescribeUsersResponse -&gt; Maybe [User]
 </span><a href="Network.AWS.ElastiCache.DescribeUsers.html#%24sel%3Ausers%3ADescribeUsersResponse%27"><span class="hs-identifier hs-var hs-var">users</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -596,7 +596,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-206"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeUsersResponse%27"><span class="annot"><span class="annottext">DescribeUsersResponse -&gt; Int
 </span><a href="Network.AWS.ElastiCache.DescribeUsers.html#%24sel%3AhttpStatus%3ADescribeUsersResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-207"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-208"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679415063"><span id="local-6989586621679415065"><span class="annot"><span class="annottext">DescribeUsersResponse -&gt; DescribeUsersResponse -&gt; Bool
+</span><span id="line-208"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679415072"><span id="local-6989586621679415074"><span class="annot"><span class="annottext">DescribeUsersResponse -&gt; DescribeUsersResponse -&gt; Bool
 (DescribeUsersResponse -&gt; DescribeUsersResponse -&gt; Bool)
 -&gt; (DescribeUsersResponse -&gt; DescribeUsersResponse -&gt; Bool)
 -&gt; Eq DescribeUsersResponse
@@ -605,7 +605,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeUsersResponse -&gt; DescribeUsersResponse -&gt; Bool
 == :: DescribeUsersResponse -&gt; DescribeUsersResponse -&gt; Bool
 $c== :: DescribeUsersResponse -&gt; DescribeUsersResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679415055"><span id="local-6989586621679415057"><span id="local-6989586621679415059"><span id="local-6989586621679415061"><span class="annot"><span class="annottext">ReadPrec [DescribeUsersResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679415064"><span id="local-6989586621679415066"><span id="local-6989586621679415068"><span id="local-6989586621679415070"><span class="annot"><span class="annottext">ReadPrec [DescribeUsersResponse]
 ReadPrec DescribeUsersResponse
 Int -&gt; ReadS DescribeUsersResponse
 ReadS [DescribeUsersResponse]
@@ -625,7 +625,7 @@ readList :: ReadS [DescribeUsersResponse]
 $creadList :: ReadS [DescribeUsersResponse]
 readsPrec :: Int -&gt; ReadS DescribeUsersResponse
 $creadsPrec :: Int -&gt; ReadS DescribeUsersResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679415049"><span id="local-6989586621679415051"><span id="local-6989586621679415053"><span class="annot"><span class="annottext">Int -&gt; DescribeUsersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679415058"><span id="local-6989586621679415060"><span id="local-6989586621679415062"><span class="annot"><span class="annottext">Int -&gt; DescribeUsersResponse -&gt; ShowS
 [DescribeUsersResponse] -&gt; ShowS
 DescribeUsersResponse -&gt; String
 (Int -&gt; DescribeUsersResponse -&gt; ShowS)
@@ -672,8 +672,8 @@ $cfrom :: forall x. DescribeUsersResponse -&gt; Rep DescribeUsersResponse x
 </span><span id="line-228"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-229"></span><span>  </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsersResponse"><span class="hs-identifier hs-type">DescribeUsersResponse</span></a></span><span>
 </span><span id="line-230"></span><span id="newDescribeUsersResponse"><span class="annot"><span class="annottext">newDescribeUsersResponse :: Int -&gt; DescribeUsersResponse
-</span><a href="Network.AWS.ElastiCache.DescribeUsers.html#newDescribeUsersResponse"><span class="hs-identifier hs-var hs-var">newDescribeUsersResponse</span></a></span></span><span> </span><span id="local-6989586621679415046"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679415046"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ElastiCache.DescribeUsers.html#newDescribeUsersResponse"><span class="hs-identifier hs-var hs-var">newDescribeUsersResponse</span></a></span></span><span> </span><span id="local-6989586621679415055"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415055"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-231"></span><span>  </span><span class="annot"><span class="annottext">DescribeUsersResponse' :: Maybe [User] -&gt; Maybe Text -&gt; Int -&gt; DescribeUsersResponse
 </span><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsersResponse%27"><span class="hs-identifier hs-type">DescribeUsersResponse'</span></a></span><span>
 </span><span id="line-232"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:users:DescribeUsersResponse' :: Maybe [User]
@@ -686,7 +686,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-234"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeUsersResponse' :: Int
 </span><a href="Network.AWS.ElastiCache.DescribeUsers.html#%24sel%3AhttpStatus%3ADescribeUsersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679415046"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679415055"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-235"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-236"></span><span>
 </span><span id="line-237"></span><span class="hs-comment">-- | A list of users.</span><span>
@@ -697,16 +697,16 @@ forall a. Maybe a
 -&gt; (DescribeUsersResponse -&gt; Maybe [User] -&gt; DescribeUsersResponse)
 -&gt; Lens' DescribeUsersResponse (Maybe [User])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsersResponse%27"><span class="hs-identifier hs-type">DescribeUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415045"><span class="annot"><span class="annottext">Maybe [User]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsersResponse%27"><span class="hs-identifier hs-type">DescribeUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415054"><span class="annot"><span class="annottext">Maybe [User]
 users :: Maybe [User]
 $sel:users:DescribeUsersResponse' :: DescribeUsersResponse -&gt; Maybe [User]
-</span><a href="#local-6989586621679415045"><span class="hs-identifier hs-var hs-var">users</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [User]
-</span><a href="#local-6989586621679415045"><span class="hs-identifier hs-var">users</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415044"><span class="annot"><span class="annottext">s :: DescribeUsersResponse
-</span><a href="#local-6989586621679415044"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsersResponse%27"><span class="hs-identifier hs-type">DescribeUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415043"><span class="annot"><span class="annottext">Maybe [User]
-</span><a href="#local-6989586621679415043"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsersResponse
-</span><a href="#local-6989586621679415044"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:users:DescribeUsersResponse' :: Maybe [User]
+</span><a href="#local-6989586621679415054"><span class="hs-identifier hs-var hs-var">users</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [User]
+</span><a href="#local-6989586621679415054"><span class="hs-identifier hs-var">users</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415053"><span class="annot"><span class="annottext">s :: DescribeUsersResponse
+</span><a href="#local-6989586621679415053"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsersResponse%27"><span class="hs-identifier hs-type">DescribeUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415052"><span class="annot"><span class="annottext">Maybe [User]
+</span><a href="#local-6989586621679415052"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsersResponse
+</span><a href="#local-6989586621679415053"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:users:DescribeUsersResponse' :: Maybe [User]
 </span><a href="Network.AWS.ElastiCache.DescribeUsers.html#%24sel%3Ausers%3ADescribeUsersResponse%27"><span class="hs-identifier hs-var">users</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [User]
-</span><a href="#local-6989586621679415043"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsersResponse"><span class="hs-identifier hs-type">DescribeUsersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [User] -&gt; f (Maybe [User]))
+</span><a href="#local-6989586621679415052"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsersResponse"><span class="hs-identifier hs-type">DescribeUsersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [User] -&gt; f (Maybe [User]))
  -&gt; DescribeUsersResponse -&gt; f DescribeUsersResponse)
 -&gt; ((Maybe [User] -&gt; f (Maybe [User]))
     -&gt; Maybe [User] -&gt; f (Maybe [User]))
@@ -734,16 +734,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (DescribeUsersResponse -&gt; Maybe Text -&gt; DescribeUsersResponse)
 -&gt; Lens' DescribeUsersResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsersResponse%27"><span class="hs-identifier hs-type">DescribeUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415042"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsersResponse%27"><span class="hs-identifier hs-type">DescribeUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415051"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:DescribeUsersResponse' :: DescribeUsersResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679415042"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679415042"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415041"><span class="annot"><span class="annottext">s :: DescribeUsersResponse
-</span><a href="#local-6989586621679415041"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsersResponse%27"><span class="hs-identifier hs-type">DescribeUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415040"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679415040"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsersResponse
-</span><a href="#local-6989586621679415041"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeUsersResponse' :: Maybe Text
+</span><a href="#local-6989586621679415051"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415051"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415050"><span class="annot"><span class="annottext">s :: DescribeUsersResponse
+</span><a href="#local-6989586621679415050"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsersResponse%27"><span class="hs-identifier hs-type">DescribeUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415049"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415049"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsersResponse
+</span><a href="#local-6989586621679415050"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeUsersResponse' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.DescribeUsers.html#%24sel%3Amarker%3ADescribeUsersResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679415040"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsersResponse"><span class="hs-identifier hs-type">DescribeUsersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679415049"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsersResponse"><span class="hs-identifier hs-type">DescribeUsersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-247"></span><span>
 </span><span id="line-248"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-249"></span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#describeUsersResponse_httpStatus"><span class="hs-identifier hs-type">describeUsersResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsersResponse"><span class="hs-identifier hs-type">DescribeUsersResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -752,16 +752,16 @@ $sel:marker:DescribeUsersResponse' :: DescribeUsersResponse -&gt; Maybe Text
 -&gt; (DescribeUsersResponse -&gt; Int -&gt; DescribeUsersResponse)
 -&gt; Lens DescribeUsersResponse DescribeUsersResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsersResponse%27"><span class="hs-identifier hs-type">DescribeUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415039"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsersResponse%27"><span class="hs-identifier hs-type">DescribeUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415048"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeUsersResponse' :: DescribeUsersResponse -&gt; Int
-</span><a href="#local-6989586621679415039"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679415039"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415038"><span class="annot"><span class="annottext">s :: DescribeUsersResponse
-</span><a href="#local-6989586621679415038"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsersResponse%27"><span class="hs-identifier hs-type">DescribeUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415037"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679415037"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsersResponse
-</span><a href="#local-6989586621679415038"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeUsersResponse' :: Int
+</span><a href="#local-6989586621679415048"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415048"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415047"><span class="annot"><span class="annottext">s :: DescribeUsersResponse
+</span><a href="#local-6989586621679415047"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsersResponse%27"><span class="hs-identifier hs-type">DescribeUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415046"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415046"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsersResponse
+</span><a href="#local-6989586621679415047"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeUsersResponse' :: Int
 </span><a href="Network.AWS.ElastiCache.DescribeUsers.html#%24sel%3AhttpStatus%3ADescribeUsersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679415037"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsersResponse"><span class="hs-identifier hs-type">DescribeUsersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679415046"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsersResponse"><span class="hs-identifier hs-type">DescribeUsersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-251"></span><span>
-</span><span id="line-252"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679415035"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsersResponse"><span class="hs-identifier hs-type">DescribeUsersResponse</span></a></span></span><span>
+</span><span id="line-252"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679415044"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeUsers.html#DescribeUsersResponse"><span class="hs-identifier hs-type">DescribeUsersResponse</span></a></span></span><span>
 </span><span id="line-253"></span></pre></body></html>

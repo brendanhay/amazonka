@@ -28,12 +28,12 @@
 </span><span id="line-28"></span><span class="hs-comment">-- license, such as Microsoft SQL Server.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newInstallationMediaFailureCause' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679762241"><span id="local-6989586621679762242"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstallationMediaFailureCause"><span class="annot"><a href="Network.AWS.RDS.Types.InstallationMediaFailureCause.html#InstallationMediaFailureCause"><span class="hs-identifier hs-var">InstallationMediaFailureCause</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstallationMediaFailureCause%27"><span class="annot"><a href="Network.AWS.RDS.Types.InstallationMediaFailureCause.html#InstallationMediaFailureCause%27"><span class="hs-identifier hs-var">InstallationMediaFailureCause'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679762250"><span id="local-6989586621679762251"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstallationMediaFailureCause"><span class="annot"><a href="Network.AWS.RDS.Types.InstallationMediaFailureCause.html#InstallationMediaFailureCause"><span class="hs-identifier hs-var">InstallationMediaFailureCause</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstallationMediaFailureCause%27"><span class="annot"><a href="Network.AWS.RDS.Types.InstallationMediaFailureCause.html#InstallationMediaFailureCause%27"><span class="hs-identifier hs-var">InstallationMediaFailureCause'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The reason that an installation media import failed.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Amessage%3AInstallationMediaFailureCause%27"><span class="annot"><span class="annottext">InstallationMediaFailureCause -&gt; Maybe Text
 </span><a href="Network.AWS.RDS.Types.InstallationMediaFailureCause.html#%24sel%3Amessage%3AInstallationMediaFailureCause%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679762235"><span id="local-6989586621679762237"><span class="annot"><span class="annottext">InstallationMediaFailureCause
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679762244"><span id="local-6989586621679762246"><span class="annot"><span class="annottext">InstallationMediaFailureCause
 -&gt; InstallationMediaFailureCause -&gt; Bool
 (InstallationMediaFailureCause
  -&gt; InstallationMediaFailureCause -&gt; Bool)
@@ -49,7 +49,7 @@ $c/= :: InstallationMediaFailureCause
 -&gt; InstallationMediaFailureCause -&gt; Bool
 $c== :: InstallationMediaFailureCause
 -&gt; InstallationMediaFailureCause -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679762226"><span id="local-6989586621679762228"><span id="local-6989586621679762230"><span id="local-6989586621679762232"><span class="annot"><span class="annottext">ReadPrec [InstallationMediaFailureCause]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679762235"><span id="local-6989586621679762237"><span id="local-6989586621679762239"><span id="local-6989586621679762241"><span class="annot"><span class="annottext">ReadPrec [InstallationMediaFailureCause]
 ReadPrec InstallationMediaFailureCause
 Int -&gt; ReadS InstallationMediaFailureCause
 ReadS [InstallationMediaFailureCause]
@@ -69,7 +69,7 @@ readList :: ReadS [InstallationMediaFailureCause]
 $creadList :: ReadS [InstallationMediaFailureCause]
 readsPrec :: Int -&gt; ReadS InstallationMediaFailureCause
 $creadsPrec :: Int -&gt; ReadS InstallationMediaFailureCause
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679762219"><span id="local-6989586621679762221"><span id="local-6989586621679762223"><span class="annot"><span class="annottext">Int -&gt; InstallationMediaFailureCause -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679762228"><span id="local-6989586621679762230"><span id="local-6989586621679762232"><span class="annot"><span class="annottext">Int -&gt; InstallationMediaFailureCause -&gt; ShowS
 [InstallationMediaFailureCause] -&gt; ShowS
 InstallationMediaFailureCause -&gt; String
 (Int -&gt; InstallationMediaFailureCause -&gt; ShowS)
@@ -142,21 +142,21 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.InstallationMediaFailureCause.html#InstallationMediaFailureCause%27"><span class="hs-identifier hs-type">InstallationMediaFailureCause'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679762210"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.InstallationMediaFailureCause.html#InstallationMediaFailureCause%27"><span class="hs-identifier hs-type">InstallationMediaFailureCause'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679762219"><span class="annot"><span class="annottext">Maybe Text
 message :: Maybe Text
 $sel:message:InstallationMediaFailureCause' :: InstallationMediaFailureCause -&gt; Maybe Text
-</span><a href="#local-6989586621679762210"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679762210"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679762209"><span class="annot"><span class="annottext">s :: InstallationMediaFailureCause
-</span><a href="#local-6989586621679762209"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.InstallationMediaFailureCause.html#InstallationMediaFailureCause%27"><span class="hs-identifier hs-type">InstallationMediaFailureCause'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679762208"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679762208"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstallationMediaFailureCause
-</span><a href="#local-6989586621679762209"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:InstallationMediaFailureCause' :: Maybe Text
+</span><a href="#local-6989586621679762219"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679762219"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679762218"><span class="annot"><span class="annottext">s :: InstallationMediaFailureCause
+</span><a href="#local-6989586621679762218"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.InstallationMediaFailureCause.html#InstallationMediaFailureCause%27"><span class="hs-identifier hs-type">InstallationMediaFailureCause'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679762217"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679762217"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstallationMediaFailureCause
+</span><a href="#local-6989586621679762218"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:InstallationMediaFailureCause' :: Maybe Text
 </span><a href="Network.AWS.RDS.Types.InstallationMediaFailureCause.html#%24sel%3Amessage%3AInstallationMediaFailureCause%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679762208"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.InstallationMediaFailureCause.html#InstallationMediaFailureCause"><span class="hs-identifier hs-type">InstallationMediaFailureCause</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679762217"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.InstallationMediaFailureCause.html#InstallationMediaFailureCause"><span class="hs-identifier hs-type">InstallationMediaFailureCause</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.InstallationMediaFailureCause.html#InstallationMediaFailureCause"><span class="hs-identifier hs-type">InstallationMediaFailureCause</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-59"></span><span>  </span><span id="local-6989586621679762205"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String InstallationMediaFailureCause
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679762203"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679762203"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>  </span><span id="local-6989586621679762214"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String InstallationMediaFailureCause
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679762212"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679762212"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-60"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; InstallationMediaFailureCause
 </span><a href="Network.AWS.RDS.Types.InstallationMediaFailureCause.html#InstallationMediaFailureCause%27"><span class="hs-identifier hs-var">InstallationMediaFailureCause'</span></a></span><span>
 </span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; InstallationMediaFailureCause)
@@ -164,14 +164,14 @@ $sel:message:InstallationMediaFailureCause' :: InstallationMediaFailureCause -&g
 -&gt; Either String InstallationMediaFailureCause
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679762203"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679762212"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Message&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-64"></span><span>  </span><span id="local-6989586621679762197"><span id="local-6989586621679762199"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621679762206"><span id="local-6989586621679762208"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.Types.InstallationMediaFailureCause.html#InstallationMediaFailureCause"><span class="hs-identifier hs-type">InstallationMediaFailureCause</span></a></span></span></span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679762194"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.InstallationMediaFailureCause.html#InstallationMediaFailureCause"><span class="hs-identifier hs-type">InstallationMediaFailureCause</span></a></span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679762203"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.InstallationMediaFailureCause.html#InstallationMediaFailureCause"><span class="hs-identifier hs-type">InstallationMediaFailureCause</span></a></span></span><span>
 </span><span id="line-68"></span></pre></body></html>

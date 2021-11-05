@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Provides information about the status of a campaign.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newCampaignState' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679593521"><span id="local-6989586621679593522"></span></span><span class="hs-keyword">data</span><span> </span><span id="CampaignState"><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignState.html#CampaignState"><span class="hs-identifier hs-var">CampaignState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CampaignState%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignState.html#CampaignState%27"><span class="hs-identifier hs-var">CampaignState'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679593530"><span id="local-6989586621679593531"></span></span><span class="hs-keyword">data</span><span> </span><span id="CampaignState"><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignState.html#CampaignState"><span class="hs-identifier hs-var">CampaignState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CampaignState%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignState.html#CampaignState%27"><span class="hs-identifier hs-var">CampaignState'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current status of the campaign, or the current status of a treatment</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- that belongs to an A\/B test campaign.</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -38,7 +38,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AcampaignStatus%3ACampaignState%27"><span class="annot"><span class="annottext">CampaignState -&gt; Maybe CampaignStatus
 </span><a href="Network.AWS.Pinpoint.Types.CampaignState.html#%24sel%3AcampaignStatus%3ACampaignState%27"><span class="hs-identifier hs-var hs-var">campaignStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignStatus.html#CampaignStatus"><span class="hs-identifier hs-type">CampaignStatus</span></a></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679593515"><span id="local-6989586621679593517"><span class="annot"><span class="annottext">CampaignState -&gt; CampaignState -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679593524"><span id="local-6989586621679593526"><span class="annot"><span class="annottext">CampaignState -&gt; CampaignState -&gt; Bool
 (CampaignState -&gt; CampaignState -&gt; Bool)
 -&gt; (CampaignState -&gt; CampaignState -&gt; Bool) -&gt; Eq CampaignState
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CampaignState -&gt; CampaignState -&gt; Bool
 == :: CampaignState -&gt; CampaignState -&gt; Bool
 $c== :: CampaignState -&gt; CampaignState -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679593506"><span id="local-6989586621679593508"><span id="local-6989586621679593510"><span id="local-6989586621679593512"><span class="annot"><span class="annottext">ReadPrec [CampaignState]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679593515"><span id="local-6989586621679593517"><span id="local-6989586621679593519"><span id="local-6989586621679593521"><span class="annot"><span class="annottext">ReadPrec [CampaignState]
 ReadPrec CampaignState
 Int -&gt; ReadS CampaignState
 ReadS [CampaignState]
@@ -66,7 +66,7 @@ readList :: ReadS [CampaignState]
 $creadList :: ReadS [CampaignState]
 readsPrec :: Int -&gt; ReadS CampaignState
 $creadsPrec :: Int -&gt; ReadS CampaignState
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679593499"><span id="local-6989586621679593501"><span id="local-6989586621679593503"><span class="annot"><span class="annottext">Int -&gt; CampaignState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679593508"><span id="local-6989586621679593510"><span id="local-6989586621679593512"><span class="annot"><span class="annottext">Int -&gt; CampaignState -&gt; ShowS
 [CampaignState] -&gt; ShowS
 CampaignState -&gt; String
 (Int -&gt; CampaignState -&gt; ShowS)
@@ -135,19 +135,19 @@ forall a. Maybe a
      (Maybe CampaignStatus)
      (Maybe CampaignStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignState.html#CampaignState%27"><span class="hs-identifier hs-type">CampaignState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593490"><span class="annot"><span class="annottext">Maybe CampaignStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignState.html#CampaignState%27"><span class="hs-identifier hs-type">CampaignState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679593499"><span class="annot"><span class="annottext">Maybe CampaignStatus
 campaignStatus :: Maybe CampaignStatus
 $sel:campaignStatus:CampaignState' :: CampaignState -&gt; Maybe CampaignStatus
-</span><a href="#local-6989586621679593490"><span class="hs-identifier hs-var hs-var">campaignStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CampaignStatus
-</span><a href="#local-6989586621679593490"><span class="hs-identifier hs-var">campaignStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593489"><span class="annot"><span class="annottext">s :: CampaignState
-</span><a href="#local-6989586621679593489"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignState.html#CampaignState%27"><span class="hs-identifier hs-type">CampaignState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593488"><span class="annot"><span class="annottext">Maybe CampaignStatus
-</span><a href="#local-6989586621679593488"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CampaignState
-</span><a href="#local-6989586621679593489"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:campaignStatus:CampaignState' :: Maybe CampaignStatus
+</span><a href="#local-6989586621679593499"><span class="hs-identifier hs-var hs-var">campaignStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CampaignStatus
+</span><a href="#local-6989586621679593499"><span class="hs-identifier hs-var">campaignStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679593498"><span class="annot"><span class="annottext">s :: CampaignState
+</span><a href="#local-6989586621679593498"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignState.html#CampaignState%27"><span class="hs-identifier hs-type">CampaignState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679593497"><span class="annot"><span class="annottext">Maybe CampaignStatus
+</span><a href="#local-6989586621679593497"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CampaignState
+</span><a href="#local-6989586621679593498"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:campaignStatus:CampaignState' :: Maybe CampaignStatus
 </span><a href="Network.AWS.Pinpoint.Types.CampaignState.html#%24sel%3AcampaignStatus%3ACampaignState%27"><span class="hs-identifier hs-var">campaignStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CampaignStatus
-</span><a href="#local-6989586621679593488"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignState.html#CampaignState"><span class="hs-identifier hs-type">CampaignState</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679593497"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignState.html#CampaignState"><span class="hs-identifier hs-type">CampaignState</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679593485"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignState.html#CampaignState"><span class="hs-identifier hs-type">CampaignState</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679593483"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CampaignState
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679593494"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignState.html#CampaignState"><span class="hs-identifier hs-type">CampaignState</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679593492"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CampaignState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CampaignState)
@@ -157,21 +157,21 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CampaignState&quot;</span></span><span>
-</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679593480"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679593480"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679593489"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679593489"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">Maybe CampaignStatus -&gt; CampaignState
 </span><a href="Network.AWS.Pinpoint.Types.CampaignState.html#CampaignState%27"><span class="hs-identifier hs-var">CampaignState'</span></a></span><span>
 </span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">(Maybe CampaignStatus -&gt; CampaignState)
 -&gt; Parser (Maybe CampaignStatus) -&gt; Parser CampaignState
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679593480"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CampaignStatus)
+</span><a href="#local-6989586621679593489"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CampaignStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CampaignStatus&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679593474"><span id="local-6989586621679593476"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignState.html#CampaignState"><span class="hs-identifier hs-type">CampaignState</span></a></span></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679593483"><span id="local-6989586621679593485"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignState.html#CampaignState"><span class="hs-identifier hs-type">CampaignState</span></a></span></span></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679593471"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignState.html#CampaignState"><span class="hs-identifier hs-type">CampaignState</span></a></span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679593480"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignState.html#CampaignState"><span class="hs-identifier hs-type">CampaignState</span></a></span></span><span>
 </span><span id="line-84"></span></pre></body></html>

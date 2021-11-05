@@ -1,0 +1,856 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CodeStarNotifications.CreateNotificationRule</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a notification rule for a resource. The rule specifies the</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- events you want notifications about and the targets (such as SNS topics)</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- where you want to receive them.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodeStarNotifications.CreateNotificationRule</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule"><span class="hs-identifier">CreateNotificationRule</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#newCreateNotificationRule"><span class="hs-identifier">newCreateNotificationRule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#createNotificationRule_status"><span class="hs-identifier">createNotificationRule_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#createNotificationRule_clientRequestToken"><span class="hs-identifier">createNotificationRule_clientRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#createNotificationRule_tags"><span class="hs-identifier">createNotificationRule_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#createNotificationRule_name"><span class="hs-identifier">createNotificationRule_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#createNotificationRule_eventTypeIds"><span class="hs-identifier">createNotificationRule_eventTypeIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#createNotificationRule_resource"><span class="hs-identifier">createNotificationRule_resource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#createNotificationRule_targets"><span class="hs-identifier">createNotificationRule_targets</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#createNotificationRule_detailType"><span class="hs-identifier">createNotificationRule_detailType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRuleResponse"><span class="hs-identifier">CreateNotificationRuleResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#newCreateNotificationRuleResponse"><span class="hs-identifier">newCreateNotificationRuleResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#createNotificationRuleResponse_arn"><span class="hs-identifier">createNotificationRuleResponse_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#createNotificationRuleResponse_httpStatus"><span class="hs-identifier">createNotificationRuleResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.html"><span class="hs-identifier">Network.AWS.CodeStarNotifications.Types</span></a></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newCreateNotificationRule' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621679170526"><span id="local-6989586621679170527"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateNotificationRule"><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule"><span class="hs-identifier hs-var">CreateNotificationRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateNotificationRule%27"><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule%27"><span class="hs-identifier hs-var">CreateNotificationRule'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the notification rule. The default value is ENABLED. If</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- the status is set to DISABLED, notifications aren\'t sent for the</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- notification rule.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3Astatus%3ACreateNotificationRule%27"><span class="annot"><span class="annottext">CreateNotificationRule -&gt; Maybe NotificationRuleStatus
+</span><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#%24sel%3Astatus%3ACreateNotificationRule%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.NotificationRuleStatus.html#NotificationRuleStatus"><span class="hs-identifier hs-type">NotificationRuleStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | A unique, client-generated idempotency token that, when provided in a</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- request, ensures the request cannot be repeated with a changed</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- parameter. If a request with the same parameters is received and a token</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- is included, the request returns information about the initial request</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- that used that token.</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- The AWS SDKs prepopulate client request tokens. If you are using an AWS</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- SDK, an idempotency token is created for you.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AclientRequestToken%3ACreateNotificationRule%27"><span class="annot"><span class="annottext">CreateNotificationRule -&gt; Maybe Text
+</span><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#%24sel%3AclientRequestToken%3ACreateNotificationRule%27"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | A list of tags to apply to this notification rule. Key names cannot</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- start with \&quot;aws\&quot;.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3Atags%3ACreateNotificationRule%27"><span class="annot"><span class="annottext">CreateNotificationRule -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#%24sel%3Atags%3ACreateNotificationRule%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The name for the notification rule. Notifictaion rule names must be</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- unique in your AWS account.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3Aname%3ACreateNotificationRule%27"><span class="annot"><span class="annottext">CreateNotificationRule -&gt; Sensitive Text
+</span><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#%24sel%3Aname%3ACreateNotificationRule%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | A list of event types associated with this notification rule. For a list</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- of allowed events, see EventTypeSummary.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AeventTypeIds%3ACreateNotificationRule%27"><span class="annot"><span class="annottext">CreateNotificationRule -&gt; [Text]
+</span><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#%24sel%3AeventTypeIds%3ACreateNotificationRule%27"><span class="hs-identifier hs-var hs-var">eventTypeIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the resource to associate with the</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- notification rule. Supported resources include pipelines in AWS</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- CodePipeline, repositories in AWS CodeCommit, and build projects in AWS</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- CodeBuild.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3Aresource%3ACreateNotificationRule%27"><span class="annot"><span class="annottext">CreateNotificationRule -&gt; Text
+</span><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#%24sel%3Aresource%3ACreateNotificationRule%27"><span class="hs-identifier hs-var hs-var">resource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | A list of Amazon Resource Names (ARNs) of SNS topics to associate with</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- the notification rule.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3Atargets%3ACreateNotificationRule%27"><span class="annot"><span class="annottext">CreateNotificationRule -&gt; [Target]
+</span><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#%24sel%3Atargets%3ACreateNotificationRule%27"><span class="hs-identifier hs-var hs-var">targets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- | The level of detail to include in the notifications for this resource.</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- BASIC will include only the contents of the event as it would appear in</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- AWS CloudWatch. FULL will include any supplemental information provided</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- by AWS CodeStar Notifications and\/or the service for the resource for</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- which the notification is created.</span><span>
+</span><span id="line-95"></span><span>    </span><span id="%24sel%3AdetailType%3ACreateNotificationRule%27"><span class="annot"><span class="annottext">CreateNotificationRule -&gt; DetailType
+</span><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#%24sel%3AdetailType%3ACreateNotificationRule%27"><span class="hs-identifier hs-var hs-var">detailType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.DetailType.html#DetailType"><span class="hs-identifier hs-type">DetailType</span></a></span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679170513"><span id="local-6989586621679170515"><span class="annot"><span class="annottext">CreateNotificationRule -&gt; CreateNotificationRule -&gt; Bool
+(CreateNotificationRule -&gt; CreateNotificationRule -&gt; Bool)
+-&gt; (CreateNotificationRule -&gt; CreateNotificationRule -&gt; Bool)
+-&gt; Eq CreateNotificationRule
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateNotificationRule -&gt; CreateNotificationRule -&gt; Bool
+$c/= :: CreateNotificationRule -&gt; CreateNotificationRule -&gt; Bool
+== :: CreateNotificationRule -&gt; CreateNotificationRule -&gt; Bool
+$c== :: CreateNotificationRule -&gt; CreateNotificationRule -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679170506"><span id="local-6989586621679170508"><span id="local-6989586621679170510"><span class="annot"><span class="annottext">Int -&gt; CreateNotificationRule -&gt; ShowS
+[CreateNotificationRule] -&gt; ShowS
+CreateNotificationRule -&gt; String
+(Int -&gt; CreateNotificationRule -&gt; ShowS)
+-&gt; (CreateNotificationRule -&gt; String)
+-&gt; ([CreateNotificationRule] -&gt; ShowS)
+-&gt; Show CreateNotificationRule
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateNotificationRule] -&gt; ShowS
+$cshowList :: [CreateNotificationRule] -&gt; ShowS
+show :: CreateNotificationRule -&gt; String
+$cshow :: CreateNotificationRule -&gt; String
+showsPrec :: Int -&gt; CreateNotificationRule -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateNotificationRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateNotificationRule -&gt; Rep CreateNotificationRule x)
+-&gt; (forall x.
+    Rep CreateNotificationRule x -&gt; CreateNotificationRule)
+-&gt; Generic CreateNotificationRule
+forall x. Rep CreateNotificationRule x -&gt; CreateNotificationRule
+forall x. CreateNotificationRule -&gt; Rep CreateNotificationRule x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateNotificationRule x -&gt; CreateNotificationRule
+$cfrom :: forall x. CreateNotificationRule -&gt; Rep CreateNotificationRule x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- Create a value of 'CreateNotificationRule' with all optional fields omitted.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'status', 'createNotificationRule_status' - The status of the notification rule. The default value is ENABLED. If</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- the status is set to DISABLED, notifications aren\'t sent for the</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- notification rule.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'clientRequestToken', 'createNotificationRule_clientRequestToken' - A unique, client-generated idempotency token that, when provided in a</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- request, ensures the request cannot be repeated with a changed</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- parameter. If a request with the same parameters is received and a token</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- is included, the request returns information about the initial request</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- that used that token.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- The AWS SDKs prepopulate client request tokens. If you are using an AWS</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- SDK, an idempotency token is created for you.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'tags', 'createNotificationRule_tags' - A list of tags to apply to this notification rule. Key names cannot</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- start with \&quot;aws\&quot;.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'name', 'createNotificationRule_name' - The name for the notification rule. Notifictaion rule names must be</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- unique in your AWS account.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- 'eventTypeIds', 'createNotificationRule_eventTypeIds' - A list of event types associated with this notification rule. For a list</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- of allowed events, see EventTypeSummary.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'resource', 'createNotificationRule_resource' - The Amazon Resource Name (ARN) of the resource to associate with the</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- notification rule. Supported resources include pipelines in AWS</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- CodePipeline, repositories in AWS CodeCommit, and build projects in AWS</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- CodeBuild.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'targets', 'createNotificationRule_targets' - A list of Amazon Resource Names (ARNs) of SNS topics to associate with</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- the notification rule.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'detailType', 'createNotificationRule_detailType' - The level of detail to include in the notifications for this resource.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- BASIC will include only the contents of the event as it would appear in</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- AWS CloudWatch. FULL will include any supplemental information provided</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- by AWS CodeStar Notifications and\/or the service for the resource for</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- which the notification is created.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#newCreateNotificationRule"><span class="hs-identifier hs-type">newCreateNotificationRule</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-comment">-- | 'resource'</span><span>
+</span><span id="line-146"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-comment">-- | 'detailType'</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.DetailType.html#DetailType"><span class="hs-identifier hs-type">DetailType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-149"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule"><span class="hs-identifier hs-type">CreateNotificationRule</span></a></span><span>
+</span><span id="line-150"></span><span id="newCreateNotificationRule"><span class="annot"><span class="annottext">newCreateNotificationRule :: Text -&gt; Text -&gt; DetailType -&gt; CreateNotificationRule
+</span><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#newCreateNotificationRule"><span class="hs-identifier hs-var hs-var">newCreateNotificationRule</span></a></span></span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679170501"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679170501"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679170500"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679170500"><span class="hs-identifier hs-var">pResource_</span></a></span></span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679170499"><span class="annot"><span class="annottext">DetailType
+</span><a href="#local-6989586621679170499"><span class="hs-identifier hs-var">pDetailType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">CreateNotificationRule' :: Maybe NotificationRuleStatus
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Sensitive Text
+-&gt; [Text]
+-&gt; Text
+-&gt; [Target]
+-&gt; DetailType
+-&gt; CreateNotificationRule
+</span><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule%27"><span class="hs-identifier hs-type">CreateNotificationRule'</span></a></span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:CreateNotificationRule' :: Maybe NotificationRuleStatus
+</span><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#%24sel%3Astatus%3ACreateNotificationRule%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationRuleStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>        </span><span class="annot"><span class="annottext">$sel:clientRequestToken:CreateNotificationRule' :: Maybe Text
+</span><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#%24sel%3AclientRequestToken%3ACreateNotificationRule%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateNotificationRule' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#%24sel%3Atags%3ACreateNotificationRule%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:CreateNotificationRule' :: Sensitive Text
+</span><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#%24sel%3Aname%3ACreateNotificationRule%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
+-&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">(Tagged Text (Identity Text)
+ -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text)))
+-&gt; Text -&gt; Sensitive Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679170501"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">$sel:eventTypeIds:CreateNotificationRule' :: [Text]
+</span><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#%24sel%3AeventTypeIds%3ACreateNotificationRule%27"><span class="hs-identifier hs-var">eventTypeIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">$sel:resource:CreateNotificationRule' :: Text
+</span><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#%24sel%3Aresource%3ACreateNotificationRule%27"><span class="hs-identifier hs-var">resource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679170500"><span class="hs-identifier hs-var">pResource_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">$sel:targets:CreateNotificationRule' :: [Target]
+</span><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#%24sel%3Atargets%3ACreateNotificationRule%27"><span class="hs-identifier hs-var">targets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Target]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">$sel:detailType:CreateNotificationRule' :: DetailType
+</span><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#%24sel%3AdetailType%3ACreateNotificationRule%27"><span class="hs-identifier hs-var">detailType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DetailType
+</span><a href="#local-6989586621679170499"><span class="hs-identifier hs-var">pDetailType_</span></a></span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The status of the notification rule. The default value is ENABLED. If</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- the status is set to DISABLED, notifications aren\'t sent for the</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- notification rule.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#createNotificationRule_status"><span class="hs-identifier hs-type">createNotificationRule_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule"><span class="hs-identifier hs-type">CreateNotificationRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.NotificationRuleStatus.html#NotificationRuleStatus"><span class="hs-identifier hs-type">NotificationRuleStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="createNotificationRule_status"><span class="annot"><span class="annottext">createNotificationRule_status :: (Maybe NotificationRuleStatus -&gt; f (Maybe NotificationRuleStatus))
+-&gt; CreateNotificationRule -&gt; f CreateNotificationRule
+</span><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#createNotificationRule_status"><span class="hs-identifier hs-var hs-var">createNotificationRule_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNotificationRule -&gt; Maybe NotificationRuleStatus)
+-&gt; (CreateNotificationRule
+    -&gt; Maybe NotificationRuleStatus -&gt; CreateNotificationRule)
+-&gt; Lens
+     CreateNotificationRule
+     CreateNotificationRule
+     (Maybe NotificationRuleStatus)
+     (Maybe NotificationRuleStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule%27"><span class="hs-identifier hs-type">CreateNotificationRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170494"><span class="annot"><span class="annottext">Maybe NotificationRuleStatus
+status :: Maybe NotificationRuleStatus
+$sel:status:CreateNotificationRule' :: CreateNotificationRule -&gt; Maybe NotificationRuleStatus
+</span><a href="#local-6989586621679170494"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationRuleStatus
+</span><a href="#local-6989586621679170494"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170493"><span class="annot"><span class="annottext">s :: CreateNotificationRule
+</span><a href="#local-6989586621679170493"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule%27"><span class="hs-identifier hs-type">CreateNotificationRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170492"><span class="annot"><span class="annottext">Maybe NotificationRuleStatus
+</span><a href="#local-6989586621679170492"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNotificationRule
+</span><a href="#local-6989586621679170493"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:CreateNotificationRule' :: Maybe NotificationRuleStatus
+</span><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#%24sel%3Astatus%3ACreateNotificationRule%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationRuleStatus
+</span><a href="#local-6989586621679170492"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule"><span class="hs-identifier hs-type">CreateNotificationRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | A unique, client-generated idempotency token that, when provided in a</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- request, ensures the request cannot be repeated with a changed</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- parameter. If a request with the same parameters is received and a token</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- is included, the request returns information about the initial request</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- that used that token.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- The AWS SDKs prepopulate client request tokens. If you are using an AWS</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- SDK, an idempotency token is created for you.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#createNotificationRule_clientRequestToken"><span class="hs-identifier hs-type">createNotificationRule_clientRequestToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule"><span class="hs-identifier hs-type">CreateNotificationRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span id="createNotificationRule_clientRequestToken"><span class="annot"><span class="annottext">createNotificationRule_clientRequestToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateNotificationRule -&gt; f CreateNotificationRule
+</span><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#createNotificationRule_clientRequestToken"><span class="hs-identifier hs-var hs-var">createNotificationRule_clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNotificationRule -&gt; Maybe Text)
+-&gt; (CreateNotificationRule -&gt; Maybe Text -&gt; CreateNotificationRule)
+-&gt; Lens
+     CreateNotificationRule
+     CreateNotificationRule
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule%27"><span class="hs-identifier hs-type">CreateNotificationRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170491"><span class="annot"><span class="annottext">Maybe Text
+clientRequestToken :: Maybe Text
+$sel:clientRequestToken:CreateNotificationRule' :: CreateNotificationRule -&gt; Maybe Text
+</span><a href="#local-6989586621679170491"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679170491"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170490"><span class="annot"><span class="annottext">s :: CreateNotificationRule
+</span><a href="#local-6989586621679170490"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule%27"><span class="hs-identifier hs-type">CreateNotificationRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170489"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679170489"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNotificationRule
+</span><a href="#local-6989586621679170490"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestToken:CreateNotificationRule' :: Maybe Text
+</span><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#%24sel%3AclientRequestToken%3ACreateNotificationRule%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679170489"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule"><span class="hs-identifier hs-type">CreateNotificationRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | A list of tags to apply to this notification rule. Key names cannot</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- start with \&quot;aws\&quot;.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#createNotificationRule_tags"><span class="hs-identifier hs-type">createNotificationRule_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule"><span class="hs-identifier hs-type">CreateNotificationRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span id="createNotificationRule_tags"><span class="annot"><span class="annottext">createNotificationRule_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateNotificationRule -&gt; f CreateNotificationRule
+</span><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#createNotificationRule_tags"><span class="hs-identifier hs-var hs-var">createNotificationRule_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNotificationRule -&gt; Maybe (HashMap Text Text))
+-&gt; (CreateNotificationRule
+    -&gt; Maybe (HashMap Text Text) -&gt; CreateNotificationRule)
+-&gt; Lens
+     CreateNotificationRule
+     CreateNotificationRule
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule%27"><span class="hs-identifier hs-type">CreateNotificationRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170488"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:CreateNotificationRule' :: CreateNotificationRule -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679170488"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679170488"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170487"><span class="annot"><span class="annottext">s :: CreateNotificationRule
+</span><a href="#local-6989586621679170487"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule%27"><span class="hs-identifier hs-type">CreateNotificationRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170486"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679170486"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNotificationRule
+</span><a href="#local-6989586621679170487"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateNotificationRule' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#%24sel%3Atags%3ACreateNotificationRule%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679170486"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule"><span class="hs-identifier hs-type">CreateNotificationRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CreateNotificationRule -&gt; f CreateNotificationRule)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateNotificationRule
+-&gt; f CreateNotificationRule
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | The name for the notification rule. Notifictaion rule names must be</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- unique in your AWS account.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#createNotificationRule_name"><span class="hs-identifier hs-type">createNotificationRule_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule"><span class="hs-identifier hs-type">CreateNotificationRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-190"></span><span id="createNotificationRule_name"><span class="annot"><span class="annottext">createNotificationRule_name :: (Text -&gt; f Text)
+-&gt; CreateNotificationRule -&gt; f CreateNotificationRule
+</span><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#createNotificationRule_name"><span class="hs-identifier hs-var hs-var">createNotificationRule_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNotificationRule -&gt; Sensitive Text)
+-&gt; (CreateNotificationRule
+    -&gt; Sensitive Text -&gt; CreateNotificationRule)
+-&gt; Lens
+     CreateNotificationRule
+     CreateNotificationRule
+     (Sensitive Text)
+     (Sensitive Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule%27"><span class="hs-identifier hs-type">CreateNotificationRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170482"><span class="annot"><span class="annottext">Sensitive Text
+name :: Sensitive Text
+$sel:name:CreateNotificationRule' :: CreateNotificationRule -&gt; Sensitive Text
+</span><a href="#local-6989586621679170482"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679170482"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170481"><span class="annot"><span class="annottext">s :: CreateNotificationRule
+</span><a href="#local-6989586621679170481"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule%27"><span class="hs-identifier hs-type">CreateNotificationRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170480"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679170480"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNotificationRule
+</span><a href="#local-6989586621679170481"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateNotificationRule' :: Sensitive Text
+</span><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#%24sel%3Aname%3ACreateNotificationRule%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679170480"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule"><span class="hs-identifier hs-type">CreateNotificationRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+ -&gt; CreateNotificationRule -&gt; f CreateNotificationRule)
+-&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
+-&gt; (Text -&gt; f Text)
+-&gt; CreateNotificationRule
+-&gt; f CreateNotificationRule
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text)
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | A list of event types associated with this notification rule. For a list</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- of allowed events, see EventTypeSummary.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#createNotificationRule_eventTypeIds"><span class="hs-identifier hs-type">createNotificationRule_eventTypeIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule"><span class="hs-identifier hs-type">CreateNotificationRule</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-195"></span><span id="createNotificationRule_eventTypeIds"><span class="annot"><span class="annottext">createNotificationRule_eventTypeIds :: ([Text] -&gt; f [Text])
+-&gt; CreateNotificationRule -&gt; f CreateNotificationRule
+</span><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#createNotificationRule_eventTypeIds"><span class="hs-identifier hs-var hs-var">createNotificationRule_eventTypeIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNotificationRule -&gt; [Text])
+-&gt; (CreateNotificationRule -&gt; [Text] -&gt; CreateNotificationRule)
+-&gt; Lens CreateNotificationRule CreateNotificationRule [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule%27"><span class="hs-identifier hs-type">CreateNotificationRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170479"><span class="annot"><span class="annottext">[Text]
+eventTypeIds :: [Text]
+$sel:eventTypeIds:CreateNotificationRule' :: CreateNotificationRule -&gt; [Text]
+</span><a href="#local-6989586621679170479"><span class="hs-identifier hs-var hs-var">eventTypeIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679170479"><span class="hs-identifier hs-var">eventTypeIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170478"><span class="annot"><span class="annottext">s :: CreateNotificationRule
+</span><a href="#local-6989586621679170478"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule%27"><span class="hs-identifier hs-type">CreateNotificationRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170477"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679170477"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNotificationRule
+</span><a href="#local-6989586621679170478"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventTypeIds:CreateNotificationRule' :: [Text]
+</span><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#%24sel%3AeventTypeIds%3ACreateNotificationRule%27"><span class="hs-identifier hs-var">eventTypeIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679170477"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule"><span class="hs-identifier hs-type">CreateNotificationRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+ -&gt; CreateNotificationRule -&gt; f CreateNotificationRule)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; CreateNotificationRule
+-&gt; f CreateNotificationRule
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the resource to associate with the</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- notification rule. Supported resources include pipelines in AWS</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- CodePipeline, repositories in AWS CodeCommit, and build projects in AWS</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- CodeBuild.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#createNotificationRule_resource"><span class="hs-identifier hs-type">createNotificationRule_resource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule"><span class="hs-identifier hs-type">CreateNotificationRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-202"></span><span id="createNotificationRule_resource"><span class="annot"><span class="annottext">createNotificationRule_resource :: (Text -&gt; f Text)
+-&gt; CreateNotificationRule -&gt; f CreateNotificationRule
+</span><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#createNotificationRule_resource"><span class="hs-identifier hs-var hs-var">createNotificationRule_resource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNotificationRule -&gt; Text)
+-&gt; (CreateNotificationRule -&gt; Text -&gt; CreateNotificationRule)
+-&gt; Lens CreateNotificationRule CreateNotificationRule Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule%27"><span class="hs-identifier hs-type">CreateNotificationRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170476"><span class="annot"><span class="annottext">Text
+resource :: Text
+$sel:resource:CreateNotificationRule' :: CreateNotificationRule -&gt; Text
+</span><a href="#local-6989586621679170476"><span class="hs-identifier hs-var hs-var">resource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679170476"><span class="hs-identifier hs-var">resource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170475"><span class="annot"><span class="annottext">s :: CreateNotificationRule
+</span><a href="#local-6989586621679170475"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule%27"><span class="hs-identifier hs-type">CreateNotificationRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170474"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679170474"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNotificationRule
+</span><a href="#local-6989586621679170475"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resource:CreateNotificationRule' :: Text
+</span><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#%24sel%3Aresource%3ACreateNotificationRule%27"><span class="hs-identifier hs-var">resource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679170474"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule"><span class="hs-identifier hs-type">CreateNotificationRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | A list of Amazon Resource Names (ARNs) of SNS topics to associate with</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- the notification rule.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#createNotificationRule_targets"><span class="hs-identifier hs-type">createNotificationRule_targets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule"><span class="hs-identifier hs-type">CreateNotificationRule</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-207"></span><span id="createNotificationRule_targets"><span class="annot"><span class="annottext">createNotificationRule_targets :: ([Target] -&gt; f [Target])
+-&gt; CreateNotificationRule -&gt; f CreateNotificationRule
+</span><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#createNotificationRule_targets"><span class="hs-identifier hs-var hs-var">createNotificationRule_targets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNotificationRule -&gt; [Target])
+-&gt; (CreateNotificationRule -&gt; [Target] -&gt; CreateNotificationRule)
+-&gt; Lens
+     CreateNotificationRule CreateNotificationRule [Target] [Target]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule%27"><span class="hs-identifier hs-type">CreateNotificationRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170473"><span class="annot"><span class="annottext">[Target]
+targets :: [Target]
+$sel:targets:CreateNotificationRule' :: CreateNotificationRule -&gt; [Target]
+</span><a href="#local-6989586621679170473"><span class="hs-identifier hs-var hs-var">targets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Target]
+</span><a href="#local-6989586621679170473"><span class="hs-identifier hs-var">targets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170472"><span class="annot"><span class="annottext">s :: CreateNotificationRule
+</span><a href="#local-6989586621679170472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule%27"><span class="hs-identifier hs-type">CreateNotificationRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170471"><span class="annot"><span class="annottext">[Target]
+</span><a href="#local-6989586621679170471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNotificationRule
+</span><a href="#local-6989586621679170472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targets:CreateNotificationRule' :: [Target]
+</span><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#%24sel%3Atargets%3ACreateNotificationRule%27"><span class="hs-identifier hs-var">targets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Target]
+</span><a href="#local-6989586621679170471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule"><span class="hs-identifier hs-type">CreateNotificationRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Target] -&gt; f [Target])
+ -&gt; CreateNotificationRule -&gt; f CreateNotificationRule)
+-&gt; (([Target] -&gt; f [Target]) -&gt; [Target] -&gt; f [Target])
+-&gt; ([Target] -&gt; f [Target])
+-&gt; CreateNotificationRule
+-&gt; f CreateNotificationRule
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Target] -&gt; f [Target]) -&gt; [Target] -&gt; f [Target]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | The level of detail to include in the notifications for this resource.</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- BASIC will include only the contents of the event as it would appear in</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- AWS CloudWatch. FULL will include any supplemental information provided</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- by AWS CodeStar Notifications and\/or the service for the resource for</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- which the notification is created.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#createNotificationRule_detailType"><span class="hs-identifier hs-type">createNotificationRule_detailType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule"><span class="hs-identifier hs-type">CreateNotificationRule</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.DetailType.html#DetailType"><span class="hs-identifier hs-type">DetailType</span></a></span><span>
+</span><span id="line-215"></span><span id="createNotificationRule_detailType"><span class="annot"><span class="annottext">createNotificationRule_detailType :: (DetailType -&gt; f DetailType)
+-&gt; CreateNotificationRule -&gt; f CreateNotificationRule
+</span><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#createNotificationRule_detailType"><span class="hs-identifier hs-var hs-var">createNotificationRule_detailType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNotificationRule -&gt; DetailType)
+-&gt; (CreateNotificationRule -&gt; DetailType -&gt; CreateNotificationRule)
+-&gt; Lens
+     CreateNotificationRule CreateNotificationRule DetailType DetailType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule%27"><span class="hs-identifier hs-type">CreateNotificationRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170470"><span class="annot"><span class="annottext">DetailType
+detailType :: DetailType
+$sel:detailType:CreateNotificationRule' :: CreateNotificationRule -&gt; DetailType
+</span><a href="#local-6989586621679170470"><span class="hs-identifier hs-var hs-var">detailType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetailType
+</span><a href="#local-6989586621679170470"><span class="hs-identifier hs-var">detailType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170469"><span class="annot"><span class="annottext">s :: CreateNotificationRule
+</span><a href="#local-6989586621679170469"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule%27"><span class="hs-identifier hs-type">CreateNotificationRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170468"><span class="annot"><span class="annottext">DetailType
+</span><a href="#local-6989586621679170468"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNotificationRule
+</span><a href="#local-6989586621679170469"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detailType:CreateNotificationRule' :: DetailType
+</span><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#%24sel%3AdetailType%3ACreateNotificationRule%27"><span class="hs-identifier hs-var">detailType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DetailType
+</span><a href="#local-6989586621679170468"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule"><span class="hs-identifier hs-type">CreateNotificationRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule"><span class="hs-identifier hs-type">CreateNotificationRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-218"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-219"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule"><span class="hs-identifier hs-type">CreateNotificationRule</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-220"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRuleResponse"><span class="hs-identifier hs-type">CreateNotificationRuleResponse</span></a></span><span>
+</span><span id="line-221"></span><span>  </span><span id="local-6989586621679170464"><span class="annot"><span class="annottext">request :: CreateNotificationRule -&gt; Request CreateNotificationRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateNotificationRule -&gt; Request CreateNotificationRule
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CodeStarNotifications.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-222"></span><span>  </span><span id="local-6989586621679170460"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateNotificationRule
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateNotificationRule)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-223"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateNotificationRule))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateNotificationRule
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateNotificationRule)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-224"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679170457"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679170457"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679170456"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679170456"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679170455"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679170455"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-225"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreateNotificationRuleResponse
+</span><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRuleResponse%27"><span class="hs-identifier hs-var">CreateNotificationRuleResponse'</span></a></span><span>
+</span><span id="line-226"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreateNotificationRuleResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CreateNotificationRuleResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679170455"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateNotificationRuleResponse)
+-&gt; Either String Int
+-&gt; Either String CreateNotificationRuleResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679170457"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170447"><span id="local-6989586621679170449"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule"><span class="hs-identifier hs-type">CreateNotificationRule</span></a></span></span></span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170444"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule"><span class="hs-identifier hs-type">CreateNotificationRule</span></a></span></span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule"><span class="hs-identifier hs-type">CreateNotificationRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-235"></span><span>  </span><span id="local-6989586621679170440"><span class="annot"><span class="annottext">toHeaders :: CreateNotificationRule -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-236"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateNotificationRule -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-237"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-238"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-239"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-240"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-241"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-243"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170430"><span id="local-6989586621679170432"><span id="local-6989586621679170434"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule"><span class="hs-identifier hs-type">CreateNotificationRule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-246"></span><span>  </span><span id="local-6989586621679170428"><span class="annot"><span class="annottext">toJSON :: CreateNotificationRule -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule%27"><span class="hs-identifier hs-type">CreateNotificationRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170419"><span id="local-6989586621679170420"><span id="local-6989586621679170421"><span id="local-6989586621679170422"><span id="local-6989586621679170423"><span id="local-6989586621679170424"><span id="local-6989586621679170425"><span id="local-6989586621679170426"><span class="annot"><span class="annottext">[Text]
+[Target]
+Maybe Text
+Maybe (HashMap Text Text)
+Maybe NotificationRuleStatus
+Text
+Sensitive Text
+DetailType
+detailType :: DetailType
+targets :: [Target]
+resource :: Text
+eventTypeIds :: [Text]
+name :: Sensitive Text
+tags :: Maybe (HashMap Text Text)
+clientRequestToken :: Maybe Text
+status :: Maybe NotificationRuleStatus
+$sel:detailType:CreateNotificationRule' :: CreateNotificationRule -&gt; DetailType
+$sel:targets:CreateNotificationRule' :: CreateNotificationRule -&gt; [Target]
+$sel:resource:CreateNotificationRule' :: CreateNotificationRule -&gt; Text
+$sel:eventTypeIds:CreateNotificationRule' :: CreateNotificationRule -&gt; [Text]
+$sel:name:CreateNotificationRule' :: CreateNotificationRule -&gt; Sensitive Text
+$sel:tags:CreateNotificationRule' :: CreateNotificationRule -&gt; Maybe (HashMap Text Text)
+$sel:clientRequestToken:CreateNotificationRule' :: CreateNotificationRule -&gt; Maybe Text
+$sel:status:CreateNotificationRule' :: CreateNotificationRule -&gt; Maybe NotificationRuleStatus
+</span><a href="#local-6989586621679170419"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-247"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-248"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-249"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NotificationRuleStatus -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NotificationRuleStatus -&gt; Pair)
+-&gt; Maybe NotificationRuleStatus -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe NotificationRuleStatus
+</span><a href="#local-6989586621679170426"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClientRequestToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679170425"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679170424"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679170423"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EventTypeIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679170422"><span class="hs-identifier hs-var">eventTypeIds</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Resource&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679170421"><span class="hs-identifier hs-var">resource</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Targets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Target] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Target]
+</span><a href="#local-6989586621679170420"><span class="hs-identifier hs-var">targets</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DetailType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DetailType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">DetailType
+</span><a href="#local-6989586621679170419"><span class="hs-identifier hs-var">detailType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-259"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule"><span class="hs-identifier hs-type">CreateNotificationRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-262"></span><span>  </span><span id="local-6989586621679170413"><span class="annot"><span class="annottext">toPath :: CreateNotificationRule -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateNotificationRule -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/createNotificationRule&quot;</span></span><span>
+</span><span id="line-263"></span><span>
+</span><span id="line-264"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule"><span class="hs-identifier hs-type">CreateNotificationRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-265"></span><span>  </span><span id="local-6989586621679170409"><span class="annot"><span class="annottext">toQuery :: CreateNotificationRule -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateNotificationRule -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-266"></span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- | /See:/ 'newCreateNotificationRuleResponse' smart constructor.</span><span>
+</span><span id="line-268"></span><span id="local-6989586621679170406"><span id="local-6989586621679170407"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateNotificationRuleResponse"><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRuleResponse"><span class="hs-identifier hs-var">CreateNotificationRuleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateNotificationRuleResponse%27"><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRuleResponse%27"><span class="hs-identifier hs-var">CreateNotificationRuleResponse'</span></a></span></span><span>
+</span><span id="line-269"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the notification rule.</span><span>
+</span><span id="line-270"></span><span>    </span><span id="%24sel%3Aarn%3ACreateNotificationRuleResponse%27"><span class="annot"><span class="annottext">CreateNotificationRuleResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#%24sel%3Aarn%3ACreateNotificationRuleResponse%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-271"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-272"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateNotificationRuleResponse%27"><span class="annot"><span class="annottext">CreateNotificationRuleResponse -&gt; Int
+</span><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#%24sel%3AhttpStatus%3ACreateNotificationRuleResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-273"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-274"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679170400"><span id="local-6989586621679170402"><span class="annot"><span class="annottext">CreateNotificationRuleResponse
+-&gt; CreateNotificationRuleResponse -&gt; Bool
+(CreateNotificationRuleResponse
+ -&gt; CreateNotificationRuleResponse -&gt; Bool)
+-&gt; (CreateNotificationRuleResponse
+    -&gt; CreateNotificationRuleResponse -&gt; Bool)
+-&gt; Eq CreateNotificationRuleResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateNotificationRuleResponse
+-&gt; CreateNotificationRuleResponse -&gt; Bool
+$c/= :: CreateNotificationRuleResponse
+-&gt; CreateNotificationRuleResponse -&gt; Bool
+== :: CreateNotificationRuleResponse
+-&gt; CreateNotificationRuleResponse -&gt; Bool
+$c== :: CreateNotificationRuleResponse
+-&gt; CreateNotificationRuleResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679170392"><span id="local-6989586621679170394"><span id="local-6989586621679170396"><span id="local-6989586621679170398"><span class="annot"><span class="annottext">ReadPrec [CreateNotificationRuleResponse]
+ReadPrec CreateNotificationRuleResponse
+Int -&gt; ReadS CreateNotificationRuleResponse
+ReadS [CreateNotificationRuleResponse]
+(Int -&gt; ReadS CreateNotificationRuleResponse)
+-&gt; ReadS [CreateNotificationRuleResponse]
+-&gt; ReadPrec CreateNotificationRuleResponse
+-&gt; ReadPrec [CreateNotificationRuleResponse]
+-&gt; Read CreateNotificationRuleResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateNotificationRuleResponse]
+$creadListPrec :: ReadPrec [CreateNotificationRuleResponse]
+readPrec :: ReadPrec CreateNotificationRuleResponse
+$creadPrec :: ReadPrec CreateNotificationRuleResponse
+readList :: ReadS [CreateNotificationRuleResponse]
+$creadList :: ReadS [CreateNotificationRuleResponse]
+readsPrec :: Int -&gt; ReadS CreateNotificationRuleResponse
+$creadsPrec :: Int -&gt; ReadS CreateNotificationRuleResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679170385"><span id="local-6989586621679170387"><span id="local-6989586621679170389"><span class="annot"><span class="annottext">Int -&gt; CreateNotificationRuleResponse -&gt; ShowS
+[CreateNotificationRuleResponse] -&gt; ShowS
+CreateNotificationRuleResponse -&gt; String
+(Int -&gt; CreateNotificationRuleResponse -&gt; ShowS)
+-&gt; (CreateNotificationRuleResponse -&gt; String)
+-&gt; ([CreateNotificationRuleResponse] -&gt; ShowS)
+-&gt; Show CreateNotificationRuleResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateNotificationRuleResponse] -&gt; ShowS
+$cshowList :: [CreateNotificationRuleResponse] -&gt; ShowS
+show :: CreateNotificationRuleResponse -&gt; String
+$cshow :: CreateNotificationRuleResponse -&gt; String
+showsPrec :: Int -&gt; CreateNotificationRuleResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateNotificationRuleResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateNotificationRuleResponse
+ -&gt; Rep CreateNotificationRuleResponse x)
+-&gt; (forall x.
+    Rep CreateNotificationRuleResponse x
+    -&gt; CreateNotificationRuleResponse)
+-&gt; Generic CreateNotificationRuleResponse
+forall x.
+Rep CreateNotificationRuleResponse x
+-&gt; CreateNotificationRuleResponse
+forall x.
+CreateNotificationRuleResponse
+-&gt; Rep CreateNotificationRuleResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateNotificationRuleResponse x
+-&gt; CreateNotificationRuleResponse
+$cfrom :: forall x.
+CreateNotificationRuleResponse
+-&gt; Rep CreateNotificationRuleResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- Create a value of 'CreateNotificationRuleResponse' with all optional fields omitted.</span><span>
+</span><span id="line-278"></span><span class="hs-comment">--</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-280"></span><span class="hs-comment">--</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-283"></span><span class="hs-comment">--</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- 'arn', 'createNotificationRuleResponse_arn' - The Amazon Resource Name (ARN) of the notification rule.</span><span>
+</span><span id="line-285"></span><span class="hs-comment">--</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- 'httpStatus', 'createNotificationRuleResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-287"></span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#newCreateNotificationRuleResponse"><span class="hs-identifier hs-type">newCreateNotificationRuleResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-288"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-289"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-290"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRuleResponse"><span class="hs-identifier hs-type">CreateNotificationRuleResponse</span></a></span><span>
+</span><span id="line-291"></span><span id="newCreateNotificationRuleResponse"><span class="annot"><span class="annottext">newCreateNotificationRuleResponse :: Int -&gt; CreateNotificationRuleResponse
+</span><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#newCreateNotificationRuleResponse"><span class="hs-identifier hs-var hs-var">newCreateNotificationRuleResponse</span></a></span></span><span> </span><span id="local-6989586621679170382"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679170382"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-292"></span><span>  </span><span class="annot"><span class="annottext">CreateNotificationRuleResponse' :: Maybe Text -&gt; Int -&gt; CreateNotificationRuleResponse
+</span><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRuleResponse%27"><span class="hs-identifier hs-type">CreateNotificationRuleResponse'</span></a></span><span>
+</span><span id="line-293"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:arn:CreateNotificationRuleResponse' :: Maybe Text
+</span><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#%24sel%3Aarn%3ACreateNotificationRuleResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-294"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-295"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateNotificationRuleResponse' :: Int
+</span><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#%24sel%3AhttpStatus%3ACreateNotificationRuleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679170382"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-296"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-297"></span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the notification rule.</span><span>
+</span><span id="line-299"></span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#createNotificationRuleResponse_arn"><span class="hs-identifier hs-type">createNotificationRuleResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRuleResponse"><span class="hs-identifier hs-type">CreateNotificationRuleResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-300"></span><span id="createNotificationRuleResponse_arn"><span class="annot"><span class="annottext">createNotificationRuleResponse_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateNotificationRuleResponse
+-&gt; f CreateNotificationRuleResponse
+</span><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#createNotificationRuleResponse_arn"><span class="hs-identifier hs-var hs-var">createNotificationRuleResponse_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNotificationRuleResponse -&gt; Maybe Text)
+-&gt; (CreateNotificationRuleResponse
+    -&gt; Maybe Text -&gt; CreateNotificationRuleResponse)
+-&gt; Lens
+     CreateNotificationRuleResponse
+     CreateNotificationRuleResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRuleResponse%27"><span class="hs-identifier hs-type">CreateNotificationRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170381"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:CreateNotificationRuleResponse' :: CreateNotificationRuleResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679170381"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679170381"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170380"><span class="annot"><span class="annottext">s :: CreateNotificationRuleResponse
+</span><a href="#local-6989586621679170380"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRuleResponse%27"><span class="hs-identifier hs-type">CreateNotificationRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170379"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679170379"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNotificationRuleResponse
+</span><a href="#local-6989586621679170380"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:CreateNotificationRuleResponse' :: Maybe Text
+</span><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#%24sel%3Aarn%3ACreateNotificationRuleResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679170379"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRuleResponse"><span class="hs-identifier hs-type">CreateNotificationRuleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-301"></span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-303"></span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#createNotificationRuleResponse_httpStatus"><span class="hs-identifier hs-type">createNotificationRuleResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRuleResponse"><span class="hs-identifier hs-type">CreateNotificationRuleResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-304"></span><span id="createNotificationRuleResponse_httpStatus"><span class="annot"><span class="annottext">createNotificationRuleResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateNotificationRuleResponse
+-&gt; f CreateNotificationRuleResponse
+</span><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#createNotificationRuleResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createNotificationRuleResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNotificationRuleResponse -&gt; Int)
+-&gt; (CreateNotificationRuleResponse
+    -&gt; Int -&gt; CreateNotificationRuleResponse)
+-&gt; Lens
+     CreateNotificationRuleResponse
+     CreateNotificationRuleResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRuleResponse%27"><span class="hs-identifier hs-type">CreateNotificationRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170378"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateNotificationRuleResponse' :: CreateNotificationRuleResponse -&gt; Int
+</span><a href="#local-6989586621679170378"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679170378"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170377"><span class="annot"><span class="annottext">s :: CreateNotificationRuleResponse
+</span><a href="#local-6989586621679170377"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRuleResponse%27"><span class="hs-identifier hs-type">CreateNotificationRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170376"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679170376"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNotificationRuleResponse
+</span><a href="#local-6989586621679170377"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateNotificationRuleResponse' :: Int
+</span><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#%24sel%3AhttpStatus%3ACreateNotificationRuleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679170376"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRuleResponse"><span class="hs-identifier hs-type">CreateNotificationRuleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-305"></span><span>
+</span><span id="line-306"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-307"></span><span>  </span><span id="local-6989586621679170374"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-308"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRuleResponse"><span class="hs-identifier hs-type">CreateNotificationRuleResponse</span></a></span></span><span>
+</span><span id="line-309"></span></pre></body></html>

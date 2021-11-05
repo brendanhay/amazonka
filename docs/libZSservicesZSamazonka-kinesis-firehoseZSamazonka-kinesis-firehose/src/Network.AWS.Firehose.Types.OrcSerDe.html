@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- &lt;https://orc.apache.org/docs/ Apache ORC&gt;.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newOrcSerDe' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679273896"><span id="local-6989586621679273897"></span></span><span class="hs-keyword">data</span><span> </span><span id="OrcSerDe"><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe"><span class="hs-identifier hs-var">OrcSerDe</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OrcSerDe%27"><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe%27"><span class="hs-identifier hs-var">OrcSerDe'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679273905"><span id="local-6989586621679273906"></span></span><span class="hs-keyword">data</span><span> </span><span id="OrcSerDe"><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe"><span class="hs-identifier hs-var">OrcSerDe</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OrcSerDe%27"><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe%27"><span class="hs-identifier hs-var">OrcSerDe'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Bloom filter false positive probability (FPP). The lower the FPP,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- the bigger the Bloom filter. The default value is 0.05, the minimum is</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- 0, and the maximum is 1.</span><span>
@@ -89,7 +89,7 @@
 </span><span id="line-80"></span><span>    </span><span id="%24sel%3ApaddingTolerance%3AOrcSerDe%27"><span class="annot"><span class="annottext">OrcSerDe -&gt; Maybe Double
 </span><a href="Network.AWS.Firehose.Types.OrcSerDe.html#%24sel%3ApaddingTolerance%3AOrcSerDe%27"><span class="hs-identifier hs-var hs-var">paddingTolerance</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679273881"><span id="local-6989586621679273883"><span class="annot"><span class="annottext">OrcSerDe -&gt; OrcSerDe -&gt; Bool
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679273890"><span id="local-6989586621679273892"><span class="annot"><span class="annottext">OrcSerDe -&gt; OrcSerDe -&gt; Bool
 (OrcSerDe -&gt; OrcSerDe -&gt; Bool)
 -&gt; (OrcSerDe -&gt; OrcSerDe -&gt; Bool) -&gt; Eq OrcSerDe
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -97,7 +97,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: OrcSerDe -&gt; OrcSerDe -&gt; Bool
 == :: OrcSerDe -&gt; OrcSerDe -&gt; Bool
 $c== :: OrcSerDe -&gt; OrcSerDe -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273872"><span id="local-6989586621679273874"><span id="local-6989586621679273876"><span id="local-6989586621679273878"><span class="annot"><span class="annottext">ReadPrec [OrcSerDe]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273881"><span id="local-6989586621679273883"><span id="local-6989586621679273885"><span id="local-6989586621679273887"><span class="annot"><span class="annottext">ReadPrec [OrcSerDe]
 ReadPrec OrcSerDe
 Int -&gt; ReadS OrcSerDe
 ReadS [OrcSerDe]
@@ -117,7 +117,7 @@ readList :: ReadS [OrcSerDe]
 $creadList :: ReadS [OrcSerDe]
 readsPrec :: Int -&gt; ReadS OrcSerDe
 $creadsPrec :: Int -&gt; ReadS OrcSerDe
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273865"><span id="local-6989586621679273867"><span id="local-6989586621679273869"><span class="annot"><span class="annottext">Int -&gt; OrcSerDe -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273874"><span id="local-6989586621679273876"><span id="local-6989586621679273878"><span class="annot"><span class="annottext">Int -&gt; OrcSerDe -&gt; ShowS
 [OrcSerDe] -&gt; ShowS
 OrcSerDe -&gt; String
 (Int -&gt; OrcSerDe -&gt; ShowS)
@@ -262,16 +262,16 @@ forall a. Maybe a
 -&gt; (OrcSerDe -&gt; Maybe Double -&gt; OrcSerDe)
 -&gt; Lens OrcSerDe OrcSerDe (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe%27"><span class="hs-identifier hs-type">OrcSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273856"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe%27"><span class="hs-identifier hs-type">OrcSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273865"><span class="annot"><span class="annottext">Maybe Double
 bloomFilterFalsePositiveProbability :: Maybe Double
 $sel:bloomFilterFalsePositiveProbability:OrcSerDe' :: OrcSerDe -&gt; Maybe Double
-</span><a href="#local-6989586621679273856"><span class="hs-identifier hs-var hs-var">bloomFilterFalsePositiveProbability</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679273856"><span class="hs-identifier hs-var">bloomFilterFalsePositiveProbability</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273855"><span class="annot"><span class="annottext">s :: OrcSerDe
-</span><a href="#local-6989586621679273855"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe%27"><span class="hs-identifier hs-type">OrcSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273854"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679273854"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrcSerDe
-</span><a href="#local-6989586621679273855"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bloomFilterFalsePositiveProbability:OrcSerDe' :: Maybe Double
+</span><a href="#local-6989586621679273865"><span class="hs-identifier hs-var hs-var">bloomFilterFalsePositiveProbability</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679273865"><span class="hs-identifier hs-var">bloomFilterFalsePositiveProbability</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273864"><span class="annot"><span class="annottext">s :: OrcSerDe
+</span><a href="#local-6989586621679273864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe%27"><span class="hs-identifier hs-type">OrcSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273863"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679273863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrcSerDe
+</span><a href="#local-6989586621679273864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bloomFilterFalsePositiveProbability:OrcSerDe' :: Maybe Double
 </span><a href="Network.AWS.Firehose.Types.OrcSerDe.html#%24sel%3AbloomFilterFalsePositiveProbability%3AOrcSerDe%27"><span class="hs-identifier hs-var">bloomFilterFalsePositiveProbability</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679273854"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe"><span class="hs-identifier hs-type">OrcSerDe</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679273863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe"><span class="hs-identifier hs-type">OrcSerDe</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- | Represents the fraction of the total number of non-null rows. To turn</span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- off dictionary encoding, set this fraction to a number that is less than</span><span>
@@ -283,16 +283,16 @@ $sel:bloomFilterFalsePositiveProbability:OrcSerDe' :: OrcSerDe -&gt; Maybe Doubl
 -&gt; (OrcSerDe -&gt; Maybe Double -&gt; OrcSerDe)
 -&gt; Lens OrcSerDe OrcSerDe (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe%27"><span class="hs-identifier hs-type">OrcSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273852"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe%27"><span class="hs-identifier hs-type">OrcSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273861"><span class="annot"><span class="annottext">Maybe Double
 dictionaryKeyThreshold :: Maybe Double
 $sel:dictionaryKeyThreshold:OrcSerDe' :: OrcSerDe -&gt; Maybe Double
-</span><a href="#local-6989586621679273852"><span class="hs-identifier hs-var hs-var">dictionaryKeyThreshold</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679273852"><span class="hs-identifier hs-var">dictionaryKeyThreshold</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273851"><span class="annot"><span class="annottext">s :: OrcSerDe
-</span><a href="#local-6989586621679273851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe%27"><span class="hs-identifier hs-type">OrcSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273850"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679273850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrcSerDe
-</span><a href="#local-6989586621679273851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dictionaryKeyThreshold:OrcSerDe' :: Maybe Double
+</span><a href="#local-6989586621679273861"><span class="hs-identifier hs-var hs-var">dictionaryKeyThreshold</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679273861"><span class="hs-identifier hs-var">dictionaryKeyThreshold</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273860"><span class="annot"><span class="annottext">s :: OrcSerDe
+</span><a href="#local-6989586621679273860"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe%27"><span class="hs-identifier hs-type">OrcSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273859"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679273859"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrcSerDe
+</span><a href="#local-6989586621679273860"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dictionaryKeyThreshold:OrcSerDe' :: Maybe Double
 </span><a href="Network.AWS.Firehose.Types.OrcSerDe.html#%24sel%3AdictionaryKeyThreshold%3AOrcSerDe%27"><span class="hs-identifier hs-var">dictionaryKeyThreshold</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679273850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe"><span class="hs-identifier hs-type">OrcSerDe</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679273859"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe"><span class="hs-identifier hs-type">OrcSerDe</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | Set this to @true@ to indicate that you want stripes to be padded to the</span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- HDFS block boundaries. This is useful if you intend to copy the data</span><span>
@@ -303,16 +303,16 @@ $sel:dictionaryKeyThreshold:OrcSerDe' :: OrcSerDe -&gt; Maybe Double
 -&gt; (OrcSerDe -&gt; Maybe Bool -&gt; OrcSerDe)
 -&gt; Lens OrcSerDe OrcSerDe (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe%27"><span class="hs-identifier hs-type">OrcSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273848"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe%27"><span class="hs-identifier hs-type">OrcSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273857"><span class="annot"><span class="annottext">Maybe Bool
 enablePadding :: Maybe Bool
 $sel:enablePadding:OrcSerDe' :: OrcSerDe -&gt; Maybe Bool
-</span><a href="#local-6989586621679273848"><span class="hs-identifier hs-var hs-var">enablePadding</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679273848"><span class="hs-identifier hs-var">enablePadding</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273847"><span class="annot"><span class="annottext">s :: OrcSerDe
-</span><a href="#local-6989586621679273847"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe%27"><span class="hs-identifier hs-type">OrcSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273846"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679273846"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrcSerDe
-</span><a href="#local-6989586621679273847"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enablePadding:OrcSerDe' :: Maybe Bool
+</span><a href="#local-6989586621679273857"><span class="hs-identifier hs-var hs-var">enablePadding</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679273857"><span class="hs-identifier hs-var">enablePadding</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273856"><span class="annot"><span class="annottext">s :: OrcSerDe
+</span><a href="#local-6989586621679273856"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe%27"><span class="hs-identifier hs-type">OrcSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273855"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679273855"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrcSerDe
+</span><a href="#local-6989586621679273856"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enablePadding:OrcSerDe' :: Maybe Bool
 </span><a href="Network.AWS.Firehose.Types.OrcSerDe.html#%24sel%3AenablePadding%3AOrcSerDe%27"><span class="hs-identifier hs-var">enablePadding</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679273846"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe"><span class="hs-identifier hs-type">OrcSerDe</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679273855"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe"><span class="hs-identifier hs-type">OrcSerDe</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- | The compression code to use over data blocks. The default is @SNAPPY@.</span><span>
 </span><span id="line-175"></span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#orcSerDe_compression"><span class="hs-identifier hs-type">orcSerDe_compression</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe"><span class="hs-identifier hs-type">OrcSerDe</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcCompression.html#OrcCompression"><span class="hs-identifier hs-type">OrcCompression</span></a></span><span class="hs-special">)</span><span>
@@ -323,16 +323,16 @@ $sel:enablePadding:OrcSerDe' :: OrcSerDe -&gt; Maybe Bool
 -&gt; Lens
      OrcSerDe OrcSerDe (Maybe OrcCompression) (Maybe OrcCompression)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe%27"><span class="hs-identifier hs-type">OrcSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273844"><span class="annot"><span class="annottext">Maybe OrcCompression
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe%27"><span class="hs-identifier hs-type">OrcSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273853"><span class="annot"><span class="annottext">Maybe OrcCompression
 compression :: Maybe OrcCompression
 $sel:compression:OrcSerDe' :: OrcSerDe -&gt; Maybe OrcCompression
-</span><a href="#local-6989586621679273844"><span class="hs-identifier hs-var hs-var">compression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OrcCompression
-</span><a href="#local-6989586621679273844"><span class="hs-identifier hs-var">compression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273843"><span class="annot"><span class="annottext">s :: OrcSerDe
-</span><a href="#local-6989586621679273843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe%27"><span class="hs-identifier hs-type">OrcSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273842"><span class="annot"><span class="annottext">Maybe OrcCompression
-</span><a href="#local-6989586621679273842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrcSerDe
-</span><a href="#local-6989586621679273843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:compression:OrcSerDe' :: Maybe OrcCompression
+</span><a href="#local-6989586621679273853"><span class="hs-identifier hs-var hs-var">compression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OrcCompression
+</span><a href="#local-6989586621679273853"><span class="hs-identifier hs-var">compression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273852"><span class="annot"><span class="annottext">s :: OrcSerDe
+</span><a href="#local-6989586621679273852"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe%27"><span class="hs-identifier hs-type">OrcSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273851"><span class="annot"><span class="annottext">Maybe OrcCompression
+</span><a href="#local-6989586621679273851"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrcSerDe
+</span><a href="#local-6989586621679273852"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:compression:OrcSerDe' :: Maybe OrcCompression
 </span><a href="Network.AWS.Firehose.Types.OrcSerDe.html#%24sel%3Acompression%3AOrcSerDe%27"><span class="hs-identifier hs-var">compression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OrcCompression
-</span><a href="#local-6989586621679273842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe"><span class="hs-identifier hs-type">OrcSerDe</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679273851"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe"><span class="hs-identifier hs-type">OrcSerDe</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-comment">-- | The column names for which you want Kinesis Data Firehose to create</span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- bloom filters. The default is @null@.</span><span>
@@ -342,16 +342,16 @@ $sel:compression:OrcSerDe' :: OrcSerDe -&gt; Maybe OrcCompression
 -&gt; (OrcSerDe -&gt; Maybe [Text] -&gt; OrcSerDe)
 -&gt; Lens OrcSerDe OrcSerDe (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe%27"><span class="hs-identifier hs-type">OrcSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273840"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe%27"><span class="hs-identifier hs-type">OrcSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273849"><span class="annot"><span class="annottext">Maybe [Text]
 bloomFilterColumns :: Maybe [Text]
 $sel:bloomFilterColumns:OrcSerDe' :: OrcSerDe -&gt; Maybe [Text]
-</span><a href="#local-6989586621679273840"><span class="hs-identifier hs-var hs-var">bloomFilterColumns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679273840"><span class="hs-identifier hs-var">bloomFilterColumns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273839"><span class="annot"><span class="annottext">s :: OrcSerDe
-</span><a href="#local-6989586621679273839"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe%27"><span class="hs-identifier hs-type">OrcSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273838"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679273838"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrcSerDe
-</span><a href="#local-6989586621679273839"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bloomFilterColumns:OrcSerDe' :: Maybe [Text]
+</span><a href="#local-6989586621679273849"><span class="hs-identifier hs-var hs-var">bloomFilterColumns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679273849"><span class="hs-identifier hs-var">bloomFilterColumns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273848"><span class="annot"><span class="annottext">s :: OrcSerDe
+</span><a href="#local-6989586621679273848"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe%27"><span class="hs-identifier hs-type">OrcSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273847"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679273847"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrcSerDe
+</span><a href="#local-6989586621679273848"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bloomFilterColumns:OrcSerDe' :: Maybe [Text]
 </span><a href="Network.AWS.Firehose.Types.OrcSerDe.html#%24sel%3AbloomFilterColumns%3AOrcSerDe%27"><span class="hs-identifier hs-var">bloomFilterColumns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679273838"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe"><span class="hs-identifier hs-type">OrcSerDe</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; OrcSerDe -&gt; f OrcSerDe)
+</span><a href="#local-6989586621679273847"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe"><span class="hs-identifier hs-type">OrcSerDe</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; OrcSerDe -&gt; f OrcSerDe)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -375,16 +375,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (OrcSerDe -&gt; Maybe Natural -&gt; OrcSerDe)
 -&gt; Lens OrcSerDe OrcSerDe (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe%27"><span class="hs-identifier hs-type">OrcSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273833"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe%27"><span class="hs-identifier hs-type">OrcSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273842"><span class="annot"><span class="annottext">Maybe Natural
 rowIndexStride :: Maybe Natural
 $sel:rowIndexStride:OrcSerDe' :: OrcSerDe -&gt; Maybe Natural
-</span><a href="#local-6989586621679273833"><span class="hs-identifier hs-var hs-var">rowIndexStride</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679273833"><span class="hs-identifier hs-var">rowIndexStride</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273832"><span class="annot"><span class="annottext">s :: OrcSerDe
-</span><a href="#local-6989586621679273832"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe%27"><span class="hs-identifier hs-type">OrcSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273831"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679273831"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrcSerDe
-</span><a href="#local-6989586621679273832"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rowIndexStride:OrcSerDe' :: Maybe Natural
+</span><a href="#local-6989586621679273842"><span class="hs-identifier hs-var hs-var">rowIndexStride</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679273842"><span class="hs-identifier hs-var">rowIndexStride</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273841"><span class="annot"><span class="annottext">s :: OrcSerDe
+</span><a href="#local-6989586621679273841"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe%27"><span class="hs-identifier hs-type">OrcSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273840"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679273840"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrcSerDe
+</span><a href="#local-6989586621679273841"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rowIndexStride:OrcSerDe' :: Maybe Natural
 </span><a href="Network.AWS.Firehose.Types.OrcSerDe.html#%24sel%3ArowIndexStride%3AOrcSerDe%27"><span class="hs-identifier hs-var">rowIndexStride</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679273831"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe"><span class="hs-identifier hs-type">OrcSerDe</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679273840"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe"><span class="hs-identifier hs-type">OrcSerDe</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- | The version of the file to write. The possible values are @V0_11@ and</span><span>
 </span><span id="line-189"></span><span class="hs-comment">-- @V0_12@. The default is @V0_12@.</span><span>
@@ -396,16 +396,16 @@ $sel:rowIndexStride:OrcSerDe' :: OrcSerDe -&gt; Maybe Natural
 -&gt; Lens
      OrcSerDe OrcSerDe (Maybe OrcFormatVersion) (Maybe OrcFormatVersion)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe%27"><span class="hs-identifier hs-type">OrcSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273829"><span class="annot"><span class="annottext">Maybe OrcFormatVersion
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe%27"><span class="hs-identifier hs-type">OrcSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273838"><span class="annot"><span class="annottext">Maybe OrcFormatVersion
 formatVersion :: Maybe OrcFormatVersion
 $sel:formatVersion:OrcSerDe' :: OrcSerDe -&gt; Maybe OrcFormatVersion
-</span><a href="#local-6989586621679273829"><span class="hs-identifier hs-var hs-var">formatVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OrcFormatVersion
-</span><a href="#local-6989586621679273829"><span class="hs-identifier hs-var">formatVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273828"><span class="annot"><span class="annottext">s :: OrcSerDe
-</span><a href="#local-6989586621679273828"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe%27"><span class="hs-identifier hs-type">OrcSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273827"><span class="annot"><span class="annottext">Maybe OrcFormatVersion
-</span><a href="#local-6989586621679273827"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrcSerDe
-</span><a href="#local-6989586621679273828"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:formatVersion:OrcSerDe' :: Maybe OrcFormatVersion
+</span><a href="#local-6989586621679273838"><span class="hs-identifier hs-var hs-var">formatVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OrcFormatVersion
+</span><a href="#local-6989586621679273838"><span class="hs-identifier hs-var">formatVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273837"><span class="annot"><span class="annottext">s :: OrcSerDe
+</span><a href="#local-6989586621679273837"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe%27"><span class="hs-identifier hs-type">OrcSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273836"><span class="annot"><span class="annottext">Maybe OrcFormatVersion
+</span><a href="#local-6989586621679273836"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrcSerDe
+</span><a href="#local-6989586621679273837"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:formatVersion:OrcSerDe' :: Maybe OrcFormatVersion
 </span><a href="Network.AWS.Firehose.Types.OrcSerDe.html#%24sel%3AformatVersion%3AOrcSerDe%27"><span class="hs-identifier hs-var">formatVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OrcFormatVersion
-</span><a href="#local-6989586621679273827"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe"><span class="hs-identifier hs-type">OrcSerDe</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679273836"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe"><span class="hs-identifier hs-type">OrcSerDe</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-comment">-- | The Hadoop Distributed File System (HDFS) block size. This is useful if</span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- you intend to copy the data from Amazon S3 to HDFS before querying. The</span><span>
@@ -417,16 +417,16 @@ $sel:formatVersion:OrcSerDe' :: OrcSerDe -&gt; Maybe OrcFormatVersion
 -&gt; (OrcSerDe -&gt; Maybe Natural -&gt; OrcSerDe)
 -&gt; Lens OrcSerDe OrcSerDe (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe%27"><span class="hs-identifier hs-type">OrcSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273825"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe%27"><span class="hs-identifier hs-type">OrcSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273834"><span class="annot"><span class="annottext">Maybe Natural
 blockSizeBytes :: Maybe Natural
 $sel:blockSizeBytes:OrcSerDe' :: OrcSerDe -&gt; Maybe Natural
-</span><a href="#local-6989586621679273825"><span class="hs-identifier hs-var hs-var">blockSizeBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679273825"><span class="hs-identifier hs-var">blockSizeBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273824"><span class="annot"><span class="annottext">s :: OrcSerDe
-</span><a href="#local-6989586621679273824"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe%27"><span class="hs-identifier hs-type">OrcSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273823"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679273823"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrcSerDe
-</span><a href="#local-6989586621679273824"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blockSizeBytes:OrcSerDe' :: Maybe Natural
+</span><a href="#local-6989586621679273834"><span class="hs-identifier hs-var hs-var">blockSizeBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679273834"><span class="hs-identifier hs-var">blockSizeBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273833"><span class="annot"><span class="annottext">s :: OrcSerDe
+</span><a href="#local-6989586621679273833"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe%27"><span class="hs-identifier hs-type">OrcSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273832"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679273832"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrcSerDe
+</span><a href="#local-6989586621679273833"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blockSizeBytes:OrcSerDe' :: Maybe Natural
 </span><a href="Network.AWS.Firehose.Types.OrcSerDe.html#%24sel%3AblockSizeBytes%3AOrcSerDe%27"><span class="hs-identifier hs-var">blockSizeBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679273823"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe"><span class="hs-identifier hs-type">OrcSerDe</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679273832"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe"><span class="hs-identifier hs-type">OrcSerDe</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-199"></span><span>
 </span><span id="line-200"></span><span class="hs-comment">-- | The number of bytes in each stripe. The default is 64 MiB and the</span><span>
 </span><span id="line-201"></span><span class="hs-comment">-- minimum is 8 MiB.</span><span>
@@ -436,16 +436,16 @@ $sel:blockSizeBytes:OrcSerDe' :: OrcSerDe -&gt; Maybe Natural
 -&gt; (OrcSerDe -&gt; Maybe Natural -&gt; OrcSerDe)
 -&gt; Lens OrcSerDe OrcSerDe (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe%27"><span class="hs-identifier hs-type">OrcSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273821"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe%27"><span class="hs-identifier hs-type">OrcSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273830"><span class="annot"><span class="annottext">Maybe Natural
 stripeSizeBytes :: Maybe Natural
 $sel:stripeSizeBytes:OrcSerDe' :: OrcSerDe -&gt; Maybe Natural
-</span><a href="#local-6989586621679273821"><span class="hs-identifier hs-var hs-var">stripeSizeBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679273821"><span class="hs-identifier hs-var">stripeSizeBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273820"><span class="annot"><span class="annottext">s :: OrcSerDe
-</span><a href="#local-6989586621679273820"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe%27"><span class="hs-identifier hs-type">OrcSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273819"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679273819"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrcSerDe
-</span><a href="#local-6989586621679273820"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stripeSizeBytes:OrcSerDe' :: Maybe Natural
+</span><a href="#local-6989586621679273830"><span class="hs-identifier hs-var hs-var">stripeSizeBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679273830"><span class="hs-identifier hs-var">stripeSizeBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273829"><span class="annot"><span class="annottext">s :: OrcSerDe
+</span><a href="#local-6989586621679273829"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe%27"><span class="hs-identifier hs-type">OrcSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273828"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679273828"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrcSerDe
+</span><a href="#local-6989586621679273829"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stripeSizeBytes:OrcSerDe' :: Maybe Natural
 </span><a href="Network.AWS.Firehose.Types.OrcSerDe.html#%24sel%3AstripeSizeBytes%3AOrcSerDe%27"><span class="hs-identifier hs-var">stripeSizeBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679273819"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe"><span class="hs-identifier hs-type">OrcSerDe</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679273828"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe"><span class="hs-identifier hs-type">OrcSerDe</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-204"></span><span>
 </span><span id="line-205"></span><span class="hs-comment">-- | A number between 0 and 1 that defines the tolerance for block padding as</span><span>
 </span><span id="line-206"></span><span class="hs-comment">-- a decimal fraction of stripe size. The default value is 0.05, which</span><span>
@@ -467,27 +467,27 @@ $sel:stripeSizeBytes:OrcSerDe' :: OrcSerDe -&gt; Maybe Natural
 -&gt; (OrcSerDe -&gt; Maybe Double -&gt; OrcSerDe)
 -&gt; Lens OrcSerDe OrcSerDe (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe%27"><span class="hs-identifier hs-type">OrcSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273817"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe%27"><span class="hs-identifier hs-type">OrcSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273826"><span class="annot"><span class="annottext">Maybe Double
 paddingTolerance :: Maybe Double
 $sel:paddingTolerance:OrcSerDe' :: OrcSerDe -&gt; Maybe Double
-</span><a href="#local-6989586621679273817"><span class="hs-identifier hs-var hs-var">paddingTolerance</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679273817"><span class="hs-identifier hs-var">paddingTolerance</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273816"><span class="annot"><span class="annottext">s :: OrcSerDe
-</span><a href="#local-6989586621679273816"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe%27"><span class="hs-identifier hs-type">OrcSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273815"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679273815"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrcSerDe
-</span><a href="#local-6989586621679273816"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:paddingTolerance:OrcSerDe' :: Maybe Double
+</span><a href="#local-6989586621679273826"><span class="hs-identifier hs-var hs-var">paddingTolerance</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679273826"><span class="hs-identifier hs-var">paddingTolerance</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273825"><span class="annot"><span class="annottext">s :: OrcSerDe
+</span><a href="#local-6989586621679273825"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe%27"><span class="hs-identifier hs-type">OrcSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273824"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679273824"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrcSerDe
+</span><a href="#local-6989586621679273825"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:paddingTolerance:OrcSerDe' :: Maybe Double
 </span><a href="Network.AWS.Firehose.Types.OrcSerDe.html#%24sel%3ApaddingTolerance%3AOrcSerDe%27"><span class="hs-identifier hs-var">paddingTolerance</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679273815"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe"><span class="hs-identifier hs-type">OrcSerDe</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679273824"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe"><span class="hs-identifier hs-type">OrcSerDe</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-221"></span><span>
-</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273812"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe"><span class="hs-identifier hs-type">OrcSerDe</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-223"></span><span>  </span><span id="local-6989586621679273810"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OrcSerDe
+</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273821"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe"><span class="hs-identifier hs-type">OrcSerDe</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-223"></span><span>  </span><span id="local-6989586621679273819"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OrcSerDe
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-224"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser OrcSerDe) -&gt; Value -&gt; Parser OrcSerDe
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-225"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;OrcSerDe&quot;</span></span><span>
-</span><span id="line-226"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679273807"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679273807"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-226"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679273816"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679273816"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-227"></span><span>          </span><span class="annot"><span class="annottext">Maybe Double
 -&gt; Maybe Double
 -&gt; Maybe Bool
@@ -525,7 +525,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; OrcSerDe)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679273807"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679273816"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BloomFilterFalsePositiveProbability&quot;</span></span><span class="hs-special">)</span><span>
@@ -553,7 +553,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; OrcSerDe)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679273807"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679273816"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DictionaryKeyThreshold&quot;</span></span><span class="hs-special">)</span><span>
@@ -579,7 +579,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; OrcSerDe)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679273807"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679273816"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EnablePadding&quot;</span></span><span class="hs-special">)</span><span>
@@ -603,7 +603,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; OrcSerDe)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679273807"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OrcCompression)
+</span><a href="#local-6989586621679273816"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OrcCompression)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Compression&quot;</span></span><span class="hs-special">)</span><span>
@@ -625,7 +625,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; OrcSerDe)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679273807"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679273816"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BloomFilterColumns&quot;</span></span><span>
@@ -649,7 +649,7 @@ forall a. Monoid a =&gt; a
       -&gt; Maybe Natural -&gt; Maybe Natural -&gt; Maybe Double -&gt; OrcSerDe)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679273807"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679273816"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RowIndexStride&quot;</span></span><span class="hs-special">)</span><span>
@@ -661,7 +661,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Natural -&gt; Maybe Natural -&gt; Maybe Double -&gt; OrcSerDe)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679273807"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OrcFormatVersion)
+</span><a href="#local-6989586621679273816"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OrcFormatVersion)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FormatVersion&quot;</span></span><span class="hs-special">)</span><span>
@@ -670,7 +670,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural -&gt; Maybe Double -&gt; OrcSerDe)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679273807"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679273816"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BlockSizeBytes&quot;</span></span><span class="hs-special">)</span><span>
@@ -678,7 +678,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural) -&gt; Parser (Maybe Double -&gt; OrcSerDe)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679273807"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679273816"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StripeSizeBytes&quot;</span></span><span class="hs-special">)</span><span>
@@ -686,19 +686,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Double) -&gt; Parser OrcSerDe
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679273807"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679273816"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PaddingTolerance&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-240"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-241"></span><span>
-</span><span id="line-242"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273800"><span id="local-6989586621679273802"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe"><span class="hs-identifier hs-type">OrcSerDe</span></a></span></span></span><span>
+</span><span id="line-242"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273809"><span id="local-6989586621679273811"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe"><span class="hs-identifier hs-type">OrcSerDe</span></a></span></span></span><span>
 </span><span id="line-243"></span><span>
-</span><span id="line-244"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273797"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe"><span class="hs-identifier hs-type">OrcSerDe</span></a></span></span><span>
+</span><span id="line-244"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273806"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe"><span class="hs-identifier hs-type">OrcSerDe</span></a></span></span><span>
 </span><span id="line-245"></span><span>
-</span><span id="line-246"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273789"><span id="local-6989586621679273791"><span id="local-6989586621679273793"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe"><span class="hs-identifier hs-type">OrcSerDe</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-247"></span><span>  </span><span id="local-6989586621679273787"><span class="annot"><span class="annottext">toJSON :: OrcSerDe -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe%27"><span class="hs-identifier hs-type">OrcSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273776"><span id="local-6989586621679273777"><span id="local-6989586621679273778"><span id="local-6989586621679273779"><span id="local-6989586621679273780"><span id="local-6989586621679273781"><span id="local-6989586621679273782"><span id="local-6989586621679273783"><span id="local-6989586621679273784"><span id="local-6989586621679273785"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-246"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273798"><span id="local-6989586621679273800"><span id="local-6989586621679273802"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe"><span class="hs-identifier hs-type">OrcSerDe</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-247"></span><span>  </span><span id="local-6989586621679273796"><span class="annot"><span class="annottext">toJSON :: OrcSerDe -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OrcSerDe.html#OrcSerDe%27"><span class="hs-identifier hs-type">OrcSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273785"><span id="local-6989586621679273786"><span id="local-6989586621679273787"><span id="local-6989586621679273788"><span id="local-6989586621679273789"><span id="local-6989586621679273790"><span id="local-6989586621679273791"><span id="local-6989586621679273792"><span id="local-6989586621679273793"><span id="local-6989586621679273794"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Double
 Maybe Natural
 Maybe [Text]
@@ -724,7 +724,7 @@ $sel:compression:OrcSerDe' :: OrcSerDe -&gt; Maybe OrcCompression
 $sel:enablePadding:OrcSerDe' :: OrcSerDe -&gt; Maybe Bool
 $sel:dictionaryKeyThreshold:OrcSerDe' :: OrcSerDe -&gt; Maybe Double
 $sel:bloomFilterFalsePositiveProbability:OrcSerDe' :: OrcSerDe -&gt; Maybe Double
-</span><a href="#local-6989586621679273776"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679273785"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-248"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-249"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -737,7 +737,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-251"></span><span>              </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679273785"><span class="hs-identifier hs-var">bloomFilterFalsePositiveProbability</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679273794"><span class="hs-identifier hs-var">bloomFilterFalsePositiveProbability</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-252"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DictionaryKeyThreshold&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -745,21 +745,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-253"></span><span>              </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679273784"><span class="hs-identifier hs-var">dictionaryKeyThreshold</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679273793"><span class="hs-identifier hs-var">dictionaryKeyThreshold</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-254"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EnablePadding&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679273783"><span class="hs-identifier hs-var">enablePadding</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679273792"><span class="hs-identifier hs-var">enablePadding</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-255"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Compression&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OrcCompression -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(OrcCompression -&gt; Pair) -&gt; Maybe OrcCompression -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe OrcCompression
-</span><a href="#local-6989586621679273782"><span class="hs-identifier hs-var">compression</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679273791"><span class="hs-identifier hs-var">compression</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-256"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BloomFilterColumns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -767,7 +767,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-257"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679273781"><span class="hs-identifier hs-var">bloomFilterColumns</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679273790"><span class="hs-identifier hs-var">bloomFilterColumns</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-258"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RowIndexStride&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -775,14 +775,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-259"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679273780"><span class="hs-identifier hs-var">rowIndexStride</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679273789"><span class="hs-identifier hs-var">rowIndexStride</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-260"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FormatVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OrcFormatVersion -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(OrcFormatVersion -&gt; Pair) -&gt; Maybe OrcFormatVersion -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe OrcFormatVersion
-</span><a href="#local-6989586621679273779"><span class="hs-identifier hs-var">formatVersion</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679273788"><span class="hs-identifier hs-var">formatVersion</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-261"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BlockSizeBytes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -790,7 +790,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-262"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679273778"><span class="hs-identifier hs-var">blockSizeBytes</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679273787"><span class="hs-identifier hs-var">blockSizeBytes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-263"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StripeSizeBytes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -798,7 +798,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-264"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679273777"><span class="hs-identifier hs-var">stripeSizeBytes</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679273786"><span class="hs-identifier hs-var">stripeSizeBytes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-265"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PaddingTolerance&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -806,7 +806,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-266"></span><span>              </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679273776"><span class="hs-identifier hs-var">paddingTolerance</span></a></span><span>
+</span><a href="#local-6989586621679273785"><span class="hs-identifier hs-var">paddingTolerance</span></a></span><span>
 </span><span id="line-267"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-268"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-269"></span></pre></body></html>

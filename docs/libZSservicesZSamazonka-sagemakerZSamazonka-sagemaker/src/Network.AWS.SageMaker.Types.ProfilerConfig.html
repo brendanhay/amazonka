@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- profiling, and storage paths.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newProfilerConfig' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621680334577"><span id="local-6989586621680334578"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProfilerConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerConfig.html#ProfilerConfig"><span class="hs-identifier hs-var">ProfilerConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProfilerConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerConfig.html#ProfilerConfig%27"><span class="hs-identifier hs-var">ProfilerConfig'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621680334586"><span id="local-6989586621680334587"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProfilerConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerConfig.html#ProfilerConfig"><span class="hs-identifier hs-var">ProfilerConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProfilerConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerConfig.html#ProfilerConfig%27"><span class="hs-identifier hs-var">ProfilerConfig'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Configuration information for capturing framework metrics. Available key</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- strings for different profiling options are @DetailedProfilingConfig@,</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- @PythonProfilingConfig@, and @DataLoaderProfilingConfig@. The following</span><span>
@@ -46,7 +46,7 @@
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3As3OutputPath%3AProfilerConfig%27"><span class="annot"><span class="annottext">ProfilerConfig -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.ProfilerConfig.html#%24sel%3As3OutputPath%3AProfilerConfig%27"><span class="hs-identifier hs-var hs-var">s3OutputPath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680334569"><span id="local-6989586621680334571"><span class="annot"><span class="annottext">ProfilerConfig -&gt; ProfilerConfig -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680334578"><span id="local-6989586621680334580"><span class="annot"><span class="annottext">ProfilerConfig -&gt; ProfilerConfig -&gt; Bool
 (ProfilerConfig -&gt; ProfilerConfig -&gt; Bool)
 -&gt; (ProfilerConfig -&gt; ProfilerConfig -&gt; Bool) -&gt; Eq ProfilerConfig
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ProfilerConfig -&gt; ProfilerConfig -&gt; Bool
 == :: ProfilerConfig -&gt; ProfilerConfig -&gt; Bool
 $c== :: ProfilerConfig -&gt; ProfilerConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680334560"><span id="local-6989586621680334562"><span id="local-6989586621680334564"><span id="local-6989586621680334566"><span class="annot"><span class="annottext">ReadPrec [ProfilerConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680334569"><span id="local-6989586621680334571"><span id="local-6989586621680334573"><span id="local-6989586621680334575"><span class="annot"><span class="annottext">ReadPrec [ProfilerConfig]
 ReadPrec ProfilerConfig
 Int -&gt; ReadS ProfilerConfig
 ReadS [ProfilerConfig]
@@ -74,7 +74,7 @@ readList :: ReadS [ProfilerConfig]
 $creadList :: ReadS [ProfilerConfig]
 readsPrec :: Int -&gt; ReadS ProfilerConfig
 $creadsPrec :: Int -&gt; ReadS ProfilerConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680334553"><span id="local-6989586621680334555"><span id="local-6989586621680334557"><span class="annot"><span class="annottext">Int -&gt; ProfilerConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680334562"><span id="local-6989586621680334564"><span id="local-6989586621680334566"><span class="annot"><span class="annottext">Int -&gt; ProfilerConfig -&gt; ShowS
 [ProfilerConfig] -&gt; ShowS
 ProfilerConfig -&gt; String
 (Int -&gt; ProfilerConfig -&gt; ShowS)
@@ -126,8 +126,8 @@ $cfrom :: forall x. ProfilerConfig -&gt; Rep ProfilerConfig x
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerConfig.html#ProfilerConfig"><span class="hs-identifier hs-type">ProfilerConfig</span></a></span><span>
 </span><span id="line-73"></span><span id="newProfilerConfig"><span class="annot"><span class="annottext">newProfilerConfig :: Text -&gt; ProfilerConfig
-</span><a href="Network.AWS.SageMaker.Types.ProfilerConfig.html#newProfilerConfig"><span class="hs-identifier hs-var hs-var">newProfilerConfig</span></a></span></span><span> </span><span id="local-6989586621680334547"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680334547"><span class="hs-identifier hs-var">pS3OutputPath_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.Types.ProfilerConfig.html#newProfilerConfig"><span class="hs-identifier hs-var hs-var">newProfilerConfig</span></a></span></span><span> </span><span id="local-6989586621680334556"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680334556"><span class="hs-identifier hs-var">pS3OutputPath_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">ProfilerConfig' :: Maybe (HashMap Text Text)
 -&gt; Maybe Integer -&gt; Text -&gt; ProfilerConfig
 </span><a href="Network.AWS.SageMaker.Types.ProfilerConfig.html#ProfilerConfig%27"><span class="hs-identifier hs-type">ProfilerConfig'</span></a></span><span>
@@ -142,7 +142,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3OutputPath:ProfilerConfig' :: Text
 </span><a href="Network.AWS.SageMaker.Types.ProfilerConfig.html#%24sel%3As3OutputPath%3AProfilerConfig%27"><span class="hs-identifier hs-var">s3OutputPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680334547"><span class="hs-identifier hs-var">pS3OutputPath_</span></a></span><span>
+</span><a href="#local-6989586621680334556"><span class="hs-identifier hs-var">pS3OutputPath_</span></a></span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | Configuration information for capturing framework metrics. Available key</span><span>
@@ -163,16 +163,16 @@ forall a. Maybe a
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerConfig.html#ProfilerConfig%27"><span class="hs-identifier hs-type">ProfilerConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680334543"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerConfig.html#ProfilerConfig%27"><span class="hs-identifier hs-type">ProfilerConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680334552"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 profilingParameters :: Maybe (HashMap Text Text)
 $sel:profilingParameters:ProfilerConfig' :: ProfilerConfig -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621680334543"><span class="hs-identifier hs-var hs-var">profilingParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621680334543"><span class="hs-identifier hs-var">profilingParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680334542"><span class="annot"><span class="annottext">s :: ProfilerConfig
-</span><a href="#local-6989586621680334542"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerConfig.html#ProfilerConfig%27"><span class="hs-identifier hs-type">ProfilerConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680334541"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621680334541"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProfilerConfig
-</span><a href="#local-6989586621680334542"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:profilingParameters:ProfilerConfig' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680334552"><span class="hs-identifier hs-var hs-var">profilingParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680334552"><span class="hs-identifier hs-var">profilingParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680334551"><span class="annot"><span class="annottext">s :: ProfilerConfig
+</span><a href="#local-6989586621680334551"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerConfig.html#ProfilerConfig%27"><span class="hs-identifier hs-type">ProfilerConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680334550"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680334550"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProfilerConfig
+</span><a href="#local-6989586621680334551"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:profilingParameters:ProfilerConfig' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.SageMaker.Types.ProfilerConfig.html#%24sel%3AprofilingParameters%3AProfilerConfig%27"><span class="hs-identifier hs-var">profilingParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621680334541"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerConfig.html#ProfilerConfig"><span class="hs-identifier hs-type">ProfilerConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621680334550"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerConfig.html#ProfilerConfig"><span class="hs-identifier hs-type">ProfilerConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; ProfilerConfig -&gt; f ProfilerConfig)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -212,16 +212,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      ProfilerConfig ProfilerConfig (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerConfig.html#ProfilerConfig%27"><span class="hs-identifier hs-type">ProfilerConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680334536"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerConfig.html#ProfilerConfig%27"><span class="hs-identifier hs-type">ProfilerConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680334545"><span class="annot"><span class="annottext">Maybe Integer
 profilingIntervalInMilliseconds :: Maybe Integer
 $sel:profilingIntervalInMilliseconds:ProfilerConfig' :: ProfilerConfig -&gt; Maybe Integer
-</span><a href="#local-6989586621680334536"><span class="hs-identifier hs-var hs-var">profilingIntervalInMilliseconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621680334536"><span class="hs-identifier hs-var">profilingIntervalInMilliseconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680334535"><span class="annot"><span class="annottext">s :: ProfilerConfig
-</span><a href="#local-6989586621680334535"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerConfig.html#ProfilerConfig%27"><span class="hs-identifier hs-type">ProfilerConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680334534"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621680334534"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProfilerConfig
-</span><a href="#local-6989586621680334535"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:profilingIntervalInMilliseconds:ProfilerConfig' :: Maybe Integer
+</span><a href="#local-6989586621680334545"><span class="hs-identifier hs-var hs-var">profilingIntervalInMilliseconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621680334545"><span class="hs-identifier hs-var">profilingIntervalInMilliseconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680334544"><span class="annot"><span class="annottext">s :: ProfilerConfig
+</span><a href="#local-6989586621680334544"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerConfig.html#ProfilerConfig%27"><span class="hs-identifier hs-type">ProfilerConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680334543"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621680334543"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProfilerConfig
+</span><a href="#local-6989586621680334544"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:profilingIntervalInMilliseconds:ProfilerConfig' :: Maybe Integer
 </span><a href="Network.AWS.SageMaker.Types.ProfilerConfig.html#%24sel%3AprofilingIntervalInMilliseconds%3AProfilerConfig%27"><span class="hs-identifier hs-var">profilingIntervalInMilliseconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621680334534"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerConfig.html#ProfilerConfig"><span class="hs-identifier hs-type">ProfilerConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680334543"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerConfig.html#ProfilerConfig"><span class="hs-identifier hs-type">ProfilerConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | Path to Amazon S3 storage location for system and framework metrics.</span><span>
 </span><span id="line-98"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerConfig.html#profilerConfig_s3OutputPath"><span class="hs-identifier hs-type">profilerConfig_s3OutputPath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerConfig.html#ProfilerConfig"><span class="hs-identifier hs-type">ProfilerConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -230,19 +230,19 @@ $sel:profilingIntervalInMilliseconds:ProfilerConfig' :: ProfilerConfig -&gt; May
 -&gt; (ProfilerConfig -&gt; Text -&gt; ProfilerConfig)
 -&gt; Lens ProfilerConfig ProfilerConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerConfig.html#ProfilerConfig%27"><span class="hs-identifier hs-type">ProfilerConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680334532"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerConfig.html#ProfilerConfig%27"><span class="hs-identifier hs-type">ProfilerConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680334541"><span class="annot"><span class="annottext">Text
 s3OutputPath :: Text
 $sel:s3OutputPath:ProfilerConfig' :: ProfilerConfig -&gt; Text
-</span><a href="#local-6989586621680334532"><span class="hs-identifier hs-var hs-var">s3OutputPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680334532"><span class="hs-identifier hs-var">s3OutputPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680334531"><span class="annot"><span class="annottext">s :: ProfilerConfig
-</span><a href="#local-6989586621680334531"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerConfig.html#ProfilerConfig%27"><span class="hs-identifier hs-type">ProfilerConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680334530"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680334530"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProfilerConfig
-</span><a href="#local-6989586621680334531"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3OutputPath:ProfilerConfig' :: Text
+</span><a href="#local-6989586621680334541"><span class="hs-identifier hs-var hs-var">s3OutputPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680334541"><span class="hs-identifier hs-var">s3OutputPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680334540"><span class="annot"><span class="annottext">s :: ProfilerConfig
+</span><a href="#local-6989586621680334540"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerConfig.html#ProfilerConfig%27"><span class="hs-identifier hs-type">ProfilerConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680334539"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680334539"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProfilerConfig
+</span><a href="#local-6989586621680334540"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3OutputPath:ProfilerConfig' :: Text
 </span><a href="Network.AWS.SageMaker.Types.ProfilerConfig.html#%24sel%3As3OutputPath%3AProfilerConfig%27"><span class="hs-identifier hs-var">s3OutputPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680334530"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerConfig.html#ProfilerConfig"><span class="hs-identifier hs-type">ProfilerConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680334539"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerConfig.html#ProfilerConfig"><span class="hs-identifier hs-type">ProfilerConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680334527"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerConfig.html#ProfilerConfig"><span class="hs-identifier hs-type">ProfilerConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621680334525"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProfilerConfig
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680334536"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerConfig.html#ProfilerConfig"><span class="hs-identifier hs-type">ProfilerConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621680334534"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProfilerConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ProfilerConfig)
@@ -252,8 +252,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ProfilerConfig&quot;</span></span><span>
-</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680334522"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680334522"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680334531"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680334531"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 -&gt; Maybe Integer -&gt; Text -&gt; ProfilerConfig
 </span><a href="Network.AWS.SageMaker.Types.ProfilerConfig.html#ProfilerConfig%27"><span class="hs-identifier hs-var">ProfilerConfig'</span></a></span><span>
@@ -263,7 +263,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Integer -&gt; Text -&gt; ProfilerConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680334522"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621680334531"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ProfilingParameters&quot;</span></span><span>
@@ -278,7 +278,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Integer) -&gt; Parser (Text -&gt; ProfilerConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680334522"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621680334531"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ProfilingIntervalInMilliseconds&quot;</span></span><span class="hs-special">)</span><span>
@@ -286,19 +286,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser ProfilerConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680334522"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680334531"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3OutputPath&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680334514"><span id="local-6989586621680334516"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerConfig.html#ProfilerConfig"><span class="hs-identifier hs-type">ProfilerConfig</span></a></span></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680334523"><span id="local-6989586621680334525"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerConfig.html#ProfilerConfig"><span class="hs-identifier hs-type">ProfilerConfig</span></a></span></span></span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680334511"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerConfig.html#ProfilerConfig"><span class="hs-identifier hs-type">ProfilerConfig</span></a></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680334520"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerConfig.html#ProfilerConfig"><span class="hs-identifier hs-type">ProfilerConfig</span></a></span></span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680334503"><span id="local-6989586621680334505"><span id="local-6989586621680334507"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerConfig.html#ProfilerConfig"><span class="hs-identifier hs-type">ProfilerConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621680334501"><span class="annot"><span class="annottext">toJSON :: ProfilerConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerConfig.html#ProfilerConfig%27"><span class="hs-identifier hs-type">ProfilerConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680334497"><span id="local-6989586621680334498"><span id="local-6989586621680334499"><span class="annot"><span class="annottext">Maybe Integer
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680334512"><span id="local-6989586621680334514"><span id="local-6989586621680334516"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerConfig.html#ProfilerConfig"><span class="hs-identifier hs-type">ProfilerConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621680334510"><span class="annot"><span class="annottext">toJSON :: ProfilerConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerConfig.html#ProfilerConfig%27"><span class="hs-identifier hs-type">ProfilerConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680334506"><span id="local-6989586621680334507"><span id="local-6989586621680334508"><span class="annot"><span class="annottext">Maybe Integer
 Maybe (HashMap Text Text)
 Text
 s3OutputPath :: Text
@@ -307,7 +307,7 @@ profilingParameters :: Maybe (HashMap Text Text)
 $sel:s3OutputPath:ProfilerConfig' :: ProfilerConfig -&gt; Text
 $sel:profilingIntervalInMilliseconds:ProfilerConfig' :: ProfilerConfig -&gt; Maybe Integer
 $sel:profilingParameters:ProfilerConfig' :: ProfilerConfig -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621680334497"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680334506"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -321,7 +321,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621680334499"><span class="hs-identifier hs-var">profilingParameters</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680334508"><span class="hs-identifier hs-var">profilingParameters</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-124"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ProfilingIntervalInMilliseconds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Integer -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -329,14 +329,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-125"></span><span>              </span><span class="annot"><span class="annottext">(Integer -&gt; Pair) -&gt; Maybe Integer -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621680334498"><span class="hs-identifier hs-var">profilingIntervalInMilliseconds</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680334507"><span class="hs-identifier hs-var">profilingIntervalInMilliseconds</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3OutputPath&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680334497"><span class="hs-identifier hs-var">s3OutputPath</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680334506"><span class="hs-identifier hs-var">s3OutputPath</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span></pre></body></html>

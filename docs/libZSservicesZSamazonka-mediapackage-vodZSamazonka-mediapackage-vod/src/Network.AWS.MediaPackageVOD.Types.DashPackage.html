@@ -1,0 +1,576 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaPackageVOD.Types.DashPackage</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaPackageVOD.Types.DashPackage</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashEncryption.html"><span class="hs-identifier">Network.AWS.MediaPackageVOD.Types.DashEncryption</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashManifest.html"><span class="hs-identifier">Network.AWS.MediaPackageVOD.Types.DashManifest</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.PeriodTriggersElement.html"><span class="hs-identifier">Network.AWS.MediaPackageVOD.Types.PeriodTriggersElement</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.SegmentTemplateFormat.html"><span class="hs-identifier">Network.AWS.MediaPackageVOD.Types.SegmentTemplateFormat</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newDashPackage' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679197210"><span id="local-6989586621679197211"></span></span><span class="hs-keyword">data</span><span> </span><span id="DashPackage"><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#DashPackage"><span class="hs-identifier hs-var">DashPackage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DashPackage%27"><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#DashPackage%27"><span class="hs-identifier hs-var">DashPackage'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When includeEncoderConfigurationInSegments is set to true, MediaPackage</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- places your encoder\'s Sequence Parameter Set (SPS), Picture Parameter</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- Set (PPS), and Video Parameter Set (VPS) metadata in every video segment</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- instead of in the init fragment. This lets you use different</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- SPS\/PPS\/VPS settings for your assets during content playback.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AincludeEncoderConfigurationInSegments%3ADashPackage%27"><span class="annot"><span class="annottext">DashPackage -&gt; Maybe Bool
+</span><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#%24sel%3AincludeEncoderConfigurationInSegments%3ADashPackage%27"><span class="hs-identifier hs-var hs-var">includeEncoderConfigurationInSegments</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Determines the type of SegmentTemplate included in the Media</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- Presentation Description (MPD). When set to NUMBER_WITH_TIMELINE, a full</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- timeline is presented in each SegmentTemplate, with $Number$ media URLs.</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- When set to TIME_WITH_TIMELINE, a full timeline is presented in each</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- SegmentTemplate, with $Time$ media URLs. When set to</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- NUMBER_WITH_DURATION, only a duration is included in each</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- SegmentTemplate, with $Number$ media URLs.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AsegmentTemplateFormat%3ADashPackage%27"><span class="annot"><span class="annottext">DashPackage -&gt; Maybe SegmentTemplateFormat
+</span><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#%24sel%3AsegmentTemplateFormat%3ADashPackage%27"><span class="hs-identifier hs-var hs-var">segmentTemplateFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.SegmentTemplateFormat.html#SegmentTemplateFormat"><span class="hs-identifier hs-type">SegmentTemplateFormat</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | Duration (in seconds) of each segment. Actual segments will be rounded</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- to the nearest multiple of the source segment duration.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AsegmentDurationSeconds%3ADashPackage%27"><span class="annot"><span class="annottext">DashPackage -&gt; Maybe Int
+</span><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#%24sel%3AsegmentDurationSeconds%3ADashPackage%27"><span class="hs-identifier hs-var hs-var">segmentDurationSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Aencryption%3ADashPackage%27"><span class="annot"><span class="annottext">DashPackage -&gt; Maybe DashEncryption
+</span><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#%24sel%3Aencryption%3ADashPackage%27"><span class="hs-identifier hs-var hs-var">encryption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashEncryption.html#DashEncryption"><span class="hs-identifier hs-type">DashEncryption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | A list of triggers that controls when the outgoing Dynamic Adaptive</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- Streaming over HTTP (DASH) Media Presentation Description (MPD) will be</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- partitioned into multiple periods. If empty, the content will not be</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- partitioned into more than one period. If the list contains \&quot;ADS\&quot;, new</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- periods will be created where the Asset contains SCTE-35 ad markers.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AperiodTriggers%3ADashPackage%27"><span class="annot"><span class="annottext">DashPackage -&gt; Maybe [PeriodTriggersElement]
+</span><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#%24sel%3AperiodTriggers%3ADashPackage%27"><span class="hs-identifier hs-var hs-var">periodTriggers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.PeriodTriggersElement.html#PeriodTriggersElement"><span class="hs-identifier hs-type">PeriodTriggersElement</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | A list of DASH manifest configurations.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AdashManifests%3ADashPackage%27"><span class="annot"><span class="annottext">DashPackage -&gt; [DashManifest]
+</span><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#%24sel%3AdashManifests%3ADashPackage%27"><span class="hs-identifier hs-var hs-var">dashManifests</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashManifest.html#DashManifest"><span class="hs-identifier hs-type">DashManifest</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197199"><span id="local-6989586621679197201"><span class="annot"><span class="annottext">DashPackage -&gt; DashPackage -&gt; Bool
+(DashPackage -&gt; DashPackage -&gt; Bool)
+-&gt; (DashPackage -&gt; DashPackage -&gt; Bool) -&gt; Eq DashPackage
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DashPackage -&gt; DashPackage -&gt; Bool
+$c/= :: DashPackage -&gt; DashPackage -&gt; Bool
+== :: DashPackage -&gt; DashPackage -&gt; Bool
+$c== :: DashPackage -&gt; DashPackage -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197190"><span id="local-6989586621679197192"><span id="local-6989586621679197194"><span id="local-6989586621679197196"><span class="annot"><span class="annottext">ReadPrec [DashPackage]
+ReadPrec DashPackage
+Int -&gt; ReadS DashPackage
+ReadS [DashPackage]
+(Int -&gt; ReadS DashPackage)
+-&gt; ReadS [DashPackage]
+-&gt; ReadPrec DashPackage
+-&gt; ReadPrec [DashPackage]
+-&gt; Read DashPackage
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DashPackage]
+$creadListPrec :: ReadPrec [DashPackage]
+readPrec :: ReadPrec DashPackage
+$creadPrec :: ReadPrec DashPackage
+readList :: ReadS [DashPackage]
+$creadList :: ReadS [DashPackage]
+readsPrec :: Int -&gt; ReadS DashPackage
+$creadsPrec :: Int -&gt; ReadS DashPackage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197183"><span id="local-6989586621679197185"><span id="local-6989586621679197187"><span class="annot"><span class="annottext">Int -&gt; DashPackage -&gt; ShowS
+[DashPackage] -&gt; ShowS
+DashPackage -&gt; String
+(Int -&gt; DashPackage -&gt; ShowS)
+-&gt; (DashPackage -&gt; String)
+-&gt; ([DashPackage] -&gt; ShowS)
+-&gt; Show DashPackage
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DashPackage] -&gt; ShowS
+$cshowList :: [DashPackage] -&gt; ShowS
+show :: DashPackage -&gt; String
+$cshow :: DashPackage -&gt; String
+showsPrec :: Int -&gt; DashPackage -&gt; ShowS
+$cshowsPrec :: Int -&gt; DashPackage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DashPackage -&gt; Rep DashPackage x)
+-&gt; (forall x. Rep DashPackage x -&gt; DashPackage)
+-&gt; Generic DashPackage
+forall x. Rep DashPackage x -&gt; DashPackage
+forall x. DashPackage -&gt; Rep DashPackage x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DashPackage x -&gt; DashPackage
+$cfrom :: forall x. DashPackage -&gt; Rep DashPackage x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'DashPackage' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'includeEncoderConfigurationInSegments', 'dashPackage_includeEncoderConfigurationInSegments' - When includeEncoderConfigurationInSegments is set to true, MediaPackage</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- places your encoder\'s Sequence Parameter Set (SPS), Picture Parameter</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Set (PPS), and Video Parameter Set (VPS) metadata in every video segment</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- instead of in the init fragment. This lets you use different</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- SPS\/PPS\/VPS settings for your assets during content playback.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'segmentTemplateFormat', 'dashPackage_segmentTemplateFormat' - Determines the type of SegmentTemplate included in the Media</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Presentation Description (MPD). When set to NUMBER_WITH_TIMELINE, a full</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- timeline is presented in each SegmentTemplate, with $Number$ media URLs.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- When set to TIME_WITH_TIMELINE, a full timeline is presented in each</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- SegmentTemplate, with $Time$ media URLs. When set to</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- NUMBER_WITH_DURATION, only a duration is included in each</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- SegmentTemplate, with $Number$ media URLs.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'segmentDurationSeconds', 'dashPackage_segmentDurationSeconds' - Duration (in seconds) of each segment. Actual segments will be rounded</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- to the nearest multiple of the source segment duration.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'encryption', 'dashPackage_encryption' - Undocumented member.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'periodTriggers', 'dashPackage_periodTriggers' - A list of triggers that controls when the outgoing Dynamic Adaptive</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- Streaming over HTTP (DASH) Media Presentation Description (MPD) will be</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- partitioned into multiple periods. If empty, the content will not be</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- partitioned into more than one period. If the list contains \&quot;ADS\&quot;, new</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- periods will be created where the Asset contains SCTE-35 ad markers.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'dashManifests', 'dashPackage_dashManifests' - A list of DASH manifest configurations.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#newDashPackage"><span class="hs-identifier hs-type">newDashPackage</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#DashPackage"><span class="hs-identifier hs-type">DashPackage</span></a></span><span>
+</span><span id="line-99"></span><span id="newDashPackage"><span class="annot"><span class="annottext">newDashPackage :: DashPackage
+</span><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#newDashPackage"><span class="hs-identifier hs-var hs-var">newDashPackage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><span class="annottext">DashPackage' :: Maybe Bool
+-&gt; Maybe SegmentTemplateFormat
+-&gt; Maybe Int
+-&gt; Maybe DashEncryption
+-&gt; Maybe [PeriodTriggersElement]
+-&gt; [DashManifest]
+-&gt; DashPackage
+</span><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#DashPackage%27"><span class="hs-identifier hs-type">DashPackage'</span></a></span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:includeEncoderConfigurationInSegments:DashPackage' :: Maybe Bool
+</span><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#%24sel%3AincludeEncoderConfigurationInSegments%3ADashPackage%27"><span class="hs-identifier hs-var">includeEncoderConfigurationInSegments</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:segmentTemplateFormat:DashPackage' :: Maybe SegmentTemplateFormat
+</span><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#%24sel%3AsegmentTemplateFormat%3ADashPackage%27"><span class="hs-identifier hs-var">segmentTemplateFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SegmentTemplateFormat
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:segmentDurationSeconds:DashPackage' :: Maybe Int
+</span><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#%24sel%3AsegmentDurationSeconds%3ADashPackage%27"><span class="hs-identifier hs-var">segmentDurationSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:encryption:DashPackage' :: Maybe DashEncryption
+</span><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#%24sel%3Aencryption%3ADashPackage%27"><span class="hs-identifier hs-var">encryption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DashEncryption
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:periodTriggers:DashPackage' :: Maybe [PeriodTriggersElement]
+</span><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#%24sel%3AperiodTriggers%3ADashPackage%27"><span class="hs-identifier hs-var">periodTriggers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PeriodTriggersElement]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:dashManifests:DashPackage' :: [DashManifest]
+</span><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#%24sel%3AdashManifests%3ADashPackage%27"><span class="hs-identifier hs-var">dashManifests</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[DashManifest]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | When includeEncoderConfigurationInSegments is set to true, MediaPackage</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- places your encoder\'s Sequence Parameter Set (SPS), Picture Parameter</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- Set (PPS), and Video Parameter Set (VPS) metadata in every video segment</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- instead of in the init fragment. This lets you use different</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- SPS\/PPS\/VPS settings for your assets during content playback.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#dashPackage_includeEncoderConfigurationInSegments"><span class="hs-identifier hs-type">dashPackage_includeEncoderConfigurationInSegments</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#DashPackage"><span class="hs-identifier hs-type">DashPackage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="dashPackage_includeEncoderConfigurationInSegments"><span class="annot"><span class="annottext">dashPackage_includeEncoderConfigurationInSegments :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; DashPackage -&gt; f DashPackage
+</span><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#dashPackage_includeEncoderConfigurationInSegments"><span class="hs-identifier hs-var hs-var">dashPackage_includeEncoderConfigurationInSegments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DashPackage -&gt; Maybe Bool)
+-&gt; (DashPackage -&gt; Maybe Bool -&gt; DashPackage)
+-&gt; Lens DashPackage DashPackage (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#DashPackage%27"><span class="hs-identifier hs-type">DashPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197174"><span class="annot"><span class="annottext">Maybe Bool
+includeEncoderConfigurationInSegments :: Maybe Bool
+$sel:includeEncoderConfigurationInSegments:DashPackage' :: DashPackage -&gt; Maybe Bool
+</span><a href="#local-6989586621679197174"><span class="hs-identifier hs-var hs-var">includeEncoderConfigurationInSegments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679197174"><span class="hs-identifier hs-var">includeEncoderConfigurationInSegments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197173"><span class="annot"><span class="annottext">s :: DashPackage
+</span><a href="#local-6989586621679197173"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#DashPackage%27"><span class="hs-identifier hs-type">DashPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197172"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679197172"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DashPackage
+</span><a href="#local-6989586621679197173"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeEncoderConfigurationInSegments:DashPackage' :: Maybe Bool
+</span><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#%24sel%3AincludeEncoderConfigurationInSegments%3ADashPackage%27"><span class="hs-identifier hs-var">includeEncoderConfigurationInSegments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679197172"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#DashPackage"><span class="hs-identifier hs-type">DashPackage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | Determines the type of SegmentTemplate included in the Media</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- Presentation Description (MPD). When set to NUMBER_WITH_TIMELINE, a full</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- timeline is presented in each SegmentTemplate, with $Number$ media URLs.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- When set to TIME_WITH_TIMELINE, a full timeline is presented in each</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- SegmentTemplate, with $Time$ media URLs. When set to</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- NUMBER_WITH_DURATION, only a duration is included in each</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- SegmentTemplate, with $Number$ media URLs.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#dashPackage_segmentTemplateFormat"><span class="hs-identifier hs-type">dashPackage_segmentTemplateFormat</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#DashPackage"><span class="hs-identifier hs-type">DashPackage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.SegmentTemplateFormat.html#SegmentTemplateFormat"><span class="hs-identifier hs-type">SegmentTemplateFormat</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="dashPackage_segmentTemplateFormat"><span class="annot"><span class="annottext">dashPackage_segmentTemplateFormat :: (Maybe SegmentTemplateFormat -&gt; f (Maybe SegmentTemplateFormat))
+-&gt; DashPackage -&gt; f DashPackage
+</span><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#dashPackage_segmentTemplateFormat"><span class="hs-identifier hs-var hs-var">dashPackage_segmentTemplateFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DashPackage -&gt; Maybe SegmentTemplateFormat)
+-&gt; (DashPackage -&gt; Maybe SegmentTemplateFormat -&gt; DashPackage)
+-&gt; Lens
+     DashPackage
+     DashPackage
+     (Maybe SegmentTemplateFormat)
+     (Maybe SegmentTemplateFormat)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#DashPackage%27"><span class="hs-identifier hs-type">DashPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197170"><span class="annot"><span class="annottext">Maybe SegmentTemplateFormat
+segmentTemplateFormat :: Maybe SegmentTemplateFormat
+$sel:segmentTemplateFormat:DashPackage' :: DashPackage -&gt; Maybe SegmentTemplateFormat
+</span><a href="#local-6989586621679197170"><span class="hs-identifier hs-var hs-var">segmentTemplateFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SegmentTemplateFormat
+</span><a href="#local-6989586621679197170"><span class="hs-identifier hs-var">segmentTemplateFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197169"><span class="annot"><span class="annottext">s :: DashPackage
+</span><a href="#local-6989586621679197169"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#DashPackage%27"><span class="hs-identifier hs-type">DashPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197168"><span class="annot"><span class="annottext">Maybe SegmentTemplateFormat
+</span><a href="#local-6989586621679197168"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DashPackage
+</span><a href="#local-6989586621679197169"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:segmentTemplateFormat:DashPackage' :: Maybe SegmentTemplateFormat
+</span><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#%24sel%3AsegmentTemplateFormat%3ADashPackage%27"><span class="hs-identifier hs-var">segmentTemplateFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SegmentTemplateFormat
+</span><a href="#local-6989586621679197168"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#DashPackage"><span class="hs-identifier hs-type">DashPackage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | Duration (in seconds) of each segment. Actual segments will be rounded</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- to the nearest multiple of the source segment duration.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#dashPackage_segmentDurationSeconds"><span class="hs-identifier hs-type">dashPackage_segmentDurationSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#DashPackage"><span class="hs-identifier hs-type">DashPackage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="dashPackage_segmentDurationSeconds"><span class="annot"><span class="annottext">dashPackage_segmentDurationSeconds :: (Maybe Int -&gt; f (Maybe Int)) -&gt; DashPackage -&gt; f DashPackage
+</span><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#dashPackage_segmentDurationSeconds"><span class="hs-identifier hs-var hs-var">dashPackage_segmentDurationSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DashPackage -&gt; Maybe Int)
+-&gt; (DashPackage -&gt; Maybe Int -&gt; DashPackage)
+-&gt; Lens DashPackage DashPackage (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#DashPackage%27"><span class="hs-identifier hs-type">DashPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197166"><span class="annot"><span class="annottext">Maybe Int
+segmentDurationSeconds :: Maybe Int
+$sel:segmentDurationSeconds:DashPackage' :: DashPackage -&gt; Maybe Int
+</span><a href="#local-6989586621679197166"><span class="hs-identifier hs-var hs-var">segmentDurationSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679197166"><span class="hs-identifier hs-var">segmentDurationSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197165"><span class="annot"><span class="annottext">s :: DashPackage
+</span><a href="#local-6989586621679197165"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#DashPackage%27"><span class="hs-identifier hs-type">DashPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197164"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679197164"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DashPackage
+</span><a href="#local-6989586621679197165"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:segmentDurationSeconds:DashPackage' :: Maybe Int
+</span><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#%24sel%3AsegmentDurationSeconds%3ADashPackage%27"><span class="hs-identifier hs-var">segmentDurationSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679197164"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#DashPackage"><span class="hs-identifier hs-type">DashPackage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#dashPackage_encryption"><span class="hs-identifier hs-type">dashPackage_encryption</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#DashPackage"><span class="hs-identifier hs-type">DashPackage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashEncryption.html#DashEncryption"><span class="hs-identifier hs-type">DashEncryption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="dashPackage_encryption"><span class="annot"><span class="annottext">dashPackage_encryption :: (Maybe DashEncryption -&gt; f (Maybe DashEncryption))
+-&gt; DashPackage -&gt; f DashPackage
+</span><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#dashPackage_encryption"><span class="hs-identifier hs-var hs-var">dashPackage_encryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DashPackage -&gt; Maybe DashEncryption)
+-&gt; (DashPackage -&gt; Maybe DashEncryption -&gt; DashPackage)
+-&gt; Lens
+     DashPackage
+     DashPackage
+     (Maybe DashEncryption)
+     (Maybe DashEncryption)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#DashPackage%27"><span class="hs-identifier hs-type">DashPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197162"><span class="annot"><span class="annottext">Maybe DashEncryption
+encryption :: Maybe DashEncryption
+$sel:encryption:DashPackage' :: DashPackage -&gt; Maybe DashEncryption
+</span><a href="#local-6989586621679197162"><span class="hs-identifier hs-var hs-var">encryption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DashEncryption
+</span><a href="#local-6989586621679197162"><span class="hs-identifier hs-var">encryption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197161"><span class="annot"><span class="annottext">s :: DashPackage
+</span><a href="#local-6989586621679197161"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#DashPackage%27"><span class="hs-identifier hs-type">DashPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197160"><span class="annot"><span class="annottext">Maybe DashEncryption
+</span><a href="#local-6989586621679197160"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DashPackage
+</span><a href="#local-6989586621679197161"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryption:DashPackage' :: Maybe DashEncryption
+</span><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#%24sel%3Aencryption%3ADashPackage%27"><span class="hs-identifier hs-var">encryption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DashEncryption
+</span><a href="#local-6989586621679197160"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#DashPackage"><span class="hs-identifier hs-type">DashPackage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | A list of triggers that controls when the outgoing Dynamic Adaptive</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- Streaming over HTTP (DASH) Media Presentation Description (MPD) will be</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- partitioned into multiple periods. If empty, the content will not be</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- partitioned into more than one period. If the list contains \&quot;ADS\&quot;, new</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- periods will be created where the Asset contains SCTE-35 ad markers.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#dashPackage_periodTriggers"><span class="hs-identifier hs-type">dashPackage_periodTriggers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#DashPackage"><span class="hs-identifier hs-type">DashPackage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.PeriodTriggersElement.html#PeriodTriggersElement"><span class="hs-identifier hs-type">PeriodTriggersElement</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="dashPackage_periodTriggers"><span class="annot"><span class="annottext">dashPackage_periodTriggers :: (Maybe [PeriodTriggersElement]
+ -&gt; f (Maybe [PeriodTriggersElement]))
+-&gt; DashPackage -&gt; f DashPackage
+</span><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#dashPackage_periodTriggers"><span class="hs-identifier hs-var hs-var">dashPackage_periodTriggers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DashPackage -&gt; Maybe [PeriodTriggersElement])
+-&gt; (DashPackage -&gt; Maybe [PeriodTriggersElement] -&gt; DashPackage)
+-&gt; Lens
+     DashPackage
+     DashPackage
+     (Maybe [PeriodTriggersElement])
+     (Maybe [PeriodTriggersElement])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#DashPackage%27"><span class="hs-identifier hs-type">DashPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197158"><span class="annot"><span class="annottext">Maybe [PeriodTriggersElement]
+periodTriggers :: Maybe [PeriodTriggersElement]
+$sel:periodTriggers:DashPackage' :: DashPackage -&gt; Maybe [PeriodTriggersElement]
+</span><a href="#local-6989586621679197158"><span class="hs-identifier hs-var hs-var">periodTriggers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PeriodTriggersElement]
+</span><a href="#local-6989586621679197158"><span class="hs-identifier hs-var">periodTriggers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197157"><span class="annot"><span class="annottext">s :: DashPackage
+</span><a href="#local-6989586621679197157"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#DashPackage%27"><span class="hs-identifier hs-type">DashPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197156"><span class="annot"><span class="annottext">Maybe [PeriodTriggersElement]
+</span><a href="#local-6989586621679197156"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DashPackage
+</span><a href="#local-6989586621679197157"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:periodTriggers:DashPackage' :: Maybe [PeriodTriggersElement]
+</span><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#%24sel%3AperiodTriggers%3ADashPackage%27"><span class="hs-identifier hs-var">periodTriggers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PeriodTriggersElement]
+</span><a href="#local-6989586621679197156"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#DashPackage"><span class="hs-identifier hs-type">DashPackage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PeriodTriggersElement]
+  -&gt; f (Maybe [PeriodTriggersElement]))
+ -&gt; DashPackage -&gt; f DashPackage)
+-&gt; ((Maybe [PeriodTriggersElement]
+     -&gt; f (Maybe [PeriodTriggersElement]))
+    -&gt; Maybe [PeriodTriggersElement]
+    -&gt; f (Maybe [PeriodTriggersElement]))
+-&gt; (Maybe [PeriodTriggersElement]
+    -&gt; f (Maybe [PeriodTriggersElement]))
+-&gt; DashPackage
+-&gt; f DashPackage
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PeriodTriggersElement]
+  [PeriodTriggersElement]
+  [PeriodTriggersElement]
+  [PeriodTriggersElement]
+-&gt; Iso
+     (Maybe [PeriodTriggersElement])
+     (Maybe [PeriodTriggersElement])
+     (Maybe [PeriodTriggersElement])
+     (Maybe [PeriodTriggersElement])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PeriodTriggersElement]
+  [PeriodTriggersElement]
+  [PeriodTriggersElement]
+  [PeriodTriggersElement]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | A list of DASH manifest configurations.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#dashPackage_dashManifests"><span class="hs-identifier hs-type">dashPackage_dashManifests</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#DashPackage"><span class="hs-identifier hs-type">DashPackage</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashManifest.html#DashManifest"><span class="hs-identifier hs-type">DashManifest</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-147"></span><span id="dashPackage_dashManifests"><span class="annot"><span class="annottext">dashPackage_dashManifests :: ([DashManifest] -&gt; f [DashManifest])
+-&gt; DashPackage -&gt; f DashPackage
+</span><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#dashPackage_dashManifests"><span class="hs-identifier hs-var hs-var">dashPackage_dashManifests</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DashPackage -&gt; [DashManifest])
+-&gt; (DashPackage -&gt; [DashManifest] -&gt; DashPackage)
+-&gt; Lens DashPackage DashPackage [DashManifest] [DashManifest]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#DashPackage%27"><span class="hs-identifier hs-type">DashPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197151"><span class="annot"><span class="annottext">[DashManifest]
+dashManifests :: [DashManifest]
+$sel:dashManifests:DashPackage' :: DashPackage -&gt; [DashManifest]
+</span><a href="#local-6989586621679197151"><span class="hs-identifier hs-var hs-var">dashManifests</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[DashManifest]
+</span><a href="#local-6989586621679197151"><span class="hs-identifier hs-var">dashManifests</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197150"><span class="annot"><span class="annottext">s :: DashPackage
+</span><a href="#local-6989586621679197150"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#DashPackage%27"><span class="hs-identifier hs-type">DashPackage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197149"><span class="annot"><span class="annottext">[DashManifest]
+</span><a href="#local-6989586621679197149"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DashPackage
+</span><a href="#local-6989586621679197150"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dashManifests:DashPackage' :: [DashManifest]
+</span><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#%24sel%3AdashManifests%3ADashPackage%27"><span class="hs-identifier hs-var">dashManifests</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[DashManifest]
+</span><a href="#local-6989586621679197149"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#DashPackage"><span class="hs-identifier hs-type">DashPackage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([DashManifest] -&gt; f [DashManifest])
+ -&gt; DashPackage -&gt; f DashPackage)
+-&gt; (([DashManifest] -&gt; f [DashManifest])
+    -&gt; [DashManifest] -&gt; f [DashManifest])
+-&gt; ([DashManifest] -&gt; f [DashManifest])
+-&gt; DashPackage
+-&gt; f DashPackage
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([DashManifest] -&gt; f [DashManifest])
+-&gt; [DashManifest] -&gt; f [DashManifest]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197146"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#DashPackage"><span class="hs-identifier hs-type">DashPackage</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679197144"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DashPackage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser DashPackage) -&gt; Value -&gt; Parser DashPackage
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;DashPackage&quot;</span></span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679197141"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679197141"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-154"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+-&gt; Maybe SegmentTemplateFormat
+-&gt; Maybe Int
+-&gt; Maybe DashEncryption
+-&gt; Maybe [PeriodTriggersElement]
+-&gt; [DashManifest]
+-&gt; DashPackage
+</span><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#DashPackage%27"><span class="hs-identifier hs-var">DashPackage'</span></a></span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool
+ -&gt; Maybe SegmentTemplateFormat
+ -&gt; Maybe Int
+ -&gt; Maybe DashEncryption
+ -&gt; Maybe [PeriodTriggersElement]
+ -&gt; [DashManifest]
+ -&gt; DashPackage)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe SegmentTemplateFormat
+      -&gt; Maybe Int
+      -&gt; Maybe DashEncryption
+      -&gt; Maybe [PeriodTriggersElement]
+      -&gt; [DashManifest]
+      -&gt; DashPackage)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679197141"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;includeEncoderConfigurationInSegments&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SegmentTemplateFormat
+   -&gt; Maybe Int
+   -&gt; Maybe DashEncryption
+   -&gt; Maybe [PeriodTriggersElement]
+   -&gt; [DashManifest]
+   -&gt; DashPackage)
+-&gt; Parser (Maybe SegmentTemplateFormat)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe DashEncryption
+      -&gt; Maybe [PeriodTriggersElement]
+      -&gt; [DashManifest]
+      -&gt; DashPackage)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679197141"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SegmentTemplateFormat)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;segmentTemplateFormat&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe DashEncryption
+   -&gt; Maybe [PeriodTriggersElement]
+   -&gt; [DashManifest]
+   -&gt; DashPackage)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe DashEncryption
+      -&gt; Maybe [PeriodTriggersElement] -&gt; [DashManifest] -&gt; DashPackage)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679197141"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;segmentDurationSeconds&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DashEncryption
+   -&gt; Maybe [PeriodTriggersElement] -&gt; [DashManifest] -&gt; DashPackage)
+-&gt; Parser (Maybe DashEncryption)
+-&gt; Parser
+     (Maybe [PeriodTriggersElement] -&gt; [DashManifest] -&gt; DashPackage)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679197141"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DashEncryption)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;encryption&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [PeriodTriggersElement] -&gt; [DashManifest] -&gt; DashPackage)
+-&gt; Parser (Maybe [PeriodTriggersElement])
+-&gt; Parser ([DashManifest] -&gt; DashPackage)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679197141"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [PeriodTriggersElement]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;periodTriggers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [PeriodTriggersElement]))
+-&gt; Maybe [PeriodTriggersElement]
+-&gt; Parser (Maybe [PeriodTriggersElement])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PeriodTriggersElement]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser ([DashManifest] -&gt; DashPackage)
+-&gt; Parser [DashManifest] -&gt; Parser DashPackage
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679197141"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [DashManifest])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dashManifests&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [DashManifest])
+-&gt; [DashManifest] -&gt; Parser [DashManifest]
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">[DashManifest]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197134"><span id="local-6989586621679197136"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#DashPackage"><span class="hs-identifier hs-type">DashPackage</span></a></span></span></span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197131"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#DashPackage"><span class="hs-identifier hs-type">DashPackage</span></a></span></span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197123"><span id="local-6989586621679197125"><span id="local-6989586621679197127"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#DashPackage"><span class="hs-identifier hs-type">DashPackage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679197121"><span class="annot"><span class="annottext">toJSON :: DashPackage -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#DashPackage%27"><span class="hs-identifier hs-type">DashPackage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197114"><span id="local-6989586621679197115"><span id="local-6989586621679197116"><span id="local-6989586621679197117"><span id="local-6989586621679197118"><span id="local-6989586621679197119"><span class="annot"><span class="annottext">[DashManifest]
+Maybe Bool
+Maybe Int
+Maybe [PeriodTriggersElement]
+Maybe SegmentTemplateFormat
+Maybe DashEncryption
+dashManifests :: [DashManifest]
+periodTriggers :: Maybe [PeriodTriggersElement]
+encryption :: Maybe DashEncryption
+segmentDurationSeconds :: Maybe Int
+segmentTemplateFormat :: Maybe SegmentTemplateFormat
+includeEncoderConfigurationInSegments :: Maybe Bool
+$sel:dashManifests:DashPackage' :: DashPackage -&gt; [DashManifest]
+$sel:periodTriggers:DashPackage' :: DashPackage -&gt; Maybe [PeriodTriggersElement]
+$sel:encryption:DashPackage' :: DashPackage -&gt; Maybe DashEncryption
+$sel:segmentDurationSeconds:DashPackage' :: DashPackage -&gt; Maybe Int
+$sel:segmentTemplateFormat:DashPackage' :: DashPackage -&gt; Maybe SegmentTemplateFormat
+$sel:includeEncoderConfigurationInSegments:DashPackage' :: DashPackage -&gt; Maybe Bool
+</span><a href="#local-6989586621679197114"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-171"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;includeEncoderConfigurationInSegments&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679197119"><span class="hs-identifier hs-var">includeEncoderConfigurationInSegments</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;segmentTemplateFormat&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SegmentTemplateFormat -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>              </span><span class="annot"><span class="annottext">(SegmentTemplateFormat -&gt; Pair)
+-&gt; Maybe SegmentTemplateFormat -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SegmentTemplateFormat
+</span><a href="#local-6989586621679197118"><span class="hs-identifier hs-var">segmentTemplateFormat</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;segmentDurationSeconds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679197117"><span class="hs-identifier hs-var">segmentDurationSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;encryption&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DashEncryption -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(DashEncryption -&gt; Pair) -&gt; Maybe DashEncryption -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DashEncryption
+</span><a href="#local-6989586621679197116"><span class="hs-identifier hs-var">encryption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;periodTriggers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [PeriodTriggersElement] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>              </span><span class="annot"><span class="annottext">([PeriodTriggersElement] -&gt; Pair)
+-&gt; Maybe [PeriodTriggersElement] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PeriodTriggersElement]
+</span><a href="#local-6989586621679197115"><span class="hs-identifier hs-var">periodTriggers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-181"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dashManifests&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [DashManifest] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[DashManifest]
+</span><a href="#local-6989586621679197114"><span class="hs-identifier hs-var">dashManifests</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span></pre></body></html>

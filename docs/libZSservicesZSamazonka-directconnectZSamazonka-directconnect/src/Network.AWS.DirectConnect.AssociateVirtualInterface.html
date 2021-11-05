@@ -84,7 +84,7 @@
 </span><span id="line-84"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | /See:/ 'newAssociateVirtualInterface' smart constructor.</span><span>
-</span><span id="line-87"></span><span id="local-6989586621679303497"><span id="local-6989586621679303498"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateVirtualInterface"><span class="annot"><a href="Network.AWS.DirectConnect.AssociateVirtualInterface.html#AssociateVirtualInterface"><span class="hs-identifier hs-var">AssociateVirtualInterface</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateVirtualInterface%27"><span class="annot"><a href="Network.AWS.DirectConnect.AssociateVirtualInterface.html#AssociateVirtualInterface%27"><span class="hs-identifier hs-var">AssociateVirtualInterface'</span></a></span></span><span>
+</span><span id="line-87"></span><span id="local-6989586621679303506"><span id="local-6989586621679303507"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateVirtualInterface"><span class="annot"><a href="Network.AWS.DirectConnect.AssociateVirtualInterface.html#AssociateVirtualInterface"><span class="hs-identifier hs-var">AssociateVirtualInterface</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateVirtualInterface%27"><span class="annot"><a href="Network.AWS.DirectConnect.AssociateVirtualInterface.html#AssociateVirtualInterface%27"><span class="hs-identifier hs-var">AssociateVirtualInterface'</span></a></span></span><span>
 </span><span id="line-88"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the virtual interface.</span><span>
 </span><span id="line-89"></span><span>    </span><span id="%24sel%3AvirtualInterfaceId%3AAssociateVirtualInterface%27"><span class="annot"><span class="annottext">AssociateVirtualInterface -&gt; Text
 </span><a href="Network.AWS.DirectConnect.AssociateVirtualInterface.html#%24sel%3AvirtualInterfaceId%3AAssociateVirtualInterface%27"><span class="hs-identifier hs-var hs-var">virtualInterfaceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -92,7 +92,7 @@
 </span><span id="line-91"></span><span>    </span><span id="%24sel%3AconnectionId%3AAssociateVirtualInterface%27"><span class="annot"><span class="annottext">AssociateVirtualInterface -&gt; Text
 </span><a href="Network.AWS.DirectConnect.AssociateVirtualInterface.html#%24sel%3AconnectionId%3AAssociateVirtualInterface%27"><span class="hs-identifier hs-var hs-var">connectionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-92"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-93"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303490"><span id="local-6989586621679303492"><span class="annot"><span class="annottext">AssociateVirtualInterface -&gt; AssociateVirtualInterface -&gt; Bool
+</span><span id="line-93"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303499"><span id="local-6989586621679303501"><span class="annot"><span class="annottext">AssociateVirtualInterface -&gt; AssociateVirtualInterface -&gt; Bool
 (AssociateVirtualInterface -&gt; AssociateVirtualInterface -&gt; Bool)
 -&gt; (AssociateVirtualInterface -&gt; AssociateVirtualInterface -&gt; Bool)
 -&gt; Eq AssociateVirtualInterface
@@ -101,7 +101,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AssociateVirtualInterface -&gt; AssociateVirtualInterface -&gt; Bool
 == :: AssociateVirtualInterface -&gt; AssociateVirtualInterface -&gt; Bool
 $c== :: AssociateVirtualInterface -&gt; AssociateVirtualInterface -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303481"><span id="local-6989586621679303483"><span id="local-6989586621679303485"><span id="local-6989586621679303487"><span class="annot"><span class="annottext">ReadPrec [AssociateVirtualInterface]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303490"><span id="local-6989586621679303492"><span id="local-6989586621679303494"><span id="local-6989586621679303496"><span class="annot"><span class="annottext">ReadPrec [AssociateVirtualInterface]
 ReadPrec AssociateVirtualInterface
 Int -&gt; ReadS AssociateVirtualInterface
 ReadS [AssociateVirtualInterface]
@@ -121,7 +121,7 @@ readList :: ReadS [AssociateVirtualInterface]
 $creadList :: ReadS [AssociateVirtualInterface]
 readsPrec :: Int -&gt; ReadS AssociateVirtualInterface
 $creadsPrec :: Int -&gt; ReadS AssociateVirtualInterface
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303474"><span id="local-6989586621679303476"><span id="local-6989586621679303478"><span class="annot"><span class="annottext">Int -&gt; AssociateVirtualInterface -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303483"><span id="local-6989586621679303485"><span id="local-6989586621679303487"><span class="annot"><span class="annottext">Int -&gt; AssociateVirtualInterface -&gt; ShowS
 [AssociateVirtualInterface] -&gt; ShowS
 AssociateVirtualInterface -&gt; String
 (Int -&gt; AssociateVirtualInterface -&gt; ShowS)
@@ -172,19 +172,19 @@ AssociateVirtualInterface -&gt; Rep AssociateVirtualInterface x
 </span><span id="line-111"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateVirtualInterface.html#AssociateVirtualInterface"><span class="hs-identifier hs-type">AssociateVirtualInterface</span></a></span><span>
 </span><span id="line-112"></span><span id="newAssociateVirtualInterface"><span class="annot"><span class="annottext">newAssociateVirtualInterface :: Text -&gt; Text -&gt; AssociateVirtualInterface
 </span><a href="Network.AWS.DirectConnect.AssociateVirtualInterface.html#newAssociateVirtualInterface"><span class="hs-identifier hs-var hs-var">newAssociateVirtualInterface</span></a></span></span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679303469"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303469"><span class="hs-identifier hs-var">pVirtualInterfaceId_</span></a></span></span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679303468"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303468"><span class="hs-identifier hs-var">pConnectionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679303478"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303478"><span class="hs-identifier hs-var">pVirtualInterfaceId_</span></a></span></span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679303477"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303477"><span class="hs-identifier hs-var">pConnectionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">AssociateVirtualInterface' :: Text -&gt; Text -&gt; AssociateVirtualInterface
 </span><a href="Network.AWS.DirectConnect.AssociateVirtualInterface.html#AssociateVirtualInterface%27"><span class="hs-identifier hs-type">AssociateVirtualInterface'</span></a></span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:virtualInterfaceId:AssociateVirtualInterface' :: Text
 </span><a href="Network.AWS.DirectConnect.AssociateVirtualInterface.html#%24sel%3AvirtualInterfaceId%3AAssociateVirtualInterface%27"><span class="hs-identifier hs-var">virtualInterfaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303469"><span class="hs-identifier hs-var">pVirtualInterfaceId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679303478"><span class="hs-identifier hs-var">pVirtualInterfaceId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">$sel:connectionId:AssociateVirtualInterface' :: Text
 </span><a href="Network.AWS.DirectConnect.AssociateVirtualInterface.html#%24sel%3AconnectionId%3AAssociateVirtualInterface%27"><span class="hs-identifier hs-var">connectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303468"><span class="hs-identifier hs-var">pConnectionId_</span></a></span><span>
+</span><a href="#local-6989586621679303477"><span class="hs-identifier hs-var">pConnectionId_</span></a></span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | The ID of the virtual interface.</span><span>
@@ -196,16 +196,16 @@ AssociateVirtualInterface -&gt; Rep AssociateVirtualInterface x
 -&gt; Lens
      AssociateVirtualInterface AssociateVirtualInterface Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateVirtualInterface.html#AssociateVirtualInterface%27"><span class="hs-identifier hs-type">AssociateVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303465"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateVirtualInterface.html#AssociateVirtualInterface%27"><span class="hs-identifier hs-type">AssociateVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303474"><span class="annot"><span class="annottext">Text
 virtualInterfaceId :: Text
 $sel:virtualInterfaceId:AssociateVirtualInterface' :: AssociateVirtualInterface -&gt; Text
-</span><a href="#local-6989586621679303465"><span class="hs-identifier hs-var hs-var">virtualInterfaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303465"><span class="hs-identifier hs-var">virtualInterfaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303464"><span class="annot"><span class="annottext">s :: AssociateVirtualInterface
-</span><a href="#local-6989586621679303464"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateVirtualInterface.html#AssociateVirtualInterface%27"><span class="hs-identifier hs-type">AssociateVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303463"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303463"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateVirtualInterface
-</span><a href="#local-6989586621679303464"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualInterfaceId:AssociateVirtualInterface' :: Text
+</span><a href="#local-6989586621679303474"><span class="hs-identifier hs-var hs-var">virtualInterfaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303474"><span class="hs-identifier hs-var">virtualInterfaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303473"><span class="annot"><span class="annottext">s :: AssociateVirtualInterface
+</span><a href="#local-6989586621679303473"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateVirtualInterface.html#AssociateVirtualInterface%27"><span class="hs-identifier hs-type">AssociateVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303472"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303472"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateVirtualInterface
+</span><a href="#local-6989586621679303473"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualInterfaceId:AssociateVirtualInterface' :: Text
 </span><a href="Network.AWS.DirectConnect.AssociateVirtualInterface.html#%24sel%3AvirtualInterfaceId%3AAssociateVirtualInterface%27"><span class="hs-identifier hs-var">virtualInterfaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303463"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateVirtualInterface.html#AssociateVirtualInterface"><span class="hs-identifier hs-type">AssociateVirtualInterface</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679303472"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateVirtualInterface.html#AssociateVirtualInterface"><span class="hs-identifier hs-type">AssociateVirtualInterface</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | The ID of the LAG or connection.</span><span>
 </span><span id="line-126"></span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateVirtualInterface.html#associateVirtualInterface_connectionId"><span class="hs-identifier hs-type">associateVirtualInterface_connectionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateVirtualInterface.html#AssociateVirtualInterface"><span class="hs-identifier hs-type">AssociateVirtualInterface</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -216,28 +216,28 @@ $sel:virtualInterfaceId:AssociateVirtualInterface' :: AssociateVirtualInterface 
 -&gt; Lens
      AssociateVirtualInterface AssociateVirtualInterface Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateVirtualInterface.html#AssociateVirtualInterface%27"><span class="hs-identifier hs-type">AssociateVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303462"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateVirtualInterface.html#AssociateVirtualInterface%27"><span class="hs-identifier hs-type">AssociateVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303471"><span class="annot"><span class="annottext">Text
 connectionId :: Text
 $sel:connectionId:AssociateVirtualInterface' :: AssociateVirtualInterface -&gt; Text
-</span><a href="#local-6989586621679303462"><span class="hs-identifier hs-var hs-var">connectionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303462"><span class="hs-identifier hs-var">connectionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303461"><span class="annot"><span class="annottext">s :: AssociateVirtualInterface
-</span><a href="#local-6989586621679303461"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateVirtualInterface.html#AssociateVirtualInterface%27"><span class="hs-identifier hs-type">AssociateVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303460"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303460"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateVirtualInterface
-</span><a href="#local-6989586621679303461"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionId:AssociateVirtualInterface' :: Text
+</span><a href="#local-6989586621679303471"><span class="hs-identifier hs-var hs-var">connectionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303471"><span class="hs-identifier hs-var">connectionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303470"><span class="annot"><span class="annottext">s :: AssociateVirtualInterface
+</span><a href="#local-6989586621679303470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateVirtualInterface.html#AssociateVirtualInterface%27"><span class="hs-identifier hs-type">AssociateVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303469"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateVirtualInterface
+</span><a href="#local-6989586621679303470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionId:AssociateVirtualInterface' :: Text
 </span><a href="Network.AWS.DirectConnect.AssociateVirtualInterface.html#%24sel%3AconnectionId%3AAssociateVirtualInterface%27"><span class="hs-identifier hs-var">connectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303460"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateVirtualInterface.html#AssociateVirtualInterface"><span class="hs-identifier hs-type">AssociateVirtualInterface</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679303469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateVirtualInterface.html#AssociateVirtualInterface"><span class="hs-identifier hs-type">AssociateVirtualInterface</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateVirtualInterface.html#AssociateVirtualInterface"><span class="hs-identifier hs-type">AssociateVirtualInterface</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-130"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-131"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateVirtualInterface.html#AssociateVirtualInterface"><span class="hs-identifier hs-type">AssociateVirtualInterface</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>      </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualInterface.html#VirtualInterface"><span class="hs-identifier hs-type">VirtualInterface</span></a></span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679303456"><span class="annot"><span class="annottext">request :: AssociateVirtualInterface -&gt; Request AssociateVirtualInterface
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679303465"><span class="annot"><span class="annottext">request :: AssociateVirtualInterface -&gt; Request AssociateVirtualInterface
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; AssociateVirtualInterface -&gt; Request AssociateVirtualInterface
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DirectConnect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679303452"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679303461"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AssociateVirtualInterface
 -&gt; ClientResponse ClientBody
@@ -263,20 +263,20 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303449"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679303449"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679303448"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679303448"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679303447"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679303447"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String VirtualInterface
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303458"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679303458"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679303457"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679303457"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679303456"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679303456"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String VirtualInterface
 forall a. FromJSON a =&gt; Object -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679303447"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679303456"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303442"><span id="local-6989586621679303444"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateVirtualInterface.html#AssociateVirtualInterface"><span class="hs-identifier hs-type">AssociateVirtualInterface</span></a></span></span></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303451"><span id="local-6989586621679303453"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateVirtualInterface.html#AssociateVirtualInterface"><span class="hs-identifier hs-type">AssociateVirtualInterface</span></a></span></span></span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303439"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateVirtualInterface.html#AssociateVirtualInterface"><span class="hs-identifier hs-type">AssociateVirtualInterface</span></a></span></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303448"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateVirtualInterface.html#AssociateVirtualInterface"><span class="hs-identifier hs-type">AssociateVirtualInterface</span></a></span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateVirtualInterface.html#AssociateVirtualInterface"><span class="hs-identifier hs-type">AssociateVirtualInterface</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679303435"><span class="annot"><span class="annottext">toHeaders :: AssociateVirtualInterface -&gt; ResponseHeaders
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679303444"><span class="annot"><span class="annottext">toHeaders :: AssociateVirtualInterface -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AssociateVirtualInterface -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -303,14 +303,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-154"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303425"><span id="local-6989586621679303427"><span id="local-6989586621679303429"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateVirtualInterface.html#AssociateVirtualInterface"><span class="hs-identifier hs-type">AssociateVirtualInterface</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679303423"><span class="annot"><span class="annottext">toJSON :: AssociateVirtualInterface -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateVirtualInterface.html#AssociateVirtualInterface%27"><span class="hs-identifier hs-type">AssociateVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303420"><span id="local-6989586621679303421"><span class="annot"><span class="annottext">Text
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303434"><span id="local-6989586621679303436"><span id="local-6989586621679303438"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateVirtualInterface.html#AssociateVirtualInterface"><span class="hs-identifier hs-type">AssociateVirtualInterface</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679303432"><span class="annot"><span class="annottext">toJSON :: AssociateVirtualInterface -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateVirtualInterface.html#AssociateVirtualInterface%27"><span class="hs-identifier hs-type">AssociateVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303429"><span id="local-6989586621679303430"><span class="annot"><span class="annottext">Text
 connectionId :: Text
 virtualInterfaceId :: Text
 $sel:connectionId:AssociateVirtualInterface' :: AssociateVirtualInterface -&gt; Text
 $sel:virtualInterfaceId:AssociateVirtualInterface' :: AssociateVirtualInterface -&gt; Text
-</span><a href="#local-6989586621679303420"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679303429"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-160"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -323,26 +323,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;virtualInterfaceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303421"><span class="hs-identifier hs-var">virtualInterfaceId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679303430"><span class="hs-identifier hs-var">virtualInterfaceId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;connectionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303420"><span class="hs-identifier hs-var">connectionId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679303429"><span class="hs-identifier hs-var">connectionId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateVirtualInterface.html#AssociateVirtualInterface"><span class="hs-identifier hs-type">AssociateVirtualInterface</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-168"></span><span>  </span><span id="local-6989586621679303414"><span class="annot"><span class="annottext">toPath :: AssociateVirtualInterface -&gt; ByteString
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679303423"><span class="annot"><span class="annottext">toPath :: AssociateVirtualInterface -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AssociateVirtualInterface -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.AssociateVirtualInterface.html#AssociateVirtualInterface"><span class="hs-identifier hs-type">AssociateVirtualInterface</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-171"></span><span>  </span><span id="local-6989586621679303410"><span class="annot"><span class="annottext">toQuery :: AssociateVirtualInterface -&gt; QueryString
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679303419"><span class="annot"><span class="annottext">toQuery :: AssociateVirtualInterface -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AssociateVirtualInterface -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString

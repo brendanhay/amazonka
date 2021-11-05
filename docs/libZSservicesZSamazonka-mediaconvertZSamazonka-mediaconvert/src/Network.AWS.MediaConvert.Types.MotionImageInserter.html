@@ -33,7 +33,7 @@
 </span><span id="line-33"></span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/motion-graphic-overlay.html.</span><span>
 </span><span id="line-34"></span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newMotionImageInserter' smart constructor.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679989142"><span id="local-6989586621679989143"></span></span><span class="hs-keyword">data</span><span> </span><span id="MotionImageInserter"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter"><span class="hs-identifier hs-var">MotionImageInserter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MotionImageInserter%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter%27"><span class="hs-identifier hs-var">MotionImageInserter'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679989151"><span id="local-6989586621679989152"></span></span><span class="hs-keyword">data</span><span> </span><span id="MotionImageInserter"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter"><span class="hs-identifier hs-var">MotionImageInserter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MotionImageInserter%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter%27"><span class="hs-identifier hs-var">MotionImageInserter'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If your motion graphic asset is a .mov file, keep this setting</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- unspecified. If your motion graphic asset is a series of .png files,</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- specify the frame rate of the overlay in frames per second, as a</span><span>
@@ -88,7 +88,7 @@
 </span><span id="line-83"></span><span>    </span><span id="%24sel%3Aplayback%3AMotionImageInserter%27"><span class="annot"><span class="annottext">MotionImageInserter -&gt; Maybe MotionImagePlayback
 </span><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#%24sel%3Aplayback%3AMotionImageInserter%27"><span class="hs-identifier hs-var hs-var">playback</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImagePlayback.html#MotionImagePlayback"><span class="hs-identifier hs-type">MotionImagePlayback</span></a></span><span>
 </span><span id="line-84"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-85"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679989131"><span id="local-6989586621679989133"><span class="annot"><span class="annottext">MotionImageInserter -&gt; MotionImageInserter -&gt; Bool
+</span><span id="line-85"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679989140"><span id="local-6989586621679989142"><span class="annot"><span class="annottext">MotionImageInserter -&gt; MotionImageInserter -&gt; Bool
 (MotionImageInserter -&gt; MotionImageInserter -&gt; Bool)
 -&gt; (MotionImageInserter -&gt; MotionImageInserter -&gt; Bool)
 -&gt; Eq MotionImageInserter
@@ -97,7 +97,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MotionImageInserter -&gt; MotionImageInserter -&gt; Bool
 == :: MotionImageInserter -&gt; MotionImageInserter -&gt; Bool
 $c== :: MotionImageInserter -&gt; MotionImageInserter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679989122"><span id="local-6989586621679989124"><span id="local-6989586621679989126"><span id="local-6989586621679989128"><span class="annot"><span class="annottext">ReadPrec [MotionImageInserter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679989131"><span id="local-6989586621679989133"><span id="local-6989586621679989135"><span id="local-6989586621679989137"><span class="annot"><span class="annottext">ReadPrec [MotionImageInserter]
 ReadPrec MotionImageInserter
 Int -&gt; ReadS MotionImageInserter
 ReadS [MotionImageInserter]
@@ -117,7 +117,7 @@ readList :: ReadS [MotionImageInserter]
 $creadList :: ReadS [MotionImageInserter]
 readsPrec :: Int -&gt; ReadS MotionImageInserter
 $creadsPrec :: Int -&gt; ReadS MotionImageInserter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679989115"><span id="local-6989586621679989117"><span id="local-6989586621679989119"><span class="annot"><span class="annottext">Int -&gt; MotionImageInserter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679989124"><span id="local-6989586621679989126"><span id="local-6989586621679989128"><span class="annot"><span class="annottext">Int -&gt; MotionImageInserter -&gt; ShowS
 [MotionImageInserter] -&gt; ShowS
 MotionImageInserter -&gt; String
 (Int -&gt; MotionImageInserter -&gt; ShowS)
@@ -256,16 +256,16 @@ forall a. Maybe a
      (Maybe MotionImageInsertionFramerate)
      (Maybe MotionImageInsertionFramerate)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter%27"><span class="hs-identifier hs-type">MotionImageInserter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679989106"><span class="annot"><span class="annottext">Maybe MotionImageInsertionFramerate
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter%27"><span class="hs-identifier hs-type">MotionImageInserter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679989115"><span class="annot"><span class="annottext">Maybe MotionImageInsertionFramerate
 framerate :: Maybe MotionImageInsertionFramerate
 $sel:framerate:MotionImageInserter' :: MotionImageInserter -&gt; Maybe MotionImageInsertionFramerate
-</span><a href="#local-6989586621679989106"><span class="hs-identifier hs-var hs-var">framerate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MotionImageInsertionFramerate
-</span><a href="#local-6989586621679989106"><span class="hs-identifier hs-var">framerate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679989105"><span class="annot"><span class="annottext">s :: MotionImageInserter
-</span><a href="#local-6989586621679989105"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter%27"><span class="hs-identifier hs-type">MotionImageInserter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679989104"><span class="annot"><span class="annottext">Maybe MotionImageInsertionFramerate
-</span><a href="#local-6989586621679989104"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MotionImageInserter
-</span><a href="#local-6989586621679989105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerate:MotionImageInserter' :: Maybe MotionImageInsertionFramerate
+</span><a href="#local-6989586621679989115"><span class="hs-identifier hs-var hs-var">framerate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MotionImageInsertionFramerate
+</span><a href="#local-6989586621679989115"><span class="hs-identifier hs-var">framerate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679989114"><span class="annot"><span class="annottext">s :: MotionImageInserter
+</span><a href="#local-6989586621679989114"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter%27"><span class="hs-identifier hs-type">MotionImageInserter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679989113"><span class="annot"><span class="annottext">Maybe MotionImageInsertionFramerate
+</span><a href="#local-6989586621679989113"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MotionImageInserter
+</span><a href="#local-6989586621679989114"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerate:MotionImageInserter' :: Maybe MotionImageInsertionFramerate
 </span><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#%24sel%3Aframerate%3AMotionImageInserter%27"><span class="hs-identifier hs-var">framerate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MotionImageInsertionFramerate
-</span><a href="#local-6989586621679989104"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter"><span class="hs-identifier hs-type">MotionImageInserter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679989113"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter"><span class="hs-identifier hs-type">MotionImageInserter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- | Specify when the motion overlay begins. Use timecode format (HH:MM:SS:FF</span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- or HH:MM:SS;FF). Make sure that the timecode you provide here takes into</span><span>
@@ -287,16 +287,16 @@ $sel:framerate:MotionImageInserter' :: MotionImageInserter -&gt; Maybe MotionIma
 -&gt; Lens
      MotionImageInserter MotionImageInserter (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter%27"><span class="hs-identifier hs-type">MotionImageInserter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679989102"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter%27"><span class="hs-identifier hs-type">MotionImageInserter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679989111"><span class="annot"><span class="annottext">Maybe Text
 startTime :: Maybe Text
 $sel:startTime:MotionImageInserter' :: MotionImageInserter -&gt; Maybe Text
-</span><a href="#local-6989586621679989102"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679989102"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679989101"><span class="annot"><span class="annottext">s :: MotionImageInserter
-</span><a href="#local-6989586621679989101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter%27"><span class="hs-identifier hs-type">MotionImageInserter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679989100"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679989100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MotionImageInserter
-</span><a href="#local-6989586621679989101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:MotionImageInserter' :: Maybe Text
+</span><a href="#local-6989586621679989111"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679989111"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679989110"><span class="annot"><span class="annottext">s :: MotionImageInserter
+</span><a href="#local-6989586621679989110"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter%27"><span class="hs-identifier hs-type">MotionImageInserter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679989109"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679989109"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MotionImageInserter
+</span><a href="#local-6989586621679989110"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:MotionImageInserter' :: Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#%24sel%3AstartTime%3AMotionImageInserter%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679989100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter"><span class="hs-identifier hs-type">MotionImageInserter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679989109"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter"><span class="hs-identifier hs-type">MotionImageInserter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- | Use Offset to specify the placement of your motion graphic overlay on</span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- the video frame. Specify in pixels, from the upper-left corner of the</span><span>
@@ -317,16 +317,16 @@ $sel:startTime:MotionImageInserter' :: MotionImageInserter -&gt; Maybe Text
      (Maybe MotionImageInsertionOffset)
      (Maybe MotionImageInsertionOffset)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter%27"><span class="hs-identifier hs-type">MotionImageInserter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679989098"><span class="annot"><span class="annottext">Maybe MotionImageInsertionOffset
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter%27"><span class="hs-identifier hs-type">MotionImageInserter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679989107"><span class="annot"><span class="annottext">Maybe MotionImageInsertionOffset
 offset :: Maybe MotionImageInsertionOffset
 $sel:offset:MotionImageInserter' :: MotionImageInserter -&gt; Maybe MotionImageInsertionOffset
-</span><a href="#local-6989586621679989098"><span class="hs-identifier hs-var hs-var">offset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MotionImageInsertionOffset
-</span><a href="#local-6989586621679989098"><span class="hs-identifier hs-var">offset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679989097"><span class="annot"><span class="annottext">s :: MotionImageInserter
-</span><a href="#local-6989586621679989097"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter%27"><span class="hs-identifier hs-type">MotionImageInserter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679989096"><span class="annot"><span class="annottext">Maybe MotionImageInsertionOffset
-</span><a href="#local-6989586621679989096"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MotionImageInserter
-</span><a href="#local-6989586621679989097"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:offset:MotionImageInserter' :: Maybe MotionImageInsertionOffset
+</span><a href="#local-6989586621679989107"><span class="hs-identifier hs-var hs-var">offset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MotionImageInsertionOffset
+</span><a href="#local-6989586621679989107"><span class="hs-identifier hs-var">offset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679989106"><span class="annot"><span class="annottext">s :: MotionImageInserter
+</span><a href="#local-6989586621679989106"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter%27"><span class="hs-identifier hs-type">MotionImageInserter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679989105"><span class="annot"><span class="annottext">Maybe MotionImageInsertionOffset
+</span><a href="#local-6989586621679989105"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MotionImageInserter
+</span><a href="#local-6989586621679989106"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:offset:MotionImageInserter' :: Maybe MotionImageInsertionOffset
 </span><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#%24sel%3Aoffset%3AMotionImageInserter%27"><span class="hs-identifier hs-var">offset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MotionImageInsertionOffset
-</span><a href="#local-6989586621679989096"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter"><span class="hs-identifier hs-type">MotionImageInserter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679989105"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter"><span class="hs-identifier hs-type">MotionImageInserter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- | Specify the .mov file or series of .png files that you want to overlay</span><span>
 </span><span id="line-189"></span><span class="hs-comment">-- on your video. For .png files, provide the file name of the first file</span><span>
@@ -347,16 +347,16 @@ $sel:offset:MotionImageInserter' :: MotionImageInserter -&gt; Maybe MotionImageI
 -&gt; Lens
      MotionImageInserter MotionImageInserter (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter%27"><span class="hs-identifier hs-type">MotionImageInserter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679989094"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter%27"><span class="hs-identifier hs-type">MotionImageInserter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679989103"><span class="annot"><span class="annottext">Maybe Text
 input :: Maybe Text
 $sel:input:MotionImageInserter' :: MotionImageInserter -&gt; Maybe Text
-</span><a href="#local-6989586621679989094"><span class="hs-identifier hs-var hs-var">input</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679989094"><span class="hs-identifier hs-var">input</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679989093"><span class="annot"><span class="annottext">s :: MotionImageInserter
-</span><a href="#local-6989586621679989093"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter%27"><span class="hs-identifier hs-type">MotionImageInserter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679989092"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679989092"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MotionImageInserter
-</span><a href="#local-6989586621679989093"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:input:MotionImageInserter' :: Maybe Text
+</span><a href="#local-6989586621679989103"><span class="hs-identifier hs-var hs-var">input</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679989103"><span class="hs-identifier hs-var">input</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679989102"><span class="annot"><span class="annottext">s :: MotionImageInserter
+</span><a href="#local-6989586621679989102"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter%27"><span class="hs-identifier hs-type">MotionImageInserter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679989101"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679989101"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MotionImageInserter
+</span><a href="#local-6989586621679989102"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:input:MotionImageInserter' :: Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#%24sel%3Ainput%3AMotionImageInserter%27"><span class="hs-identifier hs-var">input</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679989092"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter"><span class="hs-identifier hs-type">MotionImageInserter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679989101"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter"><span class="hs-identifier hs-type">MotionImageInserter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-comment">-- | Choose the type of motion graphic asset that you are providing for your</span><span>
 </span><span id="line-203"></span><span class="hs-comment">-- overlay. You can choose either a .mov file or a series of .png files.</span><span>
@@ -373,16 +373,16 @@ $sel:input:MotionImageInserter' :: MotionImageInserter -&gt; Maybe Text
      (Maybe MotionImageInsertionMode)
      (Maybe MotionImageInsertionMode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter%27"><span class="hs-identifier hs-type">MotionImageInserter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679989090"><span class="annot"><span class="annottext">Maybe MotionImageInsertionMode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter%27"><span class="hs-identifier hs-type">MotionImageInserter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679989099"><span class="annot"><span class="annottext">Maybe MotionImageInsertionMode
 insertionMode :: Maybe MotionImageInsertionMode
 $sel:insertionMode:MotionImageInserter' :: MotionImageInserter -&gt; Maybe MotionImageInsertionMode
-</span><a href="#local-6989586621679989090"><span class="hs-identifier hs-var hs-var">insertionMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MotionImageInsertionMode
-</span><a href="#local-6989586621679989090"><span class="hs-identifier hs-var">insertionMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679989089"><span class="annot"><span class="annottext">s :: MotionImageInserter
-</span><a href="#local-6989586621679989089"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter%27"><span class="hs-identifier hs-type">MotionImageInserter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679989088"><span class="annot"><span class="annottext">Maybe MotionImageInsertionMode
-</span><a href="#local-6989586621679989088"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MotionImageInserter
-</span><a href="#local-6989586621679989089"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:insertionMode:MotionImageInserter' :: Maybe MotionImageInsertionMode
+</span><a href="#local-6989586621679989099"><span class="hs-identifier hs-var hs-var">insertionMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MotionImageInsertionMode
+</span><a href="#local-6989586621679989099"><span class="hs-identifier hs-var">insertionMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679989098"><span class="annot"><span class="annottext">s :: MotionImageInserter
+</span><a href="#local-6989586621679989098"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter%27"><span class="hs-identifier hs-type">MotionImageInserter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679989097"><span class="annot"><span class="annottext">Maybe MotionImageInsertionMode
+</span><a href="#local-6989586621679989097"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MotionImageInserter
+</span><a href="#local-6989586621679989098"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:insertionMode:MotionImageInserter' :: Maybe MotionImageInsertionMode
 </span><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#%24sel%3AinsertionMode%3AMotionImageInserter%27"><span class="hs-identifier hs-var">insertionMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MotionImageInsertionMode
-</span><a href="#local-6989586621679989088"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter"><span class="hs-identifier hs-type">MotionImageInserter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679989097"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter"><span class="hs-identifier hs-type">MotionImageInserter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>
 </span><span id="line-207"></span><span class="hs-comment">-- | Specify whether your motion graphic overlay repeats on a loop or plays</span><span>
 </span><span id="line-208"></span><span class="hs-comment">-- only once.</span><span>
@@ -398,19 +398,19 @@ $sel:insertionMode:MotionImageInserter' :: MotionImageInserter -&gt; Maybe Motio
      (Maybe MotionImagePlayback)
      (Maybe MotionImagePlayback)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter%27"><span class="hs-identifier hs-type">MotionImageInserter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679989086"><span class="annot"><span class="annottext">Maybe MotionImagePlayback
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter%27"><span class="hs-identifier hs-type">MotionImageInserter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679989095"><span class="annot"><span class="annottext">Maybe MotionImagePlayback
 playback :: Maybe MotionImagePlayback
 $sel:playback:MotionImageInserter' :: MotionImageInserter -&gt; Maybe MotionImagePlayback
-</span><a href="#local-6989586621679989086"><span class="hs-identifier hs-var hs-var">playback</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MotionImagePlayback
-</span><a href="#local-6989586621679989086"><span class="hs-identifier hs-var">playback</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679989085"><span class="annot"><span class="annottext">s :: MotionImageInserter
-</span><a href="#local-6989586621679989085"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter%27"><span class="hs-identifier hs-type">MotionImageInserter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679989084"><span class="annot"><span class="annottext">Maybe MotionImagePlayback
-</span><a href="#local-6989586621679989084"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MotionImageInserter
-</span><a href="#local-6989586621679989085"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:playback:MotionImageInserter' :: Maybe MotionImagePlayback
+</span><a href="#local-6989586621679989095"><span class="hs-identifier hs-var hs-var">playback</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MotionImagePlayback
+</span><a href="#local-6989586621679989095"><span class="hs-identifier hs-var">playback</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679989094"><span class="annot"><span class="annottext">s :: MotionImageInserter
+</span><a href="#local-6989586621679989094"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter%27"><span class="hs-identifier hs-type">MotionImageInserter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679989093"><span class="annot"><span class="annottext">Maybe MotionImagePlayback
+</span><a href="#local-6989586621679989093"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MotionImageInserter
+</span><a href="#local-6989586621679989094"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:playback:MotionImageInserter' :: Maybe MotionImagePlayback
 </span><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#%24sel%3Aplayback%3AMotionImageInserter%27"><span class="hs-identifier hs-var">playback</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MotionImagePlayback
-</span><a href="#local-6989586621679989084"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter"><span class="hs-identifier hs-type">MotionImageInserter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679989093"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter"><span class="hs-identifier hs-type">MotionImageInserter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-211"></span><span>
-</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679989081"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter"><span class="hs-identifier hs-type">MotionImageInserter</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-213"></span><span>  </span><span id="local-6989586621679989079"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MotionImageInserter
+</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679989090"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter"><span class="hs-identifier hs-type">MotionImageInserter</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679989088"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MotionImageInserter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-214"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MotionImageInserter)
@@ -420,8 +420,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-215"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MotionImageInserter&quot;</span></span><span>
-</span><span id="line-216"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679989076"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679989076"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-216"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679989085"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679989085"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-217"></span><span>          </span><span class="annot"><span class="annottext">Maybe MotionImageInsertionFramerate
 -&gt; Maybe Text
 -&gt; Maybe MotionImageInsertionOffset
@@ -447,7 +447,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; MotionImageInserter)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679989076"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MotionImageInsertionFramerate)
+</span><a href="#local-6989586621679989085"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MotionImageInsertionFramerate)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;framerate&quot;</span></span><span class="hs-special">)</span><span>
@@ -467,7 +467,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; MotionImageInserter)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679989076"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679989085"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;startTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -485,7 +485,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; MotionImageInserter)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679989076"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MotionImageInsertionOffset)
+</span><a href="#local-6989586621679989085"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MotionImageInsertionOffset)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;offset&quot;</span></span><span class="hs-special">)</span><span>
@@ -500,7 +500,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe MotionImagePlayback -&gt; MotionImageInserter)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679989076"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679989085"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;input&quot;</span></span><span class="hs-special">)</span><span>
@@ -511,7 +511,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe MotionImagePlayback -&gt; MotionImageInserter)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679989076"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MotionImageInsertionMode)
+</span><a href="#local-6989586621679989085"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MotionImageInsertionMode)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;insertionMode&quot;</span></span><span class="hs-special">)</span><span>
@@ -519,19 +519,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe MotionImagePlayback) -&gt; Parser MotionImageInserter
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679989076"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MotionImagePlayback)
+</span><a href="#local-6989586621679989085"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MotionImagePlayback)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;playback&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-224"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-225"></span><span>
-</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679989070"><span id="local-6989586621679989072"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter"><span class="hs-identifier hs-type">MotionImageInserter</span></a></span></span></span><span>
+</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679989079"><span id="local-6989586621679989081"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter"><span class="hs-identifier hs-type">MotionImageInserter</span></a></span></span></span><span>
 </span><span id="line-227"></span><span>
-</span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679989067"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter"><span class="hs-identifier hs-type">MotionImageInserter</span></a></span></span><span>
+</span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679989076"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter"><span class="hs-identifier hs-type">MotionImageInserter</span></a></span></span><span>
 </span><span id="line-229"></span><span>
-</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679989059"><span id="local-6989586621679989061"><span id="local-6989586621679989063"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter"><span class="hs-identifier hs-type">MotionImageInserter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-231"></span><span>  </span><span id="local-6989586621679989057"><span class="annot"><span class="annottext">toJSON :: MotionImageInserter -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter%27"><span class="hs-identifier hs-type">MotionImageInserter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679989050"><span id="local-6989586621679989051"><span id="local-6989586621679989052"><span id="local-6989586621679989053"><span id="local-6989586621679989054"><span id="local-6989586621679989055"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679989068"><span id="local-6989586621679989070"><span id="local-6989586621679989072"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter"><span class="hs-identifier hs-type">MotionImageInserter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-231"></span><span>  </span><span id="local-6989586621679989066"><span class="annot"><span class="annottext">toJSON :: MotionImageInserter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.MotionImageInserter.html#MotionImageInserter%27"><span class="hs-identifier hs-type">MotionImageInserter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679989059"><span id="local-6989586621679989060"><span id="local-6989586621679989061"><span id="local-6989586621679989062"><span id="local-6989586621679989063"><span id="local-6989586621679989064"><span class="annot"><span class="annottext">Maybe Text
 Maybe MotionImageInsertionFramerate
 Maybe MotionImageInsertionMode
 Maybe MotionImageInsertionOffset
@@ -548,7 +548,7 @@ $sel:input:MotionImageInserter' :: MotionImageInserter -&gt; Maybe Text
 $sel:offset:MotionImageInserter' :: MotionImageInserter -&gt; Maybe MotionImageInsertionOffset
 $sel:startTime:MotionImageInserter' :: MotionImageInserter -&gt; Maybe Text
 $sel:framerate:MotionImageInserter' :: MotionImageInserter -&gt; Maybe MotionImageInsertionFramerate
-</span><a href="#local-6989586621679989050"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679989059"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-232"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-233"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -561,14 +561,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe MotionImageInsertionFramerate -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MotionImageInsertionFramerate
-</span><a href="#local-6989586621679989055"><span class="hs-identifier hs-var">framerate</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679989064"><span class="hs-identifier hs-var">framerate</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-235"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;startTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679989054"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679989063"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-236"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;offset&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MotionImageInsertionOffset -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -576,14 +576,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe MotionImageInsertionOffset -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MotionImageInsertionOffset
-</span><a href="#local-6989586621679989053"><span class="hs-identifier hs-var">offset</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679989062"><span class="hs-identifier hs-var">offset</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-237"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;input&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679989052"><span class="hs-identifier hs-var">input</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679989061"><span class="hs-identifier hs-var">input</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-238"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;insertionMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MotionImageInsertionMode -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -591,7 +591,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe MotionImageInsertionMode -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MotionImageInsertionMode
-</span><a href="#local-6989586621679989051"><span class="hs-identifier hs-var">insertionMode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679989060"><span class="hs-identifier hs-var">insertionMode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-239"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;playback&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MotionImagePlayback -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -599,7 +599,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe MotionImagePlayback -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MotionImagePlayback
-</span><a href="#local-6989586621679989050"><span class="hs-identifier hs-var">playback</span></a></span><span>
+</span><a href="#local-6989586621679989059"><span class="hs-identifier hs-var">playback</span></a></span><span>
 </span><span id="line-240"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-241"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-242"></span></pre></body></html>

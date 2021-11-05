@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Placeholder documentation for InputSpecification</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newInputSpecification' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679897415"><span id="local-6989586621679897416"></span></span><span class="hs-keyword">data</span><span> </span><span id="InputSpecification"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSpecification.html#InputSpecification"><span class="hs-identifier hs-var">InputSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputSpecification%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSpecification.html#InputSpecification%27"><span class="hs-identifier hs-var">InputSpecification'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679897424"><span id="local-6989586621679897425"></span></span><span class="hs-keyword">data</span><span> </span><span id="InputSpecification"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSpecification.html#InputSpecification"><span class="hs-identifier hs-var">InputSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputSpecification%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSpecification.html#InputSpecification%27"><span class="hs-identifier hs-var">InputSpecification'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Input resolution, categorized coarsely</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Aresolution%3AInputSpecification%27"><span class="annot"><span class="annottext">InputSpecification -&gt; Maybe InputResolution
 </span><a href="Network.AWS.MediaLive.Types.InputSpecification.html#%24sel%3Aresolution%3AInputSpecification%27"><span class="hs-identifier hs-var hs-var">resolution</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputResolution.html#InputResolution"><span class="hs-identifier hs-type">InputResolution</span></a></span><span class="hs-special">,</span><span>
@@ -40,7 +40,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AmaximumBitrate%3AInputSpecification%27"><span class="annot"><span class="annottext">InputSpecification -&gt; Maybe InputMaximumBitrate
 </span><a href="Network.AWS.MediaLive.Types.InputSpecification.html#%24sel%3AmaximumBitrate%3AInputSpecification%27"><span class="hs-identifier hs-var hs-var">maximumBitrate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputMaximumBitrate.html#InputMaximumBitrate"><span class="hs-identifier hs-type">InputMaximumBitrate</span></a></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679897407"><span id="local-6989586621679897409"><span class="annot"><span class="annottext">InputSpecification -&gt; InputSpecification -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679897416"><span id="local-6989586621679897418"><span class="annot"><span class="annottext">InputSpecification -&gt; InputSpecification -&gt; Bool
 (InputSpecification -&gt; InputSpecification -&gt; Bool)
 -&gt; (InputSpecification -&gt; InputSpecification -&gt; Bool)
 -&gt; Eq InputSpecification
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InputSpecification -&gt; InputSpecification -&gt; Bool
 == :: InputSpecification -&gt; InputSpecification -&gt; Bool
 $c== :: InputSpecification -&gt; InputSpecification -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679897398"><span id="local-6989586621679897400"><span id="local-6989586621679897402"><span id="local-6989586621679897404"><span class="annot"><span class="annottext">ReadPrec [InputSpecification]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679897407"><span id="local-6989586621679897409"><span id="local-6989586621679897411"><span id="local-6989586621679897413"><span class="annot"><span class="annottext">ReadPrec [InputSpecification]
 ReadPrec InputSpecification
 Int -&gt; ReadS InputSpecification
 ReadS [InputSpecification]
@@ -69,7 +69,7 @@ readList :: ReadS [InputSpecification]
 $creadList :: ReadS [InputSpecification]
 readsPrec :: Int -&gt; ReadS InputSpecification
 $creadsPrec :: Int -&gt; ReadS InputSpecification
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679897391"><span id="local-6989586621679897393"><span id="local-6989586621679897395"><span class="annot"><span class="annottext">Int -&gt; InputSpecification -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679897400"><span id="local-6989586621679897402"><span id="local-6989586621679897404"><span class="annot"><span class="annottext">Int -&gt; InputSpecification -&gt; ShowS
 [InputSpecification] -&gt; ShowS
 InputSpecification -&gt; String
 (Int -&gt; InputSpecification -&gt; ShowS)
@@ -144,16 +144,16 @@ forall a. Maybe a
      (Maybe InputResolution)
      (Maybe InputResolution)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSpecification.html#InputSpecification%27"><span class="hs-identifier hs-type">InputSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679897382"><span class="annot"><span class="annottext">Maybe InputResolution
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSpecification.html#InputSpecification%27"><span class="hs-identifier hs-type">InputSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679897391"><span class="annot"><span class="annottext">Maybe InputResolution
 resolution :: Maybe InputResolution
 $sel:resolution:InputSpecification' :: InputSpecification -&gt; Maybe InputResolution
-</span><a href="#local-6989586621679897382"><span class="hs-identifier hs-var hs-var">resolution</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputResolution
-</span><a href="#local-6989586621679897382"><span class="hs-identifier hs-var">resolution</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679897381"><span class="annot"><span class="annottext">s :: InputSpecification
-</span><a href="#local-6989586621679897381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSpecification.html#InputSpecification%27"><span class="hs-identifier hs-type">InputSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679897380"><span class="annot"><span class="annottext">Maybe InputResolution
-</span><a href="#local-6989586621679897380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputSpecification
-</span><a href="#local-6989586621679897381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resolution:InputSpecification' :: Maybe InputResolution
+</span><a href="#local-6989586621679897391"><span class="hs-identifier hs-var hs-var">resolution</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputResolution
+</span><a href="#local-6989586621679897391"><span class="hs-identifier hs-var">resolution</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679897390"><span class="annot"><span class="annottext">s :: InputSpecification
+</span><a href="#local-6989586621679897390"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSpecification.html#InputSpecification%27"><span class="hs-identifier hs-type">InputSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679897389"><span class="annot"><span class="annottext">Maybe InputResolution
+</span><a href="#local-6989586621679897389"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputSpecification
+</span><a href="#local-6989586621679897390"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resolution:InputSpecification' :: Maybe InputResolution
 </span><a href="Network.AWS.MediaLive.Types.InputSpecification.html#%24sel%3Aresolution%3AInputSpecification%27"><span class="hs-identifier hs-var">resolution</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputResolution
-</span><a href="#local-6989586621679897380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSpecification.html#InputSpecification"><span class="hs-identifier hs-type">InputSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679897389"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSpecification.html#InputSpecification"><span class="hs-identifier hs-type">InputSpecification</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | Input codec</span><span>
 </span><span id="line-69"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSpecification.html#inputSpecification_codec"><span class="hs-identifier hs-type">inputSpecification_codec</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSpecification.html#InputSpecification"><span class="hs-identifier hs-type">InputSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputCodec.html#InputCodec"><span class="hs-identifier hs-type">InputCodec</span></a></span><span class="hs-special">)</span><span>
@@ -167,16 +167,16 @@ $sel:resolution:InputSpecification' :: InputSpecification -&gt; Maybe InputResol
      (Maybe InputCodec)
      (Maybe InputCodec)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSpecification.html#InputSpecification%27"><span class="hs-identifier hs-type">InputSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679897378"><span class="annot"><span class="annottext">Maybe InputCodec
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSpecification.html#InputSpecification%27"><span class="hs-identifier hs-type">InputSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679897387"><span class="annot"><span class="annottext">Maybe InputCodec
 codec :: Maybe InputCodec
 $sel:codec:InputSpecification' :: InputSpecification -&gt; Maybe InputCodec
-</span><a href="#local-6989586621679897378"><span class="hs-identifier hs-var hs-var">codec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputCodec
-</span><a href="#local-6989586621679897378"><span class="hs-identifier hs-var">codec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679897377"><span class="annot"><span class="annottext">s :: InputSpecification
-</span><a href="#local-6989586621679897377"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSpecification.html#InputSpecification%27"><span class="hs-identifier hs-type">InputSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679897376"><span class="annot"><span class="annottext">Maybe InputCodec
-</span><a href="#local-6989586621679897376"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputSpecification
-</span><a href="#local-6989586621679897377"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codec:InputSpecification' :: Maybe InputCodec
+</span><a href="#local-6989586621679897387"><span class="hs-identifier hs-var hs-var">codec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputCodec
+</span><a href="#local-6989586621679897387"><span class="hs-identifier hs-var">codec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679897386"><span class="annot"><span class="annottext">s :: InputSpecification
+</span><a href="#local-6989586621679897386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSpecification.html#InputSpecification%27"><span class="hs-identifier hs-type">InputSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679897385"><span class="annot"><span class="annottext">Maybe InputCodec
+</span><a href="#local-6989586621679897385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputSpecification
+</span><a href="#local-6989586621679897386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codec:InputSpecification' :: Maybe InputCodec
 </span><a href="Network.AWS.MediaLive.Types.InputSpecification.html#%24sel%3Acodec%3AInputSpecification%27"><span class="hs-identifier hs-var">codec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputCodec
-</span><a href="#local-6989586621679897376"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSpecification.html#InputSpecification"><span class="hs-identifier hs-type">InputSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679897385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSpecification.html#InputSpecification"><span class="hs-identifier hs-type">InputSpecification</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | Maximum input bitrate, categorized coarsely</span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSpecification.html#inputSpecification_maximumBitrate"><span class="hs-identifier hs-type">inputSpecification_maximumBitrate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSpecification.html#InputSpecification"><span class="hs-identifier hs-type">InputSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputMaximumBitrate.html#InputMaximumBitrate"><span class="hs-identifier hs-type">InputMaximumBitrate</span></a></span><span class="hs-special">)</span><span>
@@ -191,19 +191,19 @@ $sel:codec:InputSpecification' :: InputSpecification -&gt; Maybe InputCodec
      (Maybe InputMaximumBitrate)
      (Maybe InputMaximumBitrate)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSpecification.html#InputSpecification%27"><span class="hs-identifier hs-type">InputSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679897374"><span class="annot"><span class="annottext">Maybe InputMaximumBitrate
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSpecification.html#InputSpecification%27"><span class="hs-identifier hs-type">InputSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679897383"><span class="annot"><span class="annottext">Maybe InputMaximumBitrate
 maximumBitrate :: Maybe InputMaximumBitrate
 $sel:maximumBitrate:InputSpecification' :: InputSpecification -&gt; Maybe InputMaximumBitrate
-</span><a href="#local-6989586621679897374"><span class="hs-identifier hs-var hs-var">maximumBitrate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputMaximumBitrate
-</span><a href="#local-6989586621679897374"><span class="hs-identifier hs-var">maximumBitrate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679897373"><span class="annot"><span class="annottext">s :: InputSpecification
-</span><a href="#local-6989586621679897373"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSpecification.html#InputSpecification%27"><span class="hs-identifier hs-type">InputSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679897372"><span class="annot"><span class="annottext">Maybe InputMaximumBitrate
-</span><a href="#local-6989586621679897372"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputSpecification
-</span><a href="#local-6989586621679897373"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumBitrate:InputSpecification' :: Maybe InputMaximumBitrate
+</span><a href="#local-6989586621679897383"><span class="hs-identifier hs-var hs-var">maximumBitrate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputMaximumBitrate
+</span><a href="#local-6989586621679897383"><span class="hs-identifier hs-var">maximumBitrate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679897382"><span class="annot"><span class="annottext">s :: InputSpecification
+</span><a href="#local-6989586621679897382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSpecification.html#InputSpecification%27"><span class="hs-identifier hs-type">InputSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679897381"><span class="annot"><span class="annottext">Maybe InputMaximumBitrate
+</span><a href="#local-6989586621679897381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputSpecification
+</span><a href="#local-6989586621679897382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumBitrate:InputSpecification' :: Maybe InputMaximumBitrate
 </span><a href="Network.AWS.MediaLive.Types.InputSpecification.html#%24sel%3AmaximumBitrate%3AInputSpecification%27"><span class="hs-identifier hs-var">maximumBitrate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputMaximumBitrate
-</span><a href="#local-6989586621679897372"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSpecification.html#InputSpecification"><span class="hs-identifier hs-type">InputSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679897381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSpecification.html#InputSpecification"><span class="hs-identifier hs-type">InputSpecification</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679897369"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSpecification.html#InputSpecification"><span class="hs-identifier hs-type">InputSpecification</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679897367"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InputSpecification
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679897378"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSpecification.html#InputSpecification"><span class="hs-identifier hs-type">InputSpecification</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679897376"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InputSpecification
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser InputSpecification)
@@ -213,8 +213,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;InputSpecification&quot;</span></span><span>
-</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679897364"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679897364"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679897373"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679897373"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Maybe InputResolution
 -&gt; Maybe InputCodec
 -&gt; Maybe InputMaximumBitrate
@@ -230,7 +230,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe InputMaximumBitrate -&gt; InputSpecification)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679897364"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputResolution)
+</span><a href="#local-6989586621679897373"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputResolution)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;resolution&quot;</span></span><span class="hs-special">)</span><span>
@@ -241,7 +241,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe InputMaximumBitrate -&gt; InputSpecification)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679897364"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputCodec)
+</span><a href="#local-6989586621679897373"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputCodec)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;codec&quot;</span></span><span class="hs-special">)</span><span>
@@ -249,19 +249,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe InputMaximumBitrate) -&gt; Parser InputSpecification
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679897364"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputMaximumBitrate)
+</span><a href="#local-6989586621679897373"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputMaximumBitrate)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;maximumBitrate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679897358"><span id="local-6989586621679897360"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSpecification.html#InputSpecification"><span class="hs-identifier hs-type">InputSpecification</span></a></span></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679897367"><span id="local-6989586621679897369"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSpecification.html#InputSpecification"><span class="hs-identifier hs-type">InputSpecification</span></a></span></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679897355"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSpecification.html#InputSpecification"><span class="hs-identifier hs-type">InputSpecification</span></a></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679897364"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSpecification.html#InputSpecification"><span class="hs-identifier hs-type">InputSpecification</span></a></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679897347"><span id="local-6989586621679897349"><span id="local-6989586621679897351"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSpecification.html#InputSpecification"><span class="hs-identifier hs-type">InputSpecification</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679897345"><span class="annot"><span class="annottext">toJSON :: InputSpecification -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSpecification.html#InputSpecification%27"><span class="hs-identifier hs-type">InputSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679897341"><span id="local-6989586621679897342"><span id="local-6989586621679897343"><span class="annot"><span class="annottext">Maybe InputCodec
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679897356"><span id="local-6989586621679897358"><span id="local-6989586621679897360"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSpecification.html#InputSpecification"><span class="hs-identifier hs-type">InputSpecification</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679897354"><span class="annot"><span class="annottext">toJSON :: InputSpecification -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.InputSpecification.html#InputSpecification%27"><span class="hs-identifier hs-type">InputSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679897350"><span id="local-6989586621679897351"><span id="local-6989586621679897352"><span class="annot"><span class="annottext">Maybe InputCodec
 Maybe InputMaximumBitrate
 Maybe InputResolution
 maximumBitrate :: Maybe InputMaximumBitrate
@@ -270,7 +270,7 @@ resolution :: Maybe InputResolution
 $sel:maximumBitrate:InputSpecification' :: InputSpecification -&gt; Maybe InputMaximumBitrate
 $sel:codec:InputSpecification' :: InputSpecification -&gt; Maybe InputCodec
 $sel:resolution:InputSpecification' :: InputSpecification -&gt; Maybe InputResolution
-</span><a href="#local-6989586621679897341"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679897350"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -282,14 +282,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(InputResolution -&gt; Pair) -&gt; Maybe InputResolution -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InputResolution
-</span><a href="#local-6989586621679897343"><span class="hs-identifier hs-var">resolution</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679897352"><span class="hs-identifier hs-var">resolution</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;codec&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputCodec -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(InputCodec -&gt; Pair) -&gt; Maybe InputCodec -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InputCodec
-</span><a href="#local-6989586621679897342"><span class="hs-identifier hs-var">codec</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679897351"><span class="hs-identifier hs-var">codec</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;maximumBitrate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputMaximumBitrate -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -298,7 +298,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe InputMaximumBitrate -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InputMaximumBitrate
-</span><a href="#local-6989586621679897341"><span class="hs-identifier hs-var">maximumBitrate</span></a></span><span>
+</span><a href="#local-6989586621679897350"><span class="hs-identifier hs-var">maximumBitrate</span></a></span><span>
 </span><span id="line-99"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span></pre></body></html>

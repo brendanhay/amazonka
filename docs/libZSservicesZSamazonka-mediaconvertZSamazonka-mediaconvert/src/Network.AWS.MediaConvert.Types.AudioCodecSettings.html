@@ -38,7 +38,7 @@
 </span><span id="line-38"></span><span class="hs-comment">-- depending on the value that you choose for your audio codec.</span><span>
 </span><span id="line-39"></span><span class="hs-comment">--</span><span>
 </span><span id="line-40"></span><span class="hs-comment">-- /See:/ 'newAudioCodecSettings' smart constructor.</span><span>
-</span><span id="line-41"></span><span id="local-6989586621680017048"><span id="local-6989586621680017049"></span></span><span class="hs-keyword">data</span><span> </span><span id="AudioCodecSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-var">AudioCodecSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AudioCodecSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-var">AudioCodecSettings'</span></a></span></span><span>
+</span><span id="line-41"></span><span id="local-6989586621680017057"><span id="local-6989586621680017058"></span></span><span class="hs-keyword">data</span><span> </span><span id="AudioCodecSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-var">AudioCodecSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AudioCodecSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-var">AudioCodecSettings'</span></a></span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Required when you set (Codec) under (AudioDescriptions)&gt;(CodecSettings)</span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-comment">-- to the value AIFF.</span><span>
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3AaiffSettings%3AAudioCodecSettings%27"><span class="annot"><span class="annottext">AudioCodecSettings -&gt; Maybe AiffSettings
@@ -98,7 +98,7 @@
 </span><span id="line-88"></span><span>    </span><span id="%24sel%3Aeac3Settings%3AAudioCodecSettings%27"><span class="annot"><span class="annottext">AudioCodecSettings -&gt; Maybe Eac3Settings
 </span><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#%24sel%3Aeac3Settings%3AAudioCodecSettings%27"><span class="hs-identifier hs-var hs-var">eac3Settings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3Settings.html#Eac3Settings"><span class="hs-identifier hs-type">Eac3Settings</span></a></span><span>
 </span><span id="line-89"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-90"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680017032"><span id="local-6989586621680017034"><span class="annot"><span class="annottext">AudioCodecSettings -&gt; AudioCodecSettings -&gt; Bool
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680017041"><span id="local-6989586621680017043"><span class="annot"><span class="annottext">AudioCodecSettings -&gt; AudioCodecSettings -&gt; Bool
 (AudioCodecSettings -&gt; AudioCodecSettings -&gt; Bool)
 -&gt; (AudioCodecSettings -&gt; AudioCodecSettings -&gt; Bool)
 -&gt; Eq AudioCodecSettings
@@ -107,7 +107,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AudioCodecSettings -&gt; AudioCodecSettings -&gt; Bool
 == :: AudioCodecSettings -&gt; AudioCodecSettings -&gt; Bool
 $c== :: AudioCodecSettings -&gt; AudioCodecSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680017023"><span id="local-6989586621680017025"><span id="local-6989586621680017027"><span id="local-6989586621680017029"><span class="annot"><span class="annottext">ReadPrec [AudioCodecSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680017032"><span id="local-6989586621680017034"><span id="local-6989586621680017036"><span id="local-6989586621680017038"><span class="annot"><span class="annottext">ReadPrec [AudioCodecSettings]
 ReadPrec AudioCodecSettings
 Int -&gt; ReadS AudioCodecSettings
 ReadS [AudioCodecSettings]
@@ -127,7 +127,7 @@ readList :: ReadS [AudioCodecSettings]
 $creadList :: ReadS [AudioCodecSettings]
 readsPrec :: Int -&gt; ReadS AudioCodecSettings
 $creadsPrec :: Int -&gt; ReadS AudioCodecSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680017016"><span id="local-6989586621680017018"><span id="local-6989586621680017020"><span class="annot"><span class="annottext">Int -&gt; AudioCodecSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680017025"><span id="local-6989586621680017027"><span id="local-6989586621680017029"><span class="annot"><span class="annottext">Int -&gt; AudioCodecSettings -&gt; ShowS
 [AudioCodecSettings] -&gt; ShowS
 AudioCodecSettings -&gt; String
 (Int -&gt; AudioCodecSettings -&gt; ShowS)
@@ -283,16 +283,16 @@ forall a. Maybe a
      (Maybe AiffSettings)
      (Maybe AiffSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680017007"><span class="annot"><span class="annottext">Maybe AiffSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680017016"><span class="annot"><span class="annottext">Maybe AiffSettings
 aiffSettings :: Maybe AiffSettings
 $sel:aiffSettings:AudioCodecSettings' :: AudioCodecSettings -&gt; Maybe AiffSettings
-</span><a href="#local-6989586621680017007"><span class="hs-identifier hs-var hs-var">aiffSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AiffSettings
-</span><a href="#local-6989586621680017007"><span class="hs-identifier hs-var">aiffSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680017006"><span class="annot"><span class="annottext">s :: AudioCodecSettings
-</span><a href="#local-6989586621680017006"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680017005"><span class="annot"><span class="annottext">Maybe AiffSettings
-</span><a href="#local-6989586621680017005"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioCodecSettings
-</span><a href="#local-6989586621680017006"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aiffSettings:AudioCodecSettings' :: Maybe AiffSettings
+</span><a href="#local-6989586621680017016"><span class="hs-identifier hs-var hs-var">aiffSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AiffSettings
+</span><a href="#local-6989586621680017016"><span class="hs-identifier hs-var">aiffSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680017015"><span class="annot"><span class="annottext">s :: AudioCodecSettings
+</span><a href="#local-6989586621680017015"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680017014"><span class="annot"><span class="annottext">Maybe AiffSettings
+</span><a href="#local-6989586621680017014"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioCodecSettings
+</span><a href="#local-6989586621680017015"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aiffSettings:AudioCodecSettings' :: Maybe AiffSettings
 </span><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#%24sel%3AaiffSettings%3AAudioCodecSettings%27"><span class="hs-identifier hs-var">aiffSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AiffSettings
-</span><a href="#local-6989586621680017005"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-type">AudioCodecSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680017014"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-type">AudioCodecSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | Choose the audio codec for this output. Note that the option Dolby</span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- Digital passthrough (PASSTHROUGH) applies only to Dolby Digital and</span><span>
@@ -316,16 +316,16 @@ $sel:aiffSettings:AudioCodecSettings' :: AudioCodecSettings -&gt; Maybe AiffSett
      (Maybe AudioCodec)
      (Maybe AudioCodec)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680017003"><span class="annot"><span class="annottext">Maybe AudioCodec
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680017012"><span class="annot"><span class="annottext">Maybe AudioCodec
 codec :: Maybe AudioCodec
 $sel:codec:AudioCodecSettings' :: AudioCodecSettings -&gt; Maybe AudioCodec
-</span><a href="#local-6989586621680017003"><span class="hs-identifier hs-var hs-var">codec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AudioCodec
-</span><a href="#local-6989586621680017003"><span class="hs-identifier hs-var">codec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680017002"><span class="annot"><span class="annottext">s :: AudioCodecSettings
-</span><a href="#local-6989586621680017002"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680017001"><span class="annot"><span class="annottext">Maybe AudioCodec
-</span><a href="#local-6989586621680017001"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioCodecSettings
-</span><a href="#local-6989586621680017002"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codec:AudioCodecSettings' :: Maybe AudioCodec
+</span><a href="#local-6989586621680017012"><span class="hs-identifier hs-var hs-var">codec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AudioCodec
+</span><a href="#local-6989586621680017012"><span class="hs-identifier hs-var">codec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680017011"><span class="annot"><span class="annottext">s :: AudioCodecSettings
+</span><a href="#local-6989586621680017011"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680017010"><span class="annot"><span class="annottext">Maybe AudioCodec
+</span><a href="#local-6989586621680017010"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioCodecSettings
+</span><a href="#local-6989586621680017011"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codec:AudioCodecSettings' :: Maybe AudioCodec
 </span><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#%24sel%3Acodec%3AAudioCodecSettings%27"><span class="hs-identifier hs-var">codec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AudioCodec
-</span><a href="#local-6989586621680017001"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-type">AudioCodecSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680017010"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-type">AudioCodecSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- | Required when you set (Codec) under (AudioDescriptions)&gt;(CodecSettings)</span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- to the value AC3.</span><span>
@@ -340,16 +340,16 @@ $sel:codec:AudioCodecSettings' :: AudioCodecSettings -&gt; Maybe AudioCodec
      (Maybe Ac3Settings)
      (Maybe Ac3Settings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016999"><span class="annot"><span class="annottext">Maybe Ac3Settings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680017008"><span class="annot"><span class="annottext">Maybe Ac3Settings
 ac3Settings :: Maybe Ac3Settings
 $sel:ac3Settings:AudioCodecSettings' :: AudioCodecSettings -&gt; Maybe Ac3Settings
-</span><a href="#local-6989586621680016999"><span class="hs-identifier hs-var hs-var">ac3Settings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Ac3Settings
-</span><a href="#local-6989586621680016999"><span class="hs-identifier hs-var">ac3Settings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680016998"><span class="annot"><span class="annottext">s :: AudioCodecSettings
-</span><a href="#local-6989586621680016998"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680016997"><span class="annot"><span class="annottext">Maybe Ac3Settings
-</span><a href="#local-6989586621680016997"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioCodecSettings
-</span><a href="#local-6989586621680016998"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ac3Settings:AudioCodecSettings' :: Maybe Ac3Settings
+</span><a href="#local-6989586621680017008"><span class="hs-identifier hs-var hs-var">ac3Settings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Ac3Settings
+</span><a href="#local-6989586621680017008"><span class="hs-identifier hs-var">ac3Settings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680017007"><span class="annot"><span class="annottext">s :: AudioCodecSettings
+</span><a href="#local-6989586621680017007"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680017006"><span class="annot"><span class="annottext">Maybe Ac3Settings
+</span><a href="#local-6989586621680017006"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioCodecSettings
+</span><a href="#local-6989586621680017007"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ac3Settings:AudioCodecSettings' :: Maybe Ac3Settings
 </span><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#%24sel%3Aac3Settings%3AAudioCodecSettings%27"><span class="hs-identifier hs-var">ac3Settings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Ac3Settings
-</span><a href="#local-6989586621680016997"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-type">AudioCodecSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680017006"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-type">AudioCodecSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-comment">-- | Required when you set Codec, under AudioDescriptions&gt;CodecSettings, to</span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- the value OPUS.</span><span>
@@ -364,16 +364,16 @@ $sel:ac3Settings:AudioCodecSettings' :: AudioCodecSettings -&gt; Maybe Ac3Settin
      (Maybe OpusSettings)
      (Maybe OpusSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016995"><span class="annot"><span class="annottext">Maybe OpusSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680017004"><span class="annot"><span class="annottext">Maybe OpusSettings
 opusSettings :: Maybe OpusSettings
 $sel:opusSettings:AudioCodecSettings' :: AudioCodecSettings -&gt; Maybe OpusSettings
-</span><a href="#local-6989586621680016995"><span class="hs-identifier hs-var hs-var">opusSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OpusSettings
-</span><a href="#local-6989586621680016995"><span class="hs-identifier hs-var">opusSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680016994"><span class="annot"><span class="annottext">s :: AudioCodecSettings
-</span><a href="#local-6989586621680016994"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680016993"><span class="annot"><span class="annottext">Maybe OpusSettings
-</span><a href="#local-6989586621680016993"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioCodecSettings
-</span><a href="#local-6989586621680016994"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:opusSettings:AudioCodecSettings' :: Maybe OpusSettings
+</span><a href="#local-6989586621680017004"><span class="hs-identifier hs-var hs-var">opusSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OpusSettings
+</span><a href="#local-6989586621680017004"><span class="hs-identifier hs-var">opusSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680017003"><span class="annot"><span class="annottext">s :: AudioCodecSettings
+</span><a href="#local-6989586621680017003"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680017002"><span class="annot"><span class="annottext">Maybe OpusSettings
+</span><a href="#local-6989586621680017002"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioCodecSettings
+</span><a href="#local-6989586621680017003"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:opusSettings:AudioCodecSettings' :: Maybe OpusSettings
 </span><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#%24sel%3AopusSettings%3AAudioCodecSettings%27"><span class="hs-identifier hs-var">opusSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OpusSettings
-</span><a href="#local-6989586621680016993"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-type">AudioCodecSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680017002"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-type">AudioCodecSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- | Required when you set (Codec) under (AudioDescriptions)&gt;(CodecSettings)</span><span>
 </span><span id="line-193"></span><span class="hs-comment">-- to the value MP2.</span><span>
@@ -388,16 +388,16 @@ $sel:opusSettings:AudioCodecSettings' :: AudioCodecSettings -&gt; Maybe OpusSett
      (Maybe Mp2Settings)
      (Maybe Mp2Settings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016991"><span class="annot"><span class="annottext">Maybe Mp2Settings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680017000"><span class="annot"><span class="annottext">Maybe Mp2Settings
 mp2Settings :: Maybe Mp2Settings
 $sel:mp2Settings:AudioCodecSettings' :: AudioCodecSettings -&gt; Maybe Mp2Settings
-</span><a href="#local-6989586621680016991"><span class="hs-identifier hs-var hs-var">mp2Settings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Mp2Settings
-</span><a href="#local-6989586621680016991"><span class="hs-identifier hs-var">mp2Settings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680016990"><span class="annot"><span class="annottext">s :: AudioCodecSettings
-</span><a href="#local-6989586621680016990"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680016989"><span class="annot"><span class="annottext">Maybe Mp2Settings
-</span><a href="#local-6989586621680016989"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioCodecSettings
-</span><a href="#local-6989586621680016990"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mp2Settings:AudioCodecSettings' :: Maybe Mp2Settings
+</span><a href="#local-6989586621680017000"><span class="hs-identifier hs-var hs-var">mp2Settings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Mp2Settings
+</span><a href="#local-6989586621680017000"><span class="hs-identifier hs-var">mp2Settings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680016999"><span class="annot"><span class="annottext">s :: AudioCodecSettings
+</span><a href="#local-6989586621680016999"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680016998"><span class="annot"><span class="annottext">Maybe Mp2Settings
+</span><a href="#local-6989586621680016998"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioCodecSettings
+</span><a href="#local-6989586621680016999"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mp2Settings:AudioCodecSettings' :: Maybe Mp2Settings
 </span><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#%24sel%3Amp2Settings%3AAudioCodecSettings%27"><span class="hs-identifier hs-var">mp2Settings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Mp2Settings
-</span><a href="#local-6989586621680016989"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-type">AudioCodecSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680016998"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-type">AudioCodecSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-196"></span><span>
 </span><span id="line-197"></span><span class="hs-comment">-- | Required when you set (Codec) under (AudioDescriptions)&gt;(CodecSettings)</span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- to the value WAV.</span><span>
@@ -412,16 +412,16 @@ $sel:mp2Settings:AudioCodecSettings' :: AudioCodecSettings -&gt; Maybe Mp2Settin
      (Maybe WavSettings)
      (Maybe WavSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016987"><span class="annot"><span class="annottext">Maybe WavSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016996"><span class="annot"><span class="annottext">Maybe WavSettings
 wavSettings :: Maybe WavSettings
 $sel:wavSettings:AudioCodecSettings' :: AudioCodecSettings -&gt; Maybe WavSettings
-</span><a href="#local-6989586621680016987"><span class="hs-identifier hs-var hs-var">wavSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WavSettings
-</span><a href="#local-6989586621680016987"><span class="hs-identifier hs-var">wavSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680016986"><span class="annot"><span class="annottext">s :: AudioCodecSettings
-</span><a href="#local-6989586621680016986"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680016985"><span class="annot"><span class="annottext">Maybe WavSettings
-</span><a href="#local-6989586621680016985"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioCodecSettings
-</span><a href="#local-6989586621680016986"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:wavSettings:AudioCodecSettings' :: Maybe WavSettings
+</span><a href="#local-6989586621680016996"><span class="hs-identifier hs-var hs-var">wavSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WavSettings
+</span><a href="#local-6989586621680016996"><span class="hs-identifier hs-var">wavSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680016995"><span class="annot"><span class="annottext">s :: AudioCodecSettings
+</span><a href="#local-6989586621680016995"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680016994"><span class="annot"><span class="annottext">Maybe WavSettings
+</span><a href="#local-6989586621680016994"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioCodecSettings
+</span><a href="#local-6989586621680016995"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:wavSettings:AudioCodecSettings' :: Maybe WavSettings
 </span><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#%24sel%3AwavSettings%3AAudioCodecSettings%27"><span class="hs-identifier hs-var">wavSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WavSettings
-</span><a href="#local-6989586621680016985"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-type">AudioCodecSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680016994"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-type">AudioCodecSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-comment">-- | Required when you set (Codec) under (AudioDescriptions)&gt;(CodecSettings)</span><span>
 </span><span id="line-203"></span><span class="hs-comment">-- to the value EAC3_ATMOS.</span><span>
@@ -437,16 +437,16 @@ $sel:wavSettings:AudioCodecSettings' :: AudioCodecSettings -&gt; Maybe WavSettin
      (Maybe Eac3AtmosSettings)
      (Maybe Eac3AtmosSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016983"><span class="annot"><span class="annottext">Maybe Eac3AtmosSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016992"><span class="annot"><span class="annottext">Maybe Eac3AtmosSettings
 eac3AtmosSettings :: Maybe Eac3AtmosSettings
 $sel:eac3AtmosSettings:AudioCodecSettings' :: AudioCodecSettings -&gt; Maybe Eac3AtmosSettings
-</span><a href="#local-6989586621680016983"><span class="hs-identifier hs-var hs-var">eac3AtmosSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Eac3AtmosSettings
-</span><a href="#local-6989586621680016983"><span class="hs-identifier hs-var">eac3AtmosSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680016982"><span class="annot"><span class="annottext">s :: AudioCodecSettings
-</span><a href="#local-6989586621680016982"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680016981"><span class="annot"><span class="annottext">Maybe Eac3AtmosSettings
-</span><a href="#local-6989586621680016981"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioCodecSettings
-</span><a href="#local-6989586621680016982"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eac3AtmosSettings:AudioCodecSettings' :: Maybe Eac3AtmosSettings
+</span><a href="#local-6989586621680016992"><span class="hs-identifier hs-var hs-var">eac3AtmosSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Eac3AtmosSettings
+</span><a href="#local-6989586621680016992"><span class="hs-identifier hs-var">eac3AtmosSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680016991"><span class="annot"><span class="annottext">s :: AudioCodecSettings
+</span><a href="#local-6989586621680016991"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680016990"><span class="annot"><span class="annottext">Maybe Eac3AtmosSettings
+</span><a href="#local-6989586621680016990"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioCodecSettings
+</span><a href="#local-6989586621680016991"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eac3AtmosSettings:AudioCodecSettings' :: Maybe Eac3AtmosSettings
 </span><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#%24sel%3Aeac3AtmosSettings%3AAudioCodecSettings%27"><span class="hs-identifier hs-var">eac3AtmosSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Eac3AtmosSettings
-</span><a href="#local-6989586621680016981"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-type">AudioCodecSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680016990"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-type">AudioCodecSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>
 </span><span id="line-207"></span><span class="hs-comment">-- | Required when you set Codec, under AudioDescriptions&gt;CodecSettings, to</span><span>
 </span><span id="line-208"></span><span class="hs-comment">-- the value MP3.</span><span>
@@ -461,16 +461,16 @@ $sel:eac3AtmosSettings:AudioCodecSettings' :: AudioCodecSettings -&gt; Maybe Eac
      (Maybe Mp3Settings)
      (Maybe Mp3Settings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016979"><span class="annot"><span class="annottext">Maybe Mp3Settings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016988"><span class="annot"><span class="annottext">Maybe Mp3Settings
 mp3Settings :: Maybe Mp3Settings
 $sel:mp3Settings:AudioCodecSettings' :: AudioCodecSettings -&gt; Maybe Mp3Settings
-</span><a href="#local-6989586621680016979"><span class="hs-identifier hs-var hs-var">mp3Settings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Mp3Settings
-</span><a href="#local-6989586621680016979"><span class="hs-identifier hs-var">mp3Settings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680016978"><span class="annot"><span class="annottext">s :: AudioCodecSettings
-</span><a href="#local-6989586621680016978"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680016977"><span class="annot"><span class="annottext">Maybe Mp3Settings
-</span><a href="#local-6989586621680016977"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioCodecSettings
-</span><a href="#local-6989586621680016978"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mp3Settings:AudioCodecSettings' :: Maybe Mp3Settings
+</span><a href="#local-6989586621680016988"><span class="hs-identifier hs-var hs-var">mp3Settings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Mp3Settings
+</span><a href="#local-6989586621680016988"><span class="hs-identifier hs-var">mp3Settings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680016987"><span class="annot"><span class="annottext">s :: AudioCodecSettings
+</span><a href="#local-6989586621680016987"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680016986"><span class="annot"><span class="annottext">Maybe Mp3Settings
+</span><a href="#local-6989586621680016986"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioCodecSettings
+</span><a href="#local-6989586621680016987"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mp3Settings:AudioCodecSettings' :: Maybe Mp3Settings
 </span><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#%24sel%3Amp3Settings%3AAudioCodecSettings%27"><span class="hs-identifier hs-var">mp3Settings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Mp3Settings
-</span><a href="#local-6989586621680016977"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-type">AudioCodecSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680016986"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-type">AudioCodecSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-211"></span><span>
 </span><span id="line-212"></span><span class="hs-comment">-- | Required when you set Codec, under AudioDescriptions&gt;CodecSettings, to</span><span>
 </span><span id="line-213"></span><span class="hs-comment">-- the value Vorbis.</span><span>
@@ -486,16 +486,16 @@ $sel:mp3Settings:AudioCodecSettings' :: AudioCodecSettings -&gt; Maybe Mp3Settin
      (Maybe VorbisSettings)
      (Maybe VorbisSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016975"><span class="annot"><span class="annottext">Maybe VorbisSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016984"><span class="annot"><span class="annottext">Maybe VorbisSettings
 vorbisSettings :: Maybe VorbisSettings
 $sel:vorbisSettings:AudioCodecSettings' :: AudioCodecSettings -&gt; Maybe VorbisSettings
-</span><a href="#local-6989586621680016975"><span class="hs-identifier hs-var hs-var">vorbisSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VorbisSettings
-</span><a href="#local-6989586621680016975"><span class="hs-identifier hs-var">vorbisSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680016974"><span class="annot"><span class="annottext">s :: AudioCodecSettings
-</span><a href="#local-6989586621680016974"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680016973"><span class="annot"><span class="annottext">Maybe VorbisSettings
-</span><a href="#local-6989586621680016973"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioCodecSettings
-</span><a href="#local-6989586621680016974"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vorbisSettings:AudioCodecSettings' :: Maybe VorbisSettings
+</span><a href="#local-6989586621680016984"><span class="hs-identifier hs-var hs-var">vorbisSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VorbisSettings
+</span><a href="#local-6989586621680016984"><span class="hs-identifier hs-var">vorbisSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680016983"><span class="annot"><span class="annottext">s :: AudioCodecSettings
+</span><a href="#local-6989586621680016983"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680016982"><span class="annot"><span class="annottext">Maybe VorbisSettings
+</span><a href="#local-6989586621680016982"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioCodecSettings
+</span><a href="#local-6989586621680016983"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vorbisSettings:AudioCodecSettings' :: Maybe VorbisSettings
 </span><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#%24sel%3AvorbisSettings%3AAudioCodecSettings%27"><span class="hs-identifier hs-var">vorbisSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VorbisSettings
-</span><a href="#local-6989586621680016973"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-type">AudioCodecSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680016982"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-type">AudioCodecSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-216"></span><span>
 </span><span id="line-217"></span><span class="hs-comment">-- | Required when you set (Codec) under (AudioDescriptions)&gt;(CodecSettings)</span><span>
 </span><span id="line-218"></span><span class="hs-comment">-- to the value AAC. The service accepts one of two mutually exclusive</span><span>
@@ -515,16 +515,16 @@ $sel:vorbisSettings:AudioCodecSettings' :: AudioCodecSettings -&gt; Maybe Vorbis
      (Maybe AacSettings)
      (Maybe AacSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016971"><span class="annot"><span class="annottext">Maybe AacSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016980"><span class="annot"><span class="annottext">Maybe AacSettings
 aacSettings :: Maybe AacSettings
 $sel:aacSettings:AudioCodecSettings' :: AudioCodecSettings -&gt; Maybe AacSettings
-</span><a href="#local-6989586621680016971"><span class="hs-identifier hs-var hs-var">aacSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AacSettings
-</span><a href="#local-6989586621680016971"><span class="hs-identifier hs-var">aacSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680016970"><span class="annot"><span class="annottext">s :: AudioCodecSettings
-</span><a href="#local-6989586621680016970"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680016969"><span class="annot"><span class="annottext">Maybe AacSettings
-</span><a href="#local-6989586621680016969"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioCodecSettings
-</span><a href="#local-6989586621680016970"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aacSettings:AudioCodecSettings' :: Maybe AacSettings
+</span><a href="#local-6989586621680016980"><span class="hs-identifier hs-var hs-var">aacSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AacSettings
+</span><a href="#local-6989586621680016980"><span class="hs-identifier hs-var">aacSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680016979"><span class="annot"><span class="annottext">s :: AudioCodecSettings
+</span><a href="#local-6989586621680016979"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680016978"><span class="annot"><span class="annottext">Maybe AacSettings
+</span><a href="#local-6989586621680016978"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioCodecSettings
+</span><a href="#local-6989586621680016979"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aacSettings:AudioCodecSettings' :: Maybe AacSettings
 </span><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#%24sel%3AaacSettings%3AAudioCodecSettings%27"><span class="hs-identifier hs-var">aacSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AacSettings
-</span><a href="#local-6989586621680016969"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-type">AudioCodecSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680016978"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-type">AudioCodecSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-226"></span><span>
 </span><span id="line-227"></span><span class="hs-comment">-- | Required when you set (Codec) under (AudioDescriptions)&gt;(CodecSettings)</span><span>
 </span><span id="line-228"></span><span class="hs-comment">-- to the value EAC3.</span><span>
@@ -539,19 +539,19 @@ $sel:aacSettings:AudioCodecSettings' :: AudioCodecSettings -&gt; Maybe AacSettin
      (Maybe Eac3Settings)
      (Maybe Eac3Settings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016967"><span class="annot"><span class="annottext">Maybe Eac3Settings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016976"><span class="annot"><span class="annottext">Maybe Eac3Settings
 eac3Settings :: Maybe Eac3Settings
 $sel:eac3Settings:AudioCodecSettings' :: AudioCodecSettings -&gt; Maybe Eac3Settings
-</span><a href="#local-6989586621680016967"><span class="hs-identifier hs-var hs-var">eac3Settings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Eac3Settings
-</span><a href="#local-6989586621680016967"><span class="hs-identifier hs-var">eac3Settings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680016966"><span class="annot"><span class="annottext">s :: AudioCodecSettings
-</span><a href="#local-6989586621680016966"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680016965"><span class="annot"><span class="annottext">Maybe Eac3Settings
-</span><a href="#local-6989586621680016965"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioCodecSettings
-</span><a href="#local-6989586621680016966"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eac3Settings:AudioCodecSettings' :: Maybe Eac3Settings
+</span><a href="#local-6989586621680016976"><span class="hs-identifier hs-var hs-var">eac3Settings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Eac3Settings
+</span><a href="#local-6989586621680016976"><span class="hs-identifier hs-var">eac3Settings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680016975"><span class="annot"><span class="annottext">s :: AudioCodecSettings
+</span><a href="#local-6989586621680016975"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680016974"><span class="annot"><span class="annottext">Maybe Eac3Settings
+</span><a href="#local-6989586621680016974"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioCodecSettings
+</span><a href="#local-6989586621680016975"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eac3Settings:AudioCodecSettings' :: Maybe Eac3Settings
 </span><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#%24sel%3Aeac3Settings%3AAudioCodecSettings%27"><span class="hs-identifier hs-var">eac3Settings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Eac3Settings
-</span><a href="#local-6989586621680016965"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-type">AudioCodecSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680016974"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-type">AudioCodecSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-231"></span><span>
-</span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680016962"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-type">AudioCodecSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-233"></span><span>  </span><span id="local-6989586621680016960"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AudioCodecSettings
+</span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680016971"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-type">AudioCodecSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-233"></span><span>  </span><span id="local-6989586621680016969"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AudioCodecSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-234"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AudioCodecSettings)
@@ -561,8 +561,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-235"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AudioCodecSettings&quot;</span></span><span>
-</span><span id="line-236"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680016957"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680016957"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-236"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680016966"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680016966"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-237"></span><span>          </span><span class="annot"><span class="annottext">Maybe AiffSettings
 -&gt; Maybe AudioCodec
 -&gt; Maybe Ac3Settings
@@ -603,7 +603,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; AudioCodecSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680016957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AiffSettings)
+</span><a href="#local-6989586621680016966"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AiffSettings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;aiffSettings&quot;</span></span><span class="hs-special">)</span><span>
@@ -633,7 +633,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; AudioCodecSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680016957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AudioCodec)
+</span><a href="#local-6989586621680016966"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AudioCodec)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;codec&quot;</span></span><span class="hs-special">)</span><span>
@@ -661,7 +661,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; AudioCodecSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680016957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Ac3Settings)
+</span><a href="#local-6989586621680016966"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Ac3Settings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ac3Settings&quot;</span></span><span class="hs-special">)</span><span>
@@ -687,7 +687,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; AudioCodecSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680016957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OpusSettings)
+</span><a href="#local-6989586621680016966"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OpusSettings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;opusSettings&quot;</span></span><span class="hs-special">)</span><span>
@@ -711,7 +711,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; AudioCodecSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680016957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Mp2Settings)
+</span><a href="#local-6989586621680016966"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Mp2Settings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;mp2Settings&quot;</span></span><span class="hs-special">)</span><span>
@@ -733,7 +733,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; AudioCodecSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680016957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe WavSettings)
+</span><a href="#local-6989586621680016966"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe WavSettings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;wavSettings&quot;</span></span><span class="hs-special">)</span><span>
@@ -753,7 +753,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; AudioCodecSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680016957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Eac3AtmosSettings)
+</span><a href="#local-6989586621680016966"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Eac3AtmosSettings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;eac3AtmosSettings&quot;</span></span><span class="hs-special">)</span><span>
@@ -769,7 +769,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe AacSettings -&gt; Maybe Eac3Settings -&gt; AudioCodecSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680016957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Mp3Settings)
+</span><a href="#local-6989586621680016966"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Mp3Settings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;mp3Settings&quot;</span></span><span class="hs-special">)</span><span>
@@ -781,7 +781,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe AacSettings -&gt; Maybe Eac3Settings -&gt; AudioCodecSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680016957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VorbisSettings)
+</span><a href="#local-6989586621680016966"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VorbisSettings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;vorbisSettings&quot;</span></span><span class="hs-special">)</span><span>
@@ -791,7 +791,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Eac3Settings -&gt; AudioCodecSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680016957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AacSettings)
+</span><a href="#local-6989586621680016966"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AacSettings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;aacSettings&quot;</span></span><span class="hs-special">)</span><span>
@@ -799,19 +799,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Eac3Settings) -&gt; Parser AudioCodecSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680016957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Eac3Settings)
+</span><a href="#local-6989586621680016966"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Eac3Settings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;eac3Settings&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-249"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-250"></span><span>
-</span><span id="line-251"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680016951"><span id="local-6989586621680016953"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-type">AudioCodecSettings</span></a></span></span></span><span>
+</span><span id="line-251"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680016960"><span id="local-6989586621680016962"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-type">AudioCodecSettings</span></a></span></span></span><span>
 </span><span id="line-252"></span><span>
-</span><span id="line-253"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680016948"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-type">AudioCodecSettings</span></a></span></span><span>
+</span><span id="line-253"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680016957"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-type">AudioCodecSettings</span></a></span></span><span>
 </span><span id="line-254"></span><span>
-</span><span id="line-255"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680016940"><span id="local-6989586621680016942"><span id="local-6989586621680016944"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-type">AudioCodecSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-256"></span><span>  </span><span id="local-6989586621680016938"><span class="annot"><span class="annottext">toJSON :: AudioCodecSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016926"><span id="local-6989586621680016927"><span id="local-6989586621680016928"><span id="local-6989586621680016929"><span id="local-6989586621680016930"><span id="local-6989586621680016931"><span id="local-6989586621680016932"><span id="local-6989586621680016933"><span id="local-6989586621680016934"><span id="local-6989586621680016935"><span id="local-6989586621680016936"><span class="annot"><span class="annottext">Maybe AacSettings
+</span><span id="line-255"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680016949"><span id="local-6989586621680016951"><span id="local-6989586621680016953"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings"><span class="hs-identifier hs-type">AudioCodecSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-256"></span><span>  </span><span id="local-6989586621680016947"><span class="annot"><span class="annottext">toJSON :: AudioCodecSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioCodecSettings.html#AudioCodecSettings%27"><span class="hs-identifier hs-type">AudioCodecSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680016935"><span id="local-6989586621680016936"><span id="local-6989586621680016937"><span id="local-6989586621680016938"><span id="local-6989586621680016939"><span id="local-6989586621680016940"><span id="local-6989586621680016941"><span id="local-6989586621680016942"><span id="local-6989586621680016943"><span id="local-6989586621680016944"><span id="local-6989586621680016945"><span class="annot"><span class="annottext">Maybe AacSettings
 Maybe Ac3Settings
 Maybe AiffSettings
 Maybe AudioCodec
@@ -844,7 +844,7 @@ $sel:opusSettings:AudioCodecSettings' :: AudioCodecSettings -&gt; Maybe OpusSett
 $sel:ac3Settings:AudioCodecSettings' :: AudioCodecSettings -&gt; Maybe Ac3Settings
 $sel:codec:AudioCodecSettings' :: AudioCodecSettings -&gt; Maybe AudioCodec
 $sel:aiffSettings:AudioCodecSettings' :: AudioCodecSettings -&gt; Maybe AiffSettings
-</span><a href="#local-6989586621680016926"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680016935"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-257"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-258"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -856,42 +856,42 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AiffSettings -&gt; Pair) -&gt; Maybe AiffSettings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AiffSettings
-</span><a href="#local-6989586621680016936"><span class="hs-identifier hs-var">aiffSettings</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680016945"><span class="hs-identifier hs-var">aiffSettings</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-260"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;codec&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AudioCodec -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AudioCodec -&gt; Pair) -&gt; Maybe AudioCodec -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AudioCodec
-</span><a href="#local-6989586621680016935"><span class="hs-identifier hs-var">codec</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680016944"><span class="hs-identifier hs-var">codec</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-261"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ac3Settings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Ac3Settings -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Ac3Settings -&gt; Pair) -&gt; Maybe Ac3Settings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Ac3Settings
-</span><a href="#local-6989586621680016934"><span class="hs-identifier hs-var">ac3Settings</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680016943"><span class="hs-identifier hs-var">ac3Settings</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-262"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;opusSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OpusSettings -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(OpusSettings -&gt; Pair) -&gt; Maybe OpusSettings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe OpusSettings
-</span><a href="#local-6989586621680016933"><span class="hs-identifier hs-var">opusSettings</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680016942"><span class="hs-identifier hs-var">opusSettings</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-263"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;mp2Settings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Mp2Settings -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Mp2Settings -&gt; Pair) -&gt; Maybe Mp2Settings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Mp2Settings
-</span><a href="#local-6989586621680016932"><span class="hs-identifier hs-var">mp2Settings</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680016941"><span class="hs-identifier hs-var">mp2Settings</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-264"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;wavSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; WavSettings -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(WavSettings -&gt; Pair) -&gt; Maybe WavSettings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe WavSettings
-</span><a href="#local-6989586621680016931"><span class="hs-identifier hs-var">wavSettings</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680016940"><span class="hs-identifier hs-var">wavSettings</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-265"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;eac3AtmosSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Eac3AtmosSettings -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -900,14 +900,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe Eac3AtmosSettings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Eac3AtmosSettings
-</span><a href="#local-6989586621680016930"><span class="hs-identifier hs-var">eac3AtmosSettings</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680016939"><span class="hs-identifier hs-var">eac3AtmosSettings</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-267"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;mp3Settings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Mp3Settings -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Mp3Settings -&gt; Pair) -&gt; Maybe Mp3Settings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Mp3Settings
-</span><a href="#local-6989586621680016929"><span class="hs-identifier hs-var">mp3Settings</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680016938"><span class="hs-identifier hs-var">mp3Settings</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-268"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;vorbisSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VorbisSettings -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -915,21 +915,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-269"></span><span>              </span><span class="annot"><span class="annottext">(VorbisSettings -&gt; Pair) -&gt; Maybe VorbisSettings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VorbisSettings
-</span><a href="#local-6989586621680016928"><span class="hs-identifier hs-var">vorbisSettings</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680016937"><span class="hs-identifier hs-var">vorbisSettings</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-270"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;aacSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AacSettings -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AacSettings -&gt; Pair) -&gt; Maybe AacSettings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AacSettings
-</span><a href="#local-6989586621680016927"><span class="hs-identifier hs-var">aacSettings</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680016936"><span class="hs-identifier hs-var">aacSettings</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-271"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;eac3Settings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Eac3Settings -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Eac3Settings -&gt; Pair) -&gt; Maybe Eac3Settings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Eac3Settings
-</span><a href="#local-6989586621680016926"><span class="hs-identifier hs-var">eac3Settings</span></a></span><span>
+</span><a href="#local-6989586621680016935"><span class="hs-identifier hs-var">eac3Settings</span></a></span><span>
 </span><span id="line-272"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-273"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-274"></span></pre></body></html>

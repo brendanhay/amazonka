@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- journey.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newStartCondition' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679613235"><span id="local-6989586621679613236"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartCondition"><span class="annot"><a href="Network.AWS.Pinpoint.Types.StartCondition.html#StartCondition"><span class="hs-identifier hs-var">StartCondition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartCondition%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.StartCondition.html#StartCondition%27"><span class="hs-identifier hs-var">StartCondition'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679613244"><span id="local-6989586621679613245"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartCondition"><span class="annot"><a href="Network.AWS.Pinpoint.Types.StartCondition.html#StartCondition"><span class="hs-identifier hs-var">StartCondition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartCondition%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.StartCondition.html#StartCondition%27"><span class="hs-identifier hs-var">StartCondition'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The segment that\'s associated with the first activity in the journey.</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- This segment determines which users are participants in the journey.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AsegmentStartCondition%3AStartCondition%27"><span class="annot"><span class="annottext">StartCondition -&gt; Maybe SegmentCondition
@@ -41,7 +41,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3Adescription%3AStartCondition%27"><span class="annot"><span class="annottext">StartCondition -&gt; Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.StartCondition.html#%24sel%3Adescription%3AStartCondition%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679613227"><span id="local-6989586621679613229"><span class="annot"><span class="annottext">StartCondition -&gt; StartCondition -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679613236"><span id="local-6989586621679613238"><span class="annot"><span class="annottext">StartCondition -&gt; StartCondition -&gt; Bool
 (StartCondition -&gt; StartCondition -&gt; Bool)
 -&gt; (StartCondition -&gt; StartCondition -&gt; Bool) -&gt; Eq StartCondition
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StartCondition -&gt; StartCondition -&gt; Bool
 == :: StartCondition -&gt; StartCondition -&gt; Bool
 $c== :: StartCondition -&gt; StartCondition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679613218"><span id="local-6989586621679613220"><span id="local-6989586621679613222"><span id="local-6989586621679613224"><span class="annot"><span class="annottext">ReadPrec [StartCondition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679613227"><span id="local-6989586621679613229"><span id="local-6989586621679613231"><span id="local-6989586621679613233"><span class="annot"><span class="annottext">ReadPrec [StartCondition]
 ReadPrec StartCondition
 Int -&gt; ReadS StartCondition
 ReadS [StartCondition]
@@ -69,7 +69,7 @@ readList :: ReadS [StartCondition]
 $creadList :: ReadS [StartCondition]
 readsPrec :: Int -&gt; ReadS StartCondition
 $creadsPrec :: Int -&gt; ReadS StartCondition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679613211"><span id="local-6989586621679613213"><span id="local-6989586621679613215"><span class="annot"><span class="annottext">Int -&gt; StartCondition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679613220"><span id="local-6989586621679613222"><span id="local-6989586621679613224"><span class="annot"><span class="annottext">Int -&gt; StartCondition -&gt; ShowS
 [StartCondition] -&gt; ShowS
 StartCondition -&gt; String
 (Int -&gt; StartCondition -&gt; ShowS)
@@ -144,16 +144,16 @@ forall a. Maybe a
      (Maybe SegmentCondition)
      (Maybe SegmentCondition)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.StartCondition.html#StartCondition%27"><span class="hs-identifier hs-type">StartCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679613202"><span class="annot"><span class="annottext">Maybe SegmentCondition
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.StartCondition.html#StartCondition%27"><span class="hs-identifier hs-type">StartCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679613211"><span class="annot"><span class="annottext">Maybe SegmentCondition
 segmentStartCondition :: Maybe SegmentCondition
 $sel:segmentStartCondition:StartCondition' :: StartCondition -&gt; Maybe SegmentCondition
-</span><a href="#local-6989586621679613202"><span class="hs-identifier hs-var hs-var">segmentStartCondition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SegmentCondition
-</span><a href="#local-6989586621679613202"><span class="hs-identifier hs-var">segmentStartCondition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679613201"><span class="annot"><span class="annottext">s :: StartCondition
-</span><a href="#local-6989586621679613201"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.StartCondition.html#StartCondition%27"><span class="hs-identifier hs-type">StartCondition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679613200"><span class="annot"><span class="annottext">Maybe SegmentCondition
-</span><a href="#local-6989586621679613200"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartCondition
-</span><a href="#local-6989586621679613201"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:segmentStartCondition:StartCondition' :: Maybe SegmentCondition
+</span><a href="#local-6989586621679613211"><span class="hs-identifier hs-var hs-var">segmentStartCondition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SegmentCondition
+</span><a href="#local-6989586621679613211"><span class="hs-identifier hs-var">segmentStartCondition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679613210"><span class="annot"><span class="annottext">s :: StartCondition
+</span><a href="#local-6989586621679613210"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.StartCondition.html#StartCondition%27"><span class="hs-identifier hs-type">StartCondition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679613209"><span class="annot"><span class="annottext">Maybe SegmentCondition
+</span><a href="#local-6989586621679613209"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartCondition
+</span><a href="#local-6989586621679613210"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:segmentStartCondition:StartCondition' :: Maybe SegmentCondition
 </span><a href="Network.AWS.Pinpoint.Types.StartCondition.html#%24sel%3AsegmentStartCondition%3AStartCondition%27"><span class="hs-identifier hs-var">segmentStartCondition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SegmentCondition
-</span><a href="#local-6989586621679613200"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.StartCondition.html#StartCondition"><span class="hs-identifier hs-type">StartCondition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679613209"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.StartCondition.html#StartCondition"><span class="hs-identifier hs-type">StartCondition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.StartCondition.html#startCondition_eventStartCondition"><span class="hs-identifier hs-type">startCondition_eventStartCondition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.StartCondition.html#StartCondition"><span class="hs-identifier hs-type">StartCondition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventStartCondition.html#EventStartCondition"><span class="hs-identifier hs-type">EventStartCondition</span></a></span><span class="hs-special">)</span><span>
@@ -167,16 +167,16 @@ $sel:segmentStartCondition:StartCondition' :: StartCondition -&gt; Maybe Segment
      (Maybe EventStartCondition)
      (Maybe EventStartCondition)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.StartCondition.html#StartCondition%27"><span class="hs-identifier hs-type">StartCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679613198"><span class="annot"><span class="annottext">Maybe EventStartCondition
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.StartCondition.html#StartCondition%27"><span class="hs-identifier hs-type">StartCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679613207"><span class="annot"><span class="annottext">Maybe EventStartCondition
 eventStartCondition :: Maybe EventStartCondition
 $sel:eventStartCondition:StartCondition' :: StartCondition -&gt; Maybe EventStartCondition
-</span><a href="#local-6989586621679613198"><span class="hs-identifier hs-var hs-var">eventStartCondition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EventStartCondition
-</span><a href="#local-6989586621679613198"><span class="hs-identifier hs-var">eventStartCondition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679613197"><span class="annot"><span class="annottext">s :: StartCondition
-</span><a href="#local-6989586621679613197"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.StartCondition.html#StartCondition%27"><span class="hs-identifier hs-type">StartCondition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679613196"><span class="annot"><span class="annottext">Maybe EventStartCondition
-</span><a href="#local-6989586621679613196"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartCondition
-</span><a href="#local-6989586621679613197"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventStartCondition:StartCondition' :: Maybe EventStartCondition
+</span><a href="#local-6989586621679613207"><span class="hs-identifier hs-var hs-var">eventStartCondition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EventStartCondition
+</span><a href="#local-6989586621679613207"><span class="hs-identifier hs-var">eventStartCondition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679613206"><span class="annot"><span class="annottext">s :: StartCondition
+</span><a href="#local-6989586621679613206"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.StartCondition.html#StartCondition%27"><span class="hs-identifier hs-type">StartCondition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679613205"><span class="annot"><span class="annottext">Maybe EventStartCondition
+</span><a href="#local-6989586621679613205"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartCondition
+</span><a href="#local-6989586621679613206"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventStartCondition:StartCondition' :: Maybe EventStartCondition
 </span><a href="Network.AWS.Pinpoint.Types.StartCondition.html#%24sel%3AeventStartCondition%3AStartCondition%27"><span class="hs-identifier hs-var">eventStartCondition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventStartCondition
-</span><a href="#local-6989586621679613196"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.StartCondition.html#StartCondition"><span class="hs-identifier hs-type">StartCondition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679613205"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.StartCondition.html#StartCondition"><span class="hs-identifier hs-type">StartCondition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | The custom description of the condition.</span><span>
 </span><span id="line-77"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.StartCondition.html#startCondition_description"><span class="hs-identifier hs-type">startCondition_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.StartCondition.html#StartCondition"><span class="hs-identifier hs-type">StartCondition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -186,19 +186,19 @@ $sel:eventStartCondition:StartCondition' :: StartCondition -&gt; Maybe EventStar
 -&gt; (StartCondition -&gt; Maybe Text -&gt; StartCondition)
 -&gt; Lens StartCondition StartCondition (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.StartCondition.html#StartCondition%27"><span class="hs-identifier hs-type">StartCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679613194"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.StartCondition.html#StartCondition%27"><span class="hs-identifier hs-type">StartCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679613203"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:StartCondition' :: StartCondition -&gt; Maybe Text
-</span><a href="#local-6989586621679613194"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679613194"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679613193"><span class="annot"><span class="annottext">s :: StartCondition
-</span><a href="#local-6989586621679613193"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.StartCondition.html#StartCondition%27"><span class="hs-identifier hs-type">StartCondition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679613192"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679613192"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartCondition
-</span><a href="#local-6989586621679613193"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:StartCondition' :: Maybe Text
+</span><a href="#local-6989586621679613203"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679613203"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679613202"><span class="annot"><span class="annottext">s :: StartCondition
+</span><a href="#local-6989586621679613202"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.StartCondition.html#StartCondition%27"><span class="hs-identifier hs-type">StartCondition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679613201"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679613201"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartCondition
+</span><a href="#local-6989586621679613202"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:StartCondition' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.StartCondition.html#%24sel%3Adescription%3AStartCondition%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679613192"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.StartCondition.html#StartCondition"><span class="hs-identifier hs-type">StartCondition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679613201"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.StartCondition.html#StartCondition"><span class="hs-identifier hs-type">StartCondition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679613189"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.StartCondition.html#StartCondition"><span class="hs-identifier hs-type">StartCondition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679613187"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StartCondition
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679613198"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.StartCondition.html#StartCondition"><span class="hs-identifier hs-type">StartCondition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679613196"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StartCondition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser StartCondition)
@@ -208,8 +208,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;StartCondition&quot;</span></span><span>
-</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679613184"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679613184"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679613193"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679613193"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe SegmentCondition
 -&gt; Maybe EventStartCondition -&gt; Maybe Text -&gt; StartCondition
 </span><a href="Network.AWS.Pinpoint.Types.StartCondition.html#StartCondition%27"><span class="hs-identifier hs-var">StartCondition'</span></a></span><span>
@@ -220,7 +220,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe EventStartCondition -&gt; Maybe Text -&gt; StartCondition)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679613184"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SegmentCondition)
+</span><a href="#local-6989586621679613193"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SegmentCondition)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SegmentStartCondition&quot;</span></span><span class="hs-special">)</span><span>
@@ -229,7 +229,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; StartCondition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679613184"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EventStartCondition)
+</span><a href="#local-6989586621679613193"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EventStartCondition)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EventStartCondition&quot;</span></span><span class="hs-special">)</span><span>
@@ -237,19 +237,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser StartCondition
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679613184"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679613193"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679613178"><span id="local-6989586621679613180"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.StartCondition.html#StartCondition"><span class="hs-identifier hs-type">StartCondition</span></a></span></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679613187"><span id="local-6989586621679613189"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.StartCondition.html#StartCondition"><span class="hs-identifier hs-type">StartCondition</span></a></span></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679613175"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.StartCondition.html#StartCondition"><span class="hs-identifier hs-type">StartCondition</span></a></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679613184"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.StartCondition.html#StartCondition"><span class="hs-identifier hs-type">StartCondition</span></a></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679613167"><span id="local-6989586621679613169"><span id="local-6989586621679613171"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.StartCondition.html#StartCondition"><span class="hs-identifier hs-type">StartCondition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679613165"><span class="annot"><span class="annottext">toJSON :: StartCondition -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.StartCondition.html#StartCondition%27"><span class="hs-identifier hs-type">StartCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679613161"><span id="local-6989586621679613162"><span id="local-6989586621679613163"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679613176"><span id="local-6989586621679613178"><span id="local-6989586621679613180"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.StartCondition.html#StartCondition"><span class="hs-identifier hs-type">StartCondition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679613174"><span class="annot"><span class="annottext">toJSON :: StartCondition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.StartCondition.html#StartCondition%27"><span class="hs-identifier hs-type">StartCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679613170"><span id="local-6989586621679613171"><span id="local-6989586621679613172"><span class="annot"><span class="annottext">Maybe Text
 Maybe SegmentCondition
 Maybe EventStartCondition
 description :: Maybe Text
@@ -258,7 +258,7 @@ segmentStartCondition :: Maybe SegmentCondition
 $sel:description:StartCondition' :: StartCondition -&gt; Maybe Text
 $sel:eventStartCondition:StartCondition' :: StartCondition -&gt; Maybe EventStartCondition
 $sel:segmentStartCondition:StartCondition' :: StartCondition -&gt; Maybe SegmentCondition
-</span><a href="#local-6989586621679613161"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679613170"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -271,7 +271,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-100"></span><span>              </span><span class="annot"><span class="annottext">(SegmentCondition -&gt; Pair) -&gt; Maybe SegmentCondition -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SegmentCondition
-</span><a href="#local-6989586621679613163"><span class="hs-identifier hs-var">segmentStartCondition</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679613172"><span class="hs-identifier hs-var">segmentStartCondition</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EventStartCondition&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EventStartCondition -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -280,14 +280,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe EventStartCondition -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EventStartCondition
-</span><a href="#local-6989586621679613162"><span class="hs-identifier hs-var">eventStartCondition</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679613171"><span class="hs-identifier hs-var">eventStartCondition</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-103"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679613161"><span class="hs-identifier hs-var">description</span></a></span><span>
+</span><a href="#local-6989586621679613170"><span class="hs-identifier hs-var">description</span></a></span><span>
 </span><span id="line-104"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span></pre></body></html>

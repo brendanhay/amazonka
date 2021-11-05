@@ -46,7 +46,7 @@
 </span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-47"></span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newUpdatePipeline' smart constructor.</span><span>
-</span><span id="line-49"></span><span id="local-6989586621679271205"><span id="local-6989586621679271206"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdatePipeline"><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-var">UpdatePipeline</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdatePipeline%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#UpdatePipeline%27"><span class="hs-identifier hs-var">UpdatePipeline'</span></a></span></span><span>
+</span><span id="line-49"></span><span id="local-6989586621679271214"><span id="local-6989586621679271215"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdatePipeline"><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-var">UpdatePipeline</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdatePipeline%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#UpdatePipeline%27"><span class="hs-identifier hs-var">UpdatePipeline'</span></a></span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the pipeline to update.</span><span>
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3ApipelineName%3AUpdatePipeline%27"><span class="annot"><span class="annottext">UpdatePipeline -&gt; Text
 </span><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#%24sel%3ApipelineName%3AUpdatePipeline%27"><span class="hs-identifier hs-var hs-var">pipelineName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -64,7 +64,7 @@
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3ApipelineActivities%3AUpdatePipeline%27"><span class="annot"><span class="annottext">UpdatePipeline -&gt; NonEmpty PipelineActivity
 </span><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#%24sel%3ApipelineActivities%3AUpdatePipeline%27"><span class="hs-identifier hs-var hs-var">pipelineActivities</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity"><span class="hs-identifier hs-type">PipelineActivity</span></a></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679271198"><span id="local-6989586621679271200"><span class="annot"><span class="annottext">UpdatePipeline -&gt; UpdatePipeline -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679271207"><span id="local-6989586621679271209"><span class="annot"><span class="annottext">UpdatePipeline -&gt; UpdatePipeline -&gt; Bool
 (UpdatePipeline -&gt; UpdatePipeline -&gt; Bool)
 -&gt; (UpdatePipeline -&gt; UpdatePipeline -&gt; Bool) -&gt; Eq UpdatePipeline
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -72,7 +72,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdatePipeline -&gt; UpdatePipeline -&gt; Bool
 == :: UpdatePipeline -&gt; UpdatePipeline -&gt; Bool
 $c== :: UpdatePipeline -&gt; UpdatePipeline -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271189"><span id="local-6989586621679271191"><span id="local-6989586621679271193"><span id="local-6989586621679271195"><span class="annot"><span class="annottext">ReadPrec [UpdatePipeline]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271198"><span id="local-6989586621679271200"><span id="local-6989586621679271202"><span id="local-6989586621679271204"><span class="annot"><span class="annottext">ReadPrec [UpdatePipeline]
 ReadPrec UpdatePipeline
 Int -&gt; ReadS UpdatePipeline
 ReadS [UpdatePipeline]
@@ -92,7 +92,7 @@ readList :: ReadS [UpdatePipeline]
 $creadList :: ReadS [UpdatePipeline]
 readsPrec :: Int -&gt; ReadS UpdatePipeline
 $creadsPrec :: Int -&gt; ReadS UpdatePipeline
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271182"><span id="local-6989586621679271184"><span id="local-6989586621679271186"><span class="annot"><span class="annottext">Int -&gt; UpdatePipeline -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271191"><span id="local-6989586621679271193"><span id="local-6989586621679271195"><span class="annot"><span class="annottext">Int -&gt; UpdatePipeline -&gt; ShowS
 [UpdatePipeline] -&gt; ShowS
 UpdatePipeline -&gt; String
 (Int -&gt; UpdatePipeline -&gt; ShowS)
@@ -146,14 +146,14 @@ $cfrom :: forall x. UpdatePipeline -&gt; Rep UpdatePipeline x
 </span><span id="line-92"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity"><span class="hs-identifier hs-type">PipelineActivity</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span><span>
 </span><span id="line-94"></span><span id="newUpdatePipeline"><span class="annot"><span class="annottext">newUpdatePipeline :: Text -&gt; NonEmpty PipelineActivity -&gt; UpdatePipeline
-</span><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#newUpdatePipeline"><span class="hs-identifier hs-var hs-var">newUpdatePipeline</span></a></span></span><span> </span><span id="local-6989586621679271177"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679271177"><span class="hs-identifier hs-var">pPipelineName_</span></a></span></span><span> </span><span id="local-6989586621679271176"><span class="annot"><span class="annottext">NonEmpty PipelineActivity
-</span><a href="#local-6989586621679271176"><span class="hs-identifier hs-var">pPipelineActivities_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#newUpdatePipeline"><span class="hs-identifier hs-var hs-var">newUpdatePipeline</span></a></span></span><span> </span><span id="local-6989586621679271186"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679271186"><span class="hs-identifier hs-var">pPipelineName_</span></a></span></span><span> </span><span id="local-6989586621679271185"><span class="annot"><span class="annottext">NonEmpty PipelineActivity
+</span><a href="#local-6989586621679271185"><span class="hs-identifier hs-var">pPipelineActivities_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>  </span><span class="annot"><span class="annottext">UpdatePipeline' :: Text -&gt; NonEmpty PipelineActivity -&gt; UpdatePipeline
 </span><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#UpdatePipeline%27"><span class="hs-identifier hs-type">UpdatePipeline'</span></a></span><span>
 </span><span id="line-96"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pipelineName:UpdatePipeline' :: Text
 </span><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#%24sel%3ApipelineName%3AUpdatePipeline%27"><span class="hs-identifier hs-var">pipelineName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679271177"><span class="hs-identifier hs-var">pPipelineName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679271186"><span class="hs-identifier hs-var">pPipelineName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:pipelineActivities:UpdatePipeline' :: NonEmpty PipelineActivity
 </span><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#%24sel%3ApipelineActivities%3AUpdatePipeline%27"><span class="hs-identifier hs-var">pipelineActivities</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">Tagged
@@ -168,7 +168,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty PipelineActivity -&gt; NonEmpty PipelineActivity
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty PipelineActivity
-</span><a href="#local-6989586621679271176"><span class="hs-identifier hs-var">pPipelineActivities_</span></a></span><span>
+</span><a href="#local-6989586621679271185"><span class="hs-identifier hs-var">pPipelineActivities_</span></a></span><span>
 </span><span id="line-99"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | The name of the pipeline to update.</span><span>
@@ -178,16 +178,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (UpdatePipeline -&gt; Text -&gt; UpdatePipeline)
 -&gt; Lens UpdatePipeline UpdatePipeline Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#UpdatePipeline%27"><span class="hs-identifier hs-type">UpdatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271171"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#UpdatePipeline%27"><span class="hs-identifier hs-type">UpdatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271180"><span class="annot"><span class="annottext">Text
 pipelineName :: Text
 $sel:pipelineName:UpdatePipeline' :: UpdatePipeline -&gt; Text
-</span><a href="#local-6989586621679271171"><span class="hs-identifier hs-var hs-var">pipelineName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679271171"><span class="hs-identifier hs-var">pipelineName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271170"><span class="annot"><span class="annottext">s :: UpdatePipeline
-</span><a href="#local-6989586621679271170"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#UpdatePipeline%27"><span class="hs-identifier hs-type">UpdatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271169"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679271169"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePipeline
-</span><a href="#local-6989586621679271170"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineName:UpdatePipeline' :: Text
+</span><a href="#local-6989586621679271180"><span class="hs-identifier hs-var hs-var">pipelineName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679271180"><span class="hs-identifier hs-var">pipelineName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271179"><span class="annot"><span class="annottext">s :: UpdatePipeline
+</span><a href="#local-6989586621679271179"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#UpdatePipeline%27"><span class="hs-identifier hs-type">UpdatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271178"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679271178"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePipeline
+</span><a href="#local-6989586621679271179"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineName:UpdatePipeline' :: Text
 </span><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#%24sel%3ApipelineName%3AUpdatePipeline%27"><span class="hs-identifier hs-var">pipelineName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679271169"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679271178"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | A list of @PipelineActivity@ objects. Activities perform transformations</span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- on your messages, such as removing, renaming or adding message</span><span>
@@ -211,16 +211,16 @@ $sel:pipelineName:UpdatePipeline' :: UpdatePipeline -&gt; Text
      (NonEmpty PipelineActivity)
      (NonEmpty PipelineActivity)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#UpdatePipeline%27"><span class="hs-identifier hs-type">UpdatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271168"><span class="annot"><span class="annottext">NonEmpty PipelineActivity
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#UpdatePipeline%27"><span class="hs-identifier hs-type">UpdatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271177"><span class="annot"><span class="annottext">NonEmpty PipelineActivity
 pipelineActivities :: NonEmpty PipelineActivity
 $sel:pipelineActivities:UpdatePipeline' :: UpdatePipeline -&gt; NonEmpty PipelineActivity
-</span><a href="#local-6989586621679271168"><span class="hs-identifier hs-var hs-var">pipelineActivities</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty PipelineActivity
-</span><a href="#local-6989586621679271168"><span class="hs-identifier hs-var">pipelineActivities</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271167"><span class="annot"><span class="annottext">s :: UpdatePipeline
-</span><a href="#local-6989586621679271167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#UpdatePipeline%27"><span class="hs-identifier hs-type">UpdatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271166"><span class="annot"><span class="annottext">NonEmpty PipelineActivity
-</span><a href="#local-6989586621679271166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePipeline
-</span><a href="#local-6989586621679271167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineActivities:UpdatePipeline' :: NonEmpty PipelineActivity
+</span><a href="#local-6989586621679271177"><span class="hs-identifier hs-var hs-var">pipelineActivities</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty PipelineActivity
+</span><a href="#local-6989586621679271177"><span class="hs-identifier hs-var">pipelineActivities</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271176"><span class="annot"><span class="annottext">s :: UpdatePipeline
+</span><a href="#local-6989586621679271176"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#UpdatePipeline%27"><span class="hs-identifier hs-type">UpdatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271175"><span class="annot"><span class="annottext">NonEmpty PipelineActivity
+</span><a href="#local-6989586621679271175"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePipeline
+</span><a href="#local-6989586621679271176"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineActivities:UpdatePipeline' :: NonEmpty PipelineActivity
 </span><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#%24sel%3ApipelineActivities%3AUpdatePipeline%27"><span class="hs-identifier hs-var">pipelineActivities</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty PipelineActivity
-</span><a href="#local-6989586621679271166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty PipelineActivity -&gt; f (NonEmpty PipelineActivity))
+</span><a href="#local-6989586621679271175"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty PipelineActivity -&gt; f (NonEmpty PipelineActivity))
  -&gt; UpdatePipeline -&gt; f UpdatePipeline)
 -&gt; ((NonEmpty PipelineActivity -&gt; f (NonEmpty PipelineActivity))
     -&gt; NonEmpty PipelineActivity -&gt; f (NonEmpty PipelineActivity))
@@ -237,12 +237,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-120"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-121"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>      </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#UpdatePipelineResponse"><span class="hs-identifier hs-type">UpdatePipelineResponse</span></a></span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679271161"><span class="annot"><span class="annottext">request :: UpdatePipeline -&gt; Request UpdatePipeline
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679271170"><span class="annot"><span class="annottext">request :: UpdatePipeline -&gt; Request UpdatePipeline
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdatePipeline -&gt; Request UpdatePipeline
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoTAnalytics.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679271157"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679271166"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdatePipeline
 -&gt; ClientResponse ClientBody
@@ -266,27 +266,27 @@ AWSResponse a
 UpdatePipelineResponse
 </span><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#UpdatePipelineResponse%27"><span class="hs-identifier hs-var">UpdatePipelineResponse'</span></a></span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271150"><span id="local-6989586621679271152"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span></span></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271159"><span id="local-6989586621679271161"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span></span></span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271147"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271156"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span></span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679271143"><span class="annot"><span class="annottext">toHeaders :: UpdatePipeline -&gt; [Header]
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679271152"><span class="annot"><span class="annottext">toHeaders :: UpdatePipeline -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; UpdatePipeline -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271134"><span id="local-6989586621679271136"><span id="local-6989586621679271138"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679271132"><span class="annot"><span class="annottext">toJSON :: UpdatePipeline -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#UpdatePipeline%27"><span class="hs-identifier hs-type">UpdatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271129"><span id="local-6989586621679271130"><span class="annot"><span class="annottext">NonEmpty PipelineActivity
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271143"><span id="local-6989586621679271145"><span id="local-6989586621679271147"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679271141"><span class="annot"><span class="annottext">toJSON :: UpdatePipeline -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#UpdatePipeline%27"><span class="hs-identifier hs-type">UpdatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271138"><span id="local-6989586621679271139"><span class="annot"><span class="annottext">NonEmpty PipelineActivity
 Text
 pipelineActivities :: NonEmpty PipelineActivity
 pipelineName :: Text
 $sel:pipelineActivities:UpdatePipeline' :: UpdatePipeline -&gt; NonEmpty PipelineActivity
 $sel:pipelineName:UpdatePipeline' :: UpdatePipeline -&gt; Text
-</span><a href="#local-6989586621679271129"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679271138"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -299,19 +299,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;pipelineActivities&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty PipelineActivity -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty PipelineActivity
-</span><a href="#local-6989586621679271129"><span class="hs-identifier hs-var">pipelineActivities</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679271138"><span class="hs-identifier hs-var">pipelineActivities</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679271123"><span class="annot"><span class="annottext">toPath :: UpdatePipeline -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#UpdatePipeline%27"><span class="hs-identifier hs-type">UpdatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271120"><span id="local-6989586621679271121"><span class="annot"><span class="annottext">NonEmpty PipelineActivity
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679271132"><span class="annot"><span class="annottext">toPath :: UpdatePipeline -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#UpdatePipeline%27"><span class="hs-identifier hs-type">UpdatePipeline'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271129"><span id="local-6989586621679271130"><span class="annot"><span class="annottext">NonEmpty PipelineActivity
 Text
 pipelineActivities :: NonEmpty PipelineActivity
 pipelineName :: Text
 $sel:pipelineActivities:UpdatePipeline' :: UpdatePipeline -&gt; NonEmpty PipelineActivity
 $sel:pipelineName:UpdatePipeline' :: UpdatePipeline -&gt; Text
-</span><a href="#local-6989586621679271120"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679271129"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -319,10 +319,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/pipelines/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679271121"><span class="hs-identifier hs-var">pipelineName</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679271130"><span class="hs-identifier hs-var">pipelineName</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#UpdatePipeline"><span class="hs-identifier hs-type">UpdatePipeline</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679271116"><span class="annot"><span class="annottext">toQuery :: UpdatePipeline -&gt; QueryString
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679271125"><span class="annot"><span class="annottext">toQuery :: UpdatePipeline -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdatePipeline -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -330,10 +330,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- | /See:/ 'newUpdatePipelineResponse' smart constructor.</span><span>
-</span><span id="line-152"></span><span id="local-6989586621679271113"><span id="local-6989586621679271114"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdatePipelineResponse"><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#UpdatePipelineResponse"><span class="hs-identifier hs-var">UpdatePipelineResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdatePipelineResponse%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#UpdatePipelineResponse%27"><span class="hs-identifier hs-var">UpdatePipelineResponse'</span></a></span></span><span>
+</span><span id="line-152"></span><span id="local-6989586621679271122"><span id="local-6989586621679271123"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdatePipelineResponse"><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#UpdatePipelineResponse"><span class="hs-identifier hs-var">UpdatePipelineResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdatePipelineResponse%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#UpdatePipelineResponse%27"><span class="hs-identifier hs-var">UpdatePipelineResponse'</span></a></span></span><span>
 </span><span id="line-153"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-154"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679271109"><span id="local-6989586621679271111"><span class="annot"><span class="annottext">UpdatePipelineResponse -&gt; UpdatePipelineResponse -&gt; Bool
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679271118"><span id="local-6989586621679271120"><span class="annot"><span class="annottext">UpdatePipelineResponse -&gt; UpdatePipelineResponse -&gt; Bool
 (UpdatePipelineResponse -&gt; UpdatePipelineResponse -&gt; Bool)
 -&gt; (UpdatePipelineResponse -&gt; UpdatePipelineResponse -&gt; Bool)
 -&gt; Eq UpdatePipelineResponse
@@ -342,7 +342,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdatePipelineResponse -&gt; UpdatePipelineResponse -&gt; Bool
 == :: UpdatePipelineResponse -&gt; UpdatePipelineResponse -&gt; Bool
 $c== :: UpdatePipelineResponse -&gt; UpdatePipelineResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271101"><span id="local-6989586621679271103"><span id="local-6989586621679271105"><span id="local-6989586621679271107"><span class="annot"><span class="annottext">ReadPrec [UpdatePipelineResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271110"><span id="local-6989586621679271112"><span id="local-6989586621679271114"><span id="local-6989586621679271116"><span class="annot"><span class="annottext">ReadPrec [UpdatePipelineResponse]
 ReadPrec UpdatePipelineResponse
 Int -&gt; ReadS UpdatePipelineResponse
 ReadS [UpdatePipelineResponse]
@@ -362,7 +362,7 @@ readList :: ReadS [UpdatePipelineResponse]
 $creadList :: ReadS [UpdatePipelineResponse]
 readsPrec :: Int -&gt; ReadS UpdatePipelineResponse
 $creadsPrec :: Int -&gt; ReadS UpdatePipelineResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271095"><span id="local-6989586621679271097"><span id="local-6989586621679271099"><span class="annot"><span class="annottext">Int -&gt; UpdatePipelineResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271104"><span id="local-6989586621679271106"><span id="local-6989586621679271108"><span class="annot"><span class="annottext">Int -&gt; UpdatePipelineResponse -&gt; ShowS
 [UpdatePipelineResponse] -&gt; ShowS
 UpdatePipelineResponse -&gt; String
 (Int -&gt; UpdatePipelineResponse -&gt; ShowS)
@@ -399,5 +399,5 @@ $cfrom :: forall x. UpdatePipelineResponse -&gt; Rep UpdatePipelineResponse x
 </span><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#newUpdatePipelineResponse"><span class="hs-identifier hs-var hs-var">newUpdatePipelineResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UpdatePipelineResponse
 </span><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#UpdatePipelineResponse%27"><span class="hs-identifier hs-var">UpdatePipelineResponse'</span></a></span><span>
 </span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271091"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#UpdatePipelineResponse"><span class="hs-identifier hs-type">UpdatePipelineResponse</span></a></span></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271100"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdatePipeline.html#UpdatePipelineResponse"><span class="hs-identifier hs-type">UpdatePipelineResponse</span></a></span></span><span>
 </span><span id="line-166"></span></pre></body></html>

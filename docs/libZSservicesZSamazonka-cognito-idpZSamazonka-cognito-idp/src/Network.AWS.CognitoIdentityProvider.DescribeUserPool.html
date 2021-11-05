@@ -50,12 +50,12 @@
 </span><span id="line-50"></span><span class="hs-comment">-- | Represents the request to describe the user pool.</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- /See:/ 'newDescribeUserPool' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679448405"><span id="local-6989586621679448406"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeUserPool"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPool"><span class="hs-identifier hs-var">DescribeUserPool</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeUserPool%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPool%27"><span class="hs-identifier hs-var">DescribeUserPool'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679448414"><span id="local-6989586621679448415"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeUserPool"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPool"><span class="hs-identifier hs-var">DescribeUserPool</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeUserPool%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPool%27"><span class="hs-identifier hs-var">DescribeUserPool'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The user pool ID for the user pool you want to describe.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AuserPoolId%3ADescribeUserPool%27"><span class="annot"><span class="annottext">DescribeUserPool -&gt; Text
 </span><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#%24sel%3AuserPoolId%3ADescribeUserPool%27"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679448399"><span id="local-6989586621679448401"><span class="annot"><span class="annottext">DescribeUserPool -&gt; DescribeUserPool -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679448408"><span id="local-6989586621679448410"><span class="annot"><span class="annottext">DescribeUserPool -&gt; DescribeUserPool -&gt; Bool
 (DescribeUserPool -&gt; DescribeUserPool -&gt; Bool)
 -&gt; (DescribeUserPool -&gt; DescribeUserPool -&gt; Bool)
 -&gt; Eq DescribeUserPool
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeUserPool -&gt; DescribeUserPool -&gt; Bool
 == :: DescribeUserPool -&gt; DescribeUserPool -&gt; Bool
 $c== :: DescribeUserPool -&gt; DescribeUserPool -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679448390"><span id="local-6989586621679448392"><span id="local-6989586621679448394"><span id="local-6989586621679448396"><span class="annot"><span class="annottext">ReadPrec [DescribeUserPool]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679448399"><span id="local-6989586621679448401"><span id="local-6989586621679448403"><span id="local-6989586621679448405"><span class="annot"><span class="annottext">ReadPrec [DescribeUserPool]
 ReadPrec DescribeUserPool
 Int -&gt; ReadS DescribeUserPool
 ReadS [DescribeUserPool]
@@ -84,7 +84,7 @@ readList :: ReadS [DescribeUserPool]
 $creadList :: ReadS [DescribeUserPool]
 readsPrec :: Int -&gt; ReadS DescribeUserPool
 $creadsPrec :: Int -&gt; ReadS DescribeUserPool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679448383"><span id="local-6989586621679448385"><span id="local-6989586621679448387"><span class="annot"><span class="annottext">Int -&gt; DescribeUserPool -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679448392"><span id="local-6989586621679448394"><span id="local-6989586621679448396"><span class="annot"><span class="annottext">Int -&gt; DescribeUserPool -&gt; ShowS
 [DescribeUserPool] -&gt; ShowS
 DescribeUserPool -&gt; String
 (Int -&gt; DescribeUserPool -&gt; ShowS)
@@ -124,12 +124,12 @@ $cfrom :: forall x. DescribeUserPool -&gt; Rep DescribeUserPool x
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPool"><span class="hs-identifier hs-type">DescribeUserPool</span></a></span><span>
 </span><span id="line-72"></span><span id="newDescribeUserPool"><span class="annot"><span class="annottext">newDescribeUserPool :: Text -&gt; DescribeUserPool
-</span><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#newDescribeUserPool"><span class="hs-identifier hs-var hs-var">newDescribeUserPool</span></a></span></span><span> </span><span id="local-6989586621679448378"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679448378"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#newDescribeUserPool"><span class="hs-identifier hs-var hs-var">newDescribeUserPool</span></a></span></span><span> </span><span id="local-6989586621679448387"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679448387"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">DescribeUserPool' :: Text -&gt; DescribeUserPool
 </span><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPool%27"><span class="hs-identifier hs-type">DescribeUserPool'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userPoolId:DescribeUserPool' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#%24sel%3AuserPoolId%3ADescribeUserPool%27"><span class="hs-identifier hs-var">userPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679448378"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679448387"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | The user pool ID for the user pool you want to describe.</span><span>
 </span><span id="line-76"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#describeUserPool_userPoolId"><span class="hs-identifier hs-type">describeUserPool_userPoolId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPool"><span class="hs-identifier hs-type">DescribeUserPool</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -138,27 +138,27 @@ $cfrom :: forall x. DescribeUserPool -&gt; Rep DescribeUserPool x
 -&gt; (DescribeUserPool -&gt; Text -&gt; DescribeUserPool)
 -&gt; Lens DescribeUserPool DescribeUserPool Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPool%27"><span class="hs-identifier hs-type">DescribeUserPool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679448375"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPool%27"><span class="hs-identifier hs-type">DescribeUserPool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679448384"><span class="annot"><span class="annottext">Text
 userPoolId :: Text
 $sel:userPoolId:DescribeUserPool' :: DescribeUserPool -&gt; Text
-</span><a href="#local-6989586621679448375"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679448375"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679448374"><span class="annot"><span class="annottext">s :: DescribeUserPool
-</span><a href="#local-6989586621679448374"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPool%27"><span class="hs-identifier hs-type">DescribeUserPool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679448373"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679448373"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUserPool
-</span><a href="#local-6989586621679448374"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userPoolId:DescribeUserPool' :: Text
+</span><a href="#local-6989586621679448384"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679448384"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679448383"><span class="annot"><span class="annottext">s :: DescribeUserPool
+</span><a href="#local-6989586621679448383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPool%27"><span class="hs-identifier hs-type">DescribeUserPool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679448382"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679448382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUserPool
+</span><a href="#local-6989586621679448383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userPoolId:DescribeUserPool' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#%24sel%3AuserPoolId%3ADescribeUserPool%27"><span class="hs-identifier hs-var">userPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679448373"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPool"><span class="hs-identifier hs-type">DescribeUserPool</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679448382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPool"><span class="hs-identifier hs-type">DescribeUserPool</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPool"><span class="hs-identifier hs-type">DescribeUserPool</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-80"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-81"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPool"><span class="hs-identifier hs-type">DescribeUserPool</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPoolResponse"><span class="hs-identifier hs-type">DescribeUserPoolResponse</span></a></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679448369"><span class="annot"><span class="annottext">request :: DescribeUserPool -&gt; Request DescribeUserPool
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679448378"><span class="annot"><span class="annottext">request :: DescribeUserPool -&gt; Request DescribeUserPool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeUserPool -&gt; Request DescribeUserPool
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679448365"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679448374"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeUserPool
 -&gt; ClientResponse ClientBody
@@ -182,10 +182,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679448362"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679448362"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679448361"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679448361"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679448360"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679448360"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679448371"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679448371"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679448370"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679448370"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679448369"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679448369"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe UserPoolType -&gt; Int -&gt; DescribeUserPoolResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPoolResponse%27"><span class="hs-identifier hs-var">DescribeUserPoolResponse'</span></a></span><span>
 </span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Maybe UserPoolType -&gt; Int -&gt; DescribeUserPoolResponse)
@@ -193,7 +193,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DescribeUserPoolResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679448360"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe UserPoolType)
+</span><a href="#local-6989586621679448369"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe UserPoolType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UserPool&quot;</span></span><span class="hs-special">)</span><span>
@@ -205,15 +205,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679448362"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679448371"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679448352"><span id="local-6989586621679448354"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPool"><span class="hs-identifier hs-type">DescribeUserPool</span></a></span></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679448361"><span id="local-6989586621679448363"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPool"><span class="hs-identifier hs-type">DescribeUserPool</span></a></span></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679448349"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPool"><span class="hs-identifier hs-type">DescribeUserPool</span></a></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679448358"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPool"><span class="hs-identifier hs-type">DescribeUserPool</span></a></span></span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPool"><span class="hs-identifier hs-type">DescribeUserPool</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679448345"><span class="annot"><span class="annottext">toHeaders :: DescribeUserPool -&gt; ResponseHeaders
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679448354"><span class="annot"><span class="annottext">toHeaders :: DescribeUserPool -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeUserPool -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -240,12 +240,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-108"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679448335"><span id="local-6989586621679448337"><span id="local-6989586621679448339"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPool"><span class="hs-identifier hs-type">DescribeUserPool</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679448333"><span class="annot"><span class="annottext">toJSON :: DescribeUserPool -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPool%27"><span class="hs-identifier hs-type">DescribeUserPool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679448331"><span class="annot"><span class="annottext">Text
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679448344"><span id="local-6989586621679448346"><span id="local-6989586621679448348"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPool"><span class="hs-identifier hs-type">DescribeUserPool</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679448342"><span class="annot"><span class="annottext">toJSON :: DescribeUserPool -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPool%27"><span class="hs-identifier hs-type">DescribeUserPool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679448340"><span class="annot"><span class="annottext">Text
 userPoolId :: Text
 $sel:userPoolId:DescribeUserPool' :: DescribeUserPool -&gt; Text
-</span><a href="#local-6989586621679448331"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679448340"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -257,18 +257,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;UserPoolId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679448331"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679448340"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPool"><span class="hs-identifier hs-type">DescribeUserPool</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679448325"><span class="annot"><span class="annottext">toPath :: DescribeUserPool -&gt; ByteString
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679448334"><span class="annot"><span class="annottext">toPath :: DescribeUserPool -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeUserPool -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPool"><span class="hs-identifier hs-type">DescribeUserPool</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679448321"><span class="annot"><span class="annottext">toQuery :: DescribeUserPool -&gt; QueryString
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679448330"><span class="annot"><span class="annottext">toQuery :: DescribeUserPool -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeUserPool -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -278,7 +278,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-124"></span><span class="hs-comment">-- | Represents the response to describe the user pool.</span><span>
 </span><span id="line-125"></span><span class="hs-comment">--</span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- /See:/ 'newDescribeUserPoolResponse' smart constructor.</span><span>
-</span><span id="line-127"></span><span id="local-6989586621679448318"><span id="local-6989586621679448319"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeUserPoolResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPoolResponse"><span class="hs-identifier hs-var">DescribeUserPoolResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeUserPoolResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPoolResponse%27"><span class="hs-identifier hs-var">DescribeUserPoolResponse'</span></a></span></span><span>
+</span><span id="line-127"></span><span id="local-6989586621679448327"><span id="local-6989586621679448328"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeUserPoolResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPoolResponse"><span class="hs-identifier hs-var">DescribeUserPoolResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeUserPoolResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPoolResponse%27"><span class="hs-identifier hs-var">DescribeUserPoolResponse'</span></a></span></span><span>
 </span><span id="line-128"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The container of metadata returned by the server to describe the pool.</span><span>
 </span><span id="line-129"></span><span>    </span><span id="%24sel%3AuserPool%3ADescribeUserPoolResponse%27"><span class="annot"><span class="annottext">DescribeUserPoolResponse -&gt; Maybe UserPoolType
 </span><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#%24sel%3AuserPool%3ADescribeUserPoolResponse%27"><span class="hs-identifier hs-var hs-var">userPool</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserPoolType.html#UserPoolType"><span class="hs-identifier hs-type">UserPoolType</span></a></span><span class="hs-special">,</span><span>
@@ -286,7 +286,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-131"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeUserPoolResponse%27"><span class="annot"><span class="annottext">DescribeUserPoolResponse -&gt; Int
 </span><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#%24sel%3AhttpStatus%3ADescribeUserPoolResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-132"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-133"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679448312"><span id="local-6989586621679448314"><span class="annot"><span class="annottext">DescribeUserPoolResponse -&gt; DescribeUserPoolResponse -&gt; Bool
+</span><span id="line-133"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679448321"><span id="local-6989586621679448323"><span class="annot"><span class="annottext">DescribeUserPoolResponse -&gt; DescribeUserPoolResponse -&gt; Bool
 (DescribeUserPoolResponse -&gt; DescribeUserPoolResponse -&gt; Bool)
 -&gt; (DescribeUserPoolResponse -&gt; DescribeUserPoolResponse -&gt; Bool)
 -&gt; Eq DescribeUserPoolResponse
@@ -295,7 +295,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeUserPoolResponse -&gt; DescribeUserPoolResponse -&gt; Bool
 == :: DescribeUserPoolResponse -&gt; DescribeUserPoolResponse -&gt; Bool
 $c== :: DescribeUserPoolResponse -&gt; DescribeUserPoolResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679448304"><span id="local-6989586621679448306"><span id="local-6989586621679448308"><span id="local-6989586621679448310"><span class="annot"><span class="annottext">ReadPrec [DescribeUserPoolResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679448313"><span id="local-6989586621679448315"><span id="local-6989586621679448317"><span id="local-6989586621679448319"><span class="annot"><span class="annottext">ReadPrec [DescribeUserPoolResponse]
 ReadPrec DescribeUserPoolResponse
 Int -&gt; ReadS DescribeUserPoolResponse
 ReadS [DescribeUserPoolResponse]
@@ -315,7 +315,7 @@ readList :: ReadS [DescribeUserPoolResponse]
 $creadList :: ReadS [DescribeUserPoolResponse]
 readsPrec :: Int -&gt; ReadS DescribeUserPoolResponse
 $creadsPrec :: Int -&gt; ReadS DescribeUserPoolResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679448298"><span id="local-6989586621679448300"><span id="local-6989586621679448302"><span class="annot"><span class="annottext">Int -&gt; DescribeUserPoolResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679448307"><span id="local-6989586621679448309"><span id="local-6989586621679448311"><span class="annot"><span class="annottext">Int -&gt; DescribeUserPoolResponse -&gt; ShowS
 [DescribeUserPoolResponse] -&gt; ShowS
 DescribeUserPoolResponse -&gt; String
 (Int -&gt; DescribeUserPoolResponse -&gt; ShowS)
@@ -363,8 +363,8 @@ DescribeUserPoolResponse -&gt; Rep DescribeUserPoolResponse x
 </span><span id="line-148"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-149"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPoolResponse"><span class="hs-identifier hs-type">DescribeUserPoolResponse</span></a></span><span>
 </span><span id="line-150"></span><span id="newDescribeUserPoolResponse"><span class="annot"><span class="annottext">newDescribeUserPoolResponse :: Int -&gt; DescribeUserPoolResponse
-</span><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#newDescribeUserPoolResponse"><span class="hs-identifier hs-var hs-var">newDescribeUserPoolResponse</span></a></span></span><span> </span><span id="local-6989586621679448295"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679448295"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#newDescribeUserPoolResponse"><span class="hs-identifier hs-var hs-var">newDescribeUserPoolResponse</span></a></span></span><span> </span><span id="local-6989586621679448304"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679448304"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>  </span><span class="annot"><span class="annottext">DescribeUserPoolResponse' :: Maybe UserPoolType -&gt; Int -&gt; DescribeUserPoolResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPoolResponse%27"><span class="hs-identifier hs-type">DescribeUserPoolResponse'</span></a></span><span>
 </span><span id="line-152"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:userPool:DescribeUserPoolResponse' :: Maybe UserPoolType
@@ -374,7 +374,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeUserPoolResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#%24sel%3AhttpStatus%3ADescribeUserPoolResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679448295"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679448304"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-155"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | The container of metadata returned by the server to describe the pool.</span><span>
@@ -390,16 +390,16 @@ forall a. Maybe a
      (Maybe UserPoolType)
      (Maybe UserPoolType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPoolResponse%27"><span class="hs-identifier hs-type">DescribeUserPoolResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679448294"><span class="annot"><span class="annottext">Maybe UserPoolType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPoolResponse%27"><span class="hs-identifier hs-type">DescribeUserPoolResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679448303"><span class="annot"><span class="annottext">Maybe UserPoolType
 userPool :: Maybe UserPoolType
 $sel:userPool:DescribeUserPoolResponse' :: DescribeUserPoolResponse -&gt; Maybe UserPoolType
-</span><a href="#local-6989586621679448294"><span class="hs-identifier hs-var hs-var">userPool</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UserPoolType
-</span><a href="#local-6989586621679448294"><span class="hs-identifier hs-var">userPool</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679448293"><span class="annot"><span class="annottext">s :: DescribeUserPoolResponse
-</span><a href="#local-6989586621679448293"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPoolResponse%27"><span class="hs-identifier hs-type">DescribeUserPoolResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679448292"><span class="annot"><span class="annottext">Maybe UserPoolType
-</span><a href="#local-6989586621679448292"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUserPoolResponse
-</span><a href="#local-6989586621679448293"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userPool:DescribeUserPoolResponse' :: Maybe UserPoolType
+</span><a href="#local-6989586621679448303"><span class="hs-identifier hs-var hs-var">userPool</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UserPoolType
+</span><a href="#local-6989586621679448303"><span class="hs-identifier hs-var">userPool</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679448302"><span class="annot"><span class="annottext">s :: DescribeUserPoolResponse
+</span><a href="#local-6989586621679448302"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPoolResponse%27"><span class="hs-identifier hs-type">DescribeUserPoolResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679448301"><span class="annot"><span class="annottext">Maybe UserPoolType
+</span><a href="#local-6989586621679448301"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUserPoolResponse
+</span><a href="#local-6989586621679448302"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userPool:DescribeUserPoolResponse' :: Maybe UserPoolType
 </span><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#%24sel%3AuserPool%3ADescribeUserPoolResponse%27"><span class="hs-identifier hs-var">userPool</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserPoolType
-</span><a href="#local-6989586621679448292"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPoolResponse"><span class="hs-identifier hs-type">DescribeUserPoolResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679448301"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPoolResponse"><span class="hs-identifier hs-type">DescribeUserPoolResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-162"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#describeUserPoolResponse_httpStatus"><span class="hs-identifier hs-type">describeUserPoolResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPoolResponse"><span class="hs-identifier hs-type">DescribeUserPoolResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -409,16 +409,16 @@ $sel:userPool:DescribeUserPoolResponse' :: DescribeUserPoolResponse -&gt; Maybe 
 -&gt; (DescribeUserPoolResponse -&gt; Int -&gt; DescribeUserPoolResponse)
 -&gt; Lens DescribeUserPoolResponse DescribeUserPoolResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPoolResponse%27"><span class="hs-identifier hs-type">DescribeUserPoolResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679448291"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPoolResponse%27"><span class="hs-identifier hs-type">DescribeUserPoolResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679448300"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeUserPoolResponse' :: DescribeUserPoolResponse -&gt; Int
-</span><a href="#local-6989586621679448291"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679448291"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679448290"><span class="annot"><span class="annottext">s :: DescribeUserPoolResponse
-</span><a href="#local-6989586621679448290"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPoolResponse%27"><span class="hs-identifier hs-type">DescribeUserPoolResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679448289"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679448289"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUserPoolResponse
-</span><a href="#local-6989586621679448290"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeUserPoolResponse' :: Int
+</span><a href="#local-6989586621679448300"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679448300"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679448299"><span class="annot"><span class="annottext">s :: DescribeUserPoolResponse
+</span><a href="#local-6989586621679448299"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPoolResponse%27"><span class="hs-identifier hs-type">DescribeUserPoolResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679448298"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679448298"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUserPoolResponse
+</span><a href="#local-6989586621679448299"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeUserPoolResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#%24sel%3AhttpStatus%3ADescribeUserPoolResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679448289"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPoolResponse"><span class="hs-identifier hs-type">DescribeUserPoolResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679448298"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPoolResponse"><span class="hs-identifier hs-type">DescribeUserPoolResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679448287"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPoolResponse"><span class="hs-identifier hs-type">DescribeUserPoolResponse</span></a></span></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679448296"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.DescribeUserPool.html#DescribeUserPoolResponse"><span class="hs-identifier hs-type">DescribeUserPoolResponse</span></a></span></span><span>
 </span><span id="line-166"></span></pre></body></html>

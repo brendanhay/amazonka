@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- | Represents the output for DescribeStream.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newStreamDescription' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679199288"><span id="local-6989586621679199289"></span></span><span class="hs-keyword">data</span><span> </span><span id="StreamDescription"><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription"><span class="hs-identifier hs-var">StreamDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StreamDescription%27"><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription%27"><span class="hs-identifier hs-var">StreamDescription'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679199297"><span id="local-6989586621679199298"></span></span><span class="hs-keyword">data</span><span> </span><span id="StreamDescription"><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription"><span class="hs-identifier hs-var">StreamDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StreamDescription%27"><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription%27"><span class="hs-identifier hs-var">StreamDescription'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The server-side encryption type used on the stream. This parameter can</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- be one of the following values:</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -102,7 +102,7 @@
 </span><span id="line-93"></span><span>    </span><span id="%24sel%3AenhancedMonitoring%3AStreamDescription%27"><span class="annot"><span class="annottext">StreamDescription -&gt; [EnhancedMetrics]
 </span><a href="Network.AWS.Kinesis.Types.StreamDescription.html#%24sel%3AenhancedMonitoring%3AStreamDescription%27"><span class="hs-identifier hs-var hs-var">enhancedMonitoring</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Kinesis.Types.EnhancedMetrics.html#EnhancedMetrics"><span class="hs-identifier hs-type">EnhancedMetrics</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-94"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-95"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679199273"><span id="local-6989586621679199275"><span class="annot"><span class="annottext">StreamDescription -&gt; StreamDescription -&gt; Bool
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679199282"><span id="local-6989586621679199284"><span class="annot"><span class="annottext">StreamDescription -&gt; StreamDescription -&gt; Bool
 (StreamDescription -&gt; StreamDescription -&gt; Bool)
 -&gt; (StreamDescription -&gt; StreamDescription -&gt; Bool)
 -&gt; Eq StreamDescription
@@ -111,7 +111,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StreamDescription -&gt; StreamDescription -&gt; Bool
 == :: StreamDescription -&gt; StreamDescription -&gt; Bool
 $c== :: StreamDescription -&gt; StreamDescription -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199264"><span id="local-6989586621679199266"><span id="local-6989586621679199268"><span id="local-6989586621679199270"><span class="annot"><span class="annottext">ReadPrec [StreamDescription]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199273"><span id="local-6989586621679199275"><span id="local-6989586621679199277"><span id="local-6989586621679199279"><span class="annot"><span class="annottext">ReadPrec [StreamDescription]
 ReadPrec StreamDescription
 Int -&gt; ReadS StreamDescription
 ReadS [StreamDescription]
@@ -131,7 +131,7 @@ readList :: ReadS [StreamDescription]
 $creadList :: ReadS [StreamDescription]
 readsPrec :: Int -&gt; ReadS StreamDescription
 $creadsPrec :: Int -&gt; ReadS StreamDescription
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199257"><span id="local-6989586621679199259"><span id="local-6989586621679199261"><span class="annot"><span class="annottext">Int -&gt; StreamDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199266"><span id="local-6989586621679199268"><span id="local-6989586621679199270"><span class="annot"><span class="annottext">Int -&gt; StreamDescription -&gt; ShowS
 [StreamDescription] -&gt; ShowS
 StreamDescription -&gt; String
 (Int -&gt; StreamDescription -&gt; ShowS)
@@ -246,18 +246,18 @@ $cfrom :: forall x. StreamDescription -&gt; Rep StreamDescription x
 -&gt; UTCTime
 -&gt; StreamDescription
 </span><a href="Network.AWS.Kinesis.Types.StreamDescription.html#newStreamDescription"><span class="hs-identifier hs-var hs-var">newStreamDescription</span></a></span></span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679199251"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679199251"><span class="hs-identifier hs-var">pStreamName_</span></a></span></span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679199250"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679199250"><span class="hs-identifier hs-var">pStreamARN_</span></a></span></span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679199249"><span class="annot"><span class="annottext">StreamStatus
-</span><a href="#local-6989586621679199249"><span class="hs-identifier hs-var">pStreamStatus_</span></a></span></span><span>
-</span><span id="line-182"></span><span>  </span><span id="local-6989586621679199248"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679199248"><span class="hs-identifier hs-var">pHasMoreShards_</span></a></span></span><span>
-</span><span id="line-183"></span><span>  </span><span id="local-6989586621679199247"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679199247"><span class="hs-identifier hs-var">pRetentionPeriodHours_</span></a></span></span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621679199246"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679199246"><span class="hs-identifier hs-var">pStreamCreationTimestamp_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679199260"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679199260"><span class="hs-identifier hs-var">pStreamName_</span></a></span></span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679199259"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679199259"><span class="hs-identifier hs-var">pStreamARN_</span></a></span></span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679199258"><span class="annot"><span class="annottext">StreamStatus
+</span><a href="#local-6989586621679199258"><span class="hs-identifier hs-var">pStreamStatus_</span></a></span></span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679199257"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679199257"><span class="hs-identifier hs-var">pHasMoreShards_</span></a></span></span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679199256"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679199256"><span class="hs-identifier hs-var">pRetentionPeriodHours_</span></a></span></span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679199255"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679199255"><span class="hs-identifier hs-var">pStreamCreationTimestamp_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-185"></span><span>    </span><span class="annot"><span class="annottext">StreamDescription' :: Maybe EncryptionType
 -&gt; Maybe Text
 -&gt; Text
@@ -281,23 +281,23 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">$sel:streamName:StreamDescription' :: Text
 </span><a href="Network.AWS.Kinesis.Types.StreamDescription.html#%24sel%3AstreamName%3AStreamDescription%27"><span class="hs-identifier hs-var">streamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679199251"><span class="hs-identifier hs-var">pStreamName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679199260"><span class="hs-identifier hs-var">pStreamName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">$sel:streamARN:StreamDescription' :: Text
 </span><a href="Network.AWS.Kinesis.Types.StreamDescription.html#%24sel%3AstreamARN%3AStreamDescription%27"><span class="hs-identifier hs-var">streamARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679199250"><span class="hs-identifier hs-var">pStreamARN_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679199259"><span class="hs-identifier hs-var">pStreamARN_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-191"></span><span>        </span><span class="annot"><span class="annottext">$sel:streamStatus:StreamDescription' :: StreamStatus
 </span><a href="Network.AWS.Kinesis.Types.StreamDescription.html#%24sel%3AstreamStatus%3AStreamDescription%27"><span class="hs-identifier hs-var">streamStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StreamStatus
-</span><a href="#local-6989586621679199249"><span class="hs-identifier hs-var">pStreamStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679199258"><span class="hs-identifier hs-var">pStreamStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-192"></span><span>        </span><span class="annot"><span class="annottext">$sel:shards:StreamDescription' :: [Shard]
 </span><a href="Network.AWS.Kinesis.Types.StreamDescription.html#%24sel%3Ashards%3AStreamDescription%27"><span class="hs-identifier hs-var">shards</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Shard]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
 </span><span id="line-193"></span><span>        </span><span class="annot"><span class="annottext">$sel:hasMoreShards:StreamDescription' :: Bool
 </span><a href="Network.AWS.Kinesis.Types.StreamDescription.html#%24sel%3AhasMoreShards%3AStreamDescription%27"><span class="hs-identifier hs-var">hasMoreShards</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679199248"><span class="hs-identifier hs-var">pHasMoreShards_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679199257"><span class="hs-identifier hs-var">pHasMoreShards_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-194"></span><span>        </span><span class="annot"><span class="annottext">$sel:retentionPeriodHours:StreamDescription' :: Int
 </span><a href="Network.AWS.Kinesis.Types.StreamDescription.html#%24sel%3AretentionPeriodHours%3AStreamDescription%27"><span class="hs-identifier hs-var">retentionPeriodHours</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679199247"><span class="hs-identifier hs-var">pRetentionPeriodHours_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679199256"><span class="hs-identifier hs-var">pRetentionPeriodHours_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-195"></span><span>        </span><span class="annot"><span class="annottext">$sel:streamCreationTimestamp:StreamDescription' :: POSIX
 </span><a href="Network.AWS.Kinesis.Types.StreamDescription.html#%24sel%3AstreamCreationTimestamp%3AStreamDescription%27"><span class="hs-identifier hs-var">streamCreationTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-196"></span><span>          </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
@@ -307,7 +307,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679199246"><span class="hs-identifier hs-var">pStreamCreationTimestamp_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679199255"><span class="hs-identifier hs-var">pStreamCreationTimestamp_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-197"></span><span>        </span><span class="annot"><span class="annottext">$sel:enhancedMonitoring:StreamDescription' :: [EnhancedMetrics]
 </span><a href="Network.AWS.Kinesis.Types.StreamDescription.html#%24sel%3AenhancedMonitoring%3AStreamDescription%27"><span class="hs-identifier hs-var">enhancedMonitoring</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[EnhancedMetrics]
 forall a. Monoid a =&gt; a
@@ -332,16 +332,16 @@ forall a. Monoid a =&gt; a
      (Maybe EncryptionType)
      (Maybe EncryptionType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription%27"><span class="hs-identifier hs-type">StreamDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199240"><span class="annot"><span class="annottext">Maybe EncryptionType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription%27"><span class="hs-identifier hs-type">StreamDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199249"><span class="annot"><span class="annottext">Maybe EncryptionType
 encryptionType :: Maybe EncryptionType
 $sel:encryptionType:StreamDescription' :: StreamDescription -&gt; Maybe EncryptionType
-</span><a href="#local-6989586621679199240"><span class="hs-identifier hs-var hs-var">encryptionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionType
-</span><a href="#local-6989586621679199240"><span class="hs-identifier hs-var">encryptionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199239"><span class="annot"><span class="annottext">s :: StreamDescription
-</span><a href="#local-6989586621679199239"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription%27"><span class="hs-identifier hs-type">StreamDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199238"><span class="annot"><span class="annottext">Maybe EncryptionType
-</span><a href="#local-6989586621679199238"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamDescription
-</span><a href="#local-6989586621679199239"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionType:StreamDescription' :: Maybe EncryptionType
+</span><a href="#local-6989586621679199249"><span class="hs-identifier hs-var hs-var">encryptionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionType
+</span><a href="#local-6989586621679199249"><span class="hs-identifier hs-var">encryptionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199248"><span class="annot"><span class="annottext">s :: StreamDescription
+</span><a href="#local-6989586621679199248"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription%27"><span class="hs-identifier hs-type">StreamDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199247"><span class="annot"><span class="annottext">Maybe EncryptionType
+</span><a href="#local-6989586621679199247"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamDescription
+</span><a href="#local-6989586621679199248"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionType:StreamDescription' :: Maybe EncryptionType
 </span><a href="Network.AWS.Kinesis.Types.StreamDescription.html#%24sel%3AencryptionType%3AStreamDescription%27"><span class="hs-identifier hs-var">encryptionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionType
-</span><a href="#local-6989586621679199238"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription"><span class="hs-identifier hs-type">StreamDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679199247"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription"><span class="hs-identifier hs-type">StreamDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-209"></span><span>
 </span><span id="line-210"></span><span class="hs-comment">-- | The GUID for the customer-managed AWS KMS key to use for encryption.</span><span>
 </span><span id="line-211"></span><span class="hs-comment">-- This value can be a globally unique identifier, a fully specified ARN to</span><span>
@@ -369,16 +369,16 @@ $sel:encryptionType:StreamDescription' :: StreamDescription -&gt; Maybe Encrypti
 -&gt; Lens
      StreamDescription StreamDescription (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription%27"><span class="hs-identifier hs-type">StreamDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199236"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription%27"><span class="hs-identifier hs-type">StreamDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199245"><span class="annot"><span class="annottext">Maybe Text
 keyId :: Maybe Text
 $sel:keyId:StreamDescription' :: StreamDescription -&gt; Maybe Text
-</span><a href="#local-6989586621679199236"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679199236"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199235"><span class="annot"><span class="annottext">s :: StreamDescription
-</span><a href="#local-6989586621679199235"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription%27"><span class="hs-identifier hs-type">StreamDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199234"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679199234"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamDescription
-</span><a href="#local-6989586621679199235"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:StreamDescription' :: Maybe Text
+</span><a href="#local-6989586621679199245"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679199245"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199244"><span class="annot"><span class="annottext">s :: StreamDescription
+</span><a href="#local-6989586621679199244"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription%27"><span class="hs-identifier hs-type">StreamDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199243"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679199243"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamDescription
+</span><a href="#local-6989586621679199244"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:StreamDescription' :: Maybe Text
 </span><a href="Network.AWS.Kinesis.Types.StreamDescription.html#%24sel%3AkeyId%3AStreamDescription%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679199234"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription"><span class="hs-identifier hs-type">StreamDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679199243"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription"><span class="hs-identifier hs-type">StreamDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-230"></span><span>
 </span><span id="line-231"></span><span class="hs-comment">-- | The name of the stream being described.</span><span>
 </span><span id="line-232"></span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#streamDescription_streamName"><span class="hs-identifier hs-type">streamDescription_streamName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription"><span class="hs-identifier hs-type">StreamDescription</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -387,16 +387,16 @@ $sel:keyId:StreamDescription' :: StreamDescription -&gt; Maybe Text
 -&gt; (StreamDescription -&gt; Text -&gt; StreamDescription)
 -&gt; Lens StreamDescription StreamDescription Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription%27"><span class="hs-identifier hs-type">StreamDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199232"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription%27"><span class="hs-identifier hs-type">StreamDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199241"><span class="annot"><span class="annottext">Text
 streamName :: Text
 $sel:streamName:StreamDescription' :: StreamDescription -&gt; Text
-</span><a href="#local-6989586621679199232"><span class="hs-identifier hs-var hs-var">streamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679199232"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199231"><span class="annot"><span class="annottext">s :: StreamDescription
-</span><a href="#local-6989586621679199231"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription%27"><span class="hs-identifier hs-type">StreamDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199230"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679199230"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamDescription
-</span><a href="#local-6989586621679199231"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamName:StreamDescription' :: Text
+</span><a href="#local-6989586621679199241"><span class="hs-identifier hs-var hs-var">streamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679199241"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199240"><span class="annot"><span class="annottext">s :: StreamDescription
+</span><a href="#local-6989586621679199240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription%27"><span class="hs-identifier hs-type">StreamDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199239"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679199239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamDescription
+</span><a href="#local-6989586621679199240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamName:StreamDescription' :: Text
 </span><a href="Network.AWS.Kinesis.Types.StreamDescription.html#%24sel%3AstreamName%3AStreamDescription%27"><span class="hs-identifier hs-var">streamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679199230"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription"><span class="hs-identifier hs-type">StreamDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679199239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription"><span class="hs-identifier hs-type">StreamDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-234"></span><span>
 </span><span id="line-235"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the stream being described.</span><span>
 </span><span id="line-236"></span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#streamDescription_streamARN"><span class="hs-identifier hs-type">streamDescription_streamARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription"><span class="hs-identifier hs-type">StreamDescription</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -405,16 +405,16 @@ $sel:streamName:StreamDescription' :: StreamDescription -&gt; Text
 -&gt; (StreamDescription -&gt; Text -&gt; StreamDescription)
 -&gt; Lens StreamDescription StreamDescription Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription%27"><span class="hs-identifier hs-type">StreamDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199228"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription%27"><span class="hs-identifier hs-type">StreamDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199237"><span class="annot"><span class="annottext">Text
 streamARN :: Text
 $sel:streamARN:StreamDescription' :: StreamDescription -&gt; Text
-</span><a href="#local-6989586621679199228"><span class="hs-identifier hs-var hs-var">streamARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679199228"><span class="hs-identifier hs-var">streamARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199227"><span class="annot"><span class="annottext">s :: StreamDescription
-</span><a href="#local-6989586621679199227"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription%27"><span class="hs-identifier hs-type">StreamDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199226"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679199226"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamDescription
-</span><a href="#local-6989586621679199227"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamARN:StreamDescription' :: Text
+</span><a href="#local-6989586621679199237"><span class="hs-identifier hs-var hs-var">streamARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679199237"><span class="hs-identifier hs-var">streamARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199236"><span class="annot"><span class="annottext">s :: StreamDescription
+</span><a href="#local-6989586621679199236"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription%27"><span class="hs-identifier hs-type">StreamDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199235"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679199235"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamDescription
+</span><a href="#local-6989586621679199236"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamARN:StreamDescription' :: Text
 </span><a href="Network.AWS.Kinesis.Types.StreamDescription.html#%24sel%3AstreamARN%3AStreamDescription%27"><span class="hs-identifier hs-var">streamARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679199226"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription"><span class="hs-identifier hs-type">StreamDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679199235"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription"><span class="hs-identifier hs-type">StreamDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-238"></span><span>
 </span><span id="line-239"></span><span class="hs-comment">-- | The current status of the stream being described. The stream status is</span><span>
 </span><span id="line-240"></span><span class="hs-comment">-- one of the following states:</span><span>
@@ -441,16 +441,16 @@ $sel:streamARN:StreamDescription' :: StreamDescription -&gt; Text
 -&gt; Lens
      StreamDescription StreamDescription StreamStatus StreamStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription%27"><span class="hs-identifier hs-type">StreamDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199224"><span class="annot"><span class="annottext">StreamStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription%27"><span class="hs-identifier hs-type">StreamDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199233"><span class="annot"><span class="annottext">StreamStatus
 streamStatus :: StreamStatus
 $sel:streamStatus:StreamDescription' :: StreamDescription -&gt; StreamStatus
-</span><a href="#local-6989586621679199224"><span class="hs-identifier hs-var hs-var">streamStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamStatus
-</span><a href="#local-6989586621679199224"><span class="hs-identifier hs-var">streamStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199223"><span class="annot"><span class="annottext">s :: StreamDescription
-</span><a href="#local-6989586621679199223"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription%27"><span class="hs-identifier hs-type">StreamDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199222"><span class="annot"><span class="annottext">StreamStatus
-</span><a href="#local-6989586621679199222"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamDescription
-</span><a href="#local-6989586621679199223"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamStatus:StreamDescription' :: StreamStatus
+</span><a href="#local-6989586621679199233"><span class="hs-identifier hs-var hs-var">streamStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamStatus
+</span><a href="#local-6989586621679199233"><span class="hs-identifier hs-var">streamStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199232"><span class="annot"><span class="annottext">s :: StreamDescription
+</span><a href="#local-6989586621679199232"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription%27"><span class="hs-identifier hs-type">StreamDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199231"><span class="annot"><span class="annottext">StreamStatus
+</span><a href="#local-6989586621679199231"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamDescription
+</span><a href="#local-6989586621679199232"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamStatus:StreamDescription' :: StreamStatus
 </span><a href="Network.AWS.Kinesis.Types.StreamDescription.html#%24sel%3AstreamStatus%3AStreamDescription%27"><span class="hs-identifier hs-var">streamStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StreamStatus
-</span><a href="#local-6989586621679199222"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription"><span class="hs-identifier hs-type">StreamDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679199231"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription"><span class="hs-identifier hs-type">StreamDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-258"></span><span>
 </span><span id="line-259"></span><span class="hs-comment">-- | The shards that comprise the stream.</span><span>
 </span><span id="line-260"></span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#streamDescription_shards"><span class="hs-identifier hs-type">streamDescription_shards</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription"><span class="hs-identifier hs-type">StreamDescription</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Shard.html#Shard"><span class="hs-identifier hs-type">Shard</span></a></span><span class="hs-special">]</span><span>
@@ -459,16 +459,16 @@ $sel:streamStatus:StreamDescription' :: StreamDescription -&gt; StreamStatus
 -&gt; (StreamDescription -&gt; [Shard] -&gt; StreamDescription)
 -&gt; Lens StreamDescription StreamDescription [Shard] [Shard]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription%27"><span class="hs-identifier hs-type">StreamDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199220"><span class="annot"><span class="annottext">[Shard]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription%27"><span class="hs-identifier hs-type">StreamDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199229"><span class="annot"><span class="annottext">[Shard]
 shards :: [Shard]
 $sel:shards:StreamDescription' :: StreamDescription -&gt; [Shard]
-</span><a href="#local-6989586621679199220"><span class="hs-identifier hs-var hs-var">shards</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Shard]
-</span><a href="#local-6989586621679199220"><span class="hs-identifier hs-var">shards</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199219"><span class="annot"><span class="annottext">s :: StreamDescription
-</span><a href="#local-6989586621679199219"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription%27"><span class="hs-identifier hs-type">StreamDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199218"><span class="annot"><span class="annottext">[Shard]
-</span><a href="#local-6989586621679199218"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamDescription
-</span><a href="#local-6989586621679199219"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shards:StreamDescription' :: [Shard]
+</span><a href="#local-6989586621679199229"><span class="hs-identifier hs-var hs-var">shards</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Shard]
+</span><a href="#local-6989586621679199229"><span class="hs-identifier hs-var">shards</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199228"><span class="annot"><span class="annottext">s :: StreamDescription
+</span><a href="#local-6989586621679199228"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription%27"><span class="hs-identifier hs-type">StreamDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199227"><span class="annot"><span class="annottext">[Shard]
+</span><a href="#local-6989586621679199227"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamDescription
+</span><a href="#local-6989586621679199228"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shards:StreamDescription' :: [Shard]
 </span><a href="Network.AWS.Kinesis.Types.StreamDescription.html#%24sel%3Ashards%3AStreamDescription%27"><span class="hs-identifier hs-var">shards</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Shard]
-</span><a href="#local-6989586621679199218"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription"><span class="hs-identifier hs-type">StreamDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Shard] -&gt; f [Shard])
+</span><a href="#local-6989586621679199227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription"><span class="hs-identifier hs-type">StreamDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Shard] -&gt; f [Shard])
  -&gt; StreamDescription -&gt; f StreamDescription)
 -&gt; (([Shard] -&gt; f [Shard]) -&gt; [Shard] -&gt; f [Shard])
 -&gt; ([Shard] -&gt; f [Shard])
@@ -486,16 +486,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (StreamDescription -&gt; Bool -&gt; StreamDescription)
 -&gt; Lens StreamDescription StreamDescription Bool Bool
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription%27"><span class="hs-identifier hs-type">StreamDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199214"><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription%27"><span class="hs-identifier hs-type">StreamDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199223"><span class="annot"><span class="annottext">Bool
 hasMoreShards :: Bool
 $sel:hasMoreShards:StreamDescription' :: StreamDescription -&gt; Bool
-</span><a href="#local-6989586621679199214"><span class="hs-identifier hs-var hs-var">hasMoreShards</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679199214"><span class="hs-identifier hs-var">hasMoreShards</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199213"><span class="annot"><span class="annottext">s :: StreamDescription
-</span><a href="#local-6989586621679199213"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription%27"><span class="hs-identifier hs-type">StreamDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199212"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679199212"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamDescription
-</span><a href="#local-6989586621679199213"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hasMoreShards:StreamDescription' :: Bool
+</span><a href="#local-6989586621679199223"><span class="hs-identifier hs-var hs-var">hasMoreShards</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679199223"><span class="hs-identifier hs-var">hasMoreShards</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199222"><span class="annot"><span class="annottext">s :: StreamDescription
+</span><a href="#local-6989586621679199222"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription%27"><span class="hs-identifier hs-type">StreamDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199221"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679199221"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamDescription
+</span><a href="#local-6989586621679199222"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hasMoreShards:StreamDescription' :: Bool
 </span><a href="Network.AWS.Kinesis.Types.StreamDescription.html#%24sel%3AhasMoreShards%3AStreamDescription%27"><span class="hs-identifier hs-var">hasMoreShards</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679199212"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription"><span class="hs-identifier hs-type">StreamDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679199221"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription"><span class="hs-identifier hs-type">StreamDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-266"></span><span>
 </span><span id="line-267"></span><span class="hs-comment">-- | The current retention period, in hours. Minimum value of 24. Maximum</span><span>
 </span><span id="line-268"></span><span class="hs-comment">-- value of 168.</span><span>
@@ -505,16 +505,16 @@ $sel:hasMoreShards:StreamDescription' :: StreamDescription -&gt; Bool
 -&gt; (StreamDescription -&gt; Int -&gt; StreamDescription)
 -&gt; Lens StreamDescription StreamDescription Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription%27"><span class="hs-identifier hs-type">StreamDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199210"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription%27"><span class="hs-identifier hs-type">StreamDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199219"><span class="annot"><span class="annottext">Int
 retentionPeriodHours :: Int
 $sel:retentionPeriodHours:StreamDescription' :: StreamDescription -&gt; Int
-</span><a href="#local-6989586621679199210"><span class="hs-identifier hs-var hs-var">retentionPeriodHours</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679199210"><span class="hs-identifier hs-var">retentionPeriodHours</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199209"><span class="annot"><span class="annottext">s :: StreamDescription
-</span><a href="#local-6989586621679199209"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription%27"><span class="hs-identifier hs-type">StreamDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199208"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679199208"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamDescription
-</span><a href="#local-6989586621679199209"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retentionPeriodHours:StreamDescription' :: Int
+</span><a href="#local-6989586621679199219"><span class="hs-identifier hs-var hs-var">retentionPeriodHours</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679199219"><span class="hs-identifier hs-var">retentionPeriodHours</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199218"><span class="annot"><span class="annottext">s :: StreamDescription
+</span><a href="#local-6989586621679199218"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription%27"><span class="hs-identifier hs-type">StreamDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199217"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679199217"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamDescription
+</span><a href="#local-6989586621679199218"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retentionPeriodHours:StreamDescription' :: Int
 </span><a href="Network.AWS.Kinesis.Types.StreamDescription.html#%24sel%3AretentionPeriodHours%3AStreamDescription%27"><span class="hs-identifier hs-var">retentionPeriodHours</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679199208"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription"><span class="hs-identifier hs-type">StreamDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679199217"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription"><span class="hs-identifier hs-type">StreamDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-271"></span><span>
 </span><span id="line-272"></span><span class="hs-comment">-- | The approximate time that the stream was created.</span><span>
 </span><span id="line-273"></span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#streamDescription_streamCreationTimestamp"><span class="hs-identifier hs-type">streamDescription_streamCreationTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription"><span class="hs-identifier hs-type">StreamDescription</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
@@ -523,16 +523,16 @@ $sel:retentionPeriodHours:StreamDescription' :: StreamDescription -&gt; Int
 -&gt; (StreamDescription -&gt; POSIX -&gt; StreamDescription)
 -&gt; Lens StreamDescription StreamDescription POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription%27"><span class="hs-identifier hs-type">StreamDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199206"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription%27"><span class="hs-identifier hs-type">StreamDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199215"><span class="annot"><span class="annottext">POSIX
 streamCreationTimestamp :: POSIX
 $sel:streamCreationTimestamp:StreamDescription' :: StreamDescription -&gt; POSIX
-</span><a href="#local-6989586621679199206"><span class="hs-identifier hs-var hs-var">streamCreationTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679199206"><span class="hs-identifier hs-var">streamCreationTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199205"><span class="annot"><span class="annottext">s :: StreamDescription
-</span><a href="#local-6989586621679199205"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription%27"><span class="hs-identifier hs-type">StreamDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199204"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679199204"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamDescription
-</span><a href="#local-6989586621679199205"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamCreationTimestamp:StreamDescription' :: POSIX
+</span><a href="#local-6989586621679199215"><span class="hs-identifier hs-var hs-var">streamCreationTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679199215"><span class="hs-identifier hs-var">streamCreationTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199214"><span class="annot"><span class="annottext">s :: StreamDescription
+</span><a href="#local-6989586621679199214"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription%27"><span class="hs-identifier hs-type">StreamDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199213"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679199213"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamDescription
+</span><a href="#local-6989586621679199214"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamCreationTimestamp:StreamDescription' :: POSIX
 </span><a href="Network.AWS.Kinesis.Types.StreamDescription.html#%24sel%3AstreamCreationTimestamp%3AStreamDescription%27"><span class="hs-identifier hs-var">streamCreationTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679199204"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription"><span class="hs-identifier hs-type">StreamDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; StreamDescription -&gt; f StreamDescription)
+</span><a href="#local-6989586621679199213"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription"><span class="hs-identifier hs-type">StreamDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; StreamDescription -&gt; f StreamDescription)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; StreamDescription
@@ -554,16 +554,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
      [EnhancedMetrics]
      [EnhancedMetrics]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription%27"><span class="hs-identifier hs-type">StreamDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199202"><span class="annot"><span class="annottext">[EnhancedMetrics]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription%27"><span class="hs-identifier hs-type">StreamDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199211"><span class="annot"><span class="annottext">[EnhancedMetrics]
 enhancedMonitoring :: [EnhancedMetrics]
 $sel:enhancedMonitoring:StreamDescription' :: StreamDescription -&gt; [EnhancedMetrics]
-</span><a href="#local-6989586621679199202"><span class="hs-identifier hs-var hs-var">enhancedMonitoring</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[EnhancedMetrics]
-</span><a href="#local-6989586621679199202"><span class="hs-identifier hs-var">enhancedMonitoring</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199201"><span class="annot"><span class="annottext">s :: StreamDescription
-</span><a href="#local-6989586621679199201"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription%27"><span class="hs-identifier hs-type">StreamDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199200"><span class="annot"><span class="annottext">[EnhancedMetrics]
-</span><a href="#local-6989586621679199200"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamDescription
-</span><a href="#local-6989586621679199201"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enhancedMonitoring:StreamDescription' :: [EnhancedMetrics]
+</span><a href="#local-6989586621679199211"><span class="hs-identifier hs-var hs-var">enhancedMonitoring</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[EnhancedMetrics]
+</span><a href="#local-6989586621679199211"><span class="hs-identifier hs-var">enhancedMonitoring</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199210"><span class="annot"><span class="annottext">s :: StreamDescription
+</span><a href="#local-6989586621679199210"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription%27"><span class="hs-identifier hs-type">StreamDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199209"><span class="annot"><span class="annottext">[EnhancedMetrics]
+</span><a href="#local-6989586621679199209"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamDescription
+</span><a href="#local-6989586621679199210"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enhancedMonitoring:StreamDescription' :: [EnhancedMetrics]
 </span><a href="Network.AWS.Kinesis.Types.StreamDescription.html#%24sel%3AenhancedMonitoring%3AStreamDescription%27"><span class="hs-identifier hs-var">enhancedMonitoring</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[EnhancedMetrics]
-</span><a href="#local-6989586621679199200"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription"><span class="hs-identifier hs-type">StreamDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([EnhancedMetrics] -&gt; f [EnhancedMetrics])
+</span><a href="#local-6989586621679199209"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription"><span class="hs-identifier hs-type">StreamDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([EnhancedMetrics] -&gt; f [EnhancedMetrics])
  -&gt; StreamDescription -&gt; f StreamDescription)
 -&gt; (([EnhancedMetrics] -&gt; f [EnhancedMetrics])
     -&gt; [EnhancedMetrics] -&gt; f [EnhancedMetrics])
@@ -576,8 +576,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-279"></span><span>
-</span><span id="line-280"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199197"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription"><span class="hs-identifier hs-type">StreamDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-281"></span><span>  </span><span id="local-6989586621679199195"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StreamDescription
+</span><span id="line-280"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199206"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription"><span class="hs-identifier hs-type">StreamDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-281"></span><span>  </span><span id="local-6989586621679199204"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StreamDescription
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-282"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser StreamDescription)
@@ -587,8 +587,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-283"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;StreamDescription&quot;</span></span><span>
-</span><span id="line-284"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679199192"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679199192"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-284"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679199201"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679199201"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-285"></span><span>          </span><span class="annot"><span class="annottext">Maybe EncryptionType
 -&gt; Maybe Text
 -&gt; Text
@@ -626,7 +626,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; StreamDescription)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679199192"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EncryptionType)
+</span><a href="#local-6989586621679199201"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EncryptionType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EncryptionType&quot;</span></span><span class="hs-special">)</span><span>
@@ -654,7 +654,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; StreamDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679199192"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679199201"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KeyId&quot;</span></span><span class="hs-special">)</span><span>
@@ -680,7 +680,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; StreamDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679199192"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679199201"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StreamName&quot;</span></span><span class="hs-special">)</span><span>
@@ -704,7 +704,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
       -&gt; StreamDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679199192"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679199201"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StreamARN&quot;</span></span><span class="hs-special">)</span><span>
@@ -722,7 +722,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
       -&gt; Bool -&gt; Int -&gt; POSIX -&gt; [EnhancedMetrics] -&gt; StreamDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679199192"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser StreamStatus
+</span><a href="#local-6989586621679199201"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser StreamStatus
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StreamStatus&quot;</span></span><span class="hs-special">)</span><span>
@@ -734,7 +734,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
      (Bool -&gt; Int -&gt; POSIX -&gt; [EnhancedMetrics] -&gt; StreamDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679199192"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Shard])
+</span><a href="#local-6989586621679199201"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Shard])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Shards&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [Shard]) -&gt; [Shard] -&gt; Parser [Shard]
@@ -748,7 +748,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Int -&gt; POSIX -&gt; [EnhancedMetrics] -&gt; StreamDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679199192"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Bool
+</span><a href="#local-6989586621679199201"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Bool
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HasMoreShards&quot;</span></span><span class="hs-special">)</span><span>
@@ -757,7 +757,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (POSIX -&gt; [EnhancedMetrics] -&gt; StreamDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679199192"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Int
+</span><a href="#local-6989586621679199201"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Int
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RetentionPeriodHours&quot;</span></span><span class="hs-special">)</span><span>
@@ -765,7 +765,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser POSIX -&gt; Parser ([EnhancedMetrics] -&gt; StreamDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679199192"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+</span><a href="#local-6989586621679199201"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StreamCreationTimestamp&quot;</span></span><span class="hs-special">)</span><span>
@@ -773,7 +773,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser [EnhancedMetrics] -&gt; Parser StreamDescription
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679199192"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [EnhancedMetrics])
+</span><a href="#local-6989586621679199201"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [EnhancedMetrics])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EnhancedMonitoring&quot;</span></span><span>
@@ -786,7 +786,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-297"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-298"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-299"></span><span>
-</span><span id="line-300"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199184"><span id="local-6989586621679199186"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription"><span class="hs-identifier hs-type">StreamDescription</span></a></span></span></span><span>
+</span><span id="line-300"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199193"><span id="local-6989586621679199195"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription"><span class="hs-identifier hs-type">StreamDescription</span></a></span></span></span><span>
 </span><span id="line-301"></span><span>
-</span><span id="line-302"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199181"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription"><span class="hs-identifier hs-type">StreamDescription</span></a></span></span><span>
+</span><span id="line-302"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199190"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.StreamDescription.html#StreamDescription"><span class="hs-identifier hs-type">StreamDescription</span></a></span></span><span>
 </span><span id="line-303"></span></pre></body></html>

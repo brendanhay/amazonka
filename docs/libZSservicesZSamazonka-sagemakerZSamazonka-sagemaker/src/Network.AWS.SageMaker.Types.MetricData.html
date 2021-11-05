@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- Amazon CloudWatch.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newMetricData' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621680315872"><span id="local-6989586621680315873"></span></span><span class="hs-keyword">data</span><span> </span><span id="MetricData"><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricData.html#MetricData"><span class="hs-identifier hs-var">MetricData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricData%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricData.html#MetricData%27"><span class="hs-identifier hs-var">MetricData'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621680315881"><span id="local-6989586621680315882"></span></span><span class="hs-keyword">data</span><span> </span><span id="MetricData"><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricData.html#MetricData"><span class="hs-identifier hs-var">MetricData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricData%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricData.html#MetricData%27"><span class="hs-identifier hs-var">MetricData'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the metric.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AmetricName%3AMetricData%27"><span class="annot"><span class="annottext">MetricData -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.MetricData.html#%24sel%3AmetricName%3AMetricData%27"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -38,7 +38,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Atimestamp%3AMetricData%27"><span class="annot"><span class="annottext">MetricData -&gt; Maybe POSIX
 </span><a href="Network.AWS.SageMaker.Types.MetricData.html#%24sel%3Atimestamp%3AMetricData%27"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680315864"><span id="local-6989586621680315866"><span class="annot"><span class="annottext">MetricData -&gt; MetricData -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680315873"><span id="local-6989586621680315875"><span class="annot"><span class="annottext">MetricData -&gt; MetricData -&gt; Bool
 (MetricData -&gt; MetricData -&gt; Bool)
 -&gt; (MetricData -&gt; MetricData -&gt; Bool) -&gt; Eq MetricData
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MetricData -&gt; MetricData -&gt; Bool
 == :: MetricData -&gt; MetricData -&gt; Bool
 $c== :: MetricData -&gt; MetricData -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680315855"><span id="local-6989586621680315857"><span id="local-6989586621680315859"><span id="local-6989586621680315861"><span class="annot"><span class="annottext">ReadPrec [MetricData]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680315864"><span id="local-6989586621680315866"><span id="local-6989586621680315868"><span id="local-6989586621680315870"><span class="annot"><span class="annottext">ReadPrec [MetricData]
 ReadPrec MetricData
 Int -&gt; ReadS MetricData
 ReadS [MetricData]
@@ -66,7 +66,7 @@ readList :: ReadS [MetricData]
 $creadList :: ReadS [MetricData]
 readsPrec :: Int -&gt; ReadS MetricData
 $creadsPrec :: Int -&gt; ReadS MetricData
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680315848"><span id="local-6989586621680315850"><span id="local-6989586621680315852"><span class="annot"><span class="annottext">Int -&gt; MetricData -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680315857"><span id="local-6989586621680315859"><span id="local-6989586621680315861"><span class="annot"><span class="annottext">Int -&gt; MetricData -&gt; ShowS
 [MetricData] -&gt; ShowS
 MetricData -&gt; String
 (Int -&gt; MetricData -&gt; ShowS)
@@ -131,16 +131,16 @@ forall a. Maybe a
 -&gt; (MetricData -&gt; Maybe Text -&gt; MetricData)
 -&gt; Lens MetricData MetricData (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricData.html#MetricData%27"><span class="hs-identifier hs-type">MetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680315839"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricData.html#MetricData%27"><span class="hs-identifier hs-type">MetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680315848"><span class="annot"><span class="annottext">Maybe Text
 metricName :: Maybe Text
 $sel:metricName:MetricData' :: MetricData -&gt; Maybe Text
-</span><a href="#local-6989586621680315839"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680315839"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680315838"><span class="annot"><span class="annottext">s :: MetricData
-</span><a href="#local-6989586621680315838"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricData.html#MetricData%27"><span class="hs-identifier hs-type">MetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680315837"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680315837"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricData
-</span><a href="#local-6989586621680315838"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricName:MetricData' :: Maybe Text
+</span><a href="#local-6989586621680315848"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680315848"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680315847"><span class="annot"><span class="annottext">s :: MetricData
+</span><a href="#local-6989586621680315847"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricData.html#MetricData%27"><span class="hs-identifier hs-type">MetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680315846"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680315846"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricData
+</span><a href="#local-6989586621680315847"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricName:MetricData' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.MetricData.html#%24sel%3AmetricName%3AMetricData%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680315837"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricData.html#MetricData"><span class="hs-identifier hs-type">MetricData</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680315846"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricData.html#MetricData"><span class="hs-identifier hs-type">MetricData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | The value of the metric.</span><span>
 </span><span id="line-67"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricData.html#metricData_value"><span class="hs-identifier hs-type">metricData_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricData.html#MetricData"><span class="hs-identifier hs-type">MetricData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
@@ -149,16 +149,16 @@ $sel:metricName:MetricData' :: MetricData -&gt; Maybe Text
 -&gt; (MetricData -&gt; Maybe Double -&gt; MetricData)
 -&gt; Lens MetricData MetricData (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricData.html#MetricData%27"><span class="hs-identifier hs-type">MetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680315835"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricData.html#MetricData%27"><span class="hs-identifier hs-type">MetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680315844"><span class="annot"><span class="annottext">Maybe Double
 value :: Maybe Double
 $sel:value:MetricData' :: MetricData -&gt; Maybe Double
-</span><a href="#local-6989586621680315835"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621680315835"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680315834"><span class="annot"><span class="annottext">s :: MetricData
-</span><a href="#local-6989586621680315834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricData.html#MetricData%27"><span class="hs-identifier hs-type">MetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680315833"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621680315833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricData
-</span><a href="#local-6989586621680315834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:MetricData' :: Maybe Double
+</span><a href="#local-6989586621680315844"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621680315844"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680315843"><span class="annot"><span class="annottext">s :: MetricData
+</span><a href="#local-6989586621680315843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricData.html#MetricData%27"><span class="hs-identifier hs-type">MetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680315842"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621680315842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricData
+</span><a href="#local-6989586621680315843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:MetricData' :: Maybe Double
 </span><a href="Network.AWS.SageMaker.Types.MetricData.html#%24sel%3Avalue%3AMetricData%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621680315833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricData.html#MetricData"><span class="hs-identifier hs-type">MetricData</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680315842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricData.html#MetricData"><span class="hs-identifier hs-type">MetricData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | The date and time that the algorithm emitted the metric.</span><span>
 </span><span id="line-71"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricData.html#metricData_timestamp"><span class="hs-identifier hs-type">metricData_timestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricData.html#MetricData"><span class="hs-identifier hs-type">MetricData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
@@ -167,16 +167,16 @@ $sel:value:MetricData' :: MetricData -&gt; Maybe Double
 -&gt; (MetricData -&gt; Maybe POSIX -&gt; MetricData)
 -&gt; Lens MetricData MetricData (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricData.html#MetricData%27"><span class="hs-identifier hs-type">MetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680315831"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricData.html#MetricData%27"><span class="hs-identifier hs-type">MetricData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680315840"><span class="annot"><span class="annottext">Maybe POSIX
 timestamp :: Maybe POSIX
 $sel:timestamp:MetricData' :: MetricData -&gt; Maybe POSIX
-</span><a href="#local-6989586621680315831"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680315831"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680315830"><span class="annot"><span class="annottext">s :: MetricData
-</span><a href="#local-6989586621680315830"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricData.html#MetricData%27"><span class="hs-identifier hs-type">MetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680315829"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680315829"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricData
-</span><a href="#local-6989586621680315830"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:MetricData' :: Maybe POSIX
+</span><a href="#local-6989586621680315840"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680315840"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680315839"><span class="annot"><span class="annottext">s :: MetricData
+</span><a href="#local-6989586621680315839"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricData.html#MetricData%27"><span class="hs-identifier hs-type">MetricData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680315838"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680315838"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricData
+</span><a href="#local-6989586621680315839"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:MetricData' :: Maybe POSIX
 </span><a href="Network.AWS.SageMaker.Types.MetricData.html#%24sel%3Atimestamp%3AMetricData%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680315829"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricData.html#MetricData"><span class="hs-identifier hs-type">MetricData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; MetricData -&gt; f MetricData)
+</span><a href="#local-6989586621680315838"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricData.html#MetricData"><span class="hs-identifier hs-type">MetricData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; MetricData -&gt; f MetricData)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -192,8 +192,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680315823"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricData.html#MetricData"><span class="hs-identifier hs-type">MetricData</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621680315821"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MetricData
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680315832"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricData.html#MetricData"><span class="hs-identifier hs-type">MetricData</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621680315830"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MetricData
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MetricData) -&gt; Value -&gt; Parser MetricData
@@ -201,8 +201,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MetricData&quot;</span></span><span>
-</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680315818"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680315818"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680315827"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680315827"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Double -&gt; Maybe POSIX -&gt; MetricData
 </span><a href="Network.AWS.SageMaker.Types.MetricData.html#MetricData%27"><span class="hs-identifier hs-var">MetricData'</span></a></span><span>
 </span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Double -&gt; Maybe POSIX -&gt; MetricData)
@@ -210,7 +210,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Double -&gt; Maybe POSIX -&gt; MetricData)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680315818"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680315827"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MetricName&quot;</span></span><span class="hs-special">)</span><span>
@@ -218,7 +218,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Double) -&gt; Parser (Maybe POSIX -&gt; MetricData)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680315818"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621680315827"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span>
@@ -226,13 +226,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe POSIX) -&gt; Parser MetricData
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680315818"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621680315827"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Timestamp&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680315812"><span id="local-6989586621680315814"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricData.html#MetricData"><span class="hs-identifier hs-type">MetricData</span></a></span></span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680315821"><span id="local-6989586621680315823"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricData.html#MetricData"><span class="hs-identifier hs-type">MetricData</span></a></span></span></span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680315809"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricData.html#MetricData"><span class="hs-identifier hs-type">MetricData</span></a></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680315818"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricData.html#MetricData"><span class="hs-identifier hs-type">MetricData</span></a></span></span><span>
 </span><span id="line-88"></span></pre></body></html>

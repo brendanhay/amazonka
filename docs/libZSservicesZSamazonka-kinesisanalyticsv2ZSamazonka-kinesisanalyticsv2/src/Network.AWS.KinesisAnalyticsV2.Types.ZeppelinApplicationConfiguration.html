@@ -1,0 +1,392 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.CatalogConfiguration.html"><span class="hs-identifier">Network.AWS.KinesisAnalyticsV2.Types.CatalogConfiguration</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.CustomArtifactConfiguration.html"><span class="hs-identifier">Network.AWS.KinesisAnalyticsV2.Types.CustomArtifactConfiguration</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.DeployAsApplicationConfiguration.html"><span class="hs-identifier">Network.AWS.KinesisAnalyticsV2.Types.DeployAsApplicationConfiguration</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinMonitoringConfiguration.html"><span class="hs-identifier">Network.AWS.KinesisAnalyticsV2.Types.ZeppelinMonitoringConfiguration</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | The configuration of a Kinesis Data Analytics Studio notebook.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newZeppelinApplicationConfiguration' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679299090"><span id="local-6989586621679299091"></span></span><span class="hs-keyword">data</span><span> </span><span id="ZeppelinApplicationConfiguration"><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#ZeppelinApplicationConfiguration"><span class="hs-identifier hs-var">ZeppelinApplicationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ZeppelinApplicationConfiguration%27"><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#ZeppelinApplicationConfiguration%27"><span class="hs-identifier hs-var">ZeppelinApplicationConfiguration'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The monitoring configuration of a Kinesis Data Analytics Studio</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- notebook.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AmonitoringConfiguration%3AZeppelinApplicationConfiguration%27"><span class="annot"><span class="annottext">ZeppelinApplicationConfiguration
+-&gt; Maybe ZeppelinMonitoringConfiguration
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#%24sel%3AmonitoringConfiguration%3AZeppelinApplicationConfiguration%27"><span class="hs-identifier hs-var hs-var">monitoringConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinMonitoringConfiguration.html#ZeppelinMonitoringConfiguration"><span class="hs-identifier hs-type">ZeppelinMonitoringConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The Amazon Glue Data Catalog that you use in queries in a Kinesis Data</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- Analytics Studio notebook.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AcatalogConfiguration%3AZeppelinApplicationConfiguration%27"><span class="annot"><span class="annottext">ZeppelinApplicationConfiguration -&gt; Maybe CatalogConfiguration
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#%24sel%3AcatalogConfiguration%3AZeppelinApplicationConfiguration%27"><span class="hs-identifier hs-var hs-var">catalogConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.CatalogConfiguration.html#CatalogConfiguration"><span class="hs-identifier hs-type">CatalogConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The information required to deploy a Kinesis Data Analytics Studio</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- notebook as an application with durable state.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AdeployAsApplicationConfiguration%3AZeppelinApplicationConfiguration%27"><span class="annot"><span class="annottext">ZeppelinApplicationConfiguration
+-&gt; Maybe DeployAsApplicationConfiguration
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#%24sel%3AdeployAsApplicationConfiguration%3AZeppelinApplicationConfiguration%27"><span class="hs-identifier hs-var hs-var">deployAsApplicationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.DeployAsApplicationConfiguration.html#DeployAsApplicationConfiguration"><span class="hs-identifier hs-type">DeployAsApplicationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Custom artifacts are dependency JARs and user-defined functions (UDF).</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AcustomArtifactsConfiguration%3AZeppelinApplicationConfiguration%27"><span class="annot"><span class="annottext">ZeppelinApplicationConfiguration
+-&gt; Maybe [CustomArtifactConfiguration]
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#%24sel%3AcustomArtifactsConfiguration%3AZeppelinApplicationConfiguration%27"><span class="hs-identifier hs-var hs-var">customArtifactsConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.CustomArtifactConfiguration.html#CustomArtifactConfiguration"><span class="hs-identifier hs-type">CustomArtifactConfiguration</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299081"><span id="local-6989586621679299083"><span class="annot"><span class="annottext">ZeppelinApplicationConfiguration
+-&gt; ZeppelinApplicationConfiguration -&gt; Bool
+(ZeppelinApplicationConfiguration
+ -&gt; ZeppelinApplicationConfiguration -&gt; Bool)
+-&gt; (ZeppelinApplicationConfiguration
+    -&gt; ZeppelinApplicationConfiguration -&gt; Bool)
+-&gt; Eq ZeppelinApplicationConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ZeppelinApplicationConfiguration
+-&gt; ZeppelinApplicationConfiguration -&gt; Bool
+$c/= :: ZeppelinApplicationConfiguration
+-&gt; ZeppelinApplicationConfiguration -&gt; Bool
+== :: ZeppelinApplicationConfiguration
+-&gt; ZeppelinApplicationConfiguration -&gt; Bool
+$c== :: ZeppelinApplicationConfiguration
+-&gt; ZeppelinApplicationConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299072"><span id="local-6989586621679299074"><span id="local-6989586621679299076"><span id="local-6989586621679299078"><span class="annot"><span class="annottext">ReadPrec [ZeppelinApplicationConfiguration]
+ReadPrec ZeppelinApplicationConfiguration
+Int -&gt; ReadS ZeppelinApplicationConfiguration
+ReadS [ZeppelinApplicationConfiguration]
+(Int -&gt; ReadS ZeppelinApplicationConfiguration)
+-&gt; ReadS [ZeppelinApplicationConfiguration]
+-&gt; ReadPrec ZeppelinApplicationConfiguration
+-&gt; ReadPrec [ZeppelinApplicationConfiguration]
+-&gt; Read ZeppelinApplicationConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ZeppelinApplicationConfiguration]
+$creadListPrec :: ReadPrec [ZeppelinApplicationConfiguration]
+readPrec :: ReadPrec ZeppelinApplicationConfiguration
+$creadPrec :: ReadPrec ZeppelinApplicationConfiguration
+readList :: ReadS [ZeppelinApplicationConfiguration]
+$creadList :: ReadS [ZeppelinApplicationConfiguration]
+readsPrec :: Int -&gt; ReadS ZeppelinApplicationConfiguration
+$creadsPrec :: Int -&gt; ReadS ZeppelinApplicationConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299065"><span id="local-6989586621679299067"><span id="local-6989586621679299069"><span class="annot"><span class="annottext">Int -&gt; ZeppelinApplicationConfiguration -&gt; ShowS
+[ZeppelinApplicationConfiguration] -&gt; ShowS
+ZeppelinApplicationConfiguration -&gt; String
+(Int -&gt; ZeppelinApplicationConfiguration -&gt; ShowS)
+-&gt; (ZeppelinApplicationConfiguration -&gt; String)
+-&gt; ([ZeppelinApplicationConfiguration] -&gt; ShowS)
+-&gt; Show ZeppelinApplicationConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ZeppelinApplicationConfiguration] -&gt; ShowS
+$cshowList :: [ZeppelinApplicationConfiguration] -&gt; ShowS
+show :: ZeppelinApplicationConfiguration -&gt; String
+$cshow :: ZeppelinApplicationConfiguration -&gt; String
+showsPrec :: Int -&gt; ZeppelinApplicationConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; ZeppelinApplicationConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ZeppelinApplicationConfiguration
+ -&gt; Rep ZeppelinApplicationConfiguration x)
+-&gt; (forall x.
+    Rep ZeppelinApplicationConfiguration x
+    -&gt; ZeppelinApplicationConfiguration)
+-&gt; Generic ZeppelinApplicationConfiguration
+forall x.
+Rep ZeppelinApplicationConfiguration x
+-&gt; ZeppelinApplicationConfiguration
+forall x.
+ZeppelinApplicationConfiguration
+-&gt; Rep ZeppelinApplicationConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ZeppelinApplicationConfiguration x
+-&gt; ZeppelinApplicationConfiguration
+$cfrom :: forall x.
+ZeppelinApplicationConfiguration
+-&gt; Rep ZeppelinApplicationConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Create a value of 'ZeppelinApplicationConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'monitoringConfiguration', 'zeppelinApplicationConfiguration_monitoringConfiguration' - The monitoring configuration of a Kinesis Data Analytics Studio</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- notebook.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'catalogConfiguration', 'zeppelinApplicationConfiguration_catalogConfiguration' - The Amazon Glue Data Catalog that you use in queries in a Kinesis Data</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Analytics Studio notebook.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'deployAsApplicationConfiguration', 'zeppelinApplicationConfiguration_deployAsApplicationConfiguration' - The information required to deploy a Kinesis Data Analytics Studio</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- notebook as an application with durable state.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'customArtifactsConfiguration', 'zeppelinApplicationConfiguration_customArtifactsConfiguration' - Custom artifacts are dependency JARs and user-defined functions (UDF).</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#newZeppelinApplicationConfiguration"><span class="hs-identifier hs-type">newZeppelinApplicationConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#ZeppelinApplicationConfiguration"><span class="hs-identifier hs-type">ZeppelinApplicationConfiguration</span></a></span><span>
+</span><span id="line-68"></span><span id="newZeppelinApplicationConfiguration"><span class="annot"><span class="annottext">newZeppelinApplicationConfiguration :: ZeppelinApplicationConfiguration
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#newZeppelinApplicationConfiguration"><span class="hs-identifier hs-var hs-var">newZeppelinApplicationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">ZeppelinApplicationConfiguration' :: Maybe ZeppelinMonitoringConfiguration
+-&gt; Maybe CatalogConfiguration
+-&gt; Maybe DeployAsApplicationConfiguration
+-&gt; Maybe [CustomArtifactConfiguration]
+-&gt; ZeppelinApplicationConfiguration
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#ZeppelinApplicationConfiguration%27"><span class="hs-identifier hs-type">ZeppelinApplicationConfiguration'</span></a></span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:monitoringConfiguration:ZeppelinApplicationConfiguration' :: Maybe ZeppelinMonitoringConfiguration
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#%24sel%3AmonitoringConfiguration%3AZeppelinApplicationConfiguration%27"><span class="hs-identifier hs-var">monitoringConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">Maybe ZeppelinMonitoringConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:catalogConfiguration:ZeppelinApplicationConfiguration' :: Maybe CatalogConfiguration
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#%24sel%3AcatalogConfiguration%3AZeppelinApplicationConfiguration%27"><span class="hs-identifier hs-var">catalogConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CatalogConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:deployAsApplicationConfiguration:ZeppelinApplicationConfiguration' :: Maybe DeployAsApplicationConfiguration
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#%24sel%3AdeployAsApplicationConfiguration%3AZeppelinApplicationConfiguration%27"><span class="hs-identifier hs-var">deployAsApplicationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>        </span><span class="annot"><span class="annottext">Maybe DeployAsApplicationConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:customArtifactsConfiguration:ZeppelinApplicationConfiguration' :: Maybe [CustomArtifactConfiguration]
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#%24sel%3AcustomArtifactsConfiguration%3AZeppelinApplicationConfiguration%27"><span class="hs-identifier hs-var">customArtifactsConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>        </span><span class="annot"><span class="annottext">Maybe [CustomArtifactConfiguration]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The monitoring configuration of a Kinesis Data Analytics Studio</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- notebook.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#zeppelinApplicationConfiguration_monitoringConfiguration"><span class="hs-identifier hs-type">zeppelinApplicationConfiguration_monitoringConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#ZeppelinApplicationConfiguration"><span class="hs-identifier hs-type">ZeppelinApplicationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinMonitoringConfiguration.html#ZeppelinMonitoringConfiguration"><span class="hs-identifier hs-type">ZeppelinMonitoringConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="zeppelinApplicationConfiguration_monitoringConfiguration"><span class="annot"><span class="annottext">zeppelinApplicationConfiguration_monitoringConfiguration :: (Maybe ZeppelinMonitoringConfiguration
+ -&gt; f (Maybe ZeppelinMonitoringConfiguration))
+-&gt; ZeppelinApplicationConfiguration
+-&gt; f ZeppelinApplicationConfiguration
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#zeppelinApplicationConfiguration_monitoringConfiguration"><span class="hs-identifier hs-var hs-var">zeppelinApplicationConfiguration_monitoringConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ZeppelinApplicationConfiguration
+ -&gt; Maybe ZeppelinMonitoringConfiguration)
+-&gt; (ZeppelinApplicationConfiguration
+    -&gt; Maybe ZeppelinMonitoringConfiguration
+    -&gt; ZeppelinApplicationConfiguration)
+-&gt; Lens
+     ZeppelinApplicationConfiguration
+     ZeppelinApplicationConfiguration
+     (Maybe ZeppelinMonitoringConfiguration)
+     (Maybe ZeppelinMonitoringConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#ZeppelinApplicationConfiguration%27"><span class="hs-identifier hs-type">ZeppelinApplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299056"><span class="annot"><span class="annottext">Maybe ZeppelinMonitoringConfiguration
+monitoringConfiguration :: Maybe ZeppelinMonitoringConfiguration
+$sel:monitoringConfiguration:ZeppelinApplicationConfiguration' :: ZeppelinApplicationConfiguration
+-&gt; Maybe ZeppelinMonitoringConfiguration
+</span><a href="#local-6989586621679299056"><span class="hs-identifier hs-var hs-var">monitoringConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ZeppelinMonitoringConfiguration
+</span><a href="#local-6989586621679299056"><span class="hs-identifier hs-var">monitoringConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299055"><span class="annot"><span class="annottext">s :: ZeppelinApplicationConfiguration
+</span><a href="#local-6989586621679299055"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#ZeppelinApplicationConfiguration%27"><span class="hs-identifier hs-type">ZeppelinApplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299054"><span class="annot"><span class="annottext">Maybe ZeppelinMonitoringConfiguration
+</span><a href="#local-6989586621679299054"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ZeppelinApplicationConfiguration
+</span><a href="#local-6989586621679299055"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:monitoringConfiguration:ZeppelinApplicationConfiguration' :: Maybe ZeppelinMonitoringConfiguration
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#%24sel%3AmonitoringConfiguration%3AZeppelinApplicationConfiguration%27"><span class="hs-identifier hs-var">monitoringConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ZeppelinMonitoringConfiguration
+</span><a href="#local-6989586621679299054"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#ZeppelinApplicationConfiguration"><span class="hs-identifier hs-type">ZeppelinApplicationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The Amazon Glue Data Catalog that you use in queries in a Kinesis Data</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- Analytics Studio notebook.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#zeppelinApplicationConfiguration_catalogConfiguration"><span class="hs-identifier hs-type">zeppelinApplicationConfiguration_catalogConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#ZeppelinApplicationConfiguration"><span class="hs-identifier hs-type">ZeppelinApplicationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.CatalogConfiguration.html#CatalogConfiguration"><span class="hs-identifier hs-type">CatalogConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="zeppelinApplicationConfiguration_catalogConfiguration"><span class="annot"><span class="annottext">zeppelinApplicationConfiguration_catalogConfiguration :: (Maybe CatalogConfiguration -&gt; f (Maybe CatalogConfiguration))
+-&gt; ZeppelinApplicationConfiguration
+-&gt; f ZeppelinApplicationConfiguration
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#zeppelinApplicationConfiguration_catalogConfiguration"><span class="hs-identifier hs-var hs-var">zeppelinApplicationConfiguration_catalogConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ZeppelinApplicationConfiguration -&gt; Maybe CatalogConfiguration)
+-&gt; (ZeppelinApplicationConfiguration
+    -&gt; Maybe CatalogConfiguration -&gt; ZeppelinApplicationConfiguration)
+-&gt; Lens
+     ZeppelinApplicationConfiguration
+     ZeppelinApplicationConfiguration
+     (Maybe CatalogConfiguration)
+     (Maybe CatalogConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#ZeppelinApplicationConfiguration%27"><span class="hs-identifier hs-type">ZeppelinApplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299052"><span class="annot"><span class="annottext">Maybe CatalogConfiguration
+catalogConfiguration :: Maybe CatalogConfiguration
+$sel:catalogConfiguration:ZeppelinApplicationConfiguration' :: ZeppelinApplicationConfiguration -&gt; Maybe CatalogConfiguration
+</span><a href="#local-6989586621679299052"><span class="hs-identifier hs-var hs-var">catalogConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CatalogConfiguration
+</span><a href="#local-6989586621679299052"><span class="hs-identifier hs-var">catalogConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299051"><span class="annot"><span class="annottext">s :: ZeppelinApplicationConfiguration
+</span><a href="#local-6989586621679299051"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#ZeppelinApplicationConfiguration%27"><span class="hs-identifier hs-type">ZeppelinApplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299050"><span class="annot"><span class="annottext">Maybe CatalogConfiguration
+</span><a href="#local-6989586621679299050"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ZeppelinApplicationConfiguration
+</span><a href="#local-6989586621679299051"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogConfiguration:ZeppelinApplicationConfiguration' :: Maybe CatalogConfiguration
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#%24sel%3AcatalogConfiguration%3AZeppelinApplicationConfiguration%27"><span class="hs-identifier hs-var">catalogConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CatalogConfiguration
+</span><a href="#local-6989586621679299050"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#ZeppelinApplicationConfiguration"><span class="hs-identifier hs-type">ZeppelinApplicationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The information required to deploy a Kinesis Data Analytics Studio</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- notebook as an application with durable state.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#zeppelinApplicationConfiguration_deployAsApplicationConfiguration"><span class="hs-identifier hs-type">zeppelinApplicationConfiguration_deployAsApplicationConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#ZeppelinApplicationConfiguration"><span class="hs-identifier hs-type">ZeppelinApplicationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.DeployAsApplicationConfiguration.html#DeployAsApplicationConfiguration"><span class="hs-identifier hs-type">DeployAsApplicationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="zeppelinApplicationConfiguration_deployAsApplicationConfiguration"><span class="annot"><span class="annottext">zeppelinApplicationConfiguration_deployAsApplicationConfiguration :: (Maybe DeployAsApplicationConfiguration
+ -&gt; f (Maybe DeployAsApplicationConfiguration))
+-&gt; ZeppelinApplicationConfiguration
+-&gt; f ZeppelinApplicationConfiguration
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#zeppelinApplicationConfiguration_deployAsApplicationConfiguration"><span class="hs-identifier hs-var hs-var">zeppelinApplicationConfiguration_deployAsApplicationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ZeppelinApplicationConfiguration
+ -&gt; Maybe DeployAsApplicationConfiguration)
+-&gt; (ZeppelinApplicationConfiguration
+    -&gt; Maybe DeployAsApplicationConfiguration
+    -&gt; ZeppelinApplicationConfiguration)
+-&gt; Lens
+     ZeppelinApplicationConfiguration
+     ZeppelinApplicationConfiguration
+     (Maybe DeployAsApplicationConfiguration)
+     (Maybe DeployAsApplicationConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#ZeppelinApplicationConfiguration%27"><span class="hs-identifier hs-type">ZeppelinApplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299048"><span class="annot"><span class="annottext">Maybe DeployAsApplicationConfiguration
+deployAsApplicationConfiguration :: Maybe DeployAsApplicationConfiguration
+$sel:deployAsApplicationConfiguration:ZeppelinApplicationConfiguration' :: ZeppelinApplicationConfiguration
+-&gt; Maybe DeployAsApplicationConfiguration
+</span><a href="#local-6989586621679299048"><span class="hs-identifier hs-var hs-var">deployAsApplicationConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeployAsApplicationConfiguration
+</span><a href="#local-6989586621679299048"><span class="hs-identifier hs-var">deployAsApplicationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299047"><span class="annot"><span class="annottext">s :: ZeppelinApplicationConfiguration
+</span><a href="#local-6989586621679299047"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#ZeppelinApplicationConfiguration%27"><span class="hs-identifier hs-type">ZeppelinApplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299046"><span class="annot"><span class="annottext">Maybe DeployAsApplicationConfiguration
+</span><a href="#local-6989586621679299046"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ZeppelinApplicationConfiguration
+</span><a href="#local-6989586621679299047"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deployAsApplicationConfiguration:ZeppelinApplicationConfiguration' :: Maybe DeployAsApplicationConfiguration
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#%24sel%3AdeployAsApplicationConfiguration%3AZeppelinApplicationConfiguration%27"><span class="hs-identifier hs-var">deployAsApplicationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeployAsApplicationConfiguration
+</span><a href="#local-6989586621679299046"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#ZeppelinApplicationConfiguration"><span class="hs-identifier hs-type">ZeppelinApplicationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | Custom artifacts are dependency JARs and user-defined functions (UDF).</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#zeppelinApplicationConfiguration_customArtifactsConfiguration"><span class="hs-identifier hs-type">zeppelinApplicationConfiguration_customArtifactsConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#ZeppelinApplicationConfiguration"><span class="hs-identifier hs-type">ZeppelinApplicationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.CustomArtifactConfiguration.html#CustomArtifactConfiguration"><span class="hs-identifier hs-type">CustomArtifactConfiguration</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="zeppelinApplicationConfiguration_customArtifactsConfiguration"><span class="annot"><span class="annottext">zeppelinApplicationConfiguration_customArtifactsConfiguration :: (Maybe [CustomArtifactConfiguration]
+ -&gt; f (Maybe [CustomArtifactConfiguration]))
+-&gt; ZeppelinApplicationConfiguration
+-&gt; f ZeppelinApplicationConfiguration
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#zeppelinApplicationConfiguration_customArtifactsConfiguration"><span class="hs-identifier hs-var hs-var">zeppelinApplicationConfiguration_customArtifactsConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ZeppelinApplicationConfiguration
+ -&gt; Maybe [CustomArtifactConfiguration])
+-&gt; (ZeppelinApplicationConfiguration
+    -&gt; Maybe [CustomArtifactConfiguration]
+    -&gt; ZeppelinApplicationConfiguration)
+-&gt; Lens
+     ZeppelinApplicationConfiguration
+     ZeppelinApplicationConfiguration
+     (Maybe [CustomArtifactConfiguration])
+     (Maybe [CustomArtifactConfiguration])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#ZeppelinApplicationConfiguration%27"><span class="hs-identifier hs-type">ZeppelinApplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299044"><span class="annot"><span class="annottext">Maybe [CustomArtifactConfiguration]
+customArtifactsConfiguration :: Maybe [CustomArtifactConfiguration]
+$sel:customArtifactsConfiguration:ZeppelinApplicationConfiguration' :: ZeppelinApplicationConfiguration
+-&gt; Maybe [CustomArtifactConfiguration]
+</span><a href="#local-6989586621679299044"><span class="hs-identifier hs-var hs-var">customArtifactsConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CustomArtifactConfiguration]
+</span><a href="#local-6989586621679299044"><span class="hs-identifier hs-var">customArtifactsConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299043"><span class="annot"><span class="annottext">s :: ZeppelinApplicationConfiguration
+</span><a href="#local-6989586621679299043"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#ZeppelinApplicationConfiguration%27"><span class="hs-identifier hs-type">ZeppelinApplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299042"><span class="annot"><span class="annottext">Maybe [CustomArtifactConfiguration]
+</span><a href="#local-6989586621679299042"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ZeppelinApplicationConfiguration
+</span><a href="#local-6989586621679299043"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customArtifactsConfiguration:ZeppelinApplicationConfiguration' :: Maybe [CustomArtifactConfiguration]
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#%24sel%3AcustomArtifactsConfiguration%3AZeppelinApplicationConfiguration%27"><span class="hs-identifier hs-var">customArtifactsConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CustomArtifactConfiguration]
+</span><a href="#local-6989586621679299042"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#ZeppelinApplicationConfiguration"><span class="hs-identifier hs-type">ZeppelinApplicationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CustomArtifactConfiguration]
+  -&gt; f (Maybe [CustomArtifactConfiguration]))
+ -&gt; ZeppelinApplicationConfiguration
+ -&gt; f ZeppelinApplicationConfiguration)
+-&gt; ((Maybe [CustomArtifactConfiguration]
+     -&gt; f (Maybe [CustomArtifactConfiguration]))
+    -&gt; Maybe [CustomArtifactConfiguration]
+    -&gt; f (Maybe [CustomArtifactConfiguration]))
+-&gt; (Maybe [CustomArtifactConfiguration]
+    -&gt; f (Maybe [CustomArtifactConfiguration]))
+-&gt; ZeppelinApplicationConfiguration
+-&gt; f ZeppelinApplicationConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [CustomArtifactConfiguration]
+  [CustomArtifactConfiguration]
+  [CustomArtifactConfiguration]
+  [CustomArtifactConfiguration]
+-&gt; Iso
+     (Maybe [CustomArtifactConfiguration])
+     (Maybe [CustomArtifactConfiguration])
+     (Maybe [CustomArtifactConfiguration])
+     (Maybe [CustomArtifactConfiguration])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [CustomArtifactConfiguration]
+  [CustomArtifactConfiguration]
+  [CustomArtifactConfiguration]
+  [CustomArtifactConfiguration]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679299035"><span id="local-6989586621679299037"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#ZeppelinApplicationConfiguration"><span class="hs-identifier hs-type">ZeppelinApplicationConfiguration</span></a></span></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679299032"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#ZeppelinApplicationConfiguration"><span class="hs-identifier hs-type">ZeppelinApplicationConfiguration</span></a></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299024"><span id="local-6989586621679299026"><span id="local-6989586621679299028"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#ZeppelinApplicationConfiguration"><span class="hs-identifier hs-type">ZeppelinApplicationConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679299022"><span class="annot"><span class="annottext">toJSON :: ZeppelinApplicationConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.ZeppelinApplicationConfiguration.html#ZeppelinApplicationConfiguration%27"><span class="hs-identifier hs-type">ZeppelinApplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299017"><span id="local-6989586621679299018"><span id="local-6989586621679299019"><span id="local-6989586621679299020"><span class="annot"><span class="annottext">Maybe [CustomArtifactConfiguration]
+Maybe CatalogConfiguration
+Maybe DeployAsApplicationConfiguration
+Maybe ZeppelinMonitoringConfiguration
+customArtifactsConfiguration :: Maybe [CustomArtifactConfiguration]
+deployAsApplicationConfiguration :: Maybe DeployAsApplicationConfiguration
+catalogConfiguration :: Maybe CatalogConfiguration
+monitoringConfiguration :: Maybe ZeppelinMonitoringConfiguration
+$sel:customArtifactsConfiguration:ZeppelinApplicationConfiguration' :: ZeppelinApplicationConfiguration
+-&gt; Maybe [CustomArtifactConfiguration]
+$sel:deployAsApplicationConfiguration:ZeppelinApplicationConfiguration' :: ZeppelinApplicationConfiguration
+-&gt; Maybe DeployAsApplicationConfiguration
+$sel:catalogConfiguration:ZeppelinApplicationConfiguration' :: ZeppelinApplicationConfiguration -&gt; Maybe CatalogConfiguration
+$sel:monitoringConfiguration:ZeppelinApplicationConfiguration' :: ZeppelinApplicationConfiguration
+-&gt; Maybe ZeppelinMonitoringConfiguration
+</span><a href="#local-6989586621679299017"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-110"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MonitoringConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ZeppelinMonitoringConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>              </span><span class="annot"><span class="annottext">(ZeppelinMonitoringConfiguration -&gt; Pair)
+-&gt; Maybe ZeppelinMonitoringConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ZeppelinMonitoringConfiguration
+</span><a href="#local-6989586621679299020"><span class="hs-identifier hs-var">monitoringConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CatalogConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CatalogConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>              </span><span class="annot"><span class="annottext">(CatalogConfiguration -&gt; Pair)
+-&gt; Maybe CatalogConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CatalogConfiguration
+</span><a href="#local-6989586621679299019"><span class="hs-identifier hs-var">catalogConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeployAsApplicationConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DeployAsApplicationConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>              </span><span class="annot"><span class="annottext">(DeployAsApplicationConfiguration -&gt; Pair)
+-&gt; Maybe DeployAsApplicationConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DeployAsApplicationConfiguration
+</span><a href="#local-6989586621679299018"><span class="hs-identifier hs-var">deployAsApplicationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CustomArtifactsConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [CustomArtifactConfiguration] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>              </span><span class="annot"><span class="annottext">([CustomArtifactConfiguration] -&gt; Pair)
+-&gt; Maybe [CustomArtifactConfiguration] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CustomArtifactConfiguration]
+</span><a href="#local-6989586621679299017"><span class="hs-identifier hs-var">customArtifactsConfiguration</span></a></span><span>
+</span><span id="line-118"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span></pre></body></html>

@@ -85,7 +85,7 @@
 </span><span id="line-85"></span><span class="hs-comment">-- | Represents the input for a request operation.</span><span>
 </span><span id="line-86"></span><span class="hs-comment">--</span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- /See:/ 'newDescribeInstances' smart constructor.</span><span>
-</span><span id="line-88"></span><span id="local-6989586621679452088"><span id="local-6989586621679452089"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeInstances"><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances"><span class="hs-identifier hs-var">DescribeInstances</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeInstances%27"><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances%27"><span class="hs-identifier hs-var">DescribeInstances'</span></a></span></span><span>
+</span><span id="line-88"></span><span id="local-6989586621679452097"><span id="local-6989586621679452098"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeInstances"><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances"><span class="hs-identifier hs-var">DescribeInstances</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeInstances%27"><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances%27"><span class="hs-identifier hs-var">DescribeInstances'</span></a></span></span><span>
 </span><span id="line-89"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique identifier for an instance to retrieve. Specify an instance ID</span><span>
 </span><span id="line-90"></span><span>    </span><span class="hs-comment">-- or leave blank to retrieve all instances in the fleet.</span><span>
 </span><span id="line-91"></span><span>    </span><span id="%24sel%3AinstanceId%3ADescribeInstances%27"><span class="annot"><span class="annottext">DescribeInstances -&gt; Maybe Text
@@ -108,7 +108,7 @@
 </span><span id="line-104"></span><span>    </span><span id="%24sel%3AfleetId%3ADescribeInstances%27"><span class="annot"><span class="annottext">DescribeInstances -&gt; Text
 </span><a href="Network.AWS.GameLift.DescribeInstances.html#%24sel%3AfleetId%3ADescribeInstances%27"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-105"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-106"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679452078"><span id="local-6989586621679452080"><span class="annot"><span class="annottext">DescribeInstances -&gt; DescribeInstances -&gt; Bool
+</span><span id="line-106"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679452087"><span id="local-6989586621679452089"><span class="annot"><span class="annottext">DescribeInstances -&gt; DescribeInstances -&gt; Bool
 (DescribeInstances -&gt; DescribeInstances -&gt; Bool)
 -&gt; (DescribeInstances -&gt; DescribeInstances -&gt; Bool)
 -&gt; Eq DescribeInstances
@@ -117,7 +117,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeInstances -&gt; DescribeInstances -&gt; Bool
 == :: DescribeInstances -&gt; DescribeInstances -&gt; Bool
 $c== :: DescribeInstances -&gt; DescribeInstances -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679452069"><span id="local-6989586621679452071"><span id="local-6989586621679452073"><span id="local-6989586621679452075"><span class="annot"><span class="annottext">ReadPrec [DescribeInstances]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679452078"><span id="local-6989586621679452080"><span id="local-6989586621679452082"><span id="local-6989586621679452084"><span class="annot"><span class="annottext">ReadPrec [DescribeInstances]
 ReadPrec DescribeInstances
 Int -&gt; ReadS DescribeInstances
 ReadS [DescribeInstances]
@@ -137,7 +137,7 @@ readList :: ReadS [DescribeInstances]
 $creadList :: ReadS [DescribeInstances]
 readsPrec :: Int -&gt; ReadS DescribeInstances
 $creadsPrec :: Int -&gt; ReadS DescribeInstances
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679452062"><span id="local-6989586621679452064"><span id="local-6989586621679452066"><span class="annot"><span class="annottext">Int -&gt; DescribeInstances -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679452071"><span id="local-6989586621679452073"><span id="local-6989586621679452075"><span class="annot"><span class="annottext">Int -&gt; DescribeInstances -&gt; ShowS
 [DescribeInstances] -&gt; ShowS
 DescribeInstances -&gt; String
 (Int -&gt; DescribeInstances -&gt; ShowS)
@@ -191,8 +191,8 @@ $cfrom :: forall x. DescribeInstances -&gt; Rep DescribeInstances x
 </span><span id="line-133"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-134"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances"><span class="hs-identifier hs-type">DescribeInstances</span></a></span><span>
 </span><span id="line-135"></span><span id="newDescribeInstances"><span class="annot"><span class="annottext">newDescribeInstances :: Text -&gt; DescribeInstances
-</span><a href="Network.AWS.GameLift.DescribeInstances.html#newDescribeInstances"><span class="hs-identifier hs-var hs-var">newDescribeInstances</span></a></span></span><span> </span><span id="local-6989586621679452057"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679452057"><span class="hs-identifier hs-var">pFleetId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GameLift.DescribeInstances.html#newDescribeInstances"><span class="hs-identifier hs-var hs-var">newDescribeInstances</span></a></span></span><span> </span><span id="local-6989586621679452066"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679452066"><span class="hs-identifier hs-var">pFleetId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>  </span><span class="annot"><span class="annottext">DescribeInstances' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -218,7 +218,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:fleetId:DescribeInstances' :: Text
 </span><a href="Network.AWS.GameLift.DescribeInstances.html#%24sel%3AfleetId%3ADescribeInstances%27"><span class="hs-identifier hs-var">fleetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679452057"><span class="hs-identifier hs-var">pFleetId_</span></a></span><span>
+</span><a href="#local-6989586621679452066"><span class="hs-identifier hs-var">pFleetId_</span></a></span><span>
 </span><span id="line-142"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- | A unique identifier for an instance to retrieve. Specify an instance ID</span><span>
@@ -231,16 +231,16 @@ forall a. Maybe a
 -&gt; Lens
      DescribeInstances DescribeInstances (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances%27"><span class="hs-identifier hs-type">DescribeInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452055"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances%27"><span class="hs-identifier hs-type">DescribeInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452064"><span class="annot"><span class="annottext">Maybe Text
 instanceId :: Maybe Text
 $sel:instanceId:DescribeInstances' :: DescribeInstances -&gt; Maybe Text
-</span><a href="#local-6989586621679452055"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679452055"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452054"><span class="annot"><span class="annottext">s :: DescribeInstances
-</span><a href="#local-6989586621679452054"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances%27"><span class="hs-identifier hs-type">DescribeInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452053"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679452053"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstances
-</span><a href="#local-6989586621679452054"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:DescribeInstances' :: Maybe Text
+</span><a href="#local-6989586621679452064"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679452064"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452063"><span class="annot"><span class="annottext">s :: DescribeInstances
+</span><a href="#local-6989586621679452063"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances%27"><span class="hs-identifier hs-type">DescribeInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452062"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679452062"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstances
+</span><a href="#local-6989586621679452063"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:DescribeInstances' :: Maybe Text
 </span><a href="Network.AWS.GameLift.DescribeInstances.html#%24sel%3AinstanceId%3ADescribeInstances%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679452053"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances"><span class="hs-identifier hs-type">DescribeInstances</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679452062"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances"><span class="hs-identifier hs-type">DescribeInstances</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- | The name of a location to retrieve instance information for, in the form</span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- of an AWS Region code such as @us-west-2@.</span><span>
@@ -252,16 +252,16 @@ $sel:instanceId:DescribeInstances' :: DescribeInstances -&gt; Maybe Text
 -&gt; Lens
      DescribeInstances DescribeInstances (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances%27"><span class="hs-identifier hs-type">DescribeInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452052"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances%27"><span class="hs-identifier hs-type">DescribeInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452061"><span class="annot"><span class="annottext">Maybe Text
 location :: Maybe Text
 $sel:location:DescribeInstances' :: DescribeInstances -&gt; Maybe Text
-</span><a href="#local-6989586621679452052"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679452052"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452051"><span class="annot"><span class="annottext">s :: DescribeInstances
-</span><a href="#local-6989586621679452051"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances%27"><span class="hs-identifier hs-type">DescribeInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452050"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679452050"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstances
-</span><a href="#local-6989586621679452051"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:DescribeInstances' :: Maybe Text
+</span><a href="#local-6989586621679452061"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679452061"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452060"><span class="annot"><span class="annottext">s :: DescribeInstances
+</span><a href="#local-6989586621679452060"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances%27"><span class="hs-identifier hs-type">DescribeInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452059"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679452059"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstances
+</span><a href="#local-6989586621679452060"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:DescribeInstances' :: Maybe Text
 </span><a href="Network.AWS.GameLift.DescribeInstances.html#%24sel%3Alocation%3ADescribeInstances%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679452050"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances"><span class="hs-identifier hs-type">DescribeInstances</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679452059"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances"><span class="hs-identifier hs-type">DescribeInstances</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- | A token that indicates the start of the next sequential page of results.</span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- Use the token that is returned with a previous call to this operation.</span><span>
@@ -274,16 +274,16 @@ $sel:location:DescribeInstances' :: DescribeInstances -&gt; Maybe Text
 -&gt; Lens
      DescribeInstances DescribeInstances (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances%27"><span class="hs-identifier hs-type">DescribeInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452049"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances%27"><span class="hs-identifier hs-type">DescribeInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452058"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeInstances' :: DescribeInstances -&gt; Maybe Text
-</span><a href="#local-6989586621679452049"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679452049"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452048"><span class="annot"><span class="annottext">s :: DescribeInstances
-</span><a href="#local-6989586621679452048"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances%27"><span class="hs-identifier hs-type">DescribeInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452047"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679452047"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstances
-</span><a href="#local-6989586621679452048"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeInstances' :: Maybe Text
+</span><a href="#local-6989586621679452058"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679452058"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452057"><span class="annot"><span class="annottext">s :: DescribeInstances
+</span><a href="#local-6989586621679452057"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances%27"><span class="hs-identifier hs-type">DescribeInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452056"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679452056"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstances
+</span><a href="#local-6989586621679452057"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeInstances' :: Maybe Text
 </span><a href="Network.AWS.GameLift.DescribeInstances.html#%24sel%3AnextToken%3ADescribeInstances%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679452047"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances"><span class="hs-identifier hs-type">DescribeInstances</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679452056"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances"><span class="hs-identifier hs-type">DescribeInstances</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- | The maximum number of results to return. Use this parameter with</span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- @NextToken@ to get results as a set of sequential pages.</span><span>
@@ -295,16 +295,16 @@ $sel:nextToken:DescribeInstances' :: DescribeInstances -&gt; Maybe Text
 -&gt; Lens
      DescribeInstances DescribeInstances (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances%27"><span class="hs-identifier hs-type">DescribeInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452046"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances%27"><span class="hs-identifier hs-type">DescribeInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452055"><span class="annot"><span class="annottext">Maybe Natural
 limit :: Maybe Natural
 $sel:limit:DescribeInstances' :: DescribeInstances -&gt; Maybe Natural
-</span><a href="#local-6989586621679452046"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679452046"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452045"><span class="annot"><span class="annottext">s :: DescribeInstances
-</span><a href="#local-6989586621679452045"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances%27"><span class="hs-identifier hs-type">DescribeInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452044"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679452044"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstances
-</span><a href="#local-6989586621679452045"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:DescribeInstances' :: Maybe Natural
+</span><a href="#local-6989586621679452055"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679452055"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452054"><span class="annot"><span class="annottext">s :: DescribeInstances
+</span><a href="#local-6989586621679452054"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances%27"><span class="hs-identifier hs-type">DescribeInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452053"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679452053"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstances
+</span><a href="#local-6989586621679452054"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:DescribeInstances' :: Maybe Natural
 </span><a href="Network.AWS.GameLift.DescribeInstances.html#%24sel%3Alimit%3ADescribeInstances%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679452044"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances"><span class="hs-identifier hs-type">DescribeInstances</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679452053"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances"><span class="hs-identifier hs-type">DescribeInstances</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | A unique identifier for the fleet to retrieve instance information for.</span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- You can use either the fleet ID or ARN value.</span><span>
@@ -314,29 +314,29 @@ $sel:limit:DescribeInstances' :: DescribeInstances -&gt; Maybe Natural
 -&gt; (DescribeInstances -&gt; Text -&gt; DescribeInstances)
 -&gt; Lens DescribeInstances DescribeInstances Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances%27"><span class="hs-identifier hs-type">DescribeInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452043"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances%27"><span class="hs-identifier hs-type">DescribeInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452052"><span class="annot"><span class="annottext">Text
 fleetId :: Text
 $sel:fleetId:DescribeInstances' :: DescribeInstances -&gt; Text
-</span><a href="#local-6989586621679452043"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679452043"><span class="hs-identifier hs-var">fleetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452042"><span class="annot"><span class="annottext">s :: DescribeInstances
-</span><a href="#local-6989586621679452042"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances%27"><span class="hs-identifier hs-type">DescribeInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452041"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679452041"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstances
-</span><a href="#local-6989586621679452042"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetId:DescribeInstances' :: Text
+</span><a href="#local-6989586621679452052"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679452052"><span class="hs-identifier hs-var">fleetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452051"><span class="annot"><span class="annottext">s :: DescribeInstances
+</span><a href="#local-6989586621679452051"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances%27"><span class="hs-identifier hs-type">DescribeInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452050"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679452050"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstances
+</span><a href="#local-6989586621679452051"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetId:DescribeInstances' :: Text
 </span><a href="Network.AWS.GameLift.DescribeInstances.html#%24sel%3AfleetId%3ADescribeInstances%27"><span class="hs-identifier hs-var">fleetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679452041"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances"><span class="hs-identifier hs-type">DescribeInstances</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679452050"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances"><span class="hs-identifier hs-type">DescribeInstances</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances"><span class="hs-identifier hs-type">DescribeInstances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-171"></span><span>  </span><span id="local-6989586621679452037"><span class="annot"><span class="annottext">page :: DescribeInstances
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679452046"><span class="annot"><span class="annottext">page :: DescribeInstances
 -&gt; AWSResponse DescribeInstances -&gt; Maybe DescribeInstances
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679452035"><span class="annot"><span class="annottext">DescribeInstances
-</span><a href="#local-6989586621679452035"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679452034"><span class="annot"><span class="annottext">AWSResponse DescribeInstances
-</span><a href="#local-6989586621679452034"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679452044"><span class="annot"><span class="annottext">DescribeInstances
+</span><a href="#local-6989586621679452044"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679452043"><span class="annot"><span class="annottext">AWSResponse DescribeInstances
+</span><a href="#local-6989586621679452043"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-172"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-173"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeInstances
 DescribeInstancesResponse
-</span><a href="#local-6989586621679452034"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679452043"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">DescribeInstancesResponse
 -&gt; Getting (First Text) DescribeInstancesResponse Text
 -&gt; Maybe Text
@@ -366,7 +366,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-179"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeInstances
 DescribeInstancesResponse
-</span><a href="#local-6989586621679452034"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679452043"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">DescribeInstancesResponse
 -&gt; Getting (First [Instance]) DescribeInstancesResponse [Instance]
 -&gt; Maybe [Instance]
@@ -400,7 +400,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-186"></span><span>        </span><span class="annot"><span class="annottext">DescribeInstances
-</span><a href="#local-6989586621679452035"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679452044"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-187"></span><span>          </span><span class="annot"><span class="annottext">DescribeInstances
 -&gt; (DescribeInstances -&gt; DescribeInstances) -&gt; DescribeInstances
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -414,7 +414,7 @@ Lens DescribeInstances DescribeInstances (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeInstances
 DescribeInstancesResponse
-</span><a href="#local-6989586621679452034"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679452043"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-189"></span><span>          </span><span class="annot"><span class="annottext">DescribeInstancesResponse
 -&gt; Getting (First Text) DescribeInstancesResponse Text
 -&gt; Maybe Text
@@ -440,12 +440,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-193"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-194"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances"><span class="hs-identifier hs-type">DescribeInstances</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-195"></span><span>      </span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstancesResponse"><span class="hs-identifier hs-type">DescribeInstancesResponse</span></a></span><span>
-</span><span id="line-196"></span><span>  </span><span id="local-6989586621679452024"><span class="annot"><span class="annottext">request :: DescribeInstances -&gt; Request DescribeInstances
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679452033"><span class="annot"><span class="annottext">request :: DescribeInstances -&gt; Request DescribeInstances
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeInstances -&gt; Request DescribeInstances
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.GameLift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-197"></span><span>  </span><span id="local-6989586621679452020"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679452029"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeInstances
 -&gt; ClientResponse ClientBody
@@ -471,10 +471,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-199"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679452017"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679452017"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679452016"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679452016"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679452015"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679452015"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-199"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679452026"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679452026"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679452025"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679452025"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679452024"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679452024"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-200"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Instance] -&gt; Int -&gt; DescribeInstancesResponse
 </span><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstancesResponse%27"><span class="hs-identifier hs-var">DescribeInstancesResponse'</span></a></span><span>
 </span><span id="line-201"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
@@ -484,7 +484,7 @@ MonadResource m =&gt;
      String (Maybe [Instance] -&gt; Int -&gt; DescribeInstancesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679452015"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679452024"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -494,7 +494,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; DescribeInstancesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679452015"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Instance]))
+</span><a href="#local-6989586621679452024"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Instance]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Instances&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Instance]))
@@ -511,15 +511,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679452017"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679452026"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-204"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-205"></span><span>
-</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679452006"><span id="local-6989586621679452008"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances"><span class="hs-identifier hs-type">DescribeInstances</span></a></span></span></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679452015"><span id="local-6989586621679452017"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances"><span class="hs-identifier hs-type">DescribeInstances</span></a></span></span></span><span>
 </span><span id="line-207"></span><span>
-</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679452003"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances"><span class="hs-identifier hs-type">DescribeInstances</span></a></span></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679452012"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances"><span class="hs-identifier hs-type">DescribeInstances</span></a></span></span><span>
 </span><span id="line-209"></span><span>
 </span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances"><span class="hs-identifier hs-type">DescribeInstances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-211"></span><span>  </span><span id="local-6989586621679451999"><span class="annot"><span class="annottext">toHeaders :: DescribeInstances -&gt; ResponseHeaders
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621679452008"><span class="annot"><span class="annottext">toHeaders :: DescribeInstances -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-212"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeInstances -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -544,9 +544,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-220"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-221"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span>
-</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679451989"><span id="local-6989586621679451991"><span id="local-6989586621679451993"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances"><span class="hs-identifier hs-type">DescribeInstances</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-224"></span><span>  </span><span id="local-6989586621679451987"><span class="annot"><span class="annottext">toJSON :: DescribeInstances -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances%27"><span class="hs-identifier hs-type">DescribeInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679451981"><span id="local-6989586621679451982"><span id="local-6989586621679451983"><span id="local-6989586621679451984"><span id="local-6989586621679451985"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679451998"><span id="local-6989586621679452000"><span id="local-6989586621679452002"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances"><span class="hs-identifier hs-type">DescribeInstances</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-224"></span><span>  </span><span id="local-6989586621679451996"><span class="annot"><span class="annottext">toJSON :: DescribeInstances -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances%27"><span class="hs-identifier hs-type">DescribeInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679451990"><span id="local-6989586621679451991"><span id="local-6989586621679451992"><span id="local-6989586621679451993"><span id="local-6989586621679451994"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 fleetId :: Text
@@ -559,7 +559,7 @@ $sel:limit:DescribeInstances' :: DescribeInstances -&gt; Maybe Natural
 $sel:nextToken:DescribeInstances' :: DescribeInstances -&gt; Maybe Text
 $sel:location:DescribeInstances' :: DescribeInstances -&gt; Maybe Text
 $sel:instanceId:DescribeInstances' :: DescribeInstances -&gt; Maybe Text
-</span><a href="#local-6989586621679451981"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679451990"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-225"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-226"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -571,47 +571,47 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679451985"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679451994"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-228"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Location&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679451984"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679451993"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-229"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679451983"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679451992"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-230"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679451982"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679451991"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-231"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FleetId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679451981"><span class="hs-identifier hs-var">fleetId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679451990"><span class="hs-identifier hs-var">fleetId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-232"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-233"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-234"></span><span>
 </span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances"><span class="hs-identifier hs-type">DescribeInstances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-236"></span><span>  </span><span id="local-6989586621679451975"><span class="annot"><span class="annottext">toPath :: DescribeInstances -&gt; ByteString
+</span><span id="line-236"></span><span>  </span><span id="local-6989586621679451984"><span class="annot"><span class="annottext">toPath :: DescribeInstances -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeInstances -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-237"></span><span>
 </span><span id="line-238"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstances"><span class="hs-identifier hs-type">DescribeInstances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-239"></span><span>  </span><span id="local-6989586621679451971"><span class="annot"><span class="annottext">toQuery :: DescribeInstances -&gt; QueryString
+</span><span id="line-239"></span><span>  </span><span id="local-6989586621679451980"><span class="annot"><span class="annottext">toQuery :: DescribeInstances -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeInstances -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -621,7 +621,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-241"></span><span class="hs-comment">-- | Represents the returned data in response to a request operation.</span><span>
 </span><span id="line-242"></span><span class="hs-comment">--</span><span>
 </span><span id="line-243"></span><span class="hs-comment">-- /See:/ 'newDescribeInstancesResponse' smart constructor.</span><span>
-</span><span id="line-244"></span><span id="local-6989586621679451968"><span id="local-6989586621679451969"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeInstancesResponse"><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstancesResponse"><span class="hs-identifier hs-var">DescribeInstancesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeInstancesResponse%27"><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstancesResponse%27"><span class="hs-identifier hs-var">DescribeInstancesResponse'</span></a></span></span><span>
+</span><span id="line-244"></span><span id="local-6989586621679451977"><span id="local-6989586621679451978"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeInstancesResponse"><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstancesResponse"><span class="hs-identifier hs-var">DescribeInstancesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeInstancesResponse%27"><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstancesResponse%27"><span class="hs-identifier hs-var">DescribeInstancesResponse'</span></a></span></span><span>
 </span><span id="line-245"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token that indicates where to resume retrieving results on the next</span><span>
 </span><span id="line-246"></span><span>    </span><span class="hs-comment">-- call to this operation. If no token is returned, these results represent</span><span>
 </span><span id="line-247"></span><span>    </span><span class="hs-comment">-- the end of the list.</span><span>
@@ -635,7 +635,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-253"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeInstancesResponse%27"><span class="annot"><span class="annottext">DescribeInstancesResponse -&gt; Int
 </span><a href="Network.AWS.GameLift.DescribeInstances.html#%24sel%3AhttpStatus%3ADescribeInstancesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-254"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-255"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679451961"><span id="local-6989586621679451963"><span class="annot"><span class="annottext">DescribeInstancesResponse -&gt; DescribeInstancesResponse -&gt; Bool
+</span><span id="line-255"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679451970"><span id="local-6989586621679451972"><span class="annot"><span class="annottext">DescribeInstancesResponse -&gt; DescribeInstancesResponse -&gt; Bool
 (DescribeInstancesResponse -&gt; DescribeInstancesResponse -&gt; Bool)
 -&gt; (DescribeInstancesResponse -&gt; DescribeInstancesResponse -&gt; Bool)
 -&gt; Eq DescribeInstancesResponse
@@ -644,7 +644,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeInstancesResponse -&gt; DescribeInstancesResponse -&gt; Bool
 == :: DescribeInstancesResponse -&gt; DescribeInstancesResponse -&gt; Bool
 $c== :: DescribeInstancesResponse -&gt; DescribeInstancesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679451953"><span id="local-6989586621679451955"><span id="local-6989586621679451957"><span id="local-6989586621679451959"><span class="annot"><span class="annottext">ReadPrec [DescribeInstancesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679451962"><span id="local-6989586621679451964"><span id="local-6989586621679451966"><span id="local-6989586621679451968"><span class="annot"><span class="annottext">ReadPrec [DescribeInstancesResponse]
 ReadPrec DescribeInstancesResponse
 Int -&gt; ReadS DescribeInstancesResponse
 ReadS [DescribeInstancesResponse]
@@ -664,7 +664,7 @@ readList :: ReadS [DescribeInstancesResponse]
 $creadList :: ReadS [DescribeInstancesResponse]
 readsPrec :: Int -&gt; ReadS DescribeInstancesResponse
 $creadsPrec :: Int -&gt; ReadS DescribeInstancesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679451947"><span id="local-6989586621679451949"><span id="local-6989586621679451951"><span class="annot"><span class="annottext">Int -&gt; DescribeInstancesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679451956"><span id="local-6989586621679451958"><span id="local-6989586621679451960"><span class="annot"><span class="annottext">Int -&gt; DescribeInstancesResponse -&gt; ShowS
 [DescribeInstancesResponse] -&gt; ShowS
 DescribeInstancesResponse -&gt; String
 (Int -&gt; DescribeInstancesResponse -&gt; ShowS)
@@ -717,8 +717,8 @@ DescribeInstancesResponse -&gt; Rep DescribeInstancesResponse x
 </span><span id="line-275"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-276"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstancesResponse"><span class="hs-identifier hs-type">DescribeInstancesResponse</span></a></span><span>
 </span><span id="line-277"></span><span id="newDescribeInstancesResponse"><span class="annot"><span class="annottext">newDescribeInstancesResponse :: Int -&gt; DescribeInstancesResponse
-</span><a href="Network.AWS.GameLift.DescribeInstances.html#newDescribeInstancesResponse"><span class="hs-identifier hs-var hs-var">newDescribeInstancesResponse</span></a></span></span><span> </span><span id="local-6989586621679451944"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679451944"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GameLift.DescribeInstances.html#newDescribeInstancesResponse"><span class="hs-identifier hs-var hs-var">newDescribeInstancesResponse</span></a></span></span><span> </span><span id="local-6989586621679451953"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679451953"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-278"></span><span>  </span><span class="annot"><span class="annottext">DescribeInstancesResponse' :: Maybe Text -&gt; Maybe [Instance] -&gt; Int -&gt; DescribeInstancesResponse
 </span><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstancesResponse%27"><span class="hs-identifier hs-type">DescribeInstancesResponse'</span></a></span><span>
 </span><span id="line-279"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeInstancesResponse' :: Maybe Text
@@ -732,7 +732,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-282"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeInstancesResponse' :: Int
 </span><a href="Network.AWS.GameLift.DescribeInstances.html#%24sel%3AhttpStatus%3ADescribeInstancesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679451944"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679451953"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-283"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-284"></span><span>
 </span><span id="line-285"></span><span class="hs-comment">-- | A token that indicates where to resume retrieving results on the next</span><span>
@@ -746,16 +746,16 @@ forall a. Maybe a
     -&gt; Maybe Text -&gt; DescribeInstancesResponse)
 -&gt; Lens' DescribeInstancesResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstancesResponse%27"><span class="hs-identifier hs-type">DescribeInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679451943"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstancesResponse%27"><span class="hs-identifier hs-type">DescribeInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679451952"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeInstancesResponse' :: DescribeInstancesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679451943"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679451943"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679451942"><span class="annot"><span class="annottext">s :: DescribeInstancesResponse
-</span><a href="#local-6989586621679451942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstancesResponse%27"><span class="hs-identifier hs-type">DescribeInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679451941"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679451941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstancesResponse
-</span><a href="#local-6989586621679451942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeInstancesResponse' :: Maybe Text
+</span><a href="#local-6989586621679451952"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679451952"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679451951"><span class="annot"><span class="annottext">s :: DescribeInstancesResponse
+</span><a href="#local-6989586621679451951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstancesResponse%27"><span class="hs-identifier hs-type">DescribeInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679451950"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679451950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstancesResponse
+</span><a href="#local-6989586621679451951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeInstancesResponse' :: Maybe Text
 </span><a href="Network.AWS.GameLift.DescribeInstances.html#%24sel%3AnextToken%3ADescribeInstancesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679451941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstancesResponse"><span class="hs-identifier hs-type">DescribeInstancesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679451950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstancesResponse"><span class="hs-identifier hs-type">DescribeInstancesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-290"></span><span>
 </span><span id="line-291"></span><span class="hs-comment">-- | A collection of objects containing properties for each instance</span><span>
 </span><span id="line-292"></span><span class="hs-comment">-- returned.</span><span>
@@ -767,16 +767,16 @@ $sel:nextToken:DescribeInstancesResponse' :: DescribeInstancesResponse -&gt; May
     -&gt; Maybe [Instance] -&gt; DescribeInstancesResponse)
 -&gt; Lens' DescribeInstancesResponse (Maybe [Instance])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstancesResponse%27"><span class="hs-identifier hs-type">DescribeInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679451940"><span class="annot"><span class="annottext">Maybe [Instance]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstancesResponse%27"><span class="hs-identifier hs-type">DescribeInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679451949"><span class="annot"><span class="annottext">Maybe [Instance]
 instances :: Maybe [Instance]
 $sel:instances:DescribeInstancesResponse' :: DescribeInstancesResponse -&gt; Maybe [Instance]
-</span><a href="#local-6989586621679451940"><span class="hs-identifier hs-var hs-var">instances</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Instance]
-</span><a href="#local-6989586621679451940"><span class="hs-identifier hs-var">instances</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679451939"><span class="annot"><span class="annottext">s :: DescribeInstancesResponse
-</span><a href="#local-6989586621679451939"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstancesResponse%27"><span class="hs-identifier hs-type">DescribeInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679451938"><span class="annot"><span class="annottext">Maybe [Instance]
-</span><a href="#local-6989586621679451938"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstancesResponse
-</span><a href="#local-6989586621679451939"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instances:DescribeInstancesResponse' :: Maybe [Instance]
+</span><a href="#local-6989586621679451949"><span class="hs-identifier hs-var hs-var">instances</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Instance]
+</span><a href="#local-6989586621679451949"><span class="hs-identifier hs-var">instances</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679451948"><span class="annot"><span class="annottext">s :: DescribeInstancesResponse
+</span><a href="#local-6989586621679451948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstancesResponse%27"><span class="hs-identifier hs-type">DescribeInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679451947"><span class="annot"><span class="annottext">Maybe [Instance]
+</span><a href="#local-6989586621679451947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstancesResponse
+</span><a href="#local-6989586621679451948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instances:DescribeInstancesResponse' :: Maybe [Instance]
 </span><a href="Network.AWS.GameLift.DescribeInstances.html#%24sel%3Ainstances%3ADescribeInstancesResponse%27"><span class="hs-identifier hs-var">instances</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Instance]
-</span><a href="#local-6989586621679451938"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstancesResponse"><span class="hs-identifier hs-type">DescribeInstancesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Instance] -&gt; f (Maybe [Instance]))
+</span><a href="#local-6989586621679451947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstancesResponse"><span class="hs-identifier hs-type">DescribeInstancesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Instance] -&gt; f (Maybe [Instance]))
  -&gt; DescribeInstancesResponse -&gt; f DescribeInstancesResponse)
 -&gt; ((Maybe [Instance] -&gt; f (Maybe [Instance]))
     -&gt; Maybe [Instance] -&gt; f (Maybe [Instance]))
@@ -805,16 +805,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (DescribeInstancesResponse -&gt; Int -&gt; DescribeInstancesResponse)
 -&gt; Lens DescribeInstancesResponse DescribeInstancesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstancesResponse%27"><span class="hs-identifier hs-type">DescribeInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679451935"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstancesResponse%27"><span class="hs-identifier hs-type">DescribeInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679451944"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeInstancesResponse' :: DescribeInstancesResponse -&gt; Int
-</span><a href="#local-6989586621679451935"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679451935"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679451934"><span class="annot"><span class="annottext">s :: DescribeInstancesResponse
-</span><a href="#local-6989586621679451934"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstancesResponse%27"><span class="hs-identifier hs-type">DescribeInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679451933"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679451933"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstancesResponse
-</span><a href="#local-6989586621679451934"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeInstancesResponse' :: Int
+</span><a href="#local-6989586621679451944"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679451944"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679451943"><span class="annot"><span class="annottext">s :: DescribeInstancesResponse
+</span><a href="#local-6989586621679451943"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstancesResponse%27"><span class="hs-identifier hs-type">DescribeInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679451942"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679451942"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstancesResponse
+</span><a href="#local-6989586621679451943"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeInstancesResponse' :: Int
 </span><a href="Network.AWS.GameLift.DescribeInstances.html#%24sel%3AhttpStatus%3ADescribeInstancesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679451933"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstancesResponse"><span class="hs-identifier hs-type">DescribeInstancesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679451942"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstancesResponse"><span class="hs-identifier hs-type">DescribeInstancesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-299"></span><span>
-</span><span id="line-300"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679451931"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstancesResponse"><span class="hs-identifier hs-type">DescribeInstancesResponse</span></a></span></span><span>
+</span><span id="line-300"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679451940"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeInstances.html#DescribeInstancesResponse"><span class="hs-identifier hs-type">DescribeInstancesResponse</span></a></span></span><span>
 </span><span id="line-301"></span></pre></body></html>

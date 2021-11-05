@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- pair mapping.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newOpsItemEventFilter' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679803371"><span id="local-6989586621679803372"></span></span><span class="hs-keyword">data</span><span> </span><span id="OpsItemEventFilter"><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter"><span class="hs-identifier hs-var">OpsItemEventFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OpsItemEventFilter%27"><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter%27"><span class="hs-identifier hs-var">OpsItemEventFilter'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679803380"><span id="local-6989586621679803381"></span></span><span class="hs-keyword">data</span><span> </span><span id="OpsItemEventFilter"><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter"><span class="hs-identifier hs-var">OpsItemEventFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OpsItemEventFilter%27"><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter%27"><span class="hs-identifier hs-var">OpsItemEventFilter'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the filter key. Currently, the only supported value is</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- @OpsItemId@.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Akey%3AOpsItemEventFilter%27"><span class="annot"><span class="annottext">OpsItemEventFilter -&gt; OpsItemEventFilterKey
@@ -43,7 +43,7 @@
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3Aoperator%3AOpsItemEventFilter%27"><span class="annot"><span class="annottext">OpsItemEventFilter -&gt; OpsItemEventFilterOperator
 </span><a href="Network.AWS.SSM.Types.OpsItemEventFilter.html#%24sel%3Aoperator%3AOpsItemEventFilter%27"><span class="hs-identifier hs-var hs-var">operator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemEventFilterOperator.html#OpsItemEventFilterOperator"><span class="hs-identifier hs-type">OpsItemEventFilterOperator</span></a></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679803363"><span id="local-6989586621679803365"><span class="annot"><span class="annottext">OpsItemEventFilter -&gt; OpsItemEventFilter -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679803372"><span id="local-6989586621679803374"><span class="annot"><span class="annottext">OpsItemEventFilter -&gt; OpsItemEventFilter -&gt; Bool
 (OpsItemEventFilter -&gt; OpsItemEventFilter -&gt; Bool)
 -&gt; (OpsItemEventFilter -&gt; OpsItemEventFilter -&gt; Bool)
 -&gt; Eq OpsItemEventFilter
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: OpsItemEventFilter -&gt; OpsItemEventFilter -&gt; Bool
 == :: OpsItemEventFilter -&gt; OpsItemEventFilter -&gt; Bool
 $c== :: OpsItemEventFilter -&gt; OpsItemEventFilter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679803354"><span id="local-6989586621679803356"><span id="local-6989586621679803358"><span id="local-6989586621679803360"><span class="annot"><span class="annottext">ReadPrec [OpsItemEventFilter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679803363"><span id="local-6989586621679803365"><span id="local-6989586621679803367"><span id="local-6989586621679803369"><span class="annot"><span class="annottext">ReadPrec [OpsItemEventFilter]
 ReadPrec OpsItemEventFilter
 Int -&gt; ReadS OpsItemEventFilter
 ReadS [OpsItemEventFilter]
@@ -72,7 +72,7 @@ readList :: ReadS [OpsItemEventFilter]
 $creadList :: ReadS [OpsItemEventFilter]
 readsPrec :: Int -&gt; ReadS OpsItemEventFilter
 $creadsPrec :: Int -&gt; ReadS OpsItemEventFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679803347"><span id="local-6989586621679803349"><span id="local-6989586621679803351"><span class="annot"><span class="annottext">Int -&gt; OpsItemEventFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679803356"><span id="local-6989586621679803358"><span id="local-6989586621679803360"><span class="annot"><span class="annottext">Int -&gt; OpsItemEventFilter -&gt; ShowS
 [OpsItemEventFilter] -&gt; ShowS
 OpsItemEventFilter -&gt; String
 (Int -&gt; OpsItemEventFilter -&gt; ShowS)
@@ -121,22 +121,22 @@ $cfrom :: forall x. OpsItemEventFilter -&gt; Rep OpsItemEventFilter x
 </span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter"><span class="hs-identifier hs-type">OpsItemEventFilter</span></a></span><span>
 </span><span id="line-66"></span><span id="newOpsItemEventFilter"><span class="annot"><span class="annottext">newOpsItemEventFilter :: OpsItemEventFilterKey
 -&gt; OpsItemEventFilterOperator -&gt; OpsItemEventFilter
-</span><a href="Network.AWS.SSM.Types.OpsItemEventFilter.html#newOpsItemEventFilter"><span class="hs-identifier hs-var hs-var">newOpsItemEventFilter</span></a></span></span><span> </span><span id="local-6989586621679803341"><span class="annot"><span class="annottext">OpsItemEventFilterKey
-</span><a href="#local-6989586621679803341"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span id="local-6989586621679803340"><span class="annot"><span class="annottext">OpsItemEventFilterOperator
-</span><a href="#local-6989586621679803340"><span class="hs-identifier hs-var">pOperator_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.Types.OpsItemEventFilter.html#newOpsItemEventFilter"><span class="hs-identifier hs-var hs-var">newOpsItemEventFilter</span></a></span></span><span> </span><span id="local-6989586621679803350"><span class="annot"><span class="annottext">OpsItemEventFilterKey
+</span><a href="#local-6989586621679803350"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span id="local-6989586621679803349"><span class="annot"><span class="annottext">OpsItemEventFilterOperator
+</span><a href="#local-6989586621679803349"><span class="hs-identifier hs-var">pOperator_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">OpsItemEventFilter' :: OpsItemEventFilterKey
 -&gt; [Text] -&gt; OpsItemEventFilterOperator -&gt; OpsItemEventFilter
 </span><a href="Network.AWS.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter%27"><span class="hs-identifier hs-type">OpsItemEventFilter'</span></a></span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:key:OpsItemEventFilter' :: OpsItemEventFilterKey
 </span><a href="Network.AWS.SSM.Types.OpsItemEventFilter.html#%24sel%3Akey%3AOpsItemEventFilter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OpsItemEventFilterKey
-</span><a href="#local-6989586621679803341"><span class="hs-identifier hs-var">pKey_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679803350"><span class="hs-identifier hs-var">pKey_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:values:OpsItemEventFilter' :: [Text]
 </span><a href="Network.AWS.SSM.Types.OpsItemEventFilter.html#%24sel%3Avalues%3AOpsItemEventFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:operator:OpsItemEventFilter' :: OpsItemEventFilterOperator
 </span><a href="Network.AWS.SSM.Types.OpsItemEventFilter.html#%24sel%3Aoperator%3AOpsItemEventFilter%27"><span class="hs-identifier hs-var">operator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OpsItemEventFilterOperator
-</span><a href="#local-6989586621679803340"><span class="hs-identifier hs-var">pOperator_</span></a></span><span>
+</span><a href="#local-6989586621679803349"><span class="hs-identifier hs-var">pOperator_</span></a></span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | The name of the filter key. Currently, the only supported value is</span><span>
@@ -153,16 +153,16 @@ forall a. Monoid a =&gt; a
      OpsItemEventFilterKey
      OpsItemEventFilterKey
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter%27"><span class="hs-identifier hs-type">OpsItemEventFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679803336"><span class="annot"><span class="annottext">OpsItemEventFilterKey
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter%27"><span class="hs-identifier hs-type">OpsItemEventFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679803345"><span class="annot"><span class="annottext">OpsItemEventFilterKey
 key :: OpsItemEventFilterKey
 $sel:key:OpsItemEventFilter' :: OpsItemEventFilter -&gt; OpsItemEventFilterKey
-</span><a href="#local-6989586621679803336"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpsItemEventFilterKey
-</span><a href="#local-6989586621679803336"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679803335"><span class="annot"><span class="annottext">s :: OpsItemEventFilter
-</span><a href="#local-6989586621679803335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter%27"><span class="hs-identifier hs-type">OpsItemEventFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679803334"><span class="annot"><span class="annottext">OpsItemEventFilterKey
-</span><a href="#local-6989586621679803334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpsItemEventFilter
-</span><a href="#local-6989586621679803335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:OpsItemEventFilter' :: OpsItemEventFilterKey
+</span><a href="#local-6989586621679803345"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpsItemEventFilterKey
+</span><a href="#local-6989586621679803345"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679803344"><span class="annot"><span class="annottext">s :: OpsItemEventFilter
+</span><a href="#local-6989586621679803344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter%27"><span class="hs-identifier hs-type">OpsItemEventFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679803343"><span class="annot"><span class="annottext">OpsItemEventFilterKey
+</span><a href="#local-6989586621679803343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpsItemEventFilter
+</span><a href="#local-6989586621679803344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:OpsItemEventFilter' :: OpsItemEventFilterKey
 </span><a href="Network.AWS.SSM.Types.OpsItemEventFilter.html#%24sel%3Akey%3AOpsItemEventFilter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OpsItemEventFilterKey
-</span><a href="#local-6989586621679803334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter"><span class="hs-identifier hs-type">OpsItemEventFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679803343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter"><span class="hs-identifier hs-type">OpsItemEventFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | The values for the filter, consisting of one or more OpsItem IDs.</span><span>
 </span><span id="line-79"></span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemEventFilter.html#opsItemEventFilter_values"><span class="hs-identifier hs-type">opsItemEventFilter_values</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter"><span class="hs-identifier hs-type">OpsItemEventFilter</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
@@ -171,16 +171,16 @@ $sel:key:OpsItemEventFilter' :: OpsItemEventFilter -&gt; OpsItemEventFilterKey
 -&gt; (OpsItemEventFilter -&gt; [Text] -&gt; OpsItemEventFilter)
 -&gt; Lens OpsItemEventFilter OpsItemEventFilter [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter%27"><span class="hs-identifier hs-type">OpsItemEventFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679803332"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter%27"><span class="hs-identifier hs-type">OpsItemEventFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679803341"><span class="annot"><span class="annottext">[Text]
 values :: [Text]
 $sel:values:OpsItemEventFilter' :: OpsItemEventFilter -&gt; [Text]
-</span><a href="#local-6989586621679803332"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679803332"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679803331"><span class="annot"><span class="annottext">s :: OpsItemEventFilter
-</span><a href="#local-6989586621679803331"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter%27"><span class="hs-identifier hs-type">OpsItemEventFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679803330"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679803330"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpsItemEventFilter
-</span><a href="#local-6989586621679803331"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:OpsItemEventFilter' :: [Text]
+</span><a href="#local-6989586621679803341"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679803341"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679803340"><span class="annot"><span class="annottext">s :: OpsItemEventFilter
+</span><a href="#local-6989586621679803340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter%27"><span class="hs-identifier hs-type">OpsItemEventFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679803339"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679803339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpsItemEventFilter
+</span><a href="#local-6989586621679803340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:OpsItemEventFilter' :: [Text]
 </span><a href="Network.AWS.SSM.Types.OpsItemEventFilter.html#%24sel%3Avalues%3AOpsItemEventFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679803330"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter"><span class="hs-identifier hs-type">OpsItemEventFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679803339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter"><span class="hs-identifier hs-type">OpsItemEventFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; OpsItemEventFilter -&gt; f OpsItemEventFilter)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
@@ -205,24 +205,24 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      OpsItemEventFilterOperator
      OpsItemEventFilterOperator
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter%27"><span class="hs-identifier hs-type">OpsItemEventFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679803326"><span class="annot"><span class="annottext">OpsItemEventFilterOperator
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter%27"><span class="hs-identifier hs-type">OpsItemEventFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679803335"><span class="annot"><span class="annottext">OpsItemEventFilterOperator
 operator :: OpsItemEventFilterOperator
 $sel:operator:OpsItemEventFilter' :: OpsItemEventFilter -&gt; OpsItemEventFilterOperator
-</span><a href="#local-6989586621679803326"><span class="hs-identifier hs-var hs-var">operator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpsItemEventFilterOperator
-</span><a href="#local-6989586621679803326"><span class="hs-identifier hs-var">operator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679803325"><span class="annot"><span class="annottext">s :: OpsItemEventFilter
-</span><a href="#local-6989586621679803325"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter%27"><span class="hs-identifier hs-type">OpsItemEventFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679803324"><span class="annot"><span class="annottext">OpsItemEventFilterOperator
-</span><a href="#local-6989586621679803324"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpsItemEventFilter
-</span><a href="#local-6989586621679803325"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operator:OpsItemEventFilter' :: OpsItemEventFilterOperator
+</span><a href="#local-6989586621679803335"><span class="hs-identifier hs-var hs-var">operator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpsItemEventFilterOperator
+</span><a href="#local-6989586621679803335"><span class="hs-identifier hs-var">operator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679803334"><span class="annot"><span class="annottext">s :: OpsItemEventFilter
+</span><a href="#local-6989586621679803334"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter%27"><span class="hs-identifier hs-type">OpsItemEventFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679803333"><span class="annot"><span class="annottext">OpsItemEventFilterOperator
+</span><a href="#local-6989586621679803333"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpsItemEventFilter
+</span><a href="#local-6989586621679803334"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operator:OpsItemEventFilter' :: OpsItemEventFilterOperator
 </span><a href="Network.AWS.SSM.Types.OpsItemEventFilter.html#%24sel%3Aoperator%3AOpsItemEventFilter%27"><span class="hs-identifier hs-var">operator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OpsItemEventFilterOperator
-</span><a href="#local-6989586621679803324"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter"><span class="hs-identifier hs-type">OpsItemEventFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679803333"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter"><span class="hs-identifier hs-type">OpsItemEventFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679803320"><span id="local-6989586621679803322"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter"><span class="hs-identifier hs-type">OpsItemEventFilter</span></a></span></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679803329"><span id="local-6989586621679803331"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter"><span class="hs-identifier hs-type">OpsItemEventFilter</span></a></span></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679803317"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter"><span class="hs-identifier hs-type">OpsItemEventFilter</span></a></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679803326"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter"><span class="hs-identifier hs-type">OpsItemEventFilter</span></a></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679803309"><span id="local-6989586621679803311"><span id="local-6989586621679803313"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter"><span class="hs-identifier hs-type">OpsItemEventFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679803307"><span class="annot"><span class="annottext">toJSON :: OpsItemEventFilter -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter%27"><span class="hs-identifier hs-type">OpsItemEventFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679803303"><span id="local-6989586621679803304"><span id="local-6989586621679803305"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679803318"><span id="local-6989586621679803320"><span id="local-6989586621679803322"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter"><span class="hs-identifier hs-type">OpsItemEventFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679803316"><span class="annot"><span class="annottext">toJSON :: OpsItemEventFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsItemEventFilter.html#OpsItemEventFilter%27"><span class="hs-identifier hs-type">OpsItemEventFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679803312"><span id="local-6989586621679803313"><span id="local-6989586621679803314"><span class="annot"><span class="annottext">[Text]
 OpsItemEventFilterKey
 OpsItemEventFilterOperator
 operator :: OpsItemEventFilterOperator
@@ -231,7 +231,7 @@ key :: OpsItemEventFilterKey
 $sel:operator:OpsItemEventFilter' :: OpsItemEventFilter -&gt; OpsItemEventFilterOperator
 $sel:values:OpsItemEventFilter' :: OpsItemEventFilter -&gt; [Text]
 $sel:key:OpsItemEventFilter' :: OpsItemEventFilter -&gt; OpsItemEventFilterKey
-</span><a href="#local-6989586621679803303"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679803312"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -243,21 +243,21 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OpsItemEventFilterKey -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">OpsItemEventFilterKey
-</span><a href="#local-6989586621679803305"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679803314"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679803304"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679803313"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Operator&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OpsItemEventFilterOperator -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">OpsItemEventFilterOperator
-</span><a href="#local-6989586621679803303"><span class="hs-identifier hs-var">operator</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679803312"><span class="hs-identifier hs-var">operator</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span></pre></body></html>

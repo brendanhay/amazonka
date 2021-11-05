@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newUpdateDataset' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679270768"><span id="local-6989586621679270769"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDataset"><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset"><span class="hs-identifier hs-var">UpdateDataset</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDataset%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset%27"><span class="hs-identifier hs-var">UpdateDataset'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679270777"><span id="local-6989586621679270778"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDataset"><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset"><span class="hs-identifier hs-var">UpdateDataset</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDataset%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset%27"><span class="hs-identifier hs-var">UpdateDataset'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Optional. How many versions of dataset contents are kept. If not</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- specified or set to null, only the latest version plus the latest</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- succeeded version (if they are different) are kept for the time period</span><span>
@@ -82,7 +82,7 @@
 </span><span id="line-76"></span><span>    </span><span id="%24sel%3Aactions%3AUpdateDataset%27"><span class="annot"><span class="annottext">UpdateDataset -&gt; NonEmpty DatasetAction
 </span><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#%24sel%3Aactions%3AUpdateDataset%27"><span class="hs-identifier hs-var hs-var">actions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetAction.html#DatasetAction"><span class="hs-identifier hs-type">DatasetAction</span></a></span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270756"><span id="local-6989586621679270758"><span class="annot"><span class="annottext">UpdateDataset -&gt; UpdateDataset -&gt; Bool
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270765"><span id="local-6989586621679270767"><span class="annot"><span class="annottext">UpdateDataset -&gt; UpdateDataset -&gt; Bool
 (UpdateDataset -&gt; UpdateDataset -&gt; Bool)
 -&gt; (UpdateDataset -&gt; UpdateDataset -&gt; Bool) -&gt; Eq UpdateDataset
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -90,7 +90,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateDataset -&gt; UpdateDataset -&gt; Bool
 == :: UpdateDataset -&gt; UpdateDataset -&gt; Bool
 $c== :: UpdateDataset -&gt; UpdateDataset -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270747"><span id="local-6989586621679270749"><span id="local-6989586621679270751"><span id="local-6989586621679270753"><span class="annot"><span class="annottext">ReadPrec [UpdateDataset]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270756"><span id="local-6989586621679270758"><span id="local-6989586621679270760"><span id="local-6989586621679270762"><span class="annot"><span class="annottext">ReadPrec [UpdateDataset]
 ReadPrec UpdateDataset
 Int -&gt; ReadS UpdateDataset
 ReadS [UpdateDataset]
@@ -110,7 +110,7 @@ readList :: ReadS [UpdateDataset]
 $creadList :: ReadS [UpdateDataset]
 readsPrec :: Int -&gt; ReadS UpdateDataset
 $creadsPrec :: Int -&gt; ReadS UpdateDataset
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270740"><span id="local-6989586621679270742"><span id="local-6989586621679270744"><span class="annot"><span class="annottext">Int -&gt; UpdateDataset -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270749"><span id="local-6989586621679270751"><span id="local-6989586621679270753"><span class="annot"><span class="annottext">Int -&gt; UpdateDataset -&gt; ShowS
 [UpdateDataset] -&gt; ShowS
 UpdateDataset -&gt; String
 (Int -&gt; UpdateDataset -&gt; ShowS)
@@ -174,9 +174,9 @@ $cfrom :: forall x. UpdateDataset -&gt; Rep UpdateDataset x
 </span><span id="line-115"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetAction.html#DatasetAction"><span class="hs-identifier hs-type">DatasetAction</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-116"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset"><span class="hs-identifier hs-type">UpdateDataset</span></a></span><span>
 </span><span id="line-117"></span><span id="newUpdateDataset"><span class="annot"><span class="annottext">newUpdateDataset :: Text -&gt; NonEmpty DatasetAction -&gt; UpdateDataset
-</span><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#newUpdateDataset"><span class="hs-identifier hs-var hs-var">newUpdateDataset</span></a></span></span><span> </span><span id="local-6989586621679270735"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270735"><span class="hs-identifier hs-var">pDatasetName_</span></a></span></span><span> </span><span id="local-6989586621679270734"><span class="annot"><span class="annottext">NonEmpty DatasetAction
-</span><a href="#local-6989586621679270734"><span class="hs-identifier hs-var">pActions_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#newUpdateDataset"><span class="hs-identifier hs-var hs-var">newUpdateDataset</span></a></span></span><span> </span><span id="local-6989586621679270744"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679270744"><span class="hs-identifier hs-var">pDatasetName_</span></a></span></span><span> </span><span id="local-6989586621679270743"><span class="annot"><span class="annottext">NonEmpty DatasetAction
+</span><a href="#local-6989586621679270743"><span class="hs-identifier hs-var">pActions_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>  </span><span class="annot"><span class="annottext">UpdateDataset' :: Maybe VersioningConfiguration
 -&gt; Maybe [DatasetTrigger]
 -&gt; Maybe RetentionPeriod
@@ -209,7 +209,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:datasetName:UpdateDataset' :: Text
 </span><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#%24sel%3AdatasetName%3AUpdateDataset%27"><span class="hs-identifier hs-var">datasetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270735"><span class="hs-identifier hs-var">pDatasetName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679270744"><span class="hs-identifier hs-var">pDatasetName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:actions:UpdateDataset' :: NonEmpty DatasetAction
 </span><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#%24sel%3Aactions%3AUpdateDataset%27"><span class="hs-identifier hs-var">actions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty DatasetAction) (Identity (NonEmpty DatasetAction))
 -&gt; Tagged
@@ -222,7 +222,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty DatasetAction -&gt; NonEmpty DatasetAction
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty DatasetAction
-</span><a href="#local-6989586621679270734"><span class="hs-identifier hs-var">pActions_</span></a></span><span>
+</span><a href="#local-6989586621679270743"><span class="hs-identifier hs-var">pActions_</span></a></span><span>
 </span><span id="line-127"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | Optional. How many versions of dataset contents are kept. If not</span><span>
@@ -244,16 +244,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (Maybe VersioningConfiguration)
      (Maybe VersioningConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset%27"><span class="hs-identifier hs-type">UpdateDataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270729"><span class="annot"><span class="annottext">Maybe VersioningConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset%27"><span class="hs-identifier hs-type">UpdateDataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270738"><span class="annot"><span class="annottext">Maybe VersioningConfiguration
 versioningConfiguration :: Maybe VersioningConfiguration
 $sel:versioningConfiguration:UpdateDataset' :: UpdateDataset -&gt; Maybe VersioningConfiguration
-</span><a href="#local-6989586621679270729"><span class="hs-identifier hs-var hs-var">versioningConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VersioningConfiguration
-</span><a href="#local-6989586621679270729"><span class="hs-identifier hs-var">versioningConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270728"><span class="annot"><span class="annottext">s :: UpdateDataset
-</span><a href="#local-6989586621679270728"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset%27"><span class="hs-identifier hs-type">UpdateDataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270727"><span class="annot"><span class="annottext">Maybe VersioningConfiguration
-</span><a href="#local-6989586621679270727"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDataset
-</span><a href="#local-6989586621679270728"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versioningConfiguration:UpdateDataset' :: Maybe VersioningConfiguration
+</span><a href="#local-6989586621679270738"><span class="hs-identifier hs-var hs-var">versioningConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VersioningConfiguration
+</span><a href="#local-6989586621679270738"><span class="hs-identifier hs-var">versioningConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270737"><span class="annot"><span class="annottext">s :: UpdateDataset
+</span><a href="#local-6989586621679270737"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset%27"><span class="hs-identifier hs-type">UpdateDataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270736"><span class="annot"><span class="annottext">Maybe VersioningConfiguration
+</span><a href="#local-6989586621679270736"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDataset
+</span><a href="#local-6989586621679270737"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versioningConfiguration:UpdateDataset' :: Maybe VersioningConfiguration
 </span><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#%24sel%3AversioningConfiguration%3AUpdateDataset%27"><span class="hs-identifier hs-var">versioningConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VersioningConfiguration
-</span><a href="#local-6989586621679270727"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset"><span class="hs-identifier hs-type">UpdateDataset</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270736"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset"><span class="hs-identifier hs-type">UpdateDataset</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | A list of @DatasetTrigger@ objects. The list can be empty or can contain</span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- up to five @DatasetTrigger@ objects.</span><span>
@@ -268,16 +268,16 @@ $sel:versioningConfiguration:UpdateDataset' :: UpdateDataset -&gt; Maybe Version
      (Maybe [DatasetTrigger])
      (Maybe [DatasetTrigger])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset%27"><span class="hs-identifier hs-type">UpdateDataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270726"><span class="annot"><span class="annottext">Maybe [DatasetTrigger]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset%27"><span class="hs-identifier hs-type">UpdateDataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270735"><span class="annot"><span class="annottext">Maybe [DatasetTrigger]
 triggers :: Maybe [DatasetTrigger]
 $sel:triggers:UpdateDataset' :: UpdateDataset -&gt; Maybe [DatasetTrigger]
-</span><a href="#local-6989586621679270726"><span class="hs-identifier hs-var hs-var">triggers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DatasetTrigger]
-</span><a href="#local-6989586621679270726"><span class="hs-identifier hs-var">triggers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270725"><span class="annot"><span class="annottext">s :: UpdateDataset
-</span><a href="#local-6989586621679270725"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset%27"><span class="hs-identifier hs-type">UpdateDataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270724"><span class="annot"><span class="annottext">Maybe [DatasetTrigger]
-</span><a href="#local-6989586621679270724"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDataset
-</span><a href="#local-6989586621679270725"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:triggers:UpdateDataset' :: Maybe [DatasetTrigger]
+</span><a href="#local-6989586621679270735"><span class="hs-identifier hs-var hs-var">triggers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DatasetTrigger]
+</span><a href="#local-6989586621679270735"><span class="hs-identifier hs-var">triggers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270734"><span class="annot"><span class="annottext">s :: UpdateDataset
+</span><a href="#local-6989586621679270734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset%27"><span class="hs-identifier hs-type">UpdateDataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270733"><span class="annot"><span class="annottext">Maybe [DatasetTrigger]
+</span><a href="#local-6989586621679270733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDataset
+</span><a href="#local-6989586621679270734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:triggers:UpdateDataset' :: Maybe [DatasetTrigger]
 </span><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#%24sel%3Atriggers%3AUpdateDataset%27"><span class="hs-identifier hs-var">triggers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DatasetTrigger]
-</span><a href="#local-6989586621679270724"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset"><span class="hs-identifier hs-type">UpdateDataset</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DatasetTrigger] -&gt; f (Maybe [DatasetTrigger]))
+</span><a href="#local-6989586621679270733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset"><span class="hs-identifier hs-type">UpdateDataset</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DatasetTrigger] -&gt; f (Maybe [DatasetTrigger]))
  -&gt; UpdateDataset -&gt; f UpdateDataset)
 -&gt; ((Maybe [DatasetTrigger] -&gt; f (Maybe [DatasetTrigger]))
     -&gt; Maybe [DatasetTrigger] -&gt; f (Maybe [DatasetTrigger]))
@@ -312,16 +312,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe RetentionPeriod)
      (Maybe RetentionPeriod)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset%27"><span class="hs-identifier hs-type">UpdateDataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270721"><span class="annot"><span class="annottext">Maybe RetentionPeriod
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset%27"><span class="hs-identifier hs-type">UpdateDataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270730"><span class="annot"><span class="annottext">Maybe RetentionPeriod
 retentionPeriod :: Maybe RetentionPeriod
 $sel:retentionPeriod:UpdateDataset' :: UpdateDataset -&gt; Maybe RetentionPeriod
-</span><a href="#local-6989586621679270721"><span class="hs-identifier hs-var hs-var">retentionPeriod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RetentionPeriod
-</span><a href="#local-6989586621679270721"><span class="hs-identifier hs-var">retentionPeriod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270720"><span class="annot"><span class="annottext">s :: UpdateDataset
-</span><a href="#local-6989586621679270720"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset%27"><span class="hs-identifier hs-type">UpdateDataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270719"><span class="annot"><span class="annottext">Maybe RetentionPeriod
-</span><a href="#local-6989586621679270719"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDataset
-</span><a href="#local-6989586621679270720"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retentionPeriod:UpdateDataset' :: Maybe RetentionPeriod
+</span><a href="#local-6989586621679270730"><span class="hs-identifier hs-var hs-var">retentionPeriod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RetentionPeriod
+</span><a href="#local-6989586621679270730"><span class="hs-identifier hs-var">retentionPeriod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270729"><span class="annot"><span class="annottext">s :: UpdateDataset
+</span><a href="#local-6989586621679270729"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset%27"><span class="hs-identifier hs-type">UpdateDataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270728"><span class="annot"><span class="annottext">Maybe RetentionPeriod
+</span><a href="#local-6989586621679270728"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDataset
+</span><a href="#local-6989586621679270729"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retentionPeriod:UpdateDataset' :: Maybe RetentionPeriod
 </span><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#%24sel%3AretentionPeriod%3AUpdateDataset%27"><span class="hs-identifier hs-var">retentionPeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RetentionPeriod
-</span><a href="#local-6989586621679270719"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset"><span class="hs-identifier hs-type">UpdateDataset</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270728"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset"><span class="hs-identifier hs-type">UpdateDataset</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | A list of data rules that send notifications to CloudWatch, when data</span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- arrives late. To specify @lateDataRules@, the dataset must use a</span><span>
@@ -340,16 +340,16 @@ $sel:retentionPeriod:UpdateDataset' :: UpdateDataset -&gt; Maybe RetentionPeriod
      (Maybe (NonEmpty LateDataRule))
      (Maybe (NonEmpty LateDataRule))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset%27"><span class="hs-identifier hs-type">UpdateDataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270718"><span class="annot"><span class="annottext">Maybe (NonEmpty LateDataRule)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset%27"><span class="hs-identifier hs-type">UpdateDataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270727"><span class="annot"><span class="annottext">Maybe (NonEmpty LateDataRule)
 lateDataRules :: Maybe (NonEmpty LateDataRule)
 $sel:lateDataRules:UpdateDataset' :: UpdateDataset -&gt; Maybe (NonEmpty LateDataRule)
-</span><a href="#local-6989586621679270718"><span class="hs-identifier hs-var hs-var">lateDataRules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty LateDataRule)
-</span><a href="#local-6989586621679270718"><span class="hs-identifier hs-var">lateDataRules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270717"><span class="annot"><span class="annottext">s :: UpdateDataset
-</span><a href="#local-6989586621679270717"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset%27"><span class="hs-identifier hs-type">UpdateDataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270716"><span class="annot"><span class="annottext">Maybe (NonEmpty LateDataRule)
-</span><a href="#local-6989586621679270716"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDataset
-</span><a href="#local-6989586621679270717"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lateDataRules:UpdateDataset' :: Maybe (NonEmpty LateDataRule)
+</span><a href="#local-6989586621679270727"><span class="hs-identifier hs-var hs-var">lateDataRules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty LateDataRule)
+</span><a href="#local-6989586621679270727"><span class="hs-identifier hs-var">lateDataRules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270726"><span class="annot"><span class="annottext">s :: UpdateDataset
+</span><a href="#local-6989586621679270726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset%27"><span class="hs-identifier hs-type">UpdateDataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270725"><span class="annot"><span class="annottext">Maybe (NonEmpty LateDataRule)
+</span><a href="#local-6989586621679270725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDataset
+</span><a href="#local-6989586621679270726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lateDataRules:UpdateDataset' :: Maybe (NonEmpty LateDataRule)
 </span><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#%24sel%3AlateDataRules%3AUpdateDataset%27"><span class="hs-identifier hs-var">lateDataRules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty LateDataRule)
-</span><a href="#local-6989586621679270716"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset"><span class="hs-identifier hs-type">UpdateDataset</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty LateDataRule)
+</span><a href="#local-6989586621679270725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset"><span class="hs-identifier hs-type">UpdateDataset</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty LateDataRule)
   -&gt; f (Maybe (NonEmpty LateDataRule)))
  -&gt; UpdateDataset -&gt; f UpdateDataset)
 -&gt; ((Maybe (NonEmpty LateDataRule)
@@ -397,16 +397,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [DatasetContentDeliveryRule])
      (Maybe [DatasetContentDeliveryRule])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset%27"><span class="hs-identifier hs-type">UpdateDataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270715"><span class="annot"><span class="annottext">Maybe [DatasetContentDeliveryRule]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset%27"><span class="hs-identifier hs-type">UpdateDataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270724"><span class="annot"><span class="annottext">Maybe [DatasetContentDeliveryRule]
 contentDeliveryRules :: Maybe [DatasetContentDeliveryRule]
 $sel:contentDeliveryRules:UpdateDataset' :: UpdateDataset -&gt; Maybe [DatasetContentDeliveryRule]
-</span><a href="#local-6989586621679270715"><span class="hs-identifier hs-var hs-var">contentDeliveryRules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DatasetContentDeliveryRule]
-</span><a href="#local-6989586621679270715"><span class="hs-identifier hs-var">contentDeliveryRules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270714"><span class="annot"><span class="annottext">s :: UpdateDataset
-</span><a href="#local-6989586621679270714"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset%27"><span class="hs-identifier hs-type">UpdateDataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270713"><span class="annot"><span class="annottext">Maybe [DatasetContentDeliveryRule]
-</span><a href="#local-6989586621679270713"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDataset
-</span><a href="#local-6989586621679270714"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentDeliveryRules:UpdateDataset' :: Maybe [DatasetContentDeliveryRule]
+</span><a href="#local-6989586621679270724"><span class="hs-identifier hs-var hs-var">contentDeliveryRules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DatasetContentDeliveryRule]
+</span><a href="#local-6989586621679270724"><span class="hs-identifier hs-var">contentDeliveryRules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270723"><span class="annot"><span class="annottext">s :: UpdateDataset
+</span><a href="#local-6989586621679270723"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset%27"><span class="hs-identifier hs-type">UpdateDataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270722"><span class="annot"><span class="annottext">Maybe [DatasetContentDeliveryRule]
+</span><a href="#local-6989586621679270722"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDataset
+</span><a href="#local-6989586621679270723"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentDeliveryRules:UpdateDataset' :: Maybe [DatasetContentDeliveryRule]
 </span><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#%24sel%3AcontentDeliveryRules%3AUpdateDataset%27"><span class="hs-identifier hs-var">contentDeliveryRules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DatasetContentDeliveryRule]
-</span><a href="#local-6989586621679270713"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset"><span class="hs-identifier hs-type">UpdateDataset</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DatasetContentDeliveryRule]
+</span><a href="#local-6989586621679270722"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset"><span class="hs-identifier hs-type">UpdateDataset</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DatasetContentDeliveryRule]
   -&gt; f (Maybe [DatasetContentDeliveryRule]))
  -&gt; UpdateDataset -&gt; f UpdateDataset)
 -&gt; ((Maybe [DatasetContentDeliveryRule]
@@ -446,16 +446,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (UpdateDataset -&gt; Text -&gt; UpdateDataset)
 -&gt; Lens UpdateDataset UpdateDataset Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset%27"><span class="hs-identifier hs-type">UpdateDataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270712"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset%27"><span class="hs-identifier hs-type">UpdateDataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270721"><span class="annot"><span class="annottext">Text
 datasetName :: Text
 $sel:datasetName:UpdateDataset' :: UpdateDataset -&gt; Text
-</span><a href="#local-6989586621679270712"><span class="hs-identifier hs-var hs-var">datasetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270712"><span class="hs-identifier hs-var">datasetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270711"><span class="annot"><span class="annottext">s :: UpdateDataset
-</span><a href="#local-6989586621679270711"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset%27"><span class="hs-identifier hs-type">UpdateDataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270710"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270710"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDataset
-</span><a href="#local-6989586621679270711"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datasetName:UpdateDataset' :: Text
+</span><a href="#local-6989586621679270721"><span class="hs-identifier hs-var hs-var">datasetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679270721"><span class="hs-identifier hs-var">datasetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270720"><span class="annot"><span class="annottext">s :: UpdateDataset
+</span><a href="#local-6989586621679270720"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset%27"><span class="hs-identifier hs-type">UpdateDataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270719"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679270719"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDataset
+</span><a href="#local-6989586621679270720"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datasetName:UpdateDataset' :: Text
 </span><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#%24sel%3AdatasetName%3AUpdateDataset%27"><span class="hs-identifier hs-var">datasetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270710"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset"><span class="hs-identifier hs-type">UpdateDataset</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270719"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset"><span class="hs-identifier hs-type">UpdateDataset</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- | A list of @DatasetAction@ objects.</span><span>
 </span><span id="line-164"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#updateDataset_actions"><span class="hs-identifier hs-type">updateDataset_actions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset"><span class="hs-identifier hs-type">UpdateDataset</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetAction.html#DatasetAction"><span class="hs-identifier hs-type">DatasetAction</span></a></span><span class="hs-special">)</span><span>
@@ -469,16 +469,16 @@ $sel:datasetName:UpdateDataset' :: UpdateDataset -&gt; Text
      (NonEmpty DatasetAction)
      (NonEmpty DatasetAction)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset%27"><span class="hs-identifier hs-type">UpdateDataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270709"><span class="annot"><span class="annottext">NonEmpty DatasetAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset%27"><span class="hs-identifier hs-type">UpdateDataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270718"><span class="annot"><span class="annottext">NonEmpty DatasetAction
 actions :: NonEmpty DatasetAction
 $sel:actions:UpdateDataset' :: UpdateDataset -&gt; NonEmpty DatasetAction
-</span><a href="#local-6989586621679270709"><span class="hs-identifier hs-var hs-var">actions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty DatasetAction
-</span><a href="#local-6989586621679270709"><span class="hs-identifier hs-var">actions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270708"><span class="annot"><span class="annottext">s :: UpdateDataset
-</span><a href="#local-6989586621679270708"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset%27"><span class="hs-identifier hs-type">UpdateDataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270707"><span class="annot"><span class="annottext">NonEmpty DatasetAction
-</span><a href="#local-6989586621679270707"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDataset
-</span><a href="#local-6989586621679270708"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actions:UpdateDataset' :: NonEmpty DatasetAction
+</span><a href="#local-6989586621679270718"><span class="hs-identifier hs-var hs-var">actions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty DatasetAction
+</span><a href="#local-6989586621679270718"><span class="hs-identifier hs-var">actions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270717"><span class="annot"><span class="annottext">s :: UpdateDataset
+</span><a href="#local-6989586621679270717"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset%27"><span class="hs-identifier hs-type">UpdateDataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270716"><span class="annot"><span class="annottext">NonEmpty DatasetAction
+</span><a href="#local-6989586621679270716"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDataset
+</span><a href="#local-6989586621679270717"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actions:UpdateDataset' :: NonEmpty DatasetAction
 </span><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#%24sel%3Aactions%3AUpdateDataset%27"><span class="hs-identifier hs-var">actions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty DatasetAction
-</span><a href="#local-6989586621679270707"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset"><span class="hs-identifier hs-type">UpdateDataset</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty DatasetAction -&gt; f (NonEmpty DatasetAction))
+</span><a href="#local-6989586621679270716"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset"><span class="hs-identifier hs-type">UpdateDataset</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty DatasetAction -&gt; f (NonEmpty DatasetAction))
  -&gt; UpdateDataset -&gt; f UpdateDataset)
 -&gt; ((NonEmpty DatasetAction -&gt; f (NonEmpty DatasetAction))
     -&gt; NonEmpty DatasetAction -&gt; f (NonEmpty DatasetAction))
@@ -495,12 +495,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-168"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-169"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset"><span class="hs-identifier hs-type">UpdateDataset</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>      </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDatasetResponse"><span class="hs-identifier hs-type">UpdateDatasetResponse</span></a></span><span>
-</span><span id="line-171"></span><span>  </span><span id="local-6989586621679270703"><span class="annot"><span class="annottext">request :: UpdateDataset -&gt; Request UpdateDataset
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679270712"><span class="annot"><span class="annottext">request :: UpdateDataset -&gt; Request UpdateDataset
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateDataset -&gt; Request UpdateDataset
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoTAnalytics.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621679270699"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679270708"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateDataset
 -&gt; ClientResponse ClientBody
@@ -524,21 +524,21 @@ AWSResponse a
 UpdateDatasetResponse
 </span><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDatasetResponse%27"><span class="hs-identifier hs-var">UpdateDatasetResponse'</span></a></span><span>
 </span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270692"><span id="local-6989586621679270694"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset"><span class="hs-identifier hs-type">UpdateDataset</span></a></span></span></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270701"><span id="local-6989586621679270703"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset"><span class="hs-identifier hs-type">UpdateDataset</span></a></span></span></span><span>
 </span><span id="line-176"></span><span>
-</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270689"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset"><span class="hs-identifier hs-type">UpdateDataset</span></a></span></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270698"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset"><span class="hs-identifier hs-type">UpdateDataset</span></a></span></span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset"><span class="hs-identifier hs-type">UpdateDataset</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679270685"><span class="annot"><span class="annottext">toHeaders :: UpdateDataset -&gt; [Header]
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679270694"><span class="annot"><span class="annottext">toHeaders :: UpdateDataset -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; UpdateDataset -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-181"></span><span>
-</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270676"><span id="local-6989586621679270678"><span id="local-6989586621679270680"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset"><span class="hs-identifier hs-type">UpdateDataset</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-183"></span><span>  </span><span id="local-6989586621679270674"><span class="annot"><span class="annottext">toJSON :: UpdateDataset -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset%27"><span class="hs-identifier hs-type">UpdateDataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270666"><span id="local-6989586621679270667"><span id="local-6989586621679270668"><span id="local-6989586621679270669"><span id="local-6989586621679270670"><span id="local-6989586621679270671"><span id="local-6989586621679270672"><span class="annot"><span class="annottext">Maybe [DatasetContentDeliveryRule]
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270685"><span id="local-6989586621679270687"><span id="local-6989586621679270689"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset"><span class="hs-identifier hs-type">UpdateDataset</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679270683"><span class="annot"><span class="annottext">toJSON :: UpdateDataset -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset%27"><span class="hs-identifier hs-type">UpdateDataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270675"><span id="local-6989586621679270676"><span id="local-6989586621679270677"><span id="local-6989586621679270678"><span id="local-6989586621679270679"><span id="local-6989586621679270680"><span id="local-6989586621679270681"><span class="annot"><span class="annottext">Maybe [DatasetContentDeliveryRule]
 Maybe [DatasetTrigger]
 Maybe (NonEmpty LateDataRule)
 Maybe RetentionPeriod
@@ -559,7 +559,7 @@ $sel:lateDataRules:UpdateDataset' :: UpdateDataset -&gt; Maybe (NonEmpty LateDat
 $sel:retentionPeriod:UpdateDataset' :: UpdateDataset -&gt; Maybe RetentionPeriod
 $sel:triggers:UpdateDataset' :: UpdateDataset -&gt; Maybe [DatasetTrigger]
 $sel:versioningConfiguration:UpdateDataset' :: UpdateDataset -&gt; Maybe VersioningConfiguration
-</span><a href="#local-6989586621679270666"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679270675"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-184"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-185"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -573,14 +573,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe VersioningConfiguration -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VersioningConfiguration
-</span><a href="#local-6989586621679270672"><span class="hs-identifier hs-var">versioningConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679270681"><span class="hs-identifier hs-var">versioningConfiguration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-188"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;triggers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [DatasetTrigger] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([DatasetTrigger] -&gt; Pair) -&gt; Maybe [DatasetTrigger] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [DatasetTrigger]
-</span><a href="#local-6989586621679270671"><span class="hs-identifier hs-var">triggers</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679270680"><span class="hs-identifier hs-var">triggers</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-189"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;retentionPeriod&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RetentionPeriod -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -588,7 +588,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-190"></span><span>              </span><span class="annot"><span class="annottext">(RetentionPeriod -&gt; Pair) -&gt; Maybe RetentionPeriod -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RetentionPeriod
-</span><a href="#local-6989586621679270670"><span class="hs-identifier hs-var">retentionPeriod</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679270679"><span class="hs-identifier hs-var">retentionPeriod</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-191"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;lateDataRules&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty LateDataRule -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -596,7 +596,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (NonEmpty LateDataRule) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty LateDataRule)
-</span><a href="#local-6989586621679270669"><span class="hs-identifier hs-var">lateDataRules</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679270678"><span class="hs-identifier hs-var">lateDataRules</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-192"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;contentDeliveryRules&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [DatasetContentDeliveryRule] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -605,20 +605,20 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [DatasetContentDeliveryRule] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [DatasetContentDeliveryRule]
-</span><a href="#local-6989586621679270668"><span class="hs-identifier hs-var">contentDeliveryRules</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679270677"><span class="hs-identifier hs-var">contentDeliveryRules</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;actions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty DatasetAction -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty DatasetAction
-</span><a href="#local-6989586621679270666"><span class="hs-identifier hs-var">actions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270675"><span class="hs-identifier hs-var">actions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-195"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-196"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset"><span class="hs-identifier hs-type">UpdateDataset</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-199"></span><span>  </span><span id="local-6989586621679270659"><span class="annot"><span class="annottext">toPath :: UpdateDataset -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset%27"><span class="hs-identifier hs-type">UpdateDataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270651"><span id="local-6989586621679270652"><span id="local-6989586621679270653"><span id="local-6989586621679270654"><span id="local-6989586621679270655"><span id="local-6989586621679270656"><span id="local-6989586621679270657"><span class="annot"><span class="annottext">Maybe [DatasetContentDeliveryRule]
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679270668"><span class="annot"><span class="annottext">toPath :: UpdateDataset -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset%27"><span class="hs-identifier hs-type">UpdateDataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270660"><span id="local-6989586621679270661"><span id="local-6989586621679270662"><span id="local-6989586621679270663"><span id="local-6989586621679270664"><span id="local-6989586621679270665"><span id="local-6989586621679270666"><span class="annot"><span class="annottext">Maybe [DatasetContentDeliveryRule]
 Maybe [DatasetTrigger]
 Maybe (NonEmpty LateDataRule)
 Maybe RetentionPeriod
@@ -639,7 +639,7 @@ $sel:lateDataRules:UpdateDataset' :: UpdateDataset -&gt; Maybe (NonEmpty LateDat
 $sel:retentionPeriod:UpdateDataset' :: UpdateDataset -&gt; Maybe RetentionPeriod
 $sel:triggers:UpdateDataset' :: UpdateDataset -&gt; Maybe [DatasetTrigger]
 $sel:versioningConfiguration:UpdateDataset' :: UpdateDataset -&gt; Maybe VersioningConfiguration
-</span><a href="#local-6989586621679270651"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679270660"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-200"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -647,10 +647,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/datasets/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270652"><span class="hs-identifier hs-var">datasetName</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679270661"><span class="hs-identifier hs-var">datasetName</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-202"></span><span>
 </span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDataset"><span class="hs-identifier hs-type">UpdateDataset</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-204"></span><span>  </span><span id="local-6989586621679270647"><span class="annot"><span class="annottext">toQuery :: UpdateDataset -&gt; QueryString
+</span><span id="line-204"></span><span>  </span><span id="local-6989586621679270656"><span class="annot"><span class="annottext">toQuery :: UpdateDataset -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateDataset -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -658,10 +658,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-205"></span><span>
 </span><span id="line-206"></span><span class="hs-comment">-- | /See:/ 'newUpdateDatasetResponse' smart constructor.</span><span>
-</span><span id="line-207"></span><span id="local-6989586621679270644"><span id="local-6989586621679270645"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDatasetResponse"><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDatasetResponse"><span class="hs-identifier hs-var">UpdateDatasetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDatasetResponse%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDatasetResponse%27"><span class="hs-identifier hs-var">UpdateDatasetResponse'</span></a></span></span><span>
+</span><span id="line-207"></span><span id="local-6989586621679270653"><span id="local-6989586621679270654"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDatasetResponse"><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDatasetResponse"><span class="hs-identifier hs-var">UpdateDatasetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDatasetResponse%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDatasetResponse%27"><span class="hs-identifier hs-var">UpdateDatasetResponse'</span></a></span></span><span>
 </span><span id="line-208"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-209"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-210"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270640"><span id="local-6989586621679270642"><span class="annot"><span class="annottext">UpdateDatasetResponse -&gt; UpdateDatasetResponse -&gt; Bool
+</span><span id="line-210"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270649"><span id="local-6989586621679270651"><span class="annot"><span class="annottext">UpdateDatasetResponse -&gt; UpdateDatasetResponse -&gt; Bool
 (UpdateDatasetResponse -&gt; UpdateDatasetResponse -&gt; Bool)
 -&gt; (UpdateDatasetResponse -&gt; UpdateDatasetResponse -&gt; Bool)
 -&gt; Eq UpdateDatasetResponse
@@ -670,7 +670,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateDatasetResponse -&gt; UpdateDatasetResponse -&gt; Bool
 == :: UpdateDatasetResponse -&gt; UpdateDatasetResponse -&gt; Bool
 $c== :: UpdateDatasetResponse -&gt; UpdateDatasetResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270632"><span id="local-6989586621679270634"><span id="local-6989586621679270636"><span id="local-6989586621679270638"><span class="annot"><span class="annottext">ReadPrec [UpdateDatasetResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270641"><span id="local-6989586621679270643"><span id="local-6989586621679270645"><span id="local-6989586621679270647"><span class="annot"><span class="annottext">ReadPrec [UpdateDatasetResponse]
 ReadPrec UpdateDatasetResponse
 Int -&gt; ReadS UpdateDatasetResponse
 ReadS [UpdateDatasetResponse]
@@ -690,7 +690,7 @@ readList :: ReadS [UpdateDatasetResponse]
 $creadList :: ReadS [UpdateDatasetResponse]
 readsPrec :: Int -&gt; ReadS UpdateDatasetResponse
 $creadsPrec :: Int -&gt; ReadS UpdateDatasetResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270626"><span id="local-6989586621679270628"><span id="local-6989586621679270630"><span class="annot"><span class="annottext">Int -&gt; UpdateDatasetResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270635"><span id="local-6989586621679270637"><span id="local-6989586621679270639"><span class="annot"><span class="annottext">Int -&gt; UpdateDatasetResponse -&gt; ShowS
 [UpdateDatasetResponse] -&gt; ShowS
 UpdateDatasetResponse -&gt; String
 (Int -&gt; UpdateDatasetResponse -&gt; ShowS)
@@ -726,5 +726,5 @@ $cfrom :: forall x. UpdateDatasetResponse -&gt; Rep UpdateDatasetResponse x
 </span><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#newUpdateDatasetResponse"><span class="hs-identifier hs-var hs-var">newUpdateDatasetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UpdateDatasetResponse
 </span><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDatasetResponse%27"><span class="hs-identifier hs-var">UpdateDatasetResponse'</span></a></span><span>
 </span><span id="line-219"></span><span>
-</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270622"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDatasetResponse"><span class="hs-identifier hs-type">UpdateDatasetResponse</span></a></span></span><span>
+</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270631"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.UpdateDataset.html#UpdateDatasetResponse"><span class="hs-identifier hs-type">UpdateDatasetResponse</span></a></span></span><span>
 </span><span id="line-221"></span></pre></body></html>

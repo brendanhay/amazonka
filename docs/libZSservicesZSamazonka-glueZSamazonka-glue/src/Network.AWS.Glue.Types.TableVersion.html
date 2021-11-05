@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Specifies a version of a table.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newTableVersion' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679701161"><span id="local-6989586621679701162"></span></span><span class="hs-keyword">data</span><span> </span><span id="TableVersion"><span class="annot"><a href="Network.AWS.Glue.Types.TableVersion.html#TableVersion"><span class="hs-identifier hs-var">TableVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TableVersion%27"><span class="annot"><a href="Network.AWS.Glue.Types.TableVersion.html#TableVersion%27"><span class="hs-identifier hs-var">TableVersion'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679701170"><span id="local-6989586621679701171"></span></span><span class="hs-keyword">data</span><span> </span><span id="TableVersion"><span class="annot"><a href="Network.AWS.Glue.Types.TableVersion.html#TableVersion"><span class="hs-identifier hs-var">TableVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TableVersion%27"><span class="annot"><a href="Network.AWS.Glue.Types.TableVersion.html#TableVersion%27"><span class="hs-identifier hs-var">TableVersion'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID value that identifies this table version. A @VersionId@ is a</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- string representation of an integer. Each version is incremented by 1.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AversionId%3ATableVersion%27"><span class="annot"><span class="annottext">TableVersion -&gt; Maybe Text
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Atable%3ATableVersion%27"><span class="annot"><span class="annottext">TableVersion -&gt; Maybe Table
 </span><a href="Network.AWS.Glue.Types.TableVersion.html#%24sel%3Atable%3ATableVersion%27"><span class="hs-identifier hs-var hs-var">table</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Table.html#Table"><span class="hs-identifier hs-type">Table</span></a></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679701154"><span id="local-6989586621679701156"><span class="annot"><span class="annottext">TableVersion -&gt; TableVersion -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679701163"><span id="local-6989586621679701165"><span class="annot"><span class="annottext">TableVersion -&gt; TableVersion -&gt; Bool
 (TableVersion -&gt; TableVersion -&gt; Bool)
 -&gt; (TableVersion -&gt; TableVersion -&gt; Bool) -&gt; Eq TableVersion
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TableVersion -&gt; TableVersion -&gt; Bool
 == :: TableVersion -&gt; TableVersion -&gt; Bool
 $c== :: TableVersion -&gt; TableVersion -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679701145"><span id="local-6989586621679701147"><span id="local-6989586621679701149"><span id="local-6989586621679701151"><span class="annot"><span class="annottext">ReadPrec [TableVersion]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679701154"><span id="local-6989586621679701156"><span id="local-6989586621679701158"><span id="local-6989586621679701160"><span class="annot"><span class="annottext">ReadPrec [TableVersion]
 ReadPrec TableVersion
 Int -&gt; ReadS TableVersion
 ReadS [TableVersion]
@@ -64,7 +64,7 @@ readList :: ReadS [TableVersion]
 $creadList :: ReadS [TableVersion]
 readsPrec :: Int -&gt; ReadS TableVersion
 $creadsPrec :: Int -&gt; ReadS TableVersion
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679701138"><span id="local-6989586621679701140"><span id="local-6989586621679701142"><span class="annot"><span class="annottext">Int -&gt; TableVersion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679701147"><span id="local-6989586621679701149"><span id="local-6989586621679701151"><span class="annot"><span class="annottext">Int -&gt; TableVersion -&gt; ShowS
 [TableVersion] -&gt; ShowS
 TableVersion -&gt; String
 (Int -&gt; TableVersion -&gt; ShowS)
@@ -126,16 +126,16 @@ forall a. Maybe a
 -&gt; (TableVersion -&gt; Maybe Text -&gt; TableVersion)
 -&gt; Lens TableVersion TableVersion (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.TableVersion.html#TableVersion%27"><span class="hs-identifier hs-type">TableVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679701129"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.TableVersion.html#TableVersion%27"><span class="hs-identifier hs-type">TableVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679701138"><span class="annot"><span class="annottext">Maybe Text
 versionId :: Maybe Text
 $sel:versionId:TableVersion' :: TableVersion -&gt; Maybe Text
-</span><a href="#local-6989586621679701129"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679701129"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679701128"><span class="annot"><span class="annottext">s :: TableVersion
-</span><a href="#local-6989586621679701128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.TableVersion.html#TableVersion%27"><span class="hs-identifier hs-type">TableVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679701127"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679701127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TableVersion
-</span><a href="#local-6989586621679701128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionId:TableVersion' :: Maybe Text
+</span><a href="#local-6989586621679701138"><span class="hs-identifier hs-var hs-var">versionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679701138"><span class="hs-identifier hs-var">versionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679701137"><span class="annot"><span class="annottext">s :: TableVersion
+</span><a href="#local-6989586621679701137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.TableVersion.html#TableVersion%27"><span class="hs-identifier hs-type">TableVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679701136"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679701136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TableVersion
+</span><a href="#local-6989586621679701137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionId:TableVersion' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.TableVersion.html#%24sel%3AversionId%3ATableVersion%27"><span class="hs-identifier hs-var">versionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679701127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TableVersion.html#TableVersion"><span class="hs-identifier hs-type">TableVersion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679701136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TableVersion.html#TableVersion"><span class="hs-identifier hs-type">TableVersion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | The table in question.</span><span>
 </span><span id="line-65"></span><span class="annot"><a href="Network.AWS.Glue.Types.TableVersion.html#tableVersion_table"><span class="hs-identifier hs-type">tableVersion_table</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TableVersion.html#TableVersion"><span class="hs-identifier hs-type">TableVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Table.html#Table"><span class="hs-identifier hs-type">Table</span></a></span><span class="hs-special">)</span><span>
@@ -144,19 +144,19 @@ $sel:versionId:TableVersion' :: TableVersion -&gt; Maybe Text
 -&gt; (TableVersion -&gt; Maybe Table -&gt; TableVersion)
 -&gt; Lens TableVersion TableVersion (Maybe Table) (Maybe Table)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.TableVersion.html#TableVersion%27"><span class="hs-identifier hs-type">TableVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679701125"><span class="annot"><span class="annottext">Maybe Table
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.TableVersion.html#TableVersion%27"><span class="hs-identifier hs-type">TableVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679701134"><span class="annot"><span class="annottext">Maybe Table
 table :: Maybe Table
 $sel:table:TableVersion' :: TableVersion -&gt; Maybe Table
-</span><a href="#local-6989586621679701125"><span class="hs-identifier hs-var hs-var">table</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Table
-</span><a href="#local-6989586621679701125"><span class="hs-identifier hs-var">table</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679701124"><span class="annot"><span class="annottext">s :: TableVersion
-</span><a href="#local-6989586621679701124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.TableVersion.html#TableVersion%27"><span class="hs-identifier hs-type">TableVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679701123"><span class="annot"><span class="annottext">Maybe Table
-</span><a href="#local-6989586621679701123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TableVersion
-</span><a href="#local-6989586621679701124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:table:TableVersion' :: Maybe Table
+</span><a href="#local-6989586621679701134"><span class="hs-identifier hs-var hs-var">table</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Table
+</span><a href="#local-6989586621679701134"><span class="hs-identifier hs-var">table</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679701133"><span class="annot"><span class="annottext">s :: TableVersion
+</span><a href="#local-6989586621679701133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.TableVersion.html#TableVersion%27"><span class="hs-identifier hs-type">TableVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679701132"><span class="annot"><span class="annottext">Maybe Table
+</span><a href="#local-6989586621679701132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TableVersion
+</span><a href="#local-6989586621679701133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:table:TableVersion' :: Maybe Table
 </span><a href="Network.AWS.Glue.Types.TableVersion.html#%24sel%3Atable%3ATableVersion%27"><span class="hs-identifier hs-var">table</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Table
-</span><a href="#local-6989586621679701123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TableVersion.html#TableVersion"><span class="hs-identifier hs-type">TableVersion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679701132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TableVersion.html#TableVersion"><span class="hs-identifier hs-type">TableVersion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679701120"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TableVersion.html#TableVersion"><span class="hs-identifier hs-type">TableVersion</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679701118"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TableVersion
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679701129"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TableVersion.html#TableVersion"><span class="hs-identifier hs-type">TableVersion</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679701127"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TableVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TableVersion) -&gt; Value -&gt; Parser TableVersion
@@ -164,15 +164,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TableVersion&quot;</span></span><span>
-</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679701115"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679701115"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679701124"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679701124"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Table -&gt; TableVersion
 </span><a href="Network.AWS.Glue.Types.TableVersion.html#TableVersion%27"><span class="hs-identifier hs-var">TableVersion'</span></a></span><span>
 </span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Table -&gt; TableVersion)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Table -&gt; TableVersion)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679701115"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679701124"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VersionId&quot;</span></span><span class="hs-special">)</span><span>
@@ -180,13 +180,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Table) -&gt; Parser TableVersion
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679701115"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Table)
+</span><a href="#local-6989586621679701124"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Table)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Table&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679701109"><span id="local-6989586621679701111"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TableVersion.html#TableVersion"><span class="hs-identifier hs-type">TableVersion</span></a></span></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679701118"><span id="local-6989586621679701120"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TableVersion.html#TableVersion"><span class="hs-identifier hs-type">TableVersion</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679701106"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TableVersion.html#TableVersion"><span class="hs-identifier hs-type">TableVersion</span></a></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679701115"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TableVersion.html#TableVersion"><span class="hs-identifier hs-type">TableVersion</span></a></span></span><span>
 </span><span id="line-81"></span></pre></body></html>

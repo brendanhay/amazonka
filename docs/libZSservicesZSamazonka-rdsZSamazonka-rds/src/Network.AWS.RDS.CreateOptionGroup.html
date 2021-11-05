@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newCreateOptionGroup' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679800144"><span id="local-6989586621679800145"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateOptionGroup"><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup"><span class="hs-identifier hs-var">CreateOptionGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateOptionGroup%27"><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup%27"><span class="hs-identifier hs-var">CreateOptionGroup'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679800153"><span id="local-6989586621679800154"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateOptionGroup"><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup"><span class="hs-identifier hs-var">CreateOptionGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateOptionGroup%27"><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup%27"><span class="hs-identifier hs-var">CreateOptionGroup'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Tags to assign to the option group.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3Atags%3ACreateOptionGroup%27"><span class="annot"><span class="annottext">CreateOptionGroup -&gt; Maybe [Tag]
 </span><a href="Network.AWS.RDS.CreateOptionGroup.html#%24sel%3Atags%3ACreateOptionGroup%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -106,7 +106,7 @@
 </span><span id="line-102"></span><span>    </span><span id="%24sel%3AoptionGroupDescription%3ACreateOptionGroup%27"><span class="annot"><span class="annottext">CreateOptionGroup -&gt; Text
 </span><a href="Network.AWS.RDS.CreateOptionGroup.html#%24sel%3AoptionGroupDescription%3ACreateOptionGroup%27"><span class="hs-identifier hs-var hs-var">optionGroupDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-103"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-104"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679800134"><span id="local-6989586621679800136"><span class="annot"><span class="annottext">CreateOptionGroup -&gt; CreateOptionGroup -&gt; Bool
+</span><span id="line-104"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679800143"><span id="local-6989586621679800145"><span class="annot"><span class="annottext">CreateOptionGroup -&gt; CreateOptionGroup -&gt; Bool
 (CreateOptionGroup -&gt; CreateOptionGroup -&gt; Bool)
 -&gt; (CreateOptionGroup -&gt; CreateOptionGroup -&gt; Bool)
 -&gt; Eq CreateOptionGroup
@@ -115,7 +115,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateOptionGroup -&gt; CreateOptionGroup -&gt; Bool
 == :: CreateOptionGroup -&gt; CreateOptionGroup -&gt; Bool
 $c== :: CreateOptionGroup -&gt; CreateOptionGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679800125"><span id="local-6989586621679800127"><span id="local-6989586621679800129"><span id="local-6989586621679800131"><span class="annot"><span class="annottext">ReadPrec [CreateOptionGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679800134"><span id="local-6989586621679800136"><span id="local-6989586621679800138"><span id="local-6989586621679800140"><span class="annot"><span class="annottext">ReadPrec [CreateOptionGroup]
 ReadPrec CreateOptionGroup
 Int -&gt; ReadS CreateOptionGroup
 ReadS [CreateOptionGroup]
@@ -135,7 +135,7 @@ readList :: ReadS [CreateOptionGroup]
 $creadList :: ReadS [CreateOptionGroup]
 readsPrec :: Int -&gt; ReadS CreateOptionGroup
 $creadsPrec :: Int -&gt; ReadS CreateOptionGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679800118"><span id="local-6989586621679800120"><span id="local-6989586621679800122"><span class="annot"><span class="annottext">Int -&gt; CreateOptionGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679800127"><span id="local-6989586621679800129"><span id="local-6989586621679800131"><span class="annot"><span class="annottext">Int -&gt; CreateOptionGroup -&gt; ShowS
 [CreateOptionGroup] -&gt; ShowS
 CreateOptionGroup -&gt; String
 (Int -&gt; CreateOptionGroup -&gt; ShowS)
@@ -226,14 +226,14 @@ $cfrom :: forall x. CreateOptionGroup -&gt; Rep CreateOptionGroup x
 </span><span id="line-168"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup"><span class="hs-identifier hs-type">CreateOptionGroup</span></a></span><span>
 </span><span id="line-169"></span><span id="newCreateOptionGroup"><span class="annot"><span class="annottext">newCreateOptionGroup :: Text -&gt; Text -&gt; Text -&gt; Text -&gt; CreateOptionGroup
 </span><a href="Network.AWS.RDS.CreateOptionGroup.html#newCreateOptionGroup"><span class="hs-identifier hs-var hs-var">newCreateOptionGroup</span></a></span></span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679800113"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679800113"><span class="hs-identifier hs-var">pOptionGroupName_</span></a></span></span><span>
-</span><span id="line-171"></span><span>  </span><span id="local-6989586621679800112"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679800112"><span class="hs-identifier hs-var">pEngineName_</span></a></span></span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621679800111"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679800111"><span class="hs-identifier hs-var">pMajorEngineVersion_</span></a></span></span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679800110"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679800110"><span class="hs-identifier hs-var">pOptionGroupDescription_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679800122"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679800122"><span class="hs-identifier hs-var">pOptionGroupName_</span></a></span></span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679800121"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679800121"><span class="hs-identifier hs-var">pEngineName_</span></a></span></span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679800120"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679800120"><span class="hs-identifier hs-var">pMajorEngineVersion_</span></a></span></span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679800119"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679800119"><span class="hs-identifier hs-var">pOptionGroupDescription_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">CreateOptionGroup' :: Maybe [Tag] -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; CreateOptionGroup
 </span><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup%27"><span class="hs-identifier hs-type">CreateOptionGroup'</span></a></span><span>
 </span><span id="line-175"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tags:CreateOptionGroup' :: Maybe [Tag]
@@ -242,16 +242,16 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-176"></span><span>        </span><span class="annot"><span class="annottext">$sel:optionGroupName:CreateOptionGroup' :: Text
 </span><a href="Network.AWS.RDS.CreateOptionGroup.html#%24sel%3AoptionGroupName%3ACreateOptionGroup%27"><span class="hs-identifier hs-var">optionGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679800113"><span class="hs-identifier hs-var">pOptionGroupName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679800122"><span class="hs-identifier hs-var">pOptionGroupName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-177"></span><span>        </span><span class="annot"><span class="annottext">$sel:engineName:CreateOptionGroup' :: Text
 </span><a href="Network.AWS.RDS.CreateOptionGroup.html#%24sel%3AengineName%3ACreateOptionGroup%27"><span class="hs-identifier hs-var">engineName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679800112"><span class="hs-identifier hs-var">pEngineName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679800121"><span class="hs-identifier hs-var">pEngineName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">$sel:majorEngineVersion:CreateOptionGroup' :: Text
 </span><a href="Network.AWS.RDS.CreateOptionGroup.html#%24sel%3AmajorEngineVersion%3ACreateOptionGroup%27"><span class="hs-identifier hs-var">majorEngineVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679800111"><span class="hs-identifier hs-var">pMajorEngineVersion_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679800120"><span class="hs-identifier hs-var">pMajorEngineVersion_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">$sel:optionGroupDescription:CreateOptionGroup' :: Text
 </span><a href="Network.AWS.RDS.CreateOptionGroup.html#%24sel%3AoptionGroupDescription%3ACreateOptionGroup%27"><span class="hs-identifier hs-var">optionGroupDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679800110"><span class="hs-identifier hs-var">pOptionGroupDescription_</span></a></span><span>
+</span><a href="#local-6989586621679800119"><span class="hs-identifier hs-var">pOptionGroupDescription_</span></a></span><span>
 </span><span id="line-180"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- | Tags to assign to the option group.</span><span>
@@ -263,16 +263,16 @@ forall a. Maybe a
 -&gt; Lens
      CreateOptionGroup CreateOptionGroup (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup%27"><span class="hs-identifier hs-type">CreateOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800107"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup%27"><span class="hs-identifier hs-type">CreateOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800116"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:CreateOptionGroup' :: CreateOptionGroup -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679800107"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679800107"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800106"><span class="annot"><span class="annottext">s :: CreateOptionGroup
-</span><a href="#local-6989586621679800106"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup%27"><span class="hs-identifier hs-type">CreateOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800105"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679800105"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOptionGroup
-</span><a href="#local-6989586621679800106"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateOptionGroup' :: Maybe [Tag]
+</span><a href="#local-6989586621679800116"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679800116"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800115"><span class="annot"><span class="annottext">s :: CreateOptionGroup
+</span><a href="#local-6989586621679800115"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup%27"><span class="hs-identifier hs-type">CreateOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800114"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679800114"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOptionGroup
+</span><a href="#local-6989586621679800115"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateOptionGroup' :: Maybe [Tag]
 </span><a href="Network.AWS.RDS.CreateOptionGroup.html#%24sel%3Atags%3ACreateOptionGroup%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679800105"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup"><span class="hs-identifier hs-type">CreateOptionGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621679800114"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup"><span class="hs-identifier hs-type">CreateOptionGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; CreateOptionGroup -&gt; f CreateOptionGroup)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -306,16 +306,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (CreateOptionGroup -&gt; Text -&gt; CreateOptionGroup)
 -&gt; Lens CreateOptionGroup CreateOptionGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup%27"><span class="hs-identifier hs-type">CreateOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800101"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup%27"><span class="hs-identifier hs-type">CreateOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800110"><span class="annot"><span class="annottext">Text
 optionGroupName :: Text
 $sel:optionGroupName:CreateOptionGroup' :: CreateOptionGroup -&gt; Text
-</span><a href="#local-6989586621679800101"><span class="hs-identifier hs-var hs-var">optionGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679800101"><span class="hs-identifier hs-var">optionGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800100"><span class="annot"><span class="annottext">s :: CreateOptionGroup
-</span><a href="#local-6989586621679800100"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup%27"><span class="hs-identifier hs-type">CreateOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800099"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679800099"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOptionGroup
-</span><a href="#local-6989586621679800100"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:optionGroupName:CreateOptionGroup' :: Text
+</span><a href="#local-6989586621679800110"><span class="hs-identifier hs-var hs-var">optionGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679800110"><span class="hs-identifier hs-var">optionGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800109"><span class="annot"><span class="annottext">s :: CreateOptionGroup
+</span><a href="#local-6989586621679800109"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup%27"><span class="hs-identifier hs-type">CreateOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800108"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679800108"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOptionGroup
+</span><a href="#local-6989586621679800109"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:optionGroupName:CreateOptionGroup' :: Text
 </span><a href="Network.AWS.RDS.CreateOptionGroup.html#%24sel%3AoptionGroupName%3ACreateOptionGroup%27"><span class="hs-identifier hs-var">optionGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679800099"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup"><span class="hs-identifier hs-type">CreateOptionGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679800108"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup"><span class="hs-identifier hs-type">CreateOptionGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-199"></span><span>
 </span><span id="line-200"></span><span class="hs-comment">-- | Specifies the name of the engine that this option group should be</span><span>
 </span><span id="line-201"></span><span class="hs-comment">-- associated with.</span><span>
@@ -349,16 +349,16 @@ $sel:optionGroupName:CreateOptionGroup' :: CreateOptionGroup -&gt; Text
 -&gt; (CreateOptionGroup -&gt; Text -&gt; CreateOptionGroup)
 -&gt; Lens CreateOptionGroup CreateOptionGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup%27"><span class="hs-identifier hs-type">CreateOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800098"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup%27"><span class="hs-identifier hs-type">CreateOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800107"><span class="annot"><span class="annottext">Text
 engineName :: Text
 $sel:engineName:CreateOptionGroup' :: CreateOptionGroup -&gt; Text
-</span><a href="#local-6989586621679800098"><span class="hs-identifier hs-var hs-var">engineName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679800098"><span class="hs-identifier hs-var">engineName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800097"><span class="annot"><span class="annottext">s :: CreateOptionGroup
-</span><a href="#local-6989586621679800097"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup%27"><span class="hs-identifier hs-type">CreateOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800096"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679800096"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOptionGroup
-</span><a href="#local-6989586621679800097"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engineName:CreateOptionGroup' :: Text
+</span><a href="#local-6989586621679800107"><span class="hs-identifier hs-var hs-var">engineName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679800107"><span class="hs-identifier hs-var">engineName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800106"><span class="annot"><span class="annottext">s :: CreateOptionGroup
+</span><a href="#local-6989586621679800106"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup%27"><span class="hs-identifier hs-type">CreateOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800105"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679800105"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOptionGroup
+</span><a href="#local-6989586621679800106"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engineName:CreateOptionGroup' :: Text
 </span><a href="Network.AWS.RDS.CreateOptionGroup.html#%24sel%3AengineName%3ACreateOptionGroup%27"><span class="hs-identifier hs-var">engineName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679800096"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup"><span class="hs-identifier hs-type">CreateOptionGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679800105"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup"><span class="hs-identifier hs-type">CreateOptionGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-228"></span><span>
 </span><span id="line-229"></span><span class="hs-comment">-- | Specifies the major version of the engine that this option group should</span><span>
 </span><span id="line-230"></span><span class="hs-comment">-- be associated with.</span><span>
@@ -368,16 +368,16 @@ $sel:engineName:CreateOptionGroup' :: CreateOptionGroup -&gt; Text
 -&gt; (CreateOptionGroup -&gt; Text -&gt; CreateOptionGroup)
 -&gt; Lens CreateOptionGroup CreateOptionGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup%27"><span class="hs-identifier hs-type">CreateOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800095"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup%27"><span class="hs-identifier hs-type">CreateOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800104"><span class="annot"><span class="annottext">Text
 majorEngineVersion :: Text
 $sel:majorEngineVersion:CreateOptionGroup' :: CreateOptionGroup -&gt; Text
-</span><a href="#local-6989586621679800095"><span class="hs-identifier hs-var hs-var">majorEngineVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679800095"><span class="hs-identifier hs-var">majorEngineVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800094"><span class="annot"><span class="annottext">s :: CreateOptionGroup
-</span><a href="#local-6989586621679800094"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup%27"><span class="hs-identifier hs-type">CreateOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800093"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679800093"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOptionGroup
-</span><a href="#local-6989586621679800094"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:majorEngineVersion:CreateOptionGroup' :: Text
+</span><a href="#local-6989586621679800104"><span class="hs-identifier hs-var hs-var">majorEngineVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679800104"><span class="hs-identifier hs-var">majorEngineVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800103"><span class="annot"><span class="annottext">s :: CreateOptionGroup
+</span><a href="#local-6989586621679800103"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup%27"><span class="hs-identifier hs-type">CreateOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800102"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679800102"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOptionGroup
+</span><a href="#local-6989586621679800103"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:majorEngineVersion:CreateOptionGroup' :: Text
 </span><a href="Network.AWS.RDS.CreateOptionGroup.html#%24sel%3AmajorEngineVersion%3ACreateOptionGroup%27"><span class="hs-identifier hs-var">majorEngineVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679800093"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup"><span class="hs-identifier hs-type">CreateOptionGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679800102"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup"><span class="hs-identifier hs-type">CreateOptionGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-233"></span><span>
 </span><span id="line-234"></span><span class="hs-comment">-- | The description of the option group.</span><span>
 </span><span id="line-235"></span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#createOptionGroup_optionGroupDescription"><span class="hs-identifier hs-type">createOptionGroup_optionGroupDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup"><span class="hs-identifier hs-type">CreateOptionGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -386,27 +386,27 @@ $sel:majorEngineVersion:CreateOptionGroup' :: CreateOptionGroup -&gt; Text
 -&gt; (CreateOptionGroup -&gt; Text -&gt; CreateOptionGroup)
 -&gt; Lens CreateOptionGroup CreateOptionGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup%27"><span class="hs-identifier hs-type">CreateOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800092"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup%27"><span class="hs-identifier hs-type">CreateOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800101"><span class="annot"><span class="annottext">Text
 optionGroupDescription :: Text
 $sel:optionGroupDescription:CreateOptionGroup' :: CreateOptionGroup -&gt; Text
-</span><a href="#local-6989586621679800092"><span class="hs-identifier hs-var hs-var">optionGroupDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679800092"><span class="hs-identifier hs-var">optionGroupDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800091"><span class="annot"><span class="annottext">s :: CreateOptionGroup
-</span><a href="#local-6989586621679800091"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup%27"><span class="hs-identifier hs-type">CreateOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800090"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679800090"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOptionGroup
-</span><a href="#local-6989586621679800091"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:optionGroupDescription:CreateOptionGroup' :: Text
+</span><a href="#local-6989586621679800101"><span class="hs-identifier hs-var hs-var">optionGroupDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679800101"><span class="hs-identifier hs-var">optionGroupDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800100"><span class="annot"><span class="annottext">s :: CreateOptionGroup
+</span><a href="#local-6989586621679800100"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup%27"><span class="hs-identifier hs-type">CreateOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800099"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679800099"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOptionGroup
+</span><a href="#local-6989586621679800100"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:optionGroupDescription:CreateOptionGroup' :: Text
 </span><a href="Network.AWS.RDS.CreateOptionGroup.html#%24sel%3AoptionGroupDescription%3ACreateOptionGroup%27"><span class="hs-identifier hs-var">optionGroupDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679800090"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup"><span class="hs-identifier hs-type">CreateOptionGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679800099"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup"><span class="hs-identifier hs-type">CreateOptionGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-237"></span><span>
 </span><span id="line-238"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup"><span class="hs-identifier hs-type">CreateOptionGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-239"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-240"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup"><span class="hs-identifier hs-type">CreateOptionGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-241"></span><span>      </span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroupResponse"><span class="hs-identifier hs-type">CreateOptionGroupResponse</span></a></span><span>
-</span><span id="line-242"></span><span>  </span><span id="local-6989586621679800086"><span class="annot"><span class="annottext">request :: CreateOptionGroup -&gt; Request CreateOptionGroup
+</span><span id="line-242"></span><span>  </span><span id="local-6989586621679800095"><span class="annot"><span class="annottext">request :: CreateOptionGroup -&gt; Request CreateOptionGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateOptionGroup -&gt; Request CreateOptionGroup
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-243"></span><span>  </span><span id="local-6989586621679800082"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-243"></span><span>  </span><span id="local-6989586621679800091"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateOptionGroup
 -&gt; ClientResponse ClientBody
@@ -437,10 +437,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-245"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreateOptionGroupResult&quot;</span></span><span>
-</span><span id="line-246"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679800079"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679800079"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679800078"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679800078"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679800077"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679800077"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-246"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679800088"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679800088"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679800087"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679800087"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679800086"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679800086"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-247"></span><span>          </span><span class="annot"><span class="annottext">Maybe OptionGroup -&gt; Int -&gt; CreateOptionGroupResponse
 </span><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroupResponse%27"><span class="hs-identifier hs-var">CreateOptionGroupResponse'</span></a></span><span>
 </span><span id="line-248"></span><span>            </span><span class="annot"><span class="annottext">(Maybe OptionGroup -&gt; Int -&gt; CreateOptionGroupResponse)
@@ -448,7 +448,7 @@ Text
 -&gt; Either String (Int -&gt; CreateOptionGroupResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679800077"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe OptionGroup)
+</span><a href="#local-6989586621679800086"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe OptionGroup)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OptionGroup&quot;</span></span><span class="hs-special">)</span><span>
@@ -460,15 +460,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679800079"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679800088"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-250"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-251"></span><span>
-</span><span id="line-252"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679800069"><span id="local-6989586621679800071"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup"><span class="hs-identifier hs-type">CreateOptionGroup</span></a></span></span></span><span>
+</span><span id="line-252"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679800078"><span id="local-6989586621679800080"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup"><span class="hs-identifier hs-type">CreateOptionGroup</span></a></span></span></span><span>
 </span><span id="line-253"></span><span>
-</span><span id="line-254"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679800066"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup"><span class="hs-identifier hs-type">CreateOptionGroup</span></a></span></span><span>
+</span><span id="line-254"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679800075"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup"><span class="hs-identifier hs-type">CreateOptionGroup</span></a></span></span><span>
 </span><span id="line-255"></span><span>
 </span><span id="line-256"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup"><span class="hs-identifier hs-type">CreateOptionGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-257"></span><span>  </span><span id="local-6989586621679800062"><span class="annot"><span class="annottext">toHeaders :: CreateOptionGroup -&gt; ResponseHeaders
+</span><span id="line-257"></span><span>  </span><span id="local-6989586621679800071"><span class="annot"><span class="annottext">toHeaders :: CreateOptionGroup -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateOptionGroup -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -476,15 +476,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-258"></span><span>
 </span><span id="line-259"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup"><span class="hs-identifier hs-type">CreateOptionGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-260"></span><span>  </span><span id="local-6989586621679800057"><span class="annot"><span class="annottext">toPath :: CreateOptionGroup -&gt; ByteString
+</span><span id="line-260"></span><span>  </span><span id="local-6989586621679800066"><span class="annot"><span class="annottext">toPath :: CreateOptionGroup -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateOptionGroup -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-261"></span><span>
 </span><span id="line-262"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup"><span class="hs-identifier hs-type">CreateOptionGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-263"></span><span>  </span><span id="local-6989586621679800053"><span class="annot"><span class="annottext">toQuery :: CreateOptionGroup -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup%27"><span class="hs-identifier hs-type">CreateOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800047"><span id="local-6989586621679800048"><span id="local-6989586621679800049"><span id="local-6989586621679800050"><span id="local-6989586621679800051"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-263"></span><span>  </span><span id="local-6989586621679800062"><span class="annot"><span class="annottext">toQuery :: CreateOptionGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroup%27"><span class="hs-identifier hs-type">CreateOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800056"><span id="local-6989586621679800057"><span id="local-6989586621679800058"><span id="local-6989586621679800059"><span id="local-6989586621679800060"><span class="annot"><span class="annottext">Maybe [Tag]
 Text
 optionGroupDescription :: Text
 majorEngineVersion :: Text
@@ -496,7 +496,7 @@ $sel:majorEngineVersion:CreateOptionGroup' :: CreateOptionGroup -&gt; Text
 $sel:engineName:CreateOptionGroup' :: CreateOptionGroup -&gt; Text
 $sel:optionGroupName:CreateOptionGroup' :: CreateOptionGroup -&gt; Text
 $sel:tags:CreateOptionGroup' :: CreateOptionGroup -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679800047"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679800056"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-264"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -527,39 +527,39 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;Tag&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; QueryString) -&gt; Maybe [Tag] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679800051"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679800060"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-272"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;OptionGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679800050"><span class="hs-identifier hs-var">optionGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679800059"><span class="hs-identifier hs-var">optionGroupName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-273"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;EngineName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679800049"><span class="hs-identifier hs-var">engineName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679800058"><span class="hs-identifier hs-var">engineName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-274"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;MajorEngineVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679800048"><span class="hs-identifier hs-var">majorEngineVersion</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679800057"><span class="hs-identifier hs-var">majorEngineVersion</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-275"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;OptionGroupDescription&quot;</span></span><span>
 </span><span id="line-276"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679800047"><span class="hs-identifier hs-var">optionGroupDescription</span></a></span><span>
+</span><a href="#local-6989586621679800056"><span class="hs-identifier hs-var">optionGroupDescription</span></a></span><span>
 </span><span id="line-277"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-278"></span><span>
 </span><span id="line-279"></span><span class="hs-comment">-- | /See:/ 'newCreateOptionGroupResponse' smart constructor.</span><span>
-</span><span id="line-280"></span><span id="local-6989586621679800043"><span id="local-6989586621679800044"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateOptionGroupResponse"><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroupResponse"><span class="hs-identifier hs-var">CreateOptionGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateOptionGroupResponse%27"><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroupResponse%27"><span class="hs-identifier hs-var">CreateOptionGroupResponse'</span></a></span></span><span>
+</span><span id="line-280"></span><span id="local-6989586621679800052"><span id="local-6989586621679800053"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateOptionGroupResponse"><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroupResponse"><span class="hs-identifier hs-var">CreateOptionGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateOptionGroupResponse%27"><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroupResponse%27"><span class="hs-identifier hs-var">CreateOptionGroupResponse'</span></a></span></span><span>
 </span><span id="line-281"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AoptionGroup%3ACreateOptionGroupResponse%27"><span class="annot"><span class="annottext">CreateOptionGroupResponse -&gt; Maybe OptionGroup
 </span><a href="Network.AWS.RDS.CreateOptionGroup.html#%24sel%3AoptionGroup%3ACreateOptionGroupResponse%27"><span class="hs-identifier hs-var hs-var">optionGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.OptionGroup.html#OptionGroup"><span class="hs-identifier hs-type">OptionGroup</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-282"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-283"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateOptionGroupResponse%27"><span class="annot"><span class="annottext">CreateOptionGroupResponse -&gt; Int
 </span><a href="Network.AWS.RDS.CreateOptionGroup.html#%24sel%3AhttpStatus%3ACreateOptionGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-284"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-285"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679800037"><span id="local-6989586621679800039"><span class="annot"><span class="annottext">CreateOptionGroupResponse -&gt; CreateOptionGroupResponse -&gt; Bool
+</span><span id="line-285"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679800046"><span id="local-6989586621679800048"><span class="annot"><span class="annottext">CreateOptionGroupResponse -&gt; CreateOptionGroupResponse -&gt; Bool
 (CreateOptionGroupResponse -&gt; CreateOptionGroupResponse -&gt; Bool)
 -&gt; (CreateOptionGroupResponse -&gt; CreateOptionGroupResponse -&gt; Bool)
 -&gt; Eq CreateOptionGroupResponse
@@ -568,7 +568,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateOptionGroupResponse -&gt; CreateOptionGroupResponse -&gt; Bool
 == :: CreateOptionGroupResponse -&gt; CreateOptionGroupResponse -&gt; Bool
 $c== :: CreateOptionGroupResponse -&gt; CreateOptionGroupResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679800029"><span id="local-6989586621679800031"><span id="local-6989586621679800033"><span id="local-6989586621679800035"><span class="annot"><span class="annottext">ReadPrec [CreateOptionGroupResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679800038"><span id="local-6989586621679800040"><span id="local-6989586621679800042"><span id="local-6989586621679800044"><span class="annot"><span class="annottext">ReadPrec [CreateOptionGroupResponse]
 ReadPrec CreateOptionGroupResponse
 Int -&gt; ReadS CreateOptionGroupResponse
 ReadS [CreateOptionGroupResponse]
@@ -588,7 +588,7 @@ readList :: ReadS [CreateOptionGroupResponse]
 $creadList :: ReadS [CreateOptionGroupResponse]
 readsPrec :: Int -&gt; ReadS CreateOptionGroupResponse
 $creadsPrec :: Int -&gt; ReadS CreateOptionGroupResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679800023"><span id="local-6989586621679800025"><span id="local-6989586621679800027"><span class="annot"><span class="annottext">Int -&gt; CreateOptionGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679800032"><span id="local-6989586621679800034"><span id="local-6989586621679800036"><span class="annot"><span class="annottext">Int -&gt; CreateOptionGroupResponse -&gt; ShowS
 [CreateOptionGroupResponse] -&gt; ShowS
 CreateOptionGroupResponse -&gt; String
 (Int -&gt; CreateOptionGroupResponse -&gt; ShowS)
@@ -636,8 +636,8 @@ CreateOptionGroupResponse -&gt; Rep CreateOptionGroupResponse x
 </span><span id="line-300"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-301"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroupResponse"><span class="hs-identifier hs-type">CreateOptionGroupResponse</span></a></span><span>
 </span><span id="line-302"></span><span id="newCreateOptionGroupResponse"><span class="annot"><span class="annottext">newCreateOptionGroupResponse :: Int -&gt; CreateOptionGroupResponse
-</span><a href="Network.AWS.RDS.CreateOptionGroup.html#newCreateOptionGroupResponse"><span class="hs-identifier hs-var hs-var">newCreateOptionGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679800020"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679800020"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.RDS.CreateOptionGroup.html#newCreateOptionGroupResponse"><span class="hs-identifier hs-var hs-var">newCreateOptionGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679800029"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679800029"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-303"></span><span>  </span><span class="annot"><span class="annottext">CreateOptionGroupResponse' :: Maybe OptionGroup -&gt; Int -&gt; CreateOptionGroupResponse
 </span><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroupResponse%27"><span class="hs-identifier hs-type">CreateOptionGroupResponse'</span></a></span><span>
 </span><span id="line-304"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:optionGroup:CreateOptionGroupResponse' :: Maybe OptionGroup
@@ -647,7 +647,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-306"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateOptionGroupResponse' :: Int
 </span><a href="Network.AWS.RDS.CreateOptionGroup.html#%24sel%3AhttpStatus%3ACreateOptionGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679800020"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679800029"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-307"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-308"></span><span>
 </span><span id="line-309"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -663,16 +663,16 @@ forall a. Maybe a
      (Maybe OptionGroup)
      (Maybe OptionGroup)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroupResponse%27"><span class="hs-identifier hs-type">CreateOptionGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800019"><span class="annot"><span class="annottext">Maybe OptionGroup
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroupResponse%27"><span class="hs-identifier hs-type">CreateOptionGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800028"><span class="annot"><span class="annottext">Maybe OptionGroup
 optionGroup :: Maybe OptionGroup
 $sel:optionGroup:CreateOptionGroupResponse' :: CreateOptionGroupResponse -&gt; Maybe OptionGroup
-</span><a href="#local-6989586621679800019"><span class="hs-identifier hs-var hs-var">optionGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OptionGroup
-</span><a href="#local-6989586621679800019"><span class="hs-identifier hs-var">optionGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800018"><span class="annot"><span class="annottext">s :: CreateOptionGroupResponse
-</span><a href="#local-6989586621679800018"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroupResponse%27"><span class="hs-identifier hs-type">CreateOptionGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800017"><span class="annot"><span class="annottext">Maybe OptionGroup
-</span><a href="#local-6989586621679800017"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOptionGroupResponse
-</span><a href="#local-6989586621679800018"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:optionGroup:CreateOptionGroupResponse' :: Maybe OptionGroup
+</span><a href="#local-6989586621679800028"><span class="hs-identifier hs-var hs-var">optionGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OptionGroup
+</span><a href="#local-6989586621679800028"><span class="hs-identifier hs-var">optionGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800027"><span class="annot"><span class="annottext">s :: CreateOptionGroupResponse
+</span><a href="#local-6989586621679800027"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroupResponse%27"><span class="hs-identifier hs-type">CreateOptionGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800026"><span class="annot"><span class="annottext">Maybe OptionGroup
+</span><a href="#local-6989586621679800026"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOptionGroupResponse
+</span><a href="#local-6989586621679800027"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:optionGroup:CreateOptionGroupResponse' :: Maybe OptionGroup
 </span><a href="Network.AWS.RDS.CreateOptionGroup.html#%24sel%3AoptionGroup%3ACreateOptionGroupResponse%27"><span class="hs-identifier hs-var">optionGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OptionGroup
-</span><a href="#local-6989586621679800017"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroupResponse"><span class="hs-identifier hs-type">CreateOptionGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679800026"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroupResponse"><span class="hs-identifier hs-type">CreateOptionGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-312"></span><span>
 </span><span id="line-313"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-314"></span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#createOptionGroupResponse_httpStatus"><span class="hs-identifier hs-type">createOptionGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroupResponse"><span class="hs-identifier hs-type">CreateOptionGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -682,16 +682,16 @@ $sel:optionGroup:CreateOptionGroupResponse' :: CreateOptionGroupResponse -&gt; M
 -&gt; (CreateOptionGroupResponse -&gt; Int -&gt; CreateOptionGroupResponse)
 -&gt; Lens CreateOptionGroupResponse CreateOptionGroupResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroupResponse%27"><span class="hs-identifier hs-type">CreateOptionGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800016"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroupResponse%27"><span class="hs-identifier hs-type">CreateOptionGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800025"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateOptionGroupResponse' :: CreateOptionGroupResponse -&gt; Int
-</span><a href="#local-6989586621679800016"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679800016"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800015"><span class="annot"><span class="annottext">s :: CreateOptionGroupResponse
-</span><a href="#local-6989586621679800015"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroupResponse%27"><span class="hs-identifier hs-type">CreateOptionGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800014"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679800014"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOptionGroupResponse
-</span><a href="#local-6989586621679800015"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateOptionGroupResponse' :: Int
+</span><a href="#local-6989586621679800025"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679800025"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800024"><span class="annot"><span class="annottext">s :: CreateOptionGroupResponse
+</span><a href="#local-6989586621679800024"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroupResponse%27"><span class="hs-identifier hs-type">CreateOptionGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800023"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679800023"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateOptionGroupResponse
+</span><a href="#local-6989586621679800024"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateOptionGroupResponse' :: Int
 </span><a href="Network.AWS.RDS.CreateOptionGroup.html#%24sel%3AhttpStatus%3ACreateOptionGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679800014"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroupResponse"><span class="hs-identifier hs-type">CreateOptionGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679800023"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroupResponse"><span class="hs-identifier hs-type">CreateOptionGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-316"></span><span>
-</span><span id="line-317"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679800012"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroupResponse"><span class="hs-identifier hs-type">CreateOptionGroupResponse</span></a></span></span><span>
+</span><span id="line-317"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679800021"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.CreateOptionGroup.html#CreateOptionGroupResponse"><span class="hs-identifier hs-type">CreateOptionGroupResponse</span></a></span></span><span>
 </span><span id="line-318"></span></pre></body></html>

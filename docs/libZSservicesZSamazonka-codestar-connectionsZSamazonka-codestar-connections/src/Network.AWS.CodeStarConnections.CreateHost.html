@@ -1,0 +1,672 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CodeStarConnections.CreateHost</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a resource that represents the infrastructure where a</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- third-party provider is installed. The host is used when you create</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- connections to an installed third-party provider type, such as GitHub</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- Enterprise Server. You create one host for all connections to that</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- provider.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- A host created through the CLI or the SDK is in \`PENDING\` status by</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- default. You can make its status \`AVAILABLE\` by setting up the host in</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- the console.</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodeStarConnections.CreateHost</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHost"><span class="hs-identifier">CreateHost</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#newCreateHost"><span class="hs-identifier">newCreateHost</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#createHost_vpcConfiguration"><span class="hs-identifier">createHost_vpcConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#createHost_tags"><span class="hs-identifier">createHost_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#createHost_name"><span class="hs-identifier">createHost_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#createHost_providerType"><span class="hs-identifier">createHost_providerType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#createHost_providerEndpoint"><span class="hs-identifier">createHost_providerEndpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHostResponse"><span class="hs-identifier">CreateHostResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#newCreateHostResponse"><span class="hs-identifier">newCreateHostResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#createHostResponse_hostArn"><span class="hs-identifier">createHostResponse_hostArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#createHostResponse_tags"><span class="hs-identifier">createHostResponse_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#createHostResponse_httpStatus"><span class="hs-identifier">createHostResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeStarConnections.Types.html"><span class="hs-identifier">Network.AWS.CodeStarConnections.Types</span></a></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newCreateHost' smart constructor.</span><span>
+</span><span id="line-63"></span><span id="local-6989586621679159837"><span id="local-6989586621679159838"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateHost"><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHost"><span class="hs-identifier hs-var">CreateHost</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateHost%27"><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHost%27"><span class="hs-identifier hs-var">CreateHost'</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The VPC configuration to be provisioned for the host. A VPC must be</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- configured and the infrastructure to be represented by the host must</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- already be connected to the VPC.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AvpcConfiguration%3ACreateHost%27"><span class="annot"><span class="annottext">CreateHost -&gt; Maybe VpcConfiguration
+</span><a href="Network.AWS.CodeStarConnections.CreateHost.html#%24sel%3AvpcConfiguration%3ACreateHost%27"><span class="hs-identifier hs-var hs-var">vpcConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStarConnections.Types.VpcConfiguration.html#VpcConfiguration"><span class="hs-identifier hs-type">VpcConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3Atags%3ACreateHost%27"><span class="annot"><span class="annottext">CreateHost -&gt; Maybe [Tag]
+</span><a href="Network.AWS.CodeStarConnections.CreateHost.html#%24sel%3Atags%3ACreateHost%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeStarConnections.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The name of the host to be created. The name must be unique in the</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- calling AWS account.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3Aname%3ACreateHost%27"><span class="annot"><span class="annottext">CreateHost -&gt; Text
+</span><a href="Network.AWS.CodeStarConnections.CreateHost.html#%24sel%3Aname%3ACreateHost%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The name of the installed provider to be associated with your</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- connection. The host resource represents the infrastructure where your</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- provider type is installed. The valid provider type is GitHub Enterprise</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- Server.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AproviderType%3ACreateHost%27"><span class="annot"><span class="annottext">CreateHost -&gt; ProviderType
+</span><a href="Network.AWS.CodeStarConnections.CreateHost.html#%24sel%3AproviderType%3ACreateHost%27"><span class="hs-identifier hs-var hs-var">providerType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStarConnections.Types.ProviderType.html#ProviderType"><span class="hs-identifier hs-type">ProviderType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The endpoint of the infrastructure to be represented by the host after</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- it is created.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AproviderEndpoint%3ACreateHost%27"><span class="annot"><span class="annottext">CreateHost -&gt; Text
+</span><a href="Network.AWS.CodeStarConnections.CreateHost.html#%24sel%3AproviderEndpoint%3ACreateHost%27"><span class="hs-identifier hs-var hs-var">providerEndpoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679159827"><span id="local-6989586621679159829"><span class="annot"><span class="annottext">CreateHost -&gt; CreateHost -&gt; Bool
+(CreateHost -&gt; CreateHost -&gt; Bool)
+-&gt; (CreateHost -&gt; CreateHost -&gt; Bool) -&gt; Eq CreateHost
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateHost -&gt; CreateHost -&gt; Bool
+$c/= :: CreateHost -&gt; CreateHost -&gt; Bool
+== :: CreateHost -&gt; CreateHost -&gt; Bool
+$c== :: CreateHost -&gt; CreateHost -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679159818"><span id="local-6989586621679159820"><span id="local-6989586621679159822"><span id="local-6989586621679159824"><span class="annot"><span class="annottext">ReadPrec [CreateHost]
+ReadPrec CreateHost
+Int -&gt; ReadS CreateHost
+ReadS [CreateHost]
+(Int -&gt; ReadS CreateHost)
+-&gt; ReadS [CreateHost]
+-&gt; ReadPrec CreateHost
+-&gt; ReadPrec [CreateHost]
+-&gt; Read CreateHost
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateHost]
+$creadListPrec :: ReadPrec [CreateHost]
+readPrec :: ReadPrec CreateHost
+$creadPrec :: ReadPrec CreateHost
+readList :: ReadS [CreateHost]
+$creadList :: ReadS [CreateHost]
+readsPrec :: Int -&gt; ReadS CreateHost
+$creadsPrec :: Int -&gt; ReadS CreateHost
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679159811"><span id="local-6989586621679159813"><span id="local-6989586621679159815"><span class="annot"><span class="annottext">Int -&gt; CreateHost -&gt; ShowS
+[CreateHost] -&gt; ShowS
+CreateHost -&gt; String
+(Int -&gt; CreateHost -&gt; ShowS)
+-&gt; (CreateHost -&gt; String)
+-&gt; ([CreateHost] -&gt; ShowS)
+-&gt; Show CreateHost
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateHost] -&gt; ShowS
+$cshowList :: [CreateHost] -&gt; ShowS
+show :: CreateHost -&gt; String
+$cshow :: CreateHost -&gt; String
+showsPrec :: Int -&gt; CreateHost -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateHost -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateHost -&gt; Rep CreateHost x)
+-&gt; (forall x. Rep CreateHost x -&gt; CreateHost) -&gt; Generic CreateHost
+forall x. Rep CreateHost x -&gt; CreateHost
+forall x. CreateHost -&gt; Rep CreateHost x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateHost x -&gt; CreateHost
+$cfrom :: forall x. CreateHost -&gt; Rep CreateHost x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- Create a value of 'CreateHost' with all optional fields omitted.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'vpcConfiguration', 'createHost_vpcConfiguration' - The VPC configuration to be provisioned for the host. A VPC must be</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- configured and the infrastructure to be represented by the host must</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- already be connected to the VPC.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'tags', 'createHost_tags' - Undocumented member.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'name', 'createHost_name' - The name of the host to be created. The name must be unique in the</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- calling AWS account.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'providerType', 'createHost_providerType' - The name of the installed provider to be associated with your</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- connection. The host resource represents the infrastructure where your</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- provider type is installed. The valid provider type is GitHub Enterprise</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- Server.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'providerEndpoint', 'createHost_providerEndpoint' - The endpoint of the infrastructure to be represented by the host after</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- it is created.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#newCreateHost"><span class="hs-identifier hs-type">newCreateHost</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-comment">-- | 'providerType'</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeStarConnections.Types.ProviderType.html#ProviderType"><span class="hs-identifier hs-type">ProviderType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-comment">-- | 'providerEndpoint'</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHost"><span class="hs-identifier hs-type">CreateHost</span></a></span><span>
+</span><span id="line-115"></span><span id="newCreateHost"><span class="annot"><span class="annottext">newCreateHost :: Text -&gt; ProviderType -&gt; Text -&gt; CreateHost
+</span><a href="Network.AWS.CodeStarConnections.CreateHost.html#newCreateHost"><span class="hs-identifier hs-var hs-var">newCreateHost</span></a></span></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679159806"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679159806"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679159805"><span class="annot"><span class="annottext">ProviderType
+</span><a href="#local-6989586621679159805"><span class="hs-identifier hs-var">pProviderType_</span></a></span></span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679159804"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679159804"><span class="hs-identifier hs-var">pProviderEndpoint_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">CreateHost' :: Maybe VpcConfiguration
+-&gt; Maybe [Tag] -&gt; Text -&gt; ProviderType -&gt; Text -&gt; CreateHost
+</span><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHost%27"><span class="hs-identifier hs-type">CreateHost'</span></a></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:vpcConfiguration:CreateHost' :: Maybe VpcConfiguration
+</span><a href="Network.AWS.CodeStarConnections.CreateHost.html#%24sel%3AvpcConfiguration%3ACreateHost%27"><span class="hs-identifier hs-var">vpcConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VpcConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateHost' :: Maybe [Tag]
+</span><a href="Network.AWS.CodeStarConnections.CreateHost.html#%24sel%3Atags%3ACreateHost%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:CreateHost' :: Text
+</span><a href="Network.AWS.CodeStarConnections.CreateHost.html#%24sel%3Aname%3ACreateHost%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679159806"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">$sel:providerType:CreateHost' :: ProviderType
+</span><a href="Network.AWS.CodeStarConnections.CreateHost.html#%24sel%3AproviderType%3ACreateHost%27"><span class="hs-identifier hs-var">providerType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ProviderType
+</span><a href="#local-6989586621679159805"><span class="hs-identifier hs-var">pProviderType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">$sel:providerEndpoint:CreateHost' :: Text
+</span><a href="Network.AWS.CodeStarConnections.CreateHost.html#%24sel%3AproviderEndpoint%3ACreateHost%27"><span class="hs-identifier hs-var">providerEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679159804"><span class="hs-identifier hs-var">pProviderEndpoint_</span></a></span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The VPC configuration to be provisioned for the host. A VPC must be</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- configured and the infrastructure to be represented by the host must</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- already be connected to the VPC.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#createHost_vpcConfiguration"><span class="hs-identifier hs-type">createHost_vpcConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHost"><span class="hs-identifier hs-type">CreateHost</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStarConnections.Types.VpcConfiguration.html#VpcConfiguration"><span class="hs-identifier hs-type">VpcConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="createHost_vpcConfiguration"><span class="annot"><span class="annottext">createHost_vpcConfiguration :: (Maybe VpcConfiguration -&gt; f (Maybe VpcConfiguration))
+-&gt; CreateHost -&gt; f CreateHost
+</span><a href="Network.AWS.CodeStarConnections.CreateHost.html#createHost_vpcConfiguration"><span class="hs-identifier hs-var hs-var">createHost_vpcConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateHost -&gt; Maybe VpcConfiguration)
+-&gt; (CreateHost -&gt; Maybe VpcConfiguration -&gt; CreateHost)
+-&gt; Lens
+     CreateHost
+     CreateHost
+     (Maybe VpcConfiguration)
+     (Maybe VpcConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHost%27"><span class="hs-identifier hs-type">CreateHost'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159801"><span class="annot"><span class="annottext">Maybe VpcConfiguration
+vpcConfiguration :: Maybe VpcConfiguration
+$sel:vpcConfiguration:CreateHost' :: CreateHost -&gt; Maybe VpcConfiguration
+</span><a href="#local-6989586621679159801"><span class="hs-identifier hs-var hs-var">vpcConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VpcConfiguration
+</span><a href="#local-6989586621679159801"><span class="hs-identifier hs-var">vpcConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159800"><span class="annot"><span class="annottext">s :: CreateHost
+</span><a href="#local-6989586621679159800"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHost%27"><span class="hs-identifier hs-type">CreateHost'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159799"><span class="annot"><span class="annottext">Maybe VpcConfiguration
+</span><a href="#local-6989586621679159799"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHost
+</span><a href="#local-6989586621679159800"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcConfiguration:CreateHost' :: Maybe VpcConfiguration
+</span><a href="Network.AWS.CodeStarConnections.CreateHost.html#%24sel%3AvpcConfiguration%3ACreateHost%27"><span class="hs-identifier hs-var">vpcConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VpcConfiguration
+</span><a href="#local-6989586621679159799"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHost"><span class="hs-identifier hs-type">CreateHost</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#createHost_tags"><span class="hs-identifier hs-type">createHost_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHost"><span class="hs-identifier hs-type">CreateHost</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeStarConnections.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="createHost_tags"><span class="annot"><span class="annottext">createHost_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; CreateHost -&gt; f CreateHost
+</span><a href="Network.AWS.CodeStarConnections.CreateHost.html#createHost_tags"><span class="hs-identifier hs-var hs-var">createHost_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateHost -&gt; Maybe [Tag])
+-&gt; (CreateHost -&gt; Maybe [Tag] -&gt; CreateHost)
+-&gt; Lens CreateHost CreateHost (Maybe [Tag]) (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHost%27"><span class="hs-identifier hs-type">CreateHost'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159798"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:CreateHost' :: CreateHost -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679159798"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679159798"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159797"><span class="annot"><span class="annottext">s :: CreateHost
+</span><a href="#local-6989586621679159797"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHost%27"><span class="hs-identifier hs-type">CreateHost'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159796"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679159796"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHost
+</span><a href="#local-6989586621679159797"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateHost' :: Maybe [Tag]
+</span><a href="Network.AWS.CodeStarConnections.CreateHost.html#%24sel%3Atags%3ACreateHost%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679159796"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHost"><span class="hs-identifier hs-type">CreateHost</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; CreateHost -&gt; f CreateHost)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateHost
+-&gt; f CreateHost
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The name of the host to be created. The name must be unique in the</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- calling AWS account.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#createHost_name"><span class="hs-identifier hs-type">createHost_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHost"><span class="hs-identifier hs-type">CreateHost</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-140"></span><span id="createHost_name"><span class="annot"><span class="annottext">createHost_name :: (Text -&gt; f Text) -&gt; CreateHost -&gt; f CreateHost
+</span><a href="Network.AWS.CodeStarConnections.CreateHost.html#createHost_name"><span class="hs-identifier hs-var hs-var">createHost_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateHost -&gt; Text)
+-&gt; (CreateHost -&gt; Text -&gt; CreateHost)
+-&gt; Lens CreateHost CreateHost Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHost%27"><span class="hs-identifier hs-type">CreateHost'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159792"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:CreateHost' :: CreateHost -&gt; Text
+</span><a href="#local-6989586621679159792"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679159792"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159791"><span class="annot"><span class="annottext">s :: CreateHost
+</span><a href="#local-6989586621679159791"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHost%27"><span class="hs-identifier hs-type">CreateHost'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159790"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679159790"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHost
+</span><a href="#local-6989586621679159791"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateHost' :: Text
+</span><a href="Network.AWS.CodeStarConnections.CreateHost.html#%24sel%3Aname%3ACreateHost%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679159790"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHost"><span class="hs-identifier hs-type">CreateHost</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | The name of the installed provider to be associated with your</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- connection. The host resource represents the infrastructure where your</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- provider type is installed. The valid provider type is GitHub Enterprise</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- Server.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#createHost_providerType"><span class="hs-identifier hs-type">createHost_providerType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHost"><span class="hs-identifier hs-type">CreateHost</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CodeStarConnections.Types.ProviderType.html#ProviderType"><span class="hs-identifier hs-type">ProviderType</span></a></span><span>
+</span><span id="line-147"></span><span id="createHost_providerType"><span class="annot"><span class="annottext">createHost_providerType :: (ProviderType -&gt; f ProviderType) -&gt; CreateHost -&gt; f CreateHost
+</span><a href="Network.AWS.CodeStarConnections.CreateHost.html#createHost_providerType"><span class="hs-identifier hs-var hs-var">createHost_providerType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateHost -&gt; ProviderType)
+-&gt; (CreateHost -&gt; ProviderType -&gt; CreateHost)
+-&gt; Lens CreateHost CreateHost ProviderType ProviderType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHost%27"><span class="hs-identifier hs-type">CreateHost'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159789"><span class="annot"><span class="annottext">ProviderType
+providerType :: ProviderType
+$sel:providerType:CreateHost' :: CreateHost -&gt; ProviderType
+</span><a href="#local-6989586621679159789"><span class="hs-identifier hs-var hs-var">providerType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProviderType
+</span><a href="#local-6989586621679159789"><span class="hs-identifier hs-var">providerType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159788"><span class="annot"><span class="annottext">s :: CreateHost
+</span><a href="#local-6989586621679159788"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHost%27"><span class="hs-identifier hs-type">CreateHost'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159787"><span class="annot"><span class="annottext">ProviderType
+</span><a href="#local-6989586621679159787"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHost
+</span><a href="#local-6989586621679159788"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:providerType:CreateHost' :: ProviderType
+</span><a href="Network.AWS.CodeStarConnections.CreateHost.html#%24sel%3AproviderType%3ACreateHost%27"><span class="hs-identifier hs-var">providerType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ProviderType
+</span><a href="#local-6989586621679159787"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHost"><span class="hs-identifier hs-type">CreateHost</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | The endpoint of the infrastructure to be represented by the host after</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- it is created.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#createHost_providerEndpoint"><span class="hs-identifier hs-type">createHost_providerEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHost"><span class="hs-identifier hs-type">CreateHost</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-152"></span><span id="createHost_providerEndpoint"><span class="annot"><span class="annottext">createHost_providerEndpoint :: (Text -&gt; f Text) -&gt; CreateHost -&gt; f CreateHost
+</span><a href="Network.AWS.CodeStarConnections.CreateHost.html#createHost_providerEndpoint"><span class="hs-identifier hs-var hs-var">createHost_providerEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateHost -&gt; Text)
+-&gt; (CreateHost -&gt; Text -&gt; CreateHost)
+-&gt; Lens CreateHost CreateHost Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHost%27"><span class="hs-identifier hs-type">CreateHost'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159786"><span class="annot"><span class="annottext">Text
+providerEndpoint :: Text
+$sel:providerEndpoint:CreateHost' :: CreateHost -&gt; Text
+</span><a href="#local-6989586621679159786"><span class="hs-identifier hs-var hs-var">providerEndpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679159786"><span class="hs-identifier hs-var">providerEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159785"><span class="annot"><span class="annottext">s :: CreateHost
+</span><a href="#local-6989586621679159785"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHost%27"><span class="hs-identifier hs-type">CreateHost'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159784"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679159784"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHost
+</span><a href="#local-6989586621679159785"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:providerEndpoint:CreateHost' :: Text
+</span><a href="Network.AWS.CodeStarConnections.CreateHost.html#%24sel%3AproviderEndpoint%3ACreateHost%27"><span class="hs-identifier hs-var">providerEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679159784"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHost"><span class="hs-identifier hs-type">CreateHost</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHost"><span class="hs-identifier hs-type">CreateHost</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHost"><span class="hs-identifier hs-type">CreateHost</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHostResponse"><span class="hs-identifier hs-type">CreateHostResponse</span></a></span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679159780"><span class="annot"><span class="annottext">request :: CreateHost -&gt; Request CreateHost
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateHost -&gt; Request CreateHost
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CodeStarConnections.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679159776"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateHost
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateHost)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateHost))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateHost
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateHost)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679159773"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679159773"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679159772"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679159772"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679159771"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679159771"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-160"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Tag] -&gt; Int -&gt; CreateHostResponse
+</span><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHostResponse%27"><span class="hs-identifier hs-var">CreateHostResponse'</span></a></span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Tag] -&gt; Int -&gt; CreateHostResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe [Tag] -&gt; Int -&gt; CreateHostResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679159771"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HostArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe [Tag] -&gt; Int -&gt; CreateHostResponse)
+-&gt; Either String (Maybe [Tag])
+-&gt; Either String (Int -&gt; CreateHostResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679159771"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Tag]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Tag]))
+-&gt; Maybe [Tag] -&gt; Either String (Maybe [Tag])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateHostResponse)
+-&gt; Either String Int -&gt; Either String CreateHostResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679159773"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679159762"><span id="local-6989586621679159764"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHost"><span class="hs-identifier hs-type">CreateHost</span></a></span></span></span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679159759"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHost"><span class="hs-identifier hs-type">CreateHost</span></a></span></span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHost"><span class="hs-identifier hs-type">CreateHost</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679159755"><span class="annot"><span class="annottext">toHeaders :: CreateHost -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateHost -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-174"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-175"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;com.amazonaws.codestar.connections.CodeStar_connections_20191201.CreateHost&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-176"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-177"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-179"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-180"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-181"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679159745"><span id="local-6989586621679159747"><span id="local-6989586621679159749"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHost"><span class="hs-identifier hs-type">CreateHost</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679159743"><span class="annot"><span class="annottext">toJSON :: CreateHost -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHost%27"><span class="hs-identifier hs-type">CreateHost'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159737"><span id="local-6989586621679159738"><span id="local-6989586621679159739"><span id="local-6989586621679159740"><span id="local-6989586621679159741"><span class="annot"><span class="annottext">Maybe [Tag]
+Maybe VpcConfiguration
+Text
+ProviderType
+providerEndpoint :: Text
+providerType :: ProviderType
+name :: Text
+tags :: Maybe [Tag]
+vpcConfiguration :: Maybe VpcConfiguration
+$sel:providerEndpoint:CreateHost' :: CreateHost -&gt; Text
+$sel:providerType:CreateHost' :: CreateHost -&gt; ProviderType
+$sel:name:CreateHost' :: CreateHost -&gt; Text
+$sel:tags:CreateHost' :: CreateHost -&gt; Maybe [Tag]
+$sel:vpcConfiguration:CreateHost' :: CreateHost -&gt; Maybe VpcConfiguration
+</span><a href="#local-6989586621679159737"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-188"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-189"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VpcConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VpcConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>              </span><span class="annot"><span class="annottext">(VpcConfiguration -&gt; Pair) -&gt; Maybe VpcConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VpcConfiguration
+</span><a href="#local-6989586621679159741"><span class="hs-identifier hs-var">vpcConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679159740"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679159739"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProviderType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ProviderType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ProviderType
+</span><a href="#local-6989586621679159738"><span class="hs-identifier hs-var">providerType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-195"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProviderEndpoint&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679159737"><span class="hs-identifier hs-var">providerEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-197"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHost"><span class="hs-identifier hs-type">CreateHost</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679159731"><span class="annot"><span class="annottext">toPath :: CreateHost -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateHost -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHost"><span class="hs-identifier hs-type">CreateHost</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-203"></span><span>  </span><span id="local-6989586621679159727"><span class="annot"><span class="annottext">toQuery :: CreateHost -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateHost -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | /See:/ 'newCreateHostResponse' smart constructor.</span><span>
+</span><span id="line-206"></span><span id="local-6989586621679159724"><span id="local-6989586621679159725"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateHostResponse"><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHostResponse"><span class="hs-identifier hs-var">CreateHostResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateHostResponse%27"><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHostResponse%27"><span class="hs-identifier hs-var">CreateHostResponse'</span></a></span></span><span>
+</span><span id="line-207"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the host to be created.</span><span>
+</span><span id="line-208"></span><span>    </span><span id="%24sel%3AhostArn%3ACreateHostResponse%27"><span class="annot"><span class="annottext">CreateHostResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CodeStarConnections.CreateHost.html#%24sel%3AhostArn%3ACreateHostResponse%27"><span class="hs-identifier hs-var hs-var">hostArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>    </span><span id="%24sel%3Atags%3ACreateHostResponse%27"><span class="annot"><span class="annottext">CreateHostResponse -&gt; Maybe [Tag]
+</span><a href="Network.AWS.CodeStarConnections.CreateHost.html#%24sel%3Atags%3ACreateHostResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeStarConnections.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-211"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateHostResponse%27"><span class="annot"><span class="annottext">CreateHostResponse -&gt; Int
+</span><a href="Network.AWS.CodeStarConnections.CreateHost.html#%24sel%3AhttpStatus%3ACreateHostResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-212"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-213"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679159717"><span id="local-6989586621679159719"><span class="annot"><span class="annottext">CreateHostResponse -&gt; CreateHostResponse -&gt; Bool
+(CreateHostResponse -&gt; CreateHostResponse -&gt; Bool)
+-&gt; (CreateHostResponse -&gt; CreateHostResponse -&gt; Bool)
+-&gt; Eq CreateHostResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateHostResponse -&gt; CreateHostResponse -&gt; Bool
+$c/= :: CreateHostResponse -&gt; CreateHostResponse -&gt; Bool
+== :: CreateHostResponse -&gt; CreateHostResponse -&gt; Bool
+$c== :: CreateHostResponse -&gt; CreateHostResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679159709"><span id="local-6989586621679159711"><span id="local-6989586621679159713"><span id="local-6989586621679159715"><span class="annot"><span class="annottext">ReadPrec [CreateHostResponse]
+ReadPrec CreateHostResponse
+Int -&gt; ReadS CreateHostResponse
+ReadS [CreateHostResponse]
+(Int -&gt; ReadS CreateHostResponse)
+-&gt; ReadS [CreateHostResponse]
+-&gt; ReadPrec CreateHostResponse
+-&gt; ReadPrec [CreateHostResponse]
+-&gt; Read CreateHostResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateHostResponse]
+$creadListPrec :: ReadPrec [CreateHostResponse]
+readPrec :: ReadPrec CreateHostResponse
+$creadPrec :: ReadPrec CreateHostResponse
+readList :: ReadS [CreateHostResponse]
+$creadList :: ReadS [CreateHostResponse]
+readsPrec :: Int -&gt; ReadS CreateHostResponse
+$creadsPrec :: Int -&gt; ReadS CreateHostResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679159703"><span id="local-6989586621679159705"><span id="local-6989586621679159707"><span class="annot"><span class="annottext">Int -&gt; CreateHostResponse -&gt; ShowS
+[CreateHostResponse] -&gt; ShowS
+CreateHostResponse -&gt; String
+(Int -&gt; CreateHostResponse -&gt; ShowS)
+-&gt; (CreateHostResponse -&gt; String)
+-&gt; ([CreateHostResponse] -&gt; ShowS)
+-&gt; Show CreateHostResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateHostResponse] -&gt; ShowS
+$cshowList :: [CreateHostResponse] -&gt; ShowS
+show :: CreateHostResponse -&gt; String
+$cshow :: CreateHostResponse -&gt; String
+showsPrec :: Int -&gt; CreateHostResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateHostResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateHostResponse -&gt; Rep CreateHostResponse x)
+-&gt; (forall x. Rep CreateHostResponse x -&gt; CreateHostResponse)
+-&gt; Generic CreateHostResponse
+forall x. Rep CreateHostResponse x -&gt; CreateHostResponse
+forall x. CreateHostResponse -&gt; Rep CreateHostResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateHostResponse x -&gt; CreateHostResponse
+$cfrom :: forall x. CreateHostResponse -&gt; Rep CreateHostResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- Create a value of 'CreateHostResponse' with all optional fields omitted.</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- 'hostArn', 'createHostResponse_hostArn' - The Amazon Resource Name (ARN) of the host to be created.</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- 'tags', 'createHostResponse_tags' - Undocumented member.</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- 'httpStatus', 'createHostResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#newCreateHostResponse"><span class="hs-identifier hs-type">newCreateHostResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-229"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-230"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-231"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHostResponse"><span class="hs-identifier hs-type">CreateHostResponse</span></a></span><span>
+</span><span id="line-232"></span><span id="newCreateHostResponse"><span class="annot"><span class="annottext">newCreateHostResponse :: Int -&gt; CreateHostResponse
+</span><a href="Network.AWS.CodeStarConnections.CreateHost.html#newCreateHostResponse"><span class="hs-identifier hs-var hs-var">newCreateHostResponse</span></a></span></span><span> </span><span id="local-6989586621679159700"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679159700"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-233"></span><span>  </span><span class="annot"><span class="annottext">CreateHostResponse' :: Maybe Text -&gt; Maybe [Tag] -&gt; Int -&gt; CreateHostResponse
+</span><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHostResponse%27"><span class="hs-identifier hs-type">CreateHostResponse'</span></a></span><span>
+</span><span id="line-234"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:hostArn:CreateHostResponse' :: Maybe Text
+</span><a href="Network.AWS.CodeStarConnections.CreateHost.html#%24sel%3AhostArn%3ACreateHostResponse%27"><span class="hs-identifier hs-var">hostArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CreateHostResponse' :: Maybe [Tag]
+</span><a href="Network.AWS.CodeStarConnections.CreateHost.html#%24sel%3Atags%3ACreateHostResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateHostResponse' :: Int
+</span><a href="Network.AWS.CodeStarConnections.CreateHost.html#%24sel%3AhttpStatus%3ACreateHostResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679159700"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-237"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the host to be created.</span><span>
+</span><span id="line-240"></span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#createHostResponse_hostArn"><span class="hs-identifier hs-type">createHostResponse_hostArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHostResponse"><span class="hs-identifier hs-type">CreateHostResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span id="createHostResponse_hostArn"><span class="annot"><span class="annottext">createHostResponse_hostArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateHostResponse -&gt; f CreateHostResponse
+</span><a href="Network.AWS.CodeStarConnections.CreateHost.html#createHostResponse_hostArn"><span class="hs-identifier hs-var hs-var">createHostResponse_hostArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateHostResponse -&gt; Maybe Text)
+-&gt; (CreateHostResponse -&gt; Maybe Text -&gt; CreateHostResponse)
+-&gt; Lens
+     CreateHostResponse CreateHostResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHostResponse%27"><span class="hs-identifier hs-type">CreateHostResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159699"><span class="annot"><span class="annottext">Maybe Text
+hostArn :: Maybe Text
+$sel:hostArn:CreateHostResponse' :: CreateHostResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679159699"><span class="hs-identifier hs-var hs-var">hostArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679159699"><span class="hs-identifier hs-var">hostArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159698"><span class="annot"><span class="annottext">s :: CreateHostResponse
+</span><a href="#local-6989586621679159698"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHostResponse%27"><span class="hs-identifier hs-type">CreateHostResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159697"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679159697"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHostResponse
+</span><a href="#local-6989586621679159698"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostArn:CreateHostResponse' :: Maybe Text
+</span><a href="Network.AWS.CodeStarConnections.CreateHost.html#%24sel%3AhostArn%3ACreateHostResponse%27"><span class="hs-identifier hs-var">hostArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679159697"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHostResponse"><span class="hs-identifier hs-type">CreateHostResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-244"></span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#createHostResponse_tags"><span class="hs-identifier hs-type">createHostResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHostResponse"><span class="hs-identifier hs-type">CreateHostResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeStarConnections.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span id="createHostResponse_tags"><span class="annot"><span class="annottext">createHostResponse_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateHostResponse -&gt; f CreateHostResponse
+</span><a href="Network.AWS.CodeStarConnections.CreateHost.html#createHostResponse_tags"><span class="hs-identifier hs-var hs-var">createHostResponse_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateHostResponse -&gt; Maybe [Tag])
+-&gt; (CreateHostResponse -&gt; Maybe [Tag] -&gt; CreateHostResponse)
+-&gt; Lens
+     CreateHostResponse CreateHostResponse (Maybe [Tag]) (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHostResponse%27"><span class="hs-identifier hs-type">CreateHostResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159696"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:CreateHostResponse' :: CreateHostResponse -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679159696"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679159696"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159695"><span class="annot"><span class="annottext">s :: CreateHostResponse
+</span><a href="#local-6989586621679159695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHostResponse%27"><span class="hs-identifier hs-type">CreateHostResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159694"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679159694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHostResponse
+</span><a href="#local-6989586621679159695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateHostResponse' :: Maybe [Tag]
+</span><a href="Network.AWS.CodeStarConnections.CreateHost.html#%24sel%3Atags%3ACreateHostResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679159694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHostResponse"><span class="hs-identifier hs-type">CreateHostResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; CreateHostResponse -&gt; f CreateHostResponse)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateHostResponse
+-&gt; f CreateHostResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-248"></span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#createHostResponse_httpStatus"><span class="hs-identifier hs-type">createHostResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHostResponse"><span class="hs-identifier hs-type">CreateHostResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-249"></span><span id="createHostResponse_httpStatus"><span class="annot"><span class="annottext">createHostResponse_httpStatus :: (Int -&gt; f Int) -&gt; CreateHostResponse -&gt; f CreateHostResponse
+</span><a href="Network.AWS.CodeStarConnections.CreateHost.html#createHostResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createHostResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateHostResponse -&gt; Int)
+-&gt; (CreateHostResponse -&gt; Int -&gt; CreateHostResponse)
+-&gt; Lens CreateHostResponse CreateHostResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHostResponse%27"><span class="hs-identifier hs-type">CreateHostResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679159693"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateHostResponse' :: CreateHostResponse -&gt; Int
+</span><a href="#local-6989586621679159693"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679159693"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679159692"><span class="annot"><span class="annottext">s :: CreateHostResponse
+</span><a href="#local-6989586621679159692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHostResponse%27"><span class="hs-identifier hs-type">CreateHostResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679159691"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679159691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateHostResponse
+</span><a href="#local-6989586621679159692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateHostResponse' :: Int
+</span><a href="Network.AWS.CodeStarConnections.CreateHost.html#%24sel%3AhttpStatus%3ACreateHostResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679159691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHostResponse"><span class="hs-identifier hs-type">CreateHostResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679159689"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStarConnections.CreateHost.html#CreateHostResponse"><span class="hs-identifier hs-type">CreateHostResponse</span></a></span></span><span>
+</span><span id="line-252"></span></pre></body></html>

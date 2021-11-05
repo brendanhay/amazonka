@@ -46,7 +46,7 @@
 </span><span id="line-46"></span><span class="hs-comment">-- | Deletes an existing documentation part of an API.</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- /See:/ 'newDeleteDocumentationPart' smart constructor.</span><span>
-</span><span id="line-49"></span><span id="local-6989586621679389210"><span id="local-6989586621679389211"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDocumentationPart"><span class="annot"><a href="Network.AWS.APIGateway.DeleteDocumentationPart.html#DeleteDocumentationPart"><span class="hs-identifier hs-var">DeleteDocumentationPart</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDocumentationPart%27"><span class="annot"><a href="Network.AWS.APIGateway.DeleteDocumentationPart.html#DeleteDocumentationPart%27"><span class="hs-identifier hs-var">DeleteDocumentationPart'</span></a></span></span><span>
+</span><span id="line-49"></span><span id="local-6989586621679389219"><span id="local-6989586621679389220"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDocumentationPart"><span class="annot"><a href="Network.AWS.APIGateway.DeleteDocumentationPart.html#DeleteDocumentationPart"><span class="hs-identifier hs-var">DeleteDocumentationPart</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDocumentationPart%27"><span class="annot"><a href="Network.AWS.APIGateway.DeleteDocumentationPart.html#DeleteDocumentationPart%27"><span class="hs-identifier hs-var">DeleteDocumentationPart'</span></a></span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | [Required] The string identifier of the associated RestApi.</span><span>
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3ArestApiId%3ADeleteDocumentationPart%27"><span class="annot"><span class="annottext">DeleteDocumentationPart -&gt; Text
 </span><a href="Network.AWS.APIGateway.DeleteDocumentationPart.html#%24sel%3ArestApiId%3ADeleteDocumentationPart%27"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -54,7 +54,7 @@
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AdocumentationPartId%3ADeleteDocumentationPart%27"><span class="annot"><span class="annottext">DeleteDocumentationPart -&gt; Text
 </span><a href="Network.AWS.APIGateway.DeleteDocumentationPart.html#%24sel%3AdocumentationPartId%3ADeleteDocumentationPart%27"><span class="hs-identifier hs-var hs-var">documentationPartId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389203"><span id="local-6989586621679389205"><span class="annot"><span class="annottext">DeleteDocumentationPart -&gt; DeleteDocumentationPart -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389212"><span id="local-6989586621679389214"><span class="annot"><span class="annottext">DeleteDocumentationPart -&gt; DeleteDocumentationPart -&gt; Bool
 (DeleteDocumentationPart -&gt; DeleteDocumentationPart -&gt; Bool)
 -&gt; (DeleteDocumentationPart -&gt; DeleteDocumentationPart -&gt; Bool)
 -&gt; Eq DeleteDocumentationPart
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteDocumentationPart -&gt; DeleteDocumentationPart -&gt; Bool
 == :: DeleteDocumentationPart -&gt; DeleteDocumentationPart -&gt; Bool
 $c== :: DeleteDocumentationPart -&gt; DeleteDocumentationPart -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389194"><span id="local-6989586621679389196"><span id="local-6989586621679389198"><span id="local-6989586621679389200"><span class="annot"><span class="annottext">ReadPrec [DeleteDocumentationPart]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389203"><span id="local-6989586621679389205"><span id="local-6989586621679389207"><span id="local-6989586621679389209"><span class="annot"><span class="annottext">ReadPrec [DeleteDocumentationPart]
 ReadPrec DeleteDocumentationPart
 Int -&gt; ReadS DeleteDocumentationPart
 ReadS [DeleteDocumentationPart]
@@ -83,7 +83,7 @@ readList :: ReadS [DeleteDocumentationPart]
 $creadList :: ReadS [DeleteDocumentationPart]
 readsPrec :: Int -&gt; ReadS DeleteDocumentationPart
 $creadsPrec :: Int -&gt; ReadS DeleteDocumentationPart
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389187"><span id="local-6989586621679389189"><span id="local-6989586621679389191"><span class="annot"><span class="annottext">Int -&gt; DeleteDocumentationPart -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389196"><span id="local-6989586621679389198"><span id="local-6989586621679389200"><span class="annot"><span class="annottext">Int -&gt; DeleteDocumentationPart -&gt; ShowS
 [DeleteDocumentationPart] -&gt; ShowS
 DeleteDocumentationPart -&gt; String
 (Int -&gt; DeleteDocumentationPart -&gt; ShowS)
@@ -130,18 +130,18 @@ $cfrom :: forall x. DeleteDocumentationPart -&gt; Rep DeleteDocumentationPart x
 </span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteDocumentationPart.html#DeleteDocumentationPart"><span class="hs-identifier hs-type">DeleteDocumentationPart</span></a></span><span>
 </span><span id="line-74"></span><span id="newDeleteDocumentationPart"><span class="annot"><span class="annottext">newDeleteDocumentationPart :: Text -&gt; Text -&gt; DeleteDocumentationPart
 </span><a href="Network.AWS.APIGateway.DeleteDocumentationPart.html#newDeleteDocumentationPart"><span class="hs-identifier hs-var hs-var">newDeleteDocumentationPart</span></a></span></span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679389182"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389182"><span class="hs-identifier hs-var">pRestApiId_</span></a></span></span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679389181"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389181"><span class="hs-identifier hs-var">pDocumentationPartId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679389191"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389191"><span class="hs-identifier hs-var">pRestApiId_</span></a></span></span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679389190"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389190"><span class="hs-identifier hs-var">pDocumentationPartId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">DeleteDocumentationPart' :: Text -&gt; Text -&gt; DeleteDocumentationPart
 </span><a href="Network.AWS.APIGateway.DeleteDocumentationPart.html#DeleteDocumentationPart%27"><span class="hs-identifier hs-type">DeleteDocumentationPart'</span></a></span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:restApiId:DeleteDocumentationPart' :: Text
 </span><a href="Network.AWS.APIGateway.DeleteDocumentationPart.html#%24sel%3ArestApiId%3ADeleteDocumentationPart%27"><span class="hs-identifier hs-var">restApiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389182"><span class="hs-identifier hs-var">pRestApiId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679389191"><span class="hs-identifier hs-var">pRestApiId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>        </span><span class="annot"><span class="annottext">$sel:documentationPartId:DeleteDocumentationPart' :: Text
 </span><a href="Network.AWS.APIGateway.DeleteDocumentationPart.html#%24sel%3AdocumentationPartId%3ADeleteDocumentationPart%27"><span class="hs-identifier hs-var">documentationPartId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389181"><span class="hs-identifier hs-var">pDocumentationPartId_</span></a></span><span>
+</span><a href="#local-6989586621679389190"><span class="hs-identifier hs-var">pDocumentationPartId_</span></a></span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | [Required] The string identifier of the associated RestApi.</span><span>
@@ -152,16 +152,16 @@ $cfrom :: forall x. DeleteDocumentationPart -&gt; Rep DeleteDocumentationPart x
 -&gt; (DeleteDocumentationPart -&gt; Text -&gt; DeleteDocumentationPart)
 -&gt; Lens DeleteDocumentationPart DeleteDocumentationPart Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.DeleteDocumentationPart.html#DeleteDocumentationPart%27"><span class="hs-identifier hs-type">DeleteDocumentationPart'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389178"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.DeleteDocumentationPart.html#DeleteDocumentationPart%27"><span class="hs-identifier hs-type">DeleteDocumentationPart'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389187"><span class="annot"><span class="annottext">Text
 restApiId :: Text
 $sel:restApiId:DeleteDocumentationPart' :: DeleteDocumentationPart -&gt; Text
-</span><a href="#local-6989586621679389178"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389178"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389177"><span class="annot"><span class="annottext">s :: DeleteDocumentationPart
-</span><a href="#local-6989586621679389177"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.DeleteDocumentationPart.html#DeleteDocumentationPart%27"><span class="hs-identifier hs-type">DeleteDocumentationPart'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389176"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389176"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDocumentationPart
-</span><a href="#local-6989586621679389177"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restApiId:DeleteDocumentationPart' :: Text
+</span><a href="#local-6989586621679389187"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389187"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389186"><span class="annot"><span class="annottext">s :: DeleteDocumentationPart
+</span><a href="#local-6989586621679389186"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.DeleteDocumentationPart.html#DeleteDocumentationPart%27"><span class="hs-identifier hs-type">DeleteDocumentationPart'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389185"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389185"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDocumentationPart
+</span><a href="#local-6989586621679389186"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restApiId:DeleteDocumentationPart' :: Text
 </span><a href="Network.AWS.APIGateway.DeleteDocumentationPart.html#%24sel%3ArestApiId%3ADeleteDocumentationPart%27"><span class="hs-identifier hs-var">restApiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389176"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteDocumentationPart.html#DeleteDocumentationPart"><span class="hs-identifier hs-type">DeleteDocumentationPart</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389185"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteDocumentationPart.html#DeleteDocumentationPart"><span class="hs-identifier hs-type">DeleteDocumentationPart</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | [Required] The identifier of the to-be-deleted documentation part.</span><span>
 </span><span id="line-87"></span><span class="annot"><a href="Network.AWS.APIGateway.DeleteDocumentationPart.html#deleteDocumentationPart_documentationPartId"><span class="hs-identifier hs-type">deleteDocumentationPart_documentationPartId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteDocumentationPart.html#DeleteDocumentationPart"><span class="hs-identifier hs-type">DeleteDocumentationPart</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -171,28 +171,28 @@ $sel:restApiId:DeleteDocumentationPart' :: DeleteDocumentationPart -&gt; Text
 -&gt; (DeleteDocumentationPart -&gt; Text -&gt; DeleteDocumentationPart)
 -&gt; Lens DeleteDocumentationPart DeleteDocumentationPart Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.DeleteDocumentationPart.html#DeleteDocumentationPart%27"><span class="hs-identifier hs-type">DeleteDocumentationPart'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389175"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.DeleteDocumentationPart.html#DeleteDocumentationPart%27"><span class="hs-identifier hs-type">DeleteDocumentationPart'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389184"><span class="annot"><span class="annottext">Text
 documentationPartId :: Text
 $sel:documentationPartId:DeleteDocumentationPart' :: DeleteDocumentationPart -&gt; Text
-</span><a href="#local-6989586621679389175"><span class="hs-identifier hs-var hs-var">documentationPartId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389175"><span class="hs-identifier hs-var">documentationPartId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389174"><span class="annot"><span class="annottext">s :: DeleteDocumentationPart
-</span><a href="#local-6989586621679389174"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.DeleteDocumentationPart.html#DeleteDocumentationPart%27"><span class="hs-identifier hs-type">DeleteDocumentationPart'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389173"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389173"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDocumentationPart
-</span><a href="#local-6989586621679389174"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentationPartId:DeleteDocumentationPart' :: Text
+</span><a href="#local-6989586621679389184"><span class="hs-identifier hs-var hs-var">documentationPartId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389184"><span class="hs-identifier hs-var">documentationPartId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389183"><span class="annot"><span class="annottext">s :: DeleteDocumentationPart
+</span><a href="#local-6989586621679389183"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.DeleteDocumentationPart.html#DeleteDocumentationPart%27"><span class="hs-identifier hs-type">DeleteDocumentationPart'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389182"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389182"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDocumentationPart
+</span><a href="#local-6989586621679389183"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentationPartId:DeleteDocumentationPart' :: Text
 </span><a href="Network.AWS.APIGateway.DeleteDocumentationPart.html#%24sel%3AdocumentationPartId%3ADeleteDocumentationPart%27"><span class="hs-identifier hs-var">documentationPartId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389173"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteDocumentationPart.html#DeleteDocumentationPart"><span class="hs-identifier hs-type">DeleteDocumentationPart</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389182"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteDocumentationPart.html#DeleteDocumentationPart"><span class="hs-identifier hs-type">DeleteDocumentationPart</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteDocumentationPart.html#DeleteDocumentationPart"><span class="hs-identifier hs-type">DeleteDocumentationPart</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-91"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-92"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteDocumentationPart.html#DeleteDocumentationPart"><span class="hs-identifier hs-type">DeleteDocumentationPart</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>      </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteDocumentationPart.html#DeleteDocumentationPartResponse"><span class="hs-identifier hs-type">DeleteDocumentationPartResponse</span></a></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679389169"><span class="annot"><span class="annottext">request :: DeleteDocumentationPart -&gt; Request DeleteDocumentationPart
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679389178"><span class="annot"><span class="annottext">request :: DeleteDocumentationPart -&gt; Request DeleteDocumentationPart
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DeleteDocumentationPart -&gt; Request DeleteDocumentationPart
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.APIGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679389165"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679389174"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteDocumentationPart
 -&gt; ClientResponse ClientBody
@@ -219,12 +219,12 @@ AWSResponse a
 DeleteDocumentationPartResponse
 </span><a href="Network.AWS.APIGateway.DeleteDocumentationPart.html#DeleteDocumentationPartResponse%27"><span class="hs-identifier hs-var">DeleteDocumentationPartResponse'</span></a></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389158"><span id="local-6989586621679389160"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteDocumentationPart.html#DeleteDocumentationPart"><span class="hs-identifier hs-type">DeleteDocumentationPart</span></a></span></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389167"><span id="local-6989586621679389169"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteDocumentationPart.html#DeleteDocumentationPart"><span class="hs-identifier hs-type">DeleteDocumentationPart</span></a></span></span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389155"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteDocumentationPart.html#DeleteDocumentationPart"><span class="hs-identifier hs-type">DeleteDocumentationPart</span></a></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389164"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteDocumentationPart.html#DeleteDocumentationPart"><span class="hs-identifier hs-type">DeleteDocumentationPart</span></a></span></span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteDocumentationPart.html#DeleteDocumentationPart"><span class="hs-identifier hs-type">DeleteDocumentationPart</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679389151"><span class="annot"><span class="annottext">toHeaders :: DeleteDocumentationPart -&gt; [Header]
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679389160"><span class="annot"><span class="annottext">toHeaders :: DeleteDocumentationPart -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteDocumentationPart -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -242,13 +242,13 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteDocumentationPart.html#DeleteDocumentationPart"><span class="hs-identifier hs-type">DeleteDocumentationPart</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679389145"><span class="annot"><span class="annottext">toPath :: DeleteDocumentationPart -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteDocumentationPart.html#DeleteDocumentationPart%27"><span class="hs-identifier hs-type">DeleteDocumentationPart'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389142"><span id="local-6989586621679389143"><span class="annot"><span class="annottext">Text
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679389154"><span class="annot"><span class="annottext">toPath :: DeleteDocumentationPart -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteDocumentationPart.html#DeleteDocumentationPart%27"><span class="hs-identifier hs-type">DeleteDocumentationPart'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389151"><span id="local-6989586621679389152"><span class="annot"><span class="annottext">Text
 documentationPartId :: Text
 restApiId :: Text
 $sel:documentationPartId:DeleteDocumentationPart' :: DeleteDocumentationPart -&gt; Text
 $sel:restApiId:DeleteDocumentationPart' :: DeleteDocumentationPart -&gt; Text
-</span><a href="#local-6989586621679389142"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679389151"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -257,17 +257,17 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389143"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679389152"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/documentation/parts/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389142"><span class="hs-identifier hs-var">documentationPartId</span></a></span><span>
+</span><a href="#local-6989586621679389151"><span class="hs-identifier hs-var">documentationPartId</span></a></span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteDocumentationPart.html#DeleteDocumentationPart"><span class="hs-identifier hs-type">DeleteDocumentationPart</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679389138"><span class="annot"><span class="annottext">toQuery :: DeleteDocumentationPart -&gt; QueryString
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679389147"><span class="annot"><span class="annottext">toQuery :: DeleteDocumentationPart -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteDocumentationPart -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -275,10 +275,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- | /See:/ 'newDeleteDocumentationPartResponse' smart constructor.</span><span>
-</span><span id="line-125"></span><span id="local-6989586621679389135"><span id="local-6989586621679389136"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDocumentationPartResponse"><span class="annot"><a href="Network.AWS.APIGateway.DeleteDocumentationPart.html#DeleteDocumentationPartResponse"><span class="hs-identifier hs-var">DeleteDocumentationPartResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDocumentationPartResponse%27"><span class="annot"><a href="Network.AWS.APIGateway.DeleteDocumentationPart.html#DeleteDocumentationPartResponse%27"><span class="hs-identifier hs-var">DeleteDocumentationPartResponse'</span></a></span></span><span>
+</span><span id="line-125"></span><span id="local-6989586621679389144"><span id="local-6989586621679389145"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDocumentationPartResponse"><span class="annot"><a href="Network.AWS.APIGateway.DeleteDocumentationPart.html#DeleteDocumentationPartResponse"><span class="hs-identifier hs-var">DeleteDocumentationPartResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDocumentationPartResponse%27"><span class="annot"><a href="Network.AWS.APIGateway.DeleteDocumentationPart.html#DeleteDocumentationPartResponse%27"><span class="hs-identifier hs-var">DeleteDocumentationPartResponse'</span></a></span></span><span>
 </span><span id="line-126"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-127"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389131"><span id="local-6989586621679389133"><span class="annot"><span class="annottext">DeleteDocumentationPartResponse
+</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389140"><span id="local-6989586621679389142"><span class="annot"><span class="annottext">DeleteDocumentationPartResponse
 -&gt; DeleteDocumentationPartResponse -&gt; Bool
 (DeleteDocumentationPartResponse
  -&gt; DeleteDocumentationPartResponse -&gt; Bool)
@@ -294,7 +294,7 @@ $c/= :: DeleteDocumentationPartResponse
 -&gt; DeleteDocumentationPartResponse -&gt; Bool
 $c== :: DeleteDocumentationPartResponse
 -&gt; DeleteDocumentationPartResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389123"><span id="local-6989586621679389125"><span id="local-6989586621679389127"><span id="local-6989586621679389129"><span class="annot"><span class="annottext">ReadPrec [DeleteDocumentationPartResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389132"><span id="local-6989586621679389134"><span id="local-6989586621679389136"><span id="local-6989586621679389138"><span class="annot"><span class="annottext">ReadPrec [DeleteDocumentationPartResponse]
 ReadPrec DeleteDocumentationPartResponse
 Int -&gt; ReadS DeleteDocumentationPartResponse
 ReadS [DeleteDocumentationPartResponse]
@@ -314,7 +314,7 @@ readList :: ReadS [DeleteDocumentationPartResponse]
 $creadList :: ReadS [DeleteDocumentationPartResponse]
 readsPrec :: Int -&gt; ReadS DeleteDocumentationPartResponse
 $creadsPrec :: Int -&gt; ReadS DeleteDocumentationPartResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389117"><span id="local-6989586621679389119"><span id="local-6989586621679389121"><span class="annot"><span class="annottext">Int -&gt; DeleteDocumentationPartResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389126"><span id="local-6989586621679389128"><span id="local-6989586621679389130"><span class="annot"><span class="annottext">Int -&gt; DeleteDocumentationPartResponse -&gt; ShowS
 [DeleteDocumentationPartResponse] -&gt; ShowS
 DeleteDocumentationPartResponse -&gt; String
 (Int -&gt; DeleteDocumentationPartResponse -&gt; ShowS)
@@ -364,6 +364,6 @@ DeleteDocumentationPartResponse
 </span><a href="Network.AWS.APIGateway.DeleteDocumentationPart.html#DeleteDocumentationPartResponse%27"><span class="hs-identifier hs-var">DeleteDocumentationPartResponse'</span></a></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679389113"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679389122"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-141"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteDocumentationPart.html#DeleteDocumentationPartResponse"><span class="hs-identifier hs-type">DeleteDocumentationPartResponse</span></a></span></span><span>
 </span><span id="line-142"></span></pre></body></html>

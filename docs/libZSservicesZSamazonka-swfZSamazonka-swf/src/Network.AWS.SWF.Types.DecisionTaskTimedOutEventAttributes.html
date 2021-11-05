@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Provides the details of the @DecisionTaskTimedOut@ event.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDecisionTaskTimedOutEventAttributes' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679344987"><span id="local-6989586621679344988"></span></span><span class="hs-keyword">data</span><span> </span><span id="DecisionTaskTimedOutEventAttributes"><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskTimedOutEventAttributes.html#DecisionTaskTimedOutEventAttributes"><span class="hs-identifier hs-var">DecisionTaskTimedOutEventAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DecisionTaskTimedOutEventAttributes%27"><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskTimedOutEventAttributes.html#DecisionTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-var">DecisionTaskTimedOutEventAttributes'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679344996"><span id="local-6989586621679344997"></span></span><span class="hs-keyword">data</span><span> </span><span id="DecisionTaskTimedOutEventAttributes"><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskTimedOutEventAttributes.html#DecisionTaskTimedOutEventAttributes"><span class="hs-identifier hs-var">DecisionTaskTimedOutEventAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DecisionTaskTimedOutEventAttributes%27"><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskTimedOutEventAttributes.html#DecisionTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-var">DecisionTaskTimedOutEventAttributes'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of timeout that expired before the decision task could be</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- completed.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AtimeoutType%3ADecisionTaskTimedOutEventAttributes%27"><span class="annot"><span class="annottext">DecisionTaskTimedOutEventAttributes -&gt; DecisionTaskTimeoutType
@@ -44,7 +44,7 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3AstartedEventId%3ADecisionTaskTimedOutEventAttributes%27"><span class="annot"><span class="annottext">DecisionTaskTimedOutEventAttributes -&gt; Integer
 </span><a href="Network.AWS.SWF.Types.DecisionTaskTimedOutEventAttributes.html#%24sel%3AstartedEventId%3ADecisionTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-var hs-var">startedEventId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679344979"><span id="local-6989586621679344981"><span class="annot"><span class="annottext">DecisionTaskTimedOutEventAttributes
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679344988"><span id="local-6989586621679344990"><span class="annot"><span class="annottext">DecisionTaskTimedOutEventAttributes
 -&gt; DecisionTaskTimedOutEventAttributes -&gt; Bool
 (DecisionTaskTimedOutEventAttributes
  -&gt; DecisionTaskTimedOutEventAttributes -&gt; Bool)
@@ -60,7 +60,7 @@ $c/= :: DecisionTaskTimedOutEventAttributes
 -&gt; DecisionTaskTimedOutEventAttributes -&gt; Bool
 $c== :: DecisionTaskTimedOutEventAttributes
 -&gt; DecisionTaskTimedOutEventAttributes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344970"><span id="local-6989586621679344972"><span id="local-6989586621679344974"><span id="local-6989586621679344976"><span class="annot"><span class="annottext">ReadPrec [DecisionTaskTimedOutEventAttributes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344979"><span id="local-6989586621679344981"><span id="local-6989586621679344983"><span id="local-6989586621679344985"><span class="annot"><span class="annottext">ReadPrec [DecisionTaskTimedOutEventAttributes]
 ReadPrec DecisionTaskTimedOutEventAttributes
 Int -&gt; ReadS DecisionTaskTimedOutEventAttributes
 ReadS [DecisionTaskTimedOutEventAttributes]
@@ -80,7 +80,7 @@ readList :: ReadS [DecisionTaskTimedOutEventAttributes]
 $creadList :: ReadS [DecisionTaskTimedOutEventAttributes]
 readsPrec :: Int -&gt; ReadS DecisionTaskTimedOutEventAttributes
 $creadsPrec :: Int -&gt; ReadS DecisionTaskTimedOutEventAttributes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344963"><span id="local-6989586621679344965"><span id="local-6989586621679344967"><span class="annot"><span class="annottext">Int -&gt; DecisionTaskTimedOutEventAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344972"><span id="local-6989586621679344974"><span id="local-6989586621679344976"><span class="annot"><span class="annottext">Int -&gt; DecisionTaskTimedOutEventAttributes -&gt; ShowS
 [DecisionTaskTimedOutEventAttributes] -&gt; ShowS
 DecisionTaskTimedOutEventAttributes -&gt; String
 (Int -&gt; DecisionTaskTimedOutEventAttributes -&gt; ShowS)
@@ -148,25 +148,25 @@ DecisionTaskTimedOutEventAttributes
 </span><span id="line-73"></span><span id="newDecisionTaskTimedOutEventAttributes"><span class="annot"><span class="annottext">newDecisionTaskTimedOutEventAttributes :: DecisionTaskTimeoutType
 -&gt; Integer -&gt; Integer -&gt; DecisionTaskTimedOutEventAttributes
 </span><a href="Network.AWS.SWF.Types.DecisionTaskTimedOutEventAttributes.html#newDecisionTaskTimedOutEventAttributes"><span class="hs-identifier hs-var hs-var">newDecisionTaskTimedOutEventAttributes</span></a></span></span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679344957"><span class="annot"><span class="annottext">DecisionTaskTimeoutType
-</span><a href="#local-6989586621679344957"><span class="hs-identifier hs-var">pTimeoutType_</span></a></span></span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679344956"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679344956"><span class="hs-identifier hs-var">pScheduledEventId_</span></a></span></span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679344955"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679344955"><span class="hs-identifier hs-var">pStartedEventId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679344966"><span class="annot"><span class="annottext">DecisionTaskTimeoutType
+</span><a href="#local-6989586621679344966"><span class="hs-identifier hs-var">pTimeoutType_</span></a></span></span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679344965"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679344965"><span class="hs-identifier hs-var">pScheduledEventId_</span></a></span></span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679344964"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679344964"><span class="hs-identifier hs-var">pStartedEventId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">DecisionTaskTimedOutEventAttributes' :: DecisionTaskTimeoutType
 -&gt; Integer -&gt; Integer -&gt; DecisionTaskTimedOutEventAttributes
 </span><a href="Network.AWS.SWF.Types.DecisionTaskTimedOutEventAttributes.html#DecisionTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-type">DecisionTaskTimedOutEventAttributes'</span></a></span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:timeoutType:DecisionTaskTimedOutEventAttributes' :: DecisionTaskTimeoutType
 </span><a href="Network.AWS.SWF.Types.DecisionTaskTimedOutEventAttributes.html#%24sel%3AtimeoutType%3ADecisionTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-var">timeoutType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">DecisionTaskTimeoutType
-</span><a href="#local-6989586621679344957"><span class="hs-identifier hs-var">pTimeoutType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679344966"><span class="hs-identifier hs-var">pTimeoutType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-80"></span><span>        </span><span class="annot"><span class="annottext">$sel:scheduledEventId:DecisionTaskTimedOutEventAttributes' :: Integer
 </span><a href="Network.AWS.SWF.Types.DecisionTaskTimedOutEventAttributes.html#%24sel%3AscheduledEventId%3ADecisionTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-var">scheduledEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679344956"><span class="hs-identifier hs-var">pScheduledEventId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679344965"><span class="hs-identifier hs-var">pScheduledEventId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">$sel:startedEventId:DecisionTaskTimedOutEventAttributes' :: Integer
 </span><a href="Network.AWS.SWF.Types.DecisionTaskTimedOutEventAttributes.html#%24sel%3AstartedEventId%3ADecisionTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-var">startedEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679344955"><span class="hs-identifier hs-var">pStartedEventId_</span></a></span><span>
+</span><a href="#local-6989586621679344964"><span class="hs-identifier hs-var">pStartedEventId_</span></a></span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | The type of timeout that expired before the decision task could be</span><span>
@@ -184,16 +184,16 @@ DecisionTaskTimedOutEventAttributes
      DecisionTaskTimeoutType
      DecisionTaskTimeoutType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskTimedOutEventAttributes.html#DecisionTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-type">DecisionTaskTimedOutEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344951"><span class="annot"><span class="annottext">DecisionTaskTimeoutType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskTimedOutEventAttributes.html#DecisionTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-type">DecisionTaskTimedOutEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344960"><span class="annot"><span class="annottext">DecisionTaskTimeoutType
 timeoutType :: DecisionTaskTimeoutType
 $sel:timeoutType:DecisionTaskTimedOutEventAttributes' :: DecisionTaskTimedOutEventAttributes -&gt; DecisionTaskTimeoutType
-</span><a href="#local-6989586621679344951"><span class="hs-identifier hs-var hs-var">timeoutType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecisionTaskTimeoutType
-</span><a href="#local-6989586621679344951"><span class="hs-identifier hs-var">timeoutType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344950"><span class="annot"><span class="annottext">s :: DecisionTaskTimedOutEventAttributes
-</span><a href="#local-6989586621679344950"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskTimedOutEventAttributes.html#DecisionTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-type">DecisionTaskTimedOutEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344949"><span class="annot"><span class="annottext">DecisionTaskTimeoutType
-</span><a href="#local-6989586621679344949"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecisionTaskTimedOutEventAttributes
-</span><a href="#local-6989586621679344950"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeoutType:DecisionTaskTimedOutEventAttributes' :: DecisionTaskTimeoutType
+</span><a href="#local-6989586621679344960"><span class="hs-identifier hs-var hs-var">timeoutType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecisionTaskTimeoutType
+</span><a href="#local-6989586621679344960"><span class="hs-identifier hs-var">timeoutType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344959"><span class="annot"><span class="annottext">s :: DecisionTaskTimedOutEventAttributes
+</span><a href="#local-6989586621679344959"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskTimedOutEventAttributes.html#DecisionTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-type">DecisionTaskTimedOutEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344958"><span class="annot"><span class="annottext">DecisionTaskTimeoutType
+</span><a href="#local-6989586621679344958"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecisionTaskTimedOutEventAttributes
+</span><a href="#local-6989586621679344959"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeoutType:DecisionTaskTimedOutEventAttributes' :: DecisionTaskTimeoutType
 </span><a href="Network.AWS.SWF.Types.DecisionTaskTimedOutEventAttributes.html#%24sel%3AtimeoutType%3ADecisionTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-var">timeoutType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DecisionTaskTimeoutType
-</span><a href="#local-6989586621679344949"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskTimedOutEventAttributes.html#DecisionTaskTimedOutEventAttributes"><span class="hs-identifier hs-type">DecisionTaskTimedOutEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679344958"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskTimedOutEventAttributes.html#DecisionTaskTimedOutEventAttributes"><span class="hs-identifier hs-type">DecisionTaskTimedOutEventAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The ID of the @DecisionTaskScheduled@ event that was recorded when this</span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- decision task was scheduled. This information can be useful for</span><span>
@@ -212,16 +212,16 @@ $sel:timeoutType:DecisionTaskTimedOutEventAttributes' :: DecisionTaskTimedOutEve
      Integer
      Integer
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskTimedOutEventAttributes.html#DecisionTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-type">DecisionTaskTimedOutEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344947"><span class="annot"><span class="annottext">Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskTimedOutEventAttributes.html#DecisionTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-type">DecisionTaskTimedOutEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344956"><span class="annot"><span class="annottext">Integer
 scheduledEventId :: Integer
 $sel:scheduledEventId:DecisionTaskTimedOutEventAttributes' :: DecisionTaskTimedOutEventAttributes -&gt; Integer
-</span><a href="#local-6989586621679344947"><span class="hs-identifier hs-var hs-var">scheduledEventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679344947"><span class="hs-identifier hs-var">scheduledEventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344946"><span class="annot"><span class="annottext">s :: DecisionTaskTimedOutEventAttributes
-</span><a href="#local-6989586621679344946"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskTimedOutEventAttributes.html#DecisionTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-type">DecisionTaskTimedOutEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344945"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679344945"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecisionTaskTimedOutEventAttributes
-</span><a href="#local-6989586621679344946"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduledEventId:DecisionTaskTimedOutEventAttributes' :: Integer
+</span><a href="#local-6989586621679344956"><span class="hs-identifier hs-var hs-var">scheduledEventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679344956"><span class="hs-identifier hs-var">scheduledEventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344955"><span class="annot"><span class="annottext">s :: DecisionTaskTimedOutEventAttributes
+</span><a href="#local-6989586621679344955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskTimedOutEventAttributes.html#DecisionTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-type">DecisionTaskTimedOutEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344954"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679344954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecisionTaskTimedOutEventAttributes
+</span><a href="#local-6989586621679344955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduledEventId:DecisionTaskTimedOutEventAttributes' :: Integer
 </span><a href="Network.AWS.SWF.Types.DecisionTaskTimedOutEventAttributes.html#%24sel%3AscheduledEventId%3ADecisionTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-var">scheduledEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679344945"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskTimedOutEventAttributes.html#DecisionTaskTimedOutEventAttributes"><span class="hs-identifier hs-type">DecisionTaskTimedOutEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679344954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskTimedOutEventAttributes.html#DecisionTaskTimedOutEventAttributes"><span class="hs-identifier hs-type">DecisionTaskTimedOutEventAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | The ID of the @DecisionTaskStarted@ event recorded when this decision</span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- task was started. This information can be useful for diagnosing problems</span><span>
@@ -239,22 +239,22 @@ $sel:scheduledEventId:DecisionTaskTimedOutEventAttributes' :: DecisionTaskTimedO
      Integer
      Integer
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskTimedOutEventAttributes.html#DecisionTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-type">DecisionTaskTimedOutEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344943"><span class="annot"><span class="annottext">Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskTimedOutEventAttributes.html#DecisionTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-type">DecisionTaskTimedOutEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344952"><span class="annot"><span class="annottext">Integer
 startedEventId :: Integer
 $sel:startedEventId:DecisionTaskTimedOutEventAttributes' :: DecisionTaskTimedOutEventAttributes -&gt; Integer
-</span><a href="#local-6989586621679344943"><span class="hs-identifier hs-var hs-var">startedEventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679344943"><span class="hs-identifier hs-var">startedEventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344942"><span class="annot"><span class="annottext">s :: DecisionTaskTimedOutEventAttributes
-</span><a href="#local-6989586621679344942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskTimedOutEventAttributes.html#DecisionTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-type">DecisionTaskTimedOutEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344941"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679344941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecisionTaskTimedOutEventAttributes
-</span><a href="#local-6989586621679344942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startedEventId:DecisionTaskTimedOutEventAttributes' :: Integer
+</span><a href="#local-6989586621679344952"><span class="hs-identifier hs-var hs-var">startedEventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679344952"><span class="hs-identifier hs-var">startedEventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344951"><span class="annot"><span class="annottext">s :: DecisionTaskTimedOutEventAttributes
+</span><a href="#local-6989586621679344951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskTimedOutEventAttributes.html#DecisionTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-type">DecisionTaskTimedOutEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344950"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679344950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecisionTaskTimedOutEventAttributes
+</span><a href="#local-6989586621679344951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startedEventId:DecisionTaskTimedOutEventAttributes' :: Integer
 </span><a href="Network.AWS.SWF.Types.DecisionTaskTimedOutEventAttributes.html#%24sel%3AstartedEventId%3ADecisionTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-var">startedEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679344941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskTimedOutEventAttributes.html#DecisionTaskTimedOutEventAttributes"><span class="hs-identifier hs-type">DecisionTaskTimedOutEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679344950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskTimedOutEventAttributes.html#DecisionTaskTimedOutEventAttributes"><span class="hs-identifier hs-type">DecisionTaskTimedOutEventAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679344938"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679344947"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskTimedOutEventAttributes.html#DecisionTaskTimedOutEventAttributes"><span class="hs-identifier hs-type">DecisionTaskTimedOutEventAttributes</span></a></span></span><span>
 </span><span id="line-105"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679344936"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DecisionTaskTimedOutEventAttributes
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679344945"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DecisionTaskTimedOutEventAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DecisionTaskTimedOutEventAttributes)
@@ -264,8 +264,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DecisionTaskTimedOutEventAttributes&quot;</span></span><span>
-</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679344933"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679344933"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679344942"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679344942"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">DecisionTaskTimeoutType
 -&gt; Integer -&gt; Integer -&gt; DecisionTaskTimedOutEventAttributes
 </span><a href="Network.AWS.SWF.Types.DecisionTaskTimedOutEventAttributes.html#DecisionTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-var">DecisionTaskTimedOutEventAttributes'</span></a></span><span>
@@ -276,7 +276,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Integer -&gt; Integer -&gt; DecisionTaskTimedOutEventAttributes)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679344933"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser DecisionTaskTimeoutType
+</span><a href="#local-6989586621679344942"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser DecisionTaskTimeoutType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;timeoutType&quot;</span></span><span class="hs-special">)</span><span>
@@ -285,7 +285,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (Integer -&gt; DecisionTaskTimedOutEventAttributes)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679344933"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
+</span><a href="#local-6989586621679344942"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;scheduledEventId&quot;</span></span><span class="hs-special">)</span><span>
@@ -293,17 +293,17 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Integer -&gt; Parser DecisionTaskTimedOutEventAttributes
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679344933"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
+</span><a href="#local-6989586621679344942"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;startedEventId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679344927"><span id="local-6989586621679344929"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679344936"><span id="local-6989586621679344938"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskTimedOutEventAttributes.html#DecisionTaskTimedOutEventAttributes"><span class="hs-identifier hs-type">DecisionTaskTimedOutEventAttributes</span></a></span></span></span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679344924"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679344933"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.Types.DecisionTaskTimedOutEventAttributes.html#DecisionTaskTimedOutEventAttributes"><span class="hs-identifier hs-type">DecisionTaskTimedOutEventAttributes</span></a></span></span><span>
 </span><span id="line-123"></span></pre></body></html>

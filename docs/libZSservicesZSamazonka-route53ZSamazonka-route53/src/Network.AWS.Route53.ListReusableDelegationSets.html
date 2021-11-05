@@ -56,7 +56,7 @@
 </span><span id="line-56"></span><span class="hs-comment">-- associated with the current Amazon Web Services account.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- /See:/ 'newListReusableDelegationSets' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679302484"><span id="local-6989586621679302485"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListReusableDelegationSets"><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSets"><span class="hs-identifier hs-var">ListReusableDelegationSets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListReusableDelegationSets%27"><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSets%27"><span class="hs-identifier hs-var">ListReusableDelegationSets'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679302493"><span id="local-6989586621679302494"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListReusableDelegationSets"><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSets"><span class="hs-identifier hs-var">ListReusableDelegationSets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListReusableDelegationSets%27"><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSets%27"><span class="hs-identifier hs-var">ListReusableDelegationSets'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the value of @IsTruncated@ in the previous response was @true@, you</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- have more reusable delegation sets. To get another group, submit another</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- @ListReusableDelegationSets@ request.</span><span>
@@ -75,7 +75,7 @@
 </span><span id="line-74"></span><span>    </span><span id="%24sel%3AmaxItems%3AListReusableDelegationSets%27"><span class="annot"><span class="annottext">ListReusableDelegationSets -&gt; Maybe Text
 </span><a href="Network.AWS.Route53.ListReusableDelegationSets.html#%24sel%3AmaxItems%3AListReusableDelegationSets%27"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302477"><span id="local-6989586621679302479"><span class="annot"><span class="annottext">ListReusableDelegationSets -&gt; ListReusableDelegationSets -&gt; Bool
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302486"><span id="local-6989586621679302488"><span class="annot"><span class="annottext">ListReusableDelegationSets -&gt; ListReusableDelegationSets -&gt; Bool
 (ListReusableDelegationSets -&gt; ListReusableDelegationSets -&gt; Bool)
 -&gt; (ListReusableDelegationSets
     -&gt; ListReusableDelegationSets -&gt; Bool)
@@ -85,7 +85,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListReusableDelegationSets -&gt; ListReusableDelegationSets -&gt; Bool
 == :: ListReusableDelegationSets -&gt; ListReusableDelegationSets -&gt; Bool
 $c== :: ListReusableDelegationSets -&gt; ListReusableDelegationSets -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302468"><span id="local-6989586621679302470"><span id="local-6989586621679302472"><span id="local-6989586621679302474"><span class="annot"><span class="annottext">ReadPrec [ListReusableDelegationSets]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302477"><span id="local-6989586621679302479"><span id="local-6989586621679302481"><span id="local-6989586621679302483"><span class="annot"><span class="annottext">ReadPrec [ListReusableDelegationSets]
 ReadPrec ListReusableDelegationSets
 Int -&gt; ReadS ListReusableDelegationSets
 ReadS [ListReusableDelegationSets]
@@ -105,7 +105,7 @@ readList :: ReadS [ListReusableDelegationSets]
 $creadList :: ReadS [ListReusableDelegationSets]
 readsPrec :: Int -&gt; ReadS ListReusableDelegationSets
 $creadsPrec :: Int -&gt; ReadS ListReusableDelegationSets
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302461"><span id="local-6989586621679302463"><span id="local-6989586621679302465"><span class="annot"><span class="annottext">Int -&gt; ListReusableDelegationSets -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302470"><span id="local-6989586621679302472"><span id="local-6989586621679302474"><span class="annot"><span class="annottext">Int -&gt; ListReusableDelegationSets -&gt; ShowS
 [ListReusableDelegationSets] -&gt; ShowS
 ListReusableDelegationSets -&gt; String
 (Int -&gt; ListReusableDelegationSets -&gt; ShowS)
@@ -198,16 +198,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSets%27"><span class="hs-identifier hs-type">ListReusableDelegationSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302454"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSets%27"><span class="hs-identifier hs-type">ListReusableDelegationSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302463"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:ListReusableDelegationSets' :: ListReusableDelegationSets -&gt; Maybe Text
-</span><a href="#local-6989586621679302454"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302454"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302453"><span class="annot"><span class="annottext">s :: ListReusableDelegationSets
-</span><a href="#local-6989586621679302453"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSets%27"><span class="hs-identifier hs-type">ListReusableDelegationSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302452"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302452"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReusableDelegationSets
-</span><a href="#local-6989586621679302453"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListReusableDelegationSets' :: Maybe Text
+</span><a href="#local-6989586621679302463"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302463"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302462"><span class="annot"><span class="annottext">s :: ListReusableDelegationSets
+</span><a href="#local-6989586621679302462"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSets%27"><span class="hs-identifier hs-type">ListReusableDelegationSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302461"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302461"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReusableDelegationSets
+</span><a href="#local-6989586621679302462"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListReusableDelegationSets' :: Maybe Text
 </span><a href="Network.AWS.Route53.ListReusableDelegationSets.html#%24sel%3Amarker%3AListReusableDelegationSets%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302452"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSets"><span class="hs-identifier hs-type">ListReusableDelegationSets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302461"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSets"><span class="hs-identifier hs-type">ListReusableDelegationSets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | The number of reusable delegation sets that you want Amazon Route 53 to</span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- return in the response to this request. If you specify a value greater</span><span>
@@ -224,28 +224,28 @@ $sel:marker:ListReusableDelegationSets' :: ListReusableDelegationSets -&gt; Mayb
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSets%27"><span class="hs-identifier hs-type">ListReusableDelegationSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302451"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSets%27"><span class="hs-identifier hs-type">ListReusableDelegationSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302460"><span class="annot"><span class="annottext">Maybe Text
 maxItems :: Maybe Text
 $sel:maxItems:ListReusableDelegationSets' :: ListReusableDelegationSets -&gt; Maybe Text
-</span><a href="#local-6989586621679302451"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302451"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302450"><span class="annot"><span class="annottext">s :: ListReusableDelegationSets
-</span><a href="#local-6989586621679302450"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSets%27"><span class="hs-identifier hs-type">ListReusableDelegationSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302449"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302449"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReusableDelegationSets
-</span><a href="#local-6989586621679302450"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListReusableDelegationSets' :: Maybe Text
+</span><a href="#local-6989586621679302460"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302460"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302459"><span class="annot"><span class="annottext">s :: ListReusableDelegationSets
+</span><a href="#local-6989586621679302459"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSets%27"><span class="hs-identifier hs-type">ListReusableDelegationSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302458"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302458"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReusableDelegationSets
+</span><a href="#local-6989586621679302459"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListReusableDelegationSets' :: Maybe Text
 </span><a href="Network.AWS.Route53.ListReusableDelegationSets.html#%24sel%3AmaxItems%3AListReusableDelegationSets%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302449"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSets"><span class="hs-identifier hs-type">ListReusableDelegationSets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302458"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSets"><span class="hs-identifier hs-type">ListReusableDelegationSets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSets"><span class="hs-identifier hs-type">ListReusableDelegationSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-129"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-130"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSets"><span class="hs-identifier hs-type">ListReusableDelegationSets</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>      </span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSetsResponse"><span class="hs-identifier hs-type">ListReusableDelegationSetsResponse</span></a></span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679302445"><span class="annot"><span class="annottext">request :: ListReusableDelegationSets -&gt; Request ListReusableDelegationSets
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679302454"><span class="annot"><span class="annottext">request :: ListReusableDelegationSets -&gt; Request ListReusableDelegationSets
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; ListReusableDelegationSets -&gt; Request ListReusableDelegationSets
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Route53.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679302441"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679302450"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListReusableDelegationSets
 -&gt; ClientResponse ClientBody
@@ -271,10 +271,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679302438"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679302438"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679302437"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679302437"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679302436"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679302436"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679302447"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302447"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679302446"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679302446"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679302445"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679302445"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-136"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Int
 -&gt; [DelegationSet]
@@ -301,7 +301,7 @@ MonadResource m =&gt;
       -&gt; ListReusableDelegationSetsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679302436"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679302445"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextMarker&quot;</span></span><span class="hs-special">)</span><span>
@@ -324,7 +324,7 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679302438"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302447"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   ([DelegationSet]
@@ -334,7 +334,7 @@ forall a. Enum a =&gt; a -&gt; Int
      String (Text -&gt; Bool -&gt; Text -&gt; ListReusableDelegationSetsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679302436"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679302445"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DelegationSets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -358,7 +358,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
      String (Bool -&gt; Text -&gt; ListReusableDelegationSetsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679302436"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679302445"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
@@ -367,7 +367,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String (Text -&gt; ListReusableDelegationSetsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679302436"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Bool
+</span><a href="#local-6989586621679302445"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Bool
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IsTruncated&quot;</span></span><span class="hs-special">)</span><span>
@@ -376,18 +376,18 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String ListReusableDelegationSetsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679302436"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679302445"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxItems&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302425"><span id="local-6989586621679302427"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSets"><span class="hs-identifier hs-type">ListReusableDelegationSets</span></a></span></span></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302434"><span id="local-6989586621679302436"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSets"><span class="hs-identifier hs-type">ListReusableDelegationSets</span></a></span></span></span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302422"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSets"><span class="hs-identifier hs-type">ListReusableDelegationSets</span></a></span></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302431"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSets"><span class="hs-identifier hs-type">ListReusableDelegationSets</span></a></span></span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSets"><span class="hs-identifier hs-type">ListReusableDelegationSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679302418"><span class="annot"><span class="annottext">toHeaders :: ListReusableDelegationSets -&gt; ResponseHeaders
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679302427"><span class="annot"><span class="annottext">toHeaders :: ListReusableDelegationSets -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListReusableDelegationSets -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -395,20 +395,20 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSets"><span class="hs-identifier hs-type">ListReusableDelegationSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679302413"><span class="annot"><span class="annottext">toPath :: ListReusableDelegationSets -&gt; ByteString
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679302422"><span class="annot"><span class="annottext">toPath :: ListReusableDelegationSets -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListReusableDelegationSets -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/2013-04-01/delegationset&quot;</span></span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSets"><span class="hs-identifier hs-type">ListReusableDelegationSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679302409"><span class="annot"><span class="annottext">toQuery :: ListReusableDelegationSets -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSets%27"><span class="hs-identifier hs-type">ListReusableDelegationSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302406"><span id="local-6989586621679302407"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679302418"><span class="annot"><span class="annottext">toQuery :: ListReusableDelegationSets -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSets%27"><span class="hs-identifier hs-type">ListReusableDelegationSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302415"><span id="local-6989586621679302416"><span class="annot"><span class="annottext">Maybe Text
 maxItems :: Maybe Text
 marker :: Maybe Text
 $sel:maxItems:ListReusableDelegationSets' :: ListReusableDelegationSets -&gt; Maybe Text
 $sel:marker:ListReusableDelegationSets' :: ListReusableDelegationSets -&gt; Maybe Text
-</span><a href="#local-6989586621679302406"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679302415"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -416,19 +416,19 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302407"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679302416"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;maxitems&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302406"><span class="hs-identifier hs-var">maxItems</span></a></span><span>
+</span><a href="#local-6989586621679302415"><span class="hs-identifier hs-var">maxItems</span></a></span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- | A complex type that contains information about the reusable delegation</span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- sets that are associated with the current Amazon Web Services account.</span><span>
 </span><span id="line-166"></span><span class="hs-comment">--</span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- /See:/ 'newListReusableDelegationSetsResponse' smart constructor.</span><span>
-</span><span id="line-168"></span><span id="local-6989586621679302403"><span id="local-6989586621679302404"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListReusableDelegationSetsResponse"><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSetsResponse"><span class="hs-identifier hs-var">ListReusableDelegationSetsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListReusableDelegationSetsResponse%27"><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSetsResponse%27"><span class="hs-identifier hs-var">ListReusableDelegationSetsResponse'</span></a></span></span><span>
+</span><span id="line-168"></span><span id="local-6989586621679302412"><span id="local-6989586621679302413"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListReusableDelegationSetsResponse"><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSetsResponse"><span class="hs-identifier hs-var">ListReusableDelegationSetsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListReusableDelegationSetsResponse%27"><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSetsResponse%27"><span class="hs-identifier hs-var">ListReusableDelegationSetsResponse'</span></a></span></span><span>
 </span><span id="line-169"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If @IsTruncated@ is @true@, the value of @NextMarker@ identifies the</span><span>
 </span><span id="line-170"></span><span>    </span><span class="hs-comment">-- next reusable delegation set that Amazon Route 53 will return if you</span><span>
 </span><span id="line-171"></span><span>    </span><span class="hs-comment">-- submit another @ListReusableDelegationSets@ request and specify the</span><span>
@@ -457,7 +457,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-189"></span><span>    </span><span id="%24sel%3AmaxItems%3AListReusableDelegationSetsResponse%27"><span class="annot"><span class="annottext">ListReusableDelegationSetsResponse -&gt; Text
 </span><a href="Network.AWS.Route53.ListReusableDelegationSets.html#%24sel%3AmaxItems%3AListReusableDelegationSetsResponse%27"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-190"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-191"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302393"><span id="local-6989586621679302395"><span class="annot"><span class="annottext">ListReusableDelegationSetsResponse
+</span><span id="line-191"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302402"><span id="local-6989586621679302404"><span class="annot"><span class="annottext">ListReusableDelegationSetsResponse
 -&gt; ListReusableDelegationSetsResponse -&gt; Bool
 (ListReusableDelegationSetsResponse
  -&gt; ListReusableDelegationSetsResponse -&gt; Bool)
@@ -473,7 +473,7 @@ $c/= :: ListReusableDelegationSetsResponse
 -&gt; ListReusableDelegationSetsResponse -&gt; Bool
 $c== :: ListReusableDelegationSetsResponse
 -&gt; ListReusableDelegationSetsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302385"><span id="local-6989586621679302387"><span id="local-6989586621679302389"><span id="local-6989586621679302391"><span class="annot"><span class="annottext">ReadPrec [ListReusableDelegationSetsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302394"><span id="local-6989586621679302396"><span id="local-6989586621679302398"><span id="local-6989586621679302400"><span class="annot"><span class="annottext">ReadPrec [ListReusableDelegationSetsResponse]
 ReadPrec ListReusableDelegationSetsResponse
 Int -&gt; ReadS ListReusableDelegationSetsResponse
 ReadS [ListReusableDelegationSetsResponse]
@@ -493,7 +493,7 @@ readList :: ReadS [ListReusableDelegationSetsResponse]
 $creadList :: ReadS [ListReusableDelegationSetsResponse]
 readsPrec :: Int -&gt; ReadS ListReusableDelegationSetsResponse
 $creadsPrec :: Int -&gt; ReadS ListReusableDelegationSetsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302379"><span id="local-6989586621679302381"><span id="local-6989586621679302383"><span class="annot"><span class="annottext">Int -&gt; ListReusableDelegationSetsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302388"><span id="local-6989586621679302390"><span id="local-6989586621679302392"><span class="annot"><span class="annottext">Int -&gt; ListReusableDelegationSetsResponse -&gt; ShowS
 [ListReusableDelegationSetsResponse] -&gt; ShowS
 ListReusableDelegationSetsResponse -&gt; String
 (Int -&gt; ListReusableDelegationSetsResponse -&gt; ShowS)
@@ -571,14 +571,14 @@ ListReusableDelegationSetsResponse
 </span><span id="line-230"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSetsResponse"><span class="hs-identifier hs-type">ListReusableDelegationSetsResponse</span></a></span><span>
 </span><span id="line-231"></span><span id="newListReusableDelegationSetsResponse"><span class="annot"><span class="annottext">newListReusableDelegationSetsResponse :: Int -&gt; Text -&gt; Bool -&gt; Text -&gt; ListReusableDelegationSetsResponse
 </span><a href="Network.AWS.Route53.ListReusableDelegationSets.html#newListReusableDelegationSetsResponse"><span class="hs-identifier hs-var hs-var">newListReusableDelegationSetsResponse</span></a></span></span><span>
-</span><span id="line-232"></span><span>  </span><span id="local-6989586621679302376"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679302376"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-233"></span><span>  </span><span id="local-6989586621679302375"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302375"><span class="hs-identifier hs-var">pMarker_</span></a></span></span><span>
-</span><span id="line-234"></span><span>  </span><span id="local-6989586621679302374"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679302374"><span class="hs-identifier hs-var">pIsTruncated_</span></a></span></span><span>
-</span><span id="line-235"></span><span>  </span><span id="local-6989586621679302373"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302373"><span class="hs-identifier hs-var">pMaxItems_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-232"></span><span>  </span><span id="local-6989586621679302385"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302385"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-233"></span><span>  </span><span id="local-6989586621679302384"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302384"><span class="hs-identifier hs-var">pMarker_</span></a></span></span><span>
+</span><span id="line-234"></span><span>  </span><span id="local-6989586621679302383"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679302383"><span class="hs-identifier hs-var">pIsTruncated_</span></a></span></span><span>
+</span><span id="line-235"></span><span>  </span><span id="local-6989586621679302382"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302382"><span class="hs-identifier hs-var">pMaxItems_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-236"></span><span>    </span><span class="annot"><span class="annottext">ListReusableDelegationSetsResponse' :: Maybe Text
 -&gt; Int
 -&gt; [DelegationSet]
@@ -594,20 +594,20 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-239"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:ListReusableDelegationSetsResponse' :: Int
 </span><a href="Network.AWS.Route53.ListReusableDelegationSets.html#%24sel%3AhttpStatus%3AListReusableDelegationSetsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679302376"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679302385"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-240"></span><span>        </span><span class="annot"><span class="annottext">$sel:delegationSets:ListReusableDelegationSetsResponse' :: [DelegationSet]
 </span><a href="Network.AWS.Route53.ListReusableDelegationSets.html#%24sel%3AdelegationSets%3AListReusableDelegationSetsResponse%27"><span class="hs-identifier hs-var">delegationSets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[DelegationSet]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
 </span><span id="line-241"></span><span>        </span><span class="annot"><span class="annottext">$sel:marker:ListReusableDelegationSetsResponse' :: Text
 </span><a href="Network.AWS.Route53.ListReusableDelegationSets.html#%24sel%3Amarker%3AListReusableDelegationSetsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302375"><span class="hs-identifier hs-var">pMarker_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679302384"><span class="hs-identifier hs-var">pMarker_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-242"></span><span>        </span><span class="annot"><span class="annottext">$sel:isTruncated:ListReusableDelegationSetsResponse' :: Bool
 </span><a href="Network.AWS.Route53.ListReusableDelegationSets.html#%24sel%3AisTruncated%3AListReusableDelegationSetsResponse%27"><span class="hs-identifier hs-var">isTruncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679302374"><span class="hs-identifier hs-var">pIsTruncated_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679302383"><span class="hs-identifier hs-var">pIsTruncated_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-243"></span><span>        </span><span class="annot"><span class="annottext">$sel:maxItems:ListReusableDelegationSetsResponse' :: Text
 </span><a href="Network.AWS.Route53.ListReusableDelegationSets.html#%24sel%3AmaxItems%3AListReusableDelegationSetsResponse%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302373"><span class="hs-identifier hs-var">pMaxItems_</span></a></span><span>
+</span><a href="#local-6989586621679302382"><span class="hs-identifier hs-var">pMaxItems_</span></a></span><span>
 </span><span id="line-244"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-245"></span><span>
 </span><span id="line-246"></span><span class="hs-comment">-- | If @IsTruncated@ is @true@, the value of @NextMarker@ identifies the</span><span>
@@ -627,16 +627,16 @@ forall a. Monoid a =&gt; a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSetsResponse%27"><span class="hs-identifier hs-type">ListReusableDelegationSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302372"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSetsResponse%27"><span class="hs-identifier hs-type">ListReusableDelegationSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302381"><span class="annot"><span class="annottext">Maybe Text
 nextMarker :: Maybe Text
 $sel:nextMarker:ListReusableDelegationSetsResponse' :: ListReusableDelegationSetsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679302372"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302372"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302371"><span class="annot"><span class="annottext">s :: ListReusableDelegationSetsResponse
-</span><a href="#local-6989586621679302371"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSetsResponse%27"><span class="hs-identifier hs-type">ListReusableDelegationSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302370"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302370"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReusableDelegationSetsResponse
-</span><a href="#local-6989586621679302371"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListReusableDelegationSetsResponse' :: Maybe Text
+</span><a href="#local-6989586621679302381"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302381"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302380"><span class="annot"><span class="annottext">s :: ListReusableDelegationSetsResponse
+</span><a href="#local-6989586621679302380"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSetsResponse%27"><span class="hs-identifier hs-type">ListReusableDelegationSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302379"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302379"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReusableDelegationSetsResponse
+</span><a href="#local-6989586621679302380"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListReusableDelegationSetsResponse' :: Maybe Text
 </span><a href="Network.AWS.Route53.ListReusableDelegationSets.html#%24sel%3AnextMarker%3AListReusableDelegationSetsResponse%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302370"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSetsResponse"><span class="hs-identifier hs-type">ListReusableDelegationSetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302379"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSetsResponse"><span class="hs-identifier hs-type">ListReusableDelegationSetsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-252"></span><span>
 </span><span id="line-253"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-254"></span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#listReusableDelegationSetsResponse_httpStatus"><span class="hs-identifier hs-type">listReusableDelegationSetsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSetsResponse"><span class="hs-identifier hs-type">ListReusableDelegationSetsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -652,16 +652,16 @@ $sel:nextMarker:ListReusableDelegationSetsResponse' :: ListReusableDelegationSet
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSetsResponse%27"><span class="hs-identifier hs-type">ListReusableDelegationSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302369"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSetsResponse%27"><span class="hs-identifier hs-type">ListReusableDelegationSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302378"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListReusableDelegationSetsResponse' :: ListReusableDelegationSetsResponse -&gt; Int
-</span><a href="#local-6989586621679302369"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679302369"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302368"><span class="annot"><span class="annottext">s :: ListReusableDelegationSetsResponse
-</span><a href="#local-6989586621679302368"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSetsResponse%27"><span class="hs-identifier hs-type">ListReusableDelegationSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302367"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679302367"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReusableDelegationSetsResponse
-</span><a href="#local-6989586621679302368"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListReusableDelegationSetsResponse' :: Int
+</span><a href="#local-6989586621679302378"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302378"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302377"><span class="annot"><span class="annottext">s :: ListReusableDelegationSetsResponse
+</span><a href="#local-6989586621679302377"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSetsResponse%27"><span class="hs-identifier hs-type">ListReusableDelegationSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302376"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302376"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReusableDelegationSetsResponse
+</span><a href="#local-6989586621679302377"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListReusableDelegationSetsResponse' :: Int
 </span><a href="Network.AWS.Route53.ListReusableDelegationSets.html#%24sel%3AhttpStatus%3AListReusableDelegationSetsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679302367"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSetsResponse"><span class="hs-identifier hs-type">ListReusableDelegationSetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302376"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSetsResponse"><span class="hs-identifier hs-type">ListReusableDelegationSetsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-256"></span><span>
 </span><span id="line-257"></span><span class="hs-comment">-- | A complex type that contains one @DelegationSet@ element for each</span><span>
 </span><span id="line-258"></span><span class="hs-comment">-- reusable delegation set that was created by the current Amazon Web</span><span>
@@ -679,16 +679,16 @@ $sel:httpStatus:ListReusableDelegationSetsResponse' :: ListReusableDelegationSet
      [DelegationSet]
      [DelegationSet]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSetsResponse%27"><span class="hs-identifier hs-type">ListReusableDelegationSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302366"><span class="annot"><span class="annottext">[DelegationSet]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSetsResponse%27"><span class="hs-identifier hs-type">ListReusableDelegationSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302375"><span class="annot"><span class="annottext">[DelegationSet]
 delegationSets :: [DelegationSet]
 $sel:delegationSets:ListReusableDelegationSetsResponse' :: ListReusableDelegationSetsResponse -&gt; [DelegationSet]
-</span><a href="#local-6989586621679302366"><span class="hs-identifier hs-var hs-var">delegationSets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[DelegationSet]
-</span><a href="#local-6989586621679302366"><span class="hs-identifier hs-var">delegationSets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302365"><span class="annot"><span class="annottext">s :: ListReusableDelegationSetsResponse
-</span><a href="#local-6989586621679302365"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSetsResponse%27"><span class="hs-identifier hs-type">ListReusableDelegationSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302364"><span class="annot"><span class="annottext">[DelegationSet]
-</span><a href="#local-6989586621679302364"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReusableDelegationSetsResponse
-</span><a href="#local-6989586621679302365"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:delegationSets:ListReusableDelegationSetsResponse' :: [DelegationSet]
+</span><a href="#local-6989586621679302375"><span class="hs-identifier hs-var hs-var">delegationSets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[DelegationSet]
+</span><a href="#local-6989586621679302375"><span class="hs-identifier hs-var">delegationSets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302374"><span class="annot"><span class="annottext">s :: ListReusableDelegationSetsResponse
+</span><a href="#local-6989586621679302374"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSetsResponse%27"><span class="hs-identifier hs-type">ListReusableDelegationSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302373"><span class="annot"><span class="annottext">[DelegationSet]
+</span><a href="#local-6989586621679302373"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReusableDelegationSetsResponse
+</span><a href="#local-6989586621679302374"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:delegationSets:ListReusableDelegationSetsResponse' :: [DelegationSet]
 </span><a href="Network.AWS.Route53.ListReusableDelegationSets.html#%24sel%3AdelegationSets%3AListReusableDelegationSetsResponse%27"><span class="hs-identifier hs-var">delegationSets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[DelegationSet]
-</span><a href="#local-6989586621679302364"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSetsResponse"><span class="hs-identifier hs-type">ListReusableDelegationSetsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([DelegationSet] -&gt; f [DelegationSet])
+</span><a href="#local-6989586621679302373"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSetsResponse"><span class="hs-identifier hs-type">ListReusableDelegationSetsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([DelegationSet] -&gt; f [DelegationSet])
  -&gt; ListReusableDelegationSetsResponse
  -&gt; f ListReusableDelegationSetsResponse)
 -&gt; (([DelegationSet] -&gt; f [DelegationSet])
@@ -718,16 +718,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSetsResponse%27"><span class="hs-identifier hs-type">ListReusableDelegationSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302361"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSetsResponse%27"><span class="hs-identifier hs-type">ListReusableDelegationSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302370"><span class="annot"><span class="annottext">Text
 marker :: Text
 $sel:marker:ListReusableDelegationSetsResponse' :: ListReusableDelegationSetsResponse -&gt; Text
-</span><a href="#local-6989586621679302361"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302361"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302360"><span class="annot"><span class="annottext">s :: ListReusableDelegationSetsResponse
-</span><a href="#local-6989586621679302360"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSetsResponse%27"><span class="hs-identifier hs-type">ListReusableDelegationSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302359"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302359"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReusableDelegationSetsResponse
-</span><a href="#local-6989586621679302360"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListReusableDelegationSetsResponse' :: Text
+</span><a href="#local-6989586621679302370"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302370"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302369"><span class="annot"><span class="annottext">s :: ListReusableDelegationSetsResponse
+</span><a href="#local-6989586621679302369"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSetsResponse%27"><span class="hs-identifier hs-type">ListReusableDelegationSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302368"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302368"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReusableDelegationSetsResponse
+</span><a href="#local-6989586621679302369"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListReusableDelegationSetsResponse' :: Text
 </span><a href="Network.AWS.Route53.ListReusableDelegationSets.html#%24sel%3Amarker%3AListReusableDelegationSetsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302359"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSetsResponse"><span class="hs-identifier hs-type">ListReusableDelegationSetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302368"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSetsResponse"><span class="hs-identifier hs-type">ListReusableDelegationSetsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-268"></span><span>
 </span><span id="line-269"></span><span class="hs-comment">-- | A flag that indicates whether there are more reusable delegation sets to</span><span>
 </span><span id="line-270"></span><span class="hs-comment">-- be listed.</span><span>
@@ -744,16 +744,16 @@ $sel:marker:ListReusableDelegationSetsResponse' :: ListReusableDelegationSetsRes
      Bool
      Bool
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSetsResponse%27"><span class="hs-identifier hs-type">ListReusableDelegationSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302358"><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSetsResponse%27"><span class="hs-identifier hs-type">ListReusableDelegationSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302367"><span class="annot"><span class="annottext">Bool
 isTruncated :: Bool
 $sel:isTruncated:ListReusableDelegationSetsResponse' :: ListReusableDelegationSetsResponse -&gt; Bool
-</span><a href="#local-6989586621679302358"><span class="hs-identifier hs-var hs-var">isTruncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679302358"><span class="hs-identifier hs-var">isTruncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302357"><span class="annot"><span class="annottext">s :: ListReusableDelegationSetsResponse
-</span><a href="#local-6989586621679302357"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSetsResponse%27"><span class="hs-identifier hs-type">ListReusableDelegationSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302356"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679302356"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReusableDelegationSetsResponse
-</span><a href="#local-6989586621679302357"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isTruncated:ListReusableDelegationSetsResponse' :: Bool
+</span><a href="#local-6989586621679302367"><span class="hs-identifier hs-var hs-var">isTruncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679302367"><span class="hs-identifier hs-var">isTruncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302366"><span class="annot"><span class="annottext">s :: ListReusableDelegationSetsResponse
+</span><a href="#local-6989586621679302366"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSetsResponse%27"><span class="hs-identifier hs-type">ListReusableDelegationSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302365"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679302365"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReusableDelegationSetsResponse
+</span><a href="#local-6989586621679302366"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isTruncated:ListReusableDelegationSetsResponse' :: Bool
 </span><a href="Network.AWS.Route53.ListReusableDelegationSets.html#%24sel%3AisTruncated%3AListReusableDelegationSetsResponse%27"><span class="hs-identifier hs-var">isTruncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679302356"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSetsResponse"><span class="hs-identifier hs-type">ListReusableDelegationSetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302365"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSetsResponse"><span class="hs-identifier hs-type">ListReusableDelegationSetsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-273"></span><span>
 </span><span id="line-274"></span><span class="hs-comment">-- | The value that you specified for the @maxitems@ parameter in the call to</span><span>
 </span><span id="line-275"></span><span class="hs-comment">-- @ListReusableDelegationSets@ that produced the current response.</span><span>
@@ -770,18 +770,18 @@ $sel:isTruncated:ListReusableDelegationSetsResponse' :: ListReusableDelegationSe
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSetsResponse%27"><span class="hs-identifier hs-type">ListReusableDelegationSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302355"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSetsResponse%27"><span class="hs-identifier hs-type">ListReusableDelegationSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302364"><span class="annot"><span class="annottext">Text
 maxItems :: Text
 $sel:maxItems:ListReusableDelegationSetsResponse' :: ListReusableDelegationSetsResponse -&gt; Text
-</span><a href="#local-6989586621679302355"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302355"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302354"><span class="annot"><span class="annottext">s :: ListReusableDelegationSetsResponse
-</span><a href="#local-6989586621679302354"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSetsResponse%27"><span class="hs-identifier hs-type">ListReusableDelegationSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302353"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302353"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReusableDelegationSetsResponse
-</span><a href="#local-6989586621679302354"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListReusableDelegationSetsResponse' :: Text
+</span><a href="#local-6989586621679302364"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302364"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302363"><span class="annot"><span class="annottext">s :: ListReusableDelegationSetsResponse
+</span><a href="#local-6989586621679302363"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSetsResponse%27"><span class="hs-identifier hs-type">ListReusableDelegationSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302362"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302362"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListReusableDelegationSetsResponse
+</span><a href="#local-6989586621679302363"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListReusableDelegationSetsResponse' :: Text
 </span><a href="Network.AWS.Route53.ListReusableDelegationSets.html#%24sel%3AmaxItems%3AListReusableDelegationSetsResponse%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302353"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSetsResponse"><span class="hs-identifier hs-type">ListReusableDelegationSetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302362"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSetsResponse"><span class="hs-identifier hs-type">ListReusableDelegationSetsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-278"></span><span>
 </span><span id="line-279"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-280"></span><span>  </span><span id="local-6989586621679302351"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-280"></span><span>  </span><span id="local-6989586621679302360"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-281"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.ListReusableDelegationSets.html#ListReusableDelegationSetsResponse"><span class="hs-identifier hs-type">ListReusableDelegationSetsResponse</span></a></span></span><span>
 </span><span id="line-282"></span></pre></body></html>

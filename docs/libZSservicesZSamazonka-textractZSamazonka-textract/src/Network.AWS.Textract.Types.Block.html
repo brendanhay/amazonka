@@ -47,7 +47,7 @@
 </span><span id="line-47"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/textract/latest/dg/how-it-works.html How Amazon Textract Works&gt;.</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- /See:/ 'newBlock' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679178031"><span id="local-6989586621679178032"></span></span><span class="hs-keyword">data</span><span> </span><span id="Block"><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block"><span class="hs-identifier hs-var">Block</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Block%27"><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-var">Block'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679178040"><span id="local-6989586621679178041"></span></span><span class="hs-keyword">data</span><span> </span><span id="Block"><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block"><span class="hs-identifier hs-var">Block</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Block%27"><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-var">Block'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of columns that a table cell spans. Currently this value is</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">-- always 1, even if the number of columns spanned is greater than 1.</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- @ColumnSpan@ isn\'t returned by @DetectDocumentText@ and</span><span>
@@ -168,14 +168,14 @@
 </span><span id="line-155"></span><span>    </span><span id="%24sel%3AblockType%3ABlock%27"><span class="annot"><span class="annottext">Block -&gt; Maybe BlockType
 </span><a href="Network.AWS.Textract.Types.Block.html#%24sel%3AblockType%3ABlock%27"><span class="hs-identifier hs-var hs-var">blockType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.BlockType.html#BlockType"><span class="hs-identifier hs-type">BlockType</span></a></span><span>
 </span><span id="line-156"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178012"><span id="local-6989586621679178014"><span class="annot"><span class="annottext">Block -&gt; Block -&gt; Bool
+</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178021"><span id="local-6989586621679178023"><span class="annot"><span class="annottext">Block -&gt; Block -&gt; Bool
 (Block -&gt; Block -&gt; Bool) -&gt; (Block -&gt; Block -&gt; Bool) -&gt; Eq Block
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Block -&gt; Block -&gt; Bool
 $c/= :: Block -&gt; Block -&gt; Bool
 == :: Block -&gt; Block -&gt; Bool
 $c== :: Block -&gt; Block -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178003"><span id="local-6989586621679178005"><span id="local-6989586621679178007"><span id="local-6989586621679178009"><span class="annot"><span class="annottext">ReadPrec [Block]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178012"><span id="local-6989586621679178014"><span id="local-6989586621679178016"><span id="local-6989586621679178018"><span class="annot"><span class="annottext">ReadPrec [Block]
 ReadPrec Block
 Int -&gt; ReadS Block
 ReadS [Block]
@@ -195,7 +195,7 @@ readList :: ReadS [Block]
 $creadList :: ReadS [Block]
 readsPrec :: Int -&gt; ReadS Block
 $creadsPrec :: Int -&gt; ReadS Block
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177996"><span id="local-6989586621679177998"><span id="local-6989586621679178000"><span class="annot"><span class="annottext">Int -&gt; Block -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178005"><span id="local-6989586621679178007"><span id="local-6989586621679178009"><span class="annot"><span class="annottext">Int -&gt; Block -&gt; ShowS
 [Block] -&gt; ShowS
 Block -&gt; String
 (Int -&gt; Block -&gt; ShowS)
@@ -418,16 +418,16 @@ forall a. Maybe a
 -&gt; (Block -&gt; Maybe Natural -&gt; Block)
 -&gt; Lens Block Block (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177987"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177996"><span class="annot"><span class="annottext">Maybe Natural
 columnSpan :: Maybe Natural
 $sel:columnSpan:Block' :: Block -&gt; Maybe Natural
-</span><a href="#local-6989586621679177987"><span class="hs-identifier hs-var hs-var">columnSpan</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679177987"><span class="hs-identifier hs-var">columnSpan</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177986"><span class="annot"><span class="annottext">s :: Block
-</span><a href="#local-6989586621679177986"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177985"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679177985"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Block
-</span><a href="#local-6989586621679177986"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:columnSpan:Block' :: Maybe Natural
+</span><a href="#local-6989586621679177996"><span class="hs-identifier hs-var hs-var">columnSpan</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679177996"><span class="hs-identifier hs-var">columnSpan</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177995"><span class="annot"><span class="annottext">s :: Block
+</span><a href="#local-6989586621679177995"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177994"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679177994"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Block
+</span><a href="#local-6989586621679177995"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:columnSpan:Block' :: Maybe Natural
 </span><a href="Network.AWS.Textract.Types.Block.html#%24sel%3AcolumnSpan%3ABlock%27"><span class="hs-identifier hs-var">columnSpan</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679177985"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block"><span class="hs-identifier hs-type">Block</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177994"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block"><span class="hs-identifier hs-type">Block</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-297"></span><span>
 </span><span id="line-298"></span><span class="hs-comment">-- | The word or line of text that\'s recognized by Amazon Textract.</span><span>
 </span><span id="line-299"></span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#block_text"><span class="hs-identifier hs-type">block_text</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block"><span class="hs-identifier hs-type">Block</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -436,16 +436,16 @@ $sel:columnSpan:Block' :: Block -&gt; Maybe Natural
 -&gt; (Block -&gt; Maybe Text -&gt; Block)
 -&gt; Lens Block Block (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177983"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177992"><span class="annot"><span class="annottext">Maybe Text
 text :: Maybe Text
 $sel:text:Block' :: Block -&gt; Maybe Text
-</span><a href="#local-6989586621679177983"><span class="hs-identifier hs-var hs-var">text</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679177983"><span class="hs-identifier hs-var">text</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177982"><span class="annot"><span class="annottext">s :: Block
-</span><a href="#local-6989586621679177982"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177981"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679177981"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Block
-</span><a href="#local-6989586621679177982"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:text:Block' :: Maybe Text
+</span><a href="#local-6989586621679177992"><span class="hs-identifier hs-var hs-var">text</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679177992"><span class="hs-identifier hs-var">text</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177991"><span class="annot"><span class="annottext">s :: Block
+</span><a href="#local-6989586621679177991"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177990"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679177990"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Block
+</span><a href="#local-6989586621679177991"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:text:Block' :: Maybe Text
 </span><a href="Network.AWS.Textract.Types.Block.html#%24sel%3Atext%3ABlock%27"><span class="hs-identifier hs-var">text</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679177981"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block"><span class="hs-identifier hs-type">Block</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177990"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block"><span class="hs-identifier hs-type">Block</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-301"></span><span>
 </span><span id="line-302"></span><span class="hs-comment">-- | The type of entity. The following can be returned:</span><span>
 </span><span id="line-303"></span><span class="hs-comment">--</span><span>
@@ -461,16 +461,16 @@ $sel:text:Block' :: Block -&gt; Maybe Text
 -&gt; (Block -&gt; Maybe [EntityType] -&gt; Block)
 -&gt; Lens Block Block (Maybe [EntityType]) (Maybe [EntityType])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177979"><span class="annot"><span class="annottext">Maybe [EntityType]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177988"><span class="annot"><span class="annottext">Maybe [EntityType]
 entityTypes :: Maybe [EntityType]
 $sel:entityTypes:Block' :: Block -&gt; Maybe [EntityType]
-</span><a href="#local-6989586621679177979"><span class="hs-identifier hs-var hs-var">entityTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EntityType]
-</span><a href="#local-6989586621679177979"><span class="hs-identifier hs-var">entityTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177978"><span class="annot"><span class="annottext">s :: Block
-</span><a href="#local-6989586621679177978"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177977"><span class="annot"><span class="annottext">Maybe [EntityType]
-</span><a href="#local-6989586621679177977"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Block
-</span><a href="#local-6989586621679177978"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entityTypes:Block' :: Maybe [EntityType]
+</span><a href="#local-6989586621679177988"><span class="hs-identifier hs-var hs-var">entityTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EntityType]
+</span><a href="#local-6989586621679177988"><span class="hs-identifier hs-var">entityTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177987"><span class="annot"><span class="annottext">s :: Block
+</span><a href="#local-6989586621679177987"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177986"><span class="annot"><span class="annottext">Maybe [EntityType]
+</span><a href="#local-6989586621679177986"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Block
+</span><a href="#local-6989586621679177987"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entityTypes:Block' :: Maybe [EntityType]
 </span><a href="Network.AWS.Textract.Types.Block.html#%24sel%3AentityTypes%3ABlock%27"><span class="hs-identifier hs-var">entityTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EntityType]
-</span><a href="#local-6989586621679177977"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block"><span class="hs-identifier hs-type">Block</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EntityType] -&gt; f (Maybe [EntityType]))
+</span><a href="#local-6989586621679177986"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block"><span class="hs-identifier hs-type">Block</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EntityType] -&gt; f (Maybe [EntityType]))
  -&gt; Block -&gt; f Block)
 -&gt; ((Maybe [EntityType] -&gt; f (Maybe [EntityType]))
     -&gt; Maybe [EntityType] -&gt; f (Maybe [EntityType]))
@@ -500,16 +500,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (Block -&gt; Maybe Natural -&gt; Block)
 -&gt; Lens Block Block (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177972"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177981"><span class="annot"><span class="annottext">Maybe Natural
 columnIndex :: Maybe Natural
 $sel:columnIndex:Block' :: Block -&gt; Maybe Natural
-</span><a href="#local-6989586621679177972"><span class="hs-identifier hs-var hs-var">columnIndex</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679177972"><span class="hs-identifier hs-var">columnIndex</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177971"><span class="annot"><span class="annottext">s :: Block
-</span><a href="#local-6989586621679177971"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177970"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679177970"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Block
-</span><a href="#local-6989586621679177971"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:columnIndex:Block' :: Maybe Natural
+</span><a href="#local-6989586621679177981"><span class="hs-identifier hs-var hs-var">columnIndex</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679177981"><span class="hs-identifier hs-var">columnIndex</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177980"><span class="annot"><span class="annottext">s :: Block
+</span><a href="#local-6989586621679177980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177979"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679177979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Block
+</span><a href="#local-6989586621679177980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:columnIndex:Block' :: Maybe Natural
 </span><a href="Network.AWS.Textract.Types.Block.html#%24sel%3AcolumnIndex%3ABlock%27"><span class="hs-identifier hs-var">columnIndex</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679177970"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block"><span class="hs-identifier hs-type">Block</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block"><span class="hs-identifier hs-type">Block</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-318"></span><span>
 </span><span id="line-319"></span><span class="hs-comment">-- | The page on which a block was detected. @Page@ is returned by</span><span>
 </span><span id="line-320"></span><span class="hs-comment">-- asynchronous operations. Page values greater than 1 are only returned</span><span>
@@ -524,16 +524,16 @@ $sel:columnIndex:Block' :: Block -&gt; Maybe Natural
 -&gt; (Block -&gt; Maybe Natural -&gt; Block)
 -&gt; Lens Block Block (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177968"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177977"><span class="annot"><span class="annottext">Maybe Natural
 page :: Maybe Natural
 $sel:page:Block' :: Block -&gt; Maybe Natural
-</span><a href="#local-6989586621679177968"><span class="hs-identifier hs-var hs-var">page</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679177968"><span class="hs-identifier hs-var">page</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177967"><span class="annot"><span class="annottext">s :: Block
-</span><a href="#local-6989586621679177967"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177966"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679177966"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Block
-</span><a href="#local-6989586621679177967"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:page:Block' :: Maybe Natural
+</span><a href="#local-6989586621679177977"><span class="hs-identifier hs-var hs-var">page</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679177977"><span class="hs-identifier hs-var">page</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177976"><span class="annot"><span class="annottext">s :: Block
+</span><a href="#local-6989586621679177976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177975"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679177975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Block
+</span><a href="#local-6989586621679177976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:page:Block' :: Maybe Natural
 </span><a href="Network.AWS.Textract.Types.Block.html#%24sel%3Apage%3ABlock%27"><span class="hs-identifier hs-var">page</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679177966"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block"><span class="hs-identifier hs-type">Block</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block"><span class="hs-identifier hs-type">Block</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-328"></span><span>
 </span><span id="line-329"></span><span class="hs-comment">-- | The number of rows that a table cell spans. Currently this value is</span><span>
 </span><span id="line-330"></span><span class="hs-comment">-- always 1, even if the number of rows spanned is greater than 1.</span><span>
@@ -545,16 +545,16 @@ $sel:page:Block' :: Block -&gt; Maybe Natural
 -&gt; (Block -&gt; Maybe Natural -&gt; Block)
 -&gt; Lens Block Block (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177964"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177973"><span class="annot"><span class="annottext">Maybe Natural
 rowSpan :: Maybe Natural
 $sel:rowSpan:Block' :: Block -&gt; Maybe Natural
-</span><a href="#local-6989586621679177964"><span class="hs-identifier hs-var hs-var">rowSpan</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679177964"><span class="hs-identifier hs-var">rowSpan</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177963"><span class="annot"><span class="annottext">s :: Block
-</span><a href="#local-6989586621679177963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177962"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679177962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Block
-</span><a href="#local-6989586621679177963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rowSpan:Block' :: Maybe Natural
+</span><a href="#local-6989586621679177973"><span class="hs-identifier hs-var hs-var">rowSpan</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679177973"><span class="hs-identifier hs-var">rowSpan</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177972"><span class="annot"><span class="annottext">s :: Block
+</span><a href="#local-6989586621679177972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177971"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679177971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Block
+</span><a href="#local-6989586621679177972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rowSpan:Block' :: Maybe Natural
 </span><a href="Network.AWS.Textract.Types.Block.html#%24sel%3ArowSpan%3ABlock%27"><span class="hs-identifier hs-var">rowSpan</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679177962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block"><span class="hs-identifier hs-type">Block</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block"><span class="hs-identifier hs-type">Block</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-335"></span><span>
 </span><span id="line-336"></span><span class="hs-comment">-- | The selection status of a selection element, such as an option button or</span><span>
 </span><span id="line-337"></span><span class="hs-comment">-- check box.</span><span>
@@ -565,16 +565,16 @@ $sel:rowSpan:Block' :: Block -&gt; Maybe Natural
 -&gt; (Block -&gt; Maybe SelectionStatus -&gt; Block)
 -&gt; Lens Block Block (Maybe SelectionStatus) (Maybe SelectionStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177960"><span class="annot"><span class="annottext">Maybe SelectionStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177969"><span class="annot"><span class="annottext">Maybe SelectionStatus
 selectionStatus :: Maybe SelectionStatus
 $sel:selectionStatus:Block' :: Block -&gt; Maybe SelectionStatus
-</span><a href="#local-6989586621679177960"><span class="hs-identifier hs-var hs-var">selectionStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SelectionStatus
-</span><a href="#local-6989586621679177960"><span class="hs-identifier hs-var">selectionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177959"><span class="annot"><span class="annottext">s :: Block
-</span><a href="#local-6989586621679177959"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177958"><span class="annot"><span class="annottext">Maybe SelectionStatus
-</span><a href="#local-6989586621679177958"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Block
-</span><a href="#local-6989586621679177959"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:selectionStatus:Block' :: Maybe SelectionStatus
+</span><a href="#local-6989586621679177969"><span class="hs-identifier hs-var hs-var">selectionStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SelectionStatus
+</span><a href="#local-6989586621679177969"><span class="hs-identifier hs-var">selectionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177968"><span class="annot"><span class="annottext">s :: Block
+</span><a href="#local-6989586621679177968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177967"><span class="annot"><span class="annottext">Maybe SelectionStatus
+</span><a href="#local-6989586621679177967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Block
+</span><a href="#local-6989586621679177968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:selectionStatus:Block' :: Maybe SelectionStatus
 </span><a href="Network.AWS.Textract.Types.Block.html#%24sel%3AselectionStatus%3ABlock%27"><span class="hs-identifier hs-var">selectionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SelectionStatus
-</span><a href="#local-6989586621679177958"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block"><span class="hs-identifier hs-type">Block</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block"><span class="hs-identifier hs-type">Block</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-340"></span><span>
 </span><span id="line-341"></span><span class="hs-comment">-- | The row in which a table cell is located. The first row position is 1.</span><span>
 </span><span id="line-342"></span><span class="hs-comment">-- @RowIndex@ isn\'t returned by @DetectDocumentText@ and</span><span>
@@ -585,16 +585,16 @@ $sel:selectionStatus:Block' :: Block -&gt; Maybe SelectionStatus
 -&gt; (Block -&gt; Maybe Natural -&gt; Block)
 -&gt; Lens Block Block (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177956"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177965"><span class="annot"><span class="annottext">Maybe Natural
 rowIndex :: Maybe Natural
 $sel:rowIndex:Block' :: Block -&gt; Maybe Natural
-</span><a href="#local-6989586621679177956"><span class="hs-identifier hs-var hs-var">rowIndex</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679177956"><span class="hs-identifier hs-var">rowIndex</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177955"><span class="annot"><span class="annottext">s :: Block
-</span><a href="#local-6989586621679177955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177954"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679177954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Block
-</span><a href="#local-6989586621679177955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rowIndex:Block' :: Maybe Natural
+</span><a href="#local-6989586621679177965"><span class="hs-identifier hs-var hs-var">rowIndex</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679177965"><span class="hs-identifier hs-var">rowIndex</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177964"><span class="annot"><span class="annottext">s :: Block
+</span><a href="#local-6989586621679177964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177963"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679177963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Block
+</span><a href="#local-6989586621679177964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rowIndex:Block' :: Maybe Natural
 </span><a href="Network.AWS.Textract.Types.Block.html#%24sel%3ArowIndex%3ABlock%27"><span class="hs-identifier hs-var">rowIndex</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679177954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block"><span class="hs-identifier hs-type">Block</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block"><span class="hs-identifier hs-type">Block</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-346"></span><span>
 </span><span id="line-347"></span><span class="hs-comment">-- | The confidence score that Amazon Textract has in the accuracy of the</span><span>
 </span><span id="line-348"></span><span class="hs-comment">-- recognized text and the accuracy of the geometry points around the</span><span>
@@ -605,16 +605,16 @@ $sel:rowIndex:Block' :: Block -&gt; Maybe Natural
 -&gt; (Block -&gt; Maybe Double -&gt; Block)
 -&gt; Lens Block Block (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177952"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177961"><span class="annot"><span class="annottext">Maybe Double
 confidence :: Maybe Double
 $sel:confidence:Block' :: Block -&gt; Maybe Double
-</span><a href="#local-6989586621679177952"><span class="hs-identifier hs-var hs-var">confidence</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679177952"><span class="hs-identifier hs-var">confidence</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177951"><span class="annot"><span class="annottext">s :: Block
-</span><a href="#local-6989586621679177951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177950"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679177950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Block
-</span><a href="#local-6989586621679177951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:confidence:Block' :: Maybe Double
+</span><a href="#local-6989586621679177961"><span class="hs-identifier hs-var hs-var">confidence</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679177961"><span class="hs-identifier hs-var">confidence</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177960"><span class="annot"><span class="annottext">s :: Block
+</span><a href="#local-6989586621679177960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177959"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679177959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Block
+</span><a href="#local-6989586621679177960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:confidence:Block' :: Maybe Double
 </span><a href="Network.AWS.Textract.Types.Block.html#%24sel%3Aconfidence%3ABlock%27"><span class="hs-identifier hs-var">confidence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679177950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block"><span class="hs-identifier hs-type">Block</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block"><span class="hs-identifier hs-type">Block</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-352"></span><span>
 </span><span id="line-353"></span><span class="hs-comment">-- | A list of child blocks of the current block. For example, a LINE object</span><span>
 </span><span id="line-354"></span><span class="hs-comment">-- has child blocks for each WORD block that\'s part of the line of text.</span><span>
@@ -632,16 +632,16 @@ $sel:confidence:Block' :: Block -&gt; Maybe Double
 -&gt; (Block -&gt; Maybe [Relationship] -&gt; Block)
 -&gt; Lens Block Block (Maybe [Relationship]) (Maybe [Relationship])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177948"><span class="annot"><span class="annottext">Maybe [Relationship]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177957"><span class="annot"><span class="annottext">Maybe [Relationship]
 relationships :: Maybe [Relationship]
 $sel:relationships:Block' :: Block -&gt; Maybe [Relationship]
-</span><a href="#local-6989586621679177948"><span class="hs-identifier hs-var hs-var">relationships</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Relationship]
-</span><a href="#local-6989586621679177948"><span class="hs-identifier hs-var">relationships</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177947"><span class="annot"><span class="annottext">s :: Block
-</span><a href="#local-6989586621679177947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177946"><span class="annot"><span class="annottext">Maybe [Relationship]
-</span><a href="#local-6989586621679177946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Block
-</span><a href="#local-6989586621679177947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:relationships:Block' :: Maybe [Relationship]
+</span><a href="#local-6989586621679177957"><span class="hs-identifier hs-var hs-var">relationships</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Relationship]
+</span><a href="#local-6989586621679177957"><span class="hs-identifier hs-var">relationships</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177956"><span class="annot"><span class="annottext">s :: Block
+</span><a href="#local-6989586621679177956"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177955"><span class="annot"><span class="annottext">Maybe [Relationship]
+</span><a href="#local-6989586621679177955"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Block
+</span><a href="#local-6989586621679177956"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:relationships:Block' :: Maybe [Relationship]
 </span><a href="Network.AWS.Textract.Types.Block.html#%24sel%3Arelationships%3ABlock%27"><span class="hs-identifier hs-var">relationships</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Relationship]
-</span><a href="#local-6989586621679177946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block"><span class="hs-identifier hs-type">Block</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Relationship] -&gt; f (Maybe [Relationship]))
+</span><a href="#local-6989586621679177955"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block"><span class="hs-identifier hs-type">Block</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Relationship] -&gt; f (Maybe [Relationship]))
  -&gt; Block -&gt; f Block)
 -&gt; ((Maybe [Relationship] -&gt; f (Maybe [Relationship]))
     -&gt; Maybe [Relationship] -&gt; f (Maybe [Relationship]))
@@ -671,16 +671,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (Block -&gt; Maybe Geometry -&gt; Block)
 -&gt; Lens Block Block (Maybe Geometry) (Maybe Geometry)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177944"><span class="annot"><span class="annottext">Maybe Geometry
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177953"><span class="annot"><span class="annottext">Maybe Geometry
 geometry :: Maybe Geometry
 $sel:geometry:Block' :: Block -&gt; Maybe Geometry
-</span><a href="#local-6989586621679177944"><span class="hs-identifier hs-var hs-var">geometry</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Geometry
-</span><a href="#local-6989586621679177944"><span class="hs-identifier hs-var">geometry</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177943"><span class="annot"><span class="annottext">s :: Block
-</span><a href="#local-6989586621679177943"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177942"><span class="annot"><span class="annottext">Maybe Geometry
-</span><a href="#local-6989586621679177942"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Block
-</span><a href="#local-6989586621679177943"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:geometry:Block' :: Maybe Geometry
+</span><a href="#local-6989586621679177953"><span class="hs-identifier hs-var hs-var">geometry</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Geometry
+</span><a href="#local-6989586621679177953"><span class="hs-identifier hs-var">geometry</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177952"><span class="annot"><span class="annottext">s :: Block
+</span><a href="#local-6989586621679177952"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177951"><span class="annot"><span class="annottext">Maybe Geometry
+</span><a href="#local-6989586621679177951"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Block
+</span><a href="#local-6989586621679177952"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:geometry:Block' :: Maybe Geometry
 </span><a href="Network.AWS.Textract.Types.Block.html#%24sel%3Ageometry%3ABlock%27"><span class="hs-identifier hs-var">geometry</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Geometry
-</span><a href="#local-6989586621679177942"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block"><span class="hs-identifier hs-type">Block</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177951"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block"><span class="hs-identifier hs-type">Block</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-370"></span><span>
 </span><span id="line-371"></span><span class="hs-comment">-- | The kind of text that Amazon Textract has detected. Can check for</span><span>
 </span><span id="line-372"></span><span class="hs-comment">-- handwritten text and printed text.</span><span>
@@ -690,16 +690,16 @@ $sel:geometry:Block' :: Block -&gt; Maybe Geometry
 -&gt; (Block -&gt; Maybe TextType -&gt; Block)
 -&gt; Lens Block Block (Maybe TextType) (Maybe TextType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177940"><span class="annot"><span class="annottext">Maybe TextType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177949"><span class="annot"><span class="annottext">Maybe TextType
 textType :: Maybe TextType
 $sel:textType:Block' :: Block -&gt; Maybe TextType
-</span><a href="#local-6989586621679177940"><span class="hs-identifier hs-var hs-var">textType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TextType
-</span><a href="#local-6989586621679177940"><span class="hs-identifier hs-var">textType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177939"><span class="annot"><span class="annottext">s :: Block
-</span><a href="#local-6989586621679177939"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177938"><span class="annot"><span class="annottext">Maybe TextType
-</span><a href="#local-6989586621679177938"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Block
-</span><a href="#local-6989586621679177939"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:textType:Block' :: Maybe TextType
+</span><a href="#local-6989586621679177949"><span class="hs-identifier hs-var hs-var">textType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TextType
+</span><a href="#local-6989586621679177949"><span class="hs-identifier hs-var">textType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177948"><span class="annot"><span class="annottext">s :: Block
+</span><a href="#local-6989586621679177948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177947"><span class="annot"><span class="annottext">Maybe TextType
+</span><a href="#local-6989586621679177947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Block
+</span><a href="#local-6989586621679177948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:textType:Block' :: Maybe TextType
 </span><a href="Network.AWS.Textract.Types.Block.html#%24sel%3AtextType%3ABlock%27"><span class="hs-identifier hs-var">textType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TextType
-</span><a href="#local-6989586621679177938"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block"><span class="hs-identifier hs-type">Block</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block"><span class="hs-identifier hs-type">Block</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-375"></span><span>
 </span><span id="line-376"></span><span class="hs-comment">-- | The identifier for the recognized text. The identifier is only unique</span><span>
 </span><span id="line-377"></span><span class="hs-comment">-- for a single operation.</span><span>
@@ -709,16 +709,16 @@ $sel:textType:Block' :: Block -&gt; Maybe TextType
 -&gt; (Block -&gt; Maybe Text -&gt; Block)
 -&gt; Lens Block Block (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177936"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177945"><span class="annot"><span class="annottext">Maybe Text
 id :: Maybe Text
 $sel:id:Block' :: Block -&gt; Maybe Text
-</span><a href="#local-6989586621679177936"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679177936"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177935"><span class="annot"><span class="annottext">s :: Block
-</span><a href="#local-6989586621679177935"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177934"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679177934"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Block
-</span><a href="#local-6989586621679177935"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Block' :: Maybe Text
+</span><a href="#local-6989586621679177945"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679177945"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177944"><span class="annot"><span class="annottext">s :: Block
+</span><a href="#local-6989586621679177944"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177943"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679177943"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Block
+</span><a href="#local-6989586621679177944"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Block' :: Maybe Text
 </span><a href="Network.AWS.Textract.Types.Block.html#%24sel%3Aid%3ABlock%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679177934"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block"><span class="hs-identifier hs-type">Block</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177943"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block"><span class="hs-identifier hs-type">Block</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-380"></span><span>
 </span><span id="line-381"></span><span class="hs-comment">-- | The type of text item that\'s recognized. In operations for text</span><span>
 </span><span id="line-382"></span><span class="hs-comment">-- detection, the following types are returned:</span><span>
@@ -766,27 +766,27 @@ $sel:id:Block' :: Block -&gt; Maybe Text
 -&gt; (Block -&gt; Maybe BlockType -&gt; Block)
 -&gt; Lens Block Block (Maybe BlockType) (Maybe BlockType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177932"><span class="annot"><span class="annottext">Maybe BlockType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177941"><span class="annot"><span class="annottext">Maybe BlockType
 blockType :: Maybe BlockType
 $sel:blockType:Block' :: Block -&gt; Maybe BlockType
-</span><a href="#local-6989586621679177932"><span class="hs-identifier hs-var hs-var">blockType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BlockType
-</span><a href="#local-6989586621679177932"><span class="hs-identifier hs-var">blockType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177931"><span class="annot"><span class="annottext">s :: Block
-</span><a href="#local-6989586621679177931"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177930"><span class="annot"><span class="annottext">Maybe BlockType
-</span><a href="#local-6989586621679177930"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Block
-</span><a href="#local-6989586621679177931"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blockType:Block' :: Maybe BlockType
+</span><a href="#local-6989586621679177941"><span class="hs-identifier hs-var hs-var">blockType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BlockType
+</span><a href="#local-6989586621679177941"><span class="hs-identifier hs-var">blockType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177940"><span class="annot"><span class="annottext">s :: Block
+</span><a href="#local-6989586621679177940"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block%27"><span class="hs-identifier hs-type">Block'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177939"><span class="annot"><span class="annottext">Maybe BlockType
+</span><a href="#local-6989586621679177939"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Block
+</span><a href="#local-6989586621679177940"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blockType:Block' :: Maybe BlockType
 </span><a href="Network.AWS.Textract.Types.Block.html#%24sel%3AblockType%3ABlock%27"><span class="hs-identifier hs-var">blockType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BlockType
-</span><a href="#local-6989586621679177930"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block"><span class="hs-identifier hs-type">Block</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177939"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block"><span class="hs-identifier hs-type">Block</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-423"></span><span>
-</span><span id="line-424"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177927"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block"><span class="hs-identifier hs-type">Block</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-425"></span><span>  </span><span id="local-6989586621679177925"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Block
+</span><span id="line-424"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177936"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block"><span class="hs-identifier hs-type">Block</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-425"></span><span>  </span><span id="local-6989586621679177934"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Block
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-426"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Block) -&gt; Value -&gt; Parser Block
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-427"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Block&quot;</span></span><span>
-</span><span id="line-428"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679177922"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679177922"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-428"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679177931"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679177931"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-429"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
 -&gt; Maybe Text
 -&gt; Maybe [EntityType]
@@ -836,7 +836,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Block)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679177922"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679177931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ColumnSpan&quot;</span></span><span class="hs-special">)</span><span>
@@ -872,7 +872,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Block)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679177922"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679177931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Text&quot;</span></span><span class="hs-special">)</span><span>
@@ -906,7 +906,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Block)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679177922"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [EntityType]))
+</span><a href="#local-6989586621679177931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [EntityType]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EntityTypes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [EntityType]))
@@ -943,7 +943,7 @@ forall a. Monoid a =&gt; a
       -&gt; Block)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679177922"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679177931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ColumnIndex&quot;</span></span><span class="hs-special">)</span><span>
@@ -973,7 +973,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Block)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679177922"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679177931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Page&quot;</span></span><span class="hs-special">)</span><span>
@@ -1001,7 +1001,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Block)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679177922"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679177931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RowSpan&quot;</span></span><span class="hs-special">)</span><span>
@@ -1027,7 +1027,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Block)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679177922"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SelectionStatus)
+</span><a href="#local-6989586621679177931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SelectionStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SelectionStatus&quot;</span></span><span class="hs-special">)</span><span>
@@ -1051,7 +1051,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Block)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679177922"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679177931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RowIndex&quot;</span></span><span class="hs-special">)</span><span>
@@ -1073,7 +1073,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Block)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679177922"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679177931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Confidence&quot;</span></span><span class="hs-special">)</span><span>
@@ -1090,7 +1090,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe TextType -&gt; Maybe Text -&gt; Maybe BlockType -&gt; Block)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679177922"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Relationship]))
+</span><a href="#local-6989586621679177931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Relationship]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Relationships&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Relationship]))
@@ -1107,7 +1107,7 @@ forall a. Monoid a =&gt; a
      (Maybe TextType -&gt; Maybe Text -&gt; Maybe BlockType -&gt; Block)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679177922"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Geometry)
+</span><a href="#local-6989586621679177931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Geometry)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Geometry&quot;</span></span><span class="hs-special">)</span><span>
@@ -1116,7 +1116,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe BlockType -&gt; Block)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679177922"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TextType)
+</span><a href="#local-6989586621679177931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TextType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TextType&quot;</span></span><span class="hs-special">)</span><span>
@@ -1124,7 +1124,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe BlockType -&gt; Block)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679177922"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679177931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
@@ -1132,13 +1132,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe BlockType) -&gt; Parser Block
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679177922"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BlockType)
+</span><a href="#local-6989586621679177931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BlockType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BlockType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-444"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-445"></span><span>
-</span><span id="line-446"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177915"><span id="local-6989586621679177917"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block"><span class="hs-identifier hs-type">Block</span></a></span></span></span><span>
+</span><span id="line-446"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177924"><span id="local-6989586621679177926"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block"><span class="hs-identifier hs-type">Block</span></a></span></span></span><span>
 </span><span id="line-447"></span><span>
-</span><span id="line-448"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177912"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block"><span class="hs-identifier hs-type">Block</span></a></span></span><span>
+</span><span id="line-448"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177921"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Block.html#Block"><span class="hs-identifier hs-type">Block</span></a></span></span><span>
 </span><span id="line-449"></span></pre></body></html>

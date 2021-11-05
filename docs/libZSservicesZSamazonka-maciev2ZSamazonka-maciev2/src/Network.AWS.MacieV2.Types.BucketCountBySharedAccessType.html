@@ -1,0 +1,344 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MacieV2.Types.BucketCountBySharedAccessType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MacieV2.Types.BucketCountBySharedAccessType</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Provides information about the number of S3 buckets that are or aren\'t</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- shared with other Amazon Web Services accounts.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newBucketCountBySharedAccessType' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679384338"><span id="local-6989586621679384339"></span></span><span class="hs-keyword">data</span><span> </span><span id="BucketCountBySharedAccessType"><span class="annot"><a href="Network.AWS.MacieV2.Types.BucketCountBySharedAccessType.html#BucketCountBySharedAccessType"><span class="hs-identifier hs-var">BucketCountBySharedAccessType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BucketCountBySharedAccessType%27"><span class="annot"><a href="Network.AWS.MacieV2.Types.BucketCountBySharedAccessType.html#BucketCountBySharedAccessType%27"><span class="hs-identifier hs-var">BucketCountBySharedAccessType'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The total number of buckets that aren\'t shared with other Amazon Web</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- Services accounts.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AnotShared%3ABucketCountBySharedAccessType%27"><span class="annot"><span class="annottext">BucketCountBySharedAccessType -&gt; Maybe Integer
+</span><a href="Network.AWS.MacieV2.Types.BucketCountBySharedAccessType.html#%24sel%3AnotShared%3ABucketCountBySharedAccessType%27"><span class="hs-identifier hs-var hs-var">notShared</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The total number of buckets that are shared with an Amazon Web Services</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- account that\'s part of the same Amazon Macie organization.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Ainternal%3ABucketCountBySharedAccessType%27"><span class="annot"><span class="annottext">BucketCountBySharedAccessType -&gt; Maybe Integer
+</span><a href="Network.AWS.MacieV2.Types.BucketCountBySharedAccessType.html#%24sel%3Ainternal%3ABucketCountBySharedAccessType%27"><span class="hs-identifier hs-var hs-var">internal</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The total number of buckets that are shared with an Amazon Web Services</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- account that isn\'t part of the same Amazon Macie organization.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aexternal%3ABucketCountBySharedAccessType%27"><span class="annot"><span class="annottext">BucketCountBySharedAccessType -&gt; Maybe Integer
+</span><a href="Network.AWS.MacieV2.Types.BucketCountBySharedAccessType.html#%24sel%3Aexternal%3ABucketCountBySharedAccessType%27"><span class="hs-identifier hs-var hs-var">external</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The total number of buckets that Amazon Macie wasn\'t able to evaluate</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- shared access settings for. Macie can\'t determine whether these buckets</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- are shared with other Amazon Web Services accounts.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Aunknown%3ABucketCountBySharedAccessType%27"><span class="annot"><span class="annottext">BucketCountBySharedAccessType -&gt; Maybe Integer
+</span><a href="Network.AWS.MacieV2.Types.BucketCountBySharedAccessType.html#%24sel%3Aunknown%3ABucketCountBySharedAccessType%27"><span class="hs-identifier hs-var hs-var">unknown</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679384329"><span id="local-6989586621679384331"><span class="annot"><span class="annottext">BucketCountBySharedAccessType
+-&gt; BucketCountBySharedAccessType -&gt; Bool
+(BucketCountBySharedAccessType
+ -&gt; BucketCountBySharedAccessType -&gt; Bool)
+-&gt; (BucketCountBySharedAccessType
+    -&gt; BucketCountBySharedAccessType -&gt; Bool)
+-&gt; Eq BucketCountBySharedAccessType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BucketCountBySharedAccessType
+-&gt; BucketCountBySharedAccessType -&gt; Bool
+$c/= :: BucketCountBySharedAccessType
+-&gt; BucketCountBySharedAccessType -&gt; Bool
+== :: BucketCountBySharedAccessType
+-&gt; BucketCountBySharedAccessType -&gt; Bool
+$c== :: BucketCountBySharedAccessType
+-&gt; BucketCountBySharedAccessType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384320"><span id="local-6989586621679384322"><span id="local-6989586621679384324"><span id="local-6989586621679384326"><span class="annot"><span class="annottext">ReadPrec [BucketCountBySharedAccessType]
+ReadPrec BucketCountBySharedAccessType
+Int -&gt; ReadS BucketCountBySharedAccessType
+ReadS [BucketCountBySharedAccessType]
+(Int -&gt; ReadS BucketCountBySharedAccessType)
+-&gt; ReadS [BucketCountBySharedAccessType]
+-&gt; ReadPrec BucketCountBySharedAccessType
+-&gt; ReadPrec [BucketCountBySharedAccessType]
+-&gt; Read BucketCountBySharedAccessType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BucketCountBySharedAccessType]
+$creadListPrec :: ReadPrec [BucketCountBySharedAccessType]
+readPrec :: ReadPrec BucketCountBySharedAccessType
+$creadPrec :: ReadPrec BucketCountBySharedAccessType
+readList :: ReadS [BucketCountBySharedAccessType]
+$creadList :: ReadS [BucketCountBySharedAccessType]
+readsPrec :: Int -&gt; ReadS BucketCountBySharedAccessType
+$creadsPrec :: Int -&gt; ReadS BucketCountBySharedAccessType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384313"><span id="local-6989586621679384315"><span id="local-6989586621679384317"><span class="annot"><span class="annottext">Int -&gt; BucketCountBySharedAccessType -&gt; ShowS
+[BucketCountBySharedAccessType] -&gt; ShowS
+BucketCountBySharedAccessType -&gt; String
+(Int -&gt; BucketCountBySharedAccessType -&gt; ShowS)
+-&gt; (BucketCountBySharedAccessType -&gt; String)
+-&gt; ([BucketCountBySharedAccessType] -&gt; ShowS)
+-&gt; Show BucketCountBySharedAccessType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BucketCountBySharedAccessType] -&gt; ShowS
+$cshowList :: [BucketCountBySharedAccessType] -&gt; ShowS
+show :: BucketCountBySharedAccessType -&gt; String
+$cshow :: BucketCountBySharedAccessType -&gt; String
+showsPrec :: Int -&gt; BucketCountBySharedAccessType -&gt; ShowS
+$cshowsPrec :: Int -&gt; BucketCountBySharedAccessType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ BucketCountBySharedAccessType
+ -&gt; Rep BucketCountBySharedAccessType x)
+-&gt; (forall x.
+    Rep BucketCountBySharedAccessType x
+    -&gt; BucketCountBySharedAccessType)
+-&gt; Generic BucketCountBySharedAccessType
+forall x.
+Rep BucketCountBySharedAccessType x
+-&gt; BucketCountBySharedAccessType
+forall x.
+BucketCountBySharedAccessType
+-&gt; Rep BucketCountBySharedAccessType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep BucketCountBySharedAccessType x
+-&gt; BucketCountBySharedAccessType
+$cfrom :: forall x.
+BucketCountBySharedAccessType
+-&gt; Rep BucketCountBySharedAccessType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Create a value of 'BucketCountBySharedAccessType' with all optional fields omitted.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'notShared', 'bucketCountBySharedAccessType_notShared' - The total number of buckets that aren\'t shared with other Amazon Web</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Services accounts.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'internal', 'bucketCountBySharedAccessType_internal' - The total number of buckets that are shared with an Amazon Web Services</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- account that\'s part of the same Amazon Macie organization.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'external', 'bucketCountBySharedAccessType_external' - The total number of buckets that are shared with an Amazon Web Services</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- account that isn\'t part of the same Amazon Macie organization.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'unknown', 'bucketCountBySharedAccessType_unknown' - The total number of buckets that Amazon Macie wasn\'t able to evaluate</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- shared access settings for. Macie can\'t determine whether these buckets</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- are shared with other Amazon Web Services accounts.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.MacieV2.Types.BucketCountBySharedAccessType.html#newBucketCountBySharedAccessType"><span class="hs-identifier hs-type">newBucketCountBySharedAccessType</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.MacieV2.Types.BucketCountBySharedAccessType.html#BucketCountBySharedAccessType"><span class="hs-identifier hs-type">BucketCountBySharedAccessType</span></a></span><span>
+</span><span id="line-69"></span><span id="newBucketCountBySharedAccessType"><span class="annot"><span class="annottext">newBucketCountBySharedAccessType :: BucketCountBySharedAccessType
+</span><a href="Network.AWS.MacieV2.Types.BucketCountBySharedAccessType.html#newBucketCountBySharedAccessType"><span class="hs-identifier hs-var hs-var">newBucketCountBySharedAccessType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">BucketCountBySharedAccessType' :: Maybe Integer
+-&gt; Maybe Integer
+-&gt; Maybe Integer
+-&gt; Maybe Integer
+-&gt; BucketCountBySharedAccessType
+</span><a href="Network.AWS.MacieV2.Types.BucketCountBySharedAccessType.html#BucketCountBySharedAccessType%27"><span class="hs-identifier hs-type">BucketCountBySharedAccessType'</span></a></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:notShared:BucketCountBySharedAccessType' :: Maybe Integer
+</span><a href="Network.AWS.MacieV2.Types.BucketCountBySharedAccessType.html#%24sel%3AnotShared%3ABucketCountBySharedAccessType%27"><span class="hs-identifier hs-var">notShared</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:internal:BucketCountBySharedAccessType' :: Maybe Integer
+</span><a href="Network.AWS.MacieV2.Types.BucketCountBySharedAccessType.html#%24sel%3Ainternal%3ABucketCountBySharedAccessType%27"><span class="hs-identifier hs-var">internal</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:external:BucketCountBySharedAccessType' :: Maybe Integer
+</span><a href="Network.AWS.MacieV2.Types.BucketCountBySharedAccessType.html#%24sel%3Aexternal%3ABucketCountBySharedAccessType%27"><span class="hs-identifier hs-var">external</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:unknown:BucketCountBySharedAccessType' :: Maybe Integer
+</span><a href="Network.AWS.MacieV2.Types.BucketCountBySharedAccessType.html#%24sel%3Aunknown%3ABucketCountBySharedAccessType%27"><span class="hs-identifier hs-var">unknown</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The total number of buckets that aren\'t shared with other Amazon Web</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Services accounts.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.MacieV2.Types.BucketCountBySharedAccessType.html#bucketCountBySharedAccessType_notShared"><span class="hs-identifier hs-type">bucketCountBySharedAccessType_notShared</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.BucketCountBySharedAccessType.html#BucketCountBySharedAccessType"><span class="hs-identifier hs-type">BucketCountBySharedAccessType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="bucketCountBySharedAccessType_notShared"><span class="annot"><span class="annottext">bucketCountBySharedAccessType_notShared :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; BucketCountBySharedAccessType -&gt; f BucketCountBySharedAccessType
+</span><a href="Network.AWS.MacieV2.Types.BucketCountBySharedAccessType.html#bucketCountBySharedAccessType_notShared"><span class="hs-identifier hs-var hs-var">bucketCountBySharedAccessType_notShared</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BucketCountBySharedAccessType -&gt; Maybe Integer)
+-&gt; (BucketCountBySharedAccessType
+    -&gt; Maybe Integer -&gt; BucketCountBySharedAccessType)
+-&gt; Lens
+     BucketCountBySharedAccessType
+     BucketCountBySharedAccessType
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.Types.BucketCountBySharedAccessType.html#BucketCountBySharedAccessType%27"><span class="hs-identifier hs-type">BucketCountBySharedAccessType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384304"><span class="annot"><span class="annottext">Maybe Integer
+notShared :: Maybe Integer
+$sel:notShared:BucketCountBySharedAccessType' :: BucketCountBySharedAccessType -&gt; Maybe Integer
+</span><a href="#local-6989586621679384304"><span class="hs-identifier hs-var hs-var">notShared</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679384304"><span class="hs-identifier hs-var">notShared</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384303"><span class="annot"><span class="annottext">s :: BucketCountBySharedAccessType
+</span><a href="#local-6989586621679384303"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.Types.BucketCountBySharedAccessType.html#BucketCountBySharedAccessType%27"><span class="hs-identifier hs-type">BucketCountBySharedAccessType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384302"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679384302"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketCountBySharedAccessType
+</span><a href="#local-6989586621679384303"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notShared:BucketCountBySharedAccessType' :: Maybe Integer
+</span><a href="Network.AWS.MacieV2.Types.BucketCountBySharedAccessType.html#%24sel%3AnotShared%3ABucketCountBySharedAccessType%27"><span class="hs-identifier hs-var">notShared</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679384302"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.BucketCountBySharedAccessType.html#BucketCountBySharedAccessType"><span class="hs-identifier hs-type">BucketCountBySharedAccessType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | The total number of buckets that are shared with an Amazon Web Services</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- account that\'s part of the same Amazon Macie organization.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.MacieV2.Types.BucketCountBySharedAccessType.html#bucketCountBySharedAccessType_internal"><span class="hs-identifier hs-type">bucketCountBySharedAccessType_internal</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.BucketCountBySharedAccessType.html#BucketCountBySharedAccessType"><span class="hs-identifier hs-type">BucketCountBySharedAccessType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="bucketCountBySharedAccessType_internal"><span class="annot"><span class="annottext">bucketCountBySharedAccessType_internal :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; BucketCountBySharedAccessType -&gt; f BucketCountBySharedAccessType
+</span><a href="Network.AWS.MacieV2.Types.BucketCountBySharedAccessType.html#bucketCountBySharedAccessType_internal"><span class="hs-identifier hs-var hs-var">bucketCountBySharedAccessType_internal</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BucketCountBySharedAccessType -&gt; Maybe Integer)
+-&gt; (BucketCountBySharedAccessType
+    -&gt; Maybe Integer -&gt; BucketCountBySharedAccessType)
+-&gt; Lens
+     BucketCountBySharedAccessType
+     BucketCountBySharedAccessType
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.Types.BucketCountBySharedAccessType.html#BucketCountBySharedAccessType%27"><span class="hs-identifier hs-type">BucketCountBySharedAccessType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384300"><span class="annot"><span class="annottext">Maybe Integer
+internal :: Maybe Integer
+$sel:internal:BucketCountBySharedAccessType' :: BucketCountBySharedAccessType -&gt; Maybe Integer
+</span><a href="#local-6989586621679384300"><span class="hs-identifier hs-var hs-var">internal</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679384300"><span class="hs-identifier hs-var">internal</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384299"><span class="annot"><span class="annottext">s :: BucketCountBySharedAccessType
+</span><a href="#local-6989586621679384299"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.Types.BucketCountBySharedAccessType.html#BucketCountBySharedAccessType%27"><span class="hs-identifier hs-type">BucketCountBySharedAccessType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384298"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679384298"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketCountBySharedAccessType
+</span><a href="#local-6989586621679384299"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:internal:BucketCountBySharedAccessType' :: Maybe Integer
+</span><a href="Network.AWS.MacieV2.Types.BucketCountBySharedAccessType.html#%24sel%3Ainternal%3ABucketCountBySharedAccessType%27"><span class="hs-identifier hs-var">internal</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679384298"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.BucketCountBySharedAccessType.html#BucketCountBySharedAccessType"><span class="hs-identifier hs-type">BucketCountBySharedAccessType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The total number of buckets that are shared with an Amazon Web Services</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- account that isn\'t part of the same Amazon Macie organization.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.MacieV2.Types.BucketCountBySharedAccessType.html#bucketCountBySharedAccessType_external"><span class="hs-identifier hs-type">bucketCountBySharedAccessType_external</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.BucketCountBySharedAccessType.html#BucketCountBySharedAccessType"><span class="hs-identifier hs-type">BucketCountBySharedAccessType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="bucketCountBySharedAccessType_external"><span class="annot"><span class="annottext">bucketCountBySharedAccessType_external :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; BucketCountBySharedAccessType -&gt; f BucketCountBySharedAccessType
+</span><a href="Network.AWS.MacieV2.Types.BucketCountBySharedAccessType.html#bucketCountBySharedAccessType_external"><span class="hs-identifier hs-var hs-var">bucketCountBySharedAccessType_external</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BucketCountBySharedAccessType -&gt; Maybe Integer)
+-&gt; (BucketCountBySharedAccessType
+    -&gt; Maybe Integer -&gt; BucketCountBySharedAccessType)
+-&gt; Lens
+     BucketCountBySharedAccessType
+     BucketCountBySharedAccessType
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.Types.BucketCountBySharedAccessType.html#BucketCountBySharedAccessType%27"><span class="hs-identifier hs-type">BucketCountBySharedAccessType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384296"><span class="annot"><span class="annottext">Maybe Integer
+external :: Maybe Integer
+$sel:external:BucketCountBySharedAccessType' :: BucketCountBySharedAccessType -&gt; Maybe Integer
+</span><a href="#local-6989586621679384296"><span class="hs-identifier hs-var hs-var">external</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679384296"><span class="hs-identifier hs-var">external</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384295"><span class="annot"><span class="annottext">s :: BucketCountBySharedAccessType
+</span><a href="#local-6989586621679384295"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.Types.BucketCountBySharedAccessType.html#BucketCountBySharedAccessType%27"><span class="hs-identifier hs-type">BucketCountBySharedAccessType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384294"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679384294"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketCountBySharedAccessType
+</span><a href="#local-6989586621679384295"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:external:BucketCountBySharedAccessType' :: Maybe Integer
+</span><a href="Network.AWS.MacieV2.Types.BucketCountBySharedAccessType.html#%24sel%3Aexternal%3ABucketCountBySharedAccessType%27"><span class="hs-identifier hs-var">external</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679384294"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.BucketCountBySharedAccessType.html#BucketCountBySharedAccessType"><span class="hs-identifier hs-type">BucketCountBySharedAccessType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The total number of buckets that Amazon Macie wasn\'t able to evaluate</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- shared access settings for. Macie can\'t determine whether these buckets</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- are shared with other Amazon Web Services accounts.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.MacieV2.Types.BucketCountBySharedAccessType.html#bucketCountBySharedAccessType_unknown"><span class="hs-identifier hs-type">bucketCountBySharedAccessType_unknown</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.BucketCountBySharedAccessType.html#BucketCountBySharedAccessType"><span class="hs-identifier hs-type">BucketCountBySharedAccessType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="bucketCountBySharedAccessType_unknown"><span class="annot"><span class="annottext">bucketCountBySharedAccessType_unknown :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; BucketCountBySharedAccessType -&gt; f BucketCountBySharedAccessType
+</span><a href="Network.AWS.MacieV2.Types.BucketCountBySharedAccessType.html#bucketCountBySharedAccessType_unknown"><span class="hs-identifier hs-var hs-var">bucketCountBySharedAccessType_unknown</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BucketCountBySharedAccessType -&gt; Maybe Integer)
+-&gt; (BucketCountBySharedAccessType
+    -&gt; Maybe Integer -&gt; BucketCountBySharedAccessType)
+-&gt; Lens
+     BucketCountBySharedAccessType
+     BucketCountBySharedAccessType
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.Types.BucketCountBySharedAccessType.html#BucketCountBySharedAccessType%27"><span class="hs-identifier hs-type">BucketCountBySharedAccessType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384292"><span class="annot"><span class="annottext">Maybe Integer
+unknown :: Maybe Integer
+$sel:unknown:BucketCountBySharedAccessType' :: BucketCountBySharedAccessType -&gt; Maybe Integer
+</span><a href="#local-6989586621679384292"><span class="hs-identifier hs-var hs-var">unknown</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679384292"><span class="hs-identifier hs-var">unknown</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384291"><span class="annot"><span class="annottext">s :: BucketCountBySharedAccessType
+</span><a href="#local-6989586621679384291"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.Types.BucketCountBySharedAccessType.html#BucketCountBySharedAccessType%27"><span class="hs-identifier hs-type">BucketCountBySharedAccessType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384290"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679384290"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketCountBySharedAccessType
+</span><a href="#local-6989586621679384291"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unknown:BucketCountBySharedAccessType' :: Maybe Integer
+</span><a href="Network.AWS.MacieV2.Types.BucketCountBySharedAccessType.html#%24sel%3Aunknown%3ABucketCountBySharedAccessType%27"><span class="hs-identifier hs-var">unknown</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679384290"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.BucketCountBySharedAccessType.html#BucketCountBySharedAccessType"><span class="hs-identifier hs-type">BucketCountBySharedAccessType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384287"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.BucketCountBySharedAccessType.html#BucketCountBySharedAccessType"><span class="hs-identifier hs-type">BucketCountBySharedAccessType</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679384285"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BucketCountBySharedAccessType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser BucketCountBySharedAccessType)
+-&gt; Value
+-&gt; Parser BucketCountBySharedAccessType
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;BucketCountBySharedAccessType&quot;</span></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679384282"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679384282"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Maybe Integer
+-&gt; Maybe Integer
+-&gt; Maybe Integer
+-&gt; Maybe Integer
+-&gt; BucketCountBySharedAccessType
+</span><a href="Network.AWS.MacieV2.Types.BucketCountBySharedAccessType.html#BucketCountBySharedAccessType%27"><span class="hs-identifier hs-var">BucketCountBySharedAccessType'</span></a></span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Integer
+ -&gt; Maybe Integer
+ -&gt; Maybe Integer
+ -&gt; Maybe Integer
+ -&gt; BucketCountBySharedAccessType)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser
+     (Maybe Integer
+      -&gt; Maybe Integer -&gt; Maybe Integer -&gt; BucketCountBySharedAccessType)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679384282"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;notShared&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Integer
+   -&gt; Maybe Integer -&gt; Maybe Integer -&gt; BucketCountBySharedAccessType)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser
+     (Maybe Integer -&gt; Maybe Integer -&gt; BucketCountBySharedAccessType)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679384282"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;internal&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Integer -&gt; Maybe Integer -&gt; BucketCountBySharedAccessType)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser (Maybe Integer -&gt; BucketCountBySharedAccessType)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679384282"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;external&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Integer -&gt; BucketCountBySharedAccessType)
+-&gt; Parser (Maybe Integer) -&gt; Parser BucketCountBySharedAccessType
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679384282"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;unknown&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679384276"><span id="local-6989586621679384278"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><a href="Network.AWS.MacieV2.Types.BucketCountBySharedAccessType.html#BucketCountBySharedAccessType"><span class="hs-identifier hs-type">BucketCountBySharedAccessType</span></a></span></span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384273"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.BucketCountBySharedAccessType.html#BucketCountBySharedAccessType"><span class="hs-identifier hs-type">BucketCountBySharedAccessType</span></a></span></span><span>
+</span><span id="line-116"></span></pre></body></html>

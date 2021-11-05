@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Specification for a cluster (job flow) step.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newStepConfig' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679377139"><span id="local-6989586621679377140"></span></span><span class="hs-keyword">data</span><span> </span><span id="StepConfig"><span class="annot"><a href="Network.AWS.EMR.Types.StepConfig.html#StepConfig"><span class="hs-identifier hs-var">StepConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StepConfig%27"><span class="annot"><a href="Network.AWS.EMR.Types.StepConfig.html#StepConfig%27"><span class="hs-identifier hs-var">StepConfig'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679377148"><span id="local-6989586621679377149"></span></span><span class="hs-keyword">data</span><span> </span><span id="StepConfig"><span class="annot"><a href="Network.AWS.EMR.Types.StepConfig.html#StepConfig"><span class="hs-identifier hs-var">StepConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StepConfig%27"><span class="annot"><a href="Network.AWS.EMR.Types.StepConfig.html#StepConfig%27"><span class="hs-identifier hs-var">StepConfig'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The action to take when the step fails. Use one of the following values:</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- -   @TERMINATE_CLUSTER@ - Shuts down the cluster.</span><span>
@@ -63,7 +63,7 @@
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AhadoopJarStep%3AStepConfig%27"><span class="annot"><span class="annottext">StepConfig -&gt; HadoopJarStepConfig
 </span><a href="Network.AWS.EMR.Types.StepConfig.html#%24sel%3AhadoopJarStep%3AStepConfig%27"><span class="hs-identifier hs-var hs-var">hadoopJarStep</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#HadoopJarStepConfig"><span class="hs-identifier hs-type">HadoopJarStepConfig</span></a></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679377131"><span id="local-6989586621679377133"><span class="annot"><span class="annottext">StepConfig -&gt; StepConfig -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679377140"><span id="local-6989586621679377142"><span class="annot"><span class="annottext">StepConfig -&gt; StepConfig -&gt; Bool
 (StepConfig -&gt; StepConfig -&gt; Bool)
 -&gt; (StepConfig -&gt; StepConfig -&gt; Bool) -&gt; Eq StepConfig
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StepConfig -&gt; StepConfig -&gt; Bool
 == :: StepConfig -&gt; StepConfig -&gt; Bool
 $c== :: StepConfig -&gt; StepConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377122"><span id="local-6989586621679377124"><span id="local-6989586621679377126"><span id="local-6989586621679377128"><span class="annot"><span class="annottext">ReadPrec [StepConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377131"><span id="local-6989586621679377133"><span id="local-6989586621679377135"><span id="local-6989586621679377137"><span class="annot"><span class="annottext">ReadPrec [StepConfig]
 ReadPrec StepConfig
 Int -&gt; ReadS StepConfig
 ReadS [StepConfig]
@@ -91,7 +91,7 @@ readList :: ReadS [StepConfig]
 $creadList :: ReadS [StepConfig]
 readsPrec :: Int -&gt; ReadS StepConfig
 $creadsPrec :: Int -&gt; ReadS StepConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377115"><span id="local-6989586621679377117"><span id="local-6989586621679377119"><span class="annot"><span class="annottext">Int -&gt; StepConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377124"><span id="local-6989586621679377126"><span id="local-6989586621679377128"><span class="annot"><span class="annottext">Int -&gt; StepConfig -&gt; ShowS
 [StepConfig] -&gt; ShowS
 StepConfig -&gt; String
 (Int -&gt; StepConfig -&gt; ShowS)
@@ -160,9 +160,9 @@ $cfrom :: forall x. StepConfig -&gt; Rep StepConfig x
 </span><span id="line-106"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#HadoopJarStepConfig"><span class="hs-identifier hs-type">HadoopJarStepConfig</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-107"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.Types.StepConfig.html#StepConfig"><span class="hs-identifier hs-type">StepConfig</span></a></span><span>
 </span><span id="line-108"></span><span id="newStepConfig"><span class="annot"><span class="annottext">newStepConfig :: Text -&gt; HadoopJarStepConfig -&gt; StepConfig
-</span><a href="Network.AWS.EMR.Types.StepConfig.html#newStepConfig"><span class="hs-identifier hs-var hs-var">newStepConfig</span></a></span></span><span> </span><span id="local-6989586621679377109"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679377109"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679377108"><span class="annot"><span class="annottext">HadoopJarStepConfig
-</span><a href="#local-6989586621679377108"><span class="hs-identifier hs-var">pHadoopJarStep_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EMR.Types.StepConfig.html#newStepConfig"><span class="hs-identifier hs-var hs-var">newStepConfig</span></a></span></span><span> </span><span id="local-6989586621679377118"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679377118"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679377117"><span class="annot"><span class="annottext">HadoopJarStepConfig
+</span><a href="#local-6989586621679377117"><span class="hs-identifier hs-var">pHadoopJarStep_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>  </span><span class="annot"><span class="annottext">StepConfig' :: Maybe ActionOnFailure -&gt; Text -&gt; HadoopJarStepConfig -&gt; StepConfig
 </span><a href="Network.AWS.EMR.Types.StepConfig.html#StepConfig%27"><span class="hs-identifier hs-type">StepConfig'</span></a></span><span>
 </span><span id="line-110"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:actionOnFailure:StepConfig' :: Maybe ActionOnFailure
@@ -171,10 +171,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:StepConfig' :: Text
 </span><a href="Network.AWS.EMR.Types.StepConfig.html#%24sel%3Aname%3AStepConfig%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679377109"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679377118"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:hadoopJarStep:StepConfig' :: HadoopJarStepConfig
 </span><a href="Network.AWS.EMR.Types.StepConfig.html#%24sel%3AhadoopJarStep%3AStepConfig%27"><span class="hs-identifier hs-var">hadoopJarStep</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HadoopJarStepConfig
-</span><a href="#local-6989586621679377108"><span class="hs-identifier hs-var">pHadoopJarStep_</span></a></span><span>
+</span><a href="#local-6989586621679377117"><span class="hs-identifier hs-var">pHadoopJarStep_</span></a></span><span>
 </span><span id="line-113"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | The action to take when the step fails. Use one of the following values:</span><span>
@@ -213,16 +213,16 @@ forall a. Maybe a
      (Maybe ActionOnFailure)
      (Maybe ActionOnFailure)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.StepConfig.html#StepConfig%27"><span class="hs-identifier hs-type">StepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377104"><span class="annot"><span class="annottext">Maybe ActionOnFailure
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.StepConfig.html#StepConfig%27"><span class="hs-identifier hs-type">StepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377113"><span class="annot"><span class="annottext">Maybe ActionOnFailure
 actionOnFailure :: Maybe ActionOnFailure
 $sel:actionOnFailure:StepConfig' :: StepConfig -&gt; Maybe ActionOnFailure
-</span><a href="#local-6989586621679377104"><span class="hs-identifier hs-var hs-var">actionOnFailure</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ActionOnFailure
-</span><a href="#local-6989586621679377104"><span class="hs-identifier hs-var">actionOnFailure</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377103"><span class="annot"><span class="annottext">s :: StepConfig
-</span><a href="#local-6989586621679377103"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.StepConfig.html#StepConfig%27"><span class="hs-identifier hs-type">StepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377102"><span class="annot"><span class="annottext">Maybe ActionOnFailure
-</span><a href="#local-6989586621679377102"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StepConfig
-</span><a href="#local-6989586621679377103"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionOnFailure:StepConfig' :: Maybe ActionOnFailure
+</span><a href="#local-6989586621679377113"><span class="hs-identifier hs-var hs-var">actionOnFailure</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ActionOnFailure
+</span><a href="#local-6989586621679377113"><span class="hs-identifier hs-var">actionOnFailure</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377112"><span class="annot"><span class="annottext">s :: StepConfig
+</span><a href="#local-6989586621679377112"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.StepConfig.html#StepConfig%27"><span class="hs-identifier hs-type">StepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377111"><span class="annot"><span class="annottext">Maybe ActionOnFailure
+</span><a href="#local-6989586621679377111"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StepConfig
+</span><a href="#local-6989586621679377112"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionOnFailure:StepConfig' :: Maybe ActionOnFailure
 </span><a href="Network.AWS.EMR.Types.StepConfig.html#%24sel%3AactionOnFailure%3AStepConfig%27"><span class="hs-identifier hs-var">actionOnFailure</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActionOnFailure
-</span><a href="#local-6989586621679377102"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepConfig.html#StepConfig"><span class="hs-identifier hs-type">StepConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679377111"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepConfig.html#StepConfig"><span class="hs-identifier hs-type">StepConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | The name of the step.</span><span>
 </span><span id="line-144"></span><span class="annot"><a href="Network.AWS.EMR.Types.StepConfig.html#stepConfig_name"><span class="hs-identifier hs-type">stepConfig_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepConfig.html#StepConfig"><span class="hs-identifier hs-type">StepConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -231,16 +231,16 @@ $sel:actionOnFailure:StepConfig' :: StepConfig -&gt; Maybe ActionOnFailure
 -&gt; (StepConfig -&gt; Text -&gt; StepConfig)
 -&gt; Lens StepConfig StepConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.StepConfig.html#StepConfig%27"><span class="hs-identifier hs-type">StepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377100"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.StepConfig.html#StepConfig%27"><span class="hs-identifier hs-type">StepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377109"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:StepConfig' :: StepConfig -&gt; Text
-</span><a href="#local-6989586621679377100"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679377100"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377099"><span class="annot"><span class="annottext">s :: StepConfig
-</span><a href="#local-6989586621679377099"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.StepConfig.html#StepConfig%27"><span class="hs-identifier hs-type">StepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377098"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679377098"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StepConfig
-</span><a href="#local-6989586621679377099"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:StepConfig' :: Text
+</span><a href="#local-6989586621679377109"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679377109"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377108"><span class="annot"><span class="annottext">s :: StepConfig
+</span><a href="#local-6989586621679377108"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.StepConfig.html#StepConfig%27"><span class="hs-identifier hs-type">StepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377107"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679377107"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StepConfig
+</span><a href="#local-6989586621679377108"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:StepConfig' :: Text
 </span><a href="Network.AWS.EMR.Types.StepConfig.html#%24sel%3Aname%3AStepConfig%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679377098"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepConfig.html#StepConfig"><span class="hs-identifier hs-type">StepConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679377107"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepConfig.html#StepConfig"><span class="hs-identifier hs-type">StepConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | The JAR file used for the step.</span><span>
 </span><span id="line-148"></span><span class="annot"><a href="Network.AWS.EMR.Types.StepConfig.html#stepConfig_hadoopJarStep"><span class="hs-identifier hs-type">stepConfig_hadoopJarStep</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepConfig.html#StepConfig"><span class="hs-identifier hs-type">StepConfig</span></a></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopJarStepConfig.html#HadoopJarStepConfig"><span class="hs-identifier hs-type">HadoopJarStepConfig</span></a></span><span>
@@ -251,24 +251,24 @@ $sel:name:StepConfig' :: StepConfig -&gt; Text
 -&gt; Lens
      StepConfig StepConfig HadoopJarStepConfig HadoopJarStepConfig
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.StepConfig.html#StepConfig%27"><span class="hs-identifier hs-type">StepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377096"><span class="annot"><span class="annottext">HadoopJarStepConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.StepConfig.html#StepConfig%27"><span class="hs-identifier hs-type">StepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377105"><span class="annot"><span class="annottext">HadoopJarStepConfig
 hadoopJarStep :: HadoopJarStepConfig
 $sel:hadoopJarStep:StepConfig' :: StepConfig -&gt; HadoopJarStepConfig
-</span><a href="#local-6989586621679377096"><span class="hs-identifier hs-var hs-var">hadoopJarStep</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HadoopJarStepConfig
-</span><a href="#local-6989586621679377096"><span class="hs-identifier hs-var">hadoopJarStep</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377095"><span class="annot"><span class="annottext">s :: StepConfig
-</span><a href="#local-6989586621679377095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.StepConfig.html#StepConfig%27"><span class="hs-identifier hs-type">StepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377094"><span class="annot"><span class="annottext">HadoopJarStepConfig
-</span><a href="#local-6989586621679377094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StepConfig
-</span><a href="#local-6989586621679377095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hadoopJarStep:StepConfig' :: HadoopJarStepConfig
+</span><a href="#local-6989586621679377105"><span class="hs-identifier hs-var hs-var">hadoopJarStep</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HadoopJarStepConfig
+</span><a href="#local-6989586621679377105"><span class="hs-identifier hs-var">hadoopJarStep</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377104"><span class="annot"><span class="annottext">s :: StepConfig
+</span><a href="#local-6989586621679377104"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.StepConfig.html#StepConfig%27"><span class="hs-identifier hs-type">StepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377103"><span class="annot"><span class="annottext">HadoopJarStepConfig
+</span><a href="#local-6989586621679377103"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StepConfig
+</span><a href="#local-6989586621679377104"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hadoopJarStep:StepConfig' :: HadoopJarStepConfig
 </span><a href="Network.AWS.EMR.Types.StepConfig.html#%24sel%3AhadoopJarStep%3AStepConfig%27"><span class="hs-identifier hs-var">hadoopJarStep</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HadoopJarStepConfig
-</span><a href="#local-6989586621679377094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepConfig.html#StepConfig"><span class="hs-identifier hs-type">StepConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679377103"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepConfig.html#StepConfig"><span class="hs-identifier hs-type">StepConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377090"><span id="local-6989586621679377092"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepConfig.html#StepConfig"><span class="hs-identifier hs-type">StepConfig</span></a></span></span></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377099"><span id="local-6989586621679377101"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepConfig.html#StepConfig"><span class="hs-identifier hs-type">StepConfig</span></a></span></span></span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377087"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepConfig.html#StepConfig"><span class="hs-identifier hs-type">StepConfig</span></a></span></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377096"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepConfig.html#StepConfig"><span class="hs-identifier hs-type">StepConfig</span></a></span></span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377079"><span id="local-6989586621679377081"><span id="local-6989586621679377083"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepConfig.html#StepConfig"><span class="hs-identifier hs-type">StepConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679377077"><span class="annot"><span class="annottext">toJSON :: StepConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepConfig.html#StepConfig%27"><span class="hs-identifier hs-type">StepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377073"><span id="local-6989586621679377074"><span id="local-6989586621679377075"><span class="annot"><span class="annottext">Maybe ActionOnFailure
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377088"><span id="local-6989586621679377090"><span id="local-6989586621679377092"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepConfig.html#StepConfig"><span class="hs-identifier hs-type">StepConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679377086"><span class="annot"><span class="annottext">toJSON :: StepConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepConfig.html#StepConfig%27"><span class="hs-identifier hs-type">StepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377082"><span id="local-6989586621679377083"><span id="local-6989586621679377084"><span class="annot"><span class="annottext">Maybe ActionOnFailure
 Text
 HadoopJarStepConfig
 hadoopJarStep :: HadoopJarStepConfig
@@ -277,7 +277,7 @@ actionOnFailure :: Maybe ActionOnFailure
 $sel:hadoopJarStep:StepConfig' :: StepConfig -&gt; HadoopJarStepConfig
 $sel:name:StepConfig' :: StepConfig -&gt; Text
 $sel:actionOnFailure:StepConfig' :: StepConfig -&gt; Maybe ActionOnFailure
-</span><a href="#local-6989586621679377073"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679377082"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -290,14 +290,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-160"></span><span>              </span><span class="annot"><span class="annottext">(ActionOnFailure -&gt; Pair) -&gt; Maybe ActionOnFailure -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ActionOnFailure
-</span><a href="#local-6989586621679377075"><span class="hs-identifier hs-var">actionOnFailure</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679377084"><span class="hs-identifier hs-var">actionOnFailure</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679377074"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679377083"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -305,7 +305,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;HadoopJarStep&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HadoopJarStepConfig -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">HadoopJarStepConfig
-</span><a href="#local-6989586621679377073"><span class="hs-identifier hs-var">hadoopJarStep</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679377082"><span class="hs-identifier hs-var">hadoopJarStep</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span></pre></body></html>

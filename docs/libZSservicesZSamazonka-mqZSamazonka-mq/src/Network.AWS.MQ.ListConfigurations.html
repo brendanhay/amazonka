@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newListConfigurations' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679226503"><span id="local-6989586621679226504"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListConfigurations"><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurations"><span class="hs-identifier hs-var">ListConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListConfigurations%27"><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurations%27"><span class="hs-identifier hs-var">ListConfigurations'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679226512"><span id="local-6989586621679226513"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListConfigurations"><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurations"><span class="hs-identifier hs-var">ListConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListConfigurations%27"><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurations%27"><span class="hs-identifier hs-var">ListConfigurations'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token that specifies the next page of results Amazon MQ should</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- return. To request the first page, leave nextToken empty.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AnextToken%3AListConfigurations%27"><span class="annot"><span class="annottext">ListConfigurations -&gt; Maybe Text
@@ -60,7 +60,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AmaxResults%3AListConfigurations%27"><span class="annot"><span class="annottext">ListConfigurations -&gt; Maybe Natural
 </span><a href="Network.AWS.MQ.ListConfigurations.html#%24sel%3AmaxResults%3AListConfigurations%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226496"><span id="local-6989586621679226498"><span class="annot"><span class="annottext">ListConfigurations -&gt; ListConfigurations -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226505"><span id="local-6989586621679226507"><span class="annot"><span class="annottext">ListConfigurations -&gt; ListConfigurations -&gt; Bool
 (ListConfigurations -&gt; ListConfigurations -&gt; Bool)
 -&gt; (ListConfigurations -&gt; ListConfigurations -&gt; Bool)
 -&gt; Eq ListConfigurations
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListConfigurations -&gt; ListConfigurations -&gt; Bool
 == :: ListConfigurations -&gt; ListConfigurations -&gt; Bool
 $c== :: ListConfigurations -&gt; ListConfigurations -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226487"><span id="local-6989586621679226489"><span id="local-6989586621679226491"><span id="local-6989586621679226493"><span class="annot"><span class="annottext">ReadPrec [ListConfigurations]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226496"><span id="local-6989586621679226498"><span id="local-6989586621679226500"><span id="local-6989586621679226502"><span class="annot"><span class="annottext">ReadPrec [ListConfigurations]
 ReadPrec ListConfigurations
 Int -&gt; ReadS ListConfigurations
 ReadS [ListConfigurations]
@@ -89,7 +89,7 @@ readList :: ReadS [ListConfigurations]
 $creadList :: ReadS [ListConfigurations]
 readsPrec :: Int -&gt; ReadS ListConfigurations
 $creadsPrec :: Int -&gt; ReadS ListConfigurations
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226480"><span id="local-6989586621679226482"><span id="local-6989586621679226484"><span class="annot"><span class="annottext">Int -&gt; ListConfigurations -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226489"><span id="local-6989586621679226491"><span id="local-6989586621679226493"><span class="annot"><span class="annottext">Int -&gt; ListConfigurations -&gt; ShowS
 [ListConfigurations] -&gt; ShowS
 ListConfigurations -&gt; String
 (Int -&gt; ListConfigurations -&gt; ShowS)
@@ -154,16 +154,16 @@ forall a. Maybe a
 -&gt; Lens
      ListConfigurations ListConfigurations (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurations%27"><span class="hs-identifier hs-type">ListConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226473"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurations%27"><span class="hs-identifier hs-type">ListConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226482"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListConfigurations' :: ListConfigurations -&gt; Maybe Text
-</span><a href="#local-6989586621679226473"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679226473"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226472"><span class="annot"><span class="annottext">s :: ListConfigurations
-</span><a href="#local-6989586621679226472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurations%27"><span class="hs-identifier hs-type">ListConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226471"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679226471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConfigurations
-</span><a href="#local-6989586621679226472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListConfigurations' :: Maybe Text
+</span><a href="#local-6989586621679226482"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679226482"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226481"><span class="annot"><span class="annottext">s :: ListConfigurations
+</span><a href="#local-6989586621679226481"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurations%27"><span class="hs-identifier hs-type">ListConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226480"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679226480"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConfigurations
+</span><a href="#local-6989586621679226481"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListConfigurations' :: Maybe Text
 </span><a href="Network.AWS.MQ.ListConfigurations.html#%24sel%3AnextToken%3AListConfigurations%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679226471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurations"><span class="hs-identifier hs-type">ListConfigurations</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226480"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurations"><span class="hs-identifier hs-type">ListConfigurations</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The maximum number of brokers that Amazon MQ can return per page (20 by</span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- default). This value must be an integer from 5 to 100.</span><span>
@@ -178,27 +178,27 @@ $sel:nextToken:ListConfigurations' :: ListConfigurations -&gt; Maybe Text
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurations%27"><span class="hs-identifier hs-type">ListConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226470"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurations%27"><span class="hs-identifier hs-type">ListConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226479"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListConfigurations' :: ListConfigurations -&gt; Maybe Natural
-</span><a href="#local-6989586621679226470"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679226470"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226469"><span class="annot"><span class="annottext">s :: ListConfigurations
-</span><a href="#local-6989586621679226469"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurations%27"><span class="hs-identifier hs-type">ListConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226468"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679226468"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConfigurations
-</span><a href="#local-6989586621679226469"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListConfigurations' :: Maybe Natural
+</span><a href="#local-6989586621679226479"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679226479"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226478"><span class="annot"><span class="annottext">s :: ListConfigurations
+</span><a href="#local-6989586621679226478"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurations%27"><span class="hs-identifier hs-type">ListConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226477"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679226477"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConfigurations
+</span><a href="#local-6989586621679226478"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListConfigurations' :: Maybe Natural
 </span><a href="Network.AWS.MQ.ListConfigurations.html#%24sel%3AmaxResults%3AListConfigurations%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679226468"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurations"><span class="hs-identifier hs-type">ListConfigurations</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226477"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurations"><span class="hs-identifier hs-type">ListConfigurations</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurations"><span class="hs-identifier hs-type">ListConfigurations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-95"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-96"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurations"><span class="hs-identifier hs-type">ListConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurationsResponse"><span class="hs-identifier hs-type">ListConfigurationsResponse</span></a></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679226464"><span class="annot"><span class="annottext">request :: ListConfigurations -&gt; Request ListConfigurations
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679226473"><span class="annot"><span class="annottext">request :: ListConfigurations -&gt; Request ListConfigurations
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListConfigurations -&gt; Request ListConfigurations
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MQ.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679226460"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679226469"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListConfigurations
 -&gt; ClientResponse ClientBody
@@ -224,10 +224,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679226457"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679226457"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679226456"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679226456"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679226455"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679226455"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679226466"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226466"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679226465"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679226465"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679226464"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679226464"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Configuration]
 -&gt; Maybe Text -&gt; Maybe Int -&gt; Int -&gt; ListConfigurationsResponse
 </span><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurationsResponse%27"><span class="hs-identifier hs-var">ListConfigurationsResponse'</span></a></span><span>
@@ -239,7 +239,7 @@ MonadResource m =&gt;
      (Maybe Text -&gt; Maybe Int -&gt; Int -&gt; ListConfigurationsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679226455"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Configuration]))
+</span><a href="#local-6989586621679226464"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Configuration]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;configurations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Configuration]))
@@ -255,7 +255,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Maybe Int -&gt; Int -&gt; ListConfigurationsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679226455"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679226464"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -264,7 +264,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListConfigurationsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679226455"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679226464"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span class="hs-special">)</span><span>
@@ -276,15 +276,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679226457"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226466"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226446"><span id="local-6989586621679226448"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurations"><span class="hs-identifier hs-type">ListConfigurations</span></a></span></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226455"><span id="local-6989586621679226457"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurations"><span class="hs-identifier hs-type">ListConfigurations</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226443"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurations"><span class="hs-identifier hs-type">ListConfigurations</span></a></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226452"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurations"><span class="hs-identifier hs-type">ListConfigurations</span></a></span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurations"><span class="hs-identifier hs-type">ListConfigurations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679226439"><span class="annot"><span class="annottext">toHeaders :: ListConfigurations -&gt; ResponseHeaders
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679226448"><span class="annot"><span class="annottext">toHeaders :: ListConfigurations -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListConfigurations -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -304,21 +304,21 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurations"><span class="hs-identifier hs-type">ListConfigurations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679226433"><span class="annot"><span class="annottext">toPath :: ListConfigurations -&gt; ByteString
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679226442"><span class="annot"><span class="annottext">toPath :: ListConfigurations -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListConfigurations -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/v1/configurations&quot;</span></span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurations"><span class="hs-identifier hs-type">ListConfigurations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679226429"><span class="annot"><span class="annottext">toQuery :: ListConfigurations -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurations%27"><span class="hs-identifier hs-type">ListConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226426"><span id="local-6989586621679226427"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679226438"><span class="annot"><span class="annottext">toQuery :: ListConfigurations -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurations%27"><span class="hs-identifier hs-type">ListConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226435"><span id="local-6989586621679226436"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 maxResults :: Maybe Natural
 nextToken :: Maybe Text
 $sel:maxResults:ListConfigurations' :: ListConfigurations -&gt; Maybe Natural
 $sel:nextToken:ListConfigurations' :: ListConfigurations -&gt; Maybe Text
-</span><a href="#local-6989586621679226426"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679226435"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -326,16 +326,16 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679226427"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679226436"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679226426"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679226435"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- | /See:/ 'newListConfigurationsResponse' smart constructor.</span><span>
-</span><span id="line-135"></span><span id="local-6989586621679226423"><span id="local-6989586621679226424"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListConfigurationsResponse"><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurationsResponse"><span class="hs-identifier hs-var">ListConfigurationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListConfigurationsResponse%27"><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurationsResponse%27"><span class="hs-identifier hs-var">ListConfigurationsResponse'</span></a></span></span><span>
+</span><span id="line-135"></span><span id="local-6989586621679226432"><span id="local-6989586621679226433"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListConfigurationsResponse"><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurationsResponse"><span class="hs-identifier hs-var">ListConfigurationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListConfigurationsResponse%27"><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurationsResponse%27"><span class="hs-identifier hs-var">ListConfigurationsResponse'</span></a></span></span><span>
 </span><span id="line-136"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of all revisions for the specified configuration.</span><span>
 </span><span id="line-137"></span><span>    </span><span id="%24sel%3Aconfigurations%3AListConfigurationsResponse%27"><span class="annot"><span class="annottext">ListConfigurationsResponse -&gt; Maybe [Configuration]
 </span><a href="Network.AWS.MQ.ListConfigurations.html#%24sel%3Aconfigurations%3AListConfigurationsResponse%27"><span class="hs-identifier hs-var hs-var">configurations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MQ.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -351,7 +351,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-145"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListConfigurationsResponse%27"><span class="annot"><span class="annottext">ListConfigurationsResponse -&gt; Int
 </span><a href="Network.AWS.MQ.ListConfigurations.html#%24sel%3AhttpStatus%3AListConfigurationsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226415"><span id="local-6989586621679226417"><span class="annot"><span class="annottext">ListConfigurationsResponse -&gt; ListConfigurationsResponse -&gt; Bool
+</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226424"><span id="local-6989586621679226426"><span class="annot"><span class="annottext">ListConfigurationsResponse -&gt; ListConfigurationsResponse -&gt; Bool
 (ListConfigurationsResponse -&gt; ListConfigurationsResponse -&gt; Bool)
 -&gt; (ListConfigurationsResponse
     -&gt; ListConfigurationsResponse -&gt; Bool)
@@ -361,7 +361,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListConfigurationsResponse -&gt; ListConfigurationsResponse -&gt; Bool
 == :: ListConfigurationsResponse -&gt; ListConfigurationsResponse -&gt; Bool
 $c== :: ListConfigurationsResponse -&gt; ListConfigurationsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226407"><span id="local-6989586621679226409"><span id="local-6989586621679226411"><span id="local-6989586621679226413"><span class="annot"><span class="annottext">ReadPrec [ListConfigurationsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226416"><span id="local-6989586621679226418"><span id="local-6989586621679226420"><span id="local-6989586621679226422"><span class="annot"><span class="annottext">ReadPrec [ListConfigurationsResponse]
 ReadPrec ListConfigurationsResponse
 Int -&gt; ReadS ListConfigurationsResponse
 ReadS [ListConfigurationsResponse]
@@ -381,7 +381,7 @@ readList :: ReadS [ListConfigurationsResponse]
 $creadList :: ReadS [ListConfigurationsResponse]
 readsPrec :: Int -&gt; ReadS ListConfigurationsResponse
 $creadsPrec :: Int -&gt; ReadS ListConfigurationsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226401"><span id="local-6989586621679226403"><span id="local-6989586621679226405"><span class="annot"><span class="annottext">Int -&gt; ListConfigurationsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226410"><span id="local-6989586621679226412"><span id="local-6989586621679226414"><span class="annot"><span class="annottext">Int -&gt; ListConfigurationsResponse -&gt; ShowS
 [ListConfigurationsResponse] -&gt; ShowS
 ListConfigurationsResponse -&gt; String
 (Int -&gt; ListConfigurationsResponse -&gt; ShowS)
@@ -435,8 +435,8 @@ ListConfigurationsResponse -&gt; Rep ListConfigurationsResponse x
 </span><span id="line-168"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-169"></span><span>  </span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurationsResponse"><span class="hs-identifier hs-type">ListConfigurationsResponse</span></a></span><span>
 </span><span id="line-170"></span><span id="newListConfigurationsResponse"><span class="annot"><span class="annottext">newListConfigurationsResponse :: Int -&gt; ListConfigurationsResponse
-</span><a href="Network.AWS.MQ.ListConfigurations.html#newListConfigurationsResponse"><span class="hs-identifier hs-var hs-var">newListConfigurationsResponse</span></a></span></span><span> </span><span id="local-6989586621679226398"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679226398"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MQ.ListConfigurations.html#newListConfigurationsResponse"><span class="hs-identifier hs-var hs-var">newListConfigurationsResponse</span></a></span></span><span> </span><span id="local-6989586621679226407"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226407"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-171"></span><span>  </span><span class="annot"><span class="annottext">ListConfigurationsResponse' :: Maybe [Configuration]
 -&gt; Maybe Text -&gt; Maybe Int -&gt; Int -&gt; ListConfigurationsResponse
 </span><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurationsResponse%27"><span class="hs-identifier hs-type">ListConfigurationsResponse'</span></a></span><span>
@@ -455,7 +455,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListConfigurationsResponse' :: Int
 </span><a href="Network.AWS.MQ.ListConfigurations.html#%24sel%3AhttpStatus%3AListConfigurationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679226398"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679226407"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-177"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- | The list of all revisions for the specified configuration.</span><span>
@@ -471,16 +471,16 @@ forall a. Maybe a
      (Maybe [Configuration])
      (Maybe [Configuration])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurationsResponse%27"><span class="hs-identifier hs-type">ListConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226397"><span class="annot"><span class="annottext">Maybe [Configuration]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurationsResponse%27"><span class="hs-identifier hs-type">ListConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226406"><span class="annot"><span class="annottext">Maybe [Configuration]
 configurations :: Maybe [Configuration]
 $sel:configurations:ListConfigurationsResponse' :: ListConfigurationsResponse -&gt; Maybe [Configuration]
-</span><a href="#local-6989586621679226397"><span class="hs-identifier hs-var hs-var">configurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Configuration]
-</span><a href="#local-6989586621679226397"><span class="hs-identifier hs-var">configurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226396"><span class="annot"><span class="annottext">s :: ListConfigurationsResponse
-</span><a href="#local-6989586621679226396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurationsResponse%27"><span class="hs-identifier hs-type">ListConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226395"><span class="annot"><span class="annottext">Maybe [Configuration]
-</span><a href="#local-6989586621679226395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConfigurationsResponse
-</span><a href="#local-6989586621679226396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurations:ListConfigurationsResponse' :: Maybe [Configuration]
+</span><a href="#local-6989586621679226406"><span class="hs-identifier hs-var hs-var">configurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Configuration]
+</span><a href="#local-6989586621679226406"><span class="hs-identifier hs-var">configurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226405"><span class="annot"><span class="annottext">s :: ListConfigurationsResponse
+</span><a href="#local-6989586621679226405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurationsResponse%27"><span class="hs-identifier hs-type">ListConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226404"><span class="annot"><span class="annottext">Maybe [Configuration]
+</span><a href="#local-6989586621679226404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConfigurationsResponse
+</span><a href="#local-6989586621679226405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurations:ListConfigurationsResponse' :: Maybe [Configuration]
 </span><a href="Network.AWS.MQ.ListConfigurations.html#%24sel%3Aconfigurations%3AListConfigurationsResponse%27"><span class="hs-identifier hs-var">configurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Configuration]
-</span><a href="#local-6989586621679226395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurationsResponse"><span class="hs-identifier hs-type">ListConfigurationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Configuration] -&gt; f (Maybe [Configuration]))
+</span><a href="#local-6989586621679226404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurationsResponse"><span class="hs-identifier hs-type">ListConfigurationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Configuration] -&gt; f (Maybe [Configuration]))
  -&gt; ListConfigurationsResponse -&gt; f ListConfigurationsResponse)
 -&gt; ((Maybe [Configuration] -&gt; f (Maybe [Configuration]))
     -&gt; Maybe [Configuration] -&gt; f (Maybe [Configuration]))
@@ -517,16 +517,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurationsResponse%27"><span class="hs-identifier hs-type">ListConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226391"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurationsResponse%27"><span class="hs-identifier hs-type">ListConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226400"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListConfigurationsResponse' :: ListConfigurationsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679226391"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679226391"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226390"><span class="annot"><span class="annottext">s :: ListConfigurationsResponse
-</span><a href="#local-6989586621679226390"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurationsResponse%27"><span class="hs-identifier hs-type">ListConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226389"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679226389"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConfigurationsResponse
-</span><a href="#local-6989586621679226390"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListConfigurationsResponse' :: Maybe Text
+</span><a href="#local-6989586621679226400"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679226400"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226399"><span class="annot"><span class="annottext">s :: ListConfigurationsResponse
+</span><a href="#local-6989586621679226399"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurationsResponse%27"><span class="hs-identifier hs-type">ListConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226398"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679226398"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConfigurationsResponse
+</span><a href="#local-6989586621679226399"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListConfigurationsResponse' :: Maybe Text
 </span><a href="Network.AWS.MQ.ListConfigurations.html#%24sel%3AnextToken%3AListConfigurationsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679226389"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurationsResponse"><span class="hs-identifier hs-type">ListConfigurationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226398"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurationsResponse"><span class="hs-identifier hs-type">ListConfigurationsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- | The maximum number of configurations that Amazon MQ can return per page</span><span>
 </span><span id="line-189"></span><span class="hs-comment">-- (20 by default). This value must be an integer from 5 to 100.</span><span>
@@ -542,16 +542,16 @@ $sel:nextToken:ListConfigurationsResponse' :: ListConfigurationsResponse -&gt; M
      (Maybe Int)
      (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurationsResponse%27"><span class="hs-identifier hs-type">ListConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226388"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurationsResponse%27"><span class="hs-identifier hs-type">ListConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226397"><span class="annot"><span class="annottext">Maybe Int
 maxResults :: Maybe Int
 $sel:maxResults:ListConfigurationsResponse' :: ListConfigurationsResponse -&gt; Maybe Int
-</span><a href="#local-6989586621679226388"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679226388"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226387"><span class="annot"><span class="annottext">s :: ListConfigurationsResponse
-</span><a href="#local-6989586621679226387"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurationsResponse%27"><span class="hs-identifier hs-type">ListConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226386"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679226386"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConfigurationsResponse
-</span><a href="#local-6989586621679226387"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListConfigurationsResponse' :: Maybe Int
+</span><a href="#local-6989586621679226397"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679226397"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226396"><span class="annot"><span class="annottext">s :: ListConfigurationsResponse
+</span><a href="#local-6989586621679226396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurationsResponse%27"><span class="hs-identifier hs-type">ListConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226395"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679226395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConfigurationsResponse
+</span><a href="#local-6989586621679226396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListConfigurationsResponse' :: Maybe Int
 </span><a href="Network.AWS.MQ.ListConfigurations.html#%24sel%3AmaxResults%3AListConfigurationsResponse%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679226386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurationsResponse"><span class="hs-identifier hs-type">ListConfigurationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurationsResponse"><span class="hs-identifier hs-type">ListConfigurationsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-194"></span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#listConfigurationsResponse_httpStatus"><span class="hs-identifier hs-type">listConfigurationsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurationsResponse"><span class="hs-identifier hs-type">ListConfigurationsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -563,16 +563,16 @@ $sel:maxResults:ListConfigurationsResponse' :: ListConfigurationsResponse -&gt; 
 -&gt; Lens
      ListConfigurationsResponse ListConfigurationsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurationsResponse%27"><span class="hs-identifier hs-type">ListConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226385"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurationsResponse%27"><span class="hs-identifier hs-type">ListConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226394"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListConfigurationsResponse' :: ListConfigurationsResponse -&gt; Int
-</span><a href="#local-6989586621679226385"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679226385"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226384"><span class="annot"><span class="annottext">s :: ListConfigurationsResponse
-</span><a href="#local-6989586621679226384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurationsResponse%27"><span class="hs-identifier hs-type">ListConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226383"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679226383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConfigurationsResponse
-</span><a href="#local-6989586621679226384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListConfigurationsResponse' :: Int
+</span><a href="#local-6989586621679226394"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226394"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226393"><span class="annot"><span class="annottext">s :: ListConfigurationsResponse
+</span><a href="#local-6989586621679226393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurationsResponse%27"><span class="hs-identifier hs-type">ListConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226392"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConfigurationsResponse
+</span><a href="#local-6989586621679226393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListConfigurationsResponse' :: Int
 </span><a href="Network.AWS.MQ.ListConfigurations.html#%24sel%3AhttpStatus%3AListConfigurationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679226383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurationsResponse"><span class="hs-identifier hs-type">ListConfigurationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurationsResponse"><span class="hs-identifier hs-type">ListConfigurationsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-196"></span><span>
-</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226381"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurationsResponse"><span class="hs-identifier hs-type">ListConfigurationsResponse</span></a></span></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226390"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListConfigurations.html#ListConfigurationsResponse"><span class="hs-identifier hs-type">ListConfigurationsResponse</span></a></span></span><span>
 </span><span id="line-198"></span></pre></body></html>

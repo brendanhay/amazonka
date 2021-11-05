@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoTSiteWise.Types.MetricProcessingConfig</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTSiteWise.Types.MetricProcessingConfig</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.ComputeLocation.html"><span class="hs-identifier">Network.AWS.IoTSiteWise.Types.ComputeLocation</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The processing configuration for the given metric property. You can</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- configure metrics to be computed at the edge or in the Amazon Web</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- Services Cloud. By default, metrics are forwarded to the cloud.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newMetricProcessingConfig' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679341000"><span id="local-6989586621679341001"></span></span><span class="hs-keyword">data</span><span> </span><span id="MetricProcessingConfig"><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.MetricProcessingConfig.html#MetricProcessingConfig"><span class="hs-identifier hs-var">MetricProcessingConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricProcessingConfig%27"><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.MetricProcessingConfig.html#MetricProcessingConfig%27"><span class="hs-identifier hs-var">MetricProcessingConfig'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The compute location for the given metric property.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AcomputeLocation%3AMetricProcessingConfig%27"><span class="annot"><span class="annottext">MetricProcessingConfig -&gt; ComputeLocation
+</span><a href="Network.AWS.IoTSiteWise.Types.MetricProcessingConfig.html#%24sel%3AcomputeLocation%3AMetricProcessingConfig%27"><span class="hs-identifier hs-var hs-var">computeLocation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.ComputeLocation.html#ComputeLocation"><span class="hs-identifier hs-type">ComputeLocation</span></a></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679340994"><span id="local-6989586621679340996"><span class="annot"><span class="annottext">MetricProcessingConfig -&gt; MetricProcessingConfig -&gt; Bool
+(MetricProcessingConfig -&gt; MetricProcessingConfig -&gt; Bool)
+-&gt; (MetricProcessingConfig -&gt; MetricProcessingConfig -&gt; Bool)
+-&gt; Eq MetricProcessingConfig
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MetricProcessingConfig -&gt; MetricProcessingConfig -&gt; Bool
+$c/= :: MetricProcessingConfig -&gt; MetricProcessingConfig -&gt; Bool
+== :: MetricProcessingConfig -&gt; MetricProcessingConfig -&gt; Bool
+$c== :: MetricProcessingConfig -&gt; MetricProcessingConfig -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679340985"><span id="local-6989586621679340987"><span id="local-6989586621679340989"><span id="local-6989586621679340991"><span class="annot"><span class="annottext">ReadPrec [MetricProcessingConfig]
+ReadPrec MetricProcessingConfig
+Int -&gt; ReadS MetricProcessingConfig
+ReadS [MetricProcessingConfig]
+(Int -&gt; ReadS MetricProcessingConfig)
+-&gt; ReadS [MetricProcessingConfig]
+-&gt; ReadPrec MetricProcessingConfig
+-&gt; ReadPrec [MetricProcessingConfig]
+-&gt; Read MetricProcessingConfig
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MetricProcessingConfig]
+$creadListPrec :: ReadPrec [MetricProcessingConfig]
+readPrec :: ReadPrec MetricProcessingConfig
+$creadPrec :: ReadPrec MetricProcessingConfig
+readList :: ReadS [MetricProcessingConfig]
+$creadList :: ReadS [MetricProcessingConfig]
+readsPrec :: Int -&gt; ReadS MetricProcessingConfig
+$creadsPrec :: Int -&gt; ReadS MetricProcessingConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679340978"><span id="local-6989586621679340980"><span id="local-6989586621679340982"><span class="annot"><span class="annottext">Int -&gt; MetricProcessingConfig -&gt; ShowS
+[MetricProcessingConfig] -&gt; ShowS
+MetricProcessingConfig -&gt; String
+(Int -&gt; MetricProcessingConfig -&gt; ShowS)
+-&gt; (MetricProcessingConfig -&gt; String)
+-&gt; ([MetricProcessingConfig] -&gt; ShowS)
+-&gt; Show MetricProcessingConfig
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MetricProcessingConfig] -&gt; ShowS
+$cshowList :: [MetricProcessingConfig] -&gt; ShowS
+show :: MetricProcessingConfig -&gt; String
+$cshow :: MetricProcessingConfig -&gt; String
+showsPrec :: Int -&gt; MetricProcessingConfig -&gt; ShowS
+$cshowsPrec :: Int -&gt; MetricProcessingConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. MetricProcessingConfig -&gt; Rep MetricProcessingConfig x)
+-&gt; (forall x.
+    Rep MetricProcessingConfig x -&gt; MetricProcessingConfig)
+-&gt; Generic MetricProcessingConfig
+forall x. Rep MetricProcessingConfig x -&gt; MetricProcessingConfig
+forall x. MetricProcessingConfig -&gt; Rep MetricProcessingConfig x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep MetricProcessingConfig x -&gt; MetricProcessingConfig
+$cfrom :: forall x. MetricProcessingConfig -&gt; Rep MetricProcessingConfig x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Create a value of 'MetricProcessingConfig' with all optional fields omitted.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'computeLocation', 'metricProcessingConfig_computeLocation' - The compute location for the given metric property.</span><span>
+</span><span id="line-47"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.MetricProcessingConfig.html#newMetricProcessingConfig"><span class="hs-identifier hs-type">newMetricProcessingConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-comment">-- | 'computeLocation'</span><span>
+</span><span id="line-49"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.ComputeLocation.html#ComputeLocation"><span class="hs-identifier hs-type">ComputeLocation</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-50"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.MetricProcessingConfig.html#MetricProcessingConfig"><span class="hs-identifier hs-type">MetricProcessingConfig</span></a></span><span>
+</span><span id="line-51"></span><span id="newMetricProcessingConfig"><span class="annot"><span class="annottext">newMetricProcessingConfig :: ComputeLocation -&gt; MetricProcessingConfig
+</span><a href="Network.AWS.IoTSiteWise.Types.MetricProcessingConfig.html#newMetricProcessingConfig"><span class="hs-identifier hs-var hs-var">newMetricProcessingConfig</span></a></span></span><span> </span><span id="local-6989586621679340972"><span class="annot"><span class="annottext">ComputeLocation
+</span><a href="#local-6989586621679340972"><span class="hs-identifier hs-var">pComputeLocation_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">MetricProcessingConfig' :: ComputeLocation -&gt; MetricProcessingConfig
+</span><a href="Network.AWS.IoTSiteWise.Types.MetricProcessingConfig.html#MetricProcessingConfig%27"><span class="hs-identifier hs-type">MetricProcessingConfig'</span></a></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:computeLocation:MetricProcessingConfig' :: ComputeLocation
+</span><a href="Network.AWS.IoTSiteWise.Types.MetricProcessingConfig.html#%24sel%3AcomputeLocation%3AMetricProcessingConfig%27"><span class="hs-identifier hs-var">computeLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-54"></span><span>        </span><span class="annot"><span class="annottext">ComputeLocation
+</span><a href="#local-6989586621679340972"><span class="hs-identifier hs-var">pComputeLocation_</span></a></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | The compute location for the given metric property.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.MetricProcessingConfig.html#metricProcessingConfig_computeLocation"><span class="hs-identifier hs-type">metricProcessingConfig_computeLocation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.MetricProcessingConfig.html#MetricProcessingConfig"><span class="hs-identifier hs-type">MetricProcessingConfig</span></a></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.ComputeLocation.html#ComputeLocation"><span class="hs-identifier hs-type">ComputeLocation</span></a></span><span>
+</span><span id="line-59"></span><span id="metricProcessingConfig_computeLocation"><span class="annot"><span class="annottext">metricProcessingConfig_computeLocation :: (ComputeLocation -&gt; f ComputeLocation)
+-&gt; MetricProcessingConfig -&gt; f MetricProcessingConfig
+</span><a href="Network.AWS.IoTSiteWise.Types.MetricProcessingConfig.html#metricProcessingConfig_computeLocation"><span class="hs-identifier hs-var hs-var">metricProcessingConfig_computeLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetricProcessingConfig -&gt; ComputeLocation)
+-&gt; (MetricProcessingConfig
+    -&gt; ComputeLocation -&gt; MetricProcessingConfig)
+-&gt; Lens
+     MetricProcessingConfig
+     MetricProcessingConfig
+     ComputeLocation
+     ComputeLocation
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.MetricProcessingConfig.html#MetricProcessingConfig%27"><span class="hs-identifier hs-type">MetricProcessingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340968"><span class="annot"><span class="annottext">ComputeLocation
+computeLocation :: ComputeLocation
+$sel:computeLocation:MetricProcessingConfig' :: MetricProcessingConfig -&gt; ComputeLocation
+</span><a href="#local-6989586621679340968"><span class="hs-identifier hs-var hs-var">computeLocation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeLocation
+</span><a href="#local-6989586621679340968"><span class="hs-identifier hs-var">computeLocation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679340967"><span class="annot"><span class="annottext">s :: MetricProcessingConfig
+</span><a href="#local-6989586621679340967"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.MetricProcessingConfig.html#MetricProcessingConfig%27"><span class="hs-identifier hs-type">MetricProcessingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679340966"><span class="annot"><span class="annottext">ComputeLocation
+</span><a href="#local-6989586621679340966"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricProcessingConfig
+</span><a href="#local-6989586621679340967"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:computeLocation:MetricProcessingConfig' :: ComputeLocation
+</span><a href="Network.AWS.IoTSiteWise.Types.MetricProcessingConfig.html#%24sel%3AcomputeLocation%3AMetricProcessingConfig%27"><span class="hs-identifier hs-var">computeLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ComputeLocation
+</span><a href="#local-6989586621679340966"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.MetricProcessingConfig.html#MetricProcessingConfig"><span class="hs-identifier hs-type">MetricProcessingConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679340963"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.MetricProcessingConfig.html#MetricProcessingConfig"><span class="hs-identifier hs-type">MetricProcessingConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-62"></span><span>  </span><span id="local-6989586621679340961"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MetricProcessingConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser MetricProcessingConfig)
+-&gt; Value
+-&gt; Parser MetricProcessingConfig
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;MetricProcessingConfig&quot;</span></span><span>
+</span><span id="line-65"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679340958"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679340958"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-66"></span><span>          </span><span class="annot"><span class="annottext">ComputeLocation -&gt; MetricProcessingConfig
+</span><a href="Network.AWS.IoTSiteWise.Types.MetricProcessingConfig.html#MetricProcessingConfig%27"><span class="hs-identifier hs-var">MetricProcessingConfig'</span></a></span><span>
+</span><span id="line-67"></span><span>            </span><span class="annot"><span class="annottext">(ComputeLocation -&gt; MetricProcessingConfig)
+-&gt; Parser ComputeLocation -&gt; Parser MetricProcessingConfig
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679340958"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ComputeLocation
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;computeLocation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679340952"><span id="local-6989586621679340954"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.MetricProcessingConfig.html#MetricProcessingConfig"><span class="hs-identifier hs-type">MetricProcessingConfig</span></a></span></span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679340949"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.MetricProcessingConfig.html#MetricProcessingConfig"><span class="hs-identifier hs-type">MetricProcessingConfig</span></a></span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679340941"><span id="local-6989586621679340943"><span id="local-6989586621679340945"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.MetricProcessingConfig.html#MetricProcessingConfig"><span class="hs-identifier hs-type">MetricProcessingConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679340939"><span class="annot"><span class="annottext">toJSON :: MetricProcessingConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.MetricProcessingConfig.html#MetricProcessingConfig%27"><span class="hs-identifier hs-type">MetricProcessingConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679340937"><span class="annot"><span class="annottext">ComputeLocation
+computeLocation :: ComputeLocation
+$sel:computeLocation:MetricProcessingConfig' :: MetricProcessingConfig -&gt; ComputeLocation
+</span><a href="#local-6989586621679340937"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-78"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-79"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;computeLocation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ComputeLocation -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ComputeLocation
+</span><a href="#local-6989586621679340937"><span class="hs-identifier hs-var">computeLocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span></pre></body></html>

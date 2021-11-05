@@ -1,0 +1,1074 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.LookoutEquipment.CreateInferenceScheduler</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a scheduled inference. Scheduling an inference is setting up a</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- continuous real-time inference plan to analyze new measurement data.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- When setting up the schedule, you provide an S3 bucket location for the</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- input data, assign it a delimiter between separate entries in the data,</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- set an offset delay if desired, and set the frequency of inferencing.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- You must also provide an S3 bucket location for the output data.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.LookoutEquipment.CreateInferenceScheduler</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler"><span class="hs-identifier">CreateInferenceScheduler</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#newCreateInferenceScheduler"><span class="hs-identifier">newCreateInferenceScheduler</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#createInferenceScheduler_dataDelayOffsetInMinutes"><span class="hs-identifier">createInferenceScheduler_dataDelayOffsetInMinutes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#createInferenceScheduler_tags"><span class="hs-identifier">createInferenceScheduler_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#createInferenceScheduler_serverSideKmsKeyId"><span class="hs-identifier">createInferenceScheduler_serverSideKmsKeyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#createInferenceScheduler_modelName"><span class="hs-identifier">createInferenceScheduler_modelName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#createInferenceScheduler_inferenceSchedulerName"><span class="hs-identifier">createInferenceScheduler_inferenceSchedulerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#createInferenceScheduler_dataUploadFrequency"><span class="hs-identifier">createInferenceScheduler_dataUploadFrequency</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#createInferenceScheduler_dataInputConfiguration"><span class="hs-identifier">createInferenceScheduler_dataInputConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#createInferenceScheduler_dataOutputConfiguration"><span class="hs-identifier">createInferenceScheduler_dataOutputConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#createInferenceScheduler_roleArn"><span class="hs-identifier">createInferenceScheduler_roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#createInferenceScheduler_clientToken"><span class="hs-identifier">createInferenceScheduler_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceSchedulerResponse"><span class="hs-identifier">CreateInferenceSchedulerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#newCreateInferenceSchedulerResponse"><span class="hs-identifier">newCreateInferenceSchedulerResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#createInferenceSchedulerResponse_status"><span class="hs-identifier">createInferenceSchedulerResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#createInferenceSchedulerResponse_inferenceSchedulerArn"><span class="hs-identifier">createInferenceSchedulerResponse_inferenceSchedulerArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#createInferenceSchedulerResponse_inferenceSchedulerName"><span class="hs-identifier">createInferenceSchedulerResponse_inferenceSchedulerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#createInferenceSchedulerResponse_httpStatus"><span class="hs-identifier">createInferenceSchedulerResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.html"><span class="hs-identifier">Network.AWS.LookoutEquipment.Types</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | /See:/ 'newCreateInferenceScheduler' smart constructor.</span><span>
+</span><span id="line-66"></span><span id="local-6989586621679215655"><span id="local-6989586621679215656"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateInferenceScheduler"><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler"><span class="hs-identifier hs-var">CreateInferenceScheduler</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateInferenceScheduler%27"><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler%27"><span class="hs-identifier hs-var">CreateInferenceScheduler'</span></a></span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A period of time (in minutes) by which inference on the data is delayed</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- after the data starts. For instance, if you select an offset delay time</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- of five minutes, inference will not begin on the data until the first</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- data measurement after the five minute mark. For example, if five</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- minutes is selected, the inference scheduler will wake up at the</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- configured frequency with the additional five minute delay time to check</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- the customer S3 bucket. The customer can upload data at the same</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- frequency and they don\'t need to stop and restart the scheduler when</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- uploading new data.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AdataDelayOffsetInMinutes%3ACreateInferenceScheduler%27"><span class="annot"><span class="annottext">CreateInferenceScheduler -&gt; Maybe Natural
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#%24sel%3AdataDelayOffsetInMinutes%3ACreateInferenceScheduler%27"><span class="hs-identifier hs-var hs-var">dataDelayOffsetInMinutes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | Any tags associated with the inference scheduler.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3Atags%3ACreateInferenceScheduler%27"><span class="annot"><span class="annottext">CreateInferenceScheduler -&gt; Maybe [Tag]
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#%24sel%3Atags%3ACreateInferenceScheduler%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | Provides the identifier of the KMS key used to encrypt inference</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- scheduler data by Amazon Lookout for Equipment.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AserverSideKmsKeyId%3ACreateInferenceScheduler%27"><span class="annot"><span class="annottext">CreateInferenceScheduler -&gt; Maybe Text
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#%24sel%3AserverSideKmsKeyId%3ACreateInferenceScheduler%27"><span class="hs-identifier hs-var hs-var">serverSideKmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | The name of the previously trained ML model being used to create the</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- inference scheduler.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AmodelName%3ACreateInferenceScheduler%27"><span class="annot"><span class="annottext">CreateInferenceScheduler -&gt; Text
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#%24sel%3AmodelName%3ACreateInferenceScheduler%27"><span class="hs-identifier hs-var hs-var">modelName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | The name of the inference scheduler being created.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3AinferenceSchedulerName%3ACreateInferenceScheduler%27"><span class="annot"><span class="annottext">CreateInferenceScheduler -&gt; Text
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#%24sel%3AinferenceSchedulerName%3ACreateInferenceScheduler%27"><span class="hs-identifier hs-var hs-var">inferenceSchedulerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | How often data is uploaded to the source S3 bucket for the input data.</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- The value chosen is the length of time between data uploads. For</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- instance, if you select 5 minutes, Amazon Lookout for Equipment will</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- upload the real-time data to the source bucket once every 5 minutes.</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- This frequency also determines how often Amazon Lookout for Equipment</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- starts a scheduled inference on your data. In this example, it starts</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- once every 5 minutes.</span><span>
+</span><span id="line-94"></span><span>    </span><span id="%24sel%3AdataUploadFrequency%3ACreateInferenceScheduler%27"><span class="annot"><span class="annottext">CreateInferenceScheduler -&gt; DataUploadFrequency
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#%24sel%3AdataUploadFrequency%3ACreateInferenceScheduler%27"><span class="hs-identifier hs-var hs-var">dataUploadFrequency</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.DataUploadFrequency.html#DataUploadFrequency"><span class="hs-identifier hs-type">DataUploadFrequency</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- | Specifies configuration information for the input data for the inference</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- scheduler, including delimiter, format, and dataset location.</span><span>
+</span><span id="line-97"></span><span>    </span><span id="%24sel%3AdataInputConfiguration%3ACreateInferenceScheduler%27"><span class="annot"><span class="annottext">CreateInferenceScheduler -&gt; InferenceInputConfiguration
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#%24sel%3AdataInputConfiguration%3ACreateInferenceScheduler%27"><span class="hs-identifier hs-var hs-var">dataInputConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceInputConfiguration.html#InferenceInputConfiguration"><span class="hs-identifier hs-type">InferenceInputConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- | Specifies configuration information for the output results for the</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- inference scheduler, including the S3 location for the output.</span><span>
+</span><span id="line-100"></span><span>    </span><span id="%24sel%3AdataOutputConfiguration%3ACreateInferenceScheduler%27"><span class="annot"><span class="annottext">CreateInferenceScheduler -&gt; InferenceOutputConfiguration
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#%24sel%3AdataOutputConfiguration%3ACreateInferenceScheduler%27"><span class="hs-identifier hs-var hs-var">dataOutputConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceOutputConfiguration.html#InferenceOutputConfiguration"><span class="hs-identifier hs-type">InferenceOutputConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of a role with permission to access the</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- data source being used for the inference.</span><span>
+</span><span id="line-103"></span><span>    </span><span id="%24sel%3AroleArn%3ACreateInferenceScheduler%27"><span class="annot"><span class="annottext">CreateInferenceScheduler -&gt; Text
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#%24sel%3AroleArn%3ACreateInferenceScheduler%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- | A unique identifier for the request. If you do not set the client</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- request token, Amazon Lookout for Equipment generates one.</span><span>
+</span><span id="line-106"></span><span>    </span><span id="%24sel%3AclientToken%3ACreateInferenceScheduler%27"><span class="annot"><span class="annottext">CreateInferenceScheduler -&gt; Text
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#%24sel%3AclientToken%3ACreateInferenceScheduler%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679215640"><span id="local-6989586621679215642"><span class="annot"><span class="annottext">CreateInferenceScheduler -&gt; CreateInferenceScheduler -&gt; Bool
+(CreateInferenceScheduler -&gt; CreateInferenceScheduler -&gt; Bool)
+-&gt; (CreateInferenceScheduler -&gt; CreateInferenceScheduler -&gt; Bool)
+-&gt; Eq CreateInferenceScheduler
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateInferenceScheduler -&gt; CreateInferenceScheduler -&gt; Bool
+$c/= :: CreateInferenceScheduler -&gt; CreateInferenceScheduler -&gt; Bool
+== :: CreateInferenceScheduler -&gt; CreateInferenceScheduler -&gt; Bool
+$c== :: CreateInferenceScheduler -&gt; CreateInferenceScheduler -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215631"><span id="local-6989586621679215633"><span id="local-6989586621679215635"><span id="local-6989586621679215637"><span class="annot"><span class="annottext">ReadPrec [CreateInferenceScheduler]
+ReadPrec CreateInferenceScheduler
+Int -&gt; ReadS CreateInferenceScheduler
+ReadS [CreateInferenceScheduler]
+(Int -&gt; ReadS CreateInferenceScheduler)
+-&gt; ReadS [CreateInferenceScheduler]
+-&gt; ReadPrec CreateInferenceScheduler
+-&gt; ReadPrec [CreateInferenceScheduler]
+-&gt; Read CreateInferenceScheduler
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateInferenceScheduler]
+$creadListPrec :: ReadPrec [CreateInferenceScheduler]
+readPrec :: ReadPrec CreateInferenceScheduler
+$creadPrec :: ReadPrec CreateInferenceScheduler
+readList :: ReadS [CreateInferenceScheduler]
+$creadList :: ReadS [CreateInferenceScheduler]
+readsPrec :: Int -&gt; ReadS CreateInferenceScheduler
+$creadsPrec :: Int -&gt; ReadS CreateInferenceScheduler
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215624"><span id="local-6989586621679215626"><span id="local-6989586621679215628"><span class="annot"><span class="annottext">Int -&gt; CreateInferenceScheduler -&gt; ShowS
+[CreateInferenceScheduler] -&gt; ShowS
+CreateInferenceScheduler -&gt; String
+(Int -&gt; CreateInferenceScheduler -&gt; ShowS)
+-&gt; (CreateInferenceScheduler -&gt; String)
+-&gt; ([CreateInferenceScheduler] -&gt; ShowS)
+-&gt; Show CreateInferenceScheduler
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateInferenceScheduler] -&gt; ShowS
+$cshowList :: [CreateInferenceScheduler] -&gt; ShowS
+show :: CreateInferenceScheduler -&gt; String
+$cshow :: CreateInferenceScheduler -&gt; String
+showsPrec :: Int -&gt; CreateInferenceScheduler -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateInferenceScheduler -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateInferenceScheduler -&gt; Rep CreateInferenceScheduler x)
+-&gt; (forall x.
+    Rep CreateInferenceScheduler x -&gt; CreateInferenceScheduler)
+-&gt; Generic CreateInferenceScheduler
+forall x.
+Rep CreateInferenceScheduler x -&gt; CreateInferenceScheduler
+forall x.
+CreateInferenceScheduler -&gt; Rep CreateInferenceScheduler x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateInferenceScheduler x -&gt; CreateInferenceScheduler
+$cfrom :: forall x.
+CreateInferenceScheduler -&gt; Rep CreateInferenceScheduler x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- Create a value of 'CreateInferenceScheduler' with all optional fields omitted.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'dataDelayOffsetInMinutes', 'createInferenceScheduler_dataDelayOffsetInMinutes' - A period of time (in minutes) by which inference on the data is delayed</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- after the data starts. For instance, if you select an offset delay time</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- of five minutes, inference will not begin on the data until the first</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- data measurement after the five minute mark. For example, if five</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- minutes is selected, the inference scheduler will wake up at the</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- configured frequency with the additional five minute delay time to check</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- the customer S3 bucket. The customer can upload data at the same</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- frequency and they don\'t need to stop and restart the scheduler when</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- uploading new data.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'tags', 'createInferenceScheduler_tags' - Any tags associated with the inference scheduler.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 'serverSideKmsKeyId', 'createInferenceScheduler_serverSideKmsKeyId' - Provides the identifier of the KMS key used to encrypt inference</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- scheduler data by Amazon Lookout for Equipment.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- 'modelName', 'createInferenceScheduler_modelName' - The name of the previously trained ML model being used to create the</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- inference scheduler.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- 'inferenceSchedulerName', 'createInferenceScheduler_inferenceSchedulerName' - The name of the inference scheduler being created.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- 'dataUploadFrequency', 'createInferenceScheduler_dataUploadFrequency' - How often data is uploaded to the source S3 bucket for the input data.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- The value chosen is the length of time between data uploads. For</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- instance, if you select 5 minutes, Amazon Lookout for Equipment will</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- upload the real-time data to the source bucket once every 5 minutes.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- This frequency also determines how often Amazon Lookout for Equipment</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- starts a scheduled inference on your data. In this example, it starts</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- once every 5 minutes.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'dataInputConfiguration', 'createInferenceScheduler_dataInputConfiguration' - Specifies configuration information for the input data for the inference</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- scheduler, including delimiter, format, and dataset location.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'dataOutputConfiguration', 'createInferenceScheduler_dataOutputConfiguration' - Specifies configuration information for the output results for the</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- inference scheduler, including the S3 location for the output.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'roleArn', 'createInferenceScheduler_roleArn' - The Amazon Resource Name (ARN) of a role with permission to access the</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- data source being used for the inference.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- 'clientToken', 'createInferenceScheduler_clientToken' - A unique identifier for the request. If you do not set the client</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- request token, Amazon Lookout for Equipment generates one.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#newCreateInferenceScheduler"><span class="hs-identifier hs-type">newCreateInferenceScheduler</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-comment">-- | 'modelName'</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-comment">-- | 'inferenceSchedulerName'</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-162"></span><span>  </span><span class="hs-comment">-- | 'dataUploadFrequency'</span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.DataUploadFrequency.html#DataUploadFrequency"><span class="hs-identifier hs-type">DataUploadFrequency</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-comment">-- | 'dataInputConfiguration'</span><span>
+</span><span id="line-165"></span><span>  </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceInputConfiguration.html#InferenceInputConfiguration"><span class="hs-identifier hs-type">InferenceInputConfiguration</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-comment">-- | 'dataOutputConfiguration'</span><span>
+</span><span id="line-167"></span><span>  </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceOutputConfiguration.html#InferenceOutputConfiguration"><span class="hs-identifier hs-type">InferenceOutputConfiguration</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-comment">-- | 'roleArn'</span><span>
+</span><span id="line-169"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-170"></span><span>  </span><span class="hs-comment">-- | 'clientToken'</span><span>
+</span><span id="line-171"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-172"></span><span>  </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler"><span class="hs-identifier hs-type">CreateInferenceScheduler</span></a></span><span>
+</span><span id="line-173"></span><span id="newCreateInferenceScheduler"><span class="annot"><span class="annottext">newCreateInferenceScheduler :: Text
+-&gt; Text
+-&gt; DataUploadFrequency
+-&gt; InferenceInputConfiguration
+-&gt; InferenceOutputConfiguration
+-&gt; Text
+-&gt; Text
+-&gt; CreateInferenceScheduler
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#newCreateInferenceScheduler"><span class="hs-identifier hs-var hs-var">newCreateInferenceScheduler</span></a></span></span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679215619"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215619"><span class="hs-identifier hs-var">pModelName_</span></a></span></span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679215618"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215618"><span class="hs-identifier hs-var">pInferenceSchedulerName_</span></a></span></span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679215617"><span class="annot"><span class="annottext">DataUploadFrequency
+</span><a href="#local-6989586621679215617"><span class="hs-identifier hs-var">pDataUploadFrequency_</span></a></span></span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679215616"><span class="annot"><span class="annottext">InferenceInputConfiguration
+</span><a href="#local-6989586621679215616"><span class="hs-identifier hs-var">pDataInputConfiguration_</span></a></span></span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679215615"><span class="annot"><span class="annottext">InferenceOutputConfiguration
+</span><a href="#local-6989586621679215615"><span class="hs-identifier hs-var">pDataOutputConfiguration_</span></a></span></span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679215614"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215614"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679215613"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215613"><span class="hs-identifier hs-var">pClientToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><span class="annottext">CreateInferenceScheduler' :: Maybe Natural
+-&gt; Maybe [Tag]
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; DataUploadFrequency
+-&gt; InferenceInputConfiguration
+-&gt; InferenceOutputConfiguration
+-&gt; Text
+-&gt; Text
+-&gt; CreateInferenceScheduler
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler%27"><span class="hs-identifier hs-type">CreateInferenceScheduler'</span></a></span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dataDelayOffsetInMinutes:CreateInferenceScheduler' :: Maybe Natural
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#%24sel%3AdataDelayOffsetInMinutes%3ACreateInferenceScheduler%27"><span class="hs-identifier hs-var">dataDelayOffsetInMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-183"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateInferenceScheduler' :: Maybe [Tag]
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#%24sel%3Atags%3ACreateInferenceScheduler%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">$sel:serverSideKmsKeyId:CreateInferenceScheduler' :: Maybe Text
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#%24sel%3AserverSideKmsKeyId%3ACreateInferenceScheduler%27"><span class="hs-identifier hs-var">serverSideKmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>        </span><span class="annot"><span class="annottext">$sel:modelName:CreateInferenceScheduler' :: Text
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#%24sel%3AmodelName%3ACreateInferenceScheduler%27"><span class="hs-identifier hs-var">modelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215619"><span class="hs-identifier hs-var">pModelName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">$sel:inferenceSchedulerName:CreateInferenceScheduler' :: Text
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#%24sel%3AinferenceSchedulerName%3ACreateInferenceScheduler%27"><span class="hs-identifier hs-var">inferenceSchedulerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215618"><span class="hs-identifier hs-var">pInferenceSchedulerName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>        </span><span class="annot"><span class="annottext">$sel:dataUploadFrequency:CreateInferenceScheduler' :: DataUploadFrequency
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#%24sel%3AdataUploadFrequency%3ACreateInferenceScheduler%27"><span class="hs-identifier hs-var">dataUploadFrequency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DataUploadFrequency
+</span><a href="#local-6989586621679215617"><span class="hs-identifier hs-var">pDataUploadFrequency_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">$sel:dataInputConfiguration:CreateInferenceScheduler' :: InferenceInputConfiguration
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#%24sel%3AdataInputConfiguration%3ACreateInferenceScheduler%27"><span class="hs-identifier hs-var">dataInputConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InferenceInputConfiguration
+</span><a href="#local-6989586621679215616"><span class="hs-identifier hs-var">pDataInputConfiguration_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">$sel:dataOutputConfiguration:CreateInferenceScheduler' :: InferenceOutputConfiguration
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#%24sel%3AdataOutputConfiguration%3ACreateInferenceScheduler%27"><span class="hs-identifier hs-var">dataOutputConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-191"></span><span>          </span><span class="annot"><span class="annottext">InferenceOutputConfiguration
+</span><a href="#local-6989586621679215615"><span class="hs-identifier hs-var">pDataOutputConfiguration_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>        </span><span class="annot"><span class="annottext">$sel:roleArn:CreateInferenceScheduler' :: Text
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#%24sel%3AroleArn%3ACreateInferenceScheduler%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215614"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>        </span><span class="annot"><span class="annottext">$sel:clientToken:CreateInferenceScheduler' :: Text
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#%24sel%3AclientToken%3ACreateInferenceScheduler%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215613"><span class="hs-identifier hs-var">pClientToken_</span></a></span><span>
+</span><span id="line-194"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | A period of time (in minutes) by which inference on the data is delayed</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- after the data starts. For instance, if you select an offset delay time</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- of five minutes, inference will not begin on the data until the first</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- data measurement after the five minute mark. For example, if five</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- minutes is selected, the inference scheduler will wake up at the</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- configured frequency with the additional five minute delay time to check</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- the customer S3 bucket. The customer can upload data at the same</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- frequency and they don\'t need to stop and restart the scheduler when</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- uploading new data.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#createInferenceScheduler_dataDelayOffsetInMinutes"><span class="hs-identifier hs-type">createInferenceScheduler_dataDelayOffsetInMinutes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler"><span class="hs-identifier hs-type">CreateInferenceScheduler</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span id="createInferenceScheduler_dataDelayOffsetInMinutes"><span class="annot"><span class="annottext">createInferenceScheduler_dataDelayOffsetInMinutes :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; CreateInferenceScheduler -&gt; f CreateInferenceScheduler
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#createInferenceScheduler_dataDelayOffsetInMinutes"><span class="hs-identifier hs-var hs-var">createInferenceScheduler_dataDelayOffsetInMinutes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateInferenceScheduler -&gt; Maybe Natural)
+-&gt; (CreateInferenceScheduler
+    -&gt; Maybe Natural -&gt; CreateInferenceScheduler)
+-&gt; Lens
+     CreateInferenceScheduler
+     CreateInferenceScheduler
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler%27"><span class="hs-identifier hs-type">CreateInferenceScheduler'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215610"><span class="annot"><span class="annottext">Maybe Natural
+dataDelayOffsetInMinutes :: Maybe Natural
+$sel:dataDelayOffsetInMinutes:CreateInferenceScheduler' :: CreateInferenceScheduler -&gt; Maybe Natural
+</span><a href="#local-6989586621679215610"><span class="hs-identifier hs-var hs-var">dataDelayOffsetInMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679215610"><span class="hs-identifier hs-var">dataDelayOffsetInMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215609"><span class="annot"><span class="annottext">s :: CreateInferenceScheduler
+</span><a href="#local-6989586621679215609"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler%27"><span class="hs-identifier hs-type">CreateInferenceScheduler'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215608"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679215608"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateInferenceScheduler
+</span><a href="#local-6989586621679215609"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataDelayOffsetInMinutes:CreateInferenceScheduler' :: Maybe Natural
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#%24sel%3AdataDelayOffsetInMinutes%3ACreateInferenceScheduler%27"><span class="hs-identifier hs-var">dataDelayOffsetInMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679215608"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler"><span class="hs-identifier hs-type">CreateInferenceScheduler</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | Any tags associated with the inference scheduler.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#createInferenceScheduler_tags"><span class="hs-identifier hs-type">createInferenceScheduler_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler"><span class="hs-identifier hs-type">CreateInferenceScheduler</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span id="createInferenceScheduler_tags"><span class="annot"><span class="annottext">createInferenceScheduler_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateInferenceScheduler -&gt; f CreateInferenceScheduler
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#createInferenceScheduler_tags"><span class="hs-identifier hs-var hs-var">createInferenceScheduler_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateInferenceScheduler -&gt; Maybe [Tag])
+-&gt; (CreateInferenceScheduler
+    -&gt; Maybe [Tag] -&gt; CreateInferenceScheduler)
+-&gt; Lens
+     CreateInferenceScheduler
+     CreateInferenceScheduler
+     (Maybe [Tag])
+     (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler%27"><span class="hs-identifier hs-type">CreateInferenceScheduler'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215607"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:CreateInferenceScheduler' :: CreateInferenceScheduler -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679215607"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679215607"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215606"><span class="annot"><span class="annottext">s :: CreateInferenceScheduler
+</span><a href="#local-6989586621679215606"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler%27"><span class="hs-identifier hs-type">CreateInferenceScheduler'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215605"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679215605"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateInferenceScheduler
+</span><a href="#local-6989586621679215606"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateInferenceScheduler' :: Maybe [Tag]
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#%24sel%3Atags%3ACreateInferenceScheduler%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679215605"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler"><span class="hs-identifier hs-type">CreateInferenceScheduler</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; CreateInferenceScheduler -&gt; f CreateInferenceScheduler)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateInferenceScheduler
+-&gt; f CreateInferenceScheduler
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | Provides the identifier of the KMS key used to encrypt inference</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- scheduler data by Amazon Lookout for Equipment.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#createInferenceScheduler_serverSideKmsKeyId"><span class="hs-identifier hs-type">createInferenceScheduler_serverSideKmsKeyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler"><span class="hs-identifier hs-type">CreateInferenceScheduler</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="createInferenceScheduler_serverSideKmsKeyId"><span class="annot"><span class="annottext">createInferenceScheduler_serverSideKmsKeyId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateInferenceScheduler -&gt; f CreateInferenceScheduler
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#createInferenceScheduler_serverSideKmsKeyId"><span class="hs-identifier hs-var hs-var">createInferenceScheduler_serverSideKmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateInferenceScheduler -&gt; Maybe Text)
+-&gt; (CreateInferenceScheduler
+    -&gt; Maybe Text -&gt; CreateInferenceScheduler)
+-&gt; Lens
+     CreateInferenceScheduler
+     CreateInferenceScheduler
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler%27"><span class="hs-identifier hs-type">CreateInferenceScheduler'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215601"><span class="annot"><span class="annottext">Maybe Text
+serverSideKmsKeyId :: Maybe Text
+$sel:serverSideKmsKeyId:CreateInferenceScheduler' :: CreateInferenceScheduler -&gt; Maybe Text
+</span><a href="#local-6989586621679215601"><span class="hs-identifier hs-var hs-var">serverSideKmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215601"><span class="hs-identifier hs-var">serverSideKmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215600"><span class="annot"><span class="annottext">s :: CreateInferenceScheduler
+</span><a href="#local-6989586621679215600"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler%27"><span class="hs-identifier hs-type">CreateInferenceScheduler'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215599"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215599"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateInferenceScheduler
+</span><a href="#local-6989586621679215600"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverSideKmsKeyId:CreateInferenceScheduler' :: Maybe Text
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#%24sel%3AserverSideKmsKeyId%3ACreateInferenceScheduler%27"><span class="hs-identifier hs-var">serverSideKmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215599"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler"><span class="hs-identifier hs-type">CreateInferenceScheduler</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | The name of the previously trained ML model being used to create the</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- inference scheduler.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#createInferenceScheduler_modelName"><span class="hs-identifier hs-type">createInferenceScheduler_modelName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler"><span class="hs-identifier hs-type">CreateInferenceScheduler</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-220"></span><span id="createInferenceScheduler_modelName"><span class="annot"><span class="annottext">createInferenceScheduler_modelName :: (Text -&gt; f Text)
+-&gt; CreateInferenceScheduler -&gt; f CreateInferenceScheduler
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#createInferenceScheduler_modelName"><span class="hs-identifier hs-var hs-var">createInferenceScheduler_modelName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateInferenceScheduler -&gt; Text)
+-&gt; (CreateInferenceScheduler -&gt; Text -&gt; CreateInferenceScheduler)
+-&gt; Lens CreateInferenceScheduler CreateInferenceScheduler Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler%27"><span class="hs-identifier hs-type">CreateInferenceScheduler'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215598"><span class="annot"><span class="annottext">Text
+modelName :: Text
+$sel:modelName:CreateInferenceScheduler' :: CreateInferenceScheduler -&gt; Text
+</span><a href="#local-6989586621679215598"><span class="hs-identifier hs-var hs-var">modelName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215598"><span class="hs-identifier hs-var">modelName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215597"><span class="annot"><span class="annottext">s :: CreateInferenceScheduler
+</span><a href="#local-6989586621679215597"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler%27"><span class="hs-identifier hs-type">CreateInferenceScheduler'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215596"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215596"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateInferenceScheduler
+</span><a href="#local-6989586621679215597"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelName:CreateInferenceScheduler' :: Text
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#%24sel%3AmodelName%3ACreateInferenceScheduler%27"><span class="hs-identifier hs-var">modelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215596"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler"><span class="hs-identifier hs-type">CreateInferenceScheduler</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | The name of the inference scheduler being created.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#createInferenceScheduler_inferenceSchedulerName"><span class="hs-identifier hs-type">createInferenceScheduler_inferenceSchedulerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler"><span class="hs-identifier hs-type">CreateInferenceScheduler</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-224"></span><span id="createInferenceScheduler_inferenceSchedulerName"><span class="annot"><span class="annottext">createInferenceScheduler_inferenceSchedulerName :: (Text -&gt; f Text)
+-&gt; CreateInferenceScheduler -&gt; f CreateInferenceScheduler
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#createInferenceScheduler_inferenceSchedulerName"><span class="hs-identifier hs-var hs-var">createInferenceScheduler_inferenceSchedulerName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateInferenceScheduler -&gt; Text)
+-&gt; (CreateInferenceScheduler -&gt; Text -&gt; CreateInferenceScheduler)
+-&gt; Lens CreateInferenceScheduler CreateInferenceScheduler Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler%27"><span class="hs-identifier hs-type">CreateInferenceScheduler'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215595"><span class="annot"><span class="annottext">Text
+inferenceSchedulerName :: Text
+$sel:inferenceSchedulerName:CreateInferenceScheduler' :: CreateInferenceScheduler -&gt; Text
+</span><a href="#local-6989586621679215595"><span class="hs-identifier hs-var hs-var">inferenceSchedulerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215595"><span class="hs-identifier hs-var">inferenceSchedulerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215594"><span class="annot"><span class="annottext">s :: CreateInferenceScheduler
+</span><a href="#local-6989586621679215594"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler%27"><span class="hs-identifier hs-type">CreateInferenceScheduler'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215593"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215593"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateInferenceScheduler
+</span><a href="#local-6989586621679215594"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inferenceSchedulerName:CreateInferenceScheduler' :: Text
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#%24sel%3AinferenceSchedulerName%3ACreateInferenceScheduler%27"><span class="hs-identifier hs-var">inferenceSchedulerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215593"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler"><span class="hs-identifier hs-type">CreateInferenceScheduler</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- | How often data is uploaded to the source S3 bucket for the input data.</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- The value chosen is the length of time between data uploads. For</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- instance, if you select 5 minutes, Amazon Lookout for Equipment will</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- upload the real-time data to the source bucket once every 5 minutes.</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- This frequency also determines how often Amazon Lookout for Equipment</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- starts a scheduled inference on your data. In this example, it starts</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- once every 5 minutes.</span><span>
+</span><span id="line-233"></span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#createInferenceScheduler_dataUploadFrequency"><span class="hs-identifier hs-type">createInferenceScheduler_dataUploadFrequency</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler"><span class="hs-identifier hs-type">CreateInferenceScheduler</span></a></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.DataUploadFrequency.html#DataUploadFrequency"><span class="hs-identifier hs-type">DataUploadFrequency</span></a></span><span>
+</span><span id="line-234"></span><span id="createInferenceScheduler_dataUploadFrequency"><span class="annot"><span class="annottext">createInferenceScheduler_dataUploadFrequency :: (DataUploadFrequency -&gt; f DataUploadFrequency)
+-&gt; CreateInferenceScheduler -&gt; f CreateInferenceScheduler
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#createInferenceScheduler_dataUploadFrequency"><span class="hs-identifier hs-var hs-var">createInferenceScheduler_dataUploadFrequency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateInferenceScheduler -&gt; DataUploadFrequency)
+-&gt; (CreateInferenceScheduler
+    -&gt; DataUploadFrequency -&gt; CreateInferenceScheduler)
+-&gt; Lens
+     CreateInferenceScheduler
+     CreateInferenceScheduler
+     DataUploadFrequency
+     DataUploadFrequency
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler%27"><span class="hs-identifier hs-type">CreateInferenceScheduler'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215592"><span class="annot"><span class="annottext">DataUploadFrequency
+dataUploadFrequency :: DataUploadFrequency
+$sel:dataUploadFrequency:CreateInferenceScheduler' :: CreateInferenceScheduler -&gt; DataUploadFrequency
+</span><a href="#local-6989586621679215592"><span class="hs-identifier hs-var hs-var">dataUploadFrequency</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataUploadFrequency
+</span><a href="#local-6989586621679215592"><span class="hs-identifier hs-var">dataUploadFrequency</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215591"><span class="annot"><span class="annottext">s :: CreateInferenceScheduler
+</span><a href="#local-6989586621679215591"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler%27"><span class="hs-identifier hs-type">CreateInferenceScheduler'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215590"><span class="annot"><span class="annottext">DataUploadFrequency
+</span><a href="#local-6989586621679215590"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateInferenceScheduler
+</span><a href="#local-6989586621679215591"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataUploadFrequency:CreateInferenceScheduler' :: DataUploadFrequency
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#%24sel%3AdataUploadFrequency%3ACreateInferenceScheduler%27"><span class="hs-identifier hs-var">dataUploadFrequency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DataUploadFrequency
+</span><a href="#local-6989586621679215590"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler"><span class="hs-identifier hs-type">CreateInferenceScheduler</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- | Specifies configuration information for the input data for the inference</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- scheduler, including delimiter, format, and dataset location.</span><span>
+</span><span id="line-238"></span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#createInferenceScheduler_dataInputConfiguration"><span class="hs-identifier hs-type">createInferenceScheduler_dataInputConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler"><span class="hs-identifier hs-type">CreateInferenceScheduler</span></a></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceInputConfiguration.html#InferenceInputConfiguration"><span class="hs-identifier hs-type">InferenceInputConfiguration</span></a></span><span>
+</span><span id="line-239"></span><span id="createInferenceScheduler_dataInputConfiguration"><span class="annot"><span class="annottext">createInferenceScheduler_dataInputConfiguration :: (InferenceInputConfiguration -&gt; f InferenceInputConfiguration)
+-&gt; CreateInferenceScheduler -&gt; f CreateInferenceScheduler
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#createInferenceScheduler_dataInputConfiguration"><span class="hs-identifier hs-var hs-var">createInferenceScheduler_dataInputConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateInferenceScheduler -&gt; InferenceInputConfiguration)
+-&gt; (CreateInferenceScheduler
+    -&gt; InferenceInputConfiguration -&gt; CreateInferenceScheduler)
+-&gt; Lens
+     CreateInferenceScheduler
+     CreateInferenceScheduler
+     InferenceInputConfiguration
+     InferenceInputConfiguration
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler%27"><span class="hs-identifier hs-type">CreateInferenceScheduler'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215589"><span class="annot"><span class="annottext">InferenceInputConfiguration
+dataInputConfiguration :: InferenceInputConfiguration
+$sel:dataInputConfiguration:CreateInferenceScheduler' :: CreateInferenceScheduler -&gt; InferenceInputConfiguration
+</span><a href="#local-6989586621679215589"><span class="hs-identifier hs-var hs-var">dataInputConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InferenceInputConfiguration
+</span><a href="#local-6989586621679215589"><span class="hs-identifier hs-var">dataInputConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215588"><span class="annot"><span class="annottext">s :: CreateInferenceScheduler
+</span><a href="#local-6989586621679215588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler%27"><span class="hs-identifier hs-type">CreateInferenceScheduler'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215587"><span class="annot"><span class="annottext">InferenceInputConfiguration
+</span><a href="#local-6989586621679215587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateInferenceScheduler
+</span><a href="#local-6989586621679215588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataInputConfiguration:CreateInferenceScheduler' :: InferenceInputConfiguration
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#%24sel%3AdataInputConfiguration%3ACreateInferenceScheduler%27"><span class="hs-identifier hs-var">dataInputConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InferenceInputConfiguration
+</span><a href="#local-6989586621679215587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler"><span class="hs-identifier hs-type">CreateInferenceScheduler</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- | Specifies configuration information for the output results for the</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- inference scheduler, including the S3 location for the output.</span><span>
+</span><span id="line-243"></span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#createInferenceScheduler_dataOutputConfiguration"><span class="hs-identifier hs-type">createInferenceScheduler_dataOutputConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler"><span class="hs-identifier hs-type">CreateInferenceScheduler</span></a></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceOutputConfiguration.html#InferenceOutputConfiguration"><span class="hs-identifier hs-type">InferenceOutputConfiguration</span></a></span><span>
+</span><span id="line-244"></span><span id="createInferenceScheduler_dataOutputConfiguration"><span class="annot"><span class="annottext">createInferenceScheduler_dataOutputConfiguration :: (InferenceOutputConfiguration -&gt; f InferenceOutputConfiguration)
+-&gt; CreateInferenceScheduler -&gt; f CreateInferenceScheduler
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#createInferenceScheduler_dataOutputConfiguration"><span class="hs-identifier hs-var hs-var">createInferenceScheduler_dataOutputConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateInferenceScheduler -&gt; InferenceOutputConfiguration)
+-&gt; (CreateInferenceScheduler
+    -&gt; InferenceOutputConfiguration -&gt; CreateInferenceScheduler)
+-&gt; Lens
+     CreateInferenceScheduler
+     CreateInferenceScheduler
+     InferenceOutputConfiguration
+     InferenceOutputConfiguration
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler%27"><span class="hs-identifier hs-type">CreateInferenceScheduler'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215586"><span class="annot"><span class="annottext">InferenceOutputConfiguration
+dataOutputConfiguration :: InferenceOutputConfiguration
+$sel:dataOutputConfiguration:CreateInferenceScheduler' :: CreateInferenceScheduler -&gt; InferenceOutputConfiguration
+</span><a href="#local-6989586621679215586"><span class="hs-identifier hs-var hs-var">dataOutputConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InferenceOutputConfiguration
+</span><a href="#local-6989586621679215586"><span class="hs-identifier hs-var">dataOutputConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215585"><span class="annot"><span class="annottext">s :: CreateInferenceScheduler
+</span><a href="#local-6989586621679215585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler%27"><span class="hs-identifier hs-type">CreateInferenceScheduler'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215584"><span class="annot"><span class="annottext">InferenceOutputConfiguration
+</span><a href="#local-6989586621679215584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateInferenceScheduler
+</span><a href="#local-6989586621679215585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataOutputConfiguration:CreateInferenceScheduler' :: InferenceOutputConfiguration
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#%24sel%3AdataOutputConfiguration%3ACreateInferenceScheduler%27"><span class="hs-identifier hs-var">dataOutputConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InferenceOutputConfiguration
+</span><a href="#local-6989586621679215584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler"><span class="hs-identifier hs-type">CreateInferenceScheduler</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of a role with permission to access the</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- data source being used for the inference.</span><span>
+</span><span id="line-248"></span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#createInferenceScheduler_roleArn"><span class="hs-identifier hs-type">createInferenceScheduler_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler"><span class="hs-identifier hs-type">CreateInferenceScheduler</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-249"></span><span id="createInferenceScheduler_roleArn"><span class="annot"><span class="annottext">createInferenceScheduler_roleArn :: (Text -&gt; f Text)
+-&gt; CreateInferenceScheduler -&gt; f CreateInferenceScheduler
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#createInferenceScheduler_roleArn"><span class="hs-identifier hs-var hs-var">createInferenceScheduler_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateInferenceScheduler -&gt; Text)
+-&gt; (CreateInferenceScheduler -&gt; Text -&gt; CreateInferenceScheduler)
+-&gt; Lens CreateInferenceScheduler CreateInferenceScheduler Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler%27"><span class="hs-identifier hs-type">CreateInferenceScheduler'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215583"><span class="annot"><span class="annottext">Text
+roleArn :: Text
+$sel:roleArn:CreateInferenceScheduler' :: CreateInferenceScheduler -&gt; Text
+</span><a href="#local-6989586621679215583"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215583"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215582"><span class="annot"><span class="annottext">s :: CreateInferenceScheduler
+</span><a href="#local-6989586621679215582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler%27"><span class="hs-identifier hs-type">CreateInferenceScheduler'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215581"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateInferenceScheduler
+</span><a href="#local-6989586621679215582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:CreateInferenceScheduler' :: Text
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#%24sel%3AroleArn%3ACreateInferenceScheduler%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler"><span class="hs-identifier hs-type">CreateInferenceScheduler</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- | A unique identifier for the request. If you do not set the client</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- request token, Amazon Lookout for Equipment generates one.</span><span>
+</span><span id="line-253"></span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#createInferenceScheduler_clientToken"><span class="hs-identifier hs-type">createInferenceScheduler_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler"><span class="hs-identifier hs-type">CreateInferenceScheduler</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-254"></span><span id="createInferenceScheduler_clientToken"><span class="annot"><span class="annottext">createInferenceScheduler_clientToken :: (Text -&gt; f Text)
+-&gt; CreateInferenceScheduler -&gt; f CreateInferenceScheduler
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#createInferenceScheduler_clientToken"><span class="hs-identifier hs-var hs-var">createInferenceScheduler_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateInferenceScheduler -&gt; Text)
+-&gt; (CreateInferenceScheduler -&gt; Text -&gt; CreateInferenceScheduler)
+-&gt; Lens CreateInferenceScheduler CreateInferenceScheduler Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler%27"><span class="hs-identifier hs-type">CreateInferenceScheduler'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215580"><span class="annot"><span class="annottext">Text
+clientToken :: Text
+$sel:clientToken:CreateInferenceScheduler' :: CreateInferenceScheduler -&gt; Text
+</span><a href="#local-6989586621679215580"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215580"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215579"><span class="annot"><span class="annottext">s :: CreateInferenceScheduler
+</span><a href="#local-6989586621679215579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler%27"><span class="hs-identifier hs-type">CreateInferenceScheduler'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215578"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateInferenceScheduler
+</span><a href="#local-6989586621679215579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:CreateInferenceScheduler' :: Text
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#%24sel%3AclientToken%3ACreateInferenceScheduler%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler"><span class="hs-identifier hs-type">CreateInferenceScheduler</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler"><span class="hs-identifier hs-type">CreateInferenceScheduler</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-257"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-258"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler"><span class="hs-identifier hs-type">CreateInferenceScheduler</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-259"></span><span>      </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceSchedulerResponse"><span class="hs-identifier hs-type">CreateInferenceSchedulerResponse</span></a></span><span>
+</span><span id="line-260"></span><span>  </span><span id="local-6989586621679215574"><span class="annot"><span class="annottext">request :: CreateInferenceScheduler -&gt; Request CreateInferenceScheduler
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; CreateInferenceScheduler -&gt; Request CreateInferenceScheduler
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.LookoutEquipment.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-261"></span><span>  </span><span id="local-6989586621679215570"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateInferenceScheduler
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateInferenceScheduler)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-262"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateInferenceScheduler))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateInferenceScheduler
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateInferenceScheduler)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-263"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679215567"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679215567"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679215566"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679215566"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679215565"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679215565"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-264"></span><span>          </span><span class="annot"><span class="annottext">Maybe InferenceSchedulerStatus
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; CreateInferenceSchedulerResponse
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceSchedulerResponse%27"><span class="hs-identifier hs-var">CreateInferenceSchedulerResponse'</span></a></span><span>
+</span><span id="line-265"></span><span>            </span><span class="annot"><span class="annottext">(Maybe InferenceSchedulerStatus
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; CreateInferenceSchedulerResponse)
+-&gt; Either String (Maybe InferenceSchedulerStatus)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Int -&gt; CreateInferenceSchedulerResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679215565"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe InferenceSchedulerStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Int -&gt; CreateInferenceSchedulerResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; CreateInferenceSchedulerResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679215565"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InferenceSchedulerArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; CreateInferenceSchedulerResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CreateInferenceSchedulerResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679215565"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InferenceSchedulerName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateInferenceSchedulerResponse)
+-&gt; Either String Int
+-&gt; Either String CreateInferenceSchedulerResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679215567"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span>
+</span><span id="line-271"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215557"><span id="local-6989586621679215559"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler"><span class="hs-identifier hs-type">CreateInferenceScheduler</span></a></span></span></span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215554"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler"><span class="hs-identifier hs-type">CreateInferenceScheduler</span></a></span></span><span>
+</span><span id="line-274"></span><span>
+</span><span id="line-275"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler"><span class="hs-identifier hs-type">CreateInferenceScheduler</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-276"></span><span>  </span><span id="local-6989586621679215550"><span class="annot"><span class="annottext">toHeaders :: CreateInferenceScheduler -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-277"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateInferenceScheduler -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-278"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-279"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-280"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSLookoutEquipmentFrontendService.CreateInferenceScheduler&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-281"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-282"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-283"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-284"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-285"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-286"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-288"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span>
+</span><span id="line-290"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215540"><span id="local-6989586621679215542"><span id="local-6989586621679215544"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler"><span class="hs-identifier hs-type">CreateInferenceScheduler</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-291"></span><span>  </span><span id="local-6989586621679215538"><span class="annot"><span class="annottext">toJSON :: CreateInferenceScheduler -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler%27"><span class="hs-identifier hs-type">CreateInferenceScheduler'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215527"><span id="local-6989586621679215528"><span id="local-6989586621679215529"><span id="local-6989586621679215530"><span id="local-6989586621679215531"><span id="local-6989586621679215532"><span id="local-6989586621679215533"><span id="local-6989586621679215534"><span id="local-6989586621679215535"><span id="local-6989586621679215536"><span class="annot"><span class="annottext">Maybe Natural
+Maybe [Tag]
+Maybe Text
+Text
+DataUploadFrequency
+InferenceInputConfiguration
+InferenceOutputConfiguration
+clientToken :: Text
+roleArn :: Text
+dataOutputConfiguration :: InferenceOutputConfiguration
+dataInputConfiguration :: InferenceInputConfiguration
+dataUploadFrequency :: DataUploadFrequency
+inferenceSchedulerName :: Text
+modelName :: Text
+serverSideKmsKeyId :: Maybe Text
+tags :: Maybe [Tag]
+dataDelayOffsetInMinutes :: Maybe Natural
+$sel:clientToken:CreateInferenceScheduler' :: CreateInferenceScheduler -&gt; Text
+$sel:roleArn:CreateInferenceScheduler' :: CreateInferenceScheduler -&gt; Text
+$sel:dataOutputConfiguration:CreateInferenceScheduler' :: CreateInferenceScheduler -&gt; InferenceOutputConfiguration
+$sel:dataInputConfiguration:CreateInferenceScheduler' :: CreateInferenceScheduler -&gt; InferenceInputConfiguration
+$sel:dataUploadFrequency:CreateInferenceScheduler' :: CreateInferenceScheduler -&gt; DataUploadFrequency
+$sel:inferenceSchedulerName:CreateInferenceScheduler' :: CreateInferenceScheduler -&gt; Text
+$sel:modelName:CreateInferenceScheduler' :: CreateInferenceScheduler -&gt; Text
+$sel:serverSideKmsKeyId:CreateInferenceScheduler' :: CreateInferenceScheduler -&gt; Maybe Text
+$sel:tags:CreateInferenceScheduler' :: CreateInferenceScheduler -&gt; Maybe [Tag]
+$sel:dataDelayOffsetInMinutes:CreateInferenceScheduler' :: CreateInferenceScheduler -&gt; Maybe Natural
+</span><a href="#local-6989586621679215527"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-292"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-293"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-294"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataDelayOffsetInMinutes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-295"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679215536"><span class="hs-identifier hs-var">dataDelayOffsetInMinutes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-296"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679215535"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-297"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServerSideKmsKeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-298"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215534"><span class="hs-identifier hs-var">serverSideKmsKeyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-299"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ModelName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215533"><span class="hs-identifier hs-var">modelName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-300"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-301"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InferenceSchedulerName&quot;</span></span><span>
+</span><span id="line-302"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215532"><span class="hs-identifier hs-var">inferenceSchedulerName</span></a></span><span>
+</span><span id="line-303"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-304"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-305"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataUploadFrequency&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DataUploadFrequency -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">DataUploadFrequency
+</span><a href="#local-6989586621679215531"><span class="hs-identifier hs-var">dataUploadFrequency</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-306"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-307"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataInputConfiguration&quot;</span></span><span>
+</span><span id="line-308"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; InferenceInputConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">InferenceInputConfiguration
+</span><a href="#local-6989586621679215530"><span class="hs-identifier hs-var">dataInputConfiguration</span></a></span><span>
+</span><span id="line-309"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-310"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-311"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataOutputConfiguration&quot;</span></span><span>
+</span><span id="line-312"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; InferenceOutputConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">InferenceOutputConfiguration
+</span><a href="#local-6989586621679215529"><span class="hs-identifier hs-var">dataOutputConfiguration</span></a></span><span>
+</span><span id="line-313"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-314"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215528"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-315"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215527"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-316"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-317"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-318"></span><span>
+</span><span id="line-319"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler"><span class="hs-identifier hs-type">CreateInferenceScheduler</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-320"></span><span>  </span><span id="local-6989586621679215521"><span class="annot"><span class="annottext">toPath :: CreateInferenceScheduler -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateInferenceScheduler -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-321"></span><span>
+</span><span id="line-322"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceScheduler"><span class="hs-identifier hs-type">CreateInferenceScheduler</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-323"></span><span>  </span><span id="local-6989586621679215517"><span class="annot"><span class="annottext">toQuery :: CreateInferenceScheduler -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateInferenceScheduler -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-324"></span><span>
+</span><span id="line-325"></span><span class="hs-comment">-- | /See:/ 'newCreateInferenceSchedulerResponse' smart constructor.</span><span>
+</span><span id="line-326"></span><span id="local-6989586621679215514"><span id="local-6989586621679215515"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateInferenceSchedulerResponse"><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceSchedulerResponse"><span class="hs-identifier hs-var">CreateInferenceSchedulerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateInferenceSchedulerResponse%27"><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceSchedulerResponse%27"><span class="hs-identifier hs-var">CreateInferenceSchedulerResponse'</span></a></span></span><span>
+</span><span id="line-327"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates the status of the @CreateInferenceScheduler@ operation.</span><span>
+</span><span id="line-328"></span><span>    </span><span id="%24sel%3Astatus%3ACreateInferenceSchedulerResponse%27"><span class="annot"><span class="annottext">CreateInferenceSchedulerResponse -&gt; Maybe InferenceSchedulerStatus
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#%24sel%3Astatus%3ACreateInferenceSchedulerResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceSchedulerStatus.html#InferenceSchedulerStatus"><span class="hs-identifier hs-type">InferenceSchedulerStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-329"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the inference scheduler being created.</span><span>
+</span><span id="line-330"></span><span>    </span><span id="%24sel%3AinferenceSchedulerArn%3ACreateInferenceSchedulerResponse%27"><span class="annot"><span class="annottext">CreateInferenceSchedulerResponse -&gt; Maybe Text
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#%24sel%3AinferenceSchedulerArn%3ACreateInferenceSchedulerResponse%27"><span class="hs-identifier hs-var hs-var">inferenceSchedulerArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-331"></span><span>    </span><span class="hs-comment">-- | The name of inference scheduler being created.</span><span>
+</span><span id="line-332"></span><span>    </span><span id="%24sel%3AinferenceSchedulerName%3ACreateInferenceSchedulerResponse%27"><span class="annot"><span class="annottext">CreateInferenceSchedulerResponse -&gt; Maybe Text
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#%24sel%3AinferenceSchedulerName%3ACreateInferenceSchedulerResponse%27"><span class="hs-identifier hs-var hs-var">inferenceSchedulerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-333"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-334"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateInferenceSchedulerResponse%27"><span class="annot"><span class="annottext">CreateInferenceSchedulerResponse -&gt; Int
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#%24sel%3AhttpStatus%3ACreateInferenceSchedulerResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-335"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-336"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679215506"><span id="local-6989586621679215508"><span class="annot"><span class="annottext">CreateInferenceSchedulerResponse
+-&gt; CreateInferenceSchedulerResponse -&gt; Bool
+(CreateInferenceSchedulerResponse
+ -&gt; CreateInferenceSchedulerResponse -&gt; Bool)
+-&gt; (CreateInferenceSchedulerResponse
+    -&gt; CreateInferenceSchedulerResponse -&gt; Bool)
+-&gt; Eq CreateInferenceSchedulerResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateInferenceSchedulerResponse
+-&gt; CreateInferenceSchedulerResponse -&gt; Bool
+$c/= :: CreateInferenceSchedulerResponse
+-&gt; CreateInferenceSchedulerResponse -&gt; Bool
+== :: CreateInferenceSchedulerResponse
+-&gt; CreateInferenceSchedulerResponse -&gt; Bool
+$c== :: CreateInferenceSchedulerResponse
+-&gt; CreateInferenceSchedulerResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215498"><span id="local-6989586621679215500"><span id="local-6989586621679215502"><span id="local-6989586621679215504"><span class="annot"><span class="annottext">ReadPrec [CreateInferenceSchedulerResponse]
+ReadPrec CreateInferenceSchedulerResponse
+Int -&gt; ReadS CreateInferenceSchedulerResponse
+ReadS [CreateInferenceSchedulerResponse]
+(Int -&gt; ReadS CreateInferenceSchedulerResponse)
+-&gt; ReadS [CreateInferenceSchedulerResponse]
+-&gt; ReadPrec CreateInferenceSchedulerResponse
+-&gt; ReadPrec [CreateInferenceSchedulerResponse]
+-&gt; Read CreateInferenceSchedulerResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateInferenceSchedulerResponse]
+$creadListPrec :: ReadPrec [CreateInferenceSchedulerResponse]
+readPrec :: ReadPrec CreateInferenceSchedulerResponse
+$creadPrec :: ReadPrec CreateInferenceSchedulerResponse
+readList :: ReadS [CreateInferenceSchedulerResponse]
+$creadList :: ReadS [CreateInferenceSchedulerResponse]
+readsPrec :: Int -&gt; ReadS CreateInferenceSchedulerResponse
+$creadsPrec :: Int -&gt; ReadS CreateInferenceSchedulerResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215492"><span id="local-6989586621679215494"><span id="local-6989586621679215496"><span class="annot"><span class="annottext">Int -&gt; CreateInferenceSchedulerResponse -&gt; ShowS
+[CreateInferenceSchedulerResponse] -&gt; ShowS
+CreateInferenceSchedulerResponse -&gt; String
+(Int -&gt; CreateInferenceSchedulerResponse -&gt; ShowS)
+-&gt; (CreateInferenceSchedulerResponse -&gt; String)
+-&gt; ([CreateInferenceSchedulerResponse] -&gt; ShowS)
+-&gt; Show CreateInferenceSchedulerResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateInferenceSchedulerResponse] -&gt; ShowS
+$cshowList :: [CreateInferenceSchedulerResponse] -&gt; ShowS
+show :: CreateInferenceSchedulerResponse -&gt; String
+$cshow :: CreateInferenceSchedulerResponse -&gt; String
+showsPrec :: Int -&gt; CreateInferenceSchedulerResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateInferenceSchedulerResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateInferenceSchedulerResponse
+ -&gt; Rep CreateInferenceSchedulerResponse x)
+-&gt; (forall x.
+    Rep CreateInferenceSchedulerResponse x
+    -&gt; CreateInferenceSchedulerResponse)
+-&gt; Generic CreateInferenceSchedulerResponse
+forall x.
+Rep CreateInferenceSchedulerResponse x
+-&gt; CreateInferenceSchedulerResponse
+forall x.
+CreateInferenceSchedulerResponse
+-&gt; Rep CreateInferenceSchedulerResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateInferenceSchedulerResponse x
+-&gt; CreateInferenceSchedulerResponse
+$cfrom :: forall x.
+CreateInferenceSchedulerResponse
+-&gt; Rep CreateInferenceSchedulerResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-337"></span><span>
+</span><span id="line-338"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-339"></span><span class="hs-comment">-- Create a value of 'CreateInferenceSchedulerResponse' with all optional fields omitted.</span><span>
+</span><span id="line-340"></span><span class="hs-comment">--</span><span>
+</span><span id="line-341"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-342"></span><span class="hs-comment">--</span><span>
+</span><span id="line-343"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-344"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-345"></span><span class="hs-comment">--</span><span>
+</span><span id="line-346"></span><span class="hs-comment">-- 'status', 'createInferenceSchedulerResponse_status' - Indicates the status of the @CreateInferenceScheduler@ operation.</span><span>
+</span><span id="line-347"></span><span class="hs-comment">--</span><span>
+</span><span id="line-348"></span><span class="hs-comment">-- 'inferenceSchedulerArn', 'createInferenceSchedulerResponse_inferenceSchedulerArn' - The Amazon Resource Name (ARN) of the inference scheduler being created.</span><span>
+</span><span id="line-349"></span><span class="hs-comment">--</span><span>
+</span><span id="line-350"></span><span class="hs-comment">-- 'inferenceSchedulerName', 'createInferenceSchedulerResponse_inferenceSchedulerName' - The name of inference scheduler being created.</span><span>
+</span><span id="line-351"></span><span class="hs-comment">--</span><span>
+</span><span id="line-352"></span><span class="hs-comment">-- 'httpStatus', 'createInferenceSchedulerResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-353"></span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#newCreateInferenceSchedulerResponse"><span class="hs-identifier hs-type">newCreateInferenceSchedulerResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-354"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-355"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-356"></span><span>  </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceSchedulerResponse"><span class="hs-identifier hs-type">CreateInferenceSchedulerResponse</span></a></span><span>
+</span><span id="line-357"></span><span id="newCreateInferenceSchedulerResponse"><span class="annot"><span class="annottext">newCreateInferenceSchedulerResponse :: Int -&gt; CreateInferenceSchedulerResponse
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#newCreateInferenceSchedulerResponse"><span class="hs-identifier hs-var hs-var">newCreateInferenceSchedulerResponse</span></a></span></span><span> </span><span id="local-6989586621679215489"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679215489"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-358"></span><span>  </span><span class="annot"><span class="annottext">CreateInferenceSchedulerResponse' :: Maybe InferenceSchedulerStatus
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; CreateInferenceSchedulerResponse
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceSchedulerResponse%27"><span class="hs-identifier hs-type">CreateInferenceSchedulerResponse'</span></a></span><span>
+</span><span id="line-359"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:CreateInferenceSchedulerResponse' :: Maybe InferenceSchedulerStatus
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#%24sel%3Astatus%3ACreateInferenceSchedulerResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-360"></span><span>        </span><span class="annot"><span class="annottext">Maybe InferenceSchedulerStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-361"></span><span>      </span><span class="annot"><span class="annottext">$sel:inferenceSchedulerArn:CreateInferenceSchedulerResponse' :: Maybe Text
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#%24sel%3AinferenceSchedulerArn%3ACreateInferenceSchedulerResponse%27"><span class="hs-identifier hs-var">inferenceSchedulerArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-362"></span><span>      </span><span class="annot"><span class="annottext">$sel:inferenceSchedulerName:CreateInferenceSchedulerResponse' :: Maybe Text
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#%24sel%3AinferenceSchedulerName%3ACreateInferenceSchedulerResponse%27"><span class="hs-identifier hs-var">inferenceSchedulerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-363"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateInferenceSchedulerResponse' :: Int
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#%24sel%3AhttpStatus%3ACreateInferenceSchedulerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679215489"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-364"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-365"></span><span>
+</span><span id="line-366"></span><span class="hs-comment">-- | Indicates the status of the @CreateInferenceScheduler@ operation.</span><span>
+</span><span id="line-367"></span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#createInferenceSchedulerResponse_status"><span class="hs-identifier hs-type">createInferenceSchedulerResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceSchedulerResponse"><span class="hs-identifier hs-type">CreateInferenceSchedulerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.Types.InferenceSchedulerStatus.html#InferenceSchedulerStatus"><span class="hs-identifier hs-type">InferenceSchedulerStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-368"></span><span id="createInferenceSchedulerResponse_status"><span class="annot"><span class="annottext">createInferenceSchedulerResponse_status :: (Maybe InferenceSchedulerStatus
+ -&gt; f (Maybe InferenceSchedulerStatus))
+-&gt; CreateInferenceSchedulerResponse
+-&gt; f CreateInferenceSchedulerResponse
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#createInferenceSchedulerResponse_status"><span class="hs-identifier hs-var hs-var">createInferenceSchedulerResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateInferenceSchedulerResponse
+ -&gt; Maybe InferenceSchedulerStatus)
+-&gt; (CreateInferenceSchedulerResponse
+    -&gt; Maybe InferenceSchedulerStatus
+    -&gt; CreateInferenceSchedulerResponse)
+-&gt; Lens
+     CreateInferenceSchedulerResponse
+     CreateInferenceSchedulerResponse
+     (Maybe InferenceSchedulerStatus)
+     (Maybe InferenceSchedulerStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceSchedulerResponse%27"><span class="hs-identifier hs-type">CreateInferenceSchedulerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215488"><span class="annot"><span class="annottext">Maybe InferenceSchedulerStatus
+status :: Maybe InferenceSchedulerStatus
+$sel:status:CreateInferenceSchedulerResponse' :: CreateInferenceSchedulerResponse -&gt; Maybe InferenceSchedulerStatus
+</span><a href="#local-6989586621679215488"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InferenceSchedulerStatus
+</span><a href="#local-6989586621679215488"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215487"><span class="annot"><span class="annottext">s :: CreateInferenceSchedulerResponse
+</span><a href="#local-6989586621679215487"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceSchedulerResponse%27"><span class="hs-identifier hs-type">CreateInferenceSchedulerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215486"><span class="annot"><span class="annottext">Maybe InferenceSchedulerStatus
+</span><a href="#local-6989586621679215486"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateInferenceSchedulerResponse
+</span><a href="#local-6989586621679215487"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:CreateInferenceSchedulerResponse' :: Maybe InferenceSchedulerStatus
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#%24sel%3Astatus%3ACreateInferenceSchedulerResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InferenceSchedulerStatus
+</span><a href="#local-6989586621679215486"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceSchedulerResponse"><span class="hs-identifier hs-type">CreateInferenceSchedulerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-369"></span><span>
+</span><span id="line-370"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the inference scheduler being created.</span><span>
+</span><span id="line-371"></span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#createInferenceSchedulerResponse_inferenceSchedulerArn"><span class="hs-identifier hs-type">createInferenceSchedulerResponse_inferenceSchedulerArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceSchedulerResponse"><span class="hs-identifier hs-type">CreateInferenceSchedulerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-372"></span><span id="createInferenceSchedulerResponse_inferenceSchedulerArn"><span class="annot"><span class="annottext">createInferenceSchedulerResponse_inferenceSchedulerArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateInferenceSchedulerResponse
+-&gt; f CreateInferenceSchedulerResponse
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#createInferenceSchedulerResponse_inferenceSchedulerArn"><span class="hs-identifier hs-var hs-var">createInferenceSchedulerResponse_inferenceSchedulerArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateInferenceSchedulerResponse -&gt; Maybe Text)
+-&gt; (CreateInferenceSchedulerResponse
+    -&gt; Maybe Text -&gt; CreateInferenceSchedulerResponse)
+-&gt; Lens
+     CreateInferenceSchedulerResponse
+     CreateInferenceSchedulerResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceSchedulerResponse%27"><span class="hs-identifier hs-type">CreateInferenceSchedulerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215485"><span class="annot"><span class="annottext">Maybe Text
+inferenceSchedulerArn :: Maybe Text
+$sel:inferenceSchedulerArn:CreateInferenceSchedulerResponse' :: CreateInferenceSchedulerResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679215485"><span class="hs-identifier hs-var hs-var">inferenceSchedulerArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215485"><span class="hs-identifier hs-var">inferenceSchedulerArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215484"><span class="annot"><span class="annottext">s :: CreateInferenceSchedulerResponse
+</span><a href="#local-6989586621679215484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceSchedulerResponse%27"><span class="hs-identifier hs-type">CreateInferenceSchedulerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215483"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateInferenceSchedulerResponse
+</span><a href="#local-6989586621679215484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inferenceSchedulerArn:CreateInferenceSchedulerResponse' :: Maybe Text
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#%24sel%3AinferenceSchedulerArn%3ACreateInferenceSchedulerResponse%27"><span class="hs-identifier hs-var">inferenceSchedulerArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceSchedulerResponse"><span class="hs-identifier hs-type">CreateInferenceSchedulerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-373"></span><span>
+</span><span id="line-374"></span><span class="hs-comment">-- | The name of inference scheduler being created.</span><span>
+</span><span id="line-375"></span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#createInferenceSchedulerResponse_inferenceSchedulerName"><span class="hs-identifier hs-type">createInferenceSchedulerResponse_inferenceSchedulerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceSchedulerResponse"><span class="hs-identifier hs-type">CreateInferenceSchedulerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-376"></span><span id="createInferenceSchedulerResponse_inferenceSchedulerName"><span class="annot"><span class="annottext">createInferenceSchedulerResponse_inferenceSchedulerName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateInferenceSchedulerResponse
+-&gt; f CreateInferenceSchedulerResponse
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#createInferenceSchedulerResponse_inferenceSchedulerName"><span class="hs-identifier hs-var hs-var">createInferenceSchedulerResponse_inferenceSchedulerName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateInferenceSchedulerResponse -&gt; Maybe Text)
+-&gt; (CreateInferenceSchedulerResponse
+    -&gt; Maybe Text -&gt; CreateInferenceSchedulerResponse)
+-&gt; Lens
+     CreateInferenceSchedulerResponse
+     CreateInferenceSchedulerResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceSchedulerResponse%27"><span class="hs-identifier hs-type">CreateInferenceSchedulerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215482"><span class="annot"><span class="annottext">Maybe Text
+inferenceSchedulerName :: Maybe Text
+$sel:inferenceSchedulerName:CreateInferenceSchedulerResponse' :: CreateInferenceSchedulerResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679215482"><span class="hs-identifier hs-var hs-var">inferenceSchedulerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215482"><span class="hs-identifier hs-var">inferenceSchedulerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215481"><span class="annot"><span class="annottext">s :: CreateInferenceSchedulerResponse
+</span><a href="#local-6989586621679215481"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceSchedulerResponse%27"><span class="hs-identifier hs-type">CreateInferenceSchedulerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215480"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215480"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateInferenceSchedulerResponse
+</span><a href="#local-6989586621679215481"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inferenceSchedulerName:CreateInferenceSchedulerResponse' :: Maybe Text
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#%24sel%3AinferenceSchedulerName%3ACreateInferenceSchedulerResponse%27"><span class="hs-identifier hs-var">inferenceSchedulerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215480"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceSchedulerResponse"><span class="hs-identifier hs-type">CreateInferenceSchedulerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-377"></span><span>
+</span><span id="line-378"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-379"></span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#createInferenceSchedulerResponse_httpStatus"><span class="hs-identifier hs-type">createInferenceSchedulerResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceSchedulerResponse"><span class="hs-identifier hs-type">CreateInferenceSchedulerResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-380"></span><span id="createInferenceSchedulerResponse_httpStatus"><span class="annot"><span class="annottext">createInferenceSchedulerResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateInferenceSchedulerResponse
+-&gt; f CreateInferenceSchedulerResponse
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#createInferenceSchedulerResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createInferenceSchedulerResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateInferenceSchedulerResponse -&gt; Int)
+-&gt; (CreateInferenceSchedulerResponse
+    -&gt; Int -&gt; CreateInferenceSchedulerResponse)
+-&gt; Lens
+     CreateInferenceSchedulerResponse
+     CreateInferenceSchedulerResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceSchedulerResponse%27"><span class="hs-identifier hs-type">CreateInferenceSchedulerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215479"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateInferenceSchedulerResponse' :: CreateInferenceSchedulerResponse -&gt; Int
+</span><a href="#local-6989586621679215479"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679215479"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215478"><span class="annot"><span class="annottext">s :: CreateInferenceSchedulerResponse
+</span><a href="#local-6989586621679215478"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceSchedulerResponse%27"><span class="hs-identifier hs-type">CreateInferenceSchedulerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215477"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679215477"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateInferenceSchedulerResponse
+</span><a href="#local-6989586621679215478"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateInferenceSchedulerResponse' :: Int
+</span><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#%24sel%3AhttpStatus%3ACreateInferenceSchedulerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679215477"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceSchedulerResponse"><span class="hs-identifier hs-type">CreateInferenceSchedulerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-381"></span><span>
+</span><span id="line-382"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-383"></span><span>  </span><span id="local-6989586621679215475"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-384"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutEquipment.CreateInferenceScheduler.html#CreateInferenceSchedulerResponse"><span class="hs-identifier hs-type">CreateInferenceSchedulerResponse</span></a></span></span><span>
+</span><span id="line-385"></span></pre></body></html>

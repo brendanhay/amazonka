@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679183496"><span id="local-6989586621679183497"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MappingRuleMatchType"><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.MappingRuleMatchType.html#MappingRuleMatchType"><span class="hs-identifier hs-var">MappingRuleMatchType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MappingRuleMatchType%27"><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.MappingRuleMatchType.html#MappingRuleMatchType%27"><span class="hs-identifier hs-var">MappingRuleMatchType'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679183505"><span id="local-6989586621679183506"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MappingRuleMatchType"><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.MappingRuleMatchType.html#MappingRuleMatchType"><span class="hs-identifier hs-var">MappingRuleMatchType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MappingRuleMatchType%27"><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.MappingRuleMatchType.html#MappingRuleMatchType%27"><span class="hs-identifier hs-var">MappingRuleMatchType'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMappingRuleMatchType"><span class="annot"><span class="annottext">MappingRuleMatchType -&gt; Text
 </span><a href="Network.AWS.CognitoIdentity.Types.MappingRuleMatchType.html#fromMappingRuleMatchType"><span class="hs-identifier hs-var hs-var">fromMappingRuleMatchType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679183488"><span id="local-6989586621679183490"><span id="local-6989586621679183492"><span class="annot"><span class="annottext">Int -&gt; MappingRuleMatchType -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679183497"><span id="local-6989586621679183499"><span id="local-6989586621679183501"><span class="annot"><span class="annottext">Int -&gt; MappingRuleMatchType -&gt; ShowS
 [MappingRuleMatchType] -&gt; ShowS
 MappingRuleMatchType -&gt; String
 (Int -&gt; MappingRuleMatchType -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: MappingRuleMatchType -&gt; String
 showsPrec :: Int -&gt; MappingRuleMatchType -&gt; ShowS
 $cshowsPrec :: Int -&gt; MappingRuleMatchType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679183479"><span id="local-6989586621679183481"><span id="local-6989586621679183483"><span id="local-6989586621679183485"><span class="annot"><span class="annottext">ReadPrec [MappingRuleMatchType]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679183488"><span id="local-6989586621679183490"><span id="local-6989586621679183492"><span id="local-6989586621679183494"><span class="annot"><span class="annottext">ReadPrec [MappingRuleMatchType]
 ReadPrec MappingRuleMatchType
 Int -&gt; ReadS MappingRuleMatchType
 ReadS [MappingRuleMatchType]
@@ -74,7 +74,7 @@ $creadList :: ReadS [MappingRuleMatchType]
 readsPrec :: Int -&gt; ReadS MappingRuleMatchType
 $creadsPrec :: Int -&gt; ReadS MappingRuleMatchType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679183474"><span id="local-6989586621679183476"><span class="annot"><span class="annottext">MappingRuleMatchType -&gt; MappingRuleMatchType -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679183483"><span id="local-6989586621679183485"><span class="annot"><span class="annottext">MappingRuleMatchType -&gt; MappingRuleMatchType -&gt; Bool
 (MappingRuleMatchType -&gt; MappingRuleMatchType -&gt; Bool)
 -&gt; (MappingRuleMatchType -&gt; MappingRuleMatchType -&gt; Bool)
 -&gt; Eq MappingRuleMatchType
@@ -84,7 +84,7 @@ $c/= :: MappingRuleMatchType -&gt; MappingRuleMatchType -&gt; Bool
 == :: MappingRuleMatchType -&gt; MappingRuleMatchType -&gt; Bool
 $c== :: MappingRuleMatchType -&gt; MappingRuleMatchType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679183458"><span id="local-6989586621679183460"><span id="local-6989586621679183462"><span id="local-6989586621679183464"><span id="local-6989586621679183466"><span id="local-6989586621679183468"><span id="local-6989586621679183470"><span class="annot"><span class="annottext">Eq MappingRuleMatchType
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679183467"><span id="local-6989586621679183469"><span id="local-6989586621679183471"><span id="local-6989586621679183473"><span id="local-6989586621679183475"><span id="local-6989586621679183477"><span id="local-6989586621679183479"><span class="annot"><span class="annottext">Eq MappingRuleMatchType
 Eq MappingRuleMatchType
 -&gt; (MappingRuleMatchType -&gt; MappingRuleMatchType -&gt; Ordering)
 -&gt; (MappingRuleMatchType -&gt; MappingRuleMatchType -&gt; Bool)
@@ -142,7 +142,7 @@ $cfrom :: forall x. MappingRuleMatchType -&gt; Rep MappingRuleMatchType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679183450"><span id="local-6989586621679183452"><span class="annot"><span class="annottext">Int -&gt; MappingRuleMatchType -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679183459"><span id="local-6989586621679183461"><span class="annot"><span class="annottext">Int -&gt; MappingRuleMatchType -&gt; Int
 MappingRuleMatchType -&gt; Int
 (Int -&gt; MappingRuleMatchType -&gt; Int)
 -&gt; (MappingRuleMatchType -&gt; Int) -&gt; Hashable MappingRuleMatchType
@@ -152,54 +152,54 @@ $chash :: MappingRuleMatchType -&gt; Int
 hashWithSalt :: Int -&gt; MappingRuleMatchType -&gt; Int
 $chashWithSalt :: Int -&gt; MappingRuleMatchType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679183447"><span class="annot"><span class="annottext">MappingRuleMatchType -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679183456"><span class="annot"><span class="annottext">MappingRuleMatchType -&gt; ()
 (MappingRuleMatchType -&gt; ()) -&gt; NFData MappingRuleMatchType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: MappingRuleMatchType -&gt; ()
 $crnf :: MappingRuleMatchType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679183444"><span class="annot"><span class="annottext">Text -&gt; Either String MappingRuleMatchType
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679183453"><span class="annot"><span class="annottext">Text -&gt; Either String MappingRuleMatchType
 (Text -&gt; Either String MappingRuleMatchType)
 -&gt; FromText MappingRuleMatchType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String MappingRuleMatchType
 $cfromText :: Text -&gt; Either String MappingRuleMatchType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679183441"><span class="annot"><span class="annottext">MappingRuleMatchType -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679183450"><span class="annot"><span class="annottext">MappingRuleMatchType -&gt; Text
 (MappingRuleMatchType -&gt; Text) -&gt; ToText MappingRuleMatchType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: MappingRuleMatchType -&gt; Text
 $ctoText :: MappingRuleMatchType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679183438"><span class="annot"><span class="annottext">MappingRuleMatchType -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679183447"><span class="annot"><span class="annottext">MappingRuleMatchType -&gt; ByteString
 (MappingRuleMatchType -&gt; ByteString)
 -&gt; ToByteString MappingRuleMatchType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: MappingRuleMatchType -&gt; ByteString
 $ctoBS :: MappingRuleMatchType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679183435"><span class="annot"><span class="annottext">MappingRuleMatchType -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679183444"><span class="annot"><span class="annottext">MappingRuleMatchType -&gt; ByteStringBuilder
 (MappingRuleMatchType -&gt; ByteStringBuilder)
 -&gt; ToLog MappingRuleMatchType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: MappingRuleMatchType -&gt; ByteStringBuilder
 $cbuild :: MappingRuleMatchType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679183432"><span class="annot"><span class="annottext">HeaderName -&gt; MappingRuleMatchType -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679183441"><span class="annot"><span class="annottext">HeaderName -&gt; MappingRuleMatchType -&gt; [Header]
 (HeaderName -&gt; MappingRuleMatchType -&gt; [Header])
 -&gt; ToHeader MappingRuleMatchType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; MappingRuleMatchType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; MappingRuleMatchType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679183429"><span class="annot"><span class="annottext">MappingRuleMatchType -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679183438"><span class="annot"><span class="annottext">MappingRuleMatchType -&gt; QueryString
 (MappingRuleMatchType -&gt; QueryString)
 -&gt; ToQuery MappingRuleMatchType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: MappingRuleMatchType -&gt; QueryString
 $ctoQuery :: MappingRuleMatchType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679183424"><span id="local-6989586621679183426"><span class="annot"><span class="annottext">Value -&gt; Parser [MappingRuleMatchType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679183433"><span id="local-6989586621679183435"><span class="annot"><span class="annottext">Value -&gt; Parser [MappingRuleMatchType]
 Value -&gt; Parser MappingRuleMatchType
 (Value -&gt; Parser MappingRuleMatchType)
 -&gt; (Value -&gt; Parser [MappingRuleMatchType])
@@ -211,7 +211,7 @@ $cparseJSONList :: Value -&gt; Parser [MappingRuleMatchType]
 parseJSON :: Value -&gt; Parser MappingRuleMatchType
 $cparseJSON :: Value -&gt; Parser MappingRuleMatchType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679183419"><span id="local-6989586621679183421"><span class="annot"><span class="annottext">FromJSONKeyFunction [MappingRuleMatchType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679183428"><span id="local-6989586621679183430"><span class="annot"><span class="annottext">FromJSONKeyFunction [MappingRuleMatchType]
 FromJSONKeyFunction MappingRuleMatchType
 FromJSONKeyFunction MappingRuleMatchType
 -&gt; FromJSONKeyFunction [MappingRuleMatchType]
@@ -223,7 +223,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [MappingRuleMatchType]
 fromJSONKey :: FromJSONKeyFunction MappingRuleMatchType
 $cfromJSONKey :: FromJSONKeyFunction MappingRuleMatchType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679183410"><span id="local-6989586621679183412"><span id="local-6989586621679183414"><span id="local-6989586621679183416"><span class="annot"><span class="annottext">[MappingRuleMatchType] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679183419"><span id="local-6989586621679183421"><span id="local-6989586621679183423"><span id="local-6989586621679183425"><span class="annot"><span class="annottext">[MappingRuleMatchType] -&gt; Encoding
 [MappingRuleMatchType] -&gt; Value
 MappingRuleMatchType -&gt; Encoding
 MappingRuleMatchType -&gt; Value
@@ -247,7 +247,7 @@ $ctoEncoding :: MappingRuleMatchType -&gt; Encoding
 toJSON :: MappingRuleMatchType -&gt; Value
 $ctoJSON :: MappingRuleMatchType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679183405"><span id="local-6989586621679183407"><span class="annot"><span class="annottext">ToJSONKeyFunction [MappingRuleMatchType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679183414"><span id="local-6989586621679183416"><span class="annot"><span class="annottext">ToJSONKeyFunction [MappingRuleMatchType]
 ToJSONKeyFunction MappingRuleMatchType
 ToJSONKeyFunction MappingRuleMatchType
 -&gt; ToJSONKeyFunction [MappingRuleMatchType]
@@ -259,14 +259,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [MappingRuleMatchType]
 toJSONKey :: ToJSONKeyFunction MappingRuleMatchType
 $ctoJSONKey :: ToJSONKeyFunction MappingRuleMatchType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679183402"><span class="annot"><span class="annottext">[Node] -&gt; Either String MappingRuleMatchType
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679183411"><span class="annot"><span class="annottext">[Node] -&gt; Either String MappingRuleMatchType
 ([Node] -&gt; Either String MappingRuleMatchType)
 -&gt; FromXML MappingRuleMatchType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String MappingRuleMatchType
 $cparseXML :: [Node] -&gt; Either String MappingRuleMatchType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679183399"><span class="annot"><span class="annottext">MappingRuleMatchType -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679183408"><span class="annot"><span class="annottext">MappingRuleMatchType -&gt; XML
 (MappingRuleMatchType -&gt; XML) -&gt; ToXML MappingRuleMatchType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: MappingRuleMatchType -&gt; XML

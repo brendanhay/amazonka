@@ -32,7 +32,7 @@
 </span><span id="line-32"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot/latest/apireference/API_OpenSearchAction.html OpenSearchAction&gt;.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newElasticsearchAction' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679784725"><span id="local-6989586621679784726"></span></span><span class="hs-keyword">data</span><span> </span><span id="ElasticsearchAction"><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction"><span class="hs-identifier hs-var">ElasticsearchAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ElasticsearchAction%27"><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction%27"><span class="hs-identifier hs-var">ElasticsearchAction'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679784734"><span id="local-6989586621679784735"></span></span><span class="hs-keyword">data</span><span> </span><span id="ElasticsearchAction"><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction"><span class="hs-identifier hs-var">ElasticsearchAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ElasticsearchAction%27"><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction%27"><span class="hs-identifier hs-var">ElasticsearchAction'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IAM role ARN that has access to OpenSearch.</span><span>
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AroleArn%3AElasticsearchAction%27"><span class="annot"><span class="annottext">ElasticsearchAction -&gt; Text
 </span><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#%24sel%3AroleArn%3AElasticsearchAction%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -49,7 +49,7 @@
 </span><span id="line-45"></span><span>    </span><span id="%24sel%3Aid%3AElasticsearchAction%27"><span class="annot"><span class="annottext">ElasticsearchAction -&gt; Text
 </span><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#%24sel%3Aid%3AElasticsearchAction%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679784715"><span id="local-6989586621679784717"><span class="annot"><span class="annottext">ElasticsearchAction -&gt; ElasticsearchAction -&gt; Bool
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679784724"><span id="local-6989586621679784726"><span class="annot"><span class="annottext">ElasticsearchAction -&gt; ElasticsearchAction -&gt; Bool
 (ElasticsearchAction -&gt; ElasticsearchAction -&gt; Bool)
 -&gt; (ElasticsearchAction -&gt; ElasticsearchAction -&gt; Bool)
 -&gt; Eq ElasticsearchAction
@@ -58,7 +58,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ElasticsearchAction -&gt; ElasticsearchAction -&gt; Bool
 == :: ElasticsearchAction -&gt; ElasticsearchAction -&gt; Bool
 $c== :: ElasticsearchAction -&gt; ElasticsearchAction -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679784706"><span id="local-6989586621679784708"><span id="local-6989586621679784710"><span id="local-6989586621679784712"><span class="annot"><span class="annottext">ReadPrec [ElasticsearchAction]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679784715"><span id="local-6989586621679784717"><span id="local-6989586621679784719"><span id="local-6989586621679784721"><span class="annot"><span class="annottext">ReadPrec [ElasticsearchAction]
 ReadPrec ElasticsearchAction
 Int -&gt; ReadS ElasticsearchAction
 ReadS [ElasticsearchAction]
@@ -78,7 +78,7 @@ readList :: ReadS [ElasticsearchAction]
 $creadList :: ReadS [ElasticsearchAction]
 readsPrec :: Int -&gt; ReadS ElasticsearchAction
 $creadsPrec :: Int -&gt; ReadS ElasticsearchAction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679784699"><span id="local-6989586621679784701"><span id="local-6989586621679784703"><span class="annot"><span class="annottext">Int -&gt; ElasticsearchAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679784708"><span id="local-6989586621679784710"><span id="local-6989586621679784712"><span class="annot"><span class="annottext">Int -&gt; ElasticsearchAction -&gt; ShowS
 [ElasticsearchAction] -&gt; ShowS
 ElasticsearchAction -&gt; String
 (Int -&gt; ElasticsearchAction -&gt; ShowS)
@@ -135,33 +135,33 @@ $cfrom :: forall x. ElasticsearchAction -&gt; Rep ElasticsearchAction x
 </span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction"><span class="hs-identifier hs-type">ElasticsearchAction</span></a></span><span>
 </span><span id="line-78"></span><span id="newElasticsearchAction"><span class="annot"><span class="annottext">newElasticsearchAction :: Text -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; ElasticsearchAction
 </span><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#newElasticsearchAction"><span class="hs-identifier hs-var hs-var">newElasticsearchAction</span></a></span></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679784693"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679784693"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679784692"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679784692"><span class="hs-identifier hs-var">pEndpoint_</span></a></span></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679784691"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679784691"><span class="hs-identifier hs-var">pIndex_</span></a></span></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679784690"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679784690"><span class="hs-identifier hs-var">pType_</span></a></span></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679784689"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679784689"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679784702"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679784702"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679784701"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679784701"><span class="hs-identifier hs-var">pEndpoint_</span></a></span></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679784700"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679784700"><span class="hs-identifier hs-var">pIndex_</span></a></span></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679784699"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679784699"><span class="hs-identifier hs-var">pType_</span></a></span></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679784698"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679784698"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">ElasticsearchAction' :: Text -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; ElasticsearchAction
 </span><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction%27"><span class="hs-identifier hs-type">ElasticsearchAction'</span></a></span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:roleArn:ElasticsearchAction' :: Text
 </span><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#%24sel%3AroleArn%3AElasticsearchAction%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679784693"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679784702"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">$sel:endpoint:ElasticsearchAction' :: Text
 </span><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#%24sel%3Aendpoint%3AElasticsearchAction%27"><span class="hs-identifier hs-var">endpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679784692"><span class="hs-identifier hs-var">pEndpoint_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679784701"><span class="hs-identifier hs-var">pEndpoint_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">$sel:index:ElasticsearchAction' :: Text
 </span><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#%24sel%3Aindex%3AElasticsearchAction%27"><span class="hs-identifier hs-var">index</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679784691"><span class="hs-identifier hs-var">pIndex_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679784700"><span class="hs-identifier hs-var">pIndex_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">$sel:type':ElasticsearchAction' :: Text
 </span><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#%24sel%3Atype%27%3AElasticsearchAction%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679784690"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679784699"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">$sel:id:ElasticsearchAction' :: Text
 </span><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#%24sel%3Aid%3AElasticsearchAction%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679784689"><span class="hs-identifier hs-var">pId_</span></a></span><span>
+</span><a href="#local-6989586621679784698"><span class="hs-identifier hs-var">pId_</span></a></span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | The IAM role ARN that has access to OpenSearch.</span><span>
@@ -171,16 +171,16 @@ $cfrom :: forall x. ElasticsearchAction -&gt; Rep ElasticsearchAction x
 -&gt; (ElasticsearchAction -&gt; Text -&gt; ElasticsearchAction)
 -&gt; Lens ElasticsearchAction ElasticsearchAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction%27"><span class="hs-identifier hs-type">ElasticsearchAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679784685"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction%27"><span class="hs-identifier hs-type">ElasticsearchAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679784694"><span class="annot"><span class="annottext">Text
 roleArn :: Text
 $sel:roleArn:ElasticsearchAction' :: ElasticsearchAction -&gt; Text
-</span><a href="#local-6989586621679784685"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679784685"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679784684"><span class="annot"><span class="annottext">s :: ElasticsearchAction
-</span><a href="#local-6989586621679784684"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction%27"><span class="hs-identifier hs-type">ElasticsearchAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679784683"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679784683"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchAction
-</span><a href="#local-6989586621679784684"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:ElasticsearchAction' :: Text
+</span><a href="#local-6989586621679784694"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679784694"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679784693"><span class="annot"><span class="annottext">s :: ElasticsearchAction
+</span><a href="#local-6989586621679784693"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction%27"><span class="hs-identifier hs-type">ElasticsearchAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679784692"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679784692"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchAction
+</span><a href="#local-6989586621679784693"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:ElasticsearchAction' :: Text
 </span><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#%24sel%3AroleArn%3AElasticsearchAction%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679784683"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction"><span class="hs-identifier hs-type">ElasticsearchAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679784692"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction"><span class="hs-identifier hs-type">ElasticsearchAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | The endpoint of your OpenSearch domain.</span><span>
 </span><span id="line-97"></span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#elasticsearchAction_endpoint"><span class="hs-identifier hs-type">elasticsearchAction_endpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction"><span class="hs-identifier hs-type">ElasticsearchAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -189,16 +189,16 @@ $sel:roleArn:ElasticsearchAction' :: ElasticsearchAction -&gt; Text
 -&gt; (ElasticsearchAction -&gt; Text -&gt; ElasticsearchAction)
 -&gt; Lens ElasticsearchAction ElasticsearchAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction%27"><span class="hs-identifier hs-type">ElasticsearchAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679784681"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction%27"><span class="hs-identifier hs-type">ElasticsearchAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679784690"><span class="annot"><span class="annottext">Text
 endpoint :: Text
 $sel:endpoint:ElasticsearchAction' :: ElasticsearchAction -&gt; Text
-</span><a href="#local-6989586621679784681"><span class="hs-identifier hs-var hs-var">endpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679784681"><span class="hs-identifier hs-var">endpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679784680"><span class="annot"><span class="annottext">s :: ElasticsearchAction
-</span><a href="#local-6989586621679784680"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction%27"><span class="hs-identifier hs-type">ElasticsearchAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679784679"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679784679"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchAction
-</span><a href="#local-6989586621679784680"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpoint:ElasticsearchAction' :: Text
+</span><a href="#local-6989586621679784690"><span class="hs-identifier hs-var hs-var">endpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679784690"><span class="hs-identifier hs-var">endpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679784689"><span class="annot"><span class="annottext">s :: ElasticsearchAction
+</span><a href="#local-6989586621679784689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction%27"><span class="hs-identifier hs-type">ElasticsearchAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679784688"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679784688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchAction
+</span><a href="#local-6989586621679784689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpoint:ElasticsearchAction' :: Text
 </span><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#%24sel%3Aendpoint%3AElasticsearchAction%27"><span class="hs-identifier hs-var">endpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679784679"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction"><span class="hs-identifier hs-type">ElasticsearchAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679784688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction"><span class="hs-identifier hs-type">ElasticsearchAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | The index where you want to store your data.</span><span>
 </span><span id="line-101"></span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#elasticsearchAction_index"><span class="hs-identifier hs-type">elasticsearchAction_index</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction"><span class="hs-identifier hs-type">ElasticsearchAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -207,16 +207,16 @@ $sel:endpoint:ElasticsearchAction' :: ElasticsearchAction -&gt; Text
 -&gt; (ElasticsearchAction -&gt; Text -&gt; ElasticsearchAction)
 -&gt; Lens ElasticsearchAction ElasticsearchAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction%27"><span class="hs-identifier hs-type">ElasticsearchAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679784677"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction%27"><span class="hs-identifier hs-type">ElasticsearchAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679784686"><span class="annot"><span class="annottext">Text
 index :: Text
 $sel:index:ElasticsearchAction' :: ElasticsearchAction -&gt; Text
-</span><a href="#local-6989586621679784677"><span class="hs-identifier hs-var hs-var">index</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679784677"><span class="hs-identifier hs-var">index</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679784676"><span class="annot"><span class="annottext">s :: ElasticsearchAction
-</span><a href="#local-6989586621679784676"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction%27"><span class="hs-identifier hs-type">ElasticsearchAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679784675"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679784675"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchAction
-</span><a href="#local-6989586621679784676"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:index:ElasticsearchAction' :: Text
+</span><a href="#local-6989586621679784686"><span class="hs-identifier hs-var hs-var">index</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679784686"><span class="hs-identifier hs-var">index</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679784685"><span class="annot"><span class="annottext">s :: ElasticsearchAction
+</span><a href="#local-6989586621679784685"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction%27"><span class="hs-identifier hs-type">ElasticsearchAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679784684"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679784684"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchAction
+</span><a href="#local-6989586621679784685"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:index:ElasticsearchAction' :: Text
 </span><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#%24sel%3Aindex%3AElasticsearchAction%27"><span class="hs-identifier hs-var">index</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679784675"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction"><span class="hs-identifier hs-type">ElasticsearchAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679784684"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction"><span class="hs-identifier hs-type">ElasticsearchAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | The type of document you are storing.</span><span>
 </span><span id="line-105"></span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#elasticsearchAction_type"><span class="hs-identifier hs-type">elasticsearchAction_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction"><span class="hs-identifier hs-type">ElasticsearchAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -225,16 +225,16 @@ $sel:index:ElasticsearchAction' :: ElasticsearchAction -&gt; Text
 -&gt; (ElasticsearchAction -&gt; Text -&gt; ElasticsearchAction)
 -&gt; Lens ElasticsearchAction ElasticsearchAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction%27"><span class="hs-identifier hs-type">ElasticsearchAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679784673"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction%27"><span class="hs-identifier hs-type">ElasticsearchAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679784682"><span class="annot"><span class="annottext">Text
 type' :: Text
 $sel:type':ElasticsearchAction' :: ElasticsearchAction -&gt; Text
-</span><a href="#local-6989586621679784673"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679784673"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679784672"><span class="annot"><span class="annottext">s :: ElasticsearchAction
-</span><a href="#local-6989586621679784672"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction%27"><span class="hs-identifier hs-type">ElasticsearchAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679784671"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679784671"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchAction
-</span><a href="#local-6989586621679784672"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ElasticsearchAction' :: Text
+</span><a href="#local-6989586621679784682"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679784682"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679784681"><span class="annot"><span class="annottext">s :: ElasticsearchAction
+</span><a href="#local-6989586621679784681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction%27"><span class="hs-identifier hs-type">ElasticsearchAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679784680"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679784680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchAction
+</span><a href="#local-6989586621679784681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ElasticsearchAction' :: Text
 </span><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#%24sel%3Atype%27%3AElasticsearchAction%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679784671"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction"><span class="hs-identifier hs-type">ElasticsearchAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679784680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction"><span class="hs-identifier hs-type">ElasticsearchAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | The unique identifier for the document you are storing.</span><span>
 </span><span id="line-109"></span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#elasticsearchAction_id"><span class="hs-identifier hs-type">elasticsearchAction_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction"><span class="hs-identifier hs-type">ElasticsearchAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -243,19 +243,19 @@ $sel:type':ElasticsearchAction' :: ElasticsearchAction -&gt; Text
 -&gt; (ElasticsearchAction -&gt; Text -&gt; ElasticsearchAction)
 -&gt; Lens ElasticsearchAction ElasticsearchAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction%27"><span class="hs-identifier hs-type">ElasticsearchAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679784669"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction%27"><span class="hs-identifier hs-type">ElasticsearchAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679784678"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:ElasticsearchAction' :: ElasticsearchAction -&gt; Text
-</span><a href="#local-6989586621679784669"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679784669"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679784668"><span class="annot"><span class="annottext">s :: ElasticsearchAction
-</span><a href="#local-6989586621679784668"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction%27"><span class="hs-identifier hs-type">ElasticsearchAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679784667"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679784667"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchAction
-</span><a href="#local-6989586621679784668"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:ElasticsearchAction' :: Text
+</span><a href="#local-6989586621679784678"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679784678"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679784677"><span class="annot"><span class="annottext">s :: ElasticsearchAction
+</span><a href="#local-6989586621679784677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction%27"><span class="hs-identifier hs-type">ElasticsearchAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679784676"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679784676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticsearchAction
+</span><a href="#local-6989586621679784677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:ElasticsearchAction' :: Text
 </span><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#%24sel%3Aid%3AElasticsearchAction%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679784667"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction"><span class="hs-identifier hs-type">ElasticsearchAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679784676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction"><span class="hs-identifier hs-type">ElasticsearchAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679784664"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction"><span class="hs-identifier hs-type">ElasticsearchAction</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679784662"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ElasticsearchAction
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679784673"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction"><span class="hs-identifier hs-type">ElasticsearchAction</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679784671"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ElasticsearchAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ElasticsearchAction)
@@ -265,8 +265,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ElasticsearchAction&quot;</span></span><span>
-</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679784659"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679784659"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679784668"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679784668"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; ElasticsearchAction
 </span><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction%27"><span class="hs-identifier hs-var">ElasticsearchAction'</span></a></span><span>
 </span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; ElasticsearchAction)
@@ -274,7 +274,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Text -&gt; Text -&gt; Text -&gt; Text -&gt; ElasticsearchAction)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679784659"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679784668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;roleArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -283,7 +283,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (Text -&gt; Text -&gt; Text -&gt; ElasticsearchAction)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679784659"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679784668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;endpoint&quot;</span></span><span class="hs-special">)</span><span>
@@ -291,7 +291,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (Text -&gt; Text -&gt; ElasticsearchAction)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679784659"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679784668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;index&quot;</span></span><span class="hs-special">)</span><span>
@@ -299,7 +299,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (Text -&gt; ElasticsearchAction)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679784659"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679784668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
@@ -307,19 +307,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser ElasticsearchAction
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679784659"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679784668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679784653"><span id="local-6989586621679784655"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction"><span class="hs-identifier hs-type">ElasticsearchAction</span></a></span></span></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679784662"><span id="local-6989586621679784664"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction"><span class="hs-identifier hs-type">ElasticsearchAction</span></a></span></span></span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679784650"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction"><span class="hs-identifier hs-type">ElasticsearchAction</span></a></span></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679784659"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction"><span class="hs-identifier hs-type">ElasticsearchAction</span></a></span></span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679784642"><span id="local-6989586621679784644"><span id="local-6989586621679784646"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction"><span class="hs-identifier hs-type">ElasticsearchAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679784640"><span class="annot"><span class="annottext">toJSON :: ElasticsearchAction -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction%27"><span class="hs-identifier hs-type">ElasticsearchAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679784634"><span id="local-6989586621679784635"><span id="local-6989586621679784636"><span id="local-6989586621679784637"><span id="local-6989586621679784638"><span class="annot"><span class="annottext">Text
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679784651"><span id="local-6989586621679784653"><span id="local-6989586621679784655"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction"><span class="hs-identifier hs-type">ElasticsearchAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679784649"><span class="annot"><span class="annottext">toJSON :: ElasticsearchAction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ElasticsearchAction.html#ElasticsearchAction%27"><span class="hs-identifier hs-type">ElasticsearchAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679784643"><span id="local-6989586621679784644"><span id="local-6989586621679784645"><span id="local-6989586621679784646"><span id="local-6989586621679784647"><span class="annot"><span class="annottext">Text
 id :: Text
 type' :: Text
 index :: Text
@@ -330,7 +330,7 @@ $sel:type':ElasticsearchAction' :: ElasticsearchAction -&gt; Text
 $sel:index:ElasticsearchAction' :: ElasticsearchAction -&gt; Text
 $sel:endpoint:ElasticsearchAction' :: ElasticsearchAction -&gt; Text
 $sel:roleArn:ElasticsearchAction' :: ElasticsearchAction -&gt; Text
-</span><a href="#local-6989586621679784634"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679784643"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -342,35 +342,35 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;roleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679784638"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679784647"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;endpoint&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679784637"><span class="hs-identifier hs-var">endpoint</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679784646"><span class="hs-identifier hs-var">endpoint</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;index&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679784636"><span class="hs-identifier hs-var">index</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679784645"><span class="hs-identifier hs-var">index</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679784635"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679784644"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;id&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679784634"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679784643"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span></pre></body></html>

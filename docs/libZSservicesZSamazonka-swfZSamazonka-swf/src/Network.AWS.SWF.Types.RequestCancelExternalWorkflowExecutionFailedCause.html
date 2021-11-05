@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679348566"><span id="local-6989586621679348567"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RequestCancelExternalWorkflowExecutionFailedCause"><span class="annot"><a href="Network.AWS.SWF.Types.RequestCancelExternalWorkflowExecutionFailedCause.html#RequestCancelExternalWorkflowExecutionFailedCause"><span class="hs-identifier hs-var">RequestCancelExternalWorkflowExecutionFailedCause</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RequestCancelExternalWorkflowExecutionFailedCause%27"><span class="annot"><a href="Network.AWS.SWF.Types.RequestCancelExternalWorkflowExecutionFailedCause.html#RequestCancelExternalWorkflowExecutionFailedCause%27"><span class="hs-identifier hs-var">RequestCancelExternalWorkflowExecutionFailedCause'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679348575"><span id="local-6989586621679348576"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RequestCancelExternalWorkflowExecutionFailedCause"><span class="annot"><a href="Network.AWS.SWF.Types.RequestCancelExternalWorkflowExecutionFailedCause.html#RequestCancelExternalWorkflowExecutionFailedCause"><span class="hs-identifier hs-var">RequestCancelExternalWorkflowExecutionFailedCause</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RequestCancelExternalWorkflowExecutionFailedCause%27"><span class="annot"><a href="Network.AWS.SWF.Types.RequestCancelExternalWorkflowExecutionFailedCause.html#RequestCancelExternalWorkflowExecutionFailedCause%27"><span class="hs-identifier hs-var">RequestCancelExternalWorkflowExecutionFailedCause'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRequestCancelExternalWorkflowExecutionFailedCause"><span class="annot"><span class="annottext">RequestCancelExternalWorkflowExecutionFailedCause -&gt; Text
 </span><a href="Network.AWS.SWF.Types.RequestCancelExternalWorkflowExecutionFailedCause.html#fromRequestCancelExternalWorkflowExecutionFailedCause"><span class="hs-identifier hs-var hs-var">fromRequestCancelExternalWorkflowExecutionFailedCause</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679348558"><span id="local-6989586621679348560"><span id="local-6989586621679348562"><span class="annot"><span class="annottext">Int -&gt; RequestCancelExternalWorkflowExecutionFailedCause -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679348567"><span id="local-6989586621679348569"><span id="local-6989586621679348571"><span class="annot"><span class="annottext">Int -&gt; RequestCancelExternalWorkflowExecutionFailedCause -&gt; ShowS
 [RequestCancelExternalWorkflowExecutionFailedCause] -&gt; ShowS
 RequestCancelExternalWorkflowExecutionFailedCause -&gt; String
 (Int -&gt; RequestCancelExternalWorkflowExecutionFailedCause -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: RequestCancelExternalWorkflowExecutionFailedCause -&gt; String
 showsPrec :: Int -&gt; RequestCancelExternalWorkflowExecutionFailedCause -&gt; ShowS
 $cshowsPrec :: Int -&gt; RequestCancelExternalWorkflowExecutionFailedCause -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679348549"><span id="local-6989586621679348551"><span id="local-6989586621679348553"><span id="local-6989586621679348555"><span class="annot"><span class="annottext">ReadPrec [RequestCancelExternalWorkflowExecutionFailedCause]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679348558"><span id="local-6989586621679348560"><span id="local-6989586621679348562"><span id="local-6989586621679348564"><span class="annot"><span class="annottext">ReadPrec [RequestCancelExternalWorkflowExecutionFailedCause]
 ReadPrec RequestCancelExternalWorkflowExecutionFailedCause
 Int -&gt; ReadS RequestCancelExternalWorkflowExecutionFailedCause
 ReadS [RequestCancelExternalWorkflowExecutionFailedCause]
@@ -73,7 +73,7 @@ $creadList :: ReadS [RequestCancelExternalWorkflowExecutionFailedCause]
 readsPrec :: Int -&gt; ReadS RequestCancelExternalWorkflowExecutionFailedCause
 $creadsPrec :: Int -&gt; ReadS RequestCancelExternalWorkflowExecutionFailedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679348544"><span id="local-6989586621679348546"><span class="annot"><span class="annottext">RequestCancelExternalWorkflowExecutionFailedCause
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679348553"><span id="local-6989586621679348555"><span class="annot"><span class="annottext">RequestCancelExternalWorkflowExecutionFailedCause
 -&gt; RequestCancelExternalWorkflowExecutionFailedCause -&gt; Bool
 (RequestCancelExternalWorkflowExecutionFailedCause
  -&gt; RequestCancelExternalWorkflowExecutionFailedCause -&gt; Bool)
@@ -90,7 +90,7 @@ $c/= :: RequestCancelExternalWorkflowExecutionFailedCause
 $c== :: RequestCancelExternalWorkflowExecutionFailedCause
 -&gt; RequestCancelExternalWorkflowExecutionFailedCause -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679348528"><span id="local-6989586621679348530"><span id="local-6989586621679348532"><span id="local-6989586621679348534"><span id="local-6989586621679348536"><span id="local-6989586621679348538"><span id="local-6989586621679348540"><span class="annot"><span class="annottext">Eq RequestCancelExternalWorkflowExecutionFailedCause
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679348537"><span id="local-6989586621679348539"><span id="local-6989586621679348541"><span id="local-6989586621679348543"><span id="local-6989586621679348545"><span id="local-6989586621679348547"><span id="local-6989586621679348549"><span class="annot"><span class="annottext">Eq RequestCancelExternalWorkflowExecutionFailedCause
 Eq RequestCancelExternalWorkflowExecutionFailedCause
 -&gt; (RequestCancelExternalWorkflowExecutionFailedCause
     -&gt; RequestCancelExternalWorkflowExecutionFailedCause -&gt; Ordering)
@@ -184,7 +184,7 @@ RequestCancelExternalWorkflowExecutionFailedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679348520"><span id="local-6989586621679348522"><span class="annot"><span class="annottext">Int -&gt; RequestCancelExternalWorkflowExecutionFailedCause -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679348529"><span id="local-6989586621679348531"><span class="annot"><span class="annottext">Int -&gt; RequestCancelExternalWorkflowExecutionFailedCause -&gt; Int
 RequestCancelExternalWorkflowExecutionFailedCause -&gt; Int
 (Int -&gt; RequestCancelExternalWorkflowExecutionFailedCause -&gt; Int)
 -&gt; (RequestCancelExternalWorkflowExecutionFailedCause -&gt; Int)
@@ -195,14 +195,14 @@ $chash :: RequestCancelExternalWorkflowExecutionFailedCause -&gt; Int
 hashWithSalt :: Int -&gt; RequestCancelExternalWorkflowExecutionFailedCause -&gt; Int
 $chashWithSalt :: Int -&gt; RequestCancelExternalWorkflowExecutionFailedCause -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679348517"><span class="annot"><span class="annottext">RequestCancelExternalWorkflowExecutionFailedCause -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679348526"><span class="annot"><span class="annottext">RequestCancelExternalWorkflowExecutionFailedCause -&gt; ()
 (RequestCancelExternalWorkflowExecutionFailedCause -&gt; ())
 -&gt; NFData RequestCancelExternalWorkflowExecutionFailedCause
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: RequestCancelExternalWorkflowExecutionFailedCause -&gt; ()
 $crnf :: RequestCancelExternalWorkflowExecutionFailedCause -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679348514"><span class="annot"><span class="annottext">Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679348523"><span class="annot"><span class="annottext">Text
 -&gt; Either String RequestCancelExternalWorkflowExecutionFailedCause
 (Text
  -&gt; Either String RequestCancelExternalWorkflowExecutionFailedCause)
@@ -213,21 +213,21 @@ fromText :: Text
 $cfromText :: Text
 -&gt; Either String RequestCancelExternalWorkflowExecutionFailedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679348511"><span class="annot"><span class="annottext">RequestCancelExternalWorkflowExecutionFailedCause -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679348520"><span class="annot"><span class="annottext">RequestCancelExternalWorkflowExecutionFailedCause -&gt; Text
 (RequestCancelExternalWorkflowExecutionFailedCause -&gt; Text)
 -&gt; ToText RequestCancelExternalWorkflowExecutionFailedCause
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: RequestCancelExternalWorkflowExecutionFailedCause -&gt; Text
 $ctoText :: RequestCancelExternalWorkflowExecutionFailedCause -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679348508"><span class="annot"><span class="annottext">RequestCancelExternalWorkflowExecutionFailedCause -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679348517"><span class="annot"><span class="annottext">RequestCancelExternalWorkflowExecutionFailedCause -&gt; ByteString
 (RequestCancelExternalWorkflowExecutionFailedCause -&gt; ByteString)
 -&gt; ToByteString RequestCancelExternalWorkflowExecutionFailedCause
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: RequestCancelExternalWorkflowExecutionFailedCause -&gt; ByteString
 $ctoBS :: RequestCancelExternalWorkflowExecutionFailedCause -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679348505"><span class="annot"><span class="annottext">RequestCancelExternalWorkflowExecutionFailedCause
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679348514"><span class="annot"><span class="annottext">RequestCancelExternalWorkflowExecutionFailedCause
 -&gt; ByteStringBuilder
 (RequestCancelExternalWorkflowExecutionFailedCause
  -&gt; ByteStringBuilder)
@@ -238,7 +238,7 @@ build :: RequestCancelExternalWorkflowExecutionFailedCause
 $cbuild :: RequestCancelExternalWorkflowExecutionFailedCause
 -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679348502"><span class="annot"><span class="annottext">HeaderName
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679348511"><span class="annot"><span class="annottext">HeaderName
 -&gt; RequestCancelExternalWorkflowExecutionFailedCause -&gt; [Header]
 (HeaderName
  -&gt; RequestCancelExternalWorkflowExecutionFailedCause -&gt; [Header])
@@ -249,14 +249,14 @@ toHeader :: HeaderName
 $ctoHeader :: HeaderName
 -&gt; RequestCancelExternalWorkflowExecutionFailedCause -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679348499"><span class="annot"><span class="annottext">RequestCancelExternalWorkflowExecutionFailedCause -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679348508"><span class="annot"><span class="annottext">RequestCancelExternalWorkflowExecutionFailedCause -&gt; QueryString
 (RequestCancelExternalWorkflowExecutionFailedCause -&gt; QueryString)
 -&gt; ToQuery RequestCancelExternalWorkflowExecutionFailedCause
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: RequestCancelExternalWorkflowExecutionFailedCause -&gt; QueryString
 $ctoQuery :: RequestCancelExternalWorkflowExecutionFailedCause -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679348494"><span id="local-6989586621679348496"><span class="annot"><span class="annottext">Value -&gt; Parser [RequestCancelExternalWorkflowExecutionFailedCause]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679348503"><span id="local-6989586621679348505"><span class="annot"><span class="annottext">Value -&gt; Parser [RequestCancelExternalWorkflowExecutionFailedCause]
 Value -&gt; Parser RequestCancelExternalWorkflowExecutionFailedCause
 (Value -&gt; Parser RequestCancelExternalWorkflowExecutionFailedCause)
 -&gt; (Value
@@ -269,7 +269,7 @@ $cparseJSONList :: Value -&gt; Parser [RequestCancelExternalWorkflowExecutionFai
 parseJSON :: Value -&gt; Parser RequestCancelExternalWorkflowExecutionFailedCause
 $cparseJSON :: Value -&gt; Parser RequestCancelExternalWorkflowExecutionFailedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679348489"><span id="local-6989586621679348491"><span class="annot"><span class="annottext">FromJSONKeyFunction
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679348498"><span id="local-6989586621679348500"><span class="annot"><span class="annottext">FromJSONKeyFunction
   [RequestCancelExternalWorkflowExecutionFailedCause]
 FromJSONKeyFunction
   RequestCancelExternalWorkflowExecutionFailedCause
@@ -289,7 +289,7 @@ fromJSONKey :: FromJSONKeyFunction
 $cfromJSONKey :: FromJSONKeyFunction
   RequestCancelExternalWorkflowExecutionFailedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679348480"><span id="local-6989586621679348482"><span id="local-6989586621679348484"><span id="local-6989586621679348486"><span class="annot"><span class="annottext">[RequestCancelExternalWorkflowExecutionFailedCause] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679348489"><span id="local-6989586621679348491"><span id="local-6989586621679348493"><span id="local-6989586621679348495"><span class="annot"><span class="annottext">[RequestCancelExternalWorkflowExecutionFailedCause] -&gt; Encoding
 [RequestCancelExternalWorkflowExecutionFailedCause] -&gt; Value
 RequestCancelExternalWorkflowExecutionFailedCause -&gt; Encoding
 RequestCancelExternalWorkflowExecutionFailedCause -&gt; Value
@@ -314,7 +314,7 @@ $ctoEncoding :: RequestCancelExternalWorkflowExecutionFailedCause -&gt; Encoding
 toJSON :: RequestCancelExternalWorkflowExecutionFailedCause -&gt; Value
 $ctoJSON :: RequestCancelExternalWorkflowExecutionFailedCause -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679348475"><span id="local-6989586621679348477"><span class="annot"><span class="annottext">ToJSONKeyFunction
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679348484"><span id="local-6989586621679348486"><span class="annot"><span class="annottext">ToJSONKeyFunction
   [RequestCancelExternalWorkflowExecutionFailedCause]
 ToJSONKeyFunction RequestCancelExternalWorkflowExecutionFailedCause
 ToJSONKeyFunction RequestCancelExternalWorkflowExecutionFailedCause
@@ -330,7 +330,7 @@ $ctoJSONKeyList :: ToJSONKeyFunction
 toJSONKey :: ToJSONKeyFunction RequestCancelExternalWorkflowExecutionFailedCause
 $ctoJSONKey :: ToJSONKeyFunction RequestCancelExternalWorkflowExecutionFailedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679348472"><span class="annot"><span class="annottext">[Node]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679348481"><span class="annot"><span class="annottext">[Node]
 -&gt; Either String RequestCancelExternalWorkflowExecutionFailedCause
 ([Node]
  -&gt; Either String RequestCancelExternalWorkflowExecutionFailedCause)
@@ -341,7 +341,7 @@ parseXML :: [Node]
 $cparseXML :: [Node]
 -&gt; Either String RequestCancelExternalWorkflowExecutionFailedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679348469"><span class="annot"><span class="annottext">RequestCancelExternalWorkflowExecutionFailedCause -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679348478"><span class="annot"><span class="annottext">RequestCancelExternalWorkflowExecutionFailedCause -&gt; XML
 (RequestCancelExternalWorkflowExecutionFailedCause -&gt; XML)
 -&gt; ToXML RequestCancelExternalWorkflowExecutionFailedCause
 forall a. (a -&gt; XML) -&gt; ToXML a

@@ -43,12 +43,12 @@
 </span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-44"></span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- | /See:/ 'newDeleteStudio' smart constructor.</span><span>
-</span><span id="line-46"></span><span id="local-6989586621679392513"><span id="local-6989586621679392514"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteStudio"><span class="annot"><a href="Network.AWS.EMR.DeleteStudio.html#DeleteStudio"><span class="hs-identifier hs-var">DeleteStudio</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteStudio%27"><span class="annot"><a href="Network.AWS.EMR.DeleteStudio.html#DeleteStudio%27"><span class="hs-identifier hs-var">DeleteStudio'</span></a></span></span><span>
+</span><span id="line-46"></span><span id="local-6989586621679392522"><span id="local-6989586621679392523"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteStudio"><span class="annot"><a href="Network.AWS.EMR.DeleteStudio.html#DeleteStudio"><span class="hs-identifier hs-var">DeleteStudio</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteStudio%27"><span class="annot"><a href="Network.AWS.EMR.DeleteStudio.html#DeleteStudio%27"><span class="hs-identifier hs-var">DeleteStudio'</span></a></span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the Amazon EMR Studio.</span><span>
 </span><span id="line-48"></span><span>    </span><span id="%24sel%3AstudioId%3ADeleteStudio%27"><span class="annot"><span class="annottext">DeleteStudio -&gt; Text
 </span><a href="Network.AWS.EMR.DeleteStudio.html#%24sel%3AstudioId%3ADeleteStudio%27"><span class="hs-identifier hs-var hs-var">studioId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679392507"><span id="local-6989586621679392509"><span class="annot"><span class="annottext">DeleteStudio -&gt; DeleteStudio -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679392516"><span id="local-6989586621679392518"><span class="annot"><span class="annottext">DeleteStudio -&gt; DeleteStudio -&gt; Bool
 (DeleteStudio -&gt; DeleteStudio -&gt; Bool)
 -&gt; (DeleteStudio -&gt; DeleteStudio -&gt; Bool) -&gt; Eq DeleteStudio
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -56,7 +56,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteStudio -&gt; DeleteStudio -&gt; Bool
 == :: DeleteStudio -&gt; DeleteStudio -&gt; Bool
 $c== :: DeleteStudio -&gt; DeleteStudio -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392498"><span id="local-6989586621679392500"><span id="local-6989586621679392502"><span id="local-6989586621679392504"><span class="annot"><span class="annottext">ReadPrec [DeleteStudio]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392507"><span id="local-6989586621679392509"><span id="local-6989586621679392511"><span id="local-6989586621679392513"><span class="annot"><span class="annottext">ReadPrec [DeleteStudio]
 ReadPrec DeleteStudio
 Int -&gt; ReadS DeleteStudio
 ReadS [DeleteStudio]
@@ -76,7 +76,7 @@ readList :: ReadS [DeleteStudio]
 $creadList :: ReadS [DeleteStudio]
 readsPrec :: Int -&gt; ReadS DeleteStudio
 $creadsPrec :: Int -&gt; ReadS DeleteStudio
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392491"><span id="local-6989586621679392493"><span id="local-6989586621679392495"><span class="annot"><span class="annottext">Int -&gt; DeleteStudio -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392500"><span id="local-6989586621679392502"><span id="local-6989586621679392504"><span class="annot"><span class="annottext">Int -&gt; DeleteStudio -&gt; ShowS
 [DeleteStudio] -&gt; ShowS
 DeleteStudio -&gt; String
 (Int -&gt; DeleteStudio -&gt; ShowS)
@@ -116,12 +116,12 @@ $cfrom :: forall x. DeleteStudio -&gt; Rep DeleteStudio x
 </span><span id="line-63"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.DeleteStudio.html#DeleteStudio"><span class="hs-identifier hs-type">DeleteStudio</span></a></span><span>
 </span><span id="line-65"></span><span id="newDeleteStudio"><span class="annot"><span class="annottext">newDeleteStudio :: Text -&gt; DeleteStudio
-</span><a href="Network.AWS.EMR.DeleteStudio.html#newDeleteStudio"><span class="hs-identifier hs-var hs-var">newDeleteStudio</span></a></span></span><span> </span><span id="local-6989586621679392486"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679392486"><span class="hs-identifier hs-var">pStudioId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EMR.DeleteStudio.html#newDeleteStudio"><span class="hs-identifier hs-var hs-var">newDeleteStudio</span></a></span></span><span> </span><span id="local-6989586621679392495"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679392495"><span class="hs-identifier hs-var">pStudioId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>  </span><span class="annot"><span class="annottext">DeleteStudio' :: Text -&gt; DeleteStudio
 </span><a href="Network.AWS.EMR.DeleteStudio.html#DeleteStudio%27"><span class="hs-identifier hs-type">DeleteStudio'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:studioId:DeleteStudio' :: Text
 </span><a href="Network.AWS.EMR.DeleteStudio.html#%24sel%3AstudioId%3ADeleteStudio%27"><span class="hs-identifier hs-var">studioId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679392486"><span class="hs-identifier hs-var">pStudioId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679392495"><span class="hs-identifier hs-var">pStudioId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | The ID of the Amazon EMR Studio.</span><span>
 </span><span id="line-69"></span><span class="annot"><a href="Network.AWS.EMR.DeleteStudio.html#deleteStudio_studioId"><span class="hs-identifier hs-type">deleteStudio_studioId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.DeleteStudio.html#DeleteStudio"><span class="hs-identifier hs-type">DeleteStudio</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -130,25 +130,25 @@ $cfrom :: forall x. DeleteStudio -&gt; Rep DeleteStudio x
 -&gt; (DeleteStudio -&gt; Text -&gt; DeleteStudio)
 -&gt; Lens DeleteStudio DeleteStudio Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.DeleteStudio.html#DeleteStudio%27"><span class="hs-identifier hs-type">DeleteStudio'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392483"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.DeleteStudio.html#DeleteStudio%27"><span class="hs-identifier hs-type">DeleteStudio'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392492"><span class="annot"><span class="annottext">Text
 studioId :: Text
 $sel:studioId:DeleteStudio' :: DeleteStudio -&gt; Text
-</span><a href="#local-6989586621679392483"><span class="hs-identifier hs-var hs-var">studioId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679392483"><span class="hs-identifier hs-var">studioId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392482"><span class="annot"><span class="annottext">s :: DeleteStudio
-</span><a href="#local-6989586621679392482"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.DeleteStudio.html#DeleteStudio%27"><span class="hs-identifier hs-type">DeleteStudio'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392481"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679392481"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteStudio
-</span><a href="#local-6989586621679392482"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:studioId:DeleteStudio' :: Text
+</span><a href="#local-6989586621679392492"><span class="hs-identifier hs-var hs-var">studioId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679392492"><span class="hs-identifier hs-var">studioId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392491"><span class="annot"><span class="annottext">s :: DeleteStudio
+</span><a href="#local-6989586621679392491"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.DeleteStudio.html#DeleteStudio%27"><span class="hs-identifier hs-type">DeleteStudio'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392490"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679392490"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteStudio
+</span><a href="#local-6989586621679392491"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:studioId:DeleteStudio' :: Text
 </span><a href="Network.AWS.EMR.DeleteStudio.html#%24sel%3AstudioId%3ADeleteStudio%27"><span class="hs-identifier hs-var">studioId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679392481"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.DeleteStudio.html#DeleteStudio"><span class="hs-identifier hs-type">DeleteStudio</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679392490"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.DeleteStudio.html#DeleteStudio"><span class="hs-identifier hs-type">DeleteStudio</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.DeleteStudio.html#DeleteStudio"><span class="hs-identifier hs-type">DeleteStudio</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.DeleteStudio.html#DeleteStudio"><span class="hs-identifier hs-type">DeleteStudio</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EMR.DeleteStudio.html#DeleteStudioResponse"><span class="hs-identifier hs-type">DeleteStudioResponse</span></a></span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679392477"><span class="annot"><span class="annottext">request :: DeleteStudio -&gt; Request DeleteStudio
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679392486"><span class="annot"><span class="annottext">request :: DeleteStudio -&gt; Request DeleteStudio
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteStudio -&gt; Request DeleteStudio
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EMR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679392473"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679392482"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteStudio
 -&gt; ClientResponse ClientBody
@@ -171,12 +171,12 @@ AWSResponse a
 DeleteStudioResponse
 </span><a href="Network.AWS.EMR.DeleteStudio.html#DeleteStudioResponse%27"><span class="hs-identifier hs-var">DeleteStudioResponse'</span></a></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392466"><span id="local-6989586621679392468"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.DeleteStudio.html#DeleteStudio"><span class="hs-identifier hs-type">DeleteStudio</span></a></span></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392475"><span id="local-6989586621679392477"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.DeleteStudio.html#DeleteStudio"><span class="hs-identifier hs-type">DeleteStudio</span></a></span></span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392463"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.DeleteStudio.html#DeleteStudio"><span class="hs-identifier hs-type">DeleteStudio</span></a></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392472"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.DeleteStudio.html#DeleteStudio"><span class="hs-identifier hs-type">DeleteStudio</span></a></span></span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.DeleteStudio.html#DeleteStudio"><span class="hs-identifier hs-type">DeleteStudio</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679392459"><span class="annot"><span class="annottext">toHeaders :: DeleteStudio -&gt; [Header]
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679392468"><span class="annot"><span class="annottext">toHeaders :: DeleteStudio -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteStudio -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -203,12 +203,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-93"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392449"><span id="local-6989586621679392451"><span id="local-6989586621679392453"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.DeleteStudio.html#DeleteStudio"><span class="hs-identifier hs-type">DeleteStudio</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679392447"><span class="annot"><span class="annottext">toJSON :: DeleteStudio -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.DeleteStudio.html#DeleteStudio%27"><span class="hs-identifier hs-type">DeleteStudio'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392445"><span class="annot"><span class="annottext">Text
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392458"><span id="local-6989586621679392460"><span id="local-6989586621679392462"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.DeleteStudio.html#DeleteStudio"><span class="hs-identifier hs-type">DeleteStudio</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679392456"><span class="annot"><span class="annottext">toJSON :: DeleteStudio -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.DeleteStudio.html#DeleteStudio%27"><span class="hs-identifier hs-type">DeleteStudio'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392454"><span class="annot"><span class="annottext">Text
 studioId :: Text
 $sel:studioId:DeleteStudio' :: DeleteStudio -&gt; Text
-</span><a href="#local-6989586621679392445"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679392454"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -220,18 +220,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;StudioId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679392445"><span class="hs-identifier hs-var">studioId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679392454"><span class="hs-identifier hs-var">studioId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.DeleteStudio.html#DeleteStudio"><span class="hs-identifier hs-type">DeleteStudio</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679392439"><span class="annot"><span class="annottext">toPath :: DeleteStudio -&gt; ByteString
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679392448"><span class="annot"><span class="annottext">toPath :: DeleteStudio -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteStudio -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.DeleteStudio.html#DeleteStudio"><span class="hs-identifier hs-type">DeleteStudio</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679392435"><span class="annot"><span class="annottext">toQuery :: DeleteStudio -&gt; QueryString
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679392444"><span class="annot"><span class="annottext">toQuery :: DeleteStudio -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteStudio -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -239,10 +239,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | /See:/ 'newDeleteStudioResponse' smart constructor.</span><span>
-</span><span id="line-110"></span><span id="local-6989586621679392432"><span id="local-6989586621679392433"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteStudioResponse"><span class="annot"><a href="Network.AWS.EMR.DeleteStudio.html#DeleteStudioResponse"><span class="hs-identifier hs-var">DeleteStudioResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteStudioResponse%27"><span class="annot"><a href="Network.AWS.EMR.DeleteStudio.html#DeleteStudioResponse%27"><span class="hs-identifier hs-var">DeleteStudioResponse'</span></a></span></span><span>
+</span><span id="line-110"></span><span id="local-6989586621679392441"><span id="local-6989586621679392442"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteStudioResponse"><span class="annot"><a href="Network.AWS.EMR.DeleteStudio.html#DeleteStudioResponse"><span class="hs-identifier hs-var">DeleteStudioResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteStudioResponse%27"><span class="annot"><a href="Network.AWS.EMR.DeleteStudio.html#DeleteStudioResponse%27"><span class="hs-identifier hs-var">DeleteStudioResponse'</span></a></span></span><span>
 </span><span id="line-111"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-112"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-113"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679392428"><span id="local-6989586621679392430"><span class="annot"><span class="annottext">DeleteStudioResponse -&gt; DeleteStudioResponse -&gt; Bool
+</span><span id="line-113"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679392437"><span id="local-6989586621679392439"><span class="annot"><span class="annottext">DeleteStudioResponse -&gt; DeleteStudioResponse -&gt; Bool
 (DeleteStudioResponse -&gt; DeleteStudioResponse -&gt; Bool)
 -&gt; (DeleteStudioResponse -&gt; DeleteStudioResponse -&gt; Bool)
 -&gt; Eq DeleteStudioResponse
@@ -251,7 +251,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteStudioResponse -&gt; DeleteStudioResponse -&gt; Bool
 == :: DeleteStudioResponse -&gt; DeleteStudioResponse -&gt; Bool
 $c== :: DeleteStudioResponse -&gt; DeleteStudioResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392420"><span id="local-6989586621679392422"><span id="local-6989586621679392424"><span id="local-6989586621679392426"><span class="annot"><span class="annottext">ReadPrec [DeleteStudioResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392429"><span id="local-6989586621679392431"><span id="local-6989586621679392433"><span id="local-6989586621679392435"><span class="annot"><span class="annottext">ReadPrec [DeleteStudioResponse]
 ReadPrec DeleteStudioResponse
 Int -&gt; ReadS DeleteStudioResponse
 ReadS [DeleteStudioResponse]
@@ -271,7 +271,7 @@ readList :: ReadS [DeleteStudioResponse]
 $creadList :: ReadS [DeleteStudioResponse]
 readsPrec :: Int -&gt; ReadS DeleteStudioResponse
 $creadsPrec :: Int -&gt; ReadS DeleteStudioResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392414"><span id="local-6989586621679392416"><span id="local-6989586621679392418"><span class="annot"><span class="annottext">Int -&gt; DeleteStudioResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392423"><span id="local-6989586621679392425"><span id="local-6989586621679392427"><span class="annot"><span class="annottext">Int -&gt; DeleteStudioResponse -&gt; ShowS
 [DeleteStudioResponse] -&gt; ShowS
 DeleteStudioResponse -&gt; String
 (Int -&gt; DeleteStudioResponse -&gt; ShowS)
@@ -307,5 +307,5 @@ $cfrom :: forall x. DeleteStudioResponse -&gt; Rep DeleteStudioResponse x
 </span><a href="Network.AWS.EMR.DeleteStudio.html#newDeleteStudioResponse"><span class="hs-identifier hs-var hs-var">newDeleteStudioResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteStudioResponse
 </span><a href="Network.AWS.EMR.DeleteStudio.html#DeleteStudioResponse%27"><span class="hs-identifier hs-var">DeleteStudioResponse'</span></a></span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392410"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.DeleteStudio.html#DeleteStudioResponse"><span class="hs-identifier hs-type">DeleteStudioResponse</span></a></span></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392419"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.DeleteStudio.html#DeleteStudioResponse"><span class="hs-identifier hs-type">DeleteStudioResponse</span></a></span></span><span>
 </span><span id="line-124"></span></pre></body></html>

@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- response attribute to determine why a face wasn\'t indexed.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newUnindexedFace' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679334349"><span id="local-6989586621679334350"></span></span><span class="hs-keyword">data</span><span> </span><span id="UnindexedFace"><span class="annot"><a href="Network.AWS.Rekognition.Types.UnindexedFace.html#UnindexedFace"><span class="hs-identifier hs-var">UnindexedFace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UnindexedFace%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.UnindexedFace.html#UnindexedFace%27"><span class="hs-identifier hs-var">UnindexedFace'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679334358"><span id="local-6989586621679334359"></span></span><span class="hs-keyword">data</span><span> </span><span id="UnindexedFace"><span class="annot"><a href="Network.AWS.Rekognition.Types.UnindexedFace.html#UnindexedFace"><span class="hs-identifier hs-var">UnindexedFace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UnindexedFace%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.UnindexedFace.html#UnindexedFace%27"><span class="hs-identifier hs-var">UnindexedFace'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of reasons that specify why a face wasn\'t indexed.</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- -   EXTREME_POSE - The face is at a pose that can\'t be detected. For</span><span>
@@ -53,7 +53,7 @@
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AfaceDetail%3AUnindexedFace%27"><span class="annot"><span class="annottext">UnindexedFace -&gt; Maybe FaceDetail
 </span><a href="Network.AWS.Rekognition.Types.UnindexedFace.html#%24sel%3AfaceDetail%3AUnindexedFace%27"><span class="hs-identifier hs-var hs-var">faceDetail</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceDetail.html#FaceDetail"><span class="hs-identifier hs-type">FaceDetail</span></a></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679334342"><span id="local-6989586621679334344"><span class="annot"><span class="annottext">UnindexedFace -&gt; UnindexedFace -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679334351"><span id="local-6989586621679334353"><span class="annot"><span class="annottext">UnindexedFace -&gt; UnindexedFace -&gt; Bool
 (UnindexedFace -&gt; UnindexedFace -&gt; Bool)
 -&gt; (UnindexedFace -&gt; UnindexedFace -&gt; Bool) -&gt; Eq UnindexedFace
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UnindexedFace -&gt; UnindexedFace -&gt; Bool
 == :: UnindexedFace -&gt; UnindexedFace -&gt; Bool
 $c== :: UnindexedFace -&gt; UnindexedFace -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679334333"><span id="local-6989586621679334335"><span id="local-6989586621679334337"><span id="local-6989586621679334339"><span class="annot"><span class="annottext">ReadPrec [UnindexedFace]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679334342"><span id="local-6989586621679334344"><span id="local-6989586621679334346"><span id="local-6989586621679334348"><span class="annot"><span class="annottext">ReadPrec [UnindexedFace]
 ReadPrec UnindexedFace
 Int -&gt; ReadS UnindexedFace
 ReadS [UnindexedFace]
@@ -81,7 +81,7 @@ readList :: ReadS [UnindexedFace]
 $creadList :: ReadS [UnindexedFace]
 readsPrec :: Int -&gt; ReadS UnindexedFace
 $creadsPrec :: Int -&gt; ReadS UnindexedFace
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679334326"><span id="local-6989586621679334328"><span id="local-6989586621679334330"><span class="annot"><span class="annottext">Int -&gt; UnindexedFace -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679334335"><span id="local-6989586621679334337"><span id="local-6989586621679334339"><span class="annot"><span class="annottext">Int -&gt; UnindexedFace -&gt; ShowS
 [UnindexedFace] -&gt; ShowS
 UnindexedFace -&gt; String
 (Int -&gt; UnindexedFace -&gt; ShowS)
@@ -174,16 +174,16 @@ forall a. Maybe a
 -&gt; Lens
      UnindexedFace UnindexedFace (Maybe [Reason]) (Maybe [Reason])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.UnindexedFace.html#UnindexedFace%27"><span class="hs-identifier hs-type">UnindexedFace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334317"><span class="annot"><span class="annottext">Maybe [Reason]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.UnindexedFace.html#UnindexedFace%27"><span class="hs-identifier hs-type">UnindexedFace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334326"><span class="annot"><span class="annottext">Maybe [Reason]
 reasons :: Maybe [Reason]
 $sel:reasons:UnindexedFace' :: UnindexedFace -&gt; Maybe [Reason]
-</span><a href="#local-6989586621679334317"><span class="hs-identifier hs-var hs-var">reasons</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Reason]
-</span><a href="#local-6989586621679334317"><span class="hs-identifier hs-var">reasons</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334316"><span class="annot"><span class="annottext">s :: UnindexedFace
-</span><a href="#local-6989586621679334316"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.UnindexedFace.html#UnindexedFace%27"><span class="hs-identifier hs-type">UnindexedFace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334315"><span class="annot"><span class="annottext">Maybe [Reason]
-</span><a href="#local-6989586621679334315"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UnindexedFace
-</span><a href="#local-6989586621679334316"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reasons:UnindexedFace' :: Maybe [Reason]
+</span><a href="#local-6989586621679334326"><span class="hs-identifier hs-var hs-var">reasons</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Reason]
+</span><a href="#local-6989586621679334326"><span class="hs-identifier hs-var">reasons</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334325"><span class="annot"><span class="annottext">s :: UnindexedFace
+</span><a href="#local-6989586621679334325"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.UnindexedFace.html#UnindexedFace%27"><span class="hs-identifier hs-type">UnindexedFace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334324"><span class="annot"><span class="annottext">Maybe [Reason]
+</span><a href="#local-6989586621679334324"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UnindexedFace
+</span><a href="#local-6989586621679334325"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reasons:UnindexedFace' :: Maybe [Reason]
 </span><a href="Network.AWS.Rekognition.Types.UnindexedFace.html#%24sel%3Areasons%3AUnindexedFace%27"><span class="hs-identifier hs-var">reasons</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Reason]
-</span><a href="#local-6989586621679334315"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.UnindexedFace.html#UnindexedFace"><span class="hs-identifier hs-type">UnindexedFace</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Reason] -&gt; f (Maybe [Reason]))
+</span><a href="#local-6989586621679334324"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.UnindexedFace.html#UnindexedFace"><span class="hs-identifier hs-type">UnindexedFace</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Reason] -&gt; f (Maybe [Reason]))
  -&gt; UnindexedFace -&gt; f UnindexedFace)
 -&gt; ((Maybe [Reason] -&gt; f (Maybe [Reason]))
     -&gt; Maybe [Reason] -&gt; f (Maybe [Reason]))
@@ -211,19 +211,19 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      UnindexedFace UnindexedFace (Maybe FaceDetail) (Maybe FaceDetail)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.UnindexedFace.html#UnindexedFace%27"><span class="hs-identifier hs-type">UnindexedFace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334310"><span class="annot"><span class="annottext">Maybe FaceDetail
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.UnindexedFace.html#UnindexedFace%27"><span class="hs-identifier hs-type">UnindexedFace'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334319"><span class="annot"><span class="annottext">Maybe FaceDetail
 faceDetail :: Maybe FaceDetail
 $sel:faceDetail:UnindexedFace' :: UnindexedFace -&gt; Maybe FaceDetail
-</span><a href="#local-6989586621679334310"><span class="hs-identifier hs-var hs-var">faceDetail</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FaceDetail
-</span><a href="#local-6989586621679334310"><span class="hs-identifier hs-var">faceDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334309"><span class="annot"><span class="annottext">s :: UnindexedFace
-</span><a href="#local-6989586621679334309"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.UnindexedFace.html#UnindexedFace%27"><span class="hs-identifier hs-type">UnindexedFace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334308"><span class="annot"><span class="annottext">Maybe FaceDetail
-</span><a href="#local-6989586621679334308"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UnindexedFace
-</span><a href="#local-6989586621679334309"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:faceDetail:UnindexedFace' :: Maybe FaceDetail
+</span><a href="#local-6989586621679334319"><span class="hs-identifier hs-var hs-var">faceDetail</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FaceDetail
+</span><a href="#local-6989586621679334319"><span class="hs-identifier hs-var">faceDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334318"><span class="annot"><span class="annottext">s :: UnindexedFace
+</span><a href="#local-6989586621679334318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.UnindexedFace.html#UnindexedFace%27"><span class="hs-identifier hs-type">UnindexedFace'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334317"><span class="annot"><span class="annottext">Maybe FaceDetail
+</span><a href="#local-6989586621679334317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UnindexedFace
+</span><a href="#local-6989586621679334318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:faceDetail:UnindexedFace' :: Maybe FaceDetail
 </span><a href="Network.AWS.Rekognition.Types.UnindexedFace.html#%24sel%3AfaceDetail%3AUnindexedFace%27"><span class="hs-identifier hs-var">faceDetail</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FaceDetail
-</span><a href="#local-6989586621679334308"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.UnindexedFace.html#UnindexedFace"><span class="hs-identifier hs-type">UnindexedFace</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679334317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.UnindexedFace.html#UnindexedFace"><span class="hs-identifier hs-type">UnindexedFace</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334305"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.UnindexedFace.html#UnindexedFace"><span class="hs-identifier hs-type">UnindexedFace</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679334303"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UnindexedFace
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334314"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.UnindexedFace.html#UnindexedFace"><span class="hs-identifier hs-type">UnindexedFace</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679334312"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UnindexedFace
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser UnindexedFace)
@@ -233,8 +233,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;UnindexedFace&quot;</span></span><span>
-</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679334300"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679334300"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679334309"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679334309"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Reason] -&gt; Maybe FaceDetail -&gt; UnindexedFace
 </span><a href="Network.AWS.Rekognition.Types.UnindexedFace.html#UnindexedFace%27"><span class="hs-identifier hs-var">UnindexedFace'</span></a></span><span>
 </span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Reason] -&gt; Maybe FaceDetail -&gt; UnindexedFace)
@@ -242,7 +242,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe FaceDetail -&gt; UnindexedFace)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679334300"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Reason]))
+</span><a href="#local-6989586621679334309"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Reason]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Reasons&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Reason]))
@@ -255,13 +255,13 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe FaceDetail) -&gt; Parser UnindexedFace
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679334300"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FaceDetail)
+</span><a href="#local-6989586621679334309"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FaceDetail)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FaceDetail&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334293"><span id="local-6989586621679334295"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.UnindexedFace.html#UnindexedFace"><span class="hs-identifier hs-type">UnindexedFace</span></a></span></span></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334302"><span id="local-6989586621679334304"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.UnindexedFace.html#UnindexedFace"><span class="hs-identifier hs-type">UnindexedFace</span></a></span></span></span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334290"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.UnindexedFace.html#UnindexedFace"><span class="hs-identifier hs-type">UnindexedFace</span></a></span></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334299"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.UnindexedFace.html#UnindexedFace"><span class="hs-identifier hs-type">UnindexedFace</span></a></span></span><span>
 </span><span id="line-128"></span></pre></body></html>

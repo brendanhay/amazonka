@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- proactive customer support.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newEmergencyContact' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679202079"><span id="local-6989586621679202080"></span></span><span class="hs-keyword">data</span><span> </span><span id="EmergencyContact"><span class="annot"><a href="Network.AWS.Shield.Types.EmergencyContact.html#EmergencyContact"><span class="hs-identifier hs-var">EmergencyContact</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EmergencyContact%27"><span class="annot"><a href="Network.AWS.Shield.Types.EmergencyContact.html#EmergencyContact%27"><span class="hs-identifier hs-var">EmergencyContact'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679202088"><span id="local-6989586621679202089"></span></span><span class="hs-keyword">data</span><span> </span><span id="EmergencyContact"><span class="annot"><a href="Network.AWS.Shield.Types.EmergencyContact.html#EmergencyContact"><span class="hs-identifier hs-var">EmergencyContact</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EmergencyContact%27"><span class="annot"><a href="Network.AWS.Shield.Types.EmergencyContact.html#EmergencyContact%27"><span class="hs-identifier hs-var">EmergencyContact'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The phone number for the contact.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AphoneNumber%3AEmergencyContact%27"><span class="annot"><span class="annottext">EmergencyContact -&gt; Maybe Text
 </span><a href="Network.AWS.Shield.Types.EmergencyContact.html#%24sel%3AphoneNumber%3AEmergencyContact%27"><span class="hs-identifier hs-var hs-var">phoneNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -39,7 +39,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AemailAddress%3AEmergencyContact%27"><span class="annot"><span class="annottext">EmergencyContact -&gt; Text
 </span><a href="Network.AWS.Shield.Types.EmergencyContact.html#%24sel%3AemailAddress%3AEmergencyContact%27"><span class="hs-identifier hs-var hs-var">emailAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679202071"><span id="local-6989586621679202073"><span class="annot"><span class="annottext">EmergencyContact -&gt; EmergencyContact -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679202080"><span id="local-6989586621679202082"><span class="annot"><span class="annottext">EmergencyContact -&gt; EmergencyContact -&gt; Bool
 (EmergencyContact -&gt; EmergencyContact -&gt; Bool)
 -&gt; (EmergencyContact -&gt; EmergencyContact -&gt; Bool)
 -&gt; Eq EmergencyContact
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EmergencyContact -&gt; EmergencyContact -&gt; Bool
 == :: EmergencyContact -&gt; EmergencyContact -&gt; Bool
 $c== :: EmergencyContact -&gt; EmergencyContact -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202062"><span id="local-6989586621679202064"><span id="local-6989586621679202066"><span id="local-6989586621679202068"><span class="annot"><span class="annottext">ReadPrec [EmergencyContact]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202071"><span id="local-6989586621679202073"><span id="local-6989586621679202075"><span id="local-6989586621679202077"><span class="annot"><span class="annottext">ReadPrec [EmergencyContact]
 ReadPrec EmergencyContact
 Int -&gt; ReadS EmergencyContact
 ReadS [EmergencyContact]
@@ -68,7 +68,7 @@ readList :: ReadS [EmergencyContact]
 $creadList :: ReadS [EmergencyContact]
 readsPrec :: Int -&gt; ReadS EmergencyContact
 $creadsPrec :: Int -&gt; ReadS EmergencyContact
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202055"><span id="local-6989586621679202057"><span id="local-6989586621679202059"><span class="annot"><span class="annottext">Int -&gt; EmergencyContact -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202064"><span id="local-6989586621679202066"><span id="local-6989586621679202068"><span class="annot"><span class="annottext">Int -&gt; EmergencyContact -&gt; ShowS
 [EmergencyContact] -&gt; ShowS
 EmergencyContact -&gt; String
 (Int -&gt; EmergencyContact -&gt; ShowS)
@@ -112,8 +112,8 @@ $cfrom :: forall x. EmergencyContact -&gt; Rep EmergencyContact x
 </span><span id="line-56"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.Shield.Types.EmergencyContact.html#EmergencyContact"><span class="hs-identifier hs-type">EmergencyContact</span></a></span><span>
 </span><span id="line-58"></span><span id="newEmergencyContact"><span class="annot"><span class="annottext">newEmergencyContact :: Text -&gt; EmergencyContact
-</span><a href="Network.AWS.Shield.Types.EmergencyContact.html#newEmergencyContact"><span class="hs-identifier hs-var hs-var">newEmergencyContact</span></a></span></span><span> </span><span id="local-6989586621679202049"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679202049"><span class="hs-identifier hs-var">pEmailAddress_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Shield.Types.EmergencyContact.html#newEmergencyContact"><span class="hs-identifier hs-var hs-var">newEmergencyContact</span></a></span></span><span> </span><span id="local-6989586621679202058"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202058"><span class="hs-identifier hs-var">pEmailAddress_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">EmergencyContact' :: Maybe Text -&gt; Maybe Text -&gt; Text -&gt; EmergencyContact
 </span><a href="Network.AWS.Shield.Types.EmergencyContact.html#EmergencyContact%27"><span class="hs-identifier hs-type">EmergencyContact'</span></a></span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:phoneNumber:EmergencyContact' :: Maybe Text
@@ -126,7 +126,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:emailAddress:EmergencyContact' :: Text
 </span><a href="Network.AWS.Shield.Types.EmergencyContact.html#%24sel%3AemailAddress%3AEmergencyContact%27"><span class="hs-identifier hs-var">emailAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679202049"><span class="hs-identifier hs-var">pEmailAddress_</span></a></span><span>
+</span><a href="#local-6989586621679202058"><span class="hs-identifier hs-var">pEmailAddress_</span></a></span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | The phone number for the contact.</span><span>
@@ -137,16 +137,16 @@ forall a. Maybe a
 -&gt; (EmergencyContact -&gt; Maybe Text -&gt; EmergencyContact)
 -&gt; Lens EmergencyContact EmergencyContact (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.EmergencyContact.html#EmergencyContact%27"><span class="hs-identifier hs-type">EmergencyContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202045"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.EmergencyContact.html#EmergencyContact%27"><span class="hs-identifier hs-type">EmergencyContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202054"><span class="annot"><span class="annottext">Maybe Text
 phoneNumber :: Maybe Text
 $sel:phoneNumber:EmergencyContact' :: EmergencyContact -&gt; Maybe Text
-</span><a href="#local-6989586621679202045"><span class="hs-identifier hs-var hs-var">phoneNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679202045"><span class="hs-identifier hs-var">phoneNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202044"><span class="annot"><span class="annottext">s :: EmergencyContact
-</span><a href="#local-6989586621679202044"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.EmergencyContact.html#EmergencyContact%27"><span class="hs-identifier hs-type">EmergencyContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202043"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679202043"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmergencyContact
-</span><a href="#local-6989586621679202044"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:phoneNumber:EmergencyContact' :: Maybe Text
+</span><a href="#local-6989586621679202054"><span class="hs-identifier hs-var hs-var">phoneNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202054"><span class="hs-identifier hs-var">phoneNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202053"><span class="annot"><span class="annottext">s :: EmergencyContact
+</span><a href="#local-6989586621679202053"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.EmergencyContact.html#EmergencyContact%27"><span class="hs-identifier hs-type">EmergencyContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202052"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202052"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmergencyContact
+</span><a href="#local-6989586621679202053"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:phoneNumber:EmergencyContact' :: Maybe Text
 </span><a href="Network.AWS.Shield.Types.EmergencyContact.html#%24sel%3AphoneNumber%3AEmergencyContact%27"><span class="hs-identifier hs-var">phoneNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679202043"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.EmergencyContact.html#EmergencyContact"><span class="hs-identifier hs-type">EmergencyContact</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679202052"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.EmergencyContact.html#EmergencyContact"><span class="hs-identifier hs-type">EmergencyContact</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | Additional notes regarding the contact.</span><span>
 </span><span id="line-70"></span><span class="annot"><a href="Network.AWS.Shield.Types.EmergencyContact.html#emergencyContact_contactNotes"><span class="hs-identifier hs-type">emergencyContact_contactNotes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.EmergencyContact.html#EmergencyContact"><span class="hs-identifier hs-type">EmergencyContact</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -156,16 +156,16 @@ $sel:phoneNumber:EmergencyContact' :: EmergencyContact -&gt; Maybe Text
 -&gt; (EmergencyContact -&gt; Maybe Text -&gt; EmergencyContact)
 -&gt; Lens EmergencyContact EmergencyContact (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.EmergencyContact.html#EmergencyContact%27"><span class="hs-identifier hs-type">EmergencyContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202041"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.EmergencyContact.html#EmergencyContact%27"><span class="hs-identifier hs-type">EmergencyContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202050"><span class="annot"><span class="annottext">Maybe Text
 contactNotes :: Maybe Text
 $sel:contactNotes:EmergencyContact' :: EmergencyContact -&gt; Maybe Text
-</span><a href="#local-6989586621679202041"><span class="hs-identifier hs-var hs-var">contactNotes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679202041"><span class="hs-identifier hs-var">contactNotes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202040"><span class="annot"><span class="annottext">s :: EmergencyContact
-</span><a href="#local-6989586621679202040"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.EmergencyContact.html#EmergencyContact%27"><span class="hs-identifier hs-type">EmergencyContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202039"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679202039"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmergencyContact
-</span><a href="#local-6989586621679202040"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contactNotes:EmergencyContact' :: Maybe Text
+</span><a href="#local-6989586621679202050"><span class="hs-identifier hs-var hs-var">contactNotes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202050"><span class="hs-identifier hs-var">contactNotes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202049"><span class="annot"><span class="annottext">s :: EmergencyContact
+</span><a href="#local-6989586621679202049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.EmergencyContact.html#EmergencyContact%27"><span class="hs-identifier hs-type">EmergencyContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202048"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmergencyContact
+</span><a href="#local-6989586621679202049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contactNotes:EmergencyContact' :: Maybe Text
 </span><a href="Network.AWS.Shield.Types.EmergencyContact.html#%24sel%3AcontactNotes%3AEmergencyContact%27"><span class="hs-identifier hs-var">contactNotes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679202039"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.EmergencyContact.html#EmergencyContact"><span class="hs-identifier hs-type">EmergencyContact</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679202048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.EmergencyContact.html#EmergencyContact"><span class="hs-identifier hs-type">EmergencyContact</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | The email address for the contact.</span><span>
 </span><span id="line-74"></span><span class="annot"><a href="Network.AWS.Shield.Types.EmergencyContact.html#emergencyContact_emailAddress"><span class="hs-identifier hs-type">emergencyContact_emailAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.EmergencyContact.html#EmergencyContact"><span class="hs-identifier hs-type">EmergencyContact</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -174,19 +174,19 @@ $sel:contactNotes:EmergencyContact' :: EmergencyContact -&gt; Maybe Text
 -&gt; (EmergencyContact -&gt; Text -&gt; EmergencyContact)
 -&gt; Lens EmergencyContact EmergencyContact Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.EmergencyContact.html#EmergencyContact%27"><span class="hs-identifier hs-type">EmergencyContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202037"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.EmergencyContact.html#EmergencyContact%27"><span class="hs-identifier hs-type">EmergencyContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202046"><span class="annot"><span class="annottext">Text
 emailAddress :: Text
 $sel:emailAddress:EmergencyContact' :: EmergencyContact -&gt; Text
-</span><a href="#local-6989586621679202037"><span class="hs-identifier hs-var hs-var">emailAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679202037"><span class="hs-identifier hs-var">emailAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202036"><span class="annot"><span class="annottext">s :: EmergencyContact
-</span><a href="#local-6989586621679202036"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.EmergencyContact.html#EmergencyContact%27"><span class="hs-identifier hs-type">EmergencyContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202035"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679202035"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmergencyContact
-</span><a href="#local-6989586621679202036"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:emailAddress:EmergencyContact' :: Text
+</span><a href="#local-6989586621679202046"><span class="hs-identifier hs-var hs-var">emailAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202046"><span class="hs-identifier hs-var">emailAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202045"><span class="annot"><span class="annottext">s :: EmergencyContact
+</span><a href="#local-6989586621679202045"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.EmergencyContact.html#EmergencyContact%27"><span class="hs-identifier hs-type">EmergencyContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202044"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202044"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmergencyContact
+</span><a href="#local-6989586621679202045"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:emailAddress:EmergencyContact' :: Text
 </span><a href="Network.AWS.Shield.Types.EmergencyContact.html#%24sel%3AemailAddress%3AEmergencyContact%27"><span class="hs-identifier hs-var">emailAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679202035"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.EmergencyContact.html#EmergencyContact"><span class="hs-identifier hs-type">EmergencyContact</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679202044"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.EmergencyContact.html#EmergencyContact"><span class="hs-identifier hs-type">EmergencyContact</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202032"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.EmergencyContact.html#EmergencyContact"><span class="hs-identifier hs-type">EmergencyContact</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679202030"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EmergencyContact
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202041"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.EmergencyContact.html#EmergencyContact"><span class="hs-identifier hs-type">EmergencyContact</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679202039"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EmergencyContact
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser EmergencyContact)
@@ -196,8 +196,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EmergencyContact&quot;</span></span><span>
-</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679202027"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679202027"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679202036"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202036"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Text -&gt; EmergencyContact
 </span><a href="Network.AWS.Shield.Types.EmergencyContact.html#EmergencyContact%27"><span class="hs-identifier hs-var">EmergencyContact'</span></a></span><span>
 </span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Text -&gt; EmergencyContact)
@@ -205,7 +205,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Text -&gt; EmergencyContact)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679202027"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679202036"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PhoneNumber&quot;</span></span><span class="hs-special">)</span><span>
@@ -213,7 +213,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; EmergencyContact)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679202027"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679202036"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ContactNotes&quot;</span></span><span class="hs-special">)</span><span>
@@ -221,19 +221,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser EmergencyContact
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679202027"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679202036"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EmailAddress&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202020"><span id="local-6989586621679202022"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.EmergencyContact.html#EmergencyContact"><span class="hs-identifier hs-type">EmergencyContact</span></a></span></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202029"><span id="local-6989586621679202031"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.EmergencyContact.html#EmergencyContact"><span class="hs-identifier hs-type">EmergencyContact</span></a></span></span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202017"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.EmergencyContact.html#EmergencyContact"><span class="hs-identifier hs-type">EmergencyContact</span></a></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202026"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.EmergencyContact.html#EmergencyContact"><span class="hs-identifier hs-type">EmergencyContact</span></a></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202009"><span id="local-6989586621679202011"><span id="local-6989586621679202013"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.EmergencyContact.html#EmergencyContact"><span class="hs-identifier hs-type">EmergencyContact</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679202007"><span class="annot"><span class="annottext">toJSON :: EmergencyContact -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.EmergencyContact.html#EmergencyContact%27"><span class="hs-identifier hs-type">EmergencyContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202003"><span id="local-6989586621679202004"><span id="local-6989586621679202005"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202018"><span id="local-6989586621679202020"><span id="local-6989586621679202022"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.EmergencyContact.html#EmergencyContact"><span class="hs-identifier hs-type">EmergencyContact</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679202016"><span class="annot"><span class="annottext">toJSON :: EmergencyContact -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.EmergencyContact.html#EmergencyContact%27"><span class="hs-identifier hs-type">EmergencyContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202012"><span id="local-6989586621679202013"><span id="local-6989586621679202014"><span class="annot"><span class="annottext">Maybe Text
 Text
 emailAddress :: Text
 contactNotes :: Maybe Text
@@ -241,7 +241,7 @@ phoneNumber :: Maybe Text
 $sel:emailAddress:EmergencyContact' :: EmergencyContact -&gt; Text
 $sel:contactNotes:EmergencyContact' :: EmergencyContact -&gt; Maybe Text
 $sel:phoneNumber:EmergencyContact' :: EmergencyContact -&gt; Maybe Text
-</span><a href="#local-6989586621679202003"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679202012"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -253,21 +253,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679202005"><span class="hs-identifier hs-var">phoneNumber</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679202014"><span class="hs-identifier hs-var">phoneNumber</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ContactNotes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679202004"><span class="hs-identifier hs-var">contactNotes</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679202013"><span class="hs-identifier hs-var">contactNotes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EmailAddress&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679202003"><span class="hs-identifier hs-var">emailAddress</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679202012"><span class="hs-identifier hs-var">emailAddress</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span></pre></body></html>

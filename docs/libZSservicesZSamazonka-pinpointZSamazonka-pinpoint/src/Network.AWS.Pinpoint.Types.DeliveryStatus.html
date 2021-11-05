@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-36"></span><span>
-</span><span id="line-37"></span><span id="local-6989586621679595501"><span id="local-6989586621679595502"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeliveryStatus"><span class="annot"><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#DeliveryStatus"><span class="hs-identifier hs-var">DeliveryStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeliveryStatus%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#DeliveryStatus%27"><span class="hs-identifier hs-var">DeliveryStatus'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679595510"><span id="local-6989586621679595511"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeliveryStatus"><span class="annot"><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#DeliveryStatus"><span class="hs-identifier hs-var">DeliveryStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeliveryStatus%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#DeliveryStatus%27"><span class="hs-identifier hs-var">DeliveryStatus'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDeliveryStatus"><span class="annot"><span class="annottext">DeliveryStatus -&gt; Text
 </span><a href="Network.AWS.Pinpoint.Types.DeliveryStatus.html#fromDeliveryStatus"><span class="hs-identifier hs-var hs-var">fromDeliveryStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679595493"><span id="local-6989586621679595495"><span id="local-6989586621679595497"><span class="annot"><span class="annottext">Int -&gt; DeliveryStatus -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679595502"><span id="local-6989586621679595504"><span id="local-6989586621679595506"><span class="annot"><span class="annottext">Int -&gt; DeliveryStatus -&gt; ShowS
 [DeliveryStatus] -&gt; ShowS
 DeliveryStatus -&gt; String
 (Int -&gt; DeliveryStatus -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: DeliveryStatus -&gt; String
 showsPrec :: Int -&gt; DeliveryStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; DeliveryStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679595484"><span id="local-6989586621679595486"><span id="local-6989586621679595488"><span id="local-6989586621679595490"><span class="annot"><span class="annottext">ReadPrec [DeliveryStatus]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679595493"><span id="local-6989586621679595495"><span id="local-6989586621679595497"><span id="local-6989586621679595499"><span class="annot"><span class="annottext">ReadPrec [DeliveryStatus]
 ReadPrec DeliveryStatus
 Int -&gt; ReadS DeliveryStatus
 ReadS [DeliveryStatus]
@@ -77,7 +77,7 @@ $creadList :: ReadS [DeliveryStatus]
 readsPrec :: Int -&gt; ReadS DeliveryStatus
 $creadsPrec :: Int -&gt; ReadS DeliveryStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679595479"><span id="local-6989586621679595481"><span class="annot"><span class="annottext">DeliveryStatus -&gt; DeliveryStatus -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679595488"><span id="local-6989586621679595490"><span class="annot"><span class="annottext">DeliveryStatus -&gt; DeliveryStatus -&gt; Bool
 (DeliveryStatus -&gt; DeliveryStatus -&gt; Bool)
 -&gt; (DeliveryStatus -&gt; DeliveryStatus -&gt; Bool) -&gt; Eq DeliveryStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -86,7 +86,7 @@ $c/= :: DeliveryStatus -&gt; DeliveryStatus -&gt; Bool
 == :: DeliveryStatus -&gt; DeliveryStatus -&gt; Bool
 $c== :: DeliveryStatus -&gt; DeliveryStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679595463"><span id="local-6989586621679595465"><span id="local-6989586621679595467"><span id="local-6989586621679595469"><span id="local-6989586621679595471"><span id="local-6989586621679595473"><span id="local-6989586621679595475"><span class="annot"><span class="annottext">Eq DeliveryStatus
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679595472"><span id="local-6989586621679595474"><span id="local-6989586621679595476"><span id="local-6989586621679595478"><span id="local-6989586621679595480"><span id="local-6989586621679595482"><span id="local-6989586621679595484"><span class="annot"><span class="annottext">Eq DeliveryStatus
 Eq DeliveryStatus
 -&gt; (DeliveryStatus -&gt; DeliveryStatus -&gt; Ordering)
 -&gt; (DeliveryStatus -&gt; DeliveryStatus -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. DeliveryStatus -&gt; Rep DeliveryStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679595455"><span id="local-6989586621679595457"><span class="annot"><span class="annottext">Int -&gt; DeliveryStatus -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679595464"><span id="local-6989586621679595466"><span class="annot"><span class="annottext">Int -&gt; DeliveryStatus -&gt; Int
 DeliveryStatus -&gt; Int
 (Int -&gt; DeliveryStatus -&gt; Int)
 -&gt; (DeliveryStatus -&gt; Int) -&gt; Hashable DeliveryStatus
@@ -147,50 +147,50 @@ $chash :: DeliveryStatus -&gt; Int
 hashWithSalt :: Int -&gt; DeliveryStatus -&gt; Int
 $chashWithSalt :: Int -&gt; DeliveryStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679595452"><span class="annot"><span class="annottext">DeliveryStatus -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679595461"><span class="annot"><span class="annottext">DeliveryStatus -&gt; ()
 (DeliveryStatus -&gt; ()) -&gt; NFData DeliveryStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DeliveryStatus -&gt; ()
 $crnf :: DeliveryStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679595449"><span class="annot"><span class="annottext">Text -&gt; Either String DeliveryStatus
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679595458"><span class="annot"><span class="annottext">Text -&gt; Either String DeliveryStatus
 (Text -&gt; Either String DeliveryStatus) -&gt; FromText DeliveryStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DeliveryStatus
 $cfromText :: Text -&gt; Either String DeliveryStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679595446"><span class="annot"><span class="annottext">DeliveryStatus -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679595455"><span class="annot"><span class="annottext">DeliveryStatus -&gt; Text
 (DeliveryStatus -&gt; Text) -&gt; ToText DeliveryStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DeliveryStatus -&gt; Text
 $ctoText :: DeliveryStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679595443"><span class="annot"><span class="annottext">DeliveryStatus -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679595452"><span class="annot"><span class="annottext">DeliveryStatus -&gt; ByteString
 (DeliveryStatus -&gt; ByteString) -&gt; ToByteString DeliveryStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DeliveryStatus -&gt; ByteString
 $ctoBS :: DeliveryStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679595440"><span class="annot"><span class="annottext">DeliveryStatus -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679595449"><span class="annot"><span class="annottext">DeliveryStatus -&gt; ByteStringBuilder
 (DeliveryStatus -&gt; ByteStringBuilder) -&gt; ToLog DeliveryStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DeliveryStatus -&gt; ByteStringBuilder
 $cbuild :: DeliveryStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679595437"><span class="annot"><span class="annottext">HeaderName -&gt; DeliveryStatus -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679595446"><span class="annot"><span class="annottext">HeaderName -&gt; DeliveryStatus -&gt; [Header]
 (HeaderName -&gt; DeliveryStatus -&gt; [Header])
 -&gt; ToHeader DeliveryStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DeliveryStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DeliveryStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679595434"><span class="annot"><span class="annottext">DeliveryStatus -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679595443"><span class="annot"><span class="annottext">DeliveryStatus -&gt; QueryString
 (DeliveryStatus -&gt; QueryString) -&gt; ToQuery DeliveryStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DeliveryStatus -&gt; QueryString
 $ctoQuery :: DeliveryStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679595429"><span id="local-6989586621679595431"><span class="annot"><span class="annottext">Value -&gt; Parser [DeliveryStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679595438"><span id="local-6989586621679595440"><span class="annot"><span class="annottext">Value -&gt; Parser [DeliveryStatus]
 Value -&gt; Parser DeliveryStatus
 (Value -&gt; Parser DeliveryStatus)
 -&gt; (Value -&gt; Parser [DeliveryStatus]) -&gt; FromJSON DeliveryStatus
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [DeliveryStatus]
 parseJSON :: Value -&gt; Parser DeliveryStatus
 $cparseJSON :: Value -&gt; Parser DeliveryStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679595424"><span id="local-6989586621679595426"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeliveryStatus]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679595433"><span id="local-6989586621679595435"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeliveryStatus]
 FromJSONKeyFunction DeliveryStatus
 FromJSONKeyFunction DeliveryStatus
 -&gt; FromJSONKeyFunction [DeliveryStatus]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DeliveryStatus]
 fromJSONKey :: FromJSONKeyFunction DeliveryStatus
 $cfromJSONKey :: FromJSONKeyFunction DeliveryStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679595415"><span id="local-6989586621679595417"><span id="local-6989586621679595419"><span id="local-6989586621679595421"><span class="annot"><span class="annottext">[DeliveryStatus] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679595424"><span id="local-6989586621679595426"><span id="local-6989586621679595428"><span id="local-6989586621679595430"><span class="annot"><span class="annottext">[DeliveryStatus] -&gt; Encoding
 [DeliveryStatus] -&gt; Value
 DeliveryStatus -&gt; Encoding
 DeliveryStatus -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: DeliveryStatus -&gt; Encoding
 toJSON :: DeliveryStatus -&gt; Value
 $ctoJSON :: DeliveryStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679595410"><span id="local-6989586621679595412"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeliveryStatus]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679595419"><span id="local-6989586621679595421"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeliveryStatus]
 ToJSONKeyFunction DeliveryStatus
 ToJSONKeyFunction DeliveryStatus
 -&gt; ToJSONKeyFunction [DeliveryStatus] -&gt; ToJSONKey DeliveryStatus
@@ -248,13 +248,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DeliveryStatus]
 toJSONKey :: ToJSONKeyFunction DeliveryStatus
 $ctoJSONKey :: ToJSONKeyFunction DeliveryStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679595407"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeliveryStatus
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679595416"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeliveryStatus
 ([Node] -&gt; Either String DeliveryStatus) -&gt; FromXML DeliveryStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DeliveryStatus
 $cparseXML :: [Node] -&gt; Either String DeliveryStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679595404"><span class="annot"><span class="annottext">DeliveryStatus -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679595413"><span class="annot"><span class="annottext">DeliveryStatus -&gt; XML
 (DeliveryStatus -&gt; XML) -&gt; ToXML DeliveryStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DeliveryStatus -&gt; XML

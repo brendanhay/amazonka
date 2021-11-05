@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ManagedBlockChain.Types.MemberFrameworkConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ManagedBlockChain.Types.MemberFrameworkConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.MemberFabricConfiguration.html"><span class="hs-identifier">Network.AWS.ManagedBlockChain.Types.MemberFabricConfiguration</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Configuration properties relevant to a member for the blockchain</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- framework that the Managed Blockchain network uses.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newMemberFrameworkConfiguration' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679216211"><span id="local-6989586621679216212"></span></span><span class="hs-keyword">data</span><span> </span><span id="MemberFrameworkConfiguration"><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.MemberFrameworkConfiguration.html#MemberFrameworkConfiguration"><span class="hs-identifier hs-var">MemberFrameworkConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MemberFrameworkConfiguration%27"><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.MemberFrameworkConfiguration.html#MemberFrameworkConfiguration%27"><span class="hs-identifier hs-var">MemberFrameworkConfiguration'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Attributes of Hyperledger Fabric for a member on a Managed Blockchain</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- network that uses Hyperledger Fabric.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Afabric%3AMemberFrameworkConfiguration%27"><span class="annot"><span class="annottext">MemberFrameworkConfiguration -&gt; Maybe MemberFabricConfiguration
+</span><a href="Network.AWS.ManagedBlockChain.Types.MemberFrameworkConfiguration.html#%24sel%3Afabric%3AMemberFrameworkConfiguration%27"><span class="hs-identifier hs-var hs-var">fabric</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.MemberFabricConfiguration.html#MemberFabricConfiguration"><span class="hs-identifier hs-type">MemberFabricConfiguration</span></a></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679216205"><span id="local-6989586621679216207"><span class="annot"><span class="annottext">MemberFrameworkConfiguration
+-&gt; MemberFrameworkConfiguration -&gt; Bool
+(MemberFrameworkConfiguration
+ -&gt; MemberFrameworkConfiguration -&gt; Bool)
+-&gt; (MemberFrameworkConfiguration
+    -&gt; MemberFrameworkConfiguration -&gt; Bool)
+-&gt; Eq MemberFrameworkConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MemberFrameworkConfiguration
+-&gt; MemberFrameworkConfiguration -&gt; Bool
+$c/= :: MemberFrameworkConfiguration
+-&gt; MemberFrameworkConfiguration -&gt; Bool
+== :: MemberFrameworkConfiguration
+-&gt; MemberFrameworkConfiguration -&gt; Bool
+$c== :: MemberFrameworkConfiguration
+-&gt; MemberFrameworkConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216198"><span id="local-6989586621679216200"><span id="local-6989586621679216202"><span class="annot"><span class="annottext">Int -&gt; MemberFrameworkConfiguration -&gt; ShowS
+[MemberFrameworkConfiguration] -&gt; ShowS
+MemberFrameworkConfiguration -&gt; String
+(Int -&gt; MemberFrameworkConfiguration -&gt; ShowS)
+-&gt; (MemberFrameworkConfiguration -&gt; String)
+-&gt; ([MemberFrameworkConfiguration] -&gt; ShowS)
+-&gt; Show MemberFrameworkConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MemberFrameworkConfiguration] -&gt; ShowS
+$cshowList :: [MemberFrameworkConfiguration] -&gt; ShowS
+show :: MemberFrameworkConfiguration -&gt; String
+$cshow :: MemberFrameworkConfiguration -&gt; String
+showsPrec :: Int -&gt; MemberFrameworkConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; MemberFrameworkConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ MemberFrameworkConfiguration -&gt; Rep MemberFrameworkConfiguration x)
+-&gt; (forall x.
+    Rep MemberFrameworkConfiguration x -&gt; MemberFrameworkConfiguration)
+-&gt; Generic MemberFrameworkConfiguration
+forall x.
+Rep MemberFrameworkConfiguration x -&gt; MemberFrameworkConfiguration
+forall x.
+MemberFrameworkConfiguration -&gt; Rep MemberFrameworkConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep MemberFrameworkConfiguration x -&gt; MemberFrameworkConfiguration
+$cfrom :: forall x.
+MemberFrameworkConfiguration -&gt; Rep MemberFrameworkConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Create a value of 'MemberFrameworkConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'fabric', 'memberFrameworkConfiguration_fabric' - Attributes of Hyperledger Fabric for a member on a Managed Blockchain</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- network that uses Hyperledger Fabric.</span><span>
+</span><span id="line-48"></span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.MemberFrameworkConfiguration.html#newMemberFrameworkConfiguration"><span class="hs-identifier hs-type">newMemberFrameworkConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-49"></span><span>  </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.MemberFrameworkConfiguration.html#MemberFrameworkConfiguration"><span class="hs-identifier hs-type">MemberFrameworkConfiguration</span></a></span><span>
+</span><span id="line-50"></span><span id="newMemberFrameworkConfiguration"><span class="annot"><span class="annottext">newMemberFrameworkConfiguration :: MemberFrameworkConfiguration
+</span><a href="Network.AWS.ManagedBlockChain.Types.MemberFrameworkConfiguration.html#newMemberFrameworkConfiguration"><span class="hs-identifier hs-var hs-var">newMemberFrameworkConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">MemberFrameworkConfiguration' :: Maybe MemberFabricConfiguration -&gt; MemberFrameworkConfiguration
+</span><a href="Network.AWS.ManagedBlockChain.Types.MemberFrameworkConfiguration.html#MemberFrameworkConfiguration%27"><span class="hs-identifier hs-type">MemberFrameworkConfiguration'</span></a></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:fabric:MemberFrameworkConfiguration' :: Maybe MemberFabricConfiguration
+</span><a href="Network.AWS.ManagedBlockChain.Types.MemberFrameworkConfiguration.html#%24sel%3Afabric%3AMemberFrameworkConfiguration%27"><span class="hs-identifier hs-var">fabric</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-53"></span><span>        </span><span class="annot"><span class="annottext">Maybe MemberFabricConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | Attributes of Hyperledger Fabric for a member on a Managed Blockchain</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- network that uses Hyperledger Fabric.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.MemberFrameworkConfiguration.html#memberFrameworkConfiguration_fabric"><span class="hs-identifier hs-type">memberFrameworkConfiguration_fabric</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.MemberFrameworkConfiguration.html#MemberFrameworkConfiguration"><span class="hs-identifier hs-type">MemberFrameworkConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.MemberFabricConfiguration.html#MemberFabricConfiguration"><span class="hs-identifier hs-type">MemberFabricConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span id="memberFrameworkConfiguration_fabric"><span class="annot"><span class="annottext">memberFrameworkConfiguration_fabric :: (Maybe MemberFabricConfiguration
+ -&gt; f (Maybe MemberFabricConfiguration))
+-&gt; MemberFrameworkConfiguration -&gt; f MemberFrameworkConfiguration
+</span><a href="Network.AWS.ManagedBlockChain.Types.MemberFrameworkConfiguration.html#memberFrameworkConfiguration_fabric"><span class="hs-identifier hs-var hs-var">memberFrameworkConfiguration_fabric</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MemberFrameworkConfiguration -&gt; Maybe MemberFabricConfiguration)
+-&gt; (MemberFrameworkConfiguration
+    -&gt; Maybe MemberFabricConfiguration -&gt; MemberFrameworkConfiguration)
+-&gt; Lens
+     MemberFrameworkConfiguration
+     MemberFrameworkConfiguration
+     (Maybe MemberFabricConfiguration)
+     (Maybe MemberFabricConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.MemberFrameworkConfiguration.html#MemberFrameworkConfiguration%27"><span class="hs-identifier hs-type">MemberFrameworkConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216189"><span class="annot"><span class="annottext">Maybe MemberFabricConfiguration
+fabric :: Maybe MemberFabricConfiguration
+$sel:fabric:MemberFrameworkConfiguration' :: MemberFrameworkConfiguration -&gt; Maybe MemberFabricConfiguration
+</span><a href="#local-6989586621679216189"><span class="hs-identifier hs-var hs-var">fabric</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MemberFabricConfiguration
+</span><a href="#local-6989586621679216189"><span class="hs-identifier hs-var">fabric</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216188"><span class="annot"><span class="annottext">s :: MemberFrameworkConfiguration
+</span><a href="#local-6989586621679216188"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.MemberFrameworkConfiguration.html#MemberFrameworkConfiguration%27"><span class="hs-identifier hs-type">MemberFrameworkConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216187"><span class="annot"><span class="annottext">Maybe MemberFabricConfiguration
+</span><a href="#local-6989586621679216187"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MemberFrameworkConfiguration
+</span><a href="#local-6989586621679216188"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fabric:MemberFrameworkConfiguration' :: Maybe MemberFabricConfiguration
+</span><a href="Network.AWS.ManagedBlockChain.Types.MemberFrameworkConfiguration.html#%24sel%3Afabric%3AMemberFrameworkConfiguration%27"><span class="hs-identifier hs-var">fabric</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MemberFabricConfiguration
+</span><a href="#local-6989586621679216187"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.MemberFrameworkConfiguration.html#MemberFrameworkConfiguration"><span class="hs-identifier hs-type">MemberFrameworkConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-62"></span><span>  </span><span id="local-6989586621679216183"><span id="local-6989586621679216185"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.MemberFrameworkConfiguration.html#MemberFrameworkConfiguration"><span class="hs-identifier hs-type">MemberFrameworkConfiguration</span></a></span></span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216180"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.MemberFrameworkConfiguration.html#MemberFrameworkConfiguration"><span class="hs-identifier hs-type">MemberFrameworkConfiguration</span></a></span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216172"><span id="local-6989586621679216174"><span id="local-6989586621679216176"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.MemberFrameworkConfiguration.html#MemberFrameworkConfiguration"><span class="hs-identifier hs-type">MemberFrameworkConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679216170"><span class="annot"><span class="annottext">toJSON :: MemberFrameworkConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.MemberFrameworkConfiguration.html#MemberFrameworkConfiguration%27"><span class="hs-identifier hs-type">MemberFrameworkConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216168"><span class="annot"><span class="annottext">Maybe MemberFabricConfiguration
+fabric :: Maybe MemberFabricConfiguration
+$sel:fabric:MemberFrameworkConfiguration' :: MemberFrameworkConfiguration -&gt; Maybe MemberFabricConfiguration
+</span><a href="#local-6989586621679216168"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-71"></span><span>          </span><span class="hs-special">[</span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Fabric&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MemberFabricConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(MemberFabricConfiguration -&gt; Pair)
+-&gt; Maybe MemberFabricConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MemberFabricConfiguration
+</span><a href="#local-6989586621679216168"><span class="hs-identifier hs-var">fabric</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span></pre></body></html>

@@ -58,13 +58,13 @@
 </span><span id="line-58"></span><span class="hs-comment">-- configuration.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- /See:/ 'newDefineSuggester' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621679215028"><span id="local-6989586621679215029"></span></span><span class="hs-keyword">data</span><span> </span><span id="DefineSuggester"><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggester"><span class="hs-identifier hs-var">DefineSuggester</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DefineSuggester%27"><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggester%27"><span class="hs-identifier hs-var">DefineSuggester'</span></a></span></span><span>
+</span><span id="line-61"></span><span id="local-6989586621679215037"><span id="local-6989586621679215038"></span></span><span class="hs-keyword">data</span><span> </span><span id="DefineSuggester"><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggester"><span class="hs-identifier hs-var">DefineSuggester</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DefineSuggester%27"><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggester%27"><span class="hs-identifier hs-var">DefineSuggester'</span></a></span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AdomainName%3ADefineSuggester%27"><span class="annot"><span class="annottext">DefineSuggester -&gt; Text
 </span><a href="Network.AWS.CloudSearch.DefineSuggester.html#%24sel%3AdomainName%3ADefineSuggester%27"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3Asuggester%3ADefineSuggester%27"><span class="annot"><span class="annottext">DefineSuggester -&gt; Suggester
 </span><a href="Network.AWS.CloudSearch.DefineSuggester.html#%24sel%3Asuggester%3ADefineSuggester%27"><span class="hs-identifier hs-var hs-var">suggester</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.Suggester.html#Suggester"><span class="hs-identifier hs-type">Suggester</span></a></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679215021"><span id="local-6989586621679215023"><span class="annot"><span class="annottext">DefineSuggester -&gt; DefineSuggester -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679215030"><span id="local-6989586621679215032"><span class="annot"><span class="annottext">DefineSuggester -&gt; DefineSuggester -&gt; Bool
 (DefineSuggester -&gt; DefineSuggester -&gt; Bool)
 -&gt; (DefineSuggester -&gt; DefineSuggester -&gt; Bool)
 -&gt; Eq DefineSuggester
@@ -73,7 +73,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DefineSuggester -&gt; DefineSuggester -&gt; Bool
 == :: DefineSuggester -&gt; DefineSuggester -&gt; Bool
 $c== :: DefineSuggester -&gt; DefineSuggester -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215012"><span id="local-6989586621679215014"><span id="local-6989586621679215016"><span id="local-6989586621679215018"><span class="annot"><span class="annottext">ReadPrec [DefineSuggester]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215021"><span id="local-6989586621679215023"><span id="local-6989586621679215025"><span id="local-6989586621679215027"><span class="annot"><span class="annottext">ReadPrec [DefineSuggester]
 ReadPrec DefineSuggester
 Int -&gt; ReadS DefineSuggester
 ReadS [DefineSuggester]
@@ -93,7 +93,7 @@ readList :: ReadS [DefineSuggester]
 $creadList :: ReadS [DefineSuggester]
 readsPrec :: Int -&gt; ReadS DefineSuggester
 $creadsPrec :: Int -&gt; ReadS DefineSuggester
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215005"><span id="local-6989586621679215007"><span id="local-6989586621679215009"><span class="annot"><span class="annottext">Int -&gt; DefineSuggester -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215014"><span id="local-6989586621679215016"><span id="local-6989586621679215018"><span class="annot"><span class="annottext">Int -&gt; DefineSuggester -&gt; ShowS
 [DefineSuggester] -&gt; ShowS
 DefineSuggester -&gt; String
 (Int -&gt; DefineSuggester -&gt; ShowS)
@@ -137,17 +137,17 @@ $cfrom :: forall x. DefineSuggester -&gt; Rep DefineSuggester x
 </span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.Suggester.html#Suggester"><span class="hs-identifier hs-type">Suggester</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggester"><span class="hs-identifier hs-type">DefineSuggester</span></a></span><span>
 </span><span id="line-84"></span><span id="newDefineSuggester"><span class="annot"><span class="annottext">newDefineSuggester :: Text -&gt; Suggester -&gt; DefineSuggester
-</span><a href="Network.AWS.CloudSearch.DefineSuggester.html#newDefineSuggester"><span class="hs-identifier hs-var hs-var">newDefineSuggester</span></a></span></span><span> </span><span id="local-6989586621679215000"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215000"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span id="local-6989586621679214999"><span class="annot"><span class="annottext">Suggester
-</span><a href="#local-6989586621679214999"><span class="hs-identifier hs-var">pSuggester_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudSearch.DefineSuggester.html#newDefineSuggester"><span class="hs-identifier hs-var hs-var">newDefineSuggester</span></a></span></span><span> </span><span id="local-6989586621679215009"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215009"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span id="local-6989586621679215008"><span class="annot"><span class="annottext">Suggester
+</span><a href="#local-6989586621679215008"><span class="hs-identifier hs-var">pSuggester_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">DefineSuggester' :: Text -&gt; Suggester -&gt; DefineSuggester
 </span><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggester%27"><span class="hs-identifier hs-type">DefineSuggester'</span></a></span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:domainName:DefineSuggester' :: Text
 </span><a href="Network.AWS.CloudSearch.DefineSuggester.html#%24sel%3AdomainName%3ADefineSuggester%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215000"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679215009"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:suggester:DefineSuggester' :: Suggester
 </span><a href="Network.AWS.CloudSearch.DefineSuggester.html#%24sel%3Asuggester%3ADefineSuggester%27"><span class="hs-identifier hs-var">suggester</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Suggester
-</span><a href="#local-6989586621679214999"><span class="hs-identifier hs-var">pSuggester_</span></a></span><span>
+</span><a href="#local-6989586621679215008"><span class="hs-identifier hs-var">pSuggester_</span></a></span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -157,16 +157,16 @@ $cfrom :: forall x. DefineSuggester -&gt; Rep DefineSuggester x
 -&gt; (DefineSuggester -&gt; Text -&gt; DefineSuggester)
 -&gt; Lens DefineSuggester DefineSuggester Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggester%27"><span class="hs-identifier hs-type">DefineSuggester'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214996"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggester%27"><span class="hs-identifier hs-type">DefineSuggester'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215005"><span class="annot"><span class="annottext">Text
 domainName :: Text
 $sel:domainName:DefineSuggester' :: DefineSuggester -&gt; Text
-</span><a href="#local-6989586621679214996"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679214996"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214995"><span class="annot"><span class="annottext">s :: DefineSuggester
-</span><a href="#local-6989586621679214995"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggester%27"><span class="hs-identifier hs-type">DefineSuggester'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214994"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679214994"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefineSuggester
-</span><a href="#local-6989586621679214995"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:DefineSuggester' :: Text
+</span><a href="#local-6989586621679215005"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215005"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215004"><span class="annot"><span class="annottext">s :: DefineSuggester
+</span><a href="#local-6989586621679215004"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggester%27"><span class="hs-identifier hs-type">DefineSuggester'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215003"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215003"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefineSuggester
+</span><a href="#local-6989586621679215004"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:DefineSuggester' :: Text
 </span><a href="Network.AWS.CloudSearch.DefineSuggester.html#%24sel%3AdomainName%3ADefineSuggester%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679214994"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggester"><span class="hs-identifier hs-type">DefineSuggester</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215003"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggester"><span class="hs-identifier hs-type">DefineSuggester</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-95"></span><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#defineSuggester_suggester"><span class="hs-identifier hs-type">defineSuggester_suggester</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggester"><span class="hs-identifier hs-type">DefineSuggester</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.Suggester.html#Suggester"><span class="hs-identifier hs-type">Suggester</span></a></span><span>
@@ -175,27 +175,27 @@ $sel:domainName:DefineSuggester' :: DefineSuggester -&gt; Text
 -&gt; (DefineSuggester -&gt; Suggester -&gt; DefineSuggester)
 -&gt; Lens DefineSuggester DefineSuggester Suggester Suggester
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggester%27"><span class="hs-identifier hs-type">DefineSuggester'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214993"><span class="annot"><span class="annottext">Suggester
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggester%27"><span class="hs-identifier hs-type">DefineSuggester'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215002"><span class="annot"><span class="annottext">Suggester
 suggester :: Suggester
 $sel:suggester:DefineSuggester' :: DefineSuggester -&gt; Suggester
-</span><a href="#local-6989586621679214993"><span class="hs-identifier hs-var hs-var">suggester</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Suggester
-</span><a href="#local-6989586621679214993"><span class="hs-identifier hs-var">suggester</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214992"><span class="annot"><span class="annottext">s :: DefineSuggester
-</span><a href="#local-6989586621679214992"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggester%27"><span class="hs-identifier hs-type">DefineSuggester'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214991"><span class="annot"><span class="annottext">Suggester
-</span><a href="#local-6989586621679214991"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefineSuggester
-</span><a href="#local-6989586621679214992"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:suggester:DefineSuggester' :: Suggester
+</span><a href="#local-6989586621679215002"><span class="hs-identifier hs-var hs-var">suggester</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Suggester
+</span><a href="#local-6989586621679215002"><span class="hs-identifier hs-var">suggester</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215001"><span class="annot"><span class="annottext">s :: DefineSuggester
+</span><a href="#local-6989586621679215001"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggester%27"><span class="hs-identifier hs-type">DefineSuggester'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215000"><span class="annot"><span class="annottext">Suggester
+</span><a href="#local-6989586621679215000"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefineSuggester
+</span><a href="#local-6989586621679215001"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:suggester:DefineSuggester' :: Suggester
 </span><a href="Network.AWS.CloudSearch.DefineSuggester.html#%24sel%3Asuggester%3ADefineSuggester%27"><span class="hs-identifier hs-var">suggester</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Suggester
-</span><a href="#local-6989586621679214991"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggester"><span class="hs-identifier hs-type">DefineSuggester</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215000"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggester"><span class="hs-identifier hs-type">DefineSuggester</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggester"><span class="hs-identifier hs-type">DefineSuggester</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-99"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-100"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggester"><span class="hs-identifier hs-type">DefineSuggester</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggesterResponse"><span class="hs-identifier hs-type">DefineSuggesterResponse</span></a></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679214987"><span class="annot"><span class="annottext">request :: DefineSuggester -&gt; Request DefineSuggester
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679214996"><span class="annot"><span class="annottext">request :: DefineSuggester -&gt; Request DefineSuggester
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DefineSuggester -&gt; Request DefineSuggester
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudSearch.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679214983"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679214992"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DefineSuggester
 -&gt; ClientResponse ClientBody
@@ -224,10 +224,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DefineSuggesterResult&quot;</span></span><span>
-</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679214980"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679214980"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679214979"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679214979"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679214978"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679214978"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679214989"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679214989"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679214988"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679214988"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679214987"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679214987"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; SuggesterStatus -&gt; DefineSuggesterResponse
 </span><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggesterResponse%27"><span class="hs-identifier hs-var">DefineSuggesterResponse'</span></a></span><span>
 </span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; SuggesterStatus -&gt; DefineSuggesterResponse)
@@ -239,24 +239,24 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679214980"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679214989"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Either String (SuggesterStatus -&gt; DefineSuggesterResponse)
 -&gt; Either String SuggesterStatus
 -&gt; Either String DefineSuggesterResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679214978"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String SuggesterStatus
+</span><a href="#local-6989586621679214987"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String SuggesterStatus
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Suggester&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679214970"><span id="local-6989586621679214972"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggester"><span class="hs-identifier hs-type">DefineSuggester</span></a></span></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679214979"><span id="local-6989586621679214981"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggester"><span class="hs-identifier hs-type">DefineSuggester</span></a></span></span></span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679214967"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggester"><span class="hs-identifier hs-type">DefineSuggester</span></a></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679214976"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggester"><span class="hs-identifier hs-type">DefineSuggester</span></a></span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggester"><span class="hs-identifier hs-type">DefineSuggester</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679214963"><span class="annot"><span class="annottext">toHeaders :: DefineSuggester -&gt; ResponseHeaders
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679214972"><span class="annot"><span class="annottext">toHeaders :: DefineSuggester -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DefineSuggester -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -264,21 +264,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggester"><span class="hs-identifier hs-type">DefineSuggester</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679214958"><span class="annot"><span class="annottext">toPath :: DefineSuggester -&gt; ByteString
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679214967"><span class="annot"><span class="annottext">toPath :: DefineSuggester -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DefineSuggester -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggester"><span class="hs-identifier hs-type">DefineSuggester</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679214954"><span class="annot"><span class="annottext">toQuery :: DefineSuggester -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggester%27"><span class="hs-identifier hs-type">DefineSuggester'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214951"><span id="local-6989586621679214952"><span class="annot"><span class="annottext">Text
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679214963"><span class="annot"><span class="annottext">toQuery :: DefineSuggester -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggester%27"><span class="hs-identifier hs-type">DefineSuggester'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214960"><span id="local-6989586621679214961"><span class="annot"><span class="annottext">Text
 Suggester
 suggester :: Suggester
 domainName :: Text
 $sel:suggester:DefineSuggester' :: DefineSuggester -&gt; Suggester
 $sel:domainName:DefineSuggester' :: DefineSuggester -&gt; Text
-</span><a href="#local-6989586621679214951"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679214960"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -298,26 +298,26 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;DomainName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679214952"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679214961"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Suggester&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Suggester -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Suggester
-</span><a href="#local-6989586621679214951"><span class="hs-identifier hs-var">suggester</span></a></span><span>
+</span><a href="#local-6989586621679214960"><span class="hs-identifier hs-var">suggester</span></a></span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | The result of a @DefineSuggester@ request. Contains the status of the</span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- newly-configured suggester.</span><span>
 </span><span id="line-135"></span><span class="hs-comment">--</span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- /See:/ 'newDefineSuggesterResponse' smart constructor.</span><span>
-</span><span id="line-137"></span><span id="local-6989586621679214948"><span id="local-6989586621679214949"></span></span><span class="hs-keyword">data</span><span> </span><span id="DefineSuggesterResponse"><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggesterResponse"><span class="hs-identifier hs-var">DefineSuggesterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DefineSuggesterResponse%27"><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggesterResponse%27"><span class="hs-identifier hs-var">DefineSuggesterResponse'</span></a></span></span><span>
+</span><span id="line-137"></span><span id="local-6989586621679214957"><span id="local-6989586621679214958"></span></span><span class="hs-keyword">data</span><span> </span><span id="DefineSuggesterResponse"><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggesterResponse"><span class="hs-identifier hs-var">DefineSuggesterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DefineSuggesterResponse%27"><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggesterResponse%27"><span class="hs-identifier hs-var">DefineSuggesterResponse'</span></a></span></span><span>
 </span><span id="line-138"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-139"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADefineSuggesterResponse%27"><span class="annot"><span class="annottext">DefineSuggesterResponse -&gt; Int
 </span><a href="Network.AWS.CloudSearch.DefineSuggester.html#%24sel%3AhttpStatus%3ADefineSuggesterResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
 </span><span id="line-140"></span><span>    </span><span id="%24sel%3Asuggester%3ADefineSuggesterResponse%27"><span class="annot"><span class="annottext">DefineSuggesterResponse -&gt; SuggesterStatus
 </span><a href="Network.AWS.CloudSearch.DefineSuggester.html#%24sel%3Asuggester%3ADefineSuggesterResponse%27"><span class="hs-identifier hs-var hs-var">suggester</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.SuggesterStatus.html#SuggesterStatus"><span class="hs-identifier hs-type">SuggesterStatus</span></a></span><span>
 </span><span id="line-141"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-142"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679214942"><span id="local-6989586621679214944"><span class="annot"><span class="annottext">DefineSuggesterResponse -&gt; DefineSuggesterResponse -&gt; Bool
+</span><span id="line-142"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679214951"><span id="local-6989586621679214953"><span class="annot"><span class="annottext">DefineSuggesterResponse -&gt; DefineSuggesterResponse -&gt; Bool
 (DefineSuggesterResponse -&gt; DefineSuggesterResponse -&gt; Bool)
 -&gt; (DefineSuggesterResponse -&gt; DefineSuggesterResponse -&gt; Bool)
 -&gt; Eq DefineSuggesterResponse
@@ -326,7 +326,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DefineSuggesterResponse -&gt; DefineSuggesterResponse -&gt; Bool
 == :: DefineSuggesterResponse -&gt; DefineSuggesterResponse -&gt; Bool
 $c== :: DefineSuggesterResponse -&gt; DefineSuggesterResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679214934"><span id="local-6989586621679214936"><span id="local-6989586621679214938"><span id="local-6989586621679214940"><span class="annot"><span class="annottext">ReadPrec [DefineSuggesterResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679214943"><span id="local-6989586621679214945"><span id="local-6989586621679214947"><span id="local-6989586621679214949"><span class="annot"><span class="annottext">ReadPrec [DefineSuggesterResponse]
 ReadPrec DefineSuggesterResponse
 Int -&gt; ReadS DefineSuggesterResponse
 ReadS [DefineSuggesterResponse]
@@ -346,7 +346,7 @@ readList :: ReadS [DefineSuggesterResponse]
 $creadList :: ReadS [DefineSuggesterResponse]
 readsPrec :: Int -&gt; ReadS DefineSuggesterResponse
 $creadsPrec :: Int -&gt; ReadS DefineSuggesterResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679214928"><span id="local-6989586621679214930"><span id="local-6989586621679214932"><span class="annot"><span class="annottext">Int -&gt; DefineSuggesterResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679214937"><span id="local-6989586621679214939"><span id="local-6989586621679214941"><span class="annot"><span class="annottext">Int -&gt; DefineSuggesterResponse -&gt; ShowS
 [DefineSuggesterResponse] -&gt; ShowS
 DefineSuggesterResponse -&gt; String
 (Int -&gt; DefineSuggesterResponse -&gt; ShowS)
@@ -392,17 +392,17 @@ $cfrom :: forall x. DefineSuggesterResponse -&gt; Rep DefineSuggesterResponse x
 </span><span id="line-159"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.SuggesterStatus.html#SuggesterStatus"><span class="hs-identifier hs-type">SuggesterStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-160"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggesterResponse"><span class="hs-identifier hs-type">DefineSuggesterResponse</span></a></span><span>
 </span><span id="line-161"></span><span id="newDefineSuggesterResponse"><span class="annot"><span class="annottext">newDefineSuggesterResponse :: Int -&gt; SuggesterStatus -&gt; DefineSuggesterResponse
-</span><a href="Network.AWS.CloudSearch.DefineSuggester.html#newDefineSuggesterResponse"><span class="hs-identifier hs-var hs-var">newDefineSuggesterResponse</span></a></span></span><span> </span><span id="local-6989586621679214925"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679214925"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679214924"><span class="annot"><span class="annottext">SuggesterStatus
-</span><a href="#local-6989586621679214924"><span class="hs-identifier hs-var">pSuggester_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudSearch.DefineSuggester.html#newDefineSuggesterResponse"><span class="hs-identifier hs-var hs-var">newDefineSuggesterResponse</span></a></span></span><span> </span><span id="local-6989586621679214934"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679214934"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679214933"><span class="annot"><span class="annottext">SuggesterStatus
+</span><a href="#local-6989586621679214933"><span class="hs-identifier hs-var">pSuggester_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>  </span><span class="annot"><span class="annottext">DefineSuggesterResponse' :: Int -&gt; SuggesterStatus -&gt; DefineSuggesterResponse
 </span><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggesterResponse%27"><span class="hs-identifier hs-type">DefineSuggesterResponse'</span></a></span><span>
 </span><span id="line-163"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DefineSuggesterResponse' :: Int
 </span><a href="Network.AWS.CloudSearch.DefineSuggester.html#%24sel%3AhttpStatus%3ADefineSuggesterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679214925"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679214934"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:suggester:DefineSuggesterResponse' :: SuggesterStatus
 </span><a href="Network.AWS.CloudSearch.DefineSuggester.html#%24sel%3Asuggester%3ADefineSuggesterResponse%27"><span class="hs-identifier hs-var">suggester</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SuggesterStatus
-</span><a href="#local-6989586621679214924"><span class="hs-identifier hs-var">pSuggester_</span></a></span><span>
+</span><a href="#local-6989586621679214933"><span class="hs-identifier hs-var">pSuggester_</span></a></span><span>
 </span><span id="line-165"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -413,16 +413,16 @@ $cfrom :: forall x. DefineSuggesterResponse -&gt; Rep DefineSuggesterResponse x
 -&gt; (DefineSuggesterResponse -&gt; Int -&gt; DefineSuggesterResponse)
 -&gt; Lens DefineSuggesterResponse DefineSuggesterResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggesterResponse%27"><span class="hs-identifier hs-type">DefineSuggesterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214923"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggesterResponse%27"><span class="hs-identifier hs-type">DefineSuggesterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214932"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DefineSuggesterResponse' :: DefineSuggesterResponse -&gt; Int
-</span><a href="#local-6989586621679214923"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679214923"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214922"><span class="annot"><span class="annottext">s :: DefineSuggesterResponse
-</span><a href="#local-6989586621679214922"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggesterResponse%27"><span class="hs-identifier hs-type">DefineSuggesterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214921"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679214921"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefineSuggesterResponse
-</span><a href="#local-6989586621679214922"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DefineSuggesterResponse' :: Int
+</span><a href="#local-6989586621679214932"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679214932"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214931"><span class="annot"><span class="annottext">s :: DefineSuggesterResponse
+</span><a href="#local-6989586621679214931"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggesterResponse%27"><span class="hs-identifier hs-type">DefineSuggesterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214930"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679214930"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefineSuggesterResponse
+</span><a href="#local-6989586621679214931"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DefineSuggesterResponse' :: Int
 </span><a href="Network.AWS.CloudSearch.DefineSuggester.html#%24sel%3AhttpStatus%3ADefineSuggesterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679214921"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggesterResponse"><span class="hs-identifier hs-type">DefineSuggesterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679214930"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggesterResponse"><span class="hs-identifier hs-type">DefineSuggesterResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-172"></span><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#defineSuggesterResponse_suggester"><span class="hs-identifier hs-type">defineSuggesterResponse_suggester</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggesterResponse"><span class="hs-identifier hs-type">DefineSuggesterResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.SuggesterStatus.html#SuggesterStatus"><span class="hs-identifier hs-type">SuggesterStatus</span></a></span><span>
@@ -437,16 +437,16 @@ $sel:httpStatus:DefineSuggesterResponse' :: DefineSuggesterResponse -&gt; Int
      SuggesterStatus
      SuggesterStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggesterResponse%27"><span class="hs-identifier hs-type">DefineSuggesterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214920"><span class="annot"><span class="annottext">SuggesterStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggesterResponse%27"><span class="hs-identifier hs-type">DefineSuggesterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679214929"><span class="annot"><span class="annottext">SuggesterStatus
 suggester :: SuggesterStatus
 $sel:suggester:DefineSuggesterResponse' :: DefineSuggesterResponse -&gt; SuggesterStatus
-</span><a href="#local-6989586621679214920"><span class="hs-identifier hs-var hs-var">suggester</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SuggesterStatus
-</span><a href="#local-6989586621679214920"><span class="hs-identifier hs-var">suggester</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214919"><span class="annot"><span class="annottext">s :: DefineSuggesterResponse
-</span><a href="#local-6989586621679214919"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggesterResponse%27"><span class="hs-identifier hs-type">DefineSuggesterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214918"><span class="annot"><span class="annottext">SuggesterStatus
-</span><a href="#local-6989586621679214918"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefineSuggesterResponse
-</span><a href="#local-6989586621679214919"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:suggester:DefineSuggesterResponse' :: SuggesterStatus
+</span><a href="#local-6989586621679214929"><span class="hs-identifier hs-var hs-var">suggester</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SuggesterStatus
+</span><a href="#local-6989586621679214929"><span class="hs-identifier hs-var">suggester</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679214928"><span class="annot"><span class="annottext">s :: DefineSuggesterResponse
+</span><a href="#local-6989586621679214928"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggesterResponse%27"><span class="hs-identifier hs-type">DefineSuggesterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679214927"><span class="annot"><span class="annottext">SuggesterStatus
+</span><a href="#local-6989586621679214927"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefineSuggesterResponse
+</span><a href="#local-6989586621679214928"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:suggester:DefineSuggesterResponse' :: SuggesterStatus
 </span><a href="Network.AWS.CloudSearch.DefineSuggester.html#%24sel%3Asuggester%3ADefineSuggesterResponse%27"><span class="hs-identifier hs-var">suggester</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SuggesterStatus
-</span><a href="#local-6989586621679214918"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggesterResponse"><span class="hs-identifier hs-type">DefineSuggesterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679214927"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggesterResponse"><span class="hs-identifier hs-type">DefineSuggesterResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679214916"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggesterResponse"><span class="hs-identifier hs-type">DefineSuggesterResponse</span></a></span></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679214925"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.DefineSuggester.html#DefineSuggesterResponse"><span class="hs-identifier hs-type">DefineSuggesterResponse</span></a></span></span><span>
 </span><span id="line-176"></span></pre></body></html>

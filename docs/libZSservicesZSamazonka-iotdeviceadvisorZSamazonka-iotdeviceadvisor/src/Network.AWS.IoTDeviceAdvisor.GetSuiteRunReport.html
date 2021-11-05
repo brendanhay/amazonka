@@ -1,0 +1,447 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets a report download link for a successful Device Advisor qualifying</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- test suite run.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#GetSuiteRunReport"><span class="hs-identifier">GetSuiteRunReport</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#newGetSuiteRunReport"><span class="hs-identifier">newGetSuiteRunReport</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#getSuiteRunReport_suiteDefinitionId"><span class="hs-identifier">getSuiteRunReport_suiteDefinitionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#getSuiteRunReport_suiteRunId"><span class="hs-identifier">getSuiteRunReport_suiteRunId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#GetSuiteRunReportResponse"><span class="hs-identifier">GetSuiteRunReportResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#newGetSuiteRunReportResponse"><span class="hs-identifier">newGetSuiteRunReportResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#getSuiteRunReportResponse_qualificationReportDownloadUrl"><span class="hs-identifier">getSuiteRunReportResponse_qualificationReportDownloadUrl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#getSuiteRunReportResponse_httpStatus"><span class="hs-identifier">getSuiteRunReportResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.Types.html"><span class="hs-identifier">Network.AWS.IoTDeviceAdvisor.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newGetSuiteRunReport' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679171510"><span id="local-6989586621679171511"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSuiteRunReport"><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#GetSuiteRunReport"><span class="hs-identifier hs-var">GetSuiteRunReport</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSuiteRunReport%27"><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#GetSuiteRunReport%27"><span class="hs-identifier hs-var">GetSuiteRunReport'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Suite definition Id of the test suite.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AsuiteDefinitionId%3AGetSuiteRunReport%27"><span class="annot"><span class="annottext">GetSuiteRunReport -&gt; Text
+</span><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#%24sel%3AsuiteDefinitionId%3AGetSuiteRunReport%27"><span class="hs-identifier hs-var hs-var">suiteDefinitionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | Suite run Id of the test suite run.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AsuiteRunId%3AGetSuiteRunReport%27"><span class="annot"><span class="annottext">GetSuiteRunReport -&gt; Text
+</span><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#%24sel%3AsuiteRunId%3AGetSuiteRunReport%27"><span class="hs-identifier hs-var hs-var">suiteRunId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679171503"><span id="local-6989586621679171505"><span class="annot"><span class="annottext">GetSuiteRunReport -&gt; GetSuiteRunReport -&gt; Bool
+(GetSuiteRunReport -&gt; GetSuiteRunReport -&gt; Bool)
+-&gt; (GetSuiteRunReport -&gt; GetSuiteRunReport -&gt; Bool)
+-&gt; Eq GetSuiteRunReport
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetSuiteRunReport -&gt; GetSuiteRunReport -&gt; Bool
+$c/= :: GetSuiteRunReport -&gt; GetSuiteRunReport -&gt; Bool
+== :: GetSuiteRunReport -&gt; GetSuiteRunReport -&gt; Bool
+$c== :: GetSuiteRunReport -&gt; GetSuiteRunReport -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679171494"><span id="local-6989586621679171496"><span id="local-6989586621679171498"><span id="local-6989586621679171500"><span class="annot"><span class="annottext">ReadPrec [GetSuiteRunReport]
+ReadPrec GetSuiteRunReport
+Int -&gt; ReadS GetSuiteRunReport
+ReadS [GetSuiteRunReport]
+(Int -&gt; ReadS GetSuiteRunReport)
+-&gt; ReadS [GetSuiteRunReport]
+-&gt; ReadPrec GetSuiteRunReport
+-&gt; ReadPrec [GetSuiteRunReport]
+-&gt; Read GetSuiteRunReport
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetSuiteRunReport]
+$creadListPrec :: ReadPrec [GetSuiteRunReport]
+readPrec :: ReadPrec GetSuiteRunReport
+$creadPrec :: ReadPrec GetSuiteRunReport
+readList :: ReadS [GetSuiteRunReport]
+$creadList :: ReadS [GetSuiteRunReport]
+readsPrec :: Int -&gt; ReadS GetSuiteRunReport
+$creadsPrec :: Int -&gt; ReadS GetSuiteRunReport
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679171487"><span id="local-6989586621679171489"><span id="local-6989586621679171491"><span class="annot"><span class="annottext">Int -&gt; GetSuiteRunReport -&gt; ShowS
+[GetSuiteRunReport] -&gt; ShowS
+GetSuiteRunReport -&gt; String
+(Int -&gt; GetSuiteRunReport -&gt; ShowS)
+-&gt; (GetSuiteRunReport -&gt; String)
+-&gt; ([GetSuiteRunReport] -&gt; ShowS)
+-&gt; Show GetSuiteRunReport
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetSuiteRunReport] -&gt; ShowS
+$cshowList :: [GetSuiteRunReport] -&gt; ShowS
+show :: GetSuiteRunReport -&gt; String
+$cshow :: GetSuiteRunReport -&gt; String
+showsPrec :: Int -&gt; GetSuiteRunReport -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetSuiteRunReport -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetSuiteRunReport -&gt; Rep GetSuiteRunReport x)
+-&gt; (forall x. Rep GetSuiteRunReport x -&gt; GetSuiteRunReport)
+-&gt; Generic GetSuiteRunReport
+forall x. Rep GetSuiteRunReport x -&gt; GetSuiteRunReport
+forall x. GetSuiteRunReport -&gt; Rep GetSuiteRunReport x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetSuiteRunReport x -&gt; GetSuiteRunReport
+$cfrom :: forall x. GetSuiteRunReport -&gt; Rep GetSuiteRunReport x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'GetSuiteRunReport' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'suiteDefinitionId', 'getSuiteRunReport_suiteDefinitionId' - Suite definition Id of the test suite.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'suiteRunId', 'getSuiteRunReport_suiteRunId' - Suite run Id of the test suite run.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#newGetSuiteRunReport"><span class="hs-identifier hs-type">newGetSuiteRunReport</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-comment">-- | 'suiteDefinitionId'</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | 'suiteRunId'</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#GetSuiteRunReport"><span class="hs-identifier hs-type">GetSuiteRunReport</span></a></span><span>
+</span><span id="line-77"></span><span id="newGetSuiteRunReport"><span class="annot"><span class="annottext">newGetSuiteRunReport :: Text -&gt; Text -&gt; GetSuiteRunReport
+</span><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#newGetSuiteRunReport"><span class="hs-identifier hs-var hs-var">newGetSuiteRunReport</span></a></span></span><span> </span><span id="local-6989586621679171482"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679171482"><span class="hs-identifier hs-var">pSuiteDefinitionId_</span></a></span></span><span> </span><span id="local-6989586621679171481"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679171481"><span class="hs-identifier hs-var">pSuiteRunId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">GetSuiteRunReport' :: Text -&gt; Text -&gt; GetSuiteRunReport
+</span><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#GetSuiteRunReport%27"><span class="hs-identifier hs-type">GetSuiteRunReport'</span></a></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:suiteDefinitionId:GetSuiteRunReport' :: Text
+</span><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#%24sel%3AsuiteDefinitionId%3AGetSuiteRunReport%27"><span class="hs-identifier hs-var">suiteDefinitionId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679171482"><span class="hs-identifier hs-var">pSuiteDefinitionId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:suiteRunId:GetSuiteRunReport' :: Text
+</span><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#%24sel%3AsuiteRunId%3AGetSuiteRunReport%27"><span class="hs-identifier hs-var">suiteRunId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679171481"><span class="hs-identifier hs-var">pSuiteRunId_</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | Suite definition Id of the test suite.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#getSuiteRunReport_suiteDefinitionId"><span class="hs-identifier hs-type">getSuiteRunReport_suiteDefinitionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#GetSuiteRunReport"><span class="hs-identifier hs-type">GetSuiteRunReport</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-86"></span><span id="getSuiteRunReport_suiteDefinitionId"><span class="annot"><span class="annottext">getSuiteRunReport_suiteDefinitionId :: (Text -&gt; f Text) -&gt; GetSuiteRunReport -&gt; f GetSuiteRunReport
+</span><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#getSuiteRunReport_suiteDefinitionId"><span class="hs-identifier hs-var hs-var">getSuiteRunReport_suiteDefinitionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSuiteRunReport -&gt; Text)
+-&gt; (GetSuiteRunReport -&gt; Text -&gt; GetSuiteRunReport)
+-&gt; Lens GetSuiteRunReport GetSuiteRunReport Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#GetSuiteRunReport%27"><span class="hs-identifier hs-type">GetSuiteRunReport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171478"><span class="annot"><span class="annottext">Text
+suiteDefinitionId :: Text
+$sel:suiteDefinitionId:GetSuiteRunReport' :: GetSuiteRunReport -&gt; Text
+</span><a href="#local-6989586621679171478"><span class="hs-identifier hs-var hs-var">suiteDefinitionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679171478"><span class="hs-identifier hs-var">suiteDefinitionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171477"><span class="annot"><span class="annottext">s :: GetSuiteRunReport
+</span><a href="#local-6989586621679171477"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#GetSuiteRunReport%27"><span class="hs-identifier hs-type">GetSuiteRunReport'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171476"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679171476"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSuiteRunReport
+</span><a href="#local-6989586621679171477"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:suiteDefinitionId:GetSuiteRunReport' :: Text
+</span><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#%24sel%3AsuiteDefinitionId%3AGetSuiteRunReport%27"><span class="hs-identifier hs-var">suiteDefinitionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679171476"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#GetSuiteRunReport"><span class="hs-identifier hs-type">GetSuiteRunReport</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | Suite run Id of the test suite run.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#getSuiteRunReport_suiteRunId"><span class="hs-identifier hs-type">getSuiteRunReport_suiteRunId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#GetSuiteRunReport"><span class="hs-identifier hs-type">GetSuiteRunReport</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-90"></span><span id="getSuiteRunReport_suiteRunId"><span class="annot"><span class="annottext">getSuiteRunReport_suiteRunId :: (Text -&gt; f Text) -&gt; GetSuiteRunReport -&gt; f GetSuiteRunReport
+</span><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#getSuiteRunReport_suiteRunId"><span class="hs-identifier hs-var hs-var">getSuiteRunReport_suiteRunId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSuiteRunReport -&gt; Text)
+-&gt; (GetSuiteRunReport -&gt; Text -&gt; GetSuiteRunReport)
+-&gt; Lens GetSuiteRunReport GetSuiteRunReport Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#GetSuiteRunReport%27"><span class="hs-identifier hs-type">GetSuiteRunReport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171475"><span class="annot"><span class="annottext">Text
+suiteRunId :: Text
+$sel:suiteRunId:GetSuiteRunReport' :: GetSuiteRunReport -&gt; Text
+</span><a href="#local-6989586621679171475"><span class="hs-identifier hs-var hs-var">suiteRunId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679171475"><span class="hs-identifier hs-var">suiteRunId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171474"><span class="annot"><span class="annottext">s :: GetSuiteRunReport
+</span><a href="#local-6989586621679171474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#GetSuiteRunReport%27"><span class="hs-identifier hs-type">GetSuiteRunReport'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171473"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679171473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSuiteRunReport
+</span><a href="#local-6989586621679171474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:suiteRunId:GetSuiteRunReport' :: Text
+</span><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#%24sel%3AsuiteRunId%3AGetSuiteRunReport%27"><span class="hs-identifier hs-var">suiteRunId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679171473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#GetSuiteRunReport"><span class="hs-identifier hs-type">GetSuiteRunReport</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#GetSuiteRunReport"><span class="hs-identifier hs-type">GetSuiteRunReport</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-94"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#GetSuiteRunReport"><span class="hs-identifier hs-type">GetSuiteRunReport</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#GetSuiteRunReportResponse"><span class="hs-identifier hs-type">GetSuiteRunReportResponse</span></a></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679171469"><span class="annot"><span class="annottext">request :: GetSuiteRunReport -&gt; Request GetSuiteRunReport
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetSuiteRunReport -&gt; Request GetSuiteRunReport
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.IoTDeviceAdvisor.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679171465"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetSuiteRunReport
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetSuiteRunReport)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetSuiteRunReport))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetSuiteRunReport
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetSuiteRunReport)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679171462"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679171462"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679171461"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679171461"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679171460"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679171460"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; GetSuiteRunReportResponse
+</span><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#GetSuiteRunReportResponse%27"><span class="hs-identifier hs-var">GetSuiteRunReportResponse'</span></a></span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; GetSuiteRunReportResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; GetSuiteRunReportResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679171460"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;qualificationReportDownloadUrl&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetSuiteRunReportResponse)
+-&gt; Either String Int -&gt; Either String GetSuiteRunReportResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679171462"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679171452"><span id="local-6989586621679171454"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#GetSuiteRunReport"><span class="hs-identifier hs-type">GetSuiteRunReport</span></a></span></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679171449"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#GetSuiteRunReport"><span class="hs-identifier hs-type">GetSuiteRunReport</span></a></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#GetSuiteRunReport"><span class="hs-identifier hs-type">GetSuiteRunReport</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679171445"><span class="annot"><span class="annottext">toHeaders :: GetSuiteRunReport -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetSuiteRunReport -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-113"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-114"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-115"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-116"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#GetSuiteRunReport"><span class="hs-identifier hs-type">GetSuiteRunReport</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679171439"><span class="annot"><span class="annottext">toPath :: GetSuiteRunReport -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#GetSuiteRunReport%27"><span class="hs-identifier hs-type">GetSuiteRunReport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171436"><span id="local-6989586621679171437"><span class="annot"><span class="annottext">Text
+suiteRunId :: Text
+suiteDefinitionId :: Text
+$sel:suiteRunId:GetSuiteRunReport' :: GetSuiteRunReport -&gt; Text
+$sel:suiteDefinitionId:GetSuiteRunReport' :: GetSuiteRunReport -&gt; Text
+</span><a href="#local-6989586621679171436"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/suiteDefinitions/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679171437"><span class="hs-identifier hs-var">suiteDefinitionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/suiteRuns/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679171436"><span class="hs-identifier hs-var">suiteRunId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/report&quot;</span></span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#GetSuiteRunReport"><span class="hs-identifier hs-type">GetSuiteRunReport</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679171432"><span class="annot"><span class="annottext">toQuery :: GetSuiteRunReport -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetSuiteRunReport -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | /See:/ 'newGetSuiteRunReportResponse' smart constructor.</span><span>
+</span><span id="line-134"></span><span id="local-6989586621679171429"><span id="local-6989586621679171430"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSuiteRunReportResponse"><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#GetSuiteRunReportResponse"><span class="hs-identifier hs-var">GetSuiteRunReportResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSuiteRunReportResponse%27"><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#GetSuiteRunReportResponse%27"><span class="hs-identifier hs-var">GetSuiteRunReportResponse'</span></a></span></span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Download URL of the qualification report.</span><span>
+</span><span id="line-136"></span><span>    </span><span id="%24sel%3AqualificationReportDownloadUrl%3AGetSuiteRunReportResponse%27"><span class="annot"><span class="annottext">GetSuiteRunReportResponse -&gt; Maybe Text
+</span><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#%24sel%3AqualificationReportDownloadUrl%3AGetSuiteRunReportResponse%27"><span class="hs-identifier hs-var hs-var">qualificationReportDownloadUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-138"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetSuiteRunReportResponse%27"><span class="annot"><span class="annottext">GetSuiteRunReportResponse -&gt; Int
+</span><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#%24sel%3AhttpStatus%3AGetSuiteRunReportResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679171423"><span id="local-6989586621679171425"><span class="annot"><span class="annottext">GetSuiteRunReportResponse -&gt; GetSuiteRunReportResponse -&gt; Bool
+(GetSuiteRunReportResponse -&gt; GetSuiteRunReportResponse -&gt; Bool)
+-&gt; (GetSuiteRunReportResponse -&gt; GetSuiteRunReportResponse -&gt; Bool)
+-&gt; Eq GetSuiteRunReportResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetSuiteRunReportResponse -&gt; GetSuiteRunReportResponse -&gt; Bool
+$c/= :: GetSuiteRunReportResponse -&gt; GetSuiteRunReportResponse -&gt; Bool
+== :: GetSuiteRunReportResponse -&gt; GetSuiteRunReportResponse -&gt; Bool
+$c== :: GetSuiteRunReportResponse -&gt; GetSuiteRunReportResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679171415"><span id="local-6989586621679171417"><span id="local-6989586621679171419"><span id="local-6989586621679171421"><span class="annot"><span class="annottext">ReadPrec [GetSuiteRunReportResponse]
+ReadPrec GetSuiteRunReportResponse
+Int -&gt; ReadS GetSuiteRunReportResponse
+ReadS [GetSuiteRunReportResponse]
+(Int -&gt; ReadS GetSuiteRunReportResponse)
+-&gt; ReadS [GetSuiteRunReportResponse]
+-&gt; ReadPrec GetSuiteRunReportResponse
+-&gt; ReadPrec [GetSuiteRunReportResponse]
+-&gt; Read GetSuiteRunReportResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetSuiteRunReportResponse]
+$creadListPrec :: ReadPrec [GetSuiteRunReportResponse]
+readPrec :: ReadPrec GetSuiteRunReportResponse
+$creadPrec :: ReadPrec GetSuiteRunReportResponse
+readList :: ReadS [GetSuiteRunReportResponse]
+$creadList :: ReadS [GetSuiteRunReportResponse]
+readsPrec :: Int -&gt; ReadS GetSuiteRunReportResponse
+$creadsPrec :: Int -&gt; ReadS GetSuiteRunReportResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679171409"><span id="local-6989586621679171411"><span id="local-6989586621679171413"><span class="annot"><span class="annottext">Int -&gt; GetSuiteRunReportResponse -&gt; ShowS
+[GetSuiteRunReportResponse] -&gt; ShowS
+GetSuiteRunReportResponse -&gt; String
+(Int -&gt; GetSuiteRunReportResponse -&gt; ShowS)
+-&gt; (GetSuiteRunReportResponse -&gt; String)
+-&gt; ([GetSuiteRunReportResponse] -&gt; ShowS)
+-&gt; Show GetSuiteRunReportResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetSuiteRunReportResponse] -&gt; ShowS
+$cshowList :: [GetSuiteRunReportResponse] -&gt; ShowS
+show :: GetSuiteRunReportResponse -&gt; String
+$cshow :: GetSuiteRunReportResponse -&gt; String
+showsPrec :: Int -&gt; GetSuiteRunReportResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetSuiteRunReportResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetSuiteRunReportResponse -&gt; Rep GetSuiteRunReportResponse x)
+-&gt; (forall x.
+    Rep GetSuiteRunReportResponse x -&gt; GetSuiteRunReportResponse)
+-&gt; Generic GetSuiteRunReportResponse
+forall x.
+Rep GetSuiteRunReportResponse x -&gt; GetSuiteRunReportResponse
+forall x.
+GetSuiteRunReportResponse -&gt; Rep GetSuiteRunReportResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetSuiteRunReportResponse x -&gt; GetSuiteRunReportResponse
+$cfrom :: forall x.
+GetSuiteRunReportResponse -&gt; Rep GetSuiteRunReportResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- Create a value of 'GetSuiteRunReportResponse' with all optional fields omitted.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'qualificationReportDownloadUrl', 'getSuiteRunReportResponse_qualificationReportDownloadUrl' - Download URL of the qualification report.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'httpStatus', 'getSuiteRunReportResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#newGetSuiteRunReportResponse"><span class="hs-identifier hs-type">newGetSuiteRunReportResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#GetSuiteRunReportResponse"><span class="hs-identifier hs-type">GetSuiteRunReportResponse</span></a></span><span>
+</span><span id="line-157"></span><span id="newGetSuiteRunReportResponse"><span class="annot"><span class="annottext">newGetSuiteRunReportResponse :: Int -&gt; GetSuiteRunReportResponse
+</span><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#newGetSuiteRunReportResponse"><span class="hs-identifier hs-var hs-var">newGetSuiteRunReportResponse</span></a></span></span><span> </span><span id="local-6989586621679171406"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679171406"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><span class="annottext">GetSuiteRunReportResponse' :: Maybe Text -&gt; Int -&gt; GetSuiteRunReportResponse
+</span><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#GetSuiteRunReportResponse%27"><span class="hs-identifier hs-type">GetSuiteRunReportResponse'</span></a></span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:qualificationReportDownloadUrl:GetSuiteRunReportResponse' :: Maybe Text
+</span><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#%24sel%3AqualificationReportDownloadUrl%3AGetSuiteRunReportResponse%27"><span class="hs-identifier hs-var">qualificationReportDownloadUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetSuiteRunReportResponse' :: Int
+</span><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#%24sel%3AhttpStatus%3AGetSuiteRunReportResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679171406"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | Download URL of the qualification report.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#getSuiteRunReportResponse_qualificationReportDownloadUrl"><span class="hs-identifier hs-type">getSuiteRunReportResponse_qualificationReportDownloadUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#GetSuiteRunReportResponse"><span class="hs-identifier hs-type">GetSuiteRunReportResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="getSuiteRunReportResponse_qualificationReportDownloadUrl"><span class="annot"><span class="annottext">getSuiteRunReportResponse_qualificationReportDownloadUrl :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetSuiteRunReportResponse -&gt; f GetSuiteRunReportResponse
+</span><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#getSuiteRunReportResponse_qualificationReportDownloadUrl"><span class="hs-identifier hs-var hs-var">getSuiteRunReportResponse_qualificationReportDownloadUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSuiteRunReportResponse -&gt; Maybe Text)
+-&gt; (GetSuiteRunReportResponse
+    -&gt; Maybe Text -&gt; GetSuiteRunReportResponse)
+-&gt; Lens
+     GetSuiteRunReportResponse
+     GetSuiteRunReportResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#GetSuiteRunReportResponse%27"><span class="hs-identifier hs-type">GetSuiteRunReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171405"><span class="annot"><span class="annottext">Maybe Text
+qualificationReportDownloadUrl :: Maybe Text
+$sel:qualificationReportDownloadUrl:GetSuiteRunReportResponse' :: GetSuiteRunReportResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679171405"><span class="hs-identifier hs-var hs-var">qualificationReportDownloadUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171405"><span class="hs-identifier hs-var">qualificationReportDownloadUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171404"><span class="annot"><span class="annottext">s :: GetSuiteRunReportResponse
+</span><a href="#local-6989586621679171404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#GetSuiteRunReportResponse%27"><span class="hs-identifier hs-type">GetSuiteRunReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171403"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSuiteRunReportResponse
+</span><a href="#local-6989586621679171404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:qualificationReportDownloadUrl:GetSuiteRunReportResponse' :: Maybe Text
+</span><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#%24sel%3AqualificationReportDownloadUrl%3AGetSuiteRunReportResponse%27"><span class="hs-identifier hs-var">qualificationReportDownloadUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#GetSuiteRunReportResponse"><span class="hs-identifier hs-type">GetSuiteRunReportResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#getSuiteRunReportResponse_httpStatus"><span class="hs-identifier hs-type">getSuiteRunReportResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#GetSuiteRunReportResponse"><span class="hs-identifier hs-type">GetSuiteRunReportResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-170"></span><span id="getSuiteRunReportResponse_httpStatus"><span class="annot"><span class="annottext">getSuiteRunReportResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetSuiteRunReportResponse -&gt; f GetSuiteRunReportResponse
+</span><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#getSuiteRunReportResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getSuiteRunReportResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSuiteRunReportResponse -&gt; Int)
+-&gt; (GetSuiteRunReportResponse -&gt; Int -&gt; GetSuiteRunReportResponse)
+-&gt; Lens GetSuiteRunReportResponse GetSuiteRunReportResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#GetSuiteRunReportResponse%27"><span class="hs-identifier hs-type">GetSuiteRunReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171402"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetSuiteRunReportResponse' :: GetSuiteRunReportResponse -&gt; Int
+</span><a href="#local-6989586621679171402"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679171402"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171401"><span class="annot"><span class="annottext">s :: GetSuiteRunReportResponse
+</span><a href="#local-6989586621679171401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#GetSuiteRunReportResponse%27"><span class="hs-identifier hs-type">GetSuiteRunReportResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171400"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679171400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSuiteRunReportResponse
+</span><a href="#local-6989586621679171401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetSuiteRunReportResponse' :: Int
+</span><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#%24sel%3AhttpStatus%3AGetSuiteRunReportResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679171400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#GetSuiteRunReportResponse"><span class="hs-identifier hs-type">GetSuiteRunReportResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679171398"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTDeviceAdvisor.GetSuiteRunReport.html#GetSuiteRunReportResponse"><span class="hs-identifier hs-type">GetSuiteRunReportResponse</span></a></span></span><span>
+</span><span id="line-173"></span></pre></body></html>

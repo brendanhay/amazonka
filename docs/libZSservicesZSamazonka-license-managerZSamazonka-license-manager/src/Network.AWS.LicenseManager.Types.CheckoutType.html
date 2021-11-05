@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.LicenseManager.Types.CheckoutType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.LicenseManager.Types.CheckoutType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.CheckoutType.html#CheckoutType"><span class="hs-identifier">CheckoutType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.CheckoutType.html#CheckoutType_PERPETUAL"><span class="hs-identifier">CheckoutType_PERPETUAL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.CheckoutType.html#CheckoutType_PROVISIONAL"><span class="hs-identifier">CheckoutType_PROVISIONAL</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679295835"><span id="local-6989586621679295836"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CheckoutType"><span class="annot"><a href="Network.AWS.LicenseManager.Types.CheckoutType.html#CheckoutType"><span class="hs-identifier hs-var">CheckoutType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CheckoutType%27"><span class="annot"><a href="Network.AWS.LicenseManager.Types.CheckoutType.html#CheckoutType%27"><span class="hs-identifier hs-var">CheckoutType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCheckoutType"><span class="annot"><span class="annottext">CheckoutType -&gt; Text
+</span><a href="Network.AWS.LicenseManager.Types.CheckoutType.html#fromCheckoutType"><span class="hs-identifier hs-var hs-var">fromCheckoutType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679295827"><span id="local-6989586621679295829"><span id="local-6989586621679295831"><span class="annot"><span class="annottext">Int -&gt; CheckoutType -&gt; ShowS
+[CheckoutType] -&gt; ShowS
+CheckoutType -&gt; String
+(Int -&gt; CheckoutType -&gt; ShowS)
+-&gt; (CheckoutType -&gt; String)
+-&gt; ([CheckoutType] -&gt; ShowS)
+-&gt; Show CheckoutType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CheckoutType] -&gt; ShowS
+$cshowList :: [CheckoutType] -&gt; ShowS
+show :: CheckoutType -&gt; String
+$cshow :: CheckoutType -&gt; String
+showsPrec :: Int -&gt; CheckoutType -&gt; ShowS
+$cshowsPrec :: Int -&gt; CheckoutType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679295818"><span id="local-6989586621679295820"><span id="local-6989586621679295822"><span id="local-6989586621679295824"><span class="annot"><span class="annottext">ReadPrec [CheckoutType]
+ReadPrec CheckoutType
+Int -&gt; ReadS CheckoutType
+ReadS [CheckoutType]
+(Int -&gt; ReadS CheckoutType)
+-&gt; ReadS [CheckoutType]
+-&gt; ReadPrec CheckoutType
+-&gt; ReadPrec [CheckoutType]
+-&gt; Read CheckoutType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CheckoutType]
+$creadListPrec :: ReadPrec [CheckoutType]
+readPrec :: ReadPrec CheckoutType
+$creadPrec :: ReadPrec CheckoutType
+readList :: ReadS [CheckoutType]
+$creadList :: ReadS [CheckoutType]
+readsPrec :: Int -&gt; ReadS CheckoutType
+$creadsPrec :: Int -&gt; ReadS CheckoutType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679295813"><span id="local-6989586621679295815"><span class="annot"><span class="annottext">CheckoutType -&gt; CheckoutType -&gt; Bool
+(CheckoutType -&gt; CheckoutType -&gt; Bool)
+-&gt; (CheckoutType -&gt; CheckoutType -&gt; Bool) -&gt; Eq CheckoutType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CheckoutType -&gt; CheckoutType -&gt; Bool
+$c/= :: CheckoutType -&gt; CheckoutType -&gt; Bool
+== :: CheckoutType -&gt; CheckoutType -&gt; Bool
+$c== :: CheckoutType -&gt; CheckoutType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679295797"><span id="local-6989586621679295799"><span id="local-6989586621679295801"><span id="local-6989586621679295803"><span id="local-6989586621679295805"><span id="local-6989586621679295807"><span id="local-6989586621679295809"><span class="annot"><span class="annottext">Eq CheckoutType
+Eq CheckoutType
+-&gt; (CheckoutType -&gt; CheckoutType -&gt; Ordering)
+-&gt; (CheckoutType -&gt; CheckoutType -&gt; Bool)
+-&gt; (CheckoutType -&gt; CheckoutType -&gt; Bool)
+-&gt; (CheckoutType -&gt; CheckoutType -&gt; Bool)
+-&gt; (CheckoutType -&gt; CheckoutType -&gt; Bool)
+-&gt; (CheckoutType -&gt; CheckoutType -&gt; CheckoutType)
+-&gt; (CheckoutType -&gt; CheckoutType -&gt; CheckoutType)
+-&gt; Ord CheckoutType
+CheckoutType -&gt; CheckoutType -&gt; Bool
+CheckoutType -&gt; CheckoutType -&gt; Ordering
+CheckoutType -&gt; CheckoutType -&gt; CheckoutType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: CheckoutType -&gt; CheckoutType -&gt; CheckoutType
+$cmin :: CheckoutType -&gt; CheckoutType -&gt; CheckoutType
+max :: CheckoutType -&gt; CheckoutType -&gt; CheckoutType
+$cmax :: CheckoutType -&gt; CheckoutType -&gt; CheckoutType
+&gt;= :: CheckoutType -&gt; CheckoutType -&gt; Bool
+$c&gt;= :: CheckoutType -&gt; CheckoutType -&gt; Bool
+&gt; :: CheckoutType -&gt; CheckoutType -&gt; Bool
+$c&gt; :: CheckoutType -&gt; CheckoutType -&gt; Bool
+&lt;= :: CheckoutType -&gt; CheckoutType -&gt; Bool
+$c&lt;= :: CheckoutType -&gt; CheckoutType -&gt; Bool
+&lt; :: CheckoutType -&gt; CheckoutType -&gt; Bool
+$c&lt; :: CheckoutType -&gt; CheckoutType -&gt; Bool
+compare :: CheckoutType -&gt; CheckoutType -&gt; Ordering
+$ccompare :: CheckoutType -&gt; CheckoutType -&gt; Ordering
+$cp1Ord :: Eq CheckoutType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. CheckoutType -&gt; Rep CheckoutType x)
+-&gt; (forall x. Rep CheckoutType x -&gt; CheckoutType)
+-&gt; Generic CheckoutType
+forall x. Rep CheckoutType x -&gt; CheckoutType
+forall x. CheckoutType -&gt; Rep CheckoutType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CheckoutType x -&gt; CheckoutType
+$cfrom :: forall x. CheckoutType -&gt; Rep CheckoutType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679295789"><span id="local-6989586621679295791"><span class="annot"><span class="annottext">Int -&gt; CheckoutType -&gt; Int
+CheckoutType -&gt; Int
+(Int -&gt; CheckoutType -&gt; Int)
+-&gt; (CheckoutType -&gt; Int) -&gt; Hashable CheckoutType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: CheckoutType -&gt; Int
+$chash :: CheckoutType -&gt; Int
+hashWithSalt :: Int -&gt; CheckoutType -&gt; Int
+$chashWithSalt :: Int -&gt; CheckoutType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679295786"><span class="annot"><span class="annottext">CheckoutType -&gt; ()
+(CheckoutType -&gt; ()) -&gt; NFData CheckoutType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: CheckoutType -&gt; ()
+$crnf :: CheckoutType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679295783"><span class="annot"><span class="annottext">Text -&gt; Either String CheckoutType
+(Text -&gt; Either String CheckoutType) -&gt; FromText CheckoutType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String CheckoutType
+$cfromText :: Text -&gt; Either String CheckoutType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679295780"><span class="annot"><span class="annottext">CheckoutType -&gt; Text
+(CheckoutType -&gt; Text) -&gt; ToText CheckoutType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: CheckoutType -&gt; Text
+$ctoText :: CheckoutType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679295777"><span class="annot"><span class="annottext">CheckoutType -&gt; ByteString
+(CheckoutType -&gt; ByteString) -&gt; ToByteString CheckoutType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: CheckoutType -&gt; ByteString
+$ctoBS :: CheckoutType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679295774"><span class="annot"><span class="annottext">CheckoutType -&gt; ByteStringBuilder
+(CheckoutType -&gt; ByteStringBuilder) -&gt; ToLog CheckoutType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: CheckoutType -&gt; ByteStringBuilder
+$cbuild :: CheckoutType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679295771"><span class="annot"><span class="annottext">HeaderName -&gt; CheckoutType -&gt; [Header]
+(HeaderName -&gt; CheckoutType -&gt; [Header]) -&gt; ToHeader CheckoutType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; CheckoutType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; CheckoutType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679295768"><span class="annot"><span class="annottext">CheckoutType -&gt; QueryString
+(CheckoutType -&gt; QueryString) -&gt; ToQuery CheckoutType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: CheckoutType -&gt; QueryString
+$ctoQuery :: CheckoutType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679295763"><span id="local-6989586621679295765"><span class="annot"><span class="annottext">Value -&gt; Parser [CheckoutType]
+Value -&gt; Parser CheckoutType
+(Value -&gt; Parser CheckoutType)
+-&gt; (Value -&gt; Parser [CheckoutType]) -&gt; FromJSON CheckoutType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [CheckoutType]
+$cparseJSONList :: Value -&gt; Parser [CheckoutType]
+parseJSON :: Value -&gt; Parser CheckoutType
+$cparseJSON :: Value -&gt; Parser CheckoutType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679295758"><span id="local-6989586621679295760"><span class="annot"><span class="annottext">FromJSONKeyFunction [CheckoutType]
+FromJSONKeyFunction CheckoutType
+FromJSONKeyFunction CheckoutType
+-&gt; FromJSONKeyFunction [CheckoutType] -&gt; FromJSONKey CheckoutType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [CheckoutType]
+$cfromJSONKeyList :: FromJSONKeyFunction [CheckoutType]
+fromJSONKey :: FromJSONKeyFunction CheckoutType
+$cfromJSONKey :: FromJSONKeyFunction CheckoutType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679295749"><span id="local-6989586621679295751"><span id="local-6989586621679295753"><span id="local-6989586621679295755"><span class="annot"><span class="annottext">[CheckoutType] -&gt; Encoding
+[CheckoutType] -&gt; Value
+CheckoutType -&gt; Encoding
+CheckoutType -&gt; Value
+(CheckoutType -&gt; Value)
+-&gt; (CheckoutType -&gt; Encoding)
+-&gt; ([CheckoutType] -&gt; Value)
+-&gt; ([CheckoutType] -&gt; Encoding)
+-&gt; ToJSON CheckoutType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [CheckoutType] -&gt; Encoding
+$ctoEncodingList :: [CheckoutType] -&gt; Encoding
+toJSONList :: [CheckoutType] -&gt; Value
+$ctoJSONList :: [CheckoutType] -&gt; Value
+toEncoding :: CheckoutType -&gt; Encoding
+$ctoEncoding :: CheckoutType -&gt; Encoding
+toJSON :: CheckoutType -&gt; Value
+$ctoJSON :: CheckoutType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679295744"><span id="local-6989586621679295746"><span class="annot"><span class="annottext">ToJSONKeyFunction [CheckoutType]
+ToJSONKeyFunction CheckoutType
+ToJSONKeyFunction CheckoutType
+-&gt; ToJSONKeyFunction [CheckoutType] -&gt; ToJSONKey CheckoutType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [CheckoutType]
+$ctoJSONKeyList :: ToJSONKeyFunction [CheckoutType]
+toJSONKey :: ToJSONKeyFunction CheckoutType
+$ctoJSONKey :: ToJSONKeyFunction CheckoutType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679295741"><span class="annot"><span class="annottext">[Node] -&gt; Either String CheckoutType
+([Node] -&gt; Either String CheckoutType) -&gt; FromXML CheckoutType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String CheckoutType
+$cparseXML :: [Node] -&gt; Either String CheckoutType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679295738"><span class="annot"><span class="annottext">CheckoutType -&gt; XML
+(CheckoutType -&gt; XML) -&gt; ToXML CheckoutType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: CheckoutType -&gt; XML
+$ctoXML :: CheckoutType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.CheckoutType.html#CheckoutType_PERPETUAL"><span class="hs-identifier hs-type">CheckoutType_PERPETUAL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.CheckoutType.html#CheckoutType"><span class="hs-identifier hs-type">CheckoutType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCheckoutType_PERPETUAL"><span id="%24mCheckoutType_PERPETUAL"><span id="CheckoutType_PERPETUAL"><span class="annot"><span class="annottext">$bCheckoutType_PERPETUAL :: CheckoutType
+$mCheckoutType_PERPETUAL :: forall r. CheckoutType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.LicenseManager.Types.CheckoutType.html#%24bCheckoutType_PERPETUAL"><span class="hs-identifier hs-var hs-var hs-var">CheckoutType_PERPETUAL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.CheckoutType.html#CheckoutType%27"><span class="hs-identifier hs-type">CheckoutType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PERPETUAL&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.CheckoutType.html#CheckoutType_PROVISIONAL"><span class="hs-identifier hs-type">CheckoutType_PROVISIONAL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.CheckoutType.html#CheckoutType"><span class="hs-identifier hs-type">CheckoutType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCheckoutType_PROVISIONAL"><span id="%24mCheckoutType_PROVISIONAL"><span id="CheckoutType_PROVISIONAL"><span class="annot"><span class="annottext">$bCheckoutType_PROVISIONAL :: CheckoutType
+$mCheckoutType_PROVISIONAL :: forall r. CheckoutType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.LicenseManager.Types.CheckoutType.html#%24bCheckoutType_PROVISIONAL"><span class="hs-identifier hs-var hs-var hs-var">CheckoutType_PROVISIONAL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.CheckoutType.html#CheckoutType%27"><span class="hs-identifier hs-type">CheckoutType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PROVISIONAL&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.CheckoutType.html#CheckoutType_PERPETUAL"><span class="hs-pragma hs-type">CheckoutType_PERPETUAL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.CheckoutType.html#CheckoutType_PROVISIONAL"><span class="hs-pragma hs-type">CheckoutType_PROVISIONAL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.CheckoutType.html#CheckoutType%27"><span class="hs-pragma hs-type">CheckoutType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

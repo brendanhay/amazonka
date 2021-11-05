@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newUpdateTable' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679749946"><span id="local-6989586621679749947"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateTable"><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTable"><span class="hs-identifier hs-var">UpdateTable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateTable%27"><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTable%27"><span class="hs-identifier hs-var">UpdateTable'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679749955"><span id="local-6989586621679749956"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateTable"><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTable"><span class="hs-identifier hs-var">UpdateTable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateTable%27"><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTable%27"><span class="hs-identifier hs-var">UpdateTable'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | By default, @UpdateTable@ always creates an archived version of the</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- table before updating it. However, if @skipArchive@ is set to true,</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- @UpdateTable@ does not create the archived version.</span><span>
@@ -68,7 +68,7 @@
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AtableInput%3AUpdateTable%27"><span class="annot"><span class="annottext">UpdateTable -&gt; TableInput
 </span><a href="Network.AWS.Glue.UpdateTable.html#%24sel%3AtableInput%3AUpdateTable%27"><span class="hs-identifier hs-var hs-var">tableInput</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TableInput.html#TableInput"><span class="hs-identifier hs-type">TableInput</span></a></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679749937"><span id="local-6989586621679749939"><span class="annot"><span class="annottext">UpdateTable -&gt; UpdateTable -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679749946"><span id="local-6989586621679749948"><span class="annot"><span class="annottext">UpdateTable -&gt; UpdateTable -&gt; Bool
 (UpdateTable -&gt; UpdateTable -&gt; Bool)
 -&gt; (UpdateTable -&gt; UpdateTable -&gt; Bool) -&gt; Eq UpdateTable
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -76,7 +76,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateTable -&gt; UpdateTable -&gt; Bool
 == :: UpdateTable -&gt; UpdateTable -&gt; Bool
 $c== :: UpdateTable -&gt; UpdateTable -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679749928"><span id="local-6989586621679749930"><span id="local-6989586621679749932"><span id="local-6989586621679749934"><span class="annot"><span class="annottext">ReadPrec [UpdateTable]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679749937"><span id="local-6989586621679749939"><span id="local-6989586621679749941"><span id="local-6989586621679749943"><span class="annot"><span class="annottext">ReadPrec [UpdateTable]
 ReadPrec UpdateTable
 Int -&gt; ReadS UpdateTable
 ReadS [UpdateTable]
@@ -96,7 +96,7 @@ readList :: ReadS [UpdateTable]
 $creadList :: ReadS [UpdateTable]
 readsPrec :: Int -&gt; ReadS UpdateTable
 $creadsPrec :: Int -&gt; ReadS UpdateTable
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679749921"><span id="local-6989586621679749923"><span id="local-6989586621679749925"><span class="annot"><span class="annottext">Int -&gt; UpdateTable -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679749930"><span id="local-6989586621679749932"><span id="local-6989586621679749934"><span class="annot"><span class="annottext">Int -&gt; UpdateTable -&gt; ShowS
 [UpdateTable] -&gt; ShowS
 UpdateTable -&gt; String
 (Int -&gt; UpdateTable -&gt; ShowS)
@@ -149,9 +149,9 @@ $cfrom :: forall x. UpdateTable -&gt; Rep UpdateTable x
 </span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.TableInput.html#TableInput"><span class="hs-identifier hs-type">TableInput</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTable"><span class="hs-identifier hs-type">UpdateTable</span></a></span><span>
 </span><span id="line-95"></span><span id="newUpdateTable"><span class="annot"><span class="annottext">newUpdateTable :: Text -&gt; TableInput -&gt; UpdateTable
-</span><a href="Network.AWS.Glue.UpdateTable.html#newUpdateTable"><span class="hs-identifier hs-var hs-var">newUpdateTable</span></a></span></span><span> </span><span id="local-6989586621679749916"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679749916"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span></span><span> </span><span id="local-6989586621679749915"><span class="annot"><span class="annottext">TableInput
-</span><a href="#local-6989586621679749915"><span class="hs-identifier hs-var">pTableInput_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.UpdateTable.html#newUpdateTable"><span class="hs-identifier hs-var hs-var">newUpdateTable</span></a></span></span><span> </span><span id="local-6989586621679749925"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679749925"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span></span><span> </span><span id="local-6989586621679749924"><span class="annot"><span class="annottext">TableInput
+</span><a href="#local-6989586621679749924"><span class="hs-identifier hs-var">pTableInput_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>  </span><span class="annot"><span class="annottext">UpdateTable' :: Maybe Bool -&gt; Maybe Text -&gt; Text -&gt; TableInput -&gt; UpdateTable
 </span><a href="Network.AWS.Glue.UpdateTable.html#UpdateTable%27"><span class="hs-identifier hs-type">UpdateTable'</span></a></span><span>
 </span><span id="line-97"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:skipArchive:UpdateTable' :: Maybe Bool
@@ -164,10 +164,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:databaseName:UpdateTable' :: Text
 </span><a href="Network.AWS.Glue.UpdateTable.html#%24sel%3AdatabaseName%3AUpdateTable%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679749916"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679749925"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:tableInput:UpdateTable' :: TableInput
 </span><a href="Network.AWS.Glue.UpdateTable.html#%24sel%3AtableInput%3AUpdateTable%27"><span class="hs-identifier hs-var">tableInput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TableInput
-</span><a href="#local-6989586621679749915"><span class="hs-identifier hs-var">pTableInput_</span></a></span><span>
+</span><a href="#local-6989586621679749924"><span class="hs-identifier hs-var">pTableInput_</span></a></span><span>
 </span><span id="line-101"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | By default, @UpdateTable@ always creates an archived version of the</span><span>
@@ -179,16 +179,16 @@ forall a. Maybe a
 -&gt; (UpdateTable -&gt; Maybe Bool -&gt; UpdateTable)
 -&gt; Lens UpdateTable UpdateTable (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTable%27"><span class="hs-identifier hs-type">UpdateTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679749912"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTable%27"><span class="hs-identifier hs-type">UpdateTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679749921"><span class="annot"><span class="annottext">Maybe Bool
 skipArchive :: Maybe Bool
 $sel:skipArchive:UpdateTable' :: UpdateTable -&gt; Maybe Bool
-</span><a href="#local-6989586621679749912"><span class="hs-identifier hs-var hs-var">skipArchive</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679749912"><span class="hs-identifier hs-var">skipArchive</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679749911"><span class="annot"><span class="annottext">s :: UpdateTable
-</span><a href="#local-6989586621679749911"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTable%27"><span class="hs-identifier hs-type">UpdateTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679749910"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679749910"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTable
-</span><a href="#local-6989586621679749911"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:skipArchive:UpdateTable' :: Maybe Bool
+</span><a href="#local-6989586621679749921"><span class="hs-identifier hs-var hs-var">skipArchive</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679749921"><span class="hs-identifier hs-var">skipArchive</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679749920"><span class="annot"><span class="annottext">s :: UpdateTable
+</span><a href="#local-6989586621679749920"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTable%27"><span class="hs-identifier hs-type">UpdateTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679749919"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679749919"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTable
+</span><a href="#local-6989586621679749920"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:skipArchive:UpdateTable' :: Maybe Bool
 </span><a href="Network.AWS.Glue.UpdateTable.html#%24sel%3AskipArchive%3AUpdateTable%27"><span class="hs-identifier hs-var">skipArchive</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679749910"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTable"><span class="hs-identifier hs-type">UpdateTable</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679749919"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTable"><span class="hs-identifier hs-type">UpdateTable</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | The ID of the Data Catalog where the table resides. If none is provided,</span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- the Amazon Web Services account ID is used by default.</span><span>
@@ -198,16 +198,16 @@ $sel:skipArchive:UpdateTable' :: UpdateTable -&gt; Maybe Bool
 -&gt; (UpdateTable -&gt; Maybe Text -&gt; UpdateTable)
 -&gt; Lens UpdateTable UpdateTable (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTable%27"><span class="hs-identifier hs-type">UpdateTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679749909"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTable%27"><span class="hs-identifier hs-type">UpdateTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679749918"><span class="annot"><span class="annottext">Maybe Text
 catalogId :: Maybe Text
 $sel:catalogId:UpdateTable' :: UpdateTable -&gt; Maybe Text
-</span><a href="#local-6989586621679749909"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679749909"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679749908"><span class="annot"><span class="annottext">s :: UpdateTable
-</span><a href="#local-6989586621679749908"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTable%27"><span class="hs-identifier hs-type">UpdateTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679749907"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679749907"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTable
-</span><a href="#local-6989586621679749908"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:UpdateTable' :: Maybe Text
+</span><a href="#local-6989586621679749918"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679749918"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679749917"><span class="annot"><span class="annottext">s :: UpdateTable
+</span><a href="#local-6989586621679749917"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTable%27"><span class="hs-identifier hs-type">UpdateTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679749916"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679749916"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTable
+</span><a href="#local-6989586621679749917"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:UpdateTable' :: Maybe Text
 </span><a href="Network.AWS.Glue.UpdateTable.html#%24sel%3AcatalogId%3AUpdateTable%27"><span class="hs-identifier hs-var">catalogId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679749907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTable"><span class="hs-identifier hs-type">UpdateTable</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679749916"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTable"><span class="hs-identifier hs-type">UpdateTable</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | The name of the catalog database in which the table resides. For Hive</span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- compatibility, this name is entirely lowercase.</span><span>
@@ -217,16 +217,16 @@ $sel:catalogId:UpdateTable' :: UpdateTable -&gt; Maybe Text
 -&gt; (UpdateTable -&gt; Text -&gt; UpdateTable)
 -&gt; Lens UpdateTable UpdateTable Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTable%27"><span class="hs-identifier hs-type">UpdateTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679749906"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTable%27"><span class="hs-identifier hs-type">UpdateTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679749915"><span class="annot"><span class="annottext">Text
 databaseName :: Text
 $sel:databaseName:UpdateTable' :: UpdateTable -&gt; Text
-</span><a href="#local-6989586621679749906"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679749906"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679749905"><span class="annot"><span class="annottext">s :: UpdateTable
-</span><a href="#local-6989586621679749905"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTable%27"><span class="hs-identifier hs-type">UpdateTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679749904"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679749904"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTable
-</span><a href="#local-6989586621679749905"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:UpdateTable' :: Text
+</span><a href="#local-6989586621679749915"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679749915"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679749914"><span class="annot"><span class="annottext">s :: UpdateTable
+</span><a href="#local-6989586621679749914"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTable%27"><span class="hs-identifier hs-type">UpdateTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679749913"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679749913"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTable
+</span><a href="#local-6989586621679749914"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:UpdateTable' :: Text
 </span><a href="Network.AWS.Glue.UpdateTable.html#%24sel%3AdatabaseName%3AUpdateTable%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679749904"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTable"><span class="hs-identifier hs-type">UpdateTable</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679749913"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTable"><span class="hs-identifier hs-type">UpdateTable</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | An updated @TableInput@ object to define the metadata table in the</span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- catalog.</span><span>
@@ -236,25 +236,25 @@ $sel:databaseName:UpdateTable' :: UpdateTable -&gt; Text
 -&gt; (UpdateTable -&gt; TableInput -&gt; UpdateTable)
 -&gt; Lens UpdateTable UpdateTable TableInput TableInput
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTable%27"><span class="hs-identifier hs-type">UpdateTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679749903"><span class="annot"><span class="annottext">TableInput
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTable%27"><span class="hs-identifier hs-type">UpdateTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679749912"><span class="annot"><span class="annottext">TableInput
 tableInput :: TableInput
 $sel:tableInput:UpdateTable' :: UpdateTable -&gt; TableInput
-</span><a href="#local-6989586621679749903"><span class="hs-identifier hs-var hs-var">tableInput</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TableInput
-</span><a href="#local-6989586621679749903"><span class="hs-identifier hs-var">tableInput</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679749902"><span class="annot"><span class="annottext">s :: UpdateTable
-</span><a href="#local-6989586621679749902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTable%27"><span class="hs-identifier hs-type">UpdateTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679749901"><span class="annot"><span class="annottext">TableInput
-</span><a href="#local-6989586621679749901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTable
-</span><a href="#local-6989586621679749902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableInput:UpdateTable' :: TableInput
+</span><a href="#local-6989586621679749912"><span class="hs-identifier hs-var hs-var">tableInput</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TableInput
+</span><a href="#local-6989586621679749912"><span class="hs-identifier hs-var">tableInput</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679749911"><span class="annot"><span class="annottext">s :: UpdateTable
+</span><a href="#local-6989586621679749911"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTable%27"><span class="hs-identifier hs-type">UpdateTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679749910"><span class="annot"><span class="annottext">TableInput
+</span><a href="#local-6989586621679749910"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTable
+</span><a href="#local-6989586621679749911"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableInput:UpdateTable' :: TableInput
 </span><a href="Network.AWS.Glue.UpdateTable.html#%24sel%3AtableInput%3AUpdateTable%27"><span class="hs-identifier hs-var">tableInput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TableInput
-</span><a href="#local-6989586621679749901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTable"><span class="hs-identifier hs-type">UpdateTable</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679749910"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTable"><span class="hs-identifier hs-type">UpdateTable</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTable"><span class="hs-identifier hs-type">UpdateTable</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-125"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTable"><span class="hs-identifier hs-type">UpdateTable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTableResponse"><span class="hs-identifier hs-type">UpdateTableResponse</span></a></span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679749897"><span class="annot"><span class="annottext">request :: UpdateTable -&gt; Request UpdateTable
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679749906"><span class="annot"><span class="annottext">request :: UpdateTable -&gt; Request UpdateTable
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateTable -&gt; Request UpdateTable
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679749893"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679749902"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateTable
 -&gt; ClientResponse ClientBody
@@ -278,10 +278,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679749890"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679749890"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679749889"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679749889"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679749888"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679749888"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679749899"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679749899"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679749898"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679749898"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679749897"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679749897"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-130"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; UpdateTableResponse
 </span><a href="Network.AWS.Glue.UpdateTable.html#UpdateTableResponse%27"><span class="hs-identifier hs-var">UpdateTableResponse'</span></a></span><span>
 </span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; UpdateTableResponse)
@@ -292,15 +292,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679749890"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679749899"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679749881"><span id="local-6989586621679749883"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTable"><span class="hs-identifier hs-type">UpdateTable</span></a></span></span></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679749890"><span id="local-6989586621679749892"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTable"><span class="hs-identifier hs-type">UpdateTable</span></a></span></span></span><span>
 </span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679749878"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTable"><span class="hs-identifier hs-type">UpdateTable</span></a></span></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679749887"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTable"><span class="hs-identifier hs-type">UpdateTable</span></a></span></span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTable"><span class="hs-identifier hs-type">UpdateTable</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679749874"><span class="annot"><span class="annottext">toHeaders :: UpdateTable -&gt; ResponseHeaders
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679749883"><span class="annot"><span class="annottext">toHeaders :: UpdateTable -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateTable -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -325,9 +325,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-148"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679749864"><span id="local-6989586621679749866"><span id="local-6989586621679749868"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTable"><span class="hs-identifier hs-type">UpdateTable</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679749862"><span class="annot"><span class="annottext">toJSON :: UpdateTable -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTable%27"><span class="hs-identifier hs-type">UpdateTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679749857"><span id="local-6989586621679749858"><span id="local-6989586621679749859"><span id="local-6989586621679749860"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679749873"><span id="local-6989586621679749875"><span id="local-6989586621679749877"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTable"><span class="hs-identifier hs-type">UpdateTable</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679749871"><span class="annot"><span class="annottext">toJSON :: UpdateTable -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTable%27"><span class="hs-identifier hs-type">UpdateTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679749866"><span id="local-6989586621679749867"><span id="local-6989586621679749868"><span id="local-6989586621679749869"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Text
 TableInput
@@ -339,7 +339,7 @@ $sel:tableInput:UpdateTable' :: UpdateTable -&gt; TableInput
 $sel:databaseName:UpdateTable' :: UpdateTable -&gt; Text
 $sel:catalogId:UpdateTable' :: UpdateTable -&gt; Maybe Text
 $sel:skipArchive:UpdateTable' :: UpdateTable -&gt; Maybe Bool
-</span><a href="#local-6989586621679749857"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679749866"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -351,40 +351,40 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679749860"><span class="hs-identifier hs-var">skipArchive</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679749869"><span class="hs-identifier hs-var">skipArchive</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-156"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CatalogId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679749859"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679749868"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DatabaseName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679749858"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679749867"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TableInput&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TableInput -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">TableInput
-</span><a href="#local-6989586621679749857"><span class="hs-identifier hs-var">tableInput</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679749866"><span class="hs-identifier hs-var">tableInput</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTable"><span class="hs-identifier hs-type">UpdateTable</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679749851"><span class="annot"><span class="annottext">toPath :: UpdateTable -&gt; ByteString
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679749860"><span class="annot"><span class="annottext">toPath :: UpdateTable -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateTable -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTable"><span class="hs-identifier hs-type">UpdateTable</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679749847"><span class="annot"><span class="annottext">toQuery :: UpdateTable -&gt; QueryString
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679749856"><span class="annot"><span class="annottext">toQuery :: UpdateTable -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateTable -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -392,12 +392,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | /See:/ 'newUpdateTableResponse' smart constructor.</span><span>
-</span><span id="line-169"></span><span id="local-6989586621679749844"><span id="local-6989586621679749845"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateTableResponse"><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTableResponse"><span class="hs-identifier hs-var">UpdateTableResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateTableResponse%27"><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTableResponse%27"><span class="hs-identifier hs-var">UpdateTableResponse'</span></a></span></span><span>
+</span><span id="line-169"></span><span id="local-6989586621679749853"><span id="local-6989586621679749854"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateTableResponse"><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTableResponse"><span class="hs-identifier hs-var">UpdateTableResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateTableResponse%27"><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTableResponse%27"><span class="hs-identifier hs-var">UpdateTableResponse'</span></a></span></span><span>
 </span><span id="line-170"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-171"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateTableResponse%27"><span class="annot"><span class="annottext">UpdateTableResponse -&gt; Int
 </span><a href="Network.AWS.Glue.UpdateTable.html#%24sel%3AhttpStatus%3AUpdateTableResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-172"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-173"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679749839"><span id="local-6989586621679749841"><span class="annot"><span class="annottext">UpdateTableResponse -&gt; UpdateTableResponse -&gt; Bool
+</span><span id="line-173"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679749848"><span id="local-6989586621679749850"><span class="annot"><span class="annottext">UpdateTableResponse -&gt; UpdateTableResponse -&gt; Bool
 (UpdateTableResponse -&gt; UpdateTableResponse -&gt; Bool)
 -&gt; (UpdateTableResponse -&gt; UpdateTableResponse -&gt; Bool)
 -&gt; Eq UpdateTableResponse
@@ -406,7 +406,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateTableResponse -&gt; UpdateTableResponse -&gt; Bool
 == :: UpdateTableResponse -&gt; UpdateTableResponse -&gt; Bool
 $c== :: UpdateTableResponse -&gt; UpdateTableResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679749831"><span id="local-6989586621679749833"><span id="local-6989586621679749835"><span id="local-6989586621679749837"><span class="annot"><span class="annottext">ReadPrec [UpdateTableResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679749840"><span id="local-6989586621679749842"><span id="local-6989586621679749844"><span id="local-6989586621679749846"><span class="annot"><span class="annottext">ReadPrec [UpdateTableResponse]
 ReadPrec UpdateTableResponse
 Int -&gt; ReadS UpdateTableResponse
 ReadS [UpdateTableResponse]
@@ -426,7 +426,7 @@ readList :: ReadS [UpdateTableResponse]
 $creadList :: ReadS [UpdateTableResponse]
 readsPrec :: Int -&gt; ReadS UpdateTableResponse
 $creadsPrec :: Int -&gt; ReadS UpdateTableResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679749825"><span id="local-6989586621679749827"><span id="local-6989586621679749829"><span class="annot"><span class="annottext">Int -&gt; UpdateTableResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679749834"><span id="local-6989586621679749836"><span id="local-6989586621679749838"><span class="annot"><span class="annottext">Int -&gt; UpdateTableResponse -&gt; ShowS
 [UpdateTableResponse] -&gt; ShowS
 UpdateTableResponse -&gt; String
 (Int -&gt; UpdateTableResponse -&gt; ShowS)
@@ -466,12 +466,12 @@ $cfrom :: forall x. UpdateTableResponse -&gt; Rep UpdateTableResponse x
 </span><span id="line-186"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-187"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTableResponse"><span class="hs-identifier hs-type">UpdateTableResponse</span></a></span><span>
 </span><span id="line-188"></span><span id="newUpdateTableResponse"><span class="annot"><span class="annottext">newUpdateTableResponse :: Int -&gt; UpdateTableResponse
-</span><a href="Network.AWS.Glue.UpdateTable.html#newUpdateTableResponse"><span class="hs-identifier hs-var hs-var">newUpdateTableResponse</span></a></span></span><span> </span><span id="local-6989586621679749822"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679749822"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.UpdateTable.html#newUpdateTableResponse"><span class="hs-identifier hs-var hs-var">newUpdateTableResponse</span></a></span></span><span> </span><span id="local-6989586621679749831"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679749831"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-189"></span><span>  </span><span class="annot"><span class="annottext">UpdateTableResponse' :: Int -&gt; UpdateTableResponse
 </span><a href="Network.AWS.Glue.UpdateTable.html#UpdateTableResponse%27"><span class="hs-identifier hs-type">UpdateTableResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateTableResponse' :: Int
 </span><a href="Network.AWS.Glue.UpdateTable.html#%24sel%3AhttpStatus%3AUpdateTableResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679749822"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679749831"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-192"></span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#updateTableResponse_httpStatus"><span class="hs-identifier hs-type">updateTableResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTableResponse"><span class="hs-identifier hs-type">UpdateTableResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -480,16 +480,16 @@ $cfrom :: forall x. UpdateTableResponse -&gt; Rep UpdateTableResponse x
 -&gt; (UpdateTableResponse -&gt; Int -&gt; UpdateTableResponse)
 -&gt; Lens UpdateTableResponse UpdateTableResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTableResponse%27"><span class="hs-identifier hs-type">UpdateTableResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679749821"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTableResponse%27"><span class="hs-identifier hs-type">UpdateTableResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679749830"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateTableResponse' :: UpdateTableResponse -&gt; Int
-</span><a href="#local-6989586621679749821"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679749821"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679749820"><span class="annot"><span class="annottext">s :: UpdateTableResponse
-</span><a href="#local-6989586621679749820"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTableResponse%27"><span class="hs-identifier hs-type">UpdateTableResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679749819"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679749819"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTableResponse
-</span><a href="#local-6989586621679749820"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateTableResponse' :: Int
+</span><a href="#local-6989586621679749830"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679749830"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679749829"><span class="annot"><span class="annottext">s :: UpdateTableResponse
+</span><a href="#local-6989586621679749829"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTableResponse%27"><span class="hs-identifier hs-type">UpdateTableResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679749828"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679749828"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTableResponse
+</span><a href="#local-6989586621679749829"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateTableResponse' :: Int
 </span><a href="Network.AWS.Glue.UpdateTable.html#%24sel%3AhttpStatus%3AUpdateTableResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679749819"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTableResponse"><span class="hs-identifier hs-type">UpdateTableResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679749828"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTableResponse"><span class="hs-identifier hs-type">UpdateTableResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>
-</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679749817"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTableResponse"><span class="hs-identifier hs-type">UpdateTableResponse</span></a></span></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679749826"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTable.html#UpdateTableResponse"><span class="hs-identifier hs-type">UpdateTableResponse</span></a></span></span><span>
 </span><span id="line-196"></span></pre></body></html>

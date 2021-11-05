@@ -1,0 +1,628 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ManagedBlockChain.ListNetworks</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns information about the networks in which the current AWS account</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- participates.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- Applies to Hyperledger Fabric and Ethereum.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ManagedBlockChain.ListNetworks</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworks"><span class="hs-identifier">ListNetworks</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#newListNetworks"><span class="hs-identifier">newListNetworks</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#listNetworks_status"><span class="hs-identifier">listNetworks_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#listNetworks_framework"><span class="hs-identifier">listNetworks_framework</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#listNetworks_nextToken"><span class="hs-identifier">listNetworks_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#listNetworks_name"><span class="hs-identifier">listNetworks_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#listNetworks_maxResults"><span class="hs-identifier">listNetworks_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworksResponse"><span class="hs-identifier">ListNetworksResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#newListNetworksResponse"><span class="hs-identifier">newListNetworksResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#listNetworksResponse_networks"><span class="hs-identifier">listNetworksResponse_networks</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#listNetworksResponse_nextToken"><span class="hs-identifier">listNetworksResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#listNetworksResponse_httpStatus"><span class="hs-identifier">listNetworksResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.html"><span class="hs-identifier">Network.AWS.ManagedBlockChain.Types</span></a></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newListNetworks' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679222921"><span id="local-6989586621679222922"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListNetworks"><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworks"><span class="hs-identifier hs-var">ListNetworks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListNetworks%27"><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworks%27"><span class="hs-identifier hs-var">ListNetworks'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An optional status specifier. If provided, only networks currently in</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- this status are listed.</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- Applies only to Hyperledger Fabric.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3Astatus%3AListNetworks%27"><span class="annot"><span class="annottext">ListNetworks -&gt; Maybe NetworkStatus
+</span><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#%24sel%3Astatus%3AListNetworks%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NetworkStatus.html#NetworkStatus"><span class="hs-identifier hs-type">NetworkStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | An optional framework specifier. If provided, only networks of this</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- framework type are listed.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3Aframework%3AListNetworks%27"><span class="annot"><span class="annottext">ListNetworks -&gt; Maybe Framework
+</span><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#%24sel%3Aframework%3AListNetworks%27"><span class="hs-identifier hs-var hs-var">framework</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.Framework.html#Framework"><span class="hs-identifier hs-type">Framework</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The pagination token that indicates the next set of results to retrieve.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AnextToken%3AListNetworks%27"><span class="annot"><span class="annottext">ListNetworks -&gt; Maybe Text
+</span><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#%24sel%3AnextToken%3AListNetworks%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The name of the network.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3Aname%3AListNetworks%27"><span class="annot"><span class="annottext">ListNetworks -&gt; Maybe Text
+</span><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#%24sel%3Aname%3AListNetworks%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The maximum number of networks to list.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AmaxResults%3AListNetworks%27"><span class="annot"><span class="annottext">ListNetworks -&gt; Maybe Natural
+</span><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#%24sel%3AmaxResults%3AListNetworks%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222911"><span id="local-6989586621679222913"><span class="annot"><span class="annottext">ListNetworks -&gt; ListNetworks -&gt; Bool
+(ListNetworks -&gt; ListNetworks -&gt; Bool)
+-&gt; (ListNetworks -&gt; ListNetworks -&gt; Bool) -&gt; Eq ListNetworks
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListNetworks -&gt; ListNetworks -&gt; Bool
+$c/= :: ListNetworks -&gt; ListNetworks -&gt; Bool
+== :: ListNetworks -&gt; ListNetworks -&gt; Bool
+$c== :: ListNetworks -&gt; ListNetworks -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222902"><span id="local-6989586621679222904"><span id="local-6989586621679222906"><span id="local-6989586621679222908"><span class="annot"><span class="annottext">ReadPrec [ListNetworks]
+ReadPrec ListNetworks
+Int -&gt; ReadS ListNetworks
+ReadS [ListNetworks]
+(Int -&gt; ReadS ListNetworks)
+-&gt; ReadS [ListNetworks]
+-&gt; ReadPrec ListNetworks
+-&gt; ReadPrec [ListNetworks]
+-&gt; Read ListNetworks
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListNetworks]
+$creadListPrec :: ReadPrec [ListNetworks]
+readPrec :: ReadPrec ListNetworks
+$creadPrec :: ReadPrec ListNetworks
+readList :: ReadS [ListNetworks]
+$creadList :: ReadS [ListNetworks]
+readsPrec :: Int -&gt; ReadS ListNetworks
+$creadsPrec :: Int -&gt; ReadS ListNetworks
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222895"><span id="local-6989586621679222897"><span id="local-6989586621679222899"><span class="annot"><span class="annottext">Int -&gt; ListNetworks -&gt; ShowS
+[ListNetworks] -&gt; ShowS
+ListNetworks -&gt; String
+(Int -&gt; ListNetworks -&gt; ShowS)
+-&gt; (ListNetworks -&gt; String)
+-&gt; ([ListNetworks] -&gt; ShowS)
+-&gt; Show ListNetworks
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListNetworks] -&gt; ShowS
+$cshowList :: [ListNetworks] -&gt; ShowS
+show :: ListNetworks -&gt; String
+$cshow :: ListNetworks -&gt; String
+showsPrec :: Int -&gt; ListNetworks -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListNetworks -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListNetworks -&gt; Rep ListNetworks x)
+-&gt; (forall x. Rep ListNetworks x -&gt; ListNetworks)
+-&gt; Generic ListNetworks
+forall x. Rep ListNetworks x -&gt; ListNetworks
+forall x. ListNetworks -&gt; Rep ListNetworks x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListNetworks x -&gt; ListNetworks
+$cfrom :: forall x. ListNetworks -&gt; Rep ListNetworks x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Create a value of 'ListNetworks' with all optional fields omitted.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'status', 'listNetworks_status' - An optional status specifier. If provided, only networks currently in</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- this status are listed.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Applies only to Hyperledger Fabric.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'framework', 'listNetworks_framework' - An optional framework specifier. If provided, only networks of this</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- framework type are listed.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'nextToken', 'listNetworks_nextToken' - The pagination token that indicates the next set of results to retrieve.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'name', 'listNetworks_name' - The name of the network.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'maxResults', 'listNetworks_maxResults' - The maximum number of networks to list.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#newListNetworks"><span class="hs-identifier hs-type">newListNetworks</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworks"><span class="hs-identifier hs-type">ListNetworks</span></a></span><span>
+</span><span id="line-99"></span><span id="newListNetworks"><span class="annot"><span class="annottext">newListNetworks :: ListNetworks
+</span><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#newListNetworks"><span class="hs-identifier hs-var hs-var">newListNetworks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><span class="annottext">ListNetworks' :: Maybe NetworkStatus
+-&gt; Maybe Framework
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; ListNetworks
+</span><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworks%27"><span class="hs-identifier hs-type">ListNetworks'</span></a></span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:ListNetworks' :: Maybe NetworkStatus
+</span><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#%24sel%3Astatus%3AListNetworks%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:framework:ListNetworks' :: Maybe Framework
+</span><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#%24sel%3Aframework%3AListNetworks%27"><span class="hs-identifier hs-var">framework</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Framework
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListNetworks' :: Maybe Text
+</span><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#%24sel%3AnextToken%3AListNetworks%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:ListNetworks' :: Maybe Text
+</span><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#%24sel%3Aname%3AListNetworks%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListNetworks' :: Maybe Natural
+</span><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#%24sel%3AmaxResults%3AListNetworks%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | An optional status specifier. If provided, only networks currently in</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- this status are listed.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- Applies only to Hyperledger Fabric.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#listNetworks_status"><span class="hs-identifier hs-type">listNetworks_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworks"><span class="hs-identifier hs-type">ListNetworks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NetworkStatus.html#NetworkStatus"><span class="hs-identifier hs-type">NetworkStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="listNetworks_status"><span class="annot"><span class="annottext">listNetworks_status :: (Maybe NetworkStatus -&gt; f (Maybe NetworkStatus))
+-&gt; ListNetworks -&gt; f ListNetworks
+</span><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#listNetworks_status"><span class="hs-identifier hs-var hs-var">listNetworks_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListNetworks -&gt; Maybe NetworkStatus)
+-&gt; (ListNetworks -&gt; Maybe NetworkStatus -&gt; ListNetworks)
+-&gt; Lens
+     ListNetworks
+     ListNetworks
+     (Maybe NetworkStatus)
+     (Maybe NetworkStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworks%27"><span class="hs-identifier hs-type">ListNetworks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222888"><span class="annot"><span class="annottext">Maybe NetworkStatus
+status :: Maybe NetworkStatus
+$sel:status:ListNetworks' :: ListNetworks -&gt; Maybe NetworkStatus
+</span><a href="#local-6989586621679222888"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkStatus
+</span><a href="#local-6989586621679222888"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222887"><span class="annot"><span class="annottext">s :: ListNetworks
+</span><a href="#local-6989586621679222887"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworks%27"><span class="hs-identifier hs-type">ListNetworks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222886"><span class="annot"><span class="annottext">Maybe NetworkStatus
+</span><a href="#local-6989586621679222886"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListNetworks
+</span><a href="#local-6989586621679222887"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ListNetworks' :: Maybe NetworkStatus
+</span><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#%24sel%3Astatus%3AListNetworks%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkStatus
+</span><a href="#local-6989586621679222886"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworks"><span class="hs-identifier hs-type">ListNetworks</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | An optional framework specifier. If provided, only networks of this</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- framework type are listed.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#listNetworks_framework"><span class="hs-identifier hs-type">listNetworks_framework</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworks"><span class="hs-identifier hs-type">ListNetworks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.Framework.html#Framework"><span class="hs-identifier hs-type">Framework</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="listNetworks_framework"><span class="annot"><span class="annottext">listNetworks_framework :: (Maybe Framework -&gt; f (Maybe Framework))
+-&gt; ListNetworks -&gt; f ListNetworks
+</span><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#listNetworks_framework"><span class="hs-identifier hs-var hs-var">listNetworks_framework</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListNetworks -&gt; Maybe Framework)
+-&gt; (ListNetworks -&gt; Maybe Framework -&gt; ListNetworks)
+-&gt; Lens
+     ListNetworks ListNetworks (Maybe Framework) (Maybe Framework)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworks%27"><span class="hs-identifier hs-type">ListNetworks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222885"><span class="annot"><span class="annottext">Maybe Framework
+framework :: Maybe Framework
+$sel:framework:ListNetworks' :: ListNetworks -&gt; Maybe Framework
+</span><a href="#local-6989586621679222885"><span class="hs-identifier hs-var hs-var">framework</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Framework
+</span><a href="#local-6989586621679222885"><span class="hs-identifier hs-var">framework</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222884"><span class="annot"><span class="annottext">s :: ListNetworks
+</span><a href="#local-6989586621679222884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworks%27"><span class="hs-identifier hs-type">ListNetworks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222883"><span class="annot"><span class="annottext">Maybe Framework
+</span><a href="#local-6989586621679222883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListNetworks
+</span><a href="#local-6989586621679222884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framework:ListNetworks' :: Maybe Framework
+</span><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#%24sel%3Aframework%3AListNetworks%27"><span class="hs-identifier hs-var">framework</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Framework
+</span><a href="#local-6989586621679222883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworks"><span class="hs-identifier hs-type">ListNetworks</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The pagination token that indicates the next set of results to retrieve.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#listNetworks_nextToken"><span class="hs-identifier hs-type">listNetworks_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworks"><span class="hs-identifier hs-type">ListNetworks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="listNetworks_nextToken"><span class="annot"><span class="annottext">listNetworks_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListNetworks -&gt; f ListNetworks
+</span><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#listNetworks_nextToken"><span class="hs-identifier hs-var hs-var">listNetworks_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListNetworks -&gt; Maybe Text)
+-&gt; (ListNetworks -&gt; Maybe Text -&gt; ListNetworks)
+-&gt; Lens ListNetworks ListNetworks (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworks%27"><span class="hs-identifier hs-type">ListNetworks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222882"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListNetworks' :: ListNetworks -&gt; Maybe Text
+</span><a href="#local-6989586621679222882"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222882"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222881"><span class="annot"><span class="annottext">s :: ListNetworks
+</span><a href="#local-6989586621679222881"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworks%27"><span class="hs-identifier hs-type">ListNetworks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222880"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222880"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListNetworks
+</span><a href="#local-6989586621679222881"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListNetworks' :: Maybe Text
+</span><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#%24sel%3AnextToken%3AListNetworks%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworks"><span class="hs-identifier hs-type">ListNetworks</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The name of the network.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#listNetworks_name"><span class="hs-identifier hs-type">listNetworks_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworks"><span class="hs-identifier hs-type">ListNetworks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="listNetworks_name"><span class="annot"><span class="annottext">listNetworks_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListNetworks -&gt; f ListNetworks
+</span><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#listNetworks_name"><span class="hs-identifier hs-var hs-var">listNetworks_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListNetworks -&gt; Maybe Text)
+-&gt; (ListNetworks -&gt; Maybe Text -&gt; ListNetworks)
+-&gt; Lens ListNetworks ListNetworks (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworks%27"><span class="hs-identifier hs-type">ListNetworks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222879"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:ListNetworks' :: ListNetworks -&gt; Maybe Text
+</span><a href="#local-6989586621679222879"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222879"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222878"><span class="annot"><span class="annottext">s :: ListNetworks
+</span><a href="#local-6989586621679222878"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworks%27"><span class="hs-identifier hs-type">ListNetworks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222877"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222877"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListNetworks
+</span><a href="#local-6989586621679222878"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ListNetworks' :: Maybe Text
+</span><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#%24sel%3Aname%3AListNetworks%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222877"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworks"><span class="hs-identifier hs-type">ListNetworks</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The maximum number of networks to list.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#listNetworks_maxResults"><span class="hs-identifier hs-type">listNetworks_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworks"><span class="hs-identifier hs-type">ListNetworks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="listNetworks_maxResults"><span class="annot"><span class="annottext">listNetworks_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListNetworks -&gt; f ListNetworks
+</span><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#listNetworks_maxResults"><span class="hs-identifier hs-var hs-var">listNetworks_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListNetworks -&gt; Maybe Natural)
+-&gt; (ListNetworks -&gt; Maybe Natural -&gt; ListNetworks)
+-&gt; Lens ListNetworks ListNetworks (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworks%27"><span class="hs-identifier hs-type">ListNetworks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222876"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListNetworks' :: ListNetworks -&gt; Maybe Natural
+</span><a href="#local-6989586621679222876"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679222876"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222875"><span class="annot"><span class="annottext">s :: ListNetworks
+</span><a href="#local-6989586621679222875"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworks%27"><span class="hs-identifier hs-type">ListNetworks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222874"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679222874"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListNetworks
+</span><a href="#local-6989586621679222875"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListNetworks' :: Maybe Natural
+</span><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#%24sel%3AmaxResults%3AListNetworks%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679222874"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworks"><span class="hs-identifier hs-type">ListNetworks</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworks"><span class="hs-identifier hs-type">ListNetworks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworks"><span class="hs-identifier hs-type">ListNetworks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworksResponse"><span class="hs-identifier hs-type">ListNetworksResponse</span></a></span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679222870"><span class="annot"><span class="annottext">request :: ListNetworks -&gt; Request ListNetworks
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListNetworks -&gt; Request ListNetworks
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ManagedBlockChain.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679222866"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListNetworks
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListNetworks)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListNetworks))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListNetworks
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListNetworks)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679222863"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222863"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679222862"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679222862"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679222861"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679222861"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-138"></span><span>          </span><span class="annot"><span class="annottext">Maybe [NetworkSummary] -&gt; Maybe Text -&gt; Int -&gt; ListNetworksResponse
+</span><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworksResponse%27"><span class="hs-identifier hs-var">ListNetworksResponse'</span></a></span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [NetworkSummary]
+ -&gt; Maybe Text -&gt; Int -&gt; ListNetworksResponse)
+-&gt; Either String (Maybe [NetworkSummary])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListNetworksResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679222861"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [NetworkSummary]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Networks&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [NetworkSummary]))
+-&gt; Maybe [NetworkSummary] -&gt; Either String (Maybe [NetworkSummary])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [NetworkSummary]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListNetworksResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListNetworksResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679222861"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListNetworksResponse)
+-&gt; Either String Int -&gt; Either String ListNetworksResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222863"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222852"><span id="local-6989586621679222854"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworks"><span class="hs-identifier hs-type">ListNetworks</span></a></span></span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222849"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworks"><span class="hs-identifier hs-type">ListNetworks</span></a></span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworks"><span class="hs-identifier hs-type">ListNetworks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679222845"><span class="annot"><span class="annottext">toHeaders :: ListNetworks -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListNetworks -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-152"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-153"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-154"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-155"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworks"><span class="hs-identifier hs-type">ListNetworks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679222839"><span class="annot"><span class="annottext">toPath :: ListNetworks -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListNetworks -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/networks&quot;</span></span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworks"><span class="hs-identifier hs-type">ListNetworks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679222835"><span class="annot"><span class="annottext">toQuery :: ListNetworks -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworks%27"><span class="hs-identifier hs-type">ListNetworks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222829"><span id="local-6989586621679222830"><span id="local-6989586621679222831"><span id="local-6989586621679222832"><span id="local-6989586621679222833"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Maybe Framework
+Maybe NetworkStatus
+maxResults :: Maybe Natural
+name :: Maybe Text
+nextToken :: Maybe Text
+framework :: Maybe Framework
+status :: Maybe NetworkStatus
+$sel:maxResults:ListNetworks' :: ListNetworks -&gt; Maybe Natural
+$sel:name:ListNetworks' :: ListNetworks -&gt; Maybe Text
+$sel:nextToken:ListNetworks' :: ListNetworks -&gt; Maybe Text
+$sel:framework:ListNetworks' :: ListNetworks -&gt; Maybe Framework
+$sel:status:ListNetworks' :: ListNetworks -&gt; Maybe NetworkStatus
+</span><a href="#local-6989586621679222829"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;status&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe NetworkStatus -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe NetworkStatus
+</span><a href="#local-6989586621679222833"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;framework&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Framework -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Framework
+</span><a href="#local-6989586621679222832"><span class="hs-identifier hs-var">framework</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222831"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222830"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679222829"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | /See:/ 'newListNetworksResponse' smart constructor.</span><span>
+</span><span id="line-173"></span><span id="local-6989586621679222826"><span id="local-6989586621679222827"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListNetworksResponse"><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworksResponse"><span class="hs-identifier hs-var">ListNetworksResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListNetworksResponse%27"><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworksResponse%27"><span class="hs-identifier hs-var">ListNetworksResponse'</span></a></span></span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of @NetworkSummary@ objects that contain configuration</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- properties for each network.</span><span>
+</span><span id="line-176"></span><span>    </span><span id="%24sel%3Anetworks%3AListNetworksResponse%27"><span class="annot"><span class="annottext">ListNetworksResponse -&gt; Maybe [NetworkSummary]
+</span><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#%24sel%3Anetworks%3AListNetworksResponse%27"><span class="hs-identifier hs-var hs-var">networks</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NetworkSummary.html#NetworkSummary"><span class="hs-identifier hs-type">NetworkSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- | The pagination token that indicates the next set of results to retrieve.</span><span>
+</span><span id="line-178"></span><span>    </span><span id="%24sel%3AnextToken%3AListNetworksResponse%27"><span class="annot"><span class="annottext">ListNetworksResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#%24sel%3AnextToken%3AListNetworksResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-180"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListNetworksResponse%27"><span class="annot"><span class="annottext">ListNetworksResponse -&gt; Int
+</span><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#%24sel%3AhttpStatus%3AListNetworksResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-181"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-182"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222819"><span id="local-6989586621679222821"><span class="annot"><span class="annottext">ListNetworksResponse -&gt; ListNetworksResponse -&gt; Bool
+(ListNetworksResponse -&gt; ListNetworksResponse -&gt; Bool)
+-&gt; (ListNetworksResponse -&gt; ListNetworksResponse -&gt; Bool)
+-&gt; Eq ListNetworksResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListNetworksResponse -&gt; ListNetworksResponse -&gt; Bool
+$c/= :: ListNetworksResponse -&gt; ListNetworksResponse -&gt; Bool
+== :: ListNetworksResponse -&gt; ListNetworksResponse -&gt; Bool
+$c== :: ListNetworksResponse -&gt; ListNetworksResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222811"><span id="local-6989586621679222813"><span id="local-6989586621679222815"><span id="local-6989586621679222817"><span class="annot"><span class="annottext">ReadPrec [ListNetworksResponse]
+ReadPrec ListNetworksResponse
+Int -&gt; ReadS ListNetworksResponse
+ReadS [ListNetworksResponse]
+(Int -&gt; ReadS ListNetworksResponse)
+-&gt; ReadS [ListNetworksResponse]
+-&gt; ReadPrec ListNetworksResponse
+-&gt; ReadPrec [ListNetworksResponse]
+-&gt; Read ListNetworksResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListNetworksResponse]
+$creadListPrec :: ReadPrec [ListNetworksResponse]
+readPrec :: ReadPrec ListNetworksResponse
+$creadPrec :: ReadPrec ListNetworksResponse
+readList :: ReadS [ListNetworksResponse]
+$creadList :: ReadS [ListNetworksResponse]
+readsPrec :: Int -&gt; ReadS ListNetworksResponse
+$creadsPrec :: Int -&gt; ReadS ListNetworksResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222805"><span id="local-6989586621679222807"><span id="local-6989586621679222809"><span class="annot"><span class="annottext">Int -&gt; ListNetworksResponse -&gt; ShowS
+[ListNetworksResponse] -&gt; ShowS
+ListNetworksResponse -&gt; String
+(Int -&gt; ListNetworksResponse -&gt; ShowS)
+-&gt; (ListNetworksResponse -&gt; String)
+-&gt; ([ListNetworksResponse] -&gt; ShowS)
+-&gt; Show ListNetworksResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListNetworksResponse] -&gt; ShowS
+$cshowList :: [ListNetworksResponse] -&gt; ShowS
+show :: ListNetworksResponse -&gt; String
+$cshow :: ListNetworksResponse -&gt; String
+showsPrec :: Int -&gt; ListNetworksResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListNetworksResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListNetworksResponse -&gt; Rep ListNetworksResponse x)
+-&gt; (forall x. Rep ListNetworksResponse x -&gt; ListNetworksResponse)
+-&gt; Generic ListNetworksResponse
+forall x. Rep ListNetworksResponse x -&gt; ListNetworksResponse
+forall x. ListNetworksResponse -&gt; Rep ListNetworksResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListNetworksResponse x -&gt; ListNetworksResponse
+$cfrom :: forall x. ListNetworksResponse -&gt; Rep ListNetworksResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- Create a value of 'ListNetworksResponse' with all optional fields omitted.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- 'networks', 'listNetworksResponse_networks' - An array of @NetworkSummary@ objects that contain configuration</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- properties for each network.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- 'nextToken', 'listNetworksResponse_nextToken' - The pagination token that indicates the next set of results to retrieve.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- 'httpStatus', 'listNetworksResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#newListNetworksResponse"><span class="hs-identifier hs-type">newListNetworksResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-199"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-200"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-201"></span><span>  </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworksResponse"><span class="hs-identifier hs-type">ListNetworksResponse</span></a></span><span>
+</span><span id="line-202"></span><span id="newListNetworksResponse"><span class="annot"><span class="annottext">newListNetworksResponse :: Int -&gt; ListNetworksResponse
+</span><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#newListNetworksResponse"><span class="hs-identifier hs-var hs-var">newListNetworksResponse</span></a></span></span><span> </span><span id="local-6989586621679222802"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222802"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-203"></span><span>  </span><span class="annot"><span class="annottext">ListNetworksResponse' :: Maybe [NetworkSummary] -&gt; Maybe Text -&gt; Int -&gt; ListNetworksResponse
+</span><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworksResponse%27"><span class="hs-identifier hs-type">ListNetworksResponse'</span></a></span><span>
+</span><span id="line-204"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:networks:ListNetworksResponse' :: Maybe [NetworkSummary]
+</span><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#%24sel%3Anetworks%3AListNetworksResponse%27"><span class="hs-identifier hs-var">networks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [NetworkSummary]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListNetworksResponse' :: Maybe Text
+</span><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#%24sel%3AnextToken%3AListNetworksResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListNetworksResponse' :: Int
+</span><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#%24sel%3AhttpStatus%3AListNetworksResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222802"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-207"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | An array of @NetworkSummary@ objects that contain configuration</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- properties for each network.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#listNetworksResponse_networks"><span class="hs-identifier hs-type">listNetworksResponse_networks</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworksResponse"><span class="hs-identifier hs-type">ListNetworksResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.Types.NetworkSummary.html#NetworkSummary"><span class="hs-identifier hs-type">NetworkSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span id="listNetworksResponse_networks"><span class="annot"><span class="annottext">listNetworksResponse_networks :: (Maybe [NetworkSummary] -&gt; f (Maybe [NetworkSummary]))
+-&gt; ListNetworksResponse -&gt; f ListNetworksResponse
+</span><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#listNetworksResponse_networks"><span class="hs-identifier hs-var hs-var">listNetworksResponse_networks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListNetworksResponse -&gt; Maybe [NetworkSummary])
+-&gt; (ListNetworksResponse
+    -&gt; Maybe [NetworkSummary] -&gt; ListNetworksResponse)
+-&gt; Lens
+     ListNetworksResponse
+     ListNetworksResponse
+     (Maybe [NetworkSummary])
+     (Maybe [NetworkSummary])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworksResponse%27"><span class="hs-identifier hs-type">ListNetworksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222801"><span class="annot"><span class="annottext">Maybe [NetworkSummary]
+networks :: Maybe [NetworkSummary]
+$sel:networks:ListNetworksResponse' :: ListNetworksResponse -&gt; Maybe [NetworkSummary]
+</span><a href="#local-6989586621679222801"><span class="hs-identifier hs-var hs-var">networks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [NetworkSummary]
+</span><a href="#local-6989586621679222801"><span class="hs-identifier hs-var">networks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222800"><span class="annot"><span class="annottext">s :: ListNetworksResponse
+</span><a href="#local-6989586621679222800"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworksResponse%27"><span class="hs-identifier hs-type">ListNetworksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222799"><span class="annot"><span class="annottext">Maybe [NetworkSummary]
+</span><a href="#local-6989586621679222799"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListNetworksResponse
+</span><a href="#local-6989586621679222800"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networks:ListNetworksResponse' :: Maybe [NetworkSummary]
+</span><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#%24sel%3Anetworks%3AListNetworksResponse%27"><span class="hs-identifier hs-var">networks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [NetworkSummary]
+</span><a href="#local-6989586621679222799"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworksResponse"><span class="hs-identifier hs-type">ListNetworksResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [NetworkSummary] -&gt; f (Maybe [NetworkSummary]))
+ -&gt; ListNetworksResponse -&gt; f ListNetworksResponse)
+-&gt; ((Maybe [NetworkSummary] -&gt; f (Maybe [NetworkSummary]))
+    -&gt; Maybe [NetworkSummary] -&gt; f (Maybe [NetworkSummary]))
+-&gt; (Maybe [NetworkSummary] -&gt; f (Maybe [NetworkSummary]))
+-&gt; ListNetworksResponse
+-&gt; f ListNetworksResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [NetworkSummary] [NetworkSummary] [NetworkSummary] [NetworkSummary]
+-&gt; Iso
+     (Maybe [NetworkSummary])
+     (Maybe [NetworkSummary])
+     (Maybe [NetworkSummary])
+     (Maybe [NetworkSummary])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [NetworkSummary] [NetworkSummary] [NetworkSummary] [NetworkSummary]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | The pagination token that indicates the next set of results to retrieve.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#listNetworksResponse_nextToken"><span class="hs-identifier hs-type">listNetworksResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworksResponse"><span class="hs-identifier hs-type">ListNetworksResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span id="listNetworksResponse_nextToken"><span class="annot"><span class="annottext">listNetworksResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListNetworksResponse -&gt; f ListNetworksResponse
+</span><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#listNetworksResponse_nextToken"><span class="hs-identifier hs-var hs-var">listNetworksResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListNetworksResponse -&gt; Maybe Text)
+-&gt; (ListNetworksResponse -&gt; Maybe Text -&gt; ListNetworksResponse)
+-&gt; Lens
+     ListNetworksResponse ListNetworksResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworksResponse%27"><span class="hs-identifier hs-type">ListNetworksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222795"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListNetworksResponse' :: ListNetworksResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679222795"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222795"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222794"><span class="annot"><span class="annottext">s :: ListNetworksResponse
+</span><a href="#local-6989586621679222794"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworksResponse%27"><span class="hs-identifier hs-type">ListNetworksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222793"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222793"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListNetworksResponse
+</span><a href="#local-6989586621679222794"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListNetworksResponse' :: Maybe Text
+</span><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#%24sel%3AnextToken%3AListNetworksResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222793"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworksResponse"><span class="hs-identifier hs-type">ListNetworksResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#listNetworksResponse_httpStatus"><span class="hs-identifier hs-type">listNetworksResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworksResponse"><span class="hs-identifier hs-type">ListNetworksResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-220"></span><span id="listNetworksResponse_httpStatus"><span class="annot"><span class="annottext">listNetworksResponse_httpStatus :: (Int -&gt; f Int) -&gt; ListNetworksResponse -&gt; f ListNetworksResponse
+</span><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#listNetworksResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listNetworksResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListNetworksResponse -&gt; Int)
+-&gt; (ListNetworksResponse -&gt; Int -&gt; ListNetworksResponse)
+-&gt; Lens ListNetworksResponse ListNetworksResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworksResponse%27"><span class="hs-identifier hs-type">ListNetworksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222792"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListNetworksResponse' :: ListNetworksResponse -&gt; Int
+</span><a href="#local-6989586621679222792"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222792"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222791"><span class="annot"><span class="annottext">s :: ListNetworksResponse
+</span><a href="#local-6989586621679222791"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworksResponse%27"><span class="hs-identifier hs-type">ListNetworksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222790"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222790"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListNetworksResponse
+</span><a href="#local-6989586621679222791"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListNetworksResponse' :: Int
+</span><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#%24sel%3AhttpStatus%3AListNetworksResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222790"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworksResponse"><span class="hs-identifier hs-type">ListNetworksResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222788"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ManagedBlockChain.ListNetworks.html#ListNetworksResponse"><span class="hs-identifier hs-type">ListNetworksResponse</span></a></span></span><span>
+</span><span id="line-223"></span></pre></body></html>

@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621680323291"><span id="local-6989586621680323292"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NotebookInstanceLifecycleConfigSortKey"><span class="annot"><a href="Network.AWS.SageMaker.Types.NotebookInstanceLifecycleConfigSortKey.html#NotebookInstanceLifecycleConfigSortKey"><span class="hs-identifier hs-var">NotebookInstanceLifecycleConfigSortKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NotebookInstanceLifecycleConfigSortKey%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.NotebookInstanceLifecycleConfigSortKey.html#NotebookInstanceLifecycleConfigSortKey%27"><span class="hs-identifier hs-var">NotebookInstanceLifecycleConfigSortKey'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621680323300"><span id="local-6989586621680323301"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NotebookInstanceLifecycleConfigSortKey"><span class="annot"><a href="Network.AWS.SageMaker.Types.NotebookInstanceLifecycleConfigSortKey.html#NotebookInstanceLifecycleConfigSortKey"><span class="hs-identifier hs-var">NotebookInstanceLifecycleConfigSortKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NotebookInstanceLifecycleConfigSortKey%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.NotebookInstanceLifecycleConfigSortKey.html#NotebookInstanceLifecycleConfigSortKey%27"><span class="hs-identifier hs-var">NotebookInstanceLifecycleConfigSortKey'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromNotebookInstanceLifecycleConfigSortKey"><span class="annot"><span class="annottext">NotebookInstanceLifecycleConfigSortKey -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.NotebookInstanceLifecycleConfigSortKey.html#fromNotebookInstanceLifecycleConfigSortKey"><span class="hs-identifier hs-var hs-var">fromNotebookInstanceLifecycleConfigSortKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680323283"><span id="local-6989586621680323285"><span id="local-6989586621680323287"><span class="annot"><span class="annottext">Int -&gt; NotebookInstanceLifecycleConfigSortKey -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680323292"><span id="local-6989586621680323294"><span id="local-6989586621680323296"><span class="annot"><span class="annottext">Int -&gt; NotebookInstanceLifecycleConfigSortKey -&gt; ShowS
 [NotebookInstanceLifecycleConfigSortKey] -&gt; ShowS
 NotebookInstanceLifecycleConfigSortKey -&gt; String
 (Int -&gt; NotebookInstanceLifecycleConfigSortKey -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: NotebookInstanceLifecycleConfigSortKey -&gt; String
 showsPrec :: Int -&gt; NotebookInstanceLifecycleConfigSortKey -&gt; ShowS
 $cshowsPrec :: Int -&gt; NotebookInstanceLifecycleConfigSortKey -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621680323274"><span id="local-6989586621680323276"><span id="local-6989586621680323278"><span id="local-6989586621680323280"><span class="annot"><span class="annottext">ReadPrec [NotebookInstanceLifecycleConfigSortKey]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680323283"><span id="local-6989586621680323285"><span id="local-6989586621680323287"><span id="local-6989586621680323289"><span class="annot"><span class="annottext">ReadPrec [NotebookInstanceLifecycleConfigSortKey]
 ReadPrec NotebookInstanceLifecycleConfigSortKey
 Int -&gt; ReadS NotebookInstanceLifecycleConfigSortKey
 ReadS [NotebookInstanceLifecycleConfigSortKey]
@@ -73,7 +73,7 @@ $creadList :: ReadS [NotebookInstanceLifecycleConfigSortKey]
 readsPrec :: Int -&gt; ReadS NotebookInstanceLifecycleConfigSortKey
 $creadsPrec :: Int -&gt; ReadS NotebookInstanceLifecycleConfigSortKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621680323269"><span id="local-6989586621680323271"><span class="annot"><span class="annottext">NotebookInstanceLifecycleConfigSortKey
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680323278"><span id="local-6989586621680323280"><span class="annot"><span class="annottext">NotebookInstanceLifecycleConfigSortKey
 -&gt; NotebookInstanceLifecycleConfigSortKey -&gt; Bool
 (NotebookInstanceLifecycleConfigSortKey
  -&gt; NotebookInstanceLifecycleConfigSortKey -&gt; Bool)
@@ -90,7 +90,7 @@ $c/= :: NotebookInstanceLifecycleConfigSortKey
 $c== :: NotebookInstanceLifecycleConfigSortKey
 -&gt; NotebookInstanceLifecycleConfigSortKey -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621680323253"><span id="local-6989586621680323255"><span id="local-6989586621680323257"><span id="local-6989586621680323259"><span id="local-6989586621680323261"><span id="local-6989586621680323263"><span id="local-6989586621680323265"><span class="annot"><span class="annottext">Eq NotebookInstanceLifecycleConfigSortKey
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621680323262"><span id="local-6989586621680323264"><span id="local-6989586621680323266"><span id="local-6989586621680323268"><span id="local-6989586621680323270"><span id="local-6989586621680323272"><span id="local-6989586621680323274"><span class="annot"><span class="annottext">Eq NotebookInstanceLifecycleConfigSortKey
 Eq NotebookInstanceLifecycleConfigSortKey
 -&gt; (NotebookInstanceLifecycleConfigSortKey
     -&gt; NotebookInstanceLifecycleConfigSortKey -&gt; Ordering)
@@ -184,7 +184,7 @@ NotebookInstanceLifecycleConfigSortKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680323245"><span id="local-6989586621680323247"><span class="annot"><span class="annottext">Int -&gt; NotebookInstanceLifecycleConfigSortKey -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680323254"><span id="local-6989586621680323256"><span class="annot"><span class="annottext">Int -&gt; NotebookInstanceLifecycleConfigSortKey -&gt; Int
 NotebookInstanceLifecycleConfigSortKey -&gt; Int
 (Int -&gt; NotebookInstanceLifecycleConfigSortKey -&gt; Int)
 -&gt; (NotebookInstanceLifecycleConfigSortKey -&gt; Int)
@@ -195,56 +195,56 @@ $chash :: NotebookInstanceLifecycleConfigSortKey -&gt; Int
 hashWithSalt :: Int -&gt; NotebookInstanceLifecycleConfigSortKey -&gt; Int
 $chashWithSalt :: Int -&gt; NotebookInstanceLifecycleConfigSortKey -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680323242"><span class="annot"><span class="annottext">NotebookInstanceLifecycleConfigSortKey -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680323251"><span class="annot"><span class="annottext">NotebookInstanceLifecycleConfigSortKey -&gt; ()
 (NotebookInstanceLifecycleConfigSortKey -&gt; ())
 -&gt; NFData NotebookInstanceLifecycleConfigSortKey
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: NotebookInstanceLifecycleConfigSortKey -&gt; ()
 $crnf :: NotebookInstanceLifecycleConfigSortKey -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680323239"><span class="annot"><span class="annottext">Text -&gt; Either String NotebookInstanceLifecycleConfigSortKey
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680323248"><span class="annot"><span class="annottext">Text -&gt; Either String NotebookInstanceLifecycleConfigSortKey
 (Text -&gt; Either String NotebookInstanceLifecycleConfigSortKey)
 -&gt; FromText NotebookInstanceLifecycleConfigSortKey
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String NotebookInstanceLifecycleConfigSortKey
 $cfromText :: Text -&gt; Either String NotebookInstanceLifecycleConfigSortKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680323236"><span class="annot"><span class="annottext">NotebookInstanceLifecycleConfigSortKey -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680323245"><span class="annot"><span class="annottext">NotebookInstanceLifecycleConfigSortKey -&gt; Text
 (NotebookInstanceLifecycleConfigSortKey -&gt; Text)
 -&gt; ToText NotebookInstanceLifecycleConfigSortKey
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: NotebookInstanceLifecycleConfigSortKey -&gt; Text
 $ctoText :: NotebookInstanceLifecycleConfigSortKey -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680323233"><span class="annot"><span class="annottext">NotebookInstanceLifecycleConfigSortKey -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680323242"><span class="annot"><span class="annottext">NotebookInstanceLifecycleConfigSortKey -&gt; ByteString
 (NotebookInstanceLifecycleConfigSortKey -&gt; ByteString)
 -&gt; ToByteString NotebookInstanceLifecycleConfigSortKey
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: NotebookInstanceLifecycleConfigSortKey -&gt; ByteString
 $ctoBS :: NotebookInstanceLifecycleConfigSortKey -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680323230"><span class="annot"><span class="annottext">NotebookInstanceLifecycleConfigSortKey -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680323239"><span class="annot"><span class="annottext">NotebookInstanceLifecycleConfigSortKey -&gt; ByteStringBuilder
 (NotebookInstanceLifecycleConfigSortKey -&gt; ByteStringBuilder)
 -&gt; ToLog NotebookInstanceLifecycleConfigSortKey
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: NotebookInstanceLifecycleConfigSortKey -&gt; ByteStringBuilder
 $cbuild :: NotebookInstanceLifecycleConfigSortKey -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680323227"><span class="annot"><span class="annottext">HeaderName -&gt; NotebookInstanceLifecycleConfigSortKey -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680323236"><span class="annot"><span class="annottext">HeaderName -&gt; NotebookInstanceLifecycleConfigSortKey -&gt; [Header]
 (HeaderName -&gt; NotebookInstanceLifecycleConfigSortKey -&gt; [Header])
 -&gt; ToHeader NotebookInstanceLifecycleConfigSortKey
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; NotebookInstanceLifecycleConfigSortKey -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; NotebookInstanceLifecycleConfigSortKey -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680323224"><span class="annot"><span class="annottext">NotebookInstanceLifecycleConfigSortKey -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680323233"><span class="annot"><span class="annottext">NotebookInstanceLifecycleConfigSortKey -&gt; QueryString
 (NotebookInstanceLifecycleConfigSortKey -&gt; QueryString)
 -&gt; ToQuery NotebookInstanceLifecycleConfigSortKey
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: NotebookInstanceLifecycleConfigSortKey -&gt; QueryString
 $ctoQuery :: NotebookInstanceLifecycleConfigSortKey -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680323219"><span id="local-6989586621680323221"><span class="annot"><span class="annottext">Value -&gt; Parser [NotebookInstanceLifecycleConfigSortKey]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680323228"><span id="local-6989586621680323230"><span class="annot"><span class="annottext">Value -&gt; Parser [NotebookInstanceLifecycleConfigSortKey]
 Value -&gt; Parser NotebookInstanceLifecycleConfigSortKey
 (Value -&gt; Parser NotebookInstanceLifecycleConfigSortKey)
 -&gt; (Value -&gt; Parser [NotebookInstanceLifecycleConfigSortKey])
@@ -256,7 +256,7 @@ $cparseJSONList :: Value -&gt; Parser [NotebookInstanceLifecycleConfigSortKey]
 parseJSON :: Value -&gt; Parser NotebookInstanceLifecycleConfigSortKey
 $cparseJSON :: Value -&gt; Parser NotebookInstanceLifecycleConfigSortKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680323214"><span id="local-6989586621680323216"><span class="annot"><span class="annottext">FromJSONKeyFunction [NotebookInstanceLifecycleConfigSortKey]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680323223"><span id="local-6989586621680323225"><span class="annot"><span class="annottext">FromJSONKeyFunction [NotebookInstanceLifecycleConfigSortKey]
 FromJSONKeyFunction NotebookInstanceLifecycleConfigSortKey
 FromJSONKeyFunction NotebookInstanceLifecycleConfigSortKey
 -&gt; FromJSONKeyFunction [NotebookInstanceLifecycleConfigSortKey]
@@ -268,7 +268,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [NotebookInstanceLifecycleConfigSortKey
 fromJSONKey :: FromJSONKeyFunction NotebookInstanceLifecycleConfigSortKey
 $cfromJSONKey :: FromJSONKeyFunction NotebookInstanceLifecycleConfigSortKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680323205"><span id="local-6989586621680323207"><span id="local-6989586621680323209"><span id="local-6989586621680323211"><span class="annot"><span class="annottext">[NotebookInstanceLifecycleConfigSortKey] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680323214"><span id="local-6989586621680323216"><span id="local-6989586621680323218"><span id="local-6989586621680323220"><span class="annot"><span class="annottext">[NotebookInstanceLifecycleConfigSortKey] -&gt; Encoding
 [NotebookInstanceLifecycleConfigSortKey] -&gt; Value
 NotebookInstanceLifecycleConfigSortKey -&gt; Encoding
 NotebookInstanceLifecycleConfigSortKey -&gt; Value
@@ -292,7 +292,7 @@ $ctoEncoding :: NotebookInstanceLifecycleConfigSortKey -&gt; Encoding
 toJSON :: NotebookInstanceLifecycleConfigSortKey -&gt; Value
 $ctoJSON :: NotebookInstanceLifecycleConfigSortKey -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680323200"><span id="local-6989586621680323202"><span class="annot"><span class="annottext">ToJSONKeyFunction [NotebookInstanceLifecycleConfigSortKey]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680323209"><span id="local-6989586621680323211"><span class="annot"><span class="annottext">ToJSONKeyFunction [NotebookInstanceLifecycleConfigSortKey]
 ToJSONKeyFunction NotebookInstanceLifecycleConfigSortKey
 ToJSONKeyFunction NotebookInstanceLifecycleConfigSortKey
 -&gt; ToJSONKeyFunction [NotebookInstanceLifecycleConfigSortKey]
@@ -304,14 +304,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [NotebookInstanceLifecycleConfigSortKey]
 toJSONKey :: ToJSONKeyFunction NotebookInstanceLifecycleConfigSortKey
 $ctoJSONKey :: ToJSONKeyFunction NotebookInstanceLifecycleConfigSortKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680323197"><span class="annot"><span class="annottext">[Node] -&gt; Either String NotebookInstanceLifecycleConfigSortKey
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680323206"><span class="annot"><span class="annottext">[Node] -&gt; Either String NotebookInstanceLifecycleConfigSortKey
 ([Node] -&gt; Either String NotebookInstanceLifecycleConfigSortKey)
 -&gt; FromXML NotebookInstanceLifecycleConfigSortKey
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String NotebookInstanceLifecycleConfigSortKey
 $cparseXML :: [Node] -&gt; Either String NotebookInstanceLifecycleConfigSortKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680323194"><span class="annot"><span class="annottext">NotebookInstanceLifecycleConfigSortKey -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680323203"><span class="annot"><span class="annottext">NotebookInstanceLifecycleConfigSortKey -&gt; XML
 (NotebookInstanceLifecycleConfigSortKey -&gt; XML)
 -&gt; ToXML NotebookInstanceLifecycleConfigSortKey
 forall a. (a -&gt; XML) -&gt; ToXML a

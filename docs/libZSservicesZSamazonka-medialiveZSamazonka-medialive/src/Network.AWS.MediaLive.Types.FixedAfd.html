@@ -39,13 +39,13 @@
 </span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-40"></span><span>
 </span><span id="line-41"></span><span class="hs-comment">-- | Fixed Afd</span><span>
-</span><span id="line-42"></span><span id="local-6989586621679876969"><span id="local-6989586621679876970"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FixedAfd"><span class="annot"><a href="Network.AWS.MediaLive.Types.FixedAfd.html#FixedAfd"><span class="hs-identifier hs-var">FixedAfd</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FixedAfd%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.FixedAfd.html#FixedAfd%27"><span class="hs-identifier hs-var">FixedAfd'</span></a></span></span><span>
+</span><span id="line-42"></span><span id="local-6989586621679876978"><span id="local-6989586621679876979"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FixedAfd"><span class="annot"><a href="Network.AWS.MediaLive.Types.FixedAfd.html#FixedAfd"><span class="hs-identifier hs-var">FixedAfd</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FixedAfd%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.FixedAfd.html#FixedAfd%27"><span class="hs-identifier hs-var">FixedAfd'</span></a></span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFixedAfd"><span class="annot"><span class="annottext">FixedAfd -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.FixedAfd.html#fromFixedAfd"><span class="hs-identifier hs-var hs-var">fromFixedAfd</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-44"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679876961"><span id="local-6989586621679876963"><span id="local-6989586621679876965"><span class="annot"><span class="annottext">Int -&gt; FixedAfd -&gt; ShowS
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679876970"><span id="local-6989586621679876972"><span id="local-6989586621679876974"><span class="annot"><span class="annottext">Int -&gt; FixedAfd -&gt; ShowS
 [FixedAfd] -&gt; ShowS
 FixedAfd -&gt; String
 (Int -&gt; FixedAfd -&gt; ShowS)
@@ -59,7 +59,7 @@ $cshow :: FixedAfd -&gt; String
 showsPrec :: Int -&gt; FixedAfd -&gt; ShowS
 $cshowsPrec :: Int -&gt; FixedAfd -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679876952"><span id="local-6989586621679876954"><span id="local-6989586621679876956"><span id="local-6989586621679876958"><span class="annot"><span class="annottext">ReadPrec [FixedAfd]
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679876961"><span id="local-6989586621679876963"><span id="local-6989586621679876965"><span id="local-6989586621679876967"><span class="annot"><span class="annottext">ReadPrec [FixedAfd]
 ReadPrec FixedAfd
 Int -&gt; ReadS FixedAfd
 ReadS [FixedAfd]
@@ -80,7 +80,7 @@ $creadList :: ReadS [FixedAfd]
 readsPrec :: Int -&gt; ReadS FixedAfd
 $creadsPrec :: Int -&gt; ReadS FixedAfd
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679876947"><span id="local-6989586621679876949"><span class="annot"><span class="annottext">FixedAfd -&gt; FixedAfd -&gt; Bool
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679876956"><span id="local-6989586621679876958"><span class="annot"><span class="annottext">FixedAfd -&gt; FixedAfd -&gt; Bool
 (FixedAfd -&gt; FixedAfd -&gt; Bool)
 -&gt; (FixedAfd -&gt; FixedAfd -&gt; Bool) -&gt; Eq FixedAfd
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -89,7 +89,7 @@ $c/= :: FixedAfd -&gt; FixedAfd -&gt; Bool
 == :: FixedAfd -&gt; FixedAfd -&gt; Bool
 $c== :: FixedAfd -&gt; FixedAfd -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679876931"><span id="local-6989586621679876933"><span id="local-6989586621679876935"><span id="local-6989586621679876937"><span id="local-6989586621679876939"><span id="local-6989586621679876941"><span id="local-6989586621679876943"><span class="annot"><span class="annottext">Eq FixedAfd
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679876940"><span id="local-6989586621679876942"><span id="local-6989586621679876944"><span id="local-6989586621679876946"><span id="local-6989586621679876948"><span id="local-6989586621679876950"><span id="local-6989586621679876952"><span class="annot"><span class="annottext">Eq FixedAfd
 Eq FixedAfd
 -&gt; (FixedAfd -&gt; FixedAfd -&gt; Ordering)
 -&gt; (FixedAfd -&gt; FixedAfd -&gt; Bool)
@@ -139,7 +139,7 @@ $cfrom :: forall x. FixedAfd -&gt; Rep FixedAfd x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679876923"><span id="local-6989586621679876925"><span class="annot"><span class="annottext">Int -&gt; FixedAfd -&gt; Int
+</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679876932"><span id="local-6989586621679876934"><span class="annot"><span class="annottext">Int -&gt; FixedAfd -&gt; Int
 FixedAfd -&gt; Int
 (Int -&gt; FixedAfd -&gt; Int) -&gt; (FixedAfd -&gt; Int) -&gt; Hashable FixedAfd
 forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
@@ -148,49 +148,49 @@ $chash :: FixedAfd -&gt; Int
 hashWithSalt :: Int -&gt; FixedAfd -&gt; Int
 $chashWithSalt :: Int -&gt; FixedAfd -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679876920"><span class="annot"><span class="annottext">FixedAfd -&gt; ()
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679876929"><span class="annot"><span class="annottext">FixedAfd -&gt; ()
 (FixedAfd -&gt; ()) -&gt; NFData FixedAfd
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: FixedAfd -&gt; ()
 $crnf :: FixedAfd -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679876917"><span class="annot"><span class="annottext">Text -&gt; Either String FixedAfd
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679876926"><span class="annot"><span class="annottext">Text -&gt; Either String FixedAfd
 (Text -&gt; Either String FixedAfd) -&gt; FromText FixedAfd
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String FixedAfd
 $cfromText :: Text -&gt; Either String FixedAfd
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679876914"><span class="annot"><span class="annottext">FixedAfd -&gt; Text
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679876923"><span class="annot"><span class="annottext">FixedAfd -&gt; Text
 (FixedAfd -&gt; Text) -&gt; ToText FixedAfd
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: FixedAfd -&gt; Text
 $ctoText :: FixedAfd -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679876911"><span class="annot"><span class="annottext">FixedAfd -&gt; ByteString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679876920"><span class="annot"><span class="annottext">FixedAfd -&gt; ByteString
 (FixedAfd -&gt; ByteString) -&gt; ToByteString FixedAfd
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: FixedAfd -&gt; ByteString
 $ctoBS :: FixedAfd -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679876908"><span class="annot"><span class="annottext">FixedAfd -&gt; ByteStringBuilder
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679876917"><span class="annot"><span class="annottext">FixedAfd -&gt; ByteStringBuilder
 (FixedAfd -&gt; ByteStringBuilder) -&gt; ToLog FixedAfd
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: FixedAfd -&gt; ByteStringBuilder
 $cbuild :: FixedAfd -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679876905"><span class="annot"><span class="annottext">HeaderName -&gt; FixedAfd -&gt; [Header]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679876914"><span class="annot"><span class="annottext">HeaderName -&gt; FixedAfd -&gt; [Header]
 (HeaderName -&gt; FixedAfd -&gt; [Header]) -&gt; ToHeader FixedAfd
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; FixedAfd -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; FixedAfd -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679876902"><span class="annot"><span class="annottext">FixedAfd -&gt; QueryString
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679876911"><span class="annot"><span class="annottext">FixedAfd -&gt; QueryString
 (FixedAfd -&gt; QueryString) -&gt; ToQuery FixedAfd
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: FixedAfd -&gt; QueryString
 $ctoQuery :: FixedAfd -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679876897"><span id="local-6989586621679876899"><span class="annot"><span class="annottext">Value -&gt; Parser [FixedAfd]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679876906"><span id="local-6989586621679876908"><span class="annot"><span class="annottext">Value -&gt; Parser [FixedAfd]
 Value -&gt; Parser FixedAfd
 (Value -&gt; Parser FixedAfd)
 -&gt; (Value -&gt; Parser [FixedAfd]) -&gt; FromJSON FixedAfd
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [FixedAfd]
 parseJSON :: Value -&gt; Parser FixedAfd
 $cparseJSON :: Value -&gt; Parser FixedAfd
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679876892"><span id="local-6989586621679876894"><span class="annot"><span class="annottext">FromJSONKeyFunction [FixedAfd]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679876901"><span id="local-6989586621679876903"><span class="annot"><span class="annottext">FromJSONKeyFunction [FixedAfd]
 FromJSONKeyFunction FixedAfd
 FromJSONKeyFunction FixedAfd
 -&gt; FromJSONKeyFunction [FixedAfd] -&gt; FromJSONKey FixedAfd
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [FixedAfd]
 fromJSONKey :: FromJSONKeyFunction FixedAfd
 $cfromJSONKey :: FromJSONKeyFunction FixedAfd
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679876883"><span id="local-6989586621679876885"><span id="local-6989586621679876887"><span id="local-6989586621679876889"><span class="annot"><span class="annottext">[FixedAfd] -&gt; Encoding
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679876892"><span id="local-6989586621679876894"><span id="local-6989586621679876896"><span id="local-6989586621679876898"><span class="annot"><span class="annottext">[FixedAfd] -&gt; Encoding
 [FixedAfd] -&gt; Value
 FixedAfd -&gt; Encoding
 FixedAfd -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: FixedAfd -&gt; Encoding
 toJSON :: FixedAfd -&gt; Value
 $ctoJSON :: FixedAfd -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679876878"><span id="local-6989586621679876880"><span class="annot"><span class="annottext">ToJSONKeyFunction [FixedAfd]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679876887"><span id="local-6989586621679876889"><span class="annot"><span class="annottext">ToJSONKeyFunction [FixedAfd]
 ToJSONKeyFunction FixedAfd
 ToJSONKeyFunction FixedAfd
 -&gt; ToJSONKeyFunction [FixedAfd] -&gt; ToJSONKey FixedAfd
@@ -247,13 +247,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [FixedAfd]
 toJSONKey :: ToJSONKeyFunction FixedAfd
 $ctoJSONKey :: ToJSONKeyFunction FixedAfd
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679876875"><span class="annot"><span class="annottext">[Node] -&gt; Either String FixedAfd
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679876884"><span class="annot"><span class="annottext">[Node] -&gt; Either String FixedAfd
 ([Node] -&gt; Either String FixedAfd) -&gt; FromXML FixedAfd
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String FixedAfd
 $cparseXML :: [Node] -&gt; Either String FixedAfd
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679876872"><span class="annot"><span class="annottext">FixedAfd -&gt; XML
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679876881"><span class="annot"><span class="annottext">FixedAfd -&gt; XML
 (FixedAfd -&gt; XML) -&gt; ToXML FixedAfd
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: FixedAfd -&gt; XML

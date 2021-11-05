@@ -71,7 +71,7 @@
 </span><span id="line-71"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.html"><span class="hs-identifier">Network.AWS.SageMaker.Types</span></a></span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | /See:/ 'newCreateWorkforce' smart constructor.</span><span>
-</span><span id="line-74"></span><span id="local-6989586621680412418"><span id="local-6989586621680412419"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateWorkforce"><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce"><span class="hs-identifier hs-var">CreateWorkforce</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateWorkforce%27"><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce%27"><span class="hs-identifier hs-var">CreateWorkforce'</span></a></span></span><span>
+</span><span id="line-74"></span><span id="local-6989586621680412427"><span id="local-6989586621680412428"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateWorkforce"><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce"><span class="hs-identifier hs-var">CreateWorkforce</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateWorkforce%27"><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce%27"><span class="hs-identifier hs-var">CreateWorkforce'</span></a></span></span><span>
 </span><span id="line-75"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AsourceIpConfig%3ACreateWorkforce%27"><span class="annot"><span class="annottext">CreateWorkforce -&gt; Maybe SourceIpConfig
 </span><a href="Network.AWS.SageMaker.CreateWorkforce.html#%24sel%3AsourceIpConfig%3ACreateWorkforce%27"><span class="hs-identifier hs-var hs-var">sourceIpConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SourceIpConfig.html#SourceIpConfig"><span class="hs-identifier hs-type">SourceIpConfig</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | Use this parameter to configure an Amazon Cognito private workforce. A</span><span>
@@ -96,7 +96,7 @@
 </span><span id="line-92"></span><span>    </span><span id="%24sel%3AworkforceName%3ACreateWorkforce%27"><span class="annot"><span class="annottext">CreateWorkforce -&gt; Text
 </span><a href="Network.AWS.SageMaker.CreateWorkforce.html#%24sel%3AworkforceName%3ACreateWorkforce%27"><span class="hs-identifier hs-var hs-var">workforceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-93"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-94"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680412408"><span id="local-6989586621680412410"><span class="annot"><span class="annottext">CreateWorkforce -&gt; CreateWorkforce -&gt; Bool
+</span><span id="line-94"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680412417"><span id="local-6989586621680412419"><span class="annot"><span class="annottext">CreateWorkforce -&gt; CreateWorkforce -&gt; Bool
 (CreateWorkforce -&gt; CreateWorkforce -&gt; Bool)
 -&gt; (CreateWorkforce -&gt; CreateWorkforce -&gt; Bool)
 -&gt; Eq CreateWorkforce
@@ -105,7 +105,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateWorkforce -&gt; CreateWorkforce -&gt; Bool
 == :: CreateWorkforce -&gt; CreateWorkforce -&gt; Bool
 $c== :: CreateWorkforce -&gt; CreateWorkforce -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680412401"><span id="local-6989586621680412403"><span id="local-6989586621680412405"><span class="annot"><span class="annottext">Int -&gt; CreateWorkforce -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680412410"><span id="local-6989586621680412412"><span id="local-6989586621680412414"><span class="annot"><span class="annottext">Int -&gt; CreateWorkforce -&gt; ShowS
 [CreateWorkforce] -&gt; ShowS
 CreateWorkforce -&gt; String
 (Int -&gt; CreateWorkforce -&gt; ShowS)
@@ -162,8 +162,8 @@ $cfrom :: forall x. CreateWorkforce -&gt; Rep CreateWorkforce x
 </span><span id="line-124"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-125"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce"><span class="hs-identifier hs-type">CreateWorkforce</span></a></span><span>
 </span><span id="line-126"></span><span id="newCreateWorkforce"><span class="annot"><span class="annottext">newCreateWorkforce :: Text -&gt; CreateWorkforce
-</span><a href="Network.AWS.SageMaker.CreateWorkforce.html#newCreateWorkforce"><span class="hs-identifier hs-var hs-var">newCreateWorkforce</span></a></span></span><span> </span><span id="local-6989586621680412396"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680412396"><span class="hs-identifier hs-var">pWorkforceName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.CreateWorkforce.html#newCreateWorkforce"><span class="hs-identifier hs-var hs-var">newCreateWorkforce</span></a></span></span><span> </span><span id="local-6989586621680412405"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680412405"><span class="hs-identifier hs-var">pWorkforceName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-127"></span><span>  </span><span class="annot"><span class="annottext">CreateWorkforce' :: Maybe SourceIpConfig
 -&gt; Maybe CognitoConfig
 -&gt; Maybe OidcConfig
@@ -189,7 +189,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:workforceName:CreateWorkforce' :: Text
 </span><a href="Network.AWS.SageMaker.CreateWorkforce.html#%24sel%3AworkforceName%3ACreateWorkforce%27"><span class="hs-identifier hs-var">workforceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680412396"><span class="hs-identifier hs-var">pWorkforceName_</span></a></span><span>
+</span><a href="#local-6989586621680412405"><span class="hs-identifier hs-var">pWorkforceName_</span></a></span><span>
 </span><span id="line-133"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -204,16 +204,16 @@ forall a. Maybe a
      (Maybe SourceIpConfig)
      (Maybe SourceIpConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce%27"><span class="hs-identifier hs-type">CreateWorkforce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680412393"><span class="annot"><span class="annottext">Maybe SourceIpConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce%27"><span class="hs-identifier hs-type">CreateWorkforce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680412402"><span class="annot"><span class="annottext">Maybe SourceIpConfig
 sourceIpConfig :: Maybe SourceIpConfig
 $sel:sourceIpConfig:CreateWorkforce' :: CreateWorkforce -&gt; Maybe SourceIpConfig
-</span><a href="#local-6989586621680412393"><span class="hs-identifier hs-var hs-var">sourceIpConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SourceIpConfig
-</span><a href="#local-6989586621680412393"><span class="hs-identifier hs-var">sourceIpConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680412392"><span class="annot"><span class="annottext">s :: CreateWorkforce
-</span><a href="#local-6989586621680412392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce%27"><span class="hs-identifier hs-type">CreateWorkforce'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680412391"><span class="annot"><span class="annottext">Maybe SourceIpConfig
-</span><a href="#local-6989586621680412391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkforce
-</span><a href="#local-6989586621680412392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceIpConfig:CreateWorkforce' :: Maybe SourceIpConfig
+</span><a href="#local-6989586621680412402"><span class="hs-identifier hs-var hs-var">sourceIpConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SourceIpConfig
+</span><a href="#local-6989586621680412402"><span class="hs-identifier hs-var">sourceIpConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680412401"><span class="annot"><span class="annottext">s :: CreateWorkforce
+</span><a href="#local-6989586621680412401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce%27"><span class="hs-identifier hs-type">CreateWorkforce'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680412400"><span class="annot"><span class="annottext">Maybe SourceIpConfig
+</span><a href="#local-6989586621680412400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkforce
+</span><a href="#local-6989586621680412401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceIpConfig:CreateWorkforce' :: Maybe SourceIpConfig
 </span><a href="Network.AWS.SageMaker.CreateWorkforce.html#%24sel%3AsourceIpConfig%3ACreateWorkforce%27"><span class="hs-identifier hs-var">sourceIpConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SourceIpConfig
-</span><a href="#local-6989586621680412391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce"><span class="hs-identifier hs-type">CreateWorkforce</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680412400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce"><span class="hs-identifier hs-type">CreateWorkforce</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | Use this parameter to configure an Amazon Cognito private workforce. A</span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- single Cognito workforce is created using and corresponds to a single</span><span>
@@ -231,16 +231,16 @@ $sel:sourceIpConfig:CreateWorkforce' :: CreateWorkforce -&gt; Maybe SourceIpConf
      (Maybe CognitoConfig)
      (Maybe CognitoConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce%27"><span class="hs-identifier hs-type">CreateWorkforce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680412390"><span class="annot"><span class="annottext">Maybe CognitoConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce%27"><span class="hs-identifier hs-type">CreateWorkforce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680412399"><span class="annot"><span class="annottext">Maybe CognitoConfig
 cognitoConfig :: Maybe CognitoConfig
 $sel:cognitoConfig:CreateWorkforce' :: CreateWorkforce -&gt; Maybe CognitoConfig
-</span><a href="#local-6989586621680412390"><span class="hs-identifier hs-var hs-var">cognitoConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CognitoConfig
-</span><a href="#local-6989586621680412390"><span class="hs-identifier hs-var">cognitoConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680412389"><span class="annot"><span class="annottext">s :: CreateWorkforce
-</span><a href="#local-6989586621680412389"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce%27"><span class="hs-identifier hs-type">CreateWorkforce'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680412388"><span class="annot"><span class="annottext">Maybe CognitoConfig
-</span><a href="#local-6989586621680412388"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkforce
-</span><a href="#local-6989586621680412389"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cognitoConfig:CreateWorkforce' :: Maybe CognitoConfig
+</span><a href="#local-6989586621680412399"><span class="hs-identifier hs-var hs-var">cognitoConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CognitoConfig
+</span><a href="#local-6989586621680412399"><span class="hs-identifier hs-var">cognitoConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680412398"><span class="annot"><span class="annottext">s :: CreateWorkforce
+</span><a href="#local-6989586621680412398"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce%27"><span class="hs-identifier hs-type">CreateWorkforce'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680412397"><span class="annot"><span class="annottext">Maybe CognitoConfig
+</span><a href="#local-6989586621680412397"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkforce
+</span><a href="#local-6989586621680412398"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cognitoConfig:CreateWorkforce' :: Maybe CognitoConfig
 </span><a href="Network.AWS.SageMaker.CreateWorkforce.html#%24sel%3AcognitoConfig%3ACreateWorkforce%27"><span class="hs-identifier hs-var">cognitoConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CognitoConfig
-</span><a href="#local-6989586621680412388"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce"><span class="hs-identifier hs-type">CreateWorkforce</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680412397"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce"><span class="hs-identifier hs-type">CreateWorkforce</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | Use this parameter to configure a private workforce using your own OIDC</span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- Identity Provider.</span><span>
@@ -257,16 +257,16 @@ $sel:cognitoConfig:CreateWorkforce' :: CreateWorkforce -&gt; Maybe CognitoConfig
      (Maybe OidcConfig)
      (Maybe OidcConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce%27"><span class="hs-identifier hs-type">CreateWorkforce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680412387"><span class="annot"><span class="annottext">Maybe OidcConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce%27"><span class="hs-identifier hs-type">CreateWorkforce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680412396"><span class="annot"><span class="annottext">Maybe OidcConfig
 oidcConfig :: Maybe OidcConfig
 $sel:oidcConfig:CreateWorkforce' :: CreateWorkforce -&gt; Maybe OidcConfig
-</span><a href="#local-6989586621680412387"><span class="hs-identifier hs-var hs-var">oidcConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OidcConfig
-</span><a href="#local-6989586621680412387"><span class="hs-identifier hs-var">oidcConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680412386"><span class="annot"><span class="annottext">s :: CreateWorkforce
-</span><a href="#local-6989586621680412386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce%27"><span class="hs-identifier hs-type">CreateWorkforce'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680412385"><span class="annot"><span class="annottext">Maybe OidcConfig
-</span><a href="#local-6989586621680412385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkforce
-</span><a href="#local-6989586621680412386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:oidcConfig:CreateWorkforce' :: Maybe OidcConfig
+</span><a href="#local-6989586621680412396"><span class="hs-identifier hs-var hs-var">oidcConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OidcConfig
+</span><a href="#local-6989586621680412396"><span class="hs-identifier hs-var">oidcConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680412395"><span class="annot"><span class="annottext">s :: CreateWorkforce
+</span><a href="#local-6989586621680412395"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce%27"><span class="hs-identifier hs-type">CreateWorkforce'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680412394"><span class="annot"><span class="annottext">Maybe OidcConfig
+</span><a href="#local-6989586621680412394"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkforce
+</span><a href="#local-6989586621680412395"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:oidcConfig:CreateWorkforce' :: Maybe OidcConfig
 </span><a href="Network.AWS.SageMaker.CreateWorkforce.html#%24sel%3AoidcConfig%3ACreateWorkforce%27"><span class="hs-identifier hs-var">oidcConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OidcConfig
-</span><a href="#local-6989586621680412385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce"><span class="hs-identifier hs-type">CreateWorkforce</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680412394"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce"><span class="hs-identifier hs-type">CreateWorkforce</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- | An array of key-value pairs that contain metadata to help you categorize</span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- and organize our workforce. Each tag consists of a key and a value, both</span><span>
@@ -278,16 +278,16 @@ $sel:oidcConfig:CreateWorkforce' :: CreateWorkforce -&gt; Maybe OidcConfig
 -&gt; (CreateWorkforce -&gt; Maybe [Tag] -&gt; CreateWorkforce)
 -&gt; Lens CreateWorkforce CreateWorkforce (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce%27"><span class="hs-identifier hs-type">CreateWorkforce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680412384"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce%27"><span class="hs-identifier hs-type">CreateWorkforce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680412393"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:CreateWorkforce' :: CreateWorkforce -&gt; Maybe [Tag]
-</span><a href="#local-6989586621680412384"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621680412384"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680412383"><span class="annot"><span class="annottext">s :: CreateWorkforce
-</span><a href="#local-6989586621680412383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce%27"><span class="hs-identifier hs-type">CreateWorkforce'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680412382"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621680412382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkforce
-</span><a href="#local-6989586621680412383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateWorkforce' :: Maybe [Tag]
+</span><a href="#local-6989586621680412393"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680412393"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680412392"><span class="annot"><span class="annottext">s :: CreateWorkforce
+</span><a href="#local-6989586621680412392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce%27"><span class="hs-identifier hs-type">CreateWorkforce'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680412391"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680412391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkforce
+</span><a href="#local-6989586621680412392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateWorkforce' :: Maybe [Tag]
 </span><a href="Network.AWS.SageMaker.CreateWorkforce.html#%24sel%3Atags%3ACreateWorkforce%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621680412382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce"><span class="hs-identifier hs-type">CreateWorkforce</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621680412391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce"><span class="hs-identifier hs-type">CreateWorkforce</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; CreateWorkforce -&gt; f CreateWorkforce)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -311,27 +311,27 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (CreateWorkforce -&gt; Text -&gt; CreateWorkforce)
 -&gt; Lens CreateWorkforce CreateWorkforce Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce%27"><span class="hs-identifier hs-type">CreateWorkforce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680412378"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce%27"><span class="hs-identifier hs-type">CreateWorkforce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680412387"><span class="annot"><span class="annottext">Text
 workforceName :: Text
 $sel:workforceName:CreateWorkforce' :: CreateWorkforce -&gt; Text
-</span><a href="#local-6989586621680412378"><span class="hs-identifier hs-var hs-var">workforceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680412378"><span class="hs-identifier hs-var">workforceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680412377"><span class="annot"><span class="annottext">s :: CreateWorkforce
-</span><a href="#local-6989586621680412377"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce%27"><span class="hs-identifier hs-type">CreateWorkforce'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680412376"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680412376"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkforce
-</span><a href="#local-6989586621680412377"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workforceName:CreateWorkforce' :: Text
+</span><a href="#local-6989586621680412387"><span class="hs-identifier hs-var hs-var">workforceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680412387"><span class="hs-identifier hs-var">workforceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680412386"><span class="annot"><span class="annottext">s :: CreateWorkforce
+</span><a href="#local-6989586621680412386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce%27"><span class="hs-identifier hs-type">CreateWorkforce'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680412385"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680412385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkforce
+</span><a href="#local-6989586621680412386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workforceName:CreateWorkforce' :: Text
 </span><a href="Network.AWS.SageMaker.CreateWorkforce.html#%24sel%3AworkforceName%3ACreateWorkforce%27"><span class="hs-identifier hs-var">workforceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680412376"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce"><span class="hs-identifier hs-type">CreateWorkforce</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680412385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce"><span class="hs-identifier hs-type">CreateWorkforce</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce"><span class="hs-identifier hs-type">CreateWorkforce</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-165"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-166"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce"><span class="hs-identifier hs-type">CreateWorkforce</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-167"></span><span>      </span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforceResponse"><span class="hs-identifier hs-type">CreateWorkforceResponse</span></a></span><span>
-</span><span id="line-168"></span><span>  </span><span id="local-6989586621680412372"><span class="annot"><span class="annottext">request :: CreateWorkforce -&gt; Request CreateWorkforce
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621680412381"><span class="annot"><span class="annottext">request :: CreateWorkforce -&gt; Request CreateWorkforce
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateWorkforce -&gt; Request CreateWorkforce
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621680412368"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621680412377"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateWorkforce
 -&gt; ClientResponse ClientBody
@@ -355,10 +355,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-171"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680412365"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680412365"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680412364"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621680412364"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680412363"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680412363"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680412374"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680412374"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680412373"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680412373"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680412372"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680412372"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-172"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; CreateWorkforceResponse
 </span><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforceResponse%27"><span class="hs-identifier hs-var">CreateWorkforceResponse'</span></a></span><span>
 </span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; CreateWorkforceResponse)
@@ -370,23 +370,23 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680412365"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680412374"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; CreateWorkforceResponse)
 -&gt; Either String Text -&gt; Either String CreateWorkforceResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680412363"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621680412372"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;WorkforceArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
-</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680412355"><span id="local-6989586621680412357"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce"><span class="hs-identifier hs-type">CreateWorkforce</span></a></span></span></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680412364"><span id="local-6989586621680412366"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce"><span class="hs-identifier hs-type">CreateWorkforce</span></a></span></span></span><span>
 </span><span id="line-178"></span><span>
-</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680412352"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce"><span class="hs-identifier hs-type">CreateWorkforce</span></a></span></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680412361"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce"><span class="hs-identifier hs-type">CreateWorkforce</span></a></span></span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce"><span class="hs-identifier hs-type">CreateWorkforce</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-182"></span><span>  </span><span id="local-6989586621680412348"><span class="annot"><span class="annottext">toHeaders :: CreateWorkforce -&gt; ResponseHeaders
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621680412357"><span class="annot"><span class="annottext">toHeaders :: CreateWorkforce -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-183"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateWorkforce -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -411,9 +411,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-191"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-192"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>
-</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680412338"><span id="local-6989586621680412340"><span id="local-6989586621680412342"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce"><span class="hs-identifier hs-type">CreateWorkforce</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-195"></span><span>  </span><span id="local-6989586621680412336"><span class="annot"><span class="annottext">toJSON :: CreateWorkforce -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce%27"><span class="hs-identifier hs-type">CreateWorkforce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680412330"><span id="local-6989586621680412331"><span id="local-6989586621680412332"><span id="local-6989586621680412333"><span id="local-6989586621680412334"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680412347"><span id="local-6989586621680412349"><span id="local-6989586621680412351"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce"><span class="hs-identifier hs-type">CreateWorkforce</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621680412345"><span class="annot"><span class="annottext">toJSON :: CreateWorkforce -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce%27"><span class="hs-identifier hs-type">CreateWorkforce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680412339"><span id="local-6989586621680412340"><span id="local-6989586621680412341"><span id="local-6989586621680412342"><span id="local-6989586621680412343"><span class="annot"><span class="annottext">Maybe [Tag]
 Maybe CognitoConfig
 Maybe OidcConfig
 Maybe SourceIpConfig
@@ -428,7 +428,7 @@ $sel:tags:CreateWorkforce' :: CreateWorkforce -&gt; Maybe [Tag]
 $sel:oidcConfig:CreateWorkforce' :: CreateWorkforce -&gt; Maybe OidcConfig
 $sel:cognitoConfig:CreateWorkforce' :: CreateWorkforce -&gt; Maybe CognitoConfig
 $sel:sourceIpConfig:CreateWorkforce' :: CreateWorkforce -&gt; Maybe SourceIpConfig
-</span><a href="#local-6989586621680412330"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680412339"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-196"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-197"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -441,28 +441,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-199"></span><span>              </span><span class="annot"><span class="annottext">(SourceIpConfig -&gt; Pair) -&gt; Maybe SourceIpConfig -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SourceIpConfig
-</span><a href="#local-6989586621680412334"><span class="hs-identifier hs-var">sourceIpConfig</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680412343"><span class="hs-identifier hs-var">sourceIpConfig</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-200"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CognitoConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CognitoConfig -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(CognitoConfig -&gt; Pair) -&gt; Maybe CognitoConfig -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CognitoConfig
-</span><a href="#local-6989586621680412333"><span class="hs-identifier hs-var">cognitoConfig</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680412342"><span class="hs-identifier hs-var">cognitoConfig</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-201"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OidcConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OidcConfig -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(OidcConfig -&gt; Pair) -&gt; Maybe OidcConfig -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe OidcConfig
-</span><a href="#local-6989586621680412332"><span class="hs-identifier hs-var">oidcConfig</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680412341"><span class="hs-identifier hs-var">oidcConfig</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-202"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621680412331"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680412340"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-203"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -470,19 +470,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;WorkforceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680412330"><span class="hs-identifier hs-var">workforceName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680412339"><span class="hs-identifier hs-var">workforceName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-205"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-206"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-207"></span><span>
 </span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce"><span class="hs-identifier hs-type">CreateWorkforce</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-209"></span><span>  </span><span id="local-6989586621680412324"><span class="annot"><span class="annottext">toPath :: CreateWorkforce -&gt; ByteString
+</span><span id="line-209"></span><span>  </span><span id="local-6989586621680412333"><span class="annot"><span class="annottext">toPath :: CreateWorkforce -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateWorkforce -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-210"></span><span>
 </span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforce"><span class="hs-identifier hs-type">CreateWorkforce</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-212"></span><span>  </span><span id="local-6989586621680412320"><span class="annot"><span class="annottext">toQuery :: CreateWorkforce -&gt; QueryString
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621680412329"><span class="annot"><span class="annottext">toQuery :: CreateWorkforce -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateWorkforce -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -490,7 +490,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-213"></span><span>
 </span><span id="line-214"></span><span class="hs-comment">-- | /See:/ 'newCreateWorkforceResponse' smart constructor.</span><span>
-</span><span id="line-215"></span><span id="local-6989586621680412317"><span id="local-6989586621680412318"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateWorkforceResponse"><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforceResponse"><span class="hs-identifier hs-var">CreateWorkforceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateWorkforceResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforceResponse%27"><span class="hs-identifier hs-var">CreateWorkforceResponse'</span></a></span></span><span>
+</span><span id="line-215"></span><span id="local-6989586621680412326"><span id="local-6989586621680412327"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateWorkforceResponse"><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforceResponse"><span class="hs-identifier hs-var">CreateWorkforceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateWorkforceResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforceResponse%27"><span class="hs-identifier hs-var">CreateWorkforceResponse'</span></a></span></span><span>
 </span><span id="line-216"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-217"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateWorkforceResponse%27"><span class="annot"><span class="annottext">CreateWorkforceResponse -&gt; Int
 </span><a href="Network.AWS.SageMaker.CreateWorkforce.html#%24sel%3AhttpStatus%3ACreateWorkforceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -498,7 +498,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-219"></span><span>    </span><span id="%24sel%3AworkforceArn%3ACreateWorkforceResponse%27"><span class="annot"><span class="annottext">CreateWorkforceResponse -&gt; Text
 </span><a href="Network.AWS.SageMaker.CreateWorkforce.html#%24sel%3AworkforceArn%3ACreateWorkforceResponse%27"><span class="hs-identifier hs-var hs-var">workforceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-220"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-221"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680412311"><span id="local-6989586621680412313"><span class="annot"><span class="annottext">CreateWorkforceResponse -&gt; CreateWorkforceResponse -&gt; Bool
+</span><span id="line-221"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680412320"><span id="local-6989586621680412322"><span class="annot"><span class="annottext">CreateWorkforceResponse -&gt; CreateWorkforceResponse -&gt; Bool
 (CreateWorkforceResponse -&gt; CreateWorkforceResponse -&gt; Bool)
 -&gt; (CreateWorkforceResponse -&gt; CreateWorkforceResponse -&gt; Bool)
 -&gt; Eq CreateWorkforceResponse
@@ -507,7 +507,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateWorkforceResponse -&gt; CreateWorkforceResponse -&gt; Bool
 == :: CreateWorkforceResponse -&gt; CreateWorkforceResponse -&gt; Bool
 $c== :: CreateWorkforceResponse -&gt; CreateWorkforceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680412303"><span id="local-6989586621680412305"><span id="local-6989586621680412307"><span id="local-6989586621680412309"><span class="annot"><span class="annottext">ReadPrec [CreateWorkforceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680412312"><span id="local-6989586621680412314"><span id="local-6989586621680412316"><span id="local-6989586621680412318"><span class="annot"><span class="annottext">ReadPrec [CreateWorkforceResponse]
 ReadPrec CreateWorkforceResponse
 Int -&gt; ReadS CreateWorkforceResponse
 ReadS [CreateWorkforceResponse]
@@ -527,7 +527,7 @@ readList :: ReadS [CreateWorkforceResponse]
 $creadList :: ReadS [CreateWorkforceResponse]
 readsPrec :: Int -&gt; ReadS CreateWorkforceResponse
 $creadsPrec :: Int -&gt; ReadS CreateWorkforceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680412296"><span id="local-6989586621680412298"><span id="local-6989586621680412300"><span class="annot"><span class="annottext">Int -&gt; CreateWorkforceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680412305"><span id="local-6989586621680412307"><span id="local-6989586621680412309"><span class="annot"><span class="annottext">Int -&gt; CreateWorkforceResponse -&gt; ShowS
 [CreateWorkforceResponse] -&gt; ShowS
 CreateWorkforceResponse -&gt; String
 (Int -&gt; CreateWorkforceResponse -&gt; ShowS)
@@ -574,18 +574,18 @@ $cfrom :: forall x. CreateWorkforceResponse -&gt; Rep CreateWorkforceResponse x
 </span><span id="line-239"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforceResponse"><span class="hs-identifier hs-type">CreateWorkforceResponse</span></a></span><span>
 </span><span id="line-240"></span><span id="newCreateWorkforceResponse"><span class="annot"><span class="annottext">newCreateWorkforceResponse :: Int -&gt; Text -&gt; CreateWorkforceResponse
 </span><a href="Network.AWS.SageMaker.CreateWorkforce.html#newCreateWorkforceResponse"><span class="hs-identifier hs-var hs-var">newCreateWorkforceResponse</span></a></span></span><span>
-</span><span id="line-241"></span><span>  </span><span id="local-6989586621680412293"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680412293"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-242"></span><span>  </span><span id="local-6989586621680412292"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680412292"><span class="hs-identifier hs-var">pWorkforceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-241"></span><span>  </span><span id="local-6989586621680412302"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680412302"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-242"></span><span>  </span><span id="local-6989586621680412301"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680412301"><span class="hs-identifier hs-var">pWorkforceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-243"></span><span>    </span><span class="annot"><span class="annottext">CreateWorkforceResponse' :: Int -&gt; Text -&gt; CreateWorkforceResponse
 </span><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforceResponse%27"><span class="hs-identifier hs-type">CreateWorkforceResponse'</span></a></span><span>
 </span><span id="line-244"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateWorkforceResponse' :: Int
 </span><a href="Network.AWS.SageMaker.CreateWorkforce.html#%24sel%3AhttpStatus%3ACreateWorkforceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680412293"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680412302"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-245"></span><span>        </span><span class="annot"><span class="annottext">$sel:workforceArn:CreateWorkforceResponse' :: Text
 </span><a href="Network.AWS.SageMaker.CreateWorkforce.html#%24sel%3AworkforceArn%3ACreateWorkforceResponse%27"><span class="hs-identifier hs-var">workforceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680412292"><span class="hs-identifier hs-var">pWorkforceArn_</span></a></span><span>
+</span><a href="#local-6989586621680412301"><span class="hs-identifier hs-var">pWorkforceArn_</span></a></span><span>
 </span><span id="line-246"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-247"></span><span>
 </span><span id="line-248"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -596,16 +596,16 @@ $cfrom :: forall x. CreateWorkforceResponse -&gt; Rep CreateWorkforceResponse x
 -&gt; (CreateWorkforceResponse -&gt; Int -&gt; CreateWorkforceResponse)
 -&gt; Lens CreateWorkforceResponse CreateWorkforceResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforceResponse%27"><span class="hs-identifier hs-type">CreateWorkforceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680412291"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforceResponse%27"><span class="hs-identifier hs-type">CreateWorkforceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680412300"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateWorkforceResponse' :: CreateWorkforceResponse -&gt; Int
-</span><a href="#local-6989586621680412291"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680412291"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680412290"><span class="annot"><span class="annottext">s :: CreateWorkforceResponse
-</span><a href="#local-6989586621680412290"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforceResponse%27"><span class="hs-identifier hs-type">CreateWorkforceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680412289"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680412289"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkforceResponse
-</span><a href="#local-6989586621680412290"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateWorkforceResponse' :: Int
+</span><a href="#local-6989586621680412300"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680412300"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680412299"><span class="annot"><span class="annottext">s :: CreateWorkforceResponse
+</span><a href="#local-6989586621680412299"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforceResponse%27"><span class="hs-identifier hs-type">CreateWorkforceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680412298"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680412298"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkforceResponse
+</span><a href="#local-6989586621680412299"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateWorkforceResponse' :: Int
 </span><a href="Network.AWS.SageMaker.CreateWorkforce.html#%24sel%3AhttpStatus%3ACreateWorkforceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680412289"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforceResponse"><span class="hs-identifier hs-type">CreateWorkforceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680412298"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforceResponse"><span class="hs-identifier hs-type">CreateWorkforceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-251"></span><span>
 </span><span id="line-252"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the workforce.</span><span>
 </span><span id="line-253"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#createWorkforceResponse_workforceArn"><span class="hs-identifier hs-type">createWorkforceResponse_workforceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforceResponse"><span class="hs-identifier hs-type">CreateWorkforceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -615,16 +615,16 @@ $sel:httpStatus:CreateWorkforceResponse' :: CreateWorkforceResponse -&gt; Int
 -&gt; (CreateWorkforceResponse -&gt; Text -&gt; CreateWorkforceResponse)
 -&gt; Lens CreateWorkforceResponse CreateWorkforceResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforceResponse%27"><span class="hs-identifier hs-type">CreateWorkforceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680412288"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforceResponse%27"><span class="hs-identifier hs-type">CreateWorkforceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680412297"><span class="annot"><span class="annottext">Text
 workforceArn :: Text
 $sel:workforceArn:CreateWorkforceResponse' :: CreateWorkforceResponse -&gt; Text
-</span><a href="#local-6989586621680412288"><span class="hs-identifier hs-var hs-var">workforceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680412288"><span class="hs-identifier hs-var">workforceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680412287"><span class="annot"><span class="annottext">s :: CreateWorkforceResponse
-</span><a href="#local-6989586621680412287"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforceResponse%27"><span class="hs-identifier hs-type">CreateWorkforceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680412286"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680412286"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkforceResponse
-</span><a href="#local-6989586621680412287"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workforceArn:CreateWorkforceResponse' :: Text
+</span><a href="#local-6989586621680412297"><span class="hs-identifier hs-var hs-var">workforceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680412297"><span class="hs-identifier hs-var">workforceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680412296"><span class="annot"><span class="annottext">s :: CreateWorkforceResponse
+</span><a href="#local-6989586621680412296"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforceResponse%27"><span class="hs-identifier hs-type">CreateWorkforceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680412295"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680412295"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkforceResponse
+</span><a href="#local-6989586621680412296"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workforceArn:CreateWorkforceResponse' :: Text
 </span><a href="Network.AWS.SageMaker.CreateWorkforce.html#%24sel%3AworkforceArn%3ACreateWorkforceResponse%27"><span class="hs-identifier hs-var">workforceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680412286"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforceResponse"><span class="hs-identifier hs-type">CreateWorkforceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680412295"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforceResponse"><span class="hs-identifier hs-type">CreateWorkforceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-255"></span><span>
-</span><span id="line-256"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680412284"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforceResponse"><span class="hs-identifier hs-type">CreateWorkforceResponse</span></a></span></span><span>
+</span><span id="line-256"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680412293"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateWorkforce.html#CreateWorkforceResponse"><span class="hs-identifier hs-type">CreateWorkforceResponse</span></a></span></span><span>
 </span><span id="line-257"></span></pre></body></html>

@@ -46,12 +46,12 @@
 </span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-47"></span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newDeleteSkillGroup' smart constructor.</span><span>
-</span><span id="line-49"></span><span id="local-6989586621679388013"><span id="local-6989586621679388014"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteSkillGroup"><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteSkillGroup.html#DeleteSkillGroup"><span class="hs-identifier hs-var">DeleteSkillGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteSkillGroup%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteSkillGroup.html#DeleteSkillGroup%27"><span class="hs-identifier hs-var">DeleteSkillGroup'</span></a></span></span><span>
+</span><span id="line-49"></span><span id="local-6989586621679388022"><span id="local-6989586621679388023"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteSkillGroup"><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteSkillGroup.html#DeleteSkillGroup"><span class="hs-identifier hs-var">DeleteSkillGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteSkillGroup%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteSkillGroup.html#DeleteSkillGroup%27"><span class="hs-identifier hs-var">DeleteSkillGroup'</span></a></span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the skill group to delete. Required.</span><span>
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3AskillGroupArn%3ADeleteSkillGroup%27"><span class="annot"><span class="annottext">DeleteSkillGroup -&gt; Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.DeleteSkillGroup.html#%24sel%3AskillGroupArn%3ADeleteSkillGroup%27"><span class="hs-identifier hs-var hs-var">skillGroupArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388007"><span id="local-6989586621679388009"><span class="annot"><span class="annottext">DeleteSkillGroup -&gt; DeleteSkillGroup -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388016"><span id="local-6989586621679388018"><span class="annot"><span class="annottext">DeleteSkillGroup -&gt; DeleteSkillGroup -&gt; Bool
 (DeleteSkillGroup -&gt; DeleteSkillGroup -&gt; Bool)
 -&gt; (DeleteSkillGroup -&gt; DeleteSkillGroup -&gt; Bool)
 -&gt; Eq DeleteSkillGroup
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteSkillGroup -&gt; DeleteSkillGroup -&gt; Bool
 == :: DeleteSkillGroup -&gt; DeleteSkillGroup -&gt; Bool
 $c== :: DeleteSkillGroup -&gt; DeleteSkillGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387998"><span id="local-6989586621679388000"><span id="local-6989586621679388002"><span id="local-6989586621679388004"><span class="annot"><span class="annottext">ReadPrec [DeleteSkillGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388007"><span id="local-6989586621679388009"><span id="local-6989586621679388011"><span id="local-6989586621679388013"><span class="annot"><span class="annottext">ReadPrec [DeleteSkillGroup]
 ReadPrec DeleteSkillGroup
 Int -&gt; ReadS DeleteSkillGroup
 ReadS [DeleteSkillGroup]
@@ -80,7 +80,7 @@ readList :: ReadS [DeleteSkillGroup]
 $creadList :: ReadS [DeleteSkillGroup]
 readsPrec :: Int -&gt; ReadS DeleteSkillGroup
 $creadsPrec :: Int -&gt; ReadS DeleteSkillGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387991"><span id="local-6989586621679387993"><span id="local-6989586621679387995"><span class="annot"><span class="annottext">Int -&gt; DeleteSkillGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388000"><span id="local-6989586621679388002"><span id="local-6989586621679388004"><span class="annot"><span class="annottext">Int -&gt; DeleteSkillGroup -&gt; ShowS
 [DeleteSkillGroup] -&gt; ShowS
 DeleteSkillGroup -&gt; String
 (Int -&gt; DeleteSkillGroup -&gt; ShowS)
@@ -133,27 +133,27 @@ forall a. Maybe a
 -&gt; (DeleteSkillGroup -&gt; Maybe Text -&gt; DeleteSkillGroup)
 -&gt; Lens DeleteSkillGroup DeleteSkillGroup (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteSkillGroup.html#DeleteSkillGroup%27"><span class="hs-identifier hs-type">DeleteSkillGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387984"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteSkillGroup.html#DeleteSkillGroup%27"><span class="hs-identifier hs-type">DeleteSkillGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387993"><span class="annot"><span class="annottext">Maybe Text
 skillGroupArn :: Maybe Text
 $sel:skillGroupArn:DeleteSkillGroup' :: DeleteSkillGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679387984"><span class="hs-identifier hs-var hs-var">skillGroupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387984"><span class="hs-identifier hs-var">skillGroupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387983"><span class="annot"><span class="annottext">s :: DeleteSkillGroup
-</span><a href="#local-6989586621679387983"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteSkillGroup.html#DeleteSkillGroup%27"><span class="hs-identifier hs-type">DeleteSkillGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387982"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387982"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSkillGroup
-</span><a href="#local-6989586621679387983"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:skillGroupArn:DeleteSkillGroup' :: Maybe Text
+</span><a href="#local-6989586621679387993"><span class="hs-identifier hs-var hs-var">skillGroupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387993"><span class="hs-identifier hs-var">skillGroupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387992"><span class="annot"><span class="annottext">s :: DeleteSkillGroup
+</span><a href="#local-6989586621679387992"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteSkillGroup.html#DeleteSkillGroup%27"><span class="hs-identifier hs-type">DeleteSkillGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387991"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387991"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSkillGroup
+</span><a href="#local-6989586621679387992"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:skillGroupArn:DeleteSkillGroup' :: Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.DeleteSkillGroup.html#%24sel%3AskillGroupArn%3ADeleteSkillGroup%27"><span class="hs-identifier hs-var">skillGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387982"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteSkillGroup.html#DeleteSkillGroup"><span class="hs-identifier hs-type">DeleteSkillGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387991"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteSkillGroup.html#DeleteSkillGroup"><span class="hs-identifier hs-type">DeleteSkillGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteSkillGroup.html#DeleteSkillGroup"><span class="hs-identifier hs-type">DeleteSkillGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-74"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-75"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteSkillGroup.html#DeleteSkillGroup"><span class="hs-identifier hs-type">DeleteSkillGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteSkillGroup.html#DeleteSkillGroupResponse"><span class="hs-identifier hs-type">DeleteSkillGroupResponse</span></a></span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679387978"><span class="annot"><span class="annottext">request :: DeleteSkillGroup -&gt; Request DeleteSkillGroup
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679387987"><span class="annot"><span class="annottext">request :: DeleteSkillGroup -&gt; Request DeleteSkillGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteSkillGroup -&gt; Request DeleteSkillGroup
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AlexaBusiness.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679387974"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679387983"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteSkillGroup
 -&gt; ClientResponse ClientBody
@@ -177,10 +177,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679387971"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387971"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679387970"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679387970"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679387969"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679387969"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679387980"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387980"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679387979"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679387979"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679387978"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679387978"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteSkillGroupResponse
 </span><a href="Network.AWS.AlexaBusiness.DeleteSkillGroup.html#DeleteSkillGroupResponse%27"><span class="hs-identifier hs-var">DeleteSkillGroupResponse'</span></a></span><span>
 </span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteSkillGroupResponse)
@@ -191,15 +191,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387971"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387980"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387962"><span id="local-6989586621679387964"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteSkillGroup.html#DeleteSkillGroup"><span class="hs-identifier hs-type">DeleteSkillGroup</span></a></span></span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387971"><span id="local-6989586621679387973"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteSkillGroup.html#DeleteSkillGroup"><span class="hs-identifier hs-type">DeleteSkillGroup</span></a></span></span></span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387959"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteSkillGroup.html#DeleteSkillGroup"><span class="hs-identifier hs-type">DeleteSkillGroup</span></a></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387968"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteSkillGroup.html#DeleteSkillGroup"><span class="hs-identifier hs-type">DeleteSkillGroup</span></a></span></span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteSkillGroup.html#DeleteSkillGroup"><span class="hs-identifier hs-type">DeleteSkillGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679387955"><span class="annot"><span class="annottext">toHeaders :: DeleteSkillGroup -&gt; ResponseHeaders
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679387964"><span class="annot"><span class="annottext">toHeaders :: DeleteSkillGroup -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteSkillGroup -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -226,12 +226,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-101"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387945"><span id="local-6989586621679387947"><span id="local-6989586621679387949"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteSkillGroup.html#DeleteSkillGroup"><span class="hs-identifier hs-type">DeleteSkillGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679387943"><span class="annot"><span class="annottext">toJSON :: DeleteSkillGroup -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteSkillGroup.html#DeleteSkillGroup%27"><span class="hs-identifier hs-type">DeleteSkillGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387941"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387954"><span id="local-6989586621679387956"><span id="local-6989586621679387958"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteSkillGroup.html#DeleteSkillGroup"><span class="hs-identifier hs-type">DeleteSkillGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679387952"><span class="annot"><span class="annottext">toJSON :: DeleteSkillGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteSkillGroup.html#DeleteSkillGroup%27"><span class="hs-identifier hs-type">DeleteSkillGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387950"><span class="annot"><span class="annottext">Maybe Text
 skillGroupArn :: Maybe Text
 $sel:skillGroupArn:DeleteSkillGroup' :: DeleteSkillGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679387941"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679387950"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -244,19 +244,19 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-109"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387941"><span class="hs-identifier hs-var">skillGroupArn</span></a></span><span>
+</span><a href="#local-6989586621679387950"><span class="hs-identifier hs-var">skillGroupArn</span></a></span><span>
 </span><span id="line-110"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteSkillGroup.html#DeleteSkillGroup"><span class="hs-identifier hs-type">DeleteSkillGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679387935"><span class="annot"><span class="annottext">toPath :: DeleteSkillGroup -&gt; ByteString
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679387944"><span class="annot"><span class="annottext">toPath :: DeleteSkillGroup -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteSkillGroup -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteSkillGroup.html#DeleteSkillGroup"><span class="hs-identifier hs-type">DeleteSkillGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679387931"><span class="annot"><span class="annottext">toQuery :: DeleteSkillGroup -&gt; QueryString
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679387940"><span class="annot"><span class="annottext">toQuery :: DeleteSkillGroup -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteSkillGroup -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -264,12 +264,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | /See:/ 'newDeleteSkillGroupResponse' smart constructor.</span><span>
-</span><span id="line-120"></span><span id="local-6989586621679387928"><span id="local-6989586621679387929"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteSkillGroupResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteSkillGroup.html#DeleteSkillGroupResponse"><span class="hs-identifier hs-var">DeleteSkillGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteSkillGroupResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteSkillGroup.html#DeleteSkillGroupResponse%27"><span class="hs-identifier hs-var">DeleteSkillGroupResponse'</span></a></span></span><span>
+</span><span id="line-120"></span><span id="local-6989586621679387937"><span id="local-6989586621679387938"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteSkillGroupResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteSkillGroup.html#DeleteSkillGroupResponse"><span class="hs-identifier hs-var">DeleteSkillGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteSkillGroupResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteSkillGroup.html#DeleteSkillGroupResponse%27"><span class="hs-identifier hs-var">DeleteSkillGroupResponse'</span></a></span></span><span>
 </span><span id="line-121"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-122"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteSkillGroupResponse%27"><span class="annot"><span class="annottext">DeleteSkillGroupResponse -&gt; Int
 </span><a href="Network.AWS.AlexaBusiness.DeleteSkillGroup.html#%24sel%3AhttpStatus%3ADeleteSkillGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-123"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679387923"><span id="local-6989586621679387925"><span class="annot"><span class="annottext">DeleteSkillGroupResponse -&gt; DeleteSkillGroupResponse -&gt; Bool
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679387932"><span id="local-6989586621679387934"><span class="annot"><span class="annottext">DeleteSkillGroupResponse -&gt; DeleteSkillGroupResponse -&gt; Bool
 (DeleteSkillGroupResponse -&gt; DeleteSkillGroupResponse -&gt; Bool)
 -&gt; (DeleteSkillGroupResponse -&gt; DeleteSkillGroupResponse -&gt; Bool)
 -&gt; Eq DeleteSkillGroupResponse
@@ -278,7 +278,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteSkillGroupResponse -&gt; DeleteSkillGroupResponse -&gt; Bool
 == :: DeleteSkillGroupResponse -&gt; DeleteSkillGroupResponse -&gt; Bool
 $c== :: DeleteSkillGroupResponse -&gt; DeleteSkillGroupResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387915"><span id="local-6989586621679387917"><span id="local-6989586621679387919"><span id="local-6989586621679387921"><span class="annot"><span class="annottext">ReadPrec [DeleteSkillGroupResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387924"><span id="local-6989586621679387926"><span id="local-6989586621679387928"><span id="local-6989586621679387930"><span class="annot"><span class="annottext">ReadPrec [DeleteSkillGroupResponse]
 ReadPrec DeleteSkillGroupResponse
 Int -&gt; ReadS DeleteSkillGroupResponse
 ReadS [DeleteSkillGroupResponse]
@@ -298,7 +298,7 @@ readList :: ReadS [DeleteSkillGroupResponse]
 $creadList :: ReadS [DeleteSkillGroupResponse]
 readsPrec :: Int -&gt; ReadS DeleteSkillGroupResponse
 $creadsPrec :: Int -&gt; ReadS DeleteSkillGroupResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387909"><span id="local-6989586621679387911"><span id="local-6989586621679387913"><span class="annot"><span class="annottext">Int -&gt; DeleteSkillGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387918"><span id="local-6989586621679387920"><span id="local-6989586621679387922"><span class="annot"><span class="annottext">Int -&gt; DeleteSkillGroupResponse -&gt; ShowS
 [DeleteSkillGroupResponse] -&gt; ShowS
 DeleteSkillGroupResponse -&gt; String
 (Int -&gt; DeleteSkillGroupResponse -&gt; ShowS)
@@ -344,14 +344,14 @@ DeleteSkillGroupResponse -&gt; Rep DeleteSkillGroupResponse x
 </span><span id="line-137"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-138"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteSkillGroup.html#DeleteSkillGroupResponse"><span class="hs-identifier hs-type">DeleteSkillGroupResponse</span></a></span><span>
 </span><span id="line-139"></span><span id="newDeleteSkillGroupResponse"><span class="annot"><span class="annottext">newDeleteSkillGroupResponse :: Int -&gt; DeleteSkillGroupResponse
-</span><a href="Network.AWS.AlexaBusiness.DeleteSkillGroup.html#newDeleteSkillGroupResponse"><span class="hs-identifier hs-var hs-var">newDeleteSkillGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679387906"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387906"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AlexaBusiness.DeleteSkillGroup.html#newDeleteSkillGroupResponse"><span class="hs-identifier hs-var hs-var">newDeleteSkillGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679387915"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387915"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>  </span><span class="annot"><span class="annottext">DeleteSkillGroupResponse' :: Int -&gt; DeleteSkillGroupResponse
 </span><a href="Network.AWS.AlexaBusiness.DeleteSkillGroup.html#DeleteSkillGroupResponse%27"><span class="hs-identifier hs-type">DeleteSkillGroupResponse'</span></a></span><span>
 </span><span id="line-141"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteSkillGroupResponse' :: Int
 </span><a href="Network.AWS.AlexaBusiness.DeleteSkillGroup.html#%24sel%3AhttpStatus%3ADeleteSkillGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387906"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679387915"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-143"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -362,16 +362,16 @@ DeleteSkillGroupResponse -&gt; Rep DeleteSkillGroupResponse x
 -&gt; (DeleteSkillGroupResponse -&gt; Int -&gt; DeleteSkillGroupResponse)
 -&gt; Lens DeleteSkillGroupResponse DeleteSkillGroupResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteSkillGroup.html#DeleteSkillGroupResponse%27"><span class="hs-identifier hs-type">DeleteSkillGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387905"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteSkillGroup.html#DeleteSkillGroupResponse%27"><span class="hs-identifier hs-type">DeleteSkillGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387914"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteSkillGroupResponse' :: DeleteSkillGroupResponse -&gt; Int
-</span><a href="#local-6989586621679387905"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387905"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387904"><span class="annot"><span class="annottext">s :: DeleteSkillGroupResponse
-</span><a href="#local-6989586621679387904"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteSkillGroup.html#DeleteSkillGroupResponse%27"><span class="hs-identifier hs-type">DeleteSkillGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387903"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387903"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSkillGroupResponse
-</span><a href="#local-6989586621679387904"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteSkillGroupResponse' :: Int
+</span><a href="#local-6989586621679387914"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387914"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387913"><span class="annot"><span class="annottext">s :: DeleteSkillGroupResponse
+</span><a href="#local-6989586621679387913"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteSkillGroup.html#DeleteSkillGroupResponse%27"><span class="hs-identifier hs-type">DeleteSkillGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387912"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387912"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSkillGroupResponse
+</span><a href="#local-6989586621679387913"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteSkillGroupResponse' :: Int
 </span><a href="Network.AWS.AlexaBusiness.DeleteSkillGroup.html#%24sel%3AhttpStatus%3ADeleteSkillGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387903"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteSkillGroup.html#DeleteSkillGroupResponse"><span class="hs-identifier hs-type">DeleteSkillGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387912"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteSkillGroup.html#DeleteSkillGroupResponse"><span class="hs-identifier hs-type">DeleteSkillGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387901"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteSkillGroup.html#DeleteSkillGroupResponse"><span class="hs-identifier hs-type">DeleteSkillGroupResponse</span></a></span></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387910"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteSkillGroup.html#DeleteSkillGroupResponse"><span class="hs-identifier hs-type">DeleteSkillGroupResponse</span></a></span></span><span>
 </span><span id="line-150"></span></pre></body></html>

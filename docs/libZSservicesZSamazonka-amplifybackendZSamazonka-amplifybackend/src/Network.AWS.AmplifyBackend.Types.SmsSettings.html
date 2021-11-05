@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AmplifyBackend.Types.SmsSettings</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AmplifyBackend.Types.SmsSettings</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | SMS settings for authentication.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newSmsSettings' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679232955"><span id="local-6989586621679232956"></span></span><span class="hs-keyword">data</span><span> </span><span id="SmsSettings"><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.SmsSettings.html#SmsSettings"><span class="hs-identifier hs-var">SmsSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SmsSettings%27"><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.SmsSettings.html#SmsSettings%27"><span class="hs-identifier hs-var">SmsSettings'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The body of the SMS message.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AsmsMessage%3ASmsSettings%27"><span class="annot"><span class="annottext">SmsSettings -&gt; Maybe Text
+</span><a href="Network.AWS.AmplifyBackend.Types.SmsSettings.html#%24sel%3AsmsMessage%3ASmsSettings%27"><span class="hs-identifier hs-var hs-var">smsMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679232949"><span id="local-6989586621679232951"><span class="annot"><span class="annottext">SmsSettings -&gt; SmsSettings -&gt; Bool
+(SmsSettings -&gt; SmsSettings -&gt; Bool)
+-&gt; (SmsSettings -&gt; SmsSettings -&gt; Bool) -&gt; Eq SmsSettings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SmsSettings -&gt; SmsSettings -&gt; Bool
+$c/= :: SmsSettings -&gt; SmsSettings -&gt; Bool
+== :: SmsSettings -&gt; SmsSettings -&gt; Bool
+$c== :: SmsSettings -&gt; SmsSettings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232940"><span id="local-6989586621679232942"><span id="local-6989586621679232944"><span id="local-6989586621679232946"><span class="annot"><span class="annottext">ReadPrec [SmsSettings]
+ReadPrec SmsSettings
+Int -&gt; ReadS SmsSettings
+ReadS [SmsSettings]
+(Int -&gt; ReadS SmsSettings)
+-&gt; ReadS [SmsSettings]
+-&gt; ReadPrec SmsSettings
+-&gt; ReadPrec [SmsSettings]
+-&gt; Read SmsSettings
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SmsSettings]
+$creadListPrec :: ReadPrec [SmsSettings]
+readPrec :: ReadPrec SmsSettings
+$creadPrec :: ReadPrec SmsSettings
+readList :: ReadS [SmsSettings]
+$creadList :: ReadS [SmsSettings]
+readsPrec :: Int -&gt; ReadS SmsSettings
+$creadsPrec :: Int -&gt; ReadS SmsSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679232933"><span id="local-6989586621679232935"><span id="local-6989586621679232937"><span class="annot"><span class="annottext">Int -&gt; SmsSettings -&gt; ShowS
+[SmsSettings] -&gt; ShowS
+SmsSettings -&gt; String
+(Int -&gt; SmsSettings -&gt; ShowS)
+-&gt; (SmsSettings -&gt; String)
+-&gt; ([SmsSettings] -&gt; ShowS)
+-&gt; Show SmsSettings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SmsSettings] -&gt; ShowS
+$cshowList :: [SmsSettings] -&gt; ShowS
+show :: SmsSettings -&gt; String
+$cshow :: SmsSettings -&gt; String
+showsPrec :: Int -&gt; SmsSettings -&gt; ShowS
+$cshowsPrec :: Int -&gt; SmsSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SmsSettings -&gt; Rep SmsSettings x)
+-&gt; (forall x. Rep SmsSettings x -&gt; SmsSettings)
+-&gt; Generic SmsSettings
+forall x. Rep SmsSettings x -&gt; SmsSettings
+forall x. SmsSettings -&gt; Rep SmsSettings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SmsSettings x -&gt; SmsSettings
+$cfrom :: forall x. SmsSettings -&gt; Rep SmsSettings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- Create a value of 'SmsSettings' with all optional fields omitted.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- 'smsMessage', 'smsSettings_smsMessage' - The body of the SMS message.</span><span>
+</span><span id="line-44"></span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.SmsSettings.html#newSmsSettings"><span class="hs-identifier hs-type">newSmsSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-45"></span><span>  </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.SmsSettings.html#SmsSettings"><span class="hs-identifier hs-type">SmsSettings</span></a></span><span>
+</span><span id="line-46"></span><span id="newSmsSettings"><span class="annot"><span class="annottext">newSmsSettings :: SmsSettings
+</span><a href="Network.AWS.AmplifyBackend.Types.SmsSettings.html#newSmsSettings"><span class="hs-identifier hs-var hs-var">newSmsSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-47"></span><span>  </span><span class="annot"><span class="annottext">SmsSettings' :: Maybe Text -&gt; SmsSettings
+</span><a href="Network.AWS.AmplifyBackend.Types.SmsSettings.html#SmsSettings%27"><span class="hs-identifier hs-type">SmsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:smsMessage:SmsSettings' :: Maybe Text
+</span><a href="Network.AWS.AmplifyBackend.Types.SmsSettings.html#%24sel%3AsmsMessage%3ASmsSettings%27"><span class="hs-identifier hs-var">smsMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">}</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | The body of the SMS message.</span><span>
+</span><span id="line-50"></span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.SmsSettings.html#smsSettings_smsMessage"><span class="hs-identifier hs-type">smsSettings_smsMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.SmsSettings.html#SmsSettings"><span class="hs-identifier hs-type">SmsSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span id="smsSettings_smsMessage"><span class="annot"><span class="annottext">smsSettings_smsMessage :: (Maybe Text -&gt; f (Maybe Text)) -&gt; SmsSettings -&gt; f SmsSettings
+</span><a href="Network.AWS.AmplifyBackend.Types.SmsSettings.html#smsSettings_smsMessage"><span class="hs-identifier hs-var hs-var">smsSettings_smsMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SmsSettings -&gt; Maybe Text)
+-&gt; (SmsSettings -&gt; Maybe Text -&gt; SmsSettings)
+-&gt; Lens SmsSettings SmsSettings (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.SmsSettings.html#SmsSettings%27"><span class="hs-identifier hs-type">SmsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232924"><span class="annot"><span class="annottext">Maybe Text
+smsMessage :: Maybe Text
+$sel:smsMessage:SmsSettings' :: SmsSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679232924"><span class="hs-identifier hs-var hs-var">smsMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232924"><span class="hs-identifier hs-var">smsMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679232923"><span class="annot"><span class="annottext">s :: SmsSettings
+</span><a href="#local-6989586621679232923"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.SmsSettings.html#SmsSettings%27"><span class="hs-identifier hs-type">SmsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679232922"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232922"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SmsSettings
+</span><a href="#local-6989586621679232923"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:smsMessage:SmsSettings' :: Maybe Text
+</span><a href="Network.AWS.AmplifyBackend.Types.SmsSettings.html#%24sel%3AsmsMessage%3ASmsSettings%27"><span class="hs-identifier hs-var">smsMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232922"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.SmsSettings.html#SmsSettings"><span class="hs-identifier hs-type">SmsSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232919"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.SmsSettings.html#SmsSettings"><span class="hs-identifier hs-type">SmsSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679232917"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SmsSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser SmsSettings) -&gt; Value -&gt; Parser SmsSettings
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;SmsSettings&quot;</span></span><span>
+</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679232914"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679232914"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; SmsSettings
+</span><a href="Network.AWS.AmplifyBackend.Types.SmsSettings.html#SmsSettings%27"><span class="hs-identifier hs-var">SmsSettings'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; SmsSettings)
+-&gt; Parser (Maybe Text) -&gt; Parser SmsSettings
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679232914"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;smsMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232908"><span id="local-6989586621679232910"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.SmsSettings.html#SmsSettings"><span class="hs-identifier hs-type">SmsSettings</span></a></span></span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232905"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.SmsSettings.html#SmsSettings"><span class="hs-identifier hs-type">SmsSettings</span></a></span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679232897"><span id="local-6989586621679232899"><span id="local-6989586621679232901"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.SmsSettings.html#SmsSettings"><span class="hs-identifier hs-type">SmsSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679232895"><span class="annot"><span class="annottext">toJSON :: SmsSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.SmsSettings.html#SmsSettings%27"><span class="hs-identifier hs-type">SmsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679232893"><span class="annot"><span class="annottext">Maybe Text
+smsMessage :: Maybe Text
+$sel:smsMessage:SmsSettings' :: SmsSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679232893"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-69"></span><span>          </span><span class="hs-special">[</span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;smsMessage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679232893"><span class="hs-identifier hs-var">smsMessage</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-70"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span></pre></body></html>

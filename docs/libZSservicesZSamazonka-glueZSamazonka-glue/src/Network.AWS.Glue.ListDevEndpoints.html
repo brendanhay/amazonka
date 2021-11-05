@@ -58,7 +58,7 @@
 </span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newListDevEndpoints' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621679718229"><span id="local-6989586621679718230"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDevEndpoints"><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpoints"><span class="hs-identifier hs-var">ListDevEndpoints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDevEndpoints%27"><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpoints%27"><span class="hs-identifier hs-var">ListDevEndpoints'</span></a></span></span><span>
+</span><span id="line-61"></span><span id="local-6989586621679718238"><span id="local-6989586621679718239"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDevEndpoints"><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpoints"><span class="hs-identifier hs-var">ListDevEndpoints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDevEndpoints%27"><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpoints%27"><span class="hs-identifier hs-var">ListDevEndpoints'</span></a></span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A continuation token, if this is a continuation request.</span><span>
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AnextToken%3AListDevEndpoints%27"><span class="annot"><span class="annottext">ListDevEndpoints -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.ListDevEndpoints.html#%24sel%3AnextToken%3AListDevEndpoints%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -69,7 +69,7 @@
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3Atags%3AListDevEndpoints%27"><span class="annot"><span class="annottext">ListDevEndpoints -&gt; Maybe (HashMap Text Text)
 </span><a href="Network.AWS.Glue.ListDevEndpoints.html#%24sel%3Atags%3AListDevEndpoints%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679718221"><span id="local-6989586621679718223"><span class="annot"><span class="annottext">ListDevEndpoints -&gt; ListDevEndpoints -&gt; Bool
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679718230"><span id="local-6989586621679718232"><span class="annot"><span class="annottext">ListDevEndpoints -&gt; ListDevEndpoints -&gt; Bool
 (ListDevEndpoints -&gt; ListDevEndpoints -&gt; Bool)
 -&gt; (ListDevEndpoints -&gt; ListDevEndpoints -&gt; Bool)
 -&gt; Eq ListDevEndpoints
@@ -78,7 +78,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListDevEndpoints -&gt; ListDevEndpoints -&gt; Bool
 == :: ListDevEndpoints -&gt; ListDevEndpoints -&gt; Bool
 $c== :: ListDevEndpoints -&gt; ListDevEndpoints -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679718212"><span id="local-6989586621679718214"><span id="local-6989586621679718216"><span id="local-6989586621679718218"><span class="annot"><span class="annottext">ReadPrec [ListDevEndpoints]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679718221"><span id="local-6989586621679718223"><span id="local-6989586621679718225"><span id="local-6989586621679718227"><span class="annot"><span class="annottext">ReadPrec [ListDevEndpoints]
 ReadPrec ListDevEndpoints
 Int -&gt; ReadS ListDevEndpoints
 ReadS [ListDevEndpoints]
@@ -98,7 +98,7 @@ readList :: ReadS [ListDevEndpoints]
 $creadList :: ReadS [ListDevEndpoints]
 readsPrec :: Int -&gt; ReadS ListDevEndpoints
 $creadsPrec :: Int -&gt; ReadS ListDevEndpoints
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679718205"><span id="local-6989586621679718207"><span id="local-6989586621679718209"><span class="annot"><span class="annottext">Int -&gt; ListDevEndpoints -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679718214"><span id="local-6989586621679718216"><span id="local-6989586621679718218"><span class="annot"><span class="annottext">Int -&gt; ListDevEndpoints -&gt; ShowS
 [ListDevEndpoints] -&gt; ShowS
 ListDevEndpoints -&gt; String
 (Int -&gt; ListDevEndpoints -&gt; ShowS)
@@ -166,16 +166,16 @@ forall a. Maybe a
 -&gt; (ListDevEndpoints -&gt; Maybe Text -&gt; ListDevEndpoints)
 -&gt; Lens ListDevEndpoints ListDevEndpoints (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpoints%27"><span class="hs-identifier hs-type">ListDevEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679718198"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpoints%27"><span class="hs-identifier hs-type">ListDevEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679718207"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListDevEndpoints' :: ListDevEndpoints -&gt; Maybe Text
-</span><a href="#local-6989586621679718198"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679718198"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679718197"><span class="annot"><span class="annottext">s :: ListDevEndpoints
-</span><a href="#local-6989586621679718197"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpoints%27"><span class="hs-identifier hs-type">ListDevEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679718196"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679718196"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDevEndpoints
-</span><a href="#local-6989586621679718197"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDevEndpoints' :: Maybe Text
+</span><a href="#local-6989586621679718207"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679718207"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679718206"><span class="annot"><span class="annottext">s :: ListDevEndpoints
+</span><a href="#local-6989586621679718206"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpoints%27"><span class="hs-identifier hs-type">ListDevEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679718205"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679718205"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDevEndpoints
+</span><a href="#local-6989586621679718206"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDevEndpoints' :: Maybe Text
 </span><a href="Network.AWS.Glue.ListDevEndpoints.html#%24sel%3AnextToken%3AListDevEndpoints%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679718196"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpoints"><span class="hs-identifier hs-type">ListDevEndpoints</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679718205"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpoints"><span class="hs-identifier hs-type">ListDevEndpoints</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | The maximum size of a list to return.</span><span>
 </span><span id="line-98"></span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#listDevEndpoints_maxResults"><span class="hs-identifier hs-type">listDevEndpoints_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpoints"><span class="hs-identifier hs-type">ListDevEndpoints</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -186,16 +186,16 @@ $sel:nextToken:ListDevEndpoints' :: ListDevEndpoints -&gt; Maybe Text
 -&gt; Lens
      ListDevEndpoints ListDevEndpoints (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpoints%27"><span class="hs-identifier hs-type">ListDevEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679718195"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpoints%27"><span class="hs-identifier hs-type">ListDevEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679718204"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListDevEndpoints' :: ListDevEndpoints -&gt; Maybe Natural
-</span><a href="#local-6989586621679718195"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679718195"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679718194"><span class="annot"><span class="annottext">s :: ListDevEndpoints
-</span><a href="#local-6989586621679718194"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpoints%27"><span class="hs-identifier hs-type">ListDevEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679718193"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679718193"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDevEndpoints
-</span><a href="#local-6989586621679718194"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListDevEndpoints' :: Maybe Natural
+</span><a href="#local-6989586621679718204"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679718204"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679718203"><span class="annot"><span class="annottext">s :: ListDevEndpoints
+</span><a href="#local-6989586621679718203"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpoints%27"><span class="hs-identifier hs-type">ListDevEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679718202"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679718202"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDevEndpoints
+</span><a href="#local-6989586621679718203"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListDevEndpoints' :: Maybe Natural
 </span><a href="Network.AWS.Glue.ListDevEndpoints.html#%24sel%3AmaxResults%3AListDevEndpoints%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679718193"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpoints"><span class="hs-identifier hs-type">ListDevEndpoints</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679718202"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpoints"><span class="hs-identifier hs-type">ListDevEndpoints</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | Specifies to return only these tagged resources.</span><span>
 </span><span id="line-102"></span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#listDevEndpoints_tags"><span class="hs-identifier hs-type">listDevEndpoints_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpoints"><span class="hs-identifier hs-type">ListDevEndpoints</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
@@ -210,16 +210,16 @@ $sel:maxResults:ListDevEndpoints' :: ListDevEndpoints -&gt; Maybe Natural
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpoints%27"><span class="hs-identifier hs-type">ListDevEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679718192"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpoints%27"><span class="hs-identifier hs-type">ListDevEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679718201"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 tags :: Maybe (HashMap Text Text)
 $sel:tags:ListDevEndpoints' :: ListDevEndpoints -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679718192"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679718192"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679718191"><span class="annot"><span class="annottext">s :: ListDevEndpoints
-</span><a href="#local-6989586621679718191"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpoints%27"><span class="hs-identifier hs-type">ListDevEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679718190"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679718190"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDevEndpoints
-</span><a href="#local-6989586621679718191"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ListDevEndpoints' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679718201"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679718201"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679718200"><span class="annot"><span class="annottext">s :: ListDevEndpoints
+</span><a href="#local-6989586621679718200"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpoints%27"><span class="hs-identifier hs-type">ListDevEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679718199"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679718199"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDevEndpoints
+</span><a href="#local-6989586621679718200"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ListDevEndpoints' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.Glue.ListDevEndpoints.html#%24sel%3Atags%3AListDevEndpoints%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679718190"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpoints"><span class="hs-identifier hs-type">ListDevEndpoints</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679718199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpoints"><span class="hs-identifier hs-type">ListDevEndpoints</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; ListDevEndpoints -&gt; f ListDevEndpoints)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -252,12 +252,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-106"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-107"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpoints"><span class="hs-identifier hs-type">ListDevEndpoints</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>      </span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpointsResponse"><span class="hs-identifier hs-type">ListDevEndpointsResponse</span></a></span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679718183"><span class="annot"><span class="annottext">request :: ListDevEndpoints -&gt; Request ListDevEndpoints
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679718192"><span class="annot"><span class="annottext">request :: ListDevEndpoints -&gt; Request ListDevEndpoints
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListDevEndpoints -&gt; Request ListDevEndpoints
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679718179"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679718188"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListDevEndpoints
 -&gt; ClientResponse ClientBody
@@ -281,10 +281,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679718176"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679718176"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679718175"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679718175"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679718174"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679718174"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679718185"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679718185"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679718184"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679718184"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679718183"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679718183"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; ListDevEndpointsResponse
 </span><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpointsResponse%27"><span class="hs-identifier hs-var">ListDevEndpointsResponse'</span></a></span><span>
 </span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; ListDevEndpointsResponse)
@@ -292,7 +292,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe [Text] -&gt; Int -&gt; ListDevEndpointsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679718174"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679718183"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -301,7 +301,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListDevEndpointsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679718174"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679718183"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DevEndpointNames&quot;</span></span><span>
@@ -320,15 +320,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679718176"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679718185"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679718165"><span id="local-6989586621679718167"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpoints"><span class="hs-identifier hs-type">ListDevEndpoints</span></a></span></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679718174"><span id="local-6989586621679718176"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpoints"><span class="hs-identifier hs-type">ListDevEndpoints</span></a></span></span></span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679718162"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpoints"><span class="hs-identifier hs-type">ListDevEndpoints</span></a></span></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679718171"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpoints"><span class="hs-identifier hs-type">ListDevEndpoints</span></a></span></span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpoints"><span class="hs-identifier hs-type">ListDevEndpoints</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679718158"><span class="annot"><span class="annottext">toHeaders :: ListDevEndpoints -&gt; ResponseHeaders
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679718167"><span class="annot"><span class="annottext">toHeaders :: ListDevEndpoints -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListDevEndpoints -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -353,9 +353,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679718148"><span id="local-6989586621679718150"><span id="local-6989586621679718152"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpoints"><span class="hs-identifier hs-type">ListDevEndpoints</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679718146"><span class="annot"><span class="annottext">toJSON :: ListDevEndpoints -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpoints%27"><span class="hs-identifier hs-type">ListDevEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679718142"><span id="local-6989586621679718143"><span id="local-6989586621679718144"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679718157"><span id="local-6989586621679718159"><span id="local-6989586621679718161"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpoints"><span class="hs-identifier hs-type">ListDevEndpoints</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679718155"><span class="annot"><span class="annottext">toJSON :: ListDevEndpoints -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpoints%27"><span class="hs-identifier hs-type">ListDevEndpoints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679718151"><span id="local-6989586621679718152"><span id="local-6989586621679718153"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe (HashMap Text Text)
 tags :: Maybe (HashMap Text Text)
@@ -364,7 +364,7 @@ nextToken :: Maybe Text
 $sel:tags:ListDevEndpoints' :: ListDevEndpoints -&gt; Maybe (HashMap Text Text)
 $sel:maxResults:ListDevEndpoints' :: ListDevEndpoints -&gt; Maybe Natural
 $sel:nextToken:ListDevEndpoints' :: ListDevEndpoints -&gt; Maybe Text
-</span><a href="#local-6989586621679718142"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679718151"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -376,14 +376,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679718144"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679718153"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-143"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679718143"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679718152"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-144"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -391,19 +391,19 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679718142"><span class="hs-identifier hs-var">tags</span></a></span><span>
+</span><a href="#local-6989586621679718151"><span class="hs-identifier hs-var">tags</span></a></span><span>
 </span><span id="line-145"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpoints"><span class="hs-identifier hs-type">ListDevEndpoints</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679718136"><span class="annot"><span class="annottext">toPath :: ListDevEndpoints -&gt; ByteString
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679718145"><span class="annot"><span class="annottext">toPath :: ListDevEndpoints -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListDevEndpoints -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpoints"><span class="hs-identifier hs-type">ListDevEndpoints</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679718132"><span class="annot"><span class="annottext">toQuery :: ListDevEndpoints -&gt; QueryString
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679718141"><span class="annot"><span class="annottext">toQuery :: ListDevEndpoints -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListDevEndpoints -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -411,7 +411,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- | /See:/ 'newListDevEndpointsResponse' smart constructor.</span><span>
-</span><span id="line-155"></span><span id="local-6989586621679718129"><span id="local-6989586621679718130"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDevEndpointsResponse"><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpointsResponse"><span class="hs-identifier hs-var">ListDevEndpointsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDevEndpointsResponse%27"><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpointsResponse%27"><span class="hs-identifier hs-var">ListDevEndpointsResponse'</span></a></span></span><span>
+</span><span id="line-155"></span><span id="local-6989586621679718138"><span id="local-6989586621679718139"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDevEndpointsResponse"><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpointsResponse"><span class="hs-identifier hs-var">ListDevEndpointsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDevEndpointsResponse%27"><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpointsResponse%27"><span class="hs-identifier hs-var">ListDevEndpointsResponse'</span></a></span></span><span>
 </span><span id="line-156"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A continuation token, if the returned list does not contain the last</span><span>
 </span><span id="line-157"></span><span>    </span><span class="hs-comment">-- metric available.</span><span>
 </span><span id="line-158"></span><span>    </span><span id="%24sel%3AnextToken%3AListDevEndpointsResponse%27"><span class="annot"><span class="annottext">ListDevEndpointsResponse -&gt; Maybe Text
@@ -424,7 +424,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-163"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListDevEndpointsResponse%27"><span class="annot"><span class="annottext">ListDevEndpointsResponse -&gt; Int
 </span><a href="Network.AWS.Glue.ListDevEndpoints.html#%24sel%3AhttpStatus%3AListDevEndpointsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-164"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-165"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679718122"><span id="local-6989586621679718124"><span class="annot"><span class="annottext">ListDevEndpointsResponse -&gt; ListDevEndpointsResponse -&gt; Bool
+</span><span id="line-165"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679718131"><span id="local-6989586621679718133"><span class="annot"><span class="annottext">ListDevEndpointsResponse -&gt; ListDevEndpointsResponse -&gt; Bool
 (ListDevEndpointsResponse -&gt; ListDevEndpointsResponse -&gt; Bool)
 -&gt; (ListDevEndpointsResponse -&gt; ListDevEndpointsResponse -&gt; Bool)
 -&gt; Eq ListDevEndpointsResponse
@@ -433,7 +433,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListDevEndpointsResponse -&gt; ListDevEndpointsResponse -&gt; Bool
 == :: ListDevEndpointsResponse -&gt; ListDevEndpointsResponse -&gt; Bool
 $c== :: ListDevEndpointsResponse -&gt; ListDevEndpointsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679718114"><span id="local-6989586621679718116"><span id="local-6989586621679718118"><span id="local-6989586621679718120"><span class="annot"><span class="annottext">ReadPrec [ListDevEndpointsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679718123"><span id="local-6989586621679718125"><span id="local-6989586621679718127"><span id="local-6989586621679718129"><span class="annot"><span class="annottext">ReadPrec [ListDevEndpointsResponse]
 ReadPrec ListDevEndpointsResponse
 Int -&gt; ReadS ListDevEndpointsResponse
 ReadS [ListDevEndpointsResponse]
@@ -453,7 +453,7 @@ readList :: ReadS [ListDevEndpointsResponse]
 $creadList :: ReadS [ListDevEndpointsResponse]
 readsPrec :: Int -&gt; ReadS ListDevEndpointsResponse
 $creadsPrec :: Int -&gt; ReadS ListDevEndpointsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679718108"><span id="local-6989586621679718110"><span id="local-6989586621679718112"><span class="annot"><span class="annottext">Int -&gt; ListDevEndpointsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679718117"><span id="local-6989586621679718119"><span id="local-6989586621679718121"><span class="annot"><span class="annottext">Int -&gt; ListDevEndpointsResponse -&gt; ShowS
 [ListDevEndpointsResponse] -&gt; ShowS
 ListDevEndpointsResponse -&gt; String
 (Int -&gt; ListDevEndpointsResponse -&gt; ShowS)
@@ -505,8 +505,8 @@ ListDevEndpointsResponse -&gt; Rep ListDevEndpointsResponse x
 </span><span id="line-184"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-185"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpointsResponse"><span class="hs-identifier hs-type">ListDevEndpointsResponse</span></a></span><span>
 </span><span id="line-186"></span><span id="newListDevEndpointsResponse"><span class="annot"><span class="annottext">newListDevEndpointsResponse :: Int -&gt; ListDevEndpointsResponse
-</span><a href="Network.AWS.Glue.ListDevEndpoints.html#newListDevEndpointsResponse"><span class="hs-identifier hs-var hs-var">newListDevEndpointsResponse</span></a></span></span><span> </span><span id="local-6989586621679718105"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679718105"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.ListDevEndpoints.html#newListDevEndpointsResponse"><span class="hs-identifier hs-var hs-var">newListDevEndpointsResponse</span></a></span></span><span> </span><span id="local-6989586621679718114"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679718114"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-187"></span><span>  </span><span class="annot"><span class="annottext">ListDevEndpointsResponse' :: Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; ListDevEndpointsResponse
 </span><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpointsResponse%27"><span class="hs-identifier hs-type">ListDevEndpointsResponse'</span></a></span><span>
 </span><span id="line-188"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListDevEndpointsResponse' :: Maybe Text
@@ -520,7 +520,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListDevEndpointsResponse' :: Int
 </span><a href="Network.AWS.Glue.ListDevEndpoints.html#%24sel%3AhttpStatus%3AListDevEndpointsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679718105"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679718114"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-192"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-193"></span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- | A continuation token, if the returned list does not contain the last</span><span>
@@ -537,16 +537,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpointsResponse%27"><span class="hs-identifier hs-type">ListDevEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679718104"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpointsResponse%27"><span class="hs-identifier hs-type">ListDevEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679718113"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListDevEndpointsResponse' :: ListDevEndpointsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679718104"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679718104"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679718103"><span class="annot"><span class="annottext">s :: ListDevEndpointsResponse
-</span><a href="#local-6989586621679718103"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpointsResponse%27"><span class="hs-identifier hs-type">ListDevEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679718102"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679718102"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDevEndpointsResponse
-</span><a href="#local-6989586621679718103"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDevEndpointsResponse' :: Maybe Text
+</span><a href="#local-6989586621679718113"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679718113"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679718112"><span class="annot"><span class="annottext">s :: ListDevEndpointsResponse
+</span><a href="#local-6989586621679718112"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpointsResponse%27"><span class="hs-identifier hs-type">ListDevEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679718111"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679718111"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDevEndpointsResponse
+</span><a href="#local-6989586621679718112"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDevEndpointsResponse' :: Maybe Text
 </span><a href="Network.AWS.Glue.ListDevEndpoints.html#%24sel%3AnextToken%3AListDevEndpointsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679718102"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpointsResponse"><span class="hs-identifier hs-type">ListDevEndpointsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679718111"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpointsResponse"><span class="hs-identifier hs-type">ListDevEndpointsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-comment">-- | The names of all the @DevEndpoint@s in the account, or the</span><span>
 </span><span id="line-200"></span><span class="hs-comment">-- @DevEndpoint@s with the specified tags.</span><span>
@@ -562,16 +562,16 @@ $sel:nextToken:ListDevEndpointsResponse' :: ListDevEndpointsResponse -&gt; Maybe
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpointsResponse%27"><span class="hs-identifier hs-type">ListDevEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679718101"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpointsResponse%27"><span class="hs-identifier hs-type">ListDevEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679718110"><span class="annot"><span class="annottext">Maybe [Text]
 devEndpointNames :: Maybe [Text]
 $sel:devEndpointNames:ListDevEndpointsResponse' :: ListDevEndpointsResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621679718101"><span class="hs-identifier hs-var hs-var">devEndpointNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679718101"><span class="hs-identifier hs-var">devEndpointNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679718100"><span class="annot"><span class="annottext">s :: ListDevEndpointsResponse
-</span><a href="#local-6989586621679718100"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpointsResponse%27"><span class="hs-identifier hs-type">ListDevEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679718099"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679718099"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDevEndpointsResponse
-</span><a href="#local-6989586621679718100"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:devEndpointNames:ListDevEndpointsResponse' :: Maybe [Text]
+</span><a href="#local-6989586621679718110"><span class="hs-identifier hs-var hs-var">devEndpointNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679718110"><span class="hs-identifier hs-var">devEndpointNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679718109"><span class="annot"><span class="annottext">s :: ListDevEndpointsResponse
+</span><a href="#local-6989586621679718109"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpointsResponse%27"><span class="hs-identifier hs-type">ListDevEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679718108"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679718108"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDevEndpointsResponse
+</span><a href="#local-6989586621679718109"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:devEndpointNames:ListDevEndpointsResponse' :: Maybe [Text]
 </span><a href="Network.AWS.Glue.ListDevEndpoints.html#%24sel%3AdevEndpointNames%3AListDevEndpointsResponse%27"><span class="hs-identifier hs-var">devEndpointNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679718099"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpointsResponse"><span class="hs-identifier hs-type">ListDevEndpointsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679718108"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpointsResponse"><span class="hs-identifier hs-type">ListDevEndpointsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ListDevEndpointsResponse -&gt; f ListDevEndpointsResponse)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -596,16 +596,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ListDevEndpointsResponse -&gt; Int -&gt; ListDevEndpointsResponse)
 -&gt; Lens ListDevEndpointsResponse ListDevEndpointsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpointsResponse%27"><span class="hs-identifier hs-type">ListDevEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679718098"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpointsResponse%27"><span class="hs-identifier hs-type">ListDevEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679718107"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListDevEndpointsResponse' :: ListDevEndpointsResponse -&gt; Int
-</span><a href="#local-6989586621679718098"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679718098"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679718097"><span class="annot"><span class="annottext">s :: ListDevEndpointsResponse
-</span><a href="#local-6989586621679718097"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpointsResponse%27"><span class="hs-identifier hs-type">ListDevEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679718096"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679718096"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDevEndpointsResponse
-</span><a href="#local-6989586621679718097"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListDevEndpointsResponse' :: Int
+</span><a href="#local-6989586621679718107"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679718107"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679718106"><span class="annot"><span class="annottext">s :: ListDevEndpointsResponse
+</span><a href="#local-6989586621679718106"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpointsResponse%27"><span class="hs-identifier hs-type">ListDevEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679718105"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679718105"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDevEndpointsResponse
+</span><a href="#local-6989586621679718106"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListDevEndpointsResponse' :: Int
 </span><a href="Network.AWS.Glue.ListDevEndpoints.html#%24sel%3AhttpStatus%3AListDevEndpointsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679718096"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpointsResponse"><span class="hs-identifier hs-type">ListDevEndpointsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679718105"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpointsResponse"><span class="hs-identifier hs-type">ListDevEndpointsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-207"></span><span>
-</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679718094"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpointsResponse"><span class="hs-identifier hs-type">ListDevEndpointsResponse</span></a></span></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679718103"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListDevEndpoints.html#ListDevEndpointsResponse"><span class="hs-identifier hs-type">ListDevEndpointsResponse</span></a></span></span><span>
 </span><span id="line-209"></span></pre></body></html>

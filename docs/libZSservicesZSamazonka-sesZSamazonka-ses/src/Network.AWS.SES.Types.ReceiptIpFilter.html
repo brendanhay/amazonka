@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-ip-filters.html Amazon SES Developer Guide&gt;.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newReceiptIpFilter' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679274097"><span id="local-6989586621679274098"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReceiptIpFilter"><span class="annot"><a href="Network.AWS.SES.Types.ReceiptIpFilter.html#ReceiptIpFilter"><span class="hs-identifier hs-var">ReceiptIpFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReceiptIpFilter%27"><span class="annot"><a href="Network.AWS.SES.Types.ReceiptIpFilter.html#ReceiptIpFilter%27"><span class="hs-identifier hs-var">ReceiptIpFilter'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679274106"><span id="local-6989586621679274107"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReceiptIpFilter"><span class="annot"><a href="Network.AWS.SES.Types.ReceiptIpFilter.html#ReceiptIpFilter"><span class="hs-identifier hs-var">ReceiptIpFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReceiptIpFilter%27"><span class="annot"><a href="Network.AWS.SES.Types.ReceiptIpFilter.html#ReceiptIpFilter%27"><span class="hs-identifier hs-var">ReceiptIpFilter'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates whether to block or allow incoming mail from the specified IP</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- addresses.</span><span>
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3Apolicy%3AReceiptIpFilter%27"><span class="annot"><span class="annottext">ReceiptIpFilter -&gt; ReceiptFilterPolicy
@@ -44,7 +44,7 @@
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3Acidr%3AReceiptIpFilter%27"><span class="annot"><span class="annottext">ReceiptIpFilter -&gt; Text
 </span><a href="Network.AWS.SES.Types.ReceiptIpFilter.html#%24sel%3Acidr%3AReceiptIpFilter%27"><span class="hs-identifier hs-var hs-var">cidr</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274090"><span id="local-6989586621679274092"><span class="annot"><span class="annottext">ReceiptIpFilter -&gt; ReceiptIpFilter -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274099"><span id="local-6989586621679274101"><span class="annot"><span class="annottext">ReceiptIpFilter -&gt; ReceiptIpFilter -&gt; Bool
 (ReceiptIpFilter -&gt; ReceiptIpFilter -&gt; Bool)
 -&gt; (ReceiptIpFilter -&gt; ReceiptIpFilter -&gt; Bool)
 -&gt; Eq ReceiptIpFilter
@@ -53,7 +53,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ReceiptIpFilter -&gt; ReceiptIpFilter -&gt; Bool
 == :: ReceiptIpFilter -&gt; ReceiptIpFilter -&gt; Bool
 $c== :: ReceiptIpFilter -&gt; ReceiptIpFilter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274081"><span id="local-6989586621679274083"><span id="local-6989586621679274085"><span id="local-6989586621679274087"><span class="annot"><span class="annottext">ReadPrec [ReceiptIpFilter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274090"><span id="local-6989586621679274092"><span id="local-6989586621679274094"><span id="local-6989586621679274096"><span class="annot"><span class="annottext">ReadPrec [ReceiptIpFilter]
 ReadPrec ReceiptIpFilter
 Int -&gt; ReadS ReceiptIpFilter
 ReadS [ReceiptIpFilter]
@@ -73,7 +73,7 @@ readList :: ReadS [ReceiptIpFilter]
 $creadList :: ReadS [ReceiptIpFilter]
 readsPrec :: Int -&gt; ReadS ReceiptIpFilter
 $creadsPrec :: Int -&gt; ReadS ReceiptIpFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274074"><span id="local-6989586621679274076"><span id="local-6989586621679274078"><span class="annot"><span class="annottext">Int -&gt; ReceiptIpFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274083"><span id="local-6989586621679274085"><span id="local-6989586621679274087"><span class="annot"><span class="annottext">Int -&gt; ReceiptIpFilter -&gt; ShowS
 [ReceiptIpFilter] -&gt; ShowS
 ReceiptIpFilter -&gt; String
 (Int -&gt; ReceiptIpFilter -&gt; ShowS)
@@ -122,15 +122,15 @@ $cfrom :: forall x. ReceiptIpFilter -&gt; Rep ReceiptIpFilter x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptIpFilter.html#ReceiptIpFilter"><span class="hs-identifier hs-type">ReceiptIpFilter</span></a></span><span>
 </span><span id="line-69"></span><span id="newReceiptIpFilter"><span class="annot"><span class="annottext">newReceiptIpFilter :: ReceiptFilterPolicy -&gt; Text -&gt; ReceiptIpFilter
-</span><a href="Network.AWS.SES.Types.ReceiptIpFilter.html#newReceiptIpFilter"><span class="hs-identifier hs-var hs-var">newReceiptIpFilter</span></a></span></span><span> </span><span id="local-6989586621679274068"><span class="annot"><span class="annottext">ReceiptFilterPolicy
-</span><a href="#local-6989586621679274068"><span class="hs-identifier hs-var">pPolicy_</span></a></span></span><span> </span><span id="local-6989586621679274067"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274067"><span class="hs-identifier hs-var">pCidr_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SES.Types.ReceiptIpFilter.html#newReceiptIpFilter"><span class="hs-identifier hs-var hs-var">newReceiptIpFilter</span></a></span></span><span> </span><span id="local-6989586621679274077"><span class="annot"><span class="annottext">ReceiptFilterPolicy
+</span><a href="#local-6989586621679274077"><span class="hs-identifier hs-var">pPolicy_</span></a></span></span><span> </span><span id="local-6989586621679274076"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274076"><span class="hs-identifier hs-var">pCidr_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">ReceiptIpFilter' :: ReceiptFilterPolicy -&gt; Text -&gt; ReceiptIpFilter
 </span><a href="Network.AWS.SES.Types.ReceiptIpFilter.html#ReceiptIpFilter%27"><span class="hs-identifier hs-type">ReceiptIpFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:ReceiptIpFilter' :: ReceiptFilterPolicy
 </span><a href="Network.AWS.SES.Types.ReceiptIpFilter.html#%24sel%3Apolicy%3AReceiptIpFilter%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ReceiptFilterPolicy
-</span><a href="#local-6989586621679274068"><span class="hs-identifier hs-var">pPolicy_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:cidr:ReceiptIpFilter' :: Text
+</span><a href="#local-6989586621679274077"><span class="hs-identifier hs-var">pPolicy_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:cidr:ReceiptIpFilter' :: Text
 </span><a href="Network.AWS.SES.Types.ReceiptIpFilter.html#%24sel%3Acidr%3AReceiptIpFilter%27"><span class="hs-identifier hs-var">cidr</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274067"><span class="hs-identifier hs-var">pCidr_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679274076"><span class="hs-identifier hs-var">pCidr_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | Indicates whether to block or allow incoming mail from the specified IP</span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- addresses.</span><span>
@@ -145,16 +145,16 @@ $cfrom :: forall x. ReceiptIpFilter -&gt; Rep ReceiptIpFilter x
      ReceiptFilterPolicy
      ReceiptFilterPolicy
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptIpFilter.html#ReceiptIpFilter%27"><span class="hs-identifier hs-type">ReceiptIpFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274063"><span class="annot"><span class="annottext">ReceiptFilterPolicy
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptIpFilter.html#ReceiptIpFilter%27"><span class="hs-identifier hs-type">ReceiptIpFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274072"><span class="annot"><span class="annottext">ReceiptFilterPolicy
 policy :: ReceiptFilterPolicy
 $sel:policy:ReceiptIpFilter' :: ReceiptIpFilter -&gt; ReceiptFilterPolicy
-</span><a href="#local-6989586621679274063"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiptFilterPolicy
-</span><a href="#local-6989586621679274063"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274062"><span class="annot"><span class="annottext">s :: ReceiptIpFilter
-</span><a href="#local-6989586621679274062"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptIpFilter.html#ReceiptIpFilter%27"><span class="hs-identifier hs-type">ReceiptIpFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274061"><span class="annot"><span class="annottext">ReceiptFilterPolicy
-</span><a href="#local-6989586621679274061"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiptIpFilter
-</span><a href="#local-6989586621679274062"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:ReceiptIpFilter' :: ReceiptFilterPolicy
+</span><a href="#local-6989586621679274072"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiptFilterPolicy
+</span><a href="#local-6989586621679274072"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274071"><span class="annot"><span class="annottext">s :: ReceiptIpFilter
+</span><a href="#local-6989586621679274071"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptIpFilter.html#ReceiptIpFilter%27"><span class="hs-identifier hs-type">ReceiptIpFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274070"><span class="annot"><span class="annottext">ReceiptFilterPolicy
+</span><a href="#local-6989586621679274070"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiptIpFilter
+</span><a href="#local-6989586621679274071"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:ReceiptIpFilter' :: ReceiptFilterPolicy
 </span><a href="Network.AWS.SES.Types.ReceiptIpFilter.html#%24sel%3Apolicy%3AReceiptIpFilter%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ReceiptFilterPolicy
-</span><a href="#local-6989586621679274061"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptIpFilter.html#ReceiptIpFilter"><span class="hs-identifier hs-type">ReceiptIpFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274070"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptIpFilter.html#ReceiptIpFilter"><span class="hs-identifier hs-type">ReceiptIpFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | A single IP address or a range of IP addresses that you want to block or</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- allow, specified in Classless Inter-Domain Routing (CIDR) notation. An</span><span>
@@ -167,21 +167,21 @@ $sel:policy:ReceiptIpFilter' :: ReceiptIpFilter -&gt; ReceiptFilterPolicy
 -&gt; (ReceiptIpFilter -&gt; Text -&gt; ReceiptIpFilter)
 -&gt; Lens ReceiptIpFilter ReceiptIpFilter Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptIpFilter.html#ReceiptIpFilter%27"><span class="hs-identifier hs-type">ReceiptIpFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274059"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptIpFilter.html#ReceiptIpFilter%27"><span class="hs-identifier hs-type">ReceiptIpFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274068"><span class="annot"><span class="annottext">Text
 cidr :: Text
 $sel:cidr:ReceiptIpFilter' :: ReceiptIpFilter -&gt; Text
-</span><a href="#local-6989586621679274059"><span class="hs-identifier hs-var hs-var">cidr</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274059"><span class="hs-identifier hs-var">cidr</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274058"><span class="annot"><span class="annottext">s :: ReceiptIpFilter
-</span><a href="#local-6989586621679274058"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptIpFilter.html#ReceiptIpFilter%27"><span class="hs-identifier hs-type">ReceiptIpFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274057"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274057"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiptIpFilter
-</span><a href="#local-6989586621679274058"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cidr:ReceiptIpFilter' :: Text
+</span><a href="#local-6989586621679274068"><span class="hs-identifier hs-var hs-var">cidr</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274068"><span class="hs-identifier hs-var">cidr</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274067"><span class="annot"><span class="annottext">s :: ReceiptIpFilter
+</span><a href="#local-6989586621679274067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptIpFilter.html#ReceiptIpFilter%27"><span class="hs-identifier hs-type">ReceiptIpFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274066"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReceiptIpFilter
+</span><a href="#local-6989586621679274067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cidr:ReceiptIpFilter' :: Text
 </span><a href="Network.AWS.SES.Types.ReceiptIpFilter.html#%24sel%3Acidr%3AReceiptIpFilter%27"><span class="hs-identifier hs-var">cidr</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274057"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptIpFilter.html#ReceiptIpFilter"><span class="hs-identifier hs-type">ReceiptIpFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptIpFilter.html#ReceiptIpFilter"><span class="hs-identifier hs-type">ReceiptIpFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptIpFilter.html#ReceiptIpFilter"><span class="hs-identifier hs-type">ReceiptIpFilter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679274054"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ReceiptIpFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679274052"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679274052"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679274063"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ReceiptIpFilter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679274061"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679274061"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">ReceiptFilterPolicy -&gt; Text -&gt; ReceiptIpFilter
 </span><a href="Network.AWS.SES.Types.ReceiptIpFilter.html#ReceiptIpFilter%27"><span class="hs-identifier hs-var">ReceiptIpFilter'</span></a></span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">(ReceiptFilterPolicy -&gt; Text -&gt; ReceiptIpFilter)
@@ -189,31 +189,31 @@ $sel:cidr:ReceiptIpFilter' :: ReceiptIpFilter -&gt; Text
 -&gt; Either String (Text -&gt; ReceiptIpFilter)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679274052"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ReceiptFilterPolicy
+</span><a href="#local-6989586621679274061"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ReceiptFilterPolicy
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Policy&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Either String (Text -&gt; ReceiptIpFilter)
 -&gt; Either String Text -&gt; Either String ReceiptIpFilter
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679274052"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679274061"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Cidr&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274046"><span id="local-6989586621679274048"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptIpFilter.html#ReceiptIpFilter"><span class="hs-identifier hs-type">ReceiptIpFilter</span></a></span></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274055"><span id="local-6989586621679274057"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptIpFilter.html#ReceiptIpFilter"><span class="hs-identifier hs-type">ReceiptIpFilter</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274043"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptIpFilter.html#ReceiptIpFilter"><span class="hs-identifier hs-type">ReceiptIpFilter</span></a></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274052"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptIpFilter.html#ReceiptIpFilter"><span class="hs-identifier hs-type">ReceiptIpFilter</span></a></span></span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptIpFilter.html#ReceiptIpFilter"><span class="hs-identifier hs-type">ReceiptIpFilter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679274039"><span class="annot"><span class="annottext">toQuery :: ReceiptIpFilter -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptIpFilter.html#ReceiptIpFilter%27"><span class="hs-identifier hs-type">ReceiptIpFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274036"><span id="local-6989586621679274037"><span class="annot"><span class="annottext">Text
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679274048"><span class="annot"><span class="annottext">toQuery :: ReceiptIpFilter -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReceiptIpFilter.html#ReceiptIpFilter%27"><span class="hs-identifier hs-type">ReceiptIpFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274045"><span id="local-6989586621679274046"><span class="annot"><span class="annottext">Text
 ReceiptFilterPolicy
 cidr :: Text
 policy :: ReceiptFilterPolicy
 $sel:cidr:ReceiptIpFilter' :: ReceiptIpFilter -&gt; Text
 $sel:policy:ReceiptIpFilter' :: ReceiptIpFilter -&gt; ReceiptFilterPolicy
-</span><a href="#local-6989586621679274036"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679274045"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -221,9 +221,9 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Policy&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ReceiptFilterPolicy -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">ReceiptFilterPolicy
-</span><a href="#local-6989586621679274037"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679274046"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Cidr&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274036"><span class="hs-identifier hs-var">cidr</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679274045"><span class="hs-identifier hs-var">cidr</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-98"></span></pre></body></html>

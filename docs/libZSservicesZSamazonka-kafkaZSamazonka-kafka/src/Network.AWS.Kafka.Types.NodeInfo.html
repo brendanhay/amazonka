@@ -1,0 +1,381 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Kafka.Types.NodeInfo</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Kafka.Types.NodeInfo</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.BrokerNodeInfo.html"><span class="hs-identifier">Network.AWS.Kafka.Types.BrokerNodeInfo</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.NodeType.html"><span class="hs-identifier">Network.AWS.Kafka.Types.NodeType</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.ZookeeperNodeInfo.html"><span class="hs-identifier">Network.AWS.Kafka.Types.ZookeeperNodeInfo</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | The node information object.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newNodeInfo' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679234412"><span id="local-6989586621679234413"></span></span><span class="hs-keyword">data</span><span> </span><span id="NodeInfo"><span class="annot"><a href="Network.AWS.Kafka.Types.NodeInfo.html#NodeInfo"><span class="hs-identifier hs-var">NodeInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NodeInfo%27"><span class="annot"><a href="Network.AWS.Kafka.Types.NodeInfo.html#NodeInfo%27"><span class="hs-identifier hs-var">NodeInfo'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The start time.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AaddedToClusterTime%3ANodeInfo%27"><span class="annot"><span class="annottext">NodeInfo -&gt; Maybe Text
+</span><a href="Network.AWS.Kafka.Types.NodeInfo.html#%24sel%3AaddedToClusterTime%3ANodeInfo%27"><span class="hs-identifier hs-var hs-var">addedToClusterTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the node.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AnodeARN%3ANodeInfo%27"><span class="annot"><span class="annottext">NodeInfo -&gt; Maybe Text
+</span><a href="Network.AWS.Kafka.Types.NodeInfo.html#%24sel%3AnodeARN%3ANodeInfo%27"><span class="hs-identifier hs-var hs-var">nodeARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The ZookeeperNodeInfo.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AzookeeperNodeInfo%3ANodeInfo%27"><span class="annot"><span class="annottext">NodeInfo -&gt; Maybe ZookeeperNodeInfo
+</span><a href="Network.AWS.Kafka.Types.NodeInfo.html#%24sel%3AzookeeperNodeInfo%3ANodeInfo%27"><span class="hs-identifier hs-var hs-var">zookeeperNodeInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.ZookeeperNodeInfo.html#ZookeeperNodeInfo"><span class="hs-identifier hs-type">ZookeeperNodeInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The instance type.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AinstanceType%3ANodeInfo%27"><span class="annot"><span class="annottext">NodeInfo -&gt; Maybe Text
+</span><a href="Network.AWS.Kafka.Types.NodeInfo.html#%24sel%3AinstanceType%3ANodeInfo%27"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The broker node info.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AbrokerNodeInfo%3ANodeInfo%27"><span class="annot"><span class="annottext">NodeInfo -&gt; Maybe BrokerNodeInfo
+</span><a href="Network.AWS.Kafka.Types.NodeInfo.html#%24sel%3AbrokerNodeInfo%3ANodeInfo%27"><span class="hs-identifier hs-var hs-var">brokerNodeInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.BrokerNodeInfo.html#BrokerNodeInfo"><span class="hs-identifier hs-type">BrokerNodeInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The node type.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AnodeType%3ANodeInfo%27"><span class="annot"><span class="annottext">NodeInfo -&gt; Maybe NodeType
+</span><a href="Network.AWS.Kafka.Types.NodeInfo.html#%24sel%3AnodeType%3ANodeInfo%27"><span class="hs-identifier hs-var hs-var">nodeType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.NodeType.html#NodeType"><span class="hs-identifier hs-type">NodeType</span></a></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679234401"><span id="local-6989586621679234403"><span class="annot"><span class="annottext">NodeInfo -&gt; NodeInfo -&gt; Bool
+(NodeInfo -&gt; NodeInfo -&gt; Bool)
+-&gt; (NodeInfo -&gt; NodeInfo -&gt; Bool) -&gt; Eq NodeInfo
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: NodeInfo -&gt; NodeInfo -&gt; Bool
+$c/= :: NodeInfo -&gt; NodeInfo -&gt; Bool
+== :: NodeInfo -&gt; NodeInfo -&gt; Bool
+$c== :: NodeInfo -&gt; NodeInfo -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679234392"><span id="local-6989586621679234394"><span id="local-6989586621679234396"><span id="local-6989586621679234398"><span class="annot"><span class="annottext">ReadPrec [NodeInfo]
+ReadPrec NodeInfo
+Int -&gt; ReadS NodeInfo
+ReadS [NodeInfo]
+(Int -&gt; ReadS NodeInfo)
+-&gt; ReadS [NodeInfo]
+-&gt; ReadPrec NodeInfo
+-&gt; ReadPrec [NodeInfo]
+-&gt; Read NodeInfo
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [NodeInfo]
+$creadListPrec :: ReadPrec [NodeInfo]
+readPrec :: ReadPrec NodeInfo
+$creadPrec :: ReadPrec NodeInfo
+readList :: ReadS [NodeInfo]
+$creadList :: ReadS [NodeInfo]
+readsPrec :: Int -&gt; ReadS NodeInfo
+$creadsPrec :: Int -&gt; ReadS NodeInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679234385"><span id="local-6989586621679234387"><span id="local-6989586621679234389"><span class="annot"><span class="annottext">Int -&gt; NodeInfo -&gt; ShowS
+[NodeInfo] -&gt; ShowS
+NodeInfo -&gt; String
+(Int -&gt; NodeInfo -&gt; ShowS)
+-&gt; (NodeInfo -&gt; String) -&gt; ([NodeInfo] -&gt; ShowS) -&gt; Show NodeInfo
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [NodeInfo] -&gt; ShowS
+$cshowList :: [NodeInfo] -&gt; ShowS
+show :: NodeInfo -&gt; String
+$cshow :: NodeInfo -&gt; String
+showsPrec :: Int -&gt; NodeInfo -&gt; ShowS
+$cshowsPrec :: Int -&gt; NodeInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. NodeInfo -&gt; Rep NodeInfo x)
+-&gt; (forall x. Rep NodeInfo x -&gt; NodeInfo) -&gt; Generic NodeInfo
+forall x. Rep NodeInfo x -&gt; NodeInfo
+forall x. NodeInfo -&gt; Rep NodeInfo x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep NodeInfo x -&gt; NodeInfo
+$cfrom :: forall x. NodeInfo -&gt; Rep NodeInfo x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Create a value of 'NodeInfo' with all optional fields omitted.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'addedToClusterTime', 'nodeInfo_addedToClusterTime' - The start time.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'nodeARN', 'nodeInfo_nodeARN' - The Amazon Resource Name (ARN) of the node.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'zookeeperNodeInfo', 'nodeInfo_zookeeperNodeInfo' - The ZookeeperNodeInfo.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'instanceType', 'nodeInfo_instanceType' - The instance type.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'brokerNodeInfo', 'nodeInfo_brokerNodeInfo' - The broker node info.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'nodeType', 'nodeInfo_nodeType' - The node type.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.Kafka.Types.NodeInfo.html#newNodeInfo"><span class="hs-identifier hs-type">newNodeInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Kafka.Types.NodeInfo.html#NodeInfo"><span class="hs-identifier hs-type">NodeInfo</span></a></span><span>
+</span><span id="line-69"></span><span id="newNodeInfo"><span class="annot"><span class="annottext">newNodeInfo :: NodeInfo
+</span><a href="Network.AWS.Kafka.Types.NodeInfo.html#newNodeInfo"><span class="hs-identifier hs-var hs-var">newNodeInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">NodeInfo' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ZookeeperNodeInfo
+-&gt; Maybe Text
+-&gt; Maybe BrokerNodeInfo
+-&gt; Maybe NodeType
+-&gt; NodeInfo
+</span><a href="Network.AWS.Kafka.Types.NodeInfo.html#NodeInfo%27"><span class="hs-identifier hs-type">NodeInfo'</span></a></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:addedToClusterTime:NodeInfo' :: Maybe Text
+</span><a href="Network.AWS.Kafka.Types.NodeInfo.html#%24sel%3AaddedToClusterTime%3ANodeInfo%27"><span class="hs-identifier hs-var">addedToClusterTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:nodeARN:NodeInfo' :: Maybe Text
+</span><a href="Network.AWS.Kafka.Types.NodeInfo.html#%24sel%3AnodeARN%3ANodeInfo%27"><span class="hs-identifier hs-var">nodeARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:zookeeperNodeInfo:NodeInfo' :: Maybe ZookeeperNodeInfo
+</span><a href="Network.AWS.Kafka.Types.NodeInfo.html#%24sel%3AzookeeperNodeInfo%3ANodeInfo%27"><span class="hs-identifier hs-var">zookeeperNodeInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ZookeeperNodeInfo
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceType:NodeInfo' :: Maybe Text
+</span><a href="Network.AWS.Kafka.Types.NodeInfo.html#%24sel%3AinstanceType%3ANodeInfo%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:brokerNodeInfo:NodeInfo' :: Maybe BrokerNodeInfo
+</span><a href="Network.AWS.Kafka.Types.NodeInfo.html#%24sel%3AbrokerNodeInfo%3ANodeInfo%27"><span class="hs-identifier hs-var">brokerNodeInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BrokerNodeInfo
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:nodeType:NodeInfo' :: Maybe NodeType
+</span><a href="Network.AWS.Kafka.Types.NodeInfo.html#%24sel%3AnodeType%3ANodeInfo%27"><span class="hs-identifier hs-var">nodeType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NodeType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The start time.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.Kafka.Types.NodeInfo.html#nodeInfo_addedToClusterTime"><span class="hs-identifier hs-type">nodeInfo_addedToClusterTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.NodeInfo.html#NodeInfo"><span class="hs-identifier hs-type">NodeInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="nodeInfo_addedToClusterTime"><span class="annot"><span class="annottext">nodeInfo_addedToClusterTime :: (Maybe Text -&gt; f (Maybe Text)) -&gt; NodeInfo -&gt; f NodeInfo
+</span><a href="Network.AWS.Kafka.Types.NodeInfo.html#nodeInfo_addedToClusterTime"><span class="hs-identifier hs-var hs-var">nodeInfo_addedToClusterTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodeInfo -&gt; Maybe Text)
+-&gt; (NodeInfo -&gt; Maybe Text -&gt; NodeInfo)
+-&gt; Lens NodeInfo NodeInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kafka.Types.NodeInfo.html#NodeInfo%27"><span class="hs-identifier hs-type">NodeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234376"><span class="annot"><span class="annottext">Maybe Text
+addedToClusterTime :: Maybe Text
+$sel:addedToClusterTime:NodeInfo' :: NodeInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679234376"><span class="hs-identifier hs-var hs-var">addedToClusterTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679234376"><span class="hs-identifier hs-var">addedToClusterTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234375"><span class="annot"><span class="annottext">s :: NodeInfo
+</span><a href="#local-6989586621679234375"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kafka.Types.NodeInfo.html#NodeInfo%27"><span class="hs-identifier hs-type">NodeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234374"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679234374"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeInfo
+</span><a href="#local-6989586621679234375"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addedToClusterTime:NodeInfo' :: Maybe Text
+</span><a href="Network.AWS.Kafka.Types.NodeInfo.html#%24sel%3AaddedToClusterTime%3ANodeInfo%27"><span class="hs-identifier hs-var">addedToClusterTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679234374"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.NodeInfo.html#NodeInfo"><span class="hs-identifier hs-type">NodeInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the node.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.Kafka.Types.NodeInfo.html#nodeInfo_nodeARN"><span class="hs-identifier hs-type">nodeInfo_nodeARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.NodeInfo.html#NodeInfo"><span class="hs-identifier hs-type">NodeInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="nodeInfo_nodeARN"><span class="annot"><span class="annottext">nodeInfo_nodeARN :: (Maybe Text -&gt; f (Maybe Text)) -&gt; NodeInfo -&gt; f NodeInfo
+</span><a href="Network.AWS.Kafka.Types.NodeInfo.html#nodeInfo_nodeARN"><span class="hs-identifier hs-var hs-var">nodeInfo_nodeARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodeInfo -&gt; Maybe Text)
+-&gt; (NodeInfo -&gt; Maybe Text -&gt; NodeInfo)
+-&gt; Lens NodeInfo NodeInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kafka.Types.NodeInfo.html#NodeInfo%27"><span class="hs-identifier hs-type">NodeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234372"><span class="annot"><span class="annottext">Maybe Text
+nodeARN :: Maybe Text
+$sel:nodeARN:NodeInfo' :: NodeInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679234372"><span class="hs-identifier hs-var hs-var">nodeARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679234372"><span class="hs-identifier hs-var">nodeARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234371"><span class="annot"><span class="annottext">s :: NodeInfo
+</span><a href="#local-6989586621679234371"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kafka.Types.NodeInfo.html#NodeInfo%27"><span class="hs-identifier hs-type">NodeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234370"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679234370"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeInfo
+</span><a href="#local-6989586621679234371"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeARN:NodeInfo' :: Maybe Text
+</span><a href="Network.AWS.Kafka.Types.NodeInfo.html#%24sel%3AnodeARN%3ANodeInfo%27"><span class="hs-identifier hs-var">nodeARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679234370"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.NodeInfo.html#NodeInfo"><span class="hs-identifier hs-type">NodeInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The ZookeeperNodeInfo.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.Kafka.Types.NodeInfo.html#nodeInfo_zookeeperNodeInfo"><span class="hs-identifier hs-type">nodeInfo_zookeeperNodeInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.NodeInfo.html#NodeInfo"><span class="hs-identifier hs-type">NodeInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.ZookeeperNodeInfo.html#ZookeeperNodeInfo"><span class="hs-identifier hs-type">ZookeeperNodeInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="nodeInfo_zookeeperNodeInfo"><span class="annot"><span class="annottext">nodeInfo_zookeeperNodeInfo :: (Maybe ZookeeperNodeInfo -&gt; f (Maybe ZookeeperNodeInfo))
+-&gt; NodeInfo -&gt; f NodeInfo
+</span><a href="Network.AWS.Kafka.Types.NodeInfo.html#nodeInfo_zookeeperNodeInfo"><span class="hs-identifier hs-var hs-var">nodeInfo_zookeeperNodeInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodeInfo -&gt; Maybe ZookeeperNodeInfo)
+-&gt; (NodeInfo -&gt; Maybe ZookeeperNodeInfo -&gt; NodeInfo)
+-&gt; Lens
+     NodeInfo
+     NodeInfo
+     (Maybe ZookeeperNodeInfo)
+     (Maybe ZookeeperNodeInfo)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kafka.Types.NodeInfo.html#NodeInfo%27"><span class="hs-identifier hs-type">NodeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234368"><span class="annot"><span class="annottext">Maybe ZookeeperNodeInfo
+zookeeperNodeInfo :: Maybe ZookeeperNodeInfo
+$sel:zookeeperNodeInfo:NodeInfo' :: NodeInfo -&gt; Maybe ZookeeperNodeInfo
+</span><a href="#local-6989586621679234368"><span class="hs-identifier hs-var hs-var">zookeeperNodeInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ZookeeperNodeInfo
+</span><a href="#local-6989586621679234368"><span class="hs-identifier hs-var">zookeeperNodeInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234367"><span class="annot"><span class="annottext">s :: NodeInfo
+</span><a href="#local-6989586621679234367"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kafka.Types.NodeInfo.html#NodeInfo%27"><span class="hs-identifier hs-type">NodeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234366"><span class="annot"><span class="annottext">Maybe ZookeeperNodeInfo
+</span><a href="#local-6989586621679234366"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeInfo
+</span><a href="#local-6989586621679234367"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:zookeeperNodeInfo:NodeInfo' :: Maybe ZookeeperNodeInfo
+</span><a href="Network.AWS.Kafka.Types.NodeInfo.html#%24sel%3AzookeeperNodeInfo%3ANodeInfo%27"><span class="hs-identifier hs-var">zookeeperNodeInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ZookeeperNodeInfo
+</span><a href="#local-6989586621679234366"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.NodeInfo.html#NodeInfo"><span class="hs-identifier hs-type">NodeInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The instance type.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.Kafka.Types.NodeInfo.html#nodeInfo_instanceType"><span class="hs-identifier hs-type">nodeInfo_instanceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.NodeInfo.html#NodeInfo"><span class="hs-identifier hs-type">NodeInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="nodeInfo_instanceType"><span class="annot"><span class="annottext">nodeInfo_instanceType :: (Maybe Text -&gt; f (Maybe Text)) -&gt; NodeInfo -&gt; f NodeInfo
+</span><a href="Network.AWS.Kafka.Types.NodeInfo.html#nodeInfo_instanceType"><span class="hs-identifier hs-var hs-var">nodeInfo_instanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodeInfo -&gt; Maybe Text)
+-&gt; (NodeInfo -&gt; Maybe Text -&gt; NodeInfo)
+-&gt; Lens NodeInfo NodeInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kafka.Types.NodeInfo.html#NodeInfo%27"><span class="hs-identifier hs-type">NodeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234364"><span class="annot"><span class="annottext">Maybe Text
+instanceType :: Maybe Text
+$sel:instanceType:NodeInfo' :: NodeInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679234364"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679234364"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234363"><span class="annot"><span class="annottext">s :: NodeInfo
+</span><a href="#local-6989586621679234363"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kafka.Types.NodeInfo.html#NodeInfo%27"><span class="hs-identifier hs-type">NodeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234362"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679234362"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeInfo
+</span><a href="#local-6989586621679234363"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceType:NodeInfo' :: Maybe Text
+</span><a href="Network.AWS.Kafka.Types.NodeInfo.html#%24sel%3AinstanceType%3ANodeInfo%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679234362"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.NodeInfo.html#NodeInfo"><span class="hs-identifier hs-type">NodeInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The broker node info.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.Kafka.Types.NodeInfo.html#nodeInfo_brokerNodeInfo"><span class="hs-identifier hs-type">nodeInfo_brokerNodeInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.NodeInfo.html#NodeInfo"><span class="hs-identifier hs-type">NodeInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.BrokerNodeInfo.html#BrokerNodeInfo"><span class="hs-identifier hs-type">BrokerNodeInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="nodeInfo_brokerNodeInfo"><span class="annot"><span class="annottext">nodeInfo_brokerNodeInfo :: (Maybe BrokerNodeInfo -&gt; f (Maybe BrokerNodeInfo))
+-&gt; NodeInfo -&gt; f NodeInfo
+</span><a href="Network.AWS.Kafka.Types.NodeInfo.html#nodeInfo_brokerNodeInfo"><span class="hs-identifier hs-var hs-var">nodeInfo_brokerNodeInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodeInfo -&gt; Maybe BrokerNodeInfo)
+-&gt; (NodeInfo -&gt; Maybe BrokerNodeInfo -&gt; NodeInfo)
+-&gt; Lens
+     NodeInfo NodeInfo (Maybe BrokerNodeInfo) (Maybe BrokerNodeInfo)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kafka.Types.NodeInfo.html#NodeInfo%27"><span class="hs-identifier hs-type">NodeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234360"><span class="annot"><span class="annottext">Maybe BrokerNodeInfo
+brokerNodeInfo :: Maybe BrokerNodeInfo
+$sel:brokerNodeInfo:NodeInfo' :: NodeInfo -&gt; Maybe BrokerNodeInfo
+</span><a href="#local-6989586621679234360"><span class="hs-identifier hs-var hs-var">brokerNodeInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BrokerNodeInfo
+</span><a href="#local-6989586621679234360"><span class="hs-identifier hs-var">brokerNodeInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234359"><span class="annot"><span class="annottext">s :: NodeInfo
+</span><a href="#local-6989586621679234359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kafka.Types.NodeInfo.html#NodeInfo%27"><span class="hs-identifier hs-type">NodeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234358"><span class="annot"><span class="annottext">Maybe BrokerNodeInfo
+</span><a href="#local-6989586621679234358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeInfo
+</span><a href="#local-6989586621679234359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:brokerNodeInfo:NodeInfo' :: Maybe BrokerNodeInfo
+</span><a href="Network.AWS.Kafka.Types.NodeInfo.html#%24sel%3AbrokerNodeInfo%3ANodeInfo%27"><span class="hs-identifier hs-var">brokerNodeInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BrokerNodeInfo
+</span><a href="#local-6989586621679234358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.NodeInfo.html#NodeInfo"><span class="hs-identifier hs-type">NodeInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The node type.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.Kafka.Types.NodeInfo.html#nodeInfo_nodeType"><span class="hs-identifier hs-type">nodeInfo_nodeType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.NodeInfo.html#NodeInfo"><span class="hs-identifier hs-type">NodeInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.NodeType.html#NodeType"><span class="hs-identifier hs-type">NodeType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="nodeInfo_nodeType"><span class="annot"><span class="annottext">nodeInfo_nodeType :: (Maybe NodeType -&gt; f (Maybe NodeType)) -&gt; NodeInfo -&gt; f NodeInfo
+</span><a href="Network.AWS.Kafka.Types.NodeInfo.html#nodeInfo_nodeType"><span class="hs-identifier hs-var hs-var">nodeInfo_nodeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NodeInfo -&gt; Maybe NodeType)
+-&gt; (NodeInfo -&gt; Maybe NodeType -&gt; NodeInfo)
+-&gt; Lens NodeInfo NodeInfo (Maybe NodeType) (Maybe NodeType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kafka.Types.NodeInfo.html#NodeInfo%27"><span class="hs-identifier hs-type">NodeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234356"><span class="annot"><span class="annottext">Maybe NodeType
+nodeType :: Maybe NodeType
+$sel:nodeType:NodeInfo' :: NodeInfo -&gt; Maybe NodeType
+</span><a href="#local-6989586621679234356"><span class="hs-identifier hs-var hs-var">nodeType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NodeType
+</span><a href="#local-6989586621679234356"><span class="hs-identifier hs-var">nodeType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234355"><span class="annot"><span class="annottext">s :: NodeInfo
+</span><a href="#local-6989586621679234355"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kafka.Types.NodeInfo.html#NodeInfo%27"><span class="hs-identifier hs-type">NodeInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234354"><span class="annot"><span class="annottext">Maybe NodeType
+</span><a href="#local-6989586621679234354"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeInfo
+</span><a href="#local-6989586621679234355"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeType:NodeInfo' :: Maybe NodeType
+</span><a href="Network.AWS.Kafka.Types.NodeInfo.html#%24sel%3AnodeType%3ANodeInfo%27"><span class="hs-identifier hs-var">nodeType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NodeType
+</span><a href="#local-6989586621679234354"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.NodeInfo.html#NodeInfo"><span class="hs-identifier hs-type">NodeInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679234351"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.NodeInfo.html#NodeInfo"><span class="hs-identifier hs-type">NodeInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679234349"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NodeInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser NodeInfo) -&gt; Value -&gt; Parser NodeInfo
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;NodeInfo&quot;</span></span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679234346"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679234346"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ZookeeperNodeInfo
+-&gt; Maybe Text
+-&gt; Maybe BrokerNodeInfo
+-&gt; Maybe NodeType
+-&gt; NodeInfo
+</span><a href="Network.AWS.Kafka.Types.NodeInfo.html#NodeInfo%27"><span class="hs-identifier hs-var">NodeInfo'</span></a></span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe ZookeeperNodeInfo
+ -&gt; Maybe Text
+ -&gt; Maybe BrokerNodeInfo
+ -&gt; Maybe NodeType
+ -&gt; NodeInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe ZookeeperNodeInfo
+      -&gt; Maybe Text
+      -&gt; Maybe BrokerNodeInfo
+      -&gt; Maybe NodeType
+      -&gt; NodeInfo)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679234346"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;addedToClusterTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe ZookeeperNodeInfo
+   -&gt; Maybe Text
+   -&gt; Maybe BrokerNodeInfo
+   -&gt; Maybe NodeType
+   -&gt; NodeInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ZookeeperNodeInfo
+      -&gt; Maybe Text
+      -&gt; Maybe BrokerNodeInfo
+      -&gt; Maybe NodeType
+      -&gt; NodeInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679234346"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nodeARN&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ZookeeperNodeInfo
+   -&gt; Maybe Text
+   -&gt; Maybe BrokerNodeInfo
+   -&gt; Maybe NodeType
+   -&gt; NodeInfo)
+-&gt; Parser (Maybe ZookeeperNodeInfo)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe BrokerNodeInfo -&gt; Maybe NodeType -&gt; NodeInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679234346"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ZookeeperNodeInfo)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;zookeeperNodeInfo&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe BrokerNodeInfo -&gt; Maybe NodeType -&gt; NodeInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe BrokerNodeInfo -&gt; Maybe NodeType -&gt; NodeInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679234346"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;instanceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe BrokerNodeInfo -&gt; Maybe NodeType -&gt; NodeInfo)
+-&gt; Parser (Maybe BrokerNodeInfo)
+-&gt; Parser (Maybe NodeType -&gt; NodeInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679234346"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BrokerNodeInfo)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;brokerNodeInfo&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe NodeType -&gt; NodeInfo)
+-&gt; Parser (Maybe NodeType) -&gt; Parser NodeInfo
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679234346"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NodeType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nodeType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679234340"><span id="local-6989586621679234342"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.NodeInfo.html#NodeInfo"><span class="hs-identifier hs-type">NodeInfo</span></a></span></span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679234337"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kafka.Types.NodeInfo.html#NodeInfo"><span class="hs-identifier hs-type">NodeInfo</span></a></span></span><span>
+</span><span id="line-120"></span></pre></body></html>

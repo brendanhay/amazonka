@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-comment">-- | Represents the input of a @ListActionTypes@ action.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- /See:/ 'newListActionTypes' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679290074"><span id="local-6989586621679290075"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListActionTypes"><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypes"><span class="hs-identifier hs-var">ListActionTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListActionTypes%27"><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypes%27"><span class="hs-identifier hs-var">ListActionTypes'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679290083"><span id="local-6989586621679290084"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListActionTypes"><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypes"><span class="hs-identifier hs-var">ListActionTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListActionTypes%27"><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypes%27"><span class="hs-identifier hs-var">ListActionTypes'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Filters the list of action types to those created by a specified entity.</span><span>
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AactionOwnerFilter%3AListActionTypes%27"><span class="annot"><span class="annottext">ListActionTypes -&gt; Maybe ActionOwner
 </span><a href="Network.AWS.CodePipeline.ListActionTypes.html#%24sel%3AactionOwnerFilter%3AListActionTypes%27"><span class="hs-identifier hs-var hs-var">actionOwnerFilter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionOwner.html#ActionOwner"><span class="hs-identifier hs-type">ActionOwner</span></a></span><span class="hs-special">,</span><span>
@@ -68,7 +68,7 @@
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3AnextToken%3AListActionTypes%27"><span class="annot"><span class="annottext">ListActionTypes -&gt; Maybe Text
 </span><a href="Network.AWS.CodePipeline.ListActionTypes.html#%24sel%3AnextToken%3AListActionTypes%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679290066"><span id="local-6989586621679290068"><span class="annot"><span class="annottext">ListActionTypes -&gt; ListActionTypes -&gt; Bool
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679290075"><span id="local-6989586621679290077"><span class="annot"><span class="annottext">ListActionTypes -&gt; ListActionTypes -&gt; Bool
 (ListActionTypes -&gt; ListActionTypes -&gt; Bool)
 -&gt; (ListActionTypes -&gt; ListActionTypes -&gt; Bool)
 -&gt; Eq ListActionTypes
@@ -77,7 +77,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListActionTypes -&gt; ListActionTypes -&gt; Bool
 == :: ListActionTypes -&gt; ListActionTypes -&gt; Bool
 $c== :: ListActionTypes -&gt; ListActionTypes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679290057"><span id="local-6989586621679290059"><span id="local-6989586621679290061"><span id="local-6989586621679290063"><span class="annot"><span class="annottext">ReadPrec [ListActionTypes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679290066"><span id="local-6989586621679290068"><span id="local-6989586621679290070"><span id="local-6989586621679290072"><span class="annot"><span class="annottext">ReadPrec [ListActionTypes]
 ReadPrec ListActionTypes
 Int -&gt; ReadS ListActionTypes
 ReadS [ListActionTypes]
@@ -97,7 +97,7 @@ readList :: ReadS [ListActionTypes]
 $creadList :: ReadS [ListActionTypes]
 readsPrec :: Int -&gt; ReadS ListActionTypes
 $creadsPrec :: Int -&gt; ReadS ListActionTypes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679290050"><span id="local-6989586621679290052"><span id="local-6989586621679290054"><span class="annot"><span class="annottext">Int -&gt; ListActionTypes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679290059"><span id="local-6989586621679290061"><span id="local-6989586621679290063"><span class="annot"><span class="annottext">Int -&gt; ListActionTypes -&gt; ShowS
 [ListActionTypes] -&gt; ShowS
 ListActionTypes -&gt; String
 (Int -&gt; ListActionTypes -&gt; ShowS)
@@ -171,16 +171,16 @@ forall a. Maybe a
      (Maybe ActionOwner)
      (Maybe ActionOwner)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypes%27"><span class="hs-identifier hs-type">ListActionTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290044"><span class="annot"><span class="annottext">Maybe ActionOwner
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypes%27"><span class="hs-identifier hs-type">ListActionTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290053"><span class="annot"><span class="annottext">Maybe ActionOwner
 actionOwnerFilter :: Maybe ActionOwner
 $sel:actionOwnerFilter:ListActionTypes' :: ListActionTypes -&gt; Maybe ActionOwner
-</span><a href="#local-6989586621679290044"><span class="hs-identifier hs-var hs-var">actionOwnerFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ActionOwner
-</span><a href="#local-6989586621679290044"><span class="hs-identifier hs-var">actionOwnerFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290043"><span class="annot"><span class="annottext">s :: ListActionTypes
-</span><a href="#local-6989586621679290043"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypes%27"><span class="hs-identifier hs-type">ListActionTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290042"><span class="annot"><span class="annottext">Maybe ActionOwner
-</span><a href="#local-6989586621679290042"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListActionTypes
-</span><a href="#local-6989586621679290043"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionOwnerFilter:ListActionTypes' :: Maybe ActionOwner
+</span><a href="#local-6989586621679290053"><span class="hs-identifier hs-var hs-var">actionOwnerFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ActionOwner
+</span><a href="#local-6989586621679290053"><span class="hs-identifier hs-var">actionOwnerFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290052"><span class="annot"><span class="annottext">s :: ListActionTypes
+</span><a href="#local-6989586621679290052"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypes%27"><span class="hs-identifier hs-type">ListActionTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290051"><span class="annot"><span class="annottext">Maybe ActionOwner
+</span><a href="#local-6989586621679290051"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListActionTypes
+</span><a href="#local-6989586621679290052"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionOwnerFilter:ListActionTypes' :: Maybe ActionOwner
 </span><a href="Network.AWS.CodePipeline.ListActionTypes.html#%24sel%3AactionOwnerFilter%3AListActionTypes%27"><span class="hs-identifier hs-var">actionOwnerFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActionOwner
-</span><a href="#local-6989586621679290042"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypes"><span class="hs-identifier hs-type">ListActionTypes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679290051"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypes"><span class="hs-identifier hs-type">ListActionTypes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | The Region to filter on for the list of action types.</span><span>
 </span><span id="line-100"></span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#listActionTypes_regionFilter"><span class="hs-identifier hs-type">listActionTypes_regionFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypes"><span class="hs-identifier hs-type">ListActionTypes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -190,16 +190,16 @@ $sel:actionOwnerFilter:ListActionTypes' :: ListActionTypes -&gt; Maybe ActionOwn
 -&gt; (ListActionTypes -&gt; Maybe Text -&gt; ListActionTypes)
 -&gt; Lens ListActionTypes ListActionTypes (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypes%27"><span class="hs-identifier hs-type">ListActionTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290041"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypes%27"><span class="hs-identifier hs-type">ListActionTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290050"><span class="annot"><span class="annottext">Maybe Text
 regionFilter :: Maybe Text
 $sel:regionFilter:ListActionTypes' :: ListActionTypes -&gt; Maybe Text
-</span><a href="#local-6989586621679290041"><span class="hs-identifier hs-var hs-var">regionFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679290041"><span class="hs-identifier hs-var">regionFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290040"><span class="annot"><span class="annottext">s :: ListActionTypes
-</span><a href="#local-6989586621679290040"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypes%27"><span class="hs-identifier hs-type">ListActionTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290039"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679290039"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListActionTypes
-</span><a href="#local-6989586621679290040"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:regionFilter:ListActionTypes' :: Maybe Text
+</span><a href="#local-6989586621679290050"><span class="hs-identifier hs-var hs-var">regionFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290050"><span class="hs-identifier hs-var">regionFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290049"><span class="annot"><span class="annottext">s :: ListActionTypes
+</span><a href="#local-6989586621679290049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypes%27"><span class="hs-identifier hs-type">ListActionTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290048"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListActionTypes
+</span><a href="#local-6989586621679290049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:regionFilter:ListActionTypes' :: Maybe Text
 </span><a href="Network.AWS.CodePipeline.ListActionTypes.html#%24sel%3AregionFilter%3AListActionTypes%27"><span class="hs-identifier hs-var">regionFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679290039"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypes"><span class="hs-identifier hs-type">ListActionTypes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679290048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypes"><span class="hs-identifier hs-type">ListActionTypes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | An identifier that was returned from the previous list action types</span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- call, which can be used to return the next set of action types in the</span><span>
@@ -211,29 +211,29 @@ $sel:regionFilter:ListActionTypes' :: ListActionTypes -&gt; Maybe Text
 -&gt; (ListActionTypes -&gt; Maybe Text -&gt; ListActionTypes)
 -&gt; Lens ListActionTypes ListActionTypes (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypes%27"><span class="hs-identifier hs-type">ListActionTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290038"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypes%27"><span class="hs-identifier hs-type">ListActionTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290047"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListActionTypes' :: ListActionTypes -&gt; Maybe Text
-</span><a href="#local-6989586621679290038"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679290038"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290037"><span class="annot"><span class="annottext">s :: ListActionTypes
-</span><a href="#local-6989586621679290037"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypes%27"><span class="hs-identifier hs-type">ListActionTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290036"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679290036"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListActionTypes
-</span><a href="#local-6989586621679290037"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListActionTypes' :: Maybe Text
+</span><a href="#local-6989586621679290047"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290047"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290046"><span class="annot"><span class="annottext">s :: ListActionTypes
+</span><a href="#local-6989586621679290046"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypes%27"><span class="hs-identifier hs-type">ListActionTypes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290045"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679290045"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListActionTypes
+</span><a href="#local-6989586621679290046"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListActionTypes' :: Maybe Text
 </span><a href="Network.AWS.CodePipeline.ListActionTypes.html#%24sel%3AnextToken%3AListActionTypes%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679290036"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypes"><span class="hs-identifier hs-type">ListActionTypes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679290045"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypes"><span class="hs-identifier hs-type">ListActionTypes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypes"><span class="hs-identifier hs-type">ListActionTypes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679290032"><span class="annot"><span class="annottext">page :: ListActionTypes
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679290041"><span class="annot"><span class="annottext">page :: ListActionTypes
 -&gt; AWSResponse ListActionTypes -&gt; Maybe ListActionTypes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679290030"><span class="annot"><span class="annottext">ListActionTypes
-</span><a href="#local-6989586621679290030"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679290029"><span class="annot"><span class="annottext">AWSResponse ListActionTypes
-</span><a href="#local-6989586621679290029"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679290039"><span class="annot"><span class="annottext">ListActionTypes
+</span><a href="#local-6989586621679290039"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679290038"><span class="annot"><span class="annottext">AWSResponse ListActionTypes
+</span><a href="#local-6989586621679290038"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-111"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-112"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListActionTypes
 ListActionTypesResponse
-</span><a href="#local-6989586621679290029"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679290038"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">ListActionTypesResponse
 -&gt; Getting (First Text) ListActionTypesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -262,7 +262,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-118"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">AWSResponse ListActionTypes
 ListActionTypesResponse
-</span><a href="#local-6989586621679290029"><span class="hs-identifier hs-var">rs</span></a></span><span> </span><span class="annot"><span class="annottext">ListActionTypesResponse
+</span><a href="#local-6989586621679290038"><span class="hs-identifier hs-var">rs</span></a></span><span> </span><span class="annot"><span class="annottext">ListActionTypesResponse
 -&gt; Getting [ActionType] ListActionTypesResponse [ActionType]
 -&gt; [ActionType]
 forall s a. s -&gt; Getting a s a -&gt; a
@@ -281,7 +281,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">ListActionTypes
-</span><a href="#local-6989586621679290030"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679290039"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">ListActionTypes
 -&gt; (ListActionTypes -&gt; ListActionTypes) -&gt; ListActionTypes
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -295,7 +295,7 @@ Lens ListActionTypes ListActionTypes (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListActionTypes
 ListActionTypesResponse
-</span><a href="#local-6989586621679290029"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679290038"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">ListActionTypesResponse
 -&gt; Getting (First Text) ListActionTypesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -320,12 +320,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-129"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-130"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypes"><span class="hs-identifier hs-type">ListActionTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>      </span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypesResponse"><span class="hs-identifier hs-type">ListActionTypesResponse</span></a></span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679290018"><span class="annot"><span class="annottext">request :: ListActionTypes -&gt; Request ListActionTypes
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679290027"><span class="annot"><span class="annottext">request :: ListActionTypes -&gt; Request ListActionTypes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListActionTypes -&gt; Request ListActionTypes
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodePipeline.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679290014"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679290023"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListActionTypes
 -&gt; ClientResponse ClientBody
@@ -349,10 +349,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679290011"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679290011"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679290010"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679290010"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679290009"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679290009"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679290020"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679290020"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679290019"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679290019"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679290018"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679290018"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-136"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; [ActionType] -&gt; ListActionTypesResponse
 </span><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypesResponse%27"><span class="hs-identifier hs-var">ListActionTypesResponse'</span></a></span><span>
 </span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; [ActionType] -&gt; ListActionTypesResponse)
@@ -360,7 +360,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; [ActionType] -&gt; ListActionTypesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679290009"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679290018"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -373,13 +373,13 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679290011"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679290020"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Either String ([ActionType] -&gt; ListActionTypesResponse)
 -&gt; Either String [ActionType]
 -&gt; Either String ListActionTypesResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679290009"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [ActionType])
+</span><a href="#local-6989586621679290018"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [ActionType])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;actionTypes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [ActionType])
@@ -390,12 +390,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679290000"><span id="local-6989586621679290002"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypes"><span class="hs-identifier hs-type">ListActionTypes</span></a></span></span></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679290009"><span id="local-6989586621679290011"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypes"><span class="hs-identifier hs-type">ListActionTypes</span></a></span></span></span><span>
 </span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289997"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypes"><span class="hs-identifier hs-type">ListActionTypes</span></a></span></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679290006"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypes"><span class="hs-identifier hs-type">ListActionTypes</span></a></span></span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypes"><span class="hs-identifier hs-type">ListActionTypes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679289993"><span class="annot"><span class="annottext">toHeaders :: ListActionTypes -&gt; ResponseHeaders
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679290002"><span class="annot"><span class="annottext">toHeaders :: ListActionTypes -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListActionTypes -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -422,9 +422,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-158"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-159"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289983"><span id="local-6989586621679289985"><span id="local-6989586621679289987"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypes"><span class="hs-identifier hs-type">ListActionTypes</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679289981"><span class="annot"><span class="annottext">toJSON :: ListActionTypes -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypes%27"><span class="hs-identifier hs-type">ListActionTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289977"><span id="local-6989586621679289978"><span id="local-6989586621679289979"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289992"><span id="local-6989586621679289994"><span id="local-6989586621679289996"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypes"><span class="hs-identifier hs-type">ListActionTypes</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679289990"><span class="annot"><span class="annottext">toJSON :: ListActionTypes -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypes%27"><span class="hs-identifier hs-type">ListActionTypes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289986"><span id="local-6989586621679289987"><span id="local-6989586621679289988"><span class="annot"><span class="annottext">Maybe Text
 Maybe ActionOwner
 nextToken :: Maybe Text
 regionFilter :: Maybe Text
@@ -432,7 +432,7 @@ actionOwnerFilter :: Maybe ActionOwner
 $sel:nextToken:ListActionTypes' :: ListActionTypes -&gt; Maybe Text
 $sel:regionFilter:ListActionTypes' :: ListActionTypes -&gt; Maybe Text
 $sel:actionOwnerFilter:ListActionTypes' :: ListActionTypes -&gt; Maybe ActionOwner
-</span><a href="#local-6989586621679289977"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679289986"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-164"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -445,33 +445,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-166"></span><span>              </span><span class="annot"><span class="annottext">(ActionOwner -&gt; Pair) -&gt; Maybe ActionOwner -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ActionOwner
-</span><a href="#local-6989586621679289979"><span class="hs-identifier hs-var">actionOwnerFilter</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679289988"><span class="hs-identifier hs-var">actionOwnerFilter</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-167"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;regionFilter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679289978"><span class="hs-identifier hs-var">regionFilter</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679289987"><span class="hs-identifier hs-var">regionFilter</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-168"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679289977"><span class="hs-identifier hs-var">nextToken</span></a></span><span>
+</span><a href="#local-6989586621679289986"><span class="hs-identifier hs-var">nextToken</span></a></span><span>
 </span><span id="line-169"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-170"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypes"><span class="hs-identifier hs-type">ListActionTypes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679289971"><span class="annot"><span class="annottext">toPath :: ListActionTypes -&gt; ByteString
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679289980"><span class="annot"><span class="annottext">toPath :: ListActionTypes -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListActionTypes -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypes"><span class="hs-identifier hs-type">ListActionTypes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679289967"><span class="annot"><span class="annottext">toQuery :: ListActionTypes -&gt; QueryString
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679289976"><span class="annot"><span class="annottext">toQuery :: ListActionTypes -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListActionTypes -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -481,7 +481,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-178"></span><span class="hs-comment">-- | Represents the output of a @ListActionTypes@ action.</span><span>
 </span><span id="line-179"></span><span class="hs-comment">--</span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- /See:/ 'newListActionTypesResponse' smart constructor.</span><span>
-</span><span id="line-181"></span><span id="local-6989586621679289964"><span id="local-6989586621679289965"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListActionTypesResponse"><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypesResponse"><span class="hs-identifier hs-var">ListActionTypesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListActionTypesResponse%27"><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypesResponse%27"><span class="hs-identifier hs-var">ListActionTypesResponse'</span></a></span></span><span>
+</span><span id="line-181"></span><span id="local-6989586621679289973"><span id="local-6989586621679289974"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListActionTypesResponse"><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypesResponse"><span class="hs-identifier hs-var">ListActionTypesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListActionTypesResponse%27"><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypesResponse%27"><span class="hs-identifier hs-var">ListActionTypesResponse'</span></a></span></span><span>
 </span><span id="line-182"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the amount of returned information is significantly large, an</span><span>
 </span><span id="line-183"></span><span>    </span><span class="hs-comment">-- identifier is also returned. It can be used in a subsequent list action</span><span>
 </span><span id="line-184"></span><span>    </span><span class="hs-comment">-- types call to return the next set of action types in the list.</span><span>
@@ -494,7 +494,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-189"></span><span>    </span><span id="%24sel%3AactionTypes%3AListActionTypesResponse%27"><span class="annot"><span class="annottext">ListActionTypesResponse -&gt; [ActionType]
 </span><a href="Network.AWS.CodePipeline.ListActionTypes.html#%24sel%3AactionTypes%3AListActionTypesResponse%27"><span class="hs-identifier hs-var hs-var">actionTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionType.html#ActionType"><span class="hs-identifier hs-type">ActionType</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-190"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-191"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679289957"><span id="local-6989586621679289959"><span class="annot"><span class="annottext">ListActionTypesResponse -&gt; ListActionTypesResponse -&gt; Bool
+</span><span id="line-191"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679289966"><span id="local-6989586621679289968"><span class="annot"><span class="annottext">ListActionTypesResponse -&gt; ListActionTypesResponse -&gt; Bool
 (ListActionTypesResponse -&gt; ListActionTypesResponse -&gt; Bool)
 -&gt; (ListActionTypesResponse -&gt; ListActionTypesResponse -&gt; Bool)
 -&gt; Eq ListActionTypesResponse
@@ -503,7 +503,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListActionTypesResponse -&gt; ListActionTypesResponse -&gt; Bool
 == :: ListActionTypesResponse -&gt; ListActionTypesResponse -&gt; Bool
 $c== :: ListActionTypesResponse -&gt; ListActionTypesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289949"><span id="local-6989586621679289951"><span id="local-6989586621679289953"><span id="local-6989586621679289955"><span class="annot"><span class="annottext">ReadPrec [ListActionTypesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289958"><span id="local-6989586621679289960"><span id="local-6989586621679289962"><span id="local-6989586621679289964"><span class="annot"><span class="annottext">ReadPrec [ListActionTypesResponse]
 ReadPrec ListActionTypesResponse
 Int -&gt; ReadS ListActionTypesResponse
 ReadS [ListActionTypesResponse]
@@ -523,7 +523,7 @@ readList :: ReadS [ListActionTypesResponse]
 $creadList :: ReadS [ListActionTypesResponse]
 readsPrec :: Int -&gt; ReadS ListActionTypesResponse
 $creadsPrec :: Int -&gt; ReadS ListActionTypesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289943"><span id="local-6989586621679289945"><span id="local-6989586621679289947"><span class="annot"><span class="annottext">Int -&gt; ListActionTypesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289952"><span id="local-6989586621679289954"><span id="local-6989586621679289956"><span class="annot"><span class="annottext">Int -&gt; ListActionTypesResponse -&gt; ShowS
 [ListActionTypesResponse] -&gt; ShowS
 ListActionTypesResponse -&gt; String
 (Int -&gt; ListActionTypesResponse -&gt; ShowS)
@@ -571,8 +571,8 @@ $cfrom :: forall x. ListActionTypesResponse -&gt; Rep ListActionTypesResponse x
 </span><span id="line-210"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-211"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypesResponse"><span class="hs-identifier hs-type">ListActionTypesResponse</span></a></span><span>
 </span><span id="line-212"></span><span id="newListActionTypesResponse"><span class="annot"><span class="annottext">newListActionTypesResponse :: Int -&gt; ListActionTypesResponse
-</span><a href="Network.AWS.CodePipeline.ListActionTypes.html#newListActionTypesResponse"><span class="hs-identifier hs-var hs-var">newListActionTypesResponse</span></a></span></span><span> </span><span id="local-6989586621679289940"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679289940"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodePipeline.ListActionTypes.html#newListActionTypesResponse"><span class="hs-identifier hs-var hs-var">newListActionTypesResponse</span></a></span></span><span> </span><span id="local-6989586621679289949"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679289949"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-213"></span><span>  </span><span class="annot"><span class="annottext">ListActionTypesResponse' :: Maybe Text -&gt; Int -&gt; [ActionType] -&gt; ListActionTypesResponse
 </span><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypesResponse%27"><span class="hs-identifier hs-type">ListActionTypesResponse'</span></a></span><span>
 </span><span id="line-214"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListActionTypesResponse' :: Maybe Text
@@ -582,7 +582,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-216"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListActionTypesResponse' :: Int
 </span><a href="Network.AWS.CodePipeline.ListActionTypes.html#%24sel%3AhttpStatus%3AListActionTypesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679289940"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679289949"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-217"></span><span>      </span><span class="annot"><span class="annottext">$sel:actionTypes:ListActionTypesResponse' :: [ActionType]
 </span><a href="Network.AWS.CodePipeline.ListActionTypes.html#%24sel%3AactionTypes%3AListActionTypesResponse%27"><span class="hs-identifier hs-var">actionTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ActionType]
 forall a. Monoid a =&gt; a
@@ -600,16 +600,16 @@ forall a. Monoid a =&gt; a
     -&gt; Maybe Text -&gt; ListActionTypesResponse)
 -&gt; Lens' ListActionTypesResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypesResponse%27"><span class="hs-identifier hs-type">ListActionTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289939"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypesResponse%27"><span class="hs-identifier hs-type">ListActionTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289948"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListActionTypesResponse' :: ListActionTypesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679289939"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679289939"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289938"><span class="annot"><span class="annottext">s :: ListActionTypesResponse
-</span><a href="#local-6989586621679289938"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypesResponse%27"><span class="hs-identifier hs-type">ListActionTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289937"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679289937"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListActionTypesResponse
-</span><a href="#local-6989586621679289938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListActionTypesResponse' :: Maybe Text
+</span><a href="#local-6989586621679289948"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289948"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289947"><span class="annot"><span class="annottext">s :: ListActionTypesResponse
+</span><a href="#local-6989586621679289947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypesResponse%27"><span class="hs-identifier hs-type">ListActionTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289946"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListActionTypesResponse
+</span><a href="#local-6989586621679289947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListActionTypesResponse' :: Maybe Text
 </span><a href="Network.AWS.CodePipeline.ListActionTypes.html#%24sel%3AnextToken%3AListActionTypesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679289937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypesResponse"><span class="hs-identifier hs-type">ListActionTypesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679289946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypesResponse"><span class="hs-identifier hs-type">ListActionTypesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-225"></span><span>
 </span><span id="line-226"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-227"></span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#listActionTypesResponse_httpStatus"><span class="hs-identifier hs-type">listActionTypesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypesResponse"><span class="hs-identifier hs-type">ListActionTypesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -619,16 +619,16 @@ $sel:nextToken:ListActionTypesResponse' :: ListActionTypesResponse -&gt; Maybe T
 -&gt; (ListActionTypesResponse -&gt; Int -&gt; ListActionTypesResponse)
 -&gt; Lens ListActionTypesResponse ListActionTypesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypesResponse%27"><span class="hs-identifier hs-type">ListActionTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289936"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypesResponse%27"><span class="hs-identifier hs-type">ListActionTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289945"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListActionTypesResponse' :: ListActionTypesResponse -&gt; Int
-</span><a href="#local-6989586621679289936"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679289936"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289935"><span class="annot"><span class="annottext">s :: ListActionTypesResponse
-</span><a href="#local-6989586621679289935"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypesResponse%27"><span class="hs-identifier hs-type">ListActionTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289934"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679289934"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListActionTypesResponse
-</span><a href="#local-6989586621679289935"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListActionTypesResponse' :: Int
+</span><a href="#local-6989586621679289945"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679289945"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289944"><span class="annot"><span class="annottext">s :: ListActionTypesResponse
+</span><a href="#local-6989586621679289944"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypesResponse%27"><span class="hs-identifier hs-type">ListActionTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289943"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679289943"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListActionTypesResponse
+</span><a href="#local-6989586621679289944"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListActionTypesResponse' :: Int
 </span><a href="Network.AWS.CodePipeline.ListActionTypes.html#%24sel%3AhttpStatus%3AListActionTypesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679289934"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypesResponse"><span class="hs-identifier hs-type">ListActionTypesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679289943"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypesResponse"><span class="hs-identifier hs-type">ListActionTypesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-229"></span><span>
 </span><span id="line-230"></span><span class="hs-comment">-- | Provides details of the action types.</span><span>
 </span><span id="line-231"></span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#listActionTypesResponse_actionTypes"><span class="hs-identifier hs-type">listActionTypesResponse_actionTypes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypesResponse"><span class="hs-identifier hs-type">ListActionTypesResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionType.html#ActionType"><span class="hs-identifier hs-type">ActionType</span></a></span><span class="hs-special">]</span><span>
@@ -639,16 +639,16 @@ $sel:httpStatus:ListActionTypesResponse' :: ListActionTypesResponse -&gt; Int
     -&gt; [ActionType] -&gt; ListActionTypesResponse)
 -&gt; Lens' ListActionTypesResponse [ActionType]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypesResponse%27"><span class="hs-identifier hs-type">ListActionTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289933"><span class="annot"><span class="annottext">[ActionType]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypesResponse%27"><span class="hs-identifier hs-type">ListActionTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289942"><span class="annot"><span class="annottext">[ActionType]
 actionTypes :: [ActionType]
 $sel:actionTypes:ListActionTypesResponse' :: ListActionTypesResponse -&gt; [ActionType]
-</span><a href="#local-6989586621679289933"><span class="hs-identifier hs-var hs-var">actionTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ActionType]
-</span><a href="#local-6989586621679289933"><span class="hs-identifier hs-var">actionTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289932"><span class="annot"><span class="annottext">s :: ListActionTypesResponse
-</span><a href="#local-6989586621679289932"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypesResponse%27"><span class="hs-identifier hs-type">ListActionTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289931"><span class="annot"><span class="annottext">[ActionType]
-</span><a href="#local-6989586621679289931"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListActionTypesResponse
-</span><a href="#local-6989586621679289932"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionTypes:ListActionTypesResponse' :: [ActionType]
+</span><a href="#local-6989586621679289942"><span class="hs-identifier hs-var hs-var">actionTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ActionType]
+</span><a href="#local-6989586621679289942"><span class="hs-identifier hs-var">actionTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289941"><span class="annot"><span class="annottext">s :: ListActionTypesResponse
+</span><a href="#local-6989586621679289941"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypesResponse%27"><span class="hs-identifier hs-type">ListActionTypesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289940"><span class="annot"><span class="annottext">[ActionType]
+</span><a href="#local-6989586621679289940"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListActionTypesResponse
+</span><a href="#local-6989586621679289941"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionTypes:ListActionTypesResponse' :: [ActionType]
 </span><a href="Network.AWS.CodePipeline.ListActionTypes.html#%24sel%3AactionTypes%3AListActionTypesResponse%27"><span class="hs-identifier hs-var">actionTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ActionType]
-</span><a href="#local-6989586621679289931"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypesResponse"><span class="hs-identifier hs-type">ListActionTypesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ActionType] -&gt; f [ActionType])
+</span><a href="#local-6989586621679289940"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypesResponse"><span class="hs-identifier hs-type">ListActionTypesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ActionType] -&gt; f [ActionType])
  -&gt; ListActionTypesResponse -&gt; f ListActionTypesResponse)
 -&gt; (([ActionType] -&gt; f [ActionType])
     -&gt; [ActionType] -&gt; f [ActionType])
@@ -660,5 +660,5 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-233"></span><span>
-</span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289928"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypesResponse"><span class="hs-identifier hs-type">ListActionTypesResponse</span></a></span></span><span>
+</span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289937"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.ListActionTypes.html#ListActionTypesResponse"><span class="hs-identifier hs-type">ListActionTypesResponse</span></a></span></span><span>
 </span><span id="line-235"></span></pre></body></html>

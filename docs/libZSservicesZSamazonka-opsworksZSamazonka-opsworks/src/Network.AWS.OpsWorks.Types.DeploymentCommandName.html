@@ -39,13 +39,13 @@
 </span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-41"></span><span>
-</span><span id="line-42"></span><span id="local-6989586621679374122"><span id="local-6989586621679374123"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeploymentCommandName"><span class="annot"><a href="Network.AWS.OpsWorks.Types.DeploymentCommandName.html#DeploymentCommandName"><span class="hs-identifier hs-var">DeploymentCommandName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeploymentCommandName%27"><span class="annot"><a href="Network.AWS.OpsWorks.Types.DeploymentCommandName.html#DeploymentCommandName%27"><span class="hs-identifier hs-var">DeploymentCommandName'</span></a></span></span><span>
+</span><span id="line-42"></span><span id="local-6989586621679374131"><span id="local-6989586621679374132"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeploymentCommandName"><span class="annot"><a href="Network.AWS.OpsWorks.Types.DeploymentCommandName.html#DeploymentCommandName"><span class="hs-identifier hs-var">DeploymentCommandName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeploymentCommandName%27"><span class="annot"><a href="Network.AWS.OpsWorks.Types.DeploymentCommandName.html#DeploymentCommandName%27"><span class="hs-identifier hs-var">DeploymentCommandName'</span></a></span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDeploymentCommandName"><span class="annot"><span class="annottext">DeploymentCommandName -&gt; Text
 </span><a href="Network.AWS.OpsWorks.Types.DeploymentCommandName.html#fromDeploymentCommandName"><span class="hs-identifier hs-var hs-var">fromDeploymentCommandName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-44"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679374114"><span id="local-6989586621679374116"><span id="local-6989586621679374118"><span class="annot"><span class="annottext">Int -&gt; DeploymentCommandName -&gt; ShowS
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679374123"><span id="local-6989586621679374125"><span id="local-6989586621679374127"><span class="annot"><span class="annottext">Int -&gt; DeploymentCommandName -&gt; ShowS
 [DeploymentCommandName] -&gt; ShowS
 DeploymentCommandName -&gt; String
 (Int -&gt; DeploymentCommandName -&gt; ShowS)
@@ -61,7 +61,7 @@ $cshow :: DeploymentCommandName -&gt; String
 showsPrec :: Int -&gt; DeploymentCommandName -&gt; ShowS
 $cshowsPrec :: Int -&gt; DeploymentCommandName -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679374105"><span id="local-6989586621679374107"><span id="local-6989586621679374109"><span id="local-6989586621679374111"><span class="annot"><span class="annottext">ReadPrec [DeploymentCommandName]
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679374114"><span id="local-6989586621679374116"><span id="local-6989586621679374118"><span id="local-6989586621679374120"><span class="annot"><span class="annottext">ReadPrec [DeploymentCommandName]
 ReadPrec DeploymentCommandName
 Int -&gt; ReadS DeploymentCommandName
 ReadS [DeploymentCommandName]
@@ -82,7 +82,7 @@ $creadList :: ReadS [DeploymentCommandName]
 readsPrec :: Int -&gt; ReadS DeploymentCommandName
 $creadsPrec :: Int -&gt; ReadS DeploymentCommandName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679374100"><span id="local-6989586621679374102"><span class="annot"><span class="annottext">DeploymentCommandName -&gt; DeploymentCommandName -&gt; Bool
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679374109"><span id="local-6989586621679374111"><span class="annot"><span class="annottext">DeploymentCommandName -&gt; DeploymentCommandName -&gt; Bool
 (DeploymentCommandName -&gt; DeploymentCommandName -&gt; Bool)
 -&gt; (DeploymentCommandName -&gt; DeploymentCommandName -&gt; Bool)
 -&gt; Eq DeploymentCommandName
@@ -92,7 +92,7 @@ $c/= :: DeploymentCommandName -&gt; DeploymentCommandName -&gt; Bool
 == :: DeploymentCommandName -&gt; DeploymentCommandName -&gt; Bool
 $c== :: DeploymentCommandName -&gt; DeploymentCommandName -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679374084"><span id="local-6989586621679374086"><span id="local-6989586621679374088"><span id="local-6989586621679374090"><span id="local-6989586621679374092"><span id="local-6989586621679374094"><span id="local-6989586621679374096"><span class="annot"><span class="annottext">Eq DeploymentCommandName
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679374093"><span id="local-6989586621679374095"><span id="local-6989586621679374097"><span id="local-6989586621679374099"><span id="local-6989586621679374101"><span id="local-6989586621679374103"><span id="local-6989586621679374105"><span class="annot"><span class="annottext">Eq DeploymentCommandName
 Eq DeploymentCommandName
 -&gt; (DeploymentCommandName -&gt; DeploymentCommandName -&gt; Ordering)
 -&gt; (DeploymentCommandName -&gt; DeploymentCommandName -&gt; Bool)
@@ -150,7 +150,7 @@ $cfrom :: forall x. DeploymentCommandName -&gt; Rep DeploymentCommandName x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679374076"><span id="local-6989586621679374078"><span class="annot"><span class="annottext">Int -&gt; DeploymentCommandName -&gt; Int
+</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679374085"><span id="local-6989586621679374087"><span class="annot"><span class="annottext">Int -&gt; DeploymentCommandName -&gt; Int
 DeploymentCommandName -&gt; Int
 (Int -&gt; DeploymentCommandName -&gt; Int)
 -&gt; (DeploymentCommandName -&gt; Int) -&gt; Hashable DeploymentCommandName
@@ -160,54 +160,54 @@ $chash :: DeploymentCommandName -&gt; Int
 hashWithSalt :: Int -&gt; DeploymentCommandName -&gt; Int
 $chashWithSalt :: Int -&gt; DeploymentCommandName -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679374073"><span class="annot"><span class="annottext">DeploymentCommandName -&gt; ()
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679374082"><span class="annot"><span class="annottext">DeploymentCommandName -&gt; ()
 (DeploymentCommandName -&gt; ()) -&gt; NFData DeploymentCommandName
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DeploymentCommandName -&gt; ()
 $crnf :: DeploymentCommandName -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679374070"><span class="annot"><span class="annottext">Text -&gt; Either String DeploymentCommandName
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679374079"><span class="annot"><span class="annottext">Text -&gt; Either String DeploymentCommandName
 (Text -&gt; Either String DeploymentCommandName)
 -&gt; FromText DeploymentCommandName
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DeploymentCommandName
 $cfromText :: Text -&gt; Either String DeploymentCommandName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679374067"><span class="annot"><span class="annottext">DeploymentCommandName -&gt; Text
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679374076"><span class="annot"><span class="annottext">DeploymentCommandName -&gt; Text
 (DeploymentCommandName -&gt; Text) -&gt; ToText DeploymentCommandName
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DeploymentCommandName -&gt; Text
 $ctoText :: DeploymentCommandName -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679374064"><span class="annot"><span class="annottext">DeploymentCommandName -&gt; ByteString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679374073"><span class="annot"><span class="annottext">DeploymentCommandName -&gt; ByteString
 (DeploymentCommandName -&gt; ByteString)
 -&gt; ToByteString DeploymentCommandName
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DeploymentCommandName -&gt; ByteString
 $ctoBS :: DeploymentCommandName -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679374061"><span class="annot"><span class="annottext">DeploymentCommandName -&gt; ByteStringBuilder
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679374070"><span class="annot"><span class="annottext">DeploymentCommandName -&gt; ByteStringBuilder
 (DeploymentCommandName -&gt; ByteStringBuilder)
 -&gt; ToLog DeploymentCommandName
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DeploymentCommandName -&gt; ByteStringBuilder
 $cbuild :: DeploymentCommandName -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679374058"><span class="annot"><span class="annottext">HeaderName -&gt; DeploymentCommandName -&gt; [Header]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679374067"><span class="annot"><span class="annottext">HeaderName -&gt; DeploymentCommandName -&gt; [Header]
 (HeaderName -&gt; DeploymentCommandName -&gt; [Header])
 -&gt; ToHeader DeploymentCommandName
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DeploymentCommandName -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DeploymentCommandName -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679374055"><span class="annot"><span class="annottext">DeploymentCommandName -&gt; QueryString
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679374064"><span class="annot"><span class="annottext">DeploymentCommandName -&gt; QueryString
 (DeploymentCommandName -&gt; QueryString)
 -&gt; ToQuery DeploymentCommandName
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DeploymentCommandName -&gt; QueryString
 $ctoQuery :: DeploymentCommandName -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679374050"><span id="local-6989586621679374052"><span class="annot"><span class="annottext">Value -&gt; Parser [DeploymentCommandName]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679374059"><span id="local-6989586621679374061"><span class="annot"><span class="annottext">Value -&gt; Parser [DeploymentCommandName]
 Value -&gt; Parser DeploymentCommandName
 (Value -&gt; Parser DeploymentCommandName)
 -&gt; (Value -&gt; Parser [DeploymentCommandName])
@@ -219,7 +219,7 @@ $cparseJSONList :: Value -&gt; Parser [DeploymentCommandName]
 parseJSON :: Value -&gt; Parser DeploymentCommandName
 $cparseJSON :: Value -&gt; Parser DeploymentCommandName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679374045"><span id="local-6989586621679374047"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeploymentCommandName]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679374054"><span id="local-6989586621679374056"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeploymentCommandName]
 FromJSONKeyFunction DeploymentCommandName
 FromJSONKeyFunction DeploymentCommandName
 -&gt; FromJSONKeyFunction [DeploymentCommandName]
@@ -231,7 +231,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DeploymentCommandName]
 fromJSONKey :: FromJSONKeyFunction DeploymentCommandName
 $cfromJSONKey :: FromJSONKeyFunction DeploymentCommandName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679374036"><span id="local-6989586621679374038"><span id="local-6989586621679374040"><span id="local-6989586621679374042"><span class="annot"><span class="annottext">[DeploymentCommandName] -&gt; Encoding
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679374045"><span id="local-6989586621679374047"><span id="local-6989586621679374049"><span id="local-6989586621679374051"><span class="annot"><span class="annottext">[DeploymentCommandName] -&gt; Encoding
 [DeploymentCommandName] -&gt; Value
 DeploymentCommandName -&gt; Encoding
 DeploymentCommandName -&gt; Value
@@ -255,7 +255,7 @@ $ctoEncoding :: DeploymentCommandName -&gt; Encoding
 toJSON :: DeploymentCommandName -&gt; Value
 $ctoJSON :: DeploymentCommandName -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679374031"><span id="local-6989586621679374033"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeploymentCommandName]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679374040"><span id="local-6989586621679374042"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeploymentCommandName]
 ToJSONKeyFunction DeploymentCommandName
 ToJSONKeyFunction DeploymentCommandName
 -&gt; ToJSONKeyFunction [DeploymentCommandName]
@@ -267,14 +267,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DeploymentCommandName]
 toJSONKey :: ToJSONKeyFunction DeploymentCommandName
 $ctoJSONKey :: ToJSONKeyFunction DeploymentCommandName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679374028"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeploymentCommandName
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679374037"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeploymentCommandName
 ([Node] -&gt; Either String DeploymentCommandName)
 -&gt; FromXML DeploymentCommandName
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DeploymentCommandName
 $cparseXML :: [Node] -&gt; Either String DeploymentCommandName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679374025"><span class="annot"><span class="annottext">DeploymentCommandName -&gt; XML
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679374034"><span class="annot"><span class="annottext">DeploymentCommandName -&gt; XML
 (DeploymentCommandName -&gt; XML) -&gt; ToXML DeploymentCommandName
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DeploymentCommandName -&gt; XML

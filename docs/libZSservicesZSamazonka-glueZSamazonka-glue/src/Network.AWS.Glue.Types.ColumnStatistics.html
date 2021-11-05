@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- partition.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newColumnStatistics' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679700272"><span id="local-6989586621679700273"></span></span><span class="hs-keyword">data</span><span> </span><span id="ColumnStatistics"><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatistics.html#ColumnStatistics"><span class="hs-identifier hs-var">ColumnStatistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ColumnStatistics%27"><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatistics.html#ColumnStatistics%27"><span class="hs-identifier hs-var">ColumnStatistics'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679700281"><span id="local-6989586621679700282"></span></span><span class="hs-keyword">data</span><span> </span><span id="ColumnStatistics"><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatistics.html#ColumnStatistics"><span class="hs-identifier hs-var">ColumnStatistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ColumnStatistics%27"><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatistics.html#ColumnStatistics%27"><span class="hs-identifier hs-var">ColumnStatistics'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Name of column which statistics belong to.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AcolumnName%3AColumnStatistics%27"><span class="annot"><span class="annottext">ColumnStatistics -&gt; Text
 </span><a href="Network.AWS.Glue.Types.ColumnStatistics.html#%24sel%3AcolumnName%3AColumnStatistics%27"><span class="hs-identifier hs-var hs-var">columnName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -42,7 +42,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AstatisticsData%3AColumnStatistics%27"><span class="annot"><span class="annottext">ColumnStatistics -&gt; ColumnStatisticsData
 </span><a href="Network.AWS.Glue.Types.ColumnStatistics.html#%24sel%3AstatisticsData%3AColumnStatistics%27"><span class="hs-identifier hs-var hs-var">statisticsData</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatisticsData.html#ColumnStatisticsData"><span class="hs-identifier hs-type">ColumnStatisticsData</span></a></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679700263"><span id="local-6989586621679700265"><span class="annot"><span class="annottext">ColumnStatistics -&gt; ColumnStatistics -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679700272"><span id="local-6989586621679700274"><span class="annot"><span class="annottext">ColumnStatistics -&gt; ColumnStatistics -&gt; Bool
 (ColumnStatistics -&gt; ColumnStatistics -&gt; Bool)
 -&gt; (ColumnStatistics -&gt; ColumnStatistics -&gt; Bool)
 -&gt; Eq ColumnStatistics
@@ -51,7 +51,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ColumnStatistics -&gt; ColumnStatistics -&gt; Bool
 == :: ColumnStatistics -&gt; ColumnStatistics -&gt; Bool
 $c== :: ColumnStatistics -&gt; ColumnStatistics -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679700254"><span id="local-6989586621679700256"><span id="local-6989586621679700258"><span id="local-6989586621679700260"><span class="annot"><span class="annottext">ReadPrec [ColumnStatistics]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679700263"><span id="local-6989586621679700265"><span id="local-6989586621679700267"><span id="local-6989586621679700269"><span class="annot"><span class="annottext">ReadPrec [ColumnStatistics]
 ReadPrec ColumnStatistics
 Int -&gt; ReadS ColumnStatistics
 ReadS [ColumnStatistics]
@@ -71,7 +71,7 @@ readList :: ReadS [ColumnStatistics]
 $creadList :: ReadS [ColumnStatistics]
 readsPrec :: Int -&gt; ReadS ColumnStatistics
 $creadsPrec :: Int -&gt; ReadS ColumnStatistics
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679700247"><span id="local-6989586621679700249"><span id="local-6989586621679700251"><span class="annot"><span class="annottext">Int -&gt; ColumnStatistics -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679700256"><span id="local-6989586621679700258"><span id="local-6989586621679700260"><span class="annot"><span class="annottext">Int -&gt; ColumnStatistics -&gt; ShowS
 [ColumnStatistics] -&gt; ShowS
 ColumnStatistics -&gt; String
 (Int -&gt; ColumnStatistics -&gt; ShowS)
@@ -124,22 +124,22 @@ $cfrom :: forall x. ColumnStatistics -&gt; Rep ColumnStatistics x
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatistics.html#ColumnStatistics"><span class="hs-identifier hs-type">ColumnStatistics</span></a></span><span>
 </span><span id="line-68"></span><span id="newColumnStatistics"><span class="annot"><span class="annottext">newColumnStatistics :: Text -&gt; Text -&gt; UTCTime -&gt; ColumnStatisticsData -&gt; ColumnStatistics
 </span><a href="Network.AWS.Glue.Types.ColumnStatistics.html#newColumnStatistics"><span class="hs-identifier hs-var hs-var">newColumnStatistics</span></a></span></span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679700241"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679700241"><span class="hs-identifier hs-var">pColumnName_</span></a></span></span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679700240"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679700240"><span class="hs-identifier hs-var">pColumnType_</span></a></span></span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679700239"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679700239"><span class="hs-identifier hs-var">pAnalyzedTime_</span></a></span></span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679700238"><span class="annot"><span class="annottext">ColumnStatisticsData
-</span><a href="#local-6989586621679700238"><span class="hs-identifier hs-var">pStatisticsData_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679700250"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679700250"><span class="hs-identifier hs-var">pColumnName_</span></a></span></span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679700249"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679700249"><span class="hs-identifier hs-var">pColumnType_</span></a></span></span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679700248"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679700248"><span class="hs-identifier hs-var">pAnalyzedTime_</span></a></span></span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679700247"><span class="annot"><span class="annottext">ColumnStatisticsData
+</span><a href="#local-6989586621679700247"><span class="hs-identifier hs-var">pStatisticsData_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">ColumnStatistics' :: Text -&gt; Text -&gt; POSIX -&gt; ColumnStatisticsData -&gt; ColumnStatistics
 </span><a href="Network.AWS.Glue.Types.ColumnStatistics.html#ColumnStatistics%27"><span class="hs-identifier hs-type">ColumnStatistics'</span></a></span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:columnName:ColumnStatistics' :: Text
 </span><a href="Network.AWS.Glue.Types.ColumnStatistics.html#%24sel%3AcolumnName%3AColumnStatistics%27"><span class="hs-identifier hs-var">columnName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679700241"><span class="hs-identifier hs-var">pColumnName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679700250"><span class="hs-identifier hs-var">pColumnName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">$sel:columnType:ColumnStatistics' :: Text
 </span><a href="Network.AWS.Glue.Types.ColumnStatistics.html#%24sel%3AcolumnType%3AColumnStatistics%27"><span class="hs-identifier hs-var">columnType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679700240"><span class="hs-identifier hs-var">pColumnType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679700249"><span class="hs-identifier hs-var">pColumnType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-76"></span><span>        </span><span class="annot"><span class="annottext">$sel:analyzedTime:ColumnStatistics' :: POSIX
 </span><a href="Network.AWS.Glue.Types.ColumnStatistics.html#%24sel%3AanalyzedTime%3AColumnStatistics%27"><span class="hs-identifier hs-var">analyzedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
 forall (a :: Format). Iso' (Time a) UTCTime
@@ -148,10 +148,10 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679700239"><span class="hs-identifier hs-var">pAnalyzedTime_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679700248"><span class="hs-identifier hs-var">pAnalyzedTime_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-77"></span><span>        </span><span class="annot"><span class="annottext">$sel:statisticsData:ColumnStatistics' :: ColumnStatisticsData
 </span><a href="Network.AWS.Glue.Types.ColumnStatistics.html#%24sel%3AstatisticsData%3AColumnStatistics%27"><span class="hs-identifier hs-var">statisticsData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ColumnStatisticsData
-</span><a href="#local-6989586621679700238"><span class="hs-identifier hs-var">pStatisticsData_</span></a></span><span>
+</span><a href="#local-6989586621679700247"><span class="hs-identifier hs-var">pStatisticsData_</span></a></span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | Name of column which statistics belong to.</span><span>
@@ -161,16 +161,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (ColumnStatistics -&gt; Text -&gt; ColumnStatistics)
 -&gt; Lens ColumnStatistics ColumnStatistics Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatistics.html#ColumnStatistics%27"><span class="hs-identifier hs-type">ColumnStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679700232"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatistics.html#ColumnStatistics%27"><span class="hs-identifier hs-type">ColumnStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679700241"><span class="annot"><span class="annottext">Text
 columnName :: Text
 $sel:columnName:ColumnStatistics' :: ColumnStatistics -&gt; Text
-</span><a href="#local-6989586621679700232"><span class="hs-identifier hs-var hs-var">columnName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679700232"><span class="hs-identifier hs-var">columnName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679700231"><span class="annot"><span class="annottext">s :: ColumnStatistics
-</span><a href="#local-6989586621679700231"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatistics.html#ColumnStatistics%27"><span class="hs-identifier hs-type">ColumnStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679700230"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679700230"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColumnStatistics
-</span><a href="#local-6989586621679700231"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:columnName:ColumnStatistics' :: Text
+</span><a href="#local-6989586621679700241"><span class="hs-identifier hs-var hs-var">columnName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679700241"><span class="hs-identifier hs-var">columnName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679700240"><span class="annot"><span class="annottext">s :: ColumnStatistics
+</span><a href="#local-6989586621679700240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatistics.html#ColumnStatistics%27"><span class="hs-identifier hs-type">ColumnStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679700239"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679700239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColumnStatistics
+</span><a href="#local-6989586621679700240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:columnName:ColumnStatistics' :: Text
 </span><a href="Network.AWS.Glue.Types.ColumnStatistics.html#%24sel%3AcolumnName%3AColumnStatistics%27"><span class="hs-identifier hs-var">columnName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679700230"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatistics.html#ColumnStatistics"><span class="hs-identifier hs-type">ColumnStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679700239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatistics.html#ColumnStatistics"><span class="hs-identifier hs-type">ColumnStatistics</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | The data type of the column.</span><span>
 </span><span id="line-85"></span><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatistics.html#columnStatistics_columnType"><span class="hs-identifier hs-type">columnStatistics_columnType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatistics.html#ColumnStatistics"><span class="hs-identifier hs-type">ColumnStatistics</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -179,16 +179,16 @@ $sel:columnName:ColumnStatistics' :: ColumnStatistics -&gt; Text
 -&gt; (ColumnStatistics -&gt; Text -&gt; ColumnStatistics)
 -&gt; Lens ColumnStatistics ColumnStatistics Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatistics.html#ColumnStatistics%27"><span class="hs-identifier hs-type">ColumnStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679700228"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatistics.html#ColumnStatistics%27"><span class="hs-identifier hs-type">ColumnStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679700237"><span class="annot"><span class="annottext">Text
 columnType :: Text
 $sel:columnType:ColumnStatistics' :: ColumnStatistics -&gt; Text
-</span><a href="#local-6989586621679700228"><span class="hs-identifier hs-var hs-var">columnType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679700228"><span class="hs-identifier hs-var">columnType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679700227"><span class="annot"><span class="annottext">s :: ColumnStatistics
-</span><a href="#local-6989586621679700227"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatistics.html#ColumnStatistics%27"><span class="hs-identifier hs-type">ColumnStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679700226"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679700226"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColumnStatistics
-</span><a href="#local-6989586621679700227"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:columnType:ColumnStatistics' :: Text
+</span><a href="#local-6989586621679700237"><span class="hs-identifier hs-var hs-var">columnType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679700237"><span class="hs-identifier hs-var">columnType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679700236"><span class="annot"><span class="annottext">s :: ColumnStatistics
+</span><a href="#local-6989586621679700236"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatistics.html#ColumnStatistics%27"><span class="hs-identifier hs-type">ColumnStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679700235"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679700235"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColumnStatistics
+</span><a href="#local-6989586621679700236"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:columnType:ColumnStatistics' :: Text
 </span><a href="Network.AWS.Glue.Types.ColumnStatistics.html#%24sel%3AcolumnType%3AColumnStatistics%27"><span class="hs-identifier hs-var">columnType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679700226"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatistics.html#ColumnStatistics"><span class="hs-identifier hs-type">ColumnStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679700235"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatistics.html#ColumnStatistics"><span class="hs-identifier hs-type">ColumnStatistics</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | The timestamp of when column statistics were generated.</span><span>
 </span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatistics.html#columnStatistics_analyzedTime"><span class="hs-identifier hs-type">columnStatistics_analyzedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatistics.html#ColumnStatistics"><span class="hs-identifier hs-type">ColumnStatistics</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
@@ -197,16 +197,16 @@ $sel:columnType:ColumnStatistics' :: ColumnStatistics -&gt; Text
 -&gt; (ColumnStatistics -&gt; POSIX -&gt; ColumnStatistics)
 -&gt; Lens ColumnStatistics ColumnStatistics POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatistics.html#ColumnStatistics%27"><span class="hs-identifier hs-type">ColumnStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679700224"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatistics.html#ColumnStatistics%27"><span class="hs-identifier hs-type">ColumnStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679700233"><span class="annot"><span class="annottext">POSIX
 analyzedTime :: POSIX
 $sel:analyzedTime:ColumnStatistics' :: ColumnStatistics -&gt; POSIX
-</span><a href="#local-6989586621679700224"><span class="hs-identifier hs-var hs-var">analyzedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679700224"><span class="hs-identifier hs-var">analyzedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679700223"><span class="annot"><span class="annottext">s :: ColumnStatistics
-</span><a href="#local-6989586621679700223"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatistics.html#ColumnStatistics%27"><span class="hs-identifier hs-type">ColumnStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679700222"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679700222"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColumnStatistics
-</span><a href="#local-6989586621679700223"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:analyzedTime:ColumnStatistics' :: POSIX
+</span><a href="#local-6989586621679700233"><span class="hs-identifier hs-var hs-var">analyzedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679700233"><span class="hs-identifier hs-var">analyzedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679700232"><span class="annot"><span class="annottext">s :: ColumnStatistics
+</span><a href="#local-6989586621679700232"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatistics.html#ColumnStatistics%27"><span class="hs-identifier hs-type">ColumnStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679700231"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679700231"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColumnStatistics
+</span><a href="#local-6989586621679700232"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:analyzedTime:ColumnStatistics' :: POSIX
 </span><a href="Network.AWS.Glue.Types.ColumnStatistics.html#%24sel%3AanalyzedTime%3AColumnStatistics%27"><span class="hs-identifier hs-var">analyzedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679700222"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatistics.html#ColumnStatistics"><span class="hs-identifier hs-type">ColumnStatistics</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; ColumnStatistics -&gt; f ColumnStatistics)
+</span><a href="#local-6989586621679700231"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatistics.html#ColumnStatistics"><span class="hs-identifier hs-type">ColumnStatistics</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; ColumnStatistics -&gt; f ColumnStatistics)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; ColumnStatistics
@@ -228,19 +228,19 @@ forall (a :: Format). Iso' (Time a) UTCTime
      ColumnStatisticsData
      ColumnStatisticsData
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatistics.html#ColumnStatistics%27"><span class="hs-identifier hs-type">ColumnStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679700219"><span class="annot"><span class="annottext">ColumnStatisticsData
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatistics.html#ColumnStatistics%27"><span class="hs-identifier hs-type">ColumnStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679700228"><span class="annot"><span class="annottext">ColumnStatisticsData
 statisticsData :: ColumnStatisticsData
 $sel:statisticsData:ColumnStatistics' :: ColumnStatistics -&gt; ColumnStatisticsData
-</span><a href="#local-6989586621679700219"><span class="hs-identifier hs-var hs-var">statisticsData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColumnStatisticsData
-</span><a href="#local-6989586621679700219"><span class="hs-identifier hs-var">statisticsData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679700218"><span class="annot"><span class="annottext">s :: ColumnStatistics
-</span><a href="#local-6989586621679700218"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatistics.html#ColumnStatistics%27"><span class="hs-identifier hs-type">ColumnStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679700217"><span class="annot"><span class="annottext">ColumnStatisticsData
-</span><a href="#local-6989586621679700217"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColumnStatistics
-</span><a href="#local-6989586621679700218"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statisticsData:ColumnStatistics' :: ColumnStatisticsData
+</span><a href="#local-6989586621679700228"><span class="hs-identifier hs-var hs-var">statisticsData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColumnStatisticsData
+</span><a href="#local-6989586621679700228"><span class="hs-identifier hs-var">statisticsData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679700227"><span class="annot"><span class="annottext">s :: ColumnStatistics
+</span><a href="#local-6989586621679700227"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatistics.html#ColumnStatistics%27"><span class="hs-identifier hs-type">ColumnStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679700226"><span class="annot"><span class="annottext">ColumnStatisticsData
+</span><a href="#local-6989586621679700226"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColumnStatistics
+</span><a href="#local-6989586621679700227"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statisticsData:ColumnStatistics' :: ColumnStatisticsData
 </span><a href="Network.AWS.Glue.Types.ColumnStatistics.html#%24sel%3AstatisticsData%3AColumnStatistics%27"><span class="hs-identifier hs-var">statisticsData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ColumnStatisticsData
-</span><a href="#local-6989586621679700217"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatistics.html#ColumnStatistics"><span class="hs-identifier hs-type">ColumnStatistics</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679700226"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatistics.html#ColumnStatistics"><span class="hs-identifier hs-type">ColumnStatistics</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679700214"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatistics.html#ColumnStatistics"><span class="hs-identifier hs-type">ColumnStatistics</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679700212"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ColumnStatistics
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679700223"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatistics.html#ColumnStatistics"><span class="hs-identifier hs-type">ColumnStatistics</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679700221"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ColumnStatistics
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ColumnStatistics)
@@ -250,8 +250,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ColumnStatistics&quot;</span></span><span>
-</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679700209"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679700209"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679700218"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679700218"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; POSIX -&gt; ColumnStatisticsData -&gt; ColumnStatistics
 </span><a href="Network.AWS.Glue.Types.ColumnStatistics.html#ColumnStatistics%27"><span class="hs-identifier hs-var">ColumnStatistics'</span></a></span><span>
 </span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; POSIX -&gt; ColumnStatisticsData -&gt; ColumnStatistics)
@@ -260,7 +260,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Text -&gt; POSIX -&gt; ColumnStatisticsData -&gt; ColumnStatistics)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679700209"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679700218"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ColumnName&quot;</span></span><span class="hs-special">)</span><span>
@@ -269,7 +269,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (POSIX -&gt; ColumnStatisticsData -&gt; ColumnStatistics)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679700209"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679700218"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ColumnType&quot;</span></span><span class="hs-special">)</span><span>
@@ -278,7 +278,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (ColumnStatisticsData -&gt; ColumnStatistics)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679700209"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+</span><a href="#local-6989586621679700218"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AnalyzedTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -286,19 +286,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser ColumnStatisticsData -&gt; Parser ColumnStatistics
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679700209"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ColumnStatisticsData
+</span><a href="#local-6989586621679700218"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ColumnStatisticsData
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StatisticsData&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679700203"><span id="local-6989586621679700205"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatistics.html#ColumnStatistics"><span class="hs-identifier hs-type">ColumnStatistics</span></a></span></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679700212"><span id="local-6989586621679700214"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatistics.html#ColumnStatistics"><span class="hs-identifier hs-type">ColumnStatistics</span></a></span></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679700200"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatistics.html#ColumnStatistics"><span class="hs-identifier hs-type">ColumnStatistics</span></a></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679700209"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatistics.html#ColumnStatistics"><span class="hs-identifier hs-type">ColumnStatistics</span></a></span></span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679700192"><span id="local-6989586621679700194"><span id="local-6989586621679700196"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatistics.html#ColumnStatistics"><span class="hs-identifier hs-type">ColumnStatistics</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679700190"><span class="annot"><span class="annottext">toJSON :: ColumnStatistics -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatistics.html#ColumnStatistics%27"><span class="hs-identifier hs-type">ColumnStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679700185"><span id="local-6989586621679700186"><span id="local-6989586621679700187"><span id="local-6989586621679700188"><span class="annot"><span class="annottext">Text
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679700201"><span id="local-6989586621679700203"><span id="local-6989586621679700205"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatistics.html#ColumnStatistics"><span class="hs-identifier hs-type">ColumnStatistics</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679700199"><span class="annot"><span class="annottext">toJSON :: ColumnStatistics -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ColumnStatistics.html#ColumnStatistics%27"><span class="hs-identifier hs-type">ColumnStatistics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679700194"><span id="local-6989586621679700195"><span id="local-6989586621679700196"><span id="local-6989586621679700197"><span class="annot"><span class="annottext">Text
 POSIX
 ColumnStatisticsData
 statisticsData :: ColumnStatisticsData
@@ -309,7 +309,7 @@ $sel:statisticsData:ColumnStatistics' :: ColumnStatistics -&gt; ColumnStatistics
 $sel:analyzedTime:ColumnStatistics' :: ColumnStatistics -&gt; POSIX
 $sel:columnType:ColumnStatistics' :: ColumnStatistics -&gt; Text
 $sel:columnName:ColumnStatistics' :: ColumnStatistics -&gt; Text
-</span><a href="#local-6989586621679700185"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679700194"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -321,21 +321,21 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ColumnName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679700188"><span class="hs-identifier hs-var">columnName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679700197"><span class="hs-identifier hs-var">columnName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ColumnType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679700187"><span class="hs-identifier hs-var">columnType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679700196"><span class="hs-identifier hs-var">columnType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AnalyzedTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679700186"><span class="hs-identifier hs-var">analyzedTime</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679700195"><span class="hs-identifier hs-var">analyzedTime</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -343,7 +343,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;StatisticsData&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ColumnStatisticsData -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ColumnStatisticsData
-</span><a href="#local-6989586621679700185"><span class="hs-identifier hs-var">statisticsData</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679700194"><span class="hs-identifier hs-var">statisticsData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span></pre></body></html>

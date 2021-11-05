@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DevOpsGuru.Types.NotificationChannelConfig</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DevOpsGuru.Types.NotificationChannelConfig</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.SnsChannelConfig.html"><span class="hs-identifier">Network.AWS.DevOpsGuru.Types.SnsChannelConfig</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Information about notification channels you have configured with DevOps</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- Guru. The one supported notification channel is Amazon Simple</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- Notification Service (Amazon SNS).</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newNotificationChannelConfig' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679238296"><span id="local-6989586621679238297"></span></span><span class="hs-keyword">data</span><span> </span><span id="NotificationChannelConfig"><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.NotificationChannelConfig.html#NotificationChannelConfig"><span class="hs-identifier hs-var">NotificationChannelConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NotificationChannelConfig%27"><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.NotificationChannelConfig.html#NotificationChannelConfig%27"><span class="hs-identifier hs-var">NotificationChannelConfig'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about a notification channel configured in DevOps Guru to</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- send notifications when insights are created.</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- If you use an Amazon SNS topic in another account, you must attach a</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- policy to it that grants DevOps Guru permission to it notifications.</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- DevOps Guru adds the required policy on your behalf to send</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- notifications using Amazon SNS in your account. For more information,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- see</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-required-permissions.html Permissions for cross account Amazon SNS topics&gt;.</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- If you use an Amazon SNS topic that is encrypted by an AWS Key</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- Management Service customer-managed key (CMK), then you must add</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- permissions to the CMK. For more information, see</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-kms-permissions.html Permissions for AWS KMS&#8211;encrypted Amazon SNS topics&gt;.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Asns%3ANotificationChannelConfig%27"><span class="annot"><span class="annottext">NotificationChannelConfig -&gt; SnsChannelConfig
+</span><a href="Network.AWS.DevOpsGuru.Types.NotificationChannelConfig.html#%24sel%3Asns%3ANotificationChannelConfig%27"><span class="hs-identifier hs-var hs-var">sns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.SnsChannelConfig.html#SnsChannelConfig"><span class="hs-identifier hs-type">SnsChannelConfig</span></a></span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679238290"><span id="local-6989586621679238292"><span class="annot"><span class="annottext">NotificationChannelConfig -&gt; NotificationChannelConfig -&gt; Bool
+(NotificationChannelConfig -&gt; NotificationChannelConfig -&gt; Bool)
+-&gt; (NotificationChannelConfig -&gt; NotificationChannelConfig -&gt; Bool)
+-&gt; Eq NotificationChannelConfig
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: NotificationChannelConfig -&gt; NotificationChannelConfig -&gt; Bool
+$c/= :: NotificationChannelConfig -&gt; NotificationChannelConfig -&gt; Bool
+== :: NotificationChannelConfig -&gt; NotificationChannelConfig -&gt; Bool
+$c== :: NotificationChannelConfig -&gt; NotificationChannelConfig -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679238281"><span id="local-6989586621679238283"><span id="local-6989586621679238285"><span id="local-6989586621679238287"><span class="annot"><span class="annottext">ReadPrec [NotificationChannelConfig]
+ReadPrec NotificationChannelConfig
+Int -&gt; ReadS NotificationChannelConfig
+ReadS [NotificationChannelConfig]
+(Int -&gt; ReadS NotificationChannelConfig)
+-&gt; ReadS [NotificationChannelConfig]
+-&gt; ReadPrec NotificationChannelConfig
+-&gt; ReadPrec [NotificationChannelConfig]
+-&gt; Read NotificationChannelConfig
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [NotificationChannelConfig]
+$creadListPrec :: ReadPrec [NotificationChannelConfig]
+readPrec :: ReadPrec NotificationChannelConfig
+$creadPrec :: ReadPrec NotificationChannelConfig
+readList :: ReadS [NotificationChannelConfig]
+$creadList :: ReadS [NotificationChannelConfig]
+readsPrec :: Int -&gt; ReadS NotificationChannelConfig
+$creadsPrec :: Int -&gt; ReadS NotificationChannelConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679238274"><span id="local-6989586621679238276"><span id="local-6989586621679238278"><span class="annot"><span class="annottext">Int -&gt; NotificationChannelConfig -&gt; ShowS
+[NotificationChannelConfig] -&gt; ShowS
+NotificationChannelConfig -&gt; String
+(Int -&gt; NotificationChannelConfig -&gt; ShowS)
+-&gt; (NotificationChannelConfig -&gt; String)
+-&gt; ([NotificationChannelConfig] -&gt; ShowS)
+-&gt; Show NotificationChannelConfig
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [NotificationChannelConfig] -&gt; ShowS
+$cshowList :: [NotificationChannelConfig] -&gt; ShowS
+show :: NotificationChannelConfig -&gt; String
+$cshow :: NotificationChannelConfig -&gt; String
+showsPrec :: Int -&gt; NotificationChannelConfig -&gt; ShowS
+$cshowsPrec :: Int -&gt; NotificationChannelConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ NotificationChannelConfig -&gt; Rep NotificationChannelConfig x)
+-&gt; (forall x.
+    Rep NotificationChannelConfig x -&gt; NotificationChannelConfig)
+-&gt; Generic NotificationChannelConfig
+forall x.
+Rep NotificationChannelConfig x -&gt; NotificationChannelConfig
+forall x.
+NotificationChannelConfig -&gt; Rep NotificationChannelConfig x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep NotificationChannelConfig x -&gt; NotificationChannelConfig
+$cfrom :: forall x.
+NotificationChannelConfig -&gt; Rep NotificationChannelConfig x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Create a value of 'NotificationChannelConfig' with all optional fields omitted.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'sns', 'notificationChannelConfig_sns' - Information about a notification channel configured in DevOps Guru to</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- send notifications when insights are created.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- If you use an Amazon SNS topic in another account, you must attach a</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- policy to it that grants DevOps Guru permission to it notifications.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- DevOps Guru adds the required policy on your behalf to send</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- notifications using Amazon SNS in your account. For more information,</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- see</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-required-permissions.html Permissions for cross account Amazon SNS topics&gt;.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- If you use an Amazon SNS topic that is encrypted by an AWS Key</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Management Service customer-managed key (CMK), then you must add</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- permissions to the CMK. For more information, see</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-kms-permissions.html Permissions for AWS KMS&#8211;encrypted Amazon SNS topics&gt;.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.NotificationChannelConfig.html#newNotificationChannelConfig"><span class="hs-identifier hs-type">newNotificationChannelConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | 'sns'</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.SnsChannelConfig.html#SnsChannelConfig"><span class="hs-identifier hs-type">SnsChannelConfig</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.NotificationChannelConfig.html#NotificationChannelConfig"><span class="hs-identifier hs-type">NotificationChannelConfig</span></a></span><span>
+</span><span id="line-77"></span><span id="newNotificationChannelConfig"><span class="annot"><span class="annottext">newNotificationChannelConfig :: SnsChannelConfig -&gt; NotificationChannelConfig
+</span><a href="Network.AWS.DevOpsGuru.Types.NotificationChannelConfig.html#newNotificationChannelConfig"><span class="hs-identifier hs-var hs-var">newNotificationChannelConfig</span></a></span></span><span> </span><span id="local-6989586621679238268"><span class="annot"><span class="annottext">SnsChannelConfig
+</span><a href="#local-6989586621679238268"><span class="hs-identifier hs-var">pSns_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">NotificationChannelConfig' :: SnsChannelConfig -&gt; NotificationChannelConfig
+</span><a href="Network.AWS.DevOpsGuru.Types.NotificationChannelConfig.html#NotificationChannelConfig%27"><span class="hs-identifier hs-type">NotificationChannelConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sns:NotificationChannelConfig' :: SnsChannelConfig
+</span><a href="Network.AWS.DevOpsGuru.Types.NotificationChannelConfig.html#%24sel%3Asns%3ANotificationChannelConfig%27"><span class="hs-identifier hs-var">sns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SnsChannelConfig
+</span><a href="#local-6989586621679238268"><span class="hs-identifier hs-var">pSns_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | Information about a notification channel configured in DevOps Guru to</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- send notifications when insights are created.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- If you use an Amazon SNS topic in another account, you must attach a</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- policy to it that grants DevOps Guru permission to it notifications.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- DevOps Guru adds the required policy on your behalf to send</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- notifications using Amazon SNS in your account. For more information,</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- see</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-required-permissions.html Permissions for cross account Amazon SNS topics&gt;.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- If you use an Amazon SNS topic that is encrypted by an AWS Key</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- Management Service customer-managed key (CMK), then you must add</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- permissions to the CMK. For more information, see</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-kms-permissions.html Permissions for AWS KMS&#8211;encrypted Amazon SNS topics&gt;.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.NotificationChannelConfig.html#notificationChannelConfig_sns"><span class="hs-identifier hs-type">notificationChannelConfig_sns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.NotificationChannelConfig.html#NotificationChannelConfig"><span class="hs-identifier hs-type">NotificationChannelConfig</span></a></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.SnsChannelConfig.html#SnsChannelConfig"><span class="hs-identifier hs-type">SnsChannelConfig</span></a></span><span>
+</span><span id="line-95"></span><span id="notificationChannelConfig_sns"><span class="annot"><span class="annottext">notificationChannelConfig_sns :: (SnsChannelConfig -&gt; f SnsChannelConfig)
+-&gt; NotificationChannelConfig -&gt; f NotificationChannelConfig
+</span><a href="Network.AWS.DevOpsGuru.Types.NotificationChannelConfig.html#notificationChannelConfig_sns"><span class="hs-identifier hs-var hs-var">notificationChannelConfig_sns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NotificationChannelConfig -&gt; SnsChannelConfig)
+-&gt; (NotificationChannelConfig
+    -&gt; SnsChannelConfig -&gt; NotificationChannelConfig)
+-&gt; Lens
+     NotificationChannelConfig
+     NotificationChannelConfig
+     SnsChannelConfig
+     SnsChannelConfig
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.NotificationChannelConfig.html#NotificationChannelConfig%27"><span class="hs-identifier hs-type">NotificationChannelConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238264"><span class="annot"><span class="annottext">SnsChannelConfig
+sns :: SnsChannelConfig
+$sel:sns:NotificationChannelConfig' :: NotificationChannelConfig -&gt; SnsChannelConfig
+</span><a href="#local-6989586621679238264"><span class="hs-identifier hs-var hs-var">sns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SnsChannelConfig
+</span><a href="#local-6989586621679238264"><span class="hs-identifier hs-var">sns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238263"><span class="annot"><span class="annottext">s :: NotificationChannelConfig
+</span><a href="#local-6989586621679238263"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.NotificationChannelConfig.html#NotificationChannelConfig%27"><span class="hs-identifier hs-type">NotificationChannelConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238262"><span class="annot"><span class="annottext">SnsChannelConfig
+</span><a href="#local-6989586621679238262"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NotificationChannelConfig
+</span><a href="#local-6989586621679238263"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sns:NotificationChannelConfig' :: SnsChannelConfig
+</span><a href="Network.AWS.DevOpsGuru.Types.NotificationChannelConfig.html#%24sel%3Asns%3ANotificationChannelConfig%27"><span class="hs-identifier hs-var">sns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SnsChannelConfig
+</span><a href="#local-6989586621679238262"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.NotificationChannelConfig.html#NotificationChannelConfig"><span class="hs-identifier hs-type">NotificationChannelConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238259"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.NotificationChannelConfig.html#NotificationChannelConfig"><span class="hs-identifier hs-type">NotificationChannelConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679238257"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NotificationChannelConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser NotificationChannelConfig)
+-&gt; Value
+-&gt; Parser NotificationChannelConfig
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;NotificationChannelConfig&quot;</span></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679238254"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679238254"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">SnsChannelConfig -&gt; NotificationChannelConfig
+</span><a href="Network.AWS.DevOpsGuru.Types.NotificationChannelConfig.html#NotificationChannelConfig%27"><span class="hs-identifier hs-var">NotificationChannelConfig'</span></a></span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(SnsChannelConfig -&gt; NotificationChannelConfig)
+-&gt; Parser SnsChannelConfig -&gt; Parser NotificationChannelConfig
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679238254"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser SnsChannelConfig
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Sns&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238248"><span id="local-6989586621679238250"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.NotificationChannelConfig.html#NotificationChannelConfig"><span class="hs-identifier hs-type">NotificationChannelConfig</span></a></span></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238245"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.NotificationChannelConfig.html#NotificationChannelConfig"><span class="hs-identifier hs-type">NotificationChannelConfig</span></a></span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238237"><span id="local-6989586621679238239"><span id="local-6989586621679238241"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.NotificationChannelConfig.html#NotificationChannelConfig"><span class="hs-identifier hs-type">NotificationChannelConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679238235"><span class="annot"><span class="annottext">toJSON :: NotificationChannelConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.NotificationChannelConfig.html#NotificationChannelConfig%27"><span class="hs-identifier hs-type">NotificationChannelConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238233"><span class="annot"><span class="annottext">SnsChannelConfig
+sns :: SnsChannelConfig
+$sel:sns:NotificationChannelConfig' :: NotificationChannelConfig -&gt; SnsChannelConfig
+</span><a href="#local-6989586621679238233"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-114"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Sns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SnsChannelConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">SnsChannelConfig
+</span><a href="#local-6989586621679238233"><span class="hs-identifier hs-var">sns</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span></pre></body></html>

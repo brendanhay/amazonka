@@ -48,7 +48,7 @@
 </span><span id="line-48"></span><span class="hs-comment">-- &lt;https://aws.amazon.com/compliance/data-privacy-faq/ Data Privacy FAQ&gt;.</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- /See:/ 'newOutputConfig' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679176148"><span id="local-6989586621679176149"></span></span><span class="hs-keyword">data</span><span> </span><span id="OutputConfig"><span class="annot"><a href="Network.AWS.Textract.Types.OutputConfig.html#OutputConfig"><span class="hs-identifier hs-var">OutputConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OutputConfig%27"><span class="annot"><a href="Network.AWS.Textract.Types.OutputConfig.html#OutputConfig%27"><span class="hs-identifier hs-var">OutputConfig'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679176157"><span id="local-6989586621679176158"></span></span><span class="hs-keyword">data</span><span> </span><span id="OutputConfig"><span class="annot"><a href="Network.AWS.Textract.Types.OutputConfig.html#OutputConfig"><span class="hs-identifier hs-var">OutputConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OutputConfig%27"><span class="annot"><a href="Network.AWS.Textract.Types.OutputConfig.html#OutputConfig%27"><span class="hs-identifier hs-var">OutputConfig'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The prefix of the object key that the output will be saved to. When not</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- enabled, the prefix will be &#8220;textract_output\&quot;.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3As3Prefix%3AOutputConfig%27"><span class="annot"><span class="annottext">OutputConfig -&gt; Maybe Text
@@ -57,7 +57,7 @@
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3As3Bucket%3AOutputConfig%27"><span class="annot"><span class="annottext">OutputConfig -&gt; Text
 </span><a href="Network.AWS.Textract.Types.OutputConfig.html#%24sel%3As3Bucket%3AOutputConfig%27"><span class="hs-identifier hs-var hs-var">s3Bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679176141"><span id="local-6989586621679176143"><span class="annot"><span class="annottext">OutputConfig -&gt; OutputConfig -&gt; Bool
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679176150"><span id="local-6989586621679176152"><span class="annot"><span class="annottext">OutputConfig -&gt; OutputConfig -&gt; Bool
 (OutputConfig -&gt; OutputConfig -&gt; Bool)
 -&gt; (OutputConfig -&gt; OutputConfig -&gt; Bool) -&gt; Eq OutputConfig
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: OutputConfig -&gt; OutputConfig -&gt; Bool
 == :: OutputConfig -&gt; OutputConfig -&gt; Bool
 $c== :: OutputConfig -&gt; OutputConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176132"><span id="local-6989586621679176134"><span id="local-6989586621679176136"><span id="local-6989586621679176138"><span class="annot"><span class="annottext">ReadPrec [OutputConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176141"><span id="local-6989586621679176143"><span id="local-6989586621679176145"><span id="local-6989586621679176147"><span class="annot"><span class="annottext">ReadPrec [OutputConfig]
 ReadPrec OutputConfig
 Int -&gt; ReadS OutputConfig
 ReadS [OutputConfig]
@@ -85,7 +85,7 @@ readList :: ReadS [OutputConfig]
 $creadList :: ReadS [OutputConfig]
 readsPrec :: Int -&gt; ReadS OutputConfig
 $creadsPrec :: Int -&gt; ReadS OutputConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176125"><span id="local-6989586621679176127"><span id="local-6989586621679176129"><span class="annot"><span class="annottext">Int -&gt; OutputConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176134"><span id="local-6989586621679176136"><span id="local-6989586621679176138"><span class="annot"><span class="annottext">Int -&gt; OutputConfig -&gt; ShowS
 [OutputConfig] -&gt; ShowS
 OutputConfig -&gt; String
 (Int -&gt; OutputConfig -&gt; ShowS)
@@ -128,8 +128,8 @@ $cfrom :: forall x. OutputConfig -&gt; Rep OutputConfig x
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.Textract.Types.OutputConfig.html#OutputConfig"><span class="hs-identifier hs-type">OutputConfig</span></a></span><span>
 </span><span id="line-76"></span><span id="newOutputConfig"><span class="annot"><span class="annottext">newOutputConfig :: Text -&gt; OutputConfig
-</span><a href="Network.AWS.Textract.Types.OutputConfig.html#newOutputConfig"><span class="hs-identifier hs-var hs-var">newOutputConfig</span></a></span></span><span> </span><span id="local-6989586621679176119"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679176119"><span class="hs-identifier hs-var">pS3Bucket_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Textract.Types.OutputConfig.html#newOutputConfig"><span class="hs-identifier hs-var hs-var">newOutputConfig</span></a></span></span><span> </span><span id="local-6989586621679176128"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176128"><span class="hs-identifier hs-var">pS3Bucket_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">OutputConfig' :: Maybe Text -&gt; Text -&gt; OutputConfig
 </span><a href="Network.AWS.Textract.Types.OutputConfig.html#OutputConfig%27"><span class="hs-identifier hs-type">OutputConfig'</span></a></span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:s3Prefix:OutputConfig' :: Maybe Text
@@ -138,7 +138,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3Bucket:OutputConfig' :: Text
 </span><a href="Network.AWS.Textract.Types.OutputConfig.html#%24sel%3As3Bucket%3AOutputConfig%27"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679176119"><span class="hs-identifier hs-var">pS3Bucket_</span></a></span><span>
+</span><a href="#local-6989586621679176128"><span class="hs-identifier hs-var">pS3Bucket_</span></a></span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | The prefix of the object key that the output will be saved to. When not</span><span>
@@ -149,16 +149,16 @@ forall a. Maybe a
 -&gt; (OutputConfig -&gt; Maybe Text -&gt; OutputConfig)
 -&gt; Lens OutputConfig OutputConfig (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.OutputConfig.html#OutputConfig%27"><span class="hs-identifier hs-type">OutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176115"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.OutputConfig.html#OutputConfig%27"><span class="hs-identifier hs-type">OutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176124"><span class="annot"><span class="annottext">Maybe Text
 s3Prefix :: Maybe Text
 $sel:s3Prefix:OutputConfig' :: OutputConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679176115"><span class="hs-identifier hs-var hs-var">s3Prefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679176115"><span class="hs-identifier hs-var">s3Prefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176114"><span class="annot"><span class="annottext">s :: OutputConfig
-</span><a href="#local-6989586621679176114"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.OutputConfig.html#OutputConfig%27"><span class="hs-identifier hs-type">OutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176113"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679176113"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputConfig
-</span><a href="#local-6989586621679176114"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Prefix:OutputConfig' :: Maybe Text
+</span><a href="#local-6989586621679176124"><span class="hs-identifier hs-var hs-var">s3Prefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176124"><span class="hs-identifier hs-var">s3Prefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176123"><span class="annot"><span class="annottext">s :: OutputConfig
+</span><a href="#local-6989586621679176123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.OutputConfig.html#OutputConfig%27"><span class="hs-identifier hs-type">OutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176122"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputConfig
+</span><a href="#local-6989586621679176123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Prefix:OutputConfig' :: Maybe Text
 </span><a href="Network.AWS.Textract.Types.OutputConfig.html#%24sel%3As3Prefix%3AOutputConfig%27"><span class="hs-identifier hs-var">s3Prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679176113"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.OutputConfig.html#OutputConfig"><span class="hs-identifier hs-type">OutputConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679176122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.OutputConfig.html#OutputConfig"><span class="hs-identifier hs-type">OutputConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | The name of the bucket your output will go to.</span><span>
 </span><span id="line-88"></span><span class="annot"><a href="Network.AWS.Textract.Types.OutputConfig.html#outputConfig_s3Bucket"><span class="hs-identifier hs-type">outputConfig_s3Bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.OutputConfig.html#OutputConfig"><span class="hs-identifier hs-type">OutputConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -167,30 +167,30 @@ $sel:s3Prefix:OutputConfig' :: OutputConfig -&gt; Maybe Text
 -&gt; (OutputConfig -&gt; Text -&gt; OutputConfig)
 -&gt; Lens OutputConfig OutputConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.OutputConfig.html#OutputConfig%27"><span class="hs-identifier hs-type">OutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176111"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.OutputConfig.html#OutputConfig%27"><span class="hs-identifier hs-type">OutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176120"><span class="annot"><span class="annottext">Text
 s3Bucket :: Text
 $sel:s3Bucket:OutputConfig' :: OutputConfig -&gt; Text
-</span><a href="#local-6989586621679176111"><span class="hs-identifier hs-var hs-var">s3Bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679176111"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176110"><span class="annot"><span class="annottext">s :: OutputConfig
-</span><a href="#local-6989586621679176110"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.OutputConfig.html#OutputConfig%27"><span class="hs-identifier hs-type">OutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176109"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679176109"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputConfig
-</span><a href="#local-6989586621679176110"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Bucket:OutputConfig' :: Text
+</span><a href="#local-6989586621679176120"><span class="hs-identifier hs-var hs-var">s3Bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176120"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176119"><span class="annot"><span class="annottext">s :: OutputConfig
+</span><a href="#local-6989586621679176119"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.OutputConfig.html#OutputConfig%27"><span class="hs-identifier hs-type">OutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176118"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679176118"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputConfig
+</span><a href="#local-6989586621679176119"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Bucket:OutputConfig' :: Text
 </span><a href="Network.AWS.Textract.Types.OutputConfig.html#%24sel%3As3Bucket%3AOutputConfig%27"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679176109"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.OutputConfig.html#OutputConfig"><span class="hs-identifier hs-type">OutputConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679176118"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.OutputConfig.html#OutputConfig"><span class="hs-identifier hs-type">OutputConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176105"><span id="local-6989586621679176107"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.OutputConfig.html#OutputConfig"><span class="hs-identifier hs-type">OutputConfig</span></a></span></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176114"><span id="local-6989586621679176116"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.OutputConfig.html#OutputConfig"><span class="hs-identifier hs-type">OutputConfig</span></a></span></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176102"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.OutputConfig.html#OutputConfig"><span class="hs-identifier hs-type">OutputConfig</span></a></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176111"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.OutputConfig.html#OutputConfig"><span class="hs-identifier hs-type">OutputConfig</span></a></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176094"><span id="local-6989586621679176096"><span id="local-6989586621679176098"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.OutputConfig.html#OutputConfig"><span class="hs-identifier hs-type">OutputConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679176092"><span class="annot"><span class="annottext">toJSON :: OutputConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.OutputConfig.html#OutputConfig%27"><span class="hs-identifier hs-type">OutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176089"><span id="local-6989586621679176090"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176103"><span id="local-6989586621679176105"><span id="local-6989586621679176107"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.OutputConfig.html#OutputConfig"><span class="hs-identifier hs-type">OutputConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679176101"><span class="annot"><span class="annottext">toJSON :: OutputConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.OutputConfig.html#OutputConfig%27"><span class="hs-identifier hs-type">OutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176098"><span id="local-6989586621679176099"><span class="annot"><span class="annottext">Maybe Text
 Text
 s3Bucket :: Text
 s3Prefix :: Maybe Text
 $sel:s3Bucket:OutputConfig' :: OutputConfig -&gt; Text
 $sel:s3Prefix:OutputConfig' :: OutputConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679176089"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679176098"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -202,14 +202,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679176090"><span class="hs-identifier hs-var">s3Prefix</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679176099"><span class="hs-identifier hs-var">s3Prefix</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3Bucket&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679176089"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679176098"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span></pre></body></html>

@@ -46,12 +46,12 @@
 </span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-47"></span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newExpireSession' smart constructor.</span><span>
-</span><span id="line-49"></span><span id="local-6989586621679295205"><span id="local-6989586621679295206"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExpireSession"><span class="annot"><a href="Network.AWS.AppStream.ExpireSession.html#ExpireSession"><span class="hs-identifier hs-var">ExpireSession</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExpireSession%27"><span class="annot"><a href="Network.AWS.AppStream.ExpireSession.html#ExpireSession%27"><span class="hs-identifier hs-var">ExpireSession'</span></a></span></span><span>
+</span><span id="line-49"></span><span id="local-6989586621679295214"><span id="local-6989586621679295215"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExpireSession"><span class="annot"><a href="Network.AWS.AppStream.ExpireSession.html#ExpireSession"><span class="hs-identifier hs-var">ExpireSession</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExpireSession%27"><span class="annot"><a href="Network.AWS.AppStream.ExpireSession.html#ExpireSession%27"><span class="hs-identifier hs-var">ExpireSession'</span></a></span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the streaming session.</span><span>
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3AsessionId%3AExpireSession%27"><span class="annot"><span class="annottext">ExpireSession -&gt; Text
 </span><a href="Network.AWS.AppStream.ExpireSession.html#%24sel%3AsessionId%3AExpireSession%27"><span class="hs-identifier hs-var hs-var">sessionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679295199"><span id="local-6989586621679295201"><span class="annot"><span class="annottext">ExpireSession -&gt; ExpireSession -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679295208"><span id="local-6989586621679295210"><span class="annot"><span class="annottext">ExpireSession -&gt; ExpireSession -&gt; Bool
 (ExpireSession -&gt; ExpireSession -&gt; Bool)
 -&gt; (ExpireSession -&gt; ExpireSession -&gt; Bool) -&gt; Eq ExpireSession
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -59,7 +59,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ExpireSession -&gt; ExpireSession -&gt; Bool
 == :: ExpireSession -&gt; ExpireSession -&gt; Bool
 $c== :: ExpireSession -&gt; ExpireSession -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295190"><span id="local-6989586621679295192"><span id="local-6989586621679295194"><span id="local-6989586621679295196"><span class="annot"><span class="annottext">ReadPrec [ExpireSession]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295199"><span id="local-6989586621679295201"><span id="local-6989586621679295203"><span id="local-6989586621679295205"><span class="annot"><span class="annottext">ReadPrec [ExpireSession]
 ReadPrec ExpireSession
 Int -&gt; ReadS ExpireSession
 ReadS [ExpireSession]
@@ -79,7 +79,7 @@ readList :: ReadS [ExpireSession]
 $creadList :: ReadS [ExpireSession]
 readsPrec :: Int -&gt; ReadS ExpireSession
 $creadsPrec :: Int -&gt; ReadS ExpireSession
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295183"><span id="local-6989586621679295185"><span id="local-6989586621679295187"><span class="annot"><span class="annottext">Int -&gt; ExpireSession -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295192"><span id="local-6989586621679295194"><span id="local-6989586621679295196"><span class="annot"><span class="annottext">Int -&gt; ExpireSession -&gt; ShowS
 [ExpireSession] -&gt; ShowS
 ExpireSession -&gt; String
 (Int -&gt; ExpireSession -&gt; ShowS)
@@ -119,12 +119,12 @@ $cfrom :: forall x. ExpireSession -&gt; Rep ExpireSession x
 </span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.ExpireSession.html#ExpireSession"><span class="hs-identifier hs-type">ExpireSession</span></a></span><span>
 </span><span id="line-68"></span><span id="newExpireSession"><span class="annot"><span class="annottext">newExpireSession :: Text -&gt; ExpireSession
-</span><a href="Network.AWS.AppStream.ExpireSession.html#newExpireSession"><span class="hs-identifier hs-var hs-var">newExpireSession</span></a></span></span><span> </span><span id="local-6989586621679295178"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679295178"><span class="hs-identifier hs-var">pSessionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AppStream.ExpireSession.html#newExpireSession"><span class="hs-identifier hs-var hs-var">newExpireSession</span></a></span></span><span> </span><span id="local-6989586621679295187"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679295187"><span class="hs-identifier hs-var">pSessionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">ExpireSession' :: Text -&gt; ExpireSession
 </span><a href="Network.AWS.AppStream.ExpireSession.html#ExpireSession%27"><span class="hs-identifier hs-type">ExpireSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sessionId:ExpireSession' :: Text
 </span><a href="Network.AWS.AppStream.ExpireSession.html#%24sel%3AsessionId%3AExpireSession%27"><span class="hs-identifier hs-var">sessionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679295178"><span class="hs-identifier hs-var">pSessionId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679295187"><span class="hs-identifier hs-var">pSessionId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | The identifier of the streaming session.</span><span>
 </span><span id="line-72"></span><span class="annot"><a href="Network.AWS.AppStream.ExpireSession.html#expireSession_sessionId"><span class="hs-identifier hs-type">expireSession_sessionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ExpireSession.html#ExpireSession"><span class="hs-identifier hs-type">ExpireSession</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -133,27 +133,27 @@ $cfrom :: forall x. ExpireSession -&gt; Rep ExpireSession x
 -&gt; (ExpireSession -&gt; Text -&gt; ExpireSession)
 -&gt; Lens ExpireSession ExpireSession Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.ExpireSession.html#ExpireSession%27"><span class="hs-identifier hs-type">ExpireSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295175"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.ExpireSession.html#ExpireSession%27"><span class="hs-identifier hs-type">ExpireSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295184"><span class="annot"><span class="annottext">Text
 sessionId :: Text
 $sel:sessionId:ExpireSession' :: ExpireSession -&gt; Text
-</span><a href="#local-6989586621679295175"><span class="hs-identifier hs-var hs-var">sessionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679295175"><span class="hs-identifier hs-var">sessionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295174"><span class="annot"><span class="annottext">s :: ExpireSession
-</span><a href="#local-6989586621679295174"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.ExpireSession.html#ExpireSession%27"><span class="hs-identifier hs-type">ExpireSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295173"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679295173"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExpireSession
-</span><a href="#local-6989586621679295174"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sessionId:ExpireSession' :: Text
+</span><a href="#local-6989586621679295184"><span class="hs-identifier hs-var hs-var">sessionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679295184"><span class="hs-identifier hs-var">sessionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295183"><span class="annot"><span class="annottext">s :: ExpireSession
+</span><a href="#local-6989586621679295183"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.ExpireSession.html#ExpireSession%27"><span class="hs-identifier hs-type">ExpireSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295182"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679295182"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExpireSession
+</span><a href="#local-6989586621679295183"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sessionId:ExpireSession' :: Text
 </span><a href="Network.AWS.AppStream.ExpireSession.html#%24sel%3AsessionId%3AExpireSession%27"><span class="hs-identifier hs-var">sessionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679295173"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ExpireSession.html#ExpireSession"><span class="hs-identifier hs-type">ExpireSession</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679295182"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ExpireSession.html#ExpireSession"><span class="hs-identifier hs-type">ExpireSession</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ExpireSession.html#ExpireSession"><span class="hs-identifier hs-type">ExpireSession</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-77"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ExpireSession.html#ExpireSession"><span class="hs-identifier hs-type">ExpireSession</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><a href="Network.AWS.AppStream.ExpireSession.html#ExpireSessionResponse"><span class="hs-identifier hs-type">ExpireSessionResponse</span></a></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679295169"><span class="annot"><span class="annottext">request :: ExpireSession -&gt; Request ExpireSession
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679295178"><span class="annot"><span class="annottext">request :: ExpireSession -&gt; Request ExpireSession
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ExpireSession -&gt; Request ExpireSession
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AppStream.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679295165"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679295174"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ExpireSession
 -&gt; ClientResponse ClientBody
@@ -177,10 +177,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679295162"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679295162"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679295161"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679295161"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679295160"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679295160"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679295171"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679295171"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679295170"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679295170"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679295169"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679295169"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; ExpireSessionResponse
 </span><a href="Network.AWS.AppStream.ExpireSession.html#ExpireSessionResponse%27"><span class="hs-identifier hs-var">ExpireSessionResponse'</span></a></span><span>
 </span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; ExpireSessionResponse)
@@ -191,15 +191,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679295162"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679295171"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295153"><span id="local-6989586621679295155"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ExpireSession.html#ExpireSession"><span class="hs-identifier hs-type">ExpireSession</span></a></span></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295162"><span id="local-6989586621679295164"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ExpireSession.html#ExpireSession"><span class="hs-identifier hs-type">ExpireSession</span></a></span></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295150"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ExpireSession.html#ExpireSession"><span class="hs-identifier hs-type">ExpireSession</span></a></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295159"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ExpireSession.html#ExpireSession"><span class="hs-identifier hs-type">ExpireSession</span></a></span></span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ExpireSession.html#ExpireSession"><span class="hs-identifier hs-type">ExpireSession</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679295146"><span class="annot"><span class="annottext">toHeaders :: ExpireSession -&gt; ResponseHeaders
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679295155"><span class="annot"><span class="annottext">toHeaders :: ExpireSession -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ExpireSession -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -226,12 +226,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-103"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295136"><span id="local-6989586621679295138"><span id="local-6989586621679295140"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ExpireSession.html#ExpireSession"><span class="hs-identifier hs-type">ExpireSession</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679295134"><span class="annot"><span class="annottext">toJSON :: ExpireSession -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ExpireSession.html#ExpireSession%27"><span class="hs-identifier hs-type">ExpireSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295132"><span class="annot"><span class="annottext">Text
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295145"><span id="local-6989586621679295147"><span id="local-6989586621679295149"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ExpireSession.html#ExpireSession"><span class="hs-identifier hs-type">ExpireSession</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679295143"><span class="annot"><span class="annottext">toJSON :: ExpireSession -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ExpireSession.html#ExpireSession%27"><span class="hs-identifier hs-type">ExpireSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295141"><span class="annot"><span class="annottext">Text
 sessionId :: Text
 $sel:sessionId:ExpireSession' :: ExpireSession -&gt; Text
-</span><a href="#local-6989586621679295132"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679295141"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -243,18 +243,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;SessionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679295132"><span class="hs-identifier hs-var">sessionId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679295141"><span class="hs-identifier hs-var">sessionId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ExpireSession.html#ExpireSession"><span class="hs-identifier hs-type">ExpireSession</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679295126"><span class="annot"><span class="annottext">toPath :: ExpireSession -&gt; ByteString
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679295135"><span class="annot"><span class="annottext">toPath :: ExpireSession -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ExpireSession -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ExpireSession.html#ExpireSession"><span class="hs-identifier hs-type">ExpireSession</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679295122"><span class="annot"><span class="annottext">toQuery :: ExpireSession -&gt; QueryString
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679295131"><span class="annot"><span class="annottext">toQuery :: ExpireSession -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ExpireSession -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -262,12 +262,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | /See:/ 'newExpireSessionResponse' smart constructor.</span><span>
-</span><span id="line-120"></span><span id="local-6989586621679295119"><span id="local-6989586621679295120"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExpireSessionResponse"><span class="annot"><a href="Network.AWS.AppStream.ExpireSession.html#ExpireSessionResponse"><span class="hs-identifier hs-var">ExpireSessionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExpireSessionResponse%27"><span class="annot"><a href="Network.AWS.AppStream.ExpireSession.html#ExpireSessionResponse%27"><span class="hs-identifier hs-var">ExpireSessionResponse'</span></a></span></span><span>
+</span><span id="line-120"></span><span id="local-6989586621679295128"><span id="local-6989586621679295129"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExpireSessionResponse"><span class="annot"><a href="Network.AWS.AppStream.ExpireSession.html#ExpireSessionResponse"><span class="hs-identifier hs-var">ExpireSessionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExpireSessionResponse%27"><span class="annot"><a href="Network.AWS.AppStream.ExpireSession.html#ExpireSessionResponse%27"><span class="hs-identifier hs-var">ExpireSessionResponse'</span></a></span></span><span>
 </span><span id="line-121"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-122"></span><span>    </span><span id="%24sel%3AhttpStatus%3AExpireSessionResponse%27"><span class="annot"><span class="annottext">ExpireSessionResponse -&gt; Int
 </span><a href="Network.AWS.AppStream.ExpireSession.html#%24sel%3AhttpStatus%3AExpireSessionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-123"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679295114"><span id="local-6989586621679295116"><span class="annot"><span class="annottext">ExpireSessionResponse -&gt; ExpireSessionResponse -&gt; Bool
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679295123"><span id="local-6989586621679295125"><span class="annot"><span class="annottext">ExpireSessionResponse -&gt; ExpireSessionResponse -&gt; Bool
 (ExpireSessionResponse -&gt; ExpireSessionResponse -&gt; Bool)
 -&gt; (ExpireSessionResponse -&gt; ExpireSessionResponse -&gt; Bool)
 -&gt; Eq ExpireSessionResponse
@@ -276,7 +276,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ExpireSessionResponse -&gt; ExpireSessionResponse -&gt; Bool
 == :: ExpireSessionResponse -&gt; ExpireSessionResponse -&gt; Bool
 $c== :: ExpireSessionResponse -&gt; ExpireSessionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295106"><span id="local-6989586621679295108"><span id="local-6989586621679295110"><span id="local-6989586621679295112"><span class="annot"><span class="annottext">ReadPrec [ExpireSessionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295115"><span id="local-6989586621679295117"><span id="local-6989586621679295119"><span id="local-6989586621679295121"><span class="annot"><span class="annottext">ReadPrec [ExpireSessionResponse]
 ReadPrec ExpireSessionResponse
 Int -&gt; ReadS ExpireSessionResponse
 ReadS [ExpireSessionResponse]
@@ -296,7 +296,7 @@ readList :: ReadS [ExpireSessionResponse]
 $creadList :: ReadS [ExpireSessionResponse]
 readsPrec :: Int -&gt; ReadS ExpireSessionResponse
 $creadsPrec :: Int -&gt; ReadS ExpireSessionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295100"><span id="local-6989586621679295102"><span id="local-6989586621679295104"><span class="annot"><span class="annottext">Int -&gt; ExpireSessionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295109"><span id="local-6989586621679295111"><span id="local-6989586621679295113"><span class="annot"><span class="annottext">Int -&gt; ExpireSessionResponse -&gt; ShowS
 [ExpireSessionResponse] -&gt; ShowS
 ExpireSessionResponse -&gt; String
 (Int -&gt; ExpireSessionResponse -&gt; ShowS)
@@ -336,12 +336,12 @@ $cfrom :: forall x. ExpireSessionResponse -&gt; Rep ExpireSessionResponse x
 </span><span id="line-137"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-138"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.ExpireSession.html#ExpireSessionResponse"><span class="hs-identifier hs-type">ExpireSessionResponse</span></a></span><span>
 </span><span id="line-139"></span><span id="newExpireSessionResponse"><span class="annot"><span class="annottext">newExpireSessionResponse :: Int -&gt; ExpireSessionResponse
-</span><a href="Network.AWS.AppStream.ExpireSession.html#newExpireSessionResponse"><span class="hs-identifier hs-var hs-var">newExpireSessionResponse</span></a></span></span><span> </span><span id="local-6989586621679295097"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679295097"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AppStream.ExpireSession.html#newExpireSessionResponse"><span class="hs-identifier hs-var hs-var">newExpireSessionResponse</span></a></span></span><span> </span><span id="local-6989586621679295106"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679295106"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>  </span><span class="annot"><span class="annottext">ExpireSessionResponse' :: Int -&gt; ExpireSessionResponse
 </span><a href="Network.AWS.AppStream.ExpireSession.html#ExpireSessionResponse%27"><span class="hs-identifier hs-type">ExpireSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ExpireSessionResponse' :: Int
 </span><a href="Network.AWS.AppStream.ExpireSession.html#%24sel%3AhttpStatus%3AExpireSessionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679295097"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679295106"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-143"></span><span class="annot"><a href="Network.AWS.AppStream.ExpireSession.html#expireSessionResponse_httpStatus"><span class="hs-identifier hs-type">expireSessionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ExpireSession.html#ExpireSessionResponse"><span class="hs-identifier hs-type">ExpireSessionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -350,16 +350,16 @@ $cfrom :: forall x. ExpireSessionResponse -&gt; Rep ExpireSessionResponse x
 -&gt; (ExpireSessionResponse -&gt; Int -&gt; ExpireSessionResponse)
 -&gt; Lens ExpireSessionResponse ExpireSessionResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.ExpireSession.html#ExpireSessionResponse%27"><span class="hs-identifier hs-type">ExpireSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295096"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.ExpireSession.html#ExpireSessionResponse%27"><span class="hs-identifier hs-type">ExpireSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295105"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ExpireSessionResponse' :: ExpireSessionResponse -&gt; Int
-</span><a href="#local-6989586621679295096"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679295096"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295095"><span class="annot"><span class="annottext">s :: ExpireSessionResponse
-</span><a href="#local-6989586621679295095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.ExpireSession.html#ExpireSessionResponse%27"><span class="hs-identifier hs-type">ExpireSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295094"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679295094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExpireSessionResponse
-</span><a href="#local-6989586621679295095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ExpireSessionResponse' :: Int
+</span><a href="#local-6989586621679295105"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679295105"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295104"><span class="annot"><span class="annottext">s :: ExpireSessionResponse
+</span><a href="#local-6989586621679295104"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.ExpireSession.html#ExpireSessionResponse%27"><span class="hs-identifier hs-type">ExpireSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295103"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679295103"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExpireSessionResponse
+</span><a href="#local-6989586621679295104"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ExpireSessionResponse' :: Int
 </span><a href="Network.AWS.AppStream.ExpireSession.html#%24sel%3AhttpStatus%3AExpireSessionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679295094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ExpireSession.html#ExpireSessionResponse"><span class="hs-identifier hs-type">ExpireSessionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679295103"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ExpireSession.html#ExpireSessionResponse"><span class="hs-identifier hs-type">ExpireSessionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295092"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ExpireSession.html#ExpireSessionResponse"><span class="hs-identifier hs-type">ExpireSessionResponse</span></a></span></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295101"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ExpireSession.html#ExpireSessionResponse"><span class="hs-identifier hs-type">ExpireSessionResponse</span></a></span></span><span>
 </span><span id="line-147"></span></pre></body></html>

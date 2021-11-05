@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span class="hs-comment">-- | A request for information about the usage of an identity pool.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newDescribeIdentityUsage' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679178004"><span id="local-6989586621679178005"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeIdentityUsage"><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage"><span class="hs-identifier hs-var">DescribeIdentityUsage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeIdentityUsage%27"><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage%27"><span class="hs-identifier hs-var">DescribeIdentityUsage'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679178013"><span id="local-6989586621679178014"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeIdentityUsage"><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage"><span class="hs-identifier hs-var">DescribeIdentityUsage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeIdentityUsage%27"><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage%27"><span class="hs-identifier hs-var">DescribeIdentityUsage'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A name-spaced GUID (for example,</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- Cognito. GUID generation is unique within a region.</span><span>
@@ -66,7 +66,7 @@
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AidentityId%3ADescribeIdentityUsage%27"><span class="annot"><span class="annottext">DescribeIdentityUsage -&gt; Text
 </span><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#%24sel%3AidentityId%3ADescribeIdentityUsage%27"><span class="hs-identifier hs-var hs-var">identityId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177997"><span id="local-6989586621679177999"><span class="annot"><span class="annottext">DescribeIdentityUsage -&gt; DescribeIdentityUsage -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178006"><span id="local-6989586621679178008"><span class="annot"><span class="annottext">DescribeIdentityUsage -&gt; DescribeIdentityUsage -&gt; Bool
 (DescribeIdentityUsage -&gt; DescribeIdentityUsage -&gt; Bool)
 -&gt; (DescribeIdentityUsage -&gt; DescribeIdentityUsage -&gt; Bool)
 -&gt; Eq DescribeIdentityUsage
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeIdentityUsage -&gt; DescribeIdentityUsage -&gt; Bool
 == :: DescribeIdentityUsage -&gt; DescribeIdentityUsage -&gt; Bool
 $c== :: DescribeIdentityUsage -&gt; DescribeIdentityUsage -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177988"><span id="local-6989586621679177990"><span id="local-6989586621679177992"><span id="local-6989586621679177994"><span class="annot"><span class="annottext">ReadPrec [DescribeIdentityUsage]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177997"><span id="local-6989586621679177999"><span id="local-6989586621679178001"><span id="local-6989586621679178003"><span class="annot"><span class="annottext">ReadPrec [DescribeIdentityUsage]
 ReadPrec DescribeIdentityUsage
 Int -&gt; ReadS DescribeIdentityUsage
 ReadS [DescribeIdentityUsage]
@@ -95,7 +95,7 @@ readList :: ReadS [DescribeIdentityUsage]
 $creadList :: ReadS [DescribeIdentityUsage]
 readsPrec :: Int -&gt; ReadS DescribeIdentityUsage
 $creadsPrec :: Int -&gt; ReadS DescribeIdentityUsage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177981"><span id="local-6989586621679177983"><span id="local-6989586621679177985"><span class="annot"><span class="annottext">Int -&gt; DescribeIdentityUsage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177990"><span id="local-6989586621679177992"><span id="local-6989586621679177994"><span class="annot"><span class="annottext">Int -&gt; DescribeIdentityUsage -&gt; ShowS
 [DescribeIdentityUsage] -&gt; ShowS
 DescribeIdentityUsage -&gt; String
 (Int -&gt; DescribeIdentityUsage -&gt; ShowS)
@@ -144,19 +144,19 @@ $cfrom :: forall x. DescribeIdentityUsage -&gt; Rep DescribeIdentityUsage x
 </span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage"><span class="hs-identifier hs-type">DescribeIdentityUsage</span></a></span><span>
 </span><span id="line-90"></span><span id="newDescribeIdentityUsage"><span class="annot"><span class="annottext">newDescribeIdentityUsage :: Text -&gt; Text -&gt; DescribeIdentityUsage
 </span><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#newDescribeIdentityUsage"><span class="hs-identifier hs-var hs-var">newDescribeIdentityUsage</span></a></span></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679177976"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177976"><span class="hs-identifier hs-var">pIdentityPoolId_</span></a></span></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679177975"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177975"><span class="hs-identifier hs-var">pIdentityId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679177985"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177985"><span class="hs-identifier hs-var">pIdentityPoolId_</span></a></span></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679177984"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177984"><span class="hs-identifier hs-var">pIdentityId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">DescribeIdentityUsage' :: Text -&gt; Text -&gt; DescribeIdentityUsage
 </span><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage%27"><span class="hs-identifier hs-type">DescribeIdentityUsage'</span></a></span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:identityPoolId:DescribeIdentityUsage' :: Text
 </span><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#%24sel%3AidentityPoolId%3ADescribeIdentityUsage%27"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177976"><span class="hs-identifier hs-var">pIdentityPoolId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679177985"><span class="hs-identifier hs-var">pIdentityPoolId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">$sel:identityId:DescribeIdentityUsage' :: Text
 </span><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#%24sel%3AidentityId%3ADescribeIdentityUsage%27"><span class="hs-identifier hs-var">identityId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177975"><span class="hs-identifier hs-var">pIdentityId_</span></a></span><span>
+</span><a href="#local-6989586621679177984"><span class="hs-identifier hs-var">pIdentityId_</span></a></span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | A name-spaced GUID (for example,</span><span>
@@ -169,16 +169,16 @@ $cfrom :: forall x. DescribeIdentityUsage -&gt; Rep DescribeIdentityUsage x
 -&gt; (DescribeIdentityUsage -&gt; Text -&gt; DescribeIdentityUsage)
 -&gt; Lens DescribeIdentityUsage DescribeIdentityUsage Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage%27"><span class="hs-identifier hs-type">DescribeIdentityUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177972"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage%27"><span class="hs-identifier hs-type">DescribeIdentityUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177981"><span class="annot"><span class="annottext">Text
 identityPoolId :: Text
 $sel:identityPoolId:DescribeIdentityUsage' :: DescribeIdentityUsage -&gt; Text
-</span><a href="#local-6989586621679177972"><span class="hs-identifier hs-var hs-var">identityPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177972"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177971"><span class="annot"><span class="annottext">s :: DescribeIdentityUsage
-</span><a href="#local-6989586621679177971"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage%27"><span class="hs-identifier hs-type">DescribeIdentityUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177970"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177970"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIdentityUsage
-</span><a href="#local-6989586621679177971"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityPoolId:DescribeIdentityUsage' :: Text
+</span><a href="#local-6989586621679177981"><span class="hs-identifier hs-var hs-var">identityPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177981"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177980"><span class="annot"><span class="annottext">s :: DescribeIdentityUsage
+</span><a href="#local-6989586621679177980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage%27"><span class="hs-identifier hs-type">DescribeIdentityUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177979"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIdentityUsage
+</span><a href="#local-6989586621679177980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityPoolId:DescribeIdentityUsage' :: Text
 </span><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#%24sel%3AidentityPoolId%3ADescribeIdentityUsage%27"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177970"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage"><span class="hs-identifier hs-type">DescribeIdentityUsage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage"><span class="hs-identifier hs-type">DescribeIdentityUsage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | A name-spaced GUID (for example,</span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon</span><span>
@@ -190,27 +190,27 @@ $sel:identityPoolId:DescribeIdentityUsage' :: DescribeIdentityUsage -&gt; Text
 -&gt; (DescribeIdentityUsage -&gt; Text -&gt; DescribeIdentityUsage)
 -&gt; Lens DescribeIdentityUsage DescribeIdentityUsage Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage%27"><span class="hs-identifier hs-type">DescribeIdentityUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177969"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage%27"><span class="hs-identifier hs-type">DescribeIdentityUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177978"><span class="annot"><span class="annottext">Text
 identityId :: Text
 $sel:identityId:DescribeIdentityUsage' :: DescribeIdentityUsage -&gt; Text
-</span><a href="#local-6989586621679177969"><span class="hs-identifier hs-var hs-var">identityId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177969"><span class="hs-identifier hs-var">identityId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177968"><span class="annot"><span class="annottext">s :: DescribeIdentityUsage
-</span><a href="#local-6989586621679177968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage%27"><span class="hs-identifier hs-type">DescribeIdentityUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177967"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIdentityUsage
-</span><a href="#local-6989586621679177968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityId:DescribeIdentityUsage' :: Text
+</span><a href="#local-6989586621679177978"><span class="hs-identifier hs-var hs-var">identityId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177978"><span class="hs-identifier hs-var">identityId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177977"><span class="annot"><span class="annottext">s :: DescribeIdentityUsage
+</span><a href="#local-6989586621679177977"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage%27"><span class="hs-identifier hs-type">DescribeIdentityUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177976"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177976"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIdentityUsage
+</span><a href="#local-6989586621679177977"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityId:DescribeIdentityUsage' :: Text
 </span><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#%24sel%3AidentityId%3ADescribeIdentityUsage%27"><span class="hs-identifier hs-var">identityId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage"><span class="hs-identifier hs-type">DescribeIdentityUsage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177976"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage"><span class="hs-identifier hs-type">DescribeIdentityUsage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage"><span class="hs-identifier hs-type">DescribeIdentityUsage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-112"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-113"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage"><span class="hs-identifier hs-type">DescribeIdentityUsage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>      </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsageResponse"><span class="hs-identifier hs-type">DescribeIdentityUsageResponse</span></a></span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679177963"><span class="annot"><span class="annottext">request :: DescribeIdentityUsage -&gt; Request DescribeIdentityUsage
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679177972"><span class="annot"><span class="annottext">request :: DescribeIdentityUsage -&gt; Request DescribeIdentityUsage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeIdentityUsage -&gt; Request DescribeIdentityUsage
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CognitoSync.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679177959"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679177968"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeIdentityUsage
 -&gt; ClientResponse ClientBody
@@ -236,10 +236,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679177956"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679177956"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679177955"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679177955"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679177954"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679177954"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679177965"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177965"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679177964"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679177964"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679177963"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679177963"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Maybe IdentityUsage -&gt; Int -&gt; DescribeIdentityUsageResponse
 </span><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsageResponse%27"><span class="hs-identifier hs-var">DescribeIdentityUsageResponse'</span></a></span><span>
 </span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">(Maybe IdentityUsage -&gt; Int -&gt; DescribeIdentityUsageResponse)
@@ -247,7 +247,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DescribeIdentityUsageResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679177954"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe IdentityUsage)
+</span><a href="#local-6989586621679177963"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe IdentityUsage)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IdentityUsage&quot;</span></span><span class="hs-special">)</span><span>
@@ -259,15 +259,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679177956"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177965"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177946"><span id="local-6989586621679177948"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage"><span class="hs-identifier hs-type">DescribeIdentityUsage</span></a></span></span></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177955"><span id="local-6989586621679177957"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage"><span class="hs-identifier hs-type">DescribeIdentityUsage</span></a></span></span></span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177943"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage"><span class="hs-identifier hs-type">DescribeIdentityUsage</span></a></span></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177952"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage"><span class="hs-identifier hs-type">DescribeIdentityUsage</span></a></span></span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage"><span class="hs-identifier hs-type">DescribeIdentityUsage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679177939"><span class="annot"><span class="annottext">toHeaders :: DescribeIdentityUsage -&gt; ResponseHeaders
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679177948"><span class="annot"><span class="annottext">toHeaders :: DescribeIdentityUsage -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeIdentityUsage -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -287,13 +287,13 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage"><span class="hs-identifier hs-type">DescribeIdentityUsage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679177933"><span class="annot"><span class="annottext">toPath :: DescribeIdentityUsage -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage%27"><span class="hs-identifier hs-type">DescribeIdentityUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177930"><span id="local-6989586621679177931"><span class="annot"><span class="annottext">Text
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679177942"><span class="annot"><span class="annottext">toPath :: DescribeIdentityUsage -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage%27"><span class="hs-identifier hs-type">DescribeIdentityUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177939"><span id="local-6989586621679177940"><span class="annot"><span class="annottext">Text
 identityId :: Text
 identityPoolId :: Text
 $sel:identityId:DescribeIdentityUsage' :: DescribeIdentityUsage -&gt; Text
 $sel:identityPoolId:DescribeIdentityUsage' :: DescribeIdentityUsage -&gt; Text
-</span><a href="#local-6989586621679177930"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679177939"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -302,17 +302,17 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177931"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679177940"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/identities/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177930"><span class="hs-identifier hs-var">identityId</span></a></span><span>
+</span><a href="#local-6989586621679177939"><span class="hs-identifier hs-var">identityId</span></a></span><span>
 </span><span id="line-146"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage"><span class="hs-identifier hs-type">DescribeIdentityUsage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679177926"><span class="annot"><span class="annottext">toQuery :: DescribeIdentityUsage -&gt; QueryString
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679177935"><span class="annot"><span class="annottext">toQuery :: DescribeIdentityUsage -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeIdentityUsage -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -322,7 +322,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-151"></span><span class="hs-comment">-- | The response to a successful DescribeIdentityUsage request.</span><span>
 </span><span id="line-152"></span><span class="hs-comment">--</span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- /See:/ 'newDescribeIdentityUsageResponse' smart constructor.</span><span>
-</span><span id="line-154"></span><span id="local-6989586621679177923"><span id="local-6989586621679177924"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeIdentityUsageResponse"><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsageResponse"><span class="hs-identifier hs-var">DescribeIdentityUsageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeIdentityUsageResponse%27"><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsageResponse%27"><span class="hs-identifier hs-var">DescribeIdentityUsageResponse'</span></a></span></span><span>
+</span><span id="line-154"></span><span id="local-6989586621679177932"><span id="local-6989586621679177933"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeIdentityUsageResponse"><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsageResponse"><span class="hs-identifier hs-var">DescribeIdentityUsageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeIdentityUsageResponse%27"><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsageResponse%27"><span class="hs-identifier hs-var">DescribeIdentityUsageResponse'</span></a></span></span><span>
 </span><span id="line-155"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Usage information for the identity.</span><span>
 </span><span id="line-156"></span><span>    </span><span id="%24sel%3AidentityUsage%3ADescribeIdentityUsageResponse%27"><span class="annot"><span class="annottext">DescribeIdentityUsageResponse -&gt; Maybe IdentityUsage
 </span><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#%24sel%3AidentityUsage%3ADescribeIdentityUsageResponse%27"><span class="hs-identifier hs-var hs-var">identityUsage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.Types.IdentityUsage.html#IdentityUsage"><span class="hs-identifier hs-type">IdentityUsage</span></a></span><span class="hs-special">,</span><span>
@@ -330,7 +330,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-158"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeIdentityUsageResponse%27"><span class="annot"><span class="annottext">DescribeIdentityUsageResponse -&gt; Int
 </span><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#%24sel%3AhttpStatus%3ADescribeIdentityUsageResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-159"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-160"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177917"><span id="local-6989586621679177919"><span class="annot"><span class="annottext">DescribeIdentityUsageResponse
+</span><span id="line-160"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177926"><span id="local-6989586621679177928"><span class="annot"><span class="annottext">DescribeIdentityUsageResponse
 -&gt; DescribeIdentityUsageResponse -&gt; Bool
 (DescribeIdentityUsageResponse
  -&gt; DescribeIdentityUsageResponse -&gt; Bool)
@@ -346,7 +346,7 @@ $c/= :: DescribeIdentityUsageResponse
 -&gt; DescribeIdentityUsageResponse -&gt; Bool
 $c== :: DescribeIdentityUsageResponse
 -&gt; DescribeIdentityUsageResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177909"><span id="local-6989586621679177911"><span id="local-6989586621679177913"><span id="local-6989586621679177915"><span class="annot"><span class="annottext">ReadPrec [DescribeIdentityUsageResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177918"><span id="local-6989586621679177920"><span id="local-6989586621679177922"><span id="local-6989586621679177924"><span class="annot"><span class="annottext">ReadPrec [DescribeIdentityUsageResponse]
 ReadPrec DescribeIdentityUsageResponse
 Int -&gt; ReadS DescribeIdentityUsageResponse
 ReadS [DescribeIdentityUsageResponse]
@@ -366,7 +366,7 @@ readList :: ReadS [DescribeIdentityUsageResponse]
 $creadList :: ReadS [DescribeIdentityUsageResponse]
 readsPrec :: Int -&gt; ReadS DescribeIdentityUsageResponse
 $creadsPrec :: Int -&gt; ReadS DescribeIdentityUsageResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177903"><span id="local-6989586621679177905"><span id="local-6989586621679177907"><span class="annot"><span class="annottext">Int -&gt; DescribeIdentityUsageResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177912"><span id="local-6989586621679177914"><span id="local-6989586621679177916"><span class="annot"><span class="annottext">Int -&gt; DescribeIdentityUsageResponse -&gt; ShowS
 [DescribeIdentityUsageResponse] -&gt; ShowS
 DescribeIdentityUsageResponse -&gt; String
 (Int -&gt; DescribeIdentityUsageResponse -&gt; ShowS)
@@ -420,8 +420,8 @@ DescribeIdentityUsageResponse
 </span><span id="line-175"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-176"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsageResponse"><span class="hs-identifier hs-type">DescribeIdentityUsageResponse</span></a></span><span>
 </span><span id="line-177"></span><span id="newDescribeIdentityUsageResponse"><span class="annot"><span class="annottext">newDescribeIdentityUsageResponse :: Int -&gt; DescribeIdentityUsageResponse
-</span><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#newDescribeIdentityUsageResponse"><span class="hs-identifier hs-var hs-var">newDescribeIdentityUsageResponse</span></a></span></span><span> </span><span id="local-6989586621679177900"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679177900"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#newDescribeIdentityUsageResponse"><span class="hs-identifier hs-var hs-var">newDescribeIdentityUsageResponse</span></a></span></span><span> </span><span id="local-6989586621679177909"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177909"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-178"></span><span>  </span><span class="annot"><span class="annottext">DescribeIdentityUsageResponse' :: Maybe IdentityUsage -&gt; Int -&gt; DescribeIdentityUsageResponse
 </span><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsageResponse%27"><span class="hs-identifier hs-type">DescribeIdentityUsageResponse'</span></a></span><span>
 </span><span id="line-179"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:identityUsage:DescribeIdentityUsageResponse' :: Maybe IdentityUsage
@@ -431,7 +431,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeIdentityUsageResponse' :: Int
 </span><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#%24sel%3AhttpStatus%3ADescribeIdentityUsageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679177900"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679177909"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-182"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- | Usage information for the identity.</span><span>
@@ -447,16 +447,16 @@ forall a. Maybe a
      (Maybe IdentityUsage)
      (Maybe IdentityUsage)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsageResponse%27"><span class="hs-identifier hs-type">DescribeIdentityUsageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177899"><span class="annot"><span class="annottext">Maybe IdentityUsage
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsageResponse%27"><span class="hs-identifier hs-type">DescribeIdentityUsageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177908"><span class="annot"><span class="annottext">Maybe IdentityUsage
 identityUsage :: Maybe IdentityUsage
 $sel:identityUsage:DescribeIdentityUsageResponse' :: DescribeIdentityUsageResponse -&gt; Maybe IdentityUsage
-</span><a href="#local-6989586621679177899"><span class="hs-identifier hs-var hs-var">identityUsage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IdentityUsage
-</span><a href="#local-6989586621679177899"><span class="hs-identifier hs-var">identityUsage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177898"><span class="annot"><span class="annottext">s :: DescribeIdentityUsageResponse
-</span><a href="#local-6989586621679177898"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsageResponse%27"><span class="hs-identifier hs-type">DescribeIdentityUsageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177897"><span class="annot"><span class="annottext">Maybe IdentityUsage
-</span><a href="#local-6989586621679177897"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIdentityUsageResponse
-</span><a href="#local-6989586621679177898"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityUsage:DescribeIdentityUsageResponse' :: Maybe IdentityUsage
+</span><a href="#local-6989586621679177908"><span class="hs-identifier hs-var hs-var">identityUsage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IdentityUsage
+</span><a href="#local-6989586621679177908"><span class="hs-identifier hs-var">identityUsage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177907"><span class="annot"><span class="annottext">s :: DescribeIdentityUsageResponse
+</span><a href="#local-6989586621679177907"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsageResponse%27"><span class="hs-identifier hs-type">DescribeIdentityUsageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177906"><span class="annot"><span class="annottext">Maybe IdentityUsage
+</span><a href="#local-6989586621679177906"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIdentityUsageResponse
+</span><a href="#local-6989586621679177907"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityUsage:DescribeIdentityUsageResponse' :: Maybe IdentityUsage
 </span><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#%24sel%3AidentityUsage%3ADescribeIdentityUsageResponse%27"><span class="hs-identifier hs-var">identityUsage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IdentityUsage
-</span><a href="#local-6989586621679177897"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsageResponse"><span class="hs-identifier hs-type">DescribeIdentityUsageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177906"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsageResponse"><span class="hs-identifier hs-type">DescribeIdentityUsageResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-189"></span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#describeIdentityUsageResponse_httpStatus"><span class="hs-identifier hs-type">describeIdentityUsageResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsageResponse"><span class="hs-identifier hs-type">DescribeIdentityUsageResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -468,16 +468,16 @@ $sel:identityUsage:DescribeIdentityUsageResponse' :: DescribeIdentityUsageRespon
 -&gt; Lens
      DescribeIdentityUsageResponse DescribeIdentityUsageResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsageResponse%27"><span class="hs-identifier hs-type">DescribeIdentityUsageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177896"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsageResponse%27"><span class="hs-identifier hs-type">DescribeIdentityUsageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177905"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeIdentityUsageResponse' :: DescribeIdentityUsageResponse -&gt; Int
-</span><a href="#local-6989586621679177896"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679177896"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177895"><span class="annot"><span class="annottext">s :: DescribeIdentityUsageResponse
-</span><a href="#local-6989586621679177895"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsageResponse%27"><span class="hs-identifier hs-type">DescribeIdentityUsageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177894"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679177894"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIdentityUsageResponse
-</span><a href="#local-6989586621679177895"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeIdentityUsageResponse' :: Int
+</span><a href="#local-6989586621679177905"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177905"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177904"><span class="annot"><span class="annottext">s :: DescribeIdentityUsageResponse
+</span><a href="#local-6989586621679177904"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsageResponse%27"><span class="hs-identifier hs-type">DescribeIdentityUsageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177903"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177903"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIdentityUsageResponse
+</span><a href="#local-6989586621679177904"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeIdentityUsageResponse' :: Int
 </span><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#%24sel%3AhttpStatus%3ADescribeIdentityUsageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679177894"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsageResponse"><span class="hs-identifier hs-type">DescribeIdentityUsageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177903"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsageResponse"><span class="hs-identifier hs-type">DescribeIdentityUsageResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-191"></span><span>
-</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177892"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsageResponse"><span class="hs-identifier hs-type">DescribeIdentityUsageResponse</span></a></span></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177901"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsageResponse"><span class="hs-identifier hs-type">DescribeIdentityUsageResponse</span></a></span></span><span>
 </span><span id="line-193"></span></pre></body></html>

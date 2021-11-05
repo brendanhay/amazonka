@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Chime.Types.ArtifactsState</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Chime.Types.ArtifactsState</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.ArtifactsState.html#ArtifactsState"><span class="hs-identifier">ArtifactsState</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Chime.Types.ArtifactsState.html#ArtifactsState_Disabled"><span class="hs-identifier">ArtifactsState_Disabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Chime.Types.ArtifactsState.html#ArtifactsState_Enabled"><span class="hs-identifier">ArtifactsState_Enabled</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679505485"><span id="local-6989586621679505486"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ArtifactsState"><span class="annot"><a href="Network.AWS.Chime.Types.ArtifactsState.html#ArtifactsState"><span class="hs-identifier hs-var">ArtifactsState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ArtifactsState%27"><span class="annot"><a href="Network.AWS.Chime.Types.ArtifactsState.html#ArtifactsState%27"><span class="hs-identifier hs-var">ArtifactsState'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromArtifactsState"><span class="annot"><span class="annottext">ArtifactsState -&gt; Text
+</span><a href="Network.AWS.Chime.Types.ArtifactsState.html#fromArtifactsState"><span class="hs-identifier hs-var hs-var">fromArtifactsState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679505477"><span id="local-6989586621679505479"><span id="local-6989586621679505481"><span class="annot"><span class="annottext">Int -&gt; ArtifactsState -&gt; ShowS
+[ArtifactsState] -&gt; ShowS
+ArtifactsState -&gt; String
+(Int -&gt; ArtifactsState -&gt; ShowS)
+-&gt; (ArtifactsState -&gt; String)
+-&gt; ([ArtifactsState] -&gt; ShowS)
+-&gt; Show ArtifactsState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ArtifactsState] -&gt; ShowS
+$cshowList :: [ArtifactsState] -&gt; ShowS
+show :: ArtifactsState -&gt; String
+$cshow :: ArtifactsState -&gt; String
+showsPrec :: Int -&gt; ArtifactsState -&gt; ShowS
+$cshowsPrec :: Int -&gt; ArtifactsState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679505468"><span id="local-6989586621679505470"><span id="local-6989586621679505472"><span id="local-6989586621679505474"><span class="annot"><span class="annottext">ReadPrec [ArtifactsState]
+ReadPrec ArtifactsState
+Int -&gt; ReadS ArtifactsState
+ReadS [ArtifactsState]
+(Int -&gt; ReadS ArtifactsState)
+-&gt; ReadS [ArtifactsState]
+-&gt; ReadPrec ArtifactsState
+-&gt; ReadPrec [ArtifactsState]
+-&gt; Read ArtifactsState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ArtifactsState]
+$creadListPrec :: ReadPrec [ArtifactsState]
+readPrec :: ReadPrec ArtifactsState
+$creadPrec :: ReadPrec ArtifactsState
+readList :: ReadS [ArtifactsState]
+$creadList :: ReadS [ArtifactsState]
+readsPrec :: Int -&gt; ReadS ArtifactsState
+$creadsPrec :: Int -&gt; ReadS ArtifactsState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679505463"><span id="local-6989586621679505465"><span class="annot"><span class="annottext">ArtifactsState -&gt; ArtifactsState -&gt; Bool
+(ArtifactsState -&gt; ArtifactsState -&gt; Bool)
+-&gt; (ArtifactsState -&gt; ArtifactsState -&gt; Bool) -&gt; Eq ArtifactsState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ArtifactsState -&gt; ArtifactsState -&gt; Bool
+$c/= :: ArtifactsState -&gt; ArtifactsState -&gt; Bool
+== :: ArtifactsState -&gt; ArtifactsState -&gt; Bool
+$c== :: ArtifactsState -&gt; ArtifactsState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679505447"><span id="local-6989586621679505449"><span id="local-6989586621679505451"><span id="local-6989586621679505453"><span id="local-6989586621679505455"><span id="local-6989586621679505457"><span id="local-6989586621679505459"><span class="annot"><span class="annottext">Eq ArtifactsState
+Eq ArtifactsState
+-&gt; (ArtifactsState -&gt; ArtifactsState -&gt; Ordering)
+-&gt; (ArtifactsState -&gt; ArtifactsState -&gt; Bool)
+-&gt; (ArtifactsState -&gt; ArtifactsState -&gt; Bool)
+-&gt; (ArtifactsState -&gt; ArtifactsState -&gt; Bool)
+-&gt; (ArtifactsState -&gt; ArtifactsState -&gt; Bool)
+-&gt; (ArtifactsState -&gt; ArtifactsState -&gt; ArtifactsState)
+-&gt; (ArtifactsState -&gt; ArtifactsState -&gt; ArtifactsState)
+-&gt; Ord ArtifactsState
+ArtifactsState -&gt; ArtifactsState -&gt; Bool
+ArtifactsState -&gt; ArtifactsState -&gt; Ordering
+ArtifactsState -&gt; ArtifactsState -&gt; ArtifactsState
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ArtifactsState -&gt; ArtifactsState -&gt; ArtifactsState
+$cmin :: ArtifactsState -&gt; ArtifactsState -&gt; ArtifactsState
+max :: ArtifactsState -&gt; ArtifactsState -&gt; ArtifactsState
+$cmax :: ArtifactsState -&gt; ArtifactsState -&gt; ArtifactsState
+&gt;= :: ArtifactsState -&gt; ArtifactsState -&gt; Bool
+$c&gt;= :: ArtifactsState -&gt; ArtifactsState -&gt; Bool
+&gt; :: ArtifactsState -&gt; ArtifactsState -&gt; Bool
+$c&gt; :: ArtifactsState -&gt; ArtifactsState -&gt; Bool
+&lt;= :: ArtifactsState -&gt; ArtifactsState -&gt; Bool
+$c&lt;= :: ArtifactsState -&gt; ArtifactsState -&gt; Bool
+&lt; :: ArtifactsState -&gt; ArtifactsState -&gt; Bool
+$c&lt; :: ArtifactsState -&gt; ArtifactsState -&gt; Bool
+compare :: ArtifactsState -&gt; ArtifactsState -&gt; Ordering
+$ccompare :: ArtifactsState -&gt; ArtifactsState -&gt; Ordering
+$cp1Ord :: Eq ArtifactsState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ArtifactsState -&gt; Rep ArtifactsState x)
+-&gt; (forall x. Rep ArtifactsState x -&gt; ArtifactsState)
+-&gt; Generic ArtifactsState
+forall x. Rep ArtifactsState x -&gt; ArtifactsState
+forall x. ArtifactsState -&gt; Rep ArtifactsState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ArtifactsState x -&gt; ArtifactsState
+$cfrom :: forall x. ArtifactsState -&gt; Rep ArtifactsState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679505439"><span id="local-6989586621679505441"><span class="annot"><span class="annottext">Int -&gt; ArtifactsState -&gt; Int
+ArtifactsState -&gt; Int
+(Int -&gt; ArtifactsState -&gt; Int)
+-&gt; (ArtifactsState -&gt; Int) -&gt; Hashable ArtifactsState
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ArtifactsState -&gt; Int
+$chash :: ArtifactsState -&gt; Int
+hashWithSalt :: Int -&gt; ArtifactsState -&gt; Int
+$chashWithSalt :: Int -&gt; ArtifactsState -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679505436"><span class="annot"><span class="annottext">ArtifactsState -&gt; ()
+(ArtifactsState -&gt; ()) -&gt; NFData ArtifactsState
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ArtifactsState -&gt; ()
+$crnf :: ArtifactsState -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679505433"><span class="annot"><span class="annottext">Text -&gt; Either String ArtifactsState
+(Text -&gt; Either String ArtifactsState) -&gt; FromText ArtifactsState
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ArtifactsState
+$cfromText :: Text -&gt; Either String ArtifactsState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679505430"><span class="annot"><span class="annottext">ArtifactsState -&gt; Text
+(ArtifactsState -&gt; Text) -&gt; ToText ArtifactsState
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ArtifactsState -&gt; Text
+$ctoText :: ArtifactsState -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679505427"><span class="annot"><span class="annottext">ArtifactsState -&gt; ByteString
+(ArtifactsState -&gt; ByteString) -&gt; ToByteString ArtifactsState
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ArtifactsState -&gt; ByteString
+$ctoBS :: ArtifactsState -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679505424"><span class="annot"><span class="annottext">ArtifactsState -&gt; ByteStringBuilder
+(ArtifactsState -&gt; ByteStringBuilder) -&gt; ToLog ArtifactsState
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ArtifactsState -&gt; ByteStringBuilder
+$cbuild :: ArtifactsState -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679505421"><span class="annot"><span class="annottext">HeaderName -&gt; ArtifactsState -&gt; [Header]
+(HeaderName -&gt; ArtifactsState -&gt; [Header])
+-&gt; ToHeader ArtifactsState
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ArtifactsState -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ArtifactsState -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679505418"><span class="annot"><span class="annottext">ArtifactsState -&gt; QueryString
+(ArtifactsState -&gt; QueryString) -&gt; ToQuery ArtifactsState
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ArtifactsState -&gt; QueryString
+$ctoQuery :: ArtifactsState -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679505413"><span id="local-6989586621679505415"><span class="annot"><span class="annottext">Value -&gt; Parser [ArtifactsState]
+Value -&gt; Parser ArtifactsState
+(Value -&gt; Parser ArtifactsState)
+-&gt; (Value -&gt; Parser [ArtifactsState]) -&gt; FromJSON ArtifactsState
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ArtifactsState]
+$cparseJSONList :: Value -&gt; Parser [ArtifactsState]
+parseJSON :: Value -&gt; Parser ArtifactsState
+$cparseJSON :: Value -&gt; Parser ArtifactsState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679505408"><span id="local-6989586621679505410"><span class="annot"><span class="annottext">FromJSONKeyFunction [ArtifactsState]
+FromJSONKeyFunction ArtifactsState
+FromJSONKeyFunction ArtifactsState
+-&gt; FromJSONKeyFunction [ArtifactsState]
+-&gt; FromJSONKey ArtifactsState
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ArtifactsState]
+$cfromJSONKeyList :: FromJSONKeyFunction [ArtifactsState]
+fromJSONKey :: FromJSONKeyFunction ArtifactsState
+$cfromJSONKey :: FromJSONKeyFunction ArtifactsState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679505399"><span id="local-6989586621679505401"><span id="local-6989586621679505403"><span id="local-6989586621679505405"><span class="annot"><span class="annottext">[ArtifactsState] -&gt; Encoding
+[ArtifactsState] -&gt; Value
+ArtifactsState -&gt; Encoding
+ArtifactsState -&gt; Value
+(ArtifactsState -&gt; Value)
+-&gt; (ArtifactsState -&gt; Encoding)
+-&gt; ([ArtifactsState] -&gt; Value)
+-&gt; ([ArtifactsState] -&gt; Encoding)
+-&gt; ToJSON ArtifactsState
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ArtifactsState] -&gt; Encoding
+$ctoEncodingList :: [ArtifactsState] -&gt; Encoding
+toJSONList :: [ArtifactsState] -&gt; Value
+$ctoJSONList :: [ArtifactsState] -&gt; Value
+toEncoding :: ArtifactsState -&gt; Encoding
+$ctoEncoding :: ArtifactsState -&gt; Encoding
+toJSON :: ArtifactsState -&gt; Value
+$ctoJSON :: ArtifactsState -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679505394"><span id="local-6989586621679505396"><span class="annot"><span class="annottext">ToJSONKeyFunction [ArtifactsState]
+ToJSONKeyFunction ArtifactsState
+ToJSONKeyFunction ArtifactsState
+-&gt; ToJSONKeyFunction [ArtifactsState] -&gt; ToJSONKey ArtifactsState
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ArtifactsState]
+$ctoJSONKeyList :: ToJSONKeyFunction [ArtifactsState]
+toJSONKey :: ToJSONKeyFunction ArtifactsState
+$ctoJSONKey :: ToJSONKeyFunction ArtifactsState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679505391"><span class="annot"><span class="annottext">[Node] -&gt; Either String ArtifactsState
+([Node] -&gt; Either String ArtifactsState) -&gt; FromXML ArtifactsState
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ArtifactsState
+$cparseXML :: [Node] -&gt; Either String ArtifactsState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679505388"><span class="annot"><span class="annottext">ArtifactsState -&gt; XML
+(ArtifactsState -&gt; XML) -&gt; ToXML ArtifactsState
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ArtifactsState -&gt; XML
+$ctoXML :: ArtifactsState -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.ArtifactsState.html#ArtifactsState_Disabled"><span class="hs-identifier hs-type">ArtifactsState_Disabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.ArtifactsState.html#ArtifactsState"><span class="hs-identifier hs-type">ArtifactsState</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bArtifactsState_Disabled"><span id="%24mArtifactsState_Disabled"><span id="ArtifactsState_Disabled"><span class="annot"><span class="annottext">$bArtifactsState_Disabled :: ArtifactsState
+$mArtifactsState_Disabled :: forall r. ArtifactsState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Chime.Types.ArtifactsState.html#%24bArtifactsState_Disabled"><span class="hs-identifier hs-var hs-var hs-var">ArtifactsState_Disabled</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.ArtifactsState.html#ArtifactsState%27"><span class="hs-identifier hs-type">ArtifactsState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Disabled&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.ArtifactsState.html#ArtifactsState_Enabled"><span class="hs-identifier hs-type">ArtifactsState_Enabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.ArtifactsState.html#ArtifactsState"><span class="hs-identifier hs-type">ArtifactsState</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bArtifactsState_Enabled"><span id="%24mArtifactsState_Enabled"><span id="ArtifactsState_Enabled"><span class="annot"><span class="annottext">$bArtifactsState_Enabled :: ArtifactsState
+$mArtifactsState_Enabled :: forall r. ArtifactsState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Chime.Types.ArtifactsState.html#%24bArtifactsState_Enabled"><span class="hs-identifier hs-var hs-var hs-var">ArtifactsState_Enabled</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.ArtifactsState.html#ArtifactsState%27"><span class="hs-identifier hs-type">ArtifactsState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Enabled&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.Types.ArtifactsState.html#ArtifactsState_Disabled"><span class="hs-pragma hs-type">ArtifactsState_Disabled</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.Types.ArtifactsState.html#ArtifactsState_Enabled"><span class="hs-pragma hs-type">ArtifactsState_Enabled</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.Types.ArtifactsState.html#ArtifactsState%27"><span class="hs-pragma hs-type">ArtifactsState'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

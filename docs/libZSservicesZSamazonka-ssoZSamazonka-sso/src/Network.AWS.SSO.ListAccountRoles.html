@@ -1,0 +1,703 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.SSO.ListAccountRoles</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists all roles that are assigned to the user for a given AWS account.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SSO.ListAccountRoles</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRoles"><span class="hs-identifier">ListAccountRoles</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#newListAccountRoles"><span class="hs-identifier">newListAccountRoles</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#listAccountRoles_nextToken"><span class="hs-identifier">listAccountRoles_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#listAccountRoles_maxResults"><span class="hs-identifier">listAccountRoles_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#listAccountRoles_accessToken"><span class="hs-identifier">listAccountRoles_accessToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#listAccountRoles_accountId"><span class="hs-identifier">listAccountRoles_accountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRolesResponse"><span class="hs-identifier">ListAccountRolesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#newListAccountRolesResponse"><span class="hs-identifier">newListAccountRolesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#listAccountRolesResponse_roleList"><span class="hs-identifier">listAccountRolesResponse_roleList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#listAccountRolesResponse_nextToken"><span class="hs-identifier">listAccountRolesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#listAccountRolesResponse_httpStatus"><span class="hs-identifier">listAccountRolesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSO.Types.html"><span class="hs-identifier">Network.AWS.SSO.Types</span></a></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newListAccountRoles' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679141989"><span id="local-6989586621679141990"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAccountRoles"><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRoles"><span class="hs-identifier hs-var">ListAccountRoles</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAccountRoles%27"><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRoles%27"><span class="hs-identifier hs-var">ListAccountRoles'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The page token from the previous response output when you request</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- subsequent pages.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AnextToken%3AListAccountRoles%27"><span class="annot"><span class="annottext">ListAccountRoles -&gt; Maybe Text
+</span><a href="Network.AWS.SSO.ListAccountRoles.html#%24sel%3AnextToken%3AListAccountRoles%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The number of items that clients can request per page.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AmaxResults%3AListAccountRoles%27"><span class="annot"><span class="annottext">ListAccountRoles -&gt; Maybe Natural
+</span><a href="Network.AWS.SSO.ListAccountRoles.html#%24sel%3AmaxResults%3AListAccountRoles%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The token issued by the @CreateToken@ API call. For more information,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- see</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html CreateToken&gt;</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- in the /AWS SSO OIDC API Reference Guide/.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AaccessToken%3AListAccountRoles%27"><span class="annot"><span class="annottext">ListAccountRoles -&gt; Sensitive Text
+</span><a href="Network.AWS.SSO.ListAccountRoles.html#%24sel%3AaccessToken%3AListAccountRoles%27"><span class="hs-identifier hs-var hs-var">accessToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The identifier for the AWS account that is assigned to the user.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AaccountId%3AListAccountRoles%27"><span class="annot"><span class="annottext">ListAccountRoles -&gt; Text
+</span><a href="Network.AWS.SSO.ListAccountRoles.html#%24sel%3AaccountId%3AListAccountRoles%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679141980"><span id="local-6989586621679141982"><span class="annot"><span class="annottext">ListAccountRoles -&gt; ListAccountRoles -&gt; Bool
+(ListAccountRoles -&gt; ListAccountRoles -&gt; Bool)
+-&gt; (ListAccountRoles -&gt; ListAccountRoles -&gt; Bool)
+-&gt; Eq ListAccountRoles
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListAccountRoles -&gt; ListAccountRoles -&gt; Bool
+$c/= :: ListAccountRoles -&gt; ListAccountRoles -&gt; Bool
+== :: ListAccountRoles -&gt; ListAccountRoles -&gt; Bool
+$c== :: ListAccountRoles -&gt; ListAccountRoles -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679141973"><span id="local-6989586621679141975"><span id="local-6989586621679141977"><span class="annot"><span class="annottext">Int -&gt; ListAccountRoles -&gt; ShowS
+[ListAccountRoles] -&gt; ShowS
+ListAccountRoles -&gt; String
+(Int -&gt; ListAccountRoles -&gt; ShowS)
+-&gt; (ListAccountRoles -&gt; String)
+-&gt; ([ListAccountRoles] -&gt; ShowS)
+-&gt; Show ListAccountRoles
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListAccountRoles] -&gt; ShowS
+$cshowList :: [ListAccountRoles] -&gt; ShowS
+show :: ListAccountRoles -&gt; String
+$cshow :: ListAccountRoles -&gt; String
+showsPrec :: Int -&gt; ListAccountRoles -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListAccountRoles -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListAccountRoles -&gt; Rep ListAccountRoles x)
+-&gt; (forall x. Rep ListAccountRoles x -&gt; ListAccountRoles)
+-&gt; Generic ListAccountRoles
+forall x. Rep ListAccountRoles x -&gt; ListAccountRoles
+forall x. ListAccountRoles -&gt; Rep ListAccountRoles x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListAccountRoles x -&gt; ListAccountRoles
+$cfrom :: forall x. ListAccountRoles -&gt; Rep ListAccountRoles x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Create a value of 'ListAccountRoles' with all optional fields omitted.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'nextToken', 'listAccountRoles_nextToken' - The page token from the previous response output when you request</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- subsequent pages.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'maxResults', 'listAccountRoles_maxResults' - The number of items that clients can request per page.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'accessToken', 'listAccountRoles_accessToken' - The token issued by the @CreateToken@ API call. For more information,</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- see</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html CreateToken&gt;</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- in the /AWS SSO OIDC API Reference Guide/.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'accountId', 'listAccountRoles_accountId' - The identifier for the AWS account that is assigned to the user.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#newListAccountRoles"><span class="hs-identifier hs-type">newListAccountRoles</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-comment">-- | 'accessToken'</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-comment">-- | 'accountId'</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRoles"><span class="hs-identifier hs-type">ListAccountRoles</span></a></span><span>
+</span><span id="line-97"></span><span id="newListAccountRoles"><span class="annot"><span class="annottext">newListAccountRoles :: Text -&gt; Text -&gt; ListAccountRoles
+</span><a href="Network.AWS.SSO.ListAccountRoles.html#newListAccountRoles"><span class="hs-identifier hs-var hs-var">newListAccountRoles</span></a></span></span><span> </span><span id="local-6989586621679141968"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141968"><span class="hs-identifier hs-var">pAccessToken_</span></a></span></span><span> </span><span id="local-6989586621679141967"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141967"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><span class="annottext">ListAccountRoles' :: Maybe Text
+-&gt; Maybe Natural -&gt; Sensitive Text -&gt; Text -&gt; ListAccountRoles
+</span><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRoles%27"><span class="hs-identifier hs-type">ListAccountRoles'</span></a></span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListAccountRoles' :: Maybe Text
+</span><a href="Network.AWS.SSO.ListAccountRoles.html#%24sel%3AnextToken%3AListAccountRoles%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListAccountRoles' :: Maybe Natural
+</span><a href="Network.AWS.SSO.ListAccountRoles.html#%24sel%3AmaxResults%3AListAccountRoles%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:accessToken:ListAccountRoles' :: Sensitive Text
+</span><a href="Network.AWS.SSO.ListAccountRoles.html#%24sel%3AaccessToken%3AListAccountRoles%27"><span class="hs-identifier hs-var">accessToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
+-&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">(Tagged Text (Identity Text)
+ -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text)))
+-&gt; Text -&gt; Sensitive Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141968"><span class="hs-identifier hs-var">pAccessToken_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountId:ListAccountRoles' :: Text
+</span><a href="Network.AWS.SSO.ListAccountRoles.html#%24sel%3AaccountId%3AListAccountRoles%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141967"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The page token from the previous response output when you request</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- subsequent pages.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#listAccountRoles_nextToken"><span class="hs-identifier hs-type">listAccountRoles_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRoles"><span class="hs-identifier hs-type">ListAccountRoles</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="listAccountRoles_nextToken"><span class="annot"><span class="annottext">listAccountRoles_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListAccountRoles -&gt; f ListAccountRoles
+</span><a href="Network.AWS.SSO.ListAccountRoles.html#listAccountRoles_nextToken"><span class="hs-identifier hs-var hs-var">listAccountRoles_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAccountRoles -&gt; Maybe Text)
+-&gt; (ListAccountRoles -&gt; Maybe Text -&gt; ListAccountRoles)
+-&gt; Lens ListAccountRoles ListAccountRoles (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRoles%27"><span class="hs-identifier hs-type">ListAccountRoles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679141963"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListAccountRoles' :: ListAccountRoles -&gt; Maybe Text
+</span><a href="#local-6989586621679141963"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679141963"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679141962"><span class="annot"><span class="annottext">s :: ListAccountRoles
+</span><a href="#local-6989586621679141962"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRoles%27"><span class="hs-identifier hs-type">ListAccountRoles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679141961"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679141961"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAccountRoles
+</span><a href="#local-6989586621679141962"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAccountRoles' :: Maybe Text
+</span><a href="Network.AWS.SSO.ListAccountRoles.html#%24sel%3AnextToken%3AListAccountRoles%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679141961"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRoles"><span class="hs-identifier hs-type">ListAccountRoles</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The number of items that clients can request per page.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#listAccountRoles_maxResults"><span class="hs-identifier hs-type">listAccountRoles_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRoles"><span class="hs-identifier hs-type">ListAccountRoles</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="listAccountRoles_maxResults"><span class="annot"><span class="annottext">listAccountRoles_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListAccountRoles -&gt; f ListAccountRoles
+</span><a href="Network.AWS.SSO.ListAccountRoles.html#listAccountRoles_maxResults"><span class="hs-identifier hs-var hs-var">listAccountRoles_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAccountRoles -&gt; Maybe Natural)
+-&gt; (ListAccountRoles -&gt; Maybe Natural -&gt; ListAccountRoles)
+-&gt; Lens
+     ListAccountRoles ListAccountRoles (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRoles%27"><span class="hs-identifier hs-type">ListAccountRoles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679141960"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListAccountRoles' :: ListAccountRoles -&gt; Maybe Natural
+</span><a href="#local-6989586621679141960"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679141960"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679141959"><span class="annot"><span class="annottext">s :: ListAccountRoles
+</span><a href="#local-6989586621679141959"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRoles%27"><span class="hs-identifier hs-type">ListAccountRoles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679141958"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679141958"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAccountRoles
+</span><a href="#local-6989586621679141959"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListAccountRoles' :: Maybe Natural
+</span><a href="Network.AWS.SSO.ListAccountRoles.html#%24sel%3AmaxResults%3AListAccountRoles%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679141958"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRoles"><span class="hs-identifier hs-type">ListAccountRoles</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The token issued by the @CreateToken@ API call. For more information,</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- see</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html CreateToken&gt;</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- in the /AWS SSO OIDC API Reference Guide/.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#listAccountRoles_accessToken"><span class="hs-identifier hs-type">listAccountRoles_accessToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRoles"><span class="hs-identifier hs-type">ListAccountRoles</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-119"></span><span id="listAccountRoles_accessToken"><span class="annot"><span class="annottext">listAccountRoles_accessToken :: (Text -&gt; f Text) -&gt; ListAccountRoles -&gt; f ListAccountRoles
+</span><a href="Network.AWS.SSO.ListAccountRoles.html#listAccountRoles_accessToken"><span class="hs-identifier hs-var hs-var">listAccountRoles_accessToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAccountRoles -&gt; Sensitive Text)
+-&gt; (ListAccountRoles -&gt; Sensitive Text -&gt; ListAccountRoles)
+-&gt; Lens
+     ListAccountRoles ListAccountRoles (Sensitive Text) (Sensitive Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRoles%27"><span class="hs-identifier hs-type">ListAccountRoles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679141957"><span class="annot"><span class="annottext">Sensitive Text
+accessToken :: Sensitive Text
+$sel:accessToken:ListAccountRoles' :: ListAccountRoles -&gt; Sensitive Text
+</span><a href="#local-6989586621679141957"><span class="hs-identifier hs-var hs-var">accessToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679141957"><span class="hs-identifier hs-var">accessToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679141956"><span class="annot"><span class="annottext">s :: ListAccountRoles
+</span><a href="#local-6989586621679141956"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRoles%27"><span class="hs-identifier hs-type">ListAccountRoles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679141955"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679141955"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAccountRoles
+</span><a href="#local-6989586621679141956"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessToken:ListAccountRoles' :: Sensitive Text
+</span><a href="Network.AWS.SSO.ListAccountRoles.html#%24sel%3AaccessToken%3AListAccountRoles%27"><span class="hs-identifier hs-var">accessToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679141955"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRoles"><span class="hs-identifier hs-type">ListAccountRoles</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+ -&gt; ListAccountRoles -&gt; f ListAccountRoles)
+-&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
+-&gt; (Text -&gt; f Text)
+-&gt; ListAccountRoles
+-&gt; f ListAccountRoles
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text)
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The identifier for the AWS account that is assigned to the user.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#listAccountRoles_accountId"><span class="hs-identifier hs-type">listAccountRoles_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRoles"><span class="hs-identifier hs-type">ListAccountRoles</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-123"></span><span id="listAccountRoles_accountId"><span class="annot"><span class="annottext">listAccountRoles_accountId :: (Text -&gt; f Text) -&gt; ListAccountRoles -&gt; f ListAccountRoles
+</span><a href="Network.AWS.SSO.ListAccountRoles.html#listAccountRoles_accountId"><span class="hs-identifier hs-var hs-var">listAccountRoles_accountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAccountRoles -&gt; Text)
+-&gt; (ListAccountRoles -&gt; Text -&gt; ListAccountRoles)
+-&gt; Lens ListAccountRoles ListAccountRoles Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRoles%27"><span class="hs-identifier hs-type">ListAccountRoles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679141953"><span class="annot"><span class="annottext">Text
+accountId :: Text
+$sel:accountId:ListAccountRoles' :: ListAccountRoles -&gt; Text
+</span><a href="#local-6989586621679141953"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141953"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679141952"><span class="annot"><span class="annottext">s :: ListAccountRoles
+</span><a href="#local-6989586621679141952"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRoles%27"><span class="hs-identifier hs-type">ListAccountRoles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679141951"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141951"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAccountRoles
+</span><a href="#local-6989586621679141952"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:ListAccountRoles' :: Text
+</span><a href="Network.AWS.SSO.ListAccountRoles.html#%24sel%3AaccountId%3AListAccountRoles%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141951"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRoles"><span class="hs-identifier hs-type">ListAccountRoles</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRoles"><span class="hs-identifier hs-type">ListAccountRoles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679141947"><span class="annot"><span class="annottext">page :: ListAccountRoles
+-&gt; AWSResponse ListAccountRoles -&gt; Maybe ListAccountRoles
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679141945"><span class="annot"><span class="annottext">ListAccountRoles
+</span><a href="#local-6989586621679141945"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679141944"><span class="annot"><span class="annottext">AWSResponse ListAccountRoles
+</span><a href="#local-6989586621679141944"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-128"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAccountRoles
+ListAccountRolesResponse
+</span><a href="#local-6989586621679141944"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">ListAccountRolesResponse
+-&gt; Getting (First Text) ListAccountRolesResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListAccountRolesResponse
+-&gt; Const (First Text) ListAccountRolesResponse
+Lens' ListAccountRolesResponse (Maybe Text)
+</span><a href="Network.AWS.SSO.ListAccountRoles.html#listAccountRolesResponse_nextToken"><span class="hs-identifier hs-var">listAccountRolesResponse_nextToken</span></a></span><span>
+</span><span id="line-130"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListAccountRolesResponse
+ -&gt; Const (First Text) ListAccountRolesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListAccountRolesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-131"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListAccountRoles
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [RoleInfo] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-134"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAccountRoles
+ListAccountRolesResponse
+</span><a href="#local-6989586621679141944"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">ListAccountRolesResponse
+-&gt; Getting (First [RoleInfo]) ListAccountRolesResponse [RoleInfo]
+-&gt; Maybe [RoleInfo]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [RoleInfo] -&gt; Const (First [RoleInfo]) (Maybe [RoleInfo]))
+-&gt; ListAccountRolesResponse
+-&gt; Const (First [RoleInfo]) ListAccountRolesResponse
+Lens' ListAccountRolesResponse (Maybe [RoleInfo])
+</span><a href="Network.AWS.SSO.ListAccountRoles.html#listAccountRolesResponse_roleList"><span class="hs-identifier hs-var">listAccountRolesResponse_roleList</span></a></span><span>
+</span><span id="line-136"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [RoleInfo] -&gt; Const (First [RoleInfo]) (Maybe [RoleInfo]))
+ -&gt; ListAccountRolesResponse
+ -&gt; Const (First [RoleInfo]) ListAccountRolesResponse)
+-&gt; (([RoleInfo] -&gt; Const (First [RoleInfo]) [RoleInfo])
+    -&gt; Maybe [RoleInfo] -&gt; Const (First [RoleInfo]) (Maybe [RoleInfo]))
+-&gt; Getting (First [RoleInfo]) ListAccountRolesResponse [RoleInfo]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([RoleInfo] -&gt; Const (First [RoleInfo]) [RoleInfo])
+-&gt; Maybe [RoleInfo] -&gt; Const (First [RoleInfo]) (Maybe [RoleInfo])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-137"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListAccountRoles
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">ListAccountRoles -&gt; Maybe ListAccountRoles
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListAccountRoles -&gt; Maybe ListAccountRoles)
+-&gt; ListAccountRoles -&gt; Maybe ListAccountRoles
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-141"></span><span>        </span><span class="annot"><span class="annottext">ListAccountRoles
+</span><a href="#local-6989586621679141945"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">ListAccountRoles
+-&gt; (ListAccountRoles -&gt; ListAccountRoles) -&gt; ListAccountRoles
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListAccountRoles -&gt; Identity ListAccountRoles
+Lens ListAccountRoles ListAccountRoles (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.SSO.ListAccountRoles.html#listAccountRoles_nextToken"><span class="hs-identifier hs-var">listAccountRoles_nextToken</span></a></span><span>
+</span><span id="line-143"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListAccountRoles -&gt; Identity ListAccountRoles)
+-&gt; Maybe Text -&gt; ListAccountRoles -&gt; ListAccountRoles
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAccountRoles
+ListAccountRolesResponse
+</span><a href="#local-6989586621679141944"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-144"></span><span>          </span><span class="annot"><span class="annottext">ListAccountRolesResponse
+-&gt; Getting (First Text) ListAccountRolesResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListAccountRolesResponse
+-&gt; Const (First Text) ListAccountRolesResponse
+Lens' ListAccountRolesResponse (Maybe Text)
+</span><a href="Network.AWS.SSO.ListAccountRoles.html#listAccountRolesResponse_nextToken"><span class="hs-identifier hs-var">listAccountRolesResponse_nextToken</span></a></span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListAccountRolesResponse
+ -&gt; Const (First Text) ListAccountRolesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListAccountRolesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRoles"><span class="hs-identifier hs-type">ListAccountRoles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-149"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRoles"><span class="hs-identifier hs-type">ListAccountRoles</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>      </span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRolesResponse"><span class="hs-identifier hs-type">ListAccountRolesResponse</span></a></span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679141935"><span class="annot"><span class="annottext">request :: ListAccountRoles -&gt; Request ListAccountRoles
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListAccountRoles -&gt; Request ListAccountRoles
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.SSO.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679141931"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListAccountRoles
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListAccountRoles)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListAccountRoles))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListAccountRoles
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListAccountRoles)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679141928"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679141928"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679141927"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679141927"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679141926"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679141926"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-155"></span><span>          </span><span class="annot"><span class="annottext">Maybe [RoleInfo] -&gt; Maybe Text -&gt; Int -&gt; ListAccountRolesResponse
+</span><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRolesResponse%27"><span class="hs-identifier hs-var">ListAccountRolesResponse'</span></a></span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [RoleInfo] -&gt; Maybe Text -&gt; Int -&gt; ListAccountRolesResponse)
+-&gt; Either String (Maybe [RoleInfo])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListAccountRolesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679141926"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [RoleInfo]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;roleList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [RoleInfo]))
+-&gt; Maybe [RoleInfo] -&gt; Either String (Maybe [RoleInfo])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [RoleInfo]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListAccountRolesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListAccountRolesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679141926"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListAccountRolesResponse)
+-&gt; Either String Int -&gt; Either String ListAccountRolesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679141928"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679141917"><span id="local-6989586621679141919"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRoles"><span class="hs-identifier hs-type">ListAccountRoles</span></a></span></span></span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679141914"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRoles"><span class="hs-identifier hs-type">ListAccountRoles</span></a></span></span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRoles"><span class="hs-identifier hs-type">ListAccountRoles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679141910"><span class="annot"><span class="annottext">toHeaders :: ListAccountRoles -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRoles%27"><span class="hs-identifier hs-type">ListAccountRoles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679141905"><span id="local-6989586621679141906"><span id="local-6989586621679141907"><span id="local-6989586621679141908"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+Sensitive Text
+accountId :: Text
+accessToken :: Sensitive Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:accountId:ListAccountRoles' :: ListAccountRoles -&gt; Text
+$sel:accessToken:ListAccountRoles' :: ListAccountRoles -&gt; Sensitive Text
+$sel:maxResults:ListAccountRoles' :: ListAccountRoles -&gt; Maybe Natural
+$sel:nextToken:ListAccountRoles' :: ListAccountRoles -&gt; Maybe Text
+</span><a href="#local-6989586621679141905"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-sso_bearer_token&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Sensitive Text -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679141906"><span class="hs-identifier hs-var">accessToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-170"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRoles"><span class="hs-identifier hs-type">ListAccountRoles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679141901"><span class="annot"><span class="annottext">toPath :: ListAccountRoles -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListAccountRoles -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/assignment/roles&quot;</span></span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRoles"><span class="hs-identifier hs-type">ListAccountRoles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679141896"><span class="annot"><span class="annottext">toQuery :: ListAccountRoles -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRoles%27"><span class="hs-identifier hs-type">ListAccountRoles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679141891"><span id="local-6989586621679141892"><span id="local-6989586621679141893"><span id="local-6989586621679141894"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+Sensitive Text
+accountId :: Text
+accessToken :: Sensitive Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:accountId:ListAccountRoles' :: ListAccountRoles -&gt; Text
+$sel:accessToken:ListAccountRoles' :: ListAccountRoles -&gt; Sensitive Text
+$sel:maxResults:ListAccountRoles' :: ListAccountRoles -&gt; Maybe Natural
+$sel:nextToken:ListAccountRoles' :: ListAccountRoles -&gt; Maybe Text
+</span><a href="#local-6989586621679141891"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;next_token&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679141894"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;max_result&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679141893"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;account_id&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141891"><span class="hs-identifier hs-var">accountId</span></a></span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | /See:/ 'newListAccountRolesResponse' smart constructor.</span><span>
+</span><span id="line-185"></span><span id="local-6989586621679141888"><span id="local-6989586621679141889"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAccountRolesResponse"><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRolesResponse"><span class="hs-identifier hs-var">ListAccountRolesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAccountRolesResponse%27"><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRolesResponse%27"><span class="hs-identifier hs-var">ListAccountRolesResponse'</span></a></span></span><span>
+</span><span id="line-186"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A paginated response with the list of roles and the next token if more</span><span>
+</span><span id="line-187"></span><span>    </span><span class="hs-comment">-- results are available.</span><span>
+</span><span id="line-188"></span><span>    </span><span id="%24sel%3AroleList%3AListAccountRolesResponse%27"><span class="annot"><span class="annottext">ListAccountRolesResponse -&gt; Maybe [RoleInfo]
+</span><a href="Network.AWS.SSO.ListAccountRoles.html#%24sel%3AroleList%3AListAccountRolesResponse%27"><span class="hs-identifier hs-var hs-var">roleList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSO.Types.RoleInfo.html#RoleInfo"><span class="hs-identifier hs-type">RoleInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-comment">-- | The page token client that is used to retrieve the list of accounts.</span><span>
+</span><span id="line-190"></span><span>    </span><span id="%24sel%3AnextToken%3AListAccountRolesResponse%27"><span class="annot"><span class="annottext">ListAccountRolesResponse -&gt; Maybe Text
+</span><a href="Network.AWS.SSO.ListAccountRoles.html#%24sel%3AnextToken%3AListAccountRolesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-192"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListAccountRolesResponse%27"><span class="annot"><span class="annottext">ListAccountRolesResponse -&gt; Int
+</span><a href="Network.AWS.SSO.ListAccountRoles.html#%24sel%3AhttpStatus%3AListAccountRolesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-193"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-194"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679141881"><span id="local-6989586621679141883"><span class="annot"><span class="annottext">ListAccountRolesResponse -&gt; ListAccountRolesResponse -&gt; Bool
+(ListAccountRolesResponse -&gt; ListAccountRolesResponse -&gt; Bool)
+-&gt; (ListAccountRolesResponse -&gt; ListAccountRolesResponse -&gt; Bool)
+-&gt; Eq ListAccountRolesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListAccountRolesResponse -&gt; ListAccountRolesResponse -&gt; Bool
+$c/= :: ListAccountRolesResponse -&gt; ListAccountRolesResponse -&gt; Bool
+== :: ListAccountRolesResponse -&gt; ListAccountRolesResponse -&gt; Bool
+$c== :: ListAccountRolesResponse -&gt; ListAccountRolesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679141873"><span id="local-6989586621679141875"><span id="local-6989586621679141877"><span id="local-6989586621679141879"><span class="annot"><span class="annottext">ReadPrec [ListAccountRolesResponse]
+ReadPrec ListAccountRolesResponse
+Int -&gt; ReadS ListAccountRolesResponse
+ReadS [ListAccountRolesResponse]
+(Int -&gt; ReadS ListAccountRolesResponse)
+-&gt; ReadS [ListAccountRolesResponse]
+-&gt; ReadPrec ListAccountRolesResponse
+-&gt; ReadPrec [ListAccountRolesResponse]
+-&gt; Read ListAccountRolesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListAccountRolesResponse]
+$creadListPrec :: ReadPrec [ListAccountRolesResponse]
+readPrec :: ReadPrec ListAccountRolesResponse
+$creadPrec :: ReadPrec ListAccountRolesResponse
+readList :: ReadS [ListAccountRolesResponse]
+$creadList :: ReadS [ListAccountRolesResponse]
+readsPrec :: Int -&gt; ReadS ListAccountRolesResponse
+$creadsPrec :: Int -&gt; ReadS ListAccountRolesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679141866"><span id="local-6989586621679141868"><span id="local-6989586621679141870"><span class="annot"><span class="annottext">Int -&gt; ListAccountRolesResponse -&gt; ShowS
+[ListAccountRolesResponse] -&gt; ShowS
+ListAccountRolesResponse -&gt; String
+(Int -&gt; ListAccountRolesResponse -&gt; ShowS)
+-&gt; (ListAccountRolesResponse -&gt; String)
+-&gt; ([ListAccountRolesResponse] -&gt; ShowS)
+-&gt; Show ListAccountRolesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListAccountRolesResponse] -&gt; ShowS
+$cshowList :: [ListAccountRolesResponse] -&gt; ShowS
+show :: ListAccountRolesResponse -&gt; String
+$cshow :: ListAccountRolesResponse -&gt; String
+showsPrec :: Int -&gt; ListAccountRolesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListAccountRolesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListAccountRolesResponse -&gt; Rep ListAccountRolesResponse x)
+-&gt; (forall x.
+    Rep ListAccountRolesResponse x -&gt; ListAccountRolesResponse)
+-&gt; Generic ListAccountRolesResponse
+forall x.
+Rep ListAccountRolesResponse x -&gt; ListAccountRolesResponse
+forall x.
+ListAccountRolesResponse -&gt; Rep ListAccountRolesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListAccountRolesResponse x -&gt; ListAccountRolesResponse
+$cfrom :: forall x.
+ListAccountRolesResponse -&gt; Rep ListAccountRolesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- Create a value of 'ListAccountRolesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- 'roleList', 'listAccountRolesResponse_roleList' - A paginated response with the list of roles and the next token if more</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- results are available.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- 'nextToken', 'listAccountRolesResponse_nextToken' - The page token client that is used to retrieve the list of accounts.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- 'httpStatus', 'listAccountRolesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#newListAccountRolesResponse"><span class="hs-identifier hs-type">newListAccountRolesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-211"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-212"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-213"></span><span>  </span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRolesResponse"><span class="hs-identifier hs-type">ListAccountRolesResponse</span></a></span><span>
+</span><span id="line-214"></span><span id="newListAccountRolesResponse"><span class="annot"><span class="annottext">newListAccountRolesResponse :: Int -&gt; ListAccountRolesResponse
+</span><a href="Network.AWS.SSO.ListAccountRoles.html#newListAccountRolesResponse"><span class="hs-identifier hs-var hs-var">newListAccountRolesResponse</span></a></span></span><span> </span><span id="local-6989586621679141863"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679141863"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-215"></span><span>  </span><span class="annot"><span class="annottext">ListAccountRolesResponse' :: Maybe [RoleInfo] -&gt; Maybe Text -&gt; Int -&gt; ListAccountRolesResponse
+</span><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRolesResponse%27"><span class="hs-identifier hs-type">ListAccountRolesResponse'</span></a></span><span>
+</span><span id="line-216"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:roleList:ListAccountRolesResponse' :: Maybe [RoleInfo]
+</span><a href="Network.AWS.SSO.ListAccountRoles.html#%24sel%3AroleList%3AListAccountRolesResponse%27"><span class="hs-identifier hs-var">roleList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-217"></span><span>        </span><span class="annot"><span class="annottext">Maybe [RoleInfo]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListAccountRolesResponse' :: Maybe Text
+</span><a href="Network.AWS.SSO.ListAccountRoles.html#%24sel%3AnextToken%3AListAccountRolesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListAccountRolesResponse' :: Int
+</span><a href="Network.AWS.SSO.ListAccountRoles.html#%24sel%3AhttpStatus%3AListAccountRolesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679141863"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-220"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | A paginated response with the list of roles and the next token if more</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- results are available.</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#listAccountRolesResponse_roleList"><span class="hs-identifier hs-type">listAccountRolesResponse_roleList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRolesResponse"><span class="hs-identifier hs-type">ListAccountRolesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSO.Types.RoleInfo.html#RoleInfo"><span class="hs-identifier hs-type">RoleInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span id="listAccountRolesResponse_roleList"><span class="annot"><span class="annottext">listAccountRolesResponse_roleList :: (Maybe [RoleInfo] -&gt; f (Maybe [RoleInfo]))
+-&gt; ListAccountRolesResponse -&gt; f ListAccountRolesResponse
+</span><a href="Network.AWS.SSO.ListAccountRoles.html#listAccountRolesResponse_roleList"><span class="hs-identifier hs-var hs-var">listAccountRolesResponse_roleList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAccountRolesResponse -&gt; Maybe [RoleInfo])
+-&gt; (ListAccountRolesResponse
+    -&gt; Maybe [RoleInfo] -&gt; ListAccountRolesResponse)
+-&gt; Lens' ListAccountRolesResponse (Maybe [RoleInfo])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRolesResponse%27"><span class="hs-identifier hs-type">ListAccountRolesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679141862"><span class="annot"><span class="annottext">Maybe [RoleInfo]
+roleList :: Maybe [RoleInfo]
+$sel:roleList:ListAccountRolesResponse' :: ListAccountRolesResponse -&gt; Maybe [RoleInfo]
+</span><a href="#local-6989586621679141862"><span class="hs-identifier hs-var hs-var">roleList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RoleInfo]
+</span><a href="#local-6989586621679141862"><span class="hs-identifier hs-var">roleList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679141861"><span class="annot"><span class="annottext">s :: ListAccountRolesResponse
+</span><a href="#local-6989586621679141861"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRolesResponse%27"><span class="hs-identifier hs-type">ListAccountRolesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679141860"><span class="annot"><span class="annottext">Maybe [RoleInfo]
+</span><a href="#local-6989586621679141860"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAccountRolesResponse
+</span><a href="#local-6989586621679141861"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleList:ListAccountRolesResponse' :: Maybe [RoleInfo]
+</span><a href="Network.AWS.SSO.ListAccountRoles.html#%24sel%3AroleList%3AListAccountRolesResponse%27"><span class="hs-identifier hs-var">roleList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RoleInfo]
+</span><a href="#local-6989586621679141860"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRolesResponse"><span class="hs-identifier hs-type">ListAccountRolesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RoleInfo] -&gt; f (Maybe [RoleInfo]))
+ -&gt; ListAccountRolesResponse -&gt; f ListAccountRolesResponse)
+-&gt; ((Maybe [RoleInfo] -&gt; f (Maybe [RoleInfo]))
+    -&gt; Maybe [RoleInfo] -&gt; f (Maybe [RoleInfo]))
+-&gt; (Maybe [RoleInfo] -&gt; f (Maybe [RoleInfo]))
+-&gt; ListAccountRolesResponse
+-&gt; f ListAccountRolesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [RoleInfo] [RoleInfo] [RoleInfo] [RoleInfo]
+-&gt; Iso
+     (Maybe [RoleInfo])
+     (Maybe [RoleInfo])
+     (Maybe [RoleInfo])
+     (Maybe [RoleInfo])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [RoleInfo] [RoleInfo] [RoleInfo] [RoleInfo]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- | The page token client that is used to retrieve the list of accounts.</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#listAccountRolesResponse_nextToken"><span class="hs-identifier hs-type">listAccountRolesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRolesResponse"><span class="hs-identifier hs-type">ListAccountRolesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span id="listAccountRolesResponse_nextToken"><span class="annot"><span class="annottext">listAccountRolesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListAccountRolesResponse -&gt; f ListAccountRolesResponse
+</span><a href="Network.AWS.SSO.ListAccountRoles.html#listAccountRolesResponse_nextToken"><span class="hs-identifier hs-var hs-var">listAccountRolesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAccountRolesResponse -&gt; Maybe Text)
+-&gt; (ListAccountRolesResponse
+    -&gt; Maybe Text -&gt; ListAccountRolesResponse)
+-&gt; Lens' ListAccountRolesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRolesResponse%27"><span class="hs-identifier hs-type">ListAccountRolesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679141857"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListAccountRolesResponse' :: ListAccountRolesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679141857"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679141857"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679141856"><span class="annot"><span class="annottext">s :: ListAccountRolesResponse
+</span><a href="#local-6989586621679141856"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRolesResponse%27"><span class="hs-identifier hs-type">ListAccountRolesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679141855"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679141855"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAccountRolesResponse
+</span><a href="#local-6989586621679141856"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAccountRolesResponse' :: Maybe Text
+</span><a href="Network.AWS.SSO.ListAccountRoles.html#%24sel%3AnextToken%3AListAccountRolesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679141855"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRolesResponse"><span class="hs-identifier hs-type">ListAccountRolesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-232"></span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#listAccountRolesResponse_httpStatus"><span class="hs-identifier hs-type">listAccountRolesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRolesResponse"><span class="hs-identifier hs-type">ListAccountRolesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-233"></span><span id="listAccountRolesResponse_httpStatus"><span class="annot"><span class="annottext">listAccountRolesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListAccountRolesResponse -&gt; f ListAccountRolesResponse
+</span><a href="Network.AWS.SSO.ListAccountRoles.html#listAccountRolesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listAccountRolesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAccountRolesResponse -&gt; Int)
+-&gt; (ListAccountRolesResponse -&gt; Int -&gt; ListAccountRolesResponse)
+-&gt; Lens ListAccountRolesResponse ListAccountRolesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRolesResponse%27"><span class="hs-identifier hs-type">ListAccountRolesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679141854"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListAccountRolesResponse' :: ListAccountRolesResponse -&gt; Int
+</span><a href="#local-6989586621679141854"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679141854"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679141853"><span class="annot"><span class="annottext">s :: ListAccountRolesResponse
+</span><a href="#local-6989586621679141853"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRolesResponse%27"><span class="hs-identifier hs-type">ListAccountRolesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679141852"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679141852"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAccountRolesResponse
+</span><a href="#local-6989586621679141853"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListAccountRolesResponse' :: Int
+</span><a href="Network.AWS.SSO.ListAccountRoles.html#%24sel%3AhttpStatus%3AListAccountRolesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679141852"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRolesResponse"><span class="hs-identifier hs-type">ListAccountRolesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679141850"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSO.ListAccountRoles.html#ListAccountRolesResponse"><span class="hs-identifier hs-type">ListAccountRolesResponse</span></a></span></span><span>
+</span><span id="line-236"></span></pre></body></html>

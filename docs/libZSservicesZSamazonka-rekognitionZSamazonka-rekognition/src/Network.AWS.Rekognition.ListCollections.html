@@ -60,7 +60,7 @@
 </span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newListCollections' smart constructor.</span><span>
-</span><span id="line-63"></span><span id="local-6989586621679341194"><span id="local-6989586621679341195"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListCollections"><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollections"><span class="hs-identifier hs-var">ListCollections</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListCollections%27"><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollections%27"><span class="hs-identifier hs-var">ListCollections'</span></a></span></span><span>
+</span><span id="line-63"></span><span id="local-6989586621679341203"><span id="local-6989586621679341204"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListCollections"><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollections"><span class="hs-identifier hs-var">ListCollections</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListCollections%27"><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollections%27"><span class="hs-identifier hs-var">ListCollections'</span></a></span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Pagination token from the previous response.</span><span>
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AnextToken%3AListCollections%27"><span class="annot"><span class="annottext">ListCollections -&gt; Maybe Text
 </span><a href="Network.AWS.Rekognition.ListCollections.html#%24sel%3AnextToken%3AListCollections%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -68,7 +68,7 @@
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3AmaxResults%3AListCollections%27"><span class="annot"><span class="annottext">ListCollections -&gt; Maybe Natural
 </span><a href="Network.AWS.Rekognition.ListCollections.html#%24sel%3AmaxResults%3AListCollections%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679341187"><span id="local-6989586621679341189"><span class="annot"><span class="annottext">ListCollections -&gt; ListCollections -&gt; Bool
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679341196"><span id="local-6989586621679341198"><span class="annot"><span class="annottext">ListCollections -&gt; ListCollections -&gt; Bool
 (ListCollections -&gt; ListCollections -&gt; Bool)
 -&gt; (ListCollections -&gt; ListCollections -&gt; Bool)
 -&gt; Eq ListCollections
@@ -77,7 +77,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListCollections -&gt; ListCollections -&gt; Bool
 == :: ListCollections -&gt; ListCollections -&gt; Bool
 $c== :: ListCollections -&gt; ListCollections -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341178"><span id="local-6989586621679341180"><span id="local-6989586621679341182"><span id="local-6989586621679341184"><span class="annot"><span class="annottext">ReadPrec [ListCollections]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341187"><span id="local-6989586621679341189"><span id="local-6989586621679341191"><span id="local-6989586621679341193"><span class="annot"><span class="annottext">ReadPrec [ListCollections]
 ReadPrec ListCollections
 Int -&gt; ReadS ListCollections
 ReadS [ListCollections]
@@ -97,7 +97,7 @@ readList :: ReadS [ListCollections]
 $creadList :: ReadS [ListCollections]
 readsPrec :: Int -&gt; ReadS ListCollections
 $creadsPrec :: Int -&gt; ReadS ListCollections
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341171"><span id="local-6989586621679341173"><span id="local-6989586621679341175"><span class="annot"><span class="annottext">Int -&gt; ListCollections -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341180"><span id="local-6989586621679341182"><span id="local-6989586621679341184"><span class="annot"><span class="annottext">Int -&gt; ListCollections -&gt; ShowS
 [ListCollections] -&gt; ShowS
 ListCollections -&gt; String
 (Int -&gt; ListCollections -&gt; ShowS)
@@ -158,16 +158,16 @@ forall a. Maybe a
 -&gt; (ListCollections -&gt; Maybe Text -&gt; ListCollections)
 -&gt; Lens ListCollections ListCollections (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollections%27"><span class="hs-identifier hs-type">ListCollections'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341165"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollections%27"><span class="hs-identifier hs-type">ListCollections'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341174"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListCollections' :: ListCollections -&gt; Maybe Text
-</span><a href="#local-6989586621679341165"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341165"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341164"><span class="annot"><span class="annottext">s :: ListCollections
-</span><a href="#local-6989586621679341164"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollections%27"><span class="hs-identifier hs-type">ListCollections'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341163"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341163"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCollections
-</span><a href="#local-6989586621679341164"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListCollections' :: Maybe Text
+</span><a href="#local-6989586621679341174"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341174"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341173"><span class="annot"><span class="annottext">s :: ListCollections
+</span><a href="#local-6989586621679341173"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollections%27"><span class="hs-identifier hs-type">ListCollections'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341172"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341172"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCollections
+</span><a href="#local-6989586621679341173"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListCollections' :: Maybe Text
 </span><a href="Network.AWS.Rekognition.ListCollections.html#%24sel%3AnextToken%3AListCollections%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341163"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollections"><span class="hs-identifier hs-type">ListCollections</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679341172"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollections"><span class="hs-identifier hs-type">ListCollections</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | Maximum number of collection IDs to return.</span><span>
 </span><span id="line-95"></span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#listCollections_maxResults"><span class="hs-identifier hs-type">listCollections_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollections"><span class="hs-identifier hs-type">ListCollections</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -178,29 +178,29 @@ $sel:nextToken:ListCollections' :: ListCollections -&gt; Maybe Text
 -&gt; Lens
      ListCollections ListCollections (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollections%27"><span class="hs-identifier hs-type">ListCollections'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341162"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollections%27"><span class="hs-identifier hs-type">ListCollections'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341171"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListCollections' :: ListCollections -&gt; Maybe Natural
-</span><a href="#local-6989586621679341162"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679341162"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341161"><span class="annot"><span class="annottext">s :: ListCollections
-</span><a href="#local-6989586621679341161"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollections%27"><span class="hs-identifier hs-type">ListCollections'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341160"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679341160"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCollections
-</span><a href="#local-6989586621679341161"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListCollections' :: Maybe Natural
+</span><a href="#local-6989586621679341171"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679341171"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341170"><span class="annot"><span class="annottext">s :: ListCollections
+</span><a href="#local-6989586621679341170"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollections%27"><span class="hs-identifier hs-type">ListCollections'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341169"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679341169"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCollections
+</span><a href="#local-6989586621679341170"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListCollections' :: Maybe Natural
 </span><a href="Network.AWS.Rekognition.ListCollections.html#%24sel%3AmaxResults%3AListCollections%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679341160"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollections"><span class="hs-identifier hs-type">ListCollections</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679341169"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollections"><span class="hs-identifier hs-type">ListCollections</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollections"><span class="hs-identifier hs-type">ListCollections</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679341156"><span class="annot"><span class="annottext">page :: ListCollections
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679341165"><span class="annot"><span class="annottext">page :: ListCollections
 -&gt; AWSResponse ListCollections -&gt; Maybe ListCollections
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679341154"><span class="annot"><span class="annottext">ListCollections
-</span><a href="#local-6989586621679341154"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679341153"><span class="annot"><span class="annottext">AWSResponse ListCollections
-</span><a href="#local-6989586621679341153"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679341163"><span class="annot"><span class="annottext">ListCollections
+</span><a href="#local-6989586621679341163"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679341162"><span class="annot"><span class="annottext">AWSResponse ListCollections
+</span><a href="#local-6989586621679341162"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-100"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-101"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListCollections
 ListCollectionsResponse
-</span><a href="#local-6989586621679341153"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679341162"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">ListCollectionsResponse
 -&gt; Getting (First Text) ListCollectionsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -229,7 +229,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-107"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListCollections
 ListCollectionsResponse
-</span><a href="#local-6989586621679341153"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679341162"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">ListCollectionsResponse
 -&gt; Getting (First [Text]) ListCollectionsResponse [Text]
 -&gt; Maybe [Text]
@@ -259,7 +259,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-113"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListCollections
 ListCollectionsResponse
-</span><a href="#local-6989586621679341153"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679341162"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">ListCollectionsResponse
 -&gt; Getting (First [Text]) ListCollectionsResponse [Text]
 -&gt; Maybe [Text]
@@ -293,7 +293,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">ListCollections
-</span><a href="#local-6989586621679341154"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679341163"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">ListCollections
 -&gt; (ListCollections -&gt; ListCollections) -&gt; ListCollections
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -307,7 +307,7 @@ Lens ListCollections ListCollections (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListCollections
 ListCollectionsResponse
-</span><a href="#local-6989586621679341153"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679341162"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">ListCollectionsResponse
 -&gt; Getting (First Text) ListCollectionsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -332,12 +332,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-127"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-128"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollections"><span class="hs-identifier hs-type">ListCollections</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>      </span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollectionsResponse"><span class="hs-identifier hs-type">ListCollectionsResponse</span></a></span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679341143"><span class="annot"><span class="annottext">request :: ListCollections -&gt; Request ListCollections
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679341152"><span class="annot"><span class="annottext">request :: ListCollections -&gt; Request ListCollections
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListCollections -&gt; Request ListCollections
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Rekognition.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679341139"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679341148"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListCollections
 -&gt; ClientResponse ClientBody
@@ -361,10 +361,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679341136"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679341136"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679341135"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679341135"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679341134"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679341134"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679341145"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679341145"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679341144"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679341144"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679341143"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679341143"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
 -&gt; Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; ListCollectionsResponse
 </span><a href="Network.AWS.Rekognition.ListCollections.html#ListCollectionsResponse%27"><span class="hs-identifier hs-var">ListCollectionsResponse'</span></a></span><span>
@@ -376,7 +376,7 @@ MonadResource m =&gt;
      (Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; ListCollectionsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679341134"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679341143"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CollectionIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
@@ -392,7 +392,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Maybe [Text] -&gt; Int -&gt; ListCollectionsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679341134"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679341143"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -401,7 +401,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListCollectionsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679341134"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679341143"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FaceModelVersions&quot;</span></span><span>
@@ -420,15 +420,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679341136"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679341145"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341125"><span id="local-6989586621679341127"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollections"><span class="hs-identifier hs-type">ListCollections</span></a></span></span></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341134"><span id="local-6989586621679341136"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollections"><span class="hs-identifier hs-type">ListCollections</span></a></span></span></span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341122"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollections"><span class="hs-identifier hs-type">ListCollections</span></a></span></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341131"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollections"><span class="hs-identifier hs-type">ListCollections</span></a></span></span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollections"><span class="hs-identifier hs-type">ListCollections</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679341118"><span class="annot"><span class="annottext">toHeaders :: ListCollections -&gt; ResponseHeaders
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679341127"><span class="annot"><span class="annottext">toHeaders :: ListCollections -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListCollections -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -455,15 +455,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-159"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
-</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341108"><span id="local-6989586621679341110"><span id="local-6989586621679341112"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollections"><span class="hs-identifier hs-type">ListCollections</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679341106"><span class="annot"><span class="annottext">toJSON :: ListCollections -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollections%27"><span class="hs-identifier hs-type">ListCollections'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341103"><span id="local-6989586621679341104"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341117"><span id="local-6989586621679341119"><span id="local-6989586621679341121"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollections"><span class="hs-identifier hs-type">ListCollections</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679341115"><span class="annot"><span class="annottext">toJSON :: ListCollections -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollections%27"><span class="hs-identifier hs-type">ListCollections'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341112"><span id="local-6989586621679341113"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 maxResults :: Maybe Natural
 nextToken :: Maybe Text
 $sel:maxResults:ListCollections' :: ListCollections -&gt; Maybe Natural
 $sel:nextToken:ListCollections' :: ListCollections -&gt; Maybe Text
-</span><a href="#local-6989586621679341103"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679341112"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-165"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -475,26 +475,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341104"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679341113"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-167"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679341103"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679341112"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-168"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollections"><span class="hs-identifier hs-type">ListCollections</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621679341097"><span class="annot"><span class="annottext">toPath :: ListCollections -&gt; ByteString
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679341106"><span class="annot"><span class="annottext">toPath :: ListCollections -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListCollections -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollections"><span class="hs-identifier hs-type">ListCollections</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621679341093"><span class="annot"><span class="annottext">toQuery :: ListCollections -&gt; QueryString
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679341102"><span class="annot"><span class="annottext">toQuery :: ListCollections -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListCollections -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -502,7 +502,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- | /See:/ 'newListCollectionsResponse' smart constructor.</span><span>
-</span><span id="line-178"></span><span id="local-6989586621679341090"><span id="local-6989586621679341091"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListCollectionsResponse"><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollectionsResponse"><span class="hs-identifier hs-var">ListCollectionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListCollectionsResponse%27"><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollectionsResponse%27"><span class="hs-identifier hs-var">ListCollectionsResponse'</span></a></span></span><span>
+</span><span id="line-178"></span><span id="local-6989586621679341099"><span id="local-6989586621679341100"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListCollectionsResponse"><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollectionsResponse"><span class="hs-identifier hs-var">ListCollectionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListCollectionsResponse%27"><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollectionsResponse%27"><span class="hs-identifier hs-var">ListCollectionsResponse'</span></a></span></span><span>
 </span><span id="line-179"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of collection IDs.</span><span>
 </span><span id="line-180"></span><span>    </span><span id="%24sel%3AcollectionIds%3AListCollectionsResponse%27"><span class="annot"><span class="annottext">ListCollectionsResponse -&gt; Maybe [Text]
 </span><a href="Network.AWS.Rekognition.ListCollections.html#%24sel%3AcollectionIds%3AListCollectionsResponse%27"><span class="hs-identifier hs-var hs-var">collectionIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -521,7 +521,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-191"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListCollectionsResponse%27"><span class="annot"><span class="annottext">ListCollectionsResponse -&gt; Int
 </span><a href="Network.AWS.Rekognition.ListCollections.html#%24sel%3AhttpStatus%3AListCollectionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-192"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-193"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679341082"><span id="local-6989586621679341084"><span class="annot"><span class="annottext">ListCollectionsResponse -&gt; ListCollectionsResponse -&gt; Bool
+</span><span id="line-193"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679341091"><span id="local-6989586621679341093"><span class="annot"><span class="annottext">ListCollectionsResponse -&gt; ListCollectionsResponse -&gt; Bool
 (ListCollectionsResponse -&gt; ListCollectionsResponse -&gt; Bool)
 -&gt; (ListCollectionsResponse -&gt; ListCollectionsResponse -&gt; Bool)
 -&gt; Eq ListCollectionsResponse
@@ -530,7 +530,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListCollectionsResponse -&gt; ListCollectionsResponse -&gt; Bool
 == :: ListCollectionsResponse -&gt; ListCollectionsResponse -&gt; Bool
 $c== :: ListCollectionsResponse -&gt; ListCollectionsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341074"><span id="local-6989586621679341076"><span id="local-6989586621679341078"><span id="local-6989586621679341080"><span class="annot"><span class="annottext">ReadPrec [ListCollectionsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341083"><span id="local-6989586621679341085"><span id="local-6989586621679341087"><span id="local-6989586621679341089"><span class="annot"><span class="annottext">ReadPrec [ListCollectionsResponse]
 ReadPrec ListCollectionsResponse
 Int -&gt; ReadS ListCollectionsResponse
 ReadS [ListCollectionsResponse]
@@ -550,7 +550,7 @@ readList :: ReadS [ListCollectionsResponse]
 $creadList :: ReadS [ListCollectionsResponse]
 readsPrec :: Int -&gt; ReadS ListCollectionsResponse
 $creadsPrec :: Int -&gt; ReadS ListCollectionsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341068"><span id="local-6989586621679341070"><span id="local-6989586621679341072"><span class="annot"><span class="annottext">Int -&gt; ListCollectionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341077"><span id="local-6989586621679341079"><span id="local-6989586621679341081"><span class="annot"><span class="annottext">Int -&gt; ListCollectionsResponse -&gt; ShowS
 [ListCollectionsResponse] -&gt; ShowS
 ListCollectionsResponse -&gt; String
 (Int -&gt; ListCollectionsResponse -&gt; ShowS)
@@ -603,8 +603,8 @@ $cfrom :: forall x. ListCollectionsResponse -&gt; Rep ListCollectionsResponse x
 </span><span id="line-217"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-218"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollectionsResponse"><span class="hs-identifier hs-type">ListCollectionsResponse</span></a></span><span>
 </span><span id="line-219"></span><span id="newListCollectionsResponse"><span class="annot"><span class="annottext">newListCollectionsResponse :: Int -&gt; ListCollectionsResponse
-</span><a href="Network.AWS.Rekognition.ListCollections.html#newListCollectionsResponse"><span class="hs-identifier hs-var hs-var">newListCollectionsResponse</span></a></span></span><span> </span><span id="local-6989586621679341065"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679341065"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Rekognition.ListCollections.html#newListCollectionsResponse"><span class="hs-identifier hs-var hs-var">newListCollectionsResponse</span></a></span></span><span> </span><span id="local-6989586621679341074"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679341074"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-220"></span><span>  </span><span class="annot"><span class="annottext">ListCollectionsResponse' :: Maybe [Text]
 -&gt; Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; ListCollectionsResponse
 </span><a href="Network.AWS.Rekognition.ListCollections.html#ListCollectionsResponse%27"><span class="hs-identifier hs-type">ListCollectionsResponse'</span></a></span><span>
@@ -623,7 +623,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-225"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListCollectionsResponse' :: Int
 </span><a href="Network.AWS.Rekognition.ListCollections.html#%24sel%3AhttpStatus%3AListCollectionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679341065"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679341074"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-226"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-227"></span><span>
 </span><span id="line-228"></span><span class="hs-comment">-- | An array of collection IDs.</span><span>
@@ -635,16 +635,16 @@ forall a. Maybe a
     -&gt; Maybe [Text] -&gt; ListCollectionsResponse)
 -&gt; Lens' ListCollectionsResponse (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollectionsResponse%27"><span class="hs-identifier hs-type">ListCollectionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341064"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollectionsResponse%27"><span class="hs-identifier hs-type">ListCollectionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341073"><span class="annot"><span class="annottext">Maybe [Text]
 collectionIds :: Maybe [Text]
 $sel:collectionIds:ListCollectionsResponse' :: ListCollectionsResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621679341064"><span class="hs-identifier hs-var hs-var">collectionIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679341064"><span class="hs-identifier hs-var">collectionIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341063"><span class="annot"><span class="annottext">s :: ListCollectionsResponse
-</span><a href="#local-6989586621679341063"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollectionsResponse%27"><span class="hs-identifier hs-type">ListCollectionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341062"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679341062"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCollectionsResponse
-</span><a href="#local-6989586621679341063"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:collectionIds:ListCollectionsResponse' :: Maybe [Text]
+</span><a href="#local-6989586621679341073"><span class="hs-identifier hs-var hs-var">collectionIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679341073"><span class="hs-identifier hs-var">collectionIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341072"><span class="annot"><span class="annottext">s :: ListCollectionsResponse
+</span><a href="#local-6989586621679341072"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollectionsResponse%27"><span class="hs-identifier hs-type">ListCollectionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341071"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679341071"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCollectionsResponse
+</span><a href="#local-6989586621679341072"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:collectionIds:ListCollectionsResponse' :: Maybe [Text]
 </span><a href="Network.AWS.Rekognition.ListCollections.html#%24sel%3AcollectionIds%3AListCollectionsResponse%27"><span class="hs-identifier hs-var">collectionIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679341062"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollectionsResponse"><span class="hs-identifier hs-type">ListCollectionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679341071"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollectionsResponse"><span class="hs-identifier hs-type">ListCollectionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ListCollectionsResponse -&gt; f ListCollectionsResponse)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -672,16 +672,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
     -&gt; Maybe Text -&gt; ListCollectionsResponse)
 -&gt; Lens' ListCollectionsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollectionsResponse%27"><span class="hs-identifier hs-type">ListCollectionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341059"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollectionsResponse%27"><span class="hs-identifier hs-type">ListCollectionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341068"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListCollectionsResponse' :: ListCollectionsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679341059"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341059"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341058"><span class="annot"><span class="annottext">s :: ListCollectionsResponse
-</span><a href="#local-6989586621679341058"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollectionsResponse%27"><span class="hs-identifier hs-type">ListCollectionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341057"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341057"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCollectionsResponse
-</span><a href="#local-6989586621679341058"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListCollectionsResponse' :: Maybe Text
+</span><a href="#local-6989586621679341068"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341068"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341067"><span class="annot"><span class="annottext">s :: ListCollectionsResponse
+</span><a href="#local-6989586621679341067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollectionsResponse%27"><span class="hs-identifier hs-type">ListCollectionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341066"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCollectionsResponse
+</span><a href="#local-6989586621679341067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListCollectionsResponse' :: Maybe Text
 </span><a href="Network.AWS.Rekognition.ListCollections.html#%24sel%3AnextToken%3AListCollectionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679341057"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollectionsResponse"><span class="hs-identifier hs-type">ListCollectionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679341066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollectionsResponse"><span class="hs-identifier hs-type">ListCollectionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-237"></span><span>
 </span><span id="line-238"></span><span class="hs-comment">-- | Version numbers of the face detection models associated with the</span><span>
 </span><span id="line-239"></span><span class="hs-comment">-- collections in the array @CollectionIds@. For example, the value of</span><span>
@@ -695,16 +695,16 @@ $sel:nextToken:ListCollectionsResponse' :: ListCollectionsResponse -&gt; Maybe T
     -&gt; Maybe [Text] -&gt; ListCollectionsResponse)
 -&gt; Lens' ListCollectionsResponse (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollectionsResponse%27"><span class="hs-identifier hs-type">ListCollectionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341056"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollectionsResponse%27"><span class="hs-identifier hs-type">ListCollectionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341065"><span class="annot"><span class="annottext">Maybe [Text]
 faceModelVersions :: Maybe [Text]
 $sel:faceModelVersions:ListCollectionsResponse' :: ListCollectionsResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621679341056"><span class="hs-identifier hs-var hs-var">faceModelVersions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679341056"><span class="hs-identifier hs-var">faceModelVersions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341055"><span class="annot"><span class="annottext">s :: ListCollectionsResponse
-</span><a href="#local-6989586621679341055"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollectionsResponse%27"><span class="hs-identifier hs-type">ListCollectionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341054"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679341054"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCollectionsResponse
-</span><a href="#local-6989586621679341055"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:faceModelVersions:ListCollectionsResponse' :: Maybe [Text]
+</span><a href="#local-6989586621679341065"><span class="hs-identifier hs-var hs-var">faceModelVersions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679341065"><span class="hs-identifier hs-var">faceModelVersions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341064"><span class="annot"><span class="annottext">s :: ListCollectionsResponse
+</span><a href="#local-6989586621679341064"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollectionsResponse%27"><span class="hs-identifier hs-type">ListCollectionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341063"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679341063"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCollectionsResponse
+</span><a href="#local-6989586621679341064"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:faceModelVersions:ListCollectionsResponse' :: Maybe [Text]
 </span><a href="Network.AWS.Rekognition.ListCollections.html#%24sel%3AfaceModelVersions%3AListCollectionsResponse%27"><span class="hs-identifier hs-var">faceModelVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679341054"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollectionsResponse"><span class="hs-identifier hs-type">ListCollectionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679341063"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollectionsResponse"><span class="hs-identifier hs-type">ListCollectionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ListCollectionsResponse -&gt; f ListCollectionsResponse)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -729,16 +729,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ListCollectionsResponse -&gt; Int -&gt; ListCollectionsResponse)
 -&gt; Lens ListCollectionsResponse ListCollectionsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollectionsResponse%27"><span class="hs-identifier hs-type">ListCollectionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341053"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollectionsResponse%27"><span class="hs-identifier hs-type">ListCollectionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341062"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListCollectionsResponse' :: ListCollectionsResponse -&gt; Int
-</span><a href="#local-6989586621679341053"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679341053"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341052"><span class="annot"><span class="annottext">s :: ListCollectionsResponse
-</span><a href="#local-6989586621679341052"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollectionsResponse%27"><span class="hs-identifier hs-type">ListCollectionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341051"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679341051"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCollectionsResponse
-</span><a href="#local-6989586621679341052"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListCollectionsResponse' :: Int
+</span><a href="#local-6989586621679341062"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679341062"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341061"><span class="annot"><span class="annottext">s :: ListCollectionsResponse
+</span><a href="#local-6989586621679341061"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollectionsResponse%27"><span class="hs-identifier hs-type">ListCollectionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341060"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679341060"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCollectionsResponse
+</span><a href="#local-6989586621679341061"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListCollectionsResponse' :: Int
 </span><a href="Network.AWS.Rekognition.ListCollections.html#%24sel%3AhttpStatus%3AListCollectionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679341051"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollectionsResponse"><span class="hs-identifier hs-type">ListCollectionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679341060"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollectionsResponse"><span class="hs-identifier hs-type">ListCollectionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-248"></span><span>
-</span><span id="line-249"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341049"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollectionsResponse"><span class="hs-identifier hs-type">ListCollectionsResponse</span></a></span></span><span>
+</span><span id="line-249"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341058"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.ListCollections.html#ListCollectionsResponse"><span class="hs-identifier hs-type">ListCollectionsResponse</span></a></span></span><span>
 </span><span id="line-250"></span></pre></body></html>

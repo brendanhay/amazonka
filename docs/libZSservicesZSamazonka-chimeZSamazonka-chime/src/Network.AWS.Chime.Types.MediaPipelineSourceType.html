@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Chime.Types.MediaPipelineSourceType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Chime.Types.MediaPipelineSourceType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.MediaPipelineSourceType.html#MediaPipelineSourceType"><span class="hs-identifier">MediaPipelineSourceType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Chime.Types.MediaPipelineSourceType.html#MediaPipelineSourceType_ChimeSdkMeeting"><span class="hs-identifier">MediaPipelineSourceType_ChimeSdkMeeting</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679512171"><span id="local-6989586621679512172"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MediaPipelineSourceType"><span class="annot"><a href="Network.AWS.Chime.Types.MediaPipelineSourceType.html#MediaPipelineSourceType"><span class="hs-identifier hs-var">MediaPipelineSourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MediaPipelineSourceType%27"><span class="annot"><a href="Network.AWS.Chime.Types.MediaPipelineSourceType.html#MediaPipelineSourceType%27"><span class="hs-identifier hs-var">MediaPipelineSourceType'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMediaPipelineSourceType"><span class="annot"><span class="annottext">MediaPipelineSourceType -&gt; Text
+</span><a href="Network.AWS.Chime.Types.MediaPipelineSourceType.html#fromMediaPipelineSourceType"><span class="hs-identifier hs-var hs-var">fromMediaPipelineSourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679512163"><span id="local-6989586621679512165"><span id="local-6989586621679512167"><span class="annot"><span class="annottext">Int -&gt; MediaPipelineSourceType -&gt; ShowS
+[MediaPipelineSourceType] -&gt; ShowS
+MediaPipelineSourceType -&gt; String
+(Int -&gt; MediaPipelineSourceType -&gt; ShowS)
+-&gt; (MediaPipelineSourceType -&gt; String)
+-&gt; ([MediaPipelineSourceType] -&gt; ShowS)
+-&gt; Show MediaPipelineSourceType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MediaPipelineSourceType] -&gt; ShowS
+$cshowList :: [MediaPipelineSourceType] -&gt; ShowS
+show :: MediaPipelineSourceType -&gt; String
+$cshow :: MediaPipelineSourceType -&gt; String
+showsPrec :: Int -&gt; MediaPipelineSourceType -&gt; ShowS
+$cshowsPrec :: Int -&gt; MediaPipelineSourceType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679512154"><span id="local-6989586621679512156"><span id="local-6989586621679512158"><span id="local-6989586621679512160"><span class="annot"><span class="annottext">ReadPrec [MediaPipelineSourceType]
+ReadPrec MediaPipelineSourceType
+Int -&gt; ReadS MediaPipelineSourceType
+ReadS [MediaPipelineSourceType]
+(Int -&gt; ReadS MediaPipelineSourceType)
+-&gt; ReadS [MediaPipelineSourceType]
+-&gt; ReadPrec MediaPipelineSourceType
+-&gt; ReadPrec [MediaPipelineSourceType]
+-&gt; Read MediaPipelineSourceType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MediaPipelineSourceType]
+$creadListPrec :: ReadPrec [MediaPipelineSourceType]
+readPrec :: ReadPrec MediaPipelineSourceType
+$creadPrec :: ReadPrec MediaPipelineSourceType
+readList :: ReadS [MediaPipelineSourceType]
+$creadList :: ReadS [MediaPipelineSourceType]
+readsPrec :: Int -&gt; ReadS MediaPipelineSourceType
+$creadsPrec :: Int -&gt; ReadS MediaPipelineSourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679512149"><span id="local-6989586621679512151"><span class="annot"><span class="annottext">MediaPipelineSourceType -&gt; MediaPipelineSourceType -&gt; Bool
+(MediaPipelineSourceType -&gt; MediaPipelineSourceType -&gt; Bool)
+-&gt; (MediaPipelineSourceType -&gt; MediaPipelineSourceType -&gt; Bool)
+-&gt; Eq MediaPipelineSourceType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MediaPipelineSourceType -&gt; MediaPipelineSourceType -&gt; Bool
+$c/= :: MediaPipelineSourceType -&gt; MediaPipelineSourceType -&gt; Bool
+== :: MediaPipelineSourceType -&gt; MediaPipelineSourceType -&gt; Bool
+$c== :: MediaPipelineSourceType -&gt; MediaPipelineSourceType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679512133"><span id="local-6989586621679512135"><span id="local-6989586621679512137"><span id="local-6989586621679512139"><span id="local-6989586621679512141"><span id="local-6989586621679512143"><span id="local-6989586621679512145"><span class="annot"><span class="annottext">Eq MediaPipelineSourceType
+Eq MediaPipelineSourceType
+-&gt; (MediaPipelineSourceType -&gt; MediaPipelineSourceType -&gt; Ordering)
+-&gt; (MediaPipelineSourceType -&gt; MediaPipelineSourceType -&gt; Bool)
+-&gt; (MediaPipelineSourceType -&gt; MediaPipelineSourceType -&gt; Bool)
+-&gt; (MediaPipelineSourceType -&gt; MediaPipelineSourceType -&gt; Bool)
+-&gt; (MediaPipelineSourceType -&gt; MediaPipelineSourceType -&gt; Bool)
+-&gt; (MediaPipelineSourceType
+    -&gt; MediaPipelineSourceType -&gt; MediaPipelineSourceType)
+-&gt; (MediaPipelineSourceType
+    -&gt; MediaPipelineSourceType -&gt; MediaPipelineSourceType)
+-&gt; Ord MediaPipelineSourceType
+MediaPipelineSourceType -&gt; MediaPipelineSourceType -&gt; Bool
+MediaPipelineSourceType -&gt; MediaPipelineSourceType -&gt; Ordering
+MediaPipelineSourceType
+-&gt; MediaPipelineSourceType -&gt; MediaPipelineSourceType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: MediaPipelineSourceType
+-&gt; MediaPipelineSourceType -&gt; MediaPipelineSourceType
+$cmin :: MediaPipelineSourceType
+-&gt; MediaPipelineSourceType -&gt; MediaPipelineSourceType
+max :: MediaPipelineSourceType
+-&gt; MediaPipelineSourceType -&gt; MediaPipelineSourceType
+$cmax :: MediaPipelineSourceType
+-&gt; MediaPipelineSourceType -&gt; MediaPipelineSourceType
+&gt;= :: MediaPipelineSourceType -&gt; MediaPipelineSourceType -&gt; Bool
+$c&gt;= :: MediaPipelineSourceType -&gt; MediaPipelineSourceType -&gt; Bool
+&gt; :: MediaPipelineSourceType -&gt; MediaPipelineSourceType -&gt; Bool
+$c&gt; :: MediaPipelineSourceType -&gt; MediaPipelineSourceType -&gt; Bool
+&lt;= :: MediaPipelineSourceType -&gt; MediaPipelineSourceType -&gt; Bool
+$c&lt;= :: MediaPipelineSourceType -&gt; MediaPipelineSourceType -&gt; Bool
+&lt; :: MediaPipelineSourceType -&gt; MediaPipelineSourceType -&gt; Bool
+$c&lt; :: MediaPipelineSourceType -&gt; MediaPipelineSourceType -&gt; Bool
+compare :: MediaPipelineSourceType -&gt; MediaPipelineSourceType -&gt; Ordering
+$ccompare :: MediaPipelineSourceType -&gt; MediaPipelineSourceType -&gt; Ordering
+$cp1Ord :: Eq MediaPipelineSourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ MediaPipelineSourceType -&gt; Rep MediaPipelineSourceType x)
+-&gt; (forall x.
+    Rep MediaPipelineSourceType x -&gt; MediaPipelineSourceType)
+-&gt; Generic MediaPipelineSourceType
+forall x. Rep MediaPipelineSourceType x -&gt; MediaPipelineSourceType
+forall x. MediaPipelineSourceType -&gt; Rep MediaPipelineSourceType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep MediaPipelineSourceType x -&gt; MediaPipelineSourceType
+$cfrom :: forall x. MediaPipelineSourceType -&gt; Rep MediaPipelineSourceType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679512125"><span id="local-6989586621679512127"><span class="annot"><span class="annottext">Int -&gt; MediaPipelineSourceType -&gt; Int
+MediaPipelineSourceType -&gt; Int
+(Int -&gt; MediaPipelineSourceType -&gt; Int)
+-&gt; (MediaPipelineSourceType -&gt; Int)
+-&gt; Hashable MediaPipelineSourceType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: MediaPipelineSourceType -&gt; Int
+$chash :: MediaPipelineSourceType -&gt; Int
+hashWithSalt :: Int -&gt; MediaPipelineSourceType -&gt; Int
+$chashWithSalt :: Int -&gt; MediaPipelineSourceType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679512122"><span class="annot"><span class="annottext">MediaPipelineSourceType -&gt; ()
+(MediaPipelineSourceType -&gt; ()) -&gt; NFData MediaPipelineSourceType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: MediaPipelineSourceType -&gt; ()
+$crnf :: MediaPipelineSourceType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679512119"><span class="annot"><span class="annottext">Text -&gt; Either String MediaPipelineSourceType
+(Text -&gt; Either String MediaPipelineSourceType)
+-&gt; FromText MediaPipelineSourceType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String MediaPipelineSourceType
+$cfromText :: Text -&gt; Either String MediaPipelineSourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679512116"><span class="annot"><span class="annottext">MediaPipelineSourceType -&gt; Text
+(MediaPipelineSourceType -&gt; Text) -&gt; ToText MediaPipelineSourceType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: MediaPipelineSourceType -&gt; Text
+$ctoText :: MediaPipelineSourceType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679512113"><span class="annot"><span class="annottext">MediaPipelineSourceType -&gt; ByteString
+(MediaPipelineSourceType -&gt; ByteString)
+-&gt; ToByteString MediaPipelineSourceType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: MediaPipelineSourceType -&gt; ByteString
+$ctoBS :: MediaPipelineSourceType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679512110"><span class="annot"><span class="annottext">MediaPipelineSourceType -&gt; ByteStringBuilder
+(MediaPipelineSourceType -&gt; ByteStringBuilder)
+-&gt; ToLog MediaPipelineSourceType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: MediaPipelineSourceType -&gt; ByteStringBuilder
+$cbuild :: MediaPipelineSourceType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679512107"><span class="annot"><span class="annottext">HeaderName -&gt; MediaPipelineSourceType -&gt; [Header]
+(HeaderName -&gt; MediaPipelineSourceType -&gt; [Header])
+-&gt; ToHeader MediaPipelineSourceType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; MediaPipelineSourceType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; MediaPipelineSourceType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679512104"><span class="annot"><span class="annottext">MediaPipelineSourceType -&gt; QueryString
+(MediaPipelineSourceType -&gt; QueryString)
+-&gt; ToQuery MediaPipelineSourceType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: MediaPipelineSourceType -&gt; QueryString
+$ctoQuery :: MediaPipelineSourceType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679512099"><span id="local-6989586621679512101"><span class="annot"><span class="annottext">Value -&gt; Parser [MediaPipelineSourceType]
+Value -&gt; Parser MediaPipelineSourceType
+(Value -&gt; Parser MediaPipelineSourceType)
+-&gt; (Value -&gt; Parser [MediaPipelineSourceType])
+-&gt; FromJSON MediaPipelineSourceType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [MediaPipelineSourceType]
+$cparseJSONList :: Value -&gt; Parser [MediaPipelineSourceType]
+parseJSON :: Value -&gt; Parser MediaPipelineSourceType
+$cparseJSON :: Value -&gt; Parser MediaPipelineSourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679512094"><span id="local-6989586621679512096"><span class="annot"><span class="annottext">FromJSONKeyFunction [MediaPipelineSourceType]
+FromJSONKeyFunction MediaPipelineSourceType
+FromJSONKeyFunction MediaPipelineSourceType
+-&gt; FromJSONKeyFunction [MediaPipelineSourceType]
+-&gt; FromJSONKey MediaPipelineSourceType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [MediaPipelineSourceType]
+$cfromJSONKeyList :: FromJSONKeyFunction [MediaPipelineSourceType]
+fromJSONKey :: FromJSONKeyFunction MediaPipelineSourceType
+$cfromJSONKey :: FromJSONKeyFunction MediaPipelineSourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679512085"><span id="local-6989586621679512087"><span id="local-6989586621679512089"><span id="local-6989586621679512091"><span class="annot"><span class="annottext">[MediaPipelineSourceType] -&gt; Encoding
+[MediaPipelineSourceType] -&gt; Value
+MediaPipelineSourceType -&gt; Encoding
+MediaPipelineSourceType -&gt; Value
+(MediaPipelineSourceType -&gt; Value)
+-&gt; (MediaPipelineSourceType -&gt; Encoding)
+-&gt; ([MediaPipelineSourceType] -&gt; Value)
+-&gt; ([MediaPipelineSourceType] -&gt; Encoding)
+-&gt; ToJSON MediaPipelineSourceType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [MediaPipelineSourceType] -&gt; Encoding
+$ctoEncodingList :: [MediaPipelineSourceType] -&gt; Encoding
+toJSONList :: [MediaPipelineSourceType] -&gt; Value
+$ctoJSONList :: [MediaPipelineSourceType] -&gt; Value
+toEncoding :: MediaPipelineSourceType -&gt; Encoding
+$ctoEncoding :: MediaPipelineSourceType -&gt; Encoding
+toJSON :: MediaPipelineSourceType -&gt; Value
+$ctoJSON :: MediaPipelineSourceType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679512080"><span id="local-6989586621679512082"><span class="annot"><span class="annottext">ToJSONKeyFunction [MediaPipelineSourceType]
+ToJSONKeyFunction MediaPipelineSourceType
+ToJSONKeyFunction MediaPipelineSourceType
+-&gt; ToJSONKeyFunction [MediaPipelineSourceType]
+-&gt; ToJSONKey MediaPipelineSourceType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [MediaPipelineSourceType]
+$ctoJSONKeyList :: ToJSONKeyFunction [MediaPipelineSourceType]
+toJSONKey :: ToJSONKeyFunction MediaPipelineSourceType
+$ctoJSONKey :: ToJSONKeyFunction MediaPipelineSourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679512077"><span class="annot"><span class="annottext">[Node] -&gt; Either String MediaPipelineSourceType
+([Node] -&gt; Either String MediaPipelineSourceType)
+-&gt; FromXML MediaPipelineSourceType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String MediaPipelineSourceType
+$cparseXML :: [Node] -&gt; Either String MediaPipelineSourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679512074"><span class="annot"><span class="annottext">MediaPipelineSourceType -&gt; XML
+(MediaPipelineSourceType -&gt; XML) -&gt; ToXML MediaPipelineSourceType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: MediaPipelineSourceType -&gt; XML
+$ctoXML :: MediaPipelineSourceType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.MediaPipelineSourceType.html#MediaPipelineSourceType_ChimeSdkMeeting"><span class="hs-identifier hs-type">MediaPipelineSourceType_ChimeSdkMeeting</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.MediaPipelineSourceType.html#MediaPipelineSourceType"><span class="hs-identifier hs-type">MediaPipelineSourceType</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMediaPipelineSourceType_ChimeSdkMeeting"><span id="%24mMediaPipelineSourceType_ChimeSdkMeeting"><span id="MediaPipelineSourceType_ChimeSdkMeeting"><span class="annot"><span class="annottext">$bMediaPipelineSourceType_ChimeSdkMeeting :: MediaPipelineSourceType
+$mMediaPipelineSourceType_ChimeSdkMeeting :: forall r.
+MediaPipelineSourceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Chime.Types.MediaPipelineSourceType.html#%24bMediaPipelineSourceType_ChimeSdkMeeting"><span class="hs-identifier hs-var hs-var hs-var">MediaPipelineSourceType_ChimeSdkMeeting</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.MediaPipelineSourceType.html#MediaPipelineSourceType%27"><span class="hs-identifier hs-type">MediaPipelineSourceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ChimeSdkMeeting&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.Types.MediaPipelineSourceType.html#MediaPipelineSourceType_ChimeSdkMeeting"><span class="hs-pragma hs-type">MediaPipelineSourceType_ChimeSdkMeeting</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.Types.MediaPipelineSourceType.html#MediaPipelineSourceType%27"><span class="hs-pragma hs-type">MediaPipelineSourceType'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

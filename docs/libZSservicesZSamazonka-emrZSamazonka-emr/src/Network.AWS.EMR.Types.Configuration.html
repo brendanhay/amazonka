@@ -35,7 +35,7 @@
 </span><span id="line-35"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html Configuring Applications&gt;.</span><span>
 </span><span id="line-36"></span><span class="hs-comment">--</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- /See:/ 'newConfiguration' smart constructor.</span><span>
-</span><span id="line-38"></span><span id="local-6989586621679367675"><span id="local-6989586621679367676"></span></span><span class="hs-keyword">data</span><span> </span><span id="Configuration"><span class="annot"><a href="Network.AWS.EMR.Types.Configuration.html#Configuration"><span class="hs-identifier hs-var">Configuration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Configuration%27"><span class="annot"><a href="Network.AWS.EMR.Types.Configuration.html#Configuration%27"><span class="hs-identifier hs-var">Configuration'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679367684"><span id="local-6989586621679367685"></span></span><span class="hs-keyword">data</span><span> </span><span id="Configuration"><span class="annot"><a href="Network.AWS.EMR.Types.Configuration.html#Configuration"><span class="hs-identifier hs-var">Configuration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Configuration%27"><span class="annot"><a href="Network.AWS.EMR.Types.Configuration.html#Configuration%27"><span class="hs-identifier hs-var">Configuration'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of additional configurations to apply within a configuration</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- object.</span><span>
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3Aconfigurations%3AConfiguration%27"><span class="annot"><span class="annottext">Configuration -&gt; Maybe [Configuration]
@@ -47,7 +47,7 @@
 </span><span id="line-45"></span><span>    </span><span id="%24sel%3Aproperties%3AConfiguration%27"><span class="annot"><span class="annottext">Configuration -&gt; Maybe (HashMap Text Text)
 </span><a href="Network.AWS.EMR.Types.Configuration.html#%24sel%3Aproperties%3AConfiguration%27"><span class="hs-identifier hs-var hs-var">properties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679367667"><span id="local-6989586621679367669"><span class="annot"><span class="annottext">Configuration -&gt; Configuration -&gt; Bool
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679367676"><span id="local-6989586621679367678"><span class="annot"><span class="annottext">Configuration -&gt; Configuration -&gt; Bool
 (Configuration -&gt; Configuration -&gt; Bool)
 -&gt; (Configuration -&gt; Configuration -&gt; Bool) -&gt; Eq Configuration
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -55,7 +55,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Configuration -&gt; Configuration -&gt; Bool
 == :: Configuration -&gt; Configuration -&gt; Bool
 $c== :: Configuration -&gt; Configuration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367658"><span id="local-6989586621679367660"><span id="local-6989586621679367662"><span id="local-6989586621679367664"><span class="annot"><span class="annottext">ReadPrec [Configuration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367667"><span id="local-6989586621679367669"><span id="local-6989586621679367671"><span id="local-6989586621679367673"><span class="annot"><span class="annottext">ReadPrec [Configuration]
 ReadPrec Configuration
 Int -&gt; ReadS Configuration
 ReadS [Configuration]
@@ -75,7 +75,7 @@ readList :: ReadS [Configuration]
 $creadList :: ReadS [Configuration]
 readsPrec :: Int -&gt; ReadS Configuration
 $creadsPrec :: Int -&gt; ReadS Configuration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367651"><span id="local-6989586621679367653"><span id="local-6989586621679367655"><span class="annot"><span class="annottext">Int -&gt; Configuration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367660"><span id="local-6989586621679367662"><span id="local-6989586621679367664"><span class="annot"><span class="annottext">Int -&gt; Configuration -&gt; ShowS
 [Configuration] -&gt; ShowS
 Configuration -&gt; String
 (Int -&gt; Configuration -&gt; ShowS)
@@ -149,16 +149,16 @@ forall a. Maybe a
      (Maybe [Configuration])
      (Maybe [Configuration])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.Configuration.html#Configuration%27"><span class="hs-identifier hs-type">Configuration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367642"><span class="annot"><span class="annottext">Maybe [Configuration]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.Configuration.html#Configuration%27"><span class="hs-identifier hs-type">Configuration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367651"><span class="annot"><span class="annottext">Maybe [Configuration]
 configurations :: Maybe [Configuration]
 $sel:configurations:Configuration' :: Configuration -&gt; Maybe [Configuration]
-</span><a href="#local-6989586621679367642"><span class="hs-identifier hs-var hs-var">configurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Configuration]
-</span><a href="#local-6989586621679367642"><span class="hs-identifier hs-var">configurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367641"><span class="annot"><span class="annottext">s :: Configuration
-</span><a href="#local-6989586621679367641"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.Configuration.html#Configuration%27"><span class="hs-identifier hs-type">Configuration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367640"><span class="annot"><span class="annottext">Maybe [Configuration]
-</span><a href="#local-6989586621679367640"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Configuration
-</span><a href="#local-6989586621679367641"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurations:Configuration' :: Maybe [Configuration]
+</span><a href="#local-6989586621679367651"><span class="hs-identifier hs-var hs-var">configurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Configuration]
+</span><a href="#local-6989586621679367651"><span class="hs-identifier hs-var">configurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367650"><span class="annot"><span class="annottext">s :: Configuration
+</span><a href="#local-6989586621679367650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.Configuration.html#Configuration%27"><span class="hs-identifier hs-type">Configuration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367649"><span class="annot"><span class="annottext">Maybe [Configuration]
+</span><a href="#local-6989586621679367649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Configuration
+</span><a href="#local-6989586621679367650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurations:Configuration' :: Maybe [Configuration]
 </span><a href="Network.AWS.EMR.Types.Configuration.html#%24sel%3Aconfigurations%3AConfiguration%27"><span class="hs-identifier hs-var">configurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Configuration]
-</span><a href="#local-6989586621679367640"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Configuration] -&gt; f (Maybe [Configuration]))
+</span><a href="#local-6989586621679367649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Configuration] -&gt; f (Maybe [Configuration]))
  -&gt; Configuration -&gt; f Configuration)
 -&gt; ((Maybe [Configuration] -&gt; f (Maybe [Configuration]))
     -&gt; Maybe [Configuration] -&gt; f (Maybe [Configuration]))
@@ -188,16 +188,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (Configuration -&gt; Maybe Text -&gt; Configuration)
 -&gt; Lens Configuration Configuration (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.Configuration.html#Configuration%27"><span class="hs-identifier hs-type">Configuration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367635"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.Configuration.html#Configuration%27"><span class="hs-identifier hs-type">Configuration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367644"><span class="annot"><span class="annottext">Maybe Text
 classification :: Maybe Text
 $sel:classification:Configuration' :: Configuration -&gt; Maybe Text
-</span><a href="#local-6989586621679367635"><span class="hs-identifier hs-var hs-var">classification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367635"><span class="hs-identifier hs-var">classification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367634"><span class="annot"><span class="annottext">s :: Configuration
-</span><a href="#local-6989586621679367634"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.Configuration.html#Configuration%27"><span class="hs-identifier hs-type">Configuration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367633"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367633"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Configuration
-</span><a href="#local-6989586621679367634"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:classification:Configuration' :: Maybe Text
+</span><a href="#local-6989586621679367644"><span class="hs-identifier hs-var hs-var">classification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367644"><span class="hs-identifier hs-var">classification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367643"><span class="annot"><span class="annottext">s :: Configuration
+</span><a href="#local-6989586621679367643"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.Configuration.html#Configuration%27"><span class="hs-identifier hs-type">Configuration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367642"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367642"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Configuration
+</span><a href="#local-6989586621679367643"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:classification:Configuration' :: Maybe Text
 </span><a href="Network.AWS.EMR.Types.Configuration.html#%24sel%3Aclassification%3AConfiguration%27"><span class="hs-identifier hs-var">classification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367633"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679367642"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | A set of properties specified within a configuration classification.</span><span>
 </span><span id="line-82"></span><span class="annot"><a href="Network.AWS.EMR.Types.Configuration.html#configuration_properties"><span class="hs-identifier hs-type">configuration_properties</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
@@ -211,16 +211,16 @@ $sel:classification:Configuration' :: Configuration -&gt; Maybe Text
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.Configuration.html#Configuration%27"><span class="hs-identifier hs-type">Configuration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367631"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.Configuration.html#Configuration%27"><span class="hs-identifier hs-type">Configuration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367640"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 properties :: Maybe (HashMap Text Text)
 $sel:properties:Configuration' :: Configuration -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679367631"><span class="hs-identifier hs-var hs-var">properties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679367631"><span class="hs-identifier hs-var">properties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367630"><span class="annot"><span class="annottext">s :: Configuration
-</span><a href="#local-6989586621679367630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.Configuration.html#Configuration%27"><span class="hs-identifier hs-type">Configuration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367629"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679367629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Configuration
-</span><a href="#local-6989586621679367630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:properties:Configuration' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679367640"><span class="hs-identifier hs-var hs-var">properties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679367640"><span class="hs-identifier hs-var">properties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367639"><span class="annot"><span class="annottext">s :: Configuration
+</span><a href="#local-6989586621679367639"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.Configuration.html#Configuration%27"><span class="hs-identifier hs-type">Configuration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367638"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679367638"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Configuration
+</span><a href="#local-6989586621679367639"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:properties:Configuration' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.EMR.Types.Configuration.html#%24sel%3Aproperties%3AConfiguration%27"><span class="hs-identifier hs-var">properties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679367629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679367638"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; Configuration -&gt; f Configuration)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -249,8 +249,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367626"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679367624"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Configuration
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367635"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679367633"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Configuration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Configuration)
@@ -260,8 +260,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Configuration&quot;</span></span><span>
-</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679367621"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367621"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679367630"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367630"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Configuration]
 -&gt; Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; Configuration
 </span><a href="Network.AWS.EMR.Types.Configuration.html#Configuration%27"><span class="hs-identifier hs-var">Configuration'</span></a></span><span>
@@ -272,7 +272,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; Configuration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367621"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Configuration]))
+</span><a href="#local-6989586621679367630"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Configuration]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Configurations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Configuration]))
@@ -286,7 +286,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe (HashMap Text Text) -&gt; Configuration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367621"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679367630"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Classification&quot;</span></span><span class="hs-special">)</span><span>
@@ -294,7 +294,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe (HashMap Text Text)) -&gt; Parser Configuration
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367621"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679367630"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Properties&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
@@ -305,13 +305,13 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367614"><span id="local-6989586621679367616"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367623"><span id="local-6989586621679367625"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span></span></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367611"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367620"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span></span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367603"><span id="local-6989586621679367605"><span id="local-6989586621679367607"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679367601"><span class="annot"><span class="annottext">toJSON :: Configuration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.Configuration.html#Configuration%27"><span class="hs-identifier hs-type">Configuration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367597"><span id="local-6989586621679367598"><span id="local-6989586621679367599"><span class="annot"><span class="annottext">Maybe [Configuration]
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367612"><span id="local-6989586621679367614"><span id="local-6989586621679367616"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679367610"><span class="annot"><span class="annottext">toJSON :: Configuration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.Configuration.html#Configuration%27"><span class="hs-identifier hs-type">Configuration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367606"><span id="local-6989586621679367607"><span id="local-6989586621679367608"><span class="annot"><span class="annottext">Maybe [Configuration]
 Maybe Text
 Maybe (HashMap Text Text)
 properties :: Maybe (HashMap Text Text)
@@ -320,7 +320,7 @@ configurations :: Maybe [Configuration]
 $sel:properties:Configuration' :: Configuration -&gt; Maybe (HashMap Text Text)
 $sel:classification:Configuration' :: Configuration -&gt; Maybe Text
 $sel:configurations:Configuration' :: Configuration -&gt; Maybe [Configuration]
-</span><a href="#local-6989586621679367597"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679367606"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -333,7 +333,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-105"></span><span>              </span><span class="annot"><span class="annottext">([Configuration] -&gt; Pair) -&gt; Maybe [Configuration] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Configuration]
-</span><a href="#local-6989586621679367599"><span class="hs-identifier hs-var">configurations</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679367608"><span class="hs-identifier hs-var">configurations</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-106"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Classification&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -341,7 +341,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-107"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367598"><span class="hs-identifier hs-var">classification</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679367607"><span class="hs-identifier hs-var">classification</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-108"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Properties&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -349,7 +349,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679367597"><span class="hs-identifier hs-var">properties</span></a></span><span>
+</span><a href="#local-6989586621679367606"><span class="hs-identifier hs-var">properties</span></a></span><span>
 </span><span id="line-109"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span></pre></body></html>

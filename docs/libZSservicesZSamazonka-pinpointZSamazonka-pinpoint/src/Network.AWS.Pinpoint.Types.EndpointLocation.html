@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Specifies geographic information about an endpoint.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newEndpointLocation' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679596712"><span id="local-6989586621679596713"></span></span><span class="hs-keyword">data</span><span> </span><span id="EndpointLocation"><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation"><span class="hs-identifier hs-var">EndpointLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EndpointLocation%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation%27"><span class="hs-identifier hs-var">EndpointLocation'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679596721"><span id="local-6989586621679596722"></span></span><span class="hs-keyword">data</span><span> </span><span id="EndpointLocation"><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation"><span class="hs-identifier hs-var">EndpointLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EndpointLocation%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation%27"><span class="hs-identifier hs-var">EndpointLocation'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The postal or ZIP code for the area where the endpoint is located.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3ApostalCode%3AEndpointLocation%27"><span class="annot"><span class="annottext">EndpointLocation -&gt; Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#%24sel%3ApostalCode%3AEndpointLocation%27"><span class="hs-identifier hs-var hs-var">postalCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -51,7 +51,7 @@
 </span><span id="line-46"></span><span>    </span><span id="%24sel%3Alongitude%3AEndpointLocation%27"><span class="annot"><span class="annottext">EndpointLocation -&gt; Maybe Double
 </span><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#%24sel%3Alongitude%3AEndpointLocation%27"><span class="hs-identifier hs-var hs-var">longitude</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679596701"><span id="local-6989586621679596703"><span class="annot"><span class="annottext">EndpointLocation -&gt; EndpointLocation -&gt; Bool
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679596710"><span id="local-6989586621679596712"><span class="annot"><span class="annottext">EndpointLocation -&gt; EndpointLocation -&gt; Bool
 (EndpointLocation -&gt; EndpointLocation -&gt; Bool)
 -&gt; (EndpointLocation -&gt; EndpointLocation -&gt; Bool)
 -&gt; Eq EndpointLocation
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EndpointLocation -&gt; EndpointLocation -&gt; Bool
 == :: EndpointLocation -&gt; EndpointLocation -&gt; Bool
 $c== :: EndpointLocation -&gt; EndpointLocation -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679596692"><span id="local-6989586621679596694"><span id="local-6989586621679596696"><span id="local-6989586621679596698"><span class="annot"><span class="annottext">ReadPrec [EndpointLocation]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679596701"><span id="local-6989586621679596703"><span id="local-6989586621679596705"><span id="local-6989586621679596707"><span class="annot"><span class="annottext">ReadPrec [EndpointLocation]
 ReadPrec EndpointLocation
 Int -&gt; ReadS EndpointLocation
 ReadS [EndpointLocation]
@@ -80,7 +80,7 @@ readList :: ReadS [EndpointLocation]
 $creadList :: ReadS [EndpointLocation]
 readsPrec :: Int -&gt; ReadS EndpointLocation
 $creadsPrec :: Int -&gt; ReadS EndpointLocation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679596685"><span id="local-6989586621679596687"><span id="local-6989586621679596689"><span class="annot"><span class="annottext">Int -&gt; EndpointLocation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679596694"><span id="local-6989586621679596696"><span id="local-6989586621679596698"><span class="annot"><span class="annottext">Int -&gt; EndpointLocation -&gt; ShowS
 [EndpointLocation] -&gt; ShowS
 EndpointLocation -&gt; String
 (Int -&gt; EndpointLocation -&gt; ShowS)
@@ -176,16 +176,16 @@ forall a. Maybe a
 -&gt; (EndpointLocation -&gt; Maybe Text -&gt; EndpointLocation)
 -&gt; Lens EndpointLocation EndpointLocation (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation%27"><span class="hs-identifier hs-type">EndpointLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679596676"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation%27"><span class="hs-identifier hs-type">EndpointLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679596685"><span class="annot"><span class="annottext">Maybe Text
 postalCode :: Maybe Text
 $sel:postalCode:EndpointLocation' :: EndpointLocation -&gt; Maybe Text
-</span><a href="#local-6989586621679596676"><span class="hs-identifier hs-var hs-var">postalCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679596676"><span class="hs-identifier hs-var">postalCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679596675"><span class="annot"><span class="annottext">s :: EndpointLocation
-</span><a href="#local-6989586621679596675"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation%27"><span class="hs-identifier hs-type">EndpointLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679596674"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679596674"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointLocation
-</span><a href="#local-6989586621679596675"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:postalCode:EndpointLocation' :: Maybe Text
+</span><a href="#local-6989586621679596685"><span class="hs-identifier hs-var hs-var">postalCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679596685"><span class="hs-identifier hs-var">postalCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679596684"><span class="annot"><span class="annottext">s :: EndpointLocation
+</span><a href="#local-6989586621679596684"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation%27"><span class="hs-identifier hs-type">EndpointLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679596683"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679596683"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointLocation
+</span><a href="#local-6989586621679596684"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:postalCode:EndpointLocation' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#%24sel%3ApostalCode%3AEndpointLocation%27"><span class="hs-identifier hs-var">postalCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679596674"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation"><span class="hs-identifier hs-type">EndpointLocation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679596683"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation"><span class="hs-identifier hs-type">EndpointLocation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | The latitude coordinate of the endpoint location, rounded to one decimal</span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- place.</span><span>
@@ -197,16 +197,16 @@ $sel:postalCode:EndpointLocation' :: EndpointLocation -&gt; Maybe Text
 -&gt; Lens
      EndpointLocation EndpointLocation (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation%27"><span class="hs-identifier hs-type">EndpointLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679596672"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation%27"><span class="hs-identifier hs-type">EndpointLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679596681"><span class="annot"><span class="annottext">Maybe Double
 latitude :: Maybe Double
 $sel:latitude:EndpointLocation' :: EndpointLocation -&gt; Maybe Double
-</span><a href="#local-6989586621679596672"><span class="hs-identifier hs-var hs-var">latitude</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679596672"><span class="hs-identifier hs-var">latitude</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679596671"><span class="annot"><span class="annottext">s :: EndpointLocation
-</span><a href="#local-6989586621679596671"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation%27"><span class="hs-identifier hs-type">EndpointLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679596670"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679596670"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointLocation
-</span><a href="#local-6989586621679596671"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:latitude:EndpointLocation' :: Maybe Double
+</span><a href="#local-6989586621679596681"><span class="hs-identifier hs-var hs-var">latitude</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679596681"><span class="hs-identifier hs-var">latitude</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679596680"><span class="annot"><span class="annottext">s :: EndpointLocation
+</span><a href="#local-6989586621679596680"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation%27"><span class="hs-identifier hs-type">EndpointLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679596679"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679596679"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointLocation
+</span><a href="#local-6989586621679596680"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:latitude:EndpointLocation' :: Maybe Double
 </span><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#%24sel%3Alatitude%3AEndpointLocation%27"><span class="hs-identifier hs-var">latitude</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679596670"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation"><span class="hs-identifier hs-type">EndpointLocation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679596679"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation"><span class="hs-identifier hs-type">EndpointLocation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | The two-character code, in ISO 3166-1 alpha-2 format, for the country or</span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- region where the endpoint is located. For example, US for the United</span><span>
@@ -218,16 +218,16 @@ $sel:latitude:EndpointLocation' :: EndpointLocation -&gt; Maybe Double
 -&gt; (EndpointLocation -&gt; Maybe Text -&gt; EndpointLocation)
 -&gt; Lens EndpointLocation EndpointLocation (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation%27"><span class="hs-identifier hs-type">EndpointLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679596668"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation%27"><span class="hs-identifier hs-type">EndpointLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679596677"><span class="annot"><span class="annottext">Maybe Text
 country :: Maybe Text
 $sel:country:EndpointLocation' :: EndpointLocation -&gt; Maybe Text
-</span><a href="#local-6989586621679596668"><span class="hs-identifier hs-var hs-var">country</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679596668"><span class="hs-identifier hs-var">country</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679596667"><span class="annot"><span class="annottext">s :: EndpointLocation
-</span><a href="#local-6989586621679596667"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation%27"><span class="hs-identifier hs-type">EndpointLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679596666"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679596666"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointLocation
-</span><a href="#local-6989586621679596667"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:country:EndpointLocation' :: Maybe Text
+</span><a href="#local-6989586621679596677"><span class="hs-identifier hs-var hs-var">country</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679596677"><span class="hs-identifier hs-var">country</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679596676"><span class="annot"><span class="annottext">s :: EndpointLocation
+</span><a href="#local-6989586621679596676"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation%27"><span class="hs-identifier hs-type">EndpointLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679596675"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679596675"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointLocation
+</span><a href="#local-6989586621679596676"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:country:EndpointLocation' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#%24sel%3Acountry%3AEndpointLocation%27"><span class="hs-identifier hs-var">country</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679596666"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation"><span class="hs-identifier hs-type">EndpointLocation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679596675"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation"><span class="hs-identifier hs-type">EndpointLocation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | The name of the city where the endpoint is located.</span><span>
 </span><span id="line-102"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#endpointLocation_city"><span class="hs-identifier hs-type">endpointLocation_city</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation"><span class="hs-identifier hs-type">EndpointLocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -237,16 +237,16 @@ $sel:country:EndpointLocation' :: EndpointLocation -&gt; Maybe Text
 -&gt; (EndpointLocation -&gt; Maybe Text -&gt; EndpointLocation)
 -&gt; Lens EndpointLocation EndpointLocation (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation%27"><span class="hs-identifier hs-type">EndpointLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679596664"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation%27"><span class="hs-identifier hs-type">EndpointLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679596673"><span class="annot"><span class="annottext">Maybe Text
 city :: Maybe Text
 $sel:city:EndpointLocation' :: EndpointLocation -&gt; Maybe Text
-</span><a href="#local-6989586621679596664"><span class="hs-identifier hs-var hs-var">city</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679596664"><span class="hs-identifier hs-var">city</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679596663"><span class="annot"><span class="annottext">s :: EndpointLocation
-</span><a href="#local-6989586621679596663"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation%27"><span class="hs-identifier hs-type">EndpointLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679596662"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679596662"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointLocation
-</span><a href="#local-6989586621679596663"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:city:EndpointLocation' :: Maybe Text
+</span><a href="#local-6989586621679596673"><span class="hs-identifier hs-var hs-var">city</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679596673"><span class="hs-identifier hs-var">city</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679596672"><span class="annot"><span class="annottext">s :: EndpointLocation
+</span><a href="#local-6989586621679596672"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation%27"><span class="hs-identifier hs-type">EndpointLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679596671"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679596671"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointLocation
+</span><a href="#local-6989586621679596672"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:city:EndpointLocation' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#%24sel%3Acity%3AEndpointLocation%27"><span class="hs-identifier hs-var">city</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679596662"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation"><span class="hs-identifier hs-type">EndpointLocation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679596671"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation"><span class="hs-identifier hs-type">EndpointLocation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | The name of the region where the endpoint is located. For locations in</span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- the United States, this value is the name of a state.</span><span>
@@ -257,16 +257,16 @@ $sel:city:EndpointLocation' :: EndpointLocation -&gt; Maybe Text
 -&gt; (EndpointLocation -&gt; Maybe Text -&gt; EndpointLocation)
 -&gt; Lens EndpointLocation EndpointLocation (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation%27"><span class="hs-identifier hs-type">EndpointLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679596660"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation%27"><span class="hs-identifier hs-type">EndpointLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679596669"><span class="annot"><span class="annottext">Maybe Text
 region :: Maybe Text
 $sel:region:EndpointLocation' :: EndpointLocation -&gt; Maybe Text
-</span><a href="#local-6989586621679596660"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679596660"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679596659"><span class="annot"><span class="annottext">s :: EndpointLocation
-</span><a href="#local-6989586621679596659"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation%27"><span class="hs-identifier hs-type">EndpointLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679596658"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679596658"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointLocation
-</span><a href="#local-6989586621679596659"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:region:EndpointLocation' :: Maybe Text
+</span><a href="#local-6989586621679596669"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679596669"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679596668"><span class="annot"><span class="annottext">s :: EndpointLocation
+</span><a href="#local-6989586621679596668"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation%27"><span class="hs-identifier hs-type">EndpointLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679596667"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679596667"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointLocation
+</span><a href="#local-6989586621679596668"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:region:EndpointLocation' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#%24sel%3Aregion%3AEndpointLocation%27"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679596658"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation"><span class="hs-identifier hs-type">EndpointLocation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679596667"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation"><span class="hs-identifier hs-type">EndpointLocation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- | The longitude coordinate of the endpoint location, rounded to one</span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- decimal place.</span><span>
@@ -278,19 +278,19 @@ $sel:region:EndpointLocation' :: EndpointLocation -&gt; Maybe Text
 -&gt; Lens
      EndpointLocation EndpointLocation (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation%27"><span class="hs-identifier hs-type">EndpointLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679596656"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation%27"><span class="hs-identifier hs-type">EndpointLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679596665"><span class="annot"><span class="annottext">Maybe Double
 longitude :: Maybe Double
 $sel:longitude:EndpointLocation' :: EndpointLocation -&gt; Maybe Double
-</span><a href="#local-6989586621679596656"><span class="hs-identifier hs-var hs-var">longitude</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679596656"><span class="hs-identifier hs-var">longitude</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679596655"><span class="annot"><span class="annottext">s :: EndpointLocation
-</span><a href="#local-6989586621679596655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation%27"><span class="hs-identifier hs-type">EndpointLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679596654"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679596654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointLocation
-</span><a href="#local-6989586621679596655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:longitude:EndpointLocation' :: Maybe Double
+</span><a href="#local-6989586621679596665"><span class="hs-identifier hs-var hs-var">longitude</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679596665"><span class="hs-identifier hs-var">longitude</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679596664"><span class="annot"><span class="annottext">s :: EndpointLocation
+</span><a href="#local-6989586621679596664"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation%27"><span class="hs-identifier hs-type">EndpointLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679596663"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679596663"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointLocation
+</span><a href="#local-6989586621679596664"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:longitude:EndpointLocation' :: Maybe Double
 </span><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#%24sel%3Alongitude%3AEndpointLocation%27"><span class="hs-identifier hs-var">longitude</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679596654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation"><span class="hs-identifier hs-type">EndpointLocation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679596663"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation"><span class="hs-identifier hs-type">EndpointLocation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679596651"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation"><span class="hs-identifier hs-type">EndpointLocation</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679596649"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EndpointLocation
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679596660"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation"><span class="hs-identifier hs-type">EndpointLocation</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679596658"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EndpointLocation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser EndpointLocation)
@@ -300,8 +300,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EndpointLocation&quot;</span></span><span>
-</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679596646"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679596646"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679596655"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679596655"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Double
 -&gt; Maybe Text
@@ -327,7 +327,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; EndpointLocation)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679596646"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679596655"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PostalCode&quot;</span></span><span class="hs-special">)</span><span>
@@ -344,7 +344,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Double -&gt; EndpointLocation)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679596646"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679596655"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Latitude&quot;</span></span><span class="hs-special">)</span><span>
@@ -356,7 +356,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Text -&gt; Maybe Text -&gt; Maybe Double -&gt; EndpointLocation)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679596646"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679596655"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Country&quot;</span></span><span class="hs-special">)</span><span>
@@ -366,7 +366,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Double -&gt; EndpointLocation)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679596646"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679596655"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;City&quot;</span></span><span class="hs-special">)</span><span>
@@ -374,7 +374,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Double -&gt; EndpointLocation)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679596646"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679596655"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Region&quot;</span></span><span class="hs-special">)</span><span>
@@ -382,19 +382,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Double) -&gt; Parser EndpointLocation
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679596646"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679596655"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Longitude&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679596640"><span id="local-6989586621679596642"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation"><span class="hs-identifier hs-type">EndpointLocation</span></a></span></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679596649"><span id="local-6989586621679596651"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation"><span class="hs-identifier hs-type">EndpointLocation</span></a></span></span></span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679596637"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation"><span class="hs-identifier hs-type">EndpointLocation</span></a></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679596646"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation"><span class="hs-identifier hs-type">EndpointLocation</span></a></span></span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679596629"><span id="local-6989586621679596631"><span id="local-6989586621679596633"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation"><span class="hs-identifier hs-type">EndpointLocation</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679596627"><span class="annot"><span class="annottext">toJSON :: EndpointLocation -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation%27"><span class="hs-identifier hs-type">EndpointLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679596620"><span id="local-6989586621679596621"><span id="local-6989586621679596622"><span id="local-6989586621679596623"><span id="local-6989586621679596624"><span id="local-6989586621679596625"><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679596638"><span id="local-6989586621679596640"><span id="local-6989586621679596642"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation"><span class="hs-identifier hs-type">EndpointLocation</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679596636"><span class="annot"><span class="annottext">toJSON :: EndpointLocation -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointLocation.html#EndpointLocation%27"><span class="hs-identifier hs-type">EndpointLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679596629"><span id="local-6989586621679596630"><span id="local-6989586621679596631"><span id="local-6989586621679596632"><span id="local-6989586621679596633"><span id="local-6989586621679596634"><span class="annot"><span class="annottext">Maybe Double
 Maybe Text
 longitude :: Maybe Double
 region :: Maybe Text
@@ -408,7 +408,7 @@ $sel:city:EndpointLocation' :: EndpointLocation -&gt; Maybe Text
 $sel:country:EndpointLocation' :: EndpointLocation -&gt; Maybe Text
 $sel:latitude:EndpointLocation' :: EndpointLocation -&gt; Maybe Double
 $sel:postalCode:EndpointLocation' :: EndpointLocation -&gt; Maybe Text
-</span><a href="#local-6989586621679596620"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679596629"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -420,42 +420,42 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679596625"><span class="hs-identifier hs-var">postalCode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679596634"><span class="hs-identifier hs-var">postalCode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-138"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Latitude&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679596624"><span class="hs-identifier hs-var">latitude</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679596633"><span class="hs-identifier hs-var">latitude</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-139"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Country&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679596623"><span class="hs-identifier hs-var">country</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679596632"><span class="hs-identifier hs-var">country</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-140"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;City&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679596622"><span class="hs-identifier hs-var">city</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679596631"><span class="hs-identifier hs-var">city</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-141"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Region&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679596621"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679596630"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-142"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Longitude&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679596620"><span class="hs-identifier hs-var">longitude</span></a></span><span>
+</span><a href="#local-6989586621679596629"><span class="hs-identifier hs-var">longitude</span></a></span><span>
 </span><span id="line-143"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span></pre></body></html>

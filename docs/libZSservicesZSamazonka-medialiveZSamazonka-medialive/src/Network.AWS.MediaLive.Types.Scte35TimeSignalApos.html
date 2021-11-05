@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Scte35 Time Signal Apos</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newScte35TimeSignalApos' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679919184"><span id="local-6989586621679919185"></span></span><span class="hs-keyword">data</span><span> </span><span id="Scte35TimeSignalApos"><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35TimeSignalApos.html#Scte35TimeSignalApos"><span class="hs-identifier hs-var">Scte35TimeSignalApos</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Scte35TimeSignalApos%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35TimeSignalApos.html#Scte35TimeSignalApos%27"><span class="hs-identifier hs-var">Scte35TimeSignalApos'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679919193"><span id="local-6989586621679919194"></span></span><span class="hs-keyword">data</span><span> </span><span id="Scte35TimeSignalApos"><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35TimeSignalApos.html#Scte35TimeSignalApos"><span class="hs-identifier hs-var">Scte35TimeSignalApos</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Scte35TimeSignalApos%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35TimeSignalApos.html#Scte35TimeSignalApos%27"><span class="hs-identifier hs-var">Scte35TimeSignalApos'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- to 0 will no longer trigger blackouts or Ad Avail slates</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AwebDeliveryAllowedFlag%3AScte35TimeSignalApos%27"><span class="annot"><span class="annottext">Scte35TimeSignalApos -&gt; Maybe Scte35AposWebDeliveryAllowedBehavior
@@ -43,7 +43,7 @@
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3AnoRegionalBlackoutFlag%3AScte35TimeSignalApos%27"><span class="annot"><span class="annottext">Scte35TimeSignalApos -&gt; Maybe Scte35AposNoRegionalBlackoutBehavior
 </span><a href="Network.AWS.MediaLive.Types.Scte35TimeSignalApos.html#%24sel%3AnoRegionalBlackoutFlag%3AScte35TimeSignalApos%27"><span class="hs-identifier hs-var hs-var">noRegionalBlackoutFlag</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35AposNoRegionalBlackoutBehavior.html#Scte35AposNoRegionalBlackoutBehavior"><span class="hs-identifier hs-type">Scte35AposNoRegionalBlackoutBehavior</span></a></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679919176"><span id="local-6989586621679919178"><span class="annot"><span class="annottext">Scte35TimeSignalApos -&gt; Scte35TimeSignalApos -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679919185"><span id="local-6989586621679919187"><span class="annot"><span class="annottext">Scte35TimeSignalApos -&gt; Scte35TimeSignalApos -&gt; Bool
 (Scte35TimeSignalApos -&gt; Scte35TimeSignalApos -&gt; Bool)
 -&gt; (Scte35TimeSignalApos -&gt; Scte35TimeSignalApos -&gt; Bool)
 -&gt; Eq Scte35TimeSignalApos
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Scte35TimeSignalApos -&gt; Scte35TimeSignalApos -&gt; Bool
 == :: Scte35TimeSignalApos -&gt; Scte35TimeSignalApos -&gt; Bool
 $c== :: Scte35TimeSignalApos -&gt; Scte35TimeSignalApos -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679919167"><span id="local-6989586621679919169"><span id="local-6989586621679919171"><span id="local-6989586621679919173"><span class="annot"><span class="annottext">ReadPrec [Scte35TimeSignalApos]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679919176"><span id="local-6989586621679919178"><span id="local-6989586621679919180"><span id="local-6989586621679919182"><span class="annot"><span class="annottext">ReadPrec [Scte35TimeSignalApos]
 ReadPrec Scte35TimeSignalApos
 Int -&gt; ReadS Scte35TimeSignalApos
 ReadS [Scte35TimeSignalApos]
@@ -72,7 +72,7 @@ readList :: ReadS [Scte35TimeSignalApos]
 $creadList :: ReadS [Scte35TimeSignalApos]
 readsPrec :: Int -&gt; ReadS Scte35TimeSignalApos
 $creadsPrec :: Int -&gt; ReadS Scte35TimeSignalApos
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679919160"><span id="local-6989586621679919162"><span id="local-6989586621679919164"><span class="annot"><span class="annottext">Int -&gt; Scte35TimeSignalApos -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679919169"><span id="local-6989586621679919171"><span id="local-6989586621679919173"><span class="annot"><span class="annottext">Int -&gt; Scte35TimeSignalApos -&gt; ShowS
 [Scte35TimeSignalApos] -&gt; ShowS
 Scte35TimeSignalApos -&gt; String
 (Int -&gt; Scte35TimeSignalApos -&gt; ShowS)
@@ -156,16 +156,16 @@ forall a. Maybe a
      (Maybe Scte35AposWebDeliveryAllowedBehavior)
      (Maybe Scte35AposWebDeliveryAllowedBehavior)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35TimeSignalApos.html#Scte35TimeSignalApos%27"><span class="hs-identifier hs-type">Scte35TimeSignalApos'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679919151"><span class="annot"><span class="annottext">Maybe Scte35AposWebDeliveryAllowedBehavior
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35TimeSignalApos.html#Scte35TimeSignalApos%27"><span class="hs-identifier hs-type">Scte35TimeSignalApos'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679919160"><span class="annot"><span class="annottext">Maybe Scte35AposWebDeliveryAllowedBehavior
 webDeliveryAllowedFlag :: Maybe Scte35AposWebDeliveryAllowedBehavior
 $sel:webDeliveryAllowedFlag:Scte35TimeSignalApos' :: Scte35TimeSignalApos -&gt; Maybe Scte35AposWebDeliveryAllowedBehavior
-</span><a href="#local-6989586621679919151"><span class="hs-identifier hs-var hs-var">webDeliveryAllowedFlag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Scte35AposWebDeliveryAllowedBehavior
-</span><a href="#local-6989586621679919151"><span class="hs-identifier hs-var">webDeliveryAllowedFlag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679919150"><span class="annot"><span class="annottext">s :: Scte35TimeSignalApos
-</span><a href="#local-6989586621679919150"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35TimeSignalApos.html#Scte35TimeSignalApos%27"><span class="hs-identifier hs-type">Scte35TimeSignalApos'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679919149"><span class="annot"><span class="annottext">Maybe Scte35AposWebDeliveryAllowedBehavior
-</span><a href="#local-6989586621679919149"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scte35TimeSignalApos
-</span><a href="#local-6989586621679919150"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:webDeliveryAllowedFlag:Scte35TimeSignalApos' :: Maybe Scte35AposWebDeliveryAllowedBehavior
+</span><a href="#local-6989586621679919160"><span class="hs-identifier hs-var hs-var">webDeliveryAllowedFlag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Scte35AposWebDeliveryAllowedBehavior
+</span><a href="#local-6989586621679919160"><span class="hs-identifier hs-var">webDeliveryAllowedFlag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679919159"><span class="annot"><span class="annottext">s :: Scte35TimeSignalApos
+</span><a href="#local-6989586621679919159"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35TimeSignalApos.html#Scte35TimeSignalApos%27"><span class="hs-identifier hs-type">Scte35TimeSignalApos'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679919158"><span class="annot"><span class="annottext">Maybe Scte35AposWebDeliveryAllowedBehavior
+</span><a href="#local-6989586621679919158"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scte35TimeSignalApos
+</span><a href="#local-6989586621679919159"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:webDeliveryAllowedFlag:Scte35TimeSignalApos' :: Maybe Scte35AposWebDeliveryAllowedBehavior
 </span><a href="Network.AWS.MediaLive.Types.Scte35TimeSignalApos.html#%24sel%3AwebDeliveryAllowedFlag%3AScte35TimeSignalApos%27"><span class="hs-identifier hs-var">webDeliveryAllowedFlag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Scte35AposWebDeliveryAllowedBehavior
-</span><a href="#local-6989586621679919149"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35TimeSignalApos.html#Scte35TimeSignalApos"><span class="hs-identifier hs-type">Scte35TimeSignalApos</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679919158"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35TimeSignalApos.html#Scte35TimeSignalApos"><span class="hs-identifier hs-type">Scte35TimeSignalApos</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | When specified, this offset (in milliseconds) is added to the input Ad</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- Avail PTS time. This only applies to embedded SCTE 104\/35 messages and</span><span>
@@ -178,16 +178,16 @@ $sel:webDeliveryAllowedFlag:Scte35TimeSignalApos' :: Scte35TimeSignalApos -&gt; 
 -&gt; Lens
      Scte35TimeSignalApos Scte35TimeSignalApos (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35TimeSignalApos.html#Scte35TimeSignalApos%27"><span class="hs-identifier hs-type">Scte35TimeSignalApos'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679919147"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35TimeSignalApos.html#Scte35TimeSignalApos%27"><span class="hs-identifier hs-type">Scte35TimeSignalApos'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679919156"><span class="annot"><span class="annottext">Maybe Int
 adAvailOffset :: Maybe Int
 $sel:adAvailOffset:Scte35TimeSignalApos' :: Scte35TimeSignalApos -&gt; Maybe Int
-</span><a href="#local-6989586621679919147"><span class="hs-identifier hs-var hs-var">adAvailOffset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679919147"><span class="hs-identifier hs-var">adAvailOffset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679919146"><span class="annot"><span class="annottext">s :: Scte35TimeSignalApos
-</span><a href="#local-6989586621679919146"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35TimeSignalApos.html#Scte35TimeSignalApos%27"><span class="hs-identifier hs-type">Scte35TimeSignalApos'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679919145"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679919145"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scte35TimeSignalApos
-</span><a href="#local-6989586621679919146"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:adAvailOffset:Scte35TimeSignalApos' :: Maybe Int
+</span><a href="#local-6989586621679919156"><span class="hs-identifier hs-var hs-var">adAvailOffset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679919156"><span class="hs-identifier hs-var">adAvailOffset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679919155"><span class="annot"><span class="annottext">s :: Scte35TimeSignalApos
+</span><a href="#local-6989586621679919155"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35TimeSignalApos.html#Scte35TimeSignalApos%27"><span class="hs-identifier hs-type">Scte35TimeSignalApos'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679919154"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679919154"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scte35TimeSignalApos
+</span><a href="#local-6989586621679919155"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:adAvailOffset:Scte35TimeSignalApos' :: Maybe Int
 </span><a href="Network.AWS.MediaLive.Types.Scte35TimeSignalApos.html#%24sel%3AadAvailOffset%3AScte35TimeSignalApos%27"><span class="hs-identifier hs-var">adAvailOffset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679919145"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35TimeSignalApos.html#Scte35TimeSignalApos"><span class="hs-identifier hs-type">Scte35TimeSignalApos</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679919154"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35TimeSignalApos.html#Scte35TimeSignalApos"><span class="hs-identifier hs-type">Scte35TimeSignalApos</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | When set to ignore, Segment Descriptors with noRegionalBlackoutFlag set</span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- to 0 will no longer trigger blackouts or Ad Avail slates</span><span>
@@ -206,19 +206,19 @@ $sel:adAvailOffset:Scte35TimeSignalApos' :: Scte35TimeSignalApos -&gt; Maybe Int
      (Maybe Scte35AposNoRegionalBlackoutBehavior)
      (Maybe Scte35AposNoRegionalBlackoutBehavior)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35TimeSignalApos.html#Scte35TimeSignalApos%27"><span class="hs-identifier hs-type">Scte35TimeSignalApos'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679919143"><span class="annot"><span class="annottext">Maybe Scte35AposNoRegionalBlackoutBehavior
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35TimeSignalApos.html#Scte35TimeSignalApos%27"><span class="hs-identifier hs-type">Scte35TimeSignalApos'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679919152"><span class="annot"><span class="annottext">Maybe Scte35AposNoRegionalBlackoutBehavior
 noRegionalBlackoutFlag :: Maybe Scte35AposNoRegionalBlackoutBehavior
 $sel:noRegionalBlackoutFlag:Scte35TimeSignalApos' :: Scte35TimeSignalApos -&gt; Maybe Scte35AposNoRegionalBlackoutBehavior
-</span><a href="#local-6989586621679919143"><span class="hs-identifier hs-var hs-var">noRegionalBlackoutFlag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Scte35AposNoRegionalBlackoutBehavior
-</span><a href="#local-6989586621679919143"><span class="hs-identifier hs-var">noRegionalBlackoutFlag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679919142"><span class="annot"><span class="annottext">s :: Scte35TimeSignalApos
-</span><a href="#local-6989586621679919142"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35TimeSignalApos.html#Scte35TimeSignalApos%27"><span class="hs-identifier hs-type">Scte35TimeSignalApos'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679919141"><span class="annot"><span class="annottext">Maybe Scte35AposNoRegionalBlackoutBehavior
-</span><a href="#local-6989586621679919141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scte35TimeSignalApos
-</span><a href="#local-6989586621679919142"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:noRegionalBlackoutFlag:Scte35TimeSignalApos' :: Maybe Scte35AposNoRegionalBlackoutBehavior
+</span><a href="#local-6989586621679919152"><span class="hs-identifier hs-var hs-var">noRegionalBlackoutFlag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Scte35AposNoRegionalBlackoutBehavior
+</span><a href="#local-6989586621679919152"><span class="hs-identifier hs-var">noRegionalBlackoutFlag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679919151"><span class="annot"><span class="annottext">s :: Scte35TimeSignalApos
+</span><a href="#local-6989586621679919151"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35TimeSignalApos.html#Scte35TimeSignalApos%27"><span class="hs-identifier hs-type">Scte35TimeSignalApos'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679919150"><span class="annot"><span class="annottext">Maybe Scte35AposNoRegionalBlackoutBehavior
+</span><a href="#local-6989586621679919150"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scte35TimeSignalApos
+</span><a href="#local-6989586621679919151"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:noRegionalBlackoutFlag:Scte35TimeSignalApos' :: Maybe Scte35AposNoRegionalBlackoutBehavior
 </span><a href="Network.AWS.MediaLive.Types.Scte35TimeSignalApos.html#%24sel%3AnoRegionalBlackoutFlag%3AScte35TimeSignalApos%27"><span class="hs-identifier hs-var">noRegionalBlackoutFlag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Scte35AposNoRegionalBlackoutBehavior
-</span><a href="#local-6989586621679919141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35TimeSignalApos.html#Scte35TimeSignalApos"><span class="hs-identifier hs-type">Scte35TimeSignalApos</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679919150"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35TimeSignalApos.html#Scte35TimeSignalApos"><span class="hs-identifier hs-type">Scte35TimeSignalApos</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679919138"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35TimeSignalApos.html#Scte35TimeSignalApos"><span class="hs-identifier hs-type">Scte35TimeSignalApos</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679919136"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Scte35TimeSignalApos
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679919147"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35TimeSignalApos.html#Scte35TimeSignalApos"><span class="hs-identifier hs-type">Scte35TimeSignalApos</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679919145"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Scte35TimeSignalApos
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Scte35TimeSignalApos)
@@ -228,8 +228,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Scte35TimeSignalApos&quot;</span></span><span>
-</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679919133"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679919133"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679919142"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679919142"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">Maybe Scte35AposWebDeliveryAllowedBehavior
 -&gt; Maybe Int
 -&gt; Maybe Scte35AposNoRegionalBlackoutBehavior
@@ -246,7 +246,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Scte35TimeSignalApos)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679919133"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679919142"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe Scte35AposWebDeliveryAllowedBehavior)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -261,7 +261,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Scte35TimeSignalApos)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679919133"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679919142"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;adAvailOffset&quot;</span></span><span class="hs-special">)</span><span>
@@ -272,20 +272,20 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Scte35TimeSignalApos
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679919133"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679919142"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe Scte35AposNoRegionalBlackoutBehavior)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;noRegionalBlackoutFlag&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679919127"><span id="local-6989586621679919129"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35TimeSignalApos.html#Scte35TimeSignalApos"><span class="hs-identifier hs-type">Scte35TimeSignalApos</span></a></span></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679919136"><span id="local-6989586621679919138"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35TimeSignalApos.html#Scte35TimeSignalApos"><span class="hs-identifier hs-type">Scte35TimeSignalApos</span></a></span></span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679919124"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35TimeSignalApos.html#Scte35TimeSignalApos"><span class="hs-identifier hs-type">Scte35TimeSignalApos</span></a></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679919133"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35TimeSignalApos.html#Scte35TimeSignalApos"><span class="hs-identifier hs-type">Scte35TimeSignalApos</span></a></span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679919116"><span id="local-6989586621679919118"><span id="local-6989586621679919120"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35TimeSignalApos.html#Scte35TimeSignalApos"><span class="hs-identifier hs-type">Scte35TimeSignalApos</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679919114"><span class="annot"><span class="annottext">toJSON :: Scte35TimeSignalApos -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35TimeSignalApos.html#Scte35TimeSignalApos%27"><span class="hs-identifier hs-type">Scte35TimeSignalApos'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679919110"><span id="local-6989586621679919111"><span id="local-6989586621679919112"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679919125"><span id="local-6989586621679919127"><span id="local-6989586621679919129"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35TimeSignalApos.html#Scte35TimeSignalApos"><span class="hs-identifier hs-type">Scte35TimeSignalApos</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679919123"><span class="annot"><span class="annottext">toJSON :: Scte35TimeSignalApos -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35TimeSignalApos.html#Scte35TimeSignalApos%27"><span class="hs-identifier hs-type">Scte35TimeSignalApos'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679919119"><span id="local-6989586621679919120"><span id="local-6989586621679919121"><span class="annot"><span class="annottext">Maybe Int
 Maybe Scte35AposNoRegionalBlackoutBehavior
 Maybe Scte35AposWebDeliveryAllowedBehavior
 noRegionalBlackoutFlag :: Maybe Scte35AposNoRegionalBlackoutBehavior
@@ -294,7 +294,7 @@ webDeliveryAllowedFlag :: Maybe Scte35AposWebDeliveryAllowedBehavior
 $sel:noRegionalBlackoutFlag:Scte35TimeSignalApos' :: Scte35TimeSignalApos -&gt; Maybe Scte35AposNoRegionalBlackoutBehavior
 $sel:adAvailOffset:Scte35TimeSignalApos' :: Scte35TimeSignalApos -&gt; Maybe Int
 $sel:webDeliveryAllowedFlag:Scte35TimeSignalApos' :: Scte35TimeSignalApos -&gt; Maybe Scte35AposWebDeliveryAllowedBehavior
-</span><a href="#local-6989586621679919110"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679919119"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -308,14 +308,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe Scte35AposWebDeliveryAllowedBehavior -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Scte35AposWebDeliveryAllowedBehavior
-</span><a href="#local-6989586621679919112"><span class="hs-identifier hs-var">webDeliveryAllowedFlag</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679919121"><span class="hs-identifier hs-var">webDeliveryAllowedFlag</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;adAvailOffset&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679919111"><span class="hs-identifier hs-var">adAvailOffset</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679919120"><span class="hs-identifier hs-var">adAvailOffset</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-110"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;noRegionalBlackoutFlag&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Scte35AposNoRegionalBlackoutBehavior -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -324,7 +324,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe Scte35AposNoRegionalBlackoutBehavior -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Scte35AposNoRegionalBlackoutBehavior
-</span><a href="#local-6989586621679919110"><span class="hs-identifier hs-var">noRegionalBlackoutFlag</span></a></span><span>
+</span><a href="#local-6989586621679919119"><span class="hs-identifier hs-var">noRegionalBlackoutFlag</span></a></span><span>
 </span><span id="line-112"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span></pre></body></html>

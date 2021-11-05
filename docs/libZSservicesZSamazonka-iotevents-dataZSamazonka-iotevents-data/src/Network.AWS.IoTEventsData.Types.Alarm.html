@@ -1,0 +1,446 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoTEventsData.Types.Alarm</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTEventsData.Types.Alarm</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.AlarmState.html"><span class="hs-identifier">Network.AWS.IoTEventsData.Types.AlarmState</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Contains information about an alarm.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAlarm' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679184318"><span id="local-6989586621679184319"></span></span><span class="hs-keyword">data</span><span> </span><span id="Alarm"><span class="annot"><a href="Network.AWS.IoTEventsData.Types.Alarm.html#Alarm"><span class="hs-identifier hs-var">Alarm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Alarm%27"><span class="annot"><a href="Network.AWS.IoTEventsData.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-var">Alarm'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value of the key used as a filter to select only the alarms</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- associated with the</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iotevents/latest/apireference/API_CreateAlarmModel.html#iotevents-CreateAlarmModel-request-key key&gt;.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AkeyValue%3AAlarm%27"><span class="annot"><span class="annottext">Alarm -&gt; Maybe Text
+</span><a href="Network.AWS.IoTEventsData.Types.Alarm.html#%24sel%3AkeyValue%3AAlarm%27"><span class="hs-identifier hs-var hs-var">keyValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The time the alarm was created, in the Unix epoch format.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AcreationTime%3AAlarm%27"><span class="annot"><span class="annottext">Alarm -&gt; Maybe POSIX
+</span><a href="Network.AWS.IoTEventsData.Types.Alarm.html#%24sel%3AcreationTime%3AAlarm%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Contains information about the current state of the alarm.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AalarmState%3AAlarm%27"><span class="annot"><span class="annottext">Alarm -&gt; Maybe AlarmState
+</span><a href="Network.AWS.IoTEventsData.Types.Alarm.html#%24sel%3AalarmState%3AAlarm%27"><span class="hs-identifier hs-var hs-var">alarmState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#AlarmState"><span class="hs-identifier hs-type">AlarmState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The name of the alarm model.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AalarmModelName%3AAlarm%27"><span class="annot"><span class="annottext">Alarm -&gt; Maybe Text
+</span><a href="Network.AWS.IoTEventsData.Types.Alarm.html#%24sel%3AalarmModelName%3AAlarm%27"><span class="hs-identifier hs-var hs-var">alarmModelName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | A non-negative integer that reflects the severity level of the alarm.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Aseverity%3AAlarm%27"><span class="annot"><span class="annottext">Alarm -&gt; Maybe Natural
+</span><a href="Network.AWS.IoTEventsData.Types.Alarm.html#%24sel%3Aseverity%3AAlarm%27"><span class="hs-identifier hs-var hs-var">severity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The time the alarm was last updated, in the Unix epoch format.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AlastUpdateTime%3AAlarm%27"><span class="annot"><span class="annottext">Alarm -&gt; Maybe POSIX
+</span><a href="Network.AWS.IoTEventsData.Types.Alarm.html#%24sel%3AlastUpdateTime%3AAlarm%27"><span class="hs-identifier hs-var hs-var">lastUpdateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The version of the alarm model.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AalarmModelVersion%3AAlarm%27"><span class="annot"><span class="annottext">Alarm -&gt; Maybe Text
+</span><a href="Network.AWS.IoTEventsData.Types.Alarm.html#%24sel%3AalarmModelVersion%3AAlarm%27"><span class="hs-identifier hs-var hs-var">alarmModelVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679184306"><span id="local-6989586621679184308"><span class="annot"><span class="annottext">Alarm -&gt; Alarm -&gt; Bool
+(Alarm -&gt; Alarm -&gt; Bool) -&gt; (Alarm -&gt; Alarm -&gt; Bool) -&gt; Eq Alarm
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Alarm -&gt; Alarm -&gt; Bool
+$c/= :: Alarm -&gt; Alarm -&gt; Bool
+== :: Alarm -&gt; Alarm -&gt; Bool
+$c== :: Alarm -&gt; Alarm -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184297"><span id="local-6989586621679184299"><span id="local-6989586621679184301"><span id="local-6989586621679184303"><span class="annot"><span class="annottext">ReadPrec [Alarm]
+ReadPrec Alarm
+Int -&gt; ReadS Alarm
+ReadS [Alarm]
+(Int -&gt; ReadS Alarm)
+-&gt; ReadS [Alarm]
+-&gt; ReadPrec Alarm
+-&gt; ReadPrec [Alarm]
+-&gt; Read Alarm
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Alarm]
+$creadListPrec :: ReadPrec [Alarm]
+readPrec :: ReadPrec Alarm
+$creadPrec :: ReadPrec Alarm
+readList :: ReadS [Alarm]
+$creadList :: ReadS [Alarm]
+readsPrec :: Int -&gt; ReadS Alarm
+$creadsPrec :: Int -&gt; ReadS Alarm
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184290"><span id="local-6989586621679184292"><span id="local-6989586621679184294"><span class="annot"><span class="annottext">Int -&gt; Alarm -&gt; ShowS
+[Alarm] -&gt; ShowS
+Alarm -&gt; String
+(Int -&gt; Alarm -&gt; ShowS)
+-&gt; (Alarm -&gt; String) -&gt; ([Alarm] -&gt; ShowS) -&gt; Show Alarm
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Alarm] -&gt; ShowS
+$cshowList :: [Alarm] -&gt; ShowS
+show :: Alarm -&gt; String
+$cshow :: Alarm -&gt; String
+showsPrec :: Int -&gt; Alarm -&gt; ShowS
+$cshowsPrec :: Int -&gt; Alarm -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Alarm -&gt; Rep Alarm x)
+-&gt; (forall x. Rep Alarm x -&gt; Alarm) -&gt; Generic Alarm
+forall x. Rep Alarm x -&gt; Alarm
+forall x. Alarm -&gt; Rep Alarm x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Alarm x -&gt; Alarm
+$cfrom :: forall x. Alarm -&gt; Rep Alarm x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Create a value of 'Alarm' with all optional fields omitted.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'keyValue', 'alarm_keyValue' - The value of the key used as a filter to select only the alarms</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- associated with the</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iotevents/latest/apireference/API_CreateAlarmModel.html#iotevents-CreateAlarmModel-request-key key&gt;.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'creationTime', 'alarm_creationTime' - The time the alarm was created, in the Unix epoch format.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'alarmState', 'alarm_alarmState' - Contains information about the current state of the alarm.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'alarmModelName', 'alarm_alarmModelName' - The name of the alarm model.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'severity', 'alarm_severity' - A non-negative integer that reflects the severity level of the alarm.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'lastUpdateTime', 'alarm_lastUpdateTime' - The time the alarm was last updated, in the Unix epoch format.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'alarmModelVersion', 'alarm_alarmModelVersion' - The version of the alarm model.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.Alarm.html#newAlarm"><span class="hs-identifier hs-type">newAlarm</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span><span>
+</span><span id="line-75"></span><span id="newAlarm"><span class="annot"><span class="annottext">newAlarm :: Alarm
+</span><a href="Network.AWS.IoTEventsData.Types.Alarm.html#newAlarm"><span class="hs-identifier hs-var hs-var">newAlarm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">Alarm' :: Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe AlarmState
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Alarm
+</span><a href="Network.AWS.IoTEventsData.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-type">Alarm'</span></a></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:keyValue:Alarm' :: Maybe Text
+</span><a href="Network.AWS.IoTEventsData.Types.Alarm.html#%24sel%3AkeyValue%3AAlarm%27"><span class="hs-identifier hs-var">keyValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationTime:Alarm' :: Maybe POSIX
+</span><a href="Network.AWS.IoTEventsData.Types.Alarm.html#%24sel%3AcreationTime%3AAlarm%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:alarmState:Alarm' :: Maybe AlarmState
+</span><a href="Network.AWS.IoTEventsData.Types.Alarm.html#%24sel%3AalarmState%3AAlarm%27"><span class="hs-identifier hs-var">alarmState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AlarmState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:alarmModelName:Alarm' :: Maybe Text
+</span><a href="Network.AWS.IoTEventsData.Types.Alarm.html#%24sel%3AalarmModelName%3AAlarm%27"><span class="hs-identifier hs-var">alarmModelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:severity:Alarm' :: Maybe Natural
+</span><a href="Network.AWS.IoTEventsData.Types.Alarm.html#%24sel%3Aseverity%3AAlarm%27"><span class="hs-identifier hs-var">severity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdateTime:Alarm' :: Maybe POSIX
+</span><a href="Network.AWS.IoTEventsData.Types.Alarm.html#%24sel%3AlastUpdateTime%3AAlarm%27"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:alarmModelVersion:Alarm' :: Maybe Text
+</span><a href="Network.AWS.IoTEventsData.Types.Alarm.html#%24sel%3AalarmModelVersion%3AAlarm%27"><span class="hs-identifier hs-var">alarmModelVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The value of the key used as a filter to select only the alarms</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- associated with the</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iotevents/latest/apireference/API_CreateAlarmModel.html#iotevents-CreateAlarmModel-request-key key&gt;.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.Alarm.html#alarm_keyValue"><span class="hs-identifier hs-type">alarm_keyValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="alarm_keyValue"><span class="annot"><span class="annottext">alarm_keyValue :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Alarm -&gt; f Alarm
+</span><a href="Network.AWS.IoTEventsData.Types.Alarm.html#alarm_keyValue"><span class="hs-identifier hs-var hs-var">alarm_keyValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Alarm -&gt; Maybe Text)
+-&gt; (Alarm -&gt; Maybe Text -&gt; Alarm)
+-&gt; Lens Alarm Alarm (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-type">Alarm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184281"><span class="annot"><span class="annottext">Maybe Text
+keyValue :: Maybe Text
+$sel:keyValue:Alarm' :: Alarm -&gt; Maybe Text
+</span><a href="#local-6989586621679184281"><span class="hs-identifier hs-var hs-var">keyValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679184281"><span class="hs-identifier hs-var">keyValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184280"><span class="annot"><span class="annottext">s :: Alarm
+</span><a href="#local-6989586621679184280"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-type">Alarm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184279"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679184279"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Alarm
+</span><a href="#local-6989586621679184280"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyValue:Alarm' :: Maybe Text
+</span><a href="Network.AWS.IoTEventsData.Types.Alarm.html#%24sel%3AkeyValue%3AAlarm%27"><span class="hs-identifier hs-var">keyValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679184279"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The time the alarm was created, in the Unix epoch format.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.Alarm.html#alarm_creationTime"><span class="hs-identifier hs-type">alarm_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="alarm_creationTime"><span class="annot"><span class="annottext">alarm_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Alarm -&gt; f Alarm
+</span><a href="Network.AWS.IoTEventsData.Types.Alarm.html#alarm_creationTime"><span class="hs-identifier hs-var hs-var">alarm_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Alarm -&gt; Maybe POSIX)
+-&gt; (Alarm -&gt; Maybe POSIX -&gt; Alarm)
+-&gt; Lens Alarm Alarm (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-type">Alarm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184277"><span class="annot"><span class="annottext">Maybe POSIX
+creationTime :: Maybe POSIX
+$sel:creationTime:Alarm' :: Alarm -&gt; Maybe POSIX
+</span><a href="#local-6989586621679184277"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679184277"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184276"><span class="annot"><span class="annottext">s :: Alarm
+</span><a href="#local-6989586621679184276"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-type">Alarm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184275"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679184275"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Alarm
+</span><a href="#local-6989586621679184276"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:Alarm' :: Maybe POSIX
+</span><a href="Network.AWS.IoTEventsData.Types.Alarm.html#%24sel%3AcreationTime%3AAlarm%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679184275"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Alarm -&gt; f Alarm)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Alarm
+-&gt; f Alarm
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | Contains information about the current state of the alarm.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.Alarm.html#alarm_alarmState"><span class="hs-identifier hs-type">alarm_alarmState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.AlarmState.html#AlarmState"><span class="hs-identifier hs-type">AlarmState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="alarm_alarmState"><span class="annot"><span class="annottext">alarm_alarmState :: (Maybe AlarmState -&gt; f (Maybe AlarmState)) -&gt; Alarm -&gt; f Alarm
+</span><a href="Network.AWS.IoTEventsData.Types.Alarm.html#alarm_alarmState"><span class="hs-identifier hs-var hs-var">alarm_alarmState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Alarm -&gt; Maybe AlarmState)
+-&gt; (Alarm -&gt; Maybe AlarmState -&gt; Alarm)
+-&gt; Lens Alarm Alarm (Maybe AlarmState) (Maybe AlarmState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-type">Alarm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184270"><span class="annot"><span class="annottext">Maybe AlarmState
+alarmState :: Maybe AlarmState
+$sel:alarmState:Alarm' :: Alarm -&gt; Maybe AlarmState
+</span><a href="#local-6989586621679184270"><span class="hs-identifier hs-var hs-var">alarmState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AlarmState
+</span><a href="#local-6989586621679184270"><span class="hs-identifier hs-var">alarmState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184269"><span class="annot"><span class="annottext">s :: Alarm
+</span><a href="#local-6989586621679184269"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-type">Alarm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184268"><span class="annot"><span class="annottext">Maybe AlarmState
+</span><a href="#local-6989586621679184268"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Alarm
+</span><a href="#local-6989586621679184269"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alarmState:Alarm' :: Maybe AlarmState
+</span><a href="Network.AWS.IoTEventsData.Types.Alarm.html#%24sel%3AalarmState%3AAlarm%27"><span class="hs-identifier hs-var">alarmState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AlarmState
+</span><a href="#local-6989586621679184268"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The name of the alarm model.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.Alarm.html#alarm_alarmModelName"><span class="hs-identifier hs-type">alarm_alarmModelName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="alarm_alarmModelName"><span class="annot"><span class="annottext">alarm_alarmModelName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Alarm -&gt; f Alarm
+</span><a href="Network.AWS.IoTEventsData.Types.Alarm.html#alarm_alarmModelName"><span class="hs-identifier hs-var hs-var">alarm_alarmModelName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Alarm -&gt; Maybe Text)
+-&gt; (Alarm -&gt; Maybe Text -&gt; Alarm)
+-&gt; Lens Alarm Alarm (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-type">Alarm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184266"><span class="annot"><span class="annottext">Maybe Text
+alarmModelName :: Maybe Text
+$sel:alarmModelName:Alarm' :: Alarm -&gt; Maybe Text
+</span><a href="#local-6989586621679184266"><span class="hs-identifier hs-var hs-var">alarmModelName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679184266"><span class="hs-identifier hs-var">alarmModelName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184265"><span class="annot"><span class="annottext">s :: Alarm
+</span><a href="#local-6989586621679184265"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-type">Alarm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184264"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679184264"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Alarm
+</span><a href="#local-6989586621679184265"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alarmModelName:Alarm' :: Maybe Text
+</span><a href="Network.AWS.IoTEventsData.Types.Alarm.html#%24sel%3AalarmModelName%3AAlarm%27"><span class="hs-identifier hs-var">alarmModelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679184264"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | A non-negative integer that reflects the severity level of the alarm.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.Alarm.html#alarm_severity"><span class="hs-identifier hs-type">alarm_severity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="alarm_severity"><span class="annot"><span class="annottext">alarm_severity :: (Maybe Natural -&gt; f (Maybe Natural)) -&gt; Alarm -&gt; f Alarm
+</span><a href="Network.AWS.IoTEventsData.Types.Alarm.html#alarm_severity"><span class="hs-identifier hs-var hs-var">alarm_severity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Alarm -&gt; Maybe Natural)
+-&gt; (Alarm -&gt; Maybe Natural -&gt; Alarm)
+-&gt; Lens Alarm Alarm (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-type">Alarm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184262"><span class="annot"><span class="annottext">Maybe Natural
+severity :: Maybe Natural
+$sel:severity:Alarm' :: Alarm -&gt; Maybe Natural
+</span><a href="#local-6989586621679184262"><span class="hs-identifier hs-var hs-var">severity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679184262"><span class="hs-identifier hs-var">severity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184261"><span class="annot"><span class="annottext">s :: Alarm
+</span><a href="#local-6989586621679184261"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-type">Alarm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184260"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679184260"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Alarm
+</span><a href="#local-6989586621679184261"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:severity:Alarm' :: Maybe Natural
+</span><a href="Network.AWS.IoTEventsData.Types.Alarm.html#%24sel%3Aseverity%3AAlarm%27"><span class="hs-identifier hs-var">severity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679184260"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The time the alarm was last updated, in the Unix epoch format.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.Alarm.html#alarm_lastUpdateTime"><span class="hs-identifier hs-type">alarm_lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="alarm_lastUpdateTime"><span class="annot"><span class="annottext">alarm_lastUpdateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Alarm -&gt; f Alarm
+</span><a href="Network.AWS.IoTEventsData.Types.Alarm.html#alarm_lastUpdateTime"><span class="hs-identifier hs-var hs-var">alarm_lastUpdateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Alarm -&gt; Maybe POSIX)
+-&gt; (Alarm -&gt; Maybe POSIX -&gt; Alarm)
+-&gt; Lens Alarm Alarm (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-type">Alarm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184258"><span class="annot"><span class="annottext">Maybe POSIX
+lastUpdateTime :: Maybe POSIX
+$sel:lastUpdateTime:Alarm' :: Alarm -&gt; Maybe POSIX
+</span><a href="#local-6989586621679184258"><span class="hs-identifier hs-var hs-var">lastUpdateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679184258"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184257"><span class="annot"><span class="annottext">s :: Alarm
+</span><a href="#local-6989586621679184257"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-type">Alarm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184256"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679184256"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Alarm
+</span><a href="#local-6989586621679184257"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdateTime:Alarm' :: Maybe POSIX
+</span><a href="Network.AWS.IoTEventsData.Types.Alarm.html#%24sel%3AlastUpdateTime%3AAlarm%27"><span class="hs-identifier hs-var">lastUpdateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679184256"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Alarm -&gt; f Alarm)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Alarm
+-&gt; f Alarm
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The version of the alarm model.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.Alarm.html#alarm_alarmModelVersion"><span class="hs-identifier hs-type">alarm_alarmModelVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="alarm_alarmModelVersion"><span class="annot"><span class="annottext">alarm_alarmModelVersion :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Alarm -&gt; f Alarm
+</span><a href="Network.AWS.IoTEventsData.Types.Alarm.html#alarm_alarmModelVersion"><span class="hs-identifier hs-var hs-var">alarm_alarmModelVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Alarm -&gt; Maybe Text)
+-&gt; (Alarm -&gt; Maybe Text -&gt; Alarm)
+-&gt; Lens Alarm Alarm (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-type">Alarm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184254"><span class="annot"><span class="annottext">Maybe Text
+alarmModelVersion :: Maybe Text
+$sel:alarmModelVersion:Alarm' :: Alarm -&gt; Maybe Text
+</span><a href="#local-6989586621679184254"><span class="hs-identifier hs-var hs-var">alarmModelVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679184254"><span class="hs-identifier hs-var">alarmModelVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184253"><span class="annot"><span class="annottext">s :: Alarm
+</span><a href="#local-6989586621679184253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-type">Alarm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184252"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679184252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Alarm
+</span><a href="#local-6989586621679184253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alarmModelVersion:Alarm' :: Maybe Text
+</span><a href="Network.AWS.IoTEventsData.Types.Alarm.html#%24sel%3AalarmModelVersion%3AAlarm%27"><span class="hs-identifier hs-var">alarmModelVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679184252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184249"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679184247"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Alarm
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Alarm) -&gt; Value -&gt; Parser Alarm
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Alarm&quot;</span></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679184244"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679184244"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe AlarmState
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Alarm
+</span><a href="Network.AWS.IoTEventsData.Types.Alarm.html#Alarm%27"><span class="hs-identifier hs-var">Alarm'</span></a></span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe AlarmState
+ -&gt; Maybe Text
+ -&gt; Maybe Natural
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Alarm)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe AlarmState
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Alarm)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679184244"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;keyValue&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe AlarmState
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Alarm)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe AlarmState
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Alarm)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679184244"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;creationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AlarmState
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Alarm)
+-&gt; Parser (Maybe AlarmState)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Natural -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Alarm)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679184244"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AlarmState)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;alarmState&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Natural -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Alarm)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Natural -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Alarm)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679184244"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;alarmModelName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Alarm)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser (Maybe POSIX -&gt; Maybe Text -&gt; Alarm)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679184244"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;severity&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe Text -&gt; Alarm)
+-&gt; Parser (Maybe POSIX) -&gt; Parser (Maybe Text -&gt; Alarm)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679184244"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastUpdateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Alarm) -&gt; Parser (Maybe Text) -&gt; Parser Alarm
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679184244"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;alarmModelVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184238"><span id="local-6989586621679184240"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span></span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184235"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEventsData.Types.Alarm.html#Alarm"><span class="hs-identifier hs-type">Alarm</span></a></span></span><span>
+</span><span id="line-134"></span></pre></body></html>

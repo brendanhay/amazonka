@@ -35,13 +35,13 @@
 </span><span id="line-35"></span><span class="hs-comment">--</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- -   @Algorithm@ - Indicates the algorithm that was used for the</span><span>
 </span><span id="line-37"></span><span class="hs-comment">--     @MLModel@.</span><span>
-</span><span id="line-38"></span><span id="local-6989586621679250111"><span id="local-6989586621679250112"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DetailsAttributes"><span class="annot"><a href="Network.AWS.MachineLearning.Types.DetailsAttributes.html#DetailsAttributes"><span class="hs-identifier hs-var">DetailsAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetailsAttributes%27"><span class="annot"><a href="Network.AWS.MachineLearning.Types.DetailsAttributes.html#DetailsAttributes%27"><span class="hs-identifier hs-var">DetailsAttributes'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679250120"><span id="local-6989586621679250121"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DetailsAttributes"><span class="annot"><a href="Network.AWS.MachineLearning.Types.DetailsAttributes.html#DetailsAttributes"><span class="hs-identifier hs-var">DetailsAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetailsAttributes%27"><span class="annot"><a href="Network.AWS.MachineLearning.Types.DetailsAttributes.html#DetailsAttributes%27"><span class="hs-identifier hs-var">DetailsAttributes'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDetailsAttributes"><span class="annot"><span class="annottext">DetailsAttributes -&gt; Text
 </span><a href="Network.AWS.MachineLearning.Types.DetailsAttributes.html#fromDetailsAttributes"><span class="hs-identifier hs-var hs-var">fromDetailsAttributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679250103"><span id="local-6989586621679250105"><span id="local-6989586621679250107"><span class="annot"><span class="annottext">Int -&gt; DetailsAttributes -&gt; ShowS
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679250112"><span id="local-6989586621679250114"><span id="local-6989586621679250116"><span class="annot"><span class="annottext">Int -&gt; DetailsAttributes -&gt; ShowS
 [DetailsAttributes] -&gt; ShowS
 DetailsAttributes -&gt; String
 (Int -&gt; DetailsAttributes -&gt; ShowS)
@@ -57,7 +57,7 @@ $cshow :: DetailsAttributes -&gt; String
 showsPrec :: Int -&gt; DetailsAttributes -&gt; ShowS
 $cshowsPrec :: Int -&gt; DetailsAttributes -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679250094"><span id="local-6989586621679250096"><span id="local-6989586621679250098"><span id="local-6989586621679250100"><span class="annot"><span class="annottext">ReadPrec [DetailsAttributes]
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679250103"><span id="local-6989586621679250105"><span id="local-6989586621679250107"><span id="local-6989586621679250109"><span class="annot"><span class="annottext">ReadPrec [DetailsAttributes]
 ReadPrec DetailsAttributes
 Int -&gt; ReadS DetailsAttributes
 ReadS [DetailsAttributes]
@@ -78,7 +78,7 @@ $creadList :: ReadS [DetailsAttributes]
 readsPrec :: Int -&gt; ReadS DetailsAttributes
 $creadsPrec :: Int -&gt; ReadS DetailsAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679250089"><span id="local-6989586621679250091"><span class="annot"><span class="annottext">DetailsAttributes -&gt; DetailsAttributes -&gt; Bool
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679250098"><span id="local-6989586621679250100"><span class="annot"><span class="annottext">DetailsAttributes -&gt; DetailsAttributes -&gt; Bool
 (DetailsAttributes -&gt; DetailsAttributes -&gt; Bool)
 -&gt; (DetailsAttributes -&gt; DetailsAttributes -&gt; Bool)
 -&gt; Eq DetailsAttributes
@@ -88,7 +88,7 @@ $c/= :: DetailsAttributes -&gt; DetailsAttributes -&gt; Bool
 == :: DetailsAttributes -&gt; DetailsAttributes -&gt; Bool
 $c== :: DetailsAttributes -&gt; DetailsAttributes -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679250073"><span id="local-6989586621679250075"><span id="local-6989586621679250077"><span id="local-6989586621679250079"><span id="local-6989586621679250081"><span id="local-6989586621679250083"><span id="local-6989586621679250085"><span class="annot"><span class="annottext">Eq DetailsAttributes
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679250082"><span id="local-6989586621679250084"><span id="local-6989586621679250086"><span id="local-6989586621679250088"><span id="local-6989586621679250090"><span id="local-6989586621679250092"><span id="local-6989586621679250094"><span class="annot"><span class="annottext">Eq DetailsAttributes
 Eq DetailsAttributes
 -&gt; (DetailsAttributes -&gt; DetailsAttributes -&gt; Ordering)
 -&gt; (DetailsAttributes -&gt; DetailsAttributes -&gt; Bool)
@@ -139,7 +139,7 @@ $cfrom :: forall x. DetailsAttributes -&gt; Rep DetailsAttributes x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679250065"><span id="local-6989586621679250067"><span class="annot"><span class="annottext">Int -&gt; DetailsAttributes -&gt; Int
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679250074"><span id="local-6989586621679250076"><span class="annot"><span class="annottext">Int -&gt; DetailsAttributes -&gt; Int
 DetailsAttributes -&gt; Int
 (Int -&gt; DetailsAttributes -&gt; Int)
 -&gt; (DetailsAttributes -&gt; Int) -&gt; Hashable DetailsAttributes
@@ -149,51 +149,51 @@ $chash :: DetailsAttributes -&gt; Int
 hashWithSalt :: Int -&gt; DetailsAttributes -&gt; Int
 $chashWithSalt :: Int -&gt; DetailsAttributes -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679250062"><span class="annot"><span class="annottext">DetailsAttributes -&gt; ()
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679250071"><span class="annot"><span class="annottext">DetailsAttributes -&gt; ()
 (DetailsAttributes -&gt; ()) -&gt; NFData DetailsAttributes
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DetailsAttributes -&gt; ()
 $crnf :: DetailsAttributes -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679250059"><span class="annot"><span class="annottext">Text -&gt; Either String DetailsAttributes
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679250068"><span class="annot"><span class="annottext">Text -&gt; Either String DetailsAttributes
 (Text -&gt; Either String DetailsAttributes)
 -&gt; FromText DetailsAttributes
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DetailsAttributes
 $cfromText :: Text -&gt; Either String DetailsAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679250056"><span class="annot"><span class="annottext">DetailsAttributes -&gt; Text
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679250065"><span class="annot"><span class="annottext">DetailsAttributes -&gt; Text
 (DetailsAttributes -&gt; Text) -&gt; ToText DetailsAttributes
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DetailsAttributes -&gt; Text
 $ctoText :: DetailsAttributes -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679250053"><span class="annot"><span class="annottext">DetailsAttributes -&gt; ByteString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679250062"><span class="annot"><span class="annottext">DetailsAttributes -&gt; ByteString
 (DetailsAttributes -&gt; ByteString) -&gt; ToByteString DetailsAttributes
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DetailsAttributes -&gt; ByteString
 $ctoBS :: DetailsAttributes -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679250050"><span class="annot"><span class="annottext">DetailsAttributes -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679250059"><span class="annot"><span class="annottext">DetailsAttributes -&gt; ByteStringBuilder
 (DetailsAttributes -&gt; ByteStringBuilder) -&gt; ToLog DetailsAttributes
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DetailsAttributes -&gt; ByteStringBuilder
 $cbuild :: DetailsAttributes -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679250047"><span class="annot"><span class="annottext">HeaderName -&gt; DetailsAttributes -&gt; [Header]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679250056"><span class="annot"><span class="annottext">HeaderName -&gt; DetailsAttributes -&gt; [Header]
 (HeaderName -&gt; DetailsAttributes -&gt; [Header])
 -&gt; ToHeader DetailsAttributes
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DetailsAttributes -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DetailsAttributes -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679250044"><span class="annot"><span class="annottext">DetailsAttributes -&gt; QueryString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679250053"><span class="annot"><span class="annottext">DetailsAttributes -&gt; QueryString
 (DetailsAttributes -&gt; QueryString) -&gt; ToQuery DetailsAttributes
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DetailsAttributes -&gt; QueryString
 $ctoQuery :: DetailsAttributes -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679250039"><span id="local-6989586621679250041"><span class="annot"><span class="annottext">Value -&gt; Parser [DetailsAttributes]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679250048"><span id="local-6989586621679250050"><span class="annot"><span class="annottext">Value -&gt; Parser [DetailsAttributes]
 Value -&gt; Parser DetailsAttributes
 (Value -&gt; Parser DetailsAttributes)
 -&gt; (Value -&gt; Parser [DetailsAttributes])
@@ -205,7 +205,7 @@ $cparseJSONList :: Value -&gt; Parser [DetailsAttributes]
 parseJSON :: Value -&gt; Parser DetailsAttributes
 $cparseJSON :: Value -&gt; Parser DetailsAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679250034"><span id="local-6989586621679250036"><span class="annot"><span class="annottext">FromJSONKeyFunction [DetailsAttributes]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679250043"><span id="local-6989586621679250045"><span class="annot"><span class="annottext">FromJSONKeyFunction [DetailsAttributes]
 FromJSONKeyFunction DetailsAttributes
 FromJSONKeyFunction DetailsAttributes
 -&gt; FromJSONKeyFunction [DetailsAttributes]
@@ -217,7 +217,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DetailsAttributes]
 fromJSONKey :: FromJSONKeyFunction DetailsAttributes
 $cfromJSONKey :: FromJSONKeyFunction DetailsAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679250025"><span id="local-6989586621679250027"><span id="local-6989586621679250029"><span id="local-6989586621679250031"><span class="annot"><span class="annottext">[DetailsAttributes] -&gt; Encoding
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679250034"><span id="local-6989586621679250036"><span id="local-6989586621679250038"><span id="local-6989586621679250040"><span class="annot"><span class="annottext">[DetailsAttributes] -&gt; Encoding
 [DetailsAttributes] -&gt; Value
 DetailsAttributes -&gt; Encoding
 DetailsAttributes -&gt; Value
@@ -241,7 +241,7 @@ $ctoEncoding :: DetailsAttributes -&gt; Encoding
 toJSON :: DetailsAttributes -&gt; Value
 $ctoJSON :: DetailsAttributes -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679250020"><span id="local-6989586621679250022"><span class="annot"><span class="annottext">ToJSONKeyFunction [DetailsAttributes]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679250029"><span id="local-6989586621679250031"><span class="annot"><span class="annottext">ToJSONKeyFunction [DetailsAttributes]
 ToJSONKeyFunction DetailsAttributes
 ToJSONKeyFunction DetailsAttributes
 -&gt; ToJSONKeyFunction [DetailsAttributes]
@@ -253,14 +253,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DetailsAttributes]
 toJSONKey :: ToJSONKeyFunction DetailsAttributes
 $ctoJSONKey :: ToJSONKeyFunction DetailsAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679250017"><span class="annot"><span class="annottext">[Node] -&gt; Either String DetailsAttributes
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679250026"><span class="annot"><span class="annottext">[Node] -&gt; Either String DetailsAttributes
 ([Node] -&gt; Either String DetailsAttributes)
 -&gt; FromXML DetailsAttributes
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DetailsAttributes
 $cparseXML :: [Node] -&gt; Either String DetailsAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679250014"><span class="annot"><span class="annottext">DetailsAttributes -&gt; XML
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679250023"><span class="annot"><span class="annottext">DetailsAttributes -&gt; XML
 (DetailsAttributes -&gt; XML) -&gt; ToXML DetailsAttributes
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DetailsAttributes -&gt; XML

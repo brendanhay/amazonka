@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621680294642"><span id="local-6989586621680294643"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AutoMLSortBy"><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLSortBy.html#AutoMLSortBy"><span class="hs-identifier hs-var">AutoMLSortBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoMLSortBy%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLSortBy.html#AutoMLSortBy%27"><span class="hs-identifier hs-var">AutoMLSortBy'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621680294651"><span id="local-6989586621680294652"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AutoMLSortBy"><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLSortBy.html#AutoMLSortBy"><span class="hs-identifier hs-var">AutoMLSortBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoMLSortBy%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLSortBy.html#AutoMLSortBy%27"><span class="hs-identifier hs-var">AutoMLSortBy'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAutoMLSortBy"><span class="annot"><span class="annottext">AutoMLSortBy -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.AutoMLSortBy.html#fromAutoMLSortBy"><span class="hs-identifier hs-var hs-var">fromAutoMLSortBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680294634"><span id="local-6989586621680294636"><span id="local-6989586621680294638"><span class="annot"><span class="annottext">Int -&gt; AutoMLSortBy -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680294643"><span id="local-6989586621680294645"><span id="local-6989586621680294647"><span class="annot"><span class="annottext">Int -&gt; AutoMLSortBy -&gt; ShowS
 [AutoMLSortBy] -&gt; ShowS
 AutoMLSortBy -&gt; String
 (Int -&gt; AutoMLSortBy -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: AutoMLSortBy -&gt; String
 showsPrec :: Int -&gt; AutoMLSortBy -&gt; ShowS
 $cshowsPrec :: Int -&gt; AutoMLSortBy -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621680294625"><span id="local-6989586621680294627"><span id="local-6989586621680294629"><span id="local-6989586621680294631"><span class="annot"><span class="annottext">ReadPrec [AutoMLSortBy]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680294634"><span id="local-6989586621680294636"><span id="local-6989586621680294638"><span id="local-6989586621680294640"><span class="annot"><span class="annottext">ReadPrec [AutoMLSortBy]
 ReadPrec AutoMLSortBy
 Int -&gt; ReadS AutoMLSortBy
 ReadS [AutoMLSortBy]
@@ -73,7 +73,7 @@ $creadList :: ReadS [AutoMLSortBy]
 readsPrec :: Int -&gt; ReadS AutoMLSortBy
 $creadsPrec :: Int -&gt; ReadS AutoMLSortBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621680294620"><span id="local-6989586621680294622"><span class="annot"><span class="annottext">AutoMLSortBy -&gt; AutoMLSortBy -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680294629"><span id="local-6989586621680294631"><span class="annot"><span class="annottext">AutoMLSortBy -&gt; AutoMLSortBy -&gt; Bool
 (AutoMLSortBy -&gt; AutoMLSortBy -&gt; Bool)
 -&gt; (AutoMLSortBy -&gt; AutoMLSortBy -&gt; Bool) -&gt; Eq AutoMLSortBy
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: AutoMLSortBy -&gt; AutoMLSortBy -&gt; Bool
 == :: AutoMLSortBy -&gt; AutoMLSortBy -&gt; Bool
 $c== :: AutoMLSortBy -&gt; AutoMLSortBy -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621680294604"><span id="local-6989586621680294606"><span id="local-6989586621680294608"><span id="local-6989586621680294610"><span id="local-6989586621680294612"><span id="local-6989586621680294614"><span id="local-6989586621680294616"><span class="annot"><span class="annottext">Eq AutoMLSortBy
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621680294613"><span id="local-6989586621680294615"><span id="local-6989586621680294617"><span id="local-6989586621680294619"><span id="local-6989586621680294621"><span id="local-6989586621680294623"><span id="local-6989586621680294625"><span class="annot"><span class="annottext">Eq AutoMLSortBy
 Eq AutoMLSortBy
 -&gt; (AutoMLSortBy -&gt; AutoMLSortBy -&gt; Ordering)
 -&gt; (AutoMLSortBy -&gt; AutoMLSortBy -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. AutoMLSortBy -&gt; Rep AutoMLSortBy x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680294596"><span id="local-6989586621680294598"><span class="annot"><span class="annottext">Int -&gt; AutoMLSortBy -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680294605"><span id="local-6989586621680294607"><span class="annot"><span class="annottext">Int -&gt; AutoMLSortBy -&gt; Int
 AutoMLSortBy -&gt; Int
 (Int -&gt; AutoMLSortBy -&gt; Int)
 -&gt; (AutoMLSortBy -&gt; Int) -&gt; Hashable AutoMLSortBy
@@ -143,49 +143,49 @@ $chash :: AutoMLSortBy -&gt; Int
 hashWithSalt :: Int -&gt; AutoMLSortBy -&gt; Int
 $chashWithSalt :: Int -&gt; AutoMLSortBy -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680294593"><span class="annot"><span class="annottext">AutoMLSortBy -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680294602"><span class="annot"><span class="annottext">AutoMLSortBy -&gt; ()
 (AutoMLSortBy -&gt; ()) -&gt; NFData AutoMLSortBy
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AutoMLSortBy -&gt; ()
 $crnf :: AutoMLSortBy -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680294590"><span class="annot"><span class="annottext">Text -&gt; Either String AutoMLSortBy
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680294599"><span class="annot"><span class="annottext">Text -&gt; Either String AutoMLSortBy
 (Text -&gt; Either String AutoMLSortBy) -&gt; FromText AutoMLSortBy
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AutoMLSortBy
 $cfromText :: Text -&gt; Either String AutoMLSortBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680294587"><span class="annot"><span class="annottext">AutoMLSortBy -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680294596"><span class="annot"><span class="annottext">AutoMLSortBy -&gt; Text
 (AutoMLSortBy -&gt; Text) -&gt; ToText AutoMLSortBy
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AutoMLSortBy -&gt; Text
 $ctoText :: AutoMLSortBy -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680294584"><span class="annot"><span class="annottext">AutoMLSortBy -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680294593"><span class="annot"><span class="annottext">AutoMLSortBy -&gt; ByteString
 (AutoMLSortBy -&gt; ByteString) -&gt; ToByteString AutoMLSortBy
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AutoMLSortBy -&gt; ByteString
 $ctoBS :: AutoMLSortBy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680294581"><span class="annot"><span class="annottext">AutoMLSortBy -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680294590"><span class="annot"><span class="annottext">AutoMLSortBy -&gt; ByteStringBuilder
 (AutoMLSortBy -&gt; ByteStringBuilder) -&gt; ToLog AutoMLSortBy
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AutoMLSortBy -&gt; ByteStringBuilder
 $cbuild :: AutoMLSortBy -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680294578"><span class="annot"><span class="annottext">HeaderName -&gt; AutoMLSortBy -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680294587"><span class="annot"><span class="annottext">HeaderName -&gt; AutoMLSortBy -&gt; [Header]
 (HeaderName -&gt; AutoMLSortBy -&gt; [Header]) -&gt; ToHeader AutoMLSortBy
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AutoMLSortBy -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AutoMLSortBy -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680294575"><span class="annot"><span class="annottext">AutoMLSortBy -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680294584"><span class="annot"><span class="annottext">AutoMLSortBy -&gt; QueryString
 (AutoMLSortBy -&gt; QueryString) -&gt; ToQuery AutoMLSortBy
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AutoMLSortBy -&gt; QueryString
 $ctoQuery :: AutoMLSortBy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680294570"><span id="local-6989586621680294572"><span class="annot"><span class="annottext">Value -&gt; Parser [AutoMLSortBy]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680294579"><span id="local-6989586621680294581"><span class="annot"><span class="annottext">Value -&gt; Parser [AutoMLSortBy]
 Value -&gt; Parser AutoMLSortBy
 (Value -&gt; Parser AutoMLSortBy)
 -&gt; (Value -&gt; Parser [AutoMLSortBy]) -&gt; FromJSON AutoMLSortBy
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [AutoMLSortBy]
 parseJSON :: Value -&gt; Parser AutoMLSortBy
 $cparseJSON :: Value -&gt; Parser AutoMLSortBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680294565"><span id="local-6989586621680294567"><span class="annot"><span class="annottext">FromJSONKeyFunction [AutoMLSortBy]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680294574"><span id="local-6989586621680294576"><span class="annot"><span class="annottext">FromJSONKeyFunction [AutoMLSortBy]
 FromJSONKeyFunction AutoMLSortBy
 FromJSONKeyFunction AutoMLSortBy
 -&gt; FromJSONKeyFunction [AutoMLSortBy] -&gt; FromJSONKey AutoMLSortBy
@@ -207,7 +207,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AutoMLSortBy]
 fromJSONKey :: FromJSONKeyFunction AutoMLSortBy
 $cfromJSONKey :: FromJSONKeyFunction AutoMLSortBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680294556"><span id="local-6989586621680294558"><span id="local-6989586621680294560"><span id="local-6989586621680294562"><span class="annot"><span class="annottext">[AutoMLSortBy] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680294565"><span id="local-6989586621680294567"><span id="local-6989586621680294569"><span id="local-6989586621680294571"><span class="annot"><span class="annottext">[AutoMLSortBy] -&gt; Encoding
 [AutoMLSortBy] -&gt; Value
 AutoMLSortBy -&gt; Encoding
 AutoMLSortBy -&gt; Value
@@ -231,7 +231,7 @@ $ctoEncoding :: AutoMLSortBy -&gt; Encoding
 toJSON :: AutoMLSortBy -&gt; Value
 $ctoJSON :: AutoMLSortBy -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680294551"><span id="local-6989586621680294553"><span class="annot"><span class="annottext">ToJSONKeyFunction [AutoMLSortBy]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680294560"><span id="local-6989586621680294562"><span class="annot"><span class="annottext">ToJSONKeyFunction [AutoMLSortBy]
 ToJSONKeyFunction AutoMLSortBy
 ToJSONKeyFunction AutoMLSortBy
 -&gt; ToJSONKeyFunction [AutoMLSortBy] -&gt; ToJSONKey AutoMLSortBy
@@ -242,13 +242,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AutoMLSortBy]
 toJSONKey :: ToJSONKeyFunction AutoMLSortBy
 $ctoJSONKey :: ToJSONKeyFunction AutoMLSortBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680294548"><span class="annot"><span class="annottext">[Node] -&gt; Either String AutoMLSortBy
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680294557"><span class="annot"><span class="annottext">[Node] -&gt; Either String AutoMLSortBy
 ([Node] -&gt; Either String AutoMLSortBy) -&gt; FromXML AutoMLSortBy
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AutoMLSortBy
 $cparseXML :: [Node] -&gt; Either String AutoMLSortBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680294545"><span class="annot"><span class="annottext">AutoMLSortBy -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680294554"><span class="annot"><span class="annottext">AutoMLSortBy -&gt; XML
 (AutoMLSortBy -&gt; XML) -&gt; ToXML AutoMLSortBy
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AutoMLSortBy -&gt; XML

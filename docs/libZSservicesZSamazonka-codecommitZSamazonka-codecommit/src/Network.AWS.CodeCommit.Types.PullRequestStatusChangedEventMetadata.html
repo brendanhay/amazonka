@@ -27,13 +27,13 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Information about a change to the status of a pull request.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newPullRequestStatusChangedEventMetadata' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679352323"><span id="local-6989586621679352324"></span></span><span class="hs-keyword">data</span><span> </span><span id="PullRequestStatusChangedEventMetadata"><span class="annot"><a href="Network.AWS.CodeCommit.Types.PullRequestStatusChangedEventMetadata.html#PullRequestStatusChangedEventMetadata"><span class="hs-identifier hs-var">PullRequestStatusChangedEventMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PullRequestStatusChangedEventMetadata%27"><span class="annot"><a href="Network.AWS.CodeCommit.Types.PullRequestStatusChangedEventMetadata.html#PullRequestStatusChangedEventMetadata%27"><span class="hs-identifier hs-var">PullRequestStatusChangedEventMetadata'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679352332"><span id="local-6989586621679352333"></span></span><span class="hs-keyword">data</span><span> </span><span id="PullRequestStatusChangedEventMetadata"><span class="annot"><a href="Network.AWS.CodeCommit.Types.PullRequestStatusChangedEventMetadata.html#PullRequestStatusChangedEventMetadata"><span class="hs-identifier hs-var">PullRequestStatusChangedEventMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PullRequestStatusChangedEventMetadata%27"><span class="annot"><a href="Network.AWS.CodeCommit.Types.PullRequestStatusChangedEventMetadata.html#PullRequestStatusChangedEventMetadata%27"><span class="hs-identifier hs-var">PullRequestStatusChangedEventMetadata'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The changed status of the pull request.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3ApullRequestStatus%3APullRequestStatusChangedEventMetadata%27"><span class="annot"><span class="annottext">PullRequestStatusChangedEventMetadata
 -&gt; Maybe PullRequestStatusEnum
 </span><a href="Network.AWS.CodeCommit.Types.PullRequestStatusChangedEventMetadata.html#%24sel%3ApullRequestStatus%3APullRequestStatusChangedEventMetadata%27"><span class="hs-identifier hs-var hs-var">pullRequestStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.PullRequestStatusEnum.html#PullRequestStatusEnum"><span class="hs-identifier hs-type">PullRequestStatusEnum</span></a></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679352317"><span id="local-6989586621679352319"><span class="annot"><span class="annottext">PullRequestStatusChangedEventMetadata
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679352326"><span id="local-6989586621679352328"><span class="annot"><span class="annottext">PullRequestStatusChangedEventMetadata
 -&gt; PullRequestStatusChangedEventMetadata -&gt; Bool
 (PullRequestStatusChangedEventMetadata
  -&gt; PullRequestStatusChangedEventMetadata -&gt; Bool)
@@ -49,7 +49,7 @@ $c/= :: PullRequestStatusChangedEventMetadata
 -&gt; PullRequestStatusChangedEventMetadata -&gt; Bool
 $c== :: PullRequestStatusChangedEventMetadata
 -&gt; PullRequestStatusChangedEventMetadata -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679352308"><span id="local-6989586621679352310"><span id="local-6989586621679352312"><span id="local-6989586621679352314"><span class="annot"><span class="annottext">ReadPrec [PullRequestStatusChangedEventMetadata]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679352317"><span id="local-6989586621679352319"><span id="local-6989586621679352321"><span id="local-6989586621679352323"><span class="annot"><span class="annottext">ReadPrec [PullRequestStatusChangedEventMetadata]
 ReadPrec PullRequestStatusChangedEventMetadata
 Int -&gt; ReadS PullRequestStatusChangedEventMetadata
 ReadS [PullRequestStatusChangedEventMetadata]
@@ -69,7 +69,7 @@ readList :: ReadS [PullRequestStatusChangedEventMetadata]
 $creadList :: ReadS [PullRequestStatusChangedEventMetadata]
 readsPrec :: Int -&gt; ReadS PullRequestStatusChangedEventMetadata
 $creadsPrec :: Int -&gt; ReadS PullRequestStatusChangedEventMetadata
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679352301"><span id="local-6989586621679352303"><span id="local-6989586621679352305"><span class="annot"><span class="annottext">Int -&gt; PullRequestStatusChangedEventMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679352310"><span id="local-6989586621679352312"><span id="local-6989586621679352314"><span class="annot"><span class="annottext">Int -&gt; PullRequestStatusChangedEventMetadata -&gt; ShowS
 [PullRequestStatusChangedEventMetadata] -&gt; ShowS
 PullRequestStatusChangedEventMetadata -&gt; String
 (Int -&gt; PullRequestStatusChangedEventMetadata -&gt; ShowS)
@@ -146,23 +146,23 @@ forall a. Maybe a
      (Maybe PullRequestStatusEnum)
      (Maybe PullRequestStatusEnum)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.PullRequestStatusChangedEventMetadata.html#PullRequestStatusChangedEventMetadata%27"><span class="hs-identifier hs-type">PullRequestStatusChangedEventMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352292"><span class="annot"><span class="annottext">Maybe PullRequestStatusEnum
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.PullRequestStatusChangedEventMetadata.html#PullRequestStatusChangedEventMetadata%27"><span class="hs-identifier hs-type">PullRequestStatusChangedEventMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352301"><span class="annot"><span class="annottext">Maybe PullRequestStatusEnum
 pullRequestStatus :: Maybe PullRequestStatusEnum
 $sel:pullRequestStatus:PullRequestStatusChangedEventMetadata' :: PullRequestStatusChangedEventMetadata
 -&gt; Maybe PullRequestStatusEnum
-</span><a href="#local-6989586621679352292"><span class="hs-identifier hs-var hs-var">pullRequestStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PullRequestStatusEnum
-</span><a href="#local-6989586621679352292"><span class="hs-identifier hs-var">pullRequestStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679352291"><span class="annot"><span class="annottext">s :: PullRequestStatusChangedEventMetadata
-</span><a href="#local-6989586621679352291"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.PullRequestStatusChangedEventMetadata.html#PullRequestStatusChangedEventMetadata%27"><span class="hs-identifier hs-type">PullRequestStatusChangedEventMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679352290"><span class="annot"><span class="annottext">Maybe PullRequestStatusEnum
-</span><a href="#local-6989586621679352290"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PullRequestStatusChangedEventMetadata
-</span><a href="#local-6989586621679352291"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pullRequestStatus:PullRequestStatusChangedEventMetadata' :: Maybe PullRequestStatusEnum
+</span><a href="#local-6989586621679352301"><span class="hs-identifier hs-var hs-var">pullRequestStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PullRequestStatusEnum
+</span><a href="#local-6989586621679352301"><span class="hs-identifier hs-var">pullRequestStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679352300"><span class="annot"><span class="annottext">s :: PullRequestStatusChangedEventMetadata
+</span><a href="#local-6989586621679352300"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.PullRequestStatusChangedEventMetadata.html#PullRequestStatusChangedEventMetadata%27"><span class="hs-identifier hs-type">PullRequestStatusChangedEventMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679352299"><span class="annot"><span class="annottext">Maybe PullRequestStatusEnum
+</span><a href="#local-6989586621679352299"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PullRequestStatusChangedEventMetadata
+</span><a href="#local-6989586621679352300"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pullRequestStatus:PullRequestStatusChangedEventMetadata' :: Maybe PullRequestStatusEnum
 </span><a href="Network.AWS.CodeCommit.Types.PullRequestStatusChangedEventMetadata.html#%24sel%3ApullRequestStatus%3APullRequestStatusChangedEventMetadata%27"><span class="hs-identifier hs-var">pullRequestStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PullRequestStatusEnum
-</span><a href="#local-6989586621679352290"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.PullRequestStatusChangedEventMetadata.html#PullRequestStatusChangedEventMetadata"><span class="hs-identifier hs-type">PullRequestStatusChangedEventMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679352299"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.PullRequestStatusChangedEventMetadata.html#PullRequestStatusChangedEventMetadata"><span class="hs-identifier hs-type">PullRequestStatusChangedEventMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-58"></span><span>  </span><span id="local-6989586621679352287"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621679352296"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.PullRequestStatusChangedEventMetadata.html#PullRequestStatusChangedEventMetadata"><span class="hs-identifier hs-type">PullRequestStatusChangedEventMetadata</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-61"></span><span>  </span><span id="local-6989586621679352285"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PullRequestStatusChangedEventMetadata
+</span><span id="line-61"></span><span>  </span><span id="local-6989586621679352294"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PullRequestStatusChangedEventMetadata
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-62"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PullRequestStatusChangedEventMetadata)
@@ -172,8 +172,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PullRequestStatusChangedEventMetadata&quot;</span></span><span>
-</span><span id="line-64"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679352282"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679352282"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-64"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679352291"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679352291"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-65"></span><span>          </span><span class="annot"><span class="annottext">Maybe PullRequestStatusEnum
 -&gt; PullRequestStatusChangedEventMetadata
 </span><a href="Network.AWS.CodeCommit.Types.PullRequestStatusChangedEventMetadata.html#PullRequestStatusChangedEventMetadata%27"><span class="hs-identifier hs-var">PullRequestStatusChangedEventMetadata'</span></a></span><span>
@@ -183,17 +183,17 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser PullRequestStatusChangedEventMetadata
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679352282"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PullRequestStatusEnum)
+</span><a href="#local-6989586621679352291"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PullRequestStatusEnum)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;pullRequestStatus&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679352276"><span id="local-6989586621679352278"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679352285"><span id="local-6989586621679352287"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.PullRequestStatusChangedEventMetadata.html#PullRequestStatusChangedEventMetadata"><span class="hs-identifier hs-type">PullRequestStatusChangedEventMetadata</span></a></span></span></span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679352273"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679352282"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.PullRequestStatusChangedEventMetadata.html#PullRequestStatusChangedEventMetadata"><span class="hs-identifier hs-type">PullRequestStatusChangedEventMetadata</span></a></span></span><span>
 </span><span id="line-76"></span></pre></body></html>

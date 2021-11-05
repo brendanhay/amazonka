@@ -1,0 +1,489 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.WorkLink.UpdateAuditStreamConfiguration</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates the audit stream configuration for the fleet.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.WorkLink.UpdateAuditStreamConfiguration</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#UpdateAuditStreamConfiguration"><span class="hs-identifier">UpdateAuditStreamConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#newUpdateAuditStreamConfiguration"><span class="hs-identifier">newUpdateAuditStreamConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#updateAuditStreamConfiguration_auditStreamArn"><span class="hs-identifier">updateAuditStreamConfiguration_auditStreamArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#updateAuditStreamConfiguration_fleetArn"><span class="hs-identifier">updateAuditStreamConfiguration_fleetArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#UpdateAuditStreamConfigurationResponse"><span class="hs-identifier">UpdateAuditStreamConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#newUpdateAuditStreamConfigurationResponse"><span class="hs-identifier">newUpdateAuditStreamConfigurationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#updateAuditStreamConfigurationResponse_httpStatus"><span class="hs-identifier">updateAuditStreamConfigurationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.Types.html"><span class="hs-identifier">Network.AWS.WorkLink.Types</span></a></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newUpdateAuditStreamConfiguration' smart constructor.</span><span>
+</span><span id="line-50"></span><span id="local-6989586621679197489"><span id="local-6989586621679197490"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateAuditStreamConfiguration"><span class="annot"><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#UpdateAuditStreamConfiguration"><span class="hs-identifier hs-var">UpdateAuditStreamConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateAuditStreamConfiguration%27"><span class="annot"><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#UpdateAuditStreamConfiguration%27"><span class="hs-identifier hs-var">UpdateAuditStreamConfiguration'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the Amazon Kinesis data stream that receives the audit</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- events.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AauditStreamArn%3AUpdateAuditStreamConfiguration%27"><span class="annot"><span class="annottext">UpdateAuditStreamConfiguration -&gt; Maybe Text
+</span><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#%24sel%3AauditStreamArn%3AUpdateAuditStreamConfiguration%27"><span class="hs-identifier hs-var hs-var">auditStreamArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The ARN of the fleet.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AfleetArn%3AUpdateAuditStreamConfiguration%27"><span class="annot"><span class="annottext">UpdateAuditStreamConfiguration -&gt; Text
+</span><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#%24sel%3AfleetArn%3AUpdateAuditStreamConfiguration%27"><span class="hs-identifier hs-var hs-var">fleetArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197482"><span id="local-6989586621679197484"><span class="annot"><span class="annottext">UpdateAuditStreamConfiguration
+-&gt; UpdateAuditStreamConfiguration -&gt; Bool
+(UpdateAuditStreamConfiguration
+ -&gt; UpdateAuditStreamConfiguration -&gt; Bool)
+-&gt; (UpdateAuditStreamConfiguration
+    -&gt; UpdateAuditStreamConfiguration -&gt; Bool)
+-&gt; Eq UpdateAuditStreamConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateAuditStreamConfiguration
+-&gt; UpdateAuditStreamConfiguration -&gt; Bool
+$c/= :: UpdateAuditStreamConfiguration
+-&gt; UpdateAuditStreamConfiguration -&gt; Bool
+== :: UpdateAuditStreamConfiguration
+-&gt; UpdateAuditStreamConfiguration -&gt; Bool
+$c== :: UpdateAuditStreamConfiguration
+-&gt; UpdateAuditStreamConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197473"><span id="local-6989586621679197475"><span id="local-6989586621679197477"><span id="local-6989586621679197479"><span class="annot"><span class="annottext">ReadPrec [UpdateAuditStreamConfiguration]
+ReadPrec UpdateAuditStreamConfiguration
+Int -&gt; ReadS UpdateAuditStreamConfiguration
+ReadS [UpdateAuditStreamConfiguration]
+(Int -&gt; ReadS UpdateAuditStreamConfiguration)
+-&gt; ReadS [UpdateAuditStreamConfiguration]
+-&gt; ReadPrec UpdateAuditStreamConfiguration
+-&gt; ReadPrec [UpdateAuditStreamConfiguration]
+-&gt; Read UpdateAuditStreamConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateAuditStreamConfiguration]
+$creadListPrec :: ReadPrec [UpdateAuditStreamConfiguration]
+readPrec :: ReadPrec UpdateAuditStreamConfiguration
+$creadPrec :: ReadPrec UpdateAuditStreamConfiguration
+readList :: ReadS [UpdateAuditStreamConfiguration]
+$creadList :: ReadS [UpdateAuditStreamConfiguration]
+readsPrec :: Int -&gt; ReadS UpdateAuditStreamConfiguration
+$creadsPrec :: Int -&gt; ReadS UpdateAuditStreamConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197466"><span id="local-6989586621679197468"><span id="local-6989586621679197470"><span class="annot"><span class="annottext">Int -&gt; UpdateAuditStreamConfiguration -&gt; ShowS
+[UpdateAuditStreamConfiguration] -&gt; ShowS
+UpdateAuditStreamConfiguration -&gt; String
+(Int -&gt; UpdateAuditStreamConfiguration -&gt; ShowS)
+-&gt; (UpdateAuditStreamConfiguration -&gt; String)
+-&gt; ([UpdateAuditStreamConfiguration] -&gt; ShowS)
+-&gt; Show UpdateAuditStreamConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateAuditStreamConfiguration] -&gt; ShowS
+$cshowList :: [UpdateAuditStreamConfiguration] -&gt; ShowS
+show :: UpdateAuditStreamConfiguration -&gt; String
+$cshow :: UpdateAuditStreamConfiguration -&gt; String
+showsPrec :: Int -&gt; UpdateAuditStreamConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateAuditStreamConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateAuditStreamConfiguration
+ -&gt; Rep UpdateAuditStreamConfiguration x)
+-&gt; (forall x.
+    Rep UpdateAuditStreamConfiguration x
+    -&gt; UpdateAuditStreamConfiguration)
+-&gt; Generic UpdateAuditStreamConfiguration
+forall x.
+Rep UpdateAuditStreamConfiguration x
+-&gt; UpdateAuditStreamConfiguration
+forall x.
+UpdateAuditStreamConfiguration
+-&gt; Rep UpdateAuditStreamConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateAuditStreamConfiguration x
+-&gt; UpdateAuditStreamConfiguration
+$cfrom :: forall x.
+UpdateAuditStreamConfiguration
+-&gt; Rep UpdateAuditStreamConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'UpdateAuditStreamConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'auditStreamArn', 'updateAuditStreamConfiguration_auditStreamArn' - The ARN of the Amazon Kinesis data stream that receives the audit</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- events.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'fleetArn', 'updateAuditStreamConfiguration_fleetArn' - The ARN of the fleet.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#newUpdateAuditStreamConfiguration"><span class="hs-identifier hs-type">newUpdateAuditStreamConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-comment">-- | 'fleetArn'</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#UpdateAuditStreamConfiguration"><span class="hs-identifier hs-type">UpdateAuditStreamConfiguration</span></a></span><span>
+</span><span id="line-75"></span><span id="newUpdateAuditStreamConfiguration"><span class="annot"><span class="annottext">newUpdateAuditStreamConfiguration :: Text -&gt; UpdateAuditStreamConfiguration
+</span><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#newUpdateAuditStreamConfiguration"><span class="hs-identifier hs-var hs-var">newUpdateAuditStreamConfiguration</span></a></span></span><span> </span><span id="local-6989586621679197461"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197461"><span class="hs-identifier hs-var">pFleetArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">UpdateAuditStreamConfiguration' :: Maybe Text -&gt; Text -&gt; UpdateAuditStreamConfiguration
+</span><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#UpdateAuditStreamConfiguration%27"><span class="hs-identifier hs-type">UpdateAuditStreamConfiguration'</span></a></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:auditStreamArn:UpdateAuditStreamConfiguration' :: Maybe Text
+</span><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#%24sel%3AauditStreamArn%3AUpdateAuditStreamConfiguration%27"><span class="hs-identifier hs-var">auditStreamArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:fleetArn:UpdateAuditStreamConfiguration' :: Text
+</span><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#%24sel%3AfleetArn%3AUpdateAuditStreamConfiguration%27"><span class="hs-identifier hs-var">fleetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197461"><span class="hs-identifier hs-var">pFleetArn_</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The ARN of the Amazon Kinesis data stream that receives the audit</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- events.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#updateAuditStreamConfiguration_auditStreamArn"><span class="hs-identifier hs-type">updateAuditStreamConfiguration_auditStreamArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#UpdateAuditStreamConfiguration"><span class="hs-identifier hs-type">UpdateAuditStreamConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="updateAuditStreamConfiguration_auditStreamArn"><span class="annot"><span class="annottext">updateAuditStreamConfiguration_auditStreamArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateAuditStreamConfiguration
+-&gt; f UpdateAuditStreamConfiguration
+</span><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#updateAuditStreamConfiguration_auditStreamArn"><span class="hs-identifier hs-var hs-var">updateAuditStreamConfiguration_auditStreamArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAuditStreamConfiguration -&gt; Maybe Text)
+-&gt; (UpdateAuditStreamConfiguration
+    -&gt; Maybe Text -&gt; UpdateAuditStreamConfiguration)
+-&gt; Lens
+     UpdateAuditStreamConfiguration
+     UpdateAuditStreamConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#UpdateAuditStreamConfiguration%27"><span class="hs-identifier hs-type">UpdateAuditStreamConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197458"><span class="annot"><span class="annottext">Maybe Text
+auditStreamArn :: Maybe Text
+$sel:auditStreamArn:UpdateAuditStreamConfiguration' :: UpdateAuditStreamConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679197458"><span class="hs-identifier hs-var hs-var">auditStreamArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679197458"><span class="hs-identifier hs-var">auditStreamArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197457"><span class="annot"><span class="annottext">s :: UpdateAuditStreamConfiguration
+</span><a href="#local-6989586621679197457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#UpdateAuditStreamConfiguration%27"><span class="hs-identifier hs-type">UpdateAuditStreamConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197456"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679197456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAuditStreamConfiguration
+</span><a href="#local-6989586621679197457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:auditStreamArn:UpdateAuditStreamConfiguration' :: Maybe Text
+</span><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#%24sel%3AauditStreamArn%3AUpdateAuditStreamConfiguration%27"><span class="hs-identifier hs-var">auditStreamArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679197456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#UpdateAuditStreamConfiguration"><span class="hs-identifier hs-type">UpdateAuditStreamConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The ARN of the fleet.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#updateAuditStreamConfiguration_fleetArn"><span class="hs-identifier hs-type">updateAuditStreamConfiguration_fleetArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#UpdateAuditStreamConfiguration"><span class="hs-identifier hs-type">UpdateAuditStreamConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-89"></span><span id="updateAuditStreamConfiguration_fleetArn"><span class="annot"><span class="annottext">updateAuditStreamConfiguration_fleetArn :: (Text -&gt; f Text)
+-&gt; UpdateAuditStreamConfiguration
+-&gt; f UpdateAuditStreamConfiguration
+</span><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#updateAuditStreamConfiguration_fleetArn"><span class="hs-identifier hs-var hs-var">updateAuditStreamConfiguration_fleetArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAuditStreamConfiguration -&gt; Text)
+-&gt; (UpdateAuditStreamConfiguration
+    -&gt; Text -&gt; UpdateAuditStreamConfiguration)
+-&gt; Lens
+     UpdateAuditStreamConfiguration
+     UpdateAuditStreamConfiguration
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#UpdateAuditStreamConfiguration%27"><span class="hs-identifier hs-type">UpdateAuditStreamConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197455"><span class="annot"><span class="annottext">Text
+fleetArn :: Text
+$sel:fleetArn:UpdateAuditStreamConfiguration' :: UpdateAuditStreamConfiguration -&gt; Text
+</span><a href="#local-6989586621679197455"><span class="hs-identifier hs-var hs-var">fleetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197455"><span class="hs-identifier hs-var">fleetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197454"><span class="annot"><span class="annottext">s :: UpdateAuditStreamConfiguration
+</span><a href="#local-6989586621679197454"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#UpdateAuditStreamConfiguration%27"><span class="hs-identifier hs-type">UpdateAuditStreamConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197453"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197453"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAuditStreamConfiguration
+</span><a href="#local-6989586621679197454"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetArn:UpdateAuditStreamConfiguration' :: Text
+</span><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#%24sel%3AfleetArn%3AUpdateAuditStreamConfiguration%27"><span class="hs-identifier hs-var">fleetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197453"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#UpdateAuditStreamConfiguration"><span class="hs-identifier hs-type">UpdateAuditStreamConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#UpdateAuditStreamConfiguration"><span class="hs-identifier hs-type">UpdateAuditStreamConfiguration</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-96"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#UpdateAuditStreamConfiguration"><span class="hs-identifier hs-type">UpdateAuditStreamConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#UpdateAuditStreamConfigurationResponse"><span class="hs-identifier hs-type">UpdateAuditStreamConfigurationResponse</span></a></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679197449"><span class="annot"><span class="annottext">request :: UpdateAuditStreamConfiguration
+-&gt; Request UpdateAuditStreamConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; UpdateAuditStreamConfiguration
+-&gt; Request UpdateAuditStreamConfiguration
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.WorkLink.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679197445"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateAuditStreamConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse UpdateAuditStreamConfiguration)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse UpdateAuditStreamConfiguration))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateAuditStreamConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse UpdateAuditStreamConfiguration)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679197442"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679197442"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679197441"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679197441"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679197440"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679197440"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; UpdateAuditStreamConfigurationResponse
+</span><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#UpdateAuditStreamConfigurationResponse%27"><span class="hs-identifier hs-var">UpdateAuditStreamConfigurationResponse'</span></a></span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; UpdateAuditStreamConfigurationResponse)
+-&gt; Either String Int
+-&gt; Either String UpdateAuditStreamConfigurationResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679197442"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679197433"><span id="local-6989586621679197435"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#UpdateAuditStreamConfiguration"><span class="hs-identifier hs-type">UpdateAuditStreamConfiguration</span></a></span></span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679197430"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#UpdateAuditStreamConfiguration"><span class="hs-identifier hs-type">UpdateAuditStreamConfiguration</span></a></span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#UpdateAuditStreamConfiguration"><span class="hs-identifier hs-type">UpdateAuditStreamConfiguration</span></a></span><span>
+</span><span id="line-117"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679197426"><span class="annot"><span class="annottext">toHeaders :: UpdateAuditStreamConfiguration -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; UpdateAuditStreamConfiguration -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-121"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-122"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-123"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-124"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197416"><span id="local-6989586621679197418"><span id="local-6989586621679197420"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#UpdateAuditStreamConfiguration"><span class="hs-identifier hs-type">UpdateAuditStreamConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679197414"><span class="annot"><span class="annottext">toJSON :: UpdateAuditStreamConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#UpdateAuditStreamConfiguration%27"><span class="hs-identifier hs-type">UpdateAuditStreamConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197411"><span id="local-6989586621679197412"><span class="annot"><span class="annottext">Maybe Text
+Text
+fleetArn :: Text
+auditStreamArn :: Maybe Text
+$sel:fleetArn:UpdateAuditStreamConfiguration' :: UpdateAuditStreamConfiguration -&gt; Text
+$sel:auditStreamArn:UpdateAuditStreamConfiguration' :: UpdateAuditStreamConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621679197411"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-132"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AuditStreamArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679197412"><span class="hs-identifier hs-var">auditStreamArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FleetArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197411"><span class="hs-identifier hs-var">fleetArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#UpdateAuditStreamConfiguration"><span class="hs-identifier hs-type">UpdateAuditStreamConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679197405"><span class="annot"><span class="annottext">toPath :: UpdateAuditStreamConfiguration -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateAuditStreamConfiguration -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/updateAuditStreamConfiguration&quot;</span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#UpdateAuditStreamConfiguration"><span class="hs-identifier hs-type">UpdateAuditStreamConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679197401"><span class="annot"><span class="annottext">toQuery :: UpdateAuditStreamConfiguration -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateAuditStreamConfiguration -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | /See:/ 'newUpdateAuditStreamConfigurationResponse' smart constructor.</span><span>
+</span><span id="line-146"></span><span id="local-6989586621679197398"><span id="local-6989586621679197399"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateAuditStreamConfigurationResponse"><span class="annot"><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#UpdateAuditStreamConfigurationResponse"><span class="hs-identifier hs-var">UpdateAuditStreamConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateAuditStreamConfigurationResponse%27"><span class="annot"><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#UpdateAuditStreamConfigurationResponse%27"><span class="hs-identifier hs-var">UpdateAuditStreamConfigurationResponse'</span></a></span></span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-148"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateAuditStreamConfigurationResponse%27"><span class="annot"><span class="annottext">UpdateAuditStreamConfigurationResponse -&gt; Int
+</span><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#%24sel%3AhttpStatus%3AUpdateAuditStreamConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197393"><span id="local-6989586621679197395"><span class="annot"><span class="annottext">UpdateAuditStreamConfigurationResponse
+-&gt; UpdateAuditStreamConfigurationResponse -&gt; Bool
+(UpdateAuditStreamConfigurationResponse
+ -&gt; UpdateAuditStreamConfigurationResponse -&gt; Bool)
+-&gt; (UpdateAuditStreamConfigurationResponse
+    -&gt; UpdateAuditStreamConfigurationResponse -&gt; Bool)
+-&gt; Eq UpdateAuditStreamConfigurationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateAuditStreamConfigurationResponse
+-&gt; UpdateAuditStreamConfigurationResponse -&gt; Bool
+$c/= :: UpdateAuditStreamConfigurationResponse
+-&gt; UpdateAuditStreamConfigurationResponse -&gt; Bool
+== :: UpdateAuditStreamConfigurationResponse
+-&gt; UpdateAuditStreamConfigurationResponse -&gt; Bool
+$c== :: UpdateAuditStreamConfigurationResponse
+-&gt; UpdateAuditStreamConfigurationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197385"><span id="local-6989586621679197387"><span id="local-6989586621679197389"><span id="local-6989586621679197391"><span class="annot"><span class="annottext">ReadPrec [UpdateAuditStreamConfigurationResponse]
+ReadPrec UpdateAuditStreamConfigurationResponse
+Int -&gt; ReadS UpdateAuditStreamConfigurationResponse
+ReadS [UpdateAuditStreamConfigurationResponse]
+(Int -&gt; ReadS UpdateAuditStreamConfigurationResponse)
+-&gt; ReadS [UpdateAuditStreamConfigurationResponse]
+-&gt; ReadPrec UpdateAuditStreamConfigurationResponse
+-&gt; ReadPrec [UpdateAuditStreamConfigurationResponse]
+-&gt; Read UpdateAuditStreamConfigurationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateAuditStreamConfigurationResponse]
+$creadListPrec :: ReadPrec [UpdateAuditStreamConfigurationResponse]
+readPrec :: ReadPrec UpdateAuditStreamConfigurationResponse
+$creadPrec :: ReadPrec UpdateAuditStreamConfigurationResponse
+readList :: ReadS [UpdateAuditStreamConfigurationResponse]
+$creadList :: ReadS [UpdateAuditStreamConfigurationResponse]
+readsPrec :: Int -&gt; ReadS UpdateAuditStreamConfigurationResponse
+$creadsPrec :: Int -&gt; ReadS UpdateAuditStreamConfigurationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197379"><span id="local-6989586621679197381"><span id="local-6989586621679197383"><span class="annot"><span class="annottext">Int -&gt; UpdateAuditStreamConfigurationResponse -&gt; ShowS
+[UpdateAuditStreamConfigurationResponse] -&gt; ShowS
+UpdateAuditStreamConfigurationResponse -&gt; String
+(Int -&gt; UpdateAuditStreamConfigurationResponse -&gt; ShowS)
+-&gt; (UpdateAuditStreamConfigurationResponse -&gt; String)
+-&gt; ([UpdateAuditStreamConfigurationResponse] -&gt; ShowS)
+-&gt; Show UpdateAuditStreamConfigurationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateAuditStreamConfigurationResponse] -&gt; ShowS
+$cshowList :: [UpdateAuditStreamConfigurationResponse] -&gt; ShowS
+show :: UpdateAuditStreamConfigurationResponse -&gt; String
+$cshow :: UpdateAuditStreamConfigurationResponse -&gt; String
+showsPrec :: Int -&gt; UpdateAuditStreamConfigurationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateAuditStreamConfigurationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateAuditStreamConfigurationResponse
+ -&gt; Rep UpdateAuditStreamConfigurationResponse x)
+-&gt; (forall x.
+    Rep UpdateAuditStreamConfigurationResponse x
+    -&gt; UpdateAuditStreamConfigurationResponse)
+-&gt; Generic UpdateAuditStreamConfigurationResponse
+forall x.
+Rep UpdateAuditStreamConfigurationResponse x
+-&gt; UpdateAuditStreamConfigurationResponse
+forall x.
+UpdateAuditStreamConfigurationResponse
+-&gt; Rep UpdateAuditStreamConfigurationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateAuditStreamConfigurationResponse x
+-&gt; UpdateAuditStreamConfigurationResponse
+$cfrom :: forall x.
+UpdateAuditStreamConfigurationResponse
+-&gt; Rep UpdateAuditStreamConfigurationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- Create a value of 'UpdateAuditStreamConfigurationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- 'httpStatus', 'updateAuditStreamConfigurationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#newUpdateAuditStreamConfigurationResponse"><span class="hs-identifier hs-type">newUpdateAuditStreamConfigurationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-162"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#UpdateAuditStreamConfigurationResponse"><span class="hs-identifier hs-type">UpdateAuditStreamConfigurationResponse</span></a></span><span>
+</span><span id="line-165"></span><span id="newUpdateAuditStreamConfigurationResponse"><span class="annot"><span class="annottext">newUpdateAuditStreamConfigurationResponse :: Int -&gt; UpdateAuditStreamConfigurationResponse
+</span><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#newUpdateAuditStreamConfigurationResponse"><span class="hs-identifier hs-var hs-var">newUpdateAuditStreamConfigurationResponse</span></a></span></span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679197376"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679197376"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">UpdateAuditStreamConfigurationResponse' :: Int -&gt; UpdateAuditStreamConfigurationResponse
+</span><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#UpdateAuditStreamConfigurationResponse%27"><span class="hs-identifier hs-type">UpdateAuditStreamConfigurationResponse'</span></a></span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateAuditStreamConfigurationResponse' :: Int
+</span><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#%24sel%3AhttpStatus%3AUpdateAuditStreamConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-169"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679197376"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#updateAuditStreamConfigurationResponse_httpStatus"><span class="hs-identifier hs-type">updateAuditStreamConfigurationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#UpdateAuditStreamConfigurationResponse"><span class="hs-identifier hs-type">UpdateAuditStreamConfigurationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-174"></span><span id="updateAuditStreamConfigurationResponse_httpStatus"><span class="annot"><span class="annottext">updateAuditStreamConfigurationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateAuditStreamConfigurationResponse
+-&gt; f UpdateAuditStreamConfigurationResponse
+</span><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#updateAuditStreamConfigurationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateAuditStreamConfigurationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAuditStreamConfigurationResponse -&gt; Int)
+-&gt; (UpdateAuditStreamConfigurationResponse
+    -&gt; Int -&gt; UpdateAuditStreamConfigurationResponse)
+-&gt; Lens
+     UpdateAuditStreamConfigurationResponse
+     UpdateAuditStreamConfigurationResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#UpdateAuditStreamConfigurationResponse%27"><span class="hs-identifier hs-type">UpdateAuditStreamConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197375"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateAuditStreamConfigurationResponse' :: UpdateAuditStreamConfigurationResponse -&gt; Int
+</span><a href="#local-6989586621679197375"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679197375"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197374"><span class="annot"><span class="annottext">s :: UpdateAuditStreamConfigurationResponse
+</span><a href="#local-6989586621679197374"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#UpdateAuditStreamConfigurationResponse%27"><span class="hs-identifier hs-type">UpdateAuditStreamConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197373"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679197373"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAuditStreamConfigurationResponse
+</span><a href="#local-6989586621679197374"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateAuditStreamConfigurationResponse' :: Int
+</span><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#%24sel%3AhttpStatus%3AUpdateAuditStreamConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679197373"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#UpdateAuditStreamConfigurationResponse"><span class="hs-identifier hs-type">UpdateAuditStreamConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679197371"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkLink.UpdateAuditStreamConfiguration.html#UpdateAuditStreamConfigurationResponse"><span class="hs-identifier hs-type">UpdateAuditStreamConfigurationResponse</span></a></span></span><span>
+</span><span id="line-179"></span></pre></body></html>

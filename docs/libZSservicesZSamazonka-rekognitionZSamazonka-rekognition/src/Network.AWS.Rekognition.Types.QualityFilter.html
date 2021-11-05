@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621679329126"><span id="local-6989586621679329127"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="QualityFilter"><span class="annot"><a href="Network.AWS.Rekognition.Types.QualityFilter.html#QualityFilter"><span class="hs-identifier hs-var">QualityFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="QualityFilter%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.QualityFilter.html#QualityFilter%27"><span class="hs-identifier hs-var">QualityFilter'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679329135"><span id="local-6989586621679329136"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="QualityFilter"><span class="annot"><a href="Network.AWS.Rekognition.Types.QualityFilter.html#QualityFilter"><span class="hs-identifier hs-var">QualityFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="QualityFilter%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.QualityFilter.html#QualityFilter%27"><span class="hs-identifier hs-var">QualityFilter'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromQualityFilter"><span class="annot"><span class="annottext">QualityFilter -&gt; Text
 </span><a href="Network.AWS.Rekognition.Types.QualityFilter.html#fromQualityFilter"><span class="hs-identifier hs-var hs-var">fromQualityFilter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679329118"><span id="local-6989586621679329120"><span id="local-6989586621679329122"><span class="annot"><span class="annottext">Int -&gt; QualityFilter -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679329127"><span id="local-6989586621679329129"><span id="local-6989586621679329131"><span class="annot"><span class="annottext">Int -&gt; QualityFilter -&gt; ShowS
 [QualityFilter] -&gt; ShowS
 QualityFilter -&gt; String
 (Int -&gt; QualityFilter -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: QualityFilter -&gt; String
 showsPrec :: Int -&gt; QualityFilter -&gt; ShowS
 $cshowsPrec :: Int -&gt; QualityFilter -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679329109"><span id="local-6989586621679329111"><span id="local-6989586621679329113"><span id="local-6989586621679329115"><span class="annot"><span class="annottext">ReadPrec [QualityFilter]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679329118"><span id="local-6989586621679329120"><span id="local-6989586621679329122"><span id="local-6989586621679329124"><span class="annot"><span class="annottext">ReadPrec [QualityFilter]
 ReadPrec QualityFilter
 Int -&gt; ReadS QualityFilter
 ReadS [QualityFilter]
@@ -75,7 +75,7 @@ $creadList :: ReadS [QualityFilter]
 readsPrec :: Int -&gt; ReadS QualityFilter
 $creadsPrec :: Int -&gt; ReadS QualityFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679329104"><span id="local-6989586621679329106"><span class="annot"><span class="annottext">QualityFilter -&gt; QualityFilter -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679329113"><span id="local-6989586621679329115"><span class="annot"><span class="annottext">QualityFilter -&gt; QualityFilter -&gt; Bool
 (QualityFilter -&gt; QualityFilter -&gt; Bool)
 -&gt; (QualityFilter -&gt; QualityFilter -&gt; Bool) -&gt; Eq QualityFilter
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -84,7 +84,7 @@ $c/= :: QualityFilter -&gt; QualityFilter -&gt; Bool
 == :: QualityFilter -&gt; QualityFilter -&gt; Bool
 $c== :: QualityFilter -&gt; QualityFilter -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679329088"><span id="local-6989586621679329090"><span id="local-6989586621679329092"><span id="local-6989586621679329094"><span id="local-6989586621679329096"><span id="local-6989586621679329098"><span id="local-6989586621679329100"><span class="annot"><span class="annottext">Eq QualityFilter
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679329097"><span id="local-6989586621679329099"><span id="local-6989586621679329101"><span id="local-6989586621679329103"><span id="local-6989586621679329105"><span id="local-6989586621679329107"><span id="local-6989586621679329109"><span class="annot"><span class="annottext">Eq QualityFilter
 Eq QualityFilter
 -&gt; (QualityFilter -&gt; QualityFilter -&gt; Ordering)
 -&gt; (QualityFilter -&gt; QualityFilter -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. QualityFilter -&gt; Rep QualityFilter x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679329080"><span id="local-6989586621679329082"><span class="annot"><span class="annottext">Int -&gt; QualityFilter -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679329089"><span id="local-6989586621679329091"><span class="annot"><span class="annottext">Int -&gt; QualityFilter -&gt; Int
 QualityFilter -&gt; Int
 (Int -&gt; QualityFilter -&gt; Int)
 -&gt; (QualityFilter -&gt; Int) -&gt; Hashable QualityFilter
@@ -145,49 +145,49 @@ $chash :: QualityFilter -&gt; Int
 hashWithSalt :: Int -&gt; QualityFilter -&gt; Int
 $chashWithSalt :: Int -&gt; QualityFilter -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679329077"><span class="annot"><span class="annottext">QualityFilter -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679329086"><span class="annot"><span class="annottext">QualityFilter -&gt; ()
 (QualityFilter -&gt; ()) -&gt; NFData QualityFilter
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: QualityFilter -&gt; ()
 $crnf :: QualityFilter -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679329074"><span class="annot"><span class="annottext">Text -&gt; Either String QualityFilter
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679329083"><span class="annot"><span class="annottext">Text -&gt; Either String QualityFilter
 (Text -&gt; Either String QualityFilter) -&gt; FromText QualityFilter
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String QualityFilter
 $cfromText :: Text -&gt; Either String QualityFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679329071"><span class="annot"><span class="annottext">QualityFilter -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679329080"><span class="annot"><span class="annottext">QualityFilter -&gt; Text
 (QualityFilter -&gt; Text) -&gt; ToText QualityFilter
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: QualityFilter -&gt; Text
 $ctoText :: QualityFilter -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679329068"><span class="annot"><span class="annottext">QualityFilter -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679329077"><span class="annot"><span class="annottext">QualityFilter -&gt; ByteString
 (QualityFilter -&gt; ByteString) -&gt; ToByteString QualityFilter
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: QualityFilter -&gt; ByteString
 $ctoBS :: QualityFilter -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679329065"><span class="annot"><span class="annottext">QualityFilter -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679329074"><span class="annot"><span class="annottext">QualityFilter -&gt; ByteStringBuilder
 (QualityFilter -&gt; ByteStringBuilder) -&gt; ToLog QualityFilter
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: QualityFilter -&gt; ByteStringBuilder
 $cbuild :: QualityFilter -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679329062"><span class="annot"><span class="annottext">HeaderName -&gt; QualityFilter -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679329071"><span class="annot"><span class="annottext">HeaderName -&gt; QualityFilter -&gt; [Header]
 (HeaderName -&gt; QualityFilter -&gt; [Header]) -&gt; ToHeader QualityFilter
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; QualityFilter -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; QualityFilter -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679329059"><span class="annot"><span class="annottext">QualityFilter -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679329068"><span class="annot"><span class="annottext">QualityFilter -&gt; QueryString
 (QualityFilter -&gt; QueryString) -&gt; ToQuery QualityFilter
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: QualityFilter -&gt; QueryString
 $ctoQuery :: QualityFilter -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679329054"><span id="local-6989586621679329056"><span class="annot"><span class="annottext">Value -&gt; Parser [QualityFilter]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679329063"><span id="local-6989586621679329065"><span class="annot"><span class="annottext">Value -&gt; Parser [QualityFilter]
 Value -&gt; Parser QualityFilter
 (Value -&gt; Parser QualityFilter)
 -&gt; (Value -&gt; Parser [QualityFilter]) -&gt; FromJSON QualityFilter
@@ -198,7 +198,7 @@ $cparseJSONList :: Value -&gt; Parser [QualityFilter]
 parseJSON :: Value -&gt; Parser QualityFilter
 $cparseJSON :: Value -&gt; Parser QualityFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679329049"><span id="local-6989586621679329051"><span class="annot"><span class="annottext">FromJSONKeyFunction [QualityFilter]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679329058"><span id="local-6989586621679329060"><span class="annot"><span class="annottext">FromJSONKeyFunction [QualityFilter]
 FromJSONKeyFunction QualityFilter
 FromJSONKeyFunction QualityFilter
 -&gt; FromJSONKeyFunction [QualityFilter] -&gt; FromJSONKey QualityFilter
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [QualityFilter]
 fromJSONKey :: FromJSONKeyFunction QualityFilter
 $cfromJSONKey :: FromJSONKeyFunction QualityFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679329040"><span id="local-6989586621679329042"><span id="local-6989586621679329044"><span id="local-6989586621679329046"><span class="annot"><span class="annottext">[QualityFilter] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679329049"><span id="local-6989586621679329051"><span id="local-6989586621679329053"><span id="local-6989586621679329055"><span class="annot"><span class="annottext">[QualityFilter] -&gt; Encoding
 [QualityFilter] -&gt; Value
 QualityFilter -&gt; Encoding
 QualityFilter -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: QualityFilter -&gt; Encoding
 toJSON :: QualityFilter -&gt; Value
 $ctoJSON :: QualityFilter -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679329035"><span id="local-6989586621679329037"><span class="annot"><span class="annottext">ToJSONKeyFunction [QualityFilter]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679329044"><span id="local-6989586621679329046"><span class="annot"><span class="annottext">ToJSONKeyFunction [QualityFilter]
 ToJSONKeyFunction QualityFilter
 ToJSONKeyFunction QualityFilter
 -&gt; ToJSONKeyFunction [QualityFilter] -&gt; ToJSONKey QualityFilter
@@ -244,13 +244,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [QualityFilter]
 toJSONKey :: ToJSONKeyFunction QualityFilter
 $ctoJSONKey :: ToJSONKeyFunction QualityFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679329032"><span class="annot"><span class="annottext">[Node] -&gt; Either String QualityFilter
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679329041"><span class="annot"><span class="annottext">[Node] -&gt; Either String QualityFilter
 ([Node] -&gt; Either String QualityFilter) -&gt; FromXML QualityFilter
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String QualityFilter
 $cparseXML :: [Node] -&gt; Either String QualityFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679329029"><span class="annot"><span class="annottext">QualityFilter -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679329038"><span class="annot"><span class="annottext">QualityFilter -&gt; XML
 (QualityFilter -&gt; XML) -&gt; ToXML QualityFilter
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: QualityFilter -&gt; XML

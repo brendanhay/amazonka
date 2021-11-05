@@ -57,7 +57,7 @@
 </span><span id="line-57"></span><span class="hs-comment">-- | Provides options for initiating an Amazon S3 Glacier job.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- /See:/ 'newInitiateJob' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679223120"><span id="local-6989586621679223121"></span></span><span class="hs-keyword">data</span><span> </span><span id="InitiateJob"><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJob"><span class="hs-identifier hs-var">InitiateJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InitiateJob%27"><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJob%27"><span class="hs-identifier hs-var">InitiateJob'</span></a></span></span><span>
+</span><span id="line-60"></span><span id="local-6989586621679223129"><span id="local-6989586621679223130"></span></span><span class="hs-keyword">data</span><span> </span><span id="InitiateJob"><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJob"><span class="hs-identifier hs-var">InitiateJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InitiateJob%27"><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJob%27"><span class="hs-identifier hs-var">InitiateJob'</span></a></span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Provides options for specifying job information.</span><span>
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AjobParameters%3AInitiateJob%27"><span class="annot"><span class="annottext">InitiateJob -&gt; Maybe JobParameters
 </span><a href="Network.AWS.Glacier.InitiateJob.html#%24sel%3AjobParameters%3AInitiateJob%27"><span class="hs-identifier hs-var hs-var">jobParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.JobParameters.html#JobParameters"><span class="hs-identifier hs-type">JobParameters</span></a></span><span class="hs-special">,</span><span>
@@ -72,7 +72,7 @@
 </span><span id="line-70"></span><span>    </span><span id="%24sel%3AvaultName%3AInitiateJob%27"><span class="annot"><span class="annottext">InitiateJob -&gt; Text
 </span><a href="Network.AWS.Glacier.InitiateJob.html#%24sel%3AvaultName%3AInitiateJob%27"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679223112"><span id="local-6989586621679223114"><span class="annot"><span class="annottext">InitiateJob -&gt; InitiateJob -&gt; Bool
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679223121"><span id="local-6989586621679223123"><span class="annot"><span class="annottext">InitiateJob -&gt; InitiateJob -&gt; Bool
 (InitiateJob -&gt; InitiateJob -&gt; Bool)
 -&gt; (InitiateJob -&gt; InitiateJob -&gt; Bool) -&gt; Eq InitiateJob
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -80,7 +80,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InitiateJob -&gt; InitiateJob -&gt; Bool
 == :: InitiateJob -&gt; InitiateJob -&gt; Bool
 $c== :: InitiateJob -&gt; InitiateJob -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223103"><span id="local-6989586621679223105"><span id="local-6989586621679223107"><span id="local-6989586621679223109"><span class="annot"><span class="annottext">ReadPrec [InitiateJob]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223112"><span id="local-6989586621679223114"><span id="local-6989586621679223116"><span id="local-6989586621679223118"><span class="annot"><span class="annottext">ReadPrec [InitiateJob]
 ReadPrec InitiateJob
 Int -&gt; ReadS InitiateJob
 ReadS [InitiateJob]
@@ -100,7 +100,7 @@ readList :: ReadS [InitiateJob]
 $creadList :: ReadS [InitiateJob]
 readsPrec :: Int -&gt; ReadS InitiateJob
 $creadsPrec :: Int -&gt; ReadS InitiateJob
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223096"><span id="local-6989586621679223098"><span id="local-6989586621679223100"><span class="annot"><span class="annottext">Int -&gt; InitiateJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223105"><span id="local-6989586621679223107"><span id="local-6989586621679223109"><span class="annot"><span class="annottext">Int -&gt; InitiateJob -&gt; ShowS
 [InitiateJob] -&gt; ShowS
 InitiateJob -&gt; String
 (Int -&gt; InitiateJob -&gt; ShowS)
@@ -150,9 +150,9 @@ $cfrom :: forall x. InitiateJob -&gt; Rep InitiateJob x
 </span><span id="line-95"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJob"><span class="hs-identifier hs-type">InitiateJob</span></a></span><span>
 </span><span id="line-97"></span><span id="newInitiateJob"><span class="annot"><span class="annottext">newInitiateJob :: Text -&gt; Text -&gt; InitiateJob
-</span><a href="Network.AWS.Glacier.InitiateJob.html#newInitiateJob"><span class="hs-identifier hs-var hs-var">newInitiateJob</span></a></span></span><span> </span><span id="local-6989586621679223091"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223091"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span id="local-6989586621679223090"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223090"><span class="hs-identifier hs-var">pVaultName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glacier.InitiateJob.html#newInitiateJob"><span class="hs-identifier hs-var hs-var">newInitiateJob</span></a></span></span><span> </span><span id="local-6989586621679223100"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223100"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span id="local-6989586621679223099"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223099"><span class="hs-identifier hs-var">pVaultName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>  </span><span class="annot"><span class="annottext">InitiateJob' :: Maybe JobParameters -&gt; Text -&gt; Text -&gt; InitiateJob
 </span><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJob%27"><span class="hs-identifier hs-type">InitiateJob'</span></a></span><span>
 </span><span id="line-99"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:jobParameters:InitiateJob' :: Maybe JobParameters
@@ -161,10 +161,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountId:InitiateJob' :: Text
 </span><a href="Network.AWS.Glacier.InitiateJob.html#%24sel%3AaccountId%3AInitiateJob%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223091"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679223100"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:vaultName:InitiateJob' :: Text
 </span><a href="Network.AWS.Glacier.InitiateJob.html#%24sel%3AvaultName%3AInitiateJob%27"><span class="hs-identifier hs-var">vaultName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223090"><span class="hs-identifier hs-var">pVaultName_</span></a></span><span>
+</span><a href="#local-6989586621679223099"><span class="hs-identifier hs-var">pVaultName_</span></a></span><span>
 </span><span id="line-102"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | Provides options for specifying job information.</span><span>
@@ -176,16 +176,16 @@ forall a. Maybe a
 -&gt; Lens
      InitiateJob InitiateJob (Maybe JobParameters) (Maybe JobParameters)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJob%27"><span class="hs-identifier hs-type">InitiateJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223087"><span class="annot"><span class="annottext">Maybe JobParameters
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJob%27"><span class="hs-identifier hs-type">InitiateJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223096"><span class="annot"><span class="annottext">Maybe JobParameters
 jobParameters :: Maybe JobParameters
 $sel:jobParameters:InitiateJob' :: InitiateJob -&gt; Maybe JobParameters
-</span><a href="#local-6989586621679223087"><span class="hs-identifier hs-var hs-var">jobParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobParameters
-</span><a href="#local-6989586621679223087"><span class="hs-identifier hs-var">jobParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223086"><span class="annot"><span class="annottext">s :: InitiateJob
-</span><a href="#local-6989586621679223086"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJob%27"><span class="hs-identifier hs-type">InitiateJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223085"><span class="annot"><span class="annottext">Maybe JobParameters
-</span><a href="#local-6989586621679223085"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateJob
-</span><a href="#local-6989586621679223086"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobParameters:InitiateJob' :: Maybe JobParameters
+</span><a href="#local-6989586621679223096"><span class="hs-identifier hs-var hs-var">jobParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobParameters
+</span><a href="#local-6989586621679223096"><span class="hs-identifier hs-var">jobParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223095"><span class="annot"><span class="annottext">s :: InitiateJob
+</span><a href="#local-6989586621679223095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJob%27"><span class="hs-identifier hs-type">InitiateJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223094"><span class="annot"><span class="annottext">Maybe JobParameters
+</span><a href="#local-6989586621679223094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateJob
+</span><a href="#local-6989586621679223095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobParameters:InitiateJob' :: Maybe JobParameters
 </span><a href="Network.AWS.Glacier.InitiateJob.html#%24sel%3AjobParameters%3AInitiateJob%27"><span class="hs-identifier hs-var">jobParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobParameters
-</span><a href="#local-6989586621679223085"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJob"><span class="hs-identifier hs-type">InitiateJob</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679223094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJob"><span class="hs-identifier hs-type">InitiateJob</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | The @AccountId@ value is the AWS account ID of the account that owns the</span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- vault. You can either specify an AWS account ID or optionally a single</span><span>
@@ -198,16 +198,16 @@ $sel:jobParameters:InitiateJob' :: InitiateJob -&gt; Maybe JobParameters
 -&gt; (InitiateJob -&gt; Text -&gt; InitiateJob)
 -&gt; Lens InitiateJob InitiateJob Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJob%27"><span class="hs-identifier hs-type">InitiateJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223084"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJob%27"><span class="hs-identifier hs-type">InitiateJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223093"><span class="annot"><span class="annottext">Text
 accountId :: Text
 $sel:accountId:InitiateJob' :: InitiateJob -&gt; Text
-</span><a href="#local-6989586621679223084"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223084"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223083"><span class="annot"><span class="annottext">s :: InitiateJob
-</span><a href="#local-6989586621679223083"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJob%27"><span class="hs-identifier hs-type">InitiateJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223082"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223082"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateJob
-</span><a href="#local-6989586621679223083"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:InitiateJob' :: Text
+</span><a href="#local-6989586621679223093"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223093"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223092"><span class="annot"><span class="annottext">s :: InitiateJob
+</span><a href="#local-6989586621679223092"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJob%27"><span class="hs-identifier hs-type">InitiateJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223091"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223091"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateJob
+</span><a href="#local-6989586621679223092"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:InitiateJob' :: Text
 </span><a href="Network.AWS.Glacier.InitiateJob.html#%24sel%3AaccountId%3AInitiateJob%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223082"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJob"><span class="hs-identifier hs-type">InitiateJob</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679223091"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJob"><span class="hs-identifier hs-type">InitiateJob</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | The name of the vault.</span><span>
 </span><span id="line-117"></span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#initiateJob_vaultName"><span class="hs-identifier hs-type">initiateJob_vaultName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJob"><span class="hs-identifier hs-type">InitiateJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -216,20 +216,20 @@ $sel:accountId:InitiateJob' :: InitiateJob -&gt; Text
 -&gt; (InitiateJob -&gt; Text -&gt; InitiateJob)
 -&gt; Lens InitiateJob InitiateJob Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJob%27"><span class="hs-identifier hs-type">InitiateJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223081"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJob%27"><span class="hs-identifier hs-type">InitiateJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223090"><span class="annot"><span class="annottext">Text
 vaultName :: Text
 $sel:vaultName:InitiateJob' :: InitiateJob -&gt; Text
-</span><a href="#local-6989586621679223081"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223081"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223080"><span class="annot"><span class="annottext">s :: InitiateJob
-</span><a href="#local-6989586621679223080"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJob%27"><span class="hs-identifier hs-type">InitiateJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223079"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223079"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateJob
-</span><a href="#local-6989586621679223080"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vaultName:InitiateJob' :: Text
+</span><a href="#local-6989586621679223090"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223090"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223089"><span class="annot"><span class="annottext">s :: InitiateJob
+</span><a href="#local-6989586621679223089"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJob%27"><span class="hs-identifier hs-type">InitiateJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223088"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223088"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateJob
+</span><a href="#local-6989586621679223089"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vaultName:InitiateJob' :: Text
 </span><a href="Network.AWS.Glacier.InitiateJob.html#%24sel%3AvaultName%3AInitiateJob%27"><span class="hs-identifier hs-var">vaultName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223079"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJob"><span class="hs-identifier hs-type">InitiateJob</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679223088"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJob"><span class="hs-identifier hs-type">InitiateJob</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJob"><span class="hs-identifier hs-type">InitiateJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-121"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJob"><span class="hs-identifier hs-type">InitiateJob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJobResponse"><span class="hs-identifier hs-type">InitiateJobResponse</span></a></span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679223075"><span class="annot"><span class="annottext">request :: InitiateJob -&gt; Request InitiateJob
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679223084"><span class="annot"><span class="annottext">request :: InitiateJob -&gt; Request InitiateJob
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; Request InitiateJob -&gt; Request InitiateJob
 forall a. ByteString -&gt; Request a -&gt; Request a
@@ -245,7 +245,7 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glacier.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679223068"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679223077"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy InitiateJob
 -&gt; ClientResponse ClientBody
@@ -269,10 +269,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679223065"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679223065"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679223064"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679223064"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679223063"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679223063"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679223074"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679223074"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679223073"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679223073"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679223072"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679223072"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; InitiateJobResponse
 </span><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJobResponse%27"><span class="hs-identifier hs-var">InitiateJobResponse'</span></a></span><span>
@@ -283,7 +283,7 @@ MonadResource m =&gt;
      String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; InitiateJobResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679223064"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679223073"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
 forall a.
 FromText a =&gt;
 ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
@@ -295,7 +295,7 @@ ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text -&gt; Int -&gt; InitiateJobResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679223064"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679223073"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
 forall a.
 FromText a =&gt;
 ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
@@ -306,7 +306,7 @@ ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; InitiateJobResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679223064"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679223073"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
 forall a.
 FromText a =&gt;
 ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
@@ -320,24 +320,24 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679223065"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679223074"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223055"><span id="local-6989586621679223057"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJob"><span class="hs-identifier hs-type">InitiateJob</span></a></span></span></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223064"><span id="local-6989586621679223066"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJob"><span class="hs-identifier hs-type">InitiateJob</span></a></span></span></span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223052"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJob"><span class="hs-identifier hs-type">InitiateJob</span></a></span></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223061"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJob"><span class="hs-identifier hs-type">InitiateJob</span></a></span></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJob"><span class="hs-identifier hs-type">InitiateJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679223048"><span class="annot"><span class="annottext">toHeaders :: InitiateJob -&gt; ResponseHeaders
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679223057"><span class="annot"><span class="annottext">toHeaders :: InitiateJob -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; InitiateJob -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223039"><span id="local-6989586621679223041"><span id="local-6989586621679223043"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJob"><span class="hs-identifier hs-type">InitiateJob</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679223037"><span class="annot"><span class="annottext">toJSON :: InitiateJob -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJob%27"><span class="hs-identifier hs-type">InitiateJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223033"><span id="local-6989586621679223034"><span id="local-6989586621679223035"><span class="annot"><span class="annottext">Maybe JobParameters
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223048"><span id="local-6989586621679223050"><span id="local-6989586621679223052"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJob"><span class="hs-identifier hs-type">InitiateJob</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679223046"><span class="annot"><span class="annottext">toJSON :: InitiateJob -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJob%27"><span class="hs-identifier hs-type">InitiateJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223042"><span id="local-6989586621679223043"><span id="local-6989586621679223044"><span class="annot"><span class="annottext">Maybe JobParameters
 Text
 vaultName :: Text
 accountId :: Text
@@ -345,7 +345,7 @@ jobParameters :: Maybe JobParameters
 $sel:vaultName:InitiateJob' :: InitiateJob -&gt; Text
 $sel:accountId:InitiateJob' :: InitiateJob -&gt; Text
 $sel:jobParameters:InitiateJob' :: InitiateJob -&gt; Maybe JobParameters
-</span><a href="#local-6989586621679223033"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679223042"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -358,13 +358,13 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-147"></span><span>              </span><span class="annot"><span class="annottext">(JobParameters -&gt; Pair) -&gt; Maybe JobParameters -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe JobParameters
-</span><a href="#local-6989586621679223035"><span class="hs-identifier hs-var">jobParameters</span></a></span><span>
+</span><a href="#local-6989586621679223044"><span class="hs-identifier hs-var">jobParameters</span></a></span><span>
 </span><span id="line-148"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJob"><span class="hs-identifier hs-type">InitiateJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679223027"><span class="annot"><span class="annottext">toPath :: InitiateJob -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJob%27"><span class="hs-identifier hs-type">InitiateJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223023"><span id="local-6989586621679223024"><span id="local-6989586621679223025"><span class="annot"><span class="annottext">Maybe JobParameters
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679223036"><span class="annot"><span class="annottext">toPath :: InitiateJob -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJob%27"><span class="hs-identifier hs-type">InitiateJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223032"><span id="local-6989586621679223033"><span id="local-6989586621679223034"><span class="annot"><span class="annottext">Maybe JobParameters
 Text
 vaultName :: Text
 accountId :: Text
@@ -372,7 +372,7 @@ jobParameters :: Maybe JobParameters
 $sel:vaultName:InitiateJob' :: InitiateJob -&gt; Text
 $sel:accountId:InitiateJob' :: InitiateJob -&gt; Text
 $sel:jobParameters:InitiateJob' :: InitiateJob -&gt; Maybe JobParameters
-</span><a href="#local-6989586621679223023"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679223032"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -381,19 +381,19 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-155"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223024"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679223033"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-156"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/vaults/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223023"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679223032"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/jobs&quot;</span></span><span>
 </span><span id="line-159"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJob"><span class="hs-identifier hs-type">InitiateJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679223019"><span class="annot"><span class="annottext">toQuery :: InitiateJob -&gt; QueryString
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679223028"><span class="annot"><span class="annottext">toQuery :: InitiateJob -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; InitiateJob -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -403,7 +403,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-164"></span><span class="hs-comment">-- | Contains the Amazon S3 Glacier response to your request.</span><span>
 </span><span id="line-165"></span><span class="hs-comment">--</span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- /See:/ 'newInitiateJobResponse' smart constructor.</span><span>
-</span><span id="line-167"></span><span id="local-6989586621679223016"><span id="local-6989586621679223017"></span></span><span class="hs-keyword">data</span><span> </span><span id="InitiateJobResponse"><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJobResponse"><span class="hs-identifier hs-var">InitiateJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InitiateJobResponse%27"><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJobResponse%27"><span class="hs-identifier hs-var">InitiateJobResponse'</span></a></span></span><span>
+</span><span id="line-167"></span><span id="local-6989586621679223025"><span id="local-6989586621679223026"></span></span><span class="hs-keyword">data</span><span> </span><span id="InitiateJobResponse"><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJobResponse"><span class="hs-identifier hs-var">InitiateJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InitiateJobResponse%27"><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJobResponse%27"><span class="hs-identifier hs-var">InitiateJobResponse'</span></a></span></span><span>
 </span><span id="line-168"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the job.</span><span>
 </span><span id="line-169"></span><span>    </span><span id="%24sel%3AjobId%3AInitiateJobResponse%27"><span class="annot"><span class="annottext">InitiateJobResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Glacier.InitiateJob.html#%24sel%3AjobId%3AInitiateJobResponse%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -417,7 +417,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-175"></span><span>    </span><span id="%24sel%3AhttpStatus%3AInitiateJobResponse%27"><span class="annot"><span class="annottext">InitiateJobResponse -&gt; Int
 </span><a href="Network.AWS.Glacier.InitiateJob.html#%24sel%3AhttpStatus%3AInitiateJobResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-176"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-177"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679223008"><span id="local-6989586621679223010"><span class="annot"><span class="annottext">InitiateJobResponse -&gt; InitiateJobResponse -&gt; Bool
+</span><span id="line-177"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679223017"><span id="local-6989586621679223019"><span class="annot"><span class="annottext">InitiateJobResponse -&gt; InitiateJobResponse -&gt; Bool
 (InitiateJobResponse -&gt; InitiateJobResponse -&gt; Bool)
 -&gt; (InitiateJobResponse -&gt; InitiateJobResponse -&gt; Bool)
 -&gt; Eq InitiateJobResponse
@@ -426,7 +426,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InitiateJobResponse -&gt; InitiateJobResponse -&gt; Bool
 == :: InitiateJobResponse -&gt; InitiateJobResponse -&gt; Bool
 $c== :: InitiateJobResponse -&gt; InitiateJobResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223000"><span id="local-6989586621679223002"><span id="local-6989586621679223004"><span id="local-6989586621679223006"><span class="annot"><span class="annottext">ReadPrec [InitiateJobResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223009"><span id="local-6989586621679223011"><span id="local-6989586621679223013"><span id="local-6989586621679223015"><span class="annot"><span class="annottext">ReadPrec [InitiateJobResponse]
 ReadPrec InitiateJobResponse
 Int -&gt; ReadS InitiateJobResponse
 ReadS [InitiateJobResponse]
@@ -446,7 +446,7 @@ readList :: ReadS [InitiateJobResponse]
 $creadList :: ReadS [InitiateJobResponse]
 readsPrec :: Int -&gt; ReadS InitiateJobResponse
 $creadsPrec :: Int -&gt; ReadS InitiateJobResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222994"><span id="local-6989586621679222996"><span id="local-6989586621679222998"><span class="annot"><span class="annottext">Int -&gt; InitiateJobResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223003"><span id="local-6989586621679223005"><span id="local-6989586621679223007"><span class="annot"><span class="annottext">Int -&gt; InitiateJobResponse -&gt; ShowS
 [InitiateJobResponse] -&gt; ShowS
 InitiateJobResponse -&gt; String
 (Int -&gt; InitiateJobResponse -&gt; ShowS)
@@ -492,8 +492,8 @@ $cfrom :: forall x. InitiateJobResponse -&gt; Rep InitiateJobResponse x
 </span><span id="line-196"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-197"></span><span>  </span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJobResponse"><span class="hs-identifier hs-type">InitiateJobResponse</span></a></span><span>
 </span><span id="line-198"></span><span id="newInitiateJobResponse"><span class="annot"><span class="annottext">newInitiateJobResponse :: Int -&gt; InitiateJobResponse
-</span><a href="Network.AWS.Glacier.InitiateJob.html#newInitiateJobResponse"><span class="hs-identifier hs-var hs-var">newInitiateJobResponse</span></a></span></span><span> </span><span id="local-6989586621679222991"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679222991"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glacier.InitiateJob.html#newInitiateJobResponse"><span class="hs-identifier hs-var hs-var">newInitiateJobResponse</span></a></span></span><span> </span><span id="local-6989586621679223000"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679223000"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-199"></span><span>  </span><span class="annot"><span class="annottext">InitiateJobResponse' :: Maybe Text
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; InitiateJobResponse
 </span><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJobResponse%27"><span class="hs-identifier hs-type">InitiateJobResponse'</span></a></span><span>
@@ -511,7 +511,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-203"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:InitiateJobResponse' :: Int
 </span><a href="Network.AWS.Glacier.InitiateJob.html#%24sel%3AhttpStatus%3AInitiateJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679222991"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679223000"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-204"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-205"></span><span>
 </span><span id="line-206"></span><span class="hs-comment">-- | The ID of the job.</span><span>
@@ -523,16 +523,16 @@ forall a. Maybe a
 -&gt; Lens
      InitiateJobResponse InitiateJobResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJobResponse%27"><span class="hs-identifier hs-type">InitiateJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222990"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJobResponse%27"><span class="hs-identifier hs-type">InitiateJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222999"><span class="annot"><span class="annottext">Maybe Text
 jobId :: Maybe Text
 $sel:jobId:InitiateJobResponse' :: InitiateJobResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679222990"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222990"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222989"><span class="annot"><span class="annottext">s :: InitiateJobResponse
-</span><a href="#local-6989586621679222989"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJobResponse%27"><span class="hs-identifier hs-type">InitiateJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222988"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222988"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateJobResponse
-</span><a href="#local-6989586621679222989"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:InitiateJobResponse' :: Maybe Text
+</span><a href="#local-6989586621679222999"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222999"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222998"><span class="annot"><span class="annottext">s :: InitiateJobResponse
+</span><a href="#local-6989586621679222998"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJobResponse%27"><span class="hs-identifier hs-type">InitiateJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222997"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222997"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateJobResponse
+</span><a href="#local-6989586621679222998"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:InitiateJobResponse' :: Maybe Text
 </span><a href="Network.AWS.Glacier.InitiateJob.html#%24sel%3AjobId%3AInitiateJobResponse%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222988"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJobResponse"><span class="hs-identifier hs-type">InitiateJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222997"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJobResponse"><span class="hs-identifier hs-type">InitiateJobResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-209"></span><span>
 </span><span id="line-210"></span><span class="hs-comment">-- | The path to the location of where the select results are stored.</span><span>
 </span><span id="line-211"></span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#initiateJobResponse_jobOutputPath"><span class="hs-identifier hs-type">initiateJobResponse_jobOutputPath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJobResponse"><span class="hs-identifier hs-type">InitiateJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -543,16 +543,16 @@ $sel:jobId:InitiateJobResponse' :: InitiateJobResponse -&gt; Maybe Text
 -&gt; Lens
      InitiateJobResponse InitiateJobResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJobResponse%27"><span class="hs-identifier hs-type">InitiateJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222987"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJobResponse%27"><span class="hs-identifier hs-type">InitiateJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222996"><span class="annot"><span class="annottext">Maybe Text
 jobOutputPath :: Maybe Text
 $sel:jobOutputPath:InitiateJobResponse' :: InitiateJobResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679222987"><span class="hs-identifier hs-var hs-var">jobOutputPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222987"><span class="hs-identifier hs-var">jobOutputPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222986"><span class="annot"><span class="annottext">s :: InitiateJobResponse
-</span><a href="#local-6989586621679222986"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJobResponse%27"><span class="hs-identifier hs-type">InitiateJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222985"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222985"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateJobResponse
-</span><a href="#local-6989586621679222986"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobOutputPath:InitiateJobResponse' :: Maybe Text
+</span><a href="#local-6989586621679222996"><span class="hs-identifier hs-var hs-var">jobOutputPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222996"><span class="hs-identifier hs-var">jobOutputPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222995"><span class="annot"><span class="annottext">s :: InitiateJobResponse
+</span><a href="#local-6989586621679222995"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJobResponse%27"><span class="hs-identifier hs-type">InitiateJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222994"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222994"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateJobResponse
+</span><a href="#local-6989586621679222995"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobOutputPath:InitiateJobResponse' :: Maybe Text
 </span><a href="Network.AWS.Glacier.InitiateJob.html#%24sel%3AjobOutputPath%3AInitiateJobResponse%27"><span class="hs-identifier hs-var">jobOutputPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222985"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJobResponse"><span class="hs-identifier hs-type">InitiateJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222994"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJobResponse"><span class="hs-identifier hs-type">InitiateJobResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-213"></span><span>
 </span><span id="line-214"></span><span class="hs-comment">-- | The relative URI path of the job.</span><span>
 </span><span id="line-215"></span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#initiateJobResponse_location"><span class="hs-identifier hs-type">initiateJobResponse_location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJobResponse"><span class="hs-identifier hs-type">InitiateJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -563,16 +563,16 @@ $sel:jobOutputPath:InitiateJobResponse' :: InitiateJobResponse -&gt; Maybe Text
 -&gt; Lens
      InitiateJobResponse InitiateJobResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJobResponse%27"><span class="hs-identifier hs-type">InitiateJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222984"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJobResponse%27"><span class="hs-identifier hs-type">InitiateJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222993"><span class="annot"><span class="annottext">Maybe Text
 location :: Maybe Text
 $sel:location:InitiateJobResponse' :: InitiateJobResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679222984"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222984"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222983"><span class="annot"><span class="annottext">s :: InitiateJobResponse
-</span><a href="#local-6989586621679222983"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJobResponse%27"><span class="hs-identifier hs-type">InitiateJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222982"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222982"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateJobResponse
-</span><a href="#local-6989586621679222983"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:InitiateJobResponse' :: Maybe Text
+</span><a href="#local-6989586621679222993"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222993"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222992"><span class="annot"><span class="annottext">s :: InitiateJobResponse
+</span><a href="#local-6989586621679222992"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJobResponse%27"><span class="hs-identifier hs-type">InitiateJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222991"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222991"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateJobResponse
+</span><a href="#local-6989586621679222992"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:InitiateJobResponse' :: Maybe Text
 </span><a href="Network.AWS.Glacier.InitiateJob.html#%24sel%3Alocation%3AInitiateJobResponse%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222982"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJobResponse"><span class="hs-identifier hs-type">InitiateJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222991"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJobResponse"><span class="hs-identifier hs-type">InitiateJobResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-217"></span><span>
 </span><span id="line-218"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-219"></span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#initiateJobResponse_httpStatus"><span class="hs-identifier hs-type">initiateJobResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJobResponse"><span class="hs-identifier hs-type">InitiateJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -581,16 +581,16 @@ $sel:location:InitiateJobResponse' :: InitiateJobResponse -&gt; Maybe Text
 -&gt; (InitiateJobResponse -&gt; Int -&gt; InitiateJobResponse)
 -&gt; Lens InitiateJobResponse InitiateJobResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJobResponse%27"><span class="hs-identifier hs-type">InitiateJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222981"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJobResponse%27"><span class="hs-identifier hs-type">InitiateJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222990"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:InitiateJobResponse' :: InitiateJobResponse -&gt; Int
-</span><a href="#local-6989586621679222981"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679222981"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222980"><span class="annot"><span class="annottext">s :: InitiateJobResponse
-</span><a href="#local-6989586621679222980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJobResponse%27"><span class="hs-identifier hs-type">InitiateJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222979"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679222979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateJobResponse
-</span><a href="#local-6989586621679222980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:InitiateJobResponse' :: Int
+</span><a href="#local-6989586621679222990"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222990"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222989"><span class="annot"><span class="annottext">s :: InitiateJobResponse
+</span><a href="#local-6989586621679222989"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJobResponse%27"><span class="hs-identifier hs-type">InitiateJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222988"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222988"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateJobResponse
+</span><a href="#local-6989586621679222989"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:InitiateJobResponse' :: Int
 </span><a href="Network.AWS.Glacier.InitiateJob.html#%24sel%3AhttpStatus%3AInitiateJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679222979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJobResponse"><span class="hs-identifier hs-type">InitiateJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222988"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJobResponse"><span class="hs-identifier hs-type">InitiateJobResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-221"></span><span>
-</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222977"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJobResponse"><span class="hs-identifier hs-type">InitiateJobResponse</span></a></span></span><span>
+</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222986"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateJob.html#InitiateJobResponse"><span class="hs-identifier hs-type">InitiateJobResponse</span></a></span></span><span>
 </span><span id="line-223"></span></pre></body></html>

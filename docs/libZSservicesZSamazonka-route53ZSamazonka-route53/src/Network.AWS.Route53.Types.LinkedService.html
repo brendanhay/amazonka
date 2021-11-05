@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- can\'t edit or delete it using Amazon Route 53.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newLinkedService' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679295892"><span id="local-6989586621679295893"></span></span><span class="hs-keyword">data</span><span> </span><span id="LinkedService"><span class="annot"><a href="Network.AWS.Route53.Types.LinkedService.html#LinkedService"><span class="hs-identifier hs-var">LinkedService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LinkedService%27"><span class="annot"><a href="Network.AWS.Route53.Types.LinkedService.html#LinkedService%27"><span class="hs-identifier hs-var">LinkedService'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679295901"><span id="local-6989586621679295902"></span></span><span class="hs-keyword">data</span><span> </span><span id="LinkedService"><span class="annot"><a href="Network.AWS.Route53.Types.LinkedService.html#LinkedService"><span class="hs-identifier hs-var">LinkedService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LinkedService%27"><span class="annot"><a href="Network.AWS.Route53.Types.LinkedService.html#LinkedService%27"><span class="hs-identifier hs-var">LinkedService'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the health check or hosted zone was created by another service, the</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- service that created the resource. When a resource is created by another</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- service, you can\'t edit or delete it using Amazon Route 53.</span><span>
@@ -43,7 +43,7 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3Adescription%3ALinkedService%27"><span class="annot"><span class="annottext">LinkedService -&gt; Maybe Text
 </span><a href="Network.AWS.Route53.Types.LinkedService.html#%24sel%3Adescription%3ALinkedService%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679295885"><span id="local-6989586621679295887"><span class="annot"><span class="annottext">LinkedService -&gt; LinkedService -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679295894"><span id="local-6989586621679295896"><span class="annot"><span class="annottext">LinkedService -&gt; LinkedService -&gt; Bool
 (LinkedService -&gt; LinkedService -&gt; Bool)
 -&gt; (LinkedService -&gt; LinkedService -&gt; Bool) -&gt; Eq LinkedService
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -51,7 +51,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LinkedService -&gt; LinkedService -&gt; Bool
 == :: LinkedService -&gt; LinkedService -&gt; Bool
 $c== :: LinkedService -&gt; LinkedService -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295876"><span id="local-6989586621679295878"><span id="local-6989586621679295880"><span id="local-6989586621679295882"><span class="annot"><span class="annottext">ReadPrec [LinkedService]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295885"><span id="local-6989586621679295887"><span id="local-6989586621679295889"><span id="local-6989586621679295891"><span class="annot"><span class="annottext">ReadPrec [LinkedService]
 ReadPrec LinkedService
 Int -&gt; ReadS LinkedService
 ReadS [LinkedService]
@@ -71,7 +71,7 @@ readList :: ReadS [LinkedService]
 $creadList :: ReadS [LinkedService]
 readsPrec :: Int -&gt; ReadS LinkedService
 $creadsPrec :: Int -&gt; ReadS LinkedService
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295869"><span id="local-6989586621679295871"><span id="local-6989586621679295873"><span class="annot"><span class="annottext">Int -&gt; LinkedService -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295878"><span id="local-6989586621679295880"><span id="local-6989586621679295882"><span class="annot"><span class="annottext">Int -&gt; LinkedService -&gt; ShowS
 [LinkedService] -&gt; ShowS
 LinkedService -&gt; String
 (Int -&gt; LinkedService -&gt; ShowS)
@@ -138,16 +138,16 @@ forall a. Maybe a
 -&gt; (LinkedService -&gt; Maybe Text -&gt; LinkedService)
 -&gt; Lens LinkedService LinkedService (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.LinkedService.html#LinkedService%27"><span class="hs-identifier hs-type">LinkedService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295860"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.LinkedService.html#LinkedService%27"><span class="hs-identifier hs-type">LinkedService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295869"><span class="annot"><span class="annottext">Maybe Text
 servicePrincipal :: Maybe Text
 $sel:servicePrincipal:LinkedService' :: LinkedService -&gt; Maybe Text
-</span><a href="#local-6989586621679295860"><span class="hs-identifier hs-var hs-var">servicePrincipal</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679295860"><span class="hs-identifier hs-var">servicePrincipal</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295859"><span class="annot"><span class="annottext">s :: LinkedService
-</span><a href="#local-6989586621679295859"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.LinkedService.html#LinkedService%27"><span class="hs-identifier hs-type">LinkedService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295858"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679295858"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LinkedService
-</span><a href="#local-6989586621679295859"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:servicePrincipal:LinkedService' :: Maybe Text
+</span><a href="#local-6989586621679295869"><span class="hs-identifier hs-var hs-var">servicePrincipal</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295869"><span class="hs-identifier hs-var">servicePrincipal</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295868"><span class="annot"><span class="annottext">s :: LinkedService
+</span><a href="#local-6989586621679295868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.LinkedService.html#LinkedService%27"><span class="hs-identifier hs-type">LinkedService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295867"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LinkedService
+</span><a href="#local-6989586621679295868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:servicePrincipal:LinkedService' :: Maybe Text
 </span><a href="Network.AWS.Route53.Types.LinkedService.html#%24sel%3AservicePrincipal%3ALinkedService%27"><span class="hs-identifier hs-var">servicePrincipal</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679295858"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.LinkedService.html#LinkedService"><span class="hs-identifier hs-type">LinkedService</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679295867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.LinkedService.html#LinkedService"><span class="hs-identifier hs-type">LinkedService</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | If the health check or hosted zone was created by another service, an</span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- optional description that can be provided by the other service. When a</span><span>
@@ -159,21 +159,21 @@ $sel:servicePrincipal:LinkedService' :: LinkedService -&gt; Maybe Text
 -&gt; (LinkedService -&gt; Maybe Text -&gt; LinkedService)
 -&gt; Lens LinkedService LinkedService (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.LinkedService.html#LinkedService%27"><span class="hs-identifier hs-type">LinkedService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295856"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.LinkedService.html#LinkedService%27"><span class="hs-identifier hs-type">LinkedService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295865"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:LinkedService' :: LinkedService -&gt; Maybe Text
-</span><a href="#local-6989586621679295856"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679295856"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295855"><span class="annot"><span class="annottext">s :: LinkedService
-</span><a href="#local-6989586621679295855"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.LinkedService.html#LinkedService%27"><span class="hs-identifier hs-type">LinkedService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295854"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679295854"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LinkedService
-</span><a href="#local-6989586621679295855"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:LinkedService' :: Maybe Text
+</span><a href="#local-6989586621679295865"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295865"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295864"><span class="annot"><span class="annottext">s :: LinkedService
+</span><a href="#local-6989586621679295864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.LinkedService.html#LinkedService%27"><span class="hs-identifier hs-type">LinkedService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295863"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LinkedService
+</span><a href="#local-6989586621679295864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:LinkedService' :: Maybe Text
 </span><a href="Network.AWS.Route53.Types.LinkedService.html#%24sel%3Adescription%3ALinkedService%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679295854"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.LinkedService.html#LinkedService"><span class="hs-identifier hs-type">LinkedService</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679295863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.LinkedService.html#LinkedService"><span class="hs-identifier hs-type">LinkedService</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.LinkedService.html#LinkedService"><span class="hs-identifier hs-type">LinkedService</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679295851"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LinkedService
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679295849"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679295849"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679295860"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LinkedService
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679295858"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679295858"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; LinkedService
 </span><a href="Network.AWS.Route53.Types.LinkedService.html#LinkedService%27"><span class="hs-identifier hs-var">LinkedService'</span></a></span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; LinkedService)
@@ -181,7 +181,7 @@ $sel:description:LinkedService' :: LinkedService -&gt; Maybe Text
 -&gt; Either String (Maybe Text -&gt; LinkedService)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679295849"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679295858"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ServicePrincipal&quot;</span></span><span class="hs-special">)</span><span>
@@ -189,12 +189,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text) -&gt; Either String LinkedService
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679295849"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679295858"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295843"><span id="local-6989586621679295845"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.LinkedService.html#LinkedService"><span class="hs-identifier hs-type">LinkedService</span></a></span></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295852"><span id="local-6989586621679295854"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.LinkedService.html#LinkedService"><span class="hs-identifier hs-type">LinkedService</span></a></span></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295840"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.LinkedService.html#LinkedService"><span class="hs-identifier hs-type">LinkedService</span></a></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295849"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.LinkedService.html#LinkedService"><span class="hs-identifier hs-type">LinkedService</span></a></span></span><span>
 </span><span id="line-92"></span></pre></body></html>

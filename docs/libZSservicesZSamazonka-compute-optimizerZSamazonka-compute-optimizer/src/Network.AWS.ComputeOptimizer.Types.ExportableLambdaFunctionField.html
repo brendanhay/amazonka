@@ -1,0 +1,492 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField"><span class="hs-identifier">ExportableLambdaFunctionField</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_AccountId"><span class="hs-identifier">ExportableLambdaFunctionField_AccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_CurrentConfigurationMemorySize"><span class="hs-identifier">ExportableLambdaFunctionField_CurrentConfigurationMemorySize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_CurrentConfigurationTimeout"><span class="hs-identifier">ExportableLambdaFunctionField_CurrentConfigurationTimeout</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_CurrentCostAverage"><span class="hs-identifier">ExportableLambdaFunctionField_CurrentCostAverage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_CurrentCostTotal"><span class="hs-identifier">ExportableLambdaFunctionField_CurrentCostTotal</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_Finding"><span class="hs-identifier">ExportableLambdaFunctionField_Finding</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_FindingReasonCodes"><span class="hs-identifier">ExportableLambdaFunctionField_FindingReasonCodes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_FunctionArn"><span class="hs-identifier">ExportableLambdaFunctionField_FunctionArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_FunctionVersion"><span class="hs-identifier">ExportableLambdaFunctionField_FunctionVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_LastRefreshTimestamp"><span class="hs-identifier">ExportableLambdaFunctionField_LastRefreshTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_LookbackPeriodInDays"><span class="hs-identifier">ExportableLambdaFunctionField_LookbackPeriodInDays</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_NumberOfInvocations"><span class="hs-identifier">ExportableLambdaFunctionField_NumberOfInvocations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_RecommendationOptionsConfigurationMemorySize"><span class="hs-identifier">ExportableLambdaFunctionField_RecommendationOptionsConfigurationMemorySize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_RecommendationOptionsCostHigh"><span class="hs-identifier">ExportableLambdaFunctionField_RecommendationOptionsCostHigh</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_RecommendationOptionsCostLow"><span class="hs-identifier">ExportableLambdaFunctionField_RecommendationOptionsCostLow</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_RecommendationOptionsProjectedUtilizationMetricsDurationExpected"><span class="hs-identifier">ExportableLambdaFunctionField_RecommendationOptionsProjectedUtilizationMetricsDurationExpected</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_RecommendationOptionsProjectedUtilizationMetricsDurationLowerBound"><span class="hs-identifier">ExportableLambdaFunctionField_RecommendationOptionsProjectedUtilizationMetricsDurationLowerBound</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_RecommendationOptionsProjectedUtilizationMetricsDurationUpperBound"><span class="hs-identifier">ExportableLambdaFunctionField_RecommendationOptionsProjectedUtilizationMetricsDurationUpperBound</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_UtilizationMetricsDurationAverage"><span class="hs-identifier">ExportableLambdaFunctionField_UtilizationMetricsDurationAverage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_UtilizationMetricsDurationMaximum"><span class="hs-identifier">ExportableLambdaFunctionField_UtilizationMetricsDurationMaximum</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_UtilizationMetricsMemoryAverage"><span class="hs-identifier">ExportableLambdaFunctionField_UtilizationMetricsMemoryAverage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_UtilizationMetricsMemoryMaximum"><span class="hs-identifier">ExportableLambdaFunctionField_UtilizationMetricsMemoryMaximum</span></a></span><span>
+</span><span id="line-45"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679237232"><span id="local-6989586621679237233"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ExportableLambdaFunctionField"><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField"><span class="hs-identifier hs-var">ExportableLambdaFunctionField</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExportableLambdaFunctionField%27"><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField%27"><span class="hs-identifier hs-var">ExportableLambdaFunctionField'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromExportableLambdaFunctionField"><span class="annot"><span class="annottext">ExportableLambdaFunctionField -&gt; Text
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#fromExportableLambdaFunctionField"><span class="hs-identifier hs-var hs-var">fromExportableLambdaFunctionField</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679237224"><span id="local-6989586621679237226"><span id="local-6989586621679237228"><span class="annot"><span class="annottext">Int -&gt; ExportableLambdaFunctionField -&gt; ShowS
+[ExportableLambdaFunctionField] -&gt; ShowS
+ExportableLambdaFunctionField -&gt; String
+(Int -&gt; ExportableLambdaFunctionField -&gt; ShowS)
+-&gt; (ExportableLambdaFunctionField -&gt; String)
+-&gt; ([ExportableLambdaFunctionField] -&gt; ShowS)
+-&gt; Show ExportableLambdaFunctionField
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ExportableLambdaFunctionField] -&gt; ShowS
+$cshowList :: [ExportableLambdaFunctionField] -&gt; ShowS
+show :: ExportableLambdaFunctionField -&gt; String
+$cshow :: ExportableLambdaFunctionField -&gt; String
+showsPrec :: Int -&gt; ExportableLambdaFunctionField -&gt; ShowS
+$cshowsPrec :: Int -&gt; ExportableLambdaFunctionField -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679237215"><span id="local-6989586621679237217"><span id="local-6989586621679237219"><span id="local-6989586621679237221"><span class="annot"><span class="annottext">ReadPrec [ExportableLambdaFunctionField]
+ReadPrec ExportableLambdaFunctionField
+Int -&gt; ReadS ExportableLambdaFunctionField
+ReadS [ExportableLambdaFunctionField]
+(Int -&gt; ReadS ExportableLambdaFunctionField)
+-&gt; ReadS [ExportableLambdaFunctionField]
+-&gt; ReadPrec ExportableLambdaFunctionField
+-&gt; ReadPrec [ExportableLambdaFunctionField]
+-&gt; Read ExportableLambdaFunctionField
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ExportableLambdaFunctionField]
+$creadListPrec :: ReadPrec [ExportableLambdaFunctionField]
+readPrec :: ReadPrec ExportableLambdaFunctionField
+$creadPrec :: ReadPrec ExportableLambdaFunctionField
+readList :: ReadS [ExportableLambdaFunctionField]
+$creadList :: ReadS [ExportableLambdaFunctionField]
+readsPrec :: Int -&gt; ReadS ExportableLambdaFunctionField
+$creadsPrec :: Int -&gt; ReadS ExportableLambdaFunctionField
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679237210"><span id="local-6989586621679237212"><span class="annot"><span class="annottext">ExportableLambdaFunctionField
+-&gt; ExportableLambdaFunctionField -&gt; Bool
+(ExportableLambdaFunctionField
+ -&gt; ExportableLambdaFunctionField -&gt; Bool)
+-&gt; (ExportableLambdaFunctionField
+    -&gt; ExportableLambdaFunctionField -&gt; Bool)
+-&gt; Eq ExportableLambdaFunctionField
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ExportableLambdaFunctionField
+-&gt; ExportableLambdaFunctionField -&gt; Bool
+$c/= :: ExportableLambdaFunctionField
+-&gt; ExportableLambdaFunctionField -&gt; Bool
+== :: ExportableLambdaFunctionField
+-&gt; ExportableLambdaFunctionField -&gt; Bool
+$c== :: ExportableLambdaFunctionField
+-&gt; ExportableLambdaFunctionField -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679237194"><span id="local-6989586621679237196"><span id="local-6989586621679237198"><span id="local-6989586621679237200"><span id="local-6989586621679237202"><span id="local-6989586621679237204"><span id="local-6989586621679237206"><span class="annot"><span class="annottext">Eq ExportableLambdaFunctionField
+Eq ExportableLambdaFunctionField
+-&gt; (ExportableLambdaFunctionField
+    -&gt; ExportableLambdaFunctionField -&gt; Ordering)
+-&gt; (ExportableLambdaFunctionField
+    -&gt; ExportableLambdaFunctionField -&gt; Bool)
+-&gt; (ExportableLambdaFunctionField
+    -&gt; ExportableLambdaFunctionField -&gt; Bool)
+-&gt; (ExportableLambdaFunctionField
+    -&gt; ExportableLambdaFunctionField -&gt; Bool)
+-&gt; (ExportableLambdaFunctionField
+    -&gt; ExportableLambdaFunctionField -&gt; Bool)
+-&gt; (ExportableLambdaFunctionField
+    -&gt; ExportableLambdaFunctionField -&gt; ExportableLambdaFunctionField)
+-&gt; (ExportableLambdaFunctionField
+    -&gt; ExportableLambdaFunctionField -&gt; ExportableLambdaFunctionField)
+-&gt; Ord ExportableLambdaFunctionField
+ExportableLambdaFunctionField
+-&gt; ExportableLambdaFunctionField -&gt; Bool
+ExportableLambdaFunctionField
+-&gt; ExportableLambdaFunctionField -&gt; Ordering
+ExportableLambdaFunctionField
+-&gt; ExportableLambdaFunctionField -&gt; ExportableLambdaFunctionField
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ExportableLambdaFunctionField
+-&gt; ExportableLambdaFunctionField -&gt; ExportableLambdaFunctionField
+$cmin :: ExportableLambdaFunctionField
+-&gt; ExportableLambdaFunctionField -&gt; ExportableLambdaFunctionField
+max :: ExportableLambdaFunctionField
+-&gt; ExportableLambdaFunctionField -&gt; ExportableLambdaFunctionField
+$cmax :: ExportableLambdaFunctionField
+-&gt; ExportableLambdaFunctionField -&gt; ExportableLambdaFunctionField
+&gt;= :: ExportableLambdaFunctionField
+-&gt; ExportableLambdaFunctionField -&gt; Bool
+$c&gt;= :: ExportableLambdaFunctionField
+-&gt; ExportableLambdaFunctionField -&gt; Bool
+&gt; :: ExportableLambdaFunctionField
+-&gt; ExportableLambdaFunctionField -&gt; Bool
+$c&gt; :: ExportableLambdaFunctionField
+-&gt; ExportableLambdaFunctionField -&gt; Bool
+&lt;= :: ExportableLambdaFunctionField
+-&gt; ExportableLambdaFunctionField -&gt; Bool
+$c&lt;= :: ExportableLambdaFunctionField
+-&gt; ExportableLambdaFunctionField -&gt; Bool
+&lt; :: ExportableLambdaFunctionField
+-&gt; ExportableLambdaFunctionField -&gt; Bool
+$c&lt; :: ExportableLambdaFunctionField
+-&gt; ExportableLambdaFunctionField -&gt; Bool
+compare :: ExportableLambdaFunctionField
+-&gt; ExportableLambdaFunctionField -&gt; Ordering
+$ccompare :: ExportableLambdaFunctionField
+-&gt; ExportableLambdaFunctionField -&gt; Ordering
+$cp1Ord :: Eq ExportableLambdaFunctionField
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ ExportableLambdaFunctionField
+ -&gt; Rep ExportableLambdaFunctionField x)
+-&gt; (forall x.
+    Rep ExportableLambdaFunctionField x
+    -&gt; ExportableLambdaFunctionField)
+-&gt; Generic ExportableLambdaFunctionField
+forall x.
+Rep ExportableLambdaFunctionField x
+-&gt; ExportableLambdaFunctionField
+forall x.
+ExportableLambdaFunctionField
+-&gt; Rep ExportableLambdaFunctionField x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ExportableLambdaFunctionField x
+-&gt; ExportableLambdaFunctionField
+$cfrom :: forall x.
+ExportableLambdaFunctionField
+-&gt; Rep ExportableLambdaFunctionField x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679237186"><span id="local-6989586621679237188"><span class="annot"><span class="annottext">Int -&gt; ExportableLambdaFunctionField -&gt; Int
+ExportableLambdaFunctionField -&gt; Int
+(Int -&gt; ExportableLambdaFunctionField -&gt; Int)
+-&gt; (ExportableLambdaFunctionField -&gt; Int)
+-&gt; Hashable ExportableLambdaFunctionField
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ExportableLambdaFunctionField -&gt; Int
+$chash :: ExportableLambdaFunctionField -&gt; Int
+hashWithSalt :: Int -&gt; ExportableLambdaFunctionField -&gt; Int
+$chashWithSalt :: Int -&gt; ExportableLambdaFunctionField -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679237183"><span class="annot"><span class="annottext">ExportableLambdaFunctionField -&gt; ()
+(ExportableLambdaFunctionField -&gt; ())
+-&gt; NFData ExportableLambdaFunctionField
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ExportableLambdaFunctionField -&gt; ()
+$crnf :: ExportableLambdaFunctionField -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679237180"><span class="annot"><span class="annottext">Text -&gt; Either String ExportableLambdaFunctionField
+(Text -&gt; Either String ExportableLambdaFunctionField)
+-&gt; FromText ExportableLambdaFunctionField
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ExportableLambdaFunctionField
+$cfromText :: Text -&gt; Either String ExportableLambdaFunctionField
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679237177"><span class="annot"><span class="annottext">ExportableLambdaFunctionField -&gt; Text
+(ExportableLambdaFunctionField -&gt; Text)
+-&gt; ToText ExportableLambdaFunctionField
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ExportableLambdaFunctionField -&gt; Text
+$ctoText :: ExportableLambdaFunctionField -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679237174"><span class="annot"><span class="annottext">ExportableLambdaFunctionField -&gt; ByteString
+(ExportableLambdaFunctionField -&gt; ByteString)
+-&gt; ToByteString ExportableLambdaFunctionField
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ExportableLambdaFunctionField -&gt; ByteString
+$ctoBS :: ExportableLambdaFunctionField -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679237171"><span class="annot"><span class="annottext">ExportableLambdaFunctionField -&gt; ByteStringBuilder
+(ExportableLambdaFunctionField -&gt; ByteStringBuilder)
+-&gt; ToLog ExportableLambdaFunctionField
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ExportableLambdaFunctionField -&gt; ByteStringBuilder
+$cbuild :: ExportableLambdaFunctionField -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679237168"><span class="annot"><span class="annottext">HeaderName -&gt; ExportableLambdaFunctionField -&gt; [Header]
+(HeaderName -&gt; ExportableLambdaFunctionField -&gt; [Header])
+-&gt; ToHeader ExportableLambdaFunctionField
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ExportableLambdaFunctionField -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ExportableLambdaFunctionField -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679237165"><span class="annot"><span class="annottext">ExportableLambdaFunctionField -&gt; QueryString
+(ExportableLambdaFunctionField -&gt; QueryString)
+-&gt; ToQuery ExportableLambdaFunctionField
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ExportableLambdaFunctionField -&gt; QueryString
+$ctoQuery :: ExportableLambdaFunctionField -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679237160"><span id="local-6989586621679237162"><span class="annot"><span class="annottext">Value -&gt; Parser [ExportableLambdaFunctionField]
+Value -&gt; Parser ExportableLambdaFunctionField
+(Value -&gt; Parser ExportableLambdaFunctionField)
+-&gt; (Value -&gt; Parser [ExportableLambdaFunctionField])
+-&gt; FromJSON ExportableLambdaFunctionField
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ExportableLambdaFunctionField]
+$cparseJSONList :: Value -&gt; Parser [ExportableLambdaFunctionField]
+parseJSON :: Value -&gt; Parser ExportableLambdaFunctionField
+$cparseJSON :: Value -&gt; Parser ExportableLambdaFunctionField
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679237155"><span id="local-6989586621679237157"><span class="annot"><span class="annottext">FromJSONKeyFunction [ExportableLambdaFunctionField]
+FromJSONKeyFunction ExportableLambdaFunctionField
+FromJSONKeyFunction ExportableLambdaFunctionField
+-&gt; FromJSONKeyFunction [ExportableLambdaFunctionField]
+-&gt; FromJSONKey ExportableLambdaFunctionField
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ExportableLambdaFunctionField]
+$cfromJSONKeyList :: FromJSONKeyFunction [ExportableLambdaFunctionField]
+fromJSONKey :: FromJSONKeyFunction ExportableLambdaFunctionField
+$cfromJSONKey :: FromJSONKeyFunction ExportableLambdaFunctionField
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span id="local-6989586621679237146"><span id="local-6989586621679237148"><span id="local-6989586621679237150"><span id="local-6989586621679237152"><span class="annot"><span class="annottext">[ExportableLambdaFunctionField] -&gt; Encoding
+[ExportableLambdaFunctionField] -&gt; Value
+ExportableLambdaFunctionField -&gt; Encoding
+ExportableLambdaFunctionField -&gt; Value
+(ExportableLambdaFunctionField -&gt; Value)
+-&gt; (ExportableLambdaFunctionField -&gt; Encoding)
+-&gt; ([ExportableLambdaFunctionField] -&gt; Value)
+-&gt; ([ExportableLambdaFunctionField] -&gt; Encoding)
+-&gt; ToJSON ExportableLambdaFunctionField
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ExportableLambdaFunctionField] -&gt; Encoding
+$ctoEncodingList :: [ExportableLambdaFunctionField] -&gt; Encoding
+toJSONList :: [ExportableLambdaFunctionField] -&gt; Value
+$ctoJSONList :: [ExportableLambdaFunctionField] -&gt; Value
+toEncoding :: ExportableLambdaFunctionField -&gt; Encoding
+$ctoEncoding :: ExportableLambdaFunctionField -&gt; Encoding
+toJSON :: ExportableLambdaFunctionField -&gt; Value
+$ctoJSON :: ExportableLambdaFunctionField -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span id="local-6989586621679237141"><span id="local-6989586621679237143"><span class="annot"><span class="annottext">ToJSONKeyFunction [ExportableLambdaFunctionField]
+ToJSONKeyFunction ExportableLambdaFunctionField
+ToJSONKeyFunction ExportableLambdaFunctionField
+-&gt; ToJSONKeyFunction [ExportableLambdaFunctionField]
+-&gt; ToJSONKey ExportableLambdaFunctionField
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ExportableLambdaFunctionField]
+$ctoJSONKeyList :: ToJSONKeyFunction [ExportableLambdaFunctionField]
+toJSONKey :: ToJSONKeyFunction ExportableLambdaFunctionField
+$ctoJSONKey :: ToJSONKeyFunction ExportableLambdaFunctionField
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span id="local-6989586621679237138"><span class="annot"><span class="annottext">[Node] -&gt; Either String ExportableLambdaFunctionField
+([Node] -&gt; Either String ExportableLambdaFunctionField)
+-&gt; FromXML ExportableLambdaFunctionField
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ExportableLambdaFunctionField
+$cparseXML :: [Node] -&gt; Either String ExportableLambdaFunctionField
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span id="local-6989586621679237135"><span class="annot"><span class="annottext">ExportableLambdaFunctionField -&gt; XML
+(ExportableLambdaFunctionField -&gt; XML)
+-&gt; ToXML ExportableLambdaFunctionField
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ExportableLambdaFunctionField -&gt; XML
+$ctoXML :: ExportableLambdaFunctionField -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_AccountId"><span class="hs-identifier hs-type">ExportableLambdaFunctionField_AccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField"><span class="hs-identifier hs-type">ExportableLambdaFunctionField</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportableLambdaFunctionField_AccountId"><span id="%24mExportableLambdaFunctionField_AccountId"><span id="ExportableLambdaFunctionField_AccountId"><span class="annot"><span class="annottext">$bExportableLambdaFunctionField_AccountId :: ExportableLambdaFunctionField
+$mExportableLambdaFunctionField_AccountId :: forall r.
+ExportableLambdaFunctionField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#%24bExportableLambdaFunctionField_AccountId"><span class="hs-identifier hs-var hs-var hs-var">ExportableLambdaFunctionField_AccountId</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField%27"><span class="hs-identifier hs-type">ExportableLambdaFunctionField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AccountId&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_CurrentConfigurationMemorySize"><span class="hs-identifier hs-type">ExportableLambdaFunctionField_CurrentConfigurationMemorySize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField"><span class="hs-identifier hs-type">ExportableLambdaFunctionField</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportableLambdaFunctionField_CurrentConfigurationMemorySize"><span id="%24mExportableLambdaFunctionField_CurrentConfigurationMemorySize"><span id="ExportableLambdaFunctionField_CurrentConfigurationMemorySize"><span class="annot"><span class="annottext">$bExportableLambdaFunctionField_CurrentConfigurationMemorySize :: ExportableLambdaFunctionField
+$mExportableLambdaFunctionField_CurrentConfigurationMemorySize :: forall r.
+ExportableLambdaFunctionField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#%24bExportableLambdaFunctionField_CurrentConfigurationMemorySize"><span class="hs-identifier hs-var hs-var hs-var">ExportableLambdaFunctionField_CurrentConfigurationMemorySize</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField%27"><span class="hs-identifier hs-type">ExportableLambdaFunctionField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CurrentConfigurationMemorySize&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_CurrentConfigurationTimeout"><span class="hs-identifier hs-type">ExportableLambdaFunctionField_CurrentConfigurationTimeout</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField"><span class="hs-identifier hs-type">ExportableLambdaFunctionField</span></a></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportableLambdaFunctionField_CurrentConfigurationTimeout"><span id="%24mExportableLambdaFunctionField_CurrentConfigurationTimeout"><span id="ExportableLambdaFunctionField_CurrentConfigurationTimeout"><span class="annot"><span class="annottext">$bExportableLambdaFunctionField_CurrentConfigurationTimeout :: ExportableLambdaFunctionField
+$mExportableLambdaFunctionField_CurrentConfigurationTimeout :: forall r.
+ExportableLambdaFunctionField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#%24bExportableLambdaFunctionField_CurrentConfigurationTimeout"><span class="hs-identifier hs-var hs-var hs-var">ExportableLambdaFunctionField_CurrentConfigurationTimeout</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField%27"><span class="hs-identifier hs-type">ExportableLambdaFunctionField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CurrentConfigurationTimeout&quot;</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_CurrentCostAverage"><span class="hs-identifier hs-type">ExportableLambdaFunctionField_CurrentCostAverage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField"><span class="hs-identifier hs-type">ExportableLambdaFunctionField</span></a></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportableLambdaFunctionField_CurrentCostAverage"><span id="%24mExportableLambdaFunctionField_CurrentCostAverage"><span id="ExportableLambdaFunctionField_CurrentCostAverage"><span class="annot"><span class="annottext">$bExportableLambdaFunctionField_CurrentCostAverage :: ExportableLambdaFunctionField
+$mExportableLambdaFunctionField_CurrentCostAverage :: forall r.
+ExportableLambdaFunctionField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#%24bExportableLambdaFunctionField_CurrentCostAverage"><span class="hs-identifier hs-var hs-var hs-var">ExportableLambdaFunctionField_CurrentCostAverage</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField%27"><span class="hs-identifier hs-type">ExportableLambdaFunctionField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CurrentCostAverage&quot;</span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_CurrentCostTotal"><span class="hs-identifier hs-type">ExportableLambdaFunctionField_CurrentCostTotal</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField"><span class="hs-identifier hs-type">ExportableLambdaFunctionField</span></a></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportableLambdaFunctionField_CurrentCostTotal"><span id="%24mExportableLambdaFunctionField_CurrentCostTotal"><span id="ExportableLambdaFunctionField_CurrentCostTotal"><span class="annot"><span class="annottext">$bExportableLambdaFunctionField_CurrentCostTotal :: ExportableLambdaFunctionField
+$mExportableLambdaFunctionField_CurrentCostTotal :: forall r.
+ExportableLambdaFunctionField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#%24bExportableLambdaFunctionField_CurrentCostTotal"><span class="hs-identifier hs-var hs-var hs-var">ExportableLambdaFunctionField_CurrentCostTotal</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField%27"><span class="hs-identifier hs-type">ExportableLambdaFunctionField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CurrentCostTotal&quot;</span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_Finding"><span class="hs-identifier hs-type">ExportableLambdaFunctionField_Finding</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField"><span class="hs-identifier hs-type">ExportableLambdaFunctionField</span></a></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportableLambdaFunctionField_Finding"><span id="%24mExportableLambdaFunctionField_Finding"><span id="ExportableLambdaFunctionField_Finding"><span class="annot"><span class="annottext">$bExportableLambdaFunctionField_Finding :: ExportableLambdaFunctionField
+$mExportableLambdaFunctionField_Finding :: forall r.
+ExportableLambdaFunctionField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#%24bExportableLambdaFunctionField_Finding"><span class="hs-identifier hs-var hs-var hs-var">ExportableLambdaFunctionField_Finding</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField%27"><span class="hs-identifier hs-type">ExportableLambdaFunctionField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Finding&quot;</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_FindingReasonCodes"><span class="hs-identifier hs-type">ExportableLambdaFunctionField_FindingReasonCodes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField"><span class="hs-identifier hs-type">ExportableLambdaFunctionField</span></a></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportableLambdaFunctionField_FindingReasonCodes"><span id="%24mExportableLambdaFunctionField_FindingReasonCodes"><span id="ExportableLambdaFunctionField_FindingReasonCodes"><span class="annot"><span class="annottext">$bExportableLambdaFunctionField_FindingReasonCodes :: ExportableLambdaFunctionField
+$mExportableLambdaFunctionField_FindingReasonCodes :: forall r.
+ExportableLambdaFunctionField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#%24bExportableLambdaFunctionField_FindingReasonCodes"><span class="hs-identifier hs-var hs-var hs-var">ExportableLambdaFunctionField_FindingReasonCodes</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField%27"><span class="hs-identifier hs-type">ExportableLambdaFunctionField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FindingReasonCodes&quot;</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_FunctionArn"><span class="hs-identifier hs-type">ExportableLambdaFunctionField_FunctionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField"><span class="hs-identifier hs-type">ExportableLambdaFunctionField</span></a></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportableLambdaFunctionField_FunctionArn"><span id="%24mExportableLambdaFunctionField_FunctionArn"><span id="ExportableLambdaFunctionField_FunctionArn"><span class="annot"><span class="annottext">$bExportableLambdaFunctionField_FunctionArn :: ExportableLambdaFunctionField
+$mExportableLambdaFunctionField_FunctionArn :: forall r.
+ExportableLambdaFunctionField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#%24bExportableLambdaFunctionField_FunctionArn"><span class="hs-identifier hs-var hs-var hs-var">ExportableLambdaFunctionField_FunctionArn</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField%27"><span class="hs-identifier hs-type">ExportableLambdaFunctionField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FunctionArn&quot;</span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_FunctionVersion"><span class="hs-identifier hs-type">ExportableLambdaFunctionField_FunctionVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField"><span class="hs-identifier hs-type">ExportableLambdaFunctionField</span></a></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportableLambdaFunctionField_FunctionVersion"><span id="%24mExportableLambdaFunctionField_FunctionVersion"><span id="ExportableLambdaFunctionField_FunctionVersion"><span class="annot"><span class="annottext">$bExportableLambdaFunctionField_FunctionVersion :: ExportableLambdaFunctionField
+$mExportableLambdaFunctionField_FunctionVersion :: forall r.
+ExportableLambdaFunctionField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#%24bExportableLambdaFunctionField_FunctionVersion"><span class="hs-identifier hs-var hs-var hs-var">ExportableLambdaFunctionField_FunctionVersion</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField%27"><span class="hs-identifier hs-type">ExportableLambdaFunctionField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FunctionVersion&quot;</span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_LastRefreshTimestamp"><span class="hs-identifier hs-type">ExportableLambdaFunctionField_LastRefreshTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField"><span class="hs-identifier hs-type">ExportableLambdaFunctionField</span></a></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportableLambdaFunctionField_LastRefreshTimestamp"><span id="%24mExportableLambdaFunctionField_LastRefreshTimestamp"><span id="ExportableLambdaFunctionField_LastRefreshTimestamp"><span class="annot"><span class="annottext">$bExportableLambdaFunctionField_LastRefreshTimestamp :: ExportableLambdaFunctionField
+$mExportableLambdaFunctionField_LastRefreshTimestamp :: forall r.
+ExportableLambdaFunctionField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#%24bExportableLambdaFunctionField_LastRefreshTimestamp"><span class="hs-identifier hs-var hs-var hs-var">ExportableLambdaFunctionField_LastRefreshTimestamp</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField%27"><span class="hs-identifier hs-type">ExportableLambdaFunctionField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LastRefreshTimestamp&quot;</span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_LookbackPeriodInDays"><span class="hs-identifier hs-type">ExportableLambdaFunctionField_LookbackPeriodInDays</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField"><span class="hs-identifier hs-type">ExportableLambdaFunctionField</span></a></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportableLambdaFunctionField_LookbackPeriodInDays"><span id="%24mExportableLambdaFunctionField_LookbackPeriodInDays"><span id="ExportableLambdaFunctionField_LookbackPeriodInDays"><span class="annot"><span class="annottext">$bExportableLambdaFunctionField_LookbackPeriodInDays :: ExportableLambdaFunctionField
+$mExportableLambdaFunctionField_LookbackPeriodInDays :: forall r.
+ExportableLambdaFunctionField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#%24bExportableLambdaFunctionField_LookbackPeriodInDays"><span class="hs-identifier hs-var hs-var hs-var">ExportableLambdaFunctionField_LookbackPeriodInDays</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField%27"><span class="hs-identifier hs-type">ExportableLambdaFunctionField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LookbackPeriodInDays&quot;</span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_NumberOfInvocations"><span class="hs-identifier hs-type">ExportableLambdaFunctionField_NumberOfInvocations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField"><span class="hs-identifier hs-type">ExportableLambdaFunctionField</span></a></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportableLambdaFunctionField_NumberOfInvocations"><span id="%24mExportableLambdaFunctionField_NumberOfInvocations"><span id="ExportableLambdaFunctionField_NumberOfInvocations"><span class="annot"><span class="annottext">$bExportableLambdaFunctionField_NumberOfInvocations :: ExportableLambdaFunctionField
+$mExportableLambdaFunctionField_NumberOfInvocations :: forall r.
+ExportableLambdaFunctionField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#%24bExportableLambdaFunctionField_NumberOfInvocations"><span class="hs-identifier hs-var hs-var hs-var">ExportableLambdaFunctionField_NumberOfInvocations</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField%27"><span class="hs-identifier hs-type">ExportableLambdaFunctionField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NumberOfInvocations&quot;</span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_RecommendationOptionsConfigurationMemorySize"><span class="hs-identifier hs-type">ExportableLambdaFunctionField_RecommendationOptionsConfigurationMemorySize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField"><span class="hs-identifier hs-type">ExportableLambdaFunctionField</span></a></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportableLambdaFunctionField_RecommendationOptionsConfigurationMemorySize"><span id="%24mExportableLambdaFunctionField_RecommendationOptionsConfigurationMemorySize"><span id="ExportableLambdaFunctionField_RecommendationOptionsConfigurationMemorySize"><span class="annot"><span class="annottext">$bExportableLambdaFunctionField_RecommendationOptionsConfigurationMemorySize :: ExportableLambdaFunctionField
+$mExportableLambdaFunctionField_RecommendationOptionsConfigurationMemorySize :: forall r.
+ExportableLambdaFunctionField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#%24bExportableLambdaFunctionField_RecommendationOptionsConfigurationMemorySize"><span class="hs-identifier hs-var hs-var hs-var">ExportableLambdaFunctionField_RecommendationOptionsConfigurationMemorySize</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField%27"><span class="hs-identifier hs-type">ExportableLambdaFunctionField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RecommendationOptionsConfigurationMemorySize&quot;</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_RecommendationOptionsCostHigh"><span class="hs-identifier hs-type">ExportableLambdaFunctionField_RecommendationOptionsCostHigh</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField"><span class="hs-identifier hs-type">ExportableLambdaFunctionField</span></a></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportableLambdaFunctionField_RecommendationOptionsCostHigh"><span id="%24mExportableLambdaFunctionField_RecommendationOptionsCostHigh"><span id="ExportableLambdaFunctionField_RecommendationOptionsCostHigh"><span class="annot"><span class="annottext">$bExportableLambdaFunctionField_RecommendationOptionsCostHigh :: ExportableLambdaFunctionField
+$mExportableLambdaFunctionField_RecommendationOptionsCostHigh :: forall r.
+ExportableLambdaFunctionField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#%24bExportableLambdaFunctionField_RecommendationOptionsCostHigh"><span class="hs-identifier hs-var hs-var hs-var">ExportableLambdaFunctionField_RecommendationOptionsCostHigh</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField%27"><span class="hs-identifier hs-type">ExportableLambdaFunctionField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RecommendationOptionsCostHigh&quot;</span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_RecommendationOptionsCostLow"><span class="hs-identifier hs-type">ExportableLambdaFunctionField_RecommendationOptionsCostLow</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField"><span class="hs-identifier hs-type">ExportableLambdaFunctionField</span></a></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportableLambdaFunctionField_RecommendationOptionsCostLow"><span id="%24mExportableLambdaFunctionField_RecommendationOptionsCostLow"><span id="ExportableLambdaFunctionField_RecommendationOptionsCostLow"><span class="annot"><span class="annottext">$bExportableLambdaFunctionField_RecommendationOptionsCostLow :: ExportableLambdaFunctionField
+$mExportableLambdaFunctionField_RecommendationOptionsCostLow :: forall r.
+ExportableLambdaFunctionField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#%24bExportableLambdaFunctionField_RecommendationOptionsCostLow"><span class="hs-identifier hs-var hs-var hs-var">ExportableLambdaFunctionField_RecommendationOptionsCostLow</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField%27"><span class="hs-identifier hs-type">ExportableLambdaFunctionField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RecommendationOptionsCostLow&quot;</span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_RecommendationOptionsProjectedUtilizationMetricsDurationExpected"><span class="hs-identifier hs-type">ExportableLambdaFunctionField_RecommendationOptionsProjectedUtilizationMetricsDurationExpected</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField"><span class="hs-identifier hs-type">ExportableLambdaFunctionField</span></a></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportableLambdaFunctionField_RecommendationOptionsProjectedUtilizationMetricsDurationExpected"><span id="%24mExportableLambdaFunctionField_RecommendationOptionsProjectedUtilizationMetricsDurationExpected"><span id="ExportableLambdaFunctionField_RecommendationOptionsProjectedUtilizationMetricsDurationExpected"><span class="annot"><span class="annottext">$bExportableLambdaFunctionField_RecommendationOptionsProjectedUtilizationMetricsDurationExpected :: ExportableLambdaFunctionField
+$mExportableLambdaFunctionField_RecommendationOptionsProjectedUtilizationMetricsDurationExpected :: forall r.
+ExportableLambdaFunctionField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#%24bExportableLambdaFunctionField_RecommendationOptionsProjectedUtilizationMetricsDurationExpected"><span class="hs-identifier hs-var hs-var hs-var">ExportableLambdaFunctionField_RecommendationOptionsProjectedUtilizationMetricsDurationExpected</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField%27"><span class="hs-identifier hs-type">ExportableLambdaFunctionField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RecommendationOptionsProjectedUtilizationMetricsDurationExpected&quot;</span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_RecommendationOptionsProjectedUtilizationMetricsDurationLowerBound"><span class="hs-identifier hs-type">ExportableLambdaFunctionField_RecommendationOptionsProjectedUtilizationMetricsDurationLowerBound</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField"><span class="hs-identifier hs-type">ExportableLambdaFunctionField</span></a></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportableLambdaFunctionField_RecommendationOptionsProjectedUtilizationMetricsDurationLowerBound"><span id="%24mExportableLambdaFunctionField_RecommendationOptionsProjectedUtilizationMetricsDurationLowerBound"><span id="ExportableLambdaFunctionField_RecommendationOptionsProjectedUtilizationMetricsDurationLowerBound"><span class="annot"><span class="annottext">$bExportableLambdaFunctionField_RecommendationOptionsProjectedUtilizationMetricsDurationLowerBound :: ExportableLambdaFunctionField
+$mExportableLambdaFunctionField_RecommendationOptionsProjectedUtilizationMetricsDurationLowerBound :: forall r.
+ExportableLambdaFunctionField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#%24bExportableLambdaFunctionField_RecommendationOptionsProjectedUtilizationMetricsDurationLowerBound"><span class="hs-identifier hs-var hs-var hs-var">ExportableLambdaFunctionField_RecommendationOptionsProjectedUtilizationMetricsDurationLowerBound</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField%27"><span class="hs-identifier hs-type">ExportableLambdaFunctionField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RecommendationOptionsProjectedUtilizationMetricsDurationLowerBound&quot;</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_RecommendationOptionsProjectedUtilizationMetricsDurationUpperBound"><span class="hs-identifier hs-type">ExportableLambdaFunctionField_RecommendationOptionsProjectedUtilizationMetricsDurationUpperBound</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField"><span class="hs-identifier hs-type">ExportableLambdaFunctionField</span></a></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportableLambdaFunctionField_RecommendationOptionsProjectedUtilizationMetricsDurationUpperBound"><span id="%24mExportableLambdaFunctionField_RecommendationOptionsProjectedUtilizationMetricsDurationUpperBound"><span id="ExportableLambdaFunctionField_RecommendationOptionsProjectedUtilizationMetricsDurationUpperBound"><span class="annot"><span class="annottext">$bExportableLambdaFunctionField_RecommendationOptionsProjectedUtilizationMetricsDurationUpperBound :: ExportableLambdaFunctionField
+$mExportableLambdaFunctionField_RecommendationOptionsProjectedUtilizationMetricsDurationUpperBound :: forall r.
+ExportableLambdaFunctionField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#%24bExportableLambdaFunctionField_RecommendationOptionsProjectedUtilizationMetricsDurationUpperBound"><span class="hs-identifier hs-var hs-var hs-var">ExportableLambdaFunctionField_RecommendationOptionsProjectedUtilizationMetricsDurationUpperBound</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField%27"><span class="hs-identifier hs-type">ExportableLambdaFunctionField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RecommendationOptionsProjectedUtilizationMetricsDurationUpperBound&quot;</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_UtilizationMetricsDurationAverage"><span class="hs-identifier hs-type">ExportableLambdaFunctionField_UtilizationMetricsDurationAverage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField"><span class="hs-identifier hs-type">ExportableLambdaFunctionField</span></a></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportableLambdaFunctionField_UtilizationMetricsDurationAverage"><span id="%24mExportableLambdaFunctionField_UtilizationMetricsDurationAverage"><span id="ExportableLambdaFunctionField_UtilizationMetricsDurationAverage"><span class="annot"><span class="annottext">$bExportableLambdaFunctionField_UtilizationMetricsDurationAverage :: ExportableLambdaFunctionField
+$mExportableLambdaFunctionField_UtilizationMetricsDurationAverage :: forall r.
+ExportableLambdaFunctionField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#%24bExportableLambdaFunctionField_UtilizationMetricsDurationAverage"><span class="hs-identifier hs-var hs-var hs-var">ExportableLambdaFunctionField_UtilizationMetricsDurationAverage</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField%27"><span class="hs-identifier hs-type">ExportableLambdaFunctionField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UtilizationMetricsDurationAverage&quot;</span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_UtilizationMetricsDurationMaximum"><span class="hs-identifier hs-type">ExportableLambdaFunctionField_UtilizationMetricsDurationMaximum</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField"><span class="hs-identifier hs-type">ExportableLambdaFunctionField</span></a></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportableLambdaFunctionField_UtilizationMetricsDurationMaximum"><span id="%24mExportableLambdaFunctionField_UtilizationMetricsDurationMaximum"><span id="ExportableLambdaFunctionField_UtilizationMetricsDurationMaximum"><span class="annot"><span class="annottext">$bExportableLambdaFunctionField_UtilizationMetricsDurationMaximum :: ExportableLambdaFunctionField
+$mExportableLambdaFunctionField_UtilizationMetricsDurationMaximum :: forall r.
+ExportableLambdaFunctionField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#%24bExportableLambdaFunctionField_UtilizationMetricsDurationMaximum"><span class="hs-identifier hs-var hs-var hs-var">ExportableLambdaFunctionField_UtilizationMetricsDurationMaximum</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField%27"><span class="hs-identifier hs-type">ExportableLambdaFunctionField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UtilizationMetricsDurationMaximum&quot;</span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_UtilizationMetricsMemoryAverage"><span class="hs-identifier hs-type">ExportableLambdaFunctionField_UtilizationMetricsMemoryAverage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField"><span class="hs-identifier hs-type">ExportableLambdaFunctionField</span></a></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportableLambdaFunctionField_UtilizationMetricsMemoryAverage"><span id="%24mExportableLambdaFunctionField_UtilizationMetricsMemoryAverage"><span id="ExportableLambdaFunctionField_UtilizationMetricsMemoryAverage"><span class="annot"><span class="annottext">$bExportableLambdaFunctionField_UtilizationMetricsMemoryAverage :: ExportableLambdaFunctionField
+$mExportableLambdaFunctionField_UtilizationMetricsMemoryAverage :: forall r.
+ExportableLambdaFunctionField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#%24bExportableLambdaFunctionField_UtilizationMetricsMemoryAverage"><span class="hs-identifier hs-var hs-var hs-var">ExportableLambdaFunctionField_UtilizationMetricsMemoryAverage</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField%27"><span class="hs-identifier hs-type">ExportableLambdaFunctionField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UtilizationMetricsMemoryAverage&quot;</span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_UtilizationMetricsMemoryMaximum"><span class="hs-identifier hs-type">ExportableLambdaFunctionField_UtilizationMetricsMemoryMaximum</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField"><span class="hs-identifier hs-type">ExportableLambdaFunctionField</span></a></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExportableLambdaFunctionField_UtilizationMetricsMemoryMaximum"><span id="%24mExportableLambdaFunctionField_UtilizationMetricsMemoryMaximum"><span id="ExportableLambdaFunctionField_UtilizationMetricsMemoryMaximum"><span class="annot"><span class="annottext">$bExportableLambdaFunctionField_UtilizationMetricsMemoryMaximum :: ExportableLambdaFunctionField
+$mExportableLambdaFunctionField_UtilizationMetricsMemoryMaximum :: forall r.
+ExportableLambdaFunctionField -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#%24bExportableLambdaFunctionField_UtilizationMetricsMemoryMaximum"><span class="hs-identifier hs-var hs-var hs-var">ExportableLambdaFunctionField_UtilizationMetricsMemoryMaximum</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField%27"><span class="hs-identifier hs-type">ExportableLambdaFunctionField'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UtilizationMetricsMemoryMaximum&quot;</span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_AccountId"><span class="hs-pragma hs-type">ExportableLambdaFunctionField_AccountId</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_CurrentConfigurationMemorySize"><span class="hs-pragma hs-type">ExportableLambdaFunctionField_CurrentConfigurationMemorySize</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-149"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_CurrentConfigurationTimeout"><span class="hs-pragma hs-type">ExportableLambdaFunctionField_CurrentConfigurationTimeout</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_CurrentCostAverage"><span class="hs-pragma hs-type">ExportableLambdaFunctionField_CurrentCostAverage</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-151"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_CurrentCostTotal"><span class="hs-pragma hs-type">ExportableLambdaFunctionField_CurrentCostTotal</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_Finding"><span class="hs-pragma hs-type">ExportableLambdaFunctionField_Finding</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_FindingReasonCodes"><span class="hs-pragma hs-type">ExportableLambdaFunctionField_FindingReasonCodes</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_FunctionArn"><span class="hs-pragma hs-type">ExportableLambdaFunctionField_FunctionArn</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_FunctionVersion"><span class="hs-pragma hs-type">ExportableLambdaFunctionField_FunctionVersion</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_LastRefreshTimestamp"><span class="hs-pragma hs-type">ExportableLambdaFunctionField_LastRefreshTimestamp</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_LookbackPeriodInDays"><span class="hs-pragma hs-type">ExportableLambdaFunctionField_LookbackPeriodInDays</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_NumberOfInvocations"><span class="hs-pragma hs-type">ExportableLambdaFunctionField_NumberOfInvocations</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_RecommendationOptionsConfigurationMemorySize"><span class="hs-pragma hs-type">ExportableLambdaFunctionField_RecommendationOptionsConfigurationMemorySize</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_RecommendationOptionsCostHigh"><span class="hs-pragma hs-type">ExportableLambdaFunctionField_RecommendationOptionsCostHigh</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_RecommendationOptionsCostLow"><span class="hs-pragma hs-type">ExportableLambdaFunctionField_RecommendationOptionsCostLow</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_RecommendationOptionsProjectedUtilizationMetricsDurationExpected"><span class="hs-pragma hs-type">ExportableLambdaFunctionField_RecommendationOptionsProjectedUtilizationMetricsDurationExpected</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_RecommendationOptionsProjectedUtilizationMetricsDurationLowerBound"><span class="hs-pragma hs-type">ExportableLambdaFunctionField_RecommendationOptionsProjectedUtilizationMetricsDurationLowerBound</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_RecommendationOptionsProjectedUtilizationMetricsDurationUpperBound"><span class="hs-pragma hs-type">ExportableLambdaFunctionField_RecommendationOptionsProjectedUtilizationMetricsDurationUpperBound</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-165"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_UtilizationMetricsDurationAverage"><span class="hs-pragma hs-type">ExportableLambdaFunctionField_UtilizationMetricsDurationAverage</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-166"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_UtilizationMetricsDurationMaximum"><span class="hs-pragma hs-type">ExportableLambdaFunctionField_UtilizationMetricsDurationMaximum</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-167"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_UtilizationMetricsMemoryAverage"><span class="hs-pragma hs-type">ExportableLambdaFunctionField_UtilizationMetricsMemoryAverage</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-168"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField_UtilizationMetricsMemoryMaximum"><span class="hs-pragma hs-type">ExportableLambdaFunctionField_UtilizationMetricsMemoryMaximum</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-169"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.ExportableLambdaFunctionField.html#ExportableLambdaFunctionField%27"><span class="hs-pragma hs-type">ExportableLambdaFunctionField'</span></a></span><span>
+</span><span id="line-170"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-171"></span></pre></body></html>

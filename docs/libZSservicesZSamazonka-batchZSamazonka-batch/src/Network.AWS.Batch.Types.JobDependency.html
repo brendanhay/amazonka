@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | An object representing an Batch job dependency.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newJobDependency' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679261153"><span id="local-6989586621679261154"></span></span><span class="hs-keyword">data</span><span> </span><span id="JobDependency"><span class="annot"><a href="Network.AWS.Batch.Types.JobDependency.html#JobDependency"><span class="hs-identifier hs-var">JobDependency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobDependency%27"><span class="annot"><a href="Network.AWS.Batch.Types.JobDependency.html#JobDependency%27"><span class="hs-identifier hs-var">JobDependency'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679261162"><span id="local-6989586621679261163"></span></span><span class="hs-keyword">data</span><span> </span><span id="JobDependency"><span class="annot"><a href="Network.AWS.Batch.Types.JobDependency.html#JobDependency"><span class="hs-identifier hs-var">JobDependency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobDependency%27"><span class="annot"><a href="Network.AWS.Batch.Types.JobDependency.html#JobDependency%27"><span class="hs-identifier hs-var">JobDependency'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The job ID of the Batch job associated with this dependency.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AjobId%3AJobDependency%27"><span class="annot"><span class="annottext">JobDependency -&gt; Maybe Text
 </span><a href="Network.AWS.Batch.Types.JobDependency.html#%24sel%3AjobId%3AJobDependency%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Atype%27%3AJobDependency%27"><span class="annot"><span class="annottext">JobDependency -&gt; Maybe ArrayJobDependency
 </span><a href="Network.AWS.Batch.Types.JobDependency.html#%24sel%3Atype%27%3AJobDependency%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ArrayJobDependency.html#ArrayJobDependency"><span class="hs-identifier hs-type">ArrayJobDependency</span></a></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679261146"><span id="local-6989586621679261148"><span class="annot"><span class="annottext">JobDependency -&gt; JobDependency -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679261155"><span id="local-6989586621679261157"><span class="annot"><span class="annottext">JobDependency -&gt; JobDependency -&gt; Bool
 (JobDependency -&gt; JobDependency -&gt; Bool)
 -&gt; (JobDependency -&gt; JobDependency -&gt; Bool) -&gt; Eq JobDependency
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: JobDependency -&gt; JobDependency -&gt; Bool
 == :: JobDependency -&gt; JobDependency -&gt; Bool
 $c== :: JobDependency -&gt; JobDependency -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261137"><span id="local-6989586621679261139"><span id="local-6989586621679261141"><span id="local-6989586621679261143"><span class="annot"><span class="annottext">ReadPrec [JobDependency]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261146"><span id="local-6989586621679261148"><span id="local-6989586621679261150"><span id="local-6989586621679261152"><span class="annot"><span class="annottext">ReadPrec [JobDependency]
 ReadPrec JobDependency
 Int -&gt; ReadS JobDependency
 ReadS [JobDependency]
@@ -63,7 +63,7 @@ readList :: ReadS [JobDependency]
 $creadList :: ReadS [JobDependency]
 readsPrec :: Int -&gt; ReadS JobDependency
 $creadsPrec :: Int -&gt; ReadS JobDependency
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261130"><span id="local-6989586621679261132"><span id="local-6989586621679261134"><span class="annot"><span class="annottext">Int -&gt; JobDependency -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261139"><span id="local-6989586621679261141"><span id="local-6989586621679261143"><span class="annot"><span class="annottext">Int -&gt; JobDependency -&gt; ShowS
 [JobDependency] -&gt; ShowS
 JobDependency -&gt; String
 (Int -&gt; JobDependency -&gt; ShowS)
@@ -123,16 +123,16 @@ forall a. Maybe a
 -&gt; (JobDependency -&gt; Maybe Text -&gt; JobDependency)
 -&gt; Lens JobDependency JobDependency (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.JobDependency.html#JobDependency%27"><span class="hs-identifier hs-type">JobDependency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261121"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.JobDependency.html#JobDependency%27"><span class="hs-identifier hs-type">JobDependency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261130"><span class="annot"><span class="annottext">Maybe Text
 jobId :: Maybe Text
 $sel:jobId:JobDependency' :: JobDependency -&gt; Maybe Text
-</span><a href="#local-6989586621679261121"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679261121"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261120"><span class="annot"><span class="annottext">s :: JobDependency
-</span><a href="#local-6989586621679261120"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.JobDependency.html#JobDependency%27"><span class="hs-identifier hs-type">JobDependency'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261119"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679261119"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobDependency
-</span><a href="#local-6989586621679261120"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:JobDependency' :: Maybe Text
+</span><a href="#local-6989586621679261130"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679261130"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261129"><span class="annot"><span class="annottext">s :: JobDependency
+</span><a href="#local-6989586621679261129"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.JobDependency.html#JobDependency%27"><span class="hs-identifier hs-type">JobDependency'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261128"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679261128"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobDependency
+</span><a href="#local-6989586621679261129"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:JobDependency' :: Maybe Text
 </span><a href="Network.AWS.Batch.Types.JobDependency.html#%24sel%3AjobId%3AJobDependency%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679261119"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobDependency.html#JobDependency"><span class="hs-identifier hs-type">JobDependency</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679261128"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobDependency.html#JobDependency"><span class="hs-identifier hs-type">JobDependency</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | The type of the job dependency.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.Batch.Types.JobDependency.html#jobDependency_type"><span class="hs-identifier hs-type">jobDependency_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobDependency.html#JobDependency"><span class="hs-identifier hs-type">JobDependency</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ArrayJobDependency.html#ArrayJobDependency"><span class="hs-identifier hs-type">ArrayJobDependency</span></a></span><span class="hs-special">)</span><span>
@@ -146,19 +146,19 @@ $sel:jobId:JobDependency' :: JobDependency -&gt; Maybe Text
      (Maybe ArrayJobDependency)
      (Maybe ArrayJobDependency)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.JobDependency.html#JobDependency%27"><span class="hs-identifier hs-type">JobDependency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261117"><span class="annot"><span class="annottext">Maybe ArrayJobDependency
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.JobDependency.html#JobDependency%27"><span class="hs-identifier hs-type">JobDependency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261126"><span class="annot"><span class="annottext">Maybe ArrayJobDependency
 type' :: Maybe ArrayJobDependency
 $sel:type':JobDependency' :: JobDependency -&gt; Maybe ArrayJobDependency
-</span><a href="#local-6989586621679261117"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ArrayJobDependency
-</span><a href="#local-6989586621679261117"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261116"><span class="annot"><span class="annottext">s :: JobDependency
-</span><a href="#local-6989586621679261116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.JobDependency.html#JobDependency%27"><span class="hs-identifier hs-type">JobDependency'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261115"><span class="annot"><span class="annottext">Maybe ArrayJobDependency
-</span><a href="#local-6989586621679261115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobDependency
-</span><a href="#local-6989586621679261116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':JobDependency' :: Maybe ArrayJobDependency
+</span><a href="#local-6989586621679261126"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ArrayJobDependency
+</span><a href="#local-6989586621679261126"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261125"><span class="annot"><span class="annottext">s :: JobDependency
+</span><a href="#local-6989586621679261125"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.JobDependency.html#JobDependency%27"><span class="hs-identifier hs-type">JobDependency'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261124"><span class="annot"><span class="annottext">Maybe ArrayJobDependency
+</span><a href="#local-6989586621679261124"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobDependency
+</span><a href="#local-6989586621679261125"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':JobDependency' :: Maybe ArrayJobDependency
 </span><a href="Network.AWS.Batch.Types.JobDependency.html#%24sel%3Atype%27%3AJobDependency%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ArrayJobDependency
-</span><a href="#local-6989586621679261115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobDependency.html#JobDependency"><span class="hs-identifier hs-type">JobDependency</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679261124"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobDependency.html#JobDependency"><span class="hs-identifier hs-type">JobDependency</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261112"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobDependency.html#JobDependency"><span class="hs-identifier hs-type">JobDependency</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679261110"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JobDependency
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261121"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobDependency.html#JobDependency"><span class="hs-identifier hs-type">JobDependency</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679261119"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JobDependency
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser JobDependency)
@@ -168,8 +168,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;JobDependency&quot;</span></span><span>
-</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679261107"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679261107"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679261116"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679261116"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe ArrayJobDependency -&gt; JobDependency
 </span><a href="Network.AWS.Batch.Types.JobDependency.html#JobDependency%27"><span class="hs-identifier hs-var">JobDependency'</span></a></span><span>
 </span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe ArrayJobDependency -&gt; JobDependency)
@@ -177,32 +177,32 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe ArrayJobDependency -&gt; JobDependency)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679261107"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679261116"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;jobId&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Maybe ArrayJobDependency -&gt; JobDependency)
 -&gt; Parser (Maybe ArrayJobDependency) -&gt; Parser JobDependency
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679261107"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ArrayJobDependency)
+</span><a href="#local-6989586621679261116"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ArrayJobDependency)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261101"><span id="local-6989586621679261103"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobDependency.html#JobDependency"><span class="hs-identifier hs-type">JobDependency</span></a></span></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261110"><span id="local-6989586621679261112"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobDependency.html#JobDependency"><span class="hs-identifier hs-type">JobDependency</span></a></span></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261098"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobDependency.html#JobDependency"><span class="hs-identifier hs-type">JobDependency</span></a></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261107"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobDependency.html#JobDependency"><span class="hs-identifier hs-type">JobDependency</span></a></span></span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261090"><span id="local-6989586621679261092"><span id="local-6989586621679261094"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobDependency.html#JobDependency"><span class="hs-identifier hs-type">JobDependency</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679261088"><span class="annot"><span class="annottext">toJSON :: JobDependency -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobDependency.html#JobDependency%27"><span class="hs-identifier hs-type">JobDependency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261085"><span id="local-6989586621679261086"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261099"><span id="local-6989586621679261101"><span id="local-6989586621679261103"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobDependency.html#JobDependency"><span class="hs-identifier hs-type">JobDependency</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679261097"><span class="annot"><span class="annottext">toJSON :: JobDependency -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.JobDependency.html#JobDependency%27"><span class="hs-identifier hs-type">JobDependency'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261094"><span id="local-6989586621679261095"><span class="annot"><span class="annottext">Maybe Text
 Maybe ArrayJobDependency
 type' :: Maybe ArrayJobDependency
 jobId :: Maybe Text
 $sel:type':JobDependency' :: JobDependency -&gt; Maybe ArrayJobDependency
 $sel:jobId:JobDependency' :: JobDependency -&gt; Maybe Text
-</span><a href="#local-6989586621679261085"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679261094"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -214,7 +214,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679261086"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679261095"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ArrayJobDependency -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -222,7 +222,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ArrayJobDependency -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ArrayJobDependency
-</span><a href="#local-6989586621679261085"><span class="hs-identifier hs-var">type'</span></a></span><span>
+</span><a href="#local-6989586621679261094"><span class="hs-identifier hs-var">type'</span></a></span><span>
 </span><span id="line-84"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span></pre></body></html>

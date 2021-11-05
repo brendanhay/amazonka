@@ -27,11 +27,11 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Video Selector Color Space Settings</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newVideoSelectorColorSpaceSettings' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679930383"><span id="local-6989586621679930384"></span></span><span class="hs-keyword">data</span><span> </span><span id="VideoSelectorColorSpaceSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorColorSpaceSettings.html#VideoSelectorColorSpaceSettings"><span class="hs-identifier hs-var">VideoSelectorColorSpaceSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VideoSelectorColorSpaceSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorColorSpaceSettings.html#VideoSelectorColorSpaceSettings%27"><span class="hs-identifier hs-var">VideoSelectorColorSpaceSettings'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679930392"><span id="local-6989586621679930393"></span></span><span class="hs-keyword">data</span><span> </span><span id="VideoSelectorColorSpaceSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorColorSpaceSettings.html#VideoSelectorColorSpaceSettings"><span class="hs-identifier hs-var">VideoSelectorColorSpaceSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VideoSelectorColorSpaceSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorColorSpaceSettings.html#VideoSelectorColorSpaceSettings%27"><span class="hs-identifier hs-var">VideoSelectorColorSpaceSettings'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Ahdr10Settings%3AVideoSelectorColorSpaceSettings%27"><span class="annot"><span class="annottext">VideoSelectorColorSpaceSettings -&gt; Maybe Hdr10Settings
 </span><a href="Network.AWS.MediaLive.Types.VideoSelectorColorSpaceSettings.html#%24sel%3Ahdr10Settings%3AVideoSelectorColorSpaceSettings%27"><span class="hs-identifier hs-var hs-var">hdr10Settings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Hdr10Settings.html#Hdr10Settings"><span class="hs-identifier hs-type">Hdr10Settings</span></a></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679930377"><span id="local-6989586621679930379"><span class="annot"><span class="annottext">VideoSelectorColorSpaceSettings
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679930386"><span id="local-6989586621679930388"><span class="annot"><span class="annottext">VideoSelectorColorSpaceSettings
 -&gt; VideoSelectorColorSpaceSettings -&gt; Bool
 (VideoSelectorColorSpaceSettings
  -&gt; VideoSelectorColorSpaceSettings -&gt; Bool)
@@ -47,7 +47,7 @@ $c/= :: VideoSelectorColorSpaceSettings
 -&gt; VideoSelectorColorSpaceSettings -&gt; Bool
 $c== :: VideoSelectorColorSpaceSettings
 -&gt; VideoSelectorColorSpaceSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679930368"><span id="local-6989586621679930370"><span id="local-6989586621679930372"><span id="local-6989586621679930374"><span class="annot"><span class="annottext">ReadPrec [VideoSelectorColorSpaceSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679930377"><span id="local-6989586621679930379"><span id="local-6989586621679930381"><span id="local-6989586621679930383"><span class="annot"><span class="annottext">ReadPrec [VideoSelectorColorSpaceSettings]
 ReadPrec VideoSelectorColorSpaceSettings
 Int -&gt; ReadS VideoSelectorColorSpaceSettings
 ReadS [VideoSelectorColorSpaceSettings]
@@ -67,7 +67,7 @@ readList :: ReadS [VideoSelectorColorSpaceSettings]
 $creadList :: ReadS [VideoSelectorColorSpaceSettings]
 readsPrec :: Int -&gt; ReadS VideoSelectorColorSpaceSettings
 $creadsPrec :: Int -&gt; ReadS VideoSelectorColorSpaceSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679930361"><span id="local-6989586621679930363"><span id="local-6989586621679930365"><span class="annot"><span class="annottext">Int -&gt; VideoSelectorColorSpaceSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679930370"><span id="local-6989586621679930372"><span id="local-6989586621679930374"><span class="annot"><span class="annottext">Int -&gt; VideoSelectorColorSpaceSettings -&gt; ShowS
 [VideoSelectorColorSpaceSettings] -&gt; ShowS
 VideoSelectorColorSpaceSettings -&gt; String
 (Int -&gt; VideoSelectorColorSpaceSettings -&gt; ShowS)
@@ -141,22 +141,22 @@ forall a. Maybe a
      (Maybe Hdr10Settings)
      (Maybe Hdr10Settings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorColorSpaceSettings.html#VideoSelectorColorSpaceSettings%27"><span class="hs-identifier hs-type">VideoSelectorColorSpaceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679930352"><span class="annot"><span class="annottext">Maybe Hdr10Settings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorColorSpaceSettings.html#VideoSelectorColorSpaceSettings%27"><span class="hs-identifier hs-type">VideoSelectorColorSpaceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679930361"><span class="annot"><span class="annottext">Maybe Hdr10Settings
 hdr10Settings :: Maybe Hdr10Settings
 $sel:hdr10Settings:VideoSelectorColorSpaceSettings' :: VideoSelectorColorSpaceSettings -&gt; Maybe Hdr10Settings
-</span><a href="#local-6989586621679930352"><span class="hs-identifier hs-var hs-var">hdr10Settings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Hdr10Settings
-</span><a href="#local-6989586621679930352"><span class="hs-identifier hs-var">hdr10Settings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679930351"><span class="annot"><span class="annottext">s :: VideoSelectorColorSpaceSettings
-</span><a href="#local-6989586621679930351"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorColorSpaceSettings.html#VideoSelectorColorSpaceSettings%27"><span class="hs-identifier hs-type">VideoSelectorColorSpaceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679930350"><span class="annot"><span class="annottext">Maybe Hdr10Settings
-</span><a href="#local-6989586621679930350"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoSelectorColorSpaceSettings
-</span><a href="#local-6989586621679930351"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hdr10Settings:VideoSelectorColorSpaceSettings' :: Maybe Hdr10Settings
+</span><a href="#local-6989586621679930361"><span class="hs-identifier hs-var hs-var">hdr10Settings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Hdr10Settings
+</span><a href="#local-6989586621679930361"><span class="hs-identifier hs-var">hdr10Settings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679930360"><span class="annot"><span class="annottext">s :: VideoSelectorColorSpaceSettings
+</span><a href="#local-6989586621679930360"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorColorSpaceSettings.html#VideoSelectorColorSpaceSettings%27"><span class="hs-identifier hs-type">VideoSelectorColorSpaceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679930359"><span class="annot"><span class="annottext">Maybe Hdr10Settings
+</span><a href="#local-6989586621679930359"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoSelectorColorSpaceSettings
+</span><a href="#local-6989586621679930360"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hdr10Settings:VideoSelectorColorSpaceSettings' :: Maybe Hdr10Settings
 </span><a href="Network.AWS.MediaLive.Types.VideoSelectorColorSpaceSettings.html#%24sel%3Ahdr10Settings%3AVideoSelectorColorSpaceSettings%27"><span class="hs-identifier hs-var">hdr10Settings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Hdr10Settings
-</span><a href="#local-6989586621679930350"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorColorSpaceSettings.html#VideoSelectorColorSpaceSettings"><span class="hs-identifier hs-type">VideoSelectorColorSpaceSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679930359"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorColorSpaceSettings.html#VideoSelectorColorSpaceSettings"><span class="hs-identifier hs-type">VideoSelectorColorSpaceSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-57"></span><span>  </span><span id="local-6989586621679930347"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-57"></span><span>  </span><span id="local-6989586621679930356"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorColorSpaceSettings.html#VideoSelectorColorSpaceSettings"><span class="hs-identifier hs-type">VideoSelectorColorSpaceSettings</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-60"></span><span>  </span><span id="local-6989586621679930345"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VideoSelectorColorSpaceSettings
+</span><span id="line-60"></span><span>  </span><span id="local-6989586621679930354"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VideoSelectorColorSpaceSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-61"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser VideoSelectorColorSpaceSettings)
@@ -166,8 +166,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;VideoSelectorColorSpaceSettings&quot;</span></span><span>
-</span><span id="line-63"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679930342"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679930342"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-63"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679930351"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679930351"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-64"></span><span>          </span><span class="annot"><span class="annottext">Maybe Hdr10Settings -&gt; VideoSelectorColorSpaceSettings
 </span><a href="Network.AWS.MediaLive.Types.VideoSelectorColorSpaceSettings.html#VideoSelectorColorSpaceSettings%27"><span class="hs-identifier hs-var">VideoSelectorColorSpaceSettings'</span></a></span><span>
 </span><span id="line-65"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Hdr10Settings -&gt; VideoSelectorColorSpaceSettings)
@@ -175,26 +175,26 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser VideoSelectorColorSpaceSettings
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679930342"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Hdr10Settings)
+</span><a href="#local-6989586621679930351"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Hdr10Settings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;hdr10Settings&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679930336"><span id="local-6989586621679930338"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679930345"><span id="local-6989586621679930347"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorColorSpaceSettings.html#VideoSelectorColorSpaceSettings"><span class="hs-identifier hs-type">VideoSelectorColorSpaceSettings</span></a></span></span></span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679930333"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679930342"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorColorSpaceSettings.html#VideoSelectorColorSpaceSettings"><span class="hs-identifier hs-type">VideoSelectorColorSpaceSettings</span></a></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679930325"><span id="local-6989586621679930327"><span id="local-6989586621679930329"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorColorSpaceSettings.html#VideoSelectorColorSpaceSettings"><span class="hs-identifier hs-type">VideoSelectorColorSpaceSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679930323"><span class="annot"><span class="annottext">toJSON :: VideoSelectorColorSpaceSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorColorSpaceSettings.html#VideoSelectorColorSpaceSettings%27"><span class="hs-identifier hs-type">VideoSelectorColorSpaceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679930321"><span class="annot"><span class="annottext">Maybe Hdr10Settings
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679930334"><span id="local-6989586621679930336"><span id="local-6989586621679930338"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorColorSpaceSettings.html#VideoSelectorColorSpaceSettings"><span class="hs-identifier hs-type">VideoSelectorColorSpaceSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679930332"><span class="annot"><span class="annottext">toJSON :: VideoSelectorColorSpaceSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorColorSpaceSettings.html#VideoSelectorColorSpaceSettings%27"><span class="hs-identifier hs-type">VideoSelectorColorSpaceSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679930330"><span class="annot"><span class="annottext">Maybe Hdr10Settings
 hdr10Settings :: Maybe Hdr10Settings
 $sel:hdr10Settings:VideoSelectorColorSpaceSettings' :: VideoSelectorColorSpaceSettings -&gt; Maybe Hdr10Settings
-</span><a href="#local-6989586621679930321"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679930330"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -207,7 +207,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-81"></span><span>              </span><span class="annot"><span class="annottext">(Hdr10Settings -&gt; Pair) -&gt; Maybe Hdr10Settings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Hdr10Settings
-</span><a href="#local-6989586621679930321"><span class="hs-identifier hs-var">hdr10Settings</span></a></span><span>
+</span><a href="#local-6989586621679930330"><span class="hs-identifier hs-var">hdr10Settings</span></a></span><span>
 </span><span id="line-82"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span></pre></body></html>

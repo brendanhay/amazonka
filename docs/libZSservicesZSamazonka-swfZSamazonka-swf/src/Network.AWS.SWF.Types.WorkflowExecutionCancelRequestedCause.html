@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679352749"><span id="local-6989586621679352750"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WorkflowExecutionCancelRequestedCause"><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionCancelRequestedCause.html#WorkflowExecutionCancelRequestedCause"><span class="hs-identifier hs-var">WorkflowExecutionCancelRequestedCause</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkflowExecutionCancelRequestedCause%27"><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionCancelRequestedCause.html#WorkflowExecutionCancelRequestedCause%27"><span class="hs-identifier hs-var">WorkflowExecutionCancelRequestedCause'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679352758"><span id="local-6989586621679352759"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WorkflowExecutionCancelRequestedCause"><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionCancelRequestedCause.html#WorkflowExecutionCancelRequestedCause"><span class="hs-identifier hs-var">WorkflowExecutionCancelRequestedCause</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkflowExecutionCancelRequestedCause%27"><span class="annot"><a href="Network.AWS.SWF.Types.WorkflowExecutionCancelRequestedCause.html#WorkflowExecutionCancelRequestedCause%27"><span class="hs-identifier hs-var">WorkflowExecutionCancelRequestedCause'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromWorkflowExecutionCancelRequestedCause"><span class="annot"><span class="annottext">WorkflowExecutionCancelRequestedCause -&gt; Text
 </span><a href="Network.AWS.SWF.Types.WorkflowExecutionCancelRequestedCause.html#fromWorkflowExecutionCancelRequestedCause"><span class="hs-identifier hs-var hs-var">fromWorkflowExecutionCancelRequestedCause</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679352741"><span id="local-6989586621679352743"><span id="local-6989586621679352745"><span class="annot"><span class="annottext">Int -&gt; WorkflowExecutionCancelRequestedCause -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679352750"><span id="local-6989586621679352752"><span id="local-6989586621679352754"><span class="annot"><span class="annottext">Int -&gt; WorkflowExecutionCancelRequestedCause -&gt; ShowS
 [WorkflowExecutionCancelRequestedCause] -&gt; ShowS
 WorkflowExecutionCancelRequestedCause -&gt; String
 (Int -&gt; WorkflowExecutionCancelRequestedCause -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: WorkflowExecutionCancelRequestedCause -&gt; String
 showsPrec :: Int -&gt; WorkflowExecutionCancelRequestedCause -&gt; ShowS
 $cshowsPrec :: Int -&gt; WorkflowExecutionCancelRequestedCause -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679352732"><span id="local-6989586621679352734"><span id="local-6989586621679352736"><span id="local-6989586621679352738"><span class="annot"><span class="annottext">ReadPrec [WorkflowExecutionCancelRequestedCause]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679352741"><span id="local-6989586621679352743"><span id="local-6989586621679352745"><span id="local-6989586621679352747"><span class="annot"><span class="annottext">ReadPrec [WorkflowExecutionCancelRequestedCause]
 ReadPrec WorkflowExecutionCancelRequestedCause
 Int -&gt; ReadS WorkflowExecutionCancelRequestedCause
 ReadS [WorkflowExecutionCancelRequestedCause]
@@ -71,7 +71,7 @@ $creadList :: ReadS [WorkflowExecutionCancelRequestedCause]
 readsPrec :: Int -&gt; ReadS WorkflowExecutionCancelRequestedCause
 $creadsPrec :: Int -&gt; ReadS WorkflowExecutionCancelRequestedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679352727"><span id="local-6989586621679352729"><span class="annot"><span class="annottext">WorkflowExecutionCancelRequestedCause
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679352736"><span id="local-6989586621679352738"><span class="annot"><span class="annottext">WorkflowExecutionCancelRequestedCause
 -&gt; WorkflowExecutionCancelRequestedCause -&gt; Bool
 (WorkflowExecutionCancelRequestedCause
  -&gt; WorkflowExecutionCancelRequestedCause -&gt; Bool)
@@ -88,7 +88,7 @@ $c/= :: WorkflowExecutionCancelRequestedCause
 $c== :: WorkflowExecutionCancelRequestedCause
 -&gt; WorkflowExecutionCancelRequestedCause -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679352711"><span id="local-6989586621679352713"><span id="local-6989586621679352715"><span id="local-6989586621679352717"><span id="local-6989586621679352719"><span id="local-6989586621679352721"><span id="local-6989586621679352723"><span class="annot"><span class="annottext">Eq WorkflowExecutionCancelRequestedCause
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679352720"><span id="local-6989586621679352722"><span id="local-6989586621679352724"><span id="local-6989586621679352726"><span id="local-6989586621679352728"><span id="local-6989586621679352730"><span id="local-6989586621679352732"><span class="annot"><span class="annottext">Eq WorkflowExecutionCancelRequestedCause
 Eq WorkflowExecutionCancelRequestedCause
 -&gt; (WorkflowExecutionCancelRequestedCause
     -&gt; WorkflowExecutionCancelRequestedCause -&gt; Ordering)
@@ -182,7 +182,7 @@ WorkflowExecutionCancelRequestedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679352703"><span id="local-6989586621679352705"><span class="annot"><span class="annottext">Int -&gt; WorkflowExecutionCancelRequestedCause -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679352712"><span id="local-6989586621679352714"><span class="annot"><span class="annottext">Int -&gt; WorkflowExecutionCancelRequestedCause -&gt; Int
 WorkflowExecutionCancelRequestedCause -&gt; Int
 (Int -&gt; WorkflowExecutionCancelRequestedCause -&gt; Int)
 -&gt; (WorkflowExecutionCancelRequestedCause -&gt; Int)
@@ -193,56 +193,56 @@ $chash :: WorkflowExecutionCancelRequestedCause -&gt; Int
 hashWithSalt :: Int -&gt; WorkflowExecutionCancelRequestedCause -&gt; Int
 $chashWithSalt :: Int -&gt; WorkflowExecutionCancelRequestedCause -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679352700"><span class="annot"><span class="annottext">WorkflowExecutionCancelRequestedCause -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679352709"><span class="annot"><span class="annottext">WorkflowExecutionCancelRequestedCause -&gt; ()
 (WorkflowExecutionCancelRequestedCause -&gt; ())
 -&gt; NFData WorkflowExecutionCancelRequestedCause
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: WorkflowExecutionCancelRequestedCause -&gt; ()
 $crnf :: WorkflowExecutionCancelRequestedCause -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679352697"><span class="annot"><span class="annottext">Text -&gt; Either String WorkflowExecutionCancelRequestedCause
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679352706"><span class="annot"><span class="annottext">Text -&gt; Either String WorkflowExecutionCancelRequestedCause
 (Text -&gt; Either String WorkflowExecutionCancelRequestedCause)
 -&gt; FromText WorkflowExecutionCancelRequestedCause
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String WorkflowExecutionCancelRequestedCause
 $cfromText :: Text -&gt; Either String WorkflowExecutionCancelRequestedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679352694"><span class="annot"><span class="annottext">WorkflowExecutionCancelRequestedCause -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679352703"><span class="annot"><span class="annottext">WorkflowExecutionCancelRequestedCause -&gt; Text
 (WorkflowExecutionCancelRequestedCause -&gt; Text)
 -&gt; ToText WorkflowExecutionCancelRequestedCause
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: WorkflowExecutionCancelRequestedCause -&gt; Text
 $ctoText :: WorkflowExecutionCancelRequestedCause -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679352691"><span class="annot"><span class="annottext">WorkflowExecutionCancelRequestedCause -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679352700"><span class="annot"><span class="annottext">WorkflowExecutionCancelRequestedCause -&gt; ByteString
 (WorkflowExecutionCancelRequestedCause -&gt; ByteString)
 -&gt; ToByteString WorkflowExecutionCancelRequestedCause
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: WorkflowExecutionCancelRequestedCause -&gt; ByteString
 $ctoBS :: WorkflowExecutionCancelRequestedCause -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679352688"><span class="annot"><span class="annottext">WorkflowExecutionCancelRequestedCause -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679352697"><span class="annot"><span class="annottext">WorkflowExecutionCancelRequestedCause -&gt; ByteStringBuilder
 (WorkflowExecutionCancelRequestedCause -&gt; ByteStringBuilder)
 -&gt; ToLog WorkflowExecutionCancelRequestedCause
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: WorkflowExecutionCancelRequestedCause -&gt; ByteStringBuilder
 $cbuild :: WorkflowExecutionCancelRequestedCause -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679352685"><span class="annot"><span class="annottext">HeaderName -&gt; WorkflowExecutionCancelRequestedCause -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679352694"><span class="annot"><span class="annottext">HeaderName -&gt; WorkflowExecutionCancelRequestedCause -&gt; [Header]
 (HeaderName -&gt; WorkflowExecutionCancelRequestedCause -&gt; [Header])
 -&gt; ToHeader WorkflowExecutionCancelRequestedCause
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; WorkflowExecutionCancelRequestedCause -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; WorkflowExecutionCancelRequestedCause -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679352682"><span class="annot"><span class="annottext">WorkflowExecutionCancelRequestedCause -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679352691"><span class="annot"><span class="annottext">WorkflowExecutionCancelRequestedCause -&gt; QueryString
 (WorkflowExecutionCancelRequestedCause -&gt; QueryString)
 -&gt; ToQuery WorkflowExecutionCancelRequestedCause
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: WorkflowExecutionCancelRequestedCause -&gt; QueryString
 $ctoQuery :: WorkflowExecutionCancelRequestedCause -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679352677"><span id="local-6989586621679352679"><span class="annot"><span class="annottext">Value -&gt; Parser [WorkflowExecutionCancelRequestedCause]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679352686"><span id="local-6989586621679352688"><span class="annot"><span class="annottext">Value -&gt; Parser [WorkflowExecutionCancelRequestedCause]
 Value -&gt; Parser WorkflowExecutionCancelRequestedCause
 (Value -&gt; Parser WorkflowExecutionCancelRequestedCause)
 -&gt; (Value -&gt; Parser [WorkflowExecutionCancelRequestedCause])
@@ -254,7 +254,7 @@ $cparseJSONList :: Value -&gt; Parser [WorkflowExecutionCancelRequestedCause]
 parseJSON :: Value -&gt; Parser WorkflowExecutionCancelRequestedCause
 $cparseJSON :: Value -&gt; Parser WorkflowExecutionCancelRequestedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679352672"><span id="local-6989586621679352674"><span class="annot"><span class="annottext">FromJSONKeyFunction [WorkflowExecutionCancelRequestedCause]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679352681"><span id="local-6989586621679352683"><span class="annot"><span class="annottext">FromJSONKeyFunction [WorkflowExecutionCancelRequestedCause]
 FromJSONKeyFunction WorkflowExecutionCancelRequestedCause
 FromJSONKeyFunction WorkflowExecutionCancelRequestedCause
 -&gt; FromJSONKeyFunction [WorkflowExecutionCancelRequestedCause]
@@ -266,7 +266,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [WorkflowExecutionCancelRequestedCause]
 fromJSONKey :: FromJSONKeyFunction WorkflowExecutionCancelRequestedCause
 $cfromJSONKey :: FromJSONKeyFunction WorkflowExecutionCancelRequestedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679352663"><span id="local-6989586621679352665"><span id="local-6989586621679352667"><span id="local-6989586621679352669"><span class="annot"><span class="annottext">[WorkflowExecutionCancelRequestedCause] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679352672"><span id="local-6989586621679352674"><span id="local-6989586621679352676"><span id="local-6989586621679352678"><span class="annot"><span class="annottext">[WorkflowExecutionCancelRequestedCause] -&gt; Encoding
 [WorkflowExecutionCancelRequestedCause] -&gt; Value
 WorkflowExecutionCancelRequestedCause -&gt; Encoding
 WorkflowExecutionCancelRequestedCause -&gt; Value
@@ -290,7 +290,7 @@ $ctoEncoding :: WorkflowExecutionCancelRequestedCause -&gt; Encoding
 toJSON :: WorkflowExecutionCancelRequestedCause -&gt; Value
 $ctoJSON :: WorkflowExecutionCancelRequestedCause -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679352658"><span id="local-6989586621679352660"><span class="annot"><span class="annottext">ToJSONKeyFunction [WorkflowExecutionCancelRequestedCause]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679352667"><span id="local-6989586621679352669"><span class="annot"><span class="annottext">ToJSONKeyFunction [WorkflowExecutionCancelRequestedCause]
 ToJSONKeyFunction WorkflowExecutionCancelRequestedCause
 ToJSONKeyFunction WorkflowExecutionCancelRequestedCause
 -&gt; ToJSONKeyFunction [WorkflowExecutionCancelRequestedCause]
@@ -302,14 +302,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [WorkflowExecutionCancelRequestedCause]
 toJSONKey :: ToJSONKeyFunction WorkflowExecutionCancelRequestedCause
 $ctoJSONKey :: ToJSONKeyFunction WorkflowExecutionCancelRequestedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679352655"><span class="annot"><span class="annottext">[Node] -&gt; Either String WorkflowExecutionCancelRequestedCause
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679352664"><span class="annot"><span class="annottext">[Node] -&gt; Either String WorkflowExecutionCancelRequestedCause
 ([Node] -&gt; Either String WorkflowExecutionCancelRequestedCause)
 -&gt; FromXML WorkflowExecutionCancelRequestedCause
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String WorkflowExecutionCancelRequestedCause
 $cparseXML :: [Node] -&gt; Either String WorkflowExecutionCancelRequestedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679352652"><span class="annot"><span class="annottext">WorkflowExecutionCancelRequestedCause -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679352661"><span class="annot"><span class="annottext">WorkflowExecutionCancelRequestedCause -&gt; XML
 (WorkflowExecutionCancelRequestedCause -&gt; XML)
 -&gt; ToXML WorkflowExecutionCancelRequestedCause
 forall a. (a -&gt; XML) -&gt; ToXML a

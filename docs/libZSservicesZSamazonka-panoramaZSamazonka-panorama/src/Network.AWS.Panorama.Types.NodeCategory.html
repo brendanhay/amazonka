@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Panorama.Types.NodeCategory</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Panorama.Types.NodeCategory</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.NodeCategory.html#NodeCategory"><span class="hs-identifier">NodeCategory</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Panorama.Types.NodeCategory.html#NodeCategory_BUSINESS_LOGIC"><span class="hs-identifier">NodeCategory_BUSINESS_LOGIC</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Panorama.Types.NodeCategory.html#NodeCategory_MEDIA_SINK"><span class="hs-identifier">NodeCategory_MEDIA_SINK</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.Panorama.Types.NodeCategory.html#NodeCategory_MEDIA_SOURCE"><span class="hs-identifier">NodeCategory_MEDIA_SOURCE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.Panorama.Types.NodeCategory.html#NodeCategory_ML_MODEL"><span class="hs-identifier">NodeCategory_ML_MODEL</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679256253"><span id="local-6989586621679256254"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NodeCategory"><span class="annot"><a href="Network.AWS.Panorama.Types.NodeCategory.html#NodeCategory"><span class="hs-identifier hs-var">NodeCategory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NodeCategory%27"><span class="annot"><a href="Network.AWS.Panorama.Types.NodeCategory.html#NodeCategory%27"><span class="hs-identifier hs-var">NodeCategory'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromNodeCategory"><span class="annot"><span class="annottext">NodeCategory -&gt; Text
+</span><a href="Network.AWS.Panorama.Types.NodeCategory.html#fromNodeCategory"><span class="hs-identifier hs-var hs-var">fromNodeCategory</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679256245"><span id="local-6989586621679256247"><span id="local-6989586621679256249"><span class="annot"><span class="annottext">Int -&gt; NodeCategory -&gt; ShowS
+[NodeCategory] -&gt; ShowS
+NodeCategory -&gt; String
+(Int -&gt; NodeCategory -&gt; ShowS)
+-&gt; (NodeCategory -&gt; String)
+-&gt; ([NodeCategory] -&gt; ShowS)
+-&gt; Show NodeCategory
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [NodeCategory] -&gt; ShowS
+$cshowList :: [NodeCategory] -&gt; ShowS
+show :: NodeCategory -&gt; String
+$cshow :: NodeCategory -&gt; String
+showsPrec :: Int -&gt; NodeCategory -&gt; ShowS
+$cshowsPrec :: Int -&gt; NodeCategory -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679256236"><span id="local-6989586621679256238"><span id="local-6989586621679256240"><span id="local-6989586621679256242"><span class="annot"><span class="annottext">ReadPrec [NodeCategory]
+ReadPrec NodeCategory
+Int -&gt; ReadS NodeCategory
+ReadS [NodeCategory]
+(Int -&gt; ReadS NodeCategory)
+-&gt; ReadS [NodeCategory]
+-&gt; ReadPrec NodeCategory
+-&gt; ReadPrec [NodeCategory]
+-&gt; Read NodeCategory
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [NodeCategory]
+$creadListPrec :: ReadPrec [NodeCategory]
+readPrec :: ReadPrec NodeCategory
+$creadPrec :: ReadPrec NodeCategory
+readList :: ReadS [NodeCategory]
+$creadList :: ReadS [NodeCategory]
+readsPrec :: Int -&gt; ReadS NodeCategory
+$creadsPrec :: Int -&gt; ReadS NodeCategory
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679256231"><span id="local-6989586621679256233"><span class="annot"><span class="annottext">NodeCategory -&gt; NodeCategory -&gt; Bool
+(NodeCategory -&gt; NodeCategory -&gt; Bool)
+-&gt; (NodeCategory -&gt; NodeCategory -&gt; Bool) -&gt; Eq NodeCategory
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: NodeCategory -&gt; NodeCategory -&gt; Bool
+$c/= :: NodeCategory -&gt; NodeCategory -&gt; Bool
+== :: NodeCategory -&gt; NodeCategory -&gt; Bool
+$c== :: NodeCategory -&gt; NodeCategory -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679256215"><span id="local-6989586621679256217"><span id="local-6989586621679256219"><span id="local-6989586621679256221"><span id="local-6989586621679256223"><span id="local-6989586621679256225"><span id="local-6989586621679256227"><span class="annot"><span class="annottext">Eq NodeCategory
+Eq NodeCategory
+-&gt; (NodeCategory -&gt; NodeCategory -&gt; Ordering)
+-&gt; (NodeCategory -&gt; NodeCategory -&gt; Bool)
+-&gt; (NodeCategory -&gt; NodeCategory -&gt; Bool)
+-&gt; (NodeCategory -&gt; NodeCategory -&gt; Bool)
+-&gt; (NodeCategory -&gt; NodeCategory -&gt; Bool)
+-&gt; (NodeCategory -&gt; NodeCategory -&gt; NodeCategory)
+-&gt; (NodeCategory -&gt; NodeCategory -&gt; NodeCategory)
+-&gt; Ord NodeCategory
+NodeCategory -&gt; NodeCategory -&gt; Bool
+NodeCategory -&gt; NodeCategory -&gt; Ordering
+NodeCategory -&gt; NodeCategory -&gt; NodeCategory
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: NodeCategory -&gt; NodeCategory -&gt; NodeCategory
+$cmin :: NodeCategory -&gt; NodeCategory -&gt; NodeCategory
+max :: NodeCategory -&gt; NodeCategory -&gt; NodeCategory
+$cmax :: NodeCategory -&gt; NodeCategory -&gt; NodeCategory
+&gt;= :: NodeCategory -&gt; NodeCategory -&gt; Bool
+$c&gt;= :: NodeCategory -&gt; NodeCategory -&gt; Bool
+&gt; :: NodeCategory -&gt; NodeCategory -&gt; Bool
+$c&gt; :: NodeCategory -&gt; NodeCategory -&gt; Bool
+&lt;= :: NodeCategory -&gt; NodeCategory -&gt; Bool
+$c&lt;= :: NodeCategory -&gt; NodeCategory -&gt; Bool
+&lt; :: NodeCategory -&gt; NodeCategory -&gt; Bool
+$c&lt; :: NodeCategory -&gt; NodeCategory -&gt; Bool
+compare :: NodeCategory -&gt; NodeCategory -&gt; Ordering
+$ccompare :: NodeCategory -&gt; NodeCategory -&gt; Ordering
+$cp1Ord :: Eq NodeCategory
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. NodeCategory -&gt; Rep NodeCategory x)
+-&gt; (forall x. Rep NodeCategory x -&gt; NodeCategory)
+-&gt; Generic NodeCategory
+forall x. Rep NodeCategory x -&gt; NodeCategory
+forall x. NodeCategory -&gt; Rep NodeCategory x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep NodeCategory x -&gt; NodeCategory
+$cfrom :: forall x. NodeCategory -&gt; Rep NodeCategory x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679256207"><span id="local-6989586621679256209"><span class="annot"><span class="annottext">Int -&gt; NodeCategory -&gt; Int
+NodeCategory -&gt; Int
+(Int -&gt; NodeCategory -&gt; Int)
+-&gt; (NodeCategory -&gt; Int) -&gt; Hashable NodeCategory
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: NodeCategory -&gt; Int
+$chash :: NodeCategory -&gt; Int
+hashWithSalt :: Int -&gt; NodeCategory -&gt; Int
+$chashWithSalt :: Int -&gt; NodeCategory -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679256204"><span class="annot"><span class="annottext">NodeCategory -&gt; ()
+(NodeCategory -&gt; ()) -&gt; NFData NodeCategory
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: NodeCategory -&gt; ()
+$crnf :: NodeCategory -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679256201"><span class="annot"><span class="annottext">Text -&gt; Either String NodeCategory
+(Text -&gt; Either String NodeCategory) -&gt; FromText NodeCategory
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String NodeCategory
+$cfromText :: Text -&gt; Either String NodeCategory
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679256198"><span class="annot"><span class="annottext">NodeCategory -&gt; Text
+(NodeCategory -&gt; Text) -&gt; ToText NodeCategory
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: NodeCategory -&gt; Text
+$ctoText :: NodeCategory -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679256195"><span class="annot"><span class="annottext">NodeCategory -&gt; ByteString
+(NodeCategory -&gt; ByteString) -&gt; ToByteString NodeCategory
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: NodeCategory -&gt; ByteString
+$ctoBS :: NodeCategory -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679256192"><span class="annot"><span class="annottext">NodeCategory -&gt; ByteStringBuilder
+(NodeCategory -&gt; ByteStringBuilder) -&gt; ToLog NodeCategory
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: NodeCategory -&gt; ByteStringBuilder
+$cbuild :: NodeCategory -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679256189"><span class="annot"><span class="annottext">HeaderName -&gt; NodeCategory -&gt; [Header]
+(HeaderName -&gt; NodeCategory -&gt; [Header]) -&gt; ToHeader NodeCategory
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; NodeCategory -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; NodeCategory -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679256186"><span class="annot"><span class="annottext">NodeCategory -&gt; QueryString
+(NodeCategory -&gt; QueryString) -&gt; ToQuery NodeCategory
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: NodeCategory -&gt; QueryString
+$ctoQuery :: NodeCategory -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679256181"><span id="local-6989586621679256183"><span class="annot"><span class="annottext">Value -&gt; Parser [NodeCategory]
+Value -&gt; Parser NodeCategory
+(Value -&gt; Parser NodeCategory)
+-&gt; (Value -&gt; Parser [NodeCategory]) -&gt; FromJSON NodeCategory
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [NodeCategory]
+$cparseJSONList :: Value -&gt; Parser [NodeCategory]
+parseJSON :: Value -&gt; Parser NodeCategory
+$cparseJSON :: Value -&gt; Parser NodeCategory
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679256176"><span id="local-6989586621679256178"><span class="annot"><span class="annottext">FromJSONKeyFunction [NodeCategory]
+FromJSONKeyFunction NodeCategory
+FromJSONKeyFunction NodeCategory
+-&gt; FromJSONKeyFunction [NodeCategory] -&gt; FromJSONKey NodeCategory
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [NodeCategory]
+$cfromJSONKeyList :: FromJSONKeyFunction [NodeCategory]
+fromJSONKey :: FromJSONKeyFunction NodeCategory
+$cfromJSONKey :: FromJSONKeyFunction NodeCategory
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679256167"><span id="local-6989586621679256169"><span id="local-6989586621679256171"><span id="local-6989586621679256173"><span class="annot"><span class="annottext">[NodeCategory] -&gt; Encoding
+[NodeCategory] -&gt; Value
+NodeCategory -&gt; Encoding
+NodeCategory -&gt; Value
+(NodeCategory -&gt; Value)
+-&gt; (NodeCategory -&gt; Encoding)
+-&gt; ([NodeCategory] -&gt; Value)
+-&gt; ([NodeCategory] -&gt; Encoding)
+-&gt; ToJSON NodeCategory
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [NodeCategory] -&gt; Encoding
+$ctoEncodingList :: [NodeCategory] -&gt; Encoding
+toJSONList :: [NodeCategory] -&gt; Value
+$ctoJSONList :: [NodeCategory] -&gt; Value
+toEncoding :: NodeCategory -&gt; Encoding
+$ctoEncoding :: NodeCategory -&gt; Encoding
+toJSON :: NodeCategory -&gt; Value
+$ctoJSON :: NodeCategory -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679256162"><span id="local-6989586621679256164"><span class="annot"><span class="annottext">ToJSONKeyFunction [NodeCategory]
+ToJSONKeyFunction NodeCategory
+ToJSONKeyFunction NodeCategory
+-&gt; ToJSONKeyFunction [NodeCategory] -&gt; ToJSONKey NodeCategory
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [NodeCategory]
+$ctoJSONKeyList :: ToJSONKeyFunction [NodeCategory]
+toJSONKey :: ToJSONKeyFunction NodeCategory
+$ctoJSONKey :: ToJSONKeyFunction NodeCategory
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679256159"><span class="annot"><span class="annottext">[Node] -&gt; Either String NodeCategory
+([Node] -&gt; Either String NodeCategory) -&gt; FromXML NodeCategory
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String NodeCategory
+$cparseXML :: [Node] -&gt; Either String NodeCategory
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679256156"><span class="annot"><span class="annottext">NodeCategory -&gt; XML
+(NodeCategory -&gt; XML) -&gt; ToXML NodeCategory
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: NodeCategory -&gt; XML
+$ctoXML :: NodeCategory -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.NodeCategory.html#NodeCategory_BUSINESS_LOGIC"><span class="hs-identifier hs-type">NodeCategory_BUSINESS_LOGIC</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.NodeCategory.html#NodeCategory"><span class="hs-identifier hs-type">NodeCategory</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNodeCategory_BUSINESS_LOGIC"><span id="%24mNodeCategory_BUSINESS_LOGIC"><span id="NodeCategory_BUSINESS_LOGIC"><span class="annot"><span class="annottext">$bNodeCategory_BUSINESS_LOGIC :: NodeCategory
+$mNodeCategory_BUSINESS_LOGIC :: forall r. NodeCategory -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Panorama.Types.NodeCategory.html#%24bNodeCategory_BUSINESS_LOGIC"><span class="hs-identifier hs-var hs-var hs-var">NodeCategory_BUSINESS_LOGIC</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.NodeCategory.html#NodeCategory%27"><span class="hs-identifier hs-type">NodeCategory'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BUSINESS_LOGIC&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.NodeCategory.html#NodeCategory_MEDIA_SINK"><span class="hs-identifier hs-type">NodeCategory_MEDIA_SINK</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.NodeCategory.html#NodeCategory"><span class="hs-identifier hs-type">NodeCategory</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNodeCategory_MEDIA_SINK"><span id="%24mNodeCategory_MEDIA_SINK"><span id="NodeCategory_MEDIA_SINK"><span class="annot"><span class="annottext">$bNodeCategory_MEDIA_SINK :: NodeCategory
+$mNodeCategory_MEDIA_SINK :: forall r. NodeCategory -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Panorama.Types.NodeCategory.html#%24bNodeCategory_MEDIA_SINK"><span class="hs-identifier hs-var hs-var hs-var">NodeCategory_MEDIA_SINK</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.NodeCategory.html#NodeCategory%27"><span class="hs-identifier hs-type">NodeCategory'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MEDIA_SINK&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.NodeCategory.html#NodeCategory_MEDIA_SOURCE"><span class="hs-identifier hs-type">NodeCategory_MEDIA_SOURCE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.NodeCategory.html#NodeCategory"><span class="hs-identifier hs-type">NodeCategory</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNodeCategory_MEDIA_SOURCE"><span id="%24mNodeCategory_MEDIA_SOURCE"><span id="NodeCategory_MEDIA_SOURCE"><span class="annot"><span class="annottext">$bNodeCategory_MEDIA_SOURCE :: NodeCategory
+$mNodeCategory_MEDIA_SOURCE :: forall r. NodeCategory -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Panorama.Types.NodeCategory.html#%24bNodeCategory_MEDIA_SOURCE"><span class="hs-identifier hs-var hs-var hs-var">NodeCategory_MEDIA_SOURCE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.NodeCategory.html#NodeCategory%27"><span class="hs-identifier hs-type">NodeCategory'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MEDIA_SOURCE&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.NodeCategory.html#NodeCategory_ML_MODEL"><span class="hs-identifier hs-type">NodeCategory_ML_MODEL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.NodeCategory.html#NodeCategory"><span class="hs-identifier hs-type">NodeCategory</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bNodeCategory_ML_MODEL"><span id="%24mNodeCategory_ML_MODEL"><span id="NodeCategory_ML_MODEL"><span class="annot"><span class="annottext">$bNodeCategory_ML_MODEL :: NodeCategory
+$mNodeCategory_ML_MODEL :: forall r. NodeCategory -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Panorama.Types.NodeCategory.html#%24bNodeCategory_ML_MODEL"><span class="hs-identifier hs-var hs-var hs-var">NodeCategory_ML_MODEL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.NodeCategory.html#NodeCategory%27"><span class="hs-identifier hs-type">NodeCategory'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ML_MODEL&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.Panorama.Types.NodeCategory.html#NodeCategory_BUSINESS_LOGIC"><span class="hs-pragma hs-type">NodeCategory_BUSINESS_LOGIC</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.Panorama.Types.NodeCategory.html#NodeCategory_MEDIA_SINK"><span class="hs-pragma hs-type">NodeCategory_MEDIA_SINK</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.Panorama.Types.NodeCategory.html#NodeCategory_MEDIA_SOURCE"><span class="hs-pragma hs-type">NodeCategory_MEDIA_SOURCE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.Panorama.Types.NodeCategory.html#NodeCategory_ML_MODEL"><span class="hs-pragma hs-type">NodeCategory_ML_MODEL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.Panorama.Types.NodeCategory.html#NodeCategory%27"><span class="hs-pragma hs-type">NodeCategory'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.OpenSearch.Types.ScheduledAutoTuneActionType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.OpenSearch.Types.ScheduledAutoTuneActionType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.ScheduledAutoTuneActionType.html#ScheduledAutoTuneActionType"><span class="hs-identifier">ScheduledAutoTuneActionType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.ScheduledAutoTuneActionType.html#ScheduledAutoTuneActionType_JVM_HEAP_SIZE_TUNING"><span class="hs-identifier">ScheduledAutoTuneActionType_JVM_HEAP_SIZE_TUNING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.ScheduledAutoTuneActionType.html#ScheduledAutoTuneActionType_JVM_YOUNG_GEN_TUNING"><span class="hs-identifier">ScheduledAutoTuneActionType_JVM_YOUNG_GEN_TUNING</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | The Auto-Tune action type. Valid values are JVM_HEAP_SIZE_TUNING, and</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- JVM_YOUNG_GEN_TUNING.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679304866"><span id="local-6989586621679304867"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ScheduledAutoTuneActionType"><span class="annot"><a href="Network.AWS.OpenSearch.Types.ScheduledAutoTuneActionType.html#ScheduledAutoTuneActionType"><span class="hs-identifier hs-var">ScheduledAutoTuneActionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScheduledAutoTuneActionType%27"><span class="annot"><a href="Network.AWS.OpenSearch.Types.ScheduledAutoTuneActionType.html#ScheduledAutoTuneActionType%27"><span class="hs-identifier hs-var">ScheduledAutoTuneActionType'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromScheduledAutoTuneActionType"><span class="annot"><span class="annottext">ScheduledAutoTuneActionType -&gt; Text
+</span><a href="Network.AWS.OpenSearch.Types.ScheduledAutoTuneActionType.html#fromScheduledAutoTuneActionType"><span class="hs-identifier hs-var hs-var">fromScheduledAutoTuneActionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679304858"><span id="local-6989586621679304860"><span id="local-6989586621679304862"><span class="annot"><span class="annottext">Int -&gt; ScheduledAutoTuneActionType -&gt; ShowS
+[ScheduledAutoTuneActionType] -&gt; ShowS
+ScheduledAutoTuneActionType -&gt; String
+(Int -&gt; ScheduledAutoTuneActionType -&gt; ShowS)
+-&gt; (ScheduledAutoTuneActionType -&gt; String)
+-&gt; ([ScheduledAutoTuneActionType] -&gt; ShowS)
+-&gt; Show ScheduledAutoTuneActionType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ScheduledAutoTuneActionType] -&gt; ShowS
+$cshowList :: [ScheduledAutoTuneActionType] -&gt; ShowS
+show :: ScheduledAutoTuneActionType -&gt; String
+$cshow :: ScheduledAutoTuneActionType -&gt; String
+showsPrec :: Int -&gt; ScheduledAutoTuneActionType -&gt; ShowS
+$cshowsPrec :: Int -&gt; ScheduledAutoTuneActionType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679304849"><span id="local-6989586621679304851"><span id="local-6989586621679304853"><span id="local-6989586621679304855"><span class="annot"><span class="annottext">ReadPrec [ScheduledAutoTuneActionType]
+ReadPrec ScheduledAutoTuneActionType
+Int -&gt; ReadS ScheduledAutoTuneActionType
+ReadS [ScheduledAutoTuneActionType]
+(Int -&gt; ReadS ScheduledAutoTuneActionType)
+-&gt; ReadS [ScheduledAutoTuneActionType]
+-&gt; ReadPrec ScheduledAutoTuneActionType
+-&gt; ReadPrec [ScheduledAutoTuneActionType]
+-&gt; Read ScheduledAutoTuneActionType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ScheduledAutoTuneActionType]
+$creadListPrec :: ReadPrec [ScheduledAutoTuneActionType]
+readPrec :: ReadPrec ScheduledAutoTuneActionType
+$creadPrec :: ReadPrec ScheduledAutoTuneActionType
+readList :: ReadS [ScheduledAutoTuneActionType]
+$creadList :: ReadS [ScheduledAutoTuneActionType]
+readsPrec :: Int -&gt; ReadS ScheduledAutoTuneActionType
+$creadsPrec :: Int -&gt; ReadS ScheduledAutoTuneActionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679304844"><span id="local-6989586621679304846"><span class="annot"><span class="annottext">ScheduledAutoTuneActionType -&gt; ScheduledAutoTuneActionType -&gt; Bool
+(ScheduledAutoTuneActionType
+ -&gt; ScheduledAutoTuneActionType -&gt; Bool)
+-&gt; (ScheduledAutoTuneActionType
+    -&gt; ScheduledAutoTuneActionType -&gt; Bool)
+-&gt; Eq ScheduledAutoTuneActionType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ScheduledAutoTuneActionType -&gt; ScheduledAutoTuneActionType -&gt; Bool
+$c/= :: ScheduledAutoTuneActionType -&gt; ScheduledAutoTuneActionType -&gt; Bool
+== :: ScheduledAutoTuneActionType -&gt; ScheduledAutoTuneActionType -&gt; Bool
+$c== :: ScheduledAutoTuneActionType -&gt; ScheduledAutoTuneActionType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679304828"><span id="local-6989586621679304830"><span id="local-6989586621679304832"><span id="local-6989586621679304834"><span id="local-6989586621679304836"><span id="local-6989586621679304838"><span id="local-6989586621679304840"><span class="annot"><span class="annottext">Eq ScheduledAutoTuneActionType
+Eq ScheduledAutoTuneActionType
+-&gt; (ScheduledAutoTuneActionType
+    -&gt; ScheduledAutoTuneActionType -&gt; Ordering)
+-&gt; (ScheduledAutoTuneActionType
+    -&gt; ScheduledAutoTuneActionType -&gt; Bool)
+-&gt; (ScheduledAutoTuneActionType
+    -&gt; ScheduledAutoTuneActionType -&gt; Bool)
+-&gt; (ScheduledAutoTuneActionType
+    -&gt; ScheduledAutoTuneActionType -&gt; Bool)
+-&gt; (ScheduledAutoTuneActionType
+    -&gt; ScheduledAutoTuneActionType -&gt; Bool)
+-&gt; (ScheduledAutoTuneActionType
+    -&gt; ScheduledAutoTuneActionType -&gt; ScheduledAutoTuneActionType)
+-&gt; (ScheduledAutoTuneActionType
+    -&gt; ScheduledAutoTuneActionType -&gt; ScheduledAutoTuneActionType)
+-&gt; Ord ScheduledAutoTuneActionType
+ScheduledAutoTuneActionType -&gt; ScheduledAutoTuneActionType -&gt; Bool
+ScheduledAutoTuneActionType
+-&gt; ScheduledAutoTuneActionType -&gt; Ordering
+ScheduledAutoTuneActionType
+-&gt; ScheduledAutoTuneActionType -&gt; ScheduledAutoTuneActionType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ScheduledAutoTuneActionType
+-&gt; ScheduledAutoTuneActionType -&gt; ScheduledAutoTuneActionType
+$cmin :: ScheduledAutoTuneActionType
+-&gt; ScheduledAutoTuneActionType -&gt; ScheduledAutoTuneActionType
+max :: ScheduledAutoTuneActionType
+-&gt; ScheduledAutoTuneActionType -&gt; ScheduledAutoTuneActionType
+$cmax :: ScheduledAutoTuneActionType
+-&gt; ScheduledAutoTuneActionType -&gt; ScheduledAutoTuneActionType
+&gt;= :: ScheduledAutoTuneActionType -&gt; ScheduledAutoTuneActionType -&gt; Bool
+$c&gt;= :: ScheduledAutoTuneActionType -&gt; ScheduledAutoTuneActionType -&gt; Bool
+&gt; :: ScheduledAutoTuneActionType -&gt; ScheduledAutoTuneActionType -&gt; Bool
+$c&gt; :: ScheduledAutoTuneActionType -&gt; ScheduledAutoTuneActionType -&gt; Bool
+&lt;= :: ScheduledAutoTuneActionType -&gt; ScheduledAutoTuneActionType -&gt; Bool
+$c&lt;= :: ScheduledAutoTuneActionType -&gt; ScheduledAutoTuneActionType -&gt; Bool
+&lt; :: ScheduledAutoTuneActionType -&gt; ScheduledAutoTuneActionType -&gt; Bool
+$c&lt; :: ScheduledAutoTuneActionType -&gt; ScheduledAutoTuneActionType -&gt; Bool
+compare :: ScheduledAutoTuneActionType
+-&gt; ScheduledAutoTuneActionType -&gt; Ordering
+$ccompare :: ScheduledAutoTuneActionType
+-&gt; ScheduledAutoTuneActionType -&gt; Ordering
+$cp1Ord :: Eq ScheduledAutoTuneActionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ ScheduledAutoTuneActionType -&gt; Rep ScheduledAutoTuneActionType x)
+-&gt; (forall x.
+    Rep ScheduledAutoTuneActionType x -&gt; ScheduledAutoTuneActionType)
+-&gt; Generic ScheduledAutoTuneActionType
+forall x.
+Rep ScheduledAutoTuneActionType x -&gt; ScheduledAutoTuneActionType
+forall x.
+ScheduledAutoTuneActionType -&gt; Rep ScheduledAutoTuneActionType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ScheduledAutoTuneActionType x -&gt; ScheduledAutoTuneActionType
+$cfrom :: forall x.
+ScheduledAutoTuneActionType -&gt; Rep ScheduledAutoTuneActionType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679304820"><span id="local-6989586621679304822"><span class="annot"><span class="annottext">Int -&gt; ScheduledAutoTuneActionType -&gt; Int
+ScheduledAutoTuneActionType -&gt; Int
+(Int -&gt; ScheduledAutoTuneActionType -&gt; Int)
+-&gt; (ScheduledAutoTuneActionType -&gt; Int)
+-&gt; Hashable ScheduledAutoTuneActionType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ScheduledAutoTuneActionType -&gt; Int
+$chash :: ScheduledAutoTuneActionType -&gt; Int
+hashWithSalt :: Int -&gt; ScheduledAutoTuneActionType -&gt; Int
+$chashWithSalt :: Int -&gt; ScheduledAutoTuneActionType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679304817"><span class="annot"><span class="annottext">ScheduledAutoTuneActionType -&gt; ()
+(ScheduledAutoTuneActionType -&gt; ())
+-&gt; NFData ScheduledAutoTuneActionType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ScheduledAutoTuneActionType -&gt; ()
+$crnf :: ScheduledAutoTuneActionType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679304814"><span class="annot"><span class="annottext">Text -&gt; Either String ScheduledAutoTuneActionType
+(Text -&gt; Either String ScheduledAutoTuneActionType)
+-&gt; FromText ScheduledAutoTuneActionType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ScheduledAutoTuneActionType
+$cfromText :: Text -&gt; Either String ScheduledAutoTuneActionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679304811"><span class="annot"><span class="annottext">ScheduledAutoTuneActionType -&gt; Text
+(ScheduledAutoTuneActionType -&gt; Text)
+-&gt; ToText ScheduledAutoTuneActionType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ScheduledAutoTuneActionType -&gt; Text
+$ctoText :: ScheduledAutoTuneActionType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679304808"><span class="annot"><span class="annottext">ScheduledAutoTuneActionType -&gt; ByteString
+(ScheduledAutoTuneActionType -&gt; ByteString)
+-&gt; ToByteString ScheduledAutoTuneActionType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ScheduledAutoTuneActionType -&gt; ByteString
+$ctoBS :: ScheduledAutoTuneActionType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679304805"><span class="annot"><span class="annottext">ScheduledAutoTuneActionType -&gt; ByteStringBuilder
+(ScheduledAutoTuneActionType -&gt; ByteStringBuilder)
+-&gt; ToLog ScheduledAutoTuneActionType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ScheduledAutoTuneActionType -&gt; ByteStringBuilder
+$cbuild :: ScheduledAutoTuneActionType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679304802"><span class="annot"><span class="annottext">HeaderName -&gt; ScheduledAutoTuneActionType -&gt; [Header]
+(HeaderName -&gt; ScheduledAutoTuneActionType -&gt; [Header])
+-&gt; ToHeader ScheduledAutoTuneActionType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ScheduledAutoTuneActionType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ScheduledAutoTuneActionType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679304799"><span class="annot"><span class="annottext">ScheduledAutoTuneActionType -&gt; QueryString
+(ScheduledAutoTuneActionType -&gt; QueryString)
+-&gt; ToQuery ScheduledAutoTuneActionType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ScheduledAutoTuneActionType -&gt; QueryString
+$ctoQuery :: ScheduledAutoTuneActionType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679304794"><span id="local-6989586621679304796"><span class="annot"><span class="annottext">Value -&gt; Parser [ScheduledAutoTuneActionType]
+Value -&gt; Parser ScheduledAutoTuneActionType
+(Value -&gt; Parser ScheduledAutoTuneActionType)
+-&gt; (Value -&gt; Parser [ScheduledAutoTuneActionType])
+-&gt; FromJSON ScheduledAutoTuneActionType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ScheduledAutoTuneActionType]
+$cparseJSONList :: Value -&gt; Parser [ScheduledAutoTuneActionType]
+parseJSON :: Value -&gt; Parser ScheduledAutoTuneActionType
+$cparseJSON :: Value -&gt; Parser ScheduledAutoTuneActionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679304789"><span id="local-6989586621679304791"><span class="annot"><span class="annottext">FromJSONKeyFunction [ScheduledAutoTuneActionType]
+FromJSONKeyFunction ScheduledAutoTuneActionType
+FromJSONKeyFunction ScheduledAutoTuneActionType
+-&gt; FromJSONKeyFunction [ScheduledAutoTuneActionType]
+-&gt; FromJSONKey ScheduledAutoTuneActionType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ScheduledAutoTuneActionType]
+$cfromJSONKeyList :: FromJSONKeyFunction [ScheduledAutoTuneActionType]
+fromJSONKey :: FromJSONKeyFunction ScheduledAutoTuneActionType
+$cfromJSONKey :: FromJSONKeyFunction ScheduledAutoTuneActionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679304780"><span id="local-6989586621679304782"><span id="local-6989586621679304784"><span id="local-6989586621679304786"><span class="annot"><span class="annottext">[ScheduledAutoTuneActionType] -&gt; Encoding
+[ScheduledAutoTuneActionType] -&gt; Value
+ScheduledAutoTuneActionType -&gt; Encoding
+ScheduledAutoTuneActionType -&gt; Value
+(ScheduledAutoTuneActionType -&gt; Value)
+-&gt; (ScheduledAutoTuneActionType -&gt; Encoding)
+-&gt; ([ScheduledAutoTuneActionType] -&gt; Value)
+-&gt; ([ScheduledAutoTuneActionType] -&gt; Encoding)
+-&gt; ToJSON ScheduledAutoTuneActionType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ScheduledAutoTuneActionType] -&gt; Encoding
+$ctoEncodingList :: [ScheduledAutoTuneActionType] -&gt; Encoding
+toJSONList :: [ScheduledAutoTuneActionType] -&gt; Value
+$ctoJSONList :: [ScheduledAutoTuneActionType] -&gt; Value
+toEncoding :: ScheduledAutoTuneActionType -&gt; Encoding
+$ctoEncoding :: ScheduledAutoTuneActionType -&gt; Encoding
+toJSON :: ScheduledAutoTuneActionType -&gt; Value
+$ctoJSON :: ScheduledAutoTuneActionType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679304775"><span id="local-6989586621679304777"><span class="annot"><span class="annottext">ToJSONKeyFunction [ScheduledAutoTuneActionType]
+ToJSONKeyFunction ScheduledAutoTuneActionType
+ToJSONKeyFunction ScheduledAutoTuneActionType
+-&gt; ToJSONKeyFunction [ScheduledAutoTuneActionType]
+-&gt; ToJSONKey ScheduledAutoTuneActionType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ScheduledAutoTuneActionType]
+$ctoJSONKeyList :: ToJSONKeyFunction [ScheduledAutoTuneActionType]
+toJSONKey :: ToJSONKeyFunction ScheduledAutoTuneActionType
+$ctoJSONKey :: ToJSONKeyFunction ScheduledAutoTuneActionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679304772"><span class="annot"><span class="annottext">[Node] -&gt; Either String ScheduledAutoTuneActionType
+([Node] -&gt; Either String ScheduledAutoTuneActionType)
+-&gt; FromXML ScheduledAutoTuneActionType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ScheduledAutoTuneActionType
+$cparseXML :: [Node] -&gt; Either String ScheduledAutoTuneActionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679304769"><span class="annot"><span class="annottext">ScheduledAutoTuneActionType -&gt; XML
+(ScheduledAutoTuneActionType -&gt; XML)
+-&gt; ToXML ScheduledAutoTuneActionType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ScheduledAutoTuneActionType -&gt; XML
+$ctoXML :: ScheduledAutoTuneActionType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.ScheduledAutoTuneActionType.html#ScheduledAutoTuneActionType_JVM_HEAP_SIZE_TUNING"><span class="hs-identifier hs-type">ScheduledAutoTuneActionType_JVM_HEAP_SIZE_TUNING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.ScheduledAutoTuneActionType.html#ScheduledAutoTuneActionType"><span class="hs-identifier hs-type">ScheduledAutoTuneActionType</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScheduledAutoTuneActionType_JVM_HEAP_SIZE_TUNING"><span id="%24mScheduledAutoTuneActionType_JVM_HEAP_SIZE_TUNING"><span id="ScheduledAutoTuneActionType_JVM_HEAP_SIZE_TUNING"><span class="annot"><span class="annottext">$bScheduledAutoTuneActionType_JVM_HEAP_SIZE_TUNING :: ScheduledAutoTuneActionType
+$mScheduledAutoTuneActionType_JVM_HEAP_SIZE_TUNING :: forall r.
+ScheduledAutoTuneActionType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.OpenSearch.Types.ScheduledAutoTuneActionType.html#%24bScheduledAutoTuneActionType_JVM_HEAP_SIZE_TUNING"><span class="hs-identifier hs-var hs-var hs-var">ScheduledAutoTuneActionType_JVM_HEAP_SIZE_TUNING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.ScheduledAutoTuneActionType.html#ScheduledAutoTuneActionType%27"><span class="hs-identifier hs-type">ScheduledAutoTuneActionType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;JVM_HEAP_SIZE_TUNING&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.ScheduledAutoTuneActionType.html#ScheduledAutoTuneActionType_JVM_YOUNG_GEN_TUNING"><span class="hs-identifier hs-type">ScheduledAutoTuneActionType_JVM_YOUNG_GEN_TUNING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.ScheduledAutoTuneActionType.html#ScheduledAutoTuneActionType"><span class="hs-identifier hs-type">ScheduledAutoTuneActionType</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScheduledAutoTuneActionType_JVM_YOUNG_GEN_TUNING"><span id="%24mScheduledAutoTuneActionType_JVM_YOUNG_GEN_TUNING"><span id="ScheduledAutoTuneActionType_JVM_YOUNG_GEN_TUNING"><span class="annot"><span class="annottext">$bScheduledAutoTuneActionType_JVM_YOUNG_GEN_TUNING :: ScheduledAutoTuneActionType
+$mScheduledAutoTuneActionType_JVM_YOUNG_GEN_TUNING :: forall r.
+ScheduledAutoTuneActionType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.OpenSearch.Types.ScheduledAutoTuneActionType.html#%24bScheduledAutoTuneActionType_JVM_YOUNG_GEN_TUNING"><span class="hs-identifier hs-var hs-var hs-var">ScheduledAutoTuneActionType_JVM_YOUNG_GEN_TUNING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.ScheduledAutoTuneActionType.html#ScheduledAutoTuneActionType%27"><span class="hs-identifier hs-type">ScheduledAutoTuneActionType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;JVM_YOUNG_GEN_TUNING&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.ScheduledAutoTuneActionType.html#ScheduledAutoTuneActionType_JVM_HEAP_SIZE_TUNING"><span class="hs-pragma hs-type">ScheduledAutoTuneActionType_JVM_HEAP_SIZE_TUNING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.ScheduledAutoTuneActionType.html#ScheduledAutoTuneActionType_JVM_YOUNG_GEN_TUNING"><span class="hs-pragma hs-type">ScheduledAutoTuneActionType_JVM_YOUNG_GEN_TUNING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.ScheduledAutoTuneActionType.html#ScheduledAutoTuneActionType%27"><span class="hs-pragma hs-type">ScheduledAutoTuneActionType'</span></a></span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-73"></span></pre></body></html>

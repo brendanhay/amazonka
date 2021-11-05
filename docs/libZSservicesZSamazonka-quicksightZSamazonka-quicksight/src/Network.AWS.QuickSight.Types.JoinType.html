@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.QuickSight.Types.JoinType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.QuickSight.Types.JoinType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.JoinType.html#JoinType"><span class="hs-identifier">JoinType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.QuickSight.Types.JoinType.html#JoinType_INNER"><span class="hs-identifier">JoinType_INNER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.QuickSight.Types.JoinType.html#JoinType_LEFT"><span class="hs-identifier">JoinType_LEFT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.QuickSight.Types.JoinType.html#JoinType_OUTER"><span class="hs-identifier">JoinType_OUTER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.QuickSight.Types.JoinType.html#JoinType_RIGHT"><span class="hs-identifier">JoinType_RIGHT</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679559809"><span id="local-6989586621679559810"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="JoinType"><span class="annot"><a href="Network.AWS.QuickSight.Types.JoinType.html#JoinType"><span class="hs-identifier hs-var">JoinType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JoinType%27"><span class="annot"><a href="Network.AWS.QuickSight.Types.JoinType.html#JoinType%27"><span class="hs-identifier hs-var">JoinType'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromJoinType"><span class="annot"><span class="annottext">JoinType -&gt; Text
+</span><a href="Network.AWS.QuickSight.Types.JoinType.html#fromJoinType"><span class="hs-identifier hs-var hs-var">fromJoinType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679559801"><span id="local-6989586621679559803"><span id="local-6989586621679559805"><span class="annot"><span class="annottext">Int -&gt; JoinType -&gt; ShowS
+[JoinType] -&gt; ShowS
+JoinType -&gt; String
+(Int -&gt; JoinType -&gt; ShowS)
+-&gt; (JoinType -&gt; String) -&gt; ([JoinType] -&gt; ShowS) -&gt; Show JoinType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [JoinType] -&gt; ShowS
+$cshowList :: [JoinType] -&gt; ShowS
+show :: JoinType -&gt; String
+$cshow :: JoinType -&gt; String
+showsPrec :: Int -&gt; JoinType -&gt; ShowS
+$cshowsPrec :: Int -&gt; JoinType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679559792"><span id="local-6989586621679559794"><span id="local-6989586621679559796"><span id="local-6989586621679559798"><span class="annot"><span class="annottext">ReadPrec [JoinType]
+ReadPrec JoinType
+Int -&gt; ReadS JoinType
+ReadS [JoinType]
+(Int -&gt; ReadS JoinType)
+-&gt; ReadS [JoinType]
+-&gt; ReadPrec JoinType
+-&gt; ReadPrec [JoinType]
+-&gt; Read JoinType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [JoinType]
+$creadListPrec :: ReadPrec [JoinType]
+readPrec :: ReadPrec JoinType
+$creadPrec :: ReadPrec JoinType
+readList :: ReadS [JoinType]
+$creadList :: ReadS [JoinType]
+readsPrec :: Int -&gt; ReadS JoinType
+$creadsPrec :: Int -&gt; ReadS JoinType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679559787"><span id="local-6989586621679559789"><span class="annot"><span class="annottext">JoinType -&gt; JoinType -&gt; Bool
+(JoinType -&gt; JoinType -&gt; Bool)
+-&gt; (JoinType -&gt; JoinType -&gt; Bool) -&gt; Eq JoinType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: JoinType -&gt; JoinType -&gt; Bool
+$c/= :: JoinType -&gt; JoinType -&gt; Bool
+== :: JoinType -&gt; JoinType -&gt; Bool
+$c== :: JoinType -&gt; JoinType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679559771"><span id="local-6989586621679559773"><span id="local-6989586621679559775"><span id="local-6989586621679559777"><span id="local-6989586621679559779"><span id="local-6989586621679559781"><span id="local-6989586621679559783"><span class="annot"><span class="annottext">Eq JoinType
+Eq JoinType
+-&gt; (JoinType -&gt; JoinType -&gt; Ordering)
+-&gt; (JoinType -&gt; JoinType -&gt; Bool)
+-&gt; (JoinType -&gt; JoinType -&gt; Bool)
+-&gt; (JoinType -&gt; JoinType -&gt; Bool)
+-&gt; (JoinType -&gt; JoinType -&gt; Bool)
+-&gt; (JoinType -&gt; JoinType -&gt; JoinType)
+-&gt; (JoinType -&gt; JoinType -&gt; JoinType)
+-&gt; Ord JoinType
+JoinType -&gt; JoinType -&gt; Bool
+JoinType -&gt; JoinType -&gt; Ordering
+JoinType -&gt; JoinType -&gt; JoinType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: JoinType -&gt; JoinType -&gt; JoinType
+$cmin :: JoinType -&gt; JoinType -&gt; JoinType
+max :: JoinType -&gt; JoinType -&gt; JoinType
+$cmax :: JoinType -&gt; JoinType -&gt; JoinType
+&gt;= :: JoinType -&gt; JoinType -&gt; Bool
+$c&gt;= :: JoinType -&gt; JoinType -&gt; Bool
+&gt; :: JoinType -&gt; JoinType -&gt; Bool
+$c&gt; :: JoinType -&gt; JoinType -&gt; Bool
+&lt;= :: JoinType -&gt; JoinType -&gt; Bool
+$c&lt;= :: JoinType -&gt; JoinType -&gt; Bool
+&lt; :: JoinType -&gt; JoinType -&gt; Bool
+$c&lt; :: JoinType -&gt; JoinType -&gt; Bool
+compare :: JoinType -&gt; JoinType -&gt; Ordering
+$ccompare :: JoinType -&gt; JoinType -&gt; Ordering
+$cp1Ord :: Eq JoinType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. JoinType -&gt; Rep JoinType x)
+-&gt; (forall x. Rep JoinType x -&gt; JoinType) -&gt; Generic JoinType
+forall x. Rep JoinType x -&gt; JoinType
+forall x. JoinType -&gt; Rep JoinType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep JoinType x -&gt; JoinType
+$cfrom :: forall x. JoinType -&gt; Rep JoinType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679559763"><span id="local-6989586621679559765"><span class="annot"><span class="annottext">Int -&gt; JoinType -&gt; Int
+JoinType -&gt; Int
+(Int -&gt; JoinType -&gt; Int) -&gt; (JoinType -&gt; Int) -&gt; Hashable JoinType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: JoinType -&gt; Int
+$chash :: JoinType -&gt; Int
+hashWithSalt :: Int -&gt; JoinType -&gt; Int
+$chashWithSalt :: Int -&gt; JoinType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679559760"><span class="annot"><span class="annottext">JoinType -&gt; ()
+(JoinType -&gt; ()) -&gt; NFData JoinType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: JoinType -&gt; ()
+$crnf :: JoinType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679559757"><span class="annot"><span class="annottext">Text -&gt; Either String JoinType
+(Text -&gt; Either String JoinType) -&gt; FromText JoinType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String JoinType
+$cfromText :: Text -&gt; Either String JoinType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679559754"><span class="annot"><span class="annottext">JoinType -&gt; Text
+(JoinType -&gt; Text) -&gt; ToText JoinType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: JoinType -&gt; Text
+$ctoText :: JoinType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679559751"><span class="annot"><span class="annottext">JoinType -&gt; ByteString
+(JoinType -&gt; ByteString) -&gt; ToByteString JoinType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: JoinType -&gt; ByteString
+$ctoBS :: JoinType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679559748"><span class="annot"><span class="annottext">JoinType -&gt; ByteStringBuilder
+(JoinType -&gt; ByteStringBuilder) -&gt; ToLog JoinType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: JoinType -&gt; ByteStringBuilder
+$cbuild :: JoinType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679559745"><span class="annot"><span class="annottext">HeaderName -&gt; JoinType -&gt; [Header]
+(HeaderName -&gt; JoinType -&gt; [Header]) -&gt; ToHeader JoinType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; JoinType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; JoinType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679559742"><span class="annot"><span class="annottext">JoinType -&gt; QueryString
+(JoinType -&gt; QueryString) -&gt; ToQuery JoinType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: JoinType -&gt; QueryString
+$ctoQuery :: JoinType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679559737"><span id="local-6989586621679559739"><span class="annot"><span class="annottext">Value -&gt; Parser [JoinType]
+Value -&gt; Parser JoinType
+(Value -&gt; Parser JoinType)
+-&gt; (Value -&gt; Parser [JoinType]) -&gt; FromJSON JoinType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [JoinType]
+$cparseJSONList :: Value -&gt; Parser [JoinType]
+parseJSON :: Value -&gt; Parser JoinType
+$cparseJSON :: Value -&gt; Parser JoinType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679559732"><span id="local-6989586621679559734"><span class="annot"><span class="annottext">FromJSONKeyFunction [JoinType]
+FromJSONKeyFunction JoinType
+FromJSONKeyFunction JoinType
+-&gt; FromJSONKeyFunction [JoinType] -&gt; FromJSONKey JoinType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [JoinType]
+$cfromJSONKeyList :: FromJSONKeyFunction [JoinType]
+fromJSONKey :: FromJSONKeyFunction JoinType
+$cfromJSONKey :: FromJSONKeyFunction JoinType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679559723"><span id="local-6989586621679559725"><span id="local-6989586621679559727"><span id="local-6989586621679559729"><span class="annot"><span class="annottext">[JoinType] -&gt; Encoding
+[JoinType] -&gt; Value
+JoinType -&gt; Encoding
+JoinType -&gt; Value
+(JoinType -&gt; Value)
+-&gt; (JoinType -&gt; Encoding)
+-&gt; ([JoinType] -&gt; Value)
+-&gt; ([JoinType] -&gt; Encoding)
+-&gt; ToJSON JoinType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [JoinType] -&gt; Encoding
+$ctoEncodingList :: [JoinType] -&gt; Encoding
+toJSONList :: [JoinType] -&gt; Value
+$ctoJSONList :: [JoinType] -&gt; Value
+toEncoding :: JoinType -&gt; Encoding
+$ctoEncoding :: JoinType -&gt; Encoding
+toJSON :: JoinType -&gt; Value
+$ctoJSON :: JoinType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679559718"><span id="local-6989586621679559720"><span class="annot"><span class="annottext">ToJSONKeyFunction [JoinType]
+ToJSONKeyFunction JoinType
+ToJSONKeyFunction JoinType
+-&gt; ToJSONKeyFunction [JoinType] -&gt; ToJSONKey JoinType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [JoinType]
+$ctoJSONKeyList :: ToJSONKeyFunction [JoinType]
+toJSONKey :: ToJSONKeyFunction JoinType
+$ctoJSONKey :: ToJSONKeyFunction JoinType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679559715"><span class="annot"><span class="annottext">[Node] -&gt; Either String JoinType
+([Node] -&gt; Either String JoinType) -&gt; FromXML JoinType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String JoinType
+$cparseXML :: [Node] -&gt; Either String JoinType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679559712"><span class="annot"><span class="annottext">JoinType -&gt; XML
+(JoinType -&gt; XML) -&gt; ToXML JoinType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: JoinType -&gt; XML
+$ctoXML :: JoinType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.JoinType.html#JoinType_INNER"><span class="hs-identifier hs-type">JoinType_INNER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.JoinType.html#JoinType"><span class="hs-identifier hs-type">JoinType</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bJoinType_INNER"><span id="%24mJoinType_INNER"><span id="JoinType_INNER"><span class="annot"><span class="annottext">$bJoinType_INNER :: JoinType
+$mJoinType_INNER :: forall r. JoinType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.QuickSight.Types.JoinType.html#%24bJoinType_INNER"><span class="hs-identifier hs-var hs-var hs-var">JoinType_INNER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.JoinType.html#JoinType%27"><span class="hs-identifier hs-type">JoinType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INNER&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.JoinType.html#JoinType_LEFT"><span class="hs-identifier hs-type">JoinType_LEFT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.JoinType.html#JoinType"><span class="hs-identifier hs-type">JoinType</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bJoinType_LEFT"><span id="%24mJoinType_LEFT"><span id="JoinType_LEFT"><span class="annot"><span class="annottext">$bJoinType_LEFT :: JoinType
+$mJoinType_LEFT :: forall r. JoinType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.QuickSight.Types.JoinType.html#%24bJoinType_LEFT"><span class="hs-identifier hs-var hs-var hs-var">JoinType_LEFT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.JoinType.html#JoinType%27"><span class="hs-identifier hs-type">JoinType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LEFT&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.JoinType.html#JoinType_OUTER"><span class="hs-identifier hs-type">JoinType_OUTER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.JoinType.html#JoinType"><span class="hs-identifier hs-type">JoinType</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bJoinType_OUTER"><span id="%24mJoinType_OUTER"><span id="JoinType_OUTER"><span class="annot"><span class="annottext">$bJoinType_OUTER :: JoinType
+$mJoinType_OUTER :: forall r. JoinType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.QuickSight.Types.JoinType.html#%24bJoinType_OUTER"><span class="hs-identifier hs-var hs-var hs-var">JoinType_OUTER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.JoinType.html#JoinType%27"><span class="hs-identifier hs-type">JoinType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OUTER&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.JoinType.html#JoinType_RIGHT"><span class="hs-identifier hs-type">JoinType_RIGHT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.JoinType.html#JoinType"><span class="hs-identifier hs-type">JoinType</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bJoinType_RIGHT"><span id="%24mJoinType_RIGHT"><span id="JoinType_RIGHT"><span class="annot"><span class="annottext">$bJoinType_RIGHT :: JoinType
+$mJoinType_RIGHT :: forall r. JoinType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.QuickSight.Types.JoinType.html#%24bJoinType_RIGHT"><span class="hs-identifier hs-var hs-var hs-var">JoinType_RIGHT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.JoinType.html#JoinType%27"><span class="hs-identifier hs-type">JoinType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RIGHT&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.JoinType.html#JoinType_INNER"><span class="hs-pragma hs-type">JoinType_INNER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.JoinType.html#JoinType_LEFT"><span class="hs-pragma hs-type">JoinType_LEFT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.JoinType.html#JoinType_OUTER"><span class="hs-pragma hs-type">JoinType_OUTER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.JoinType.html#JoinType_RIGHT"><span class="hs-pragma hs-type">JoinType_RIGHT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.JoinType.html#JoinType%27"><span class="hs-pragma hs-type">JoinType'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

@@ -57,7 +57,7 @@
 </span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newListMitigationActions' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679823579"><span id="local-6989586621679823580"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListMitigationActions"><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActions"><span class="hs-identifier hs-var">ListMitigationActions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListMitigationActions%27"><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActions%27"><span class="hs-identifier hs-var">ListMitigationActions'</span></a></span></span><span>
+</span><span id="line-60"></span><span id="local-6989586621679823588"><span id="local-6989586621679823589"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListMitigationActions"><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActions"><span class="hs-identifier hs-var">ListMitigationActions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListMitigationActions%27"><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActions%27"><span class="hs-identifier hs-var">ListMitigationActions'</span></a></span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of results.</span><span>
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AnextToken%3AListMitigationActions%27"><span class="annot"><span class="annottext">ListMitigationActions -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.ListMitigationActions.html#%24sel%3AnextToken%3AListMitigationActions%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -69,7 +69,7 @@
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3AmaxResults%3AListMitigationActions%27"><span class="annot"><span class="annottext">ListMitigationActions -&gt; Maybe Natural
 </span><a href="Network.AWS.IoT.ListMitigationActions.html#%24sel%3AmaxResults%3AListMitigationActions%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679823571"><span id="local-6989586621679823573"><span class="annot"><span class="annottext">ListMitigationActions -&gt; ListMitigationActions -&gt; Bool
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679823580"><span id="local-6989586621679823582"><span class="annot"><span class="annottext">ListMitigationActions -&gt; ListMitigationActions -&gt; Bool
 (ListMitigationActions -&gt; ListMitigationActions -&gt; Bool)
 -&gt; (ListMitigationActions -&gt; ListMitigationActions -&gt; Bool)
 -&gt; Eq ListMitigationActions
@@ -78,7 +78,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListMitigationActions -&gt; ListMitigationActions -&gt; Bool
 == :: ListMitigationActions -&gt; ListMitigationActions -&gt; Bool
 $c== :: ListMitigationActions -&gt; ListMitigationActions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679823562"><span id="local-6989586621679823564"><span id="local-6989586621679823566"><span id="local-6989586621679823568"><span class="annot"><span class="annottext">ReadPrec [ListMitigationActions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679823571"><span id="local-6989586621679823573"><span id="local-6989586621679823575"><span id="local-6989586621679823577"><span class="annot"><span class="annottext">ReadPrec [ListMitigationActions]
 ReadPrec ListMitigationActions
 Int -&gt; ReadS ListMitigationActions
 ReadS [ListMitigationActions]
@@ -98,7 +98,7 @@ readList :: ReadS [ListMitigationActions]
 $creadList :: ReadS [ListMitigationActions]
 readsPrec :: Int -&gt; ReadS ListMitigationActions
 $creadsPrec :: Int -&gt; ReadS ListMitigationActions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679823555"><span id="local-6989586621679823557"><span id="local-6989586621679823559"><span class="annot"><span class="annottext">Int -&gt; ListMitigationActions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679823564"><span id="local-6989586621679823566"><span id="local-6989586621679823568"><span class="annot"><span class="annottext">Int -&gt; ListMitigationActions -&gt; ShowS
 [ListMitigationActions] -&gt; ShowS
 ListMitigationActions -&gt; String
 (Int -&gt; ListMitigationActions -&gt; ShowS)
@@ -173,16 +173,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActions%27"><span class="hs-identifier hs-type">ListMitigationActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823549"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActions%27"><span class="hs-identifier hs-type">ListMitigationActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823558"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListMitigationActions' :: ListMitigationActions -&gt; Maybe Text
-</span><a href="#local-6989586621679823549"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679823549"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679823548"><span class="annot"><span class="annottext">s :: ListMitigationActions
-</span><a href="#local-6989586621679823548"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActions%27"><span class="hs-identifier hs-type">ListMitigationActions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679823547"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679823547"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMitigationActions
-</span><a href="#local-6989586621679823548"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListMitigationActions' :: Maybe Text
+</span><a href="#local-6989586621679823558"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679823558"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679823557"><span class="annot"><span class="annottext">s :: ListMitigationActions
+</span><a href="#local-6989586621679823557"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActions%27"><span class="hs-identifier hs-type">ListMitigationActions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679823556"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679823556"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMitigationActions
+</span><a href="#local-6989586621679823557"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListMitigationActions' :: Maybe Text
 </span><a href="Network.AWS.IoT.ListMitigationActions.html#%24sel%3AnextToken%3AListMitigationActions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679823547"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActions"><span class="hs-identifier hs-type">ListMitigationActions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679823556"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActions"><span class="hs-identifier hs-type">ListMitigationActions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | Specify a value to limit the result to mitigation actions with a</span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- specific action type.</span><span>
@@ -198,16 +198,16 @@ $sel:nextToken:ListMitigationActions' :: ListMitigationActions -&gt; Maybe Text
      (Maybe MitigationActionType)
      (Maybe MitigationActionType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActions%27"><span class="hs-identifier hs-type">ListMitigationActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823546"><span class="annot"><span class="annottext">Maybe MitigationActionType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActions%27"><span class="hs-identifier hs-type">ListMitigationActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823555"><span class="annot"><span class="annottext">Maybe MitigationActionType
 actionType :: Maybe MitigationActionType
 $sel:actionType:ListMitigationActions' :: ListMitigationActions -&gt; Maybe MitigationActionType
-</span><a href="#local-6989586621679823546"><span class="hs-identifier hs-var hs-var">actionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MitigationActionType
-</span><a href="#local-6989586621679823546"><span class="hs-identifier hs-var">actionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679823545"><span class="annot"><span class="annottext">s :: ListMitigationActions
-</span><a href="#local-6989586621679823545"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActions%27"><span class="hs-identifier hs-type">ListMitigationActions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679823544"><span class="annot"><span class="annottext">Maybe MitigationActionType
-</span><a href="#local-6989586621679823544"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMitigationActions
-</span><a href="#local-6989586621679823545"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionType:ListMitigationActions' :: Maybe MitigationActionType
+</span><a href="#local-6989586621679823555"><span class="hs-identifier hs-var hs-var">actionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MitigationActionType
+</span><a href="#local-6989586621679823555"><span class="hs-identifier hs-var">actionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679823554"><span class="annot"><span class="annottext">s :: ListMitigationActions
+</span><a href="#local-6989586621679823554"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActions%27"><span class="hs-identifier hs-type">ListMitigationActions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679823553"><span class="annot"><span class="annottext">Maybe MitigationActionType
+</span><a href="#local-6989586621679823553"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMitigationActions
+</span><a href="#local-6989586621679823554"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionType:ListMitigationActions' :: Maybe MitigationActionType
 </span><a href="Network.AWS.IoT.ListMitigationActions.html#%24sel%3AactionType%3AListMitigationActions%27"><span class="hs-identifier hs-var">actionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MitigationActionType
-</span><a href="#local-6989586621679823544"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActions"><span class="hs-identifier hs-type">ListMitigationActions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679823553"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActions"><span class="hs-identifier hs-type">ListMitigationActions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | The maximum number of results to return at one time. The default is 25.</span><span>
 </span><span id="line-104"></span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#listMitigationActions_maxResults"><span class="hs-identifier hs-type">listMitigationActions_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActions"><span class="hs-identifier hs-type">ListMitigationActions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -222,29 +222,29 @@ $sel:actionType:ListMitigationActions' :: ListMitigationActions -&gt; Maybe Miti
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActions%27"><span class="hs-identifier hs-type">ListMitigationActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823543"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActions%27"><span class="hs-identifier hs-type">ListMitigationActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823552"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListMitigationActions' :: ListMitigationActions -&gt; Maybe Natural
-</span><a href="#local-6989586621679823543"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679823543"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679823542"><span class="annot"><span class="annottext">s :: ListMitigationActions
-</span><a href="#local-6989586621679823542"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActions%27"><span class="hs-identifier hs-type">ListMitigationActions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679823541"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679823541"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMitigationActions
-</span><a href="#local-6989586621679823542"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListMitigationActions' :: Maybe Natural
+</span><a href="#local-6989586621679823552"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679823552"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679823551"><span class="annot"><span class="annottext">s :: ListMitigationActions
+</span><a href="#local-6989586621679823551"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActions%27"><span class="hs-identifier hs-type">ListMitigationActions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679823550"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679823550"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMitigationActions
+</span><a href="#local-6989586621679823551"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListMitigationActions' :: Maybe Natural
 </span><a href="Network.AWS.IoT.ListMitigationActions.html#%24sel%3AmaxResults%3AListMitigationActions%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679823541"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActions"><span class="hs-identifier hs-type">ListMitigationActions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679823550"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActions"><span class="hs-identifier hs-type">ListMitigationActions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActions"><span class="hs-identifier hs-type">ListMitigationActions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679823537"><span class="annot"><span class="annottext">page :: ListMitigationActions
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679823546"><span class="annot"><span class="annottext">page :: ListMitigationActions
 -&gt; AWSResponse ListMitigationActions -&gt; Maybe ListMitigationActions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679823535"><span class="annot"><span class="annottext">ListMitigationActions
-</span><a href="#local-6989586621679823535"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679823534"><span class="annot"><span class="annottext">AWSResponse ListMitigationActions
-</span><a href="#local-6989586621679823534"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679823544"><span class="annot"><span class="annottext">ListMitigationActions
+</span><a href="#local-6989586621679823544"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679823543"><span class="annot"><span class="annottext">AWSResponse ListMitigationActions
+</span><a href="#local-6989586621679823543"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-109"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-110"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListMitigationActions
 ListMitigationActionsResponse
-</span><a href="#local-6989586621679823534"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679823543"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">ListMitigationActionsResponse
 -&gt; Getting (First Text) ListMitigationActionsResponse Text
 -&gt; Maybe Text
@@ -274,7 +274,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-116"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListMitigationActions
 ListMitigationActionsResponse
-</span><a href="#local-6989586621679823534"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679823543"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">ListMitigationActionsResponse
 -&gt; Getting
      (First [MitigationActionIdentifier])
@@ -333,7 +333,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">ListMitigationActions
-</span><a href="#local-6989586621679823535"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679823544"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">ListMitigationActions
 -&gt; (ListMitigationActions -&gt; ListMitigationActions)
 -&gt; ListMitigationActions
@@ -352,7 +352,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListMitigationActions
 ListMitigationActionsResponse
-</span><a href="#local-6989586621679823534"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679823543"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-126"></span><span>          </span><span class="annot"><span class="annottext">ListMitigationActionsResponse
 -&gt; Getting (First Text) ListMitigationActionsResponse Text
 -&gt; Maybe Text
@@ -378,12 +378,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-130"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-131"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActions"><span class="hs-identifier hs-type">ListMitigationActions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActionsResponse"><span class="hs-identifier hs-type">ListMitigationActionsResponse</span></a></span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679823524"><span class="annot"><span class="annottext">request :: ListMitigationActions -&gt; Request ListMitigationActions
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679823533"><span class="annot"><span class="annottext">request :: ListMitigationActions -&gt; Request ListMitigationActions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListMitigationActions -&gt; Request ListMitigationActions
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679823520"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679823529"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListMitigationActions
 -&gt; ClientResponse ClientBody
@@ -409,10 +409,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679823517"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679823517"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679823516"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679823516"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679823515"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679823515"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679823526"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679823526"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679823525"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679823525"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679823524"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679823524"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">Maybe [MitigationActionIdentifier]
 -&gt; Maybe Text -&gt; Int -&gt; ListMitigationActionsResponse
 </span><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActionsResponse%27"><span class="hs-identifier hs-var">ListMitigationActionsResponse'</span></a></span><span>
@@ -423,7 +423,7 @@ MonadResource m =&gt;
      String (Maybe Text -&gt; Int -&gt; ListMitigationActionsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679823515"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679823524"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either String (Maybe (Maybe [MitigationActionIdentifier]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
@@ -442,7 +442,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; ListMitigationActionsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679823515"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679823524"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -454,15 +454,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679823517"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679823526"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679823506"><span id="local-6989586621679823508"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActions"><span class="hs-identifier hs-type">ListMitigationActions</span></a></span></span></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679823515"><span id="local-6989586621679823517"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActions"><span class="hs-identifier hs-type">ListMitigationActions</span></a></span></span></span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679823503"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActions"><span class="hs-identifier hs-type">ListMitigationActions</span></a></span></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679823512"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActions"><span class="hs-identifier hs-type">ListMitigationActions</span></a></span></span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActions"><span class="hs-identifier hs-type">ListMitigationActions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679823499"><span class="annot"><span class="annottext">toHeaders :: ListMitigationActions -&gt; ResponseHeaders
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679823508"><span class="annot"><span class="annottext">toHeaders :: ListMitigationActions -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListMitigationActions -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -470,15 +470,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActions"><span class="hs-identifier hs-type">ListMitigationActions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679823494"><span class="annot"><span class="annottext">toPath :: ListMitigationActions -&gt; ByteString
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679823503"><span class="annot"><span class="annottext">toPath :: ListMitigationActions -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListMitigationActions -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/mitigationactions/actions&quot;</span></span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActions"><span class="hs-identifier hs-type">ListMitigationActions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679823490"><span class="annot"><span class="annottext">toQuery :: ListMitigationActions -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActions%27"><span class="hs-identifier hs-type">ListMitigationActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823486"><span id="local-6989586621679823487"><span id="local-6989586621679823488"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679823499"><span class="annot"><span class="annottext">toQuery :: ListMitigationActions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActions%27"><span class="hs-identifier hs-type">ListMitigationActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823495"><span id="local-6989586621679823496"><span id="local-6989586621679823497"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe MitigationActionType
 maxResults :: Maybe Natural
@@ -487,7 +487,7 @@ nextToken :: Maybe Text
 $sel:maxResults:ListMitigationActions' :: ListMitigationActions -&gt; Maybe Natural
 $sel:actionType:ListMitigationActions' :: ListMitigationActions -&gt; Maybe MitigationActionType
 $sel:nextToken:ListMitigationActions' :: ListMitigationActions -&gt; Maybe Text
-</span><a href="#local-6989586621679823486"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679823495"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -495,21 +495,21 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679823488"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679823497"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;actionType&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe MitigationActionType -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe MitigationActionType
-</span><a href="#local-6989586621679823487"><span class="hs-identifier hs-var">actionType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679823496"><span class="hs-identifier hs-var">actionType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679823486"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679823495"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-161"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- | /See:/ 'newListMitigationActionsResponse' smart constructor.</span><span>
-</span><span id="line-164"></span><span id="local-6989586621679823483"><span id="local-6989586621679823484"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListMitigationActionsResponse"><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActionsResponse"><span class="hs-identifier hs-var">ListMitigationActionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListMitigationActionsResponse%27"><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActionsResponse%27"><span class="hs-identifier hs-var">ListMitigationActionsResponse'</span></a></span></span><span>
+</span><span id="line-164"></span><span id="local-6989586621679823492"><span id="local-6989586621679823493"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListMitigationActionsResponse"><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActionsResponse"><span class="hs-identifier hs-var">ListMitigationActionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListMitigationActionsResponse%27"><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActionsResponse%27"><span class="hs-identifier hs-var">ListMitigationActionsResponse'</span></a></span></span><span>
 </span><span id="line-165"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A set of actions that matched the specified filter criteria.</span><span>
 </span><span id="line-166"></span><span>    </span><span id="%24sel%3AactionIdentifiers%3AListMitigationActionsResponse%27"><span class="annot"><span class="annottext">ListMitigationActionsResponse -&gt; Maybe [MitigationActionIdentifier]
 </span><a href="Network.AWS.IoT.ListMitigationActions.html#%24sel%3AactionIdentifiers%3AListMitigationActionsResponse%27"><span class="hs-identifier hs-var hs-var">actionIdentifiers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoT.Types.MitigationActionIdentifier.html#MitigationActionIdentifier"><span class="hs-identifier hs-type">MitigationActionIdentifier</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -520,7 +520,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-170"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListMitigationActionsResponse%27"><span class="annot"><span class="annottext">ListMitigationActionsResponse -&gt; Int
 </span><a href="Network.AWS.IoT.ListMitigationActions.html#%24sel%3AhttpStatus%3AListMitigationActionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-171"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-172"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679823476"><span id="local-6989586621679823478"><span class="annot"><span class="annottext">ListMitigationActionsResponse
+</span><span id="line-172"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679823485"><span id="local-6989586621679823487"><span class="annot"><span class="annottext">ListMitigationActionsResponse
 -&gt; ListMitigationActionsResponse -&gt; Bool
 (ListMitigationActionsResponse
  -&gt; ListMitigationActionsResponse -&gt; Bool)
@@ -536,7 +536,7 @@ $c/= :: ListMitigationActionsResponse
 -&gt; ListMitigationActionsResponse -&gt; Bool
 $c== :: ListMitigationActionsResponse
 -&gt; ListMitigationActionsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679823468"><span id="local-6989586621679823470"><span id="local-6989586621679823472"><span id="local-6989586621679823474"><span class="annot"><span class="annottext">ReadPrec [ListMitigationActionsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679823477"><span id="local-6989586621679823479"><span id="local-6989586621679823481"><span id="local-6989586621679823483"><span class="annot"><span class="annottext">ReadPrec [ListMitigationActionsResponse]
 ReadPrec ListMitigationActionsResponse
 Int -&gt; ReadS ListMitigationActionsResponse
 ReadS [ListMitigationActionsResponse]
@@ -556,7 +556,7 @@ readList :: ReadS [ListMitigationActionsResponse]
 $creadList :: ReadS [ListMitigationActionsResponse]
 readsPrec :: Int -&gt; ReadS ListMitigationActionsResponse
 $creadsPrec :: Int -&gt; ReadS ListMitigationActionsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679823462"><span id="local-6989586621679823464"><span id="local-6989586621679823466"><span class="annot"><span class="annottext">Int -&gt; ListMitigationActionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679823471"><span id="local-6989586621679823473"><span id="local-6989586621679823475"><span class="annot"><span class="annottext">Int -&gt; ListMitigationActionsResponse -&gt; ShowS
 [ListMitigationActionsResponse] -&gt; ShowS
 ListMitigationActionsResponse -&gt; String
 (Int -&gt; ListMitigationActionsResponse -&gt; ShowS)
@@ -612,8 +612,8 @@ ListMitigationActionsResponse
 </span><span id="line-189"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-190"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActionsResponse"><span class="hs-identifier hs-type">ListMitigationActionsResponse</span></a></span><span>
 </span><span id="line-191"></span><span id="newListMitigationActionsResponse"><span class="annot"><span class="annottext">newListMitigationActionsResponse :: Int -&gt; ListMitigationActionsResponse
-</span><a href="Network.AWS.IoT.ListMitigationActions.html#newListMitigationActionsResponse"><span class="hs-identifier hs-var hs-var">newListMitigationActionsResponse</span></a></span></span><span> </span><span id="local-6989586621679823459"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679823459"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.ListMitigationActions.html#newListMitigationActionsResponse"><span class="hs-identifier hs-var hs-var">newListMitigationActionsResponse</span></a></span></span><span> </span><span id="local-6989586621679823468"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679823468"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-192"></span><span>  </span><span class="annot"><span class="annottext">ListMitigationActionsResponse' :: Maybe [MitigationActionIdentifier]
 -&gt; Maybe Text -&gt; Int -&gt; ListMitigationActionsResponse
 </span><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActionsResponse%27"><span class="hs-identifier hs-type">ListMitigationActionsResponse'</span></a></span><span>
@@ -628,7 +628,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-196"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListMitigationActionsResponse' :: Int
 </span><a href="Network.AWS.IoT.ListMitigationActions.html#%24sel%3AhttpStatus%3AListMitigationActionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679823459"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679823468"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-197"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-comment">-- | A set of actions that matched the specified filter criteria.</span><span>
@@ -644,16 +644,16 @@ forall a. Maybe a
 -&gt; Lens'
      ListMitigationActionsResponse (Maybe [MitigationActionIdentifier])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActionsResponse%27"><span class="hs-identifier hs-type">ListMitigationActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823458"><span class="annot"><span class="annottext">Maybe [MitigationActionIdentifier]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActionsResponse%27"><span class="hs-identifier hs-type">ListMitigationActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823467"><span class="annot"><span class="annottext">Maybe [MitigationActionIdentifier]
 actionIdentifiers :: Maybe [MitigationActionIdentifier]
 $sel:actionIdentifiers:ListMitigationActionsResponse' :: ListMitigationActionsResponse -&gt; Maybe [MitigationActionIdentifier]
-</span><a href="#local-6989586621679823458"><span class="hs-identifier hs-var hs-var">actionIdentifiers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MitigationActionIdentifier]
-</span><a href="#local-6989586621679823458"><span class="hs-identifier hs-var">actionIdentifiers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679823457"><span class="annot"><span class="annottext">s :: ListMitigationActionsResponse
-</span><a href="#local-6989586621679823457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActionsResponse%27"><span class="hs-identifier hs-type">ListMitigationActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679823456"><span class="annot"><span class="annottext">Maybe [MitigationActionIdentifier]
-</span><a href="#local-6989586621679823456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMitigationActionsResponse
-</span><a href="#local-6989586621679823457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionIdentifiers:ListMitigationActionsResponse' :: Maybe [MitigationActionIdentifier]
+</span><a href="#local-6989586621679823467"><span class="hs-identifier hs-var hs-var">actionIdentifiers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MitigationActionIdentifier]
+</span><a href="#local-6989586621679823467"><span class="hs-identifier hs-var">actionIdentifiers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679823466"><span class="annot"><span class="annottext">s :: ListMitigationActionsResponse
+</span><a href="#local-6989586621679823466"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActionsResponse%27"><span class="hs-identifier hs-type">ListMitigationActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679823465"><span class="annot"><span class="annottext">Maybe [MitigationActionIdentifier]
+</span><a href="#local-6989586621679823465"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMitigationActionsResponse
+</span><a href="#local-6989586621679823466"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionIdentifiers:ListMitigationActionsResponse' :: Maybe [MitigationActionIdentifier]
 </span><a href="Network.AWS.IoT.ListMitigationActions.html#%24sel%3AactionIdentifiers%3AListMitigationActionsResponse%27"><span class="hs-identifier hs-var">actionIdentifiers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MitigationActionIdentifier]
-</span><a href="#local-6989586621679823456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActionsResponse"><span class="hs-identifier hs-type">ListMitigationActionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MitigationActionIdentifier]
+</span><a href="#local-6989586621679823465"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActionsResponse"><span class="hs-identifier hs-type">ListMitigationActionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MitigationActionIdentifier]
   -&gt; f (Maybe [MitigationActionIdentifier]))
  -&gt; ListMitigationActionsResponse
  -&gt; f ListMitigationActionsResponse)
@@ -696,16 +696,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
     -&gt; Maybe Text -&gt; ListMitigationActionsResponse)
 -&gt; Lens' ListMitigationActionsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActionsResponse%27"><span class="hs-identifier hs-type">ListMitigationActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823453"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActionsResponse%27"><span class="hs-identifier hs-type">ListMitigationActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823462"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListMitigationActionsResponse' :: ListMitigationActionsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679823453"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679823453"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679823452"><span class="annot"><span class="annottext">s :: ListMitigationActionsResponse
-</span><a href="#local-6989586621679823452"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActionsResponse%27"><span class="hs-identifier hs-type">ListMitigationActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679823451"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679823451"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMitigationActionsResponse
-</span><a href="#local-6989586621679823452"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListMitigationActionsResponse' :: Maybe Text
+</span><a href="#local-6989586621679823462"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679823462"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679823461"><span class="annot"><span class="annottext">s :: ListMitigationActionsResponse
+</span><a href="#local-6989586621679823461"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActionsResponse%27"><span class="hs-identifier hs-type">ListMitigationActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679823460"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679823460"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMitigationActionsResponse
+</span><a href="#local-6989586621679823461"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListMitigationActionsResponse' :: Maybe Text
 </span><a href="Network.AWS.IoT.ListMitigationActions.html#%24sel%3AnextToken%3AListMitigationActionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679823451"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActionsResponse"><span class="hs-identifier hs-type">ListMitigationActionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679823460"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActionsResponse"><span class="hs-identifier hs-type">ListMitigationActionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>
 </span><span id="line-207"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-208"></span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#listMitigationActionsResponse_httpStatus"><span class="hs-identifier hs-type">listMitigationActionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActionsResponse"><span class="hs-identifier hs-type">ListMitigationActionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -717,16 +717,16 @@ $sel:nextToken:ListMitigationActionsResponse' :: ListMitigationActionsResponse -
 -&gt; Lens
      ListMitigationActionsResponse ListMitigationActionsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActionsResponse%27"><span class="hs-identifier hs-type">ListMitigationActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823450"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActionsResponse%27"><span class="hs-identifier hs-type">ListMitigationActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823459"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListMitigationActionsResponse' :: ListMitigationActionsResponse -&gt; Int
-</span><a href="#local-6989586621679823450"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679823450"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679823449"><span class="annot"><span class="annottext">s :: ListMitigationActionsResponse
-</span><a href="#local-6989586621679823449"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActionsResponse%27"><span class="hs-identifier hs-type">ListMitigationActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679823448"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679823448"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMitigationActionsResponse
-</span><a href="#local-6989586621679823449"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListMitigationActionsResponse' :: Int
+</span><a href="#local-6989586621679823459"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679823459"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679823458"><span class="annot"><span class="annottext">s :: ListMitigationActionsResponse
+</span><a href="#local-6989586621679823458"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActionsResponse%27"><span class="hs-identifier hs-type">ListMitigationActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679823457"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679823457"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMitigationActionsResponse
+</span><a href="#local-6989586621679823458"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListMitigationActionsResponse' :: Int
 </span><a href="Network.AWS.IoT.ListMitigationActions.html#%24sel%3AhttpStatus%3AListMitigationActionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679823448"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActionsResponse"><span class="hs-identifier hs-type">ListMitigationActionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679823457"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActionsResponse"><span class="hs-identifier hs-type">ListMitigationActionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-210"></span><span>
-</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679823446"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActionsResponse"><span class="hs-identifier hs-type">ListMitigationActionsResponse</span></a></span></span><span>
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679823455"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListMitigationActions.html#ListMitigationActionsResponse"><span class="hs-identifier hs-type">ListMitigationActionsResponse</span></a></span></span><span>
 </span><span id="line-212"></span></pre></body></html>

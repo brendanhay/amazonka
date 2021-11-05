@@ -1,0 +1,603 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.IoTWireless.CreateDeviceProfile</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a new device profile.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTWireless.CreateDeviceProfile</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfile"><span class="hs-identifier">CreateDeviceProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#newCreateDeviceProfile"><span class="hs-identifier">newCreateDeviceProfile</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#createDeviceProfile_loRaWAN"><span class="hs-identifier">createDeviceProfile_loRaWAN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#createDeviceProfile_name"><span class="hs-identifier">createDeviceProfile_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#createDeviceProfile_clientRequestToken"><span class="hs-identifier">createDeviceProfile_clientRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#createDeviceProfile_tags"><span class="hs-identifier">createDeviceProfile_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfileResponse"><span class="hs-identifier">CreateDeviceProfileResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#newCreateDeviceProfileResponse"><span class="hs-identifier">newCreateDeviceProfileResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#createDeviceProfileResponse_arn"><span class="hs-identifier">createDeviceProfileResponse_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#createDeviceProfileResponse_id"><span class="hs-identifier">createDeviceProfileResponse_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#createDeviceProfileResponse_httpStatus"><span class="hs-identifier">createDeviceProfileResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newCreateDeviceProfile' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679291248"><span id="local-6989586621679291249"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDeviceProfile"><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfile"><span class="hs-identifier hs-var">CreateDeviceProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDeviceProfile%27"><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfile%27"><span class="hs-identifier hs-var">CreateDeviceProfile'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The device profile information to use to create the device profile.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AloRaWAN%3ACreateDeviceProfile%27"><span class="annot"><span class="annottext">CreateDeviceProfile -&gt; Maybe LoRaWANDeviceProfile
+</span><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#%24sel%3AloRaWAN%3ACreateDeviceProfile%27"><span class="hs-identifier hs-var hs-var">loRaWAN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANDeviceProfile.html#LoRaWANDeviceProfile"><span class="hs-identifier hs-type">LoRaWANDeviceProfile</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The name of the new resource.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Aname%3ACreateDeviceProfile%27"><span class="annot"><span class="annottext">CreateDeviceProfile -&gt; Maybe Text
+</span><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#%24sel%3Aname%3ACreateDeviceProfile%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | Each resource must have a unique client request token. If you try to</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- create a new resource with the same token as a resource that already</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- exists, an exception occurs. If you omit this value, AWS SDKs will</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- automatically generate a unique client request.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AclientRequestToken%3ACreateDeviceProfile%27"><span class="annot"><span class="annottext">CreateDeviceProfile -&gt; Maybe Text
+</span><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#%24sel%3AclientRequestToken%3ACreateDeviceProfile%27"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The tags to attach to the new device profile. Tags are metadata that you</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- can use to manage a resource.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3Atags%3ACreateDeviceProfile%27"><span class="annot"><span class="annottext">CreateDeviceProfile -&gt; Maybe [Tag]
+</span><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#%24sel%3Atags%3ACreateDeviceProfile%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679291239"><span id="local-6989586621679291241"><span class="annot"><span class="annottext">CreateDeviceProfile -&gt; CreateDeviceProfile -&gt; Bool
+(CreateDeviceProfile -&gt; CreateDeviceProfile -&gt; Bool)
+-&gt; (CreateDeviceProfile -&gt; CreateDeviceProfile -&gt; Bool)
+-&gt; Eq CreateDeviceProfile
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateDeviceProfile -&gt; CreateDeviceProfile -&gt; Bool
+$c/= :: CreateDeviceProfile -&gt; CreateDeviceProfile -&gt; Bool
+== :: CreateDeviceProfile -&gt; CreateDeviceProfile -&gt; Bool
+$c== :: CreateDeviceProfile -&gt; CreateDeviceProfile -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291230"><span id="local-6989586621679291232"><span id="local-6989586621679291234"><span id="local-6989586621679291236"><span class="annot"><span class="annottext">ReadPrec [CreateDeviceProfile]
+ReadPrec CreateDeviceProfile
+Int -&gt; ReadS CreateDeviceProfile
+ReadS [CreateDeviceProfile]
+(Int -&gt; ReadS CreateDeviceProfile)
+-&gt; ReadS [CreateDeviceProfile]
+-&gt; ReadPrec CreateDeviceProfile
+-&gt; ReadPrec [CreateDeviceProfile]
+-&gt; Read CreateDeviceProfile
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateDeviceProfile]
+$creadListPrec :: ReadPrec [CreateDeviceProfile]
+readPrec :: ReadPrec CreateDeviceProfile
+$creadPrec :: ReadPrec CreateDeviceProfile
+readList :: ReadS [CreateDeviceProfile]
+$creadList :: ReadS [CreateDeviceProfile]
+readsPrec :: Int -&gt; ReadS CreateDeviceProfile
+$creadsPrec :: Int -&gt; ReadS CreateDeviceProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291223"><span id="local-6989586621679291225"><span id="local-6989586621679291227"><span class="annot"><span class="annottext">Int -&gt; CreateDeviceProfile -&gt; ShowS
+[CreateDeviceProfile] -&gt; ShowS
+CreateDeviceProfile -&gt; String
+(Int -&gt; CreateDeviceProfile -&gt; ShowS)
+-&gt; (CreateDeviceProfile -&gt; String)
+-&gt; ([CreateDeviceProfile] -&gt; ShowS)
+-&gt; Show CreateDeviceProfile
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateDeviceProfile] -&gt; ShowS
+$cshowList :: [CreateDeviceProfile] -&gt; ShowS
+show :: CreateDeviceProfile -&gt; String
+$cshow :: CreateDeviceProfile -&gt; String
+showsPrec :: Int -&gt; CreateDeviceProfile -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateDeviceProfile -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateDeviceProfile -&gt; Rep CreateDeviceProfile x)
+-&gt; (forall x. Rep CreateDeviceProfile x -&gt; CreateDeviceProfile)
+-&gt; Generic CreateDeviceProfile
+forall x. Rep CreateDeviceProfile x -&gt; CreateDeviceProfile
+forall x. CreateDeviceProfile -&gt; Rep CreateDeviceProfile x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateDeviceProfile x -&gt; CreateDeviceProfile
+$cfrom :: forall x. CreateDeviceProfile -&gt; Rep CreateDeviceProfile x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Create a value of 'CreateDeviceProfile' with all optional fields omitted.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'loRaWAN', 'createDeviceProfile_loRaWAN' - The device profile information to use to create the device profile.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'name', 'createDeviceProfile_name' - The name of the new resource.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'clientRequestToken', 'createDeviceProfile_clientRequestToken' - Each resource must have a unique client request token. If you try to</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- create a new resource with the same token as a resource that already</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- exists, an exception occurs. If you omit this value, AWS SDKs will</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- automatically generate a unique client request.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'tags', 'createDeviceProfile_tags' - The tags to attach to the new device profile. Tags are metadata that you</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- can use to manage a resource.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#newCreateDeviceProfile"><span class="hs-identifier hs-type">newCreateDeviceProfile</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfile"><span class="hs-identifier hs-type">CreateDeviceProfile</span></a></span><span>
+</span><span id="line-91"></span><span id="newCreateDeviceProfile"><span class="annot"><span class="annottext">newCreateDeviceProfile :: CreateDeviceProfile
+</span><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#newCreateDeviceProfile"><span class="hs-identifier hs-var hs-var">newCreateDeviceProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><span class="annottext">CreateDeviceProfile' :: Maybe LoRaWANDeviceProfile
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; CreateDeviceProfile
+</span><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfile%27"><span class="hs-identifier hs-type">CreateDeviceProfile'</span></a></span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:loRaWAN:CreateDeviceProfile' :: Maybe LoRaWANDeviceProfile
+</span><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#%24sel%3AloRaWAN%3ACreateDeviceProfile%27"><span class="hs-identifier hs-var">loRaWAN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LoRaWANDeviceProfile
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:CreateDeviceProfile' :: Maybe Text
+</span><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#%24sel%3Aname%3ACreateDeviceProfile%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientRequestToken:CreateDeviceProfile' :: Maybe Text
+</span><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#%24sel%3AclientRequestToken%3ACreateDeviceProfile%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CreateDeviceProfile' :: Maybe [Tag]
+</span><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#%24sel%3Atags%3ACreateDeviceProfile%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The device profile information to use to create the device profile.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#createDeviceProfile_loRaWAN"><span class="hs-identifier hs-type">createDeviceProfile_loRaWAN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfile"><span class="hs-identifier hs-type">CreateDeviceProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.LoRaWANDeviceProfile.html#LoRaWANDeviceProfile"><span class="hs-identifier hs-type">LoRaWANDeviceProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="createDeviceProfile_loRaWAN"><span class="annot"><span class="annottext">createDeviceProfile_loRaWAN :: (Maybe LoRaWANDeviceProfile -&gt; f (Maybe LoRaWANDeviceProfile))
+-&gt; CreateDeviceProfile -&gt; f CreateDeviceProfile
+</span><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#createDeviceProfile_loRaWAN"><span class="hs-identifier hs-var hs-var">createDeviceProfile_loRaWAN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDeviceProfile -&gt; Maybe LoRaWANDeviceProfile)
+-&gt; (CreateDeviceProfile
+    -&gt; Maybe LoRaWANDeviceProfile -&gt; CreateDeviceProfile)
+-&gt; Lens
+     CreateDeviceProfile
+     CreateDeviceProfile
+     (Maybe LoRaWANDeviceProfile)
+     (Maybe LoRaWANDeviceProfile)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfile%27"><span class="hs-identifier hs-type">CreateDeviceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291216"><span class="annot"><span class="annottext">Maybe LoRaWANDeviceProfile
+loRaWAN :: Maybe LoRaWANDeviceProfile
+$sel:loRaWAN:CreateDeviceProfile' :: CreateDeviceProfile -&gt; Maybe LoRaWANDeviceProfile
+</span><a href="#local-6989586621679291216"><span class="hs-identifier hs-var hs-var">loRaWAN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LoRaWANDeviceProfile
+</span><a href="#local-6989586621679291216"><span class="hs-identifier hs-var">loRaWAN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291215"><span class="annot"><span class="annottext">s :: CreateDeviceProfile
+</span><a href="#local-6989586621679291215"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfile%27"><span class="hs-identifier hs-type">CreateDeviceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291214"><span class="annot"><span class="annottext">Maybe LoRaWANDeviceProfile
+</span><a href="#local-6989586621679291214"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDeviceProfile
+</span><a href="#local-6989586621679291215"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loRaWAN:CreateDeviceProfile' :: Maybe LoRaWANDeviceProfile
+</span><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#%24sel%3AloRaWAN%3ACreateDeviceProfile%27"><span class="hs-identifier hs-var">loRaWAN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LoRaWANDeviceProfile
+</span><a href="#local-6989586621679291214"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfile"><span class="hs-identifier hs-type">CreateDeviceProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The name of the new resource.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#createDeviceProfile_name"><span class="hs-identifier hs-type">createDeviceProfile_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfile"><span class="hs-identifier hs-type">CreateDeviceProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="createDeviceProfile_name"><span class="annot"><span class="annottext">createDeviceProfile_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateDeviceProfile -&gt; f CreateDeviceProfile
+</span><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#createDeviceProfile_name"><span class="hs-identifier hs-var hs-var">createDeviceProfile_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDeviceProfile -&gt; Maybe Text)
+-&gt; (CreateDeviceProfile -&gt; Maybe Text -&gt; CreateDeviceProfile)
+-&gt; Lens
+     CreateDeviceProfile CreateDeviceProfile (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfile%27"><span class="hs-identifier hs-type">CreateDeviceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291213"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:CreateDeviceProfile' :: CreateDeviceProfile -&gt; Maybe Text
+</span><a href="#local-6989586621679291213"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291213"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291212"><span class="annot"><span class="annottext">s :: CreateDeviceProfile
+</span><a href="#local-6989586621679291212"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfile%27"><span class="hs-identifier hs-type">CreateDeviceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291211"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291211"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDeviceProfile
+</span><a href="#local-6989586621679291212"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateDeviceProfile' :: Maybe Text
+</span><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#%24sel%3Aname%3ACreateDeviceProfile%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291211"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfile"><span class="hs-identifier hs-type">CreateDeviceProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | Each resource must have a unique client request token. If you try to</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- create a new resource with the same token as a resource that already</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- exists, an exception occurs. If you omit this value, AWS SDKs will</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- automatically generate a unique client request.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#createDeviceProfile_clientRequestToken"><span class="hs-identifier hs-type">createDeviceProfile_clientRequestToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfile"><span class="hs-identifier hs-type">CreateDeviceProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="createDeviceProfile_clientRequestToken"><span class="annot"><span class="annottext">createDeviceProfile_clientRequestToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateDeviceProfile -&gt; f CreateDeviceProfile
+</span><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#createDeviceProfile_clientRequestToken"><span class="hs-identifier hs-var hs-var">createDeviceProfile_clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDeviceProfile -&gt; Maybe Text)
+-&gt; (CreateDeviceProfile -&gt; Maybe Text -&gt; CreateDeviceProfile)
+-&gt; Lens
+     CreateDeviceProfile CreateDeviceProfile (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfile%27"><span class="hs-identifier hs-type">CreateDeviceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291210"><span class="annot"><span class="annottext">Maybe Text
+clientRequestToken :: Maybe Text
+$sel:clientRequestToken:CreateDeviceProfile' :: CreateDeviceProfile -&gt; Maybe Text
+</span><a href="#local-6989586621679291210"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291210"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291209"><span class="annot"><span class="annottext">s :: CreateDeviceProfile
+</span><a href="#local-6989586621679291209"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfile%27"><span class="hs-identifier hs-type">CreateDeviceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291208"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291208"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDeviceProfile
+</span><a href="#local-6989586621679291209"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestToken:CreateDeviceProfile' :: Maybe Text
+</span><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#%24sel%3AclientRequestToken%3ACreateDeviceProfile%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291208"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfile"><span class="hs-identifier hs-type">CreateDeviceProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The tags to attach to the new device profile. Tags are metadata that you</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- can use to manage a resource.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#createDeviceProfile_tags"><span class="hs-identifier hs-type">createDeviceProfile_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfile"><span class="hs-identifier hs-type">CreateDeviceProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="createDeviceProfile_tags"><span class="annot"><span class="annottext">createDeviceProfile_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateDeviceProfile -&gt; f CreateDeviceProfile
+</span><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#createDeviceProfile_tags"><span class="hs-identifier hs-var hs-var">createDeviceProfile_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDeviceProfile -&gt; Maybe [Tag])
+-&gt; (CreateDeviceProfile -&gt; Maybe [Tag] -&gt; CreateDeviceProfile)
+-&gt; Lens
+     CreateDeviceProfile CreateDeviceProfile (Maybe [Tag]) (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfile%27"><span class="hs-identifier hs-type">CreateDeviceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291207"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:CreateDeviceProfile' :: CreateDeviceProfile -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679291207"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679291207"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291206"><span class="annot"><span class="annottext">s :: CreateDeviceProfile
+</span><a href="#local-6989586621679291206"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfile%27"><span class="hs-identifier hs-type">CreateDeviceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291205"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679291205"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDeviceProfile
+</span><a href="#local-6989586621679291206"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateDeviceProfile' :: Maybe [Tag]
+</span><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#%24sel%3Atags%3ACreateDeviceProfile%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679291205"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfile"><span class="hs-identifier hs-type">CreateDeviceProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; CreateDeviceProfile -&gt; f CreateDeviceProfile)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateDeviceProfile
+-&gt; f CreateDeviceProfile
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfile"><span class="hs-identifier hs-type">CreateDeviceProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-121"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfile"><span class="hs-identifier hs-type">CreateDeviceProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfileResponse"><span class="hs-identifier hs-type">CreateDeviceProfileResponse</span></a></span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679291198"><span class="annot"><span class="annottext">request :: CreateDeviceProfile -&gt; Request CreateDeviceProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateDeviceProfile -&gt; Request CreateDeviceProfile
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.IoTWireless.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679291194"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateDeviceProfile
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateDeviceProfile)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateDeviceProfile))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateDeviceProfile
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateDeviceProfile)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679291191"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679291191"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679291190"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679291190"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679291189"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291189"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateDeviceProfileResponse
+</span><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfileResponse%27"><span class="hs-identifier hs-var">CreateDeviceProfileResponse'</span></a></span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateDeviceProfileResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; CreateDeviceProfileResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291189"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; CreateDeviceProfileResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CreateDeviceProfileResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679291189"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateDeviceProfileResponse)
+-&gt; Either String Int -&gt; Either String CreateDeviceProfileResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679291191"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291181"><span id="local-6989586621679291183"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfile"><span class="hs-identifier hs-type">CreateDeviceProfile</span></a></span></span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291178"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfile"><span class="hs-identifier hs-type">CreateDeviceProfile</span></a></span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfile"><span class="hs-identifier hs-type">CreateDeviceProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679291174"><span class="annot"><span class="annottext">toHeaders :: CreateDeviceProfile -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateDeviceProfile -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291165"><span id="local-6989586621679291167"><span id="local-6989586621679291169"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfile"><span class="hs-identifier hs-type">CreateDeviceProfile</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679291163"><span class="annot"><span class="annottext">toJSON :: CreateDeviceProfile -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfile%27"><span class="hs-identifier hs-type">CreateDeviceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291158"><span id="local-6989586621679291159"><span id="local-6989586621679291160"><span id="local-6989586621679291161"><span class="annot"><span class="annottext">Maybe [Tag]
+Maybe Text
+Maybe LoRaWANDeviceProfile
+tags :: Maybe [Tag]
+clientRequestToken :: Maybe Text
+name :: Maybe Text
+loRaWAN :: Maybe LoRaWANDeviceProfile
+$sel:tags:CreateDeviceProfile' :: CreateDeviceProfile -&gt; Maybe [Tag]
+$sel:clientRequestToken:CreateDeviceProfile' :: CreateDeviceProfile -&gt; Maybe Text
+$sel:name:CreateDeviceProfile' :: CreateDeviceProfile -&gt; Maybe Text
+$sel:loRaWAN:CreateDeviceProfile' :: CreateDeviceProfile -&gt; Maybe LoRaWANDeviceProfile
+</span><a href="#local-6989586621679291158"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-144"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LoRaWAN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LoRaWANDeviceProfile -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(LoRaWANDeviceProfile -&gt; Pair)
+-&gt; Maybe LoRaWANDeviceProfile -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LoRaWANDeviceProfile
+</span><a href="#local-6989586621679291161"><span class="hs-identifier hs-var">loRaWAN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291160"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClientRequestToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291159"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679291158"><span class="hs-identifier hs-var">tags</span></a></span><span>
+</span><span id="line-149"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfile"><span class="hs-identifier hs-type">CreateDeviceProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679291152"><span class="annot"><span class="annottext">toPath :: CreateDeviceProfile -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateDeviceProfile -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/device-profiles&quot;</span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfile"><span class="hs-identifier hs-type">CreateDeviceProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679291148"><span class="annot"><span class="annottext">toQuery :: CreateDeviceProfile -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateDeviceProfile -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | /See:/ 'newCreateDeviceProfileResponse' smart constructor.</span><span>
+</span><span id="line-159"></span><span id="local-6989586621679291145"><span id="local-6989586621679291146"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDeviceProfileResponse"><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfileResponse"><span class="hs-identifier hs-var">CreateDeviceProfileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDeviceProfileResponse%27"><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfileResponse%27"><span class="hs-identifier hs-var">CreateDeviceProfileResponse'</span></a></span></span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name of the new resource.</span><span>
+</span><span id="line-161"></span><span>    </span><span id="%24sel%3Aarn%3ACreateDeviceProfileResponse%27"><span class="annot"><span class="annottext">CreateDeviceProfileResponse -&gt; Maybe Text
+</span><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#%24sel%3Aarn%3ACreateDeviceProfileResponse%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- | The ID of the new device profile.</span><span>
+</span><span id="line-163"></span><span>    </span><span id="%24sel%3Aid%3ACreateDeviceProfileResponse%27"><span class="annot"><span class="annottext">CreateDeviceProfileResponse -&gt; Maybe Text
+</span><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#%24sel%3Aid%3ACreateDeviceProfileResponse%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-165"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateDeviceProfileResponse%27"><span class="annot"><span class="annottext">CreateDeviceProfileResponse -&gt; Int
+</span><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#%24sel%3AhttpStatus%3ACreateDeviceProfileResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-167"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679291138"><span id="local-6989586621679291140"><span class="annot"><span class="annottext">CreateDeviceProfileResponse -&gt; CreateDeviceProfileResponse -&gt; Bool
+(CreateDeviceProfileResponse
+ -&gt; CreateDeviceProfileResponse -&gt; Bool)
+-&gt; (CreateDeviceProfileResponse
+    -&gt; CreateDeviceProfileResponse -&gt; Bool)
+-&gt; Eq CreateDeviceProfileResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateDeviceProfileResponse -&gt; CreateDeviceProfileResponse -&gt; Bool
+$c/= :: CreateDeviceProfileResponse -&gt; CreateDeviceProfileResponse -&gt; Bool
+== :: CreateDeviceProfileResponse -&gt; CreateDeviceProfileResponse -&gt; Bool
+$c== :: CreateDeviceProfileResponse -&gt; CreateDeviceProfileResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291130"><span id="local-6989586621679291132"><span id="local-6989586621679291134"><span id="local-6989586621679291136"><span class="annot"><span class="annottext">ReadPrec [CreateDeviceProfileResponse]
+ReadPrec CreateDeviceProfileResponse
+Int -&gt; ReadS CreateDeviceProfileResponse
+ReadS [CreateDeviceProfileResponse]
+(Int -&gt; ReadS CreateDeviceProfileResponse)
+-&gt; ReadS [CreateDeviceProfileResponse]
+-&gt; ReadPrec CreateDeviceProfileResponse
+-&gt; ReadPrec [CreateDeviceProfileResponse]
+-&gt; Read CreateDeviceProfileResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateDeviceProfileResponse]
+$creadListPrec :: ReadPrec [CreateDeviceProfileResponse]
+readPrec :: ReadPrec CreateDeviceProfileResponse
+$creadPrec :: ReadPrec CreateDeviceProfileResponse
+readList :: ReadS [CreateDeviceProfileResponse]
+$creadList :: ReadS [CreateDeviceProfileResponse]
+readsPrec :: Int -&gt; ReadS CreateDeviceProfileResponse
+$creadsPrec :: Int -&gt; ReadS CreateDeviceProfileResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291124"><span id="local-6989586621679291126"><span id="local-6989586621679291128"><span class="annot"><span class="annottext">Int -&gt; CreateDeviceProfileResponse -&gt; ShowS
+[CreateDeviceProfileResponse] -&gt; ShowS
+CreateDeviceProfileResponse -&gt; String
+(Int -&gt; CreateDeviceProfileResponse -&gt; ShowS)
+-&gt; (CreateDeviceProfileResponse -&gt; String)
+-&gt; ([CreateDeviceProfileResponse] -&gt; ShowS)
+-&gt; Show CreateDeviceProfileResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateDeviceProfileResponse] -&gt; ShowS
+$cshowList :: [CreateDeviceProfileResponse] -&gt; ShowS
+show :: CreateDeviceProfileResponse -&gt; String
+$cshow :: CreateDeviceProfileResponse -&gt; String
+showsPrec :: Int -&gt; CreateDeviceProfileResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateDeviceProfileResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateDeviceProfileResponse -&gt; Rep CreateDeviceProfileResponse x)
+-&gt; (forall x.
+    Rep CreateDeviceProfileResponse x -&gt; CreateDeviceProfileResponse)
+-&gt; Generic CreateDeviceProfileResponse
+forall x.
+Rep CreateDeviceProfileResponse x -&gt; CreateDeviceProfileResponse
+forall x.
+CreateDeviceProfileResponse -&gt; Rep CreateDeviceProfileResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateDeviceProfileResponse x -&gt; CreateDeviceProfileResponse
+$cfrom :: forall x.
+CreateDeviceProfileResponse -&gt; Rep CreateDeviceProfileResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- Create a value of 'CreateDeviceProfileResponse' with all optional fields omitted.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- 'arn', 'createDeviceProfileResponse_arn' - The Amazon Resource Name of the new resource.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- 'id', 'createDeviceProfileResponse_id' - The ID of the new device profile.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- 'httpStatus', 'createDeviceProfileResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#newCreateDeviceProfileResponse"><span class="hs-identifier hs-type">newCreateDeviceProfileResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-183"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-184"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-185"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfileResponse"><span class="hs-identifier hs-type">CreateDeviceProfileResponse</span></a></span><span>
+</span><span id="line-186"></span><span id="newCreateDeviceProfileResponse"><span class="annot"><span class="annottext">newCreateDeviceProfileResponse :: Int -&gt; CreateDeviceProfileResponse
+</span><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#newCreateDeviceProfileResponse"><span class="hs-identifier hs-var hs-var">newCreateDeviceProfileResponse</span></a></span></span><span> </span><span id="local-6989586621679291121"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679291121"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-187"></span><span>  </span><span class="annot"><span class="annottext">CreateDeviceProfileResponse' :: Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateDeviceProfileResponse
+</span><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfileResponse%27"><span class="hs-identifier hs-type">CreateDeviceProfileResponse'</span></a></span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:arn:CreateDeviceProfileResponse' :: Maybe Text
+</span><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#%24sel%3Aarn%3ACreateDeviceProfileResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:CreateDeviceProfileResponse' :: Maybe Text
+</span><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#%24sel%3Aid%3ACreateDeviceProfileResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDeviceProfileResponse' :: Int
+</span><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#%24sel%3AhttpStatus%3ACreateDeviceProfileResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679291121"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | The Amazon Resource Name of the new resource.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#createDeviceProfileResponse_arn"><span class="hs-identifier hs-type">createDeviceProfileResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfileResponse"><span class="hs-identifier hs-type">CreateDeviceProfileResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span id="createDeviceProfileResponse_arn"><span class="annot"><span class="annottext">createDeviceProfileResponse_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateDeviceProfileResponse -&gt; f CreateDeviceProfileResponse
+</span><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#createDeviceProfileResponse_arn"><span class="hs-identifier hs-var hs-var">createDeviceProfileResponse_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDeviceProfileResponse -&gt; Maybe Text)
+-&gt; (CreateDeviceProfileResponse
+    -&gt; Maybe Text -&gt; CreateDeviceProfileResponse)
+-&gt; Lens
+     CreateDeviceProfileResponse
+     CreateDeviceProfileResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfileResponse%27"><span class="hs-identifier hs-type">CreateDeviceProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291120"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:CreateDeviceProfileResponse' :: CreateDeviceProfileResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679291120"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291120"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291119"><span class="annot"><span class="annottext">s :: CreateDeviceProfileResponse
+</span><a href="#local-6989586621679291119"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfileResponse%27"><span class="hs-identifier hs-type">CreateDeviceProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291118"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291118"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDeviceProfileResponse
+</span><a href="#local-6989586621679291119"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:CreateDeviceProfileResponse' :: Maybe Text
+</span><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#%24sel%3Aarn%3ACreateDeviceProfileResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291118"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfileResponse"><span class="hs-identifier hs-type">CreateDeviceProfileResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | The ID of the new device profile.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#createDeviceProfileResponse_id"><span class="hs-identifier hs-type">createDeviceProfileResponse_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfileResponse"><span class="hs-identifier hs-type">CreateDeviceProfileResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span id="createDeviceProfileResponse_id"><span class="annot"><span class="annottext">createDeviceProfileResponse_id :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateDeviceProfileResponse -&gt; f CreateDeviceProfileResponse
+</span><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#createDeviceProfileResponse_id"><span class="hs-identifier hs-var hs-var">createDeviceProfileResponse_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDeviceProfileResponse -&gt; Maybe Text)
+-&gt; (CreateDeviceProfileResponse
+    -&gt; Maybe Text -&gt; CreateDeviceProfileResponse)
+-&gt; Lens
+     CreateDeviceProfileResponse
+     CreateDeviceProfileResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfileResponse%27"><span class="hs-identifier hs-type">CreateDeviceProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291117"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:CreateDeviceProfileResponse' :: CreateDeviceProfileResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679291117"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291117"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291116"><span class="annot"><span class="annottext">s :: CreateDeviceProfileResponse
+</span><a href="#local-6989586621679291116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfileResponse%27"><span class="hs-identifier hs-type">CreateDeviceProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291115"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDeviceProfileResponse
+</span><a href="#local-6989586621679291116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:CreateDeviceProfileResponse' :: Maybe Text
+</span><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#%24sel%3Aid%3ACreateDeviceProfileResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679291115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfileResponse"><span class="hs-identifier hs-type">CreateDeviceProfileResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#createDeviceProfileResponse_httpStatus"><span class="hs-identifier hs-type">createDeviceProfileResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfileResponse"><span class="hs-identifier hs-type">CreateDeviceProfileResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-203"></span><span id="createDeviceProfileResponse_httpStatus"><span class="annot"><span class="annottext">createDeviceProfileResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateDeviceProfileResponse -&gt; f CreateDeviceProfileResponse
+</span><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#createDeviceProfileResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createDeviceProfileResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDeviceProfileResponse -&gt; Int)
+-&gt; (CreateDeviceProfileResponse
+    -&gt; Int -&gt; CreateDeviceProfileResponse)
+-&gt; Lens
+     CreateDeviceProfileResponse CreateDeviceProfileResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfileResponse%27"><span class="hs-identifier hs-type">CreateDeviceProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291114"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateDeviceProfileResponse' :: CreateDeviceProfileResponse -&gt; Int
+</span><a href="#local-6989586621679291114"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679291114"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291113"><span class="annot"><span class="annottext">s :: CreateDeviceProfileResponse
+</span><a href="#local-6989586621679291113"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfileResponse%27"><span class="hs-identifier hs-type">CreateDeviceProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291112"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679291112"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDeviceProfileResponse
+</span><a href="#local-6989586621679291113"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDeviceProfileResponse' :: Int
+</span><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#%24sel%3AhttpStatus%3ACreateDeviceProfileResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679291112"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfileResponse"><span class="hs-identifier hs-type">CreateDeviceProfileResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291110"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.CreateDeviceProfile.html#CreateDeviceProfileResponse"><span class="hs-identifier hs-type">CreateDeviceProfileResponse</span></a></span></span><span>
+</span><span id="line-206"></span></pre></body></html>

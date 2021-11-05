@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Represents the output of a DetachFromIndex response operation.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newBatchDetachFromIndexResponse' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679322540"><span id="local-6989586621679322541"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDetachFromIndexResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchDetachFromIndexResponse.html#BatchDetachFromIndexResponse"><span class="hs-identifier hs-var">BatchDetachFromIndexResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDetachFromIndexResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchDetachFromIndexResponse.html#BatchDetachFromIndexResponse%27"><span class="hs-identifier hs-var">BatchDetachFromIndexResponse'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679322549"><span id="local-6989586621679322550"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDetachFromIndexResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchDetachFromIndexResponse.html#BatchDetachFromIndexResponse"><span class="hs-identifier hs-var">BatchDetachFromIndexResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDetachFromIndexResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchDetachFromIndexResponse.html#BatchDetachFromIndexResponse%27"><span class="hs-identifier hs-var">BatchDetachFromIndexResponse'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @ObjectIdentifier@ of the object that was detached from the index.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AdetachedObjectIdentifier%3ABatchDetachFromIndexResponse%27"><span class="annot"><span class="annottext">BatchDetachFromIndexResponse -&gt; Maybe Text
 </span><a href="Network.AWS.CloudDirectory.Types.BatchDetachFromIndexResponse.html#%24sel%3AdetachedObjectIdentifier%3ABatchDetachFromIndexResponse%27"><span class="hs-identifier hs-var hs-var">detachedObjectIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679322534"><span id="local-6989586621679322536"><span class="annot"><span class="annottext">BatchDetachFromIndexResponse
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679322543"><span id="local-6989586621679322545"><span class="annot"><span class="annottext">BatchDetachFromIndexResponse
 -&gt; BatchDetachFromIndexResponse -&gt; Bool
 (BatchDetachFromIndexResponse
  -&gt; BatchDetachFromIndexResponse -&gt; Bool)
@@ -47,7 +47,7 @@ $c/= :: BatchDetachFromIndexResponse
 -&gt; BatchDetachFromIndexResponse -&gt; Bool
 $c== :: BatchDetachFromIndexResponse
 -&gt; BatchDetachFromIndexResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322525"><span id="local-6989586621679322527"><span id="local-6989586621679322529"><span id="local-6989586621679322531"><span class="annot"><span class="annottext">ReadPrec [BatchDetachFromIndexResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322534"><span id="local-6989586621679322536"><span id="local-6989586621679322538"><span id="local-6989586621679322540"><span class="annot"><span class="annottext">ReadPrec [BatchDetachFromIndexResponse]
 ReadPrec BatchDetachFromIndexResponse
 Int -&gt; ReadS BatchDetachFromIndexResponse
 ReadS [BatchDetachFromIndexResponse]
@@ -67,7 +67,7 @@ readList :: ReadS [BatchDetachFromIndexResponse]
 $creadList :: ReadS [BatchDetachFromIndexResponse]
 readsPrec :: Int -&gt; ReadS BatchDetachFromIndexResponse
 $creadsPrec :: Int -&gt; ReadS BatchDetachFromIndexResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322518"><span id="local-6989586621679322520"><span id="local-6989586621679322522"><span class="annot"><span class="annottext">Int -&gt; BatchDetachFromIndexResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322527"><span id="local-6989586621679322529"><span id="local-6989586621679322531"><span class="annot"><span class="annottext">Int -&gt; BatchDetachFromIndexResponse -&gt; ShowS
 [BatchDetachFromIndexResponse] -&gt; ShowS
 BatchDetachFromIndexResponse -&gt; String
 (Int -&gt; BatchDetachFromIndexResponse -&gt; ShowS)
@@ -134,19 +134,19 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchDetachFromIndexResponse.html#BatchDetachFromIndexResponse%27"><span class="hs-identifier hs-type">BatchDetachFromIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322509"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchDetachFromIndexResponse.html#BatchDetachFromIndexResponse%27"><span class="hs-identifier hs-type">BatchDetachFromIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322518"><span class="annot"><span class="annottext">Maybe Text
 detachedObjectIdentifier :: Maybe Text
 $sel:detachedObjectIdentifier:BatchDetachFromIndexResponse' :: BatchDetachFromIndexResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679322509"><span class="hs-identifier hs-var hs-var">detachedObjectIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679322509"><span class="hs-identifier hs-var">detachedObjectIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322508"><span class="annot"><span class="annottext">s :: BatchDetachFromIndexResponse
-</span><a href="#local-6989586621679322508"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchDetachFromIndexResponse.html#BatchDetachFromIndexResponse%27"><span class="hs-identifier hs-type">BatchDetachFromIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322507"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679322507"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDetachFromIndexResponse
-</span><a href="#local-6989586621679322508"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detachedObjectIdentifier:BatchDetachFromIndexResponse' :: Maybe Text
+</span><a href="#local-6989586621679322518"><span class="hs-identifier hs-var hs-var">detachedObjectIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679322518"><span class="hs-identifier hs-var">detachedObjectIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322517"><span class="annot"><span class="annottext">s :: BatchDetachFromIndexResponse
+</span><a href="#local-6989586621679322517"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchDetachFromIndexResponse.html#BatchDetachFromIndexResponse%27"><span class="hs-identifier hs-type">BatchDetachFromIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322516"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679322516"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDetachFromIndexResponse
+</span><a href="#local-6989586621679322517"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detachedObjectIdentifier:BatchDetachFromIndexResponse' :: Maybe Text
 </span><a href="Network.AWS.CloudDirectory.Types.BatchDetachFromIndexResponse.html#%24sel%3AdetachedObjectIdentifier%3ABatchDetachFromIndexResponse%27"><span class="hs-identifier hs-var">detachedObjectIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679322507"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchDetachFromIndexResponse.html#BatchDetachFromIndexResponse"><span class="hs-identifier hs-type">BatchDetachFromIndexResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679322516"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchDetachFromIndexResponse.html#BatchDetachFromIndexResponse"><span class="hs-identifier hs-type">BatchDetachFromIndexResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-55"></span><span>
-</span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679322504"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchDetachFromIndexResponse.html#BatchDetachFromIndexResponse"><span class="hs-identifier hs-type">BatchDetachFromIndexResponse</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-57"></span><span>  </span><span id="local-6989586621679322502"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BatchDetachFromIndexResponse
+</span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679322513"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchDetachFromIndexResponse.html#BatchDetachFromIndexResponse"><span class="hs-identifier hs-type">BatchDetachFromIndexResponse</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-57"></span><span>  </span><span id="local-6989586621679322511"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BatchDetachFromIndexResponse
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser BatchDetachFromIndexResponse)
@@ -156,23 +156,23 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;BatchDetachFromIndexResponse&quot;</span></span><span>
-</span><span id="line-60"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679322499"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679322499"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-60"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679322508"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679322508"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-61"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; BatchDetachFromIndexResponse
 </span><a href="Network.AWS.CloudDirectory.Types.BatchDetachFromIndexResponse.html#BatchDetachFromIndexResponse%27"><span class="hs-identifier hs-var">BatchDetachFromIndexResponse'</span></a></span><span>
 </span><span id="line-62"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; BatchDetachFromIndexResponse)
 -&gt; Parser (Maybe Text) -&gt; Parser BatchDetachFromIndexResponse
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679322499"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679322508"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DetachedObjectIdentifier&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679322493"><span id="local-6989586621679322495"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679322502"><span id="local-6989586621679322504"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchDetachFromIndexResponse.html#BatchDetachFromIndexResponse"><span class="hs-identifier hs-type">BatchDetachFromIndexResponse</span></a></span></span></span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679322490"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchDetachFromIndexResponse.html#BatchDetachFromIndexResponse"><span class="hs-identifier hs-type">BatchDetachFromIndexResponse</span></a></span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679322499"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchDetachFromIndexResponse.html#BatchDetachFromIndexResponse"><span class="hs-identifier hs-type">BatchDetachFromIndexResponse</span></a></span></span><span>
 </span><span id="line-70"></span></pre></body></html>

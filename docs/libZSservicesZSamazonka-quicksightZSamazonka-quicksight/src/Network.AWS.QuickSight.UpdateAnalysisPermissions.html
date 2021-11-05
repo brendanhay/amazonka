@@ -1,0 +1,883 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.QuickSight.UpdateAnalysisPermissions</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates the read and write permissions for an analysis.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.QuickSight.UpdateAnalysisPermissions</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissions"><span class="hs-identifier">UpdateAnalysisPermissions</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#newUpdateAnalysisPermissions"><span class="hs-identifier">newUpdateAnalysisPermissions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#updateAnalysisPermissions_revokePermissions"><span class="hs-identifier">updateAnalysisPermissions_revokePermissions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#updateAnalysisPermissions_grantPermissions"><span class="hs-identifier">updateAnalysisPermissions_grantPermissions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#updateAnalysisPermissions_awsAccountId"><span class="hs-identifier">updateAnalysisPermissions_awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#updateAnalysisPermissions_analysisId"><span class="hs-identifier">updateAnalysisPermissions_analysisId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissionsResponse"><span class="hs-identifier">UpdateAnalysisPermissionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#newUpdateAnalysisPermissionsResponse"><span class="hs-identifier">newUpdateAnalysisPermissionsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#updateAnalysisPermissionsResponse_requestId"><span class="hs-identifier">updateAnalysisPermissionsResponse_requestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#updateAnalysisPermissionsResponse_analysisId"><span class="hs-identifier">updateAnalysisPermissionsResponse_analysisId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#updateAnalysisPermissionsResponse_analysisArn"><span class="hs-identifier">updateAnalysisPermissionsResponse_analysisArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#updateAnalysisPermissionsResponse_permissions"><span class="hs-identifier">updateAnalysisPermissionsResponse_permissions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#updateAnalysisPermissionsResponse_status"><span class="hs-identifier">updateAnalysisPermissionsResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.html"><span class="hs-identifier">Network.AWS.QuickSight.Types</span></a></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newUpdateAnalysisPermissions' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679598493"><span id="local-6989586621679598494"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateAnalysisPermissions"><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissions"><span class="hs-identifier hs-var">UpdateAnalysisPermissions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateAnalysisPermissions%27"><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissions%27"><span class="hs-identifier hs-var">UpdateAnalysisPermissions'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A structure that describes the permissions to remove and the principal</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- to remove them from.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3ArevokePermissions%3AUpdateAnalysisPermissions%27"><span class="annot"><span class="annottext">UpdateAnalysisPermissions -&gt; Maybe [ResourcePermission]
+</span><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#%24sel%3ArevokePermissions%3AUpdateAnalysisPermissions%27"><span class="hs-identifier hs-var hs-var">revokePermissions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.QuickSight.Types.ResourcePermission.html#ResourcePermission"><span class="hs-identifier hs-type">ResourcePermission</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | A structure that describes the permissions to add and the principal to</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- add them to.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AgrantPermissions%3AUpdateAnalysisPermissions%27"><span class="annot"><span class="annottext">UpdateAnalysisPermissions -&gt; Maybe [ResourcePermission]
+</span><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#%24sel%3AgrantPermissions%3AUpdateAnalysisPermissions%27"><span class="hs-identifier hs-var hs-var">grantPermissions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.QuickSight.Types.ResourcePermission.html#ResourcePermission"><span class="hs-identifier hs-type">ResourcePermission</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The ID of the Amazon Web Services account that contains the analysis</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- whose permissions you\'re updating. You must be using the Amazon Web</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- Services account that the analysis is in.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AawsAccountId%3AUpdateAnalysisPermissions%27"><span class="annot"><span class="annottext">UpdateAnalysisPermissions -&gt; Text
+</span><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#%24sel%3AawsAccountId%3AUpdateAnalysisPermissions%27"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The ID of the analysis whose permissions you\'re updating. The ID is</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- part of the analysis URL.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AanalysisId%3AUpdateAnalysisPermissions%27"><span class="annot"><span class="annottext">UpdateAnalysisPermissions -&gt; Text
+</span><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#%24sel%3AanalysisId%3AUpdateAnalysisPermissions%27"><span class="hs-identifier hs-var hs-var">analysisId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679598484"><span id="local-6989586621679598486"><span class="annot"><span class="annottext">UpdateAnalysisPermissions -&gt; UpdateAnalysisPermissions -&gt; Bool
+(UpdateAnalysisPermissions -&gt; UpdateAnalysisPermissions -&gt; Bool)
+-&gt; (UpdateAnalysisPermissions -&gt; UpdateAnalysisPermissions -&gt; Bool)
+-&gt; Eq UpdateAnalysisPermissions
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateAnalysisPermissions -&gt; UpdateAnalysisPermissions -&gt; Bool
+$c/= :: UpdateAnalysisPermissions -&gt; UpdateAnalysisPermissions -&gt; Bool
+== :: UpdateAnalysisPermissions -&gt; UpdateAnalysisPermissions -&gt; Bool
+$c== :: UpdateAnalysisPermissions -&gt; UpdateAnalysisPermissions -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679598475"><span id="local-6989586621679598477"><span id="local-6989586621679598479"><span id="local-6989586621679598481"><span class="annot"><span class="annottext">ReadPrec [UpdateAnalysisPermissions]
+ReadPrec UpdateAnalysisPermissions
+Int -&gt; ReadS UpdateAnalysisPermissions
+ReadS [UpdateAnalysisPermissions]
+(Int -&gt; ReadS UpdateAnalysisPermissions)
+-&gt; ReadS [UpdateAnalysisPermissions]
+-&gt; ReadPrec UpdateAnalysisPermissions
+-&gt; ReadPrec [UpdateAnalysisPermissions]
+-&gt; Read UpdateAnalysisPermissions
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateAnalysisPermissions]
+$creadListPrec :: ReadPrec [UpdateAnalysisPermissions]
+readPrec :: ReadPrec UpdateAnalysisPermissions
+$creadPrec :: ReadPrec UpdateAnalysisPermissions
+readList :: ReadS [UpdateAnalysisPermissions]
+$creadList :: ReadS [UpdateAnalysisPermissions]
+readsPrec :: Int -&gt; ReadS UpdateAnalysisPermissions
+$creadsPrec :: Int -&gt; ReadS UpdateAnalysisPermissions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679598468"><span id="local-6989586621679598470"><span id="local-6989586621679598472"><span class="annot"><span class="annottext">Int -&gt; UpdateAnalysisPermissions -&gt; ShowS
+[UpdateAnalysisPermissions] -&gt; ShowS
+UpdateAnalysisPermissions -&gt; String
+(Int -&gt; UpdateAnalysisPermissions -&gt; ShowS)
+-&gt; (UpdateAnalysisPermissions -&gt; String)
+-&gt; ([UpdateAnalysisPermissions] -&gt; ShowS)
+-&gt; Show UpdateAnalysisPermissions
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateAnalysisPermissions] -&gt; ShowS
+$cshowList :: [UpdateAnalysisPermissions] -&gt; ShowS
+show :: UpdateAnalysisPermissions -&gt; String
+$cshow :: UpdateAnalysisPermissions -&gt; String
+showsPrec :: Int -&gt; UpdateAnalysisPermissions -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateAnalysisPermissions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateAnalysisPermissions -&gt; Rep UpdateAnalysisPermissions x)
+-&gt; (forall x.
+    Rep UpdateAnalysisPermissions x -&gt; UpdateAnalysisPermissions)
+-&gt; Generic UpdateAnalysisPermissions
+forall x.
+Rep UpdateAnalysisPermissions x -&gt; UpdateAnalysisPermissions
+forall x.
+UpdateAnalysisPermissions -&gt; Rep UpdateAnalysisPermissions x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateAnalysisPermissions x -&gt; UpdateAnalysisPermissions
+$cfrom :: forall x.
+UpdateAnalysisPermissions -&gt; Rep UpdateAnalysisPermissions x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Create a value of 'UpdateAnalysisPermissions' with all optional fields omitted.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'revokePermissions', 'updateAnalysisPermissions_revokePermissions' - A structure that describes the permissions to remove and the principal</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- to remove them from.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'grantPermissions', 'updateAnalysisPermissions_grantPermissions' - A structure that describes the permissions to add and the principal to</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- add them to.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'awsAccountId', 'updateAnalysisPermissions_awsAccountId' - The ID of the Amazon Web Services account that contains the analysis</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- whose permissions you\'re updating. You must be using the Amazon Web</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- Services account that the analysis is in.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'analysisId', 'updateAnalysisPermissions_analysisId' - The ID of the analysis whose permissions you\'re updating. The ID is</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- part of the analysis URL.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#newUpdateAnalysisPermissions"><span class="hs-identifier hs-type">newUpdateAnalysisPermissions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-comment">-- | 'awsAccountId'</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-comment">-- | 'analysisId'</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissions"><span class="hs-identifier hs-type">UpdateAnalysisPermissions</span></a></span><span>
+</span><span id="line-99"></span><span id="newUpdateAnalysisPermissions"><span class="annot"><span class="annottext">newUpdateAnalysisPermissions :: Text -&gt; Text -&gt; UpdateAnalysisPermissions
+</span><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#newUpdateAnalysisPermissions"><span class="hs-identifier hs-var hs-var">newUpdateAnalysisPermissions</span></a></span></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679598463"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679598463"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679598462"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679598462"><span class="hs-identifier hs-var">pAnalysisId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">UpdateAnalysisPermissions' :: Maybe [ResourcePermission]
+-&gt; Maybe [ResourcePermission]
+-&gt; Text
+-&gt; Text
+-&gt; UpdateAnalysisPermissions
+</span><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissions%27"><span class="hs-identifier hs-type">UpdateAnalysisPermissions'</span></a></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:revokePermissions:UpdateAnalysisPermissions' :: Maybe [ResourcePermission]
+</span><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#%24sel%3ArevokePermissions%3AUpdateAnalysisPermissions%27"><span class="hs-identifier hs-var">revokePermissions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ResourcePermission]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">$sel:grantPermissions:UpdateAnalysisPermissions' :: Maybe [ResourcePermission]
+</span><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#%24sel%3AgrantPermissions%3AUpdateAnalysisPermissions%27"><span class="hs-identifier hs-var">grantPermissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourcePermission]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">$sel:awsAccountId:UpdateAnalysisPermissions' :: Text
+</span><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#%24sel%3AawsAccountId%3AUpdateAnalysisPermissions%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679598463"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">$sel:analysisId:UpdateAnalysisPermissions' :: Text
+</span><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#%24sel%3AanalysisId%3AUpdateAnalysisPermissions%27"><span class="hs-identifier hs-var">analysisId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679598462"><span class="hs-identifier hs-var">pAnalysisId_</span></a></span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | A structure that describes the permissions to remove and the principal</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- to remove them from.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#updateAnalysisPermissions_revokePermissions"><span class="hs-identifier hs-type">updateAnalysisPermissions_revokePermissions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissions"><span class="hs-identifier hs-type">UpdateAnalysisPermissions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.QuickSight.Types.ResourcePermission.html#ResourcePermission"><span class="hs-identifier hs-type">ResourcePermission</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="updateAnalysisPermissions_revokePermissions"><span class="annot"><span class="annottext">updateAnalysisPermissions_revokePermissions :: (Maybe [ResourcePermission] -&gt; f (Maybe [ResourcePermission]))
+-&gt; UpdateAnalysisPermissions -&gt; f UpdateAnalysisPermissions
+</span><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#updateAnalysisPermissions_revokePermissions"><span class="hs-identifier hs-var hs-var">updateAnalysisPermissions_revokePermissions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAnalysisPermissions -&gt; Maybe [ResourcePermission])
+-&gt; (UpdateAnalysisPermissions
+    -&gt; Maybe [ResourcePermission] -&gt; UpdateAnalysisPermissions)
+-&gt; Lens
+     UpdateAnalysisPermissions
+     UpdateAnalysisPermissions
+     (Maybe [ResourcePermission])
+     (Maybe [ResourcePermission])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissions%27"><span class="hs-identifier hs-type">UpdateAnalysisPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679598459"><span class="annot"><span class="annottext">Maybe [ResourcePermission]
+revokePermissions :: Maybe [ResourcePermission]
+$sel:revokePermissions:UpdateAnalysisPermissions' :: UpdateAnalysisPermissions -&gt; Maybe [ResourcePermission]
+</span><a href="#local-6989586621679598459"><span class="hs-identifier hs-var hs-var">revokePermissions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourcePermission]
+</span><a href="#local-6989586621679598459"><span class="hs-identifier hs-var">revokePermissions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679598458"><span class="annot"><span class="annottext">s :: UpdateAnalysisPermissions
+</span><a href="#local-6989586621679598458"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissions%27"><span class="hs-identifier hs-type">UpdateAnalysisPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679598457"><span class="annot"><span class="annottext">Maybe [ResourcePermission]
+</span><a href="#local-6989586621679598457"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAnalysisPermissions
+</span><a href="#local-6989586621679598458"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revokePermissions:UpdateAnalysisPermissions' :: Maybe [ResourcePermission]
+</span><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#%24sel%3ArevokePermissions%3AUpdateAnalysisPermissions%27"><span class="hs-identifier hs-var">revokePermissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourcePermission]
+</span><a href="#local-6989586621679598457"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissions"><span class="hs-identifier hs-type">UpdateAnalysisPermissions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ResourcePermission] -&gt; f (Maybe [ResourcePermission]))
+ -&gt; UpdateAnalysisPermissions -&gt; f UpdateAnalysisPermissions)
+-&gt; ((Maybe [ResourcePermission] -&gt; f (Maybe [ResourcePermission]))
+    -&gt; Maybe [ResourcePermission] -&gt; f (Maybe [ResourcePermission]))
+-&gt; (Maybe [ResourcePermission] -&gt; f (Maybe [ResourcePermission]))
+-&gt; UpdateAnalysisPermissions
+-&gt; f UpdateAnalysisPermissions
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ResourcePermission]
+  [ResourcePermission]
+  [ResourcePermission]
+  [ResourcePermission]
+-&gt; Iso
+     (Maybe [ResourcePermission])
+     (Maybe [ResourcePermission])
+     (Maybe [ResourcePermission])
+     (Maybe [ResourcePermission])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ResourcePermission]
+  [ResourcePermission]
+  [ResourcePermission]
+  [ResourcePermission]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | A structure that describes the permissions to add and the principal to</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- add them to.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#updateAnalysisPermissions_grantPermissions"><span class="hs-identifier hs-type">updateAnalysisPermissions_grantPermissions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissions"><span class="hs-identifier hs-type">UpdateAnalysisPermissions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.QuickSight.Types.ResourcePermission.html#ResourcePermission"><span class="hs-identifier hs-type">ResourcePermission</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="updateAnalysisPermissions_grantPermissions"><span class="annot"><span class="annottext">updateAnalysisPermissions_grantPermissions :: (Maybe [ResourcePermission] -&gt; f (Maybe [ResourcePermission]))
+-&gt; UpdateAnalysisPermissions -&gt; f UpdateAnalysisPermissions
+</span><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#updateAnalysisPermissions_grantPermissions"><span class="hs-identifier hs-var hs-var">updateAnalysisPermissions_grantPermissions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAnalysisPermissions -&gt; Maybe [ResourcePermission])
+-&gt; (UpdateAnalysisPermissions
+    -&gt; Maybe [ResourcePermission] -&gt; UpdateAnalysisPermissions)
+-&gt; Lens
+     UpdateAnalysisPermissions
+     UpdateAnalysisPermissions
+     (Maybe [ResourcePermission])
+     (Maybe [ResourcePermission])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissions%27"><span class="hs-identifier hs-type">UpdateAnalysisPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679598453"><span class="annot"><span class="annottext">Maybe [ResourcePermission]
+grantPermissions :: Maybe [ResourcePermission]
+$sel:grantPermissions:UpdateAnalysisPermissions' :: UpdateAnalysisPermissions -&gt; Maybe [ResourcePermission]
+</span><a href="#local-6989586621679598453"><span class="hs-identifier hs-var hs-var">grantPermissions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourcePermission]
+</span><a href="#local-6989586621679598453"><span class="hs-identifier hs-var">grantPermissions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679598452"><span class="annot"><span class="annottext">s :: UpdateAnalysisPermissions
+</span><a href="#local-6989586621679598452"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissions%27"><span class="hs-identifier hs-type">UpdateAnalysisPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679598451"><span class="annot"><span class="annottext">Maybe [ResourcePermission]
+</span><a href="#local-6989586621679598451"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAnalysisPermissions
+</span><a href="#local-6989586621679598452"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grantPermissions:UpdateAnalysisPermissions' :: Maybe [ResourcePermission]
+</span><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#%24sel%3AgrantPermissions%3AUpdateAnalysisPermissions%27"><span class="hs-identifier hs-var">grantPermissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourcePermission]
+</span><a href="#local-6989586621679598451"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissions"><span class="hs-identifier hs-type">UpdateAnalysisPermissions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ResourcePermission] -&gt; f (Maybe [ResourcePermission]))
+ -&gt; UpdateAnalysisPermissions -&gt; f UpdateAnalysisPermissions)
+-&gt; ((Maybe [ResourcePermission] -&gt; f (Maybe [ResourcePermission]))
+    -&gt; Maybe [ResourcePermission] -&gt; f (Maybe [ResourcePermission]))
+-&gt; (Maybe [ResourcePermission] -&gt; f (Maybe [ResourcePermission]))
+-&gt; UpdateAnalysisPermissions
+-&gt; f UpdateAnalysisPermissions
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ResourcePermission]
+  [ResourcePermission]
+  [ResourcePermission]
+  [ResourcePermission]
+-&gt; Iso
+     (Maybe [ResourcePermission])
+     (Maybe [ResourcePermission])
+     (Maybe [ResourcePermission])
+     (Maybe [ResourcePermission])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ResourcePermission]
+  [ResourcePermission]
+  [ResourcePermission]
+  [ResourcePermission]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The ID of the Amazon Web Services account that contains the analysis</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- whose permissions you\'re updating. You must be using the Amazon Web</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- Services account that the analysis is in.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#updateAnalysisPermissions_awsAccountId"><span class="hs-identifier hs-type">updateAnalysisPermissions_awsAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissions"><span class="hs-identifier hs-type">UpdateAnalysisPermissions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-124"></span><span id="updateAnalysisPermissions_awsAccountId"><span class="annot"><span class="annottext">updateAnalysisPermissions_awsAccountId :: (Text -&gt; f Text)
+-&gt; UpdateAnalysisPermissions -&gt; f UpdateAnalysisPermissions
+</span><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#updateAnalysisPermissions_awsAccountId"><span class="hs-identifier hs-var hs-var">updateAnalysisPermissions_awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAnalysisPermissions -&gt; Text)
+-&gt; (UpdateAnalysisPermissions -&gt; Text -&gt; UpdateAnalysisPermissions)
+-&gt; Lens
+     UpdateAnalysisPermissions UpdateAnalysisPermissions Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissions%27"><span class="hs-identifier hs-type">UpdateAnalysisPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679598450"><span class="annot"><span class="annottext">Text
+awsAccountId :: Text
+$sel:awsAccountId:UpdateAnalysisPermissions' :: UpdateAnalysisPermissions -&gt; Text
+</span><a href="#local-6989586621679598450"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679598450"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679598449"><span class="annot"><span class="annottext">s :: UpdateAnalysisPermissions
+</span><a href="#local-6989586621679598449"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissions%27"><span class="hs-identifier hs-type">UpdateAnalysisPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679598448"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679598448"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAnalysisPermissions
+</span><a href="#local-6989586621679598449"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsAccountId:UpdateAnalysisPermissions' :: Text
+</span><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#%24sel%3AawsAccountId%3AUpdateAnalysisPermissions%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679598448"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissions"><span class="hs-identifier hs-type">UpdateAnalysisPermissions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | The ID of the analysis whose permissions you\'re updating. The ID is</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- part of the analysis URL.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#updateAnalysisPermissions_analysisId"><span class="hs-identifier hs-type">updateAnalysisPermissions_analysisId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissions"><span class="hs-identifier hs-type">UpdateAnalysisPermissions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-129"></span><span id="updateAnalysisPermissions_analysisId"><span class="annot"><span class="annottext">updateAnalysisPermissions_analysisId :: (Text -&gt; f Text)
+-&gt; UpdateAnalysisPermissions -&gt; f UpdateAnalysisPermissions
+</span><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#updateAnalysisPermissions_analysisId"><span class="hs-identifier hs-var hs-var">updateAnalysisPermissions_analysisId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAnalysisPermissions -&gt; Text)
+-&gt; (UpdateAnalysisPermissions -&gt; Text -&gt; UpdateAnalysisPermissions)
+-&gt; Lens
+     UpdateAnalysisPermissions UpdateAnalysisPermissions Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissions%27"><span class="hs-identifier hs-type">UpdateAnalysisPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679598447"><span class="annot"><span class="annottext">Text
+analysisId :: Text
+$sel:analysisId:UpdateAnalysisPermissions' :: UpdateAnalysisPermissions -&gt; Text
+</span><a href="#local-6989586621679598447"><span class="hs-identifier hs-var hs-var">analysisId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679598447"><span class="hs-identifier hs-var">analysisId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679598446"><span class="annot"><span class="annottext">s :: UpdateAnalysisPermissions
+</span><a href="#local-6989586621679598446"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissions%27"><span class="hs-identifier hs-type">UpdateAnalysisPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679598445"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679598445"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAnalysisPermissions
+</span><a href="#local-6989586621679598446"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:analysisId:UpdateAnalysisPermissions' :: Text
+</span><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#%24sel%3AanalysisId%3AUpdateAnalysisPermissions%27"><span class="hs-identifier hs-var">analysisId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679598445"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissions"><span class="hs-identifier hs-type">UpdateAnalysisPermissions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissions"><span class="hs-identifier hs-type">UpdateAnalysisPermissions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-133"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissions"><span class="hs-identifier hs-type">UpdateAnalysisPermissions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissionsResponse"><span class="hs-identifier hs-type">UpdateAnalysisPermissionsResponse</span></a></span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679598441"><span class="annot"><span class="annottext">request :: UpdateAnalysisPermissions -&gt; Request UpdateAnalysisPermissions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; UpdateAnalysisPermissions -&gt; Request UpdateAnalysisPermissions
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.QuickSight.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679598437"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateAnalysisPermissions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateAnalysisPermissions)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateAnalysisPermissions))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateAnalysisPermissions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateAnalysisPermissions)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679598434"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679598434"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679598433"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679598433"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679598432"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679598432"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-139"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (NonEmpty ResourcePermission)
+-&gt; Int
+-&gt; UpdateAnalysisPermissionsResponse
+</span><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissionsResponse%27"><span class="hs-identifier hs-var">UpdateAnalysisPermissionsResponse'</span></a></span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe (NonEmpty ResourcePermission)
+ -&gt; Int
+ -&gt; UpdateAnalysisPermissionsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (NonEmpty ResourcePermission)
+      -&gt; Int
+      -&gt; UpdateAnalysisPermissionsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679598432"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequestId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (NonEmpty ResourcePermission)
+   -&gt; Int
+   -&gt; UpdateAnalysisPermissionsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe (NonEmpty ResourcePermission)
+      -&gt; Int
+      -&gt; UpdateAnalysisPermissionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679598432"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AnalysisId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe (NonEmpty ResourcePermission)
+   -&gt; Int
+   -&gt; UpdateAnalysisPermissionsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe (NonEmpty ResourcePermission)
+      -&gt; Int -&gt; UpdateAnalysisPermissionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679598432"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AnalysisArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (NonEmpty ResourcePermission)
+   -&gt; Int -&gt; UpdateAnalysisPermissionsResponse)
+-&gt; Either String (Maybe (NonEmpty ResourcePermission))
+-&gt; Either String (Int -&gt; UpdateAnalysisPermissionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679598432"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (NonEmpty ResourcePermission))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Permissions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateAnalysisPermissionsResponse)
+-&gt; Either String Int
+-&gt; Either String UpdateAnalysisPermissionsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679598434"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679598424"><span id="local-6989586621679598426"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissions"><span class="hs-identifier hs-type">UpdateAnalysisPermissions</span></a></span></span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679598421"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissions"><span class="hs-identifier hs-type">UpdateAnalysisPermissions</span></a></span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissions"><span class="hs-identifier hs-type">UpdateAnalysisPermissions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679598417"><span class="annot"><span class="annottext">toHeaders :: UpdateAnalysisPermissions -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateAnalysisPermissions -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-155"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-156"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-157"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-158"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679598407"><span id="local-6989586621679598409"><span id="local-6989586621679598411"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissions"><span class="hs-identifier hs-type">UpdateAnalysisPermissions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679598405"><span class="annot"><span class="annottext">toJSON :: UpdateAnalysisPermissions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissions%27"><span class="hs-identifier hs-type">UpdateAnalysisPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679598400"><span id="local-6989586621679598401"><span id="local-6989586621679598402"><span id="local-6989586621679598403"><span class="annot"><span class="annottext">Maybe [ResourcePermission]
+Text
+analysisId :: Text
+awsAccountId :: Text
+grantPermissions :: Maybe [ResourcePermission]
+revokePermissions :: Maybe [ResourcePermission]
+$sel:analysisId:UpdateAnalysisPermissions' :: UpdateAnalysisPermissions -&gt; Text
+$sel:awsAccountId:UpdateAnalysisPermissions' :: UpdateAnalysisPermissions -&gt; Text
+$sel:grantPermissions:UpdateAnalysisPermissions' :: UpdateAnalysisPermissions -&gt; Maybe [ResourcePermission]
+$sel:revokePermissions:UpdateAnalysisPermissions' :: UpdateAnalysisPermissions -&gt; Maybe [ResourcePermission]
+</span><a href="#local-6989586621679598400"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-166"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RevokePermissions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ResourcePermission] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>              </span><span class="annot"><span class="annottext">([ResourcePermission] -&gt; Pair)
+-&gt; Maybe [ResourcePermission] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ResourcePermission]
+</span><a href="#local-6989586621679598403"><span class="hs-identifier hs-var">revokePermissions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GrantPermissions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ResourcePermission] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>              </span><span class="annot"><span class="annottext">([ResourcePermission] -&gt; Pair)
+-&gt; Maybe [ResourcePermission] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ResourcePermission]
+</span><a href="#local-6989586621679598402"><span class="hs-identifier hs-var">grantPermissions</span></a></span><span>
+</span><span id="line-170"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissions"><span class="hs-identifier hs-type">UpdateAnalysisPermissions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679598394"><span class="annot"><span class="annottext">toPath :: UpdateAnalysisPermissions -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissions%27"><span class="hs-identifier hs-type">UpdateAnalysisPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679598389"><span id="local-6989586621679598390"><span id="local-6989586621679598391"><span id="local-6989586621679598392"><span class="annot"><span class="annottext">Maybe [ResourcePermission]
+Text
+analysisId :: Text
+awsAccountId :: Text
+grantPermissions :: Maybe [ResourcePermission]
+revokePermissions :: Maybe [ResourcePermission]
+$sel:analysisId:UpdateAnalysisPermissions' :: UpdateAnalysisPermissions -&gt; Text
+$sel:awsAccountId:UpdateAnalysisPermissions' :: UpdateAnalysisPermissions -&gt; Text
+$sel:grantPermissions:UpdateAnalysisPermissions' :: UpdateAnalysisPermissions -&gt; Maybe [ResourcePermission]
+$sel:revokePermissions:UpdateAnalysisPermissions' :: UpdateAnalysisPermissions -&gt; Maybe [ResourcePermission]
+</span><a href="#local-6989586621679598389"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-176"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/accounts/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679598390"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/analyses/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679598389"><span class="hs-identifier hs-var">analysisId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/permissions&quot;</span></span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissions"><span class="hs-identifier hs-type">UpdateAnalysisPermissions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679598385"><span class="annot"><span class="annottext">toQuery :: UpdateAnalysisPermissions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateAnalysisPermissions -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | /See:/ 'newUpdateAnalysisPermissionsResponse' smart constructor.</span><span>
+</span><span id="line-187"></span><span id="local-6989586621679598382"><span id="local-6989586621679598383"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateAnalysisPermissionsResponse"><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissionsResponse"><span class="hs-identifier hs-var">UpdateAnalysisPermissionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateAnalysisPermissionsResponse%27"><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissionsResponse%27"><span class="hs-identifier hs-var">UpdateAnalysisPermissionsResponse'</span></a></span></span><span>
+</span><span id="line-188"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-189"></span><span>    </span><span id="%24sel%3ArequestId%3AUpdateAnalysisPermissionsResponse%27"><span class="annot"><span class="annottext">UpdateAnalysisPermissionsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#%24sel%3ArequestId%3AUpdateAnalysisPermissionsResponse%27"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-comment">-- | The ID of the analysis that you updated permissions for.</span><span>
+</span><span id="line-191"></span><span>    </span><span id="%24sel%3AanalysisId%3AUpdateAnalysisPermissionsResponse%27"><span class="annot"><span class="annottext">UpdateAnalysisPermissionsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#%24sel%3AanalysisId%3AUpdateAnalysisPermissionsResponse%27"><span class="hs-identifier hs-var hs-var">analysisId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the analysis that you updated.</span><span>
+</span><span id="line-193"></span><span>    </span><span id="%24sel%3AanalysisArn%3AUpdateAnalysisPermissionsResponse%27"><span class="annot"><span class="annottext">UpdateAnalysisPermissionsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#%24sel%3AanalysisArn%3AUpdateAnalysisPermissionsResponse%27"><span class="hs-identifier hs-var hs-var">analysisArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-comment">-- | A structure that describes the principals and the resource-level</span><span>
+</span><span id="line-195"></span><span>    </span><span class="hs-comment">-- permissions on an analysis.</span><span>
+</span><span id="line-196"></span><span>    </span><span id="%24sel%3Apermissions%3AUpdateAnalysisPermissionsResponse%27"><span class="annot"><span class="annottext">UpdateAnalysisPermissionsResponse
+-&gt; Maybe (NonEmpty ResourcePermission)
+</span><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#%24sel%3Apermissions%3AUpdateAnalysisPermissionsResponse%27"><span class="hs-identifier hs-var hs-var">permissions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.ResourcePermission.html#ResourcePermission"><span class="hs-identifier hs-type">ResourcePermission</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-198"></span><span>    </span><span id="%24sel%3Astatus%3AUpdateAnalysisPermissionsResponse%27"><span class="annot"><span class="annottext">UpdateAnalysisPermissionsResponse -&gt; Int
+</span><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#%24sel%3Astatus%3AUpdateAnalysisPermissionsResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-199"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-200"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679598373"><span id="local-6989586621679598375"><span class="annot"><span class="annottext">UpdateAnalysisPermissionsResponse
+-&gt; UpdateAnalysisPermissionsResponse -&gt; Bool
+(UpdateAnalysisPermissionsResponse
+ -&gt; UpdateAnalysisPermissionsResponse -&gt; Bool)
+-&gt; (UpdateAnalysisPermissionsResponse
+    -&gt; UpdateAnalysisPermissionsResponse -&gt; Bool)
+-&gt; Eq UpdateAnalysisPermissionsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateAnalysisPermissionsResponse
+-&gt; UpdateAnalysisPermissionsResponse -&gt; Bool
+$c/= :: UpdateAnalysisPermissionsResponse
+-&gt; UpdateAnalysisPermissionsResponse -&gt; Bool
+== :: UpdateAnalysisPermissionsResponse
+-&gt; UpdateAnalysisPermissionsResponse -&gt; Bool
+$c== :: UpdateAnalysisPermissionsResponse
+-&gt; UpdateAnalysisPermissionsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679598365"><span id="local-6989586621679598367"><span id="local-6989586621679598369"><span id="local-6989586621679598371"><span class="annot"><span class="annottext">ReadPrec [UpdateAnalysisPermissionsResponse]
+ReadPrec UpdateAnalysisPermissionsResponse
+Int -&gt; ReadS UpdateAnalysisPermissionsResponse
+ReadS [UpdateAnalysisPermissionsResponse]
+(Int -&gt; ReadS UpdateAnalysisPermissionsResponse)
+-&gt; ReadS [UpdateAnalysisPermissionsResponse]
+-&gt; ReadPrec UpdateAnalysisPermissionsResponse
+-&gt; ReadPrec [UpdateAnalysisPermissionsResponse]
+-&gt; Read UpdateAnalysisPermissionsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateAnalysisPermissionsResponse]
+$creadListPrec :: ReadPrec [UpdateAnalysisPermissionsResponse]
+readPrec :: ReadPrec UpdateAnalysisPermissionsResponse
+$creadPrec :: ReadPrec UpdateAnalysisPermissionsResponse
+readList :: ReadS [UpdateAnalysisPermissionsResponse]
+$creadList :: ReadS [UpdateAnalysisPermissionsResponse]
+readsPrec :: Int -&gt; ReadS UpdateAnalysisPermissionsResponse
+$creadsPrec :: Int -&gt; ReadS UpdateAnalysisPermissionsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679598359"><span id="local-6989586621679598361"><span id="local-6989586621679598363"><span class="annot"><span class="annottext">Int -&gt; UpdateAnalysisPermissionsResponse -&gt; ShowS
+[UpdateAnalysisPermissionsResponse] -&gt; ShowS
+UpdateAnalysisPermissionsResponse -&gt; String
+(Int -&gt; UpdateAnalysisPermissionsResponse -&gt; ShowS)
+-&gt; (UpdateAnalysisPermissionsResponse -&gt; String)
+-&gt; ([UpdateAnalysisPermissionsResponse] -&gt; ShowS)
+-&gt; Show UpdateAnalysisPermissionsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateAnalysisPermissionsResponse] -&gt; ShowS
+$cshowList :: [UpdateAnalysisPermissionsResponse] -&gt; ShowS
+show :: UpdateAnalysisPermissionsResponse -&gt; String
+$cshow :: UpdateAnalysisPermissionsResponse -&gt; String
+showsPrec :: Int -&gt; UpdateAnalysisPermissionsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateAnalysisPermissionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateAnalysisPermissionsResponse
+ -&gt; Rep UpdateAnalysisPermissionsResponse x)
+-&gt; (forall x.
+    Rep UpdateAnalysisPermissionsResponse x
+    -&gt; UpdateAnalysisPermissionsResponse)
+-&gt; Generic UpdateAnalysisPermissionsResponse
+forall x.
+Rep UpdateAnalysisPermissionsResponse x
+-&gt; UpdateAnalysisPermissionsResponse
+forall x.
+UpdateAnalysisPermissionsResponse
+-&gt; Rep UpdateAnalysisPermissionsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateAnalysisPermissionsResponse x
+-&gt; UpdateAnalysisPermissionsResponse
+$cfrom :: forall x.
+UpdateAnalysisPermissionsResponse
+-&gt; Rep UpdateAnalysisPermissionsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- Create a value of 'UpdateAnalysisPermissionsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- 'requestId', 'updateAnalysisPermissionsResponse_requestId' - The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- 'analysisId', 'updateAnalysisPermissionsResponse_analysisId' - The ID of the analysis that you updated permissions for.</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- 'analysisArn', 'updateAnalysisPermissionsResponse_analysisArn' - The Amazon Resource Name (ARN) of the analysis that you updated.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- 'permissions', 'updateAnalysisPermissionsResponse_permissions' - A structure that describes the principals and the resource-level</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- permissions on an analysis.</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- 'status', 'updateAnalysisPermissionsResponse_status' - The HTTP status of the request.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#newUpdateAnalysisPermissionsResponse"><span class="hs-identifier hs-type">newUpdateAnalysisPermissionsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-221"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-222"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-223"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissionsResponse"><span class="hs-identifier hs-type">UpdateAnalysisPermissionsResponse</span></a></span><span>
+</span><span id="line-224"></span><span id="newUpdateAnalysisPermissionsResponse"><span class="annot"><span class="annottext">newUpdateAnalysisPermissionsResponse :: Int -&gt; UpdateAnalysisPermissionsResponse
+</span><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#newUpdateAnalysisPermissionsResponse"><span class="hs-identifier hs-var hs-var">newUpdateAnalysisPermissionsResponse</span></a></span></span><span> </span><span id="local-6989586621679598356"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679598356"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-225"></span><span>  </span><span class="annot"><span class="annottext">UpdateAnalysisPermissionsResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (NonEmpty ResourcePermission)
+-&gt; Int
+-&gt; UpdateAnalysisPermissionsResponse
+</span><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissionsResponse%27"><span class="hs-identifier hs-type">UpdateAnalysisPermissionsResponse'</span></a></span><span>
+</span><span id="line-226"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requestId:UpdateAnalysisPermissionsResponse' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#%24sel%3ArequestId%3AUpdateAnalysisPermissionsResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-227"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>      </span><span class="annot"><span class="annottext">$sel:analysisId:UpdateAnalysisPermissionsResponse' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#%24sel%3AanalysisId%3AUpdateAnalysisPermissionsResponse%27"><span class="hs-identifier hs-var">analysisId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>      </span><span class="annot"><span class="annottext">$sel:analysisArn:UpdateAnalysisPermissionsResponse' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#%24sel%3AanalysisArn%3AUpdateAnalysisPermissionsResponse%27"><span class="hs-identifier hs-var">analysisArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>      </span><span class="annot"><span class="annottext">$sel:permissions:UpdateAnalysisPermissionsResponse' :: Maybe (NonEmpty ResourcePermission)
+</span><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#%24sel%3Apermissions%3AUpdateAnalysisPermissionsResponse%27"><span class="hs-identifier hs-var">permissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:UpdateAnalysisPermissionsResponse' :: Int
+</span><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#%24sel%3Astatus%3AUpdateAnalysisPermissionsResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679598356"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><span id="line-232"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-235"></span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#updateAnalysisPermissionsResponse_requestId"><span class="hs-identifier hs-type">updateAnalysisPermissionsResponse_requestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissionsResponse"><span class="hs-identifier hs-type">UpdateAnalysisPermissionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span id="updateAnalysisPermissionsResponse_requestId"><span class="annot"><span class="annottext">updateAnalysisPermissionsResponse_requestId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateAnalysisPermissionsResponse
+-&gt; f UpdateAnalysisPermissionsResponse
+</span><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#updateAnalysisPermissionsResponse_requestId"><span class="hs-identifier hs-var hs-var">updateAnalysisPermissionsResponse_requestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAnalysisPermissionsResponse -&gt; Maybe Text)
+-&gt; (UpdateAnalysisPermissionsResponse
+    -&gt; Maybe Text -&gt; UpdateAnalysisPermissionsResponse)
+-&gt; Lens
+     UpdateAnalysisPermissionsResponse
+     UpdateAnalysisPermissionsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissionsResponse%27"><span class="hs-identifier hs-type">UpdateAnalysisPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679598355"><span class="annot"><span class="annottext">Maybe Text
+requestId :: Maybe Text
+$sel:requestId:UpdateAnalysisPermissionsResponse' :: UpdateAnalysisPermissionsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679598355"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679598355"><span class="hs-identifier hs-var">requestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679598354"><span class="annot"><span class="annottext">s :: UpdateAnalysisPermissionsResponse
+</span><a href="#local-6989586621679598354"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissionsResponse%27"><span class="hs-identifier hs-type">UpdateAnalysisPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679598353"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679598353"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAnalysisPermissionsResponse
+</span><a href="#local-6989586621679598354"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestId:UpdateAnalysisPermissionsResponse' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#%24sel%3ArequestId%3AUpdateAnalysisPermissionsResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679598353"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissionsResponse"><span class="hs-identifier hs-type">UpdateAnalysisPermissionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- | The ID of the analysis that you updated permissions for.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#updateAnalysisPermissionsResponse_analysisId"><span class="hs-identifier hs-type">updateAnalysisPermissionsResponse_analysisId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissionsResponse"><span class="hs-identifier hs-type">UpdateAnalysisPermissionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span id="updateAnalysisPermissionsResponse_analysisId"><span class="annot"><span class="annottext">updateAnalysisPermissionsResponse_analysisId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateAnalysisPermissionsResponse
+-&gt; f UpdateAnalysisPermissionsResponse
+</span><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#updateAnalysisPermissionsResponse_analysisId"><span class="hs-identifier hs-var hs-var">updateAnalysisPermissionsResponse_analysisId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAnalysisPermissionsResponse -&gt; Maybe Text)
+-&gt; (UpdateAnalysisPermissionsResponse
+    -&gt; Maybe Text -&gt; UpdateAnalysisPermissionsResponse)
+-&gt; Lens
+     UpdateAnalysisPermissionsResponse
+     UpdateAnalysisPermissionsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissionsResponse%27"><span class="hs-identifier hs-type">UpdateAnalysisPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679598352"><span class="annot"><span class="annottext">Maybe Text
+analysisId :: Maybe Text
+$sel:analysisId:UpdateAnalysisPermissionsResponse' :: UpdateAnalysisPermissionsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679598352"><span class="hs-identifier hs-var hs-var">analysisId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679598352"><span class="hs-identifier hs-var">analysisId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679598351"><span class="annot"><span class="annottext">s :: UpdateAnalysisPermissionsResponse
+</span><a href="#local-6989586621679598351"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissionsResponse%27"><span class="hs-identifier hs-type">UpdateAnalysisPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679598350"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679598350"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAnalysisPermissionsResponse
+</span><a href="#local-6989586621679598351"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:analysisId:UpdateAnalysisPermissionsResponse' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#%24sel%3AanalysisId%3AUpdateAnalysisPermissionsResponse%27"><span class="hs-identifier hs-var">analysisId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679598350"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissionsResponse"><span class="hs-identifier hs-type">UpdateAnalysisPermissionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the analysis that you updated.</span><span>
+</span><span id="line-243"></span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#updateAnalysisPermissionsResponse_analysisArn"><span class="hs-identifier hs-type">updateAnalysisPermissionsResponse_analysisArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissionsResponse"><span class="hs-identifier hs-type">UpdateAnalysisPermissionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span id="updateAnalysisPermissionsResponse_analysisArn"><span class="annot"><span class="annottext">updateAnalysisPermissionsResponse_analysisArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateAnalysisPermissionsResponse
+-&gt; f UpdateAnalysisPermissionsResponse
+</span><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#updateAnalysisPermissionsResponse_analysisArn"><span class="hs-identifier hs-var hs-var">updateAnalysisPermissionsResponse_analysisArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAnalysisPermissionsResponse -&gt; Maybe Text)
+-&gt; (UpdateAnalysisPermissionsResponse
+    -&gt; Maybe Text -&gt; UpdateAnalysisPermissionsResponse)
+-&gt; Lens
+     UpdateAnalysisPermissionsResponse
+     UpdateAnalysisPermissionsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissionsResponse%27"><span class="hs-identifier hs-type">UpdateAnalysisPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679598349"><span class="annot"><span class="annottext">Maybe Text
+analysisArn :: Maybe Text
+$sel:analysisArn:UpdateAnalysisPermissionsResponse' :: UpdateAnalysisPermissionsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679598349"><span class="hs-identifier hs-var hs-var">analysisArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679598349"><span class="hs-identifier hs-var">analysisArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679598348"><span class="annot"><span class="annottext">s :: UpdateAnalysisPermissionsResponse
+</span><a href="#local-6989586621679598348"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissionsResponse%27"><span class="hs-identifier hs-type">UpdateAnalysisPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679598347"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679598347"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAnalysisPermissionsResponse
+</span><a href="#local-6989586621679598348"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:analysisArn:UpdateAnalysisPermissionsResponse' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#%24sel%3AanalysisArn%3AUpdateAnalysisPermissionsResponse%27"><span class="hs-identifier hs-var">analysisArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679598347"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissionsResponse"><span class="hs-identifier hs-type">UpdateAnalysisPermissionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- | A structure that describes the principals and the resource-level</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- permissions on an analysis.</span><span>
+</span><span id="line-248"></span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#updateAnalysisPermissionsResponse_permissions"><span class="hs-identifier hs-type">updateAnalysisPermissionsResponse_permissions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissionsResponse"><span class="hs-identifier hs-type">UpdateAnalysisPermissionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.ResourcePermission.html#ResourcePermission"><span class="hs-identifier hs-type">ResourcePermission</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span id="updateAnalysisPermissionsResponse_permissions"><span class="annot"><span class="annottext">updateAnalysisPermissionsResponse_permissions :: (Maybe (NonEmpty ResourcePermission)
+ -&gt; f (Maybe (NonEmpty ResourcePermission)))
+-&gt; UpdateAnalysisPermissionsResponse
+-&gt; f UpdateAnalysisPermissionsResponse
+</span><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#updateAnalysisPermissionsResponse_permissions"><span class="hs-identifier hs-var hs-var">updateAnalysisPermissionsResponse_permissions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAnalysisPermissionsResponse
+ -&gt; Maybe (NonEmpty ResourcePermission))
+-&gt; (UpdateAnalysisPermissionsResponse
+    -&gt; Maybe (NonEmpty ResourcePermission)
+    -&gt; UpdateAnalysisPermissionsResponse)
+-&gt; Lens
+     UpdateAnalysisPermissionsResponse
+     UpdateAnalysisPermissionsResponse
+     (Maybe (NonEmpty ResourcePermission))
+     (Maybe (NonEmpty ResourcePermission))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissionsResponse%27"><span class="hs-identifier hs-type">UpdateAnalysisPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679598346"><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+permissions :: Maybe (NonEmpty ResourcePermission)
+$sel:permissions:UpdateAnalysisPermissionsResponse' :: UpdateAnalysisPermissionsResponse
+-&gt; Maybe (NonEmpty ResourcePermission)
+</span><a href="#local-6989586621679598346"><span class="hs-identifier hs-var hs-var">permissions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+</span><a href="#local-6989586621679598346"><span class="hs-identifier hs-var">permissions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679598345"><span class="annot"><span class="annottext">s :: UpdateAnalysisPermissionsResponse
+</span><a href="#local-6989586621679598345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissionsResponse%27"><span class="hs-identifier hs-type">UpdateAnalysisPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679598344"><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+</span><a href="#local-6989586621679598344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAnalysisPermissionsResponse
+</span><a href="#local-6989586621679598345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permissions:UpdateAnalysisPermissionsResponse' :: Maybe (NonEmpty ResourcePermission)
+</span><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#%24sel%3Apermissions%3AUpdateAnalysisPermissionsResponse%27"><span class="hs-identifier hs-var">permissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+</span><a href="#local-6989586621679598344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissionsResponse"><span class="hs-identifier hs-type">UpdateAnalysisPermissionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty ResourcePermission)
+  -&gt; f (Maybe (NonEmpty ResourcePermission)))
+ -&gt; UpdateAnalysisPermissionsResponse
+ -&gt; f UpdateAnalysisPermissionsResponse)
+-&gt; ((Maybe (NonEmpty ResourcePermission)
+     -&gt; f (Maybe (NonEmpty ResourcePermission)))
+    -&gt; Maybe (NonEmpty ResourcePermission)
+    -&gt; f (Maybe (NonEmpty ResourcePermission)))
+-&gt; (Maybe (NonEmpty ResourcePermission)
+    -&gt; f (Maybe (NonEmpty ResourcePermission)))
+-&gt; UpdateAnalysisPermissionsResponse
+-&gt; f UpdateAnalysisPermissionsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+-&gt; Iso
+     (Maybe (NonEmpty ResourcePermission))
+     (Maybe (NonEmpty ResourcePermission))
+     (Maybe (NonEmpty ResourcePermission))
+     (Maybe (NonEmpty ResourcePermission))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-252"></span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#updateAnalysisPermissionsResponse_status"><span class="hs-identifier hs-type">updateAnalysisPermissionsResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissionsResponse"><span class="hs-identifier hs-type">UpdateAnalysisPermissionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-253"></span><span id="updateAnalysisPermissionsResponse_status"><span class="annot"><span class="annottext">updateAnalysisPermissionsResponse_status :: (Int -&gt; f Int)
+-&gt; UpdateAnalysisPermissionsResponse
+-&gt; f UpdateAnalysisPermissionsResponse
+</span><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#updateAnalysisPermissionsResponse_status"><span class="hs-identifier hs-var hs-var">updateAnalysisPermissionsResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateAnalysisPermissionsResponse -&gt; Int)
+-&gt; (UpdateAnalysisPermissionsResponse
+    -&gt; Int -&gt; UpdateAnalysisPermissionsResponse)
+-&gt; Lens
+     UpdateAnalysisPermissionsResponse
+     UpdateAnalysisPermissionsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissionsResponse%27"><span class="hs-identifier hs-type">UpdateAnalysisPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679598343"><span class="annot"><span class="annottext">Int
+status :: Int
+$sel:status:UpdateAnalysisPermissionsResponse' :: UpdateAnalysisPermissionsResponse -&gt; Int
+</span><a href="#local-6989586621679598343"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679598343"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679598342"><span class="annot"><span class="annottext">s :: UpdateAnalysisPermissionsResponse
+</span><a href="#local-6989586621679598342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissionsResponse%27"><span class="hs-identifier hs-type">UpdateAnalysisPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679598341"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679598341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAnalysisPermissionsResponse
+</span><a href="#local-6989586621679598342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:UpdateAnalysisPermissionsResponse' :: Int
+</span><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#%24sel%3Astatus%3AUpdateAnalysisPermissionsResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679598341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissionsResponse"><span class="hs-identifier hs-type">UpdateAnalysisPermissionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-256"></span><span>  </span><span id="local-6989586621679598339"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-257"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.UpdateAnalysisPermissions.html#UpdateAnalysisPermissionsResponse"><span class="hs-identifier hs-type">UpdateAnalysisPermissionsResponse</span></a></span></span><span>
+</span><span id="line-258"></span></pre></body></html>

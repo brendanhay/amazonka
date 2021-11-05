@@ -1,0 +1,679 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.KinesisAnalyticsV2.AddApplicationInput</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Adds a streaming source to your SQL-based Kinesis Data Analytics</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- You can add a streaming source when you create an application, or you</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- can use this operation to add a streaming source after you create an</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- application. For more information, see CreateApplication.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- Any configuration update, including adding a streaming source using this</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- operation, results in a new version of the application. You can use the</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- DescribeApplication operation to find the current application version.</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.KinesisAnalyticsV2.AddApplicationInput</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInput"><span class="hs-identifier">AddApplicationInput</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#newAddApplicationInput"><span class="hs-identifier">newAddApplicationInput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#addApplicationInput_applicationName"><span class="hs-identifier">addApplicationInput_applicationName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#addApplicationInput_currentApplicationVersionId"><span class="hs-identifier">addApplicationInput_currentApplicationVersionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#addApplicationInput_input"><span class="hs-identifier">addApplicationInput_input</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInputResponse"><span class="hs-identifier">AddApplicationInputResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#newAddApplicationInputResponse"><span class="hs-identifier">newAddApplicationInputResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#addApplicationInputResponse_applicationARN"><span class="hs-identifier">addApplicationInputResponse_applicationARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#addApplicationInputResponse_applicationVersionId"><span class="hs-identifier">addApplicationInputResponse_applicationVersionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#addApplicationInputResponse_inputDescriptions"><span class="hs-identifier">addApplicationInputResponse_inputDescriptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#addApplicationInputResponse_httpStatus"><span class="hs-identifier">addApplicationInputResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.html"><span class="hs-identifier">Network.AWS.KinesisAnalyticsV2.Types</span></a></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newAddApplicationInput' smart constructor.</span><span>
+</span><span id="line-63"></span><span id="local-6989586621679307791"><span id="local-6989586621679307792"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddApplicationInput"><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInput"><span class="hs-identifier hs-var">AddApplicationInput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddApplicationInput%27"><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInput%27"><span class="hs-identifier hs-var">AddApplicationInput'</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of your existing application to which you want to add the</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- streaming source.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AapplicationName%3AAddApplicationInput%27"><span class="annot"><span class="annottext">AddApplicationInput -&gt; Text
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#%24sel%3AapplicationName%3AAddApplicationInput%27"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The current version of your application. You must provide the</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- @ApplicationVersionID@ or the @ConditionalToken@.You can use the</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- DescribeApplication operation to find the current application version.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AcurrentApplicationVersionId%3AAddApplicationInput%27"><span class="annot"><span class="annottext">AddApplicationInput -&gt; Natural
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#%24sel%3AcurrentApplicationVersionId%3AAddApplicationInput%27"><span class="hs-identifier hs-var hs-var">currentApplicationVersionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The Input to add.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3Ainput%3AAddApplicationInput%27"><span class="annot"><span class="annottext">AddApplicationInput -&gt; Input
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#%24sel%3Ainput%3AAddApplicationInput%27"><span class="hs-identifier hs-var hs-var">input</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.Input.html#Input"><span class="hs-identifier hs-type">Input</span></a></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679307783"><span id="local-6989586621679307785"><span class="annot"><span class="annottext">AddApplicationInput -&gt; AddApplicationInput -&gt; Bool
+(AddApplicationInput -&gt; AddApplicationInput -&gt; Bool)
+-&gt; (AddApplicationInput -&gt; AddApplicationInput -&gt; Bool)
+-&gt; Eq AddApplicationInput
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AddApplicationInput -&gt; AddApplicationInput -&gt; Bool
+$c/= :: AddApplicationInput -&gt; AddApplicationInput -&gt; Bool
+== :: AddApplicationInput -&gt; AddApplicationInput -&gt; Bool
+$c== :: AddApplicationInput -&gt; AddApplicationInput -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307774"><span id="local-6989586621679307776"><span id="local-6989586621679307778"><span id="local-6989586621679307780"><span class="annot"><span class="annottext">ReadPrec [AddApplicationInput]
+ReadPrec AddApplicationInput
+Int -&gt; ReadS AddApplicationInput
+ReadS [AddApplicationInput]
+(Int -&gt; ReadS AddApplicationInput)
+-&gt; ReadS [AddApplicationInput]
+-&gt; ReadPrec AddApplicationInput
+-&gt; ReadPrec [AddApplicationInput]
+-&gt; Read AddApplicationInput
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AddApplicationInput]
+$creadListPrec :: ReadPrec [AddApplicationInput]
+readPrec :: ReadPrec AddApplicationInput
+$creadPrec :: ReadPrec AddApplicationInput
+readList :: ReadS [AddApplicationInput]
+$creadList :: ReadS [AddApplicationInput]
+readsPrec :: Int -&gt; ReadS AddApplicationInput
+$creadsPrec :: Int -&gt; ReadS AddApplicationInput
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307767"><span id="local-6989586621679307769"><span id="local-6989586621679307771"><span class="annot"><span class="annottext">Int -&gt; AddApplicationInput -&gt; ShowS
+[AddApplicationInput] -&gt; ShowS
+AddApplicationInput -&gt; String
+(Int -&gt; AddApplicationInput -&gt; ShowS)
+-&gt; (AddApplicationInput -&gt; String)
+-&gt; ([AddApplicationInput] -&gt; ShowS)
+-&gt; Show AddApplicationInput
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AddApplicationInput] -&gt; ShowS
+$cshowList :: [AddApplicationInput] -&gt; ShowS
+show :: AddApplicationInput -&gt; String
+$cshow :: AddApplicationInput -&gt; String
+showsPrec :: Int -&gt; AddApplicationInput -&gt; ShowS
+$cshowsPrec :: Int -&gt; AddApplicationInput -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AddApplicationInput -&gt; Rep AddApplicationInput x)
+-&gt; (forall x. Rep AddApplicationInput x -&gt; AddApplicationInput)
+-&gt; Generic AddApplicationInput
+forall x. Rep AddApplicationInput x -&gt; AddApplicationInput
+forall x. AddApplicationInput -&gt; Rep AddApplicationInput x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AddApplicationInput x -&gt; AddApplicationInput
+$cfrom :: forall x. AddApplicationInput -&gt; Rep AddApplicationInput x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Create a value of 'AddApplicationInput' with all optional fields omitted.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'applicationName', 'addApplicationInput_applicationName' - The name of your existing application to which you want to add the</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- streaming source.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'currentApplicationVersionId', 'addApplicationInput_currentApplicationVersionId' - The current version of your application. You must provide the</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- @ApplicationVersionID@ or the @ConditionalToken@.You can use the</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- DescribeApplication operation to find the current application version.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'input', 'addApplicationInput_input' - The Input to add.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#newAddApplicationInput"><span class="hs-identifier hs-type">newAddApplicationInput</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-comment">-- | 'applicationName'</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-comment">-- | 'currentApplicationVersionId'</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-comment">-- | 'input'</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.Input.html#Input"><span class="hs-identifier hs-type">Input</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInput"><span class="hs-identifier hs-type">AddApplicationInput</span></a></span><span>
+</span><span id="line-100"></span><span id="newAddApplicationInput"><span class="annot"><span class="annottext">newAddApplicationInput :: Text -&gt; Natural -&gt; Input -&gt; AddApplicationInput
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#newAddApplicationInput"><span class="hs-identifier hs-var hs-var">newAddApplicationInput</span></a></span></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679307762"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307762"><span class="hs-identifier hs-var">pApplicationName_</span></a></span></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679307761"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679307761"><span class="hs-identifier hs-var">pCurrentApplicationVersionId_</span></a></span></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679307760"><span class="annot"><span class="annottext">Input
+</span><a href="#local-6989586621679307760"><span class="hs-identifier hs-var">pInput_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">AddApplicationInput' :: Text -&gt; Natural -&gt; Input -&gt; AddApplicationInput
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInput%27"><span class="hs-identifier hs-type">AddApplicationInput'</span></a></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:applicationName:AddApplicationInput' :: Text
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#%24sel%3AapplicationName%3AAddApplicationInput%27"><span class="hs-identifier hs-var">applicationName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307762"><span class="hs-identifier hs-var">pApplicationName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">$sel:currentApplicationVersionId:AddApplicationInput' :: Natural
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#%24sel%3AcurrentApplicationVersionId%3AAddApplicationInput%27"><span class="hs-identifier hs-var">currentApplicationVersionId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679307761"><span class="hs-identifier hs-var">pCurrentApplicationVersionId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">$sel:input:AddApplicationInput' :: Input
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#%24sel%3Ainput%3AAddApplicationInput%27"><span class="hs-identifier hs-var">input</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Input
+</span><a href="#local-6989586621679307760"><span class="hs-identifier hs-var">pInput_</span></a></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The name of your existing application to which you want to add the</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- streaming source.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#addApplicationInput_applicationName"><span class="hs-identifier hs-type">addApplicationInput_applicationName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInput"><span class="hs-identifier hs-type">AddApplicationInput</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-115"></span><span id="addApplicationInput_applicationName"><span class="annot"><span class="annottext">addApplicationInput_applicationName :: (Text -&gt; f Text) -&gt; AddApplicationInput -&gt; f AddApplicationInput
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#addApplicationInput_applicationName"><span class="hs-identifier hs-var hs-var">addApplicationInput_applicationName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddApplicationInput -&gt; Text)
+-&gt; (AddApplicationInput -&gt; Text -&gt; AddApplicationInput)
+-&gt; Lens AddApplicationInput AddApplicationInput Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInput%27"><span class="hs-identifier hs-type">AddApplicationInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307757"><span class="annot"><span class="annottext">Text
+applicationName :: Text
+$sel:applicationName:AddApplicationInput' :: AddApplicationInput -&gt; Text
+</span><a href="#local-6989586621679307757"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307757"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307756"><span class="annot"><span class="annottext">s :: AddApplicationInput
+</span><a href="#local-6989586621679307756"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInput%27"><span class="hs-identifier hs-type">AddApplicationInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307755"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307755"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddApplicationInput
+</span><a href="#local-6989586621679307756"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationName:AddApplicationInput' :: Text
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#%24sel%3AapplicationName%3AAddApplicationInput%27"><span class="hs-identifier hs-var">applicationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307755"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInput"><span class="hs-identifier hs-type">AddApplicationInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The current version of your application. You must provide the</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- @ApplicationVersionID@ or the @ConditionalToken@.You can use the</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- DescribeApplication operation to find the current application version.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#addApplicationInput_currentApplicationVersionId"><span class="hs-identifier hs-type">addApplicationInput_currentApplicationVersionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInput"><span class="hs-identifier hs-type">AddApplicationInput</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-121"></span><span id="addApplicationInput_currentApplicationVersionId"><span class="annot"><span class="annottext">addApplicationInput_currentApplicationVersionId :: (Natural -&gt; f Natural)
+-&gt; AddApplicationInput -&gt; f AddApplicationInput
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#addApplicationInput_currentApplicationVersionId"><span class="hs-identifier hs-var hs-var">addApplicationInput_currentApplicationVersionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddApplicationInput -&gt; Natural)
+-&gt; (AddApplicationInput -&gt; Natural -&gt; AddApplicationInput)
+-&gt; Lens AddApplicationInput AddApplicationInput Natural Natural
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInput%27"><span class="hs-identifier hs-type">AddApplicationInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307754"><span class="annot"><span class="annottext">Natural
+currentApplicationVersionId :: Natural
+$sel:currentApplicationVersionId:AddApplicationInput' :: AddApplicationInput -&gt; Natural
+</span><a href="#local-6989586621679307754"><span class="hs-identifier hs-var hs-var">currentApplicationVersionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679307754"><span class="hs-identifier hs-var">currentApplicationVersionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307753"><span class="annot"><span class="annottext">s :: AddApplicationInput
+</span><a href="#local-6989586621679307753"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInput%27"><span class="hs-identifier hs-type">AddApplicationInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307752"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679307752"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddApplicationInput
+</span><a href="#local-6989586621679307753"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currentApplicationVersionId:AddApplicationInput' :: Natural
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#%24sel%3AcurrentApplicationVersionId%3AAddApplicationInput%27"><span class="hs-identifier hs-var">currentApplicationVersionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679307752"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInput"><span class="hs-identifier hs-type">AddApplicationInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The Input to add.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#addApplicationInput_input"><span class="hs-identifier hs-type">addApplicationInput_input</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInput"><span class="hs-identifier hs-type">AddApplicationInput</span></a></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.Input.html#Input"><span class="hs-identifier hs-type">Input</span></a></span><span>
+</span><span id="line-125"></span><span id="addApplicationInput_input"><span class="annot"><span class="annottext">addApplicationInput_input :: (Input -&gt; f Input) -&gt; AddApplicationInput -&gt; f AddApplicationInput
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#addApplicationInput_input"><span class="hs-identifier hs-var hs-var">addApplicationInput_input</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddApplicationInput -&gt; Input)
+-&gt; (AddApplicationInput -&gt; Input -&gt; AddApplicationInput)
+-&gt; Lens AddApplicationInput AddApplicationInput Input Input
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInput%27"><span class="hs-identifier hs-type">AddApplicationInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307751"><span class="annot"><span class="annottext">Input
+input :: Input
+$sel:input:AddApplicationInput' :: AddApplicationInput -&gt; Input
+</span><a href="#local-6989586621679307751"><span class="hs-identifier hs-var hs-var">input</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Input
+</span><a href="#local-6989586621679307751"><span class="hs-identifier hs-var">input</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307750"><span class="annot"><span class="annottext">s :: AddApplicationInput
+</span><a href="#local-6989586621679307750"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInput%27"><span class="hs-identifier hs-type">AddApplicationInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307749"><span class="annot"><span class="annottext">Input
+</span><a href="#local-6989586621679307749"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddApplicationInput
+</span><a href="#local-6989586621679307750"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:input:AddApplicationInput' :: Input
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#%24sel%3Ainput%3AAddApplicationInput%27"><span class="hs-identifier hs-var">input</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Input
+</span><a href="#local-6989586621679307749"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInput"><span class="hs-identifier hs-type">AddApplicationInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInput"><span class="hs-identifier hs-type">AddApplicationInput</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-129"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInput"><span class="hs-identifier hs-type">AddApplicationInput</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInputResponse"><span class="hs-identifier hs-type">AddApplicationInputResponse</span></a></span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679307745"><span class="annot"><span class="annottext">request :: AddApplicationInput -&gt; Request AddApplicationInput
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AddApplicationInput -&gt; Request AddApplicationInput
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679307741"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy AddApplicationInput
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse AddApplicationInput)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse AddApplicationInput))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy AddApplicationInput
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse AddApplicationInput)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679307738"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679307738"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679307737"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679307737"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679307736"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679307736"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe [InputDescription]
+-&gt; Int
+-&gt; AddApplicationInputResponse
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInputResponse%27"><span class="hs-identifier hs-var">AddApplicationInputResponse'</span></a></span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Natural
+ -&gt; Maybe [InputDescription]
+ -&gt; Int
+ -&gt; AddApplicationInputResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Natural
+      -&gt; Maybe [InputDescription] -&gt; Int -&gt; AddApplicationInputResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679307736"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApplicationARN&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Natural
+   -&gt; Maybe [InputDescription] -&gt; Int -&gt; AddApplicationInputResponse)
+-&gt; Either String (Maybe Natural)
+-&gt; Either
+     String
+     (Maybe [InputDescription] -&gt; Int -&gt; AddApplicationInputResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679307736"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApplicationVersionId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [InputDescription] -&gt; Int -&gt; AddApplicationInputResponse)
+-&gt; Either String (Maybe [InputDescription])
+-&gt; Either String (Int -&gt; AddApplicationInputResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679307736"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [InputDescription]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InputDescriptions&quot;</span></span><span>
+</span><span id="line-139"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [InputDescription]))
+-&gt; Maybe [InputDescription]
+-&gt; Either String (Maybe [InputDescription])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [InputDescription]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-140"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; AddApplicationInputResponse)
+-&gt; Either String Int -&gt; Either String AddApplicationInputResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679307738"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307727"><span id="local-6989586621679307729"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInput"><span class="hs-identifier hs-type">AddApplicationInput</span></a></span></span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307724"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInput"><span class="hs-identifier hs-type">AddApplicationInput</span></a></span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInput"><span class="hs-identifier hs-type">AddApplicationInput</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679307720"><span class="annot"><span class="annottext">toHeaders :: AddApplicationInput -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AddApplicationInput -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-152"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-153"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;KinesisAnalytics_20180523.AddApplicationInput&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-154"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-155"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-157"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-158"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-159"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307710"><span id="local-6989586621679307712"><span id="local-6989586621679307714"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInput"><span class="hs-identifier hs-type">AddApplicationInput</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679307708"><span class="annot"><span class="annottext">toJSON :: AddApplicationInput -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInput%27"><span class="hs-identifier hs-type">AddApplicationInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307704"><span id="local-6989586621679307705"><span id="local-6989586621679307706"><span class="annot"><span class="annottext">Natural
+Text
+Input
+input :: Input
+currentApplicationVersionId :: Natural
+applicationName :: Text
+$sel:input:AddApplicationInput' :: AddApplicationInput -&gt; Input
+$sel:currentApplicationVersionId:AddApplicationInput' :: AddApplicationInput -&gt; Natural
+$sel:applicationName:AddApplicationInput' :: AddApplicationInput -&gt; Text
+</span><a href="#local-6989586621679307704"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-167"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-168"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApplicationName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307706"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-170"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CurrentApplicationVersionId&quot;</span></span><span>
+</span><span id="line-171"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679307705"><span class="hs-identifier hs-var">currentApplicationVersionId</span></a></span><span>
+</span><span id="line-172"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Input&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Input -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Input
+</span><a href="#local-6989586621679307704"><span class="hs-identifier hs-var">input</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInput"><span class="hs-identifier hs-type">AddApplicationInput</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679307698"><span class="annot"><span class="annottext">toPath :: AddApplicationInput -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AddApplicationInput -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInput"><span class="hs-identifier hs-type">AddApplicationInput</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679307694"><span class="annot"><span class="annottext">toQuery :: AddApplicationInput -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AddApplicationInput -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | /See:/ 'newAddApplicationInputResponse' smart constructor.</span><span>
+</span><span id="line-184"></span><span id="local-6989586621679307691"><span id="local-6989586621679307692"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddApplicationInputResponse"><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInputResponse"><span class="hs-identifier hs-var">AddApplicationInputResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddApplicationInputResponse%27"><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInputResponse%27"><span class="hs-identifier hs-var">AddApplicationInputResponse'</span></a></span></span><span>
+</span><span id="line-185"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the application.</span><span>
+</span><span id="line-186"></span><span>    </span><span id="%24sel%3AapplicationARN%3AAddApplicationInputResponse%27"><span class="annot"><span class="annottext">AddApplicationInputResponse -&gt; Maybe Text
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#%24sel%3AapplicationARN%3AAddApplicationInputResponse%27"><span class="hs-identifier hs-var hs-var">applicationARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>    </span><span class="hs-comment">-- | Provides the current application version.</span><span>
+</span><span id="line-188"></span><span>    </span><span id="%24sel%3AapplicationVersionId%3AAddApplicationInputResponse%27"><span class="annot"><span class="annottext">AddApplicationInputResponse -&gt; Maybe Natural
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#%24sel%3AapplicationVersionId%3AAddApplicationInputResponse%27"><span class="hs-identifier hs-var hs-var">applicationVersionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-comment">-- | Describes the application input configuration.</span><span>
+</span><span id="line-190"></span><span>    </span><span id="%24sel%3AinputDescriptions%3AAddApplicationInputResponse%27"><span class="annot"><span class="annottext">AddApplicationInputResponse -&gt; Maybe [InputDescription]
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#%24sel%3AinputDescriptions%3AAddApplicationInputResponse%27"><span class="hs-identifier hs-var hs-var">inputDescriptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.InputDescription.html#InputDescription"><span class="hs-identifier hs-type">InputDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-192"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAddApplicationInputResponse%27"><span class="annot"><span class="annottext">AddApplicationInputResponse -&gt; Int
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#%24sel%3AhttpStatus%3AAddApplicationInputResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-193"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-194"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679307683"><span id="local-6989586621679307685"><span class="annot"><span class="annottext">AddApplicationInputResponse -&gt; AddApplicationInputResponse -&gt; Bool
+(AddApplicationInputResponse
+ -&gt; AddApplicationInputResponse -&gt; Bool)
+-&gt; (AddApplicationInputResponse
+    -&gt; AddApplicationInputResponse -&gt; Bool)
+-&gt; Eq AddApplicationInputResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AddApplicationInputResponse -&gt; AddApplicationInputResponse -&gt; Bool
+$c/= :: AddApplicationInputResponse -&gt; AddApplicationInputResponse -&gt; Bool
+== :: AddApplicationInputResponse -&gt; AddApplicationInputResponse -&gt; Bool
+$c== :: AddApplicationInputResponse -&gt; AddApplicationInputResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307675"><span id="local-6989586621679307677"><span id="local-6989586621679307679"><span id="local-6989586621679307681"><span class="annot"><span class="annottext">ReadPrec [AddApplicationInputResponse]
+ReadPrec AddApplicationInputResponse
+Int -&gt; ReadS AddApplicationInputResponse
+ReadS [AddApplicationInputResponse]
+(Int -&gt; ReadS AddApplicationInputResponse)
+-&gt; ReadS [AddApplicationInputResponse]
+-&gt; ReadPrec AddApplicationInputResponse
+-&gt; ReadPrec [AddApplicationInputResponse]
+-&gt; Read AddApplicationInputResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AddApplicationInputResponse]
+$creadListPrec :: ReadPrec [AddApplicationInputResponse]
+readPrec :: ReadPrec AddApplicationInputResponse
+$creadPrec :: ReadPrec AddApplicationInputResponse
+readList :: ReadS [AddApplicationInputResponse]
+$creadList :: ReadS [AddApplicationInputResponse]
+readsPrec :: Int -&gt; ReadS AddApplicationInputResponse
+$creadsPrec :: Int -&gt; ReadS AddApplicationInputResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307669"><span id="local-6989586621679307671"><span id="local-6989586621679307673"><span class="annot"><span class="annottext">Int -&gt; AddApplicationInputResponse -&gt; ShowS
+[AddApplicationInputResponse] -&gt; ShowS
+AddApplicationInputResponse -&gt; String
+(Int -&gt; AddApplicationInputResponse -&gt; ShowS)
+-&gt; (AddApplicationInputResponse -&gt; String)
+-&gt; ([AddApplicationInputResponse] -&gt; ShowS)
+-&gt; Show AddApplicationInputResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AddApplicationInputResponse] -&gt; ShowS
+$cshowList :: [AddApplicationInputResponse] -&gt; ShowS
+show :: AddApplicationInputResponse -&gt; String
+$cshow :: AddApplicationInputResponse -&gt; String
+showsPrec :: Int -&gt; AddApplicationInputResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; AddApplicationInputResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AddApplicationInputResponse -&gt; Rep AddApplicationInputResponse x)
+-&gt; (forall x.
+    Rep AddApplicationInputResponse x -&gt; AddApplicationInputResponse)
+-&gt; Generic AddApplicationInputResponse
+forall x.
+Rep AddApplicationInputResponse x -&gt; AddApplicationInputResponse
+forall x.
+AddApplicationInputResponse -&gt; Rep AddApplicationInputResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AddApplicationInputResponse x -&gt; AddApplicationInputResponse
+$cfrom :: forall x.
+AddApplicationInputResponse -&gt; Rep AddApplicationInputResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- Create a value of 'AddApplicationInputResponse' with all optional fields omitted.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- 'applicationARN', 'addApplicationInputResponse_applicationARN' - The Amazon Resource Name (ARN) of the application.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- 'applicationVersionId', 'addApplicationInputResponse_applicationVersionId' - Provides the current application version.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- 'inputDescriptions', 'addApplicationInputResponse_inputDescriptions' - Describes the application input configuration.</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- 'httpStatus', 'addApplicationInputResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#newAddApplicationInputResponse"><span class="hs-identifier hs-type">newAddApplicationInputResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-212"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-213"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-214"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInputResponse"><span class="hs-identifier hs-type">AddApplicationInputResponse</span></a></span><span>
+</span><span id="line-215"></span><span id="newAddApplicationInputResponse"><span class="annot"><span class="annottext">newAddApplicationInputResponse :: Int -&gt; AddApplicationInputResponse
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#newAddApplicationInputResponse"><span class="hs-identifier hs-var hs-var">newAddApplicationInputResponse</span></a></span></span><span> </span><span id="local-6989586621679307666"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679307666"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-216"></span><span>  </span><span class="annot"><span class="annottext">AddApplicationInputResponse' :: Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe [InputDescription]
+-&gt; Int
+-&gt; AddApplicationInputResponse
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInputResponse%27"><span class="hs-identifier hs-type">AddApplicationInputResponse'</span></a></span><span>
+</span><span id="line-217"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:applicationARN:AddApplicationInputResponse' :: Maybe Text
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#%24sel%3AapplicationARN%3AAddApplicationInputResponse%27"><span class="hs-identifier hs-var">applicationARN</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-218"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">$sel:applicationVersionId:AddApplicationInputResponse' :: Maybe Natural
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#%24sel%3AapplicationVersionId%3AAddApplicationInputResponse%27"><span class="hs-identifier hs-var">applicationVersionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>      </span><span class="annot"><span class="annottext">$sel:inputDescriptions:AddApplicationInputResponse' :: Maybe [InputDescription]
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#%24sel%3AinputDescriptions%3AAddApplicationInputResponse%27"><span class="hs-identifier hs-var">inputDescriptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InputDescription]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:AddApplicationInputResponse' :: Int
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#%24sel%3AhttpStatus%3AAddApplicationInputResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679307666"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-222"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the application.</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#addApplicationInputResponse_applicationARN"><span class="hs-identifier hs-type">addApplicationInputResponse_applicationARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInputResponse"><span class="hs-identifier hs-type">AddApplicationInputResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span id="addApplicationInputResponse_applicationARN"><span class="annot"><span class="annottext">addApplicationInputResponse_applicationARN :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AddApplicationInputResponse -&gt; f AddApplicationInputResponse
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#addApplicationInputResponse_applicationARN"><span class="hs-identifier hs-var hs-var">addApplicationInputResponse_applicationARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddApplicationInputResponse -&gt; Maybe Text)
+-&gt; (AddApplicationInputResponse
+    -&gt; Maybe Text -&gt; AddApplicationInputResponse)
+-&gt; Lens
+     AddApplicationInputResponse
+     AddApplicationInputResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInputResponse%27"><span class="hs-identifier hs-type">AddApplicationInputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307665"><span class="annot"><span class="annottext">Maybe Text
+applicationARN :: Maybe Text
+$sel:applicationARN:AddApplicationInputResponse' :: AddApplicationInputResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679307665"><span class="hs-identifier hs-var hs-var">applicationARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307665"><span class="hs-identifier hs-var">applicationARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307664"><span class="annot"><span class="annottext">s :: AddApplicationInputResponse
+</span><a href="#local-6989586621679307664"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInputResponse%27"><span class="hs-identifier hs-type">AddApplicationInputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307663"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307663"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddApplicationInputResponse
+</span><a href="#local-6989586621679307664"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationARN:AddApplicationInputResponse' :: Maybe Text
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#%24sel%3AapplicationARN%3AAddApplicationInputResponse%27"><span class="hs-identifier hs-var">applicationARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307663"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInputResponse"><span class="hs-identifier hs-type">AddApplicationInputResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- | Provides the current application version.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#addApplicationInputResponse_applicationVersionId"><span class="hs-identifier hs-type">addApplicationInputResponse_applicationVersionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInputResponse"><span class="hs-identifier hs-type">AddApplicationInputResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span id="addApplicationInputResponse_applicationVersionId"><span class="annot"><span class="annottext">addApplicationInputResponse_applicationVersionId :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; AddApplicationInputResponse -&gt; f AddApplicationInputResponse
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#addApplicationInputResponse_applicationVersionId"><span class="hs-identifier hs-var hs-var">addApplicationInputResponse_applicationVersionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddApplicationInputResponse -&gt; Maybe Natural)
+-&gt; (AddApplicationInputResponse
+    -&gt; Maybe Natural -&gt; AddApplicationInputResponse)
+-&gt; Lens
+     AddApplicationInputResponse
+     AddApplicationInputResponse
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInputResponse%27"><span class="hs-identifier hs-type">AddApplicationInputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307662"><span class="annot"><span class="annottext">Maybe Natural
+applicationVersionId :: Maybe Natural
+$sel:applicationVersionId:AddApplicationInputResponse' :: AddApplicationInputResponse -&gt; Maybe Natural
+</span><a href="#local-6989586621679307662"><span class="hs-identifier hs-var hs-var">applicationVersionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679307662"><span class="hs-identifier hs-var">applicationVersionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307661"><span class="annot"><span class="annottext">s :: AddApplicationInputResponse
+</span><a href="#local-6989586621679307661"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInputResponse%27"><span class="hs-identifier hs-type">AddApplicationInputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307660"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679307660"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddApplicationInputResponse
+</span><a href="#local-6989586621679307661"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationVersionId:AddApplicationInputResponse' :: Maybe Natural
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#%24sel%3AapplicationVersionId%3AAddApplicationInputResponse%27"><span class="hs-identifier hs-var">applicationVersionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679307660"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInputResponse"><span class="hs-identifier hs-type">AddApplicationInputResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | Describes the application input configuration.</span><span>
+</span><span id="line-233"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#addApplicationInputResponse_inputDescriptions"><span class="hs-identifier hs-type">addApplicationInputResponse_inputDescriptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInputResponse"><span class="hs-identifier hs-type">AddApplicationInputResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.InputDescription.html#InputDescription"><span class="hs-identifier hs-type">InputDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span id="addApplicationInputResponse_inputDescriptions"><span class="annot"><span class="annottext">addApplicationInputResponse_inputDescriptions :: (Maybe [InputDescription] -&gt; f (Maybe [InputDescription]))
+-&gt; AddApplicationInputResponse -&gt; f AddApplicationInputResponse
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#addApplicationInputResponse_inputDescriptions"><span class="hs-identifier hs-var hs-var">addApplicationInputResponse_inputDescriptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddApplicationInputResponse -&gt; Maybe [InputDescription])
+-&gt; (AddApplicationInputResponse
+    -&gt; Maybe [InputDescription] -&gt; AddApplicationInputResponse)
+-&gt; Lens
+     AddApplicationInputResponse
+     AddApplicationInputResponse
+     (Maybe [InputDescription])
+     (Maybe [InputDescription])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInputResponse%27"><span class="hs-identifier hs-type">AddApplicationInputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307659"><span class="annot"><span class="annottext">Maybe [InputDescription]
+inputDescriptions :: Maybe [InputDescription]
+$sel:inputDescriptions:AddApplicationInputResponse' :: AddApplicationInputResponse -&gt; Maybe [InputDescription]
+</span><a href="#local-6989586621679307659"><span class="hs-identifier hs-var hs-var">inputDescriptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InputDescription]
+</span><a href="#local-6989586621679307659"><span class="hs-identifier hs-var">inputDescriptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307658"><span class="annot"><span class="annottext">s :: AddApplicationInputResponse
+</span><a href="#local-6989586621679307658"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInputResponse%27"><span class="hs-identifier hs-type">AddApplicationInputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307657"><span class="annot"><span class="annottext">Maybe [InputDescription]
+</span><a href="#local-6989586621679307657"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddApplicationInputResponse
+</span><a href="#local-6989586621679307658"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputDescriptions:AddApplicationInputResponse' :: Maybe [InputDescription]
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#%24sel%3AinputDescriptions%3AAddApplicationInputResponse%27"><span class="hs-identifier hs-var">inputDescriptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InputDescription]
+</span><a href="#local-6989586621679307657"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInputResponse"><span class="hs-identifier hs-type">AddApplicationInputResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InputDescription] -&gt; f (Maybe [InputDescription]))
+ -&gt; AddApplicationInputResponse -&gt; f AddApplicationInputResponse)
+-&gt; ((Maybe [InputDescription] -&gt; f (Maybe [InputDescription]))
+    -&gt; Maybe [InputDescription] -&gt; f (Maybe [InputDescription]))
+-&gt; (Maybe [InputDescription] -&gt; f (Maybe [InputDescription]))
+-&gt; AddApplicationInputResponse
+-&gt; f AddApplicationInputResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [InputDescription]
+  [InputDescription]
+  [InputDescription]
+  [InputDescription]
+-&gt; Iso
+     (Maybe [InputDescription])
+     (Maybe [InputDescription])
+     (Maybe [InputDescription])
+     (Maybe [InputDescription])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [InputDescription]
+  [InputDescription]
+  [InputDescription]
+  [InputDescription]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-237"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#addApplicationInputResponse_httpStatus"><span class="hs-identifier hs-type">addApplicationInputResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInputResponse"><span class="hs-identifier hs-type">AddApplicationInputResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-238"></span><span id="addApplicationInputResponse_httpStatus"><span class="annot"><span class="annottext">addApplicationInputResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; AddApplicationInputResponse -&gt; f AddApplicationInputResponse
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#addApplicationInputResponse_httpStatus"><span class="hs-identifier hs-var hs-var">addApplicationInputResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddApplicationInputResponse -&gt; Int)
+-&gt; (AddApplicationInputResponse
+    -&gt; Int -&gt; AddApplicationInputResponse)
+-&gt; Lens
+     AddApplicationInputResponse AddApplicationInputResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInputResponse%27"><span class="hs-identifier hs-type">AddApplicationInputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307653"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:AddApplicationInputResponse' :: AddApplicationInputResponse -&gt; Int
+</span><a href="#local-6989586621679307653"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679307653"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307652"><span class="annot"><span class="annottext">s :: AddApplicationInputResponse
+</span><a href="#local-6989586621679307652"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInputResponse%27"><span class="hs-identifier hs-type">AddApplicationInputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307651"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679307651"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddApplicationInputResponse
+</span><a href="#local-6989586621679307652"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AddApplicationInputResponse' :: Int
+</span><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#%24sel%3AhttpStatus%3AAddApplicationInputResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679307651"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInputResponse"><span class="hs-identifier hs-type">AddApplicationInputResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307649"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.AddApplicationInput.html#AddApplicationInputResponse"><span class="hs-identifier hs-type">AddApplicationInputResponse</span></a></span></span><span>
+</span><span id="line-241"></span></pre></body></html>

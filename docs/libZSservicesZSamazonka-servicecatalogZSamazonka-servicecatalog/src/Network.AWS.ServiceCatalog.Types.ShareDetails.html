@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Information about the portfolio share operation.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newShareDetails' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679407559"><span id="local-6989586621679407560"></span></span><span class="hs-keyword">data</span><span> </span><span id="ShareDetails"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ShareDetails.html#ShareDetails"><span class="hs-identifier hs-var">ShareDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ShareDetails%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ShareDetails.html#ShareDetails%27"><span class="hs-identifier hs-var">ShareDetails'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679407568"><span id="local-6989586621679407569"></span></span><span class="hs-keyword">data</span><span> </span><span id="ShareDetails"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ShareDetails.html#ShareDetails"><span class="hs-identifier hs-var">ShareDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ShareDetails%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ShareDetails.html#ShareDetails%27"><span class="hs-identifier hs-var">ShareDetails'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | List of errors.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AshareErrors%3AShareDetails%27"><span class="annot"><span class="annottext">ShareDetails -&gt; Maybe [ShareError]
 </span><a href="Network.AWS.ServiceCatalog.Types.ShareDetails.html#%24sel%3AshareErrors%3AShareDetails%27"><span class="hs-identifier hs-var hs-var">shareErrors</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ShareError.html#ShareError"><span class="hs-identifier hs-type">ShareError</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AsuccessfulShares%3AShareDetails%27"><span class="annot"><span class="annottext">ShareDetails -&gt; Maybe [Text]
 </span><a href="Network.AWS.ServiceCatalog.Types.ShareDetails.html#%24sel%3AsuccessfulShares%3AShareDetails%27"><span class="hs-identifier hs-var hs-var">successfulShares</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679407552"><span id="local-6989586621679407554"><span class="annot"><span class="annottext">ShareDetails -&gt; ShareDetails -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679407561"><span id="local-6989586621679407563"><span class="annot"><span class="annottext">ShareDetails -&gt; ShareDetails -&gt; Bool
 (ShareDetails -&gt; ShareDetails -&gt; Bool)
 -&gt; (ShareDetails -&gt; ShareDetails -&gt; Bool) -&gt; Eq ShareDetails
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ShareDetails -&gt; ShareDetails -&gt; Bool
 == :: ShareDetails -&gt; ShareDetails -&gt; Bool
 $c== :: ShareDetails -&gt; ShareDetails -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679407543"><span id="local-6989586621679407545"><span id="local-6989586621679407547"><span id="local-6989586621679407549"><span class="annot"><span class="annottext">ReadPrec [ShareDetails]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679407552"><span id="local-6989586621679407554"><span id="local-6989586621679407556"><span id="local-6989586621679407558"><span class="annot"><span class="annottext">ReadPrec [ShareDetails]
 ReadPrec ShareDetails
 Int -&gt; ReadS ShareDetails
 ReadS [ShareDetails]
@@ -63,7 +63,7 @@ readList :: ReadS [ShareDetails]
 $creadList :: ReadS [ShareDetails]
 readsPrec :: Int -&gt; ReadS ShareDetails
 $creadsPrec :: Int -&gt; ReadS ShareDetails
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679407536"><span id="local-6989586621679407538"><span id="local-6989586621679407540"><span class="annot"><span class="annottext">Int -&gt; ShareDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679407545"><span id="local-6989586621679407547"><span id="local-6989586621679407549"><span class="annot"><span class="annottext">Int -&gt; ShareDetails -&gt; ShowS
 [ShareDetails] -&gt; ShowS
 ShareDetails -&gt; String
 (Int -&gt; ShareDetails -&gt; ShowS)
@@ -125,16 +125,16 @@ forall a. Maybe a
 -&gt; Lens
      ShareDetails ShareDetails (Maybe [ShareError]) (Maybe [ShareError])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ShareDetails.html#ShareDetails%27"><span class="hs-identifier hs-type">ShareDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679407527"><span class="annot"><span class="annottext">Maybe [ShareError]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ShareDetails.html#ShareDetails%27"><span class="hs-identifier hs-type">ShareDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679407536"><span class="annot"><span class="annottext">Maybe [ShareError]
 shareErrors :: Maybe [ShareError]
 $sel:shareErrors:ShareDetails' :: ShareDetails -&gt; Maybe [ShareError]
-</span><a href="#local-6989586621679407527"><span class="hs-identifier hs-var hs-var">shareErrors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ShareError]
-</span><a href="#local-6989586621679407527"><span class="hs-identifier hs-var">shareErrors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679407526"><span class="annot"><span class="annottext">s :: ShareDetails
-</span><a href="#local-6989586621679407526"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ShareDetails.html#ShareDetails%27"><span class="hs-identifier hs-type">ShareDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679407525"><span class="annot"><span class="annottext">Maybe [ShareError]
-</span><a href="#local-6989586621679407525"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ShareDetails
-</span><a href="#local-6989586621679407526"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shareErrors:ShareDetails' :: Maybe [ShareError]
+</span><a href="#local-6989586621679407536"><span class="hs-identifier hs-var hs-var">shareErrors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ShareError]
+</span><a href="#local-6989586621679407536"><span class="hs-identifier hs-var">shareErrors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679407535"><span class="annot"><span class="annottext">s :: ShareDetails
+</span><a href="#local-6989586621679407535"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ShareDetails.html#ShareDetails%27"><span class="hs-identifier hs-type">ShareDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679407534"><span class="annot"><span class="annottext">Maybe [ShareError]
+</span><a href="#local-6989586621679407534"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ShareDetails
+</span><a href="#local-6989586621679407535"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shareErrors:ShareDetails' :: Maybe [ShareError]
 </span><a href="Network.AWS.ServiceCatalog.Types.ShareDetails.html#%24sel%3AshareErrors%3AShareDetails%27"><span class="hs-identifier hs-var">shareErrors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ShareError]
-</span><a href="#local-6989586621679407525"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ShareDetails.html#ShareDetails"><span class="hs-identifier hs-type">ShareDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ShareError] -&gt; f (Maybe [ShareError]))
+</span><a href="#local-6989586621679407534"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ShareDetails.html#ShareDetails"><span class="hs-identifier hs-type">ShareDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ShareError] -&gt; f (Maybe [ShareError]))
  -&gt; ShareDetails -&gt; f ShareDetails)
 -&gt; ((Maybe [ShareError] -&gt; f (Maybe [ShareError]))
     -&gt; Maybe [ShareError] -&gt; f (Maybe [ShareError]))
@@ -163,16 +163,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ShareDetails -&gt; Maybe [Text] -&gt; ShareDetails)
 -&gt; Lens ShareDetails ShareDetails (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ShareDetails.html#ShareDetails%27"><span class="hs-identifier hs-type">ShareDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679407520"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ShareDetails.html#ShareDetails%27"><span class="hs-identifier hs-type">ShareDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679407529"><span class="annot"><span class="annottext">Maybe [Text]
 successfulShares :: Maybe [Text]
 $sel:successfulShares:ShareDetails' :: ShareDetails -&gt; Maybe [Text]
-</span><a href="#local-6989586621679407520"><span class="hs-identifier hs-var hs-var">successfulShares</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679407520"><span class="hs-identifier hs-var">successfulShares</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679407519"><span class="annot"><span class="annottext">s :: ShareDetails
-</span><a href="#local-6989586621679407519"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ShareDetails.html#ShareDetails%27"><span class="hs-identifier hs-type">ShareDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679407518"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679407518"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ShareDetails
-</span><a href="#local-6989586621679407519"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:successfulShares:ShareDetails' :: Maybe [Text]
+</span><a href="#local-6989586621679407529"><span class="hs-identifier hs-var hs-var">successfulShares</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679407529"><span class="hs-identifier hs-var">successfulShares</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679407528"><span class="annot"><span class="annottext">s :: ShareDetails
+</span><a href="#local-6989586621679407528"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ShareDetails.html#ShareDetails%27"><span class="hs-identifier hs-type">ShareDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679407527"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679407527"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ShareDetails
+</span><a href="#local-6989586621679407528"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:successfulShares:ShareDetails' :: Maybe [Text]
 </span><a href="Network.AWS.ServiceCatalog.Types.ShareDetails.html#%24sel%3AsuccessfulShares%3AShareDetails%27"><span class="hs-identifier hs-var">successfulShares</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679407518"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ShareDetails.html#ShareDetails"><span class="hs-identifier hs-type">ShareDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679407527"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ShareDetails.html#ShareDetails"><span class="hs-identifier hs-type">ShareDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ShareDetails -&gt; f ShareDetails)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -189,8 +189,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679407515"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ShareDetails.html#ShareDetails"><span class="hs-identifier hs-type">ShareDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679407513"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ShareDetails
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679407524"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ShareDetails.html#ShareDetails"><span class="hs-identifier hs-type">ShareDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679407522"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ShareDetails
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ShareDetails) -&gt; Value -&gt; Parser ShareDetails
@@ -198,8 +198,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ShareDetails&quot;</span></span><span>
-</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679407510"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679407510"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679407519"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679407519"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ShareError] -&gt; Maybe [Text] -&gt; ShareDetails
 </span><a href="Network.AWS.ServiceCatalog.Types.ShareDetails.html#ShareDetails%27"><span class="hs-identifier hs-var">ShareDetails'</span></a></span><span>
 </span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ShareError] -&gt; Maybe [Text] -&gt; ShareDetails)
@@ -207,7 +207,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe [Text] -&gt; ShareDetails)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679407510"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ShareError]))
+</span><a href="#local-6989586621679407519"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ShareError]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ShareErrors&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [ShareError]))
@@ -220,7 +220,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe [Text]) -&gt; Parser ShareDetails
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679407510"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679407519"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SuccessfulShares&quot;</span></span><span>
@@ -233,7 +233,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-74"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679407503"><span id="local-6989586621679407505"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ShareDetails.html#ShareDetails"><span class="hs-identifier hs-type">ShareDetails</span></a></span></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679407512"><span id="local-6989586621679407514"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ShareDetails.html#ShareDetails"><span class="hs-identifier hs-type">ShareDetails</span></a></span></span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679407500"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ShareDetails.html#ShareDetails"><span class="hs-identifier hs-type">ShareDetails</span></a></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679407509"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ShareDetails.html#ShareDetails"><span class="hs-identifier hs-type">ShareDetails</span></a></span></span><span>
 </span><span id="line-80"></span></pre></body></html>

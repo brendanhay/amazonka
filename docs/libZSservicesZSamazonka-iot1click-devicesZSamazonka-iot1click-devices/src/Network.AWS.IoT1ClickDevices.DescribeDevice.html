@@ -1,0 +1,393 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.IoT1ClickDevices.DescribeDevice</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Given a device ID, returns a DescribeDeviceResponse object describing</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- the details of the device.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoT1ClickDevices.DescribeDevice</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#DescribeDevice"><span class="hs-identifier">DescribeDevice</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#newDescribeDevice"><span class="hs-identifier">newDescribeDevice</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#describeDevice_deviceId"><span class="hs-identifier">describeDevice_deviceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#DescribeDeviceResponse"><span class="hs-identifier">DescribeDeviceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#newDescribeDeviceResponse"><span class="hs-identifier">newDescribeDeviceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#describeDeviceResponse_deviceDescription"><span class="hs-identifier">describeDeviceResponse_deviceDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#describeDeviceResponse_httpStatus"><span class="hs-identifier">describeDeviceResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.Types.html"><span class="hs-identifier">Network.AWS.IoT1ClickDevices.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDescribeDevice' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679155662"><span id="local-6989586621679155663"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDevice"><span class="annot"><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#DescribeDevice"><span class="hs-identifier hs-var">DescribeDevice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDevice%27"><span class="annot"><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#DescribeDevice%27"><span class="hs-identifier hs-var">DescribeDevice'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier of the device.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AdeviceId%3ADescribeDevice%27"><span class="annot"><span class="annottext">DescribeDevice -&gt; Text
+</span><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#%24sel%3AdeviceId%3ADescribeDevice%27"><span class="hs-identifier hs-var hs-var">deviceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679155656"><span id="local-6989586621679155658"><span class="annot"><span class="annottext">DescribeDevice -&gt; DescribeDevice -&gt; Bool
+(DescribeDevice -&gt; DescribeDevice -&gt; Bool)
+-&gt; (DescribeDevice -&gt; DescribeDevice -&gt; Bool) -&gt; Eq DescribeDevice
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeDevice -&gt; DescribeDevice -&gt; Bool
+$c/= :: DescribeDevice -&gt; DescribeDevice -&gt; Bool
+== :: DescribeDevice -&gt; DescribeDevice -&gt; Bool
+$c== :: DescribeDevice -&gt; DescribeDevice -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679155647"><span id="local-6989586621679155649"><span id="local-6989586621679155651"><span id="local-6989586621679155653"><span class="annot"><span class="annottext">ReadPrec [DescribeDevice]
+ReadPrec DescribeDevice
+Int -&gt; ReadS DescribeDevice
+ReadS [DescribeDevice]
+(Int -&gt; ReadS DescribeDevice)
+-&gt; ReadS [DescribeDevice]
+-&gt; ReadPrec DescribeDevice
+-&gt; ReadPrec [DescribeDevice]
+-&gt; Read DescribeDevice
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeDevice]
+$creadListPrec :: ReadPrec [DescribeDevice]
+readPrec :: ReadPrec DescribeDevice
+$creadPrec :: ReadPrec DescribeDevice
+readList :: ReadS [DescribeDevice]
+$creadList :: ReadS [DescribeDevice]
+readsPrec :: Int -&gt; ReadS DescribeDevice
+$creadsPrec :: Int -&gt; ReadS DescribeDevice
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679155640"><span id="local-6989586621679155642"><span id="local-6989586621679155644"><span class="annot"><span class="annottext">Int -&gt; DescribeDevice -&gt; ShowS
+[DescribeDevice] -&gt; ShowS
+DescribeDevice -&gt; String
+(Int -&gt; DescribeDevice -&gt; ShowS)
+-&gt; (DescribeDevice -&gt; String)
+-&gt; ([DescribeDevice] -&gt; ShowS)
+-&gt; Show DescribeDevice
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeDevice] -&gt; ShowS
+$cshowList :: [DescribeDevice] -&gt; ShowS
+show :: DescribeDevice -&gt; String
+$cshow :: DescribeDevice -&gt; String
+showsPrec :: Int -&gt; DescribeDevice -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeDevice -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeDevice -&gt; Rep DescribeDevice x)
+-&gt; (forall x. Rep DescribeDevice x -&gt; DescribeDevice)
+-&gt; Generic DescribeDevice
+forall x. Rep DescribeDevice x -&gt; DescribeDevice
+forall x. DescribeDevice -&gt; Rep DescribeDevice x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeDevice x -&gt; DescribeDevice
+$cfrom :: forall x. DescribeDevice -&gt; Rep DescribeDevice x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'DescribeDevice' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'deviceId', 'describeDevice_deviceId' - The unique identifier of the device.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#newDescribeDevice"><span class="hs-identifier hs-type">newDescribeDevice</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-comment">-- | 'deviceId'</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#DescribeDevice"><span class="hs-identifier hs-type">DescribeDevice</span></a></span><span>
+</span><span id="line-70"></span><span id="newDescribeDevice"><span class="annot"><span class="annottext">newDescribeDevice :: Text -&gt; DescribeDevice
+</span><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#newDescribeDevice"><span class="hs-identifier hs-var hs-var">newDescribeDevice</span></a></span></span><span> </span><span id="local-6989586621679155635"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679155635"><span class="hs-identifier hs-var">pDeviceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">DescribeDevice' :: Text -&gt; DescribeDevice
+</span><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#DescribeDevice%27"><span class="hs-identifier hs-type">DescribeDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceId:DescribeDevice' :: Text
+</span><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#%24sel%3AdeviceId%3ADescribeDevice%27"><span class="hs-identifier hs-var">deviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679155635"><span class="hs-identifier hs-var">pDeviceId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | The unique identifier of the device.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#describeDevice_deviceId"><span class="hs-identifier hs-type">describeDevice_deviceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#DescribeDevice"><span class="hs-identifier hs-type">DescribeDevice</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-75"></span><span id="describeDevice_deviceId"><span class="annot"><span class="annottext">describeDevice_deviceId :: (Text -&gt; f Text) -&gt; DescribeDevice -&gt; f DescribeDevice
+</span><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#describeDevice_deviceId"><span class="hs-identifier hs-var hs-var">describeDevice_deviceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDevice -&gt; Text)
+-&gt; (DescribeDevice -&gt; Text -&gt; DescribeDevice)
+-&gt; Lens DescribeDevice DescribeDevice Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#DescribeDevice%27"><span class="hs-identifier hs-type">DescribeDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155632"><span class="annot"><span class="annottext">Text
+deviceId :: Text
+$sel:deviceId:DescribeDevice' :: DescribeDevice -&gt; Text
+</span><a href="#local-6989586621679155632"><span class="hs-identifier hs-var hs-var">deviceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679155632"><span class="hs-identifier hs-var">deviceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155631"><span class="annot"><span class="annottext">s :: DescribeDevice
+</span><a href="#local-6989586621679155631"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#DescribeDevice%27"><span class="hs-identifier hs-type">DescribeDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155630"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679155630"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDevice
+</span><a href="#local-6989586621679155631"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceId:DescribeDevice' :: Text
+</span><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#%24sel%3AdeviceId%3ADescribeDevice%27"><span class="hs-identifier hs-var">deviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679155630"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#DescribeDevice"><span class="hs-identifier hs-type">DescribeDevice</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#DescribeDevice"><span class="hs-identifier hs-type">DescribeDevice</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-79"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#DescribeDevice"><span class="hs-identifier hs-type">DescribeDevice</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#DescribeDeviceResponse"><span class="hs-identifier hs-type">DescribeDeviceResponse</span></a></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679155626"><span class="annot"><span class="annottext">request :: DescribeDevice -&gt; Request DescribeDevice
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeDevice -&gt; Request DescribeDevice
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.IoT1ClickDevices.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679155622"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeDevice
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeDevice)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeDevice))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeDevice
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeDevice)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679155619"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679155619"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679155618"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679155618"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679155617"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679155617"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe DeviceDescription -&gt; Int -&gt; DescribeDeviceResponse
+</span><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#DescribeDeviceResponse%27"><span class="hs-identifier hs-var">DescribeDeviceResponse'</span></a></span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DeviceDescription -&gt; Int -&gt; DescribeDeviceResponse)
+-&gt; Either String (Maybe DeviceDescription)
+-&gt; Either String (Int -&gt; DescribeDeviceResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679155617"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe DeviceDescription)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;deviceDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeDeviceResponse)
+-&gt; Either String Int -&gt; Either String DescribeDeviceResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679155619"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679155609"><span id="local-6989586621679155611"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#DescribeDevice"><span class="hs-identifier hs-type">DescribeDevice</span></a></span></span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679155606"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#DescribeDevice"><span class="hs-identifier hs-type">DescribeDevice</span></a></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#DescribeDevice"><span class="hs-identifier hs-type">DescribeDevice</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679155602"><span class="annot"><span class="annottext">toHeaders :: DescribeDevice -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeDevice -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-98"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-99"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-100"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-101"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#DescribeDevice"><span class="hs-identifier hs-type">DescribeDevice</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679155596"><span class="annot"><span class="annottext">toPath :: DescribeDevice -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#DescribeDevice%27"><span class="hs-identifier hs-type">DescribeDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155594"><span class="annot"><span class="annottext">Text
+deviceId :: Text
+$sel:deviceId:DescribeDevice' :: DescribeDevice -&gt; Text
+</span><a href="#local-6989586621679155594"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/devices/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679155594"><span class="hs-identifier hs-var">deviceId</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#DescribeDevice"><span class="hs-identifier hs-type">DescribeDevice</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679155590"><span class="annot"><span class="annottext">toQuery :: DescribeDevice -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeDevice -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | /See:/ 'newDescribeDeviceResponse' smart constructor.</span><span>
+</span><span id="line-113"></span><span id="local-6989586621679155587"><span id="local-6989586621679155588"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDeviceResponse"><span class="annot"><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#DescribeDeviceResponse"><span class="hs-identifier hs-var">DescribeDeviceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDeviceResponse%27"><span class="annot"><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#DescribeDeviceResponse%27"><span class="hs-identifier hs-var">DescribeDeviceResponse'</span></a></span></span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Device details.</span><span>
+</span><span id="line-115"></span><span>    </span><span id="%24sel%3AdeviceDescription%3ADescribeDeviceResponse%27"><span class="annot"><span class="annottext">DescribeDeviceResponse -&gt; Maybe DeviceDescription
+</span><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#%24sel%3AdeviceDescription%3ADescribeDeviceResponse%27"><span class="hs-identifier hs-var hs-var">deviceDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.Types.DeviceDescription.html#DeviceDescription"><span class="hs-identifier hs-type">DeviceDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-117"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeDeviceResponse%27"><span class="annot"><span class="annottext">DescribeDeviceResponse -&gt; Int
+</span><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#%24sel%3AhttpStatus%3ADescribeDeviceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-119"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679155581"><span id="local-6989586621679155583"><span class="annot"><span class="annottext">DescribeDeviceResponse -&gt; DescribeDeviceResponse -&gt; Bool
+(DescribeDeviceResponse -&gt; DescribeDeviceResponse -&gt; Bool)
+-&gt; (DescribeDeviceResponse -&gt; DescribeDeviceResponse -&gt; Bool)
+-&gt; Eq DescribeDeviceResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeDeviceResponse -&gt; DescribeDeviceResponse -&gt; Bool
+$c/= :: DescribeDeviceResponse -&gt; DescribeDeviceResponse -&gt; Bool
+== :: DescribeDeviceResponse -&gt; DescribeDeviceResponse -&gt; Bool
+$c== :: DescribeDeviceResponse -&gt; DescribeDeviceResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679155573"><span id="local-6989586621679155575"><span id="local-6989586621679155577"><span id="local-6989586621679155579"><span class="annot"><span class="annottext">ReadPrec [DescribeDeviceResponse]
+ReadPrec DescribeDeviceResponse
+Int -&gt; ReadS DescribeDeviceResponse
+ReadS [DescribeDeviceResponse]
+(Int -&gt; ReadS DescribeDeviceResponse)
+-&gt; ReadS [DescribeDeviceResponse]
+-&gt; ReadPrec DescribeDeviceResponse
+-&gt; ReadPrec [DescribeDeviceResponse]
+-&gt; Read DescribeDeviceResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeDeviceResponse]
+$creadListPrec :: ReadPrec [DescribeDeviceResponse]
+readPrec :: ReadPrec DescribeDeviceResponse
+$creadPrec :: ReadPrec DescribeDeviceResponse
+readList :: ReadS [DescribeDeviceResponse]
+$creadList :: ReadS [DescribeDeviceResponse]
+readsPrec :: Int -&gt; ReadS DescribeDeviceResponse
+$creadsPrec :: Int -&gt; ReadS DescribeDeviceResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679155567"><span id="local-6989586621679155569"><span id="local-6989586621679155571"><span class="annot"><span class="annottext">Int -&gt; DescribeDeviceResponse -&gt; ShowS
+[DescribeDeviceResponse] -&gt; ShowS
+DescribeDeviceResponse -&gt; String
+(Int -&gt; DescribeDeviceResponse -&gt; ShowS)
+-&gt; (DescribeDeviceResponse -&gt; String)
+-&gt; ([DescribeDeviceResponse] -&gt; ShowS)
+-&gt; Show DescribeDeviceResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeDeviceResponse] -&gt; ShowS
+$cshowList :: [DescribeDeviceResponse] -&gt; ShowS
+show :: DescribeDeviceResponse -&gt; String
+$cshow :: DescribeDeviceResponse -&gt; String
+showsPrec :: Int -&gt; DescribeDeviceResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeDeviceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeDeviceResponse -&gt; Rep DescribeDeviceResponse x)
+-&gt; (forall x.
+    Rep DescribeDeviceResponse x -&gt; DescribeDeviceResponse)
+-&gt; Generic DescribeDeviceResponse
+forall x. Rep DescribeDeviceResponse x -&gt; DescribeDeviceResponse
+forall x. DescribeDeviceResponse -&gt; Rep DescribeDeviceResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeDeviceResponse x -&gt; DescribeDeviceResponse
+$cfrom :: forall x. DescribeDeviceResponse -&gt; Rep DescribeDeviceResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- Create a value of 'DescribeDeviceResponse' with all optional fields omitted.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'deviceDescription', 'describeDeviceResponse_deviceDescription' - Device details.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'httpStatus', 'describeDeviceResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#newDescribeDeviceResponse"><span class="hs-identifier hs-type">newDescribeDeviceResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#DescribeDeviceResponse"><span class="hs-identifier hs-type">DescribeDeviceResponse</span></a></span><span>
+</span><span id="line-136"></span><span id="newDescribeDeviceResponse"><span class="annot"><span class="annottext">newDescribeDeviceResponse :: Int -&gt; DescribeDeviceResponse
+</span><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#newDescribeDeviceResponse"><span class="hs-identifier hs-var hs-var">newDescribeDeviceResponse</span></a></span></span><span> </span><span id="local-6989586621679155564"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679155564"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><span class="annottext">DescribeDeviceResponse' :: Maybe DeviceDescription -&gt; Int -&gt; DescribeDeviceResponse
+</span><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#DescribeDeviceResponse%27"><span class="hs-identifier hs-type">DescribeDeviceResponse'</span></a></span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deviceDescription:DescribeDeviceResponse' :: Maybe DeviceDescription
+</span><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#%24sel%3AdeviceDescription%3ADescribeDeviceResponse%27"><span class="hs-identifier hs-var">deviceDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">Maybe DeviceDescription
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeDeviceResponse' :: Int
+</span><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#%24sel%3AhttpStatus%3ADescribeDeviceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679155564"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | Device details.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#describeDeviceResponse_deviceDescription"><span class="hs-identifier hs-type">describeDeviceResponse_deviceDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#DescribeDeviceResponse"><span class="hs-identifier hs-type">DescribeDeviceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.Types.DeviceDescription.html#DeviceDescription"><span class="hs-identifier hs-type">DeviceDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="describeDeviceResponse_deviceDescription"><span class="annot"><span class="annottext">describeDeviceResponse_deviceDescription :: (Maybe DeviceDescription -&gt; f (Maybe DeviceDescription))
+-&gt; DescribeDeviceResponse -&gt; f DescribeDeviceResponse
+</span><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#describeDeviceResponse_deviceDescription"><span class="hs-identifier hs-var hs-var">describeDeviceResponse_deviceDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDeviceResponse -&gt; Maybe DeviceDescription)
+-&gt; (DescribeDeviceResponse
+    -&gt; Maybe DeviceDescription -&gt; DescribeDeviceResponse)
+-&gt; Lens
+     DescribeDeviceResponse
+     DescribeDeviceResponse
+     (Maybe DeviceDescription)
+     (Maybe DeviceDescription)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#DescribeDeviceResponse%27"><span class="hs-identifier hs-type">DescribeDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155563"><span class="annot"><span class="annottext">Maybe DeviceDescription
+deviceDescription :: Maybe DeviceDescription
+$sel:deviceDescription:DescribeDeviceResponse' :: DescribeDeviceResponse -&gt; Maybe DeviceDescription
+</span><a href="#local-6989586621679155563"><span class="hs-identifier hs-var hs-var">deviceDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceDescription
+</span><a href="#local-6989586621679155563"><span class="hs-identifier hs-var">deviceDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155562"><span class="annot"><span class="annottext">s :: DescribeDeviceResponse
+</span><a href="#local-6989586621679155562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#DescribeDeviceResponse%27"><span class="hs-identifier hs-type">DescribeDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155561"><span class="annot"><span class="annottext">Maybe DeviceDescription
+</span><a href="#local-6989586621679155561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDeviceResponse
+</span><a href="#local-6989586621679155562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceDescription:DescribeDeviceResponse' :: Maybe DeviceDescription
+</span><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#%24sel%3AdeviceDescription%3ADescribeDeviceResponse%27"><span class="hs-identifier hs-var">deviceDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceDescription
+</span><a href="#local-6989586621679155561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#DescribeDeviceResponse"><span class="hs-identifier hs-type">DescribeDeviceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#describeDeviceResponse_httpStatus"><span class="hs-identifier hs-type">describeDeviceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#DescribeDeviceResponse"><span class="hs-identifier hs-type">DescribeDeviceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-149"></span><span id="describeDeviceResponse_httpStatus"><span class="annot"><span class="annottext">describeDeviceResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeDeviceResponse -&gt; f DescribeDeviceResponse
+</span><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#describeDeviceResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeDeviceResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDeviceResponse -&gt; Int)
+-&gt; (DescribeDeviceResponse -&gt; Int -&gt; DescribeDeviceResponse)
+-&gt; Lens DescribeDeviceResponse DescribeDeviceResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#DescribeDeviceResponse%27"><span class="hs-identifier hs-type">DescribeDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155560"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeDeviceResponse' :: DescribeDeviceResponse -&gt; Int
+</span><a href="#local-6989586621679155560"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679155560"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155559"><span class="annot"><span class="annottext">s :: DescribeDeviceResponse
+</span><a href="#local-6989586621679155559"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#DescribeDeviceResponse%27"><span class="hs-identifier hs-type">DescribeDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155558"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679155558"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDeviceResponse
+</span><a href="#local-6989586621679155559"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeDeviceResponse' :: Int
+</span><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#%24sel%3AhttpStatus%3ADescribeDeviceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679155558"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#DescribeDeviceResponse"><span class="hs-identifier hs-type">DescribeDeviceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679155556"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.DescribeDevice.html#DescribeDeviceResponse"><span class="hs-identifier hs-type">DescribeDeviceResponse</span></a></span></span><span>
+</span><span id="line-152"></span></pre></body></html>

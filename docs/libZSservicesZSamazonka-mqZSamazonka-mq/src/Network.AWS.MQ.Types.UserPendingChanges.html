@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- ActiveMQ user.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newUserPendingChanges' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679225072"><span id="local-6989586621679225073"></span></span><span class="hs-keyword">data</span><span> </span><span id="UserPendingChanges"><span class="annot"><a href="Network.AWS.MQ.Types.UserPendingChanges.html#UserPendingChanges"><span class="hs-identifier hs-var">UserPendingChanges</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserPendingChanges%27"><span class="annot"><a href="Network.AWS.MQ.Types.UserPendingChanges.html#UserPendingChanges%27"><span class="hs-identifier hs-var">UserPendingChanges'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679225081"><span id="local-6989586621679225082"></span></span><span class="hs-keyword">data</span><span> </span><span id="UserPendingChanges"><span class="annot"><a href="Network.AWS.MQ.Types.UserPendingChanges.html#UserPendingChanges"><span class="hs-identifier hs-var">UserPendingChanges</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserPendingChanges%27"><span class="annot"><a href="Network.AWS.MQ.Types.UserPendingChanges.html#UserPendingChanges%27"><span class="hs-identifier hs-var">UserPendingChanges'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of groups (20 maximum) to which the ActiveMQ user belongs. This</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- value can contain only alphanumeric characters, dashes, periods,</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- underscores, and tildes (- . _ ~). This value must be 2-100 characters</span><span>
@@ -42,7 +42,7 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3ApendingChange%3AUserPendingChanges%27"><span class="annot"><span class="annottext">UserPendingChanges -&gt; ChangeType
 </span><a href="Network.AWS.MQ.Types.UserPendingChanges.html#%24sel%3ApendingChange%3AUserPendingChanges%27"><span class="hs-identifier hs-var hs-var">pendingChange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.ChangeType.html#ChangeType"><span class="hs-identifier hs-type">ChangeType</span></a></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225064"><span id="local-6989586621679225066"><span class="annot"><span class="annottext">UserPendingChanges -&gt; UserPendingChanges -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225073"><span id="local-6989586621679225075"><span class="annot"><span class="annottext">UserPendingChanges -&gt; UserPendingChanges -&gt; Bool
 (UserPendingChanges -&gt; UserPendingChanges -&gt; Bool)
 -&gt; (UserPendingChanges -&gt; UserPendingChanges -&gt; Bool)
 -&gt; Eq UserPendingChanges
@@ -51,7 +51,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UserPendingChanges -&gt; UserPendingChanges -&gt; Bool
 == :: UserPendingChanges -&gt; UserPendingChanges -&gt; Bool
 $c== :: UserPendingChanges -&gt; UserPendingChanges -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225055"><span id="local-6989586621679225057"><span id="local-6989586621679225059"><span id="local-6989586621679225061"><span class="annot"><span class="annottext">ReadPrec [UserPendingChanges]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225064"><span id="local-6989586621679225066"><span id="local-6989586621679225068"><span id="local-6989586621679225070"><span class="annot"><span class="annottext">ReadPrec [UserPendingChanges]
 ReadPrec UserPendingChanges
 Int -&gt; ReadS UserPendingChanges
 ReadS [UserPendingChanges]
@@ -71,7 +71,7 @@ readList :: ReadS [UserPendingChanges]
 $creadList :: ReadS [UserPendingChanges]
 readsPrec :: Int -&gt; ReadS UserPendingChanges
 $creadsPrec :: Int -&gt; ReadS UserPendingChanges
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225048"><span id="local-6989586621679225050"><span id="local-6989586621679225052"><span class="annot"><span class="annottext">Int -&gt; UserPendingChanges -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225057"><span id="local-6989586621679225059"><span id="local-6989586621679225061"><span class="annot"><span class="annottext">Int -&gt; UserPendingChanges -&gt; ShowS
 [UserPendingChanges] -&gt; ShowS
 UserPendingChanges -&gt; String
 (Int -&gt; UserPendingChanges -&gt; ShowS)
@@ -118,8 +118,8 @@ $cfrom :: forall x. UserPendingChanges -&gt; Rep UserPendingChanges x
 </span><span id="line-62"></span><span>  </span><span class="annot"><a href="Network.AWS.MQ.Types.ChangeType.html#ChangeType"><span class="hs-identifier hs-type">ChangeType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.MQ.Types.UserPendingChanges.html#UserPendingChanges"><span class="hs-identifier hs-type">UserPendingChanges</span></a></span><span>
 </span><span id="line-64"></span><span id="newUserPendingChanges"><span class="annot"><span class="annottext">newUserPendingChanges :: ChangeType -&gt; UserPendingChanges
-</span><a href="Network.AWS.MQ.Types.UserPendingChanges.html#newUserPendingChanges"><span class="hs-identifier hs-var hs-var">newUserPendingChanges</span></a></span></span><span> </span><span id="local-6989586621679225042"><span class="annot"><span class="annottext">ChangeType
-</span><a href="#local-6989586621679225042"><span class="hs-identifier hs-var">pPendingChange_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MQ.Types.UserPendingChanges.html#newUserPendingChanges"><span class="hs-identifier hs-var hs-var">newUserPendingChanges</span></a></span></span><span> </span><span id="local-6989586621679225051"><span class="annot"><span class="annottext">ChangeType
+</span><a href="#local-6989586621679225051"><span class="hs-identifier hs-var">pPendingChange_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">UserPendingChanges' :: Maybe [Text] -&gt; Maybe Bool -&gt; ChangeType -&gt; UserPendingChanges
 </span><a href="Network.AWS.MQ.Types.UserPendingChanges.html#UserPendingChanges%27"><span class="hs-identifier hs-type">UserPendingChanges'</span></a></span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:groups:UserPendingChanges' :: Maybe [Text]
@@ -132,7 +132,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:pendingChange:UserPendingChanges' :: ChangeType
 </span><a href="Network.AWS.MQ.Types.UserPendingChanges.html#%24sel%3ApendingChange%3AUserPendingChanges%27"><span class="hs-identifier hs-var">pendingChange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ChangeType
-</span><a href="#local-6989586621679225042"><span class="hs-identifier hs-var">pPendingChange_</span></a></span><span>
+</span><a href="#local-6989586621679225051"><span class="hs-identifier hs-var">pPendingChange_</span></a></span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | The list of groups (20 maximum) to which the ActiveMQ user belongs. This</span><span>
@@ -147,16 +147,16 @@ forall a. Maybe a
 -&gt; Lens
      UserPendingChanges UserPendingChanges (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.UserPendingChanges.html#UserPendingChanges%27"><span class="hs-identifier hs-type">UserPendingChanges'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225038"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.UserPendingChanges.html#UserPendingChanges%27"><span class="hs-identifier hs-type">UserPendingChanges'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225047"><span class="annot"><span class="annottext">Maybe [Text]
 groups :: Maybe [Text]
 $sel:groups:UserPendingChanges' :: UserPendingChanges -&gt; Maybe [Text]
-</span><a href="#local-6989586621679225038"><span class="hs-identifier hs-var hs-var">groups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679225038"><span class="hs-identifier hs-var">groups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225037"><span class="annot"><span class="annottext">s :: UserPendingChanges
-</span><a href="#local-6989586621679225037"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.UserPendingChanges.html#UserPendingChanges%27"><span class="hs-identifier hs-type">UserPendingChanges'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225036"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679225036"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserPendingChanges
-</span><a href="#local-6989586621679225037"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groups:UserPendingChanges' :: Maybe [Text]
+</span><a href="#local-6989586621679225047"><span class="hs-identifier hs-var hs-var">groups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679225047"><span class="hs-identifier hs-var">groups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225046"><span class="annot"><span class="annottext">s :: UserPendingChanges
+</span><a href="#local-6989586621679225046"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.UserPendingChanges.html#UserPendingChanges%27"><span class="hs-identifier hs-type">UserPendingChanges'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225045"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679225045"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserPendingChanges
+</span><a href="#local-6989586621679225046"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groups:UserPendingChanges' :: Maybe [Text]
 </span><a href="Network.AWS.MQ.Types.UserPendingChanges.html#%24sel%3Agroups%3AUserPendingChanges%27"><span class="hs-identifier hs-var">groups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679225036"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.UserPendingChanges.html#UserPendingChanges"><span class="hs-identifier hs-type">UserPendingChanges</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679225045"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.UserPendingChanges.html#UserPendingChanges"><span class="hs-identifier hs-type">UserPendingChanges</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; UserPendingChanges -&gt; f UserPendingChanges)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -182,16 +182,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      UserPendingChanges UserPendingChanges (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.UserPendingChanges.html#UserPendingChanges%27"><span class="hs-identifier hs-type">UserPendingChanges'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225031"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.UserPendingChanges.html#UserPendingChanges%27"><span class="hs-identifier hs-type">UserPendingChanges'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225040"><span class="annot"><span class="annottext">Maybe Bool
 consoleAccess :: Maybe Bool
 $sel:consoleAccess:UserPendingChanges' :: UserPendingChanges -&gt; Maybe Bool
-</span><a href="#local-6989586621679225031"><span class="hs-identifier hs-var hs-var">consoleAccess</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679225031"><span class="hs-identifier hs-var">consoleAccess</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225030"><span class="annot"><span class="annottext">s :: UserPendingChanges
-</span><a href="#local-6989586621679225030"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.UserPendingChanges.html#UserPendingChanges%27"><span class="hs-identifier hs-type">UserPendingChanges'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225029"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679225029"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserPendingChanges
-</span><a href="#local-6989586621679225030"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consoleAccess:UserPendingChanges' :: Maybe Bool
+</span><a href="#local-6989586621679225040"><span class="hs-identifier hs-var hs-var">consoleAccess</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679225040"><span class="hs-identifier hs-var">consoleAccess</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225039"><span class="annot"><span class="annottext">s :: UserPendingChanges
+</span><a href="#local-6989586621679225039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.UserPendingChanges.html#UserPendingChanges%27"><span class="hs-identifier hs-type">UserPendingChanges'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225038"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679225038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserPendingChanges
+</span><a href="#local-6989586621679225039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consoleAccess:UserPendingChanges' :: Maybe Bool
 </span><a href="Network.AWS.MQ.Types.UserPendingChanges.html#%24sel%3AconsoleAccess%3AUserPendingChanges%27"><span class="hs-identifier hs-var">consoleAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679225029"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.UserPendingChanges.html#UserPendingChanges"><span class="hs-identifier hs-type">UserPendingChanges</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679225038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.UserPendingChanges.html#UserPendingChanges"><span class="hs-identifier hs-type">UserPendingChanges</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | Required. The type of change pending for the ActiveMQ user.</span><span>
 </span><span id="line-83"></span><span class="annot"><a href="Network.AWS.MQ.Types.UserPendingChanges.html#userPendingChanges_pendingChange"><span class="hs-identifier hs-type">userPendingChanges_pendingChange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.UserPendingChanges.html#UserPendingChanges"><span class="hs-identifier hs-type">UserPendingChanges</span></a></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.ChangeType.html#ChangeType"><span class="hs-identifier hs-type">ChangeType</span></a></span><span>
@@ -201,19 +201,19 @@ $sel:consoleAccess:UserPendingChanges' :: UserPendingChanges -&gt; Maybe Bool
 -&gt; (UserPendingChanges -&gt; ChangeType -&gt; UserPendingChanges)
 -&gt; Lens UserPendingChanges UserPendingChanges ChangeType ChangeType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.UserPendingChanges.html#UserPendingChanges%27"><span class="hs-identifier hs-type">UserPendingChanges'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225027"><span class="annot"><span class="annottext">ChangeType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.Types.UserPendingChanges.html#UserPendingChanges%27"><span class="hs-identifier hs-type">UserPendingChanges'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225036"><span class="annot"><span class="annottext">ChangeType
 pendingChange :: ChangeType
 $sel:pendingChange:UserPendingChanges' :: UserPendingChanges -&gt; ChangeType
-</span><a href="#local-6989586621679225027"><span class="hs-identifier hs-var hs-var">pendingChange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeType
-</span><a href="#local-6989586621679225027"><span class="hs-identifier hs-var">pendingChange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225026"><span class="annot"><span class="annottext">s :: UserPendingChanges
-</span><a href="#local-6989586621679225026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.UserPendingChanges.html#UserPendingChanges%27"><span class="hs-identifier hs-type">UserPendingChanges'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225025"><span class="annot"><span class="annottext">ChangeType
-</span><a href="#local-6989586621679225025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserPendingChanges
-</span><a href="#local-6989586621679225026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pendingChange:UserPendingChanges' :: ChangeType
+</span><a href="#local-6989586621679225036"><span class="hs-identifier hs-var hs-var">pendingChange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeType
+</span><a href="#local-6989586621679225036"><span class="hs-identifier hs-var">pendingChange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225035"><span class="annot"><span class="annottext">s :: UserPendingChanges
+</span><a href="#local-6989586621679225035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.Types.UserPendingChanges.html#UserPendingChanges%27"><span class="hs-identifier hs-type">UserPendingChanges'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225034"><span class="annot"><span class="annottext">ChangeType
+</span><a href="#local-6989586621679225034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserPendingChanges
+</span><a href="#local-6989586621679225035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pendingChange:UserPendingChanges' :: ChangeType
 </span><a href="Network.AWS.MQ.Types.UserPendingChanges.html#%24sel%3ApendingChange%3AUserPendingChanges%27"><span class="hs-identifier hs-var">pendingChange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ChangeType
-</span><a href="#local-6989586621679225025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.UserPendingChanges.html#UserPendingChanges"><span class="hs-identifier hs-type">UserPendingChanges</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679225034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.UserPendingChanges.html#UserPendingChanges"><span class="hs-identifier hs-type">UserPendingChanges</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225022"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.UserPendingChanges.html#UserPendingChanges"><span class="hs-identifier hs-type">UserPendingChanges</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679225020"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UserPendingChanges
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225031"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.UserPendingChanges.html#UserPendingChanges"><span class="hs-identifier hs-type">UserPendingChanges</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679225029"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UserPendingChanges
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser UserPendingChanges)
@@ -223,8 +223,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;UserPendingChanges&quot;</span></span><span>
-</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679225017"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679225017"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679225026"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679225026"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe Bool -&gt; ChangeType -&gt; UserPendingChanges
 </span><a href="Network.AWS.MQ.Types.UserPendingChanges.html#UserPendingChanges%27"><span class="hs-identifier hs-var">UserPendingChanges'</span></a></span><span>
 </span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe Bool -&gt; ChangeType -&gt; UserPendingChanges)
@@ -232,7 +232,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Bool -&gt; ChangeType -&gt; UserPendingChanges)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679225017"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679225026"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;groups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -245,7 +245,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Bool) -&gt; Parser (ChangeType -&gt; UserPendingChanges)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679225017"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679225026"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;consoleAccess&quot;</span></span><span class="hs-special">)</span><span>
@@ -253,13 +253,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser ChangeType -&gt; Parser UserPendingChanges
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679225017"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ChangeType
+</span><a href="#local-6989586621679225026"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ChangeType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;pendingChange&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225009"><span id="local-6989586621679225011"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.UserPendingChanges.html#UserPendingChanges"><span class="hs-identifier hs-type">UserPendingChanges</span></a></span></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225018"><span id="local-6989586621679225020"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.UserPendingChanges.html#UserPendingChanges"><span class="hs-identifier hs-type">UserPendingChanges</span></a></span></span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225006"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.UserPendingChanges.html#UserPendingChanges"><span class="hs-identifier hs-type">UserPendingChanges</span></a></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225015"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.Types.UserPendingChanges.html#UserPendingChanges"><span class="hs-identifier hs-type">UserPendingChanges</span></a></span></span><span>
 </span><span id="line-100"></span></pre></body></html>

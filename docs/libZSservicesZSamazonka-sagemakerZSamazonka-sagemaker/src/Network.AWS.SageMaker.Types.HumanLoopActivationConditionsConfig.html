@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- within . See for the required format of activation conditions.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newHumanLoopActivationConditionsConfig' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621680307655"><span id="local-6989586621680307656"></span></span><span class="hs-keyword">data</span><span> </span><span id="HumanLoopActivationConditionsConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanLoopActivationConditionsConfig.html#HumanLoopActivationConditionsConfig"><span class="hs-identifier hs-var">HumanLoopActivationConditionsConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HumanLoopActivationConditionsConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanLoopActivationConditionsConfig.html#HumanLoopActivationConditionsConfig%27"><span class="hs-identifier hs-var">HumanLoopActivationConditionsConfig'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621680307664"><span id="local-6989586621680307665"></span></span><span class="hs-keyword">data</span><span> </span><span id="HumanLoopActivationConditionsConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanLoopActivationConditionsConfig.html#HumanLoopActivationConditionsConfig"><span class="hs-identifier hs-var">HumanLoopActivationConditionsConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HumanLoopActivationConditionsConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanLoopActivationConditionsConfig.html#HumanLoopActivationConditionsConfig%27"><span class="hs-identifier hs-var">HumanLoopActivationConditionsConfig'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | JSON expressing use-case specific conditions declaratively. If any</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- condition is matched, atomic tasks are created against the configured</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- work team. The set of conditions is different for Rekognition and</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AhumanLoopActivationConditions%3AHumanLoopActivationConditionsConfig%27"><span class="annot"><span class="annottext">HumanLoopActivationConditionsConfig -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.HumanLoopActivationConditionsConfig.html#%24sel%3AhumanLoopActivationConditions%3AHumanLoopActivationConditionsConfig%27"><span class="hs-identifier hs-var hs-var">humanLoopActivationConditions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680307649"><span id="local-6989586621680307651"><span class="annot"><span class="annottext">HumanLoopActivationConditionsConfig
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680307658"><span id="local-6989586621680307660"><span class="annot"><span class="annottext">HumanLoopActivationConditionsConfig
 -&gt; HumanLoopActivationConditionsConfig -&gt; Bool
 (HumanLoopActivationConditionsConfig
  -&gt; HumanLoopActivationConditionsConfig -&gt; Bool)
@@ -53,7 +53,7 @@ $c/= :: HumanLoopActivationConditionsConfig
 -&gt; HumanLoopActivationConditionsConfig -&gt; Bool
 $c== :: HumanLoopActivationConditionsConfig
 -&gt; HumanLoopActivationConditionsConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680307640"><span id="local-6989586621680307642"><span id="local-6989586621680307644"><span id="local-6989586621680307646"><span class="annot"><span class="annottext">ReadPrec [HumanLoopActivationConditionsConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680307649"><span id="local-6989586621680307651"><span id="local-6989586621680307653"><span id="local-6989586621680307655"><span class="annot"><span class="annottext">ReadPrec [HumanLoopActivationConditionsConfig]
 ReadPrec HumanLoopActivationConditionsConfig
 Int -&gt; ReadS HumanLoopActivationConditionsConfig
 ReadS [HumanLoopActivationConditionsConfig]
@@ -73,7 +73,7 @@ readList :: ReadS [HumanLoopActivationConditionsConfig]
 $creadList :: ReadS [HumanLoopActivationConditionsConfig]
 readsPrec :: Int -&gt; ReadS HumanLoopActivationConditionsConfig
 $creadsPrec :: Int -&gt; ReadS HumanLoopActivationConditionsConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680307633"><span id="local-6989586621680307635"><span id="local-6989586621680307637"><span class="annot"><span class="annottext">Int -&gt; HumanLoopActivationConditionsConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680307642"><span id="local-6989586621680307644"><span id="local-6989586621680307646"><span class="annot"><span class="annottext">Int -&gt; HumanLoopActivationConditionsConfig -&gt; ShowS
 [HumanLoopActivationConditionsConfig] -&gt; ShowS
 HumanLoopActivationConditionsConfig -&gt; String
 (Int -&gt; HumanLoopActivationConditionsConfig -&gt; ShowS)
@@ -131,14 +131,14 @@ HumanLoopActivationConditionsConfig
 </span><span id="line-58"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanLoopActivationConditionsConfig.html#HumanLoopActivationConditionsConfig"><span class="hs-identifier hs-type">HumanLoopActivationConditionsConfig</span></a></span><span>
 </span><span id="line-59"></span><span id="newHumanLoopActivationConditionsConfig"><span class="annot"><span class="annottext">newHumanLoopActivationConditionsConfig :: Text -&gt; HumanLoopActivationConditionsConfig
 </span><a href="Network.AWS.SageMaker.Types.HumanLoopActivationConditionsConfig.html#newHumanLoopActivationConditionsConfig"><span class="hs-identifier hs-var hs-var">newHumanLoopActivationConditionsConfig</span></a></span></span><span>
-</span><span id="line-60"></span><span>  </span><span id="local-6989586621680307627"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680307627"><span class="hs-identifier hs-var">pHumanLoopActivationConditions_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-60"></span><span>  </span><span id="local-6989586621680307636"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680307636"><span class="hs-identifier hs-var">pHumanLoopActivationConditions_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-61"></span><span>    </span><span class="annot"><span class="annottext">HumanLoopActivationConditionsConfig' :: Text -&gt; HumanLoopActivationConditionsConfig
 </span><a href="Network.AWS.SageMaker.Types.HumanLoopActivationConditionsConfig.html#HumanLoopActivationConditionsConfig%27"><span class="hs-identifier hs-type">HumanLoopActivationConditionsConfig'</span></a></span><span>
 </span><span id="line-62"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:humanLoopActivationConditions:HumanLoopActivationConditionsConfig' :: Text
 </span><a href="Network.AWS.SageMaker.Types.HumanLoopActivationConditionsConfig.html#%24sel%3AhumanLoopActivationConditions%3AHumanLoopActivationConditionsConfig%27"><span class="hs-identifier hs-var">humanLoopActivationConditions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-63"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680307627"><span class="hs-identifier hs-var">pHumanLoopActivationConditions_</span></a></span><span>
+</span><a href="#local-6989586621680307636"><span class="hs-identifier hs-var">pHumanLoopActivationConditions_</span></a></span><span>
 </span><span id="line-64"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | JSON expressing use-case specific conditions declaratively. If any</span><span>
@@ -160,22 +160,22 @@ HumanLoopActivationConditionsConfig
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanLoopActivationConditionsConfig.html#HumanLoopActivationConditionsConfig%27"><span class="hs-identifier hs-type">HumanLoopActivationConditionsConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680307623"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanLoopActivationConditionsConfig.html#HumanLoopActivationConditionsConfig%27"><span class="hs-identifier hs-type">HumanLoopActivationConditionsConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680307632"><span class="annot"><span class="annottext">Text
 humanLoopActivationConditions :: Text
 $sel:humanLoopActivationConditions:HumanLoopActivationConditionsConfig' :: HumanLoopActivationConditionsConfig -&gt; Text
-</span><a href="#local-6989586621680307623"><span class="hs-identifier hs-var hs-var">humanLoopActivationConditions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680307623"><span class="hs-identifier hs-var">humanLoopActivationConditions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680307622"><span class="annot"><span class="annottext">s :: HumanLoopActivationConditionsConfig
-</span><a href="#local-6989586621680307622"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanLoopActivationConditionsConfig.html#HumanLoopActivationConditionsConfig%27"><span class="hs-identifier hs-type">HumanLoopActivationConditionsConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680307621"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680307621"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HumanLoopActivationConditionsConfig
-</span><a href="#local-6989586621680307622"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:humanLoopActivationConditions:HumanLoopActivationConditionsConfig' :: Text
+</span><a href="#local-6989586621680307632"><span class="hs-identifier hs-var hs-var">humanLoopActivationConditions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680307632"><span class="hs-identifier hs-var">humanLoopActivationConditions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680307631"><span class="annot"><span class="annottext">s :: HumanLoopActivationConditionsConfig
+</span><a href="#local-6989586621680307631"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanLoopActivationConditionsConfig.html#HumanLoopActivationConditionsConfig%27"><span class="hs-identifier hs-type">HumanLoopActivationConditionsConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680307630"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680307630"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HumanLoopActivationConditionsConfig
+</span><a href="#local-6989586621680307631"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:humanLoopActivationConditions:HumanLoopActivationConditionsConfig' :: Text
 </span><a href="Network.AWS.SageMaker.Types.HumanLoopActivationConditionsConfig.html#%24sel%3AhumanLoopActivationConditions%3AHumanLoopActivationConditionsConfig%27"><span class="hs-identifier hs-var">humanLoopActivationConditions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680307621"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanLoopActivationConditionsConfig.html#HumanLoopActivationConditionsConfig"><span class="hs-identifier hs-type">HumanLoopActivationConditionsConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680307630"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanLoopActivationConditionsConfig.html#HumanLoopActivationConditionsConfig"><span class="hs-identifier hs-type">HumanLoopActivationConditionsConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621680307618"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621680307627"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanLoopActivationConditionsConfig.html#HumanLoopActivationConditionsConfig"><span class="hs-identifier hs-type">HumanLoopActivationConditionsConfig</span></a></span></span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621680307616"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HumanLoopActivationConditionsConfig
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621680307625"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HumanLoopActivationConditionsConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser HumanLoopActivationConditionsConfig)
@@ -185,37 +185,37 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;HumanLoopActivationConditionsConfig&quot;</span></span><span>
-</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680307613"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680307613"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680307622"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680307622"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; HumanLoopActivationConditionsConfig
 </span><a href="Network.AWS.SageMaker.Types.HumanLoopActivationConditionsConfig.html#HumanLoopActivationConditionsConfig%27"><span class="hs-identifier hs-var">HumanLoopActivationConditionsConfig'</span></a></span><span>
 </span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; HumanLoopActivationConditionsConfig)
 -&gt; Parser Text -&gt; Parser HumanLoopActivationConditionsConfig
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680307613"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680307622"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HumanLoopActivationConditions&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621680307607"><span id="local-6989586621680307609"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621680307616"><span id="local-6989586621680307618"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-89"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanLoopActivationConditionsConfig.html#HumanLoopActivationConditionsConfig"><span class="hs-identifier hs-type">HumanLoopActivationConditionsConfig</span></a></span></span></span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621680307604"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621680307613"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanLoopActivationConditionsConfig.html#HumanLoopActivationConditionsConfig"><span class="hs-identifier hs-type">HumanLoopActivationConditionsConfig</span></a></span></span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621680307596"><span id="local-6989586621680307598"><span id="local-6989586621680307600"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621680307605"><span id="local-6989586621680307607"><span id="local-6989586621680307609"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanLoopActivationConditionsConfig.html#HumanLoopActivationConditionsConfig"><span class="hs-identifier hs-type">HumanLoopActivationConditionsConfig</span></a></span></span></span></span><span>
 </span><span id="line-98"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621680307594"><span class="annot"><span class="annottext">toJSON :: HumanLoopActivationConditionsConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanLoopActivationConditionsConfig.html#HumanLoopActivationConditionsConfig%27"><span class="hs-identifier hs-type">HumanLoopActivationConditionsConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680307592"><span class="annot"><span class="annottext">Text
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621680307603"><span class="annot"><span class="annottext">toJSON :: HumanLoopActivationConditionsConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanLoopActivationConditionsConfig.html#HumanLoopActivationConditionsConfig%27"><span class="hs-identifier hs-type">HumanLoopActivationConditionsConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680307601"><span class="annot"><span class="annottext">Text
 humanLoopActivationConditions :: Text
 $sel:humanLoopActivationConditions:HumanLoopActivationConditionsConfig' :: HumanLoopActivationConditionsConfig -&gt; Text
-</span><a href="#local-6989586621680307592"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680307601"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -229,7 +229,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-104"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680307592"><span class="hs-identifier hs-var">humanLoopActivationConditions</span></a></span><span>
+</span><a href="#local-6989586621680307601"><span class="hs-identifier hs-var">humanLoopActivationConditions</span></a></span><span>
 </span><span id="line-105"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>

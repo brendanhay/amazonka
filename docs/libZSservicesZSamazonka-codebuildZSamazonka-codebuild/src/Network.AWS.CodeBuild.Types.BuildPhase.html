@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Information about a stage for a build.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newBuildPhase' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679379027"><span id="local-6989586621679379028"></span></span><span class="hs-keyword">data</span><span> </span><span id="BuildPhase"><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#BuildPhase"><span class="hs-identifier hs-var">BuildPhase</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BuildPhase%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#BuildPhase%27"><span class="hs-identifier hs-var">BuildPhase'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679379036"><span id="local-6989586621679379037"></span></span><span class="hs-keyword">data</span><span> </span><span id="BuildPhase"><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#BuildPhase"><span class="hs-identifier hs-var">BuildPhase</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BuildPhase%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#BuildPhase%27"><span class="hs-identifier hs-var">BuildPhase'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Additional information about a build phase, especially to help</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- troubleshoot a failed build.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Acontexts%3ABuildPhase%27"><span class="annot"><span class="annottext">BuildPhase -&gt; Maybe [PhaseContext]
@@ -103,7 +103,7 @@
 </span><span id="line-98"></span><span>    </span><span id="%24sel%3AdurationInSeconds%3ABuildPhase%27"><span class="annot"><span class="annottext">BuildPhase -&gt; Maybe Integer
 </span><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#%24sel%3AdurationInSeconds%3ABuildPhase%27"><span class="hs-identifier hs-var hs-var">durationInSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
 </span><span id="line-99"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-100"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679379016"><span id="local-6989586621679379018"><span class="annot"><span class="annottext">BuildPhase -&gt; BuildPhase -&gt; Bool
+</span><span id="line-100"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679379025"><span id="local-6989586621679379027"><span class="annot"><span class="annottext">BuildPhase -&gt; BuildPhase -&gt; Bool
 (BuildPhase -&gt; BuildPhase -&gt; Bool)
 -&gt; (BuildPhase -&gt; BuildPhase -&gt; Bool) -&gt; Eq BuildPhase
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -111,7 +111,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BuildPhase -&gt; BuildPhase -&gt; Bool
 == :: BuildPhase -&gt; BuildPhase -&gt; Bool
 $c== :: BuildPhase -&gt; BuildPhase -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679379007"><span id="local-6989586621679379009"><span id="local-6989586621679379011"><span id="local-6989586621679379013"><span class="annot"><span class="annottext">ReadPrec [BuildPhase]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679379016"><span id="local-6989586621679379018"><span id="local-6989586621679379020"><span id="local-6989586621679379022"><span class="annot"><span class="annottext">ReadPrec [BuildPhase]
 ReadPrec BuildPhase
 Int -&gt; ReadS BuildPhase
 ReadS [BuildPhase]
@@ -131,7 +131,7 @@ readList :: ReadS [BuildPhase]
 $creadList :: ReadS [BuildPhase]
 readsPrec :: Int -&gt; ReadS BuildPhase
 $creadsPrec :: Int -&gt; ReadS BuildPhase
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679379000"><span id="local-6989586621679379002"><span id="local-6989586621679379004"><span class="annot"><span class="annottext">Int -&gt; BuildPhase -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679379009"><span id="local-6989586621679379011"><span id="local-6989586621679379013"><span class="annot"><span class="annottext">Int -&gt; BuildPhase -&gt; ShowS
 [BuildPhase] -&gt; ShowS
 BuildPhase -&gt; String
 (Int -&gt; BuildPhase -&gt; ShowS)
@@ -277,16 +277,16 @@ forall a. Maybe a
 -&gt; Lens
      BuildPhase BuildPhase (Maybe [PhaseContext]) (Maybe [PhaseContext])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#BuildPhase%27"><span class="hs-identifier hs-type">BuildPhase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378991"><span class="annot"><span class="annottext">Maybe [PhaseContext]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#BuildPhase%27"><span class="hs-identifier hs-type">BuildPhase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679379000"><span class="annot"><span class="annottext">Maybe [PhaseContext]
 contexts :: Maybe [PhaseContext]
 $sel:contexts:BuildPhase' :: BuildPhase -&gt; Maybe [PhaseContext]
-</span><a href="#local-6989586621679378991"><span class="hs-identifier hs-var hs-var">contexts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PhaseContext]
-</span><a href="#local-6989586621679378991"><span class="hs-identifier hs-var">contexts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378990"><span class="annot"><span class="annottext">s :: BuildPhase
-</span><a href="#local-6989586621679378990"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#BuildPhase%27"><span class="hs-identifier hs-type">BuildPhase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378989"><span class="annot"><span class="annottext">Maybe [PhaseContext]
-</span><a href="#local-6989586621679378989"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuildPhase
-</span><a href="#local-6989586621679378990"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contexts:BuildPhase' :: Maybe [PhaseContext]
+</span><a href="#local-6989586621679379000"><span class="hs-identifier hs-var hs-var">contexts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PhaseContext]
+</span><a href="#local-6989586621679379000"><span class="hs-identifier hs-var">contexts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378999"><span class="annot"><span class="annottext">s :: BuildPhase
+</span><a href="#local-6989586621679378999"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#BuildPhase%27"><span class="hs-identifier hs-type">BuildPhase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378998"><span class="annot"><span class="annottext">Maybe [PhaseContext]
+</span><a href="#local-6989586621679378998"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuildPhase
+</span><a href="#local-6989586621679378999"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contexts:BuildPhase' :: Maybe [PhaseContext]
 </span><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#%24sel%3Acontexts%3ABuildPhase%27"><span class="hs-identifier hs-var">contexts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PhaseContext]
-</span><a href="#local-6989586621679378989"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#BuildPhase"><span class="hs-identifier hs-type">BuildPhase</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PhaseContext] -&gt; f (Maybe [PhaseContext]))
+</span><a href="#local-6989586621679378998"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#BuildPhase"><span class="hs-identifier hs-type">BuildPhase</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PhaseContext] -&gt; f (Maybe [PhaseContext]))
  -&gt; BuildPhase -&gt; f BuildPhase)
 -&gt; ((Maybe [PhaseContext] -&gt; f (Maybe [PhaseContext]))
     -&gt; Maybe [PhaseContext] -&gt; f (Maybe [PhaseContext]))
@@ -314,16 +314,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (BuildPhase -&gt; Maybe POSIX -&gt; BuildPhase)
 -&gt; Lens BuildPhase BuildPhase (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#BuildPhase%27"><span class="hs-identifier hs-type">BuildPhase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378984"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#BuildPhase%27"><span class="hs-identifier hs-type">BuildPhase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378993"><span class="annot"><span class="annottext">Maybe POSIX
 startTime :: Maybe POSIX
 $sel:startTime:BuildPhase' :: BuildPhase -&gt; Maybe POSIX
-</span><a href="#local-6989586621679378984"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679378984"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378983"><span class="annot"><span class="annottext">s :: BuildPhase
-</span><a href="#local-6989586621679378983"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#BuildPhase%27"><span class="hs-identifier hs-type">BuildPhase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378982"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679378982"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuildPhase
-</span><a href="#local-6989586621679378983"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:BuildPhase' :: Maybe POSIX
+</span><a href="#local-6989586621679378993"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679378993"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378992"><span class="annot"><span class="annottext">s :: BuildPhase
+</span><a href="#local-6989586621679378992"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#BuildPhase%27"><span class="hs-identifier hs-type">BuildPhase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378991"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679378991"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuildPhase
+</span><a href="#local-6989586621679378992"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:BuildPhase' :: Maybe POSIX
 </span><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#%24sel%3AstartTime%3ABuildPhase%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679378982"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#BuildPhase"><span class="hs-identifier hs-type">BuildPhase</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; BuildPhase -&gt; f BuildPhase)
+</span><a href="#local-6989586621679378991"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#BuildPhase"><span class="hs-identifier hs-type">BuildPhase</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; BuildPhase -&gt; f BuildPhase)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -365,16 +365,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (BuildPhase -&gt; Maybe StatusType -&gt; BuildPhase)
 -&gt; Lens BuildPhase BuildPhase (Maybe StatusType) (Maybe StatusType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#BuildPhase%27"><span class="hs-identifier hs-type">BuildPhase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378979"><span class="annot"><span class="annottext">Maybe StatusType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#BuildPhase%27"><span class="hs-identifier hs-type">BuildPhase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378988"><span class="annot"><span class="annottext">Maybe StatusType
 phaseStatus :: Maybe StatusType
 $sel:phaseStatus:BuildPhase' :: BuildPhase -&gt; Maybe StatusType
-</span><a href="#local-6989586621679378979"><span class="hs-identifier hs-var hs-var">phaseStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StatusType
-</span><a href="#local-6989586621679378979"><span class="hs-identifier hs-var">phaseStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378978"><span class="annot"><span class="annottext">s :: BuildPhase
-</span><a href="#local-6989586621679378978"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#BuildPhase%27"><span class="hs-identifier hs-type">BuildPhase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378977"><span class="annot"><span class="annottext">Maybe StatusType
-</span><a href="#local-6989586621679378977"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuildPhase
-</span><a href="#local-6989586621679378978"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:phaseStatus:BuildPhase' :: Maybe StatusType
+</span><a href="#local-6989586621679378988"><span class="hs-identifier hs-var hs-var">phaseStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StatusType
+</span><a href="#local-6989586621679378988"><span class="hs-identifier hs-var">phaseStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378987"><span class="annot"><span class="annottext">s :: BuildPhase
+</span><a href="#local-6989586621679378987"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#BuildPhase%27"><span class="hs-identifier hs-type">BuildPhase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378986"><span class="annot"><span class="annottext">Maybe StatusType
+</span><a href="#local-6989586621679378986"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuildPhase
+</span><a href="#local-6989586621679378987"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:phaseStatus:BuildPhase' :: Maybe StatusType
 </span><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#%24sel%3AphaseStatus%3ABuildPhase%27"><span class="hs-identifier hs-var">phaseStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StatusType
-</span><a href="#local-6989586621679378977"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#BuildPhase"><span class="hs-identifier hs-type">BuildPhase</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679378986"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#BuildPhase"><span class="hs-identifier hs-type">BuildPhase</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-217"></span><span>
 </span><span id="line-218"></span><span class="hs-comment">-- | The name of the build phase. Valid values include:</span><span>
 </span><span id="line-219"></span><span class="hs-comment">--</span><span>
@@ -419,16 +419,16 @@ $sel:phaseStatus:BuildPhase' :: BuildPhase -&gt; Maybe StatusType
 -&gt; Lens
      BuildPhase BuildPhase (Maybe BuildPhaseType) (Maybe BuildPhaseType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#BuildPhase%27"><span class="hs-identifier hs-type">BuildPhase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378975"><span class="annot"><span class="annottext">Maybe BuildPhaseType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#BuildPhase%27"><span class="hs-identifier hs-type">BuildPhase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378984"><span class="annot"><span class="annottext">Maybe BuildPhaseType
 phaseType :: Maybe BuildPhaseType
 $sel:phaseType:BuildPhase' :: BuildPhase -&gt; Maybe BuildPhaseType
-</span><a href="#local-6989586621679378975"><span class="hs-identifier hs-var hs-var">phaseType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BuildPhaseType
-</span><a href="#local-6989586621679378975"><span class="hs-identifier hs-var">phaseType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378974"><span class="annot"><span class="annottext">s :: BuildPhase
-</span><a href="#local-6989586621679378974"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#BuildPhase%27"><span class="hs-identifier hs-type">BuildPhase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378973"><span class="annot"><span class="annottext">Maybe BuildPhaseType
-</span><a href="#local-6989586621679378973"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuildPhase
-</span><a href="#local-6989586621679378974"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:phaseType:BuildPhase' :: Maybe BuildPhaseType
+</span><a href="#local-6989586621679378984"><span class="hs-identifier hs-var hs-var">phaseType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BuildPhaseType
+</span><a href="#local-6989586621679378984"><span class="hs-identifier hs-var">phaseType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378983"><span class="annot"><span class="annottext">s :: BuildPhase
+</span><a href="#local-6989586621679378983"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#BuildPhase%27"><span class="hs-identifier hs-type">BuildPhase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378982"><span class="annot"><span class="annottext">Maybe BuildPhaseType
+</span><a href="#local-6989586621679378982"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuildPhase
+</span><a href="#local-6989586621679378983"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:phaseType:BuildPhase' :: Maybe BuildPhaseType
 </span><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#%24sel%3AphaseType%3ABuildPhase%27"><span class="hs-identifier hs-var">phaseType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BuildPhaseType
-</span><a href="#local-6989586621679378973"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#BuildPhase"><span class="hs-identifier hs-type">BuildPhase</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679378982"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#BuildPhase"><span class="hs-identifier hs-type">BuildPhase</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-255"></span><span>
 </span><span id="line-256"></span><span class="hs-comment">-- | When the build phase ended, expressed in Unix time format.</span><span>
 </span><span id="line-257"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#buildPhase_endTime"><span class="hs-identifier hs-type">buildPhase_endTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#BuildPhase"><span class="hs-identifier hs-type">BuildPhase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
@@ -437,16 +437,16 @@ $sel:phaseType:BuildPhase' :: BuildPhase -&gt; Maybe BuildPhaseType
 -&gt; (BuildPhase -&gt; Maybe POSIX -&gt; BuildPhase)
 -&gt; Lens BuildPhase BuildPhase (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#BuildPhase%27"><span class="hs-identifier hs-type">BuildPhase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378971"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#BuildPhase%27"><span class="hs-identifier hs-type">BuildPhase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378980"><span class="annot"><span class="annottext">Maybe POSIX
 endTime :: Maybe POSIX
 $sel:endTime:BuildPhase' :: BuildPhase -&gt; Maybe POSIX
-</span><a href="#local-6989586621679378971"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679378971"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378970"><span class="annot"><span class="annottext">s :: BuildPhase
-</span><a href="#local-6989586621679378970"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#BuildPhase%27"><span class="hs-identifier hs-type">BuildPhase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378969"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679378969"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuildPhase
-</span><a href="#local-6989586621679378970"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:BuildPhase' :: Maybe POSIX
+</span><a href="#local-6989586621679378980"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679378980"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378979"><span class="annot"><span class="annottext">s :: BuildPhase
+</span><a href="#local-6989586621679378979"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#BuildPhase%27"><span class="hs-identifier hs-type">BuildPhase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378978"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679378978"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuildPhase
+</span><a href="#local-6989586621679378979"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:BuildPhase' :: Maybe POSIX
 </span><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#%24sel%3AendTime%3ABuildPhase%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679378969"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#BuildPhase"><span class="hs-identifier hs-type">BuildPhase</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; BuildPhase -&gt; f BuildPhase)
+</span><a href="#local-6989586621679378978"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#BuildPhase"><span class="hs-identifier hs-type">BuildPhase</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; BuildPhase -&gt; f BuildPhase)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -470,19 +470,19 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (BuildPhase -&gt; Maybe Integer -&gt; BuildPhase)
 -&gt; Lens BuildPhase BuildPhase (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#BuildPhase%27"><span class="hs-identifier hs-type">BuildPhase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378967"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#BuildPhase%27"><span class="hs-identifier hs-type">BuildPhase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378976"><span class="annot"><span class="annottext">Maybe Integer
 durationInSeconds :: Maybe Integer
 $sel:durationInSeconds:BuildPhase' :: BuildPhase -&gt; Maybe Integer
-</span><a href="#local-6989586621679378967"><span class="hs-identifier hs-var hs-var">durationInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679378967"><span class="hs-identifier hs-var">durationInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378966"><span class="annot"><span class="annottext">s :: BuildPhase
-</span><a href="#local-6989586621679378966"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#BuildPhase%27"><span class="hs-identifier hs-type">BuildPhase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378965"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679378965"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuildPhase
-</span><a href="#local-6989586621679378966"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:durationInSeconds:BuildPhase' :: Maybe Integer
+</span><a href="#local-6989586621679378976"><span class="hs-identifier hs-var hs-var">durationInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679378976"><span class="hs-identifier hs-var">durationInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378975"><span class="annot"><span class="annottext">s :: BuildPhase
+</span><a href="#local-6989586621679378975"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#BuildPhase%27"><span class="hs-identifier hs-type">BuildPhase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378974"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679378974"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuildPhase
+</span><a href="#local-6989586621679378975"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:durationInSeconds:BuildPhase' :: Maybe Integer
 </span><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#%24sel%3AdurationInSeconds%3ABuildPhase%27"><span class="hs-identifier hs-var">durationInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679378965"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#BuildPhase"><span class="hs-identifier hs-type">BuildPhase</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679378974"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#BuildPhase"><span class="hs-identifier hs-type">BuildPhase</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-264"></span><span>
-</span><span id="line-265"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378962"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#BuildPhase"><span class="hs-identifier hs-type">BuildPhase</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-266"></span><span>  </span><span id="local-6989586621679378960"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BuildPhase
+</span><span id="line-265"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378971"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#BuildPhase"><span class="hs-identifier hs-type">BuildPhase</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-266"></span><span>  </span><span id="local-6989586621679378969"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BuildPhase
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-267"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser BuildPhase) -&gt; Value -&gt; Parser BuildPhase
@@ -490,8 +490,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-268"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;BuildPhase&quot;</span></span><span>
-</span><span id="line-269"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679378957"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679378957"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-269"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679378966"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378966"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-270"></span><span>          </span><span class="annot"><span class="annottext">Maybe [PhaseContext]
 -&gt; Maybe POSIX
 -&gt; Maybe StatusType
@@ -517,7 +517,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; BuildPhase)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679378957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [PhaseContext]))
+</span><a href="#local-6989586621679378966"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [PhaseContext]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;contexts&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [PhaseContext]))
@@ -542,7 +542,7 @@ forall a. Monoid a =&gt; a
       -&gt; BuildPhase)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679378957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679378966"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;startTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -558,7 +558,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe POSIX -&gt; Maybe Integer -&gt; BuildPhase)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679378957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StatusType)
+</span><a href="#local-6989586621679378966"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StatusType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;phaseStatus&quot;</span></span><span class="hs-special">)</span><span>
@@ -569,7 +569,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe POSIX -&gt; Maybe Integer -&gt; BuildPhase)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679378957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BuildPhaseType)
+</span><a href="#local-6989586621679378966"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BuildPhaseType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;phaseType&quot;</span></span><span class="hs-special">)</span><span>
@@ -577,7 +577,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe POSIX) -&gt; Parser (Maybe Integer -&gt; BuildPhase)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679378957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679378966"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;endTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -585,13 +585,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Integer) -&gt; Parser BuildPhase
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679378957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679378966"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;durationInSeconds&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-277"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-278"></span><span>
-</span><span id="line-279"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378950"><span id="local-6989586621679378952"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#BuildPhase"><span class="hs-identifier hs-type">BuildPhase</span></a></span></span></span><span>
+</span><span id="line-279"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378959"><span id="local-6989586621679378961"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#BuildPhase"><span class="hs-identifier hs-type">BuildPhase</span></a></span></span></span><span>
 </span><span id="line-280"></span><span>
-</span><span id="line-281"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378947"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#BuildPhase"><span class="hs-identifier hs-type">BuildPhase</span></a></span></span><span>
+</span><span id="line-281"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378956"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildPhase.html#BuildPhase"><span class="hs-identifier hs-type">BuildPhase</span></a></span></span><span>
 </span><span id="line-282"></span></pre></body></html>

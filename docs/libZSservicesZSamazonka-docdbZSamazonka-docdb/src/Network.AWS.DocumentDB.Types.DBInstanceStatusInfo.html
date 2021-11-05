@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DocumentDB.Types.DBInstanceStatusInfo</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DocumentDB.Types.DBInstanceStatusInfo</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Provides a list of status information for an instance.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newDBInstanceStatusInfo' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679298286"><span id="local-6989586621679298287"></span></span><span class="hs-keyword">data</span><span> </span><span id="DBInstanceStatusInfo"><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBInstanceStatusInfo.html#DBInstanceStatusInfo"><span class="hs-identifier hs-var">DBInstanceStatusInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DBInstanceStatusInfo%27"><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBInstanceStatusInfo.html#DBInstanceStatusInfo%27"><span class="hs-identifier hs-var">DBInstanceStatusInfo'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Status of the instance. For a @StatusType@ of read replica, the values</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- can be @replicating@, error, @stopped@, or @terminated@.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Astatus%3ADBInstanceStatusInfo%27"><span class="annot"><span class="annottext">DBInstanceStatusInfo -&gt; Maybe Text
+</span><a href="Network.AWS.DocumentDB.Types.DBInstanceStatusInfo.html#%24sel%3Astatus%3ADBInstanceStatusInfo%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | A Boolean value that is @true@ if the instance is operating normally, or</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- @false@ if the instance is in an error state.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Anormal%3ADBInstanceStatusInfo%27"><span class="annot"><span class="annottext">DBInstanceStatusInfo -&gt; Maybe Bool
+</span><a href="Network.AWS.DocumentDB.Types.DBInstanceStatusInfo.html#%24sel%3Anormal%3ADBInstanceStatusInfo%27"><span class="hs-identifier hs-var hs-var">normal</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | This value is currently \&quot;@read replication@.\&quot;</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AstatusType%3ADBInstanceStatusInfo%27"><span class="annot"><span class="annottext">DBInstanceStatusInfo -&gt; Maybe Text
+</span><a href="Network.AWS.DocumentDB.Types.DBInstanceStatusInfo.html#%24sel%3AstatusType%3ADBInstanceStatusInfo%27"><span class="hs-identifier hs-var hs-var">statusType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Details of the error if there is an error for the instance. If the</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- instance is not in an error state, this value is blank.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Amessage%3ADBInstanceStatusInfo%27"><span class="annot"><span class="annottext">DBInstanceStatusInfo -&gt; Maybe Text
+</span><a href="Network.AWS.DocumentDB.Types.DBInstanceStatusInfo.html#%24sel%3Amessage%3ADBInstanceStatusInfo%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679298277"><span id="local-6989586621679298279"><span class="annot"><span class="annottext">DBInstanceStatusInfo -&gt; DBInstanceStatusInfo -&gt; Bool
+(DBInstanceStatusInfo -&gt; DBInstanceStatusInfo -&gt; Bool)
+-&gt; (DBInstanceStatusInfo -&gt; DBInstanceStatusInfo -&gt; Bool)
+-&gt; Eq DBInstanceStatusInfo
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DBInstanceStatusInfo -&gt; DBInstanceStatusInfo -&gt; Bool
+$c/= :: DBInstanceStatusInfo -&gt; DBInstanceStatusInfo -&gt; Bool
+== :: DBInstanceStatusInfo -&gt; DBInstanceStatusInfo -&gt; Bool
+$c== :: DBInstanceStatusInfo -&gt; DBInstanceStatusInfo -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298268"><span id="local-6989586621679298270"><span id="local-6989586621679298272"><span id="local-6989586621679298274"><span class="annot"><span class="annottext">ReadPrec [DBInstanceStatusInfo]
+ReadPrec DBInstanceStatusInfo
+Int -&gt; ReadS DBInstanceStatusInfo
+ReadS [DBInstanceStatusInfo]
+(Int -&gt; ReadS DBInstanceStatusInfo)
+-&gt; ReadS [DBInstanceStatusInfo]
+-&gt; ReadPrec DBInstanceStatusInfo
+-&gt; ReadPrec [DBInstanceStatusInfo]
+-&gt; Read DBInstanceStatusInfo
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DBInstanceStatusInfo]
+$creadListPrec :: ReadPrec [DBInstanceStatusInfo]
+readPrec :: ReadPrec DBInstanceStatusInfo
+$creadPrec :: ReadPrec DBInstanceStatusInfo
+readList :: ReadS [DBInstanceStatusInfo]
+$creadList :: ReadS [DBInstanceStatusInfo]
+readsPrec :: Int -&gt; ReadS DBInstanceStatusInfo
+$creadsPrec :: Int -&gt; ReadS DBInstanceStatusInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298261"><span id="local-6989586621679298263"><span id="local-6989586621679298265"><span class="annot"><span class="annottext">Int -&gt; DBInstanceStatusInfo -&gt; ShowS
+[DBInstanceStatusInfo] -&gt; ShowS
+DBInstanceStatusInfo -&gt; String
+(Int -&gt; DBInstanceStatusInfo -&gt; ShowS)
+-&gt; (DBInstanceStatusInfo -&gt; String)
+-&gt; ([DBInstanceStatusInfo] -&gt; ShowS)
+-&gt; Show DBInstanceStatusInfo
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DBInstanceStatusInfo] -&gt; ShowS
+$cshowList :: [DBInstanceStatusInfo] -&gt; ShowS
+show :: DBInstanceStatusInfo -&gt; String
+$cshow :: DBInstanceStatusInfo -&gt; String
+showsPrec :: Int -&gt; DBInstanceStatusInfo -&gt; ShowS
+$cshowsPrec :: Int -&gt; DBInstanceStatusInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DBInstanceStatusInfo -&gt; Rep DBInstanceStatusInfo x)
+-&gt; (forall x. Rep DBInstanceStatusInfo x -&gt; DBInstanceStatusInfo)
+-&gt; Generic DBInstanceStatusInfo
+forall x. Rep DBInstanceStatusInfo x -&gt; DBInstanceStatusInfo
+forall x. DBInstanceStatusInfo -&gt; Rep DBInstanceStatusInfo x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DBInstanceStatusInfo x -&gt; DBInstanceStatusInfo
+$cfrom :: forall x. DBInstanceStatusInfo -&gt; Rep DBInstanceStatusInfo x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Create a value of 'DBInstanceStatusInfo' with all optional fields omitted.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'status', 'dbInstanceStatusInfo_status' - Status of the instance. For a @StatusType@ of read replica, the values</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- can be @replicating@, error, @stopped@, or @terminated@.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'normal', 'dbInstanceStatusInfo_normal' - A Boolean value that is @true@ if the instance is operating normally, or</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- @false@ if the instance is in an error state.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'statusType', 'dbInstanceStatusInfo_statusType' - This value is currently \&quot;@read replication@.\&quot;</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'message', 'dbInstanceStatusInfo_message' - Details of the error if there is an error for the instance. If the</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- instance is not in an error state, this value is blank.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBInstanceStatusInfo.html#newDBInstanceStatusInfo"><span class="hs-identifier hs-type">newDBInstanceStatusInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBInstanceStatusInfo.html#DBInstanceStatusInfo"><span class="hs-identifier hs-type">DBInstanceStatusInfo</span></a></span><span>
+</span><span id="line-64"></span><span id="newDBInstanceStatusInfo"><span class="annot"><span class="annottext">newDBInstanceStatusInfo :: DBInstanceStatusInfo
+</span><a href="Network.AWS.DocumentDB.Types.DBInstanceStatusInfo.html#newDBInstanceStatusInfo"><span class="hs-identifier hs-var hs-var">newDBInstanceStatusInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">DBInstanceStatusInfo' :: Maybe Text
+-&gt; Maybe Bool -&gt; Maybe Text -&gt; Maybe Text -&gt; DBInstanceStatusInfo
+</span><a href="Network.AWS.DocumentDB.Types.DBInstanceStatusInfo.html#DBInstanceStatusInfo%27"><span class="hs-identifier hs-type">DBInstanceStatusInfo'</span></a></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:DBInstanceStatusInfo' :: Maybe Text
+</span><a href="Network.AWS.DocumentDB.Types.DBInstanceStatusInfo.html#%24sel%3Astatus%3ADBInstanceStatusInfo%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:normal:DBInstanceStatusInfo' :: Maybe Bool
+</span><a href="Network.AWS.DocumentDB.Types.DBInstanceStatusInfo.html#%24sel%3Anormal%3ADBInstanceStatusInfo%27"><span class="hs-identifier hs-var">normal</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:statusType:DBInstanceStatusInfo' :: Maybe Text
+</span><a href="Network.AWS.DocumentDB.Types.DBInstanceStatusInfo.html#%24sel%3AstatusType%3ADBInstanceStatusInfo%27"><span class="hs-identifier hs-var">statusType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:message:DBInstanceStatusInfo' :: Maybe Text
+</span><a href="Network.AWS.DocumentDB.Types.DBInstanceStatusInfo.html#%24sel%3Amessage%3ADBInstanceStatusInfo%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | Status of the instance. For a @StatusType@ of read replica, the values</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- can be @replicating@, error, @stopped@, or @terminated@.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBInstanceStatusInfo.html#dbInstanceStatusInfo_status"><span class="hs-identifier hs-type">dbInstanceStatusInfo_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBInstanceStatusInfo.html#DBInstanceStatusInfo"><span class="hs-identifier hs-type">DBInstanceStatusInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="dbInstanceStatusInfo_status"><span class="annot"><span class="annottext">dbInstanceStatusInfo_status :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DBInstanceStatusInfo -&gt; f DBInstanceStatusInfo
+</span><a href="Network.AWS.DocumentDB.Types.DBInstanceStatusInfo.html#dbInstanceStatusInfo_status"><span class="hs-identifier hs-var hs-var">dbInstanceStatusInfo_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBInstanceStatusInfo -&gt; Maybe Text)
+-&gt; (DBInstanceStatusInfo -&gt; Maybe Text -&gt; DBInstanceStatusInfo)
+-&gt; Lens
+     DBInstanceStatusInfo DBInstanceStatusInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBInstanceStatusInfo.html#DBInstanceStatusInfo%27"><span class="hs-identifier hs-type">DBInstanceStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298252"><span class="annot"><span class="annottext">Maybe Text
+status :: Maybe Text
+$sel:status:DBInstanceStatusInfo' :: DBInstanceStatusInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679298252"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298252"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298251"><span class="annot"><span class="annottext">s :: DBInstanceStatusInfo
+</span><a href="#local-6989586621679298251"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBInstanceStatusInfo.html#DBInstanceStatusInfo%27"><span class="hs-identifier hs-type">DBInstanceStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298250"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298250"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBInstanceStatusInfo
+</span><a href="#local-6989586621679298251"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DBInstanceStatusInfo' :: Maybe Text
+</span><a href="Network.AWS.DocumentDB.Types.DBInstanceStatusInfo.html#%24sel%3Astatus%3ADBInstanceStatusInfo%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298250"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBInstanceStatusInfo.html#DBInstanceStatusInfo"><span class="hs-identifier hs-type">DBInstanceStatusInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | A Boolean value that is @true@ if the instance is operating normally, or</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- @false@ if the instance is in an error state.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBInstanceStatusInfo.html#dbInstanceStatusInfo_normal"><span class="hs-identifier hs-type">dbInstanceStatusInfo_normal</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBInstanceStatusInfo.html#DBInstanceStatusInfo"><span class="hs-identifier hs-type">DBInstanceStatusInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="dbInstanceStatusInfo_normal"><span class="annot"><span class="annottext">dbInstanceStatusInfo_normal :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DBInstanceStatusInfo -&gt; f DBInstanceStatusInfo
+</span><a href="Network.AWS.DocumentDB.Types.DBInstanceStatusInfo.html#dbInstanceStatusInfo_normal"><span class="hs-identifier hs-var hs-var">dbInstanceStatusInfo_normal</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBInstanceStatusInfo -&gt; Maybe Bool)
+-&gt; (DBInstanceStatusInfo -&gt; Maybe Bool -&gt; DBInstanceStatusInfo)
+-&gt; Lens
+     DBInstanceStatusInfo DBInstanceStatusInfo (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBInstanceStatusInfo.html#DBInstanceStatusInfo%27"><span class="hs-identifier hs-type">DBInstanceStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298248"><span class="annot"><span class="annottext">Maybe Bool
+normal :: Maybe Bool
+$sel:normal:DBInstanceStatusInfo' :: DBInstanceStatusInfo -&gt; Maybe Bool
+</span><a href="#local-6989586621679298248"><span class="hs-identifier hs-var hs-var">normal</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679298248"><span class="hs-identifier hs-var">normal</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298247"><span class="annot"><span class="annottext">s :: DBInstanceStatusInfo
+</span><a href="#local-6989586621679298247"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBInstanceStatusInfo.html#DBInstanceStatusInfo%27"><span class="hs-identifier hs-type">DBInstanceStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298246"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679298246"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBInstanceStatusInfo
+</span><a href="#local-6989586621679298247"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:normal:DBInstanceStatusInfo' :: Maybe Bool
+</span><a href="Network.AWS.DocumentDB.Types.DBInstanceStatusInfo.html#%24sel%3Anormal%3ADBInstanceStatusInfo%27"><span class="hs-identifier hs-var">normal</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679298246"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBInstanceStatusInfo.html#DBInstanceStatusInfo"><span class="hs-identifier hs-type">DBInstanceStatusInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | This value is currently \&quot;@read replication@.\&quot;</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBInstanceStatusInfo.html#dbInstanceStatusInfo_statusType"><span class="hs-identifier hs-type">dbInstanceStatusInfo_statusType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBInstanceStatusInfo.html#DBInstanceStatusInfo"><span class="hs-identifier hs-type">DBInstanceStatusInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="dbInstanceStatusInfo_statusType"><span class="annot"><span class="annottext">dbInstanceStatusInfo_statusType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DBInstanceStatusInfo -&gt; f DBInstanceStatusInfo
+</span><a href="Network.AWS.DocumentDB.Types.DBInstanceStatusInfo.html#dbInstanceStatusInfo_statusType"><span class="hs-identifier hs-var hs-var">dbInstanceStatusInfo_statusType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBInstanceStatusInfo -&gt; Maybe Text)
+-&gt; (DBInstanceStatusInfo -&gt; Maybe Text -&gt; DBInstanceStatusInfo)
+-&gt; Lens
+     DBInstanceStatusInfo DBInstanceStatusInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBInstanceStatusInfo.html#DBInstanceStatusInfo%27"><span class="hs-identifier hs-type">DBInstanceStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298244"><span class="annot"><span class="annottext">Maybe Text
+statusType :: Maybe Text
+$sel:statusType:DBInstanceStatusInfo' :: DBInstanceStatusInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679298244"><span class="hs-identifier hs-var hs-var">statusType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298244"><span class="hs-identifier hs-var">statusType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298243"><span class="annot"><span class="annottext">s :: DBInstanceStatusInfo
+</span><a href="#local-6989586621679298243"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBInstanceStatusInfo.html#DBInstanceStatusInfo%27"><span class="hs-identifier hs-type">DBInstanceStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298242"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298242"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBInstanceStatusInfo
+</span><a href="#local-6989586621679298243"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusType:DBInstanceStatusInfo' :: Maybe Text
+</span><a href="Network.AWS.DocumentDB.Types.DBInstanceStatusInfo.html#%24sel%3AstatusType%3ADBInstanceStatusInfo%27"><span class="hs-identifier hs-var">statusType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298242"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBInstanceStatusInfo.html#DBInstanceStatusInfo"><span class="hs-identifier hs-type">DBInstanceStatusInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | Details of the error if there is an error for the instance. If the</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- instance is not in an error state, this value is blank.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBInstanceStatusInfo.html#dbInstanceStatusInfo_message"><span class="hs-identifier hs-type">dbInstanceStatusInfo_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBInstanceStatusInfo.html#DBInstanceStatusInfo"><span class="hs-identifier hs-type">DBInstanceStatusInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="dbInstanceStatusInfo_message"><span class="annot"><span class="annottext">dbInstanceStatusInfo_message :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DBInstanceStatusInfo -&gt; f DBInstanceStatusInfo
+</span><a href="Network.AWS.DocumentDB.Types.DBInstanceStatusInfo.html#dbInstanceStatusInfo_message"><span class="hs-identifier hs-var hs-var">dbInstanceStatusInfo_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBInstanceStatusInfo -&gt; Maybe Text)
+-&gt; (DBInstanceStatusInfo -&gt; Maybe Text -&gt; DBInstanceStatusInfo)
+-&gt; Lens
+     DBInstanceStatusInfo DBInstanceStatusInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBInstanceStatusInfo.html#DBInstanceStatusInfo%27"><span class="hs-identifier hs-type">DBInstanceStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298240"><span class="annot"><span class="annottext">Maybe Text
+message :: Maybe Text
+$sel:message:DBInstanceStatusInfo' :: DBInstanceStatusInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679298240"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298240"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298239"><span class="annot"><span class="annottext">s :: DBInstanceStatusInfo
+</span><a href="#local-6989586621679298239"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBInstanceStatusInfo.html#DBInstanceStatusInfo%27"><span class="hs-identifier hs-type">DBInstanceStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298238"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298238"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBInstanceStatusInfo
+</span><a href="#local-6989586621679298239"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:DBInstanceStatusInfo' :: Maybe Text
+</span><a href="Network.AWS.DocumentDB.Types.DBInstanceStatusInfo.html#%24sel%3Amessage%3ADBInstanceStatusInfo%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298238"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBInstanceStatusInfo.html#DBInstanceStatusInfo"><span class="hs-identifier hs-type">DBInstanceStatusInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBInstanceStatusInfo.html#DBInstanceStatusInfo"><span class="hs-identifier hs-type">DBInstanceStatusInfo</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679298235"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DBInstanceStatusInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679298233"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679298233"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Bool -&gt; Maybe Text -&gt; Maybe Text -&gt; DBInstanceStatusInfo
+</span><a href="Network.AWS.DocumentDB.Types.DBInstanceStatusInfo.html#DBInstanceStatusInfo%27"><span class="hs-identifier hs-var">DBInstanceStatusInfo'</span></a></span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Bool -&gt; Maybe Text -&gt; Maybe Text -&gt; DBInstanceStatusInfo)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Bool -&gt; Maybe Text -&gt; Maybe Text -&gt; DBInstanceStatusInfo)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679298233"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Bool -&gt; Maybe Text -&gt; Maybe Text -&gt; DBInstanceStatusInfo)
+-&gt; Either String (Maybe Bool)
+-&gt; Either String (Maybe Text -&gt; Maybe Text -&gt; DBInstanceStatusInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679298233"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Normal&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Text -&gt; DBInstanceStatusInfo)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; DBInstanceStatusInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679298233"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StatusType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; DBInstanceStatusInfo)
+-&gt; Either String (Maybe Text) -&gt; Either String DBInstanceStatusInfo
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679298233"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Message&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298227"><span id="local-6989586621679298229"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBInstanceStatusInfo.html#DBInstanceStatusInfo"><span class="hs-identifier hs-type">DBInstanceStatusInfo</span></a></span></span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298224"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBInstanceStatusInfo.html#DBInstanceStatusInfo"><span class="hs-identifier hs-type">DBInstanceStatusInfo</span></a></span></span><span>
+</span><span id="line-102"></span></pre></body></html>

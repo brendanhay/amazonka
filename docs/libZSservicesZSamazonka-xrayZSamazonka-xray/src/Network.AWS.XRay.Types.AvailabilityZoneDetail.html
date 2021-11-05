@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | A list of Availability Zones corresponding to the segments in a trace.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newAvailabilityZoneDetail' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679250483"><span id="local-6989586621679250484"></span></span><span class="hs-keyword">data</span><span> </span><span id="AvailabilityZoneDetail"><span class="annot"><a href="Network.AWS.XRay.Types.AvailabilityZoneDetail.html#AvailabilityZoneDetail"><span class="hs-identifier hs-var">AvailabilityZoneDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AvailabilityZoneDetail%27"><span class="annot"><a href="Network.AWS.XRay.Types.AvailabilityZoneDetail.html#AvailabilityZoneDetail%27"><span class="hs-identifier hs-var">AvailabilityZoneDetail'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679250492"><span id="local-6989586621679250493"></span></span><span class="hs-keyword">data</span><span> </span><span id="AvailabilityZoneDetail"><span class="annot"><a href="Network.AWS.XRay.Types.AvailabilityZoneDetail.html#AvailabilityZoneDetail"><span class="hs-identifier hs-var">AvailabilityZoneDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AvailabilityZoneDetail%27"><span class="annot"><a href="Network.AWS.XRay.Types.AvailabilityZoneDetail.html#AvailabilityZoneDetail%27"><span class="hs-identifier hs-var">AvailabilityZoneDetail'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of a corresponding Availability Zone.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Aname%3AAvailabilityZoneDetail%27"><span class="annot"><span class="annottext">AvailabilityZoneDetail -&gt; Maybe Text
 </span><a href="Network.AWS.XRay.Types.AvailabilityZoneDetail.html#%24sel%3Aname%3AAvailabilityZoneDetail%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250477"><span id="local-6989586621679250479"><span class="annot"><span class="annottext">AvailabilityZoneDetail -&gt; AvailabilityZoneDetail -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250486"><span id="local-6989586621679250488"><span class="annot"><span class="annottext">AvailabilityZoneDetail -&gt; AvailabilityZoneDetail -&gt; Bool
 (AvailabilityZoneDetail -&gt; AvailabilityZoneDetail -&gt; Bool)
 -&gt; (AvailabilityZoneDetail -&gt; AvailabilityZoneDetail -&gt; Bool)
 -&gt; Eq AvailabilityZoneDetail
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AvailabilityZoneDetail -&gt; AvailabilityZoneDetail -&gt; Bool
 == :: AvailabilityZoneDetail -&gt; AvailabilityZoneDetail -&gt; Bool
 $c== :: AvailabilityZoneDetail -&gt; AvailabilityZoneDetail -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250468"><span id="local-6989586621679250470"><span id="local-6989586621679250472"><span id="local-6989586621679250474"><span class="annot"><span class="annottext">ReadPrec [AvailabilityZoneDetail]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250477"><span id="local-6989586621679250479"><span id="local-6989586621679250481"><span id="local-6989586621679250483"><span class="annot"><span class="annottext">ReadPrec [AvailabilityZoneDetail]
 ReadPrec AvailabilityZoneDetail
 Int -&gt; ReadS AvailabilityZoneDetail
 ReadS [AvailabilityZoneDetail]
@@ -60,7 +60,7 @@ readList :: ReadS [AvailabilityZoneDetail]
 $creadList :: ReadS [AvailabilityZoneDetail]
 readsPrec :: Int -&gt; ReadS AvailabilityZoneDetail
 $creadsPrec :: Int -&gt; ReadS AvailabilityZoneDetail
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250461"><span id="local-6989586621679250463"><span id="local-6989586621679250465"><span class="annot"><span class="annottext">Int -&gt; AvailabilityZoneDetail -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250470"><span id="local-6989586621679250472"><span id="local-6989586621679250474"><span class="annot"><span class="annottext">Int -&gt; AvailabilityZoneDetail -&gt; ShowS
 [AvailabilityZoneDetail] -&gt; ShowS
 AvailabilityZoneDetail -&gt; String
 (Int -&gt; AvailabilityZoneDetail -&gt; ShowS)
@@ -118,19 +118,19 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.AvailabilityZoneDetail.html#AvailabilityZoneDetail%27"><span class="hs-identifier hs-type">AvailabilityZoneDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250452"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.AvailabilityZoneDetail.html#AvailabilityZoneDetail%27"><span class="hs-identifier hs-type">AvailabilityZoneDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250461"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:AvailabilityZoneDetail' :: AvailabilityZoneDetail -&gt; Maybe Text
-</span><a href="#local-6989586621679250452"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250452"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250451"><span class="annot"><span class="annottext">s :: AvailabilityZoneDetail
-</span><a href="#local-6989586621679250451"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.AvailabilityZoneDetail.html#AvailabilityZoneDetail%27"><span class="hs-identifier hs-type">AvailabilityZoneDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250450"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250450"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvailabilityZoneDetail
-</span><a href="#local-6989586621679250451"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:AvailabilityZoneDetail' :: Maybe Text
+</span><a href="#local-6989586621679250461"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250461"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250460"><span class="annot"><span class="annottext">s :: AvailabilityZoneDetail
+</span><a href="#local-6989586621679250460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.AvailabilityZoneDetail.html#AvailabilityZoneDetail%27"><span class="hs-identifier hs-type">AvailabilityZoneDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250459"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvailabilityZoneDetail
+</span><a href="#local-6989586621679250460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:AvailabilityZoneDetail' :: Maybe Text
 </span><a href="Network.AWS.XRay.Types.AvailabilityZoneDetail.html#%24sel%3Aname%3AAvailabilityZoneDetail%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250450"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.AvailabilityZoneDetail.html#AvailabilityZoneDetail"><span class="hs-identifier hs-type">AvailabilityZoneDetail</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679250459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.AvailabilityZoneDetail.html#AvailabilityZoneDetail"><span class="hs-identifier hs-type">AvailabilityZoneDetail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>
-</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250447"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.AvailabilityZoneDetail.html#AvailabilityZoneDetail"><span class="hs-identifier hs-type">AvailabilityZoneDetail</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621679250445"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AvailabilityZoneDetail
+</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250456"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.AvailabilityZoneDetail.html#AvailabilityZoneDetail"><span class="hs-identifier hs-type">AvailabilityZoneDetail</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679250454"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AvailabilityZoneDetail
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AvailabilityZoneDetail)
@@ -140,21 +140,21 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AvailabilityZoneDetail&quot;</span></span><span>
-</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679250442"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679250442"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679250451"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250451"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-58"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; AvailabilityZoneDetail
 </span><a href="Network.AWS.XRay.Types.AvailabilityZoneDetail.html#AvailabilityZoneDetail%27"><span class="hs-identifier hs-var">AvailabilityZoneDetail'</span></a></span><span>
 </span><span id="line-59"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; AvailabilityZoneDetail)
 -&gt; Parser (Maybe Text) -&gt; Parser AvailabilityZoneDetail
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679250442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679250451"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250436"><span id="local-6989586621679250438"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.AvailabilityZoneDetail.html#AvailabilityZoneDetail"><span class="hs-identifier hs-type">AvailabilityZoneDetail</span></a></span></span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250445"><span id="local-6989586621679250447"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.AvailabilityZoneDetail.html#AvailabilityZoneDetail"><span class="hs-identifier hs-type">AvailabilityZoneDetail</span></a></span></span></span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250433"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.AvailabilityZoneDetail.html#AvailabilityZoneDetail"><span class="hs-identifier hs-type">AvailabilityZoneDetail</span></a></span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250442"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.AvailabilityZoneDetail.html#AvailabilityZoneDetail"><span class="hs-identifier hs-type">AvailabilityZoneDetail</span></a></span></span><span>
 </span><span id="line-65"></span></pre></body></html>

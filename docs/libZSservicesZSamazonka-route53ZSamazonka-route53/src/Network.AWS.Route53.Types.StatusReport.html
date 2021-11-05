@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- checker reports and the time of the health check.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newStatusReport' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679297973"><span id="local-6989586621679297974"></span></span><span class="hs-keyword">data</span><span> </span><span id="StatusReport"><span class="annot"><a href="Network.AWS.Route53.Types.StatusReport.html#StatusReport"><span class="hs-identifier hs-var">StatusReport</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StatusReport%27"><span class="annot"><a href="Network.AWS.Route53.Types.StatusReport.html#StatusReport%27"><span class="hs-identifier hs-var">StatusReport'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679297982"><span id="local-6989586621679297983"></span></span><span class="hs-keyword">data</span><span> </span><span id="StatusReport"><span class="annot"><a href="Network.AWS.Route53.Types.StatusReport.html#StatusReport"><span class="hs-identifier hs-var">StatusReport</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StatusReport%27"><span class="annot"><a href="Network.AWS.Route53.Types.StatusReport.html#StatusReport%27"><span class="hs-identifier hs-var">StatusReport'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A description of the status of the health check endpoint as reported by</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- one of the Amazon Route 53 health checkers.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Astatus%3AStatusReport%27"><span class="annot"><span class="annottext">StatusReport -&gt; Maybe Text
@@ -40,7 +40,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AcheckedTime%3AStatusReport%27"><span class="annot"><span class="annottext">StatusReport -&gt; Maybe ISO8601
 </span><a href="Network.AWS.Route53.Types.StatusReport.html#%24sel%3AcheckedTime%3AStatusReport%27"><span class="hs-identifier hs-var hs-var">checkedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297966"><span id="local-6989586621679297968"><span class="annot"><span class="annottext">StatusReport -&gt; StatusReport -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297975"><span id="local-6989586621679297977"><span class="annot"><span class="annottext">StatusReport -&gt; StatusReport -&gt; Bool
 (StatusReport -&gt; StatusReport -&gt; Bool)
 -&gt; (StatusReport -&gt; StatusReport -&gt; Bool) -&gt; Eq StatusReport
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StatusReport -&gt; StatusReport -&gt; Bool
 == :: StatusReport -&gt; StatusReport -&gt; Bool
 $c== :: StatusReport -&gt; StatusReport -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297957"><span id="local-6989586621679297959"><span id="local-6989586621679297961"><span id="local-6989586621679297963"><span class="annot"><span class="annottext">ReadPrec [StatusReport]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297966"><span id="local-6989586621679297968"><span id="local-6989586621679297970"><span id="local-6989586621679297972"><span class="annot"><span class="annottext">ReadPrec [StatusReport]
 ReadPrec StatusReport
 Int -&gt; ReadS StatusReport
 ReadS [StatusReport]
@@ -68,7 +68,7 @@ readList :: ReadS [StatusReport]
 $creadList :: ReadS [StatusReport]
 readsPrec :: Int -&gt; ReadS StatusReport
 $creadsPrec :: Int -&gt; ReadS StatusReport
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297950"><span id="local-6989586621679297952"><span id="local-6989586621679297954"><span class="annot"><span class="annottext">Int -&gt; StatusReport -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297959"><span id="local-6989586621679297961"><span id="local-6989586621679297963"><span class="annot"><span class="annottext">Int -&gt; StatusReport -&gt; ShowS
 [StatusReport] -&gt; ShowS
 StatusReport -&gt; String
 (Int -&gt; StatusReport -&gt; ShowS)
@@ -133,16 +133,16 @@ forall a. Maybe a
 -&gt; (StatusReport -&gt; Maybe Text -&gt; StatusReport)
 -&gt; Lens StatusReport StatusReport (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.StatusReport.html#StatusReport%27"><span class="hs-identifier hs-type">StatusReport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297941"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.StatusReport.html#StatusReport%27"><span class="hs-identifier hs-type">StatusReport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297950"><span class="annot"><span class="annottext">Maybe Text
 status :: Maybe Text
 $sel:status:StatusReport' :: StatusReport -&gt; Maybe Text
-</span><a href="#local-6989586621679297941"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297941"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297940"><span class="annot"><span class="annottext">s :: StatusReport
-</span><a href="#local-6989586621679297940"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.StatusReport.html#StatusReport%27"><span class="hs-identifier hs-type">StatusReport'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297939"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297939"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StatusReport
-</span><a href="#local-6989586621679297940"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:StatusReport' :: Maybe Text
+</span><a href="#local-6989586621679297950"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297950"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297949"><span class="annot"><span class="annottext">s :: StatusReport
+</span><a href="#local-6989586621679297949"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.StatusReport.html#StatusReport%27"><span class="hs-identifier hs-type">StatusReport'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297948"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297948"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StatusReport
+</span><a href="#local-6989586621679297949"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:StatusReport' :: Maybe Text
 </span><a href="Network.AWS.Route53.Types.StatusReport.html#%24sel%3Astatus%3AStatusReport%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297939"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.StatusReport.html#StatusReport"><span class="hs-identifier hs-type">StatusReport</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679297948"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.StatusReport.html#StatusReport"><span class="hs-identifier hs-type">StatusReport</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | The date and time that the health checker performed the health check in</span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- &lt;https://en.wikipedia.org/wiki/ISO_8601 ISO 8601 format&gt; and Coordinated</span><span>
@@ -155,16 +155,16 @@ $sel:status:StatusReport' :: StatusReport -&gt; Maybe Text
 -&gt; (StatusReport -&gt; Maybe ISO8601 -&gt; StatusReport)
 -&gt; Lens StatusReport StatusReport (Maybe ISO8601) (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.StatusReport.html#StatusReport%27"><span class="hs-identifier hs-type">StatusReport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297937"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.StatusReport.html#StatusReport%27"><span class="hs-identifier hs-type">StatusReport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297946"><span class="annot"><span class="annottext">Maybe ISO8601
 checkedTime :: Maybe ISO8601
 $sel:checkedTime:StatusReport' :: StatusReport -&gt; Maybe ISO8601
-</span><a href="#local-6989586621679297937"><span class="hs-identifier hs-var hs-var">checkedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679297937"><span class="hs-identifier hs-var">checkedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297936"><span class="annot"><span class="annottext">s :: StatusReport
-</span><a href="#local-6989586621679297936"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.StatusReport.html#StatusReport%27"><span class="hs-identifier hs-type">StatusReport'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297935"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679297935"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StatusReport
-</span><a href="#local-6989586621679297936"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:checkedTime:StatusReport' :: Maybe ISO8601
+</span><a href="#local-6989586621679297946"><span class="hs-identifier hs-var hs-var">checkedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679297946"><span class="hs-identifier hs-var">checkedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297945"><span class="annot"><span class="annottext">s :: StatusReport
+</span><a href="#local-6989586621679297945"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.StatusReport.html#StatusReport%27"><span class="hs-identifier hs-type">StatusReport'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297944"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679297944"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StatusReport
+</span><a href="#local-6989586621679297945"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:checkedTime:StatusReport' :: Maybe ISO8601
 </span><a href="Network.AWS.Route53.Types.StatusReport.html#%24sel%3AcheckedTime%3AStatusReport%27"><span class="hs-identifier hs-var">checkedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679297935"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.StatusReport.html#StatusReport"><span class="hs-identifier hs-type">StatusReport</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+</span><a href="#local-6989586621679297944"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.StatusReport.html#StatusReport"><span class="hs-identifier hs-type">StatusReport</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
  -&gt; StatusReport -&gt; f StatusReport)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
@@ -183,9 +183,9 @@ forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.StatusReport.html#StatusReport"><span class="hs-identifier hs-type">StatusReport</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679297929"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String StatusReport
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679297927"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679297927"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679297938"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String StatusReport
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679297936"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679297936"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe ISO8601 -&gt; StatusReport
 </span><a href="Network.AWS.Route53.Types.StatusReport.html#StatusReport%27"><span class="hs-identifier hs-var">StatusReport'</span></a></span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe ISO8601 -&gt; StatusReport)
@@ -193,7 +193,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; Either String (Maybe ISO8601 -&gt; StatusReport)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679297927"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679297936"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
@@ -201,12 +201,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe ISO8601) -&gt; Either String StatusReport
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679297927"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+</span><a href="#local-6989586621679297936"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CheckedTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297921"><span id="local-6989586621679297923"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.StatusReport.html#StatusReport"><span class="hs-identifier hs-type">StatusReport</span></a></span></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297930"><span id="local-6989586621679297932"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.StatusReport.html#StatusReport"><span class="hs-identifier hs-type">StatusReport</span></a></span></span></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297918"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.StatusReport.html#StatusReport"><span class="hs-identifier hs-type">StatusReport</span></a></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297927"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.StatusReport.html#StatusReport"><span class="hs-identifier hs-type">StatusReport</span></a></span></span><span>
 </span><span id="line-87"></span></pre></body></html>

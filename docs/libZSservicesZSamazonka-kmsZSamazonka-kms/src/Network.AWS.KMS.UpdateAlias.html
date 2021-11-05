@@ -100,7 +100,7 @@
 </span><span id="line-100"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | /See:/ 'newUpdateAlias' smart constructor.</span><span>
-</span><span id="line-103"></span><span id="local-6989586621679261300"><span id="local-6989586621679261301"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateAlias"><span class="annot"><a href="Network.AWS.KMS.UpdateAlias.html#UpdateAlias"><span class="hs-identifier hs-var">UpdateAlias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateAlias%27"><span class="annot"><a href="Network.AWS.KMS.UpdateAlias.html#UpdateAlias%27"><span class="hs-identifier hs-var">UpdateAlias'</span></a></span></span><span>
+</span><span id="line-103"></span><span id="local-6989586621679261309"><span id="local-6989586621679261310"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateAlias"><span class="annot"><a href="Network.AWS.KMS.UpdateAlias.html#UpdateAlias"><span class="hs-identifier hs-var">UpdateAlias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateAlias%27"><span class="annot"><a href="Network.AWS.KMS.UpdateAlias.html#UpdateAlias%27"><span class="hs-identifier hs-var">UpdateAlias'</span></a></span></span><span>
 </span><span id="line-104"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Identifies the alias that is changing its KMS key. This value must begin</span><span>
 </span><span id="line-105"></span><span>    </span><span class="hs-comment">-- with @alias\/@ followed by the alias name, such as</span><span>
 </span><span id="line-106"></span><span>    </span><span class="hs-comment">-- @alias\/ExampleAlias@. You cannot use UpdateAlias to change the alias</span><span>
@@ -135,7 +135,7 @@
 </span><span id="line-134"></span><span>    </span><span id="%24sel%3AtargetKeyId%3AUpdateAlias%27"><span class="annot"><span class="annottext">UpdateAlias -&gt; Text
 </span><a href="Network.AWS.KMS.UpdateAlias.html#%24sel%3AtargetKeyId%3AUpdateAlias%27"><span class="hs-identifier hs-var hs-var">targetKeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-135"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-136"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679261293"><span id="local-6989586621679261295"><span class="annot"><span class="annottext">UpdateAlias -&gt; UpdateAlias -&gt; Bool
+</span><span id="line-136"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679261302"><span id="local-6989586621679261304"><span class="annot"><span class="annottext">UpdateAlias -&gt; UpdateAlias -&gt; Bool
 (UpdateAlias -&gt; UpdateAlias -&gt; Bool)
 -&gt; (UpdateAlias -&gt; UpdateAlias -&gt; Bool) -&gt; Eq UpdateAlias
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -143,7 +143,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateAlias -&gt; UpdateAlias -&gt; Bool
 == :: UpdateAlias -&gt; UpdateAlias -&gt; Bool
 $c== :: UpdateAlias -&gt; UpdateAlias -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261284"><span id="local-6989586621679261286"><span id="local-6989586621679261288"><span id="local-6989586621679261290"><span class="annot"><span class="annottext">ReadPrec [UpdateAlias]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261293"><span id="local-6989586621679261295"><span id="local-6989586621679261297"><span id="local-6989586621679261299"><span class="annot"><span class="annottext">ReadPrec [UpdateAlias]
 ReadPrec UpdateAlias
 Int -&gt; ReadS UpdateAlias
 ReadS [UpdateAlias]
@@ -163,7 +163,7 @@ readList :: ReadS [UpdateAlias]
 $creadList :: ReadS [UpdateAlias]
 readsPrec :: Int -&gt; ReadS UpdateAlias
 $creadsPrec :: Int -&gt; ReadS UpdateAlias
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261277"><span id="local-6989586621679261279"><span id="local-6989586621679261281"><span class="annot"><span class="annottext">Int -&gt; UpdateAlias -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261286"><span id="local-6989586621679261288"><span id="local-6989586621679261290"><span class="annot"><span class="annottext">Int -&gt; UpdateAlias -&gt; ShowS
 [UpdateAlias] -&gt; ShowS
 UpdateAlias -&gt; String
 (Int -&gt; UpdateAlias -&gt; ShowS)
@@ -234,17 +234,17 @@ $cfrom :: forall x. UpdateAlias -&gt; Rep UpdateAlias x
 </span><span id="line-180"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-181"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.UpdateAlias.html#UpdateAlias"><span class="hs-identifier hs-type">UpdateAlias</span></a></span><span>
 </span><span id="line-182"></span><span id="newUpdateAlias"><span class="annot"><span class="annottext">newUpdateAlias :: Text -&gt; Text -&gt; UpdateAlias
-</span><a href="Network.AWS.KMS.UpdateAlias.html#newUpdateAlias"><span class="hs-identifier hs-var hs-var">newUpdateAlias</span></a></span></span><span> </span><span id="local-6989586621679261272"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261272"><span class="hs-identifier hs-var">pAliasName_</span></a></span></span><span> </span><span id="local-6989586621679261271"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261271"><span class="hs-identifier hs-var">pTargetKeyId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.KMS.UpdateAlias.html#newUpdateAlias"><span class="hs-identifier hs-var hs-var">newUpdateAlias</span></a></span></span><span> </span><span id="local-6989586621679261281"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261281"><span class="hs-identifier hs-var">pAliasName_</span></a></span></span><span> </span><span id="local-6989586621679261280"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261280"><span class="hs-identifier hs-var">pTargetKeyId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-183"></span><span>  </span><span class="annot"><span class="annottext">UpdateAlias' :: Text -&gt; Text -&gt; UpdateAlias
 </span><a href="Network.AWS.KMS.UpdateAlias.html#UpdateAlias%27"><span class="hs-identifier hs-type">UpdateAlias'</span></a></span><span>
 </span><span id="line-184"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:aliasName:UpdateAlias' :: Text
 </span><a href="Network.AWS.KMS.UpdateAlias.html#%24sel%3AaliasName%3AUpdateAlias%27"><span class="hs-identifier hs-var">aliasName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261272"><span class="hs-identifier hs-var">pAliasName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679261281"><span class="hs-identifier hs-var">pAliasName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetKeyId:UpdateAlias' :: Text
 </span><a href="Network.AWS.KMS.UpdateAlias.html#%24sel%3AtargetKeyId%3AUpdateAlias%27"><span class="hs-identifier hs-var">targetKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261271"><span class="hs-identifier hs-var">pTargetKeyId_</span></a></span><span>
+</span><a href="#local-6989586621679261280"><span class="hs-identifier hs-var">pTargetKeyId_</span></a></span><span>
 </span><span id="line-186"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- | Identifies the alias that is changing its KMS key. This value must begin</span><span>
@@ -257,16 +257,16 @@ $cfrom :: forall x. UpdateAlias -&gt; Rep UpdateAlias x
 -&gt; (UpdateAlias -&gt; Text -&gt; UpdateAlias)
 -&gt; Lens UpdateAlias UpdateAlias Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.UpdateAlias.html#UpdateAlias%27"><span class="hs-identifier hs-type">UpdateAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261268"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.UpdateAlias.html#UpdateAlias%27"><span class="hs-identifier hs-type">UpdateAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261277"><span class="annot"><span class="annottext">Text
 aliasName :: Text
 $sel:aliasName:UpdateAlias' :: UpdateAlias -&gt; Text
-</span><a href="#local-6989586621679261268"><span class="hs-identifier hs-var hs-var">aliasName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261268"><span class="hs-identifier hs-var">aliasName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261267"><span class="annot"><span class="annottext">s :: UpdateAlias
-</span><a href="#local-6989586621679261267"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.UpdateAlias.html#UpdateAlias%27"><span class="hs-identifier hs-type">UpdateAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261266"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261266"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAlias
-</span><a href="#local-6989586621679261267"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aliasName:UpdateAlias' :: Text
+</span><a href="#local-6989586621679261277"><span class="hs-identifier hs-var hs-var">aliasName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261277"><span class="hs-identifier hs-var">aliasName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261276"><span class="annot"><span class="annottext">s :: UpdateAlias
+</span><a href="#local-6989586621679261276"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.UpdateAlias.html#UpdateAlias%27"><span class="hs-identifier hs-type">UpdateAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261275"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261275"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAlias
+</span><a href="#local-6989586621679261276"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aliasName:UpdateAlias' :: Text
 </span><a href="Network.AWS.KMS.UpdateAlias.html#%24sel%3AaliasName%3AUpdateAlias%27"><span class="hs-identifier hs-var">aliasName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261266"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.UpdateAlias.html#UpdateAlias"><span class="hs-identifier hs-type">UpdateAlias</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679261275"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.UpdateAlias.html#UpdateAlias"><span class="hs-identifier hs-type">UpdateAlias</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>
 </span><span id="line-195"></span><span class="hs-comment">-- | Identifies the</span><span>
 </span><span id="line-196"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk customer managed key&gt;</span><span>
@@ -299,25 +299,25 @@ $sel:aliasName:UpdateAlias' :: UpdateAlias -&gt; Text
 -&gt; (UpdateAlias -&gt; Text -&gt; UpdateAlias)
 -&gt; Lens UpdateAlias UpdateAlias Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.UpdateAlias.html#UpdateAlias%27"><span class="hs-identifier hs-type">UpdateAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261265"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.UpdateAlias.html#UpdateAlias%27"><span class="hs-identifier hs-type">UpdateAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261274"><span class="annot"><span class="annottext">Text
 targetKeyId :: Text
 $sel:targetKeyId:UpdateAlias' :: UpdateAlias -&gt; Text
-</span><a href="#local-6989586621679261265"><span class="hs-identifier hs-var hs-var">targetKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261265"><span class="hs-identifier hs-var">targetKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261264"><span class="annot"><span class="annottext">s :: UpdateAlias
-</span><a href="#local-6989586621679261264"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.UpdateAlias.html#UpdateAlias%27"><span class="hs-identifier hs-type">UpdateAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261263"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261263"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAlias
-</span><a href="#local-6989586621679261264"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetKeyId:UpdateAlias' :: Text
+</span><a href="#local-6989586621679261274"><span class="hs-identifier hs-var hs-var">targetKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261274"><span class="hs-identifier hs-var">targetKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261273"><span class="annot"><span class="annottext">s :: UpdateAlias
+</span><a href="#local-6989586621679261273"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.UpdateAlias.html#UpdateAlias%27"><span class="hs-identifier hs-type">UpdateAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261272"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261272"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAlias
+</span><a href="#local-6989586621679261273"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetKeyId:UpdateAlias' :: Text
 </span><a href="Network.AWS.KMS.UpdateAlias.html#%24sel%3AtargetKeyId%3AUpdateAlias%27"><span class="hs-identifier hs-var">targetKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261263"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.UpdateAlias.html#UpdateAlias"><span class="hs-identifier hs-type">UpdateAlias</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679261272"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.UpdateAlias.html#UpdateAlias"><span class="hs-identifier hs-type">UpdateAlias</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span>
 </span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.UpdateAlias.html#UpdateAlias"><span class="hs-identifier hs-type">UpdateAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-224"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.UpdateAlias.html#UpdateAlias"><span class="hs-identifier hs-type">UpdateAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.KMS.UpdateAlias.html#UpdateAliasResponse"><span class="hs-identifier hs-type">UpdateAliasResponse</span></a></span><span>
-</span><span id="line-225"></span><span>  </span><span id="local-6989586621679261259"><span class="annot"><span class="annottext">request :: UpdateAlias -&gt; Request UpdateAlias
+</span><span id="line-225"></span><span>  </span><span id="local-6989586621679261268"><span class="annot"><span class="annottext">request :: UpdateAlias -&gt; Request UpdateAlias
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateAlias -&gt; Request UpdateAlias
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.KMS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-226"></span><span>  </span><span id="local-6989586621679261255"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-226"></span><span>  </span><span id="local-6989586621679261264"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateAlias
 -&gt; ClientResponse ClientBody
@@ -340,12 +340,12 @@ AWSResponse a
 UpdateAliasResponse
 </span><a href="Network.AWS.KMS.UpdateAlias.html#UpdateAliasResponse%27"><span class="hs-identifier hs-var">UpdateAliasResponse'</span></a></span><span>
 </span><span id="line-227"></span><span>
-</span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261248"><span id="local-6989586621679261250"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.UpdateAlias.html#UpdateAlias"><span class="hs-identifier hs-type">UpdateAlias</span></a></span></span></span><span>
+</span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261257"><span id="local-6989586621679261259"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.UpdateAlias.html#UpdateAlias"><span class="hs-identifier hs-type">UpdateAlias</span></a></span></span></span><span>
 </span><span id="line-229"></span><span>
-</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261245"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.UpdateAlias.html#UpdateAlias"><span class="hs-identifier hs-type">UpdateAlias</span></a></span></span><span>
+</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261254"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.UpdateAlias.html#UpdateAlias"><span class="hs-identifier hs-type">UpdateAlias</span></a></span></span><span>
 </span><span id="line-231"></span><span>
 </span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.UpdateAlias.html#UpdateAlias"><span class="hs-identifier hs-type">UpdateAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-233"></span><span>  </span><span id="local-6989586621679261241"><span class="annot"><span class="annottext">toHeaders :: UpdateAlias -&gt; [Header]
+</span><span id="line-233"></span><span>  </span><span id="local-6989586621679261250"><span class="annot"><span class="annottext">toHeaders :: UpdateAlias -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-234"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; UpdateAlias -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -370,14 +370,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-242"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-243"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-244"></span><span>
-</span><span id="line-245"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261231"><span id="local-6989586621679261233"><span id="local-6989586621679261235"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.UpdateAlias.html#UpdateAlias"><span class="hs-identifier hs-type">UpdateAlias</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-246"></span><span>  </span><span id="local-6989586621679261229"><span class="annot"><span class="annottext">toJSON :: UpdateAlias -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.UpdateAlias.html#UpdateAlias%27"><span class="hs-identifier hs-type">UpdateAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261226"><span id="local-6989586621679261227"><span class="annot"><span class="annottext">Text
+</span><span id="line-245"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261240"><span id="local-6989586621679261242"><span id="local-6989586621679261244"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.UpdateAlias.html#UpdateAlias"><span class="hs-identifier hs-type">UpdateAlias</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-246"></span><span>  </span><span id="local-6989586621679261238"><span class="annot"><span class="annottext">toJSON :: UpdateAlias -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.UpdateAlias.html#UpdateAlias%27"><span class="hs-identifier hs-type">UpdateAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261235"><span id="local-6989586621679261236"><span class="annot"><span class="annottext">Text
 targetKeyId :: Text
 aliasName :: Text
 $sel:targetKeyId:UpdateAlias' :: UpdateAlias -&gt; Text
 $sel:aliasName:UpdateAlias' :: UpdateAlias -&gt; Text
-</span><a href="#local-6989586621679261226"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679261235"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-247"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-248"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -389,26 +389,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;AliasName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261227"><span class="hs-identifier hs-var">aliasName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679261236"><span class="hs-identifier hs-var">aliasName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-250"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TargetKeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261226"><span class="hs-identifier hs-var">targetKeyId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679261235"><span class="hs-identifier hs-var">targetKeyId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-251"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-252"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-253"></span><span>
 </span><span id="line-254"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.UpdateAlias.html#UpdateAlias"><span class="hs-identifier hs-type">UpdateAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-255"></span><span>  </span><span id="local-6989586621679261220"><span class="annot"><span class="annottext">toPath :: UpdateAlias -&gt; ByteString
+</span><span id="line-255"></span><span>  </span><span id="local-6989586621679261229"><span class="annot"><span class="annottext">toPath :: UpdateAlias -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateAlias -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-256"></span><span>
 </span><span id="line-257"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.UpdateAlias.html#UpdateAlias"><span class="hs-identifier hs-type">UpdateAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-258"></span><span>  </span><span id="local-6989586621679261216"><span class="annot"><span class="annottext">toQuery :: UpdateAlias -&gt; QueryString
+</span><span id="line-258"></span><span>  </span><span id="local-6989586621679261225"><span class="annot"><span class="annottext">toQuery :: UpdateAlias -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateAlias -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -416,10 +416,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-259"></span><span>
 </span><span id="line-260"></span><span class="hs-comment">-- | /See:/ 'newUpdateAliasResponse' smart constructor.</span><span>
-</span><span id="line-261"></span><span id="local-6989586621679261213"><span id="local-6989586621679261214"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateAliasResponse"><span class="annot"><a href="Network.AWS.KMS.UpdateAlias.html#UpdateAliasResponse"><span class="hs-identifier hs-var">UpdateAliasResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateAliasResponse%27"><span class="annot"><a href="Network.AWS.KMS.UpdateAlias.html#UpdateAliasResponse%27"><span class="hs-identifier hs-var">UpdateAliasResponse'</span></a></span></span><span>
+</span><span id="line-261"></span><span id="local-6989586621679261222"><span id="local-6989586621679261223"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateAliasResponse"><span class="annot"><a href="Network.AWS.KMS.UpdateAlias.html#UpdateAliasResponse"><span class="hs-identifier hs-var">UpdateAliasResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateAliasResponse%27"><span class="annot"><a href="Network.AWS.KMS.UpdateAlias.html#UpdateAliasResponse%27"><span class="hs-identifier hs-var">UpdateAliasResponse'</span></a></span></span><span>
 </span><span id="line-262"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-263"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-264"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679261209"><span id="local-6989586621679261211"><span class="annot"><span class="annottext">UpdateAliasResponse -&gt; UpdateAliasResponse -&gt; Bool
+</span><span id="line-264"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679261218"><span id="local-6989586621679261220"><span class="annot"><span class="annottext">UpdateAliasResponse -&gt; UpdateAliasResponse -&gt; Bool
 (UpdateAliasResponse -&gt; UpdateAliasResponse -&gt; Bool)
 -&gt; (UpdateAliasResponse -&gt; UpdateAliasResponse -&gt; Bool)
 -&gt; Eq UpdateAliasResponse
@@ -428,7 +428,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateAliasResponse -&gt; UpdateAliasResponse -&gt; Bool
 == :: UpdateAliasResponse -&gt; UpdateAliasResponse -&gt; Bool
 $c== :: UpdateAliasResponse -&gt; UpdateAliasResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261201"><span id="local-6989586621679261203"><span id="local-6989586621679261205"><span id="local-6989586621679261207"><span class="annot"><span class="annottext">ReadPrec [UpdateAliasResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261210"><span id="local-6989586621679261212"><span id="local-6989586621679261214"><span id="local-6989586621679261216"><span class="annot"><span class="annottext">ReadPrec [UpdateAliasResponse]
 ReadPrec UpdateAliasResponse
 Int -&gt; ReadS UpdateAliasResponse
 ReadS [UpdateAliasResponse]
@@ -448,7 +448,7 @@ readList :: ReadS [UpdateAliasResponse]
 $creadList :: ReadS [UpdateAliasResponse]
 readsPrec :: Int -&gt; ReadS UpdateAliasResponse
 $creadsPrec :: Int -&gt; ReadS UpdateAliasResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261195"><span id="local-6989586621679261197"><span id="local-6989586621679261199"><span class="annot"><span class="annottext">Int -&gt; UpdateAliasResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261204"><span id="local-6989586621679261206"><span id="local-6989586621679261208"><span class="annot"><span class="annottext">Int -&gt; UpdateAliasResponse -&gt; ShowS
 [UpdateAliasResponse] -&gt; ShowS
 UpdateAliasResponse -&gt; String
 (Int -&gt; UpdateAliasResponse -&gt; ShowS)
@@ -484,5 +484,5 @@ $cfrom :: forall x. UpdateAliasResponse -&gt; Rep UpdateAliasResponse x
 </span><a href="Network.AWS.KMS.UpdateAlias.html#newUpdateAliasResponse"><span class="hs-identifier hs-var hs-var">newUpdateAliasResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UpdateAliasResponse
 </span><a href="Network.AWS.KMS.UpdateAlias.html#UpdateAliasResponse%27"><span class="hs-identifier hs-var">UpdateAliasResponse'</span></a></span><span>
 </span><span id="line-273"></span><span>
-</span><span id="line-274"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261191"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.UpdateAlias.html#UpdateAliasResponse"><span class="hs-identifier hs-type">UpdateAliasResponse</span></a></span></span><span>
+</span><span id="line-274"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261200"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.UpdateAlias.html#UpdateAliasResponse"><span class="hs-identifier hs-type">UpdateAliasResponse</span></a></span></span><span>
 </span><span id="line-275"></span></pre></body></html>

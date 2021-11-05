@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html VPC Endpoints for Amazon Elasticsearch Service Domains&gt;.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newVPCOptions' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679304596"><span id="local-6989586621679304597"></span></span><span class="hs-keyword">data</span><span> </span><span id="VPCOptions"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCOptions.html#VPCOptions"><span class="hs-identifier hs-var">VPCOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VPCOptions%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCOptions.html#VPCOptions%27"><span class="hs-identifier hs-var">VPCOptions'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679304605"><span id="local-6989586621679304606"></span></span><span class="hs-keyword">data</span><span> </span><span id="VPCOptions"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCOptions.html#VPCOptions"><span class="hs-identifier hs-var">VPCOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VPCOptions%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCOptions.html#VPCOptions%27"><span class="hs-identifier hs-var">VPCOptions'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the security groups for VPC endpoint.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AsecurityGroupIds%3AVPCOptions%27"><span class="annot"><span class="annottext">VPCOptions -&gt; Maybe [Text]
 </span><a href="Network.AWS.ElasticSearch.Types.VPCOptions.html#%24sel%3AsecurityGroupIds%3AVPCOptions%27"><span class="hs-identifier hs-var hs-var">securityGroupIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AsubnetIds%3AVPCOptions%27"><span class="annot"><span class="annottext">VPCOptions -&gt; Maybe [Text]
 </span><a href="Network.AWS.ElasticSearch.Types.VPCOptions.html#%24sel%3AsubnetIds%3AVPCOptions%27"><span class="hs-identifier hs-var hs-var">subnetIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304589"><span id="local-6989586621679304591"><span class="annot"><span class="annottext">VPCOptions -&gt; VPCOptions -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304598"><span id="local-6989586621679304600"><span class="annot"><span class="annottext">VPCOptions -&gt; VPCOptions -&gt; Bool
 (VPCOptions -&gt; VPCOptions -&gt; Bool)
 -&gt; (VPCOptions -&gt; VPCOptions -&gt; Bool) -&gt; Eq VPCOptions
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: VPCOptions -&gt; VPCOptions -&gt; Bool
 == :: VPCOptions -&gt; VPCOptions -&gt; Bool
 $c== :: VPCOptions -&gt; VPCOptions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304580"><span id="local-6989586621679304582"><span id="local-6989586621679304584"><span id="local-6989586621679304586"><span class="annot"><span class="annottext">ReadPrec [VPCOptions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304589"><span id="local-6989586621679304591"><span id="local-6989586621679304593"><span id="local-6989586621679304595"><span class="annot"><span class="annottext">ReadPrec [VPCOptions]
 ReadPrec VPCOptions
 Int -&gt; ReadS VPCOptions
 ReadS [VPCOptions]
@@ -64,7 +64,7 @@ readList :: ReadS [VPCOptions]
 $creadList :: ReadS [VPCOptions]
 readsPrec :: Int -&gt; ReadS VPCOptions
 $creadsPrec :: Int -&gt; ReadS VPCOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304573"><span id="local-6989586621679304575"><span id="local-6989586621679304577"><span class="annot"><span class="annottext">Int -&gt; VPCOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304582"><span id="local-6989586621679304584"><span id="local-6989586621679304586"><span class="annot"><span class="annottext">Int -&gt; VPCOptions -&gt; ShowS
 [VPCOptions] -&gt; ShowS
 VPCOptions -&gt; String
 (Int -&gt; VPCOptions -&gt; ShowS)
@@ -123,16 +123,16 @@ forall a. Maybe a
 -&gt; (VPCOptions -&gt; Maybe [Text] -&gt; VPCOptions)
 -&gt; Lens VPCOptions VPCOptions (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCOptions.html#VPCOptions%27"><span class="hs-identifier hs-type">VPCOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304564"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCOptions.html#VPCOptions%27"><span class="hs-identifier hs-type">VPCOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304573"><span class="annot"><span class="annottext">Maybe [Text]
 securityGroupIds :: Maybe [Text]
 $sel:securityGroupIds:VPCOptions' :: VPCOptions -&gt; Maybe [Text]
-</span><a href="#local-6989586621679304564"><span class="hs-identifier hs-var hs-var">securityGroupIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679304564"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304563"><span class="annot"><span class="annottext">s :: VPCOptions
-</span><a href="#local-6989586621679304563"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCOptions.html#VPCOptions%27"><span class="hs-identifier hs-type">VPCOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304562"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679304562"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VPCOptions
-</span><a href="#local-6989586621679304563"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityGroupIds:VPCOptions' :: Maybe [Text]
+</span><a href="#local-6989586621679304573"><span class="hs-identifier hs-var hs-var">securityGroupIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679304573"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304572"><span class="annot"><span class="annottext">s :: VPCOptions
+</span><a href="#local-6989586621679304572"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCOptions.html#VPCOptions%27"><span class="hs-identifier hs-type">VPCOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304571"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679304571"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VPCOptions
+</span><a href="#local-6989586621679304572"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityGroupIds:VPCOptions' :: Maybe [Text]
 </span><a href="Network.AWS.ElasticSearch.Types.VPCOptions.html#%24sel%3AsecurityGroupIds%3AVPCOptions%27"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679304562"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCOptions.html#VPCOptions"><span class="hs-identifier hs-type">VPCOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; VPCOptions -&gt; f VPCOptions)
+</span><a href="#local-6989586621679304571"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCOptions.html#VPCOptions"><span class="hs-identifier hs-type">VPCOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; VPCOptions -&gt; f VPCOptions)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -155,16 +155,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (VPCOptions -&gt; Maybe [Text] -&gt; VPCOptions)
 -&gt; Lens VPCOptions VPCOptions (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCOptions.html#VPCOptions%27"><span class="hs-identifier hs-type">VPCOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304557"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCOptions.html#VPCOptions%27"><span class="hs-identifier hs-type">VPCOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304566"><span class="annot"><span class="annottext">Maybe [Text]
 subnetIds :: Maybe [Text]
 $sel:subnetIds:VPCOptions' :: VPCOptions -&gt; Maybe [Text]
-</span><a href="#local-6989586621679304557"><span class="hs-identifier hs-var hs-var">subnetIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679304557"><span class="hs-identifier hs-var">subnetIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304556"><span class="annot"><span class="annottext">s :: VPCOptions
-</span><a href="#local-6989586621679304556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCOptions.html#VPCOptions%27"><span class="hs-identifier hs-type">VPCOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304555"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679304555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VPCOptions
-</span><a href="#local-6989586621679304556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetIds:VPCOptions' :: Maybe [Text]
+</span><a href="#local-6989586621679304566"><span class="hs-identifier hs-var hs-var">subnetIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679304566"><span class="hs-identifier hs-var">subnetIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304565"><span class="annot"><span class="annottext">s :: VPCOptions
+</span><a href="#local-6989586621679304565"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCOptions.html#VPCOptions%27"><span class="hs-identifier hs-type">VPCOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304564"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679304564"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VPCOptions
+</span><a href="#local-6989586621679304565"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetIds:VPCOptions' :: Maybe [Text]
 </span><a href="Network.AWS.ElasticSearch.Types.VPCOptions.html#%24sel%3AsubnetIds%3AVPCOptions%27"><span class="hs-identifier hs-var">subnetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679304555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCOptions.html#VPCOptions"><span class="hs-identifier hs-type">VPCOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; VPCOptions -&gt; f VPCOptions)
+</span><a href="#local-6989586621679304564"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCOptions.html#VPCOptions"><span class="hs-identifier hs-type">VPCOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; VPCOptions -&gt; f VPCOptions)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -180,18 +180,18 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304551"><span id="local-6989586621679304553"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCOptions.html#VPCOptions"><span class="hs-identifier hs-type">VPCOptions</span></a></span></span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304560"><span id="local-6989586621679304562"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCOptions.html#VPCOptions"><span class="hs-identifier hs-type">VPCOptions</span></a></span></span></span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304548"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCOptions.html#VPCOptions"><span class="hs-identifier hs-type">VPCOptions</span></a></span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304557"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCOptions.html#VPCOptions"><span class="hs-identifier hs-type">VPCOptions</span></a></span></span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304540"><span id="local-6989586621679304542"><span id="local-6989586621679304544"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCOptions.html#VPCOptions"><span class="hs-identifier hs-type">VPCOptions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679304538"><span class="annot"><span class="annottext">toJSON :: VPCOptions -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCOptions.html#VPCOptions%27"><span class="hs-identifier hs-type">VPCOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304535"><span id="local-6989586621679304536"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304549"><span id="local-6989586621679304551"><span id="local-6989586621679304553"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCOptions.html#VPCOptions"><span class="hs-identifier hs-type">VPCOptions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679304547"><span class="annot"><span class="annottext">toJSON :: VPCOptions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCOptions.html#VPCOptions%27"><span class="hs-identifier hs-type">VPCOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304544"><span id="local-6989586621679304545"><span class="annot"><span class="annottext">Maybe [Text]
 subnetIds :: Maybe [Text]
 securityGroupIds :: Maybe [Text]
 $sel:subnetIds:VPCOptions' :: VPCOptions -&gt; Maybe [Text]
 $sel:securityGroupIds:VPCOptions' :: VPCOptions -&gt; Maybe [Text]
-</span><a href="#local-6989586621679304535"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679304544"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -204,14 +204,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-75"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679304536"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679304545"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-76"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SubnetIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679304535"><span class="hs-identifier hs-var">subnetIds</span></a></span><span>
+</span><a href="#local-6989586621679304544"><span class="hs-identifier hs-var">subnetIds</span></a></span><span>
 </span><span id="line-77"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span></pre></body></html>

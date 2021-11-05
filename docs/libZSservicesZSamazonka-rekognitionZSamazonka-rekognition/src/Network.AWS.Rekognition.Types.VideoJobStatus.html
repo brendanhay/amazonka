@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679335281"><span id="local-6989586621679335282"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="VideoJobStatus"><span class="annot"><a href="Network.AWS.Rekognition.Types.VideoJobStatus.html#VideoJobStatus"><span class="hs-identifier hs-var">VideoJobStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VideoJobStatus%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.VideoJobStatus.html#VideoJobStatus%27"><span class="hs-identifier hs-var">VideoJobStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679335290"><span id="local-6989586621679335291"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="VideoJobStatus"><span class="annot"><a href="Network.AWS.Rekognition.Types.VideoJobStatus.html#VideoJobStatus"><span class="hs-identifier hs-var">VideoJobStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VideoJobStatus%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.VideoJobStatus.html#VideoJobStatus%27"><span class="hs-identifier hs-var">VideoJobStatus'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromVideoJobStatus"><span class="annot"><span class="annottext">VideoJobStatus -&gt; Text
 </span><a href="Network.AWS.Rekognition.Types.VideoJobStatus.html#fromVideoJobStatus"><span class="hs-identifier hs-var hs-var">fromVideoJobStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679335273"><span id="local-6989586621679335275"><span id="local-6989586621679335277"><span class="annot"><span class="annottext">Int -&gt; VideoJobStatus -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679335282"><span id="local-6989586621679335284"><span id="local-6989586621679335286"><span class="annot"><span class="annottext">Int -&gt; VideoJobStatus -&gt; ShowS
 [VideoJobStatus] -&gt; ShowS
 VideoJobStatus -&gt; String
 (Int -&gt; VideoJobStatus -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: VideoJobStatus -&gt; String
 showsPrec :: Int -&gt; VideoJobStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; VideoJobStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679335264"><span id="local-6989586621679335266"><span id="local-6989586621679335268"><span id="local-6989586621679335270"><span class="annot"><span class="annottext">ReadPrec [VideoJobStatus]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679335273"><span id="local-6989586621679335275"><span id="local-6989586621679335277"><span id="local-6989586621679335279"><span class="annot"><span class="annottext">ReadPrec [VideoJobStatus]
 ReadPrec VideoJobStatus
 Int -&gt; ReadS VideoJobStatus
 ReadS [VideoJobStatus]
@@ -73,7 +73,7 @@ $creadList :: ReadS [VideoJobStatus]
 readsPrec :: Int -&gt; ReadS VideoJobStatus
 $creadsPrec :: Int -&gt; ReadS VideoJobStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679335259"><span id="local-6989586621679335261"><span class="annot"><span class="annottext">VideoJobStatus -&gt; VideoJobStatus -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679335268"><span id="local-6989586621679335270"><span class="annot"><span class="annottext">VideoJobStatus -&gt; VideoJobStatus -&gt; Bool
 (VideoJobStatus -&gt; VideoJobStatus -&gt; Bool)
 -&gt; (VideoJobStatus -&gt; VideoJobStatus -&gt; Bool) -&gt; Eq VideoJobStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: VideoJobStatus -&gt; VideoJobStatus -&gt; Bool
 == :: VideoJobStatus -&gt; VideoJobStatus -&gt; Bool
 $c== :: VideoJobStatus -&gt; VideoJobStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679335243"><span id="local-6989586621679335245"><span id="local-6989586621679335247"><span id="local-6989586621679335249"><span id="local-6989586621679335251"><span id="local-6989586621679335253"><span id="local-6989586621679335255"><span class="annot"><span class="annottext">Eq VideoJobStatus
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679335252"><span id="local-6989586621679335254"><span id="local-6989586621679335256"><span id="local-6989586621679335258"><span id="local-6989586621679335260"><span id="local-6989586621679335262"><span id="local-6989586621679335264"><span class="annot"><span class="annottext">Eq VideoJobStatus
 Eq VideoJobStatus
 -&gt; (VideoJobStatus -&gt; VideoJobStatus -&gt; Ordering)
 -&gt; (VideoJobStatus -&gt; VideoJobStatus -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. VideoJobStatus -&gt; Rep VideoJobStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679335235"><span id="local-6989586621679335237"><span class="annot"><span class="annottext">Int -&gt; VideoJobStatus -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679335244"><span id="local-6989586621679335246"><span class="annot"><span class="annottext">Int -&gt; VideoJobStatus -&gt; Int
 VideoJobStatus -&gt; Int
 (Int -&gt; VideoJobStatus -&gt; Int)
 -&gt; (VideoJobStatus -&gt; Int) -&gt; Hashable VideoJobStatus
@@ -143,50 +143,50 @@ $chash :: VideoJobStatus -&gt; Int
 hashWithSalt :: Int -&gt; VideoJobStatus -&gt; Int
 $chashWithSalt :: Int -&gt; VideoJobStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679335232"><span class="annot"><span class="annottext">VideoJobStatus -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679335241"><span class="annot"><span class="annottext">VideoJobStatus -&gt; ()
 (VideoJobStatus -&gt; ()) -&gt; NFData VideoJobStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: VideoJobStatus -&gt; ()
 $crnf :: VideoJobStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679335229"><span class="annot"><span class="annottext">Text -&gt; Either String VideoJobStatus
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679335238"><span class="annot"><span class="annottext">Text -&gt; Either String VideoJobStatus
 (Text -&gt; Either String VideoJobStatus) -&gt; FromText VideoJobStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String VideoJobStatus
 $cfromText :: Text -&gt; Either String VideoJobStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679335226"><span class="annot"><span class="annottext">VideoJobStatus -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679335235"><span class="annot"><span class="annottext">VideoJobStatus -&gt; Text
 (VideoJobStatus -&gt; Text) -&gt; ToText VideoJobStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: VideoJobStatus -&gt; Text
 $ctoText :: VideoJobStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679335223"><span class="annot"><span class="annottext">VideoJobStatus -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679335232"><span class="annot"><span class="annottext">VideoJobStatus -&gt; ByteString
 (VideoJobStatus -&gt; ByteString) -&gt; ToByteString VideoJobStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: VideoJobStatus -&gt; ByteString
 $ctoBS :: VideoJobStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679335220"><span class="annot"><span class="annottext">VideoJobStatus -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679335229"><span class="annot"><span class="annottext">VideoJobStatus -&gt; ByteStringBuilder
 (VideoJobStatus -&gt; ByteStringBuilder) -&gt; ToLog VideoJobStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: VideoJobStatus -&gt; ByteStringBuilder
 $cbuild :: VideoJobStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679335217"><span class="annot"><span class="annottext">HeaderName -&gt; VideoJobStatus -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679335226"><span class="annot"><span class="annottext">HeaderName -&gt; VideoJobStatus -&gt; [Header]
 (HeaderName -&gt; VideoJobStatus -&gt; [Header])
 -&gt; ToHeader VideoJobStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; VideoJobStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; VideoJobStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679335214"><span class="annot"><span class="annottext">VideoJobStatus -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679335223"><span class="annot"><span class="annottext">VideoJobStatus -&gt; QueryString
 (VideoJobStatus -&gt; QueryString) -&gt; ToQuery VideoJobStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: VideoJobStatus -&gt; QueryString
 $ctoQuery :: VideoJobStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679335209"><span id="local-6989586621679335211"><span class="annot"><span class="annottext">Value -&gt; Parser [VideoJobStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679335218"><span id="local-6989586621679335220"><span class="annot"><span class="annottext">Value -&gt; Parser [VideoJobStatus]
 Value -&gt; Parser VideoJobStatus
 (Value -&gt; Parser VideoJobStatus)
 -&gt; (Value -&gt; Parser [VideoJobStatus]) -&gt; FromJSON VideoJobStatus
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [VideoJobStatus]
 parseJSON :: Value -&gt; Parser VideoJobStatus
 $cparseJSON :: Value -&gt; Parser VideoJobStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679335204"><span id="local-6989586621679335206"><span class="annot"><span class="annottext">FromJSONKeyFunction [VideoJobStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679335213"><span id="local-6989586621679335215"><span class="annot"><span class="annottext">FromJSONKeyFunction [VideoJobStatus]
 FromJSONKeyFunction VideoJobStatus
 FromJSONKeyFunction VideoJobStatus
 -&gt; FromJSONKeyFunction [VideoJobStatus]
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [VideoJobStatus]
 fromJSONKey :: FromJSONKeyFunction VideoJobStatus
 $cfromJSONKey :: FromJSONKeyFunction VideoJobStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679335195"><span id="local-6989586621679335197"><span id="local-6989586621679335199"><span id="local-6989586621679335201"><span class="annot"><span class="annottext">[VideoJobStatus] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679335204"><span id="local-6989586621679335206"><span id="local-6989586621679335208"><span id="local-6989586621679335210"><span class="annot"><span class="annottext">[VideoJobStatus] -&gt; Encoding
 [VideoJobStatus] -&gt; Value
 VideoJobStatus -&gt; Encoding
 VideoJobStatus -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: VideoJobStatus -&gt; Encoding
 toJSON :: VideoJobStatus -&gt; Value
 $ctoJSON :: VideoJobStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679335190"><span id="local-6989586621679335192"><span class="annot"><span class="annottext">ToJSONKeyFunction [VideoJobStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679335199"><span id="local-6989586621679335201"><span class="annot"><span class="annottext">ToJSONKeyFunction [VideoJobStatus]
 ToJSONKeyFunction VideoJobStatus
 ToJSONKeyFunction VideoJobStatus
 -&gt; ToJSONKeyFunction [VideoJobStatus] -&gt; ToJSONKey VideoJobStatus
@@ -244,13 +244,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [VideoJobStatus]
 toJSONKey :: ToJSONKeyFunction VideoJobStatus
 $ctoJSONKey :: ToJSONKeyFunction VideoJobStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679335187"><span class="annot"><span class="annottext">[Node] -&gt; Either String VideoJobStatus
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679335196"><span class="annot"><span class="annottext">[Node] -&gt; Either String VideoJobStatus
 ([Node] -&gt; Either String VideoJobStatus) -&gt; FromXML VideoJobStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String VideoJobStatus
 $cparseXML :: [Node] -&gt; Either String VideoJobStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679335184"><span class="annot"><span class="annottext">VideoJobStatus -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679335193"><span class="annot"><span class="annottext">VideoJobStatus -&gt; XML
 (VideoJobStatus -&gt; XML) -&gt; ToXML VideoJobStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: VideoJobStatus -&gt; XML

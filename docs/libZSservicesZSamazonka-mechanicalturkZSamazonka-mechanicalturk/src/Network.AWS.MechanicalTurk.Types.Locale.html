@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The Locale data structure represents a geographical region or location.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newLocale' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679243478"><span id="local-6989586621679243479"></span></span><span class="hs-keyword">data</span><span> </span><span id="Locale"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.Locale.html#Locale"><span class="hs-identifier hs-var">Locale</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Locale%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.Locale.html#Locale%27"><span class="hs-identifier hs-var">Locale'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679243487"><span id="local-6989586621679243488"></span></span><span class="hs-keyword">data</span><span> </span><span id="Locale"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.Locale.html#Locale"><span class="hs-identifier hs-var">Locale</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Locale%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.Locale.html#Locale%27"><span class="hs-identifier hs-var">Locale'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The state or subdivision of the locale. A valid ISO 3166-2 subdivision</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- code. For example, the code WA refers to the state of Washington.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Asubdivision%3ALocale%27"><span class="annot"><span class="annottext">Locale -&gt; Maybe Text
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Acountry%3ALocale%27"><span class="annot"><span class="annottext">Locale -&gt; Text
 </span><a href="Network.AWS.MechanicalTurk.Types.Locale.html#%24sel%3Acountry%3ALocale%27"><span class="hs-identifier hs-var hs-var">country</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679243471"><span id="local-6989586621679243473"><span class="annot"><span class="annottext">Locale -&gt; Locale -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679243480"><span id="local-6989586621679243482"><span class="annot"><span class="annottext">Locale -&gt; Locale -&gt; Bool
 (Locale -&gt; Locale -&gt; Bool)
 -&gt; (Locale -&gt; Locale -&gt; Bool) -&gt; Eq Locale
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Locale -&gt; Locale -&gt; Bool
 == :: Locale -&gt; Locale -&gt; Bool
 $c== :: Locale -&gt; Locale -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243462"><span id="local-6989586621679243464"><span id="local-6989586621679243466"><span id="local-6989586621679243468"><span class="annot"><span class="annottext">ReadPrec [Locale]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243471"><span id="local-6989586621679243473"><span id="local-6989586621679243475"><span id="local-6989586621679243477"><span class="annot"><span class="annottext">ReadPrec [Locale]
 ReadPrec Locale
 Int -&gt; ReadS Locale
 ReadS [Locale]
@@ -64,7 +64,7 @@ readList :: ReadS [Locale]
 $creadList :: ReadS [Locale]
 readsPrec :: Int -&gt; ReadS Locale
 $creadsPrec :: Int -&gt; ReadS Locale
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243455"><span id="local-6989586621679243457"><span id="local-6989586621679243459"><span class="annot"><span class="annottext">Int -&gt; Locale -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243464"><span id="local-6989586621679243466"><span id="local-6989586621679243468"><span class="annot"><span class="annottext">Int -&gt; Locale -&gt; ShowS
 [Locale] -&gt; ShowS
 Locale -&gt; String
 (Int -&gt; Locale -&gt; ShowS)
@@ -105,8 +105,8 @@ $cfrom :: forall x. Locale -&gt; Rep Locale x
 </span><span id="line-54"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.Locale.html#Locale"><span class="hs-identifier hs-type">Locale</span></a></span><span>
 </span><span id="line-56"></span><span id="newLocale"><span class="annot"><span class="annottext">newLocale :: Text -&gt; Locale
-</span><a href="Network.AWS.MechanicalTurk.Types.Locale.html#newLocale"><span class="hs-identifier hs-var hs-var">newLocale</span></a></span></span><span> </span><span id="local-6989586621679243449"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679243449"><span class="hs-identifier hs-var">pCountry_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MechanicalTurk.Types.Locale.html#newLocale"><span class="hs-identifier hs-var hs-var">newLocale</span></a></span></span><span> </span><span id="local-6989586621679243458"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679243458"><span class="hs-identifier hs-var">pCountry_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">Locale' :: Maybe Text -&gt; Text -&gt; Locale
 </span><a href="Network.AWS.MechanicalTurk.Types.Locale.html#Locale%27"><span class="hs-identifier hs-type">Locale'</span></a></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:subdivision:Locale' :: Maybe Text
@@ -115,7 +115,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:country:Locale' :: Text
 </span><a href="Network.AWS.MechanicalTurk.Types.Locale.html#%24sel%3Acountry%3ALocale%27"><span class="hs-identifier hs-var">country</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679243449"><span class="hs-identifier hs-var">pCountry_</span></a></span><span>
+</span><a href="#local-6989586621679243458"><span class="hs-identifier hs-var">pCountry_</span></a></span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | The state or subdivision of the locale. A valid ISO 3166-2 subdivision</span><span>
@@ -126,16 +126,16 @@ forall a. Maybe a
 -&gt; (Locale -&gt; Maybe Text -&gt; Locale)
 -&gt; Lens Locale Locale (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.Locale.html#Locale%27"><span class="hs-identifier hs-type">Locale'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243445"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.Locale.html#Locale%27"><span class="hs-identifier hs-type">Locale'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243454"><span class="annot"><span class="annottext">Maybe Text
 subdivision :: Maybe Text
 $sel:subdivision:Locale' :: Locale -&gt; Maybe Text
-</span><a href="#local-6989586621679243445"><span class="hs-identifier hs-var hs-var">subdivision</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679243445"><span class="hs-identifier hs-var">subdivision</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243444"><span class="annot"><span class="annottext">s :: Locale
-</span><a href="#local-6989586621679243444"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.Locale.html#Locale%27"><span class="hs-identifier hs-type">Locale'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243443"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679243443"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Locale
-</span><a href="#local-6989586621679243444"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subdivision:Locale' :: Maybe Text
+</span><a href="#local-6989586621679243454"><span class="hs-identifier hs-var hs-var">subdivision</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243454"><span class="hs-identifier hs-var">subdivision</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243453"><span class="annot"><span class="annottext">s :: Locale
+</span><a href="#local-6989586621679243453"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.Locale.html#Locale%27"><span class="hs-identifier hs-type">Locale'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243452"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243452"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Locale
+</span><a href="#local-6989586621679243453"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subdivision:Locale' :: Maybe Text
 </span><a href="Network.AWS.MechanicalTurk.Types.Locale.html#%24sel%3Asubdivision%3ALocale%27"><span class="hs-identifier hs-var">subdivision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679243443"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.Locale.html#Locale"><span class="hs-identifier hs-type">Locale</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679243452"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.Locale.html#Locale"><span class="hs-identifier hs-type">Locale</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | The country of the locale. Must be a valid ISO 3166 country code. For</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- example, the code US refers to the United States of America.</span><span>
@@ -144,59 +144,59 @@ $sel:subdivision:Locale' :: Locale -&gt; Maybe Text
 </span><a href="Network.AWS.MechanicalTurk.Types.Locale.html#locale_country"><span class="hs-identifier hs-var hs-var">locale_country</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Locale -&gt; Text)
 -&gt; (Locale -&gt; Text -&gt; Locale) -&gt; Lens Locale Locale Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.Locale.html#Locale%27"><span class="hs-identifier hs-type">Locale'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243441"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.Locale.html#Locale%27"><span class="hs-identifier hs-type">Locale'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243450"><span class="annot"><span class="annottext">Text
 country :: Text
 $sel:country:Locale' :: Locale -&gt; Text
-</span><a href="#local-6989586621679243441"><span class="hs-identifier hs-var hs-var">country</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679243441"><span class="hs-identifier hs-var">country</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243440"><span class="annot"><span class="annottext">s :: Locale
-</span><a href="#local-6989586621679243440"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.Locale.html#Locale%27"><span class="hs-identifier hs-type">Locale'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243439"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679243439"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Locale
-</span><a href="#local-6989586621679243440"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:country:Locale' :: Text
+</span><a href="#local-6989586621679243450"><span class="hs-identifier hs-var hs-var">country</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679243450"><span class="hs-identifier hs-var">country</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243449"><span class="annot"><span class="annottext">s :: Locale
+</span><a href="#local-6989586621679243449"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.Locale.html#Locale%27"><span class="hs-identifier hs-type">Locale'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243448"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679243448"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Locale
+</span><a href="#local-6989586621679243449"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:country:Locale' :: Text
 </span><a href="Network.AWS.MechanicalTurk.Types.Locale.html#%24sel%3Acountry%3ALocale%27"><span class="hs-identifier hs-var">country</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679243439"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.Locale.html#Locale"><span class="hs-identifier hs-type">Locale</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679243448"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.Locale.html#Locale"><span class="hs-identifier hs-type">Locale</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243436"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.Locale.html#Locale"><span class="hs-identifier hs-type">Locale</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679243434"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Locale
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243445"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.Locale.html#Locale"><span class="hs-identifier hs-type">Locale</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679243443"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Locale
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Locale) -&gt; Value -&gt; Parser Locale
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Locale&quot;</span></span><span>
-</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679243431"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679243431"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679243440"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243440"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Text -&gt; Locale
 </span><a href="Network.AWS.MechanicalTurk.Types.Locale.html#Locale%27"><span class="hs-identifier hs-var">Locale'</span></a></span><span>
 </span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Text -&gt; Locale)
 -&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; Locale)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679243431"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679243440"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Subdivision&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Locale) -&gt; Parser Text -&gt; Parser Locale
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679243431"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679243440"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Country&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243424"><span id="local-6989586621679243426"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.Locale.html#Locale"><span class="hs-identifier hs-type">Locale</span></a></span></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243433"><span id="local-6989586621679243435"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.Locale.html#Locale"><span class="hs-identifier hs-type">Locale</span></a></span></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243421"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.Locale.html#Locale"><span class="hs-identifier hs-type">Locale</span></a></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243430"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.Locale.html#Locale"><span class="hs-identifier hs-type">Locale</span></a></span></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243413"><span id="local-6989586621679243415"><span id="local-6989586621679243417"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.Locale.html#Locale"><span class="hs-identifier hs-type">Locale</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679243411"><span class="annot"><span class="annottext">toJSON :: Locale -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.Locale.html#Locale%27"><span class="hs-identifier hs-type">Locale'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243408"><span id="local-6989586621679243409"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243422"><span id="local-6989586621679243424"><span id="local-6989586621679243426"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.Locale.html#Locale"><span class="hs-identifier hs-type">Locale</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679243420"><span class="annot"><span class="annottext">toJSON :: Locale -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.Locale.html#Locale%27"><span class="hs-identifier hs-type">Locale'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243417"><span id="local-6989586621679243418"><span class="annot"><span class="annottext">Maybe Text
 Text
 country :: Text
 subdivision :: Maybe Text
 $sel:country:Locale' :: Locale -&gt; Text
 $sel:subdivision:Locale' :: Locale -&gt; Maybe Text
-</span><a href="#local-6989586621679243408"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679243417"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -208,14 +208,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679243409"><span class="hs-identifier hs-var">subdivision</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679243418"><span class="hs-identifier hs-var">subdivision</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Country&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679243408"><span class="hs-identifier hs-var">country</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679243417"><span class="hs-identifier hs-var">country</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span></pre></body></html>

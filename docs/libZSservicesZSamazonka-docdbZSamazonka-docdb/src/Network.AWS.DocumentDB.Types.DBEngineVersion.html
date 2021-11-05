@@ -1,0 +1,585 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DocumentDB.Types.DBEngineVersion</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DocumentDB.Types.DBEngineVersion</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.UpgradeTarget.html"><span class="hs-identifier">Network.AWS.DocumentDB.Types.UpgradeTarget</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Detailed information about an engine version.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDBEngineVersion' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679300971"><span id="local-6989586621679300972"></span></span><span class="hs-keyword">data</span><span> </span><span id="DBEngineVersion"><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-var">DBEngineVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DBEngineVersion%27"><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-var">DBEngineVersion'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The version number of the database engine.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AengineVersion%3ADBEngineVersion%27"><span class="annot"><span class="annottext">DBEngineVersion -&gt; Maybe Text
+</span><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#%24sel%3AengineVersion%3ADBEngineVersion%27"><span class="hs-identifier hs-var hs-var">engineVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The description of the database engine version.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AdbEngineVersionDescription%3ADBEngineVersion%27"><span class="annot"><span class="annottext">DBEngineVersion -&gt; Maybe Text
+</span><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#%24sel%3AdbEngineVersionDescription%3ADBEngineVersion%27"><span class="hs-identifier hs-var hs-var">dbEngineVersionDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The name of the database engine.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Aengine%3ADBEngineVersion%27"><span class="annot"><span class="annottext">DBEngineVersion -&gt; Maybe Text
+</span><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#%24sel%3Aengine%3ADBEngineVersion%27"><span class="hs-identifier hs-var hs-var">engine</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The name of the parameter group family for the database engine.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AdbParameterGroupFamily%3ADBEngineVersion%27"><span class="annot"><span class="annottext">DBEngineVersion -&gt; Maybe Text
+</span><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#%24sel%3AdbParameterGroupFamily%3ADBEngineVersion%27"><span class="hs-identifier hs-var hs-var">dbParameterGroupFamily</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The description of the database engine.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AdbEngineDescription%3ADBEngineVersion%27"><span class="annot"><span class="annottext">DBEngineVersion -&gt; Maybe Text
+</span><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#%24sel%3AdbEngineDescription%3ADBEngineVersion%27"><span class="hs-identifier hs-var hs-var">dbEngineDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | A list of engine versions that this database engine version can be</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- upgraded to.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AvalidUpgradeTarget%3ADBEngineVersion%27"><span class="annot"><span class="annottext">DBEngineVersion -&gt; Maybe [UpgradeTarget]
+</span><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#%24sel%3AvalidUpgradeTarget%3ADBEngineVersion%27"><span class="hs-identifier hs-var hs-var">validUpgradeTarget</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.UpgradeTarget.html#UpgradeTarget"><span class="hs-identifier hs-type">UpgradeTarget</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | A value that indicates whether the engine version supports exporting the</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- log types specified by @ExportableLogTypes@ to CloudWatch Logs.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AsupportsLogExportsToCloudwatchLogs%3ADBEngineVersion%27"><span class="annot"><span class="annottext">DBEngineVersion -&gt; Maybe Bool
+</span><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#%24sel%3AsupportsLogExportsToCloudwatchLogs%3ADBEngineVersion%27"><span class="hs-identifier hs-var hs-var">supportsLogExportsToCloudwatchLogs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The types of logs that the database engine has available for export to</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- Amazon CloudWatch Logs.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AexportableLogTypes%3ADBEngineVersion%27"><span class="annot"><span class="annottext">DBEngineVersion -&gt; Maybe [Text]
+</span><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#%24sel%3AexportableLogTypes%3ADBEngineVersion%27"><span class="hs-identifier hs-var hs-var">exportableLogTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679300958"><span id="local-6989586621679300960"><span class="annot"><span class="annottext">DBEngineVersion -&gt; DBEngineVersion -&gt; Bool
+(DBEngineVersion -&gt; DBEngineVersion -&gt; Bool)
+-&gt; (DBEngineVersion -&gt; DBEngineVersion -&gt; Bool)
+-&gt; Eq DBEngineVersion
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DBEngineVersion -&gt; DBEngineVersion -&gt; Bool
+$c/= :: DBEngineVersion -&gt; DBEngineVersion -&gt; Bool
+== :: DBEngineVersion -&gt; DBEngineVersion -&gt; Bool
+$c== :: DBEngineVersion -&gt; DBEngineVersion -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300949"><span id="local-6989586621679300951"><span id="local-6989586621679300953"><span id="local-6989586621679300955"><span class="annot"><span class="annottext">ReadPrec [DBEngineVersion]
+ReadPrec DBEngineVersion
+Int -&gt; ReadS DBEngineVersion
+ReadS [DBEngineVersion]
+(Int -&gt; ReadS DBEngineVersion)
+-&gt; ReadS [DBEngineVersion]
+-&gt; ReadPrec DBEngineVersion
+-&gt; ReadPrec [DBEngineVersion]
+-&gt; Read DBEngineVersion
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DBEngineVersion]
+$creadListPrec :: ReadPrec [DBEngineVersion]
+readPrec :: ReadPrec DBEngineVersion
+$creadPrec :: ReadPrec DBEngineVersion
+readList :: ReadS [DBEngineVersion]
+$creadList :: ReadS [DBEngineVersion]
+readsPrec :: Int -&gt; ReadS DBEngineVersion
+$creadsPrec :: Int -&gt; ReadS DBEngineVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300942"><span id="local-6989586621679300944"><span id="local-6989586621679300946"><span class="annot"><span class="annottext">Int -&gt; DBEngineVersion -&gt; ShowS
+[DBEngineVersion] -&gt; ShowS
+DBEngineVersion -&gt; String
+(Int -&gt; DBEngineVersion -&gt; ShowS)
+-&gt; (DBEngineVersion -&gt; String)
+-&gt; ([DBEngineVersion] -&gt; ShowS)
+-&gt; Show DBEngineVersion
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DBEngineVersion] -&gt; ShowS
+$cshowList :: [DBEngineVersion] -&gt; ShowS
+show :: DBEngineVersion -&gt; String
+$cshow :: DBEngineVersion -&gt; String
+showsPrec :: Int -&gt; DBEngineVersion -&gt; ShowS
+$cshowsPrec :: Int -&gt; DBEngineVersion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DBEngineVersion -&gt; Rep DBEngineVersion x)
+-&gt; (forall x. Rep DBEngineVersion x -&gt; DBEngineVersion)
+-&gt; Generic DBEngineVersion
+forall x. Rep DBEngineVersion x -&gt; DBEngineVersion
+forall x. DBEngineVersion -&gt; Rep DBEngineVersion x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DBEngineVersion x -&gt; DBEngineVersion
+$cfrom :: forall x. DBEngineVersion -&gt; Rep DBEngineVersion x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Create a value of 'DBEngineVersion' with all optional fields omitted.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'engineVersion', 'dbEngineVersion_engineVersion' - The version number of the database engine.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'dbEngineVersionDescription', 'dbEngineVersion_dbEngineVersionDescription' - The description of the database engine version.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'engine', 'dbEngineVersion_engine' - The name of the database engine.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'dbParameterGroupFamily', 'dbEngineVersion_dbParameterGroupFamily' - The name of the parameter group family for the database engine.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'dbEngineDescription', 'dbEngineVersion_dbEngineDescription' - The description of the database engine.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'validUpgradeTarget', 'dbEngineVersion_validUpgradeTarget' - A list of engine versions that this database engine version can be</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- upgraded to.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'supportsLogExportsToCloudwatchLogs', 'dbEngineVersion_supportsLogExportsToCloudwatchLogs' - A value that indicates whether the engine version supports exporting the</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- log types specified by @ExportableLogTypes@ to CloudWatch Logs.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'exportableLogTypes', 'dbEngineVersion_exportableLogTypes' - The types of logs that the database engine has available for export to</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Amazon CloudWatch Logs.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#newDBEngineVersion"><span class="hs-identifier hs-type">newDBEngineVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span>
+</span><span id="line-81"></span><span id="newDBEngineVersion"><span class="annot"><span class="annottext">newDBEngineVersion :: DBEngineVersion
+</span><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#newDBEngineVersion"><span class="hs-identifier hs-var hs-var">newDBEngineVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">DBEngineVersion' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [UpgradeTarget]
+-&gt; Maybe Bool
+-&gt; Maybe [Text]
+-&gt; DBEngineVersion
+</span><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:engineVersion:DBEngineVersion' :: Maybe Text
+</span><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#%24sel%3AengineVersion%3ADBEngineVersion%27"><span class="hs-identifier hs-var">engineVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:dbEngineVersionDescription:DBEngineVersion' :: Maybe Text
+</span><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#%24sel%3AdbEngineVersionDescription%3ADBEngineVersion%27"><span class="hs-identifier hs-var">dbEngineVersionDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:engine:DBEngineVersion' :: Maybe Text
+</span><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#%24sel%3Aengine%3ADBEngineVersion%27"><span class="hs-identifier hs-var">engine</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:dbParameterGroupFamily:DBEngineVersion' :: Maybe Text
+</span><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#%24sel%3AdbParameterGroupFamily%3ADBEngineVersion%27"><span class="hs-identifier hs-var">dbParameterGroupFamily</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:dbEngineDescription:DBEngineVersion' :: Maybe Text
+</span><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#%24sel%3AdbEngineDescription%3ADBEngineVersion%27"><span class="hs-identifier hs-var">dbEngineDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:validUpgradeTarget:DBEngineVersion' :: Maybe [UpgradeTarget]
+</span><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#%24sel%3AvalidUpgradeTarget%3ADBEngineVersion%27"><span class="hs-identifier hs-var">validUpgradeTarget</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UpgradeTarget]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:supportsLogExportsToCloudwatchLogs:DBEngineVersion' :: Maybe Bool
+</span><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#%24sel%3AsupportsLogExportsToCloudwatchLogs%3ADBEngineVersion%27"><span class="hs-identifier hs-var">supportsLogExportsToCloudwatchLogs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:exportableLogTypes:DBEngineVersion' :: Maybe [Text]
+</span><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#%24sel%3AexportableLogTypes%3ADBEngineVersion%27"><span class="hs-identifier hs-var">exportableLogTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The version number of the database engine.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#dbEngineVersion_engineVersion"><span class="hs-identifier hs-type">dbEngineVersion_engineVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="dbEngineVersion_engineVersion"><span class="annot"><span class="annottext">dbEngineVersion_engineVersion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DBEngineVersion -&gt; f DBEngineVersion
+</span><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#dbEngineVersion_engineVersion"><span class="hs-identifier hs-var hs-var">dbEngineVersion_engineVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBEngineVersion -&gt; Maybe Text)
+-&gt; (DBEngineVersion -&gt; Maybe Text -&gt; DBEngineVersion)
+-&gt; Lens DBEngineVersion DBEngineVersion (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300933"><span class="annot"><span class="annottext">Maybe Text
+engineVersion :: Maybe Text
+$sel:engineVersion:DBEngineVersion' :: DBEngineVersion -&gt; Maybe Text
+</span><a href="#local-6989586621679300933"><span class="hs-identifier hs-var hs-var">engineVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300933"><span class="hs-identifier hs-var">engineVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300932"><span class="annot"><span class="annottext">s :: DBEngineVersion
+</span><a href="#local-6989586621679300932"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300931"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300931"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBEngineVersion
+</span><a href="#local-6989586621679300932"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engineVersion:DBEngineVersion' :: Maybe Text
+</span><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#%24sel%3AengineVersion%3ADBEngineVersion%27"><span class="hs-identifier hs-var">engineVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300931"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The description of the database engine version.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#dbEngineVersion_dbEngineVersionDescription"><span class="hs-identifier hs-type">dbEngineVersion_dbEngineVersionDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="dbEngineVersion_dbEngineVersionDescription"><span class="annot"><span class="annottext">dbEngineVersion_dbEngineVersionDescription :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DBEngineVersion -&gt; f DBEngineVersion
+</span><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#dbEngineVersion_dbEngineVersionDescription"><span class="hs-identifier hs-var hs-var">dbEngineVersion_dbEngineVersionDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBEngineVersion -&gt; Maybe Text)
+-&gt; (DBEngineVersion -&gt; Maybe Text -&gt; DBEngineVersion)
+-&gt; Lens DBEngineVersion DBEngineVersion (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300929"><span class="annot"><span class="annottext">Maybe Text
+dbEngineVersionDescription :: Maybe Text
+$sel:dbEngineVersionDescription:DBEngineVersion' :: DBEngineVersion -&gt; Maybe Text
+</span><a href="#local-6989586621679300929"><span class="hs-identifier hs-var hs-var">dbEngineVersionDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300929"><span class="hs-identifier hs-var">dbEngineVersionDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300928"><span class="annot"><span class="annottext">s :: DBEngineVersion
+</span><a href="#local-6989586621679300928"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300927"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300927"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBEngineVersion
+</span><a href="#local-6989586621679300928"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbEngineVersionDescription:DBEngineVersion' :: Maybe Text
+</span><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#%24sel%3AdbEngineVersionDescription%3ADBEngineVersion%27"><span class="hs-identifier hs-var">dbEngineVersionDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300927"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The name of the database engine.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#dbEngineVersion_engine"><span class="hs-identifier hs-type">dbEngineVersion_engine</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="dbEngineVersion_engine"><span class="annot"><span class="annottext">dbEngineVersion_engine :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DBEngineVersion -&gt; f DBEngineVersion
+</span><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#dbEngineVersion_engine"><span class="hs-identifier hs-var hs-var">dbEngineVersion_engine</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBEngineVersion -&gt; Maybe Text)
+-&gt; (DBEngineVersion -&gt; Maybe Text -&gt; DBEngineVersion)
+-&gt; Lens DBEngineVersion DBEngineVersion (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300925"><span class="annot"><span class="annottext">Maybe Text
+engine :: Maybe Text
+$sel:engine:DBEngineVersion' :: DBEngineVersion -&gt; Maybe Text
+</span><a href="#local-6989586621679300925"><span class="hs-identifier hs-var hs-var">engine</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300925"><span class="hs-identifier hs-var">engine</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300924"><span class="annot"><span class="annottext">s :: DBEngineVersion
+</span><a href="#local-6989586621679300924"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300923"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300923"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBEngineVersion
+</span><a href="#local-6989586621679300924"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engine:DBEngineVersion' :: Maybe Text
+</span><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#%24sel%3Aengine%3ADBEngineVersion%27"><span class="hs-identifier hs-var">engine</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300923"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The name of the parameter group family for the database engine.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#dbEngineVersion_dbParameterGroupFamily"><span class="hs-identifier hs-type">dbEngineVersion_dbParameterGroupFamily</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="dbEngineVersion_dbParameterGroupFamily"><span class="annot"><span class="annottext">dbEngineVersion_dbParameterGroupFamily :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DBEngineVersion -&gt; f DBEngineVersion
+</span><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#dbEngineVersion_dbParameterGroupFamily"><span class="hs-identifier hs-var hs-var">dbEngineVersion_dbParameterGroupFamily</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBEngineVersion -&gt; Maybe Text)
+-&gt; (DBEngineVersion -&gt; Maybe Text -&gt; DBEngineVersion)
+-&gt; Lens DBEngineVersion DBEngineVersion (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300921"><span class="annot"><span class="annottext">Maybe Text
+dbParameterGroupFamily :: Maybe Text
+$sel:dbParameterGroupFamily:DBEngineVersion' :: DBEngineVersion -&gt; Maybe Text
+</span><a href="#local-6989586621679300921"><span class="hs-identifier hs-var hs-var">dbParameterGroupFamily</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300921"><span class="hs-identifier hs-var">dbParameterGroupFamily</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300920"><span class="annot"><span class="annottext">s :: DBEngineVersion
+</span><a href="#local-6989586621679300920"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300919"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300919"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBEngineVersion
+</span><a href="#local-6989586621679300920"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbParameterGroupFamily:DBEngineVersion' :: Maybe Text
+</span><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#%24sel%3AdbParameterGroupFamily%3ADBEngineVersion%27"><span class="hs-identifier hs-var">dbParameterGroupFamily</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300919"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The description of the database engine.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#dbEngineVersion_dbEngineDescription"><span class="hs-identifier hs-type">dbEngineVersion_dbEngineDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="dbEngineVersion_dbEngineDescription"><span class="annot"><span class="annottext">dbEngineVersion_dbEngineDescription :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DBEngineVersion -&gt; f DBEngineVersion
+</span><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#dbEngineVersion_dbEngineDescription"><span class="hs-identifier hs-var hs-var">dbEngineVersion_dbEngineDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBEngineVersion -&gt; Maybe Text)
+-&gt; (DBEngineVersion -&gt; Maybe Text -&gt; DBEngineVersion)
+-&gt; Lens DBEngineVersion DBEngineVersion (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300917"><span class="annot"><span class="annottext">Maybe Text
+dbEngineDescription :: Maybe Text
+$sel:dbEngineDescription:DBEngineVersion' :: DBEngineVersion -&gt; Maybe Text
+</span><a href="#local-6989586621679300917"><span class="hs-identifier hs-var hs-var">dbEngineDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300917"><span class="hs-identifier hs-var">dbEngineDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300916"><span class="annot"><span class="annottext">s :: DBEngineVersion
+</span><a href="#local-6989586621679300916"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300915"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300915"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBEngineVersion
+</span><a href="#local-6989586621679300916"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbEngineDescription:DBEngineVersion' :: Maybe Text
+</span><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#%24sel%3AdbEngineDescription%3ADBEngineVersion%27"><span class="hs-identifier hs-var">dbEngineDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300915"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | A list of engine versions that this database engine version can be</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- upgraded to.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#dbEngineVersion_validUpgradeTarget"><span class="hs-identifier hs-type">dbEngineVersion_validUpgradeTarget</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.UpgradeTarget.html#UpgradeTarget"><span class="hs-identifier hs-type">UpgradeTarget</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="dbEngineVersion_validUpgradeTarget"><span class="annot"><span class="annottext">dbEngineVersion_validUpgradeTarget :: (Maybe [UpgradeTarget] -&gt; f (Maybe [UpgradeTarget]))
+-&gt; DBEngineVersion -&gt; f DBEngineVersion
+</span><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#dbEngineVersion_validUpgradeTarget"><span class="hs-identifier hs-var hs-var">dbEngineVersion_validUpgradeTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBEngineVersion -&gt; Maybe [UpgradeTarget])
+-&gt; (DBEngineVersion -&gt; Maybe [UpgradeTarget] -&gt; DBEngineVersion)
+-&gt; Lens
+     DBEngineVersion
+     DBEngineVersion
+     (Maybe [UpgradeTarget])
+     (Maybe [UpgradeTarget])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300913"><span class="annot"><span class="annottext">Maybe [UpgradeTarget]
+validUpgradeTarget :: Maybe [UpgradeTarget]
+$sel:validUpgradeTarget:DBEngineVersion' :: DBEngineVersion -&gt; Maybe [UpgradeTarget]
+</span><a href="#local-6989586621679300913"><span class="hs-identifier hs-var hs-var">validUpgradeTarget</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UpgradeTarget]
+</span><a href="#local-6989586621679300913"><span class="hs-identifier hs-var">validUpgradeTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300912"><span class="annot"><span class="annottext">s :: DBEngineVersion
+</span><a href="#local-6989586621679300912"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300911"><span class="annot"><span class="annottext">Maybe [UpgradeTarget]
+</span><a href="#local-6989586621679300911"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBEngineVersion
+</span><a href="#local-6989586621679300912"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:validUpgradeTarget:DBEngineVersion' :: Maybe [UpgradeTarget]
+</span><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#%24sel%3AvalidUpgradeTarget%3ADBEngineVersion%27"><span class="hs-identifier hs-var">validUpgradeTarget</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UpgradeTarget]
+</span><a href="#local-6989586621679300911"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UpgradeTarget] -&gt; f (Maybe [UpgradeTarget]))
+ -&gt; DBEngineVersion -&gt; f DBEngineVersion)
+-&gt; ((Maybe [UpgradeTarget] -&gt; f (Maybe [UpgradeTarget]))
+    -&gt; Maybe [UpgradeTarget] -&gt; f (Maybe [UpgradeTarget]))
+-&gt; (Maybe [UpgradeTarget] -&gt; f (Maybe [UpgradeTarget]))
+-&gt; DBEngineVersion
+-&gt; f DBEngineVersion
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [UpgradeTarget] [UpgradeTarget] [UpgradeTarget] [UpgradeTarget]
+-&gt; Iso
+     (Maybe [UpgradeTarget])
+     (Maybe [UpgradeTarget])
+     (Maybe [UpgradeTarget])
+     (Maybe [UpgradeTarget])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [UpgradeTarget] [UpgradeTarget] [UpgradeTarget] [UpgradeTarget]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | A value that indicates whether the engine version supports exporting the</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- log types specified by @ExportableLogTypes@ to CloudWatch Logs.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#dbEngineVersion_supportsLogExportsToCloudwatchLogs"><span class="hs-identifier hs-type">dbEngineVersion_supportsLogExportsToCloudwatchLogs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="dbEngineVersion_supportsLogExportsToCloudwatchLogs"><span class="annot"><span class="annottext">dbEngineVersion_supportsLogExportsToCloudwatchLogs :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DBEngineVersion -&gt; f DBEngineVersion
+</span><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#dbEngineVersion_supportsLogExportsToCloudwatchLogs"><span class="hs-identifier hs-var hs-var">dbEngineVersion_supportsLogExportsToCloudwatchLogs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBEngineVersion -&gt; Maybe Bool)
+-&gt; (DBEngineVersion -&gt; Maybe Bool -&gt; DBEngineVersion)
+-&gt; Lens DBEngineVersion DBEngineVersion (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300906"><span class="annot"><span class="annottext">Maybe Bool
+supportsLogExportsToCloudwatchLogs :: Maybe Bool
+$sel:supportsLogExportsToCloudwatchLogs:DBEngineVersion' :: DBEngineVersion -&gt; Maybe Bool
+</span><a href="#local-6989586621679300906"><span class="hs-identifier hs-var hs-var">supportsLogExportsToCloudwatchLogs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679300906"><span class="hs-identifier hs-var">supportsLogExportsToCloudwatchLogs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300905"><span class="annot"><span class="annottext">s :: DBEngineVersion
+</span><a href="#local-6989586621679300905"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300904"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679300904"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBEngineVersion
+</span><a href="#local-6989586621679300905"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportsLogExportsToCloudwatchLogs:DBEngineVersion' :: Maybe Bool
+</span><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#%24sel%3AsupportsLogExportsToCloudwatchLogs%3ADBEngineVersion%27"><span class="hs-identifier hs-var">supportsLogExportsToCloudwatchLogs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679300904"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The types of logs that the database engine has available for export to</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- Amazon CloudWatch Logs.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#dbEngineVersion_exportableLogTypes"><span class="hs-identifier hs-type">dbEngineVersion_exportableLogTypes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="dbEngineVersion_exportableLogTypes"><span class="annot"><span class="annottext">dbEngineVersion_exportableLogTypes :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DBEngineVersion -&gt; f DBEngineVersion
+</span><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#dbEngineVersion_exportableLogTypes"><span class="hs-identifier hs-var hs-var">dbEngineVersion_exportableLogTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBEngineVersion -&gt; Maybe [Text])
+-&gt; (DBEngineVersion -&gt; Maybe [Text] -&gt; DBEngineVersion)
+-&gt; Lens
+     DBEngineVersion DBEngineVersion (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300902"><span class="annot"><span class="annottext">Maybe [Text]
+exportableLogTypes :: Maybe [Text]
+$sel:exportableLogTypes:DBEngineVersion' :: DBEngineVersion -&gt; Maybe [Text]
+</span><a href="#local-6989586621679300902"><span class="hs-identifier hs-var hs-var">exportableLogTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679300902"><span class="hs-identifier hs-var">exportableLogTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300901"><span class="annot"><span class="annottext">s :: DBEngineVersion
+</span><a href="#local-6989586621679300901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-type">DBEngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300900"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679300900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBEngineVersion
+</span><a href="#local-6989586621679300901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportableLogTypes:DBEngineVersion' :: Maybe [Text]
+</span><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#%24sel%3AexportableLogTypes%3ADBEngineVersion%27"><span class="hs-identifier hs-var">exportableLogTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679300900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; DBEngineVersion -&gt; f DBEngineVersion)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DBEngineVersion
+-&gt; f DBEngineVersion
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679300897"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DBEngineVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679300895"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679300895"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [UpgradeTarget]
+-&gt; Maybe Bool
+-&gt; Maybe [Text]
+-&gt; DBEngineVersion
+</span><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#DBEngineVersion%27"><span class="hs-identifier hs-var">DBEngineVersion'</span></a></span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [UpgradeTarget]
+ -&gt; Maybe Bool
+ -&gt; Maybe [Text]
+ -&gt; DBEngineVersion)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [UpgradeTarget]
+      -&gt; Maybe Bool
+      -&gt; Maybe [Text]
+      -&gt; DBEngineVersion)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679300895"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EngineVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [UpgradeTarget]
+   -&gt; Maybe Bool
+   -&gt; Maybe [Text]
+   -&gt; DBEngineVersion)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [UpgradeTarget]
+      -&gt; Maybe Bool
+      -&gt; Maybe [Text]
+      -&gt; DBEngineVersion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679300895"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DBEngineVersionDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [UpgradeTarget]
+   -&gt; Maybe Bool
+   -&gt; Maybe [Text]
+   -&gt; DBEngineVersion)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [UpgradeTarget]
+      -&gt; Maybe Bool
+      -&gt; Maybe [Text]
+      -&gt; DBEngineVersion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679300895"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Engine&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [UpgradeTarget]
+   -&gt; Maybe Bool
+   -&gt; Maybe [Text]
+   -&gt; DBEngineVersion)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe [UpgradeTarget]
+      -&gt; Maybe Bool
+      -&gt; Maybe [Text]
+      -&gt; DBEngineVersion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679300895"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DBParameterGroupFamily&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe [UpgradeTarget]
+   -&gt; Maybe Bool
+   -&gt; Maybe [Text]
+   -&gt; DBEngineVersion)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [UpgradeTarget]
+      -&gt; Maybe Bool -&gt; Maybe [Text] -&gt; DBEngineVersion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679300895"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DBEngineDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [UpgradeTarget]
+   -&gt; Maybe Bool -&gt; Maybe [Text] -&gt; DBEngineVersion)
+-&gt; Either String (Maybe [UpgradeTarget])
+-&gt; Either String (Maybe Bool -&gt; Maybe [Text] -&gt; DBEngineVersion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679300895"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ValidUpgradeTarget&quot;</span></span><span>
+</span><span id="line-137"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-138"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [UpgradeTarget]))
+-&gt; Either String (Maybe [UpgradeTarget])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [UpgradeTarget])
+-&gt; [Node] -&gt; Either String (Maybe [UpgradeTarget])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [UpgradeTarget]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UpgradeTarget&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Bool -&gt; Maybe [Text] -&gt; DBEngineVersion)
+-&gt; Either String (Maybe Bool)
+-&gt; Either String (Maybe [Text] -&gt; DBEngineVersion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679300895"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SupportsLogExportsToCloudwatchLogs&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Text] -&gt; DBEngineVersion)
+-&gt; Either String (Maybe [Text]) -&gt; Either String DBEngineVersion
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679300895"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExportableLogTypes&quot;</span></span><span>
+</span><span id="line-142"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-143"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [Text]))
+-&gt; Either String (Maybe [Text])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Text])
+-&gt; [Node] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Text]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300886"><span id="local-6989586621679300888"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span></span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300883"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DocumentDB.Types.DBEngineVersion.html#DBEngineVersion"><span class="hs-identifier hs-type">DBEngineVersion</span></a></span></span><span>
+</span><span id="line-149"></span></pre></body></html>

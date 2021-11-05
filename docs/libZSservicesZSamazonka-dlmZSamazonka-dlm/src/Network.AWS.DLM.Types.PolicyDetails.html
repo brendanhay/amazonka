@@ -1,0 +1,883 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DLM.Types.PolicyDetails</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DLM.Types.PolicyDetails</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.Action.html"><span class="hs-identifier">Network.AWS.DLM.Types.Action</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.EventSource.html"><span class="hs-identifier">Network.AWS.DLM.Types.EventSource</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.Parameters.html"><span class="hs-identifier">Network.AWS.DLM.Types.Parameters</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyTypeValues.html"><span class="hs-identifier">Network.AWS.DLM.Types.PolicyTypeValues</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.ResourceLocationValues.html"><span class="hs-identifier">Network.AWS.DLM.Types.ResourceLocationValues</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.ResourceTypeValues.html"><span class="hs-identifier">Network.AWS.DLM.Types.ResourceTypeValues</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.Schedule.html"><span class="hs-identifier">Network.AWS.DLM.Types.Schedule</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.Tag.html"><span class="hs-identifier">Network.AWS.DLM.Types.Tag</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- | Specifies the configuration of a lifecycle policy.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- /See:/ 'newPolicyDetails' smart constructor.</span><span>
+</span><span id="line-37"></span><span id="local-6989586621679181197"><span id="local-6989586621679181198"></span></span><span class="hs-keyword">data</span><span> </span><span id="PolicyDetails"><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#PolicyDetails"><span class="hs-identifier hs-var">PolicyDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PolicyDetails%27"><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#PolicyDetails%27"><span class="hs-identifier hs-var">PolicyDetails'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The actions to be performed when the event-based policy is triggered.</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- You can specify only one action per policy.</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- This parameter is required for event-based policies only. If you are</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- creating a snapshot or AMI policy, omit this parameter.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Aactions%3APolicyDetails%27"><span class="annot"><span class="annottext">PolicyDetails -&gt; Maybe (NonEmpty Action)
+</span><a href="Network.AWS.DLM.Types.PolicyDetails.html#%24sel%3Aactions%3APolicyDetails%27"><span class="hs-identifier hs-var hs-var">actions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The single tag that identifies targeted resources for this policy.</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- This parameter is required for snapshot and AMI policies only. If you</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- are creating an event-based policy, omit this parameter.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AtargetTags%3APolicyDetails%27"><span class="annot"><span class="annottext">PolicyDetails -&gt; Maybe (NonEmpty Tag)
+</span><a href="Network.AWS.DLM.Types.PolicyDetails.html#%24sel%3AtargetTags%3APolicyDetails%27"><span class="hs-identifier hs-var hs-var">targetTags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The valid target resource types and actions a policy can manage. Specify</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- @EBS_SNAPSHOT_MANAGEMENT@ to create a lifecycle policy that manages the</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- lifecycle of Amazon EBS snapshots. Specify @IMAGE_MANAGEMENT@ to create</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- a lifecycle policy that manages the lifecycle of EBS-backed AMIs.</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- Specify @EVENT_BASED_POLICY @ to create an event-based policy that</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- performs specific actions when a defined event occurs in your Amazon Web</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- Services account.</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- The default is @EBS_SNAPSHOT_MANAGEMENT@.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3ApolicyType%3APolicyDetails%27"><span class="annot"><span class="annottext">PolicyDetails -&gt; Maybe PolicyTypeValues
+</span><a href="Network.AWS.DLM.Types.PolicyDetails.html#%24sel%3ApolicyType%3APolicyDetails%27"><span class="hs-identifier hs-var hs-var">policyType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyTypeValues.html#PolicyTypeValues"><span class="hs-identifier hs-type">PolicyTypeValues</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The location of the resources to backup. If the source resources are</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- located in an Amazon Web Services Region, specify @CLOUD@. If the source</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- resources are located on an Outpost in your account, specify @OUTPOST@.</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- If you specify @OUTPOST@, Amazon Data Lifecycle Manager backs up all</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- resources of the specified type with matching target tags across all of</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- the Outposts in your account.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AresourceLocations%3APolicyDetails%27"><span class="annot"><span class="annottext">PolicyDetails -&gt; Maybe (NonEmpty ResourceLocationValues)
+</span><a href="Network.AWS.DLM.Types.PolicyDetails.html#%24sel%3AresourceLocations%3APolicyDetails%27"><span class="hs-identifier hs-var hs-var">resourceLocations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.ResourceLocationValues.html#ResourceLocationValues"><span class="hs-identifier hs-type">ResourceLocationValues</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | A set of optional parameters for snapshot and AMI lifecycle policies.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- This parameter is required for snapshot and AMI policies only. If you</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- are creating an event-based policy, omit this parameter.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3Aparameters%3APolicyDetails%27"><span class="annot"><span class="annottext">PolicyDetails -&gt; Maybe Parameters
+</span><a href="Network.AWS.DLM.Types.PolicyDetails.html#%24sel%3Aparameters%3APolicyDetails%27"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.Parameters.html#Parameters"><span class="hs-identifier hs-type">Parameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The schedules of policy-defined actions for snapshot and AMI lifecycle</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- policies. A policy can have up to four schedules&#8212;one mandatory schedule</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- and up to three optional schedules.</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- This parameter is required for snapshot and AMI policies only. If you</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- are creating an event-based policy, omit this parameter.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3Aschedules%3APolicyDetails%27"><span class="annot"><span class="annottext">PolicyDetails -&gt; Maybe (NonEmpty Schedule)
+</span><a href="Network.AWS.DLM.Types.PolicyDetails.html#%24sel%3Aschedules%3APolicyDetails%27"><span class="hs-identifier hs-var hs-var">schedules</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.Schedule.html#Schedule"><span class="hs-identifier hs-type">Schedule</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | The event that triggers the event-based policy.</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- This parameter is required for event-based policies only. If you are</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- creating a snapshot or AMI policy, omit this parameter.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3AeventSource%3APolicyDetails%27"><span class="annot"><span class="annottext">PolicyDetails -&gt; Maybe EventSource
+</span><a href="Network.AWS.DLM.Types.PolicyDetails.html#%24sel%3AeventSource%3APolicyDetails%27"><span class="hs-identifier hs-var hs-var">eventSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.EventSource.html#EventSource"><span class="hs-identifier hs-type">EventSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | The target resource type for snapshot and AMI lifecycle policies. Use</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- @VOLUME @to create snapshots of individual volumes or use @INSTANCE@ to</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- create multi-volume snapshots from the volumes for an instance.</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- This parameter is required for snapshot and AMI policies only. If you</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- are creating an event-based policy, omit this parameter.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3AresourceTypes%3APolicyDetails%27"><span class="annot"><span class="annottext">PolicyDetails -&gt; Maybe (NonEmpty ResourceTypeValues)
+</span><a href="Network.AWS.DLM.Types.PolicyDetails.html#%24sel%3AresourceTypes%3APolicyDetails%27"><span class="hs-identifier hs-var hs-var">resourceTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.ResourceTypeValues.html#ResourceTypeValues"><span class="hs-identifier hs-type">ResourceTypeValues</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679181184"><span id="local-6989586621679181186"><span class="annot"><span class="annottext">PolicyDetails -&gt; PolicyDetails -&gt; Bool
+(PolicyDetails -&gt; PolicyDetails -&gt; Bool)
+-&gt; (PolicyDetails -&gt; PolicyDetails -&gt; Bool) -&gt; Eq PolicyDetails
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PolicyDetails -&gt; PolicyDetails -&gt; Bool
+$c/= :: PolicyDetails -&gt; PolicyDetails -&gt; Bool
+== :: PolicyDetails -&gt; PolicyDetails -&gt; Bool
+$c== :: PolicyDetails -&gt; PolicyDetails -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181175"><span id="local-6989586621679181177"><span id="local-6989586621679181179"><span id="local-6989586621679181181"><span class="annot"><span class="annottext">ReadPrec [PolicyDetails]
+ReadPrec PolicyDetails
+Int -&gt; ReadS PolicyDetails
+ReadS [PolicyDetails]
+(Int -&gt; ReadS PolicyDetails)
+-&gt; ReadS [PolicyDetails]
+-&gt; ReadPrec PolicyDetails
+-&gt; ReadPrec [PolicyDetails]
+-&gt; Read PolicyDetails
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PolicyDetails]
+$creadListPrec :: ReadPrec [PolicyDetails]
+readPrec :: ReadPrec PolicyDetails
+$creadPrec :: ReadPrec PolicyDetails
+readList :: ReadS [PolicyDetails]
+$creadList :: ReadS [PolicyDetails]
+readsPrec :: Int -&gt; ReadS PolicyDetails
+$creadsPrec :: Int -&gt; ReadS PolicyDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181168"><span id="local-6989586621679181170"><span id="local-6989586621679181172"><span class="annot"><span class="annottext">Int -&gt; PolicyDetails -&gt; ShowS
+[PolicyDetails] -&gt; ShowS
+PolicyDetails -&gt; String
+(Int -&gt; PolicyDetails -&gt; ShowS)
+-&gt; (PolicyDetails -&gt; String)
+-&gt; ([PolicyDetails] -&gt; ShowS)
+-&gt; Show PolicyDetails
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PolicyDetails] -&gt; ShowS
+$cshowList :: [PolicyDetails] -&gt; ShowS
+show :: PolicyDetails -&gt; String
+$cshow :: PolicyDetails -&gt; String
+showsPrec :: Int -&gt; PolicyDetails -&gt; ShowS
+$cshowsPrec :: Int -&gt; PolicyDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PolicyDetails -&gt; Rep PolicyDetails x)
+-&gt; (forall x. Rep PolicyDetails x -&gt; PolicyDetails)
+-&gt; Generic PolicyDetails
+forall x. Rep PolicyDetails x -&gt; PolicyDetails
+forall x. PolicyDetails -&gt; Rep PolicyDetails x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PolicyDetails x -&gt; PolicyDetails
+$cfrom :: forall x. PolicyDetails -&gt; Rep PolicyDetails x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- Create a value of 'PolicyDetails' with all optional fields omitted.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'actions', 'policyDetails_actions' - The actions to be performed when the event-based policy is triggered.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- You can specify only one action per policy.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- This parameter is required for event-based policies only. If you are</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- creating a snapshot or AMI policy, omit this parameter.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'targetTags', 'policyDetails_targetTags' - The single tag that identifies targeted resources for this policy.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- This parameter is required for snapshot and AMI policies only. If you</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- are creating an event-based policy, omit this parameter.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'policyType', 'policyDetails_policyType' - The valid target resource types and actions a policy can manage. Specify</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- @EBS_SNAPSHOT_MANAGEMENT@ to create a lifecycle policy that manages the</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- lifecycle of Amazon EBS snapshots. Specify @IMAGE_MANAGEMENT@ to create</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- a lifecycle policy that manages the lifecycle of EBS-backed AMIs.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- Specify @EVENT_BASED_POLICY @ to create an event-based policy that</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- performs specific actions when a defined event occurs in your Amazon Web</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- Services account.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- The default is @EBS_SNAPSHOT_MANAGEMENT@.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'resourceLocations', 'policyDetails_resourceLocations' - The location of the resources to backup. If the source resources are</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- located in an Amazon Web Services Region, specify @CLOUD@. If the source</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- resources are located on an Outpost in your account, specify @OUTPOST@.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- If you specify @OUTPOST@, Amazon Data Lifecycle Manager backs up all</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- resources of the specified type with matching target tags across all of</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- the Outposts in your account.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'parameters', 'policyDetails_parameters' - A set of optional parameters for snapshot and AMI lifecycle policies.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- This parameter is required for snapshot and AMI policies only. If you</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- are creating an event-based policy, omit this parameter.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- 'schedules', 'policyDetails_schedules' - The schedules of policy-defined actions for snapshot and AMI lifecycle</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- policies. A policy can have up to four schedules&#8212;one mandatory schedule</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- and up to three optional schedules.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- This parameter is required for snapshot and AMI policies only. If you</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- are creating an event-based policy, omit this parameter.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- 'eventSource', 'policyDetails_eventSource' - The event that triggers the event-based policy.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- This parameter is required for event-based policies only. If you are</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- creating a snapshot or AMI policy, omit this parameter.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'resourceTypes', 'policyDetails_resourceTypes' - The target resource type for snapshot and AMI lifecycle policies. Use</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- @VOLUME @to create snapshots of individual volumes or use @INSTANCE@ to</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- create multi-volume snapshots from the volumes for an instance.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- This parameter is required for snapshot and AMI policies only. If you</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- are creating an event-based policy, omit this parameter.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#newPolicyDetails"><span class="hs-identifier hs-type">newPolicyDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#PolicyDetails"><span class="hs-identifier hs-type">PolicyDetails</span></a></span><span>
+</span><span id="line-156"></span><span id="newPolicyDetails"><span class="annot"><span class="annottext">newPolicyDetails :: PolicyDetails
+</span><a href="Network.AWS.DLM.Types.PolicyDetails.html#newPolicyDetails"><span class="hs-identifier hs-var hs-var">newPolicyDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><span class="annottext">PolicyDetails' :: Maybe (NonEmpty Action)
+-&gt; Maybe (NonEmpty Tag)
+-&gt; Maybe PolicyTypeValues
+-&gt; Maybe (NonEmpty ResourceLocationValues)
+-&gt; Maybe Parameters
+-&gt; Maybe (NonEmpty Schedule)
+-&gt; Maybe EventSource
+-&gt; Maybe (NonEmpty ResourceTypeValues)
+-&gt; PolicyDetails
+</span><a href="Network.AWS.DLM.Types.PolicyDetails.html#PolicyDetails%27"><span class="hs-identifier hs-type">PolicyDetails'</span></a></span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:actions:PolicyDetails' :: Maybe (NonEmpty Action)
+</span><a href="Network.AWS.DLM.Types.PolicyDetails.html#%24sel%3Aactions%3APolicyDetails%27"><span class="hs-identifier hs-var">actions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Action)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetTags:PolicyDetails' :: Maybe (NonEmpty Tag)
+</span><a href="Network.AWS.DLM.Types.PolicyDetails.html#%24sel%3AtargetTags%3APolicyDetails%27"><span class="hs-identifier hs-var">targetTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:policyType:PolicyDetails' :: Maybe PolicyTypeValues
+</span><a href="Network.AWS.DLM.Types.PolicyDetails.html#%24sel%3ApolicyType%3APolicyDetails%27"><span class="hs-identifier hs-var">policyType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PolicyTypeValues
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceLocations:PolicyDetails' :: Maybe (NonEmpty ResourceLocationValues)
+</span><a href="Network.AWS.DLM.Types.PolicyDetails.html#%24sel%3AresourceLocations%3APolicyDetails%27"><span class="hs-identifier hs-var">resourceLocations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceLocationValues)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">$sel:parameters:PolicyDetails' :: Maybe Parameters
+</span><a href="Network.AWS.DLM.Types.PolicyDetails.html#%24sel%3Aparameters%3APolicyDetails%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Parameters
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:schedules:PolicyDetails' :: Maybe (NonEmpty Schedule)
+</span><a href="Network.AWS.DLM.Types.PolicyDetails.html#%24sel%3Aschedules%3APolicyDetails%27"><span class="hs-identifier hs-var">schedules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Schedule)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventSource:PolicyDetails' :: Maybe EventSource
+</span><a href="Network.AWS.DLM.Types.PolicyDetails.html#%24sel%3AeventSource%3APolicyDetails%27"><span class="hs-identifier hs-var">eventSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventSource
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceTypes:PolicyDetails' :: Maybe (NonEmpty ResourceTypeValues)
+</span><a href="Network.AWS.DLM.Types.PolicyDetails.html#%24sel%3AresourceTypes%3APolicyDetails%27"><span class="hs-identifier hs-var">resourceTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceTypeValues)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The actions to be performed when the event-based policy is triggered.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- You can specify only one action per policy.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- This parameter is required for event-based policies only. If you are</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- creating a snapshot or AMI policy, omit this parameter.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#policyDetails_actions"><span class="hs-identifier hs-type">policyDetails_actions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#PolicyDetails"><span class="hs-identifier hs-type">PolicyDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span id="policyDetails_actions"><span class="annot"><span class="annottext">policyDetails_actions :: (Maybe (NonEmpty Action) -&gt; f (Maybe (NonEmpty Action)))
+-&gt; PolicyDetails -&gt; f PolicyDetails
+</span><a href="Network.AWS.DLM.Types.PolicyDetails.html#policyDetails_actions"><span class="hs-identifier hs-var hs-var">policyDetails_actions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PolicyDetails -&gt; Maybe (NonEmpty Action))
+-&gt; (PolicyDetails -&gt; Maybe (NonEmpty Action) -&gt; PolicyDetails)
+-&gt; Lens
+     PolicyDetails
+     PolicyDetails
+     (Maybe (NonEmpty Action))
+     (Maybe (NonEmpty Action))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#PolicyDetails%27"><span class="hs-identifier hs-type">PolicyDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181159"><span class="annot"><span class="annottext">Maybe (NonEmpty Action)
+actions :: Maybe (NonEmpty Action)
+$sel:actions:PolicyDetails' :: PolicyDetails -&gt; Maybe (NonEmpty Action)
+</span><a href="#local-6989586621679181159"><span class="hs-identifier hs-var hs-var">actions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Action)
+</span><a href="#local-6989586621679181159"><span class="hs-identifier hs-var">actions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181158"><span class="annot"><span class="annottext">s :: PolicyDetails
+</span><a href="#local-6989586621679181158"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#PolicyDetails%27"><span class="hs-identifier hs-type">PolicyDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181157"><span class="annot"><span class="annottext">Maybe (NonEmpty Action)
+</span><a href="#local-6989586621679181157"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyDetails
+</span><a href="#local-6989586621679181158"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actions:PolicyDetails' :: Maybe (NonEmpty Action)
+</span><a href="Network.AWS.DLM.Types.PolicyDetails.html#%24sel%3Aactions%3APolicyDetails%27"><span class="hs-identifier hs-var">actions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Action)
+</span><a href="#local-6989586621679181157"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#PolicyDetails"><span class="hs-identifier hs-type">PolicyDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Action) -&gt; f (Maybe (NonEmpty Action)))
+ -&gt; PolicyDetails -&gt; f PolicyDetails)
+-&gt; ((Maybe (NonEmpty Action) -&gt; f (Maybe (NonEmpty Action)))
+    -&gt; Maybe (NonEmpty Action) -&gt; f (Maybe (NonEmpty Action)))
+-&gt; (Maybe (NonEmpty Action) -&gt; f (Maybe (NonEmpty Action)))
+-&gt; PolicyDetails
+-&gt; f PolicyDetails
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Action)
+  (NonEmpty Action)
+  (NonEmpty Action)
+  (NonEmpty Action)
+-&gt; Iso
+     (Maybe (NonEmpty Action))
+     (Maybe (NonEmpty Action))
+     (Maybe (NonEmpty Action))
+     (Maybe (NonEmpty Action))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Action)
+  (NonEmpty Action)
+  (NonEmpty Action)
+  (NonEmpty Action)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | The single tag that identifies targeted resources for this policy.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- This parameter is required for snapshot and AMI policies only. If you</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- are creating an event-based policy, omit this parameter.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#policyDetails_targetTags"><span class="hs-identifier hs-type">policyDetails_targetTags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#PolicyDetails"><span class="hs-identifier hs-type">PolicyDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="policyDetails_targetTags"><span class="annot"><span class="annottext">policyDetails_targetTags :: (Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+-&gt; PolicyDetails -&gt; f PolicyDetails
+</span><a href="Network.AWS.DLM.Types.PolicyDetails.html#policyDetails_targetTags"><span class="hs-identifier hs-var hs-var">policyDetails_targetTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PolicyDetails -&gt; Maybe (NonEmpty Tag))
+-&gt; (PolicyDetails -&gt; Maybe (NonEmpty Tag) -&gt; PolicyDetails)
+-&gt; Lens
+     PolicyDetails
+     PolicyDetails
+     (Maybe (NonEmpty Tag))
+     (Maybe (NonEmpty Tag))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#PolicyDetails%27"><span class="hs-identifier hs-type">PolicyDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181152"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+targetTags :: Maybe (NonEmpty Tag)
+$sel:targetTags:PolicyDetails' :: PolicyDetails -&gt; Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679181152"><span class="hs-identifier hs-var hs-var">targetTags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679181152"><span class="hs-identifier hs-var">targetTags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181151"><span class="annot"><span class="annottext">s :: PolicyDetails
+</span><a href="#local-6989586621679181151"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#PolicyDetails%27"><span class="hs-identifier hs-type">PolicyDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181150"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679181150"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyDetails
+</span><a href="#local-6989586621679181151"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetTags:PolicyDetails' :: Maybe (NonEmpty Tag)
+</span><a href="Network.AWS.DLM.Types.PolicyDetails.html#%24sel%3AtargetTags%3APolicyDetails%27"><span class="hs-identifier hs-var">targetTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679181150"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#PolicyDetails"><span class="hs-identifier hs-type">PolicyDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+ -&gt; PolicyDetails -&gt; f PolicyDetails)
+-&gt; ((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+    -&gt; Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+-&gt; (Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+-&gt; PolicyDetails
+-&gt; f PolicyDetails
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag)
+-&gt; Iso
+     (Maybe (NonEmpty Tag))
+     (Maybe (NonEmpty Tag))
+     (Maybe (NonEmpty Tag))
+     (Maybe (NonEmpty Tag))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | The valid target resource types and actions a policy can manage. Specify</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- @EBS_SNAPSHOT_MANAGEMENT@ to create a lifecycle policy that manages the</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- lifecycle of Amazon EBS snapshots. Specify @IMAGE_MANAGEMENT@ to create</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- a lifecycle policy that manages the lifecycle of EBS-backed AMIs.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- Specify @EVENT_BASED_POLICY @ to create an event-based policy that</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- performs specific actions when a defined event occurs in your Amazon Web</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- Services account.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- The default is @EBS_SNAPSHOT_MANAGEMENT@.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#policyDetails_policyType"><span class="hs-identifier hs-type">policyDetails_policyType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#PolicyDetails"><span class="hs-identifier hs-type">PolicyDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyTypeValues.html#PolicyTypeValues"><span class="hs-identifier hs-type">PolicyTypeValues</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span id="policyDetails_policyType"><span class="annot"><span class="annottext">policyDetails_policyType :: (Maybe PolicyTypeValues -&gt; f (Maybe PolicyTypeValues))
+-&gt; PolicyDetails -&gt; f PolicyDetails
+</span><a href="Network.AWS.DLM.Types.PolicyDetails.html#policyDetails_policyType"><span class="hs-identifier hs-var hs-var">policyDetails_policyType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PolicyDetails -&gt; Maybe PolicyTypeValues)
+-&gt; (PolicyDetails -&gt; Maybe PolicyTypeValues -&gt; PolicyDetails)
+-&gt; Lens
+     PolicyDetails
+     PolicyDetails
+     (Maybe PolicyTypeValues)
+     (Maybe PolicyTypeValues)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#PolicyDetails%27"><span class="hs-identifier hs-type">PolicyDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181148"><span class="annot"><span class="annottext">Maybe PolicyTypeValues
+policyType :: Maybe PolicyTypeValues
+$sel:policyType:PolicyDetails' :: PolicyDetails -&gt; Maybe PolicyTypeValues
+</span><a href="#local-6989586621679181148"><span class="hs-identifier hs-var hs-var">policyType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PolicyTypeValues
+</span><a href="#local-6989586621679181148"><span class="hs-identifier hs-var">policyType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181147"><span class="annot"><span class="annottext">s :: PolicyDetails
+</span><a href="#local-6989586621679181147"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#PolicyDetails%27"><span class="hs-identifier hs-type">PolicyDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181146"><span class="annot"><span class="annottext">Maybe PolicyTypeValues
+</span><a href="#local-6989586621679181146"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyDetails
+</span><a href="#local-6989586621679181147"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyType:PolicyDetails' :: Maybe PolicyTypeValues
+</span><a href="Network.AWS.DLM.Types.PolicyDetails.html#%24sel%3ApolicyType%3APolicyDetails%27"><span class="hs-identifier hs-var">policyType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PolicyTypeValues
+</span><a href="#local-6989586621679181146"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#PolicyDetails"><span class="hs-identifier hs-type">PolicyDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | The location of the resources to backup. If the source resources are</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- located in an Amazon Web Services Region, specify @CLOUD@. If the source</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- resources are located on an Outpost in your account, specify @OUTPOST@.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- If you specify @OUTPOST@, Amazon Data Lifecycle Manager backs up all</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- resources of the specified type with matching target tags across all of</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- the Outposts in your account.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#policyDetails_resourceLocations"><span class="hs-identifier hs-type">policyDetails_resourceLocations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#PolicyDetails"><span class="hs-identifier hs-type">PolicyDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.ResourceLocationValues.html#ResourceLocationValues"><span class="hs-identifier hs-type">ResourceLocationValues</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span id="policyDetails_resourceLocations"><span class="annot"><span class="annottext">policyDetails_resourceLocations :: (Maybe (NonEmpty ResourceLocationValues)
+ -&gt; f (Maybe (NonEmpty ResourceLocationValues)))
+-&gt; PolicyDetails -&gt; f PolicyDetails
+</span><a href="Network.AWS.DLM.Types.PolicyDetails.html#policyDetails_resourceLocations"><span class="hs-identifier hs-var hs-var">policyDetails_resourceLocations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PolicyDetails -&gt; Maybe (NonEmpty ResourceLocationValues))
+-&gt; (PolicyDetails
+    -&gt; Maybe (NonEmpty ResourceLocationValues) -&gt; PolicyDetails)
+-&gt; Lens
+     PolicyDetails
+     PolicyDetails
+     (Maybe (NonEmpty ResourceLocationValues))
+     (Maybe (NonEmpty ResourceLocationValues))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#PolicyDetails%27"><span class="hs-identifier hs-type">PolicyDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181144"><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceLocationValues)
+resourceLocations :: Maybe (NonEmpty ResourceLocationValues)
+$sel:resourceLocations:PolicyDetails' :: PolicyDetails -&gt; Maybe (NonEmpty ResourceLocationValues)
+</span><a href="#local-6989586621679181144"><span class="hs-identifier hs-var hs-var">resourceLocations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceLocationValues)
+</span><a href="#local-6989586621679181144"><span class="hs-identifier hs-var">resourceLocations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181143"><span class="annot"><span class="annottext">s :: PolicyDetails
+</span><a href="#local-6989586621679181143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#PolicyDetails%27"><span class="hs-identifier hs-type">PolicyDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181142"><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceLocationValues)
+</span><a href="#local-6989586621679181142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyDetails
+</span><a href="#local-6989586621679181143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceLocations:PolicyDetails' :: Maybe (NonEmpty ResourceLocationValues)
+</span><a href="Network.AWS.DLM.Types.PolicyDetails.html#%24sel%3AresourceLocations%3APolicyDetails%27"><span class="hs-identifier hs-var">resourceLocations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceLocationValues)
+</span><a href="#local-6989586621679181142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#PolicyDetails"><span class="hs-identifier hs-type">PolicyDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty ResourceLocationValues)
+  -&gt; f (Maybe (NonEmpty ResourceLocationValues)))
+ -&gt; PolicyDetails -&gt; f PolicyDetails)
+-&gt; ((Maybe (NonEmpty ResourceLocationValues)
+     -&gt; f (Maybe (NonEmpty ResourceLocationValues)))
+    -&gt; Maybe (NonEmpty ResourceLocationValues)
+    -&gt; f (Maybe (NonEmpty ResourceLocationValues)))
+-&gt; (Maybe (NonEmpty ResourceLocationValues)
+    -&gt; f (Maybe (NonEmpty ResourceLocationValues)))
+-&gt; PolicyDetails
+-&gt; f PolicyDetails
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty ResourceLocationValues)
+  (NonEmpty ResourceLocationValues)
+  (NonEmpty ResourceLocationValues)
+  (NonEmpty ResourceLocationValues)
+-&gt; Iso
+     (Maybe (NonEmpty ResourceLocationValues))
+     (Maybe (NonEmpty ResourceLocationValues))
+     (Maybe (NonEmpty ResourceLocationValues))
+     (Maybe (NonEmpty ResourceLocationValues))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty ResourceLocationValues)
+  (NonEmpty ResourceLocationValues)
+  (NonEmpty ResourceLocationValues)
+  (NonEmpty ResourceLocationValues)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | A set of optional parameters for snapshot and AMI lifecycle policies.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- This parameter is required for snapshot and AMI policies only. If you</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- are creating an event-based policy, omit this parameter.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#policyDetails_parameters"><span class="hs-identifier hs-type">policyDetails_parameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#PolicyDetails"><span class="hs-identifier hs-type">PolicyDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.Parameters.html#Parameters"><span class="hs-identifier hs-type">Parameters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span id="policyDetails_parameters"><span class="annot"><span class="annottext">policyDetails_parameters :: (Maybe Parameters -&gt; f (Maybe Parameters))
+-&gt; PolicyDetails -&gt; f PolicyDetails
+</span><a href="Network.AWS.DLM.Types.PolicyDetails.html#policyDetails_parameters"><span class="hs-identifier hs-var hs-var">policyDetails_parameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PolicyDetails -&gt; Maybe Parameters)
+-&gt; (PolicyDetails -&gt; Maybe Parameters -&gt; PolicyDetails)
+-&gt; Lens
+     PolicyDetails PolicyDetails (Maybe Parameters) (Maybe Parameters)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#PolicyDetails%27"><span class="hs-identifier hs-type">PolicyDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181140"><span class="annot"><span class="annottext">Maybe Parameters
+parameters :: Maybe Parameters
+$sel:parameters:PolicyDetails' :: PolicyDetails -&gt; Maybe Parameters
+</span><a href="#local-6989586621679181140"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Parameters
+</span><a href="#local-6989586621679181140"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181139"><span class="annot"><span class="annottext">s :: PolicyDetails
+</span><a href="#local-6989586621679181139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#PolicyDetails%27"><span class="hs-identifier hs-type">PolicyDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181138"><span class="annot"><span class="annottext">Maybe Parameters
+</span><a href="#local-6989586621679181138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyDetails
+</span><a href="#local-6989586621679181139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameters:PolicyDetails' :: Maybe Parameters
+</span><a href="Network.AWS.DLM.Types.PolicyDetails.html#%24sel%3Aparameters%3APolicyDetails%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Parameters
+</span><a href="#local-6989586621679181138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#PolicyDetails"><span class="hs-identifier hs-type">PolicyDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | The schedules of policy-defined actions for snapshot and AMI lifecycle</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- policies. A policy can have up to four schedules&#8212;one mandatory schedule</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- and up to three optional schedules.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- This parameter is required for snapshot and AMI policies only. If you</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- are creating an event-based policy, omit this parameter.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#policyDetails_schedules"><span class="hs-identifier hs-type">policyDetails_schedules</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#PolicyDetails"><span class="hs-identifier hs-type">PolicyDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.Schedule.html#Schedule"><span class="hs-identifier hs-type">Schedule</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span id="policyDetails_schedules"><span class="annot"><span class="annottext">policyDetails_schedules :: (Maybe (NonEmpty Schedule) -&gt; f (Maybe (NonEmpty Schedule)))
+-&gt; PolicyDetails -&gt; f PolicyDetails
+</span><a href="Network.AWS.DLM.Types.PolicyDetails.html#policyDetails_schedules"><span class="hs-identifier hs-var hs-var">policyDetails_schedules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PolicyDetails -&gt; Maybe (NonEmpty Schedule))
+-&gt; (PolicyDetails -&gt; Maybe (NonEmpty Schedule) -&gt; PolicyDetails)
+-&gt; Lens
+     PolicyDetails
+     PolicyDetails
+     (Maybe (NonEmpty Schedule))
+     (Maybe (NonEmpty Schedule))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#PolicyDetails%27"><span class="hs-identifier hs-type">PolicyDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181136"><span class="annot"><span class="annottext">Maybe (NonEmpty Schedule)
+schedules :: Maybe (NonEmpty Schedule)
+$sel:schedules:PolicyDetails' :: PolicyDetails -&gt; Maybe (NonEmpty Schedule)
+</span><a href="#local-6989586621679181136"><span class="hs-identifier hs-var hs-var">schedules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Schedule)
+</span><a href="#local-6989586621679181136"><span class="hs-identifier hs-var">schedules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181135"><span class="annot"><span class="annottext">s :: PolicyDetails
+</span><a href="#local-6989586621679181135"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#PolicyDetails%27"><span class="hs-identifier hs-type">PolicyDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181134"><span class="annot"><span class="annottext">Maybe (NonEmpty Schedule)
+</span><a href="#local-6989586621679181134"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyDetails
+</span><a href="#local-6989586621679181135"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schedules:PolicyDetails' :: Maybe (NonEmpty Schedule)
+</span><a href="Network.AWS.DLM.Types.PolicyDetails.html#%24sel%3Aschedules%3APolicyDetails%27"><span class="hs-identifier hs-var">schedules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Schedule)
+</span><a href="#local-6989586621679181134"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#PolicyDetails"><span class="hs-identifier hs-type">PolicyDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Schedule) -&gt; f (Maybe (NonEmpty Schedule)))
+ -&gt; PolicyDetails -&gt; f PolicyDetails)
+-&gt; ((Maybe (NonEmpty Schedule) -&gt; f (Maybe (NonEmpty Schedule)))
+    -&gt; Maybe (NonEmpty Schedule) -&gt; f (Maybe (NonEmpty Schedule)))
+-&gt; (Maybe (NonEmpty Schedule) -&gt; f (Maybe (NonEmpty Schedule)))
+-&gt; PolicyDetails
+-&gt; f PolicyDetails
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Schedule)
+  (NonEmpty Schedule)
+  (NonEmpty Schedule)
+  (NonEmpty Schedule)
+-&gt; Iso
+     (Maybe (NonEmpty Schedule))
+     (Maybe (NonEmpty Schedule))
+     (Maybe (NonEmpty Schedule))
+     (Maybe (NonEmpty Schedule))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Schedule)
+  (NonEmpty Schedule)
+  (NonEmpty Schedule)
+  (NonEmpty Schedule)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | The event that triggers the event-based policy.</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- This parameter is required for event-based policies only. If you are</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- creating a snapshot or AMI policy, omit this parameter.</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#policyDetails_eventSource"><span class="hs-identifier hs-type">policyDetails_eventSource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#PolicyDetails"><span class="hs-identifier hs-type">PolicyDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.EventSource.html#EventSource"><span class="hs-identifier hs-type">EventSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span id="policyDetails_eventSource"><span class="annot"><span class="annottext">policyDetails_eventSource :: (Maybe EventSource -&gt; f (Maybe EventSource))
+-&gt; PolicyDetails -&gt; f PolicyDetails
+</span><a href="Network.AWS.DLM.Types.PolicyDetails.html#policyDetails_eventSource"><span class="hs-identifier hs-var hs-var">policyDetails_eventSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PolicyDetails -&gt; Maybe EventSource)
+-&gt; (PolicyDetails -&gt; Maybe EventSource -&gt; PolicyDetails)
+-&gt; Lens
+     PolicyDetails PolicyDetails (Maybe EventSource) (Maybe EventSource)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#PolicyDetails%27"><span class="hs-identifier hs-type">PolicyDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181132"><span class="annot"><span class="annottext">Maybe EventSource
+eventSource :: Maybe EventSource
+$sel:eventSource:PolicyDetails' :: PolicyDetails -&gt; Maybe EventSource
+</span><a href="#local-6989586621679181132"><span class="hs-identifier hs-var hs-var">eventSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EventSource
+</span><a href="#local-6989586621679181132"><span class="hs-identifier hs-var">eventSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181131"><span class="annot"><span class="annottext">s :: PolicyDetails
+</span><a href="#local-6989586621679181131"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#PolicyDetails%27"><span class="hs-identifier hs-type">PolicyDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181130"><span class="annot"><span class="annottext">Maybe EventSource
+</span><a href="#local-6989586621679181130"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyDetails
+</span><a href="#local-6989586621679181131"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventSource:PolicyDetails' :: Maybe EventSource
+</span><a href="Network.AWS.DLM.Types.PolicyDetails.html#%24sel%3AeventSource%3APolicyDetails%27"><span class="hs-identifier hs-var">eventSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventSource
+</span><a href="#local-6989586621679181130"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#PolicyDetails"><span class="hs-identifier hs-type">PolicyDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- | The target resource type for snapshot and AMI lifecycle policies. Use</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- @VOLUME @to create snapshots of individual volumes or use @INSTANCE@ to</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- create multi-volume snapshots from the volumes for an instance.</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- This parameter is required for snapshot and AMI policies only. If you</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- are creating an event-based policy, omit this parameter.</span><span>
+</span><span id="line-234"></span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#policyDetails_resourceTypes"><span class="hs-identifier hs-type">policyDetails_resourceTypes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#PolicyDetails"><span class="hs-identifier hs-type">PolicyDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.ResourceTypeValues.html#ResourceTypeValues"><span class="hs-identifier hs-type">ResourceTypeValues</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span id="policyDetails_resourceTypes"><span class="annot"><span class="annottext">policyDetails_resourceTypes :: (Maybe (NonEmpty ResourceTypeValues)
+ -&gt; f (Maybe (NonEmpty ResourceTypeValues)))
+-&gt; PolicyDetails -&gt; f PolicyDetails
+</span><a href="Network.AWS.DLM.Types.PolicyDetails.html#policyDetails_resourceTypes"><span class="hs-identifier hs-var hs-var">policyDetails_resourceTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PolicyDetails -&gt; Maybe (NonEmpty ResourceTypeValues))
+-&gt; (PolicyDetails
+    -&gt; Maybe (NonEmpty ResourceTypeValues) -&gt; PolicyDetails)
+-&gt; Lens
+     PolicyDetails
+     PolicyDetails
+     (Maybe (NonEmpty ResourceTypeValues))
+     (Maybe (NonEmpty ResourceTypeValues))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#PolicyDetails%27"><span class="hs-identifier hs-type">PolicyDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181128"><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceTypeValues)
+resourceTypes :: Maybe (NonEmpty ResourceTypeValues)
+$sel:resourceTypes:PolicyDetails' :: PolicyDetails -&gt; Maybe (NonEmpty ResourceTypeValues)
+</span><a href="#local-6989586621679181128"><span class="hs-identifier hs-var hs-var">resourceTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceTypeValues)
+</span><a href="#local-6989586621679181128"><span class="hs-identifier hs-var">resourceTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181127"><span class="annot"><span class="annottext">s :: PolicyDetails
+</span><a href="#local-6989586621679181127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#PolicyDetails%27"><span class="hs-identifier hs-type">PolicyDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181126"><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceTypeValues)
+</span><a href="#local-6989586621679181126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyDetails
+</span><a href="#local-6989586621679181127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceTypes:PolicyDetails' :: Maybe (NonEmpty ResourceTypeValues)
+</span><a href="Network.AWS.DLM.Types.PolicyDetails.html#%24sel%3AresourceTypes%3APolicyDetails%27"><span class="hs-identifier hs-var">resourceTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceTypeValues)
+</span><a href="#local-6989586621679181126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#PolicyDetails"><span class="hs-identifier hs-type">PolicyDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty ResourceTypeValues)
+  -&gt; f (Maybe (NonEmpty ResourceTypeValues)))
+ -&gt; PolicyDetails -&gt; f PolicyDetails)
+-&gt; ((Maybe (NonEmpty ResourceTypeValues)
+     -&gt; f (Maybe (NonEmpty ResourceTypeValues)))
+    -&gt; Maybe (NonEmpty ResourceTypeValues)
+    -&gt; f (Maybe (NonEmpty ResourceTypeValues)))
+-&gt; (Maybe (NonEmpty ResourceTypeValues)
+    -&gt; f (Maybe (NonEmpty ResourceTypeValues)))
+-&gt; PolicyDetails
+-&gt; f PolicyDetails
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty ResourceTypeValues)
+  (NonEmpty ResourceTypeValues)
+  (NonEmpty ResourceTypeValues)
+  (NonEmpty ResourceTypeValues)
+-&gt; Iso
+     (Maybe (NonEmpty ResourceTypeValues))
+     (Maybe (NonEmpty ResourceTypeValues))
+     (Maybe (NonEmpty ResourceTypeValues))
+     (Maybe (NonEmpty ResourceTypeValues))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty ResourceTypeValues)
+  (NonEmpty ResourceTypeValues)
+  (NonEmpty ResourceTypeValues)
+  (NonEmpty ResourceTypeValues)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181123"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#PolicyDetails"><span class="hs-identifier hs-type">PolicyDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-238"></span><span>  </span><span id="local-6989586621679181121"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PolicyDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-239"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser PolicyDetails)
+-&gt; Value
+-&gt; Parser PolicyDetails
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-240"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;PolicyDetails&quot;</span></span><span>
+</span><span id="line-241"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679181118"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679181118"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-242"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty Action)
+-&gt; Maybe (NonEmpty Tag)
+-&gt; Maybe PolicyTypeValues
+-&gt; Maybe (NonEmpty ResourceLocationValues)
+-&gt; Maybe Parameters
+-&gt; Maybe (NonEmpty Schedule)
+-&gt; Maybe EventSource
+-&gt; Maybe (NonEmpty ResourceTypeValues)
+-&gt; PolicyDetails
+</span><a href="Network.AWS.DLM.Types.PolicyDetails.html#PolicyDetails%27"><span class="hs-identifier hs-var">PolicyDetails'</span></a></span><span>
+</span><span id="line-243"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (NonEmpty Action)
+ -&gt; Maybe (NonEmpty Tag)
+ -&gt; Maybe PolicyTypeValues
+ -&gt; Maybe (NonEmpty ResourceLocationValues)
+ -&gt; Maybe Parameters
+ -&gt; Maybe (NonEmpty Schedule)
+ -&gt; Maybe EventSource
+ -&gt; Maybe (NonEmpty ResourceTypeValues)
+ -&gt; PolicyDetails)
+-&gt; Parser (Maybe (NonEmpty Action))
+-&gt; Parser
+     (Maybe (NonEmpty Tag)
+      -&gt; Maybe PolicyTypeValues
+      -&gt; Maybe (NonEmpty ResourceLocationValues)
+      -&gt; Maybe Parameters
+      -&gt; Maybe (NonEmpty Schedule)
+      -&gt; Maybe EventSource
+      -&gt; Maybe (NonEmpty ResourceTypeValues)
+      -&gt; PolicyDetails)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679181118"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Action))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Actions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (NonEmpty Tag)
+   -&gt; Maybe PolicyTypeValues
+   -&gt; Maybe (NonEmpty ResourceLocationValues)
+   -&gt; Maybe Parameters
+   -&gt; Maybe (NonEmpty Schedule)
+   -&gt; Maybe EventSource
+   -&gt; Maybe (NonEmpty ResourceTypeValues)
+   -&gt; PolicyDetails)
+-&gt; Parser (Maybe (NonEmpty Tag))
+-&gt; Parser
+     (Maybe PolicyTypeValues
+      -&gt; Maybe (NonEmpty ResourceLocationValues)
+      -&gt; Maybe Parameters
+      -&gt; Maybe (NonEmpty Schedule)
+      -&gt; Maybe EventSource
+      -&gt; Maybe (NonEmpty ResourceTypeValues)
+      -&gt; PolicyDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679181118"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Tag))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TargetTags&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe PolicyTypeValues
+   -&gt; Maybe (NonEmpty ResourceLocationValues)
+   -&gt; Maybe Parameters
+   -&gt; Maybe (NonEmpty Schedule)
+   -&gt; Maybe EventSource
+   -&gt; Maybe (NonEmpty ResourceTypeValues)
+   -&gt; PolicyDetails)
+-&gt; Parser (Maybe PolicyTypeValues)
+-&gt; Parser
+     (Maybe (NonEmpty ResourceLocationValues)
+      -&gt; Maybe Parameters
+      -&gt; Maybe (NonEmpty Schedule)
+      -&gt; Maybe EventSource
+      -&gt; Maybe (NonEmpty ResourceTypeValues)
+      -&gt; PolicyDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679181118"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PolicyTypeValues)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PolicyType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (NonEmpty ResourceLocationValues)
+   -&gt; Maybe Parameters
+   -&gt; Maybe (NonEmpty Schedule)
+   -&gt; Maybe EventSource
+   -&gt; Maybe (NonEmpty ResourceTypeValues)
+   -&gt; PolicyDetails)
+-&gt; Parser (Maybe (NonEmpty ResourceLocationValues))
+-&gt; Parser
+     (Maybe Parameters
+      -&gt; Maybe (NonEmpty Schedule)
+      -&gt; Maybe EventSource
+      -&gt; Maybe (NonEmpty ResourceTypeValues)
+      -&gt; PolicyDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679181118"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty ResourceLocationValues))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceLocations&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Parameters
+   -&gt; Maybe (NonEmpty Schedule)
+   -&gt; Maybe EventSource
+   -&gt; Maybe (NonEmpty ResourceTypeValues)
+   -&gt; PolicyDetails)
+-&gt; Parser (Maybe Parameters)
+-&gt; Parser
+     (Maybe (NonEmpty Schedule)
+      -&gt; Maybe EventSource
+      -&gt; Maybe (NonEmpty ResourceTypeValues)
+      -&gt; PolicyDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679181118"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Parameters)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Parameters&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (NonEmpty Schedule)
+   -&gt; Maybe EventSource
+   -&gt; Maybe (NonEmpty ResourceTypeValues)
+   -&gt; PolicyDetails)
+-&gt; Parser (Maybe (NonEmpty Schedule))
+-&gt; Parser
+     (Maybe EventSource
+      -&gt; Maybe (NonEmpty ResourceTypeValues) -&gt; PolicyDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679181118"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Schedule))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Schedules&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe EventSource
+   -&gt; Maybe (NonEmpty ResourceTypeValues) -&gt; PolicyDetails)
+-&gt; Parser (Maybe EventSource)
+-&gt; Parser (Maybe (NonEmpty ResourceTypeValues) -&gt; PolicyDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679181118"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EventSource)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EventSource&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe (NonEmpty ResourceTypeValues) -&gt; PolicyDetails)
+-&gt; Parser (Maybe (NonEmpty ResourceTypeValues))
+-&gt; Parser PolicyDetails
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679181118"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty ResourceTypeValues))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceTypes&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181112"><span id="local-6989586621679181114"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#PolicyDetails"><span class="hs-identifier hs-type">PolicyDetails</span></a></span></span></span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181109"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#PolicyDetails"><span class="hs-identifier hs-type">PolicyDetails</span></a></span></span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181101"><span id="local-6989586621679181103"><span id="local-6989586621679181105"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#PolicyDetails"><span class="hs-identifier hs-type">PolicyDetails</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-258"></span><span>  </span><span id="local-6989586621679181099"><span class="annot"><span class="annottext">toJSON :: PolicyDetails -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DLM.Types.PolicyDetails.html#PolicyDetails%27"><span class="hs-identifier hs-type">PolicyDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181090"><span id="local-6989586621679181091"><span id="local-6989586621679181092"><span id="local-6989586621679181093"><span id="local-6989586621679181094"><span id="local-6989586621679181095"><span id="local-6989586621679181096"><span id="local-6989586621679181097"><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceLocationValues)
+Maybe (NonEmpty ResourceTypeValues)
+Maybe (NonEmpty Action)
+Maybe (NonEmpty Tag)
+Maybe (NonEmpty Schedule)
+Maybe EventSource
+Maybe Parameters
+Maybe PolicyTypeValues
+resourceTypes :: Maybe (NonEmpty ResourceTypeValues)
+eventSource :: Maybe EventSource
+schedules :: Maybe (NonEmpty Schedule)
+parameters :: Maybe Parameters
+resourceLocations :: Maybe (NonEmpty ResourceLocationValues)
+policyType :: Maybe PolicyTypeValues
+targetTags :: Maybe (NonEmpty Tag)
+actions :: Maybe (NonEmpty Action)
+$sel:resourceTypes:PolicyDetails' :: PolicyDetails -&gt; Maybe (NonEmpty ResourceTypeValues)
+$sel:eventSource:PolicyDetails' :: PolicyDetails -&gt; Maybe EventSource
+$sel:schedules:PolicyDetails' :: PolicyDetails -&gt; Maybe (NonEmpty Schedule)
+$sel:parameters:PolicyDetails' :: PolicyDetails -&gt; Maybe Parameters
+$sel:resourceLocations:PolicyDetails' :: PolicyDetails -&gt; Maybe (NonEmpty ResourceLocationValues)
+$sel:policyType:PolicyDetails' :: PolicyDetails -&gt; Maybe PolicyTypeValues
+$sel:targetTags:PolicyDetails' :: PolicyDetails -&gt; Maybe (NonEmpty Tag)
+$sel:actions:PolicyDetails' :: PolicyDetails -&gt; Maybe (NonEmpty Action)
+</span><a href="#local-6989586621679181090"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-259"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-260"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-261"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Actions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Action -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Action -&gt; Pair) -&gt; Maybe (NonEmpty Action) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Action)
+</span><a href="#local-6989586621679181097"><span class="hs-identifier hs-var">actions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TargetTags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Tag -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Tag -&gt; Pair) -&gt; Maybe (NonEmpty Tag) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679181096"><span class="hs-identifier hs-var">targetTags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PolicyType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PolicyTypeValues -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(PolicyTypeValues -&gt; Pair) -&gt; Maybe PolicyTypeValues -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe PolicyTypeValues
+</span><a href="#local-6989586621679181095"><span class="hs-identifier hs-var">policyType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-264"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceLocations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty ResourceLocationValues -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty ResourceLocationValues -&gt; Pair)
+-&gt; Maybe (NonEmpty ResourceLocationValues) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceLocationValues)
+</span><a href="#local-6989586621679181094"><span class="hs-identifier hs-var">resourceLocations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Parameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Parameters -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Parameters -&gt; Pair) -&gt; Maybe Parameters -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Parameters
+</span><a href="#local-6989586621679181093"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-267"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Schedules&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Schedule -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Schedule -&gt; Pair)
+-&gt; Maybe (NonEmpty Schedule) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Schedule)
+</span><a href="#local-6989586621679181092"><span class="hs-identifier hs-var">schedules</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-268"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EventSource&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EventSource -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(EventSource -&gt; Pair) -&gt; Maybe EventSource -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EventSource
+</span><a href="#local-6989586621679181091"><span class="hs-identifier hs-var">eventSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-269"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceTypes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty ResourceTypeValues -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty ResourceTypeValues -&gt; Pair)
+-&gt; Maybe (NonEmpty ResourceTypeValues) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourceTypeValues)
+</span><a href="#local-6989586621679181090"><span class="hs-identifier hs-var">resourceTypes</span></a></span><span>
+</span><span id="line-270"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-271"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span></pre></body></html>

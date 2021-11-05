@@ -1,0 +1,770 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.IoTThingsGraph.SearchFlowTemplates</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Searches for summary information about workflows.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTThingsGraph.SearchFlowTemplates</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#SearchFlowTemplates"><span class="hs-identifier">SearchFlowTemplates</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#newSearchFlowTemplates"><span class="hs-identifier">newSearchFlowTemplates</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#searchFlowTemplates_filters"><span class="hs-identifier">searchFlowTemplates_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#searchFlowTemplates_nextToken"><span class="hs-identifier">searchFlowTemplates_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#searchFlowTemplates_maxResults"><span class="hs-identifier">searchFlowTemplates_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#SearchFlowTemplatesResponse"><span class="hs-identifier">SearchFlowTemplatesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#newSearchFlowTemplatesResponse"><span class="hs-identifier">newSearchFlowTemplatesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#searchFlowTemplatesResponse_nextToken"><span class="hs-identifier">searchFlowTemplatesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#searchFlowTemplatesResponse_summaries"><span class="hs-identifier">searchFlowTemplatesResponse_summaries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#searchFlowTemplatesResponse_httpStatus"><span class="hs-identifier">searchFlowTemplatesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.html"><span class="hs-identifier">Network.AWS.IoTThingsGraph.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newSearchFlowTemplates' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679221814"><span id="local-6989586621679221815"></span></span><span class="hs-keyword">data</span><span> </span><span id="SearchFlowTemplates"><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#SearchFlowTemplates"><span class="hs-identifier hs-var">SearchFlowTemplates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SearchFlowTemplates%27"><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#SearchFlowTemplates%27"><span class="hs-identifier hs-var">SearchFlowTemplates'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects that limit the result set. The only valid filter is</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- @DEVICE_MODEL_ID@.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Afilters%3ASearchFlowTemplates%27"><span class="annot"><span class="annottext">SearchFlowTemplates -&gt; Maybe [FlowTemplateFilter]
+</span><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#%24sel%3Afilters%3ASearchFlowTemplates%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.FlowTemplateFilter.html#FlowTemplateFilter"><span class="hs-identifier hs-type">FlowTemplateFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The string that specifies the next page of results. Use this when</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- you\'re paginating results.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AnextToken%3ASearchFlowTemplates%27"><span class="annot"><span class="annottext">SearchFlowTemplates -&gt; Maybe Text
+</span><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#%24sel%3AnextToken%3ASearchFlowTemplates%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return in the response.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AmaxResults%3ASearchFlowTemplates%27"><span class="annot"><span class="annottext">SearchFlowTemplates -&gt; Maybe Natural
+</span><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#%24sel%3AmaxResults%3ASearchFlowTemplates%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679221806"><span id="local-6989586621679221808"><span class="annot"><span class="annottext">SearchFlowTemplates -&gt; SearchFlowTemplates -&gt; Bool
+(SearchFlowTemplates -&gt; SearchFlowTemplates -&gt; Bool)
+-&gt; (SearchFlowTemplates -&gt; SearchFlowTemplates -&gt; Bool)
+-&gt; Eq SearchFlowTemplates
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SearchFlowTemplates -&gt; SearchFlowTemplates -&gt; Bool
+$c/= :: SearchFlowTemplates -&gt; SearchFlowTemplates -&gt; Bool
+== :: SearchFlowTemplates -&gt; SearchFlowTemplates -&gt; Bool
+$c== :: SearchFlowTemplates -&gt; SearchFlowTemplates -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221797"><span id="local-6989586621679221799"><span id="local-6989586621679221801"><span id="local-6989586621679221803"><span class="annot"><span class="annottext">ReadPrec [SearchFlowTemplates]
+ReadPrec SearchFlowTemplates
+Int -&gt; ReadS SearchFlowTemplates
+ReadS [SearchFlowTemplates]
+(Int -&gt; ReadS SearchFlowTemplates)
+-&gt; ReadS [SearchFlowTemplates]
+-&gt; ReadPrec SearchFlowTemplates
+-&gt; ReadPrec [SearchFlowTemplates]
+-&gt; Read SearchFlowTemplates
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SearchFlowTemplates]
+$creadListPrec :: ReadPrec [SearchFlowTemplates]
+readPrec :: ReadPrec SearchFlowTemplates
+$creadPrec :: ReadPrec SearchFlowTemplates
+readList :: ReadS [SearchFlowTemplates]
+$creadList :: ReadS [SearchFlowTemplates]
+readsPrec :: Int -&gt; ReadS SearchFlowTemplates
+$creadsPrec :: Int -&gt; ReadS SearchFlowTemplates
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221790"><span id="local-6989586621679221792"><span id="local-6989586621679221794"><span class="annot"><span class="annottext">Int -&gt; SearchFlowTemplates -&gt; ShowS
+[SearchFlowTemplates] -&gt; ShowS
+SearchFlowTemplates -&gt; String
+(Int -&gt; SearchFlowTemplates -&gt; ShowS)
+-&gt; (SearchFlowTemplates -&gt; String)
+-&gt; ([SearchFlowTemplates] -&gt; ShowS)
+-&gt; Show SearchFlowTemplates
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SearchFlowTemplates] -&gt; ShowS
+$cshowList :: [SearchFlowTemplates] -&gt; ShowS
+show :: SearchFlowTemplates -&gt; String
+$cshow :: SearchFlowTemplates -&gt; String
+showsPrec :: Int -&gt; SearchFlowTemplates -&gt; ShowS
+$cshowsPrec :: Int -&gt; SearchFlowTemplates -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SearchFlowTemplates -&gt; Rep SearchFlowTemplates x)
+-&gt; (forall x. Rep SearchFlowTemplates x -&gt; SearchFlowTemplates)
+-&gt; Generic SearchFlowTemplates
+forall x. Rep SearchFlowTemplates x -&gt; SearchFlowTemplates
+forall x. SearchFlowTemplates -&gt; Rep SearchFlowTemplates x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SearchFlowTemplates x -&gt; SearchFlowTemplates
+$cfrom :: forall x. SearchFlowTemplates -&gt; Rep SearchFlowTemplates x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Create a value of 'SearchFlowTemplates' with all optional fields omitted.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'filters', 'searchFlowTemplates_filters' - An array of objects that limit the result set. The only valid filter is</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- @DEVICE_MODEL_ID@.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'nextToken', 'searchFlowTemplates_nextToken' - The string that specifies the next page of results. Use this when</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- you\'re paginating results.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'maxResults', 'searchFlowTemplates_maxResults' - The maximum number of results to return in the response.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#newSearchFlowTemplates"><span class="hs-identifier hs-type">newSearchFlowTemplates</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#SearchFlowTemplates"><span class="hs-identifier hs-type">SearchFlowTemplates</span></a></span><span>
+</span><span id="line-84"></span><span id="newSearchFlowTemplates"><span class="annot"><span class="annottext">newSearchFlowTemplates :: SearchFlowTemplates
+</span><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#newSearchFlowTemplates"><span class="hs-identifier hs-var hs-var">newSearchFlowTemplates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">SearchFlowTemplates' :: Maybe [FlowTemplateFilter]
+-&gt; Maybe Text -&gt; Maybe Natural -&gt; SearchFlowTemplates
+</span><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#SearchFlowTemplates%27"><span class="hs-identifier hs-type">SearchFlowTemplates'</span></a></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:filters:SearchFlowTemplates' :: Maybe [FlowTemplateFilter]
+</span><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#%24sel%3Afilters%3ASearchFlowTemplates%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FlowTemplateFilter]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:SearchFlowTemplates' :: Maybe Text
+</span><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#%24sel%3AnextToken%3ASearchFlowTemplates%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:SearchFlowTemplates' :: Maybe Natural
+</span><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#%24sel%3AmaxResults%3ASearchFlowTemplates%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | An array of objects that limit the result set. The only valid filter is</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- @DEVICE_MODEL_ID@.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#searchFlowTemplates_filters"><span class="hs-identifier hs-type">searchFlowTemplates_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#SearchFlowTemplates"><span class="hs-identifier hs-type">SearchFlowTemplates</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.FlowTemplateFilter.html#FlowTemplateFilter"><span class="hs-identifier hs-type">FlowTemplateFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="searchFlowTemplates_filters"><span class="annot"><span class="annottext">searchFlowTemplates_filters :: (Maybe [FlowTemplateFilter] -&gt; f (Maybe [FlowTemplateFilter]))
+-&gt; SearchFlowTemplates -&gt; f SearchFlowTemplates
+</span><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#searchFlowTemplates_filters"><span class="hs-identifier hs-var hs-var">searchFlowTemplates_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchFlowTemplates -&gt; Maybe [FlowTemplateFilter])
+-&gt; (SearchFlowTemplates
+    -&gt; Maybe [FlowTemplateFilter] -&gt; SearchFlowTemplates)
+-&gt; Lens
+     SearchFlowTemplates
+     SearchFlowTemplates
+     (Maybe [FlowTemplateFilter])
+     (Maybe [FlowTemplateFilter])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#SearchFlowTemplates%27"><span class="hs-identifier hs-type">SearchFlowTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221784"><span class="annot"><span class="annottext">Maybe [FlowTemplateFilter]
+filters :: Maybe [FlowTemplateFilter]
+$sel:filters:SearchFlowTemplates' :: SearchFlowTemplates -&gt; Maybe [FlowTemplateFilter]
+</span><a href="#local-6989586621679221784"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FlowTemplateFilter]
+</span><a href="#local-6989586621679221784"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221783"><span class="annot"><span class="annottext">s :: SearchFlowTemplates
+</span><a href="#local-6989586621679221783"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#SearchFlowTemplates%27"><span class="hs-identifier hs-type">SearchFlowTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221782"><span class="annot"><span class="annottext">Maybe [FlowTemplateFilter]
+</span><a href="#local-6989586621679221782"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchFlowTemplates
+</span><a href="#local-6989586621679221783"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:SearchFlowTemplates' :: Maybe [FlowTemplateFilter]
+</span><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#%24sel%3Afilters%3ASearchFlowTemplates%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FlowTemplateFilter]
+</span><a href="#local-6989586621679221782"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#SearchFlowTemplates"><span class="hs-identifier hs-type">SearchFlowTemplates</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FlowTemplateFilter] -&gt; f (Maybe [FlowTemplateFilter]))
+ -&gt; SearchFlowTemplates -&gt; f SearchFlowTemplates)
+-&gt; ((Maybe [FlowTemplateFilter] -&gt; f (Maybe [FlowTemplateFilter]))
+    -&gt; Maybe [FlowTemplateFilter] -&gt; f (Maybe [FlowTemplateFilter]))
+-&gt; (Maybe [FlowTemplateFilter] -&gt; f (Maybe [FlowTemplateFilter]))
+-&gt; SearchFlowTemplates
+-&gt; f SearchFlowTemplates
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [FlowTemplateFilter]
+  [FlowTemplateFilter]
+  [FlowTemplateFilter]
+  [FlowTemplateFilter]
+-&gt; Iso
+     (Maybe [FlowTemplateFilter])
+     (Maybe [FlowTemplateFilter])
+     (Maybe [FlowTemplateFilter])
+     (Maybe [FlowTemplateFilter])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [FlowTemplateFilter]
+  [FlowTemplateFilter]
+  [FlowTemplateFilter]
+  [FlowTemplateFilter]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The string that specifies the next page of results. Use this when</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- you\'re paginating results.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#searchFlowTemplates_nextToken"><span class="hs-identifier hs-type">searchFlowTemplates_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#SearchFlowTemplates"><span class="hs-identifier hs-type">SearchFlowTemplates</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="searchFlowTemplates_nextToken"><span class="annot"><span class="annottext">searchFlowTemplates_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SearchFlowTemplates -&gt; f SearchFlowTemplates
+</span><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#searchFlowTemplates_nextToken"><span class="hs-identifier hs-var hs-var">searchFlowTemplates_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchFlowTemplates -&gt; Maybe Text)
+-&gt; (SearchFlowTemplates -&gt; Maybe Text -&gt; SearchFlowTemplates)
+-&gt; Lens
+     SearchFlowTemplates SearchFlowTemplates (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#SearchFlowTemplates%27"><span class="hs-identifier hs-type">SearchFlowTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221778"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:SearchFlowTemplates' :: SearchFlowTemplates -&gt; Maybe Text
+</span><a href="#local-6989586621679221778"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221778"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221777"><span class="annot"><span class="annottext">s :: SearchFlowTemplates
+</span><a href="#local-6989586621679221777"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#SearchFlowTemplates%27"><span class="hs-identifier hs-type">SearchFlowTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221776"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221776"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchFlowTemplates
+</span><a href="#local-6989586621679221777"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:SearchFlowTemplates' :: Maybe Text
+</span><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#%24sel%3AnextToken%3ASearchFlowTemplates%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221776"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#SearchFlowTemplates"><span class="hs-identifier hs-type">SearchFlowTemplates</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The maximum number of results to return in the response.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#searchFlowTemplates_maxResults"><span class="hs-identifier hs-type">searchFlowTemplates_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#SearchFlowTemplates"><span class="hs-identifier hs-type">SearchFlowTemplates</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="searchFlowTemplates_maxResults"><span class="annot"><span class="annottext">searchFlowTemplates_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; SearchFlowTemplates -&gt; f SearchFlowTemplates
+</span><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#searchFlowTemplates_maxResults"><span class="hs-identifier hs-var hs-var">searchFlowTemplates_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchFlowTemplates -&gt; Maybe Natural)
+-&gt; (SearchFlowTemplates -&gt; Maybe Natural -&gt; SearchFlowTemplates)
+-&gt; Lens
+     SearchFlowTemplates
+     SearchFlowTemplates
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#SearchFlowTemplates%27"><span class="hs-identifier hs-type">SearchFlowTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221775"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:SearchFlowTemplates' :: SearchFlowTemplates -&gt; Maybe Natural
+</span><a href="#local-6989586621679221775"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679221775"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221774"><span class="annot"><span class="annottext">s :: SearchFlowTemplates
+</span><a href="#local-6989586621679221774"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#SearchFlowTemplates%27"><span class="hs-identifier hs-type">SearchFlowTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221773"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679221773"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchFlowTemplates
+</span><a href="#local-6989586621679221774"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:SearchFlowTemplates' :: Maybe Natural
+</span><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#%24sel%3AmaxResults%3ASearchFlowTemplates%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679221773"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#SearchFlowTemplates"><span class="hs-identifier hs-type">SearchFlowTemplates</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#SearchFlowTemplates"><span class="hs-identifier hs-type">SearchFlowTemplates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679221769"><span class="annot"><span class="annottext">page :: SearchFlowTemplates
+-&gt; AWSResponse SearchFlowTemplates -&gt; Maybe SearchFlowTemplates
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679221767"><span class="annot"><span class="annottext">SearchFlowTemplates
+</span><a href="#local-6989586621679221767"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679221766"><span class="annot"><span class="annottext">AWSResponse SearchFlowTemplates
+</span><a href="#local-6989586621679221766"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-108"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse SearchFlowTemplates
+SearchFlowTemplatesResponse
+</span><a href="#local-6989586621679221766"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">SearchFlowTemplatesResponse
+-&gt; Getting (First Text) SearchFlowTemplatesResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; SearchFlowTemplatesResponse
+-&gt; Const (First Text) SearchFlowTemplatesResponse
+Lens' SearchFlowTemplatesResponse (Maybe Text)
+</span><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#searchFlowTemplatesResponse_nextToken"><span class="hs-identifier hs-var">searchFlowTemplatesResponse_nextToken</span></a></span><span>
+</span><span id="line-110"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; SearchFlowTemplatesResponse
+ -&gt; Const (First Text) SearchFlowTemplatesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) SearchFlowTemplatesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-111"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">Maybe SearchFlowTemplates
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [FlowTemplateSummary] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-114"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse SearchFlowTemplates
+SearchFlowTemplatesResponse
+</span><a href="#local-6989586621679221766"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">SearchFlowTemplatesResponse
+-&gt; Getting
+     (First [FlowTemplateSummary])
+     SearchFlowTemplatesResponse
+     [FlowTemplateSummary]
+-&gt; Maybe [FlowTemplateSummary]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [FlowTemplateSummary]
+ -&gt; Const
+      (First [FlowTemplateSummary]) (Maybe [FlowTemplateSummary]))
+-&gt; SearchFlowTemplatesResponse
+-&gt; Const (First [FlowTemplateSummary]) SearchFlowTemplatesResponse
+Lens' SearchFlowTemplatesResponse (Maybe [FlowTemplateSummary])
+</span><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#searchFlowTemplatesResponse_summaries"><span class="hs-identifier hs-var">searchFlowTemplatesResponse_summaries</span></a></span><span>
+</span><span id="line-116"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [FlowTemplateSummary]
+  -&gt; Const
+       (First [FlowTemplateSummary]) (Maybe [FlowTemplateSummary]))
+ -&gt; SearchFlowTemplatesResponse
+ -&gt; Const (First [FlowTemplateSummary]) SearchFlowTemplatesResponse)
+-&gt; (([FlowTemplateSummary]
+     -&gt; Const (First [FlowTemplateSummary]) [FlowTemplateSummary])
+    -&gt; Maybe [FlowTemplateSummary]
+    -&gt; Const
+         (First [FlowTemplateSummary]) (Maybe [FlowTemplateSummary]))
+-&gt; Getting
+     (First [FlowTemplateSummary])
+     SearchFlowTemplatesResponse
+     [FlowTemplateSummary]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([FlowTemplateSummary]
+ -&gt; Const (First [FlowTemplateSummary]) [FlowTemplateSummary])
+-&gt; Maybe [FlowTemplateSummary]
+-&gt; Const
+     (First [FlowTemplateSummary]) (Maybe [FlowTemplateSummary])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-117"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">Maybe SearchFlowTemplates
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">SearchFlowTemplates -&gt; Maybe SearchFlowTemplates
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(SearchFlowTemplates -&gt; Maybe SearchFlowTemplates)
+-&gt; SearchFlowTemplates -&gt; Maybe SearchFlowTemplates
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">SearchFlowTemplates
+</span><a href="#local-6989586621679221767"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">SearchFlowTemplates
+-&gt; (SearchFlowTemplates -&gt; SearchFlowTemplates)
+-&gt; SearchFlowTemplates
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; SearchFlowTemplates -&gt; Identity SearchFlowTemplates
+Lens
+  SearchFlowTemplates SearchFlowTemplates (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#searchFlowTemplates_nextToken"><span class="hs-identifier hs-var">searchFlowTemplates_nextToken</span></a></span><span>
+</span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; SearchFlowTemplates -&gt; Identity SearchFlowTemplates)
+-&gt; Maybe Text -&gt; SearchFlowTemplates -&gt; SearchFlowTemplates
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse SearchFlowTemplates
+SearchFlowTemplatesResponse
+</span><a href="#local-6989586621679221766"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">SearchFlowTemplatesResponse
+-&gt; Getting (First Text) SearchFlowTemplatesResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; SearchFlowTemplatesResponse
+-&gt; Const (First Text) SearchFlowTemplatesResponse
+Lens' SearchFlowTemplatesResponse (Maybe Text)
+</span><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#searchFlowTemplatesResponse_nextToken"><span class="hs-identifier hs-var">searchFlowTemplatesResponse_nextToken</span></a></span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; SearchFlowTemplatesResponse
+ -&gt; Const (First Text) SearchFlowTemplatesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) SearchFlowTemplatesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#SearchFlowTemplates"><span class="hs-identifier hs-type">SearchFlowTemplates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-129"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#SearchFlowTemplates"><span class="hs-identifier hs-type">SearchFlowTemplates</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#SearchFlowTemplatesResponse"><span class="hs-identifier hs-type">SearchFlowTemplatesResponse</span></a></span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679221757"><span class="annot"><span class="annottext">request :: SearchFlowTemplates -&gt; Request SearchFlowTemplates
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SearchFlowTemplates -&gt; Request SearchFlowTemplates
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.IoTThingsGraph.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679221753"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy SearchFlowTemplates
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse SearchFlowTemplates)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse SearchFlowTemplates))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy SearchFlowTemplates
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse SearchFlowTemplates)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679221750"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679221750"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679221749"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679221749"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679221748"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221748"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [FlowTemplateSummary]
+-&gt; Int
+-&gt; SearchFlowTemplatesResponse
+</span><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#SearchFlowTemplatesResponse%27"><span class="hs-identifier hs-var">SearchFlowTemplatesResponse'</span></a></span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [FlowTemplateSummary]
+ -&gt; Int
+ -&gt; SearchFlowTemplatesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [FlowTemplateSummary] -&gt; Int -&gt; SearchFlowTemplatesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221748"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [FlowTemplateSummary] -&gt; Int -&gt; SearchFlowTemplatesResponse)
+-&gt; Either String (Maybe [FlowTemplateSummary])
+-&gt; Either String (Int -&gt; SearchFlowTemplatesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221748"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [FlowTemplateSummary]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;summaries&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [FlowTemplateSummary]))
+-&gt; Maybe [FlowTemplateSummary]
+-&gt; Either String (Maybe [FlowTemplateSummary])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [FlowTemplateSummary]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; SearchFlowTemplatesResponse)
+-&gt; Either String Int -&gt; Either String SearchFlowTemplatesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679221750"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221739"><span id="local-6989586621679221741"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#SearchFlowTemplates"><span class="hs-identifier hs-type">SearchFlowTemplates</span></a></span></span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221736"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#SearchFlowTemplates"><span class="hs-identifier hs-type">SearchFlowTemplates</span></a></span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#SearchFlowTemplates"><span class="hs-identifier hs-type">SearchFlowTemplates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679221732"><span class="annot"><span class="annottext">toHeaders :: SearchFlowTemplates -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; SearchFlowTemplates -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-149"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-150"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;IotThingsGraphFrontEndService.SearchFlowTemplates&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-151"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-152"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-154"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-155"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-156"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221722"><span id="local-6989586621679221724"><span id="local-6989586621679221726"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#SearchFlowTemplates"><span class="hs-identifier hs-type">SearchFlowTemplates</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679221720"><span class="annot"><span class="annottext">toJSON :: SearchFlowTemplates -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#SearchFlowTemplates%27"><span class="hs-identifier hs-type">SearchFlowTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221716"><span id="local-6989586621679221717"><span id="local-6989586621679221718"><span class="annot"><span class="annottext">Maybe Natural
+Maybe [FlowTemplateFilter]
+Maybe Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+filters :: Maybe [FlowTemplateFilter]
+$sel:maxResults:SearchFlowTemplates' :: SearchFlowTemplates -&gt; Maybe Natural
+$sel:nextToken:SearchFlowTemplates' :: SearchFlowTemplates -&gt; Maybe Text
+$sel:filters:SearchFlowTemplates' :: SearchFlowTemplates -&gt; Maybe [FlowTemplateFilter]
+</span><a href="#local-6989586621679221716"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-164"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;filters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [FlowTemplateFilter] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([FlowTemplateFilter] -&gt; Pair)
+-&gt; Maybe [FlowTemplateFilter] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [FlowTemplateFilter]
+</span><a href="#local-6989586621679221718"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221717"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679221716"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-167"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#SearchFlowTemplates"><span class="hs-identifier hs-type">SearchFlowTemplates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679221710"><span class="annot"><span class="annottext">toPath :: SearchFlowTemplates -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SearchFlowTemplates -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#SearchFlowTemplates"><span class="hs-identifier hs-type">SearchFlowTemplates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679221706"><span class="annot"><span class="annottext">toQuery :: SearchFlowTemplates -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; SearchFlowTemplates -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | /See:/ 'newSearchFlowTemplatesResponse' smart constructor.</span><span>
+</span><span id="line-177"></span><span id="local-6989586621679221703"><span id="local-6989586621679221704"></span></span><span class="hs-keyword">data</span><span> </span><span id="SearchFlowTemplatesResponse"><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#SearchFlowTemplatesResponse"><span class="hs-identifier hs-var">SearchFlowTemplatesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SearchFlowTemplatesResponse%27"><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#SearchFlowTemplatesResponse%27"><span class="hs-identifier hs-var">SearchFlowTemplatesResponse'</span></a></span></span><span>
+</span><span id="line-178"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The string to specify as @nextToken@ when you request the next page of</span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-180"></span><span>    </span><span id="%24sel%3AnextToken%3ASearchFlowTemplatesResponse%27"><span class="annot"><span class="annottext">SearchFlowTemplatesResponse -&gt; Maybe Text
+</span><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#%24sel%3AnextToken%3ASearchFlowTemplatesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-comment">-- | An array of objects that contain summary information about each workflow</span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-comment">-- in the result set.</span><span>
+</span><span id="line-183"></span><span>    </span><span id="%24sel%3Asummaries%3ASearchFlowTemplatesResponse%27"><span class="annot"><span class="annottext">SearchFlowTemplatesResponse -&gt; Maybe [FlowTemplateSummary]
+</span><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#%24sel%3Asummaries%3ASearchFlowTemplatesResponse%27"><span class="hs-identifier hs-var hs-var">summaries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.FlowTemplateSummary.html#FlowTemplateSummary"><span class="hs-identifier hs-type">FlowTemplateSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-185"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASearchFlowTemplatesResponse%27"><span class="annot"><span class="annottext">SearchFlowTemplatesResponse -&gt; Int
+</span><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#%24sel%3AhttpStatus%3ASearchFlowTemplatesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-186"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-187"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679221696"><span id="local-6989586621679221698"><span class="annot"><span class="annottext">SearchFlowTemplatesResponse -&gt; SearchFlowTemplatesResponse -&gt; Bool
+(SearchFlowTemplatesResponse
+ -&gt; SearchFlowTemplatesResponse -&gt; Bool)
+-&gt; (SearchFlowTemplatesResponse
+    -&gt; SearchFlowTemplatesResponse -&gt; Bool)
+-&gt; Eq SearchFlowTemplatesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SearchFlowTemplatesResponse -&gt; SearchFlowTemplatesResponse -&gt; Bool
+$c/= :: SearchFlowTemplatesResponse -&gt; SearchFlowTemplatesResponse -&gt; Bool
+== :: SearchFlowTemplatesResponse -&gt; SearchFlowTemplatesResponse -&gt; Bool
+$c== :: SearchFlowTemplatesResponse -&gt; SearchFlowTemplatesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221688"><span id="local-6989586621679221690"><span id="local-6989586621679221692"><span id="local-6989586621679221694"><span class="annot"><span class="annottext">ReadPrec [SearchFlowTemplatesResponse]
+ReadPrec SearchFlowTemplatesResponse
+Int -&gt; ReadS SearchFlowTemplatesResponse
+ReadS [SearchFlowTemplatesResponse]
+(Int -&gt; ReadS SearchFlowTemplatesResponse)
+-&gt; ReadS [SearchFlowTemplatesResponse]
+-&gt; ReadPrec SearchFlowTemplatesResponse
+-&gt; ReadPrec [SearchFlowTemplatesResponse]
+-&gt; Read SearchFlowTemplatesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SearchFlowTemplatesResponse]
+$creadListPrec :: ReadPrec [SearchFlowTemplatesResponse]
+readPrec :: ReadPrec SearchFlowTemplatesResponse
+$creadPrec :: ReadPrec SearchFlowTemplatesResponse
+readList :: ReadS [SearchFlowTemplatesResponse]
+$creadList :: ReadS [SearchFlowTemplatesResponse]
+readsPrec :: Int -&gt; ReadS SearchFlowTemplatesResponse
+$creadsPrec :: Int -&gt; ReadS SearchFlowTemplatesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221682"><span id="local-6989586621679221684"><span id="local-6989586621679221686"><span class="annot"><span class="annottext">Int -&gt; SearchFlowTemplatesResponse -&gt; ShowS
+[SearchFlowTemplatesResponse] -&gt; ShowS
+SearchFlowTemplatesResponse -&gt; String
+(Int -&gt; SearchFlowTemplatesResponse -&gt; ShowS)
+-&gt; (SearchFlowTemplatesResponse -&gt; String)
+-&gt; ([SearchFlowTemplatesResponse] -&gt; ShowS)
+-&gt; Show SearchFlowTemplatesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SearchFlowTemplatesResponse] -&gt; ShowS
+$cshowList :: [SearchFlowTemplatesResponse] -&gt; ShowS
+show :: SearchFlowTemplatesResponse -&gt; String
+$cshow :: SearchFlowTemplatesResponse -&gt; String
+showsPrec :: Int -&gt; SearchFlowTemplatesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; SearchFlowTemplatesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ SearchFlowTemplatesResponse -&gt; Rep SearchFlowTemplatesResponse x)
+-&gt; (forall x.
+    Rep SearchFlowTemplatesResponse x -&gt; SearchFlowTemplatesResponse)
+-&gt; Generic SearchFlowTemplatesResponse
+forall x.
+Rep SearchFlowTemplatesResponse x -&gt; SearchFlowTemplatesResponse
+forall x.
+SearchFlowTemplatesResponse -&gt; Rep SearchFlowTemplatesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep SearchFlowTemplatesResponse x -&gt; SearchFlowTemplatesResponse
+$cfrom :: forall x.
+SearchFlowTemplatesResponse -&gt; Rep SearchFlowTemplatesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- Create a value of 'SearchFlowTemplatesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- 'nextToken', 'searchFlowTemplatesResponse_nextToken' - The string to specify as @nextToken@ when you request the next page of</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- 'summaries', 'searchFlowTemplatesResponse_summaries' - An array of objects that contain summary information about each workflow</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- in the result set.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- 'httpStatus', 'searchFlowTemplatesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#newSearchFlowTemplatesResponse"><span class="hs-identifier hs-type">newSearchFlowTemplatesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-205"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-206"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-207"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#SearchFlowTemplatesResponse"><span class="hs-identifier hs-type">SearchFlowTemplatesResponse</span></a></span><span>
+</span><span id="line-208"></span><span id="newSearchFlowTemplatesResponse"><span class="annot"><span class="annottext">newSearchFlowTemplatesResponse :: Int -&gt; SearchFlowTemplatesResponse
+</span><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#newSearchFlowTemplatesResponse"><span class="hs-identifier hs-var hs-var">newSearchFlowTemplatesResponse</span></a></span></span><span> </span><span id="local-6989586621679221679"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679221679"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-209"></span><span>  </span><span class="annot"><span class="annottext">SearchFlowTemplatesResponse' :: Maybe Text
+-&gt; Maybe [FlowTemplateSummary]
+-&gt; Int
+-&gt; SearchFlowTemplatesResponse
+</span><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#SearchFlowTemplatesResponse%27"><span class="hs-identifier hs-type">SearchFlowTemplatesResponse'</span></a></span><span>
+</span><span id="line-210"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:SearchFlowTemplatesResponse' :: Maybe Text
+</span><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#%24sel%3AnextToken%3ASearchFlowTemplatesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-211"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>      </span><span class="annot"><span class="annottext">$sel:summaries:SearchFlowTemplatesResponse' :: Maybe [FlowTemplateSummary]
+</span><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#%24sel%3Asummaries%3ASearchFlowTemplatesResponse%27"><span class="hs-identifier hs-var">summaries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FlowTemplateSummary]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:SearchFlowTemplatesResponse' :: Int
+</span><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#%24sel%3AhttpStatus%3ASearchFlowTemplatesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679221679"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-214"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | The string to specify as @nextToken@ when you request the next page of</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#searchFlowTemplatesResponse_nextToken"><span class="hs-identifier hs-type">searchFlowTemplatesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#SearchFlowTemplatesResponse"><span class="hs-identifier hs-type">SearchFlowTemplatesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span id="searchFlowTemplatesResponse_nextToken"><span class="annot"><span class="annottext">searchFlowTemplatesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SearchFlowTemplatesResponse -&gt; f SearchFlowTemplatesResponse
+</span><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#searchFlowTemplatesResponse_nextToken"><span class="hs-identifier hs-var hs-var">searchFlowTemplatesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchFlowTemplatesResponse -&gt; Maybe Text)
+-&gt; (SearchFlowTemplatesResponse
+    -&gt; Maybe Text -&gt; SearchFlowTemplatesResponse)
+-&gt; Lens' SearchFlowTemplatesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#SearchFlowTemplatesResponse%27"><span class="hs-identifier hs-type">SearchFlowTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221678"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:SearchFlowTemplatesResponse' :: SearchFlowTemplatesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679221678"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221678"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221677"><span class="annot"><span class="annottext">s :: SearchFlowTemplatesResponse
+</span><a href="#local-6989586621679221677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#SearchFlowTemplatesResponse%27"><span class="hs-identifier hs-type">SearchFlowTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221676"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchFlowTemplatesResponse
+</span><a href="#local-6989586621679221677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:SearchFlowTemplatesResponse' :: Maybe Text
+</span><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#%24sel%3AnextToken%3ASearchFlowTemplatesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679221676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#SearchFlowTemplatesResponse"><span class="hs-identifier hs-type">SearchFlowTemplatesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | An array of objects that contain summary information about each workflow</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- in the result set.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#searchFlowTemplatesResponse_summaries"><span class="hs-identifier hs-type">searchFlowTemplatesResponse_summaries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#SearchFlowTemplatesResponse"><span class="hs-identifier hs-type">SearchFlowTemplatesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.FlowTemplateSummary.html#FlowTemplateSummary"><span class="hs-identifier hs-type">FlowTemplateSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span id="searchFlowTemplatesResponse_summaries"><span class="annot"><span class="annottext">searchFlowTemplatesResponse_summaries :: (Maybe [FlowTemplateSummary] -&gt; f (Maybe [FlowTemplateSummary]))
+-&gt; SearchFlowTemplatesResponse -&gt; f SearchFlowTemplatesResponse
+</span><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#searchFlowTemplatesResponse_summaries"><span class="hs-identifier hs-var hs-var">searchFlowTemplatesResponse_summaries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchFlowTemplatesResponse -&gt; Maybe [FlowTemplateSummary])
+-&gt; (SearchFlowTemplatesResponse
+    -&gt; Maybe [FlowTemplateSummary] -&gt; SearchFlowTemplatesResponse)
+-&gt; Lens' SearchFlowTemplatesResponse (Maybe [FlowTemplateSummary])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#SearchFlowTemplatesResponse%27"><span class="hs-identifier hs-type">SearchFlowTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221675"><span class="annot"><span class="annottext">Maybe [FlowTemplateSummary]
+summaries :: Maybe [FlowTemplateSummary]
+$sel:summaries:SearchFlowTemplatesResponse' :: SearchFlowTemplatesResponse -&gt; Maybe [FlowTemplateSummary]
+</span><a href="#local-6989586621679221675"><span class="hs-identifier hs-var hs-var">summaries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FlowTemplateSummary]
+</span><a href="#local-6989586621679221675"><span class="hs-identifier hs-var">summaries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221674"><span class="annot"><span class="annottext">s :: SearchFlowTemplatesResponse
+</span><a href="#local-6989586621679221674"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#SearchFlowTemplatesResponse%27"><span class="hs-identifier hs-type">SearchFlowTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221673"><span class="annot"><span class="annottext">Maybe [FlowTemplateSummary]
+</span><a href="#local-6989586621679221673"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchFlowTemplatesResponse
+</span><a href="#local-6989586621679221674"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:summaries:SearchFlowTemplatesResponse' :: Maybe [FlowTemplateSummary]
+</span><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#%24sel%3Asummaries%3ASearchFlowTemplatesResponse%27"><span class="hs-identifier hs-var">summaries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FlowTemplateSummary]
+</span><a href="#local-6989586621679221673"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#SearchFlowTemplatesResponse"><span class="hs-identifier hs-type">SearchFlowTemplatesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FlowTemplateSummary] -&gt; f (Maybe [FlowTemplateSummary]))
+ -&gt; SearchFlowTemplatesResponse -&gt; f SearchFlowTemplatesResponse)
+-&gt; ((Maybe [FlowTemplateSummary]
+     -&gt; f (Maybe [FlowTemplateSummary]))
+    -&gt; Maybe [FlowTemplateSummary] -&gt; f (Maybe [FlowTemplateSummary]))
+-&gt; (Maybe [FlowTemplateSummary] -&gt; f (Maybe [FlowTemplateSummary]))
+-&gt; SearchFlowTemplatesResponse
+-&gt; f SearchFlowTemplatesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [FlowTemplateSummary]
+  [FlowTemplateSummary]
+  [FlowTemplateSummary]
+  [FlowTemplateSummary]
+-&gt; Iso
+     (Maybe [FlowTemplateSummary])
+     (Maybe [FlowTemplateSummary])
+     (Maybe [FlowTemplateSummary])
+     (Maybe [FlowTemplateSummary])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [FlowTemplateSummary]
+  [FlowTemplateSummary]
+  [FlowTemplateSummary]
+  [FlowTemplateSummary]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-227"></span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#searchFlowTemplatesResponse_httpStatus"><span class="hs-identifier hs-type">searchFlowTemplatesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#SearchFlowTemplatesResponse"><span class="hs-identifier hs-type">SearchFlowTemplatesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-228"></span><span id="searchFlowTemplatesResponse_httpStatus"><span class="annot"><span class="annottext">searchFlowTemplatesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; SearchFlowTemplatesResponse -&gt; f SearchFlowTemplatesResponse
+</span><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#searchFlowTemplatesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">searchFlowTemplatesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchFlowTemplatesResponse -&gt; Int)
+-&gt; (SearchFlowTemplatesResponse
+    -&gt; Int -&gt; SearchFlowTemplatesResponse)
+-&gt; Lens
+     SearchFlowTemplatesResponse SearchFlowTemplatesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#SearchFlowTemplatesResponse%27"><span class="hs-identifier hs-type">SearchFlowTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221672"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:SearchFlowTemplatesResponse' :: SearchFlowTemplatesResponse -&gt; Int
+</span><a href="#local-6989586621679221672"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679221672"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221671"><span class="annot"><span class="annottext">s :: SearchFlowTemplatesResponse
+</span><a href="#local-6989586621679221671"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#SearchFlowTemplatesResponse%27"><span class="hs-identifier hs-type">SearchFlowTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221670"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679221670"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchFlowTemplatesResponse
+</span><a href="#local-6989586621679221671"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SearchFlowTemplatesResponse' :: Int
+</span><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#%24sel%3AhttpStatus%3ASearchFlowTemplatesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679221670"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#SearchFlowTemplatesResponse"><span class="hs-identifier hs-type">SearchFlowTemplatesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221668"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.SearchFlowTemplates.html#SearchFlowTemplatesResponse"><span class="hs-identifier hs-type">SearchFlowTemplatesResponse</span></a></span></span><span>
+</span><span id="line-231"></span></pre></body></html>

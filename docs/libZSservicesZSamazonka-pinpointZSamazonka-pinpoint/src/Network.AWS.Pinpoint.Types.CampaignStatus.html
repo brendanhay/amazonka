@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-36"></span><span>
-</span><span id="line-37"></span><span id="local-6989586621679593404"><span id="local-6989586621679593405"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CampaignStatus"><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignStatus.html#CampaignStatus"><span class="hs-identifier hs-var">CampaignStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CampaignStatus%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignStatus.html#CampaignStatus%27"><span class="hs-identifier hs-var">CampaignStatus'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679593413"><span id="local-6989586621679593414"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CampaignStatus"><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignStatus.html#CampaignStatus"><span class="hs-identifier hs-var">CampaignStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CampaignStatus%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignStatus.html#CampaignStatus%27"><span class="hs-identifier hs-var">CampaignStatus'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCampaignStatus"><span class="annot"><span class="annottext">CampaignStatus -&gt; Text
 </span><a href="Network.AWS.Pinpoint.Types.CampaignStatus.html#fromCampaignStatus"><span class="hs-identifier hs-var hs-var">fromCampaignStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679593396"><span id="local-6989586621679593398"><span id="local-6989586621679593400"><span class="annot"><span class="annottext">Int -&gt; CampaignStatus -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679593405"><span id="local-6989586621679593407"><span id="local-6989586621679593409"><span class="annot"><span class="annottext">Int -&gt; CampaignStatus -&gt; ShowS
 [CampaignStatus] -&gt; ShowS
 CampaignStatus -&gt; String
 (Int -&gt; CampaignStatus -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: CampaignStatus -&gt; String
 showsPrec :: Int -&gt; CampaignStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; CampaignStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679593387"><span id="local-6989586621679593389"><span id="local-6989586621679593391"><span id="local-6989586621679593393"><span class="annot"><span class="annottext">ReadPrec [CampaignStatus]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679593396"><span id="local-6989586621679593398"><span id="local-6989586621679593400"><span id="local-6989586621679593402"><span class="annot"><span class="annottext">ReadPrec [CampaignStatus]
 ReadPrec CampaignStatus
 Int -&gt; ReadS CampaignStatus
 ReadS [CampaignStatus]
@@ -77,7 +77,7 @@ $creadList :: ReadS [CampaignStatus]
 readsPrec :: Int -&gt; ReadS CampaignStatus
 $creadsPrec :: Int -&gt; ReadS CampaignStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679593382"><span id="local-6989586621679593384"><span class="annot"><span class="annottext">CampaignStatus -&gt; CampaignStatus -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679593391"><span id="local-6989586621679593393"><span class="annot"><span class="annottext">CampaignStatus -&gt; CampaignStatus -&gt; Bool
 (CampaignStatus -&gt; CampaignStatus -&gt; Bool)
 -&gt; (CampaignStatus -&gt; CampaignStatus -&gt; Bool) -&gt; Eq CampaignStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -86,7 +86,7 @@ $c/= :: CampaignStatus -&gt; CampaignStatus -&gt; Bool
 == :: CampaignStatus -&gt; CampaignStatus -&gt; Bool
 $c== :: CampaignStatus -&gt; CampaignStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679593366"><span id="local-6989586621679593368"><span id="local-6989586621679593370"><span id="local-6989586621679593372"><span id="local-6989586621679593374"><span id="local-6989586621679593376"><span id="local-6989586621679593378"><span class="annot"><span class="annottext">Eq CampaignStatus
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679593375"><span id="local-6989586621679593377"><span id="local-6989586621679593379"><span id="local-6989586621679593381"><span id="local-6989586621679593383"><span id="local-6989586621679593385"><span id="local-6989586621679593387"><span class="annot"><span class="annottext">Eq CampaignStatus
 Eq CampaignStatus
 -&gt; (CampaignStatus -&gt; CampaignStatus -&gt; Ordering)
 -&gt; (CampaignStatus -&gt; CampaignStatus -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. CampaignStatus -&gt; Rep CampaignStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679593358"><span id="local-6989586621679593360"><span class="annot"><span class="annottext">Int -&gt; CampaignStatus -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679593367"><span id="local-6989586621679593369"><span class="annot"><span class="annottext">Int -&gt; CampaignStatus -&gt; Int
 CampaignStatus -&gt; Int
 (Int -&gt; CampaignStatus -&gt; Int)
 -&gt; (CampaignStatus -&gt; Int) -&gt; Hashable CampaignStatus
@@ -147,50 +147,50 @@ $chash :: CampaignStatus -&gt; Int
 hashWithSalt :: Int -&gt; CampaignStatus -&gt; Int
 $chashWithSalt :: Int -&gt; CampaignStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679593355"><span class="annot"><span class="annottext">CampaignStatus -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679593364"><span class="annot"><span class="annottext">CampaignStatus -&gt; ()
 (CampaignStatus -&gt; ()) -&gt; NFData CampaignStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CampaignStatus -&gt; ()
 $crnf :: CampaignStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679593352"><span class="annot"><span class="annottext">Text -&gt; Either String CampaignStatus
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679593361"><span class="annot"><span class="annottext">Text -&gt; Either String CampaignStatus
 (Text -&gt; Either String CampaignStatus) -&gt; FromText CampaignStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CampaignStatus
 $cfromText :: Text -&gt; Either String CampaignStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679593349"><span class="annot"><span class="annottext">CampaignStatus -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679593358"><span class="annot"><span class="annottext">CampaignStatus -&gt; Text
 (CampaignStatus -&gt; Text) -&gt; ToText CampaignStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CampaignStatus -&gt; Text
 $ctoText :: CampaignStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679593346"><span class="annot"><span class="annottext">CampaignStatus -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679593355"><span class="annot"><span class="annottext">CampaignStatus -&gt; ByteString
 (CampaignStatus -&gt; ByteString) -&gt; ToByteString CampaignStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CampaignStatus -&gt; ByteString
 $ctoBS :: CampaignStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679593343"><span class="annot"><span class="annottext">CampaignStatus -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679593352"><span class="annot"><span class="annottext">CampaignStatus -&gt; ByteStringBuilder
 (CampaignStatus -&gt; ByteStringBuilder) -&gt; ToLog CampaignStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CampaignStatus -&gt; ByteStringBuilder
 $cbuild :: CampaignStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679593340"><span class="annot"><span class="annottext">HeaderName -&gt; CampaignStatus -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679593349"><span class="annot"><span class="annottext">HeaderName -&gt; CampaignStatus -&gt; [Header]
 (HeaderName -&gt; CampaignStatus -&gt; [Header])
 -&gt; ToHeader CampaignStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CampaignStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CampaignStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679593337"><span class="annot"><span class="annottext">CampaignStatus -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679593346"><span class="annot"><span class="annottext">CampaignStatus -&gt; QueryString
 (CampaignStatus -&gt; QueryString) -&gt; ToQuery CampaignStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CampaignStatus -&gt; QueryString
 $ctoQuery :: CampaignStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679593332"><span id="local-6989586621679593334"><span class="annot"><span class="annottext">Value -&gt; Parser [CampaignStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679593341"><span id="local-6989586621679593343"><span class="annot"><span class="annottext">Value -&gt; Parser [CampaignStatus]
 Value -&gt; Parser CampaignStatus
 (Value -&gt; Parser CampaignStatus)
 -&gt; (Value -&gt; Parser [CampaignStatus]) -&gt; FromJSON CampaignStatus
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [CampaignStatus]
 parseJSON :: Value -&gt; Parser CampaignStatus
 $cparseJSON :: Value -&gt; Parser CampaignStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679593327"><span id="local-6989586621679593329"><span class="annot"><span class="annottext">FromJSONKeyFunction [CampaignStatus]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679593336"><span id="local-6989586621679593338"><span class="annot"><span class="annottext">FromJSONKeyFunction [CampaignStatus]
 FromJSONKeyFunction CampaignStatus
 FromJSONKeyFunction CampaignStatus
 -&gt; FromJSONKeyFunction [CampaignStatus]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CampaignStatus]
 fromJSONKey :: FromJSONKeyFunction CampaignStatus
 $cfromJSONKey :: FromJSONKeyFunction CampaignStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679593318"><span id="local-6989586621679593320"><span id="local-6989586621679593322"><span id="local-6989586621679593324"><span class="annot"><span class="annottext">[CampaignStatus] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679593327"><span id="local-6989586621679593329"><span id="local-6989586621679593331"><span id="local-6989586621679593333"><span class="annot"><span class="annottext">[CampaignStatus] -&gt; Encoding
 [CampaignStatus] -&gt; Value
 CampaignStatus -&gt; Encoding
 CampaignStatus -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: CampaignStatus -&gt; Encoding
 toJSON :: CampaignStatus -&gt; Value
 $ctoJSON :: CampaignStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679593313"><span id="local-6989586621679593315"><span class="annot"><span class="annottext">ToJSONKeyFunction [CampaignStatus]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679593322"><span id="local-6989586621679593324"><span class="annot"><span class="annottext">ToJSONKeyFunction [CampaignStatus]
 ToJSONKeyFunction CampaignStatus
 ToJSONKeyFunction CampaignStatus
 -&gt; ToJSONKeyFunction [CampaignStatus] -&gt; ToJSONKey CampaignStatus
@@ -248,13 +248,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CampaignStatus]
 toJSONKey :: ToJSONKeyFunction CampaignStatus
 $ctoJSONKey :: ToJSONKeyFunction CampaignStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679593310"><span class="annot"><span class="annottext">[Node] -&gt; Either String CampaignStatus
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679593319"><span class="annot"><span class="annottext">[Node] -&gt; Either String CampaignStatus
 ([Node] -&gt; Either String CampaignStatus) -&gt; FromXML CampaignStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CampaignStatus
 $cparseXML :: [Node] -&gt; Either String CampaignStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679593307"><span class="annot"><span class="annottext">CampaignStatus -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679593316"><span class="annot"><span class="annottext">CampaignStatus -&gt; XML
 (CampaignStatus -&gt; XML) -&gt; ToXML CampaignStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CampaignStatus -&gt; XML

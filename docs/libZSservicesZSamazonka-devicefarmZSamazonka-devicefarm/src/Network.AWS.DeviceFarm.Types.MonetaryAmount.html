@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- transaction.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newMonetaryAmount' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679364387"><span id="local-6989586621679364388"></span></span><span class="hs-keyword">data</span><span> </span><span id="MonetaryAmount"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.MonetaryAmount.html#MonetaryAmount"><span class="hs-identifier hs-var">MonetaryAmount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MonetaryAmount%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.MonetaryAmount.html#MonetaryAmount%27"><span class="hs-identifier hs-var">MonetaryAmount'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679364396"><span id="local-6989586621679364397"></span></span><span class="hs-keyword">data</span><span> </span><span id="MonetaryAmount"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.MonetaryAmount.html#MonetaryAmount"><span class="hs-identifier hs-var">MonetaryAmount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MonetaryAmount%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.MonetaryAmount.html#MonetaryAmount%27"><span class="hs-identifier hs-var">MonetaryAmount'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The numerical amount of an offering or transaction.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aamount%3AMonetaryAmount%27"><span class="annot"><span class="annottext">MonetaryAmount -&gt; Maybe Double
 </span><a href="Network.AWS.DeviceFarm.Types.MonetaryAmount.html#%24sel%3Aamount%3AMonetaryAmount%27"><span class="hs-identifier hs-var hs-var">amount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AcurrencyCode%3AMonetaryAmount%27"><span class="annot"><span class="annottext">MonetaryAmount -&gt; Maybe CurrencyCode
 </span><a href="Network.AWS.DeviceFarm.Types.MonetaryAmount.html#%24sel%3AcurrencyCode%3AMonetaryAmount%27"><span class="hs-identifier hs-var hs-var">currencyCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.CurrencyCode.html#CurrencyCode"><span class="hs-identifier hs-type">CurrencyCode</span></a></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679364380"><span id="local-6989586621679364382"><span class="annot"><span class="annottext">MonetaryAmount -&gt; MonetaryAmount -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679364389"><span id="local-6989586621679364391"><span class="annot"><span class="annottext">MonetaryAmount -&gt; MonetaryAmount -&gt; Bool
 (MonetaryAmount -&gt; MonetaryAmount -&gt; Bool)
 -&gt; (MonetaryAmount -&gt; MonetaryAmount -&gt; Bool) -&gt; Eq MonetaryAmount
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MonetaryAmount -&gt; MonetaryAmount -&gt; Bool
 == :: MonetaryAmount -&gt; MonetaryAmount -&gt; Bool
 $c== :: MonetaryAmount -&gt; MonetaryAmount -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679364371"><span id="local-6989586621679364373"><span id="local-6989586621679364375"><span id="local-6989586621679364377"><span class="annot"><span class="annottext">ReadPrec [MonetaryAmount]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679364380"><span id="local-6989586621679364382"><span id="local-6989586621679364384"><span id="local-6989586621679364386"><span class="annot"><span class="annottext">ReadPrec [MonetaryAmount]
 ReadPrec MonetaryAmount
 Int -&gt; ReadS MonetaryAmount
 ReadS [MonetaryAmount]
@@ -65,7 +65,7 @@ readList :: ReadS [MonetaryAmount]
 $creadList :: ReadS [MonetaryAmount]
 readsPrec :: Int -&gt; ReadS MonetaryAmount
 $creadsPrec :: Int -&gt; ReadS MonetaryAmount
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679364364"><span id="local-6989586621679364366"><span id="local-6989586621679364368"><span class="annot"><span class="annottext">Int -&gt; MonetaryAmount -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679364373"><span id="local-6989586621679364375"><span id="local-6989586621679364377"><span class="annot"><span class="annottext">Int -&gt; MonetaryAmount -&gt; ShowS
 [MonetaryAmount] -&gt; ShowS
 MonetaryAmount -&gt; String
 (Int -&gt; MonetaryAmount -&gt; ShowS)
@@ -127,16 +127,16 @@ forall a. Maybe a
 -&gt; (MonetaryAmount -&gt; Maybe Double -&gt; MonetaryAmount)
 -&gt; Lens MonetaryAmount MonetaryAmount (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.MonetaryAmount.html#MonetaryAmount%27"><span class="hs-identifier hs-type">MonetaryAmount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364355"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.MonetaryAmount.html#MonetaryAmount%27"><span class="hs-identifier hs-type">MonetaryAmount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364364"><span class="annot"><span class="annottext">Maybe Double
 amount :: Maybe Double
 $sel:amount:MonetaryAmount' :: MonetaryAmount -&gt; Maybe Double
-</span><a href="#local-6989586621679364355"><span class="hs-identifier hs-var hs-var">amount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679364355"><span class="hs-identifier hs-var">amount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364354"><span class="annot"><span class="annottext">s :: MonetaryAmount
-</span><a href="#local-6989586621679364354"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.MonetaryAmount.html#MonetaryAmount%27"><span class="hs-identifier hs-type">MonetaryAmount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364353"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679364353"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonetaryAmount
-</span><a href="#local-6989586621679364354"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:amount:MonetaryAmount' :: Maybe Double
+</span><a href="#local-6989586621679364364"><span class="hs-identifier hs-var hs-var">amount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679364364"><span class="hs-identifier hs-var">amount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364363"><span class="annot"><span class="annottext">s :: MonetaryAmount
+</span><a href="#local-6989586621679364363"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.MonetaryAmount.html#MonetaryAmount%27"><span class="hs-identifier hs-type">MonetaryAmount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364362"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679364362"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonetaryAmount
+</span><a href="#local-6989586621679364363"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:amount:MonetaryAmount' :: Maybe Double
 </span><a href="Network.AWS.DeviceFarm.Types.MonetaryAmount.html#%24sel%3Aamount%3AMonetaryAmount%27"><span class="hs-identifier hs-var">amount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679364353"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.MonetaryAmount.html#MonetaryAmount"><span class="hs-identifier hs-type">MonetaryAmount</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679364362"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.MonetaryAmount.html#MonetaryAmount"><span class="hs-identifier hs-type">MonetaryAmount</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | The currency code of a monetary amount. For example, @USD@ means U.S.</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- dollars.</span><span>
@@ -151,19 +151,19 @@ $sel:amount:MonetaryAmount' :: MonetaryAmount -&gt; Maybe Double
      (Maybe CurrencyCode)
      (Maybe CurrencyCode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.MonetaryAmount.html#MonetaryAmount%27"><span class="hs-identifier hs-type">MonetaryAmount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364351"><span class="annot"><span class="annottext">Maybe CurrencyCode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.MonetaryAmount.html#MonetaryAmount%27"><span class="hs-identifier hs-type">MonetaryAmount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364360"><span class="annot"><span class="annottext">Maybe CurrencyCode
 currencyCode :: Maybe CurrencyCode
 $sel:currencyCode:MonetaryAmount' :: MonetaryAmount -&gt; Maybe CurrencyCode
-</span><a href="#local-6989586621679364351"><span class="hs-identifier hs-var hs-var">currencyCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CurrencyCode
-</span><a href="#local-6989586621679364351"><span class="hs-identifier hs-var">currencyCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364350"><span class="annot"><span class="annottext">s :: MonetaryAmount
-</span><a href="#local-6989586621679364350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.MonetaryAmount.html#MonetaryAmount%27"><span class="hs-identifier hs-type">MonetaryAmount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364349"><span class="annot"><span class="annottext">Maybe CurrencyCode
-</span><a href="#local-6989586621679364349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonetaryAmount
-</span><a href="#local-6989586621679364350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currencyCode:MonetaryAmount' :: Maybe CurrencyCode
+</span><a href="#local-6989586621679364360"><span class="hs-identifier hs-var hs-var">currencyCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CurrencyCode
+</span><a href="#local-6989586621679364360"><span class="hs-identifier hs-var">currencyCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364359"><span class="annot"><span class="annottext">s :: MonetaryAmount
+</span><a href="#local-6989586621679364359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.MonetaryAmount.html#MonetaryAmount%27"><span class="hs-identifier hs-type">MonetaryAmount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364358"><span class="annot"><span class="annottext">Maybe CurrencyCode
+</span><a href="#local-6989586621679364358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonetaryAmount
+</span><a href="#local-6989586621679364359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currencyCode:MonetaryAmount' :: Maybe CurrencyCode
 </span><a href="Network.AWS.DeviceFarm.Types.MonetaryAmount.html#%24sel%3AcurrencyCode%3AMonetaryAmount%27"><span class="hs-identifier hs-var">currencyCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CurrencyCode
-</span><a href="#local-6989586621679364349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.MonetaryAmount.html#MonetaryAmount"><span class="hs-identifier hs-type">MonetaryAmount</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679364358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.MonetaryAmount.html#MonetaryAmount"><span class="hs-identifier hs-type">MonetaryAmount</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679364346"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.MonetaryAmount.html#MonetaryAmount"><span class="hs-identifier hs-type">MonetaryAmount</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679364344"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MonetaryAmount
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679364355"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.MonetaryAmount.html#MonetaryAmount"><span class="hs-identifier hs-type">MonetaryAmount</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679364353"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MonetaryAmount
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MonetaryAmount)
@@ -173,8 +173,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MonetaryAmount&quot;</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679364341"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679364341"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679364350"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679364350"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe Double -&gt; Maybe CurrencyCode -&gt; MonetaryAmount
 </span><a href="Network.AWS.DeviceFarm.Types.MonetaryAmount.html#MonetaryAmount%27"><span class="hs-identifier hs-var">MonetaryAmount'</span></a></span><span>
 </span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Double -&gt; Maybe CurrencyCode -&gt; MonetaryAmount)
@@ -182,7 +182,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe CurrencyCode -&gt; MonetaryAmount)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679364341"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679364350"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;amount&quot;</span></span><span class="hs-special">)</span><span>
@@ -190,13 +190,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe CurrencyCode) -&gt; Parser MonetaryAmount
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679364341"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CurrencyCode)
+</span><a href="#local-6989586621679364350"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CurrencyCode)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;currencyCode&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679364335"><span id="local-6989586621679364337"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.MonetaryAmount.html#MonetaryAmount"><span class="hs-identifier hs-type">MonetaryAmount</span></a></span></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679364344"><span id="local-6989586621679364346"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.MonetaryAmount.html#MonetaryAmount"><span class="hs-identifier hs-type">MonetaryAmount</span></a></span></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679364332"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.MonetaryAmount.html#MonetaryAmount"><span class="hs-identifier hs-type">MonetaryAmount</span></a></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679364341"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.MonetaryAmount.html#MonetaryAmount"><span class="hs-identifier hs-type">MonetaryAmount</span></a></span></span><span>
 </span><span id="line-82"></span></pre></body></html>

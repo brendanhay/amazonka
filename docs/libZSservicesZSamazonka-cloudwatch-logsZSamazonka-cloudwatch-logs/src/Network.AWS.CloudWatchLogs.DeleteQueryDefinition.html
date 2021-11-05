@@ -54,14 +54,14 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newDeleteQueryDefinition' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679231586"><span id="local-6989586621679231587"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteQueryDefinition"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinition"><span class="hs-identifier hs-var">DeleteQueryDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteQueryDefinition%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinition%27"><span class="hs-identifier hs-var">DeleteQueryDefinition'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679231595"><span id="local-6989586621679231596"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteQueryDefinition"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinition"><span class="hs-identifier hs-var">DeleteQueryDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteQueryDefinition%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinition%27"><span class="hs-identifier hs-var">DeleteQueryDefinition'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the query definition that you want to delete. You can use</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueryDefinitions.html DescribeQueryDefinitions&gt;</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- to retrieve the IDs of your saved query definitions.</span><span>
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AqueryDefinitionId%3ADeleteQueryDefinition%27"><span class="annot"><span class="annottext">DeleteQueryDefinition -&gt; Text
 </span><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#%24sel%3AqueryDefinitionId%3ADeleteQueryDefinition%27"><span class="hs-identifier hs-var hs-var">queryDefinitionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679231580"><span id="local-6989586621679231582"><span class="annot"><span class="annottext">DeleteQueryDefinition -&gt; DeleteQueryDefinition -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679231589"><span id="local-6989586621679231591"><span class="annot"><span class="annottext">DeleteQueryDefinition -&gt; DeleteQueryDefinition -&gt; Bool
 (DeleteQueryDefinition -&gt; DeleteQueryDefinition -&gt; Bool)
 -&gt; (DeleteQueryDefinition -&gt; DeleteQueryDefinition -&gt; Bool)
 -&gt; Eq DeleteQueryDefinition
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteQueryDefinition -&gt; DeleteQueryDefinition -&gt; Bool
 == :: DeleteQueryDefinition -&gt; DeleteQueryDefinition -&gt; Bool
 $c== :: DeleteQueryDefinition -&gt; DeleteQueryDefinition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231571"><span id="local-6989586621679231573"><span id="local-6989586621679231575"><span id="local-6989586621679231577"><span class="annot"><span class="annottext">ReadPrec [DeleteQueryDefinition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231580"><span id="local-6989586621679231582"><span id="local-6989586621679231584"><span id="local-6989586621679231586"><span class="annot"><span class="annottext">ReadPrec [DeleteQueryDefinition]
 ReadPrec DeleteQueryDefinition
 Int -&gt; ReadS DeleteQueryDefinition
 ReadS [DeleteQueryDefinition]
@@ -90,7 +90,7 @@ readList :: ReadS [DeleteQueryDefinition]
 $creadList :: ReadS [DeleteQueryDefinition]
 readsPrec :: Int -&gt; ReadS DeleteQueryDefinition
 $creadsPrec :: Int -&gt; ReadS DeleteQueryDefinition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231564"><span id="local-6989586621679231566"><span id="local-6989586621679231568"><span class="annot"><span class="annottext">Int -&gt; DeleteQueryDefinition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231573"><span id="local-6989586621679231575"><span id="local-6989586621679231577"><span class="annot"><span class="annottext">Int -&gt; DeleteQueryDefinition -&gt; ShowS
 [DeleteQueryDefinition] -&gt; ShowS
 DeleteQueryDefinition -&gt; String
 (Int -&gt; DeleteQueryDefinition -&gt; ShowS)
@@ -132,14 +132,14 @@ $cfrom :: forall x. DeleteQueryDefinition -&gt; Rep DeleteQueryDefinition x
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinition"><span class="hs-identifier hs-type">DeleteQueryDefinition</span></a></span><span>
 </span><span id="line-80"></span><span id="newDeleteQueryDefinition"><span class="annot"><span class="annottext">newDeleteQueryDefinition :: Text -&gt; DeleteQueryDefinition
-</span><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#newDeleteQueryDefinition"><span class="hs-identifier hs-var hs-var">newDeleteQueryDefinition</span></a></span></span><span> </span><span id="local-6989586621679231559"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679231559"><span class="hs-identifier hs-var">pQueryDefinitionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#newDeleteQueryDefinition"><span class="hs-identifier hs-var hs-var">newDeleteQueryDefinition</span></a></span></span><span> </span><span id="local-6989586621679231568"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231568"><span class="hs-identifier hs-var">pQueryDefinitionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">DeleteQueryDefinition' :: Text -&gt; DeleteQueryDefinition
 </span><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinition%27"><span class="hs-identifier hs-type">DeleteQueryDefinition'</span></a></span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:queryDefinitionId:DeleteQueryDefinition' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#%24sel%3AqueryDefinitionId%3ADeleteQueryDefinition%27"><span class="hs-identifier hs-var">queryDefinitionId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679231559"><span class="hs-identifier hs-var">pQueryDefinitionId_</span></a></span><span>
+</span><a href="#local-6989586621679231568"><span class="hs-identifier hs-var">pQueryDefinitionId_</span></a></span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | The ID of the query definition that you want to delete. You can use</span><span>
@@ -152,27 +152,27 @@ $cfrom :: forall x. DeleteQueryDefinition -&gt; Rep DeleteQueryDefinition x
 -&gt; (DeleteQueryDefinition -&gt; Text -&gt; DeleteQueryDefinition)
 -&gt; Lens DeleteQueryDefinition DeleteQueryDefinition Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinition%27"><span class="hs-identifier hs-type">DeleteQueryDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231556"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinition%27"><span class="hs-identifier hs-type">DeleteQueryDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231565"><span class="annot"><span class="annottext">Text
 queryDefinitionId :: Text
 $sel:queryDefinitionId:DeleteQueryDefinition' :: DeleteQueryDefinition -&gt; Text
-</span><a href="#local-6989586621679231556"><span class="hs-identifier hs-var hs-var">queryDefinitionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679231556"><span class="hs-identifier hs-var">queryDefinitionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231555"><span class="annot"><span class="annottext">s :: DeleteQueryDefinition
-</span><a href="#local-6989586621679231555"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinition%27"><span class="hs-identifier hs-type">DeleteQueryDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231554"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679231554"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteQueryDefinition
-</span><a href="#local-6989586621679231555"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryDefinitionId:DeleteQueryDefinition' :: Text
+</span><a href="#local-6989586621679231565"><span class="hs-identifier hs-var hs-var">queryDefinitionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231565"><span class="hs-identifier hs-var">queryDefinitionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231564"><span class="annot"><span class="annottext">s :: DeleteQueryDefinition
+</span><a href="#local-6989586621679231564"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinition%27"><span class="hs-identifier hs-type">DeleteQueryDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231563"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231563"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteQueryDefinition
+</span><a href="#local-6989586621679231564"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryDefinitionId:DeleteQueryDefinition' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#%24sel%3AqueryDefinitionId%3ADeleteQueryDefinition%27"><span class="hs-identifier hs-var">queryDefinitionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679231554"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinition"><span class="hs-identifier hs-type">DeleteQueryDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679231563"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinition"><span class="hs-identifier hs-type">DeleteQueryDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinition"><span class="hs-identifier hs-type">DeleteQueryDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-93"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-94"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinition"><span class="hs-identifier hs-type">DeleteQueryDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinitionResponse"><span class="hs-identifier hs-type">DeleteQueryDefinitionResponse</span></a></span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679231550"><span class="annot"><span class="annottext">request :: DeleteQueryDefinition -&gt; Request DeleteQueryDefinition
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679231559"><span class="annot"><span class="annottext">request :: DeleteQueryDefinition -&gt; Request DeleteQueryDefinition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteQueryDefinition -&gt; Request DeleteQueryDefinition
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudWatchLogs.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679231546"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679231555"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteQueryDefinition
 -&gt; ClientResponse ClientBody
@@ -198,10 +198,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679231543"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679231543"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679231542"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679231542"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679231541"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679231541"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679231552"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679231552"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679231551"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679231551"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679231550"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679231550"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Int -&gt; DeleteQueryDefinitionResponse
 </span><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinitionResponse%27"><span class="hs-identifier hs-var">DeleteQueryDefinitionResponse'</span></a></span><span>
 </span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; Int -&gt; DeleteQueryDefinitionResponse)
@@ -209,7 +209,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DeleteQueryDefinitionResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679231541"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679231550"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;success&quot;</span></span><span class="hs-special">)</span><span>
@@ -221,15 +221,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679231543"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679231552"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231533"><span id="local-6989586621679231535"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinition"><span class="hs-identifier hs-type">DeleteQueryDefinition</span></a></span></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231542"><span id="local-6989586621679231544"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinition"><span class="hs-identifier hs-type">DeleteQueryDefinition</span></a></span></span></span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231530"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinition"><span class="hs-identifier hs-type">DeleteQueryDefinition</span></a></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231539"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinition"><span class="hs-identifier hs-type">DeleteQueryDefinition</span></a></span></span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinition"><span class="hs-identifier hs-type">DeleteQueryDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679231526"><span class="annot"><span class="annottext">toHeaders :: DeleteQueryDefinition -&gt; ResponseHeaders
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679231535"><span class="annot"><span class="annottext">toHeaders :: DeleteQueryDefinition -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteQueryDefinition -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -256,12 +256,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-121"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231516"><span id="local-6989586621679231518"><span id="local-6989586621679231520"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinition"><span class="hs-identifier hs-type">DeleteQueryDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679231514"><span class="annot"><span class="annottext">toJSON :: DeleteQueryDefinition -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinition%27"><span class="hs-identifier hs-type">DeleteQueryDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231512"><span class="annot"><span class="annottext">Text
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231525"><span id="local-6989586621679231527"><span id="local-6989586621679231529"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinition"><span class="hs-identifier hs-type">DeleteQueryDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679231523"><span class="annot"><span class="annottext">toJSON :: DeleteQueryDefinition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinition%27"><span class="hs-identifier hs-type">DeleteQueryDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231521"><span class="annot"><span class="annottext">Text
 queryDefinitionId :: Text
 $sel:queryDefinitionId:DeleteQueryDefinition' :: DeleteQueryDefinition -&gt; Text
-</span><a href="#local-6989586621679231512"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679231521"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -274,19 +274,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;queryDefinitionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679231512"><span class="hs-identifier hs-var">queryDefinitionId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679231521"><span class="hs-identifier hs-var">queryDefinitionId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinition"><span class="hs-identifier hs-type">DeleteQueryDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679231506"><span class="annot"><span class="annottext">toPath :: DeleteQueryDefinition -&gt; ByteString
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679231515"><span class="annot"><span class="annottext">toPath :: DeleteQueryDefinition -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteQueryDefinition -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinition"><span class="hs-identifier hs-type">DeleteQueryDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679231502"><span class="annot"><span class="annottext">toQuery :: DeleteQueryDefinition -&gt; QueryString
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679231511"><span class="annot"><span class="annottext">toQuery :: DeleteQueryDefinition -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteQueryDefinition -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -294,7 +294,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | /See:/ 'newDeleteQueryDefinitionResponse' smart constructor.</span><span>
-</span><span id="line-140"></span><span id="local-6989586621679231499"><span id="local-6989586621679231500"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteQueryDefinitionResponse"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinitionResponse"><span class="hs-identifier hs-var">DeleteQueryDefinitionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteQueryDefinitionResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinitionResponse%27"><span class="hs-identifier hs-var">DeleteQueryDefinitionResponse'</span></a></span></span><span>
+</span><span id="line-140"></span><span id="local-6989586621679231508"><span id="local-6989586621679231509"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteQueryDefinitionResponse"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinitionResponse"><span class="hs-identifier hs-var">DeleteQueryDefinitionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteQueryDefinitionResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinitionResponse%27"><span class="hs-identifier hs-var">DeleteQueryDefinitionResponse'</span></a></span></span><span>
 </span><span id="line-141"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A value of TRUE indicates that the operation succeeded. FALSE indicates</span><span>
 </span><span id="line-142"></span><span>    </span><span class="hs-comment">-- that the operation failed.</span><span>
 </span><span id="line-143"></span><span>    </span><span id="%24sel%3Asuccess%3ADeleteQueryDefinitionResponse%27"><span class="annot"><span class="annottext">DeleteQueryDefinitionResponse -&gt; Maybe Bool
@@ -303,7 +303,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-145"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteQueryDefinitionResponse%27"><span class="annot"><span class="annottext">DeleteQueryDefinitionResponse -&gt; Int
 </span><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#%24sel%3AhttpStatus%3ADeleteQueryDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679231493"><span id="local-6989586621679231495"><span class="annot"><span class="annottext">DeleteQueryDefinitionResponse
+</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679231502"><span id="local-6989586621679231504"><span class="annot"><span class="annottext">DeleteQueryDefinitionResponse
 -&gt; DeleteQueryDefinitionResponse -&gt; Bool
 (DeleteQueryDefinitionResponse
  -&gt; DeleteQueryDefinitionResponse -&gt; Bool)
@@ -319,7 +319,7 @@ $c/= :: DeleteQueryDefinitionResponse
 -&gt; DeleteQueryDefinitionResponse -&gt; Bool
 $c== :: DeleteQueryDefinitionResponse
 -&gt; DeleteQueryDefinitionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231485"><span id="local-6989586621679231487"><span id="local-6989586621679231489"><span id="local-6989586621679231491"><span class="annot"><span class="annottext">ReadPrec [DeleteQueryDefinitionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231494"><span id="local-6989586621679231496"><span id="local-6989586621679231498"><span id="local-6989586621679231500"><span class="annot"><span class="annottext">ReadPrec [DeleteQueryDefinitionResponse]
 ReadPrec DeleteQueryDefinitionResponse
 Int -&gt; ReadS DeleteQueryDefinitionResponse
 ReadS [DeleteQueryDefinitionResponse]
@@ -339,7 +339,7 @@ readList :: ReadS [DeleteQueryDefinitionResponse]
 $creadList :: ReadS [DeleteQueryDefinitionResponse]
 readsPrec :: Int -&gt; ReadS DeleteQueryDefinitionResponse
 $creadsPrec :: Int -&gt; ReadS DeleteQueryDefinitionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231479"><span id="local-6989586621679231481"><span id="local-6989586621679231483"><span class="annot"><span class="annottext">Int -&gt; DeleteQueryDefinitionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231488"><span id="local-6989586621679231490"><span id="local-6989586621679231492"><span class="annot"><span class="annottext">Int -&gt; DeleteQueryDefinitionResponse -&gt; ShowS
 [DeleteQueryDefinitionResponse] -&gt; ShowS
 DeleteQueryDefinitionResponse -&gt; String
 (Int -&gt; DeleteQueryDefinitionResponse -&gt; ShowS)
@@ -394,8 +394,8 @@ DeleteQueryDefinitionResponse
 </span><span id="line-163"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-164"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinitionResponse"><span class="hs-identifier hs-type">DeleteQueryDefinitionResponse</span></a></span><span>
 </span><span id="line-165"></span><span id="newDeleteQueryDefinitionResponse"><span class="annot"><span class="annottext">newDeleteQueryDefinitionResponse :: Int -&gt; DeleteQueryDefinitionResponse
-</span><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#newDeleteQueryDefinitionResponse"><span class="hs-identifier hs-var hs-var">newDeleteQueryDefinitionResponse</span></a></span></span><span> </span><span id="local-6989586621679231476"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679231476"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#newDeleteQueryDefinitionResponse"><span class="hs-identifier hs-var hs-var">newDeleteQueryDefinitionResponse</span></a></span></span><span> </span><span id="local-6989586621679231485"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679231485"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-166"></span><span>  </span><span class="annot"><span class="annottext">DeleteQueryDefinitionResponse' :: Maybe Bool -&gt; Int -&gt; DeleteQueryDefinitionResponse
 </span><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinitionResponse%27"><span class="hs-identifier hs-type">DeleteQueryDefinitionResponse'</span></a></span><span>
 </span><span id="line-167"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:success:DeleteQueryDefinitionResponse' :: Maybe Bool
@@ -405,7 +405,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteQueryDefinitionResponse' :: Int
 </span><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#%24sel%3AhttpStatus%3ADeleteQueryDefinitionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679231476"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679231485"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-170"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | A value of TRUE indicates that the operation succeeded. FALSE indicates</span><span>
@@ -422,16 +422,16 @@ forall a. Maybe a
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinitionResponse%27"><span class="hs-identifier hs-type">DeleteQueryDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231475"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinitionResponse%27"><span class="hs-identifier hs-type">DeleteQueryDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231484"><span class="annot"><span class="annottext">Maybe Bool
 success :: Maybe Bool
 $sel:success:DeleteQueryDefinitionResponse' :: DeleteQueryDefinitionResponse -&gt; Maybe Bool
-</span><a href="#local-6989586621679231475"><span class="hs-identifier hs-var hs-var">success</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679231475"><span class="hs-identifier hs-var">success</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231474"><span class="annot"><span class="annottext">s :: DeleteQueryDefinitionResponse
-</span><a href="#local-6989586621679231474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinitionResponse%27"><span class="hs-identifier hs-type">DeleteQueryDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231473"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679231473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteQueryDefinitionResponse
-</span><a href="#local-6989586621679231474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:success:DeleteQueryDefinitionResponse' :: Maybe Bool
+</span><a href="#local-6989586621679231484"><span class="hs-identifier hs-var hs-var">success</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679231484"><span class="hs-identifier hs-var">success</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231483"><span class="annot"><span class="annottext">s :: DeleteQueryDefinitionResponse
+</span><a href="#local-6989586621679231483"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinitionResponse%27"><span class="hs-identifier hs-type">DeleteQueryDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231482"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679231482"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteQueryDefinitionResponse
+</span><a href="#local-6989586621679231483"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:success:DeleteQueryDefinitionResponse' :: Maybe Bool
 </span><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#%24sel%3Asuccess%3ADeleteQueryDefinitionResponse%27"><span class="hs-identifier hs-var">success</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679231473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinitionResponse"><span class="hs-identifier hs-type">DeleteQueryDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679231482"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinitionResponse"><span class="hs-identifier hs-type">DeleteQueryDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-178"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#deleteQueryDefinitionResponse_httpStatus"><span class="hs-identifier hs-type">deleteQueryDefinitionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinitionResponse"><span class="hs-identifier hs-type">DeleteQueryDefinitionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -443,16 +443,16 @@ $sel:success:DeleteQueryDefinitionResponse' :: DeleteQueryDefinitionResponse -&g
 -&gt; Lens
      DeleteQueryDefinitionResponse DeleteQueryDefinitionResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinitionResponse%27"><span class="hs-identifier hs-type">DeleteQueryDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231472"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinitionResponse%27"><span class="hs-identifier hs-type">DeleteQueryDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231481"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteQueryDefinitionResponse' :: DeleteQueryDefinitionResponse -&gt; Int
-</span><a href="#local-6989586621679231472"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679231472"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231471"><span class="annot"><span class="annottext">s :: DeleteQueryDefinitionResponse
-</span><a href="#local-6989586621679231471"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinitionResponse%27"><span class="hs-identifier hs-type">DeleteQueryDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231470"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679231470"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteQueryDefinitionResponse
-</span><a href="#local-6989586621679231471"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteQueryDefinitionResponse' :: Int
+</span><a href="#local-6989586621679231481"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679231481"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231480"><span class="annot"><span class="annottext">s :: DeleteQueryDefinitionResponse
+</span><a href="#local-6989586621679231480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinitionResponse%27"><span class="hs-identifier hs-type">DeleteQueryDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231479"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679231479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteQueryDefinitionResponse
+</span><a href="#local-6989586621679231480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteQueryDefinitionResponse' :: Int
 </span><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#%24sel%3AhttpStatus%3ADeleteQueryDefinitionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679231470"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinitionResponse"><span class="hs-identifier hs-type">DeleteQueryDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679231479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinitionResponse"><span class="hs-identifier hs-type">DeleteQueryDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>
-</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231468"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinitionResponse"><span class="hs-identifier hs-type">DeleteQueryDefinitionResponse</span></a></span></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231477"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DeleteQueryDefinition.html#DeleteQueryDefinitionResponse"><span class="hs-identifier hs-type">DeleteQueryDefinitionResponse</span></a></span></span><span>
 </span><span id="line-182"></span></pre></body></html>

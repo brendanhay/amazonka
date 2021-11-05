@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679174084"><span id="local-6989586621679174085"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CloudHsmObjectState"><span class="annot"><a href="Network.AWS.CloudHSM.Types.CloudHsmObjectState.html#CloudHsmObjectState"><span class="hs-identifier hs-var">CloudHsmObjectState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CloudHsmObjectState%27"><span class="annot"><a href="Network.AWS.CloudHSM.Types.CloudHsmObjectState.html#CloudHsmObjectState%27"><span class="hs-identifier hs-var">CloudHsmObjectState'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679174093"><span id="local-6989586621679174094"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CloudHsmObjectState"><span class="annot"><a href="Network.AWS.CloudHSM.Types.CloudHsmObjectState.html#CloudHsmObjectState"><span class="hs-identifier hs-var">CloudHsmObjectState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CloudHsmObjectState%27"><span class="annot"><a href="Network.AWS.CloudHSM.Types.CloudHsmObjectState.html#CloudHsmObjectState%27"><span class="hs-identifier hs-var">CloudHsmObjectState'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCloudHsmObjectState"><span class="annot"><span class="annottext">CloudHsmObjectState -&gt; Text
 </span><a href="Network.AWS.CloudHSM.Types.CloudHsmObjectState.html#fromCloudHsmObjectState"><span class="hs-identifier hs-var hs-var">fromCloudHsmObjectState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679174076"><span id="local-6989586621679174078"><span id="local-6989586621679174080"><span class="annot"><span class="annottext">Int -&gt; CloudHsmObjectState -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679174085"><span id="local-6989586621679174087"><span id="local-6989586621679174089"><span class="annot"><span class="annottext">Int -&gt; CloudHsmObjectState -&gt; ShowS
 [CloudHsmObjectState] -&gt; ShowS
 CloudHsmObjectState -&gt; String
 (Int -&gt; CloudHsmObjectState -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: CloudHsmObjectState -&gt; String
 showsPrec :: Int -&gt; CloudHsmObjectState -&gt; ShowS
 $cshowsPrec :: Int -&gt; CloudHsmObjectState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679174067"><span id="local-6989586621679174069"><span id="local-6989586621679174071"><span id="local-6989586621679174073"><span class="annot"><span class="annottext">ReadPrec [CloudHsmObjectState]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679174076"><span id="local-6989586621679174078"><span id="local-6989586621679174080"><span id="local-6989586621679174082"><span class="annot"><span class="annottext">ReadPrec [CloudHsmObjectState]
 ReadPrec CloudHsmObjectState
 Int -&gt; ReadS CloudHsmObjectState
 ReadS [CloudHsmObjectState]
@@ -73,7 +73,7 @@ $creadList :: ReadS [CloudHsmObjectState]
 readsPrec :: Int -&gt; ReadS CloudHsmObjectState
 $creadsPrec :: Int -&gt; ReadS CloudHsmObjectState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679174062"><span id="local-6989586621679174064"><span class="annot"><span class="annottext">CloudHsmObjectState -&gt; CloudHsmObjectState -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679174071"><span id="local-6989586621679174073"><span class="annot"><span class="annottext">CloudHsmObjectState -&gt; CloudHsmObjectState -&gt; Bool
 (CloudHsmObjectState -&gt; CloudHsmObjectState -&gt; Bool)
 -&gt; (CloudHsmObjectState -&gt; CloudHsmObjectState -&gt; Bool)
 -&gt; Eq CloudHsmObjectState
@@ -83,7 +83,7 @@ $c/= :: CloudHsmObjectState -&gt; CloudHsmObjectState -&gt; Bool
 == :: CloudHsmObjectState -&gt; CloudHsmObjectState -&gt; Bool
 $c== :: CloudHsmObjectState -&gt; CloudHsmObjectState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679174046"><span id="local-6989586621679174048"><span id="local-6989586621679174050"><span id="local-6989586621679174052"><span id="local-6989586621679174054"><span id="local-6989586621679174056"><span id="local-6989586621679174058"><span class="annot"><span class="annottext">Eq CloudHsmObjectState
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679174055"><span id="local-6989586621679174057"><span id="local-6989586621679174059"><span id="local-6989586621679174061"><span id="local-6989586621679174063"><span id="local-6989586621679174065"><span id="local-6989586621679174067"><span class="annot"><span class="annottext">Eq CloudHsmObjectState
 Eq CloudHsmObjectState
 -&gt; (CloudHsmObjectState -&gt; CloudHsmObjectState -&gt; Ordering)
 -&gt; (CloudHsmObjectState -&gt; CloudHsmObjectState -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. CloudHsmObjectState -&gt; Rep CloudHsmObjectState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679174038"><span id="local-6989586621679174040"><span class="annot"><span class="annottext">Int -&gt; CloudHsmObjectState -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679174047"><span id="local-6989586621679174049"><span class="annot"><span class="annottext">Int -&gt; CloudHsmObjectState -&gt; Int
 CloudHsmObjectState -&gt; Int
 (Int -&gt; CloudHsmObjectState -&gt; Int)
 -&gt; (CloudHsmObjectState -&gt; Int) -&gt; Hashable CloudHsmObjectState
@@ -146,53 +146,53 @@ $chash :: CloudHsmObjectState -&gt; Int
 hashWithSalt :: Int -&gt; CloudHsmObjectState -&gt; Int
 $chashWithSalt :: Int -&gt; CloudHsmObjectState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679174035"><span class="annot"><span class="annottext">CloudHsmObjectState -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679174044"><span class="annot"><span class="annottext">CloudHsmObjectState -&gt; ()
 (CloudHsmObjectState -&gt; ()) -&gt; NFData CloudHsmObjectState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CloudHsmObjectState -&gt; ()
 $crnf :: CloudHsmObjectState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679174032"><span class="annot"><span class="annottext">Text -&gt; Either String CloudHsmObjectState
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679174041"><span class="annot"><span class="annottext">Text -&gt; Either String CloudHsmObjectState
 (Text -&gt; Either String CloudHsmObjectState)
 -&gt; FromText CloudHsmObjectState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CloudHsmObjectState
 $cfromText :: Text -&gt; Either String CloudHsmObjectState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679174029"><span class="annot"><span class="annottext">CloudHsmObjectState -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679174038"><span class="annot"><span class="annottext">CloudHsmObjectState -&gt; Text
 (CloudHsmObjectState -&gt; Text) -&gt; ToText CloudHsmObjectState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CloudHsmObjectState -&gt; Text
 $ctoText :: CloudHsmObjectState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679174026"><span class="annot"><span class="annottext">CloudHsmObjectState -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679174035"><span class="annot"><span class="annottext">CloudHsmObjectState -&gt; ByteString
 (CloudHsmObjectState -&gt; ByteString)
 -&gt; ToByteString CloudHsmObjectState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CloudHsmObjectState -&gt; ByteString
 $ctoBS :: CloudHsmObjectState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679174023"><span class="annot"><span class="annottext">CloudHsmObjectState -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679174032"><span class="annot"><span class="annottext">CloudHsmObjectState -&gt; ByteStringBuilder
 (CloudHsmObjectState -&gt; ByteStringBuilder)
 -&gt; ToLog CloudHsmObjectState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CloudHsmObjectState -&gt; ByteStringBuilder
 $cbuild :: CloudHsmObjectState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679174020"><span class="annot"><span class="annottext">HeaderName -&gt; CloudHsmObjectState -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679174029"><span class="annot"><span class="annottext">HeaderName -&gt; CloudHsmObjectState -&gt; [Header]
 (HeaderName -&gt; CloudHsmObjectState -&gt; [Header])
 -&gt; ToHeader CloudHsmObjectState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CloudHsmObjectState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CloudHsmObjectState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679174017"><span class="annot"><span class="annottext">CloudHsmObjectState -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679174026"><span class="annot"><span class="annottext">CloudHsmObjectState -&gt; QueryString
 (CloudHsmObjectState -&gt; QueryString) -&gt; ToQuery CloudHsmObjectState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CloudHsmObjectState -&gt; QueryString
 $ctoQuery :: CloudHsmObjectState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679174012"><span id="local-6989586621679174014"><span class="annot"><span class="annottext">Value -&gt; Parser [CloudHsmObjectState]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679174021"><span id="local-6989586621679174023"><span class="annot"><span class="annottext">Value -&gt; Parser [CloudHsmObjectState]
 Value -&gt; Parser CloudHsmObjectState
 (Value -&gt; Parser CloudHsmObjectState)
 -&gt; (Value -&gt; Parser [CloudHsmObjectState])
@@ -204,7 +204,7 @@ $cparseJSONList :: Value -&gt; Parser [CloudHsmObjectState]
 parseJSON :: Value -&gt; Parser CloudHsmObjectState
 $cparseJSON :: Value -&gt; Parser CloudHsmObjectState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679174007"><span id="local-6989586621679174009"><span class="annot"><span class="annottext">FromJSONKeyFunction [CloudHsmObjectState]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679174016"><span id="local-6989586621679174018"><span class="annot"><span class="annottext">FromJSONKeyFunction [CloudHsmObjectState]
 FromJSONKeyFunction CloudHsmObjectState
 FromJSONKeyFunction CloudHsmObjectState
 -&gt; FromJSONKeyFunction [CloudHsmObjectState]
@@ -216,7 +216,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CloudHsmObjectState]
 fromJSONKey :: FromJSONKeyFunction CloudHsmObjectState
 $cfromJSONKey :: FromJSONKeyFunction CloudHsmObjectState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679173998"><span id="local-6989586621679174000"><span id="local-6989586621679174002"><span id="local-6989586621679174004"><span class="annot"><span class="annottext">[CloudHsmObjectState] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679174007"><span id="local-6989586621679174009"><span id="local-6989586621679174011"><span id="local-6989586621679174013"><span class="annot"><span class="annottext">[CloudHsmObjectState] -&gt; Encoding
 [CloudHsmObjectState] -&gt; Value
 CloudHsmObjectState -&gt; Encoding
 CloudHsmObjectState -&gt; Value
@@ -240,7 +240,7 @@ $ctoEncoding :: CloudHsmObjectState -&gt; Encoding
 toJSON :: CloudHsmObjectState -&gt; Value
 $ctoJSON :: CloudHsmObjectState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679173993"><span id="local-6989586621679173995"><span class="annot"><span class="annottext">ToJSONKeyFunction [CloudHsmObjectState]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679174002"><span id="local-6989586621679174004"><span class="annot"><span class="annottext">ToJSONKeyFunction [CloudHsmObjectState]
 ToJSONKeyFunction CloudHsmObjectState
 ToJSONKeyFunction CloudHsmObjectState
 -&gt; ToJSONKeyFunction [CloudHsmObjectState]
@@ -252,14 +252,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CloudHsmObjectState]
 toJSONKey :: ToJSONKeyFunction CloudHsmObjectState
 $ctoJSONKey :: ToJSONKeyFunction CloudHsmObjectState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679173990"><span class="annot"><span class="annottext">[Node] -&gt; Either String CloudHsmObjectState
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679173999"><span class="annot"><span class="annottext">[Node] -&gt; Either String CloudHsmObjectState
 ([Node] -&gt; Either String CloudHsmObjectState)
 -&gt; FromXML CloudHsmObjectState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CloudHsmObjectState
 $cparseXML :: [Node] -&gt; Either String CloudHsmObjectState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679173987"><span class="annot"><span class="annottext">CloudHsmObjectState -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679173996"><span class="annot"><span class="annottext">CloudHsmObjectState -&gt; XML
 (CloudHsmObjectState -&gt; XML) -&gt; ToXML CloudHsmObjectState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CloudHsmObjectState -&gt; XML

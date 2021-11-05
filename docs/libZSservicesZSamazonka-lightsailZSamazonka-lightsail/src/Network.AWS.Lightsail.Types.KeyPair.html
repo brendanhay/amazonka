@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Describes an SSH key pair.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newKeyPair' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679625105"><span id="local-6989586621679625106"></span></span><span class="hs-keyword">data</span><span> </span><span id="KeyPair"><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair"><span class="hs-identifier hs-var">KeyPair</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KeyPair%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair%27"><span class="hs-identifier hs-var">KeyPair'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679625114"><span id="local-6989586621679625115"></span></span><span class="hs-keyword">data</span><span> </span><span id="KeyPair"><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair"><span class="hs-identifier hs-var">KeyPair</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KeyPair%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair%27"><span class="hs-identifier hs-var">KeyPair'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The resource type (usually @KeyPair@).</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AresourceType%3AKeyPair%27"><span class="annot"><span class="annottext">KeyPair -&gt; Maybe ResourceType
 </span><a href="Network.AWS.Lightsail.Types.KeyPair.html#%24sel%3AresourceType%3AKeyPair%27"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceType.html#ResourceType"><span class="hs-identifier hs-type">ResourceType</span></a></span><span class="hs-special">,</span><span>
@@ -61,7 +61,7 @@
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3Atags%3AKeyPair%27"><span class="annot"><span class="annottext">KeyPair -&gt; Maybe [Tag]
 </span><a href="Network.AWS.Lightsail.Types.KeyPair.html#%24sel%3Atags%3AKeyPair%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679625092"><span id="local-6989586621679625094"><span class="annot"><span class="annottext">KeyPair -&gt; KeyPair -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679625101"><span id="local-6989586621679625103"><span class="annot"><span class="annottext">KeyPair -&gt; KeyPair -&gt; Bool
 (KeyPair -&gt; KeyPair -&gt; Bool)
 -&gt; (KeyPair -&gt; KeyPair -&gt; Bool) -&gt; Eq KeyPair
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: KeyPair -&gt; KeyPair -&gt; Bool
 == :: KeyPair -&gt; KeyPair -&gt; Bool
 $c== :: KeyPair -&gt; KeyPair -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679625083"><span id="local-6989586621679625085"><span id="local-6989586621679625087"><span id="local-6989586621679625089"><span class="annot"><span class="annottext">ReadPrec [KeyPair]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679625092"><span id="local-6989586621679625094"><span id="local-6989586621679625096"><span id="local-6989586621679625098"><span class="annot"><span class="annottext">ReadPrec [KeyPair]
 ReadPrec KeyPair
 Int -&gt; ReadS KeyPair
 ReadS [KeyPair]
@@ -89,7 +89,7 @@ readList :: ReadS [KeyPair]
 $creadList :: ReadS [KeyPair]
 readsPrec :: Int -&gt; ReadS KeyPair
 $creadsPrec :: Int -&gt; ReadS KeyPair
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679625076"><span id="local-6989586621679625078"><span id="local-6989586621679625080"><span class="annot"><span class="annottext">Int -&gt; KeyPair -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679625085"><span id="local-6989586621679625087"><span id="local-6989586621679625089"><span class="annot"><span class="annottext">Int -&gt; KeyPair -&gt; ShowS
 [KeyPair] -&gt; ShowS
 KeyPair -&gt; String
 (Int -&gt; KeyPair -&gt; ShowS)
@@ -197,16 +197,16 @@ forall a. Maybe a
 -&gt; (KeyPair -&gt; Maybe ResourceType -&gt; KeyPair)
 -&gt; Lens KeyPair KeyPair (Maybe ResourceType) (Maybe ResourceType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair%27"><span class="hs-identifier hs-type">KeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679625067"><span class="annot"><span class="annottext">Maybe ResourceType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair%27"><span class="hs-identifier hs-type">KeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679625076"><span class="annot"><span class="annottext">Maybe ResourceType
 resourceType :: Maybe ResourceType
 $sel:resourceType:KeyPair' :: KeyPair -&gt; Maybe ResourceType
-</span><a href="#local-6989586621679625067"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
-</span><a href="#local-6989586621679625067"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679625066"><span class="annot"><span class="annottext">s :: KeyPair
-</span><a href="#local-6989586621679625066"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair%27"><span class="hs-identifier hs-type">KeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679625065"><span class="annot"><span class="annottext">Maybe ResourceType
-</span><a href="#local-6989586621679625065"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyPair
-</span><a href="#local-6989586621679625066"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:KeyPair' :: Maybe ResourceType
+</span><a href="#local-6989586621679625076"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
+</span><a href="#local-6989586621679625076"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679625075"><span class="annot"><span class="annottext">s :: KeyPair
+</span><a href="#local-6989586621679625075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair%27"><span class="hs-identifier hs-type">KeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679625074"><span class="annot"><span class="annottext">Maybe ResourceType
+</span><a href="#local-6989586621679625074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyPair
+</span><a href="#local-6989586621679625075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:KeyPair' :: Maybe ResourceType
 </span><a href="Network.AWS.Lightsail.Types.KeyPair.html#%24sel%3AresourceType%3AKeyPair%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
-</span><a href="#local-6989586621679625065"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair"><span class="hs-identifier hs-type">KeyPair</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679625074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair"><span class="hs-identifier hs-type">KeyPair</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the key pair (e.g.,</span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- @arn:aws:lightsail:us-east-2:123456789101:KeyPair\/05859e3d-331d-48ba-9034-12345EXAMPLE@).</span><span>
@@ -216,16 +216,16 @@ $sel:resourceType:KeyPair' :: KeyPair -&gt; Maybe ResourceType
 -&gt; (KeyPair -&gt; Maybe Text -&gt; KeyPair)
 -&gt; Lens KeyPair KeyPair (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair%27"><span class="hs-identifier hs-type">KeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679625063"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair%27"><span class="hs-identifier hs-type">KeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679625072"><span class="annot"><span class="annottext">Maybe Text
 arn :: Maybe Text
 $sel:arn:KeyPair' :: KeyPair -&gt; Maybe Text
-</span><a href="#local-6989586621679625063"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679625063"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679625062"><span class="annot"><span class="annottext">s :: KeyPair
-</span><a href="#local-6989586621679625062"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair%27"><span class="hs-identifier hs-type">KeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679625061"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679625061"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyPair
-</span><a href="#local-6989586621679625062"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:KeyPair' :: Maybe Text
+</span><a href="#local-6989586621679625072"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679625072"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679625071"><span class="annot"><span class="annottext">s :: KeyPair
+</span><a href="#local-6989586621679625071"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair%27"><span class="hs-identifier hs-type">KeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679625070"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679625070"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyPair
+</span><a href="#local-6989586621679625071"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:KeyPair' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.KeyPair.html#%24sel%3Aarn%3AKeyPair%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679625061"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair"><span class="hs-identifier hs-type">KeyPair</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679625070"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair"><span class="hs-identifier hs-type">KeyPair</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- | The timestamp when the key pair was created (e.g., @1479816991.349@).</span><span>
 </span><span id="line-111"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#keyPair_createdAt"><span class="hs-identifier hs-type">keyPair_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair"><span class="hs-identifier hs-type">KeyPair</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
@@ -234,16 +234,16 @@ $sel:arn:KeyPair' :: KeyPair -&gt; Maybe Text
 -&gt; (KeyPair -&gt; Maybe POSIX -&gt; KeyPair)
 -&gt; Lens KeyPair KeyPair (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair%27"><span class="hs-identifier hs-type">KeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679625059"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair%27"><span class="hs-identifier hs-type">KeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679625068"><span class="annot"><span class="annottext">Maybe POSIX
 createdAt :: Maybe POSIX
 $sel:createdAt:KeyPair' :: KeyPair -&gt; Maybe POSIX
-</span><a href="#local-6989586621679625059"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679625059"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679625058"><span class="annot"><span class="annottext">s :: KeyPair
-</span><a href="#local-6989586621679625058"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair%27"><span class="hs-identifier hs-type">KeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679625057"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679625057"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyPair
-</span><a href="#local-6989586621679625058"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:KeyPair' :: Maybe POSIX
+</span><a href="#local-6989586621679625068"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679625068"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679625067"><span class="annot"><span class="annottext">s :: KeyPair
+</span><a href="#local-6989586621679625067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair%27"><span class="hs-identifier hs-type">KeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679625066"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679625066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyPair
+</span><a href="#local-6989586621679625067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:KeyPair' :: Maybe POSIX
 </span><a href="Network.AWS.Lightsail.Types.KeyPair.html#%24sel%3AcreatedAt%3AKeyPair%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679625057"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair"><span class="hs-identifier hs-type">KeyPair</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; KeyPair -&gt; f KeyPair)
+</span><a href="#local-6989586621679625066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair"><span class="hs-identifier hs-type">KeyPair</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; KeyPair -&gt; f KeyPair)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -268,16 +268,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; Lens
      KeyPair KeyPair (Maybe ResourceLocation) (Maybe ResourceLocation)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair%27"><span class="hs-identifier hs-type">KeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679625052"><span class="annot"><span class="annottext">Maybe ResourceLocation
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair%27"><span class="hs-identifier hs-type">KeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679625061"><span class="annot"><span class="annottext">Maybe ResourceLocation
 location :: Maybe ResourceLocation
 $sel:location:KeyPair' :: KeyPair -&gt; Maybe ResourceLocation
-</span><a href="#local-6989586621679625052"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceLocation
-</span><a href="#local-6989586621679625052"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679625051"><span class="annot"><span class="annottext">s :: KeyPair
-</span><a href="#local-6989586621679625051"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair%27"><span class="hs-identifier hs-type">KeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679625050"><span class="annot"><span class="annottext">Maybe ResourceLocation
-</span><a href="#local-6989586621679625050"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyPair
-</span><a href="#local-6989586621679625051"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:KeyPair' :: Maybe ResourceLocation
+</span><a href="#local-6989586621679625061"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceLocation
+</span><a href="#local-6989586621679625061"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679625060"><span class="annot"><span class="annottext">s :: KeyPair
+</span><a href="#local-6989586621679625060"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair%27"><span class="hs-identifier hs-type">KeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679625059"><span class="annot"><span class="annottext">Maybe ResourceLocation
+</span><a href="#local-6989586621679625059"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyPair
+</span><a href="#local-6989586621679625060"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:KeyPair' :: Maybe ResourceLocation
 </span><a href="Network.AWS.Lightsail.Types.KeyPair.html#%24sel%3Alocation%3AKeyPair%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceLocation
-</span><a href="#local-6989586621679625050"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair"><span class="hs-identifier hs-type">KeyPair</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679625059"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair"><span class="hs-identifier hs-type">KeyPair</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | The RSA fingerprint of the key pair.</span><span>
 </span><span id="line-119"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#keyPair_fingerprint"><span class="hs-identifier hs-type">keyPair_fingerprint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair"><span class="hs-identifier hs-type">KeyPair</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -286,16 +286,16 @@ $sel:location:KeyPair' :: KeyPair -&gt; Maybe ResourceLocation
 -&gt; (KeyPair -&gt; Maybe Text -&gt; KeyPair)
 -&gt; Lens KeyPair KeyPair (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair%27"><span class="hs-identifier hs-type">KeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679625048"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair%27"><span class="hs-identifier hs-type">KeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679625057"><span class="annot"><span class="annottext">Maybe Text
 fingerprint :: Maybe Text
 $sel:fingerprint:KeyPair' :: KeyPair -&gt; Maybe Text
-</span><a href="#local-6989586621679625048"><span class="hs-identifier hs-var hs-var">fingerprint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679625048"><span class="hs-identifier hs-var">fingerprint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679625047"><span class="annot"><span class="annottext">s :: KeyPair
-</span><a href="#local-6989586621679625047"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair%27"><span class="hs-identifier hs-type">KeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679625046"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679625046"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyPair
-</span><a href="#local-6989586621679625047"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fingerprint:KeyPair' :: Maybe Text
+</span><a href="#local-6989586621679625057"><span class="hs-identifier hs-var hs-var">fingerprint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679625057"><span class="hs-identifier hs-var">fingerprint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679625056"><span class="annot"><span class="annottext">s :: KeyPair
+</span><a href="#local-6989586621679625056"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair%27"><span class="hs-identifier hs-type">KeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679625055"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679625055"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyPair
+</span><a href="#local-6989586621679625056"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fingerprint:KeyPair' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.KeyPair.html#%24sel%3Afingerprint%3AKeyPair%27"><span class="hs-identifier hs-var">fingerprint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679625046"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair"><span class="hs-identifier hs-type">KeyPair</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679625055"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair"><span class="hs-identifier hs-type">KeyPair</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | The friendly name of the SSH key pair.</span><span>
 </span><span id="line-123"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#keyPair_name"><span class="hs-identifier hs-type">keyPair_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair"><span class="hs-identifier hs-type">KeyPair</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -304,16 +304,16 @@ $sel:fingerprint:KeyPair' :: KeyPair -&gt; Maybe Text
 -&gt; (KeyPair -&gt; Maybe Text -&gt; KeyPair)
 -&gt; Lens KeyPair KeyPair (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair%27"><span class="hs-identifier hs-type">KeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679625044"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair%27"><span class="hs-identifier hs-type">KeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679625053"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:KeyPair' :: KeyPair -&gt; Maybe Text
-</span><a href="#local-6989586621679625044"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679625044"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679625043"><span class="annot"><span class="annottext">s :: KeyPair
-</span><a href="#local-6989586621679625043"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair%27"><span class="hs-identifier hs-type">KeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679625042"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679625042"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyPair
-</span><a href="#local-6989586621679625043"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:KeyPair' :: Maybe Text
+</span><a href="#local-6989586621679625053"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679625053"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679625052"><span class="annot"><span class="annottext">s :: KeyPair
+</span><a href="#local-6989586621679625052"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair%27"><span class="hs-identifier hs-type">KeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679625051"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679625051"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyPair
+</span><a href="#local-6989586621679625052"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:KeyPair' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.KeyPair.html#%24sel%3Aname%3AKeyPair%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679625042"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair"><span class="hs-identifier hs-type">KeyPair</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679625051"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair"><span class="hs-identifier hs-type">KeyPair</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | The support code. Include this code in your email to support when you</span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- have questions about an instance or another resource in Lightsail. This</span><span>
@@ -325,16 +325,16 @@ $sel:name:KeyPair' :: KeyPair -&gt; Maybe Text
 -&gt; (KeyPair -&gt; Maybe Text -&gt; KeyPair)
 -&gt; Lens KeyPair KeyPair (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair%27"><span class="hs-identifier hs-type">KeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679625040"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair%27"><span class="hs-identifier hs-type">KeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679625049"><span class="annot"><span class="annottext">Maybe Text
 supportCode :: Maybe Text
 $sel:supportCode:KeyPair' :: KeyPair -&gt; Maybe Text
-</span><a href="#local-6989586621679625040"><span class="hs-identifier hs-var hs-var">supportCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679625040"><span class="hs-identifier hs-var">supportCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679625039"><span class="annot"><span class="annottext">s :: KeyPair
-</span><a href="#local-6989586621679625039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair%27"><span class="hs-identifier hs-type">KeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679625038"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679625038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyPair
-</span><a href="#local-6989586621679625039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportCode:KeyPair' :: Maybe Text
+</span><a href="#local-6989586621679625049"><span class="hs-identifier hs-var hs-var">supportCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679625049"><span class="hs-identifier hs-var">supportCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679625048"><span class="annot"><span class="annottext">s :: KeyPair
+</span><a href="#local-6989586621679625048"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair%27"><span class="hs-identifier hs-type">KeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679625047"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679625047"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyPair
+</span><a href="#local-6989586621679625048"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportCode:KeyPair' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.KeyPair.html#%24sel%3AsupportCode%3AKeyPair%27"><span class="hs-identifier hs-var">supportCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679625038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair"><span class="hs-identifier hs-type">KeyPair</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679625047"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair"><span class="hs-identifier hs-type">KeyPair</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | The tag keys and optional values for the resource. For more information</span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- about tags in Lightsail, see the</span><span>
@@ -345,16 +345,16 @@ $sel:supportCode:KeyPair' :: KeyPair -&gt; Maybe Text
 -&gt; (KeyPair -&gt; Maybe [Tag] -&gt; KeyPair)
 -&gt; Lens KeyPair KeyPair (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair%27"><span class="hs-identifier hs-type">KeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679625036"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair%27"><span class="hs-identifier hs-type">KeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679625045"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:KeyPair' :: KeyPair -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679625036"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679625036"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679625035"><span class="annot"><span class="annottext">s :: KeyPair
-</span><a href="#local-6989586621679625035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair%27"><span class="hs-identifier hs-type">KeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679625034"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679625034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyPair
-</span><a href="#local-6989586621679625035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:KeyPair' :: Maybe [Tag]
+</span><a href="#local-6989586621679625045"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679625045"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679625044"><span class="annot"><span class="annottext">s :: KeyPair
+</span><a href="#local-6989586621679625044"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair%27"><span class="hs-identifier hs-type">KeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679625043"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679625043"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyPair
+</span><a href="#local-6989586621679625044"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:KeyPair' :: Maybe [Tag]
 </span><a href="Network.AWS.Lightsail.Types.KeyPair.html#%24sel%3Atags%3AKeyPair%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679625034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair"><span class="hs-identifier hs-type">KeyPair</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; KeyPair -&gt; f KeyPair)
+</span><a href="#local-6989586621679625043"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair"><span class="hs-identifier hs-type">KeyPair</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; KeyPair -&gt; f KeyPair)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
 -&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -370,16 +370,16 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679625030"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair"><span class="hs-identifier hs-type">KeyPair</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679625028"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser KeyPair
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679625039"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair"><span class="hs-identifier hs-type">KeyPair</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679625037"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser KeyPair
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser KeyPair) -&gt; Value -&gt; Parser KeyPair
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;KeyPair&quot;</span></span><span>
-</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679625025"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679625025"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679625034"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679625034"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-144"></span><span>          </span><span class="annot"><span class="annottext">Maybe ResourceType
 -&gt; Maybe Text
 -&gt; Maybe POSIX
@@ -411,7 +411,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; KeyPair)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679625025"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceType)
+</span><a href="#local-6989586621679625034"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;resourceType&quot;</span></span><span class="hs-special">)</span><span>
@@ -435,7 +435,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; KeyPair)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679625025"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679625034"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
@@ -457,7 +457,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; KeyPair)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679625025"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679625034"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
@@ -473,7 +473,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; KeyPair)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679625025"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceLocation)
+</span><a href="#local-6989586621679625034"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceLocation)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;location&quot;</span></span><span class="hs-special">)</span><span>
@@ -483,7 +483,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; KeyPair)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679625025"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679625034"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;fingerprint&quot;</span></span><span class="hs-special">)</span><span>
@@ -492,7 +492,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe [Tag] -&gt; KeyPair)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679625025"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679625034"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
@@ -500,7 +500,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe [Tag] -&gt; KeyPair)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679625025"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679625034"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;supportCode&quot;</span></span><span class="hs-special">)</span><span>
@@ -508,7 +508,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [Tag]) -&gt; Parser KeyPair
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679625025"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Tag]))
+</span><a href="#local-6989586621679625034"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Tag]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Tag])) -&gt; Maybe [Tag] -&gt; Parser (Maybe [Tag])
@@ -518,7 +518,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679625018"><span id="local-6989586621679625020"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair"><span class="hs-identifier hs-type">KeyPair</span></a></span></span></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679625027"><span id="local-6989586621679625029"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair"><span class="hs-identifier hs-type">KeyPair</span></a></span></span></span><span>
 </span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679625015"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair"><span class="hs-identifier hs-type">KeyPair</span></a></span></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679625024"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.KeyPair.html#KeyPair"><span class="hs-identifier hs-type">KeyPair</span></a></span></span><span>
 </span><span id="line-158"></span></pre></body></html>

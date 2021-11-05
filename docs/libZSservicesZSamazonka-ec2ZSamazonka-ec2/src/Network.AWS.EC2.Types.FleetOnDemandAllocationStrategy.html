@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621681108551"><span id="local-6989586621681108552"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FleetOnDemandAllocationStrategy"><span class="annot"><a href="Network.AWS.EC2.Types.FleetOnDemandAllocationStrategy.html#FleetOnDemandAllocationStrategy"><span class="hs-identifier hs-var">FleetOnDemandAllocationStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FleetOnDemandAllocationStrategy%27"><span class="annot"><a href="Network.AWS.EC2.Types.FleetOnDemandAllocationStrategy.html#FleetOnDemandAllocationStrategy%27"><span class="hs-identifier hs-var">FleetOnDemandAllocationStrategy'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681108560"><span id="local-6989586621681108561"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FleetOnDemandAllocationStrategy"><span class="annot"><a href="Network.AWS.EC2.Types.FleetOnDemandAllocationStrategy.html#FleetOnDemandAllocationStrategy"><span class="hs-identifier hs-var">FleetOnDemandAllocationStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FleetOnDemandAllocationStrategy%27"><span class="annot"><a href="Network.AWS.EC2.Types.FleetOnDemandAllocationStrategy.html#FleetOnDemandAllocationStrategy%27"><span class="hs-identifier hs-var">FleetOnDemandAllocationStrategy'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFleetOnDemandAllocationStrategy"><span class="annot"><span class="annottext">FleetOnDemandAllocationStrategy -&gt; Text
 </span><a href="Network.AWS.EC2.Types.FleetOnDemandAllocationStrategy.html#fromFleetOnDemandAllocationStrategy"><span class="hs-identifier hs-var hs-var">fromFleetOnDemandAllocationStrategy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681108543"><span id="local-6989586621681108545"><span id="local-6989586621681108547"><span class="annot"><span class="annottext">Int -&gt; FleetOnDemandAllocationStrategy -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681108552"><span id="local-6989586621681108554"><span id="local-6989586621681108556"><span class="annot"><span class="annottext">Int -&gt; FleetOnDemandAllocationStrategy -&gt; ShowS
 [FleetOnDemandAllocationStrategy] -&gt; ShowS
 FleetOnDemandAllocationStrategy -&gt; String
 (Int -&gt; FleetOnDemandAllocationStrategy -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: FleetOnDemandAllocationStrategy -&gt; String
 showsPrec :: Int -&gt; FleetOnDemandAllocationStrategy -&gt; ShowS
 $cshowsPrec :: Int -&gt; FleetOnDemandAllocationStrategy -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681108534"><span id="local-6989586621681108536"><span id="local-6989586621681108538"><span id="local-6989586621681108540"><span class="annot"><span class="annottext">ReadPrec [FleetOnDemandAllocationStrategy]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681108543"><span id="local-6989586621681108545"><span id="local-6989586621681108547"><span id="local-6989586621681108549"><span class="annot"><span class="annottext">ReadPrec [FleetOnDemandAllocationStrategy]
 ReadPrec FleetOnDemandAllocationStrategy
 Int -&gt; ReadS FleetOnDemandAllocationStrategy
 ReadS [FleetOnDemandAllocationStrategy]
@@ -73,7 +73,7 @@ $creadList :: ReadS [FleetOnDemandAllocationStrategy]
 readsPrec :: Int -&gt; ReadS FleetOnDemandAllocationStrategy
 $creadsPrec :: Int -&gt; ReadS FleetOnDemandAllocationStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681108529"><span id="local-6989586621681108531"><span class="annot"><span class="annottext">FleetOnDemandAllocationStrategy
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681108538"><span id="local-6989586621681108540"><span class="annot"><span class="annottext">FleetOnDemandAllocationStrategy
 -&gt; FleetOnDemandAllocationStrategy -&gt; Bool
 (FleetOnDemandAllocationStrategy
  -&gt; FleetOnDemandAllocationStrategy -&gt; Bool)
@@ -90,7 +90,7 @@ $c/= :: FleetOnDemandAllocationStrategy
 $c== :: FleetOnDemandAllocationStrategy
 -&gt; FleetOnDemandAllocationStrategy -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681108513"><span id="local-6989586621681108515"><span id="local-6989586621681108517"><span id="local-6989586621681108519"><span id="local-6989586621681108521"><span id="local-6989586621681108523"><span id="local-6989586621681108525"><span class="annot"><span class="annottext">Eq FleetOnDemandAllocationStrategy
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681108522"><span id="local-6989586621681108524"><span id="local-6989586621681108526"><span id="local-6989586621681108528"><span id="local-6989586621681108530"><span id="local-6989586621681108532"><span id="local-6989586621681108534"><span class="annot"><span class="annottext">Eq FleetOnDemandAllocationStrategy
 Eq FleetOnDemandAllocationStrategy
 -&gt; (FleetOnDemandAllocationStrategy
     -&gt; FleetOnDemandAllocationStrategy -&gt; Ordering)
@@ -184,7 +184,7 @@ FleetOnDemandAllocationStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681108505"><span id="local-6989586621681108507"><span class="annot"><span class="annottext">Int -&gt; FleetOnDemandAllocationStrategy -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681108514"><span id="local-6989586621681108516"><span class="annot"><span class="annottext">Int -&gt; FleetOnDemandAllocationStrategy -&gt; Int
 FleetOnDemandAllocationStrategy -&gt; Int
 (Int -&gt; FleetOnDemandAllocationStrategy -&gt; Int)
 -&gt; (FleetOnDemandAllocationStrategy -&gt; Int)
@@ -195,56 +195,56 @@ $chash :: FleetOnDemandAllocationStrategy -&gt; Int
 hashWithSalt :: Int -&gt; FleetOnDemandAllocationStrategy -&gt; Int
 $chashWithSalt :: Int -&gt; FleetOnDemandAllocationStrategy -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681108502"><span class="annot"><span class="annottext">FleetOnDemandAllocationStrategy -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681108511"><span class="annot"><span class="annottext">FleetOnDemandAllocationStrategy -&gt; ()
 (FleetOnDemandAllocationStrategy -&gt; ())
 -&gt; NFData FleetOnDemandAllocationStrategy
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: FleetOnDemandAllocationStrategy -&gt; ()
 $crnf :: FleetOnDemandAllocationStrategy -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681108499"><span class="annot"><span class="annottext">Text -&gt; Either String FleetOnDemandAllocationStrategy
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681108508"><span class="annot"><span class="annottext">Text -&gt; Either String FleetOnDemandAllocationStrategy
 (Text -&gt; Either String FleetOnDemandAllocationStrategy)
 -&gt; FromText FleetOnDemandAllocationStrategy
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String FleetOnDemandAllocationStrategy
 $cfromText :: Text -&gt; Either String FleetOnDemandAllocationStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681108496"><span class="annot"><span class="annottext">FleetOnDemandAllocationStrategy -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681108505"><span class="annot"><span class="annottext">FleetOnDemandAllocationStrategy -&gt; Text
 (FleetOnDemandAllocationStrategy -&gt; Text)
 -&gt; ToText FleetOnDemandAllocationStrategy
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: FleetOnDemandAllocationStrategy -&gt; Text
 $ctoText :: FleetOnDemandAllocationStrategy -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681108493"><span class="annot"><span class="annottext">FleetOnDemandAllocationStrategy -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681108502"><span class="annot"><span class="annottext">FleetOnDemandAllocationStrategy -&gt; ByteString
 (FleetOnDemandAllocationStrategy -&gt; ByteString)
 -&gt; ToByteString FleetOnDemandAllocationStrategy
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: FleetOnDemandAllocationStrategy -&gt; ByteString
 $ctoBS :: FleetOnDemandAllocationStrategy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681108490"><span class="annot"><span class="annottext">FleetOnDemandAllocationStrategy -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681108499"><span class="annot"><span class="annottext">FleetOnDemandAllocationStrategy -&gt; ByteStringBuilder
 (FleetOnDemandAllocationStrategy -&gt; ByteStringBuilder)
 -&gt; ToLog FleetOnDemandAllocationStrategy
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: FleetOnDemandAllocationStrategy -&gt; ByteStringBuilder
 $cbuild :: FleetOnDemandAllocationStrategy -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681108487"><span class="annot"><span class="annottext">HeaderName -&gt; FleetOnDemandAllocationStrategy -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681108496"><span class="annot"><span class="annottext">HeaderName -&gt; FleetOnDemandAllocationStrategy -&gt; [Header]
 (HeaderName -&gt; FleetOnDemandAllocationStrategy -&gt; [Header])
 -&gt; ToHeader FleetOnDemandAllocationStrategy
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; FleetOnDemandAllocationStrategy -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; FleetOnDemandAllocationStrategy -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681108484"><span class="annot"><span class="annottext">FleetOnDemandAllocationStrategy -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681108493"><span class="annot"><span class="annottext">FleetOnDemandAllocationStrategy -&gt; QueryString
 (FleetOnDemandAllocationStrategy -&gt; QueryString)
 -&gt; ToQuery FleetOnDemandAllocationStrategy
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: FleetOnDemandAllocationStrategy -&gt; QueryString
 $ctoQuery :: FleetOnDemandAllocationStrategy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681108479"><span id="local-6989586621681108481"><span class="annot"><span class="annottext">Value -&gt; Parser [FleetOnDemandAllocationStrategy]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681108488"><span id="local-6989586621681108490"><span class="annot"><span class="annottext">Value -&gt; Parser [FleetOnDemandAllocationStrategy]
 Value -&gt; Parser FleetOnDemandAllocationStrategy
 (Value -&gt; Parser FleetOnDemandAllocationStrategy)
 -&gt; (Value -&gt; Parser [FleetOnDemandAllocationStrategy])
@@ -256,7 +256,7 @@ $cparseJSONList :: Value -&gt; Parser [FleetOnDemandAllocationStrategy]
 parseJSON :: Value -&gt; Parser FleetOnDemandAllocationStrategy
 $cparseJSON :: Value -&gt; Parser FleetOnDemandAllocationStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681108474"><span id="local-6989586621681108476"><span class="annot"><span class="annottext">FromJSONKeyFunction [FleetOnDemandAllocationStrategy]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681108483"><span id="local-6989586621681108485"><span class="annot"><span class="annottext">FromJSONKeyFunction [FleetOnDemandAllocationStrategy]
 FromJSONKeyFunction FleetOnDemandAllocationStrategy
 FromJSONKeyFunction FleetOnDemandAllocationStrategy
 -&gt; FromJSONKeyFunction [FleetOnDemandAllocationStrategy]
@@ -268,7 +268,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [FleetOnDemandAllocationStrategy]
 fromJSONKey :: FromJSONKeyFunction FleetOnDemandAllocationStrategy
 $cfromJSONKey :: FromJSONKeyFunction FleetOnDemandAllocationStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681108465"><span id="local-6989586621681108467"><span id="local-6989586621681108469"><span id="local-6989586621681108471"><span class="annot"><span class="annottext">[FleetOnDemandAllocationStrategy] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681108474"><span id="local-6989586621681108476"><span id="local-6989586621681108478"><span id="local-6989586621681108480"><span class="annot"><span class="annottext">[FleetOnDemandAllocationStrategy] -&gt; Encoding
 [FleetOnDemandAllocationStrategy] -&gt; Value
 FleetOnDemandAllocationStrategy -&gt; Encoding
 FleetOnDemandAllocationStrategy -&gt; Value
@@ -292,7 +292,7 @@ $ctoEncoding :: FleetOnDemandAllocationStrategy -&gt; Encoding
 toJSON :: FleetOnDemandAllocationStrategy -&gt; Value
 $ctoJSON :: FleetOnDemandAllocationStrategy -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681108460"><span id="local-6989586621681108462"><span class="annot"><span class="annottext">ToJSONKeyFunction [FleetOnDemandAllocationStrategy]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681108469"><span id="local-6989586621681108471"><span class="annot"><span class="annottext">ToJSONKeyFunction [FleetOnDemandAllocationStrategy]
 ToJSONKeyFunction FleetOnDemandAllocationStrategy
 ToJSONKeyFunction FleetOnDemandAllocationStrategy
 -&gt; ToJSONKeyFunction [FleetOnDemandAllocationStrategy]
@@ -304,14 +304,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [FleetOnDemandAllocationStrategy]
 toJSONKey :: ToJSONKeyFunction FleetOnDemandAllocationStrategy
 $ctoJSONKey :: ToJSONKeyFunction FleetOnDemandAllocationStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681108457"><span class="annot"><span class="annottext">[Node] -&gt; Either String FleetOnDemandAllocationStrategy
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681108466"><span class="annot"><span class="annottext">[Node] -&gt; Either String FleetOnDemandAllocationStrategy
 ([Node] -&gt; Either String FleetOnDemandAllocationStrategy)
 -&gt; FromXML FleetOnDemandAllocationStrategy
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String FleetOnDemandAllocationStrategy
 $cparseXML :: [Node] -&gt; Either String FleetOnDemandAllocationStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681108454"><span class="annot"><span class="annottext">FleetOnDemandAllocationStrategy -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681108463"><span class="annot"><span class="annottext">FleetOnDemandAllocationStrategy -&gt; XML
 (FleetOnDemandAllocationStrategy -&gt; XML)
 -&gt; ToXML FleetOnDemandAllocationStrategy
 forall a. (a -&gt; XML) -&gt; ToXML a

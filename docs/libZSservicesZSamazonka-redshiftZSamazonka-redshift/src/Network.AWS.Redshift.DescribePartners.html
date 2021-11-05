@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newDescribePartners' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679515268"><span id="local-6989586621679515269"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribePartners"><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartners"><span class="hs-identifier hs-var">DescribePartners</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribePartners%27"><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartners%27"><span class="hs-identifier hs-var">DescribePartners'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679515277"><span id="local-6989586621679515278"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribePartners"><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartners"><span class="hs-identifier hs-var">DescribePartners</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribePartners%27"><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartners%27"><span class="hs-identifier hs-var">DescribePartners'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the partner that is being described. If partner name is not</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- specified, then all partner integrations are described.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3ApartnerName%3ADescribePartners%27"><span class="annot"><span class="annottext">DescribePartners -&gt; Maybe Text
@@ -69,7 +69,7 @@
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3AclusterIdentifier%3ADescribePartners%27"><span class="annot"><span class="annottext">DescribePartners -&gt; Text
 </span><a href="Network.AWS.Redshift.DescribePartners.html#%24sel%3AclusterIdentifier%3ADescribePartners%27"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679515259"><span id="local-6989586621679515261"><span class="annot"><span class="annottext">DescribePartners -&gt; DescribePartners -&gt; Bool
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679515268"><span id="local-6989586621679515270"><span class="annot"><span class="annottext">DescribePartners -&gt; DescribePartners -&gt; Bool
 (DescribePartners -&gt; DescribePartners -&gt; Bool)
 -&gt; (DescribePartners -&gt; DescribePartners -&gt; Bool)
 -&gt; Eq DescribePartners
@@ -78,7 +78,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribePartners -&gt; DescribePartners -&gt; Bool
 == :: DescribePartners -&gt; DescribePartners -&gt; Bool
 $c== :: DescribePartners -&gt; DescribePartners -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679515250"><span id="local-6989586621679515252"><span id="local-6989586621679515254"><span id="local-6989586621679515256"><span class="annot"><span class="annottext">ReadPrec [DescribePartners]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679515259"><span id="local-6989586621679515261"><span id="local-6989586621679515263"><span id="local-6989586621679515265"><span class="annot"><span class="annottext">ReadPrec [DescribePartners]
 ReadPrec DescribePartners
 Int -&gt; ReadS DescribePartners
 ReadS [DescribePartners]
@@ -98,7 +98,7 @@ readList :: ReadS [DescribePartners]
 $creadList :: ReadS [DescribePartners]
 readsPrec :: Int -&gt; ReadS DescribePartners
 $creadsPrec :: Int -&gt; ReadS DescribePartners
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679515243"><span id="local-6989586621679515245"><span id="local-6989586621679515247"><span class="annot"><span class="annottext">Int -&gt; DescribePartners -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679515252"><span id="local-6989586621679515254"><span id="local-6989586621679515256"><span class="annot"><span class="annottext">Int -&gt; DescribePartners -&gt; ShowS
 [DescribePartners] -&gt; ShowS
 DescribePartners -&gt; String
 (Int -&gt; DescribePartners -&gt; ShowS)
@@ -150,9 +150,9 @@ $cfrom :: forall x. DescribePartners -&gt; Rep DescribePartners x
 </span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartners"><span class="hs-identifier hs-type">DescribePartners</span></a></span><span>
 </span><span id="line-95"></span><span id="newDescribePartners"><span class="annot"><span class="annottext">newDescribePartners :: Text -&gt; Text -&gt; DescribePartners
-</span><a href="Network.AWS.Redshift.DescribePartners.html#newDescribePartners"><span class="hs-identifier hs-var hs-var">newDescribePartners</span></a></span></span><span> </span><span id="local-6989586621679515238"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679515238"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span id="local-6989586621679515237"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679515237"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Redshift.DescribePartners.html#newDescribePartners"><span class="hs-identifier hs-var hs-var">newDescribePartners</span></a></span></span><span> </span><span id="local-6989586621679515247"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679515247"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span id="local-6989586621679515246"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679515246"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>  </span><span class="annot"><span class="annottext">DescribePartners' :: Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; DescribePartners
 </span><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartners%27"><span class="hs-identifier hs-type">DescribePartners'</span></a></span><span>
 </span><span id="line-97"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:partnerName:DescribePartners' :: Maybe Text
@@ -165,10 +165,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountId:DescribePartners' :: Text
 </span><a href="Network.AWS.Redshift.DescribePartners.html#%24sel%3AaccountId%3ADescribePartners%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679515238"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679515247"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterIdentifier:DescribePartners' :: Text
 </span><a href="Network.AWS.Redshift.DescribePartners.html#%24sel%3AclusterIdentifier%3ADescribePartners%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679515237"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span><span>
+</span><a href="#local-6989586621679515246"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span><span>
 </span><span id="line-101"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | The name of the partner that is being described. If partner name is not</span><span>
@@ -180,16 +180,16 @@ forall a. Maybe a
 -&gt; (DescribePartners -&gt; Maybe Text -&gt; DescribePartners)
 -&gt; Lens DescribePartners DescribePartners (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartners%27"><span class="hs-identifier hs-type">DescribePartners'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679515234"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartners%27"><span class="hs-identifier hs-type">DescribePartners'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679515243"><span class="annot"><span class="annottext">Maybe Text
 partnerName :: Maybe Text
 $sel:partnerName:DescribePartners' :: DescribePartners -&gt; Maybe Text
-</span><a href="#local-6989586621679515234"><span class="hs-identifier hs-var hs-var">partnerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679515234"><span class="hs-identifier hs-var">partnerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679515233"><span class="annot"><span class="annottext">s :: DescribePartners
-</span><a href="#local-6989586621679515233"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartners%27"><span class="hs-identifier hs-type">DescribePartners'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679515232"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679515232"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePartners
-</span><a href="#local-6989586621679515233"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partnerName:DescribePartners' :: Maybe Text
+</span><a href="#local-6989586621679515243"><span class="hs-identifier hs-var hs-var">partnerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679515243"><span class="hs-identifier hs-var">partnerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679515242"><span class="annot"><span class="annottext">s :: DescribePartners
+</span><a href="#local-6989586621679515242"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartners%27"><span class="hs-identifier hs-type">DescribePartners'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679515241"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679515241"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePartners
+</span><a href="#local-6989586621679515242"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partnerName:DescribePartners' :: Maybe Text
 </span><a href="Network.AWS.Redshift.DescribePartners.html#%24sel%3ApartnerName%3ADescribePartners%27"><span class="hs-identifier hs-var">partnerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679515232"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartners"><span class="hs-identifier hs-type">DescribePartners</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679515241"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartners"><span class="hs-identifier hs-type">DescribePartners</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | The name of the database whose partner integration is being described.</span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- If database name is not specified, then all databases in the cluster are</span><span>
@@ -201,16 +201,16 @@ $sel:partnerName:DescribePartners' :: DescribePartners -&gt; Maybe Text
 -&gt; (DescribePartners -&gt; Maybe Text -&gt; DescribePartners)
 -&gt; Lens DescribePartners DescribePartners (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartners%27"><span class="hs-identifier hs-type">DescribePartners'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679515231"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartners%27"><span class="hs-identifier hs-type">DescribePartners'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679515240"><span class="annot"><span class="annottext">Maybe Text
 databaseName :: Maybe Text
 $sel:databaseName:DescribePartners' :: DescribePartners -&gt; Maybe Text
-</span><a href="#local-6989586621679515231"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679515231"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679515230"><span class="annot"><span class="annottext">s :: DescribePartners
-</span><a href="#local-6989586621679515230"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartners%27"><span class="hs-identifier hs-type">DescribePartners'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679515229"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679515229"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePartners
-</span><a href="#local-6989586621679515230"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:DescribePartners' :: Maybe Text
+</span><a href="#local-6989586621679515240"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679515240"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679515239"><span class="annot"><span class="annottext">s :: DescribePartners
+</span><a href="#local-6989586621679515239"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartners%27"><span class="hs-identifier hs-type">DescribePartners'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679515238"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679515238"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePartners
+</span><a href="#local-6989586621679515239"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:DescribePartners' :: Maybe Text
 </span><a href="Network.AWS.Redshift.DescribePartners.html#%24sel%3AdatabaseName%3ADescribePartners%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679515229"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartners"><span class="hs-identifier hs-type">DescribePartners</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679515238"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartners"><span class="hs-identifier hs-type">DescribePartners</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | The Amazon Web Services account ID that owns the cluster.</span><span>
 </span><span id="line-115"></span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#describePartners_accountId"><span class="hs-identifier hs-type">describePartners_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartners"><span class="hs-identifier hs-type">DescribePartners</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -219,16 +219,16 @@ $sel:databaseName:DescribePartners' :: DescribePartners -&gt; Maybe Text
 -&gt; (DescribePartners -&gt; Text -&gt; DescribePartners)
 -&gt; Lens DescribePartners DescribePartners Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartners%27"><span class="hs-identifier hs-type">DescribePartners'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679515228"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartners%27"><span class="hs-identifier hs-type">DescribePartners'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679515237"><span class="annot"><span class="annottext">Text
 accountId :: Text
 $sel:accountId:DescribePartners' :: DescribePartners -&gt; Text
-</span><a href="#local-6989586621679515228"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679515228"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679515227"><span class="annot"><span class="annottext">s :: DescribePartners
-</span><a href="#local-6989586621679515227"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartners%27"><span class="hs-identifier hs-type">DescribePartners'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679515226"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679515226"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePartners
-</span><a href="#local-6989586621679515227"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:DescribePartners' :: Text
+</span><a href="#local-6989586621679515237"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679515237"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679515236"><span class="annot"><span class="annottext">s :: DescribePartners
+</span><a href="#local-6989586621679515236"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartners%27"><span class="hs-identifier hs-type">DescribePartners'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679515235"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679515235"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePartners
+</span><a href="#local-6989586621679515236"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:DescribePartners' :: Text
 </span><a href="Network.AWS.Redshift.DescribePartners.html#%24sel%3AaccountId%3ADescribePartners%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679515226"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartners"><span class="hs-identifier hs-type">DescribePartners</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679515235"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartners"><span class="hs-identifier hs-type">DescribePartners</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | The cluster identifier of the cluster whose partner integration is being</span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- described.</span><span>
@@ -238,27 +238,27 @@ $sel:accountId:DescribePartners' :: DescribePartners -&gt; Text
 -&gt; (DescribePartners -&gt; Text -&gt; DescribePartners)
 -&gt; Lens DescribePartners DescribePartners Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartners%27"><span class="hs-identifier hs-type">DescribePartners'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679515225"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartners%27"><span class="hs-identifier hs-type">DescribePartners'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679515234"><span class="annot"><span class="annottext">Text
 clusterIdentifier :: Text
 $sel:clusterIdentifier:DescribePartners' :: DescribePartners -&gt; Text
-</span><a href="#local-6989586621679515225"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679515225"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679515224"><span class="annot"><span class="annottext">s :: DescribePartners
-</span><a href="#local-6989586621679515224"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartners%27"><span class="hs-identifier hs-type">DescribePartners'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679515223"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679515223"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePartners
-</span><a href="#local-6989586621679515224"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterIdentifier:DescribePartners' :: Text
+</span><a href="#local-6989586621679515234"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679515234"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679515233"><span class="annot"><span class="annottext">s :: DescribePartners
+</span><a href="#local-6989586621679515233"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartners%27"><span class="hs-identifier hs-type">DescribePartners'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679515232"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679515232"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePartners
+</span><a href="#local-6989586621679515233"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterIdentifier:DescribePartners' :: Text
 </span><a href="Network.AWS.Redshift.DescribePartners.html#%24sel%3AclusterIdentifier%3ADescribePartners%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679515223"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartners"><span class="hs-identifier hs-type">DescribePartners</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679515232"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartners"><span class="hs-identifier hs-type">DescribePartners</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartners"><span class="hs-identifier hs-type">DescribePartners</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-124"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-125"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartners"><span class="hs-identifier hs-type">DescribePartners</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>      </span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartnersResponse"><span class="hs-identifier hs-type">DescribePartnersResponse</span></a></span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679515219"><span class="annot"><span class="annottext">request :: DescribePartners -&gt; Request DescribePartners
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679515228"><span class="annot"><span class="annottext">request :: DescribePartners -&gt; Request DescribePartners
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribePartners -&gt; Request DescribePartners
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Redshift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679515215"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679515224"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribePartners
 -&gt; ClientResponse ClientBody
@@ -287,10 +287,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DescribePartnersResult&quot;</span></span><span>
-</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679515212"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679515212"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679515211"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679515211"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679515210"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679515210"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679515221"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679515221"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679515220"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679515220"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679515219"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679515219"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">Maybe [PartnerIntegrationInfo] -&gt; Int -&gt; DescribePartnersResponse
 </span><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartnersResponse%27"><span class="hs-identifier hs-var">DescribePartnersResponse'</span></a></span><span>
 </span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [PartnerIntegrationInfo] -&gt; Int -&gt; DescribePartnersResponse)
@@ -298,7 +298,7 @@ Text
 -&gt; Either String (Int -&gt; DescribePartnersResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679515210"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679515219"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PartnerIntegrationInfoList&quot;</span></span><span>
@@ -330,15 +330,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679515212"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679515221"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679515199"><span id="local-6989586621679515201"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartners"><span class="hs-identifier hs-type">DescribePartners</span></a></span></span></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679515208"><span id="local-6989586621679515210"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartners"><span class="hs-identifier hs-type">DescribePartners</span></a></span></span></span><span>
 </span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679515196"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartners"><span class="hs-identifier hs-type">DescribePartners</span></a></span></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679515205"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartners"><span class="hs-identifier hs-type">DescribePartners</span></a></span></span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartners"><span class="hs-identifier hs-type">DescribePartners</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679515192"><span class="annot"><span class="annottext">toHeaders :: DescribePartners -&gt; ResponseHeaders
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679515201"><span class="annot"><span class="annottext">toHeaders :: DescribePartners -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribePartners -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -346,15 +346,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartners"><span class="hs-identifier hs-type">DescribePartners</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679515187"><span class="annot"><span class="annottext">toPath :: DescribePartners -&gt; ByteString
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679515196"><span class="annot"><span class="annottext">toPath :: DescribePartners -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribePartners -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartners"><span class="hs-identifier hs-type">DescribePartners</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679515183"><span class="annot"><span class="annottext">toQuery :: DescribePartners -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartners%27"><span class="hs-identifier hs-type">DescribePartners'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679515178"><span id="local-6989586621679515179"><span id="local-6989586621679515180"><span id="local-6989586621679515181"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679515192"><span class="annot"><span class="annottext">toQuery :: DescribePartners -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartners%27"><span class="hs-identifier hs-type">DescribePartners'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679515187"><span id="local-6989586621679515188"><span id="local-6989586621679515189"><span id="local-6989586621679515190"><span class="annot"><span class="annottext">Maybe Text
 Text
 clusterIdentifier :: Text
 accountId :: Text
@@ -364,7 +364,7 @@ $sel:clusterIdentifier:DescribePartners' :: DescribePartners -&gt; Text
 $sel:accountId:DescribePartners' :: DescribePartners -&gt; Text
 $sel:databaseName:DescribePartners' :: DescribePartners -&gt; Maybe Text
 $sel:partnerName:DescribePartners' :: DescribePartners -&gt; Maybe Text
-</span><a href="#local-6989586621679515178"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679515187"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -384,26 +384,26 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;PartnerName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679515181"><span class="hs-identifier hs-var">partnerName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679515190"><span class="hs-identifier hs-var">partnerName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DatabaseName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679515180"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679515189"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;AccountId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679515179"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679515188"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ClusterIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679515178"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span>
+</span><a href="#local-6989586621679515187"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- | /See:/ 'newDescribePartnersResponse' smart constructor.</span><span>
-</span><span id="line-165"></span><span id="local-6989586621679515175"><span id="local-6989586621679515176"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribePartnersResponse"><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartnersResponse"><span class="hs-identifier hs-var">DescribePartnersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribePartnersResponse%27"><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartnersResponse%27"><span class="hs-identifier hs-var">DescribePartnersResponse'</span></a></span></span><span>
+</span><span id="line-165"></span><span id="local-6989586621679515184"><span id="local-6989586621679515185"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribePartnersResponse"><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartnersResponse"><span class="hs-identifier hs-var">DescribePartnersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribePartnersResponse%27"><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartnersResponse%27"><span class="hs-identifier hs-var">DescribePartnersResponse'</span></a></span></span><span>
 </span><span id="line-166"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of partner integrations.</span><span>
 </span><span id="line-167"></span><span>    </span><span id="%24sel%3ApartnerIntegrationInfoList%3ADescribePartnersResponse%27"><span class="annot"><span class="annottext">DescribePartnersResponse -&gt; Maybe [PartnerIntegrationInfo]
 </span><a href="Network.AWS.Redshift.DescribePartners.html#%24sel%3ApartnerIntegrationInfoList%3ADescribePartnersResponse%27"><span class="hs-identifier hs-var hs-var">partnerIntegrationInfoList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.PartnerIntegrationInfo.html#PartnerIntegrationInfo"><span class="hs-identifier hs-type">PartnerIntegrationInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -411,7 +411,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-169"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribePartnersResponse%27"><span class="annot"><span class="annottext">DescribePartnersResponse -&gt; Int
 </span><a href="Network.AWS.Redshift.DescribePartners.html#%24sel%3AhttpStatus%3ADescribePartnersResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-170"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-171"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679515169"><span id="local-6989586621679515171"><span class="annot"><span class="annottext">DescribePartnersResponse -&gt; DescribePartnersResponse -&gt; Bool
+</span><span id="line-171"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679515178"><span id="local-6989586621679515180"><span class="annot"><span class="annottext">DescribePartnersResponse -&gt; DescribePartnersResponse -&gt; Bool
 (DescribePartnersResponse -&gt; DescribePartnersResponse -&gt; Bool)
 -&gt; (DescribePartnersResponse -&gt; DescribePartnersResponse -&gt; Bool)
 -&gt; Eq DescribePartnersResponse
@@ -420,7 +420,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribePartnersResponse -&gt; DescribePartnersResponse -&gt; Bool
 == :: DescribePartnersResponse -&gt; DescribePartnersResponse -&gt; Bool
 $c== :: DescribePartnersResponse -&gt; DescribePartnersResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679515161"><span id="local-6989586621679515163"><span id="local-6989586621679515165"><span id="local-6989586621679515167"><span class="annot"><span class="annottext">ReadPrec [DescribePartnersResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679515170"><span id="local-6989586621679515172"><span id="local-6989586621679515174"><span id="local-6989586621679515176"><span class="annot"><span class="annottext">ReadPrec [DescribePartnersResponse]
 ReadPrec DescribePartnersResponse
 Int -&gt; ReadS DescribePartnersResponse
 ReadS [DescribePartnersResponse]
@@ -440,7 +440,7 @@ readList :: ReadS [DescribePartnersResponse]
 $creadList :: ReadS [DescribePartnersResponse]
 readsPrec :: Int -&gt; ReadS DescribePartnersResponse
 $creadsPrec :: Int -&gt; ReadS DescribePartnersResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679515155"><span id="local-6989586621679515157"><span id="local-6989586621679515159"><span class="annot"><span class="annottext">Int -&gt; DescribePartnersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679515164"><span id="local-6989586621679515166"><span id="local-6989586621679515168"><span class="annot"><span class="annottext">Int -&gt; DescribePartnersResponse -&gt; ShowS
 [DescribePartnersResponse] -&gt; ShowS
 DescribePartnersResponse -&gt; String
 (Int -&gt; DescribePartnersResponse -&gt; ShowS)
@@ -488,8 +488,8 @@ DescribePartnersResponse -&gt; Rep DescribePartnersResponse x
 </span><span id="line-186"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-187"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartnersResponse"><span class="hs-identifier hs-type">DescribePartnersResponse</span></a></span><span>
 </span><span id="line-188"></span><span id="newDescribePartnersResponse"><span class="annot"><span class="annottext">newDescribePartnersResponse :: Int -&gt; DescribePartnersResponse
-</span><a href="Network.AWS.Redshift.DescribePartners.html#newDescribePartnersResponse"><span class="hs-identifier hs-var hs-var">newDescribePartnersResponse</span></a></span></span><span> </span><span id="local-6989586621679515152"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679515152"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Redshift.DescribePartners.html#newDescribePartnersResponse"><span class="hs-identifier hs-var hs-var">newDescribePartnersResponse</span></a></span></span><span> </span><span id="local-6989586621679515161"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679515161"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-189"></span><span>  </span><span class="annot"><span class="annottext">DescribePartnersResponse' :: Maybe [PartnerIntegrationInfo] -&gt; Int -&gt; DescribePartnersResponse
 </span><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartnersResponse%27"><span class="hs-identifier hs-type">DescribePartnersResponse'</span></a></span><span>
 </span><span id="line-190"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:partnerIntegrationInfoList:DescribePartnersResponse' :: Maybe [PartnerIntegrationInfo]
@@ -499,7 +499,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribePartnersResponse' :: Int
 </span><a href="Network.AWS.Redshift.DescribePartners.html#%24sel%3AhttpStatus%3ADescribePartnersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679515152"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679515161"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-193"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-194"></span><span>
 </span><span id="line-195"></span><span class="hs-comment">-- | A list of partner integrations.</span><span>
@@ -516,16 +516,16 @@ forall a. Maybe a
      (Maybe [PartnerIntegrationInfo])
      (Maybe [PartnerIntegrationInfo])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartnersResponse%27"><span class="hs-identifier hs-type">DescribePartnersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679515151"><span class="annot"><span class="annottext">Maybe [PartnerIntegrationInfo]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartnersResponse%27"><span class="hs-identifier hs-type">DescribePartnersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679515160"><span class="annot"><span class="annottext">Maybe [PartnerIntegrationInfo]
 partnerIntegrationInfoList :: Maybe [PartnerIntegrationInfo]
 $sel:partnerIntegrationInfoList:DescribePartnersResponse' :: DescribePartnersResponse -&gt; Maybe [PartnerIntegrationInfo]
-</span><a href="#local-6989586621679515151"><span class="hs-identifier hs-var hs-var">partnerIntegrationInfoList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PartnerIntegrationInfo]
-</span><a href="#local-6989586621679515151"><span class="hs-identifier hs-var">partnerIntegrationInfoList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679515150"><span class="annot"><span class="annottext">s :: DescribePartnersResponse
-</span><a href="#local-6989586621679515150"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartnersResponse%27"><span class="hs-identifier hs-type">DescribePartnersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679515149"><span class="annot"><span class="annottext">Maybe [PartnerIntegrationInfo]
-</span><a href="#local-6989586621679515149"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePartnersResponse
-</span><a href="#local-6989586621679515150"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partnerIntegrationInfoList:DescribePartnersResponse' :: Maybe [PartnerIntegrationInfo]
+</span><a href="#local-6989586621679515160"><span class="hs-identifier hs-var hs-var">partnerIntegrationInfoList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PartnerIntegrationInfo]
+</span><a href="#local-6989586621679515160"><span class="hs-identifier hs-var">partnerIntegrationInfoList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679515159"><span class="annot"><span class="annottext">s :: DescribePartnersResponse
+</span><a href="#local-6989586621679515159"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartnersResponse%27"><span class="hs-identifier hs-type">DescribePartnersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679515158"><span class="annot"><span class="annottext">Maybe [PartnerIntegrationInfo]
+</span><a href="#local-6989586621679515158"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePartnersResponse
+</span><a href="#local-6989586621679515159"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partnerIntegrationInfoList:DescribePartnersResponse' :: Maybe [PartnerIntegrationInfo]
 </span><a href="Network.AWS.Redshift.DescribePartners.html#%24sel%3ApartnerIntegrationInfoList%3ADescribePartnersResponse%27"><span class="hs-identifier hs-var">partnerIntegrationInfoList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PartnerIntegrationInfo]
-</span><a href="#local-6989586621679515149"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartnersResponse"><span class="hs-identifier hs-type">DescribePartnersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PartnerIntegrationInfo]
+</span><a href="#local-6989586621679515158"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartnersResponse"><span class="hs-identifier hs-type">DescribePartnersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PartnerIntegrationInfo]
   -&gt; f (Maybe [PartnerIntegrationInfo]))
  -&gt; DescribePartnersResponse -&gt; f DescribePartnersResponse)
 -&gt; ((Maybe [PartnerIntegrationInfo]
@@ -566,16 +566,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (DescribePartnersResponse -&gt; Int -&gt; DescribePartnersResponse)
 -&gt; Lens DescribePartnersResponse DescribePartnersResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartnersResponse%27"><span class="hs-identifier hs-type">DescribePartnersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679515145"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartnersResponse%27"><span class="hs-identifier hs-type">DescribePartnersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679515154"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribePartnersResponse' :: DescribePartnersResponse -&gt; Int
-</span><a href="#local-6989586621679515145"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679515145"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679515144"><span class="annot"><span class="annottext">s :: DescribePartnersResponse
-</span><a href="#local-6989586621679515144"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartnersResponse%27"><span class="hs-identifier hs-type">DescribePartnersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679515143"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679515143"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePartnersResponse
-</span><a href="#local-6989586621679515144"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribePartnersResponse' :: Int
+</span><a href="#local-6989586621679515154"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679515154"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679515153"><span class="annot"><span class="annottext">s :: DescribePartnersResponse
+</span><a href="#local-6989586621679515153"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartnersResponse%27"><span class="hs-identifier hs-type">DescribePartnersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679515152"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679515152"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePartnersResponse
+</span><a href="#local-6989586621679515153"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribePartnersResponse' :: Int
 </span><a href="Network.AWS.Redshift.DescribePartners.html#%24sel%3AhttpStatus%3ADescribePartnersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679515143"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartnersResponse"><span class="hs-identifier hs-type">DescribePartnersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679515152"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartnersResponse"><span class="hs-identifier hs-type">DescribePartnersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-202"></span><span>
-</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679515141"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartnersResponse"><span class="hs-identifier hs-type">DescribePartnersResponse</span></a></span></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679515150"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribePartners.html#DescribePartnersResponse"><span class="hs-identifier hs-type">DescribePartnersResponse</span></a></span></span><span>
 </span><span id="line-204"></span></pre></body></html>

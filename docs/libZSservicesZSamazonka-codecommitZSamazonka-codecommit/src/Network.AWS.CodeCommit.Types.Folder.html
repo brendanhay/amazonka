@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Returns information about a folder in a repository.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newFolder' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679349653"><span id="local-6989586621679349654"></span></span><span class="hs-keyword">data</span><span> </span><span id="Folder"><span class="annot"><a href="Network.AWS.CodeCommit.Types.Folder.html#Folder"><span class="hs-identifier hs-var">Folder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Folder%27"><span class="annot"><a href="Network.AWS.CodeCommit.Types.Folder.html#Folder%27"><span class="hs-identifier hs-var">Folder'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679349662"><span id="local-6989586621679349663"></span></span><span class="hs-keyword">data</span><span> </span><span id="Folder"><span class="annot"><a href="Network.AWS.CodeCommit.Types.Folder.html#Folder"><span class="hs-identifier hs-var">Folder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Folder%27"><span class="annot"><a href="Network.AWS.CodeCommit.Types.Folder.html#Folder%27"><span class="hs-identifier hs-var">Folder'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The fully qualified path of the folder in the repository.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AabsolutePath%3AFolder%27"><span class="annot"><span class="annottext">Folder -&gt; Maybe Text
 </span><a href="Network.AWS.CodeCommit.Types.Folder.html#%24sel%3AabsolutePath%3AFolder%27"><span class="hs-identifier hs-var hs-var">absolutePath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -39,7 +39,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3ArelativePath%3AFolder%27"><span class="annot"><span class="annottext">Folder -&gt; Maybe Text
 </span><a href="Network.AWS.CodeCommit.Types.Folder.html#%24sel%3ArelativePath%3AFolder%27"><span class="hs-identifier hs-var hs-var">relativePath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679349645"><span id="local-6989586621679349647"><span class="annot"><span class="annottext">Folder -&gt; Folder -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679349654"><span id="local-6989586621679349656"><span class="annot"><span class="annottext">Folder -&gt; Folder -&gt; Bool
 (Folder -&gt; Folder -&gt; Bool)
 -&gt; (Folder -&gt; Folder -&gt; Bool) -&gt; Eq Folder
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Folder -&gt; Folder -&gt; Bool
 == :: Folder -&gt; Folder -&gt; Bool
 $c== :: Folder -&gt; Folder -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349636"><span id="local-6989586621679349638"><span id="local-6989586621679349640"><span id="local-6989586621679349642"><span class="annot"><span class="annottext">ReadPrec [Folder]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349645"><span id="local-6989586621679349647"><span id="local-6989586621679349649"><span id="local-6989586621679349651"><span class="annot"><span class="annottext">ReadPrec [Folder]
 ReadPrec Folder
 Int -&gt; ReadS Folder
 ReadS [Folder]
@@ -67,7 +67,7 @@ readList :: ReadS [Folder]
 $creadList :: ReadS [Folder]
 readsPrec :: Int -&gt; ReadS Folder
 $creadsPrec :: Int -&gt; ReadS Folder
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349629"><span id="local-6989586621679349631"><span id="local-6989586621679349633"><span class="annot"><span class="annottext">Int -&gt; Folder -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349638"><span id="local-6989586621679349640"><span id="local-6989586621679349642"><span class="annot"><span class="annottext">Int -&gt; Folder -&gt; ShowS
 [Folder] -&gt; ShowS
 Folder -&gt; String
 (Int -&gt; Folder -&gt; ShowS)
@@ -132,16 +132,16 @@ forall a. Maybe a
 -&gt; (Folder -&gt; Maybe Text -&gt; Folder)
 -&gt; Lens Folder Folder (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Folder.html#Folder%27"><span class="hs-identifier hs-type">Folder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349620"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Folder.html#Folder%27"><span class="hs-identifier hs-type">Folder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349629"><span class="annot"><span class="annottext">Maybe Text
 absolutePath :: Maybe Text
 $sel:absolutePath:Folder' :: Folder -&gt; Maybe Text
-</span><a href="#local-6989586621679349620"><span class="hs-identifier hs-var hs-var">absolutePath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679349620"><span class="hs-identifier hs-var">absolutePath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349619"><span class="annot"><span class="annottext">s :: Folder
-</span><a href="#local-6989586621679349619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Folder.html#Folder%27"><span class="hs-identifier hs-type">Folder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349618"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679349618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Folder
-</span><a href="#local-6989586621679349619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:absolutePath:Folder' :: Maybe Text
+</span><a href="#local-6989586621679349629"><span class="hs-identifier hs-var hs-var">absolutePath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679349629"><span class="hs-identifier hs-var">absolutePath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349628"><span class="annot"><span class="annottext">s :: Folder
+</span><a href="#local-6989586621679349628"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Folder.html#Folder%27"><span class="hs-identifier hs-type">Folder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349627"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679349627"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Folder
+</span><a href="#local-6989586621679349628"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:absolutePath:Folder' :: Maybe Text
 </span><a href="Network.AWS.CodeCommit.Types.Folder.html#%24sel%3AabsolutePath%3AFolder%27"><span class="hs-identifier hs-var">absolutePath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679349618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Folder.html#Folder"><span class="hs-identifier hs-type">Folder</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679349627"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Folder.html#Folder"><span class="hs-identifier hs-type">Folder</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | The full SHA-1 pointer of the tree information for the commit that</span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- contains the folder.</span><span>
@@ -151,16 +151,16 @@ $sel:absolutePath:Folder' :: Folder -&gt; Maybe Text
 -&gt; (Folder -&gt; Maybe Text -&gt; Folder)
 -&gt; Lens Folder Folder (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Folder.html#Folder%27"><span class="hs-identifier hs-type">Folder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349616"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Folder.html#Folder%27"><span class="hs-identifier hs-type">Folder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349625"><span class="annot"><span class="annottext">Maybe Text
 treeId :: Maybe Text
 $sel:treeId:Folder' :: Folder -&gt; Maybe Text
-</span><a href="#local-6989586621679349616"><span class="hs-identifier hs-var hs-var">treeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679349616"><span class="hs-identifier hs-var">treeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349615"><span class="annot"><span class="annottext">s :: Folder
-</span><a href="#local-6989586621679349615"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Folder.html#Folder%27"><span class="hs-identifier hs-type">Folder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349614"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679349614"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Folder
-</span><a href="#local-6989586621679349615"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:treeId:Folder' :: Maybe Text
+</span><a href="#local-6989586621679349625"><span class="hs-identifier hs-var hs-var">treeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679349625"><span class="hs-identifier hs-var">treeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349624"><span class="annot"><span class="annottext">s :: Folder
+</span><a href="#local-6989586621679349624"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Folder.html#Folder%27"><span class="hs-identifier hs-type">Folder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349623"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679349623"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Folder
+</span><a href="#local-6989586621679349624"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:treeId:Folder' :: Maybe Text
 </span><a href="Network.AWS.CodeCommit.Types.Folder.html#%24sel%3AtreeId%3AFolder%27"><span class="hs-identifier hs-var">treeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679349614"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Folder.html#Folder"><span class="hs-identifier hs-type">Folder</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679349623"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Folder.html#Folder"><span class="hs-identifier hs-type">Folder</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The relative path of the specified folder from the folder where the</span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- query originated.</span><span>
@@ -170,27 +170,27 @@ $sel:treeId:Folder' :: Folder -&gt; Maybe Text
 -&gt; (Folder -&gt; Maybe Text -&gt; Folder)
 -&gt; Lens Folder Folder (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Folder.html#Folder%27"><span class="hs-identifier hs-type">Folder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349612"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Folder.html#Folder%27"><span class="hs-identifier hs-type">Folder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349621"><span class="annot"><span class="annottext">Maybe Text
 relativePath :: Maybe Text
 $sel:relativePath:Folder' :: Folder -&gt; Maybe Text
-</span><a href="#local-6989586621679349612"><span class="hs-identifier hs-var hs-var">relativePath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679349612"><span class="hs-identifier hs-var">relativePath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349611"><span class="annot"><span class="annottext">s :: Folder
-</span><a href="#local-6989586621679349611"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Folder.html#Folder%27"><span class="hs-identifier hs-type">Folder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349610"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679349610"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Folder
-</span><a href="#local-6989586621679349611"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:relativePath:Folder' :: Maybe Text
+</span><a href="#local-6989586621679349621"><span class="hs-identifier hs-var hs-var">relativePath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679349621"><span class="hs-identifier hs-var">relativePath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349620"><span class="annot"><span class="annottext">s :: Folder
+</span><a href="#local-6989586621679349620"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Folder.html#Folder%27"><span class="hs-identifier hs-type">Folder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349619"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679349619"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Folder
+</span><a href="#local-6989586621679349620"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:relativePath:Folder' :: Maybe Text
 </span><a href="Network.AWS.CodeCommit.Types.Folder.html#%24sel%3ArelativePath%3AFolder%27"><span class="hs-identifier hs-var">relativePath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679349610"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Folder.html#Folder"><span class="hs-identifier hs-type">Folder</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679349619"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Folder.html#Folder"><span class="hs-identifier hs-type">Folder</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349607"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Folder.html#Folder"><span class="hs-identifier hs-type">Folder</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679349605"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Folder
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349616"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Folder.html#Folder"><span class="hs-identifier hs-type">Folder</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679349614"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Folder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Folder) -&gt; Value -&gt; Parser Folder
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Folder&quot;</span></span><span>
-</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679349602"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679349602"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679349611"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679349611"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Folder
 </span><a href="Network.AWS.CodeCommit.Types.Folder.html#Folder%27"><span class="hs-identifier hs-var">Folder'</span></a></span><span>
 </span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Folder)
@@ -198,7 +198,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Folder)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679349602"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679349611"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;absolutePath&quot;</span></span><span class="hs-special">)</span><span>
@@ -206,7 +206,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Folder)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679349602"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679349611"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;treeId&quot;</span></span><span class="hs-special">)</span><span>
@@ -214,13 +214,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser Folder
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679349602"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679349611"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;relativePath&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349596"><span id="local-6989586621679349598"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Folder.html#Folder"><span class="hs-identifier hs-type">Folder</span></a></span></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349605"><span id="local-6989586621679349607"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Folder.html#Folder"><span class="hs-identifier hs-type">Folder</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349593"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Folder.html#Folder"><span class="hs-identifier hs-type">Folder</span></a></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349602"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Folder.html#Folder"><span class="hs-identifier hs-type">Folder</span></a></span></span><span>
 </span><span id="line-93"></span></pre></body></html>

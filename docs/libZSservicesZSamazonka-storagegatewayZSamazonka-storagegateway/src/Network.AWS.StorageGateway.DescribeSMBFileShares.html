@@ -51,13 +51,13 @@
 </span><span id="line-51"></span><span class="hs-comment">-- | DescribeSMBFileSharesInput</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- /See:/ 'newDescribeSMBFileShares' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679385703"><span id="local-6989586621679385704"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeSMBFileShares"><span class="annot"><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#DescribeSMBFileShares"><span class="hs-identifier hs-var">DescribeSMBFileShares</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeSMBFileShares%27"><span class="annot"><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#DescribeSMBFileShares%27"><span class="hs-identifier hs-var">DescribeSMBFileShares'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679385712"><span id="local-6989586621679385713"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeSMBFileShares"><span class="annot"><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#DescribeSMBFileShares"><span class="hs-identifier hs-var">DescribeSMBFileShares</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeSMBFileShares%27"><span class="annot"><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#DescribeSMBFileShares%27"><span class="hs-identifier hs-var">DescribeSMBFileShares'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array containing the Amazon Resource Name (ARN) of each file share to</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- be described.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AfileShareARNList%3ADescribeSMBFileShares%27"><span class="annot"><span class="annottext">DescribeSMBFileShares -&gt; NonEmpty Text
 </span><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#%24sel%3AfileShareARNList%3ADescribeSMBFileShares%27"><span class="hs-identifier hs-var hs-var">fileShareARNList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679385697"><span id="local-6989586621679385699"><span class="annot"><span class="annottext">DescribeSMBFileShares -&gt; DescribeSMBFileShares -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679385706"><span id="local-6989586621679385708"><span class="annot"><span class="annottext">DescribeSMBFileShares -&gt; DescribeSMBFileShares -&gt; Bool
 (DescribeSMBFileShares -&gt; DescribeSMBFileShares -&gt; Bool)
 -&gt; (DescribeSMBFileShares -&gt; DescribeSMBFileShares -&gt; Bool)
 -&gt; Eq DescribeSMBFileShares
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeSMBFileShares -&gt; DescribeSMBFileShares -&gt; Bool
 == :: DescribeSMBFileShares -&gt; DescribeSMBFileShares -&gt; Bool
 $c== :: DescribeSMBFileShares -&gt; DescribeSMBFileShares -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385688"><span id="local-6989586621679385690"><span id="local-6989586621679385692"><span id="local-6989586621679385694"><span class="annot"><span class="annottext">ReadPrec [DescribeSMBFileShares]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385697"><span id="local-6989586621679385699"><span id="local-6989586621679385701"><span id="local-6989586621679385703"><span class="annot"><span class="annottext">ReadPrec [DescribeSMBFileShares]
 ReadPrec DescribeSMBFileShares
 Int -&gt; ReadS DescribeSMBFileShares
 ReadS [DescribeSMBFileShares]
@@ -86,7 +86,7 @@ readList :: ReadS [DescribeSMBFileShares]
 $creadList :: ReadS [DescribeSMBFileShares]
 readsPrec :: Int -&gt; ReadS DescribeSMBFileShares
 $creadsPrec :: Int -&gt; ReadS DescribeSMBFileShares
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385681"><span id="local-6989586621679385683"><span id="local-6989586621679385685"><span class="annot"><span class="annottext">Int -&gt; DescribeSMBFileShares -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385690"><span id="local-6989586621679385692"><span id="local-6989586621679385694"><span class="annot"><span class="annottext">Int -&gt; DescribeSMBFileShares -&gt; ShowS
 [DescribeSMBFileShares] -&gt; ShowS
 DescribeSMBFileShares -&gt; String
 (Int -&gt; DescribeSMBFileShares -&gt; ShowS)
@@ -127,8 +127,8 @@ $cfrom :: forall x. DescribeSMBFileShares -&gt; Rep DescribeSMBFileShares x
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#DescribeSMBFileShares"><span class="hs-identifier hs-type">DescribeSMBFileShares</span></a></span><span>
 </span><span id="line-75"></span><span id="newDescribeSMBFileShares"><span class="annot"><span class="annottext">newDescribeSMBFileShares :: NonEmpty Text -&gt; DescribeSMBFileShares
-</span><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#newDescribeSMBFileShares"><span class="hs-identifier hs-var hs-var">newDescribeSMBFileShares</span></a></span></span><span> </span><span id="local-6989586621679385676"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679385676"><span class="hs-identifier hs-var">pFileShareARNList_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#newDescribeSMBFileShares"><span class="hs-identifier hs-var hs-var">newDescribeSMBFileShares</span></a></span></span><span> </span><span id="local-6989586621679385685"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679385685"><span class="hs-identifier hs-var">pFileShareARNList_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">DescribeSMBFileShares' :: NonEmpty Text -&gt; DescribeSMBFileShares
 </span><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#DescribeSMBFileShares%27"><span class="hs-identifier hs-type">DescribeSMBFileShares'</span></a></span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:fileShareARNList:DescribeSMBFileShares' :: NonEmpty Text
@@ -141,7 +141,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty Text -&gt; NonEmpty Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679385676"><span class="hs-identifier hs-var">pFileShareARNList_</span></a></span><span>
+</span><a href="#local-6989586621679385685"><span class="hs-identifier hs-var">pFileShareARNList_</span></a></span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | An array containing the Amazon Resource Name (ARN) of each file share to</span><span>
@@ -158,16 +158,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (NonEmpty Text)
      (NonEmpty Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#DescribeSMBFileShares%27"><span class="hs-identifier hs-type">DescribeSMBFileShares'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385671"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#DescribeSMBFileShares%27"><span class="hs-identifier hs-type">DescribeSMBFileShares'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385680"><span class="annot"><span class="annottext">NonEmpty Text
 fileShareARNList :: NonEmpty Text
 $sel:fileShareARNList:DescribeSMBFileShares' :: DescribeSMBFileShares -&gt; NonEmpty Text
-</span><a href="#local-6989586621679385671"><span class="hs-identifier hs-var hs-var">fileShareARNList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679385671"><span class="hs-identifier hs-var">fileShareARNList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385670"><span class="annot"><span class="annottext">s :: DescribeSMBFileShares
-</span><a href="#local-6989586621679385670"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#DescribeSMBFileShares%27"><span class="hs-identifier hs-type">DescribeSMBFileShares'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385669"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679385669"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSMBFileShares
-</span><a href="#local-6989586621679385670"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileShareARNList:DescribeSMBFileShares' :: NonEmpty Text
+</span><a href="#local-6989586621679385680"><span class="hs-identifier hs-var hs-var">fileShareARNList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679385680"><span class="hs-identifier hs-var">fileShareARNList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385679"><span class="annot"><span class="annottext">s :: DescribeSMBFileShares
+</span><a href="#local-6989586621679385679"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#DescribeSMBFileShares%27"><span class="hs-identifier hs-type">DescribeSMBFileShares'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385678"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679385678"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSMBFileShares
+</span><a href="#local-6989586621679385679"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileShareARNList:DescribeSMBFileShares' :: NonEmpty Text
 </span><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#%24sel%3AfileShareARNList%3ADescribeSMBFileShares%27"><span class="hs-identifier hs-var">fileShareARNList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679385669"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#DescribeSMBFileShares"><span class="hs-identifier hs-type">DescribeSMBFileShares</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+</span><a href="#local-6989586621679385678"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#DescribeSMBFileShares"><span class="hs-identifier hs-type">DescribeSMBFileShares</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
  -&gt; DescribeSMBFileShares -&gt; f DescribeSMBFileShares)
 -&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
     -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
@@ -184,12 +184,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-87"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-88"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#DescribeSMBFileShares"><span class="hs-identifier hs-type">DescribeSMBFileShares</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#DescribeSMBFileSharesResponse"><span class="hs-identifier hs-type">DescribeSMBFileSharesResponse</span></a></span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679385664"><span class="annot"><span class="annottext">request :: DescribeSMBFileShares -&gt; Request DescribeSMBFileShares
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679385673"><span class="annot"><span class="annottext">request :: DescribeSMBFileShares -&gt; Request DescribeSMBFileShares
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeSMBFileShares -&gt; Request DescribeSMBFileShares
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.StorageGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679385660"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679385669"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeSMBFileShares
 -&gt; ClientResponse ClientBody
@@ -215,10 +215,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679385657"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679385657"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679385656"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679385656"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679385655"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679385655"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679385666"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385666"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679385665"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679385665"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679385664"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679385664"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe [SMBFileShareInfo] -&gt; Int -&gt; DescribeSMBFileSharesResponse
 </span><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#DescribeSMBFileSharesResponse%27"><span class="hs-identifier hs-var">DescribeSMBFileSharesResponse'</span></a></span><span>
 </span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [SMBFileShareInfo] -&gt; Int -&gt; DescribeSMBFileSharesResponse)
@@ -226,7 +226,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DescribeSMBFileSharesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679385655"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [SMBFileShareInfo]))
+</span><a href="#local-6989586621679385664"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [SMBFileShareInfo]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SMBFileShareInfoList&quot;</span></span><span>
@@ -246,15 +246,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679385657"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679385666"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385646"><span id="local-6989586621679385648"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#DescribeSMBFileShares"><span class="hs-identifier hs-type">DescribeSMBFileShares</span></a></span></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385655"><span id="local-6989586621679385657"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#DescribeSMBFileShares"><span class="hs-identifier hs-type">DescribeSMBFileShares</span></a></span></span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385643"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#DescribeSMBFileShares"><span class="hs-identifier hs-type">DescribeSMBFileShares</span></a></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385652"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#DescribeSMBFileShares"><span class="hs-identifier hs-type">DescribeSMBFileShares</span></a></span></span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#DescribeSMBFileShares"><span class="hs-identifier hs-type">DescribeSMBFileShares</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679385639"><span class="annot"><span class="annottext">toHeaders :: DescribeSMBFileShares -&gt; ResponseHeaders
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679385648"><span class="annot"><span class="annottext">toHeaders :: DescribeSMBFileShares -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeSMBFileShares -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -281,12 +281,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385629"><span id="local-6989586621679385631"><span id="local-6989586621679385633"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#DescribeSMBFileShares"><span class="hs-identifier hs-type">DescribeSMBFileShares</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679385627"><span class="annot"><span class="annottext">toJSON :: DescribeSMBFileShares -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#DescribeSMBFileShares%27"><span class="hs-identifier hs-type">DescribeSMBFileShares'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385625"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385638"><span id="local-6989586621679385640"><span id="local-6989586621679385642"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#DescribeSMBFileShares"><span class="hs-identifier hs-type">DescribeSMBFileShares</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679385636"><span class="annot"><span class="annottext">toJSON :: DescribeSMBFileShares -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#DescribeSMBFileShares%27"><span class="hs-identifier hs-type">DescribeSMBFileShares'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385634"><span class="annot"><span class="annottext">NonEmpty Text
 fileShareARNList :: NonEmpty Text
 $sel:fileShareARNList:DescribeSMBFileShares' :: DescribeSMBFileShares -&gt; NonEmpty Text
-</span><a href="#local-6989586621679385625"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679385634"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -299,19 +299,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;FileShareARNList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679385625"><span class="hs-identifier hs-var">fileShareARNList</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679385634"><span class="hs-identifier hs-var">fileShareARNList</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#DescribeSMBFileShares"><span class="hs-identifier hs-type">DescribeSMBFileShares</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679385619"><span class="annot"><span class="annottext">toPath :: DescribeSMBFileShares -&gt; ByteString
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679385628"><span class="annot"><span class="annottext">toPath :: DescribeSMBFileShares -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeSMBFileShares -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#DescribeSMBFileShares"><span class="hs-identifier hs-type">DescribeSMBFileShares</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679385615"><span class="annot"><span class="annottext">toQuery :: DescribeSMBFileShares -&gt; QueryString
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679385624"><span class="annot"><span class="annottext">toQuery :: DescribeSMBFileShares -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeSMBFileShares -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -321,7 +321,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-135"></span><span class="hs-comment">-- | DescribeSMBFileSharesOutput</span><span>
 </span><span id="line-136"></span><span class="hs-comment">--</span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- /See:/ 'newDescribeSMBFileSharesResponse' smart constructor.</span><span>
-</span><span id="line-138"></span><span id="local-6989586621679385612"><span id="local-6989586621679385613"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeSMBFileSharesResponse"><span class="annot"><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#DescribeSMBFileSharesResponse"><span class="hs-identifier hs-var">DescribeSMBFileSharesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeSMBFileSharesResponse%27"><span class="annot"><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#DescribeSMBFileSharesResponse%27"><span class="hs-identifier hs-var">DescribeSMBFileSharesResponse'</span></a></span></span><span>
+</span><span id="line-138"></span><span id="local-6989586621679385621"><span id="local-6989586621679385622"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeSMBFileSharesResponse"><span class="annot"><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#DescribeSMBFileSharesResponse"><span class="hs-identifier hs-var">DescribeSMBFileSharesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeSMBFileSharesResponse%27"><span class="annot"><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#DescribeSMBFileSharesResponse%27"><span class="hs-identifier hs-var">DescribeSMBFileSharesResponse'</span></a></span></span><span>
 </span><span id="line-139"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array containing a description for each requested file share.</span><span>
 </span><span id="line-140"></span><span>    </span><span id="%24sel%3AsMBFileShareInfoList%3ADescribeSMBFileSharesResponse%27"><span class="annot"><span class="annottext">DescribeSMBFileSharesResponse -&gt; Maybe [SMBFileShareInfo]
 </span><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#%24sel%3AsMBFileShareInfoList%3ADescribeSMBFileSharesResponse%27"><span class="hs-identifier hs-var hs-var">sMBFileShareInfoList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.SMBFileShareInfo.html#SMBFileShareInfo"><span class="hs-identifier hs-type">SMBFileShareInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -329,7 +329,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-142"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeSMBFileSharesResponse%27"><span class="annot"><span class="annottext">DescribeSMBFileSharesResponse -&gt; Int
 </span><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#%24sel%3AhttpStatus%3ADescribeSMBFileSharesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679385606"><span id="local-6989586621679385608"><span class="annot"><span class="annottext">DescribeSMBFileSharesResponse
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679385615"><span id="local-6989586621679385617"><span class="annot"><span class="annottext">DescribeSMBFileSharesResponse
 -&gt; DescribeSMBFileSharesResponse -&gt; Bool
 (DescribeSMBFileSharesResponse
  -&gt; DescribeSMBFileSharesResponse -&gt; Bool)
@@ -345,7 +345,7 @@ $c/= :: DescribeSMBFileSharesResponse
 -&gt; DescribeSMBFileSharesResponse -&gt; Bool
 $c== :: DescribeSMBFileSharesResponse
 -&gt; DescribeSMBFileSharesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385598"><span id="local-6989586621679385600"><span id="local-6989586621679385602"><span id="local-6989586621679385604"><span class="annot"><span class="annottext">ReadPrec [DescribeSMBFileSharesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385607"><span id="local-6989586621679385609"><span id="local-6989586621679385611"><span id="local-6989586621679385613"><span class="annot"><span class="annottext">ReadPrec [DescribeSMBFileSharesResponse]
 ReadPrec DescribeSMBFileSharesResponse
 Int -&gt; ReadS DescribeSMBFileSharesResponse
 ReadS [DescribeSMBFileSharesResponse]
@@ -365,7 +365,7 @@ readList :: ReadS [DescribeSMBFileSharesResponse]
 $creadList :: ReadS [DescribeSMBFileSharesResponse]
 readsPrec :: Int -&gt; ReadS DescribeSMBFileSharesResponse
 $creadsPrec :: Int -&gt; ReadS DescribeSMBFileSharesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385592"><span id="local-6989586621679385594"><span id="local-6989586621679385596"><span class="annot"><span class="annottext">Int -&gt; DescribeSMBFileSharesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385601"><span id="local-6989586621679385603"><span id="local-6989586621679385605"><span class="annot"><span class="annottext">Int -&gt; DescribeSMBFileSharesResponse -&gt; ShowS
 [DescribeSMBFileSharesResponse] -&gt; ShowS
 DescribeSMBFileSharesResponse -&gt; String
 (Int -&gt; DescribeSMBFileSharesResponse -&gt; ShowS)
@@ -419,8 +419,8 @@ DescribeSMBFileSharesResponse
 </span><span id="line-159"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-160"></span><span>  </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#DescribeSMBFileSharesResponse"><span class="hs-identifier hs-type">DescribeSMBFileSharesResponse</span></a></span><span>
 </span><span id="line-161"></span><span id="newDescribeSMBFileSharesResponse"><span class="annot"><span class="annottext">newDescribeSMBFileSharesResponse :: Int -&gt; DescribeSMBFileSharesResponse
-</span><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#newDescribeSMBFileSharesResponse"><span class="hs-identifier hs-var hs-var">newDescribeSMBFileSharesResponse</span></a></span></span><span> </span><span id="local-6989586621679385589"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679385589"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#newDescribeSMBFileSharesResponse"><span class="hs-identifier hs-var hs-var">newDescribeSMBFileSharesResponse</span></a></span></span><span> </span><span id="local-6989586621679385598"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385598"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>  </span><span class="annot"><span class="annottext">DescribeSMBFileSharesResponse' :: Maybe [SMBFileShareInfo] -&gt; Int -&gt; DescribeSMBFileSharesResponse
 </span><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#DescribeSMBFileSharesResponse%27"><span class="hs-identifier hs-type">DescribeSMBFileSharesResponse'</span></a></span><span>
 </span><span id="line-163"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sMBFileShareInfoList:DescribeSMBFileSharesResponse' :: Maybe [SMBFileShareInfo]
@@ -430,7 +430,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeSMBFileSharesResponse' :: Int
 </span><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#%24sel%3AhttpStatus%3ADescribeSMBFileSharesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679385589"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679385598"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-166"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | An array containing a description for each requested file share.</span><span>
@@ -446,16 +446,16 @@ forall a. Maybe a
      (Maybe [SMBFileShareInfo])
      (Maybe [SMBFileShareInfo])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#DescribeSMBFileSharesResponse%27"><span class="hs-identifier hs-type">DescribeSMBFileSharesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385588"><span class="annot"><span class="annottext">Maybe [SMBFileShareInfo]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#DescribeSMBFileSharesResponse%27"><span class="hs-identifier hs-type">DescribeSMBFileSharesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385597"><span class="annot"><span class="annottext">Maybe [SMBFileShareInfo]
 sMBFileShareInfoList :: Maybe [SMBFileShareInfo]
 $sel:sMBFileShareInfoList:DescribeSMBFileSharesResponse' :: DescribeSMBFileSharesResponse -&gt; Maybe [SMBFileShareInfo]
-</span><a href="#local-6989586621679385588"><span class="hs-identifier hs-var hs-var">sMBFileShareInfoList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SMBFileShareInfo]
-</span><a href="#local-6989586621679385588"><span class="hs-identifier hs-var">sMBFileShareInfoList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385587"><span class="annot"><span class="annottext">s :: DescribeSMBFileSharesResponse
-</span><a href="#local-6989586621679385587"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#DescribeSMBFileSharesResponse%27"><span class="hs-identifier hs-type">DescribeSMBFileSharesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385586"><span class="annot"><span class="annottext">Maybe [SMBFileShareInfo]
-</span><a href="#local-6989586621679385586"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSMBFileSharesResponse
-</span><a href="#local-6989586621679385587"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sMBFileShareInfoList:DescribeSMBFileSharesResponse' :: Maybe [SMBFileShareInfo]
+</span><a href="#local-6989586621679385597"><span class="hs-identifier hs-var hs-var">sMBFileShareInfoList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SMBFileShareInfo]
+</span><a href="#local-6989586621679385597"><span class="hs-identifier hs-var">sMBFileShareInfoList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385596"><span class="annot"><span class="annottext">s :: DescribeSMBFileSharesResponse
+</span><a href="#local-6989586621679385596"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#DescribeSMBFileSharesResponse%27"><span class="hs-identifier hs-type">DescribeSMBFileSharesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385595"><span class="annot"><span class="annottext">Maybe [SMBFileShareInfo]
+</span><a href="#local-6989586621679385595"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSMBFileSharesResponse
+</span><a href="#local-6989586621679385596"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sMBFileShareInfoList:DescribeSMBFileSharesResponse' :: Maybe [SMBFileShareInfo]
 </span><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#%24sel%3AsMBFileShareInfoList%3ADescribeSMBFileSharesResponse%27"><span class="hs-identifier hs-var">sMBFileShareInfoList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SMBFileShareInfo]
-</span><a href="#local-6989586621679385586"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#DescribeSMBFileSharesResponse"><span class="hs-identifier hs-type">DescribeSMBFileSharesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SMBFileShareInfo] -&gt; f (Maybe [SMBFileShareInfo]))
+</span><a href="#local-6989586621679385595"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#DescribeSMBFileSharesResponse"><span class="hs-identifier hs-type">DescribeSMBFileSharesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SMBFileShareInfo] -&gt; f (Maybe [SMBFileShareInfo]))
  -&gt; DescribeSMBFileSharesResponse
  -&gt; f DescribeSMBFileSharesResponse)
 -&gt; ((Maybe [SMBFileShareInfo] -&gt; f (Maybe [SMBFileShareInfo]))
@@ -495,16 +495,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      DescribeSMBFileSharesResponse DescribeSMBFileSharesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#DescribeSMBFileSharesResponse%27"><span class="hs-identifier hs-type">DescribeSMBFileSharesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385584"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#DescribeSMBFileSharesResponse%27"><span class="hs-identifier hs-type">DescribeSMBFileSharesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385593"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeSMBFileSharesResponse' :: DescribeSMBFileSharesResponse -&gt; Int
-</span><a href="#local-6989586621679385584"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679385584"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385583"><span class="annot"><span class="annottext">s :: DescribeSMBFileSharesResponse
-</span><a href="#local-6989586621679385583"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#DescribeSMBFileSharesResponse%27"><span class="hs-identifier hs-type">DescribeSMBFileSharesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385582"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679385582"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSMBFileSharesResponse
-</span><a href="#local-6989586621679385583"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeSMBFileSharesResponse' :: Int
+</span><a href="#local-6989586621679385593"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385593"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385592"><span class="annot"><span class="annottext">s :: DescribeSMBFileSharesResponse
+</span><a href="#local-6989586621679385592"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#DescribeSMBFileSharesResponse%27"><span class="hs-identifier hs-type">DescribeSMBFileSharesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385591"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385591"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSMBFileSharesResponse
+</span><a href="#local-6989586621679385592"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeSMBFileSharesResponse' :: Int
 </span><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#%24sel%3AhttpStatus%3ADescribeSMBFileSharesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679385582"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#DescribeSMBFileSharesResponse"><span class="hs-identifier hs-type">DescribeSMBFileSharesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679385591"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#DescribeSMBFileSharesResponse"><span class="hs-identifier hs-type">DescribeSMBFileSharesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385580"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#DescribeSMBFileSharesResponse"><span class="hs-identifier hs-type">DescribeSMBFileSharesResponse</span></a></span></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385589"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.DescribeSMBFileShares.html#DescribeSMBFileSharesResponse"><span class="hs-identifier hs-type">DescribeSMBFileSharesResponse</span></a></span></span><span>
 </span><span id="line-177"></span></pre></body></html>

@@ -59,7 +59,7 @@
 </span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newDeleteStream' smart constructor.</span><span>
-</span><span id="line-62"></span><span id="local-6989586621679179778"><span id="local-6989586621679179779"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteStream"><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStream"><span class="hs-identifier hs-var">DeleteStream</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteStream%27"><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStream%27"><span class="hs-identifier hs-var">DeleteStream'</span></a></span></span><span>
+</span><span id="line-62"></span><span id="local-6989586621679179787"><span id="local-6989586621679179788"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteStream"><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStream"><span class="hs-identifier hs-var">DeleteStream</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteStream%27"><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStream%27"><span class="hs-identifier hs-var">DeleteStream'</span></a></span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Optional: The version of the stream that you want to delete.</span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-comment">-- Specify the version as a safeguard to ensure that your are deleting the</span><span>
@@ -73,7 +73,7 @@
 </span><span id="line-72"></span><span>    </span><span id="%24sel%3AstreamARN%3ADeleteStream%27"><span class="annot"><span class="annottext">DeleteStream -&gt; Text
 </span><a href="Network.AWS.KinesisVideo.DeleteStream.html#%24sel%3AstreamARN%3ADeleteStream%27"><span class="hs-identifier hs-var hs-var">streamARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179771"><span id="local-6989586621679179773"><span class="annot"><span class="annottext">DeleteStream -&gt; DeleteStream -&gt; Bool
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179780"><span id="local-6989586621679179782"><span class="annot"><span class="annottext">DeleteStream -&gt; DeleteStream -&gt; Bool
 (DeleteStream -&gt; DeleteStream -&gt; Bool)
 -&gt; (DeleteStream -&gt; DeleteStream -&gt; Bool) -&gt; Eq DeleteStream
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteStream -&gt; DeleteStream -&gt; Bool
 == :: DeleteStream -&gt; DeleteStream -&gt; Bool
 $c== :: DeleteStream -&gt; DeleteStream -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179762"><span id="local-6989586621679179764"><span id="local-6989586621679179766"><span id="local-6989586621679179768"><span class="annot"><span class="annottext">ReadPrec [DeleteStream]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179771"><span id="local-6989586621679179773"><span id="local-6989586621679179775"><span id="local-6989586621679179777"><span class="annot"><span class="annottext">ReadPrec [DeleteStream]
 ReadPrec DeleteStream
 Int -&gt; ReadS DeleteStream
 ReadS [DeleteStream]
@@ -101,7 +101,7 @@ readList :: ReadS [DeleteStream]
 $creadList :: ReadS [DeleteStream]
 readsPrec :: Int -&gt; ReadS DeleteStream
 $creadsPrec :: Int -&gt; ReadS DeleteStream
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179755"><span id="local-6989586621679179757"><span id="local-6989586621679179759"><span class="annot"><span class="annottext">Int -&gt; DeleteStream -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179764"><span id="local-6989586621679179766"><span id="local-6989586621679179768"><span class="annot"><span class="annottext">Int -&gt; DeleteStream -&gt; ShowS
 [DeleteStream] -&gt; ShowS
 DeleteStream -&gt; String
 (Int -&gt; DeleteStream -&gt; ShowS)
@@ -149,8 +149,8 @@ $cfrom :: forall x. DeleteStream -&gt; Rep DeleteStream x
 </span><span id="line-95"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStream"><span class="hs-identifier hs-type">DeleteStream</span></a></span><span>
 </span><span id="line-97"></span><span id="newDeleteStream"><span class="annot"><span class="annottext">newDeleteStream :: Text -&gt; DeleteStream
-</span><a href="Network.AWS.KinesisVideo.DeleteStream.html#newDeleteStream"><span class="hs-identifier hs-var hs-var">newDeleteStream</span></a></span></span><span> </span><span id="local-6989586621679179750"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179750"><span class="hs-identifier hs-var">pStreamARN_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.KinesisVideo.DeleteStream.html#newDeleteStream"><span class="hs-identifier hs-var hs-var">newDeleteStream</span></a></span></span><span> </span><span id="local-6989586621679179759"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179759"><span class="hs-identifier hs-var">pStreamARN_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>  </span><span class="annot"><span class="annottext">DeleteStream' :: Maybe Text -&gt; Text -&gt; DeleteStream
 </span><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStream%27"><span class="hs-identifier hs-type">DeleteStream'</span></a></span><span>
 </span><span id="line-99"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:currentVersion:DeleteStream' :: Maybe Text
@@ -159,7 +159,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:streamARN:DeleteStream' :: Text
 </span><a href="Network.AWS.KinesisVideo.DeleteStream.html#%24sel%3AstreamARN%3ADeleteStream%27"><span class="hs-identifier hs-var">streamARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179750"><span class="hs-identifier hs-var">pStreamARN_</span></a></span><span>
+</span><a href="#local-6989586621679179759"><span class="hs-identifier hs-var">pStreamARN_</span></a></span><span>
 </span><span id="line-101"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | Optional: The version of the stream that you want to delete.</span><span>
@@ -175,16 +175,16 @@ forall a. Maybe a
 -&gt; (DeleteStream -&gt; Maybe Text -&gt; DeleteStream)
 -&gt; Lens DeleteStream DeleteStream (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStream%27"><span class="hs-identifier hs-type">DeleteStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179747"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStream%27"><span class="hs-identifier hs-type">DeleteStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179756"><span class="annot"><span class="annottext">Maybe Text
 currentVersion :: Maybe Text
 $sel:currentVersion:DeleteStream' :: DeleteStream -&gt; Maybe Text
-</span><a href="#local-6989586621679179747"><span class="hs-identifier hs-var hs-var">currentVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679179747"><span class="hs-identifier hs-var">currentVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179746"><span class="annot"><span class="annottext">s :: DeleteStream
-</span><a href="#local-6989586621679179746"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStream%27"><span class="hs-identifier hs-type">DeleteStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179745"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679179745"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteStream
-</span><a href="#local-6989586621679179746"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currentVersion:DeleteStream' :: Maybe Text
+</span><a href="#local-6989586621679179756"><span class="hs-identifier hs-var hs-var">currentVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179756"><span class="hs-identifier hs-var">currentVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179755"><span class="annot"><span class="annottext">s :: DeleteStream
+</span><a href="#local-6989586621679179755"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStream%27"><span class="hs-identifier hs-type">DeleteStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179754"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179754"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteStream
+</span><a href="#local-6989586621679179755"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currentVersion:DeleteStream' :: Maybe Text
 </span><a href="Network.AWS.KinesisVideo.DeleteStream.html#%24sel%3AcurrentVersion%3ADeleteStream%27"><span class="hs-identifier hs-var">currentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679179745"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStream"><span class="hs-identifier hs-type">DeleteStream</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679179754"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStream"><span class="hs-identifier hs-type">DeleteStream</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the stream that you want to delete.</span><span>
 </span><span id="line-114"></span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#deleteStream_streamARN"><span class="hs-identifier hs-type">deleteStream_streamARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStream"><span class="hs-identifier hs-type">DeleteStream</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -193,25 +193,25 @@ $sel:currentVersion:DeleteStream' :: DeleteStream -&gt; Maybe Text
 -&gt; (DeleteStream -&gt; Text -&gt; DeleteStream)
 -&gt; Lens DeleteStream DeleteStream Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStream%27"><span class="hs-identifier hs-type">DeleteStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179744"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStream%27"><span class="hs-identifier hs-type">DeleteStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179753"><span class="annot"><span class="annottext">Text
 streamARN :: Text
 $sel:streamARN:DeleteStream' :: DeleteStream -&gt; Text
-</span><a href="#local-6989586621679179744"><span class="hs-identifier hs-var hs-var">streamARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179744"><span class="hs-identifier hs-var">streamARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179743"><span class="annot"><span class="annottext">s :: DeleteStream
-</span><a href="#local-6989586621679179743"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStream%27"><span class="hs-identifier hs-type">DeleteStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179742"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179742"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteStream
-</span><a href="#local-6989586621679179743"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamARN:DeleteStream' :: Text
+</span><a href="#local-6989586621679179753"><span class="hs-identifier hs-var hs-var">streamARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179753"><span class="hs-identifier hs-var">streamARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179752"><span class="annot"><span class="annottext">s :: DeleteStream
+</span><a href="#local-6989586621679179752"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStream%27"><span class="hs-identifier hs-type">DeleteStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179751"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179751"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteStream
+</span><a href="#local-6989586621679179752"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamARN:DeleteStream' :: Text
 </span><a href="Network.AWS.KinesisVideo.DeleteStream.html#%24sel%3AstreamARN%3ADeleteStream%27"><span class="hs-identifier hs-var">streamARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179742"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStream"><span class="hs-identifier hs-type">DeleteStream</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679179751"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStream"><span class="hs-identifier hs-type">DeleteStream</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStream"><span class="hs-identifier hs-type">DeleteStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-118"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStream"><span class="hs-identifier hs-type">DeleteStream</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStreamResponse"><span class="hs-identifier hs-type">DeleteStreamResponse</span></a></span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679179738"><span class="annot"><span class="annottext">request :: DeleteStream -&gt; Request DeleteStream
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679179747"><span class="annot"><span class="annottext">request :: DeleteStream -&gt; Request DeleteStream
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteStream -&gt; Request DeleteStream
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.KinesisVideo.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679179734"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679179743"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteStream
 -&gt; ClientResponse ClientBody
@@ -235,10 +235,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679179731"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679179731"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679179730"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679179730"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679179729"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679179729"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679179740"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179740"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679179739"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679179739"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679179738"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679179738"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteStreamResponse
 </span><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStreamResponse%27"><span class="hs-identifier hs-var">DeleteStreamResponse'</span></a></span><span>
 </span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteStreamResponse)
@@ -249,30 +249,30 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679179731"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679179740"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179722"><span id="local-6989586621679179724"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStream"><span class="hs-identifier hs-type">DeleteStream</span></a></span></span></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179731"><span id="local-6989586621679179733"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStream"><span class="hs-identifier hs-type">DeleteStream</span></a></span></span></span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179719"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStream"><span class="hs-identifier hs-type">DeleteStream</span></a></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179728"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStream"><span class="hs-identifier hs-type">DeleteStream</span></a></span></span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStream"><span class="hs-identifier hs-type">DeleteStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679179715"><span class="annot"><span class="annottext">toHeaders :: DeleteStream -&gt; ResponseHeaders
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679179724"><span class="annot"><span class="annottext">toHeaders :: DeleteStream -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteStream -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179706"><span id="local-6989586621679179708"><span id="local-6989586621679179710"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStream"><span class="hs-identifier hs-type">DeleteStream</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679179704"><span class="annot"><span class="annottext">toJSON :: DeleteStream -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStream%27"><span class="hs-identifier hs-type">DeleteStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179701"><span id="local-6989586621679179702"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179715"><span id="local-6989586621679179717"><span id="local-6989586621679179719"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStream"><span class="hs-identifier hs-type">DeleteStream</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679179713"><span class="annot"><span class="annottext">toJSON :: DeleteStream -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStream%27"><span class="hs-identifier hs-type">DeleteStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179710"><span id="local-6989586621679179711"><span class="annot"><span class="annottext">Maybe Text
 Text
 streamARN :: Text
 currentVersion :: Maybe Text
 $sel:streamARN:DeleteStream' :: DeleteStream -&gt; Text
 $sel:currentVersion:DeleteStream' :: DeleteStream -&gt; Maybe Text
-</span><a href="#local-6989586621679179701"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679179710"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -285,26 +285,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-139"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679179702"><span class="hs-identifier hs-var">currentVersion</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679179711"><span class="hs-identifier hs-var">currentVersion</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StreamARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179701"><span class="hs-identifier hs-var">streamARN</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679179710"><span class="hs-identifier hs-var">streamARN</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStream"><span class="hs-identifier hs-type">DeleteStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679179695"><span class="annot"><span class="annottext">toPath :: DeleteStream -&gt; ByteString
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679179704"><span class="annot"><span class="annottext">toPath :: DeleteStream -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteStream -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/deleteStream&quot;</span></span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStream"><span class="hs-identifier hs-type">DeleteStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679179691"><span class="annot"><span class="annottext">toQuery :: DeleteStream -&gt; QueryString
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679179700"><span class="annot"><span class="annottext">toQuery :: DeleteStream -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteStream -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -312,12 +312,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | /See:/ 'newDeleteStreamResponse' smart constructor.</span><span>
-</span><span id="line-151"></span><span id="local-6989586621679179688"><span id="local-6989586621679179689"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteStreamResponse"><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStreamResponse"><span class="hs-identifier hs-var">DeleteStreamResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteStreamResponse%27"><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStreamResponse%27"><span class="hs-identifier hs-var">DeleteStreamResponse'</span></a></span></span><span>
+</span><span id="line-151"></span><span id="local-6989586621679179697"><span id="local-6989586621679179698"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteStreamResponse"><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStreamResponse"><span class="hs-identifier hs-var">DeleteStreamResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteStreamResponse%27"><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStreamResponse%27"><span class="hs-identifier hs-var">DeleteStreamResponse'</span></a></span></span><span>
 </span><span id="line-152"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-153"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteStreamResponse%27"><span class="annot"><span class="annottext">DeleteStreamResponse -&gt; Int
 </span><a href="Network.AWS.KinesisVideo.DeleteStream.html#%24sel%3AhttpStatus%3ADeleteStreamResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-154"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179683"><span id="local-6989586621679179685"><span class="annot"><span class="annottext">DeleteStreamResponse -&gt; DeleteStreamResponse -&gt; Bool
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179692"><span id="local-6989586621679179694"><span class="annot"><span class="annottext">DeleteStreamResponse -&gt; DeleteStreamResponse -&gt; Bool
 (DeleteStreamResponse -&gt; DeleteStreamResponse -&gt; Bool)
 -&gt; (DeleteStreamResponse -&gt; DeleteStreamResponse -&gt; Bool)
 -&gt; Eq DeleteStreamResponse
@@ -326,7 +326,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteStreamResponse -&gt; DeleteStreamResponse -&gt; Bool
 == :: DeleteStreamResponse -&gt; DeleteStreamResponse -&gt; Bool
 $c== :: DeleteStreamResponse -&gt; DeleteStreamResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179675"><span id="local-6989586621679179677"><span id="local-6989586621679179679"><span id="local-6989586621679179681"><span class="annot"><span class="annottext">ReadPrec [DeleteStreamResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179684"><span id="local-6989586621679179686"><span id="local-6989586621679179688"><span id="local-6989586621679179690"><span class="annot"><span class="annottext">ReadPrec [DeleteStreamResponse]
 ReadPrec DeleteStreamResponse
 Int -&gt; ReadS DeleteStreamResponse
 ReadS [DeleteStreamResponse]
@@ -346,7 +346,7 @@ readList :: ReadS [DeleteStreamResponse]
 $creadList :: ReadS [DeleteStreamResponse]
 readsPrec :: Int -&gt; ReadS DeleteStreamResponse
 $creadsPrec :: Int -&gt; ReadS DeleteStreamResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179669"><span id="local-6989586621679179671"><span id="local-6989586621679179673"><span class="annot"><span class="annottext">Int -&gt; DeleteStreamResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179678"><span id="local-6989586621679179680"><span id="local-6989586621679179682"><span class="annot"><span class="annottext">Int -&gt; DeleteStreamResponse -&gt; ShowS
 [DeleteStreamResponse] -&gt; ShowS
 DeleteStreamResponse -&gt; String
 (Int -&gt; DeleteStreamResponse -&gt; ShowS)
@@ -386,12 +386,12 @@ $cfrom :: forall x. DeleteStreamResponse -&gt; Rep DeleteStreamResponse x
 </span><span id="line-168"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-169"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStreamResponse"><span class="hs-identifier hs-type">DeleteStreamResponse</span></a></span><span>
 </span><span id="line-170"></span><span id="newDeleteStreamResponse"><span class="annot"><span class="annottext">newDeleteStreamResponse :: Int -&gt; DeleteStreamResponse
-</span><a href="Network.AWS.KinesisVideo.DeleteStream.html#newDeleteStreamResponse"><span class="hs-identifier hs-var hs-var">newDeleteStreamResponse</span></a></span></span><span> </span><span id="local-6989586621679179666"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679179666"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.KinesisVideo.DeleteStream.html#newDeleteStreamResponse"><span class="hs-identifier hs-var hs-var">newDeleteStreamResponse</span></a></span></span><span> </span><span id="local-6989586621679179675"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179675"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-171"></span><span>  </span><span class="annot"><span class="annottext">DeleteStreamResponse' :: Int -&gt; DeleteStreamResponse
 </span><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStreamResponse%27"><span class="hs-identifier hs-type">DeleteStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteStreamResponse' :: Int
 </span><a href="Network.AWS.KinesisVideo.DeleteStream.html#%24sel%3AhttpStatus%3ADeleteStreamResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679179666"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679179675"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-174"></span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#deleteStreamResponse_httpStatus"><span class="hs-identifier hs-type">deleteStreamResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStreamResponse"><span class="hs-identifier hs-type">DeleteStreamResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -400,16 +400,16 @@ $cfrom :: forall x. DeleteStreamResponse -&gt; Rep DeleteStreamResponse x
 -&gt; (DeleteStreamResponse -&gt; Int -&gt; DeleteStreamResponse)
 -&gt; Lens DeleteStreamResponse DeleteStreamResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStreamResponse%27"><span class="hs-identifier hs-type">DeleteStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179665"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStreamResponse%27"><span class="hs-identifier hs-type">DeleteStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179674"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteStreamResponse' :: DeleteStreamResponse -&gt; Int
-</span><a href="#local-6989586621679179665"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679179665"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179664"><span class="annot"><span class="annottext">s :: DeleteStreamResponse
-</span><a href="#local-6989586621679179664"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStreamResponse%27"><span class="hs-identifier hs-type">DeleteStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179663"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679179663"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteStreamResponse
-</span><a href="#local-6989586621679179664"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteStreamResponse' :: Int
+</span><a href="#local-6989586621679179674"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179674"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179673"><span class="annot"><span class="annottext">s :: DeleteStreamResponse
+</span><a href="#local-6989586621679179673"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStreamResponse%27"><span class="hs-identifier hs-type">DeleteStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179672"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179672"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteStreamResponse
+</span><a href="#local-6989586621679179673"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteStreamResponse' :: Int
 </span><a href="Network.AWS.KinesisVideo.DeleteStream.html#%24sel%3AhttpStatus%3ADeleteStreamResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679179663"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStreamResponse"><span class="hs-identifier hs-type">DeleteStreamResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679179672"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStreamResponse"><span class="hs-identifier hs-type">DeleteStreamResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
-</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179661"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStreamResponse"><span class="hs-identifier hs-type">DeleteStreamResponse</span></a></span></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179670"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteStream.html#DeleteStreamResponse"><span class="hs-identifier hs-type">DeleteStreamResponse</span></a></span></span><span>
 </span><span id="line-178"></span></pre></body></html>

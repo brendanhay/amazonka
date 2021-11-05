@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679372460"><span id="local-6989586621679372461"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AutoScalingType"><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingType.html#AutoScalingType"><span class="hs-identifier hs-var">AutoScalingType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoScalingType%27"><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingType.html#AutoScalingType%27"><span class="hs-identifier hs-var">AutoScalingType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679372469"><span id="local-6989586621679372470"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AutoScalingType"><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingType.html#AutoScalingType"><span class="hs-identifier hs-var">AutoScalingType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoScalingType%27"><span class="annot"><a href="Network.AWS.OpsWorks.Types.AutoScalingType.html#AutoScalingType%27"><span class="hs-identifier hs-var">AutoScalingType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAutoScalingType"><span class="annot"><span class="annottext">AutoScalingType -&gt; Text
 </span><a href="Network.AWS.OpsWorks.Types.AutoScalingType.html#fromAutoScalingType"><span class="hs-identifier hs-var hs-var">fromAutoScalingType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679372452"><span id="local-6989586621679372454"><span id="local-6989586621679372456"><span class="annot"><span class="annottext">Int -&gt; AutoScalingType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679372461"><span id="local-6989586621679372463"><span id="local-6989586621679372465"><span class="annot"><span class="annottext">Int -&gt; AutoScalingType -&gt; ShowS
 [AutoScalingType] -&gt; ShowS
 AutoScalingType -&gt; String
 (Int -&gt; AutoScalingType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: AutoScalingType -&gt; String
 showsPrec :: Int -&gt; AutoScalingType -&gt; ShowS
 $cshowsPrec :: Int -&gt; AutoScalingType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679372443"><span id="local-6989586621679372445"><span id="local-6989586621679372447"><span id="local-6989586621679372449"><span class="annot"><span class="annottext">ReadPrec [AutoScalingType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679372452"><span id="local-6989586621679372454"><span id="local-6989586621679372456"><span id="local-6989586621679372458"><span class="annot"><span class="annottext">ReadPrec [AutoScalingType]
 ReadPrec AutoScalingType
 Int -&gt; ReadS AutoScalingType
 ReadS [AutoScalingType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [AutoScalingType]
 readsPrec :: Int -&gt; ReadS AutoScalingType
 $creadsPrec :: Int -&gt; ReadS AutoScalingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679372438"><span id="local-6989586621679372440"><span class="annot"><span class="annottext">AutoScalingType -&gt; AutoScalingType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679372447"><span id="local-6989586621679372449"><span class="annot"><span class="annottext">AutoScalingType -&gt; AutoScalingType -&gt; Bool
 (AutoScalingType -&gt; AutoScalingType -&gt; Bool)
 -&gt; (AutoScalingType -&gt; AutoScalingType -&gt; Bool)
 -&gt; Eq AutoScalingType
@@ -82,7 +82,7 @@ $c/= :: AutoScalingType -&gt; AutoScalingType -&gt; Bool
 == :: AutoScalingType -&gt; AutoScalingType -&gt; Bool
 $c== :: AutoScalingType -&gt; AutoScalingType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679372422"><span id="local-6989586621679372424"><span id="local-6989586621679372426"><span id="local-6989586621679372428"><span id="local-6989586621679372430"><span id="local-6989586621679372432"><span id="local-6989586621679372434"><span class="annot"><span class="annottext">Eq AutoScalingType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679372431"><span id="local-6989586621679372433"><span id="local-6989586621679372435"><span id="local-6989586621679372437"><span id="local-6989586621679372439"><span id="local-6989586621679372441"><span id="local-6989586621679372443"><span class="annot"><span class="annottext">Eq AutoScalingType
 Eq AutoScalingType
 -&gt; (AutoScalingType -&gt; AutoScalingType -&gt; Ordering)
 -&gt; (AutoScalingType -&gt; AutoScalingType -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. AutoScalingType -&gt; Rep AutoScalingType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679372414"><span id="local-6989586621679372416"><span class="annot"><span class="annottext">Int -&gt; AutoScalingType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679372423"><span id="local-6989586621679372425"><span class="annot"><span class="annottext">Int -&gt; AutoScalingType -&gt; Int
 AutoScalingType -&gt; Int
 (Int -&gt; AutoScalingType -&gt; Int)
 -&gt; (AutoScalingType -&gt; Int) -&gt; Hashable AutoScalingType
@@ -143,50 +143,50 @@ $chash :: AutoScalingType -&gt; Int
 hashWithSalt :: Int -&gt; AutoScalingType -&gt; Int
 $chashWithSalt :: Int -&gt; AutoScalingType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679372411"><span class="annot"><span class="annottext">AutoScalingType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679372420"><span class="annot"><span class="annottext">AutoScalingType -&gt; ()
 (AutoScalingType -&gt; ()) -&gt; NFData AutoScalingType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AutoScalingType -&gt; ()
 $crnf :: AutoScalingType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679372408"><span class="annot"><span class="annottext">Text -&gt; Either String AutoScalingType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679372417"><span class="annot"><span class="annottext">Text -&gt; Either String AutoScalingType
 (Text -&gt; Either String AutoScalingType) -&gt; FromText AutoScalingType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AutoScalingType
 $cfromText :: Text -&gt; Either String AutoScalingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679372405"><span class="annot"><span class="annottext">AutoScalingType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679372414"><span class="annot"><span class="annottext">AutoScalingType -&gt; Text
 (AutoScalingType -&gt; Text) -&gt; ToText AutoScalingType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AutoScalingType -&gt; Text
 $ctoText :: AutoScalingType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679372402"><span class="annot"><span class="annottext">AutoScalingType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679372411"><span class="annot"><span class="annottext">AutoScalingType -&gt; ByteString
 (AutoScalingType -&gt; ByteString) -&gt; ToByteString AutoScalingType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AutoScalingType -&gt; ByteString
 $ctoBS :: AutoScalingType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679372399"><span class="annot"><span class="annottext">AutoScalingType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679372408"><span class="annot"><span class="annottext">AutoScalingType -&gt; ByteStringBuilder
 (AutoScalingType -&gt; ByteStringBuilder) -&gt; ToLog AutoScalingType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AutoScalingType -&gt; ByteStringBuilder
 $cbuild :: AutoScalingType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679372396"><span class="annot"><span class="annottext">HeaderName -&gt; AutoScalingType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679372405"><span class="annot"><span class="annottext">HeaderName -&gt; AutoScalingType -&gt; [Header]
 (HeaderName -&gt; AutoScalingType -&gt; [Header])
 -&gt; ToHeader AutoScalingType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AutoScalingType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AutoScalingType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679372393"><span class="annot"><span class="annottext">AutoScalingType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679372402"><span class="annot"><span class="annottext">AutoScalingType -&gt; QueryString
 (AutoScalingType -&gt; QueryString) -&gt; ToQuery AutoScalingType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AutoScalingType -&gt; QueryString
 $ctoQuery :: AutoScalingType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679372388"><span id="local-6989586621679372390"><span class="annot"><span class="annottext">Value -&gt; Parser [AutoScalingType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679372397"><span id="local-6989586621679372399"><span class="annot"><span class="annottext">Value -&gt; Parser [AutoScalingType]
 Value -&gt; Parser AutoScalingType
 (Value -&gt; Parser AutoScalingType)
 -&gt; (Value -&gt; Parser [AutoScalingType]) -&gt; FromJSON AutoScalingType
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [AutoScalingType]
 parseJSON :: Value -&gt; Parser AutoScalingType
 $cparseJSON :: Value -&gt; Parser AutoScalingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679372383"><span id="local-6989586621679372385"><span class="annot"><span class="annottext">FromJSONKeyFunction [AutoScalingType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679372392"><span id="local-6989586621679372394"><span class="annot"><span class="annottext">FromJSONKeyFunction [AutoScalingType]
 FromJSONKeyFunction AutoScalingType
 FromJSONKeyFunction AutoScalingType
 -&gt; FromJSONKeyFunction [AutoScalingType]
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AutoScalingType]
 fromJSONKey :: FromJSONKeyFunction AutoScalingType
 $cfromJSONKey :: FromJSONKeyFunction AutoScalingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679372374"><span id="local-6989586621679372376"><span id="local-6989586621679372378"><span id="local-6989586621679372380"><span class="annot"><span class="annottext">[AutoScalingType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679372383"><span id="local-6989586621679372385"><span id="local-6989586621679372387"><span id="local-6989586621679372389"><span class="annot"><span class="annottext">[AutoScalingType] -&gt; Encoding
 [AutoScalingType] -&gt; Value
 AutoScalingType -&gt; Encoding
 AutoScalingType -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: AutoScalingType -&gt; Encoding
 toJSON :: AutoScalingType -&gt; Value
 $ctoJSON :: AutoScalingType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679372369"><span id="local-6989586621679372371"><span class="annot"><span class="annottext">ToJSONKeyFunction [AutoScalingType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679372378"><span id="local-6989586621679372380"><span class="annot"><span class="annottext">ToJSONKeyFunction [AutoScalingType]
 ToJSONKeyFunction AutoScalingType
 ToJSONKeyFunction AutoScalingType
 -&gt; ToJSONKeyFunction [AutoScalingType] -&gt; ToJSONKey AutoScalingType
@@ -244,14 +244,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AutoScalingType]
 toJSONKey :: ToJSONKeyFunction AutoScalingType
 $ctoJSONKey :: ToJSONKeyFunction AutoScalingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679372366"><span class="annot"><span class="annottext">[Node] -&gt; Either String AutoScalingType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679372375"><span class="annot"><span class="annottext">[Node] -&gt; Either String AutoScalingType
 ([Node] -&gt; Either String AutoScalingType)
 -&gt; FromXML AutoScalingType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AutoScalingType
 $cparseXML :: [Node] -&gt; Either String AutoScalingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679372363"><span class="annot"><span class="annottext">AutoScalingType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679372372"><span class="annot"><span class="annottext">AutoScalingType -&gt; XML
 (AutoScalingType -&gt; XML) -&gt; ToXML AutoScalingType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AutoScalingType -&gt; XML

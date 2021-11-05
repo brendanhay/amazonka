@@ -58,7 +58,7 @@
 </span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.html"><span class="hs-identifier">Network.AWS.WAFRegional.Types</span></a></span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newListRateBasedRules' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621679316318"><span id="local-6989586621679316319"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListRateBasedRules"><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRules"><span class="hs-identifier hs-var">ListRateBasedRules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListRateBasedRules%27"><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRules%27"><span class="hs-identifier hs-var">ListRateBasedRules'</span></a></span></span><span>
+</span><span id="line-61"></span><span id="local-6989586621679316327"><span id="local-6989586621679316328"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListRateBasedRules"><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRules"><span class="hs-identifier hs-var">ListRateBasedRules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListRateBasedRules%27"><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRules%27"><span class="hs-identifier hs-var">ListRateBasedRules'</span></a></span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If you specify a value for @Limit@ and you have more @Rules@ than the</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- value of @Limit@, AWS WAF returns a @NextMarker@ value in the response</span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">-- that allows you to list another group of @Rules@. For the second and</span><span>
@@ -74,7 +74,7 @@
 </span><span id="line-73"></span><span>    </span><span id="%24sel%3Alimit%3AListRateBasedRules%27"><span class="annot"><span class="annottext">ListRateBasedRules -&gt; Maybe Natural
 </span><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#%24sel%3Alimit%3AListRateBasedRules%27"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-74"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679316311"><span id="local-6989586621679316313"><span class="annot"><span class="annottext">ListRateBasedRules -&gt; ListRateBasedRules -&gt; Bool
+</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679316320"><span id="local-6989586621679316322"><span class="annot"><span class="annottext">ListRateBasedRules -&gt; ListRateBasedRules -&gt; Bool
 (ListRateBasedRules -&gt; ListRateBasedRules -&gt; Bool)
 -&gt; (ListRateBasedRules -&gt; ListRateBasedRules -&gt; Bool)
 -&gt; Eq ListRateBasedRules
@@ -83,7 +83,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListRateBasedRules -&gt; ListRateBasedRules -&gt; Bool
 == :: ListRateBasedRules -&gt; ListRateBasedRules -&gt; Bool
 $c== :: ListRateBasedRules -&gt; ListRateBasedRules -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316302"><span id="local-6989586621679316304"><span id="local-6989586621679316306"><span id="local-6989586621679316308"><span class="annot"><span class="annottext">ReadPrec [ListRateBasedRules]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316311"><span id="local-6989586621679316313"><span id="local-6989586621679316315"><span id="local-6989586621679316317"><span class="annot"><span class="annottext">ReadPrec [ListRateBasedRules]
 ReadPrec ListRateBasedRules
 Int -&gt; ReadS ListRateBasedRules
 ReadS [ListRateBasedRules]
@@ -103,7 +103,7 @@ readList :: ReadS [ListRateBasedRules]
 $creadList :: ReadS [ListRateBasedRules]
 readsPrec :: Int -&gt; ReadS ListRateBasedRules
 $creadsPrec :: Int -&gt; ReadS ListRateBasedRules
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316295"><span id="local-6989586621679316297"><span id="local-6989586621679316299"><span class="annot"><span class="annottext">Int -&gt; ListRateBasedRules -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316304"><span id="local-6989586621679316306"><span id="local-6989586621679316308"><span class="annot"><span class="annottext">Int -&gt; ListRateBasedRules -&gt; ShowS
 [ListRateBasedRules] -&gt; ShowS
 ListRateBasedRules -&gt; String
 (Int -&gt; ListRateBasedRules -&gt; ShowS)
@@ -178,16 +178,16 @@ forall a. Maybe a
 -&gt; Lens
      ListRateBasedRules ListRateBasedRules (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRules%27"><span class="hs-identifier hs-type">ListRateBasedRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316288"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRules%27"><span class="hs-identifier hs-type">ListRateBasedRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316297"><span class="annot"><span class="annottext">Maybe Text
 nextMarker :: Maybe Text
 $sel:nextMarker:ListRateBasedRules' :: ListRateBasedRules -&gt; Maybe Text
-</span><a href="#local-6989586621679316288"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316288"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316287"><span class="annot"><span class="annottext">s :: ListRateBasedRules
-</span><a href="#local-6989586621679316287"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRules%27"><span class="hs-identifier hs-type">ListRateBasedRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316286"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316286"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRateBasedRules
-</span><a href="#local-6989586621679316287"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListRateBasedRules' :: Maybe Text
+</span><a href="#local-6989586621679316297"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316297"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316296"><span class="annot"><span class="annottext">s :: ListRateBasedRules
+</span><a href="#local-6989586621679316296"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRules%27"><span class="hs-identifier hs-type">ListRateBasedRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316295"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316295"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRateBasedRules
+</span><a href="#local-6989586621679316296"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListRateBasedRules' :: Maybe Text
 </span><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#%24sel%3AnextMarker%3AListRateBasedRules%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316286"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRules"><span class="hs-identifier hs-type">ListRateBasedRules</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316295"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRules"><span class="hs-identifier hs-type">ListRateBasedRules</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | Specifies the number of @Rules@ that you want AWS WAF to return for this</span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- request. If you have more @Rules@ than the number that you specify for</span><span>
@@ -204,27 +204,27 @@ $sel:nextMarker:ListRateBasedRules' :: ListRateBasedRules -&gt; Maybe Text
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRules%27"><span class="hs-identifier hs-type">ListRateBasedRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316285"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRules%27"><span class="hs-identifier hs-type">ListRateBasedRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316294"><span class="annot"><span class="annottext">Maybe Natural
 limit :: Maybe Natural
 $sel:limit:ListRateBasedRules' :: ListRateBasedRules -&gt; Maybe Natural
-</span><a href="#local-6989586621679316285"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679316285"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316284"><span class="annot"><span class="annottext">s :: ListRateBasedRules
-</span><a href="#local-6989586621679316284"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRules%27"><span class="hs-identifier hs-type">ListRateBasedRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316283"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679316283"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRateBasedRules
-</span><a href="#local-6989586621679316284"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListRateBasedRules' :: Maybe Natural
+</span><a href="#local-6989586621679316294"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679316294"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316293"><span class="annot"><span class="annottext">s :: ListRateBasedRules
+</span><a href="#local-6989586621679316293"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRules%27"><span class="hs-identifier hs-type">ListRateBasedRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316292"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679316292"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRateBasedRules
+</span><a href="#local-6989586621679316293"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListRateBasedRules' :: Maybe Natural
 </span><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#%24sel%3Alimit%3AListRateBasedRules%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679316283"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRules"><span class="hs-identifier hs-type">ListRateBasedRules</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316292"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRules"><span class="hs-identifier hs-type">ListRateBasedRules</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRules"><span class="hs-identifier hs-type">ListRateBasedRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-121"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-122"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRules"><span class="hs-identifier hs-type">ListRateBasedRules</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>      </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRulesResponse"><span class="hs-identifier hs-type">ListRateBasedRulesResponse</span></a></span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679316279"><span class="annot"><span class="annottext">request :: ListRateBasedRules -&gt; Request ListRateBasedRules
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679316288"><span class="annot"><span class="annottext">request :: ListRateBasedRules -&gt; Request ListRateBasedRules
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListRateBasedRules -&gt; Request ListRateBasedRules
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.WAFRegional.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679316275"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679316284"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListRateBasedRules
 -&gt; ClientResponse ClientBody
@@ -250,10 +250,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679316272"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679316272"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679316271"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679316271"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679316270"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679316270"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679316281"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679316281"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679316280"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679316280"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679316279"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679316279"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">Maybe [RuleSummary]
 -&gt; Maybe Text -&gt; Int -&gt; ListRateBasedRulesResponse
 </span><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRulesResponse%27"><span class="hs-identifier hs-var">ListRateBasedRulesResponse'</span></a></span><span>
@@ -263,7 +263,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; ListRateBasedRulesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679316270"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [RuleSummary]))
+</span><a href="#local-6989586621679316279"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [RuleSummary]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Rules&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [RuleSummary]))
@@ -277,7 +277,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; ListRateBasedRulesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679316270"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679316279"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextMarker&quot;</span></span><span class="hs-special">)</span><span>
@@ -289,15 +289,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679316272"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316281"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316261"><span id="local-6989586621679316263"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRules"><span class="hs-identifier hs-type">ListRateBasedRules</span></a></span></span></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316270"><span id="local-6989586621679316272"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRules"><span class="hs-identifier hs-type">ListRateBasedRules</span></a></span></span></span><span>
 </span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316258"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRules"><span class="hs-identifier hs-type">ListRateBasedRules</span></a></span></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316267"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRules"><span class="hs-identifier hs-type">ListRateBasedRules</span></a></span></span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRules"><span class="hs-identifier hs-type">ListRateBasedRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679316254"><span class="annot"><span class="annottext">toHeaders :: ListRateBasedRules -&gt; ResponseHeaders
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679316263"><span class="annot"><span class="annottext">toHeaders :: ListRateBasedRules -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListRateBasedRules -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -324,15 +324,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-150"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316244"><span id="local-6989586621679316246"><span id="local-6989586621679316248"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRules"><span class="hs-identifier hs-type">ListRateBasedRules</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679316242"><span class="annot"><span class="annottext">toJSON :: ListRateBasedRules -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRules%27"><span class="hs-identifier hs-type">ListRateBasedRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316239"><span id="local-6989586621679316240"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316253"><span id="local-6989586621679316255"><span id="local-6989586621679316257"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRules"><span class="hs-identifier hs-type">ListRateBasedRules</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679316251"><span class="annot"><span class="annottext">toJSON :: ListRateBasedRules -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRules%27"><span class="hs-identifier hs-type">ListRateBasedRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316248"><span id="local-6989586621679316249"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 limit :: Maybe Natural
 nextMarker :: Maybe Text
 $sel:limit:ListRateBasedRules' :: ListRateBasedRules -&gt; Maybe Natural
 $sel:nextMarker:ListRateBasedRules' :: ListRateBasedRules -&gt; Maybe Text
-</span><a href="#local-6989586621679316239"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679316248"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-156"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -344,26 +344,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316240"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679316249"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-158"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679316239"><span class="hs-identifier hs-var">limit</span></a></span><span>
+</span><a href="#local-6989586621679316248"><span class="hs-identifier hs-var">limit</span></a></span><span>
 </span><span id="line-159"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRules"><span class="hs-identifier hs-type">ListRateBasedRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679316233"><span class="annot"><span class="annottext">toPath :: ListRateBasedRules -&gt; ByteString
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679316242"><span class="annot"><span class="annottext">toPath :: ListRateBasedRules -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListRateBasedRules -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRules"><span class="hs-identifier hs-type">ListRateBasedRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679316229"><span class="annot"><span class="annottext">toQuery :: ListRateBasedRules -&gt; QueryString
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679316238"><span class="annot"><span class="annottext">toQuery :: ListRateBasedRules -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListRateBasedRules -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -371,7 +371,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | /See:/ 'newListRateBasedRulesResponse' smart constructor.</span><span>
-</span><span id="line-169"></span><span id="local-6989586621679316226"><span id="local-6989586621679316227"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListRateBasedRulesResponse"><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRulesResponse"><span class="hs-identifier hs-var">ListRateBasedRulesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListRateBasedRulesResponse%27"><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRulesResponse%27"><span class="hs-identifier hs-var">ListRateBasedRulesResponse'</span></a></span></span><span>
+</span><span id="line-169"></span><span id="local-6989586621679316235"><span id="local-6989586621679316236"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListRateBasedRulesResponse"><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRulesResponse"><span class="hs-identifier hs-var">ListRateBasedRulesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListRateBasedRulesResponse%27"><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRulesResponse%27"><span class="hs-identifier hs-var">ListRateBasedRulesResponse'</span></a></span></span><span>
 </span><span id="line-170"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of RuleSummary objects.</span><span>
 </span><span id="line-171"></span><span>    </span><span id="%24sel%3Arules%3AListRateBasedRulesResponse%27"><span class="annot"><span class="annottext">ListRateBasedRulesResponse -&gt; Maybe [RuleSummary]
 </span><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#%24sel%3Arules%3AListRateBasedRulesResponse%27"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.RuleSummary.html#RuleSummary"><span class="hs-identifier hs-type">RuleSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -386,7 +386,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-179"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListRateBasedRulesResponse%27"><span class="annot"><span class="annottext">ListRateBasedRulesResponse -&gt; Int
 </span><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#%24sel%3AhttpStatus%3AListRateBasedRulesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-180"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-181"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679316219"><span id="local-6989586621679316221"><span class="annot"><span class="annottext">ListRateBasedRulesResponse -&gt; ListRateBasedRulesResponse -&gt; Bool
+</span><span id="line-181"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679316228"><span id="local-6989586621679316230"><span class="annot"><span class="annottext">ListRateBasedRulesResponse -&gt; ListRateBasedRulesResponse -&gt; Bool
 (ListRateBasedRulesResponse -&gt; ListRateBasedRulesResponse -&gt; Bool)
 -&gt; (ListRateBasedRulesResponse
     -&gt; ListRateBasedRulesResponse -&gt; Bool)
@@ -396,7 +396,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListRateBasedRulesResponse -&gt; ListRateBasedRulesResponse -&gt; Bool
 == :: ListRateBasedRulesResponse -&gt; ListRateBasedRulesResponse -&gt; Bool
 $c== :: ListRateBasedRulesResponse -&gt; ListRateBasedRulesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316211"><span id="local-6989586621679316213"><span id="local-6989586621679316215"><span id="local-6989586621679316217"><span class="annot"><span class="annottext">ReadPrec [ListRateBasedRulesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316220"><span id="local-6989586621679316222"><span id="local-6989586621679316224"><span id="local-6989586621679316226"><span class="annot"><span class="annottext">ReadPrec [ListRateBasedRulesResponse]
 ReadPrec ListRateBasedRulesResponse
 Int -&gt; ReadS ListRateBasedRulesResponse
 ReadS [ListRateBasedRulesResponse]
@@ -416,7 +416,7 @@ readList :: ReadS [ListRateBasedRulesResponse]
 $creadList :: ReadS [ListRateBasedRulesResponse]
 readsPrec :: Int -&gt; ReadS ListRateBasedRulesResponse
 $creadsPrec :: Int -&gt; ReadS ListRateBasedRulesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316205"><span id="local-6989586621679316207"><span id="local-6989586621679316209"><span class="annot"><span class="annottext">Int -&gt; ListRateBasedRulesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316214"><span id="local-6989586621679316216"><span id="local-6989586621679316218"><span class="annot"><span class="annottext">Int -&gt; ListRateBasedRulesResponse -&gt; ShowS
 [ListRateBasedRulesResponse] -&gt; ShowS
 ListRateBasedRulesResponse -&gt; String
 (Int -&gt; ListRateBasedRulesResponse -&gt; ShowS)
@@ -470,8 +470,8 @@ ListRateBasedRulesResponse -&gt; Rep ListRateBasedRulesResponse x
 </span><span id="line-202"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-203"></span><span>  </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRulesResponse"><span class="hs-identifier hs-type">ListRateBasedRulesResponse</span></a></span><span>
 </span><span id="line-204"></span><span id="newListRateBasedRulesResponse"><span class="annot"><span class="annottext">newListRateBasedRulesResponse :: Int -&gt; ListRateBasedRulesResponse
-</span><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#newListRateBasedRulesResponse"><span class="hs-identifier hs-var hs-var">newListRateBasedRulesResponse</span></a></span></span><span> </span><span id="local-6989586621679316202"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679316202"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#newListRateBasedRulesResponse"><span class="hs-identifier hs-var hs-var">newListRateBasedRulesResponse</span></a></span></span><span> </span><span id="local-6989586621679316211"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679316211"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-205"></span><span>  </span><span class="annot"><span class="annottext">ListRateBasedRulesResponse' :: Maybe [RuleSummary]
 -&gt; Maybe Text -&gt; Int -&gt; ListRateBasedRulesResponse
 </span><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRulesResponse%27"><span class="hs-identifier hs-type">ListRateBasedRulesResponse'</span></a></span><span>
@@ -486,7 +486,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListRateBasedRulesResponse' :: Int
 </span><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#%24sel%3AhttpStatus%3AListRateBasedRulesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679316202"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679316211"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-210"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-211"></span><span>
 </span><span id="line-212"></span><span class="hs-comment">-- | An array of RuleSummary objects.</span><span>
@@ -502,16 +502,16 @@ forall a. Maybe a
      (Maybe [RuleSummary])
      (Maybe [RuleSummary])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRulesResponse%27"><span class="hs-identifier hs-type">ListRateBasedRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316201"><span class="annot"><span class="annottext">Maybe [RuleSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRulesResponse%27"><span class="hs-identifier hs-type">ListRateBasedRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316210"><span class="annot"><span class="annottext">Maybe [RuleSummary]
 rules :: Maybe [RuleSummary]
 $sel:rules:ListRateBasedRulesResponse' :: ListRateBasedRulesResponse -&gt; Maybe [RuleSummary]
-</span><a href="#local-6989586621679316201"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RuleSummary]
-</span><a href="#local-6989586621679316201"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316200"><span class="annot"><span class="annottext">s :: ListRateBasedRulesResponse
-</span><a href="#local-6989586621679316200"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRulesResponse%27"><span class="hs-identifier hs-type">ListRateBasedRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316199"><span class="annot"><span class="annottext">Maybe [RuleSummary]
-</span><a href="#local-6989586621679316199"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRateBasedRulesResponse
-</span><a href="#local-6989586621679316200"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rules:ListRateBasedRulesResponse' :: Maybe [RuleSummary]
+</span><a href="#local-6989586621679316210"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RuleSummary]
+</span><a href="#local-6989586621679316210"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316209"><span class="annot"><span class="annottext">s :: ListRateBasedRulesResponse
+</span><a href="#local-6989586621679316209"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRulesResponse%27"><span class="hs-identifier hs-type">ListRateBasedRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316208"><span class="annot"><span class="annottext">Maybe [RuleSummary]
+</span><a href="#local-6989586621679316208"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRateBasedRulesResponse
+</span><a href="#local-6989586621679316209"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rules:ListRateBasedRulesResponse' :: Maybe [RuleSummary]
 </span><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#%24sel%3Arules%3AListRateBasedRulesResponse%27"><span class="hs-identifier hs-var">rules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RuleSummary]
-</span><a href="#local-6989586621679316199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRulesResponse"><span class="hs-identifier hs-type">ListRateBasedRulesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RuleSummary] -&gt; f (Maybe [RuleSummary]))
+</span><a href="#local-6989586621679316208"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRulesResponse"><span class="hs-identifier hs-type">ListRateBasedRulesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RuleSummary] -&gt; f (Maybe [RuleSummary]))
  -&gt; ListRateBasedRulesResponse -&gt; f ListRateBasedRulesResponse)
 -&gt; ((Maybe [RuleSummary] -&gt; f (Maybe [RuleSummary]))
     -&gt; Maybe [RuleSummary] -&gt; f (Maybe [RuleSummary]))
@@ -549,16 +549,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRulesResponse%27"><span class="hs-identifier hs-type">ListRateBasedRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316195"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRulesResponse%27"><span class="hs-identifier hs-type">ListRateBasedRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316204"><span class="annot"><span class="annottext">Maybe Text
 nextMarker :: Maybe Text
 $sel:nextMarker:ListRateBasedRulesResponse' :: ListRateBasedRulesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679316195"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316195"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316194"><span class="annot"><span class="annottext">s :: ListRateBasedRulesResponse
-</span><a href="#local-6989586621679316194"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRulesResponse%27"><span class="hs-identifier hs-type">ListRateBasedRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316193"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316193"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRateBasedRulesResponse
-</span><a href="#local-6989586621679316194"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListRateBasedRulesResponse' :: Maybe Text
+</span><a href="#local-6989586621679316204"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316204"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316203"><span class="annot"><span class="annottext">s :: ListRateBasedRulesResponse
+</span><a href="#local-6989586621679316203"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRulesResponse%27"><span class="hs-identifier hs-type">ListRateBasedRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316202"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316202"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRateBasedRulesResponse
+</span><a href="#local-6989586621679316203"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListRateBasedRulesResponse' :: Maybe Text
 </span><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#%24sel%3AnextMarker%3AListRateBasedRulesResponse%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316193"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRulesResponse"><span class="hs-identifier hs-type">ListRateBasedRulesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316202"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRulesResponse"><span class="hs-identifier hs-type">ListRateBasedRulesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-223"></span><span>
 </span><span id="line-224"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-225"></span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#listRateBasedRulesResponse_httpStatus"><span class="hs-identifier hs-type">listRateBasedRulesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRulesResponse"><span class="hs-identifier hs-type">ListRateBasedRulesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -570,16 +570,16 @@ $sel:nextMarker:ListRateBasedRulesResponse' :: ListRateBasedRulesResponse -&gt; 
 -&gt; Lens
      ListRateBasedRulesResponse ListRateBasedRulesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRulesResponse%27"><span class="hs-identifier hs-type">ListRateBasedRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316192"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRulesResponse%27"><span class="hs-identifier hs-type">ListRateBasedRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316201"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListRateBasedRulesResponse' :: ListRateBasedRulesResponse -&gt; Int
-</span><a href="#local-6989586621679316192"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679316192"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316191"><span class="annot"><span class="annottext">s :: ListRateBasedRulesResponse
-</span><a href="#local-6989586621679316191"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRulesResponse%27"><span class="hs-identifier hs-type">ListRateBasedRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316190"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679316190"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRateBasedRulesResponse
-</span><a href="#local-6989586621679316191"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListRateBasedRulesResponse' :: Int
+</span><a href="#local-6989586621679316201"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679316201"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316200"><span class="annot"><span class="annottext">s :: ListRateBasedRulesResponse
+</span><a href="#local-6989586621679316200"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRulesResponse%27"><span class="hs-identifier hs-type">ListRateBasedRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316199"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679316199"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRateBasedRulesResponse
+</span><a href="#local-6989586621679316200"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListRateBasedRulesResponse' :: Int
 </span><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#%24sel%3AhttpStatus%3AListRateBasedRulesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679316190"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRulesResponse"><span class="hs-identifier hs-type">ListRateBasedRulesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRulesResponse"><span class="hs-identifier hs-type">ListRateBasedRulesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-227"></span><span>
-</span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316188"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRulesResponse"><span class="hs-identifier hs-type">ListRateBasedRulesResponse</span></a></span></span><span>
+</span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316197"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.ListRateBasedRules.html#ListRateBasedRulesResponse"><span class="hs-identifier hs-type">ListRateBasedRulesResponse</span></a></span></span><span>
 </span><span id="line-229"></span></pre></body></html>

@@ -51,11 +51,11 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.html"><span class="hs-identifier">Network.AWS.SES.Types</span></a></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newUpdateTemplate' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679290942"><span id="local-6989586621679290943"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateTemplate"><span class="annot"><a href="Network.AWS.SES.UpdateTemplate.html#UpdateTemplate"><span class="hs-identifier hs-var">UpdateTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateTemplate%27"><span class="annot"><a href="Network.AWS.SES.UpdateTemplate.html#UpdateTemplate%27"><span class="hs-identifier hs-var">UpdateTemplate'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679290951"><span id="local-6989586621679290952"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateTemplate"><span class="annot"><a href="Network.AWS.SES.UpdateTemplate.html#UpdateTemplate"><span class="hs-identifier hs-var">UpdateTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateTemplate%27"><span class="annot"><a href="Network.AWS.SES.UpdateTemplate.html#UpdateTemplate%27"><span class="hs-identifier hs-var">UpdateTemplate'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Atemplate%3AUpdateTemplate%27"><span class="annot"><span class="annottext">UpdateTemplate -&gt; Template
 </span><a href="Network.AWS.SES.UpdateTemplate.html#%24sel%3Atemplate%3AUpdateTemplate%27"><span class="hs-identifier hs-var hs-var">template</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.Template.html#Template"><span class="hs-identifier hs-type">Template</span></a></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679290936"><span id="local-6989586621679290938"><span class="annot"><span class="annottext">UpdateTemplate -&gt; UpdateTemplate -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679290945"><span id="local-6989586621679290947"><span class="annot"><span class="annottext">UpdateTemplate -&gt; UpdateTemplate -&gt; Bool
 (UpdateTemplate -&gt; UpdateTemplate -&gt; Bool)
 -&gt; (UpdateTemplate -&gt; UpdateTemplate -&gt; Bool) -&gt; Eq UpdateTemplate
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateTemplate -&gt; UpdateTemplate -&gt; Bool
 == :: UpdateTemplate -&gt; UpdateTemplate -&gt; Bool
 $c== :: UpdateTemplate -&gt; UpdateTemplate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679290927"><span id="local-6989586621679290929"><span id="local-6989586621679290931"><span id="local-6989586621679290933"><span class="annot"><span class="annottext">ReadPrec [UpdateTemplate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679290936"><span id="local-6989586621679290938"><span id="local-6989586621679290940"><span id="local-6989586621679290942"><span class="annot"><span class="annottext">ReadPrec [UpdateTemplate]
 ReadPrec UpdateTemplate
 Int -&gt; ReadS UpdateTemplate
 ReadS [UpdateTemplate]
@@ -83,7 +83,7 @@ readList :: ReadS [UpdateTemplate]
 $creadList :: ReadS [UpdateTemplate]
 readsPrec :: Int -&gt; ReadS UpdateTemplate
 $creadsPrec :: Int -&gt; ReadS UpdateTemplate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679290920"><span id="local-6989586621679290922"><span id="local-6989586621679290924"><span class="annot"><span class="annottext">Int -&gt; UpdateTemplate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679290929"><span id="local-6989586621679290931"><span id="local-6989586621679290933"><span class="annot"><span class="annottext">Int -&gt; UpdateTemplate -&gt; ShowS
 [UpdateTemplate] -&gt; ShowS
 UpdateTemplate -&gt; String
 (Int -&gt; UpdateTemplate -&gt; ShowS)
@@ -123,12 +123,12 @@ $cfrom :: forall x. UpdateTemplate -&gt; Rep UpdateTemplate x
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.Types.Template.html#Template"><span class="hs-identifier hs-type">Template</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.UpdateTemplate.html#UpdateTemplate"><span class="hs-identifier hs-type">UpdateTemplate</span></a></span><span>
 </span><span id="line-72"></span><span id="newUpdateTemplate"><span class="annot"><span class="annottext">newUpdateTemplate :: Template -&gt; UpdateTemplate
-</span><a href="Network.AWS.SES.UpdateTemplate.html#newUpdateTemplate"><span class="hs-identifier hs-var hs-var">newUpdateTemplate</span></a></span></span><span> </span><span id="local-6989586621679290915"><span class="annot"><span class="annottext">Template
-</span><a href="#local-6989586621679290915"><span class="hs-identifier hs-var">pTemplate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SES.UpdateTemplate.html#newUpdateTemplate"><span class="hs-identifier hs-var hs-var">newUpdateTemplate</span></a></span></span><span> </span><span id="local-6989586621679290924"><span class="annot"><span class="annottext">Template
+</span><a href="#local-6989586621679290924"><span class="hs-identifier hs-var">pTemplate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">UpdateTemplate' :: Template -&gt; UpdateTemplate
 </span><a href="Network.AWS.SES.UpdateTemplate.html#UpdateTemplate%27"><span class="hs-identifier hs-type">UpdateTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:template:UpdateTemplate' :: Template
 </span><a href="Network.AWS.SES.UpdateTemplate.html#%24sel%3Atemplate%3AUpdateTemplate%27"><span class="hs-identifier hs-var">template</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Template
-</span><a href="#local-6989586621679290915"><span class="hs-identifier hs-var">pTemplate_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679290924"><span class="hs-identifier hs-var">pTemplate_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-76"></span><span class="annot"><a href="Network.AWS.SES.UpdateTemplate.html#updateTemplate_template"><span class="hs-identifier hs-type">updateTemplate_template</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.UpdateTemplate.html#UpdateTemplate"><span class="hs-identifier hs-type">UpdateTemplate</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.Template.html#Template"><span class="hs-identifier hs-type">Template</span></a></span><span>
@@ -137,27 +137,27 @@ $cfrom :: forall x. UpdateTemplate -&gt; Rep UpdateTemplate x
 -&gt; (UpdateTemplate -&gt; Template -&gt; UpdateTemplate)
 -&gt; Lens UpdateTemplate UpdateTemplate Template Template
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.UpdateTemplate.html#UpdateTemplate%27"><span class="hs-identifier hs-type">UpdateTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290912"><span class="annot"><span class="annottext">Template
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.UpdateTemplate.html#UpdateTemplate%27"><span class="hs-identifier hs-type">UpdateTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290921"><span class="annot"><span class="annottext">Template
 template :: Template
 $sel:template:UpdateTemplate' :: UpdateTemplate -&gt; Template
-</span><a href="#local-6989586621679290912"><span class="hs-identifier hs-var hs-var">template</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Template
-</span><a href="#local-6989586621679290912"><span class="hs-identifier hs-var">template</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290911"><span class="annot"><span class="annottext">s :: UpdateTemplate
-</span><a href="#local-6989586621679290911"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.UpdateTemplate.html#UpdateTemplate%27"><span class="hs-identifier hs-type">UpdateTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290910"><span class="annot"><span class="annottext">Template
-</span><a href="#local-6989586621679290910"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTemplate
-</span><a href="#local-6989586621679290911"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:template:UpdateTemplate' :: Template
+</span><a href="#local-6989586621679290921"><span class="hs-identifier hs-var hs-var">template</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Template
+</span><a href="#local-6989586621679290921"><span class="hs-identifier hs-var">template</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290920"><span class="annot"><span class="annottext">s :: UpdateTemplate
+</span><a href="#local-6989586621679290920"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.UpdateTemplate.html#UpdateTemplate%27"><span class="hs-identifier hs-type">UpdateTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290919"><span class="annot"><span class="annottext">Template
+</span><a href="#local-6989586621679290919"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTemplate
+</span><a href="#local-6989586621679290920"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:template:UpdateTemplate' :: Template
 </span><a href="Network.AWS.SES.UpdateTemplate.html#%24sel%3Atemplate%3AUpdateTemplate%27"><span class="hs-identifier hs-var">template</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Template
-</span><a href="#local-6989586621679290910"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.UpdateTemplate.html#UpdateTemplate"><span class="hs-identifier hs-type">UpdateTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679290919"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.UpdateTemplate.html#UpdateTemplate"><span class="hs-identifier hs-type">UpdateTemplate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.UpdateTemplate.html#UpdateTemplate"><span class="hs-identifier hs-type">UpdateTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-80"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-81"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.UpdateTemplate.html#UpdateTemplate"><span class="hs-identifier hs-type">UpdateTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><a href="Network.AWS.SES.UpdateTemplate.html#UpdateTemplateResponse"><span class="hs-identifier hs-type">UpdateTemplateResponse</span></a></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679290906"><span class="annot"><span class="annottext">request :: UpdateTemplate -&gt; Request UpdateTemplate
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679290915"><span class="annot"><span class="annottext">request :: UpdateTemplate -&gt; Request UpdateTemplate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateTemplate -&gt; Request UpdateTemplate
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SES.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679290902"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679290911"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateTemplate
 -&gt; ClientResponse ClientBody
@@ -186,10 +186,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UpdateTemplateResult&quot;</span></span><span>
-</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679290899"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679290899"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679290898"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679290898"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679290897"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679290897"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679290908"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679290908"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679290907"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679290907"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679290906"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679290906"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; UpdateTemplateResponse
 </span><a href="Network.AWS.SES.UpdateTemplate.html#UpdateTemplateResponse%27"><span class="hs-identifier hs-var">UpdateTemplateResponse'</span></a></span><span>
 </span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; UpdateTemplateResponse)
@@ -200,15 +200,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679290899"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679290908"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679290890"><span id="local-6989586621679290892"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.UpdateTemplate.html#UpdateTemplate"><span class="hs-identifier hs-type">UpdateTemplate</span></a></span></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679290899"><span id="local-6989586621679290901"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.UpdateTemplate.html#UpdateTemplate"><span class="hs-identifier hs-type">UpdateTemplate</span></a></span></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679290887"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.UpdateTemplate.html#UpdateTemplate"><span class="hs-identifier hs-type">UpdateTemplate</span></a></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679290896"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.UpdateTemplate.html#UpdateTemplate"><span class="hs-identifier hs-type">UpdateTemplate</span></a></span></span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.UpdateTemplate.html#UpdateTemplate"><span class="hs-identifier hs-type">UpdateTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679290883"><span class="annot"><span class="annottext">toHeaders :: UpdateTemplate -&gt; ResponseHeaders
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679290892"><span class="annot"><span class="annottext">toHeaders :: UpdateTemplate -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateTemplate -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -216,18 +216,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.UpdateTemplate.html#UpdateTemplate"><span class="hs-identifier hs-type">UpdateTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679290878"><span class="annot"><span class="annottext">toPath :: UpdateTemplate -&gt; ByteString
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679290887"><span class="annot"><span class="annottext">toPath :: UpdateTemplate -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateTemplate -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.UpdateTemplate.html#UpdateTemplate"><span class="hs-identifier hs-type">UpdateTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679290874"><span class="annot"><span class="annottext">toQuery :: UpdateTemplate -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.UpdateTemplate.html#UpdateTemplate%27"><span class="hs-identifier hs-type">UpdateTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290872"><span class="annot"><span class="annottext">Template
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679290883"><span class="annot"><span class="annottext">toQuery :: UpdateTemplate -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.UpdateTemplate.html#UpdateTemplate%27"><span class="hs-identifier hs-type">UpdateTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290881"><span class="annot"><span class="annottext">Template
 template :: Template
 $sel:template:UpdateTemplate' :: UpdateTemplate -&gt; Template
-</span><a href="#local-6989586621679290872"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679290881"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -247,16 +247,16 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;Template&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Template -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Template
-</span><a href="#local-6989586621679290872"><span class="hs-identifier hs-var">template</span></a></span><span>
+</span><a href="#local-6989586621679290881"><span class="hs-identifier hs-var">template</span></a></span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- | /See:/ 'newUpdateTemplateResponse' smart constructor.</span><span>
-</span><span id="line-113"></span><span id="local-6989586621679290869"><span id="local-6989586621679290870"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateTemplateResponse"><span class="annot"><a href="Network.AWS.SES.UpdateTemplate.html#UpdateTemplateResponse"><span class="hs-identifier hs-var">UpdateTemplateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateTemplateResponse%27"><span class="annot"><a href="Network.AWS.SES.UpdateTemplate.html#UpdateTemplateResponse%27"><span class="hs-identifier hs-var">UpdateTemplateResponse'</span></a></span></span><span>
+</span><span id="line-113"></span><span id="local-6989586621679290878"><span id="local-6989586621679290879"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateTemplateResponse"><span class="annot"><a href="Network.AWS.SES.UpdateTemplate.html#UpdateTemplateResponse"><span class="hs-identifier hs-var">UpdateTemplateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateTemplateResponse%27"><span class="annot"><a href="Network.AWS.SES.UpdateTemplate.html#UpdateTemplateResponse%27"><span class="hs-identifier hs-var">UpdateTemplateResponse'</span></a></span></span><span>
 </span><span id="line-114"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-115"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateTemplateResponse%27"><span class="annot"><span class="annottext">UpdateTemplateResponse -&gt; Int
 </span><a href="Network.AWS.SES.UpdateTemplate.html#%24sel%3AhttpStatus%3AUpdateTemplateResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-116"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-117"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679290864"><span id="local-6989586621679290866"><span class="annot"><span class="annottext">UpdateTemplateResponse -&gt; UpdateTemplateResponse -&gt; Bool
+</span><span id="line-117"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679290873"><span id="local-6989586621679290875"><span class="annot"><span class="annottext">UpdateTemplateResponse -&gt; UpdateTemplateResponse -&gt; Bool
 (UpdateTemplateResponse -&gt; UpdateTemplateResponse -&gt; Bool)
 -&gt; (UpdateTemplateResponse -&gt; UpdateTemplateResponse -&gt; Bool)
 -&gt; Eq UpdateTemplateResponse
@@ -265,7 +265,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateTemplateResponse -&gt; UpdateTemplateResponse -&gt; Bool
 == :: UpdateTemplateResponse -&gt; UpdateTemplateResponse -&gt; Bool
 $c== :: UpdateTemplateResponse -&gt; UpdateTemplateResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679290856"><span id="local-6989586621679290858"><span id="local-6989586621679290860"><span id="local-6989586621679290862"><span class="annot"><span class="annottext">ReadPrec [UpdateTemplateResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679290865"><span id="local-6989586621679290867"><span id="local-6989586621679290869"><span id="local-6989586621679290871"><span class="annot"><span class="annottext">ReadPrec [UpdateTemplateResponse]
 ReadPrec UpdateTemplateResponse
 Int -&gt; ReadS UpdateTemplateResponse
 ReadS [UpdateTemplateResponse]
@@ -285,7 +285,7 @@ readList :: ReadS [UpdateTemplateResponse]
 $creadList :: ReadS [UpdateTemplateResponse]
 readsPrec :: Int -&gt; ReadS UpdateTemplateResponse
 $creadsPrec :: Int -&gt; ReadS UpdateTemplateResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679290850"><span id="local-6989586621679290852"><span id="local-6989586621679290854"><span class="annot"><span class="annottext">Int -&gt; UpdateTemplateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679290859"><span id="local-6989586621679290861"><span id="local-6989586621679290863"><span class="annot"><span class="annottext">Int -&gt; UpdateTemplateResponse -&gt; ShowS
 [UpdateTemplateResponse] -&gt; ShowS
 UpdateTemplateResponse -&gt; String
 (Int -&gt; UpdateTemplateResponse -&gt; ShowS)
@@ -326,12 +326,12 @@ $cfrom :: forall x. UpdateTemplateResponse -&gt; Rep UpdateTemplateResponse x
 </span><span id="line-130"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-131"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.UpdateTemplate.html#UpdateTemplateResponse"><span class="hs-identifier hs-type">UpdateTemplateResponse</span></a></span><span>
 </span><span id="line-132"></span><span id="newUpdateTemplateResponse"><span class="annot"><span class="annottext">newUpdateTemplateResponse :: Int -&gt; UpdateTemplateResponse
-</span><a href="Network.AWS.SES.UpdateTemplate.html#newUpdateTemplateResponse"><span class="hs-identifier hs-var hs-var">newUpdateTemplateResponse</span></a></span></span><span> </span><span id="local-6989586621679290847"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679290847"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SES.UpdateTemplate.html#newUpdateTemplateResponse"><span class="hs-identifier hs-var hs-var">newUpdateTemplateResponse</span></a></span></span><span> </span><span id="local-6989586621679290856"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679290856"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-133"></span><span>  </span><span class="annot"><span class="annottext">UpdateTemplateResponse' :: Int -&gt; UpdateTemplateResponse
 </span><a href="Network.AWS.SES.UpdateTemplate.html#UpdateTemplateResponse%27"><span class="hs-identifier hs-type">UpdateTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateTemplateResponse' :: Int
 </span><a href="Network.AWS.SES.UpdateTemplate.html#%24sel%3AhttpStatus%3AUpdateTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679290847"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679290856"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-136"></span><span class="annot"><a href="Network.AWS.SES.UpdateTemplate.html#updateTemplateResponse_httpStatus"><span class="hs-identifier hs-type">updateTemplateResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.UpdateTemplate.html#UpdateTemplateResponse"><span class="hs-identifier hs-type">UpdateTemplateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -341,16 +341,16 @@ $cfrom :: forall x. UpdateTemplateResponse -&gt; Rep UpdateTemplateResponse x
 -&gt; (UpdateTemplateResponse -&gt; Int -&gt; UpdateTemplateResponse)
 -&gt; Lens UpdateTemplateResponse UpdateTemplateResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.UpdateTemplate.html#UpdateTemplateResponse%27"><span class="hs-identifier hs-type">UpdateTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290846"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.UpdateTemplate.html#UpdateTemplateResponse%27"><span class="hs-identifier hs-type">UpdateTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679290855"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateTemplateResponse' :: UpdateTemplateResponse -&gt; Int
-</span><a href="#local-6989586621679290846"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679290846"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290845"><span class="annot"><span class="annottext">s :: UpdateTemplateResponse
-</span><a href="#local-6989586621679290845"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.UpdateTemplate.html#UpdateTemplateResponse%27"><span class="hs-identifier hs-type">UpdateTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290844"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679290844"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTemplateResponse
-</span><a href="#local-6989586621679290845"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateTemplateResponse' :: Int
+</span><a href="#local-6989586621679290855"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679290855"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679290854"><span class="annot"><span class="annottext">s :: UpdateTemplateResponse
+</span><a href="#local-6989586621679290854"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.UpdateTemplate.html#UpdateTemplateResponse%27"><span class="hs-identifier hs-type">UpdateTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679290853"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679290853"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTemplateResponse
+</span><a href="#local-6989586621679290854"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateTemplateResponse' :: Int
 </span><a href="Network.AWS.SES.UpdateTemplate.html#%24sel%3AhttpStatus%3AUpdateTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679290844"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.UpdateTemplate.html#UpdateTemplateResponse"><span class="hs-identifier hs-type">UpdateTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679290853"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.UpdateTemplate.html#UpdateTemplateResponse"><span class="hs-identifier hs-type">UpdateTemplateResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679290842"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.UpdateTemplate.html#UpdateTemplateResponse"><span class="hs-identifier hs-type">UpdateTemplateResponse</span></a></span></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679290851"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.UpdateTemplate.html#UpdateTemplateResponse"><span class="hs-identifier hs-type">UpdateTemplateResponse</span></a></span></span><span>
 </span><span id="line-140"></span></pre></body></html>

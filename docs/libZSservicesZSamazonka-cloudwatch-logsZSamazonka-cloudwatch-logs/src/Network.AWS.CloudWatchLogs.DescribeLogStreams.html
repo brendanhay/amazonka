@@ -60,7 +60,7 @@
 </span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newDescribeLogStreams' smart constructor.</span><span>
-</span><span id="line-63"></span><span id="local-6989586621679229925"><span id="local-6989586621679229926"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeLogStreams"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams"><span class="hs-identifier hs-var">DescribeLogStreams</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeLogStreams%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams%27"><span class="hs-identifier hs-var">DescribeLogStreams'</span></a></span></span><span>
+</span><span id="line-63"></span><span id="local-6989586621679229934"><span id="local-6989586621679229935"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeLogStreams"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams"><span class="hs-identifier hs-var">DescribeLogStreams</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeLogStreams%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams%27"><span class="hs-identifier hs-var">DescribeLogStreams'</span></a></span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the value is @LogStreamName@, the results are ordered by log stream</span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-comment">-- name. If the value is @LastEventTime@, the results are ordered by the</span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-comment">-- event time. The default value is @LogStreamName@.</span><span>
@@ -98,7 +98,7 @@
 </span><span id="line-93"></span><span>    </span><span id="%24sel%3AlogGroupName%3ADescribeLogStreams%27"><span class="annot"><span class="annottext">DescribeLogStreams -&gt; Text
 </span><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#%24sel%3AlogGroupName%3ADescribeLogStreams%27"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-94"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-95"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229914"><span id="local-6989586621679229916"><span class="annot"><span class="annottext">DescribeLogStreams -&gt; DescribeLogStreams -&gt; Bool
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229923"><span id="local-6989586621679229925"><span class="annot"><span class="annottext">DescribeLogStreams -&gt; DescribeLogStreams -&gt; Bool
 (DescribeLogStreams -&gt; DescribeLogStreams -&gt; Bool)
 -&gt; (DescribeLogStreams -&gt; DescribeLogStreams -&gt; Bool)
 -&gt; Eq DescribeLogStreams
@@ -107,7 +107,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeLogStreams -&gt; DescribeLogStreams -&gt; Bool
 == :: DescribeLogStreams -&gt; DescribeLogStreams -&gt; Bool
 $c== :: DescribeLogStreams -&gt; DescribeLogStreams -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229905"><span id="local-6989586621679229907"><span id="local-6989586621679229909"><span id="local-6989586621679229911"><span class="annot"><span class="annottext">ReadPrec [DescribeLogStreams]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229914"><span id="local-6989586621679229916"><span id="local-6989586621679229918"><span id="local-6989586621679229920"><span class="annot"><span class="annottext">ReadPrec [DescribeLogStreams]
 ReadPrec DescribeLogStreams
 Int -&gt; ReadS DescribeLogStreams
 ReadS [DescribeLogStreams]
@@ -127,7 +127,7 @@ readList :: ReadS [DescribeLogStreams]
 $creadList :: ReadS [DescribeLogStreams]
 readsPrec :: Int -&gt; ReadS DescribeLogStreams
 $creadsPrec :: Int -&gt; ReadS DescribeLogStreams
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229898"><span id="local-6989586621679229900"><span id="local-6989586621679229902"><span class="annot"><span class="annottext">Int -&gt; DescribeLogStreams -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229907"><span id="local-6989586621679229909"><span id="local-6989586621679229911"><span class="annot"><span class="annottext">Int -&gt; DescribeLogStreams -&gt; ShowS
 [DescribeLogStreams] -&gt; ShowS
 DescribeLogStreams -&gt; String
 (Int -&gt; DescribeLogStreams -&gt; ShowS)
@@ -195,8 +195,8 @@ $cfrom :: forall x. DescribeLogStreams -&gt; Rep DescribeLogStreams x
 </span><span id="line-136"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-137"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams"><span class="hs-identifier hs-type">DescribeLogStreams</span></a></span><span>
 </span><span id="line-138"></span><span id="newDescribeLogStreams"><span class="annot"><span class="annottext">newDescribeLogStreams :: Text -&gt; DescribeLogStreams
-</span><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#newDescribeLogStreams"><span class="hs-identifier hs-var hs-var">newDescribeLogStreams</span></a></span></span><span> </span><span id="local-6989586621679229893"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229893"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#newDescribeLogStreams"><span class="hs-identifier hs-var hs-var">newDescribeLogStreams</span></a></span></span><span> </span><span id="local-6989586621679229902"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229902"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>  </span><span class="annot"><span class="annottext">DescribeLogStreams' :: Maybe OrderBy
 -&gt; Maybe Bool
 -&gt; Maybe Text
@@ -227,7 +227,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">$sel:logGroupName:DescribeLogStreams' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#%24sel%3AlogGroupName%3ADescribeLogStreams%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229893"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span><span>
+</span><a href="#local-6989586621679229902"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span><span>
 </span><span id="line-146"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- | If the value is @LogStreamName@, the results are ordered by log stream</span><span>
@@ -254,16 +254,16 @@ forall a. Maybe a
      (Maybe OrderBy)
      (Maybe OrderBy)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams%27"><span class="hs-identifier hs-type">DescribeLogStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229891"><span class="annot"><span class="annottext">Maybe OrderBy
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams%27"><span class="hs-identifier hs-type">DescribeLogStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229900"><span class="annot"><span class="annottext">Maybe OrderBy
 orderBy :: Maybe OrderBy
 $sel:orderBy:DescribeLogStreams' :: DescribeLogStreams -&gt; Maybe OrderBy
-</span><a href="#local-6989586621679229891"><span class="hs-identifier hs-var hs-var">orderBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OrderBy
-</span><a href="#local-6989586621679229891"><span class="hs-identifier hs-var">orderBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229890"><span class="annot"><span class="annottext">s :: DescribeLogStreams
-</span><a href="#local-6989586621679229890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams%27"><span class="hs-identifier hs-type">DescribeLogStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229889"><span class="annot"><span class="annottext">Maybe OrderBy
-</span><a href="#local-6989586621679229889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLogStreams
-</span><a href="#local-6989586621679229890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:orderBy:DescribeLogStreams' :: Maybe OrderBy
+</span><a href="#local-6989586621679229900"><span class="hs-identifier hs-var hs-var">orderBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OrderBy
+</span><a href="#local-6989586621679229900"><span class="hs-identifier hs-var">orderBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229899"><span class="annot"><span class="annottext">s :: DescribeLogStreams
+</span><a href="#local-6989586621679229899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams%27"><span class="hs-identifier hs-type">DescribeLogStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229898"><span class="annot"><span class="annottext">Maybe OrderBy
+</span><a href="#local-6989586621679229898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLogStreams
+</span><a href="#local-6989586621679229899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:orderBy:DescribeLogStreams' :: Maybe OrderBy
 </span><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#%24sel%3AorderBy%3ADescribeLogStreams%27"><span class="hs-identifier hs-var">orderBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OrderBy
-</span><a href="#local-6989586621679229889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams"><span class="hs-identifier hs-type">DescribeLogStreams</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams"><span class="hs-identifier hs-type">DescribeLogStreams</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- | If the value is true, results are returned in descending order. If the</span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- value is to false, results are returned in ascending order. The default</span><span>
@@ -276,16 +276,16 @@ $sel:orderBy:DescribeLogStreams' :: DescribeLogStreams -&gt; Maybe OrderBy
 -&gt; Lens
      DescribeLogStreams DescribeLogStreams (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams%27"><span class="hs-identifier hs-type">DescribeLogStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229888"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams%27"><span class="hs-identifier hs-type">DescribeLogStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229897"><span class="annot"><span class="annottext">Maybe Bool
 descending :: Maybe Bool
 $sel:descending:DescribeLogStreams' :: DescribeLogStreams -&gt; Maybe Bool
-</span><a href="#local-6989586621679229888"><span class="hs-identifier hs-var hs-var">descending</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679229888"><span class="hs-identifier hs-var">descending</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229887"><span class="annot"><span class="annottext">s :: DescribeLogStreams
-</span><a href="#local-6989586621679229887"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams%27"><span class="hs-identifier hs-type">DescribeLogStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229886"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679229886"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLogStreams
-</span><a href="#local-6989586621679229887"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:descending:DescribeLogStreams' :: Maybe Bool
+</span><a href="#local-6989586621679229897"><span class="hs-identifier hs-var hs-var">descending</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679229897"><span class="hs-identifier hs-var">descending</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229896"><span class="annot"><span class="annottext">s :: DescribeLogStreams
+</span><a href="#local-6989586621679229896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams%27"><span class="hs-identifier hs-type">DescribeLogStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229895"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679229895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLogStreams
+</span><a href="#local-6989586621679229896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:descending:DescribeLogStreams' :: Maybe Bool
 </span><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#%24sel%3Adescending%3ADescribeLogStreams%27"><span class="hs-identifier hs-var">descending</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679229886"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams"><span class="hs-identifier hs-type">DescribeLogStreams</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams"><span class="hs-identifier hs-type">DescribeLogStreams</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-comment">-- | The token for the next set of items to return. (You received this token</span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- from a previous call.)</span><span>
@@ -297,16 +297,16 @@ $sel:descending:DescribeLogStreams' :: DescribeLogStreams -&gt; Maybe Bool
 -&gt; Lens
      DescribeLogStreams DescribeLogStreams (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams%27"><span class="hs-identifier hs-type">DescribeLogStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229885"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams%27"><span class="hs-identifier hs-type">DescribeLogStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229894"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeLogStreams' :: DescribeLogStreams -&gt; Maybe Text
-</span><a href="#local-6989586621679229885"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679229885"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229884"><span class="annot"><span class="annottext">s :: DescribeLogStreams
-</span><a href="#local-6989586621679229884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams%27"><span class="hs-identifier hs-type">DescribeLogStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229883"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679229883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLogStreams
-</span><a href="#local-6989586621679229884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeLogStreams' :: Maybe Text
+</span><a href="#local-6989586621679229894"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229894"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229893"><span class="annot"><span class="annottext">s :: DescribeLogStreams
+</span><a href="#local-6989586621679229893"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams%27"><span class="hs-identifier hs-type">DescribeLogStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229892"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229892"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLogStreams
+</span><a href="#local-6989586621679229893"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeLogStreams' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#%24sel%3AnextToken%3ADescribeLogStreams%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679229883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams"><span class="hs-identifier hs-type">DescribeLogStreams</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229892"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams"><span class="hs-identifier hs-type">DescribeLogStreams</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- | The prefix to match.</span><span>
 </span><span id="line-176"></span><span class="hs-comment">--</span><span>
@@ -319,16 +319,16 @@ $sel:nextToken:DescribeLogStreams' :: DescribeLogStreams -&gt; Maybe Text
 -&gt; Lens
      DescribeLogStreams DescribeLogStreams (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams%27"><span class="hs-identifier hs-type">DescribeLogStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229882"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams%27"><span class="hs-identifier hs-type">DescribeLogStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229891"><span class="annot"><span class="annottext">Maybe Text
 logStreamNamePrefix :: Maybe Text
 $sel:logStreamNamePrefix:DescribeLogStreams' :: DescribeLogStreams -&gt; Maybe Text
-</span><a href="#local-6989586621679229882"><span class="hs-identifier hs-var hs-var">logStreamNamePrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679229882"><span class="hs-identifier hs-var">logStreamNamePrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229881"><span class="annot"><span class="annottext">s :: DescribeLogStreams
-</span><a href="#local-6989586621679229881"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams%27"><span class="hs-identifier hs-type">DescribeLogStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229880"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679229880"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLogStreams
-</span><a href="#local-6989586621679229881"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logStreamNamePrefix:DescribeLogStreams' :: Maybe Text
+</span><a href="#local-6989586621679229891"><span class="hs-identifier hs-var hs-var">logStreamNamePrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229891"><span class="hs-identifier hs-var">logStreamNamePrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229890"><span class="annot"><span class="annottext">s :: DescribeLogStreams
+</span><a href="#local-6989586621679229890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams%27"><span class="hs-identifier hs-type">DescribeLogStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229889"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLogStreams
+</span><a href="#local-6989586621679229890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logStreamNamePrefix:DescribeLogStreams' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#%24sel%3AlogStreamNamePrefix%3ADescribeLogStreams%27"><span class="hs-identifier hs-var">logStreamNamePrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679229880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams"><span class="hs-identifier hs-type">DescribeLogStreams</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams"><span class="hs-identifier hs-type">DescribeLogStreams</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- | The maximum number of items returned. If you don\'t specify a value, the</span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- default is up to 50 items.</span><span>
@@ -343,16 +343,16 @@ $sel:logStreamNamePrefix:DescribeLogStreams' :: DescribeLogStreams -&gt; Maybe T
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams%27"><span class="hs-identifier hs-type">DescribeLogStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229879"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams%27"><span class="hs-identifier hs-type">DescribeLogStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229888"><span class="annot"><span class="annottext">Maybe Natural
 limit :: Maybe Natural
 $sel:limit:DescribeLogStreams' :: DescribeLogStreams -&gt; Maybe Natural
-</span><a href="#local-6989586621679229879"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679229879"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229878"><span class="annot"><span class="annottext">s :: DescribeLogStreams
-</span><a href="#local-6989586621679229878"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams%27"><span class="hs-identifier hs-type">DescribeLogStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229877"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679229877"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLogStreams
-</span><a href="#local-6989586621679229878"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:DescribeLogStreams' :: Maybe Natural
+</span><a href="#local-6989586621679229888"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679229888"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229887"><span class="annot"><span class="annottext">s :: DescribeLogStreams
+</span><a href="#local-6989586621679229887"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams%27"><span class="hs-identifier hs-type">DescribeLogStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229886"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679229886"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLogStreams
+</span><a href="#local-6989586621679229887"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:DescribeLogStreams' :: Maybe Natural
 </span><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#%24sel%3Alimit%3ADescribeLogStreams%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679229877"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams"><span class="hs-identifier hs-type">DescribeLogStreams</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229886"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams"><span class="hs-identifier hs-type">DescribeLogStreams</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- | The name of the log group.</span><span>
 </span><span id="line-187"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#describeLogStreams_logGroupName"><span class="hs-identifier hs-type">describeLogStreams_logGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams"><span class="hs-identifier hs-type">DescribeLogStreams</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -361,29 +361,29 @@ $sel:limit:DescribeLogStreams' :: DescribeLogStreams -&gt; Maybe Natural
 -&gt; (DescribeLogStreams -&gt; Text -&gt; DescribeLogStreams)
 -&gt; Lens DescribeLogStreams DescribeLogStreams Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams%27"><span class="hs-identifier hs-type">DescribeLogStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229876"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams%27"><span class="hs-identifier hs-type">DescribeLogStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229885"><span class="annot"><span class="annottext">Text
 logGroupName :: Text
 $sel:logGroupName:DescribeLogStreams' :: DescribeLogStreams -&gt; Text
-</span><a href="#local-6989586621679229876"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229876"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229875"><span class="annot"><span class="annottext">s :: DescribeLogStreams
-</span><a href="#local-6989586621679229875"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams%27"><span class="hs-identifier hs-type">DescribeLogStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229874"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229874"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLogStreams
-</span><a href="#local-6989586621679229875"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:DescribeLogStreams' :: Text
+</span><a href="#local-6989586621679229885"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229885"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229884"><span class="annot"><span class="annottext">s :: DescribeLogStreams
+</span><a href="#local-6989586621679229884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams%27"><span class="hs-identifier hs-type">DescribeLogStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229883"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLogStreams
+</span><a href="#local-6989586621679229884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:DescribeLogStreams' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#%24sel%3AlogGroupName%3ADescribeLogStreams%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229874"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams"><span class="hs-identifier hs-type">DescribeLogStreams</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams"><span class="hs-identifier hs-type">DescribeLogStreams</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams"><span class="hs-identifier hs-type">DescribeLogStreams</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-191"></span><span>  </span><span id="local-6989586621679229870"><span class="annot"><span class="annottext">page :: DescribeLogStreams
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679229879"><span class="annot"><span class="annottext">page :: DescribeLogStreams
 -&gt; AWSResponse DescribeLogStreams -&gt; Maybe DescribeLogStreams
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679229868"><span class="annot"><span class="annottext">DescribeLogStreams
-</span><a href="#local-6989586621679229868"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679229867"><span class="annot"><span class="annottext">AWSResponse DescribeLogStreams
-</span><a href="#local-6989586621679229867"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679229877"><span class="annot"><span class="annottext">DescribeLogStreams
+</span><a href="#local-6989586621679229877"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679229876"><span class="annot"><span class="annottext">AWSResponse DescribeLogStreams
+</span><a href="#local-6989586621679229876"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-192"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-193"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeLogStreams
 DescribeLogStreamsResponse
-</span><a href="#local-6989586621679229867"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679229876"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">DescribeLogStreamsResponse
 -&gt; Getting (First Text) DescribeLogStreamsResponse Text
 -&gt; Maybe Text
@@ -413,7 +413,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-199"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeLogStreams
 DescribeLogStreamsResponse
-</span><a href="#local-6989586621679229867"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679229876"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-200"></span><span>            </span><span class="annot"><span class="annottext">DescribeLogStreamsResponse
 -&gt; Getting
      (First [LogStream]) DescribeLogStreamsResponse [LogStream]
@@ -453,7 +453,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-206"></span><span>        </span><span class="annot"><span class="annottext">DescribeLogStreams
-</span><a href="#local-6989586621679229868"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679229877"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-207"></span><span>          </span><span class="annot"><span class="annottext">DescribeLogStreams
 -&gt; (DescribeLogStreams -&gt; DescribeLogStreams) -&gt; DescribeLogStreams
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -468,7 +468,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeLogStreams
 DescribeLogStreamsResponse
-</span><a href="#local-6989586621679229867"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679229876"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-209"></span><span>          </span><span class="annot"><span class="annottext">DescribeLogStreamsResponse
 -&gt; Getting (First Text) DescribeLogStreamsResponse Text
 -&gt; Maybe Text
@@ -494,12 +494,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-213"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-214"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams"><span class="hs-identifier hs-type">DescribeLogStreams</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-215"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreamsResponse"><span class="hs-identifier hs-type">DescribeLogStreamsResponse</span></a></span><span>
-</span><span id="line-216"></span><span>  </span><span id="local-6989586621679229857"><span class="annot"><span class="annottext">request :: DescribeLogStreams -&gt; Request DescribeLogStreams
+</span><span id="line-216"></span><span>  </span><span id="local-6989586621679229866"><span class="annot"><span class="annottext">request :: DescribeLogStreams -&gt; Request DescribeLogStreams
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeLogStreams -&gt; Request DescribeLogStreams
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudWatchLogs.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-217"></span><span>  </span><span id="local-6989586621679229853"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621679229862"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeLogStreams
 -&gt; ClientResponse ClientBody
@@ -525,10 +525,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-219"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679229850"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229850"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679229849"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679229849"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679229848"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679229848"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-219"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679229859"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229859"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679229858"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679229858"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679229857"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229857"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-220"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [LogStream] -&gt; Int -&gt; DescribeLogStreamsResponse
 </span><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreamsResponse%27"><span class="hs-identifier hs-var">DescribeLogStreamsResponse'</span></a></span><span>
@@ -539,7 +539,7 @@ MonadResource m =&gt;
      String (Maybe [LogStream] -&gt; Int -&gt; DescribeLogStreamsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679229848"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679229857"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -549,7 +549,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; DescribeLogStreamsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679229848"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [LogStream]))
+</span><a href="#local-6989586621679229857"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [LogStream]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;logStreams&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [LogStream]))
@@ -566,15 +566,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229850"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229859"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-224"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-225"></span><span>
-</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229839"><span id="local-6989586621679229841"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams"><span class="hs-identifier hs-type">DescribeLogStreams</span></a></span></span></span><span>
+</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229848"><span id="local-6989586621679229850"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams"><span class="hs-identifier hs-type">DescribeLogStreams</span></a></span></span></span><span>
 </span><span id="line-227"></span><span>
-</span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229836"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams"><span class="hs-identifier hs-type">DescribeLogStreams</span></a></span></span><span>
+</span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229845"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams"><span class="hs-identifier hs-type">DescribeLogStreams</span></a></span></span><span>
 </span><span id="line-229"></span><span>
 </span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams"><span class="hs-identifier hs-type">DescribeLogStreams</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-231"></span><span>  </span><span id="local-6989586621679229832"><span class="annot"><span class="annottext">toHeaders :: DescribeLogStreams -&gt; ResponseHeaders
+</span><span id="line-231"></span><span>  </span><span id="local-6989586621679229841"><span class="annot"><span class="annottext">toHeaders :: DescribeLogStreams -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-232"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeLogStreams -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -601,9 +601,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-242"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-243"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-244"></span><span>
-</span><span id="line-245"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229822"><span id="local-6989586621679229824"><span id="local-6989586621679229826"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams"><span class="hs-identifier hs-type">DescribeLogStreams</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-246"></span><span>  </span><span id="local-6989586621679229820"><span class="annot"><span class="annottext">toJSON :: DescribeLogStreams -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams%27"><span class="hs-identifier hs-type">DescribeLogStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229813"><span id="local-6989586621679229814"><span id="local-6989586621679229815"><span id="local-6989586621679229816"><span id="local-6989586621679229817"><span id="local-6989586621679229818"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-245"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229831"><span id="local-6989586621679229833"><span id="local-6989586621679229835"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams"><span class="hs-identifier hs-type">DescribeLogStreams</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-246"></span><span>  </span><span id="local-6989586621679229829"><span class="annot"><span class="annottext">toJSON :: DescribeLogStreams -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams%27"><span class="hs-identifier hs-type">DescribeLogStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229822"><span id="local-6989586621679229823"><span id="local-6989586621679229824"><span id="local-6989586621679229825"><span id="local-6989586621679229826"><span id="local-6989586621679229827"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Natural
 Maybe Text
 Maybe OrderBy
@@ -620,7 +620,7 @@ $sel:logStreamNamePrefix:DescribeLogStreams' :: DescribeLogStreams -&gt; Maybe T
 $sel:nextToken:DescribeLogStreams' :: DescribeLogStreams -&gt; Maybe Text
 $sel:descending:DescribeLogStreams' :: DescribeLogStreams -&gt; Maybe Bool
 $sel:orderBy:DescribeLogStreams' :: DescribeLogStreams -&gt; Maybe OrderBy
-</span><a href="#local-6989586621679229813"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679229822"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-247"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-248"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -632,21 +632,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(OrderBy -&gt; Pair) -&gt; Maybe OrderBy -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe OrderBy
-</span><a href="#local-6989586621679229818"><span class="hs-identifier hs-var">orderBy</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679229827"><span class="hs-identifier hs-var">orderBy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-250"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;descending&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679229817"><span class="hs-identifier hs-var">descending</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679229826"><span class="hs-identifier hs-var">descending</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-251"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679229816"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679229825"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-252"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;logStreamNamePrefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -654,33 +654,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-253"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679229815"><span class="hs-identifier hs-var">logStreamNamePrefix</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679229824"><span class="hs-identifier hs-var">logStreamNamePrefix</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-254"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679229814"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679229823"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-255"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;logGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229813"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229822"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-256"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-257"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-258"></span><span>
 </span><span id="line-259"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams"><span class="hs-identifier hs-type">DescribeLogStreams</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-260"></span><span>  </span><span id="local-6989586621679229807"><span class="annot"><span class="annottext">toPath :: DescribeLogStreams -&gt; ByteString
+</span><span id="line-260"></span><span>  </span><span id="local-6989586621679229816"><span class="annot"><span class="annottext">toPath :: DescribeLogStreams -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeLogStreams -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-261"></span><span>
 </span><span id="line-262"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreams"><span class="hs-identifier hs-type">DescribeLogStreams</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-263"></span><span>  </span><span id="local-6989586621679229803"><span class="annot"><span class="annottext">toQuery :: DescribeLogStreams -&gt; QueryString
+</span><span id="line-263"></span><span>  </span><span id="local-6989586621679229812"><span class="annot"><span class="annottext">toQuery :: DescribeLogStreams -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeLogStreams -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -688,7 +688,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-264"></span><span>
 </span><span id="line-265"></span><span class="hs-comment">-- | /See:/ 'newDescribeLogStreamsResponse' smart constructor.</span><span>
-</span><span id="line-266"></span><span id="local-6989586621679229800"><span id="local-6989586621679229801"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeLogStreamsResponse"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreamsResponse"><span class="hs-identifier hs-var">DescribeLogStreamsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeLogStreamsResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreamsResponse%27"><span class="hs-identifier hs-var">DescribeLogStreamsResponse'</span></a></span></span><span>
+</span><span id="line-266"></span><span id="local-6989586621679229809"><span id="local-6989586621679229810"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeLogStreamsResponse"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreamsResponse"><span class="hs-identifier hs-var">DescribeLogStreamsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeLogStreamsResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreamsResponse%27"><span class="hs-identifier hs-var">DescribeLogStreamsResponse'</span></a></span></span><span>
 </span><span id="line-267"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AnextToken%3ADescribeLogStreamsResponse%27"><span class="annot"><span class="annottext">DescribeLogStreamsResponse -&gt; Maybe Text
 </span><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#%24sel%3AnextToken%3ADescribeLogStreamsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-268"></span><span>    </span><span class="hs-comment">-- | The log streams.</span><span>
@@ -698,7 +698,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-271"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeLogStreamsResponse%27"><span class="annot"><span class="annottext">DescribeLogStreamsResponse -&gt; Int
 </span><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#%24sel%3AhttpStatus%3ADescribeLogStreamsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-272"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-273"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229793"><span id="local-6989586621679229795"><span class="annot"><span class="annottext">DescribeLogStreamsResponse -&gt; DescribeLogStreamsResponse -&gt; Bool
+</span><span id="line-273"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229802"><span id="local-6989586621679229804"><span class="annot"><span class="annottext">DescribeLogStreamsResponse -&gt; DescribeLogStreamsResponse -&gt; Bool
 (DescribeLogStreamsResponse -&gt; DescribeLogStreamsResponse -&gt; Bool)
 -&gt; (DescribeLogStreamsResponse
     -&gt; DescribeLogStreamsResponse -&gt; Bool)
@@ -708,7 +708,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeLogStreamsResponse -&gt; DescribeLogStreamsResponse -&gt; Bool
 == :: DescribeLogStreamsResponse -&gt; DescribeLogStreamsResponse -&gt; Bool
 $c== :: DescribeLogStreamsResponse -&gt; DescribeLogStreamsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229785"><span id="local-6989586621679229787"><span id="local-6989586621679229789"><span id="local-6989586621679229791"><span class="annot"><span class="annottext">ReadPrec [DescribeLogStreamsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229794"><span id="local-6989586621679229796"><span id="local-6989586621679229798"><span id="local-6989586621679229800"><span class="annot"><span class="annottext">ReadPrec [DescribeLogStreamsResponse]
 ReadPrec DescribeLogStreamsResponse
 Int -&gt; ReadS DescribeLogStreamsResponse
 ReadS [DescribeLogStreamsResponse]
@@ -728,7 +728,7 @@ readList :: ReadS [DescribeLogStreamsResponse]
 $creadList :: ReadS [DescribeLogStreamsResponse]
 readsPrec :: Int -&gt; ReadS DescribeLogStreamsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeLogStreamsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229779"><span id="local-6989586621679229781"><span id="local-6989586621679229783"><span class="annot"><span class="annottext">Int -&gt; DescribeLogStreamsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229788"><span id="local-6989586621679229790"><span id="local-6989586621679229792"><span class="annot"><span class="annottext">Int -&gt; DescribeLogStreamsResponse -&gt; ShowS
 [DescribeLogStreamsResponse] -&gt; ShowS
 DescribeLogStreamsResponse -&gt; String
 (Int -&gt; DescribeLogStreamsResponse -&gt; ShowS)
@@ -778,8 +778,8 @@ DescribeLogStreamsResponse -&gt; Rep DescribeLogStreamsResponse x
 </span><span id="line-290"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-291"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreamsResponse"><span class="hs-identifier hs-type">DescribeLogStreamsResponse</span></a></span><span>
 </span><span id="line-292"></span><span id="newDescribeLogStreamsResponse"><span class="annot"><span class="annottext">newDescribeLogStreamsResponse :: Int -&gt; DescribeLogStreamsResponse
-</span><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#newDescribeLogStreamsResponse"><span class="hs-identifier hs-var hs-var">newDescribeLogStreamsResponse</span></a></span></span><span> </span><span id="local-6989586621679229776"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229776"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#newDescribeLogStreamsResponse"><span class="hs-identifier hs-var hs-var">newDescribeLogStreamsResponse</span></a></span></span><span> </span><span id="local-6989586621679229785"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229785"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-293"></span><span>  </span><span class="annot"><span class="annottext">DescribeLogStreamsResponse' :: Maybe Text
 -&gt; Maybe [LogStream] -&gt; Int -&gt; DescribeLogStreamsResponse
 </span><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreamsResponse%27"><span class="hs-identifier hs-type">DescribeLogStreamsResponse'</span></a></span><span>
@@ -794,7 +794,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-297"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeLogStreamsResponse' :: Int
 </span><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#%24sel%3AhttpStatus%3ADescribeLogStreamsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229776"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679229785"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-298"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-299"></span><span>
 </span><span id="line-300"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -806,16 +806,16 @@ forall a. Maybe a
     -&gt; Maybe Text -&gt; DescribeLogStreamsResponse)
 -&gt; Lens' DescribeLogStreamsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreamsResponse%27"><span class="hs-identifier hs-type">DescribeLogStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229775"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreamsResponse%27"><span class="hs-identifier hs-type">DescribeLogStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229784"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeLogStreamsResponse' :: DescribeLogStreamsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679229775"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679229775"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229774"><span class="annot"><span class="annottext">s :: DescribeLogStreamsResponse
-</span><a href="#local-6989586621679229774"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreamsResponse%27"><span class="hs-identifier hs-type">DescribeLogStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229773"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679229773"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLogStreamsResponse
-</span><a href="#local-6989586621679229774"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeLogStreamsResponse' :: Maybe Text
+</span><a href="#local-6989586621679229784"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229784"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229783"><span class="annot"><span class="annottext">s :: DescribeLogStreamsResponse
+</span><a href="#local-6989586621679229783"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreamsResponse%27"><span class="hs-identifier hs-type">DescribeLogStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229782"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229782"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLogStreamsResponse
+</span><a href="#local-6989586621679229783"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeLogStreamsResponse' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#%24sel%3AnextToken%3ADescribeLogStreamsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679229773"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreamsResponse"><span class="hs-identifier hs-type">DescribeLogStreamsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229782"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreamsResponse"><span class="hs-identifier hs-type">DescribeLogStreamsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-303"></span><span>
 </span><span id="line-304"></span><span class="hs-comment">-- | The log streams.</span><span>
 </span><span id="line-305"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#describeLogStreamsResponse_logStreams"><span class="hs-identifier hs-type">describeLogStreamsResponse_logStreams</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreamsResponse"><span class="hs-identifier hs-type">DescribeLogStreamsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.LogStream.html#LogStream"><span class="hs-identifier hs-type">LogStream</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -826,16 +826,16 @@ $sel:nextToken:DescribeLogStreamsResponse' :: DescribeLogStreamsResponse -&gt; M
     -&gt; Maybe [LogStream] -&gt; DescribeLogStreamsResponse)
 -&gt; Lens' DescribeLogStreamsResponse (Maybe [LogStream])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreamsResponse%27"><span class="hs-identifier hs-type">DescribeLogStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229772"><span class="annot"><span class="annottext">Maybe [LogStream]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreamsResponse%27"><span class="hs-identifier hs-type">DescribeLogStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229781"><span class="annot"><span class="annottext">Maybe [LogStream]
 logStreams :: Maybe [LogStream]
 $sel:logStreams:DescribeLogStreamsResponse' :: DescribeLogStreamsResponse -&gt; Maybe [LogStream]
-</span><a href="#local-6989586621679229772"><span class="hs-identifier hs-var hs-var">logStreams</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LogStream]
-</span><a href="#local-6989586621679229772"><span class="hs-identifier hs-var">logStreams</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229771"><span class="annot"><span class="annottext">s :: DescribeLogStreamsResponse
-</span><a href="#local-6989586621679229771"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreamsResponse%27"><span class="hs-identifier hs-type">DescribeLogStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229770"><span class="annot"><span class="annottext">Maybe [LogStream]
-</span><a href="#local-6989586621679229770"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLogStreamsResponse
-</span><a href="#local-6989586621679229771"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logStreams:DescribeLogStreamsResponse' :: Maybe [LogStream]
+</span><a href="#local-6989586621679229781"><span class="hs-identifier hs-var hs-var">logStreams</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LogStream]
+</span><a href="#local-6989586621679229781"><span class="hs-identifier hs-var">logStreams</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229780"><span class="annot"><span class="annottext">s :: DescribeLogStreamsResponse
+</span><a href="#local-6989586621679229780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreamsResponse%27"><span class="hs-identifier hs-type">DescribeLogStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229779"><span class="annot"><span class="annottext">Maybe [LogStream]
+</span><a href="#local-6989586621679229779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLogStreamsResponse
+</span><a href="#local-6989586621679229780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logStreams:DescribeLogStreamsResponse' :: Maybe [LogStream]
 </span><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#%24sel%3AlogStreams%3ADescribeLogStreamsResponse%27"><span class="hs-identifier hs-var">logStreams</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LogStream]
-</span><a href="#local-6989586621679229770"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreamsResponse"><span class="hs-identifier hs-type">DescribeLogStreamsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LogStream] -&gt; f (Maybe [LogStream]))
+</span><a href="#local-6989586621679229779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreamsResponse"><span class="hs-identifier hs-type">DescribeLogStreamsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LogStream] -&gt; f (Maybe [LogStream]))
  -&gt; DescribeLogStreamsResponse -&gt; f DescribeLogStreamsResponse)
 -&gt; ((Maybe [LogStream] -&gt; f (Maybe [LogStream]))
     -&gt; Maybe [LogStream] -&gt; f (Maybe [LogStream]))
@@ -866,16 +866,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      DescribeLogStreamsResponse DescribeLogStreamsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreamsResponse%27"><span class="hs-identifier hs-type">DescribeLogStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229767"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreamsResponse%27"><span class="hs-identifier hs-type">DescribeLogStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229776"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeLogStreamsResponse' :: DescribeLogStreamsResponse -&gt; Int
-</span><a href="#local-6989586621679229767"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229767"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229766"><span class="annot"><span class="annottext">s :: DescribeLogStreamsResponse
-</span><a href="#local-6989586621679229766"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreamsResponse%27"><span class="hs-identifier hs-type">DescribeLogStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229765"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229765"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLogStreamsResponse
-</span><a href="#local-6989586621679229766"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeLogStreamsResponse' :: Int
+</span><a href="#local-6989586621679229776"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229776"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229775"><span class="annot"><span class="annottext">s :: DescribeLogStreamsResponse
+</span><a href="#local-6989586621679229775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreamsResponse%27"><span class="hs-identifier hs-type">DescribeLogStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229774"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLogStreamsResponse
+</span><a href="#local-6989586621679229775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeLogStreamsResponse' :: Int
 </span><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#%24sel%3AhttpStatus%3ADescribeLogStreamsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229765"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreamsResponse"><span class="hs-identifier hs-type">DescribeLogStreamsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreamsResponse"><span class="hs-identifier hs-type">DescribeLogStreamsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-311"></span><span>
-</span><span id="line-312"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229763"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreamsResponse"><span class="hs-identifier hs-type">DescribeLogStreamsResponse</span></a></span></span><span>
+</span><span id="line-312"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229772"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeLogStreams.html#DescribeLogStreamsResponse"><span class="hs-identifier hs-type">DescribeLogStreamsResponse</span></a></span></span><span>
 </span><span id="line-313"></span></pre></body></html>

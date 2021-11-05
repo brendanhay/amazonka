@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.RobOMaker.Types.DataSourceType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.RobOMaker.Types.DataSourceType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DataSourceType.html#DataSourceType"><span class="hs-identifier">DataSourceType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DataSourceType.html#DataSourceType_Archive"><span class="hs-identifier">DataSourceType_Archive</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DataSourceType.html#DataSourceType_File"><span class="hs-identifier">DataSourceType_File</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DataSourceType.html#DataSourceType_Prefix"><span class="hs-identifier">DataSourceType_Prefix</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679365689"><span id="local-6989586621679365690"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DataSourceType"><span class="annot"><a href="Network.AWS.RobOMaker.Types.DataSourceType.html#DataSourceType"><span class="hs-identifier hs-var">DataSourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DataSourceType%27"><span class="annot"><a href="Network.AWS.RobOMaker.Types.DataSourceType.html#DataSourceType%27"><span class="hs-identifier hs-var">DataSourceType'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDataSourceType"><span class="annot"><span class="annottext">DataSourceType -&gt; Text
+</span><a href="Network.AWS.RobOMaker.Types.DataSourceType.html#fromDataSourceType"><span class="hs-identifier hs-var hs-var">fromDataSourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679365681"><span id="local-6989586621679365683"><span id="local-6989586621679365685"><span class="annot"><span class="annottext">Int -&gt; DataSourceType -&gt; ShowS
+[DataSourceType] -&gt; ShowS
+DataSourceType -&gt; String
+(Int -&gt; DataSourceType -&gt; ShowS)
+-&gt; (DataSourceType -&gt; String)
+-&gt; ([DataSourceType] -&gt; ShowS)
+-&gt; Show DataSourceType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DataSourceType] -&gt; ShowS
+$cshowList :: [DataSourceType] -&gt; ShowS
+show :: DataSourceType -&gt; String
+$cshow :: DataSourceType -&gt; String
+showsPrec :: Int -&gt; DataSourceType -&gt; ShowS
+$cshowsPrec :: Int -&gt; DataSourceType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679365672"><span id="local-6989586621679365674"><span id="local-6989586621679365676"><span id="local-6989586621679365678"><span class="annot"><span class="annottext">ReadPrec [DataSourceType]
+ReadPrec DataSourceType
+Int -&gt; ReadS DataSourceType
+ReadS [DataSourceType]
+(Int -&gt; ReadS DataSourceType)
+-&gt; ReadS [DataSourceType]
+-&gt; ReadPrec DataSourceType
+-&gt; ReadPrec [DataSourceType]
+-&gt; Read DataSourceType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DataSourceType]
+$creadListPrec :: ReadPrec [DataSourceType]
+readPrec :: ReadPrec DataSourceType
+$creadPrec :: ReadPrec DataSourceType
+readList :: ReadS [DataSourceType]
+$creadList :: ReadS [DataSourceType]
+readsPrec :: Int -&gt; ReadS DataSourceType
+$creadsPrec :: Int -&gt; ReadS DataSourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679365667"><span id="local-6989586621679365669"><span class="annot"><span class="annottext">DataSourceType -&gt; DataSourceType -&gt; Bool
+(DataSourceType -&gt; DataSourceType -&gt; Bool)
+-&gt; (DataSourceType -&gt; DataSourceType -&gt; Bool) -&gt; Eq DataSourceType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DataSourceType -&gt; DataSourceType -&gt; Bool
+$c/= :: DataSourceType -&gt; DataSourceType -&gt; Bool
+== :: DataSourceType -&gt; DataSourceType -&gt; Bool
+$c== :: DataSourceType -&gt; DataSourceType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679365651"><span id="local-6989586621679365653"><span id="local-6989586621679365655"><span id="local-6989586621679365657"><span id="local-6989586621679365659"><span id="local-6989586621679365661"><span id="local-6989586621679365663"><span class="annot"><span class="annottext">Eq DataSourceType
+Eq DataSourceType
+-&gt; (DataSourceType -&gt; DataSourceType -&gt; Ordering)
+-&gt; (DataSourceType -&gt; DataSourceType -&gt; Bool)
+-&gt; (DataSourceType -&gt; DataSourceType -&gt; Bool)
+-&gt; (DataSourceType -&gt; DataSourceType -&gt; Bool)
+-&gt; (DataSourceType -&gt; DataSourceType -&gt; Bool)
+-&gt; (DataSourceType -&gt; DataSourceType -&gt; DataSourceType)
+-&gt; (DataSourceType -&gt; DataSourceType -&gt; DataSourceType)
+-&gt; Ord DataSourceType
+DataSourceType -&gt; DataSourceType -&gt; Bool
+DataSourceType -&gt; DataSourceType -&gt; Ordering
+DataSourceType -&gt; DataSourceType -&gt; DataSourceType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DataSourceType -&gt; DataSourceType -&gt; DataSourceType
+$cmin :: DataSourceType -&gt; DataSourceType -&gt; DataSourceType
+max :: DataSourceType -&gt; DataSourceType -&gt; DataSourceType
+$cmax :: DataSourceType -&gt; DataSourceType -&gt; DataSourceType
+&gt;= :: DataSourceType -&gt; DataSourceType -&gt; Bool
+$c&gt;= :: DataSourceType -&gt; DataSourceType -&gt; Bool
+&gt; :: DataSourceType -&gt; DataSourceType -&gt; Bool
+$c&gt; :: DataSourceType -&gt; DataSourceType -&gt; Bool
+&lt;= :: DataSourceType -&gt; DataSourceType -&gt; Bool
+$c&lt;= :: DataSourceType -&gt; DataSourceType -&gt; Bool
+&lt; :: DataSourceType -&gt; DataSourceType -&gt; Bool
+$c&lt; :: DataSourceType -&gt; DataSourceType -&gt; Bool
+compare :: DataSourceType -&gt; DataSourceType -&gt; Ordering
+$ccompare :: DataSourceType -&gt; DataSourceType -&gt; Ordering
+$cp1Ord :: Eq DataSourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. DataSourceType -&gt; Rep DataSourceType x)
+-&gt; (forall x. Rep DataSourceType x -&gt; DataSourceType)
+-&gt; Generic DataSourceType
+forall x. Rep DataSourceType x -&gt; DataSourceType
+forall x. DataSourceType -&gt; Rep DataSourceType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DataSourceType x -&gt; DataSourceType
+$cfrom :: forall x. DataSourceType -&gt; Rep DataSourceType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679365643"><span id="local-6989586621679365645"><span class="annot"><span class="annottext">Int -&gt; DataSourceType -&gt; Int
+DataSourceType -&gt; Int
+(Int -&gt; DataSourceType -&gt; Int)
+-&gt; (DataSourceType -&gt; Int) -&gt; Hashable DataSourceType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DataSourceType -&gt; Int
+$chash :: DataSourceType -&gt; Int
+hashWithSalt :: Int -&gt; DataSourceType -&gt; Int
+$chashWithSalt :: Int -&gt; DataSourceType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679365640"><span class="annot"><span class="annottext">DataSourceType -&gt; ()
+(DataSourceType -&gt; ()) -&gt; NFData DataSourceType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DataSourceType -&gt; ()
+$crnf :: DataSourceType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679365637"><span class="annot"><span class="annottext">Text -&gt; Either String DataSourceType
+(Text -&gt; Either String DataSourceType) -&gt; FromText DataSourceType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DataSourceType
+$cfromText :: Text -&gt; Either String DataSourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679365634"><span class="annot"><span class="annottext">DataSourceType -&gt; Text
+(DataSourceType -&gt; Text) -&gt; ToText DataSourceType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DataSourceType -&gt; Text
+$ctoText :: DataSourceType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679365631"><span class="annot"><span class="annottext">DataSourceType -&gt; ByteString
+(DataSourceType -&gt; ByteString) -&gt; ToByteString DataSourceType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DataSourceType -&gt; ByteString
+$ctoBS :: DataSourceType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679365628"><span class="annot"><span class="annottext">DataSourceType -&gt; ByteStringBuilder
+(DataSourceType -&gt; ByteStringBuilder) -&gt; ToLog DataSourceType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DataSourceType -&gt; ByteStringBuilder
+$cbuild :: DataSourceType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679365625"><span class="annot"><span class="annottext">HeaderName -&gt; DataSourceType -&gt; [Header]
+(HeaderName -&gt; DataSourceType -&gt; [Header])
+-&gt; ToHeader DataSourceType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DataSourceType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DataSourceType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679365622"><span class="annot"><span class="annottext">DataSourceType -&gt; QueryString
+(DataSourceType -&gt; QueryString) -&gt; ToQuery DataSourceType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DataSourceType -&gt; QueryString
+$ctoQuery :: DataSourceType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679365617"><span id="local-6989586621679365619"><span class="annot"><span class="annottext">Value -&gt; Parser [DataSourceType]
+Value -&gt; Parser DataSourceType
+(Value -&gt; Parser DataSourceType)
+-&gt; (Value -&gt; Parser [DataSourceType]) -&gt; FromJSON DataSourceType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DataSourceType]
+$cparseJSONList :: Value -&gt; Parser [DataSourceType]
+parseJSON :: Value -&gt; Parser DataSourceType
+$cparseJSON :: Value -&gt; Parser DataSourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679365612"><span id="local-6989586621679365614"><span class="annot"><span class="annottext">FromJSONKeyFunction [DataSourceType]
+FromJSONKeyFunction DataSourceType
+FromJSONKeyFunction DataSourceType
+-&gt; FromJSONKeyFunction [DataSourceType]
+-&gt; FromJSONKey DataSourceType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DataSourceType]
+$cfromJSONKeyList :: FromJSONKeyFunction [DataSourceType]
+fromJSONKey :: FromJSONKeyFunction DataSourceType
+$cfromJSONKey :: FromJSONKeyFunction DataSourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679365603"><span id="local-6989586621679365605"><span id="local-6989586621679365607"><span id="local-6989586621679365609"><span class="annot"><span class="annottext">[DataSourceType] -&gt; Encoding
+[DataSourceType] -&gt; Value
+DataSourceType -&gt; Encoding
+DataSourceType -&gt; Value
+(DataSourceType -&gt; Value)
+-&gt; (DataSourceType -&gt; Encoding)
+-&gt; ([DataSourceType] -&gt; Value)
+-&gt; ([DataSourceType] -&gt; Encoding)
+-&gt; ToJSON DataSourceType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DataSourceType] -&gt; Encoding
+$ctoEncodingList :: [DataSourceType] -&gt; Encoding
+toJSONList :: [DataSourceType] -&gt; Value
+$ctoJSONList :: [DataSourceType] -&gt; Value
+toEncoding :: DataSourceType -&gt; Encoding
+$ctoEncoding :: DataSourceType -&gt; Encoding
+toJSON :: DataSourceType -&gt; Value
+$ctoJSON :: DataSourceType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679365598"><span id="local-6989586621679365600"><span class="annot"><span class="annottext">ToJSONKeyFunction [DataSourceType]
+ToJSONKeyFunction DataSourceType
+ToJSONKeyFunction DataSourceType
+-&gt; ToJSONKeyFunction [DataSourceType] -&gt; ToJSONKey DataSourceType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DataSourceType]
+$ctoJSONKeyList :: ToJSONKeyFunction [DataSourceType]
+toJSONKey :: ToJSONKeyFunction DataSourceType
+$ctoJSONKey :: ToJSONKeyFunction DataSourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679365595"><span class="annot"><span class="annottext">[Node] -&gt; Either String DataSourceType
+([Node] -&gt; Either String DataSourceType) -&gt; FromXML DataSourceType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DataSourceType
+$cparseXML :: [Node] -&gt; Either String DataSourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679365592"><span class="annot"><span class="annottext">DataSourceType -&gt; XML
+(DataSourceType -&gt; XML) -&gt; ToXML DataSourceType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DataSourceType -&gt; XML
+$ctoXML :: DataSourceType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DataSourceType.html#DataSourceType_Archive"><span class="hs-identifier hs-type">DataSourceType_Archive</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DataSourceType.html#DataSourceType"><span class="hs-identifier hs-type">DataSourceType</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataSourceType_Archive"><span id="%24mDataSourceType_Archive"><span id="DataSourceType_Archive"><span class="annot"><span class="annottext">$bDataSourceType_Archive :: DataSourceType
+$mDataSourceType_Archive :: forall r. DataSourceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.DataSourceType.html#%24bDataSourceType_Archive"><span class="hs-identifier hs-var hs-var hs-var">DataSourceType_Archive</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DataSourceType.html#DataSourceType%27"><span class="hs-identifier hs-type">DataSourceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Archive&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DataSourceType.html#DataSourceType_File"><span class="hs-identifier hs-type">DataSourceType_File</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DataSourceType.html#DataSourceType"><span class="hs-identifier hs-type">DataSourceType</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataSourceType_File"><span id="%24mDataSourceType_File"><span id="DataSourceType_File"><span class="annot"><span class="annottext">$bDataSourceType_File :: DataSourceType
+$mDataSourceType_File :: forall r. DataSourceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.DataSourceType.html#%24bDataSourceType_File"><span class="hs-identifier hs-var hs-var hs-var">DataSourceType_File</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DataSourceType.html#DataSourceType%27"><span class="hs-identifier hs-type">DataSourceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;File&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DataSourceType.html#DataSourceType_Prefix"><span class="hs-identifier hs-type">DataSourceType_Prefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DataSourceType.html#DataSourceType"><span class="hs-identifier hs-type">DataSourceType</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataSourceType_Prefix"><span id="%24mDataSourceType_Prefix"><span id="DataSourceType_Prefix"><span class="annot"><span class="annottext">$bDataSourceType_Prefix :: DataSourceType
+$mDataSourceType_Prefix :: forall r. DataSourceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RobOMaker.Types.DataSourceType.html#%24bDataSourceType_Prefix"><span class="hs-identifier hs-var hs-var hs-var">DataSourceType_Prefix</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DataSourceType.html#DataSourceType%27"><span class="hs-identifier hs-type">DataSourceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Prefix&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DataSourceType.html#DataSourceType_Archive"><span class="hs-pragma hs-type">DataSourceType_Archive</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DataSourceType.html#DataSourceType_File"><span class="hs-pragma hs-type">DataSourceType_File</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DataSourceType.html#DataSourceType_Prefix"><span class="hs-pragma hs-type">DataSourceType_Prefix</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.DataSourceType.html#DataSourceType%27"><span class="hs-pragma hs-type">DataSourceType'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

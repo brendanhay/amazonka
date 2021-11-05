@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Information that explicitly denies authorization.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newExplicitDeny' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679792212"><span id="local-6989586621679792213"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExplicitDeny"><span class="annot"><a href="Network.AWS.IoT.Types.ExplicitDeny.html#ExplicitDeny"><span class="hs-identifier hs-var">ExplicitDeny</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExplicitDeny%27"><span class="annot"><a href="Network.AWS.IoT.Types.ExplicitDeny.html#ExplicitDeny%27"><span class="hs-identifier hs-var">ExplicitDeny'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679792221"><span id="local-6989586621679792222"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExplicitDeny"><span class="annot"><a href="Network.AWS.IoT.Types.ExplicitDeny.html#ExplicitDeny"><span class="hs-identifier hs-var">ExplicitDeny</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExplicitDeny%27"><span class="annot"><a href="Network.AWS.IoT.Types.ExplicitDeny.html#ExplicitDeny%27"><span class="hs-identifier hs-var">ExplicitDeny'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The policies that denied the authorization.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Apolicies%3AExplicitDeny%27"><span class="annot"><span class="annottext">ExplicitDeny -&gt; Maybe [Policy]
 </span><a href="Network.AWS.IoT.Types.ExplicitDeny.html#%24sel%3Apolicies%3AExplicitDeny%27"><span class="hs-identifier hs-var hs-var">policies</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoT.Types.Policy.html#Policy"><span class="hs-identifier hs-type">Policy</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679792206"><span id="local-6989586621679792208"><span class="annot"><span class="annottext">ExplicitDeny -&gt; ExplicitDeny -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679792215"><span id="local-6989586621679792217"><span class="annot"><span class="annottext">ExplicitDeny -&gt; ExplicitDeny -&gt; Bool
 (ExplicitDeny -&gt; ExplicitDeny -&gt; Bool)
 -&gt; (ExplicitDeny -&gt; ExplicitDeny -&gt; Bool) -&gt; Eq ExplicitDeny
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ExplicitDeny -&gt; ExplicitDeny -&gt; Bool
 == :: ExplicitDeny -&gt; ExplicitDeny -&gt; Bool
 $c== :: ExplicitDeny -&gt; ExplicitDeny -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679792197"><span id="local-6989586621679792199"><span id="local-6989586621679792201"><span id="local-6989586621679792203"><span class="annot"><span class="annottext">ReadPrec [ExplicitDeny]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679792206"><span id="local-6989586621679792208"><span id="local-6989586621679792210"><span id="local-6989586621679792212"><span class="annot"><span class="annottext">ReadPrec [ExplicitDeny]
 ReadPrec ExplicitDeny
 Int -&gt; ReadS ExplicitDeny
 ReadS [ExplicitDeny]
@@ -60,7 +60,7 @@ readList :: ReadS [ExplicitDeny]
 $creadList :: ReadS [ExplicitDeny]
 readsPrec :: Int -&gt; ReadS ExplicitDeny
 $creadsPrec :: Int -&gt; ReadS ExplicitDeny
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679792190"><span id="local-6989586621679792192"><span id="local-6989586621679792194"><span class="annot"><span class="annottext">Int -&gt; ExplicitDeny -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679792199"><span id="local-6989586621679792201"><span id="local-6989586621679792203"><span class="annot"><span class="annottext">Int -&gt; ExplicitDeny -&gt; ShowS
 [ExplicitDeny] -&gt; ShowS
 ExplicitDeny -&gt; String
 (Int -&gt; ExplicitDeny -&gt; ShowS)
@@ -113,16 +113,16 @@ forall a. Maybe a
 -&gt; (ExplicitDeny -&gt; Maybe [Policy] -&gt; ExplicitDeny)
 -&gt; Lens ExplicitDeny ExplicitDeny (Maybe [Policy]) (Maybe [Policy])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ExplicitDeny.html#ExplicitDeny%27"><span class="hs-identifier hs-type">ExplicitDeny'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679792181"><span class="annot"><span class="annottext">Maybe [Policy]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ExplicitDeny.html#ExplicitDeny%27"><span class="hs-identifier hs-type">ExplicitDeny'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679792190"><span class="annot"><span class="annottext">Maybe [Policy]
 policies :: Maybe [Policy]
 $sel:policies:ExplicitDeny' :: ExplicitDeny -&gt; Maybe [Policy]
-</span><a href="#local-6989586621679792181"><span class="hs-identifier hs-var hs-var">policies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Policy]
-</span><a href="#local-6989586621679792181"><span class="hs-identifier hs-var">policies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679792180"><span class="annot"><span class="annottext">s :: ExplicitDeny
-</span><a href="#local-6989586621679792180"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ExplicitDeny.html#ExplicitDeny%27"><span class="hs-identifier hs-type">ExplicitDeny'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679792179"><span class="annot"><span class="annottext">Maybe [Policy]
-</span><a href="#local-6989586621679792179"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExplicitDeny
-</span><a href="#local-6989586621679792180"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policies:ExplicitDeny' :: Maybe [Policy]
+</span><a href="#local-6989586621679792190"><span class="hs-identifier hs-var hs-var">policies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Policy]
+</span><a href="#local-6989586621679792190"><span class="hs-identifier hs-var">policies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679792189"><span class="annot"><span class="annottext">s :: ExplicitDeny
+</span><a href="#local-6989586621679792189"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ExplicitDeny.html#ExplicitDeny%27"><span class="hs-identifier hs-type">ExplicitDeny'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679792188"><span class="annot"><span class="annottext">Maybe [Policy]
+</span><a href="#local-6989586621679792188"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExplicitDeny
+</span><a href="#local-6989586621679792189"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policies:ExplicitDeny' :: Maybe [Policy]
 </span><a href="Network.AWS.IoT.Types.ExplicitDeny.html#%24sel%3Apolicies%3AExplicitDeny%27"><span class="hs-identifier hs-var">policies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Policy]
-</span><a href="#local-6989586621679792179"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ExplicitDeny.html#ExplicitDeny"><span class="hs-identifier hs-type">ExplicitDeny</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Policy] -&gt; f (Maybe [Policy]))
+</span><a href="#local-6989586621679792188"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ExplicitDeny.html#ExplicitDeny"><span class="hs-identifier hs-type">ExplicitDeny</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Policy] -&gt; f (Maybe [Policy]))
  -&gt; ExplicitDeny -&gt; f ExplicitDeny)
 -&gt; ((Maybe [Policy] -&gt; f (Maybe [Policy]))
     -&gt; Maybe [Policy] -&gt; f (Maybe [Policy]))
@@ -140,8 +140,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-53"></span><span>
-</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679792173"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ExplicitDeny.html#ExplicitDeny"><span class="hs-identifier hs-type">ExplicitDeny</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621679792171"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ExplicitDeny
+</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679792182"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ExplicitDeny.html#ExplicitDeny"><span class="hs-identifier hs-type">ExplicitDeny</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679792180"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ExplicitDeny
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ExplicitDeny) -&gt; Value -&gt; Parser ExplicitDeny
@@ -149,15 +149,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ExplicitDeny&quot;</span></span><span>
-</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679792168"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679792168"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679792177"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679792177"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Policy] -&gt; ExplicitDeny
 </span><a href="Network.AWS.IoT.Types.ExplicitDeny.html#ExplicitDeny%27"><span class="hs-identifier hs-var">ExplicitDeny'</span></a></span><span>
 </span><span id="line-60"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Policy] -&gt; ExplicitDeny)
 -&gt; Parser (Maybe [Policy]) -&gt; Parser ExplicitDeny
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679792168"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Policy]))
+</span><a href="#local-6989586621679792177"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Policy]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;policies&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Policy]))
@@ -168,7 +168,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679792161"><span id="local-6989586621679792163"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ExplicitDeny.html#ExplicitDeny"><span class="hs-identifier hs-type">ExplicitDeny</span></a></span></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679792170"><span id="local-6989586621679792172"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ExplicitDeny.html#ExplicitDeny"><span class="hs-identifier hs-type">ExplicitDeny</span></a></span></span></span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679792158"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ExplicitDeny.html#ExplicitDeny"><span class="hs-identifier hs-type">ExplicitDeny</span></a></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679792167"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ExplicitDeny.html#ExplicitDeny"><span class="hs-identifier hs-type">ExplicitDeny</span></a></span></span><span>
 </span><span id="line-66"></span></pre></body></html>

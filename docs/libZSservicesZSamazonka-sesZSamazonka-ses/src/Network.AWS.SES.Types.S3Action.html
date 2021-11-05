@@ -42,7 +42,7 @@
 </span><span id="line-42"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-s3.html Amazon SES Developer Guide&gt;.</span><span>
 </span><span id="line-43"></span><span class="hs-comment">--</span><span>
 </span><span id="line-44"></span><span class="hs-comment">-- /See:/ 'newS3Action' smart constructor.</span><span>
-</span><span id="line-45"></span><span id="local-6989586621679274811"><span id="local-6989586621679274812"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3Action"><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action"><span class="hs-identifier hs-var">S3Action</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3Action%27"><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-var">S3Action'</span></a></span></span><span>
+</span><span id="line-45"></span><span id="local-6989586621679274820"><span id="local-6989586621679274821"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3Action"><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action"><span class="hs-identifier hs-var">S3Action</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3Action%27"><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-var">S3Action'</span></a></span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The customer master key that Amazon SES should use to encrypt your</span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-comment">-- emails before saving them to the Amazon S3 bucket. You can use the</span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-comment">-- default master key or a custom master key you created in AWS KMS as</span><span>
@@ -98,7 +98,7 @@
 </span><span id="line-95"></span><span>    </span><span id="%24sel%3AbucketName%3AS3Action%27"><span class="annot"><span class="annottext">S3Action -&gt; Text
 </span><a href="Network.AWS.SES.Types.S3Action.html#%24sel%3AbucketName%3AS3Action%27"><span class="hs-identifier hs-var hs-var">bucketName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-96"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-97"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274802"><span id="local-6989586621679274804"><span class="annot"><span class="annottext">S3Action -&gt; S3Action -&gt; Bool
+</span><span id="line-97"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274811"><span id="local-6989586621679274813"><span class="annot"><span class="annottext">S3Action -&gt; S3Action -&gt; Bool
 (S3Action -&gt; S3Action -&gt; Bool)
 -&gt; (S3Action -&gt; S3Action -&gt; Bool) -&gt; Eq S3Action
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -106,7 +106,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: S3Action -&gt; S3Action -&gt; Bool
 == :: S3Action -&gt; S3Action -&gt; Bool
 $c== :: S3Action -&gt; S3Action -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274793"><span id="local-6989586621679274795"><span id="local-6989586621679274797"><span id="local-6989586621679274799"><span class="annot"><span class="annottext">ReadPrec [S3Action]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274802"><span id="local-6989586621679274804"><span id="local-6989586621679274806"><span id="local-6989586621679274808"><span class="annot"><span class="annottext">ReadPrec [S3Action]
 ReadPrec S3Action
 Int -&gt; ReadS S3Action
 ReadS [S3Action]
@@ -126,7 +126,7 @@ readList :: ReadS [S3Action]
 $creadList :: ReadS [S3Action]
 readsPrec :: Int -&gt; ReadS S3Action
 $creadsPrec :: Int -&gt; ReadS S3Action
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274786"><span id="local-6989586621679274788"><span id="local-6989586621679274790"><span class="annot"><span class="annottext">Int -&gt; S3Action -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274795"><span id="local-6989586621679274797"><span id="local-6989586621679274799"><span class="annot"><span class="annottext">Int -&gt; S3Action -&gt; ShowS
 [S3Action] -&gt; ShowS
 S3Action -&gt; String
 (Int -&gt; S3Action -&gt; ShowS)
@@ -211,8 +211,8 @@ $cfrom :: forall x. S3Action -&gt; Rep S3Action x
 </span><span id="line-158"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-159"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span><span>
 </span><span id="line-160"></span><span id="newS3Action"><span class="annot"><span class="annottext">newS3Action :: Text -&gt; S3Action
-</span><a href="Network.AWS.SES.Types.S3Action.html#newS3Action"><span class="hs-identifier hs-var hs-var">newS3Action</span></a></span></span><span> </span><span id="local-6989586621679274780"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274780"><span class="hs-identifier hs-var">pBucketName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SES.Types.S3Action.html#newS3Action"><span class="hs-identifier hs-var hs-var">newS3Action</span></a></span></span><span> </span><span id="local-6989586621679274789"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274789"><span class="hs-identifier hs-var">pBucketName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-161"></span><span>  </span><span class="annot"><span class="annottext">S3Action' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; S3Action
 </span><a href="Network.AWS.SES.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span>
 </span><span id="line-162"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:kmsKeyArn:S3Action' :: Maybe Text
@@ -229,7 +229,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucketName:S3Action' :: Text
 </span><a href="Network.AWS.SES.Types.S3Action.html#%24sel%3AbucketName%3AS3Action%27"><span class="hs-identifier hs-var">bucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274780"><span class="hs-identifier hs-var">pBucketName_</span></a></span><span>
+</span><a href="#local-6989586621679274789"><span class="hs-identifier hs-var">pBucketName_</span></a></span><span>
 </span><span id="line-166"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | The customer master key that Amazon SES should use to encrypt your</span><span>
@@ -275,16 +275,16 @@ forall a. Maybe a
 -&gt; (S3Action -&gt; Maybe Text -&gt; S3Action)
 -&gt; Lens S3Action S3Action (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274776"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274785"><span class="annot"><span class="annottext">Maybe Text
 kmsKeyArn :: Maybe Text
 $sel:kmsKeyArn:S3Action' :: S3Action -&gt; Maybe Text
-</span><a href="#local-6989586621679274776"><span class="hs-identifier hs-var hs-var">kmsKeyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679274776"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274775"><span class="annot"><span class="annottext">s :: S3Action
-</span><a href="#local-6989586621679274775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274774"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679274774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Action
-</span><a href="#local-6989586621679274775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyArn:S3Action' :: Maybe Text
+</span><a href="#local-6989586621679274785"><span class="hs-identifier hs-var hs-var">kmsKeyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274785"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274784"><span class="annot"><span class="annottext">s :: S3Action
+</span><a href="#local-6989586621679274784"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274783"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274783"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Action
+</span><a href="#local-6989586621679274784"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyArn:S3Action' :: Maybe Text
 </span><a href="Network.AWS.SES.Types.S3Action.html#%24sel%3AkmsKeyArn%3AS3Action%27"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679274774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274783"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-207"></span><span>
 </span><span id="line-208"></span><span class="hs-comment">-- | The ARN of the Amazon SNS topic to notify when the message is saved to</span><span>
 </span><span id="line-209"></span><span class="hs-comment">-- the Amazon S3 bucket. An example of an Amazon SNS topic ARN is</span><span>
@@ -297,16 +297,16 @@ $sel:kmsKeyArn:S3Action' :: S3Action -&gt; Maybe Text
 -&gt; (S3Action -&gt; Maybe Text -&gt; S3Action)
 -&gt; Lens S3Action S3Action (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274772"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274781"><span class="annot"><span class="annottext">Maybe Text
 topicArn :: Maybe Text
 $sel:topicArn:S3Action' :: S3Action -&gt; Maybe Text
-</span><a href="#local-6989586621679274772"><span class="hs-identifier hs-var hs-var">topicArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679274772"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274771"><span class="annot"><span class="annottext">s :: S3Action
-</span><a href="#local-6989586621679274771"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274770"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679274770"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Action
-</span><a href="#local-6989586621679274771"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicArn:S3Action' :: Maybe Text
+</span><a href="#local-6989586621679274781"><span class="hs-identifier hs-var hs-var">topicArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274781"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274780"><span class="annot"><span class="annottext">s :: S3Action
+</span><a href="#local-6989586621679274780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274779"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Action
+</span><a href="#local-6989586621679274780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicArn:S3Action' :: Maybe Text
 </span><a href="Network.AWS.SES.Types.S3Action.html#%24sel%3AtopicArn%3AS3Action%27"><span class="hs-identifier hs-var">topicArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679274770"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-215"></span><span>
 </span><span id="line-216"></span><span class="hs-comment">-- | The key prefix of the Amazon S3 bucket. The key prefix is similar to a</span><span>
 </span><span id="line-217"></span><span class="hs-comment">-- directory name that enables you to store similar data under the same</span><span>
@@ -317,16 +317,16 @@ $sel:topicArn:S3Action' :: S3Action -&gt; Maybe Text
 -&gt; (S3Action -&gt; Maybe Text -&gt; S3Action)
 -&gt; Lens S3Action S3Action (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274768"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274777"><span class="annot"><span class="annottext">Maybe Text
 objectKeyPrefix :: Maybe Text
 $sel:objectKeyPrefix:S3Action' :: S3Action -&gt; Maybe Text
-</span><a href="#local-6989586621679274768"><span class="hs-identifier hs-var hs-var">objectKeyPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679274768"><span class="hs-identifier hs-var">objectKeyPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274767"><span class="annot"><span class="annottext">s :: S3Action
-</span><a href="#local-6989586621679274767"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274766"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679274766"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Action
-</span><a href="#local-6989586621679274767"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectKeyPrefix:S3Action' :: Maybe Text
+</span><a href="#local-6989586621679274777"><span class="hs-identifier hs-var hs-var">objectKeyPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274777"><span class="hs-identifier hs-var">objectKeyPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274776"><span class="annot"><span class="annottext">s :: S3Action
+</span><a href="#local-6989586621679274776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274775"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Action
+</span><a href="#local-6989586621679274776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectKeyPrefix:S3Action' :: Maybe Text
 </span><a href="Network.AWS.SES.Types.S3Action.html#%24sel%3AobjectKeyPrefix%3AS3Action%27"><span class="hs-identifier hs-var">objectKeyPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679274766"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-221"></span><span>
 </span><span id="line-222"></span><span class="hs-comment">-- | The name of the Amazon S3 bucket that incoming email will be saved to.</span><span>
 </span><span id="line-223"></span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#s3Action_bucketName"><span class="hs-identifier hs-type">s3Action_bucketName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -335,21 +335,21 @@ $sel:objectKeyPrefix:S3Action' :: S3Action -&gt; Maybe Text
 -&gt; (S3Action -&gt; Text -&gt; S3Action)
 -&gt; Lens S3Action S3Action Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274764"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274773"><span class="annot"><span class="annottext">Text
 bucketName :: Text
 $sel:bucketName:S3Action' :: S3Action -&gt; Text
-</span><a href="#local-6989586621679274764"><span class="hs-identifier hs-var hs-var">bucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274764"><span class="hs-identifier hs-var">bucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274763"><span class="annot"><span class="annottext">s :: S3Action
-</span><a href="#local-6989586621679274763"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274762"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274762"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Action
-</span><a href="#local-6989586621679274763"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketName:S3Action' :: Text
+</span><a href="#local-6989586621679274773"><span class="hs-identifier hs-var hs-var">bucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274773"><span class="hs-identifier hs-var">bucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274772"><span class="annot"><span class="annottext">s :: S3Action
+</span><a href="#local-6989586621679274772"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274771"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274771"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Action
+</span><a href="#local-6989586621679274772"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketName:S3Action' :: Text
 </span><a href="Network.AWS.SES.Types.S3Action.html#%24sel%3AbucketName%3AS3Action%27"><span class="hs-identifier hs-var">bucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274762"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274771"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-225"></span><span>
 </span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-227"></span><span>  </span><span id="local-6989586621679274759"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String S3Action
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679274757"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679274757"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621679274768"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String S3Action
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679274766"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679274766"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-228"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; S3Action
 </span><a href="Network.AWS.SES.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-var">S3Action'</span></a></span><span>
 </span><span id="line-229"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; S3Action)
@@ -357,7 +357,7 @@ $sel:bucketName:S3Action' :: S3Action -&gt; Text
 -&gt; Either String (Maybe Text -&gt; Maybe Text -&gt; Text -&gt; S3Action)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679274757"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679274766"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KmsKeyArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -366,7 +366,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text -&gt; Text -&gt; S3Action)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679274757"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679274766"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TopicArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -374,7 +374,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text) -&gt; Either String (Text -&gt; S3Action)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679274757"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679274766"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ObjectKeyPrefix&quot;</span></span><span class="hs-special">)</span><span>
@@ -382,18 +382,18 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String Text -&gt; Either String S3Action
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679274757"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679274766"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BucketName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-233"></span><span>
-</span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274750"><span id="local-6989586621679274752"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span></span></span><span>
+</span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274759"><span id="local-6989586621679274761"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span></span></span><span>
 </span><span id="line-235"></span><span>
-</span><span id="line-236"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274747"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span></span><span>
+</span><span id="line-236"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274756"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span></span><span>
 </span><span id="line-237"></span><span>
 </span><span id="line-238"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-239"></span><span>  </span><span id="local-6989586621679274743"><span class="annot"><span class="annottext">toQuery :: S3Action -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274738"><span id="local-6989586621679274739"><span id="local-6989586621679274740"><span id="local-6989586621679274741"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-239"></span><span>  </span><span id="local-6989586621679274752"><span class="annot"><span class="annottext">toQuery :: S3Action -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.S3Action.html#S3Action%27"><span class="hs-identifier hs-type">S3Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274747"><span id="local-6989586621679274748"><span id="local-6989586621679274749"><span id="local-6989586621679274750"><span class="annot"><span class="annottext">Maybe Text
 Text
 bucketName :: Text
 objectKeyPrefix :: Maybe Text
@@ -403,7 +403,7 @@ $sel:bucketName:S3Action' :: S3Action -&gt; Text
 $sel:objectKeyPrefix:S3Action' :: S3Action -&gt; Maybe Text
 $sel:topicArn:S3Action' :: S3Action -&gt; Maybe Text
 $sel:kmsKeyArn:S3Action' :: S3Action -&gt; Maybe Text
-</span><a href="#local-6989586621679274738"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679274747"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-240"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -411,21 +411,21 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;KmsKeyArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679274741"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679274750"><span class="hs-identifier hs-var">kmsKeyArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-242"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;TopicArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679274740"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679274749"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-243"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ObjectKeyPrefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679274739"><span class="hs-identifier hs-var">objectKeyPrefix</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679274748"><span class="hs-identifier hs-var">objectKeyPrefix</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-244"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;BucketName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274738"><span class="hs-identifier hs-var">bucketName</span></a></span><span>
+</span><a href="#local-6989586621679274747"><span class="hs-identifier hs-var">bucketName</span></a></span><span>
 </span><span id="line-245"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-246"></span></pre></body></html>

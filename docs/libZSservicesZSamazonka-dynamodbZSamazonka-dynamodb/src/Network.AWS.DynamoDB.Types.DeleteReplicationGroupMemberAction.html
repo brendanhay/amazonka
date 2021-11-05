@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Represents a replica to be deleted.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newDeleteReplicationGroupMemberAction' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679371745"><span id="local-6989586621679371746"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteReplicationGroupMemberAction"><span class="annot"><a href="Network.AWS.DynamoDB.Types.DeleteReplicationGroupMemberAction.html#DeleteReplicationGroupMemberAction"><span class="hs-identifier hs-var">DeleteReplicationGroupMemberAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteReplicationGroupMemberAction%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.DeleteReplicationGroupMemberAction.html#DeleteReplicationGroupMemberAction%27"><span class="hs-identifier hs-var">DeleteReplicationGroupMemberAction'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679371754"><span id="local-6989586621679371755"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteReplicationGroupMemberAction"><span class="annot"><a href="Network.AWS.DynamoDB.Types.DeleteReplicationGroupMemberAction.html#DeleteReplicationGroupMemberAction"><span class="hs-identifier hs-var">DeleteReplicationGroupMemberAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteReplicationGroupMemberAction%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.DeleteReplicationGroupMemberAction.html#DeleteReplicationGroupMemberAction%27"><span class="hs-identifier hs-var">DeleteReplicationGroupMemberAction'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Region where the replica exists.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AregionName%3ADeleteReplicationGroupMemberAction%27"><span class="annot"><span class="annottext">DeleteReplicationGroupMemberAction -&gt; Text
 </span><a href="Network.AWS.DynamoDB.Types.DeleteReplicationGroupMemberAction.html#%24sel%3AregionName%3ADeleteReplicationGroupMemberAction%27"><span class="hs-identifier hs-var hs-var">regionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679371739"><span id="local-6989586621679371741"><span class="annot"><span class="annottext">DeleteReplicationGroupMemberAction
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679371748"><span id="local-6989586621679371750"><span class="annot"><span class="annottext">DeleteReplicationGroupMemberAction
 -&gt; DeleteReplicationGroupMemberAction -&gt; Bool
 (DeleteReplicationGroupMemberAction
  -&gt; DeleteReplicationGroupMemberAction -&gt; Bool)
@@ -47,7 +47,7 @@ $c/= :: DeleteReplicationGroupMemberAction
 -&gt; DeleteReplicationGroupMemberAction -&gt; Bool
 $c== :: DeleteReplicationGroupMemberAction
 -&gt; DeleteReplicationGroupMemberAction -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371730"><span id="local-6989586621679371732"><span id="local-6989586621679371734"><span id="local-6989586621679371736"><span class="annot"><span class="annottext">ReadPrec [DeleteReplicationGroupMemberAction]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371739"><span id="local-6989586621679371741"><span id="local-6989586621679371743"><span id="local-6989586621679371745"><span class="annot"><span class="annottext">ReadPrec [DeleteReplicationGroupMemberAction]
 ReadPrec DeleteReplicationGroupMemberAction
 Int -&gt; ReadS DeleteReplicationGroupMemberAction
 ReadS [DeleteReplicationGroupMemberAction]
@@ -67,7 +67,7 @@ readList :: ReadS [DeleteReplicationGroupMemberAction]
 $creadList :: ReadS [DeleteReplicationGroupMemberAction]
 readsPrec :: Int -&gt; ReadS DeleteReplicationGroupMemberAction
 $creadsPrec :: Int -&gt; ReadS DeleteReplicationGroupMemberAction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371723"><span id="local-6989586621679371725"><span id="local-6989586621679371727"><span class="annot"><span class="annottext">Int -&gt; DeleteReplicationGroupMemberAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371732"><span id="local-6989586621679371734"><span id="local-6989586621679371736"><span class="annot"><span class="annottext">Int -&gt; DeleteReplicationGroupMemberAction -&gt; ShowS
 [DeleteReplicationGroupMemberAction] -&gt; ShowS
 DeleteReplicationGroupMemberAction -&gt; String
 (Int -&gt; DeleteReplicationGroupMemberAction -&gt; ShowS)
@@ -119,14 +119,14 @@ DeleteReplicationGroupMemberAction
 </span><span id="line-46"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-47"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.DeleteReplicationGroupMemberAction.html#DeleteReplicationGroupMemberAction"><span class="hs-identifier hs-type">DeleteReplicationGroupMemberAction</span></a></span><span>
 </span><span id="line-48"></span><span id="newDeleteReplicationGroupMemberAction"><span class="annot"><span class="annottext">newDeleteReplicationGroupMemberAction :: Text -&gt; DeleteReplicationGroupMemberAction
-</span><a href="Network.AWS.DynamoDB.Types.DeleteReplicationGroupMemberAction.html#newDeleteReplicationGroupMemberAction"><span class="hs-identifier hs-var hs-var">newDeleteReplicationGroupMemberAction</span></a></span></span><span> </span><span id="local-6989586621679371717"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679371717"><span class="hs-identifier hs-var">pRegionName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DynamoDB.Types.DeleteReplicationGroupMemberAction.html#newDeleteReplicationGroupMemberAction"><span class="hs-identifier hs-var hs-var">newDeleteReplicationGroupMemberAction</span></a></span></span><span> </span><span id="local-6989586621679371726"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679371726"><span class="hs-identifier hs-var">pRegionName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-49"></span><span>  </span><span class="annot"><span class="annottext">DeleteReplicationGroupMemberAction' :: Text -&gt; DeleteReplicationGroupMemberAction
 </span><a href="Network.AWS.DynamoDB.Types.DeleteReplicationGroupMemberAction.html#DeleteReplicationGroupMemberAction%27"><span class="hs-identifier hs-type">DeleteReplicationGroupMemberAction'</span></a></span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:regionName:DeleteReplicationGroupMemberAction' :: Text
 </span><a href="Network.AWS.DynamoDB.Types.DeleteReplicationGroupMemberAction.html#%24sel%3AregionName%3ADeleteReplicationGroupMemberAction%27"><span class="hs-identifier hs-var">regionName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-51"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679371717"><span class="hs-identifier hs-var">pRegionName_</span></a></span><span>
+</span><a href="#local-6989586621679371726"><span class="hs-identifier hs-var">pRegionName_</span></a></span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | The Region where the replica exists.</span><span>
@@ -143,34 +143,34 @@ DeleteReplicationGroupMemberAction
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.DeleteReplicationGroupMemberAction.html#DeleteReplicationGroupMemberAction%27"><span class="hs-identifier hs-type">DeleteReplicationGroupMemberAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371713"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.DeleteReplicationGroupMemberAction.html#DeleteReplicationGroupMemberAction%27"><span class="hs-identifier hs-type">DeleteReplicationGroupMemberAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371722"><span class="annot"><span class="annottext">Text
 regionName :: Text
 $sel:regionName:DeleteReplicationGroupMemberAction' :: DeleteReplicationGroupMemberAction -&gt; Text
-</span><a href="#local-6989586621679371713"><span class="hs-identifier hs-var hs-var">regionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679371713"><span class="hs-identifier hs-var">regionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371712"><span class="annot"><span class="annottext">s :: DeleteReplicationGroupMemberAction
-</span><a href="#local-6989586621679371712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.DeleteReplicationGroupMemberAction.html#DeleteReplicationGroupMemberAction%27"><span class="hs-identifier hs-type">DeleteReplicationGroupMemberAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371711"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679371711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteReplicationGroupMemberAction
-</span><a href="#local-6989586621679371712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:regionName:DeleteReplicationGroupMemberAction' :: Text
+</span><a href="#local-6989586621679371722"><span class="hs-identifier hs-var hs-var">regionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679371722"><span class="hs-identifier hs-var">regionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371721"><span class="annot"><span class="annottext">s :: DeleteReplicationGroupMemberAction
+</span><a href="#local-6989586621679371721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.DeleteReplicationGroupMemberAction.html#DeleteReplicationGroupMemberAction%27"><span class="hs-identifier hs-type">DeleteReplicationGroupMemberAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371720"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679371720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteReplicationGroupMemberAction
+</span><a href="#local-6989586621679371721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:regionName:DeleteReplicationGroupMemberAction' :: Text
 </span><a href="Network.AWS.DynamoDB.Types.DeleteReplicationGroupMemberAction.html#%24sel%3AregionName%3ADeleteReplicationGroupMemberAction%27"><span class="hs-identifier hs-var">regionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679371711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.DeleteReplicationGroupMemberAction.html#DeleteReplicationGroupMemberAction"><span class="hs-identifier hs-type">DeleteReplicationGroupMemberAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679371720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.DeleteReplicationGroupMemberAction.html#DeleteReplicationGroupMemberAction"><span class="hs-identifier hs-type">DeleteReplicationGroupMemberAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-59"></span><span>  </span><span id="local-6989586621679371707"><span id="local-6989586621679371709"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-59"></span><span>  </span><span id="local-6989586621679371716"><span id="local-6989586621679371718"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.DeleteReplicationGroupMemberAction.html#DeleteReplicationGroupMemberAction"><span class="hs-identifier hs-type">DeleteReplicationGroupMemberAction</span></a></span></span></span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-63"></span><span>  </span><span id="local-6989586621679371704"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-63"></span><span>  </span><span id="local-6989586621679371713"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.DeleteReplicationGroupMemberAction.html#DeleteReplicationGroupMemberAction"><span class="hs-identifier hs-type">DeleteReplicationGroupMemberAction</span></a></span></span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679371696"><span id="local-6989586621679371698"><span id="local-6989586621679371700"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679371705"><span id="local-6989586621679371707"><span id="local-6989586621679371709"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.DeleteReplicationGroupMemberAction.html#DeleteReplicationGroupMemberAction"><span class="hs-identifier hs-type">DeleteReplicationGroupMemberAction</span></a></span></span></span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679371694"><span class="annot"><span class="annottext">toJSON :: DeleteReplicationGroupMemberAction -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.DeleteReplicationGroupMemberAction.html#DeleteReplicationGroupMemberAction%27"><span class="hs-identifier hs-type">DeleteReplicationGroupMemberAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371692"><span class="annot"><span class="annottext">Text
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679371703"><span class="annot"><span class="annottext">toJSON :: DeleteReplicationGroupMemberAction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.DeleteReplicationGroupMemberAction.html#DeleteReplicationGroupMemberAction%27"><span class="hs-identifier hs-type">DeleteReplicationGroupMemberAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371701"><span class="annot"><span class="annottext">Text
 regionName :: Text
 $sel:regionName:DeleteReplicationGroupMemberAction' :: DeleteReplicationGroupMemberAction -&gt; Text
-</span><a href="#local-6989586621679371692"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679371701"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -182,6 +182,6 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;RegionName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679371692"><span class="hs-identifier hs-var">regionName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679371701"><span class="hs-identifier hs-var">regionName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span></pre></body></html>

@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- transparency.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newJobWatermark' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679211316"><span id="local-6989586621679211317"></span></span><span class="hs-keyword">data</span><span> </span><span id="JobWatermark"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobWatermark.html#JobWatermark"><span class="hs-identifier hs-var">JobWatermark</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobWatermark%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobWatermark.html#JobWatermark%27"><span class="hs-identifier hs-var">JobWatermark'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679211325"><span id="local-6989586621679211326"></span></span><span class="hs-keyword">data</span><span> </span><span id="JobWatermark"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobWatermark.html#JobWatermark"><span class="hs-identifier hs-var">JobWatermark</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobWatermark%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobWatermark.html#JobWatermark%27"><span class="hs-identifier hs-var">JobWatermark'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the watermark settings that Elastic Transcoder uses to add</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- watermarks to the video during transcoding. The settings are in the</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- preset specified by Preset for the current output. In that preset, the</span><span>
@@ -51,7 +51,7 @@
 </span><span id="line-49"></span><span>    </span><span id="%24sel%3Aencryption%3AJobWatermark%27"><span class="annot"><span class="annottext">JobWatermark -&gt; Maybe Encryption
 </span><a href="Network.AWS.ElasticTranscoder.Types.JobWatermark.html#%24sel%3Aencryption%3AJobWatermark%27"><span class="hs-identifier hs-var hs-var">encryption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679211308"><span id="local-6989586621679211310"><span class="annot"><span class="annottext">JobWatermark -&gt; JobWatermark -&gt; Bool
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679211317"><span id="local-6989586621679211319"><span class="annot"><span class="annottext">JobWatermark -&gt; JobWatermark -&gt; Bool
 (JobWatermark -&gt; JobWatermark -&gt; Bool)
 -&gt; (JobWatermark -&gt; JobWatermark -&gt; Bool) -&gt; Eq JobWatermark
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -59,7 +59,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: JobWatermark -&gt; JobWatermark -&gt; Bool
 == :: JobWatermark -&gt; JobWatermark -&gt; Bool
 $c== :: JobWatermark -&gt; JobWatermark -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679211299"><span id="local-6989586621679211301"><span id="local-6989586621679211303"><span id="local-6989586621679211305"><span class="annot"><span class="annottext">ReadPrec [JobWatermark]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679211308"><span id="local-6989586621679211310"><span id="local-6989586621679211312"><span id="local-6989586621679211314"><span class="annot"><span class="annottext">ReadPrec [JobWatermark]
 ReadPrec JobWatermark
 Int -&gt; ReadS JobWatermark
 ReadS [JobWatermark]
@@ -79,7 +79,7 @@ readList :: ReadS [JobWatermark]
 $creadList :: ReadS [JobWatermark]
 readsPrec :: Int -&gt; ReadS JobWatermark
 $creadsPrec :: Int -&gt; ReadS JobWatermark
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679211292"><span id="local-6989586621679211294"><span id="local-6989586621679211296"><span class="annot"><span class="annottext">Int -&gt; JobWatermark -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679211301"><span id="local-6989586621679211303"><span id="local-6989586621679211305"><span class="annot"><span class="annottext">Int -&gt; JobWatermark -&gt; ShowS
 [JobWatermark] -&gt; ShowS
 JobWatermark -&gt; String
 (Int -&gt; JobWatermark -&gt; ShowS)
@@ -159,16 +159,16 @@ forall a. Maybe a
 -&gt; (JobWatermark -&gt; Maybe Text -&gt; JobWatermark)
 -&gt; Lens JobWatermark JobWatermark (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobWatermark.html#JobWatermark%27"><span class="hs-identifier hs-type">JobWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211283"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobWatermark.html#JobWatermark%27"><span class="hs-identifier hs-type">JobWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211292"><span class="annot"><span class="annottext">Maybe Text
 presetWatermarkId :: Maybe Text
 $sel:presetWatermarkId:JobWatermark' :: JobWatermark -&gt; Maybe Text
-</span><a href="#local-6989586621679211283"><span class="hs-identifier hs-var hs-var">presetWatermarkId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679211283"><span class="hs-identifier hs-var">presetWatermarkId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211282"><span class="annot"><span class="annottext">s :: JobWatermark
-</span><a href="#local-6989586621679211282"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobWatermark.html#JobWatermark%27"><span class="hs-identifier hs-type">JobWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211281"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679211281"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobWatermark
-</span><a href="#local-6989586621679211282"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:presetWatermarkId:JobWatermark' :: Maybe Text
+</span><a href="#local-6989586621679211292"><span class="hs-identifier hs-var hs-var">presetWatermarkId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679211292"><span class="hs-identifier hs-var">presetWatermarkId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211291"><span class="annot"><span class="annottext">s :: JobWatermark
+</span><a href="#local-6989586621679211291"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobWatermark.html#JobWatermark%27"><span class="hs-identifier hs-type">JobWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211290"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679211290"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobWatermark
+</span><a href="#local-6989586621679211291"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:presetWatermarkId:JobWatermark' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.JobWatermark.html#%24sel%3ApresetWatermarkId%3AJobWatermark%27"><span class="hs-identifier hs-var">presetWatermarkId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679211281"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobWatermark.html#JobWatermark"><span class="hs-identifier hs-type">JobWatermark</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679211290"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobWatermark.html#JobWatermark"><span class="hs-identifier hs-type">JobWatermark</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | The name of the .png or .jpg file that you want to use for the</span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- watermark. To determine which Amazon S3 bucket contains the specified</span><span>
@@ -184,16 +184,16 @@ $sel:presetWatermarkId:JobWatermark' :: JobWatermark -&gt; Maybe Text
 -&gt; (JobWatermark -&gt; Maybe Text -&gt; JobWatermark)
 -&gt; Lens JobWatermark JobWatermark (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobWatermark.html#JobWatermark%27"><span class="hs-identifier hs-type">JobWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211279"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobWatermark.html#JobWatermark%27"><span class="hs-identifier hs-type">JobWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211288"><span class="annot"><span class="annottext">Maybe Text
 inputKey :: Maybe Text
 $sel:inputKey:JobWatermark' :: JobWatermark -&gt; Maybe Text
-</span><a href="#local-6989586621679211279"><span class="hs-identifier hs-var hs-var">inputKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679211279"><span class="hs-identifier hs-var">inputKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211278"><span class="annot"><span class="annottext">s :: JobWatermark
-</span><a href="#local-6989586621679211278"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobWatermark.html#JobWatermark%27"><span class="hs-identifier hs-type">JobWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211277"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679211277"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobWatermark
-</span><a href="#local-6989586621679211278"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputKey:JobWatermark' :: Maybe Text
+</span><a href="#local-6989586621679211288"><span class="hs-identifier hs-var hs-var">inputKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679211288"><span class="hs-identifier hs-var">inputKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211287"><span class="annot"><span class="annottext">s :: JobWatermark
+</span><a href="#local-6989586621679211287"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobWatermark.html#JobWatermark%27"><span class="hs-identifier hs-type">JobWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211286"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679211286"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobWatermark
+</span><a href="#local-6989586621679211287"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputKey:JobWatermark' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.JobWatermark.html#%24sel%3AinputKey%3AJobWatermark%27"><span class="hs-identifier hs-var">inputKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679211277"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobWatermark.html#JobWatermark"><span class="hs-identifier hs-type">JobWatermark</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679211286"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobWatermark.html#JobWatermark"><span class="hs-identifier hs-type">JobWatermark</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | The encryption settings, if any, that you want Elastic Transcoder to</span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- apply to your watermarks.</span><span>
@@ -205,19 +205,19 @@ $sel:inputKey:JobWatermark' :: JobWatermark -&gt; Maybe Text
 -&gt; Lens
      JobWatermark JobWatermark (Maybe Encryption) (Maybe Encryption)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobWatermark.html#JobWatermark%27"><span class="hs-identifier hs-type">JobWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211275"><span class="annot"><span class="annottext">Maybe Encryption
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobWatermark.html#JobWatermark%27"><span class="hs-identifier hs-type">JobWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211284"><span class="annot"><span class="annottext">Maybe Encryption
 encryption :: Maybe Encryption
 $sel:encryption:JobWatermark' :: JobWatermark -&gt; Maybe Encryption
-</span><a href="#local-6989586621679211275"><span class="hs-identifier hs-var hs-var">encryption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Encryption
-</span><a href="#local-6989586621679211275"><span class="hs-identifier hs-var">encryption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211274"><span class="annot"><span class="annottext">s :: JobWatermark
-</span><a href="#local-6989586621679211274"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobWatermark.html#JobWatermark%27"><span class="hs-identifier hs-type">JobWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211273"><span class="annot"><span class="annottext">Maybe Encryption
-</span><a href="#local-6989586621679211273"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobWatermark
-</span><a href="#local-6989586621679211274"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryption:JobWatermark' :: Maybe Encryption
+</span><a href="#local-6989586621679211284"><span class="hs-identifier hs-var hs-var">encryption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Encryption
+</span><a href="#local-6989586621679211284"><span class="hs-identifier hs-var">encryption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211283"><span class="annot"><span class="annottext">s :: JobWatermark
+</span><a href="#local-6989586621679211283"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobWatermark.html#JobWatermark%27"><span class="hs-identifier hs-type">JobWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211282"><span class="annot"><span class="annottext">Maybe Encryption
+</span><a href="#local-6989586621679211282"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobWatermark
+</span><a href="#local-6989586621679211283"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryption:JobWatermark' :: Maybe Encryption
 </span><a href="Network.AWS.ElasticTranscoder.Types.JobWatermark.html#%24sel%3Aencryption%3AJobWatermark%27"><span class="hs-identifier hs-var">encryption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Encryption
-</span><a href="#local-6989586621679211273"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobWatermark.html#JobWatermark"><span class="hs-identifier hs-type">JobWatermark</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679211282"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobWatermark.html#JobWatermark"><span class="hs-identifier hs-type">JobWatermark</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679211270"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobWatermark.html#JobWatermark"><span class="hs-identifier hs-type">JobWatermark</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679211268"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JobWatermark
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679211279"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobWatermark.html#JobWatermark"><span class="hs-identifier hs-type">JobWatermark</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679211277"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JobWatermark
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser JobWatermark) -&gt; Value -&gt; Parser JobWatermark
@@ -225,8 +225,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;JobWatermark&quot;</span></span><span>
-</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679211265"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679211265"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679211274"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679211274"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe Encryption -&gt; JobWatermark
 </span><a href="Network.AWS.ElasticTranscoder.Types.JobWatermark.html#JobWatermark%27"><span class="hs-identifier hs-var">JobWatermark'</span></a></span><span>
 </span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe Encryption -&gt; JobWatermark)
@@ -234,7 +234,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe Encryption -&gt; JobWatermark)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679211265"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679211274"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PresetWatermarkId&quot;</span></span><span class="hs-special">)</span><span>
@@ -242,7 +242,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Encryption -&gt; JobWatermark)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679211265"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679211274"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InputKey&quot;</span></span><span class="hs-special">)</span><span>
@@ -250,19 +250,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Encryption) -&gt; Parser JobWatermark
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679211265"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Encryption)
+</span><a href="#local-6989586621679211274"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Encryption)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Encryption&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679211259"><span id="local-6989586621679211261"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobWatermark.html#JobWatermark"><span class="hs-identifier hs-type">JobWatermark</span></a></span></span></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679211268"><span id="local-6989586621679211270"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobWatermark.html#JobWatermark"><span class="hs-identifier hs-type">JobWatermark</span></a></span></span></span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679211256"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobWatermark.html#JobWatermark"><span class="hs-identifier hs-type">JobWatermark</span></a></span></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679211265"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobWatermark.html#JobWatermark"><span class="hs-identifier hs-type">JobWatermark</span></a></span></span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679211248"><span id="local-6989586621679211250"><span id="local-6989586621679211252"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobWatermark.html#JobWatermark"><span class="hs-identifier hs-type">JobWatermark</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679211246"><span class="annot"><span class="annottext">toJSON :: JobWatermark -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobWatermark.html#JobWatermark%27"><span class="hs-identifier hs-type">JobWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211242"><span id="local-6989586621679211243"><span id="local-6989586621679211244"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679211257"><span id="local-6989586621679211259"><span id="local-6989586621679211261"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobWatermark.html#JobWatermark"><span class="hs-identifier hs-type">JobWatermark</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679211255"><span class="annot"><span class="annottext">toJSON :: JobWatermark -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.JobWatermark.html#JobWatermark%27"><span class="hs-identifier hs-type">JobWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211251"><span id="local-6989586621679211252"><span id="local-6989586621679211253"><span class="annot"><span class="annottext">Maybe Text
 Maybe Encryption
 encryption :: Maybe Encryption
 inputKey :: Maybe Text
@@ -270,7 +270,7 @@ presetWatermarkId :: Maybe Text
 $sel:encryption:JobWatermark' :: JobWatermark -&gt; Maybe Encryption
 $sel:inputKey:JobWatermark' :: JobWatermark -&gt; Maybe Text
 $sel:presetWatermarkId:JobWatermark' :: JobWatermark -&gt; Maybe Text
-</span><a href="#local-6989586621679211242"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679211251"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -283,21 +283,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-129"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679211244"><span class="hs-identifier hs-var">presetWatermarkId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679211253"><span class="hs-identifier hs-var">presetWatermarkId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-130"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InputKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679211243"><span class="hs-identifier hs-var">inputKey</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679211252"><span class="hs-identifier hs-var">inputKey</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-131"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Encryption&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Encryption -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Encryption -&gt; Pair) -&gt; Maybe Encryption -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Encryption
-</span><a href="#local-6989586621679211242"><span class="hs-identifier hs-var">encryption</span></a></span><span>
+</span><a href="#local-6989586621679211251"><span class="hs-identifier hs-var">encryption</span></a></span><span>
 </span><span id="line-132"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span></pre></body></html>

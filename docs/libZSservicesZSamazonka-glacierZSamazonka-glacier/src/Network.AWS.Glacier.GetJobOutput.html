@@ -103,7 +103,7 @@
 </span><span id="line-103"></span><span class="hs-comment">-- | Provides options for downloading output of an Amazon S3 Glacier job.</span><span>
 </span><span id="line-104"></span><span class="hs-comment">--</span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- /See:/ 'newGetJobOutput' smart constructor.</span><span>
-</span><span id="line-106"></span><span id="local-6989586621679223975"><span id="local-6989586621679223976"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetJobOutput"><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutput"><span class="hs-identifier hs-var">GetJobOutput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetJobOutput%27"><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutput%27"><span class="hs-identifier hs-var">GetJobOutput'</span></a></span></span><span>
+</span><span id="line-106"></span><span id="local-6989586621679223984"><span id="local-6989586621679223985"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetJobOutput"><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutput"><span class="hs-identifier hs-var">GetJobOutput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetJobOutput%27"><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutput%27"><span class="hs-identifier hs-var">GetJobOutput'</span></a></span></span><span>
 </span><span id="line-107"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The range of bytes to retrieve from the output. For example, if you want</span><span>
 </span><span id="line-108"></span><span>    </span><span class="hs-comment">-- to download the first 1,048,576 bytes, specify the range as</span><span>
 </span><span id="line-109"></span><span>    </span><span class="hs-comment">-- @bytes=0-1048575@. By default, this operation downloads the entire</span><span>
@@ -151,7 +151,7 @@
 </span><span id="line-148"></span><span>    </span><span id="%24sel%3AjobId%3AGetJobOutput%27"><span class="annot"><span class="annottext">GetJobOutput -&gt; Text
 </span><a href="Network.AWS.Glacier.GetJobOutput.html#%24sel%3AjobId%3AGetJobOutput%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-149"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-150"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679223966"><span id="local-6989586621679223968"><span class="annot"><span class="annottext">GetJobOutput -&gt; GetJobOutput -&gt; Bool
+</span><span id="line-150"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679223975"><span id="local-6989586621679223977"><span class="annot"><span class="annottext">GetJobOutput -&gt; GetJobOutput -&gt; Bool
 (GetJobOutput -&gt; GetJobOutput -&gt; Bool)
 -&gt; (GetJobOutput -&gt; GetJobOutput -&gt; Bool) -&gt; Eq GetJobOutput
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -159,7 +159,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetJobOutput -&gt; GetJobOutput -&gt; Bool
 == :: GetJobOutput -&gt; GetJobOutput -&gt; Bool
 $c== :: GetJobOutput -&gt; GetJobOutput -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223957"><span id="local-6989586621679223959"><span id="local-6989586621679223961"><span id="local-6989586621679223963"><span class="annot"><span class="annottext">ReadPrec [GetJobOutput]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223966"><span id="local-6989586621679223968"><span id="local-6989586621679223970"><span id="local-6989586621679223972"><span class="annot"><span class="annottext">ReadPrec [GetJobOutput]
 ReadPrec GetJobOutput
 Int -&gt; ReadS GetJobOutput
 ReadS [GetJobOutput]
@@ -179,7 +179,7 @@ readList :: ReadS [GetJobOutput]
 $creadList :: ReadS [GetJobOutput]
 readsPrec :: Int -&gt; ReadS GetJobOutput
 $creadsPrec :: Int -&gt; ReadS GetJobOutput
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223950"><span id="local-6989586621679223952"><span id="local-6989586621679223954"><span class="annot"><span class="annottext">Int -&gt; GetJobOutput -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223959"><span id="local-6989586621679223961"><span id="local-6989586621679223963"><span class="annot"><span class="annottext">Int -&gt; GetJobOutput -&gt; ShowS
 [GetJobOutput] -&gt; ShowS
 GetJobOutput -&gt; String
 (Int -&gt; GetJobOutput -&gt; ShowS)
@@ -263,10 +263,10 @@ $cfrom :: forall x. GetJobOutput -&gt; Rep GetJobOutput x
 </span><span id="line-207"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-208"></span><span>  </span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutput"><span class="hs-identifier hs-type">GetJobOutput</span></a></span><span>
 </span><span id="line-209"></span><span id="newGetJobOutput"><span class="annot"><span class="annottext">newGetJobOutput :: Text -&gt; Text -&gt; Text -&gt; GetJobOutput
-</span><a href="Network.AWS.Glacier.GetJobOutput.html#newGetJobOutput"><span class="hs-identifier hs-var hs-var">newGetJobOutput</span></a></span></span><span> </span><span id="local-6989586621679223945"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223945"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span id="local-6989586621679223944"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223944"><span class="hs-identifier hs-var">pVaultName_</span></a></span></span><span> </span><span id="local-6989586621679223943"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223943"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glacier.GetJobOutput.html#newGetJobOutput"><span class="hs-identifier hs-var hs-var">newGetJobOutput</span></a></span></span><span> </span><span id="local-6989586621679223954"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223954"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span id="local-6989586621679223953"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223953"><span class="hs-identifier hs-var">pVaultName_</span></a></span></span><span> </span><span id="local-6989586621679223952"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223952"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-210"></span><span>  </span><span class="annot"><span class="annottext">GetJobOutput' :: Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; GetJobOutput
 </span><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutput%27"><span class="hs-identifier hs-type">GetJobOutput'</span></a></span><span>
 </span><span id="line-211"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:range:GetJobOutput' :: Maybe Text
@@ -275,13 +275,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-212"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountId:GetJobOutput' :: Text
 </span><a href="Network.AWS.Glacier.GetJobOutput.html#%24sel%3AaccountId%3AGetJobOutput%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223945"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679223954"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-213"></span><span>      </span><span class="annot"><span class="annottext">$sel:vaultName:GetJobOutput' :: Text
 </span><a href="Network.AWS.Glacier.GetJobOutput.html#%24sel%3AvaultName%3AGetJobOutput%27"><span class="hs-identifier hs-var">vaultName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223944"><span class="hs-identifier hs-var">pVaultName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679223953"><span class="hs-identifier hs-var">pVaultName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-214"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobId:GetJobOutput' :: Text
 </span><a href="Network.AWS.Glacier.GetJobOutput.html#%24sel%3AjobId%3AGetJobOutput%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223943"><span class="hs-identifier hs-var">pJobId_</span></a></span><span>
+</span><a href="#local-6989586621679223952"><span class="hs-identifier hs-var">pJobId_</span></a></span><span>
 </span><span id="line-215"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-216"></span><span>
 </span><span id="line-217"></span><span class="hs-comment">-- | The range of bytes to retrieve from the output. For example, if you want</span><span>
@@ -321,16 +321,16 @@ forall a. Maybe a
 -&gt; (GetJobOutput -&gt; Maybe Text -&gt; GetJobOutput)
 -&gt; Lens GetJobOutput GetJobOutput (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutput%27"><span class="hs-identifier hs-type">GetJobOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223940"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutput%27"><span class="hs-identifier hs-type">GetJobOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223949"><span class="annot"><span class="annottext">Maybe Text
 range :: Maybe Text
 $sel:range:GetJobOutput' :: GetJobOutput -&gt; Maybe Text
-</span><a href="#local-6989586621679223940"><span class="hs-identifier hs-var hs-var">range</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679223940"><span class="hs-identifier hs-var">range</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223939"><span class="annot"><span class="annottext">s :: GetJobOutput
-</span><a href="#local-6989586621679223939"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutput%27"><span class="hs-identifier hs-type">GetJobOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223938"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679223938"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobOutput
-</span><a href="#local-6989586621679223939"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:range:GetJobOutput' :: Maybe Text
+</span><a href="#local-6989586621679223949"><span class="hs-identifier hs-var hs-var">range</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223949"><span class="hs-identifier hs-var">range</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223948"><span class="annot"><span class="annottext">s :: GetJobOutput
+</span><a href="#local-6989586621679223948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutput%27"><span class="hs-identifier hs-type">GetJobOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223947"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobOutput
+</span><a href="#local-6989586621679223948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:range:GetJobOutput' :: Maybe Text
 </span><a href="Network.AWS.Glacier.GetJobOutput.html#%24sel%3Arange%3AGetJobOutput%27"><span class="hs-identifier hs-var">range</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679223938"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutput"><span class="hs-identifier hs-type">GetJobOutput</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679223947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutput"><span class="hs-identifier hs-type">GetJobOutput</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-250"></span><span>
 </span><span id="line-251"></span><span class="hs-comment">-- | The @AccountId@ value is the AWS account ID of the account that owns the</span><span>
 </span><span id="line-252"></span><span class="hs-comment">-- vault. You can either specify an AWS account ID or optionally a single</span><span>
@@ -343,16 +343,16 @@ $sel:range:GetJobOutput' :: GetJobOutput -&gt; Maybe Text
 -&gt; (GetJobOutput -&gt; Text -&gt; GetJobOutput)
 -&gt; Lens GetJobOutput GetJobOutput Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutput%27"><span class="hs-identifier hs-type">GetJobOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223937"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutput%27"><span class="hs-identifier hs-type">GetJobOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223946"><span class="annot"><span class="annottext">Text
 accountId :: Text
 $sel:accountId:GetJobOutput' :: GetJobOutput -&gt; Text
-</span><a href="#local-6989586621679223937"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223937"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223936"><span class="annot"><span class="annottext">s :: GetJobOutput
-</span><a href="#local-6989586621679223936"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutput%27"><span class="hs-identifier hs-type">GetJobOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223935"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223935"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobOutput
-</span><a href="#local-6989586621679223936"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:GetJobOutput' :: Text
+</span><a href="#local-6989586621679223946"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223946"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223945"><span class="annot"><span class="annottext">s :: GetJobOutput
+</span><a href="#local-6989586621679223945"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutput%27"><span class="hs-identifier hs-type">GetJobOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223944"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223944"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobOutput
+</span><a href="#local-6989586621679223945"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:GetJobOutput' :: Text
 </span><a href="Network.AWS.Glacier.GetJobOutput.html#%24sel%3AaccountId%3AGetJobOutput%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223935"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutput"><span class="hs-identifier hs-type">GetJobOutput</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679223944"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutput"><span class="hs-identifier hs-type">GetJobOutput</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-258"></span><span>
 </span><span id="line-259"></span><span class="hs-comment">-- | The name of the vault.</span><span>
 </span><span id="line-260"></span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#getJobOutput_vaultName"><span class="hs-identifier hs-type">getJobOutput_vaultName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutput"><span class="hs-identifier hs-type">GetJobOutput</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -361,16 +361,16 @@ $sel:accountId:GetJobOutput' :: GetJobOutput -&gt; Text
 -&gt; (GetJobOutput -&gt; Text -&gt; GetJobOutput)
 -&gt; Lens GetJobOutput GetJobOutput Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutput%27"><span class="hs-identifier hs-type">GetJobOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223934"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutput%27"><span class="hs-identifier hs-type">GetJobOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223943"><span class="annot"><span class="annottext">Text
 vaultName :: Text
 $sel:vaultName:GetJobOutput' :: GetJobOutput -&gt; Text
-</span><a href="#local-6989586621679223934"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223934"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223933"><span class="annot"><span class="annottext">s :: GetJobOutput
-</span><a href="#local-6989586621679223933"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutput%27"><span class="hs-identifier hs-type">GetJobOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223932"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223932"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobOutput
-</span><a href="#local-6989586621679223933"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vaultName:GetJobOutput' :: Text
+</span><a href="#local-6989586621679223943"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223943"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223942"><span class="annot"><span class="annottext">s :: GetJobOutput
+</span><a href="#local-6989586621679223942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutput%27"><span class="hs-identifier hs-type">GetJobOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223941"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobOutput
+</span><a href="#local-6989586621679223942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vaultName:GetJobOutput' :: Text
 </span><a href="Network.AWS.Glacier.GetJobOutput.html#%24sel%3AvaultName%3AGetJobOutput%27"><span class="hs-identifier hs-var">vaultName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223932"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutput"><span class="hs-identifier hs-type">GetJobOutput</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679223941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutput"><span class="hs-identifier hs-type">GetJobOutput</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-262"></span><span>
 </span><span id="line-263"></span><span class="hs-comment">-- | The job ID whose data is downloaded.</span><span>
 </span><span id="line-264"></span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#getJobOutput_jobId"><span class="hs-identifier hs-type">getJobOutput_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutput"><span class="hs-identifier hs-type">GetJobOutput</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -379,20 +379,20 @@ $sel:vaultName:GetJobOutput' :: GetJobOutput -&gt; Text
 -&gt; (GetJobOutput -&gt; Text -&gt; GetJobOutput)
 -&gt; Lens GetJobOutput GetJobOutput Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutput%27"><span class="hs-identifier hs-type">GetJobOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223931"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutput%27"><span class="hs-identifier hs-type">GetJobOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223940"><span class="annot"><span class="annottext">Text
 jobId :: Text
 $sel:jobId:GetJobOutput' :: GetJobOutput -&gt; Text
-</span><a href="#local-6989586621679223931"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223931"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223930"><span class="annot"><span class="annottext">s :: GetJobOutput
-</span><a href="#local-6989586621679223930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutput%27"><span class="hs-identifier hs-type">GetJobOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223929"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobOutput
-</span><a href="#local-6989586621679223930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:GetJobOutput' :: Text
+</span><a href="#local-6989586621679223940"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223940"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223939"><span class="annot"><span class="annottext">s :: GetJobOutput
+</span><a href="#local-6989586621679223939"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutput%27"><span class="hs-identifier hs-type">GetJobOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223938"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223938"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobOutput
+</span><a href="#local-6989586621679223939"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:GetJobOutput' :: Text
 </span><a href="Network.AWS.Glacier.GetJobOutput.html#%24sel%3AjobId%3AGetJobOutput%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutput"><span class="hs-identifier hs-type">GetJobOutput</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679223938"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutput"><span class="hs-identifier hs-type">GetJobOutput</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-266"></span><span>
 </span><span id="line-267"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutput"><span class="hs-identifier hs-type">GetJobOutput</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-268"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutput"><span class="hs-identifier hs-type">GetJobOutput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse"><span class="hs-identifier hs-type">GetJobOutputResponse</span></a></span><span>
-</span><span id="line-269"></span><span>  </span><span id="local-6989586621679223925"><span class="annot"><span class="annottext">request :: GetJobOutput -&gt; Request GetJobOutput
+</span><span id="line-269"></span><span>  </span><span id="local-6989586621679223934"><span class="annot"><span class="annottext">request :: GetJobOutput -&gt; Request GetJobOutput
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-270"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; Request GetJobOutput -&gt; Request GetJobOutput
 forall a. ByteString -&gt; Request a -&gt; Request a
@@ -408,7 +408,7 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glacier.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-272"></span><span>  </span><span id="local-6989586621679223918"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-272"></span><span>  </span><span id="local-6989586621679223927"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetJobOutput
 -&gt; ClientResponse ClientBody
@@ -435,10 +435,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveBody</span></span><span>
-</span><span id="line-274"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679223915"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679223915"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679223914"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679223914"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679223913"><span class="annot"><span class="annottext">ResponseBody
-</span><a href="#local-6989586621679223913"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-274"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679223924"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679223924"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679223923"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679223923"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679223922"><span class="annot"><span class="annottext">ResponseBody
+</span><a href="#local-6989586621679223922"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-275"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -468,7 +468,7 @@ MonadResource m =&gt;
       -&gt; GetJobOutputResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679223914"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679223923"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
 forall a.
 FromText a =&gt;
 ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
@@ -494,7 +494,7 @@ ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
       -&gt; GetJobOutputResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679223914"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679223923"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
 forall a.
 FromText a =&gt;
 ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
@@ -515,7 +515,7 @@ ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
       -&gt; Maybe Text -&gt; Int -&gt; ResponseBody -&gt; GetJobOutputResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679223914"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679223923"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
 forall a.
 FromText a =&gt;
 ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
@@ -530,7 +530,7 @@ ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
      String (Maybe Text -&gt; Int -&gt; ResponseBody -&gt; GetJobOutputResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679223914"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679223923"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
 forall a.
 FromText a =&gt;
 ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
@@ -542,7 +542,7 @@ ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ResponseBody -&gt; GetJobOutputResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679223914"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679223923"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
 forall a.
 FromText a =&gt;
 ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
@@ -557,23 +557,44 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679223915"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679223924"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-282"></span><span>            </span><span class="annot"><span class="annottext">Either String (ResponseBody -&gt; GetJobOutputResponse)
 -&gt; Either String ResponseBody -&gt; Either String GetJobOutputResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseBody -&gt; Either String ResponseBody
 forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="annot"><span class="annottext">ResponseBody
-</span><a href="#local-6989586621679223913"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679223922"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-283"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-284"></span><span>
-</span><span id="line-285"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223905"><span id="local-6989586621679223907"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutput"><span class="hs-identifier hs-type">GetJobOutput</span></a></span></span></span><span>
+</span><span id="line-285"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223914"><span id="local-6989586621679223916"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutput"><span class="hs-identifier hs-type">GetJobOutput</span></a></span></span></span><span>
 </span><span id="line-286"></span><span>
-</span><span id="line-287"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223902"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutput"><span class="hs-identifier hs-type">GetJobOutput</span></a></span></span><span>
+</span><span id="line-287"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223911"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutput"><span class="hs-identifier hs-type">GetJobOutput</span></a></span></span><span>
 </span><span id="line-288"></span><span>
 </span><span id="line-289"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutput"><span class="hs-identifier hs-type">GetJobOutput</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-290"></span><span>  </span><span id="local-6989586621679223898"><span class="annot"><span class="annottext">toHeaders :: GetJobOutput -&gt; ResponseHeaders
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutput%27"><span class="hs-identifier hs-type">GetJobOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223893"><span id="local-6989586621679223894"><span id="local-6989586621679223895"><span id="local-6989586621679223896"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-290"></span><span>  </span><span id="local-6989586621679223907"><span class="annot"><span class="annottext">toHeaders :: GetJobOutput -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutput%27"><span class="hs-identifier hs-type">GetJobOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223902"><span id="local-6989586621679223903"><span id="local-6989586621679223904"><span id="local-6989586621679223905"><span class="annot"><span class="annottext">Maybe Text
+Text
+jobId :: Text
+vaultName :: Text
+accountId :: Text
+range :: Maybe Text
+$sel:jobId:GetJobOutput' :: GetJobOutput -&gt; Text
+$sel:vaultName:GetJobOutput' :: GetJobOutput -&gt; Text
+$sel:accountId:GetJobOutput' :: GetJobOutput -&gt; Text
+$sel:range:GetJobOutput' :: GetJobOutput -&gt; Maybe Text
+</span><a href="#local-6989586621679223902"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-291"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Range&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223905"><span class="hs-identifier hs-var">range</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-292"></span><span>
+</span><span id="line-293"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutput"><span class="hs-identifier hs-type">GetJobOutput</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-294"></span><span>  </span><span id="local-6989586621679223898"><span class="annot"><span class="annottext">toPath :: GetJobOutput -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutput%27"><span class="hs-identifier hs-type">GetJobOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223893"><span id="local-6989586621679223894"><span id="local-6989586621679223895"><span id="local-6989586621679223896"><span class="annot"><span class="annottext">Maybe Text
 Text
 jobId :: Text
 vaultName :: Text
@@ -584,27 +605,6 @@ $sel:vaultName:GetJobOutput' :: GetJobOutput -&gt; Text
 $sel:accountId:GetJobOutput' :: GetJobOutput -&gt; Text
 $sel:range:GetJobOutput' :: GetJobOutput -&gt; Maybe Text
 </span><a href="#local-6989586621679223893"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-291"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
-forall a. Monoid a =&gt; [a] -&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">HeaderName
-</span><span class="hs-string">&quot;Range&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
-forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
-</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679223896"><span class="hs-identifier hs-var">range</span></a></span><span class="hs-special">]</span><span>
-</span><span id="line-292"></span><span>
-</span><span id="line-293"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutput"><span class="hs-identifier hs-type">GetJobOutput</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-294"></span><span>  </span><span id="local-6989586621679223889"><span class="annot"><span class="annottext">toPath :: GetJobOutput -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutput%27"><span class="hs-identifier hs-type">GetJobOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223884"><span id="local-6989586621679223885"><span id="local-6989586621679223886"><span id="local-6989586621679223887"><span class="annot"><span class="annottext">Maybe Text
-Text
-jobId :: Text
-vaultName :: Text
-accountId :: Text
-range :: Maybe Text
-$sel:jobId:GetJobOutput' :: GetJobOutput -&gt; Text
-$sel:vaultName:GetJobOutput' :: GetJobOutput -&gt; Text
-$sel:accountId:GetJobOutput' :: GetJobOutput -&gt; Text
-$sel:range:GetJobOutput' :: GetJobOutput -&gt; Maybe Text
-</span><a href="#local-6989586621679223884"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-295"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -613,25 +613,25 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-297"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223886"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679223895"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-298"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/vaults/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-299"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223885"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679223894"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-300"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/jobs/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-301"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223884"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679223893"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-302"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/output&quot;</span></span><span>
 </span><span id="line-303"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-304"></span><span>
 </span><span id="line-305"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutput"><span class="hs-identifier hs-type">GetJobOutput</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-306"></span><span>  </span><span id="local-6989586621679223880"><span class="annot"><span class="annottext">toQuery :: GetJobOutput -&gt; QueryString
+</span><span id="line-306"></span><span>  </span><span id="local-6989586621679223889"><span class="annot"><span class="annottext">toQuery :: GetJobOutput -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetJobOutput -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -641,7 +641,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-308"></span><span class="hs-comment">-- | Contains the Amazon S3 Glacier response to your request.</span><span>
 </span><span id="line-309"></span><span class="hs-comment">--</span><span>
 </span><span id="line-310"></span><span class="hs-comment">-- /See:/ 'newGetJobOutputResponse' smart constructor.</span><span>
-</span><span id="line-311"></span><span id="local-6989586621679223876"><span id="local-6989586621679223877"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetJobOutputResponse"><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse"><span class="hs-identifier hs-var">GetJobOutputResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetJobOutputResponse%27"><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse%27"><span class="hs-identifier hs-var">GetJobOutputResponse'</span></a></span></span><span>
+</span><span id="line-311"></span><span id="local-6989586621679223885"><span id="local-6989586621679223886"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetJobOutputResponse"><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse"><span class="hs-identifier hs-var">GetJobOutputResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetJobOutputResponse%27"><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse%27"><span class="hs-identifier hs-var">GetJobOutputResponse'</span></a></span></span><span>
 </span><span id="line-312"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The checksum of the data in the response. This header is returned only</span><span>
 </span><span id="line-313"></span><span>    </span><span class="hs-comment">-- when retrieving the output for an archive retrieval job. Furthermore,</span><span>
 </span><span id="line-314"></span><span>    </span><span class="hs-comment">-- this header appears only under the following conditions:</span><span>
@@ -689,7 +689,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-350"></span><span>    </span><span id="%24sel%3Abody%3AGetJobOutputResponse%27"><span class="annot"><span class="annottext">GetJobOutputResponse -&gt; ResponseBody
 </span><a href="Network.AWS.Glacier.GetJobOutput.html#%24sel%3Abody%3AGetJobOutputResponse%27"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ResponseBody</span></span><span>
 </span><span id="line-351"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-352"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679223863"><span id="local-6989586621679223865"><span id="local-6989586621679223867"><span class="annot"><span class="annottext">Int -&gt; GetJobOutputResponse -&gt; ShowS
+</span><span id="line-352"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679223872"><span id="local-6989586621679223874"><span id="local-6989586621679223876"><span class="annot"><span class="annottext">Int -&gt; GetJobOutputResponse -&gt; ShowS
 [GetJobOutputResponse] -&gt; ShowS
 GetJobOutputResponse -&gt; String
 (Int -&gt; GetJobOutputResponse -&gt; ShowS)
@@ -768,9 +768,9 @@ $cfrom :: forall x. GetJobOutputResponse -&gt; Rep GetJobOutputResponse x
 </span><span id="line-404"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ResponseBody</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-405"></span><span>  </span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse"><span class="hs-identifier hs-type">GetJobOutputResponse</span></a></span><span>
 </span><span id="line-406"></span><span id="newGetJobOutputResponse"><span class="annot"><span class="annottext">newGetJobOutputResponse :: Int -&gt; ResponseBody -&gt; GetJobOutputResponse
-</span><a href="Network.AWS.Glacier.GetJobOutput.html#newGetJobOutputResponse"><span class="hs-identifier hs-var hs-var">newGetJobOutputResponse</span></a></span></span><span> </span><span id="local-6989586621679223860"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679223860"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span id="local-6989586621679223859"><span class="annot"><span class="annottext">ResponseBody
-</span><a href="#local-6989586621679223859"><span class="hs-identifier hs-var">pBody_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glacier.GetJobOutput.html#newGetJobOutputResponse"><span class="hs-identifier hs-var hs-var">newGetJobOutputResponse</span></a></span></span><span> </span><span id="local-6989586621679223869"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679223869"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span id="local-6989586621679223868"><span class="annot"><span class="annottext">ResponseBody
+</span><a href="#local-6989586621679223868"><span class="hs-identifier hs-var">pBody_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-407"></span><span>  </span><span class="annot"><span class="annottext">GetJobOutputResponse' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -802,10 +802,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-413"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:GetJobOutputResponse' :: Int
 </span><a href="Network.AWS.Glacier.GetJobOutput.html#%24sel%3Astatus%3AGetJobOutputResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679223860"><span class="hs-identifier hs-var">pStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679223869"><span class="hs-identifier hs-var">pStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-414"></span><span>      </span><span class="annot"><span class="annottext">$sel:body:GetJobOutputResponse' :: ResponseBody
 </span><a href="Network.AWS.Glacier.GetJobOutput.html#%24sel%3Abody%3AGetJobOutputResponse%27"><span class="hs-identifier hs-var">body</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseBody
-</span><a href="#local-6989586621679223859"><span class="hs-identifier hs-var">pBody_</span></a></span><span>
+</span><a href="#local-6989586621679223868"><span class="hs-identifier hs-var">pBody_</span></a></span><span>
 </span><span id="line-415"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-416"></span><span>
 </span><span id="line-417"></span><span class="hs-comment">-- | The checksum of the data in the response. This header is returned only</span><span>
@@ -832,16 +832,16 @@ forall a. Maybe a
 -&gt; Lens
      GetJobOutputResponse GetJobOutputResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse%27"><span class="hs-identifier hs-type">GetJobOutputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223858"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse%27"><span class="hs-identifier hs-type">GetJobOutputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223867"><span class="annot"><span class="annottext">Maybe Text
 checksum :: Maybe Text
 $sel:checksum:GetJobOutputResponse' :: GetJobOutputResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679223858"><span class="hs-identifier hs-var hs-var">checksum</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679223858"><span class="hs-identifier hs-var">checksum</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223857"><span class="annot"><span class="annottext">s :: GetJobOutputResponse
-</span><a href="#local-6989586621679223857"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse%27"><span class="hs-identifier hs-type">GetJobOutputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223856"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679223856"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobOutputResponse
-</span><a href="#local-6989586621679223857"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:checksum:GetJobOutputResponse' :: Maybe Text
+</span><a href="#local-6989586621679223867"><span class="hs-identifier hs-var hs-var">checksum</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223867"><span class="hs-identifier hs-var">checksum</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223866"><span class="annot"><span class="annottext">s :: GetJobOutputResponse
+</span><a href="#local-6989586621679223866"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse%27"><span class="hs-identifier hs-type">GetJobOutputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223865"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223865"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobOutputResponse
+</span><a href="#local-6989586621679223866"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:checksum:GetJobOutputResponse' :: Maybe Text
 </span><a href="Network.AWS.Glacier.GetJobOutput.html#%24sel%3Achecksum%3AGetJobOutputResponse%27"><span class="hs-identifier hs-var">checksum</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679223856"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse"><span class="hs-identifier hs-type">GetJobOutputResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679223865"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse"><span class="hs-identifier hs-type">GetJobOutputResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-435"></span><span>
 </span><span id="line-436"></span><span class="hs-comment">-- | Indicates the range units accepted. For more information, see</span><span>
 </span><span id="line-437"></span><span class="hs-comment">-- &lt;http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html RFC2616&gt;.</span><span>
@@ -853,16 +853,16 @@ $sel:checksum:GetJobOutputResponse' :: GetJobOutputResponse -&gt; Maybe Text
 -&gt; Lens
      GetJobOutputResponse GetJobOutputResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse%27"><span class="hs-identifier hs-type">GetJobOutputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223855"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse%27"><span class="hs-identifier hs-type">GetJobOutputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223864"><span class="annot"><span class="annottext">Maybe Text
 acceptRanges :: Maybe Text
 $sel:acceptRanges:GetJobOutputResponse' :: GetJobOutputResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679223855"><span class="hs-identifier hs-var hs-var">acceptRanges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679223855"><span class="hs-identifier hs-var">acceptRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223854"><span class="annot"><span class="annottext">s :: GetJobOutputResponse
-</span><a href="#local-6989586621679223854"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse%27"><span class="hs-identifier hs-type">GetJobOutputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223853"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679223853"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobOutputResponse
-</span><a href="#local-6989586621679223854"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:acceptRanges:GetJobOutputResponse' :: Maybe Text
+</span><a href="#local-6989586621679223864"><span class="hs-identifier hs-var hs-var">acceptRanges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223864"><span class="hs-identifier hs-var">acceptRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223863"><span class="annot"><span class="annottext">s :: GetJobOutputResponse
+</span><a href="#local-6989586621679223863"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse%27"><span class="hs-identifier hs-type">GetJobOutputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223862"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223862"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobOutputResponse
+</span><a href="#local-6989586621679223863"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:acceptRanges:GetJobOutputResponse' :: Maybe Text
 </span><a href="Network.AWS.Glacier.GetJobOutput.html#%24sel%3AacceptRanges%3AGetJobOutputResponse%27"><span class="hs-identifier hs-var">acceptRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679223853"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse"><span class="hs-identifier hs-type">GetJobOutputResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679223862"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse"><span class="hs-identifier hs-type">GetJobOutputResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-440"></span><span>
 </span><span id="line-441"></span><span class="hs-comment">-- | The description of an archive.</span><span>
 </span><span id="line-442"></span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#getJobOutputResponse_archiveDescription"><span class="hs-identifier hs-type">getJobOutputResponse_archiveDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse"><span class="hs-identifier hs-type">GetJobOutputResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -873,16 +873,16 @@ $sel:acceptRanges:GetJobOutputResponse' :: GetJobOutputResponse -&gt; Maybe Text
 -&gt; Lens
      GetJobOutputResponse GetJobOutputResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse%27"><span class="hs-identifier hs-type">GetJobOutputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223852"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse%27"><span class="hs-identifier hs-type">GetJobOutputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223861"><span class="annot"><span class="annottext">Maybe Text
 archiveDescription :: Maybe Text
 $sel:archiveDescription:GetJobOutputResponse' :: GetJobOutputResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679223852"><span class="hs-identifier hs-var hs-var">archiveDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679223852"><span class="hs-identifier hs-var">archiveDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223851"><span class="annot"><span class="annottext">s :: GetJobOutputResponse
-</span><a href="#local-6989586621679223851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse%27"><span class="hs-identifier hs-type">GetJobOutputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223850"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679223850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobOutputResponse
-</span><a href="#local-6989586621679223851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:archiveDescription:GetJobOutputResponse' :: Maybe Text
+</span><a href="#local-6989586621679223861"><span class="hs-identifier hs-var hs-var">archiveDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223861"><span class="hs-identifier hs-var">archiveDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223860"><span class="annot"><span class="annottext">s :: GetJobOutputResponse
+</span><a href="#local-6989586621679223860"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse%27"><span class="hs-identifier hs-type">GetJobOutputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223859"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223859"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobOutputResponse
+</span><a href="#local-6989586621679223860"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:archiveDescription:GetJobOutputResponse' :: Maybe Text
 </span><a href="Network.AWS.Glacier.GetJobOutput.html#%24sel%3AarchiveDescription%3AGetJobOutputResponse%27"><span class="hs-identifier hs-var">archiveDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679223850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse"><span class="hs-identifier hs-type">GetJobOutputResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679223859"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse"><span class="hs-identifier hs-type">GetJobOutputResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-444"></span><span>
 </span><span id="line-445"></span><span class="hs-comment">-- | The range of bytes returned by Amazon S3 Glacier. If only partial output</span><span>
 </span><span id="line-446"></span><span class="hs-comment">-- is downloaded, the response provides the range of bytes Amazon S3</span><span>
@@ -896,16 +896,16 @@ $sel:archiveDescription:GetJobOutputResponse' :: GetJobOutputResponse -&gt; Mayb
 -&gt; Lens
      GetJobOutputResponse GetJobOutputResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse%27"><span class="hs-identifier hs-type">GetJobOutputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223849"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse%27"><span class="hs-identifier hs-type">GetJobOutputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223858"><span class="annot"><span class="annottext">Maybe Text
 contentRange :: Maybe Text
 $sel:contentRange:GetJobOutputResponse' :: GetJobOutputResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679223849"><span class="hs-identifier hs-var hs-var">contentRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679223849"><span class="hs-identifier hs-var">contentRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223848"><span class="annot"><span class="annottext">s :: GetJobOutputResponse
-</span><a href="#local-6989586621679223848"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse%27"><span class="hs-identifier hs-type">GetJobOutputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223847"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679223847"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobOutputResponse
-</span><a href="#local-6989586621679223848"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentRange:GetJobOutputResponse' :: Maybe Text
+</span><a href="#local-6989586621679223858"><span class="hs-identifier hs-var hs-var">contentRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223858"><span class="hs-identifier hs-var">contentRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223857"><span class="annot"><span class="annottext">s :: GetJobOutputResponse
+</span><a href="#local-6989586621679223857"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse%27"><span class="hs-identifier hs-type">GetJobOutputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223856"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223856"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobOutputResponse
+</span><a href="#local-6989586621679223857"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentRange:GetJobOutputResponse' :: Maybe Text
 </span><a href="Network.AWS.Glacier.GetJobOutput.html#%24sel%3AcontentRange%3AGetJobOutputResponse%27"><span class="hs-identifier hs-var">contentRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679223847"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse"><span class="hs-identifier hs-type">GetJobOutputResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679223856"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse"><span class="hs-identifier hs-type">GetJobOutputResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-451"></span><span>
 </span><span id="line-452"></span><span class="hs-comment">-- | The Content-Type depends on whether the job output is an archive or a</span><span>
 </span><span id="line-453"></span><span class="hs-comment">-- vault inventory. For archive data, the Content-Type is</span><span>
@@ -921,16 +921,16 @@ $sel:contentRange:GetJobOutputResponse' :: GetJobOutputResponse -&gt; Maybe Text
 -&gt; Lens
      GetJobOutputResponse GetJobOutputResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse%27"><span class="hs-identifier hs-type">GetJobOutputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223846"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse%27"><span class="hs-identifier hs-type">GetJobOutputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223855"><span class="annot"><span class="annottext">Maybe Text
 contentType :: Maybe Text
 $sel:contentType:GetJobOutputResponse' :: GetJobOutputResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679223846"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679223846"><span class="hs-identifier hs-var">contentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223845"><span class="annot"><span class="annottext">s :: GetJobOutputResponse
-</span><a href="#local-6989586621679223845"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse%27"><span class="hs-identifier hs-type">GetJobOutputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223844"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679223844"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobOutputResponse
-</span><a href="#local-6989586621679223845"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentType:GetJobOutputResponse' :: Maybe Text
+</span><a href="#local-6989586621679223855"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223855"><span class="hs-identifier hs-var">contentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223854"><span class="annot"><span class="annottext">s :: GetJobOutputResponse
+</span><a href="#local-6989586621679223854"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse%27"><span class="hs-identifier hs-type">GetJobOutputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223853"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679223853"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobOutputResponse
+</span><a href="#local-6989586621679223854"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentType:GetJobOutputResponse' :: Maybe Text
 </span><a href="Network.AWS.Glacier.GetJobOutput.html#%24sel%3AcontentType%3AGetJobOutputResponse%27"><span class="hs-identifier hs-var">contentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679223844"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse"><span class="hs-identifier hs-type">GetJobOutputResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679223853"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse"><span class="hs-identifier hs-type">GetJobOutputResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-460"></span><span>
 </span><span id="line-461"></span><span class="hs-comment">-- | The HTTP response code for a job output request. The value depends on</span><span>
 </span><span id="line-462"></span><span class="hs-comment">-- whether a range was specified in the request.</span><span>
@@ -940,16 +940,16 @@ $sel:contentType:GetJobOutputResponse' :: GetJobOutputResponse -&gt; Maybe Text
 -&gt; (GetJobOutputResponse -&gt; Int -&gt; GetJobOutputResponse)
 -&gt; Lens GetJobOutputResponse GetJobOutputResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse%27"><span class="hs-identifier hs-type">GetJobOutputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223843"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse%27"><span class="hs-identifier hs-type">GetJobOutputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223852"><span class="annot"><span class="annottext">Int
 status :: Int
 $sel:status:GetJobOutputResponse' :: GetJobOutputResponse -&gt; Int
-</span><a href="#local-6989586621679223843"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679223843"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223842"><span class="annot"><span class="annottext">s :: GetJobOutputResponse
-</span><a href="#local-6989586621679223842"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse%27"><span class="hs-identifier hs-type">GetJobOutputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223841"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679223841"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobOutputResponse
-</span><a href="#local-6989586621679223842"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:GetJobOutputResponse' :: Int
+</span><a href="#local-6989586621679223852"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679223852"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223851"><span class="annot"><span class="annottext">s :: GetJobOutputResponse
+</span><a href="#local-6989586621679223851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse%27"><span class="hs-identifier hs-type">GetJobOutputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223850"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679223850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobOutputResponse
+</span><a href="#local-6989586621679223851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:GetJobOutputResponse' :: Int
 </span><a href="Network.AWS.Glacier.GetJobOutput.html#%24sel%3Astatus%3AGetJobOutputResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679223841"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse"><span class="hs-identifier hs-type">GetJobOutputResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679223850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse"><span class="hs-identifier hs-type">GetJobOutputResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-465"></span><span>
 </span><span id="line-466"></span><span class="hs-comment">-- | The job data, either archive data or inventory data.</span><span>
 </span><span id="line-467"></span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#getJobOutputResponse_body"><span class="hs-identifier hs-type">getJobOutputResponse_body</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse"><span class="hs-identifier hs-type">GetJobOutputResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ResponseBody</span></span><span>
@@ -960,14 +960,14 @@ $sel:status:GetJobOutputResponse' :: GetJobOutputResponse -&gt; Int
 -&gt; Lens
      GetJobOutputResponse GetJobOutputResponse ResponseBody ResponseBody
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse%27"><span class="hs-identifier hs-type">GetJobOutputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223840"><span class="annot"><span class="annottext">ResponseBody
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse%27"><span class="hs-identifier hs-type">GetJobOutputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223849"><span class="annot"><span class="annottext">ResponseBody
 body :: ResponseBody
 $sel:body:GetJobOutputResponse' :: GetJobOutputResponse -&gt; ResponseBody
-</span><a href="#local-6989586621679223840"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResponseBody
-</span><a href="#local-6989586621679223840"><span class="hs-identifier hs-var">body</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223839"><span class="annot"><span class="annottext">s :: GetJobOutputResponse
-</span><a href="#local-6989586621679223839"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse%27"><span class="hs-identifier hs-type">GetJobOutputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223838"><span class="annot"><span class="annottext">ResponseBody
-</span><a href="#local-6989586621679223838"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobOutputResponse
-</span><a href="#local-6989586621679223839"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:body:GetJobOutputResponse' :: ResponseBody
+</span><a href="#local-6989586621679223849"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResponseBody
+</span><a href="#local-6989586621679223849"><span class="hs-identifier hs-var">body</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223848"><span class="annot"><span class="annottext">s :: GetJobOutputResponse
+</span><a href="#local-6989586621679223848"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse%27"><span class="hs-identifier hs-type">GetJobOutputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223847"><span class="annot"><span class="annottext">ResponseBody
+</span><a href="#local-6989586621679223847"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobOutputResponse
+</span><a href="#local-6989586621679223848"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:body:GetJobOutputResponse' :: ResponseBody
 </span><a href="Network.AWS.Glacier.GetJobOutput.html#%24sel%3Abody%3AGetJobOutputResponse%27"><span class="hs-identifier hs-var">body</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseBody
-</span><a href="#local-6989586621679223838"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse"><span class="hs-identifier hs-type">GetJobOutputResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679223847"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.GetJobOutput.html#GetJobOutputResponse"><span class="hs-identifier hs-type">GetJobOutputResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-469"></span></pre></body></html>

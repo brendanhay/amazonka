@@ -47,12 +47,12 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.html"><span class="hs-identifier">Network.AWS.Shield.Types</span></a></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newDescribeAttack' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679209734"><span id="local-6989586621679209735"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAttack"><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttack"><span class="hs-identifier hs-var">DescribeAttack</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAttack%27"><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttack%27"><span class="hs-identifier hs-var">DescribeAttack'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679209743"><span id="local-6989586621679209744"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAttack"><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttack"><span class="hs-identifier hs-var">DescribeAttack</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAttack%27"><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttack%27"><span class="hs-identifier hs-var">DescribeAttack'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier (ID) for the attack that to be described.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AattackId%3ADescribeAttack%27"><span class="annot"><span class="annottext">DescribeAttack -&gt; Text
 </span><a href="Network.AWS.Shield.DescribeAttack.html#%24sel%3AattackId%3ADescribeAttack%27"><span class="hs-identifier hs-var hs-var">attackId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679209728"><span id="local-6989586621679209730"><span class="annot"><span class="annottext">DescribeAttack -&gt; DescribeAttack -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679209737"><span id="local-6989586621679209739"><span class="annot"><span class="annottext">DescribeAttack -&gt; DescribeAttack -&gt; Bool
 (DescribeAttack -&gt; DescribeAttack -&gt; Bool)
 -&gt; (DescribeAttack -&gt; DescribeAttack -&gt; Bool) -&gt; Eq DescribeAttack
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeAttack -&gt; DescribeAttack -&gt; Bool
 == :: DescribeAttack -&gt; DescribeAttack -&gt; Bool
 $c== :: DescribeAttack -&gt; DescribeAttack -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209719"><span id="local-6989586621679209721"><span id="local-6989586621679209723"><span id="local-6989586621679209725"><span class="annot"><span class="annottext">ReadPrec [DescribeAttack]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209728"><span id="local-6989586621679209730"><span id="local-6989586621679209732"><span id="local-6989586621679209734"><span class="annot"><span class="annottext">ReadPrec [DescribeAttack]
 ReadPrec DescribeAttack
 Int -&gt; ReadS DescribeAttack
 ReadS [DescribeAttack]
@@ -80,7 +80,7 @@ readList :: ReadS [DescribeAttack]
 $creadList :: ReadS [DescribeAttack]
 readsPrec :: Int -&gt; ReadS DescribeAttack
 $creadsPrec :: Int -&gt; ReadS DescribeAttack
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209712"><span id="local-6989586621679209714"><span id="local-6989586621679209716"><span class="annot"><span class="annottext">Int -&gt; DescribeAttack -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209721"><span id="local-6989586621679209723"><span id="local-6989586621679209725"><span class="annot"><span class="annottext">Int -&gt; DescribeAttack -&gt; ShowS
 [DescribeAttack] -&gt; ShowS
 DescribeAttack -&gt; String
 (Int -&gt; DescribeAttack -&gt; ShowS)
@@ -120,12 +120,12 @@ $cfrom :: forall x. DescribeAttack -&gt; Rep DescribeAttack x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttack"><span class="hs-identifier hs-type">DescribeAttack</span></a></span><span>
 </span><span id="line-69"></span><span id="newDescribeAttack"><span class="annot"><span class="annottext">newDescribeAttack :: Text -&gt; DescribeAttack
-</span><a href="Network.AWS.Shield.DescribeAttack.html#newDescribeAttack"><span class="hs-identifier hs-var hs-var">newDescribeAttack</span></a></span></span><span> </span><span id="local-6989586621679209707"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679209707"><span class="hs-identifier hs-var">pAttackId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Shield.DescribeAttack.html#newDescribeAttack"><span class="hs-identifier hs-var hs-var">newDescribeAttack</span></a></span></span><span> </span><span id="local-6989586621679209716"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209716"><span class="hs-identifier hs-var">pAttackId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">DescribeAttack' :: Text -&gt; DescribeAttack
 </span><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttack%27"><span class="hs-identifier hs-type">DescribeAttack'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attackId:DescribeAttack' :: Text
 </span><a href="Network.AWS.Shield.DescribeAttack.html#%24sel%3AattackId%3ADescribeAttack%27"><span class="hs-identifier hs-var">attackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679209707"><span class="hs-identifier hs-var">pAttackId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679209716"><span class="hs-identifier hs-var">pAttackId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | The unique identifier (ID) for the attack that to be described.</span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#describeAttack_attackId"><span class="hs-identifier hs-type">describeAttack_attackId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttack"><span class="hs-identifier hs-type">DescribeAttack</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -134,27 +134,27 @@ $cfrom :: forall x. DescribeAttack -&gt; Rep DescribeAttack x
 -&gt; (DescribeAttack -&gt; Text -&gt; DescribeAttack)
 -&gt; Lens DescribeAttack DescribeAttack Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttack%27"><span class="hs-identifier hs-type">DescribeAttack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209704"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttack%27"><span class="hs-identifier hs-type">DescribeAttack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209713"><span class="annot"><span class="annottext">Text
 attackId :: Text
 $sel:attackId:DescribeAttack' :: DescribeAttack -&gt; Text
-</span><a href="#local-6989586621679209704"><span class="hs-identifier hs-var hs-var">attackId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679209704"><span class="hs-identifier hs-var">attackId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209703"><span class="annot"><span class="annottext">s :: DescribeAttack
-</span><a href="#local-6989586621679209703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttack%27"><span class="hs-identifier hs-type">DescribeAttack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209702"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679209702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAttack
-</span><a href="#local-6989586621679209703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attackId:DescribeAttack' :: Text
+</span><a href="#local-6989586621679209713"><span class="hs-identifier hs-var hs-var">attackId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209713"><span class="hs-identifier hs-var">attackId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209712"><span class="annot"><span class="annottext">s :: DescribeAttack
+</span><a href="#local-6989586621679209712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttack%27"><span class="hs-identifier hs-type">DescribeAttack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209711"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAttack
+</span><a href="#local-6989586621679209712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attackId:DescribeAttack' :: Text
 </span><a href="Network.AWS.Shield.DescribeAttack.html#%24sel%3AattackId%3ADescribeAttack%27"><span class="hs-identifier hs-var">attackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679209702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttack"><span class="hs-identifier hs-type">DescribeAttack</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679209711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttack"><span class="hs-identifier hs-type">DescribeAttack</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttack"><span class="hs-identifier hs-type">DescribeAttack</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-78"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttack"><span class="hs-identifier hs-type">DescribeAttack</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttackResponse"><span class="hs-identifier hs-type">DescribeAttackResponse</span></a></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679209698"><span class="annot"><span class="annottext">request :: DescribeAttack -&gt; Request DescribeAttack
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679209707"><span class="annot"><span class="annottext">request :: DescribeAttack -&gt; Request DescribeAttack
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeAttack -&gt; Request DescribeAttack
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Shield.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679209694"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679209703"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeAttack
 -&gt; ClientResponse ClientBody
@@ -178,10 +178,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679209691"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679209691"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679209690"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679209690"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679209689"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679209689"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679209700"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679209700"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679209699"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679209699"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679209698"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679209698"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Maybe AttackDetail -&gt; Int -&gt; DescribeAttackResponse
 </span><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttackResponse%27"><span class="hs-identifier hs-var">DescribeAttackResponse'</span></a></span><span>
 </span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AttackDetail -&gt; Int -&gt; DescribeAttackResponse)
@@ -189,7 +189,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DescribeAttackResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679209689"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe AttackDetail)
+</span><a href="#local-6989586621679209698"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe AttackDetail)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Attack&quot;</span></span><span class="hs-special">)</span><span>
@@ -201,15 +201,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679209691"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679209700"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209681"><span id="local-6989586621679209683"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttack"><span class="hs-identifier hs-type">DescribeAttack</span></a></span></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209690"><span id="local-6989586621679209692"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttack"><span class="hs-identifier hs-type">DescribeAttack</span></a></span></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209678"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttack"><span class="hs-identifier hs-type">DescribeAttack</span></a></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209687"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttack"><span class="hs-identifier hs-type">DescribeAttack</span></a></span></span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttack"><span class="hs-identifier hs-type">DescribeAttack</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679209674"><span class="annot"><span class="annottext">toHeaders :: DescribeAttack -&gt; ResponseHeaders
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679209683"><span class="annot"><span class="annottext">toHeaders :: DescribeAttack -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeAttack -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -236,12 +236,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-105"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209664"><span id="local-6989586621679209666"><span id="local-6989586621679209668"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttack"><span class="hs-identifier hs-type">DescribeAttack</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679209662"><span class="annot"><span class="annottext">toJSON :: DescribeAttack -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttack%27"><span class="hs-identifier hs-type">DescribeAttack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209660"><span class="annot"><span class="annottext">Text
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209673"><span id="local-6989586621679209675"><span id="local-6989586621679209677"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttack"><span class="hs-identifier hs-type">DescribeAttack</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679209671"><span class="annot"><span class="annottext">toJSON :: DescribeAttack -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttack%27"><span class="hs-identifier hs-type">DescribeAttack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209669"><span class="annot"><span class="annottext">Text
 attackId :: Text
 $sel:attackId:DescribeAttack' :: DescribeAttack -&gt; Text
-</span><a href="#local-6989586621679209660"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679209669"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -253,18 +253,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;AttackId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679209660"><span class="hs-identifier hs-var">attackId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679209669"><span class="hs-identifier hs-var">attackId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttack"><span class="hs-identifier hs-type">DescribeAttack</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679209654"><span class="annot"><span class="annottext">toPath :: DescribeAttack -&gt; ByteString
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679209663"><span class="annot"><span class="annottext">toPath :: DescribeAttack -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeAttack -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttack"><span class="hs-identifier hs-type">DescribeAttack</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679209650"><span class="annot"><span class="annottext">toQuery :: DescribeAttack -&gt; QueryString
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679209659"><span class="annot"><span class="annottext">toQuery :: DescribeAttack -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeAttack -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -272,7 +272,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | /See:/ 'newDescribeAttackResponse' smart constructor.</span><span>
-</span><span id="line-122"></span><span id="local-6989586621679209647"><span id="local-6989586621679209648"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAttackResponse"><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttackResponse"><span class="hs-identifier hs-var">DescribeAttackResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAttackResponse%27"><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttackResponse%27"><span class="hs-identifier hs-var">DescribeAttackResponse'</span></a></span></span><span>
+</span><span id="line-122"></span><span id="local-6989586621679209656"><span id="local-6989586621679209657"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAttackResponse"><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttackResponse"><span class="hs-identifier hs-var">DescribeAttackResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAttackResponse%27"><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttackResponse%27"><span class="hs-identifier hs-var">DescribeAttackResponse'</span></a></span></span><span>
 </span><span id="line-123"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The attack that is described.</span><span>
 </span><span id="line-124"></span><span>    </span><span id="%24sel%3Aattack%3ADescribeAttackResponse%27"><span class="annot"><span class="annottext">DescribeAttackResponse -&gt; Maybe AttackDetail
 </span><a href="Network.AWS.Shield.DescribeAttack.html#%24sel%3Aattack%3ADescribeAttackResponse%27"><span class="hs-identifier hs-var hs-var">attack</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.AttackDetail.html#AttackDetail"><span class="hs-identifier hs-type">AttackDetail</span></a></span><span class="hs-special">,</span><span>
@@ -280,7 +280,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-126"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeAttackResponse%27"><span class="annot"><span class="annottext">DescribeAttackResponse -&gt; Int
 </span><a href="Network.AWS.Shield.DescribeAttack.html#%24sel%3AhttpStatus%3ADescribeAttackResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-127"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679209641"><span id="local-6989586621679209643"><span class="annot"><span class="annottext">DescribeAttackResponse -&gt; DescribeAttackResponse -&gt; Bool
+</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679209650"><span id="local-6989586621679209652"><span class="annot"><span class="annottext">DescribeAttackResponse -&gt; DescribeAttackResponse -&gt; Bool
 (DescribeAttackResponse -&gt; DescribeAttackResponse -&gt; Bool)
 -&gt; (DescribeAttackResponse -&gt; DescribeAttackResponse -&gt; Bool)
 -&gt; Eq DescribeAttackResponse
@@ -289,7 +289,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeAttackResponse -&gt; DescribeAttackResponse -&gt; Bool
 == :: DescribeAttackResponse -&gt; DescribeAttackResponse -&gt; Bool
 $c== :: DescribeAttackResponse -&gt; DescribeAttackResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209633"><span id="local-6989586621679209635"><span id="local-6989586621679209637"><span id="local-6989586621679209639"><span class="annot"><span class="annottext">ReadPrec [DescribeAttackResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209642"><span id="local-6989586621679209644"><span id="local-6989586621679209646"><span id="local-6989586621679209648"><span class="annot"><span class="annottext">ReadPrec [DescribeAttackResponse]
 ReadPrec DescribeAttackResponse
 Int -&gt; ReadS DescribeAttackResponse
 ReadS [DescribeAttackResponse]
@@ -309,7 +309,7 @@ readList :: ReadS [DescribeAttackResponse]
 $creadList :: ReadS [DescribeAttackResponse]
 readsPrec :: Int -&gt; ReadS DescribeAttackResponse
 $creadsPrec :: Int -&gt; ReadS DescribeAttackResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209627"><span id="local-6989586621679209629"><span id="local-6989586621679209631"><span class="annot"><span class="annottext">Int -&gt; DescribeAttackResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209636"><span id="local-6989586621679209638"><span id="local-6989586621679209640"><span class="annot"><span class="annottext">Int -&gt; DescribeAttackResponse -&gt; ShowS
 [DescribeAttackResponse] -&gt; ShowS
 DescribeAttackResponse -&gt; String
 (Int -&gt; DescribeAttackResponse -&gt; ShowS)
@@ -352,8 +352,8 @@ $cfrom :: forall x. DescribeAttackResponse -&gt; Rep DescribeAttackResponse x
 </span><span id="line-143"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-144"></span><span>  </span><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttackResponse"><span class="hs-identifier hs-type">DescribeAttackResponse</span></a></span><span>
 </span><span id="line-145"></span><span id="newDescribeAttackResponse"><span class="annot"><span class="annottext">newDescribeAttackResponse :: Int -&gt; DescribeAttackResponse
-</span><a href="Network.AWS.Shield.DescribeAttack.html#newDescribeAttackResponse"><span class="hs-identifier hs-var hs-var">newDescribeAttackResponse</span></a></span></span><span> </span><span id="local-6989586621679209624"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679209624"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Shield.DescribeAttack.html#newDescribeAttackResponse"><span class="hs-identifier hs-var hs-var">newDescribeAttackResponse</span></a></span></span><span> </span><span id="local-6989586621679209633"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679209633"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>  </span><span class="annot"><span class="annottext">DescribeAttackResponse' :: Maybe AttackDetail -&gt; Int -&gt; DescribeAttackResponse
 </span><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttackResponse%27"><span class="hs-identifier hs-type">DescribeAttackResponse'</span></a></span><span>
 </span><span id="line-147"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:attack:DescribeAttackResponse' :: Maybe AttackDetail
@@ -362,7 +362,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAttackResponse' :: Int
 </span><a href="Network.AWS.Shield.DescribeAttack.html#%24sel%3AhttpStatus%3ADescribeAttackResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679209624"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679209633"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-149"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- | The attack that is described.</span><span>
@@ -378,16 +378,16 @@ forall a. Maybe a
      (Maybe AttackDetail)
      (Maybe AttackDetail)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttackResponse%27"><span class="hs-identifier hs-type">DescribeAttackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209623"><span class="annot"><span class="annottext">Maybe AttackDetail
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttackResponse%27"><span class="hs-identifier hs-type">DescribeAttackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209632"><span class="annot"><span class="annottext">Maybe AttackDetail
 attack :: Maybe AttackDetail
 $sel:attack:DescribeAttackResponse' :: DescribeAttackResponse -&gt; Maybe AttackDetail
-</span><a href="#local-6989586621679209623"><span class="hs-identifier hs-var hs-var">attack</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AttackDetail
-</span><a href="#local-6989586621679209623"><span class="hs-identifier hs-var">attack</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209622"><span class="annot"><span class="annottext">s :: DescribeAttackResponse
-</span><a href="#local-6989586621679209622"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttackResponse%27"><span class="hs-identifier hs-type">DescribeAttackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209621"><span class="annot"><span class="annottext">Maybe AttackDetail
-</span><a href="#local-6989586621679209621"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAttackResponse
-</span><a href="#local-6989586621679209622"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attack:DescribeAttackResponse' :: Maybe AttackDetail
+</span><a href="#local-6989586621679209632"><span class="hs-identifier hs-var hs-var">attack</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AttackDetail
+</span><a href="#local-6989586621679209632"><span class="hs-identifier hs-var">attack</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209631"><span class="annot"><span class="annottext">s :: DescribeAttackResponse
+</span><a href="#local-6989586621679209631"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttackResponse%27"><span class="hs-identifier hs-type">DescribeAttackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209630"><span class="annot"><span class="annottext">Maybe AttackDetail
+</span><a href="#local-6989586621679209630"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAttackResponse
+</span><a href="#local-6989586621679209631"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attack:DescribeAttackResponse' :: Maybe AttackDetail
 </span><a href="Network.AWS.Shield.DescribeAttack.html#%24sel%3Aattack%3ADescribeAttackResponse%27"><span class="hs-identifier hs-var">attack</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AttackDetail
-</span><a href="#local-6989586621679209621"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttackResponse"><span class="hs-identifier hs-type">DescribeAttackResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679209630"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttackResponse"><span class="hs-identifier hs-type">DescribeAttackResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-156"></span><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#describeAttackResponse_httpStatus"><span class="hs-identifier hs-type">describeAttackResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttackResponse"><span class="hs-identifier hs-type">DescribeAttackResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -397,16 +397,16 @@ $sel:attack:DescribeAttackResponse' :: DescribeAttackResponse -&gt; Maybe Attack
 -&gt; (DescribeAttackResponse -&gt; Int -&gt; DescribeAttackResponse)
 -&gt; Lens DescribeAttackResponse DescribeAttackResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttackResponse%27"><span class="hs-identifier hs-type">DescribeAttackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209620"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttackResponse%27"><span class="hs-identifier hs-type">DescribeAttackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209629"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeAttackResponse' :: DescribeAttackResponse -&gt; Int
-</span><a href="#local-6989586621679209620"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679209620"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209619"><span class="annot"><span class="annottext">s :: DescribeAttackResponse
-</span><a href="#local-6989586621679209619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttackResponse%27"><span class="hs-identifier hs-type">DescribeAttackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209618"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679209618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAttackResponse
-</span><a href="#local-6989586621679209619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAttackResponse' :: Int
+</span><a href="#local-6989586621679209629"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679209629"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209628"><span class="annot"><span class="annottext">s :: DescribeAttackResponse
+</span><a href="#local-6989586621679209628"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttackResponse%27"><span class="hs-identifier hs-type">DescribeAttackResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209627"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679209627"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAttackResponse
+</span><a href="#local-6989586621679209628"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAttackResponse' :: Int
 </span><a href="Network.AWS.Shield.DescribeAttack.html#%24sel%3AhttpStatus%3ADescribeAttackResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679209618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttackResponse"><span class="hs-identifier hs-type">DescribeAttackResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679209627"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttackResponse"><span class="hs-identifier hs-type">DescribeAttackResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209616"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttackResponse"><span class="hs-identifier hs-type">DescribeAttackResponse</span></a></span></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209625"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.DescribeAttack.html#DescribeAttackResponse"><span class="hs-identifier hs-type">DescribeAttackResponse</span></a></span></span><span>
 </span><span id="line-160"></span></pre></body></html>

@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Settings for deinterlacer</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newDeinterlacer' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679956468"><span id="local-6989586621679956469"></span></span><span class="hs-keyword">data</span><span> </span><span id="Deinterlacer"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Deinterlacer.html#Deinterlacer"><span class="hs-identifier hs-var">Deinterlacer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Deinterlacer%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Deinterlacer.html#Deinterlacer%27"><span class="hs-identifier hs-var">Deinterlacer'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679956477"><span id="local-6989586621679956478"></span></span><span class="hs-keyword">data</span><span> </span><span id="Deinterlacer"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Deinterlacer.html#Deinterlacer"><span class="hs-identifier hs-var">Deinterlacer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Deinterlacer%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Deinterlacer.html#Deinterlacer%27"><span class="hs-identifier hs-var">Deinterlacer'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | - When set to NORMAL (default), the deinterlacer does not convert frames</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- that are tagged in metadata as progressive. It will only convert those</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- that are tagged as some other type. - When set to FORCE_ALL_FRAMES, the</span><span>
@@ -57,7 +57,7 @@
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3Aalgorithm%3ADeinterlacer%27"><span class="annot"><span class="annottext">Deinterlacer -&gt; Maybe DeinterlaceAlgorithm
 </span><a href="Network.AWS.MediaConvert.Types.Deinterlacer.html#%24sel%3Aalgorithm%3ADeinterlacer%27"><span class="hs-identifier hs-var hs-var">algorithm</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.DeinterlaceAlgorithm.html#DeinterlaceAlgorithm"><span class="hs-identifier hs-type">DeinterlaceAlgorithm</span></a></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679956460"><span id="local-6989586621679956462"><span class="annot"><span class="annottext">Deinterlacer -&gt; Deinterlacer -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679956469"><span id="local-6989586621679956471"><span class="annot"><span class="annottext">Deinterlacer -&gt; Deinterlacer -&gt; Bool
 (Deinterlacer -&gt; Deinterlacer -&gt; Bool)
 -&gt; (Deinterlacer -&gt; Deinterlacer -&gt; Bool) -&gt; Eq Deinterlacer
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Deinterlacer -&gt; Deinterlacer -&gt; Bool
 == :: Deinterlacer -&gt; Deinterlacer -&gt; Bool
 $c== :: Deinterlacer -&gt; Deinterlacer -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679956451"><span id="local-6989586621679956453"><span id="local-6989586621679956455"><span id="local-6989586621679956457"><span class="annot"><span class="annottext">ReadPrec [Deinterlacer]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679956460"><span id="local-6989586621679956462"><span id="local-6989586621679956464"><span id="local-6989586621679956466"><span class="annot"><span class="annottext">ReadPrec [Deinterlacer]
 ReadPrec Deinterlacer
 Int -&gt; ReadS Deinterlacer
 ReadS [Deinterlacer]
@@ -85,7 +85,7 @@ readList :: ReadS [Deinterlacer]
 $creadList :: ReadS [Deinterlacer]
 readsPrec :: Int -&gt; ReadS Deinterlacer
 $creadsPrec :: Int -&gt; ReadS Deinterlacer
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679956444"><span id="local-6989586621679956446"><span id="local-6989586621679956448"><span class="annot"><span class="annottext">Int -&gt; Deinterlacer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679956453"><span id="local-6989586621679956455"><span id="local-6989586621679956457"><span class="annot"><span class="annottext">Int -&gt; Deinterlacer -&gt; ShowS
 [Deinterlacer] -&gt; ShowS
 Deinterlacer -&gt; String
 (Int -&gt; Deinterlacer -&gt; ShowS)
@@ -184,16 +184,16 @@ forall a. Maybe a
      (Maybe DeinterlacerControl)
      (Maybe DeinterlacerControl)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Deinterlacer.html#Deinterlacer%27"><span class="hs-identifier hs-type">Deinterlacer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679956435"><span class="annot"><span class="annottext">Maybe DeinterlacerControl
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Deinterlacer.html#Deinterlacer%27"><span class="hs-identifier hs-type">Deinterlacer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679956444"><span class="annot"><span class="annottext">Maybe DeinterlacerControl
 control :: Maybe DeinterlacerControl
 $sel:control:Deinterlacer' :: Deinterlacer -&gt; Maybe DeinterlacerControl
-</span><a href="#local-6989586621679956435"><span class="hs-identifier hs-var hs-var">control</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeinterlacerControl
-</span><a href="#local-6989586621679956435"><span class="hs-identifier hs-var">control</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679956434"><span class="annot"><span class="annottext">s :: Deinterlacer
-</span><a href="#local-6989586621679956434"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Deinterlacer.html#Deinterlacer%27"><span class="hs-identifier hs-type">Deinterlacer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679956433"><span class="annot"><span class="annottext">Maybe DeinterlacerControl
-</span><a href="#local-6989586621679956433"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Deinterlacer
-</span><a href="#local-6989586621679956434"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:control:Deinterlacer' :: Maybe DeinterlacerControl
+</span><a href="#local-6989586621679956444"><span class="hs-identifier hs-var hs-var">control</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeinterlacerControl
+</span><a href="#local-6989586621679956444"><span class="hs-identifier hs-var">control</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679956443"><span class="annot"><span class="annottext">s :: Deinterlacer
+</span><a href="#local-6989586621679956443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Deinterlacer.html#Deinterlacer%27"><span class="hs-identifier hs-type">Deinterlacer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679956442"><span class="annot"><span class="annottext">Maybe DeinterlacerControl
+</span><a href="#local-6989586621679956442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Deinterlacer
+</span><a href="#local-6989586621679956443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:control:Deinterlacer' :: Maybe DeinterlacerControl
 </span><a href="Network.AWS.MediaConvert.Types.Deinterlacer.html#%24sel%3Acontrol%3ADeinterlacer%27"><span class="hs-identifier hs-var">control</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeinterlacerControl
-</span><a href="#local-6989586621679956433"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Deinterlacer.html#Deinterlacer"><span class="hs-identifier hs-type">Deinterlacer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679956442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Deinterlacer.html#Deinterlacer"><span class="hs-identifier hs-type">Deinterlacer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- | Use Deinterlacer (DeinterlaceMode) to choose how the service will do</span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- deinterlacing. Default is Deinterlace. - Deinterlace converts interlaced</span><span>
@@ -211,16 +211,16 @@ $sel:control:Deinterlacer' :: Deinterlacer -&gt; Maybe DeinterlacerControl
      (Maybe DeinterlacerMode)
      (Maybe DeinterlacerMode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Deinterlacer.html#Deinterlacer%27"><span class="hs-identifier hs-type">Deinterlacer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679956431"><span class="annot"><span class="annottext">Maybe DeinterlacerMode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Deinterlacer.html#Deinterlacer%27"><span class="hs-identifier hs-type">Deinterlacer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679956440"><span class="annot"><span class="annottext">Maybe DeinterlacerMode
 mode :: Maybe DeinterlacerMode
 $sel:mode:Deinterlacer' :: Deinterlacer -&gt; Maybe DeinterlacerMode
-</span><a href="#local-6989586621679956431"><span class="hs-identifier hs-var hs-var">mode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeinterlacerMode
-</span><a href="#local-6989586621679956431"><span class="hs-identifier hs-var">mode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679956430"><span class="annot"><span class="annottext">s :: Deinterlacer
-</span><a href="#local-6989586621679956430"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Deinterlacer.html#Deinterlacer%27"><span class="hs-identifier hs-type">Deinterlacer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679956429"><span class="annot"><span class="annottext">Maybe DeinterlacerMode
-</span><a href="#local-6989586621679956429"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Deinterlacer
-</span><a href="#local-6989586621679956430"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mode:Deinterlacer' :: Maybe DeinterlacerMode
+</span><a href="#local-6989586621679956440"><span class="hs-identifier hs-var hs-var">mode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeinterlacerMode
+</span><a href="#local-6989586621679956440"><span class="hs-identifier hs-var">mode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679956439"><span class="annot"><span class="annottext">s :: Deinterlacer
+</span><a href="#local-6989586621679956439"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Deinterlacer.html#Deinterlacer%27"><span class="hs-identifier hs-type">Deinterlacer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679956438"><span class="annot"><span class="annottext">Maybe DeinterlacerMode
+</span><a href="#local-6989586621679956438"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Deinterlacer
+</span><a href="#local-6989586621679956439"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mode:Deinterlacer' :: Maybe DeinterlacerMode
 </span><a href="Network.AWS.MediaConvert.Types.Deinterlacer.html#%24sel%3Amode%3ADeinterlacer%27"><span class="hs-identifier hs-var">mode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeinterlacerMode
-</span><a href="#local-6989586621679956429"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Deinterlacer.html#Deinterlacer"><span class="hs-identifier hs-type">Deinterlacer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679956438"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Deinterlacer.html#Deinterlacer"><span class="hs-identifier hs-type">Deinterlacer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | Only applies when you set Deinterlacer (DeinterlaceMode) to Deinterlace</span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- (DEINTERLACE) or Adaptive (ADAPTIVE). Motion adaptive interpolate</span><span>
@@ -239,19 +239,19 @@ $sel:mode:Deinterlacer' :: Deinterlacer -&gt; Maybe DeinterlacerMode
      (Maybe DeinterlaceAlgorithm)
      (Maybe DeinterlaceAlgorithm)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Deinterlacer.html#Deinterlacer%27"><span class="hs-identifier hs-type">Deinterlacer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679956427"><span class="annot"><span class="annottext">Maybe DeinterlaceAlgorithm
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Deinterlacer.html#Deinterlacer%27"><span class="hs-identifier hs-type">Deinterlacer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679956436"><span class="annot"><span class="annottext">Maybe DeinterlaceAlgorithm
 algorithm :: Maybe DeinterlaceAlgorithm
 $sel:algorithm:Deinterlacer' :: Deinterlacer -&gt; Maybe DeinterlaceAlgorithm
-</span><a href="#local-6989586621679956427"><span class="hs-identifier hs-var hs-var">algorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeinterlaceAlgorithm
-</span><a href="#local-6989586621679956427"><span class="hs-identifier hs-var">algorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679956426"><span class="annot"><span class="annottext">s :: Deinterlacer
-</span><a href="#local-6989586621679956426"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Deinterlacer.html#Deinterlacer%27"><span class="hs-identifier hs-type">Deinterlacer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679956425"><span class="annot"><span class="annottext">Maybe DeinterlaceAlgorithm
-</span><a href="#local-6989586621679956425"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Deinterlacer
-</span><a href="#local-6989586621679956426"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:algorithm:Deinterlacer' :: Maybe DeinterlaceAlgorithm
+</span><a href="#local-6989586621679956436"><span class="hs-identifier hs-var hs-var">algorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeinterlaceAlgorithm
+</span><a href="#local-6989586621679956436"><span class="hs-identifier hs-var">algorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679956435"><span class="annot"><span class="annottext">s :: Deinterlacer
+</span><a href="#local-6989586621679956435"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Deinterlacer.html#Deinterlacer%27"><span class="hs-identifier hs-type">Deinterlacer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679956434"><span class="annot"><span class="annottext">Maybe DeinterlaceAlgorithm
+</span><a href="#local-6989586621679956434"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Deinterlacer
+</span><a href="#local-6989586621679956435"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:algorithm:Deinterlacer' :: Maybe DeinterlaceAlgorithm
 </span><a href="Network.AWS.MediaConvert.Types.Deinterlacer.html#%24sel%3Aalgorithm%3ADeinterlacer%27"><span class="hs-identifier hs-var">algorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeinterlaceAlgorithm
-</span><a href="#local-6989586621679956425"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Deinterlacer.html#Deinterlacer"><span class="hs-identifier hs-type">Deinterlacer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679956434"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Deinterlacer.html#Deinterlacer"><span class="hs-identifier hs-type">Deinterlacer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679956422"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Deinterlacer.html#Deinterlacer"><span class="hs-identifier hs-type">Deinterlacer</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679956420"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Deinterlacer
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679956431"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Deinterlacer.html#Deinterlacer"><span class="hs-identifier hs-type">Deinterlacer</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679956429"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Deinterlacer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Deinterlacer) -&gt; Value -&gt; Parser Deinterlacer
@@ -259,8 +259,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Deinterlacer&quot;</span></span><span>
-</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679956417"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679956417"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679956426"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679956426"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">Maybe DeinterlacerControl
 -&gt; Maybe DeinterlacerMode
 -&gt; Maybe DeinterlaceAlgorithm
@@ -276,7 +276,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe DeinterlaceAlgorithm -&gt; Deinterlacer)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679956417"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeinterlacerControl)
+</span><a href="#local-6989586621679956426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeinterlacerControl)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;control&quot;</span></span><span class="hs-special">)</span><span>
@@ -287,7 +287,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe DeinterlaceAlgorithm -&gt; Deinterlacer)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679956417"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeinterlacerMode)
+</span><a href="#local-6989586621679956426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeinterlacerMode)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;mode&quot;</span></span><span class="hs-special">)</span><span>
@@ -295,19 +295,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe DeinterlaceAlgorithm) -&gt; Parser Deinterlacer
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679956417"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeinterlaceAlgorithm)
+</span><a href="#local-6989586621679956426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeinterlaceAlgorithm)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;algorithm&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679956411"><span id="local-6989586621679956413"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Deinterlacer.html#Deinterlacer"><span class="hs-identifier hs-type">Deinterlacer</span></a></span></span></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679956420"><span id="local-6989586621679956422"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Deinterlacer.html#Deinterlacer"><span class="hs-identifier hs-type">Deinterlacer</span></a></span></span></span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679956408"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Deinterlacer.html#Deinterlacer"><span class="hs-identifier hs-type">Deinterlacer</span></a></span></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679956417"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Deinterlacer.html#Deinterlacer"><span class="hs-identifier hs-type">Deinterlacer</span></a></span></span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679956400"><span id="local-6989586621679956402"><span id="local-6989586621679956404"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Deinterlacer.html#Deinterlacer"><span class="hs-identifier hs-type">Deinterlacer</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679956398"><span class="annot"><span class="annottext">toJSON :: Deinterlacer -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Deinterlacer.html#Deinterlacer%27"><span class="hs-identifier hs-type">Deinterlacer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679956394"><span id="local-6989586621679956395"><span id="local-6989586621679956396"><span class="annot"><span class="annottext">Maybe DeinterlaceAlgorithm
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679956409"><span id="local-6989586621679956411"><span id="local-6989586621679956413"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Deinterlacer.html#Deinterlacer"><span class="hs-identifier hs-type">Deinterlacer</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679956407"><span class="annot"><span class="annottext">toJSON :: Deinterlacer -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.Deinterlacer.html#Deinterlacer%27"><span class="hs-identifier hs-type">Deinterlacer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679956403"><span id="local-6989586621679956404"><span id="local-6989586621679956405"><span class="annot"><span class="annottext">Maybe DeinterlaceAlgorithm
 Maybe DeinterlacerControl
 Maybe DeinterlacerMode
 algorithm :: Maybe DeinterlaceAlgorithm
@@ -316,7 +316,7 @@ control :: Maybe DeinterlacerControl
 $sel:algorithm:Deinterlacer' :: Deinterlacer -&gt; Maybe DeinterlaceAlgorithm
 $sel:mode:Deinterlacer' :: Deinterlacer -&gt; Maybe DeinterlacerMode
 $sel:control:Deinterlacer' :: Deinterlacer -&gt; Maybe DeinterlacerControl
-</span><a href="#local-6989586621679956394"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679956403"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -329,14 +329,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe DeinterlacerControl -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DeinterlacerControl
-</span><a href="#local-6989586621679956396"><span class="hs-identifier hs-var">control</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679956405"><span class="hs-identifier hs-var">control</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;mode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DeinterlacerMode -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(DeinterlacerMode -&gt; Pair) -&gt; Maybe DeinterlacerMode -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DeinterlacerMode
-</span><a href="#local-6989586621679956395"><span class="hs-identifier hs-var">mode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679956404"><span class="hs-identifier hs-var">mode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-148"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;algorithm&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DeinterlaceAlgorithm -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -344,7 +344,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe DeinterlaceAlgorithm -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DeinterlaceAlgorithm
-</span><a href="#local-6989586621679956394"><span class="hs-identifier hs-var">algorithm</span></a></span><span>
+</span><a href="#local-6989586621679956403"><span class="hs-identifier hs-var">algorithm</span></a></span><span>
 </span><span id="line-149"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span></pre></body></html>

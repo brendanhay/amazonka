@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The owner setting for downloaded machine learning resources.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newResourceDownloadOwnerSetting' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679346143"><span id="local-6989586621679346144"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceDownloadOwnerSetting"><span class="annot"><a href="Network.AWS.Greengrass.Types.ResourceDownloadOwnerSetting.html#ResourceDownloadOwnerSetting"><span class="hs-identifier hs-var">ResourceDownloadOwnerSetting</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceDownloadOwnerSetting%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.ResourceDownloadOwnerSetting.html#ResourceDownloadOwnerSetting%27"><span class="hs-identifier hs-var">ResourceDownloadOwnerSetting'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679346152"><span id="local-6989586621679346153"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceDownloadOwnerSetting"><span class="annot"><a href="Network.AWS.Greengrass.Types.ResourceDownloadOwnerSetting.html#ResourceDownloadOwnerSetting"><span class="hs-identifier hs-var">ResourceDownloadOwnerSetting</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceDownloadOwnerSetting%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.ResourceDownloadOwnerSetting.html#ResourceDownloadOwnerSetting%27"><span class="hs-identifier hs-var">ResourceDownloadOwnerSetting'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The group owner of the resource. This is the name of an existing Linux</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- OS group on the system or a GID. The group\'s permissions are added to</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- the Lambda process.</span><span>
@@ -38,7 +38,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AgroupPermission%3AResourceDownloadOwnerSetting%27"><span class="annot"><span class="annottext">ResourceDownloadOwnerSetting -&gt; Permission
 </span><a href="Network.AWS.Greengrass.Types.ResourceDownloadOwnerSetting.html#%24sel%3AgroupPermission%3AResourceDownloadOwnerSetting%27"><span class="hs-identifier hs-var hs-var">groupPermission</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679346136"><span id="local-6989586621679346138"><span class="annot"><span class="annottext">ResourceDownloadOwnerSetting
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679346145"><span id="local-6989586621679346147"><span class="annot"><span class="annottext">ResourceDownloadOwnerSetting
 -&gt; ResourceDownloadOwnerSetting -&gt; Bool
 (ResourceDownloadOwnerSetting
  -&gt; ResourceDownloadOwnerSetting -&gt; Bool)
@@ -54,7 +54,7 @@ $c/= :: ResourceDownloadOwnerSetting
 -&gt; ResourceDownloadOwnerSetting -&gt; Bool
 $c== :: ResourceDownloadOwnerSetting
 -&gt; ResourceDownloadOwnerSetting -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346127"><span id="local-6989586621679346129"><span id="local-6989586621679346131"><span id="local-6989586621679346133"><span class="annot"><span class="annottext">ReadPrec [ResourceDownloadOwnerSetting]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346136"><span id="local-6989586621679346138"><span id="local-6989586621679346140"><span id="local-6989586621679346142"><span class="annot"><span class="annottext">ReadPrec [ResourceDownloadOwnerSetting]
 ReadPrec ResourceDownloadOwnerSetting
 Int -&gt; ReadS ResourceDownloadOwnerSetting
 ReadS [ResourceDownloadOwnerSetting]
@@ -74,7 +74,7 @@ readList :: ReadS [ResourceDownloadOwnerSetting]
 $creadList :: ReadS [ResourceDownloadOwnerSetting]
 readsPrec :: Int -&gt; ReadS ResourceDownloadOwnerSetting
 $creadsPrec :: Int -&gt; ReadS ResourceDownloadOwnerSetting
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346120"><span id="local-6989586621679346122"><span id="local-6989586621679346124"><span class="annot"><span class="annottext">Int -&gt; ResourceDownloadOwnerSetting -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346129"><span id="local-6989586621679346131"><span id="local-6989586621679346133"><span class="annot"><span class="annottext">Int -&gt; ResourceDownloadOwnerSetting -&gt; ShowS
 [ResourceDownloadOwnerSetting] -&gt; ShowS
 ResourceDownloadOwnerSetting -&gt; String
 (Int -&gt; ResourceDownloadOwnerSetting -&gt; ShowS)
@@ -128,19 +128,19 @@ ResourceDownloadOwnerSetting -&gt; Rep ResourceDownloadOwnerSetting x
 </span><span id="line-60"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ResourceDownloadOwnerSetting.html#ResourceDownloadOwnerSetting"><span class="hs-identifier hs-type">ResourceDownloadOwnerSetting</span></a></span><span>
 </span><span id="line-61"></span><span id="newResourceDownloadOwnerSetting"><span class="annot"><span class="annottext">newResourceDownloadOwnerSetting :: Text -&gt; Permission -&gt; ResourceDownloadOwnerSetting
 </span><a href="Network.AWS.Greengrass.Types.ResourceDownloadOwnerSetting.html#newResourceDownloadOwnerSetting"><span class="hs-identifier hs-var hs-var">newResourceDownloadOwnerSetting</span></a></span></span><span>
-</span><span id="line-62"></span><span>  </span><span id="local-6989586621679346114"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346114"><span class="hs-identifier hs-var">pGroupOwner_</span></a></span></span><span>
-</span><span id="line-63"></span><span>  </span><span id="local-6989586621679346113"><span class="annot"><span class="annottext">Permission
-</span><a href="#local-6989586621679346113"><span class="hs-identifier hs-var">pGroupPermission_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>  </span><span id="local-6989586621679346123"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679346123"><span class="hs-identifier hs-var">pGroupOwner_</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span id="local-6989586621679346122"><span class="annot"><span class="annottext">Permission
+</span><a href="#local-6989586621679346122"><span class="hs-identifier hs-var">pGroupPermission_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-64"></span><span>    </span><span class="annot"><span class="annottext">ResourceDownloadOwnerSetting' :: Text -&gt; Permission -&gt; ResourceDownloadOwnerSetting
 </span><a href="Network.AWS.Greengrass.Types.ResourceDownloadOwnerSetting.html#ResourceDownloadOwnerSetting%27"><span class="hs-identifier hs-type">ResourceDownloadOwnerSetting'</span></a></span><span>
 </span><span id="line-65"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:groupOwner:ResourceDownloadOwnerSetting' :: Text
 </span><a href="Network.AWS.Greengrass.Types.ResourceDownloadOwnerSetting.html#%24sel%3AgroupOwner%3AResourceDownloadOwnerSetting%27"><span class="hs-identifier hs-var">groupOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346114"><span class="hs-identifier hs-var">pGroupOwner_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679346123"><span class="hs-identifier hs-var">pGroupOwner_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-67"></span><span>        </span><span class="annot"><span class="annottext">$sel:groupPermission:ResourceDownloadOwnerSetting' :: Permission
 </span><a href="Network.AWS.Greengrass.Types.ResourceDownloadOwnerSetting.html#%24sel%3AgroupPermission%3AResourceDownloadOwnerSetting%27"><span class="hs-identifier hs-var">groupPermission</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Permission
-</span><a href="#local-6989586621679346113"><span class="hs-identifier hs-var">pGroupPermission_</span></a></span><span>
+</span><a href="#local-6989586621679346122"><span class="hs-identifier hs-var">pGroupPermission_</span></a></span><span>
 </span><span id="line-68"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | The group owner of the resource. This is the name of an existing Linux</span><span>
@@ -155,16 +155,16 @@ ResourceDownloadOwnerSetting -&gt; Rep ResourceDownloadOwnerSetting x
 -&gt; Lens
      ResourceDownloadOwnerSetting ResourceDownloadOwnerSetting Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.ResourceDownloadOwnerSetting.html#ResourceDownloadOwnerSetting%27"><span class="hs-identifier hs-type">ResourceDownloadOwnerSetting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346109"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.ResourceDownloadOwnerSetting.html#ResourceDownloadOwnerSetting%27"><span class="hs-identifier hs-type">ResourceDownloadOwnerSetting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346118"><span class="annot"><span class="annottext">Text
 groupOwner :: Text
 $sel:groupOwner:ResourceDownloadOwnerSetting' :: ResourceDownloadOwnerSetting -&gt; Text
-</span><a href="#local-6989586621679346109"><span class="hs-identifier hs-var hs-var">groupOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346109"><span class="hs-identifier hs-var">groupOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346108"><span class="annot"><span class="annottext">s :: ResourceDownloadOwnerSetting
-</span><a href="#local-6989586621679346108"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.ResourceDownloadOwnerSetting.html#ResourceDownloadOwnerSetting%27"><span class="hs-identifier hs-type">ResourceDownloadOwnerSetting'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346107"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346107"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceDownloadOwnerSetting
-</span><a href="#local-6989586621679346108"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupOwner:ResourceDownloadOwnerSetting' :: Text
+</span><a href="#local-6989586621679346118"><span class="hs-identifier hs-var hs-var">groupOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679346118"><span class="hs-identifier hs-var">groupOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346117"><span class="annot"><span class="annottext">s :: ResourceDownloadOwnerSetting
+</span><a href="#local-6989586621679346117"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.ResourceDownloadOwnerSetting.html#ResourceDownloadOwnerSetting%27"><span class="hs-identifier hs-type">ResourceDownloadOwnerSetting'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346116"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679346116"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceDownloadOwnerSetting
+</span><a href="#local-6989586621679346117"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupOwner:ResourceDownloadOwnerSetting' :: Text
 </span><a href="Network.AWS.Greengrass.Types.ResourceDownloadOwnerSetting.html#%24sel%3AgroupOwner%3AResourceDownloadOwnerSetting%27"><span class="hs-identifier hs-var">groupOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346107"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ResourceDownloadOwnerSetting.html#ResourceDownloadOwnerSetting"><span class="hs-identifier hs-type">ResourceDownloadOwnerSetting</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679346116"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ResourceDownloadOwnerSetting.html#ResourceDownloadOwnerSetting"><span class="hs-identifier hs-type">ResourceDownloadOwnerSetting</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | The permissions that the group owner has to the resource. Valid values</span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- are \'\'rw\'\' (read\/write) or \'\'ro\'\' (read-only).</span><span>
@@ -180,19 +180,19 @@ $sel:groupOwner:ResourceDownloadOwnerSetting' :: ResourceDownloadOwnerSetting -&
      Permission
      Permission
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.ResourceDownloadOwnerSetting.html#ResourceDownloadOwnerSetting%27"><span class="hs-identifier hs-type">ResourceDownloadOwnerSetting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346105"><span class="annot"><span class="annottext">Permission
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.Types.ResourceDownloadOwnerSetting.html#ResourceDownloadOwnerSetting%27"><span class="hs-identifier hs-type">ResourceDownloadOwnerSetting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346114"><span class="annot"><span class="annottext">Permission
 groupPermission :: Permission
 $sel:groupPermission:ResourceDownloadOwnerSetting' :: ResourceDownloadOwnerSetting -&gt; Permission
-</span><a href="#local-6989586621679346105"><span class="hs-identifier hs-var hs-var">groupPermission</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Permission
-</span><a href="#local-6989586621679346105"><span class="hs-identifier hs-var">groupPermission</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346104"><span class="annot"><span class="annottext">s :: ResourceDownloadOwnerSetting
-</span><a href="#local-6989586621679346104"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.ResourceDownloadOwnerSetting.html#ResourceDownloadOwnerSetting%27"><span class="hs-identifier hs-type">ResourceDownloadOwnerSetting'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346103"><span class="annot"><span class="annottext">Permission
-</span><a href="#local-6989586621679346103"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceDownloadOwnerSetting
-</span><a href="#local-6989586621679346104"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupPermission:ResourceDownloadOwnerSetting' :: Permission
+</span><a href="#local-6989586621679346114"><span class="hs-identifier hs-var hs-var">groupPermission</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Permission
+</span><a href="#local-6989586621679346114"><span class="hs-identifier hs-var">groupPermission</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346113"><span class="annot"><span class="annottext">s :: ResourceDownloadOwnerSetting
+</span><a href="#local-6989586621679346113"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.Types.ResourceDownloadOwnerSetting.html#ResourceDownloadOwnerSetting%27"><span class="hs-identifier hs-type">ResourceDownloadOwnerSetting'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346112"><span class="annot"><span class="annottext">Permission
+</span><a href="#local-6989586621679346112"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceDownloadOwnerSetting
+</span><a href="#local-6989586621679346113"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupPermission:ResourceDownloadOwnerSetting' :: Permission
 </span><a href="Network.AWS.Greengrass.Types.ResourceDownloadOwnerSetting.html#%24sel%3AgroupPermission%3AResourceDownloadOwnerSetting%27"><span class="hs-identifier hs-var">groupPermission</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Permission
-</span><a href="#local-6989586621679346103"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ResourceDownloadOwnerSetting.html#ResourceDownloadOwnerSetting"><span class="hs-identifier hs-type">ResourceDownloadOwnerSetting</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679346112"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ResourceDownloadOwnerSetting.html#ResourceDownloadOwnerSetting"><span class="hs-identifier hs-type">ResourceDownloadOwnerSetting</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346100"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ResourceDownloadOwnerSetting.html#ResourceDownloadOwnerSetting"><span class="hs-identifier hs-type">ResourceDownloadOwnerSetting</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679346098"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourceDownloadOwnerSetting
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346109"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ResourceDownloadOwnerSetting.html#ResourceDownloadOwnerSetting"><span class="hs-identifier hs-type">ResourceDownloadOwnerSetting</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679346107"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourceDownloadOwnerSetting
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ResourceDownloadOwnerSetting)
@@ -202,8 +202,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ResourceDownloadOwnerSetting&quot;</span></span><span>
-</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679346095"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679346095"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679346104"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679346104"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Permission -&gt; ResourceDownloadOwnerSetting
 </span><a href="Network.AWS.Greengrass.Types.ResourceDownloadOwnerSetting.html#ResourceDownloadOwnerSetting%27"><span class="hs-identifier hs-var">ResourceDownloadOwnerSetting'</span></a></span><span>
 </span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Permission -&gt; ResourceDownloadOwnerSetting)
@@ -211,7 +211,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Permission -&gt; ResourceDownloadOwnerSetting)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679346095"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679346104"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GroupOwner&quot;</span></span><span class="hs-special">)</span><span>
@@ -219,27 +219,27 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Permission -&gt; Parser ResourceDownloadOwnerSetting
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679346095"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Permission
+</span><a href="#local-6989586621679346104"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Permission
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GroupPermission&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679346089"><span id="local-6989586621679346091"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679346098"><span id="local-6989586621679346100"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ResourceDownloadOwnerSetting.html#ResourceDownloadOwnerSetting"><span class="hs-identifier hs-type">ResourceDownloadOwnerSetting</span></a></span></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346086"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ResourceDownloadOwnerSetting.html#ResourceDownloadOwnerSetting"><span class="hs-identifier hs-type">ResourceDownloadOwnerSetting</span></a></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346095"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ResourceDownloadOwnerSetting.html#ResourceDownloadOwnerSetting"><span class="hs-identifier hs-type">ResourceDownloadOwnerSetting</span></a></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346078"><span id="local-6989586621679346080"><span id="local-6989586621679346082"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ResourceDownloadOwnerSetting.html#ResourceDownloadOwnerSetting"><span class="hs-identifier hs-type">ResourceDownloadOwnerSetting</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679346076"><span class="annot"><span class="annottext">toJSON :: ResourceDownloadOwnerSetting -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ResourceDownloadOwnerSetting.html#ResourceDownloadOwnerSetting%27"><span class="hs-identifier hs-type">ResourceDownloadOwnerSetting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346073"><span id="local-6989586621679346074"><span class="annot"><span class="annottext">Text
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346087"><span id="local-6989586621679346089"><span id="local-6989586621679346091"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ResourceDownloadOwnerSetting.html#ResourceDownloadOwnerSetting"><span class="hs-identifier hs-type">ResourceDownloadOwnerSetting</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679346085"><span class="annot"><span class="annottext">toJSON :: ResourceDownloadOwnerSetting -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.ResourceDownloadOwnerSetting.html#ResourceDownloadOwnerSetting%27"><span class="hs-identifier hs-type">ResourceDownloadOwnerSetting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346082"><span id="local-6989586621679346083"><span class="annot"><span class="annottext">Text
 Permission
 groupPermission :: Permission
 groupOwner :: Text
 $sel:groupPermission:ResourceDownloadOwnerSetting' :: ResourceDownloadOwnerSetting -&gt; Permission
 $sel:groupOwner:ResourceDownloadOwnerSetting' :: ResourceDownloadOwnerSetting -&gt; Text
-</span><a href="#local-6989586621679346073"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679346082"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -251,7 +251,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;GroupOwner&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346074"><span class="hs-identifier hs-var">groupOwner</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679346083"><span class="hs-identifier hs-var">groupOwner</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -259,7 +259,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;GroupPermission&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Permission -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Permission
-</span><a href="#local-6989586621679346073"><span class="hs-identifier hs-var">groupPermission</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679346082"><span class="hs-identifier hs-var">groupPermission</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span></pre></body></html>

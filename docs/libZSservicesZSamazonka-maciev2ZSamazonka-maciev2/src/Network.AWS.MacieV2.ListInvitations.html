@@ -1,0 +1,627 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.MacieV2.ListInvitations</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves information about the Amazon Macie membership invitations that</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- were received by an account.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MacieV2.ListInvitations</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#ListInvitations"><span class="hs-identifier">ListInvitations</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#newListInvitations"><span class="hs-identifier">newListInvitations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#listInvitations_nextToken"><span class="hs-identifier">listInvitations_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#listInvitations_maxResults"><span class="hs-identifier">listInvitations_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#ListInvitationsResponse"><span class="hs-identifier">ListInvitationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#newListInvitationsResponse"><span class="hs-identifier">newListInvitationsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#listInvitationsResponse_invitations"><span class="hs-identifier">listInvitationsResponse_invitations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#listInvitationsResponse_nextToken"><span class="hs-identifier">listInvitationsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#listInvitationsResponse_httpStatus"><span class="hs-identifier">listInvitationsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.html"><span class="hs-identifier">Network.AWS.MacieV2.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newListInvitations' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679407850"><span id="local-6989586621679407851"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListInvitations"><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#ListInvitations"><span class="hs-identifier hs-var">ListInvitations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListInvitations%27"><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#ListInvitations%27"><span class="hs-identifier hs-var">ListInvitations'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The nextToken string that specifies which page of results to return in a</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- paginated response.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AnextToken%3AListInvitations%27"><span class="annot"><span class="annottext">ListInvitations -&gt; Maybe Text
+</span><a href="Network.AWS.MacieV2.ListInvitations.html#%24sel%3AnextToken%3AListInvitations%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The maximum number of items to include in each page of a paginated</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- response.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AmaxResults%3AListInvitations%27"><span class="annot"><span class="annottext">ListInvitations -&gt; Maybe Natural
+</span><a href="Network.AWS.MacieV2.ListInvitations.html#%24sel%3AmaxResults%3AListInvitations%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679407843"><span id="local-6989586621679407845"><span class="annot"><span class="annottext">ListInvitations -&gt; ListInvitations -&gt; Bool
+(ListInvitations -&gt; ListInvitations -&gt; Bool)
+-&gt; (ListInvitations -&gt; ListInvitations -&gt; Bool)
+-&gt; Eq ListInvitations
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListInvitations -&gt; ListInvitations -&gt; Bool
+$c/= :: ListInvitations -&gt; ListInvitations -&gt; Bool
+== :: ListInvitations -&gt; ListInvitations -&gt; Bool
+$c== :: ListInvitations -&gt; ListInvitations -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679407834"><span id="local-6989586621679407836"><span id="local-6989586621679407838"><span id="local-6989586621679407840"><span class="annot"><span class="annottext">ReadPrec [ListInvitations]
+ReadPrec ListInvitations
+Int -&gt; ReadS ListInvitations
+ReadS [ListInvitations]
+(Int -&gt; ReadS ListInvitations)
+-&gt; ReadS [ListInvitations]
+-&gt; ReadPrec ListInvitations
+-&gt; ReadPrec [ListInvitations]
+-&gt; Read ListInvitations
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListInvitations]
+$creadListPrec :: ReadPrec [ListInvitations]
+readPrec :: ReadPrec ListInvitations
+$creadPrec :: ReadPrec ListInvitations
+readList :: ReadS [ListInvitations]
+$creadList :: ReadS [ListInvitations]
+readsPrec :: Int -&gt; ReadS ListInvitations
+$creadsPrec :: Int -&gt; ReadS ListInvitations
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679407827"><span id="local-6989586621679407829"><span id="local-6989586621679407831"><span class="annot"><span class="annottext">Int -&gt; ListInvitations -&gt; ShowS
+[ListInvitations] -&gt; ShowS
+ListInvitations -&gt; String
+(Int -&gt; ListInvitations -&gt; ShowS)
+-&gt; (ListInvitations -&gt; String)
+-&gt; ([ListInvitations] -&gt; ShowS)
+-&gt; Show ListInvitations
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListInvitations] -&gt; ShowS
+$cshowList :: [ListInvitations] -&gt; ShowS
+show :: ListInvitations -&gt; String
+$cshow :: ListInvitations -&gt; String
+showsPrec :: Int -&gt; ListInvitations -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListInvitations -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListInvitations -&gt; Rep ListInvitations x)
+-&gt; (forall x. Rep ListInvitations x -&gt; ListInvitations)
+-&gt; Generic ListInvitations
+forall x. Rep ListInvitations x -&gt; ListInvitations
+forall x. ListInvitations -&gt; Rep ListInvitations x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListInvitations x -&gt; ListInvitations
+$cfrom :: forall x. ListInvitations -&gt; Rep ListInvitations x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Create a value of 'ListInvitations' with all optional fields omitted.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'nextToken', 'listInvitations_nextToken' - The nextToken string that specifies which page of results to return in a</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- paginated response.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'maxResults', 'listInvitations_maxResults' - The maximum number of items to include in each page of a paginated</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- response.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#newListInvitations"><span class="hs-identifier hs-type">newListInvitations</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#ListInvitations"><span class="hs-identifier hs-type">ListInvitations</span></a></span><span>
+</span><span id="line-80"></span><span id="newListInvitations"><span class="annot"><span class="annottext">newListInvitations :: ListInvitations
+</span><a href="Network.AWS.MacieV2.ListInvitations.html#newListInvitations"><span class="hs-identifier hs-var hs-var">newListInvitations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">ListInvitations' :: Maybe Text -&gt; Maybe Natural -&gt; ListInvitations
+</span><a href="Network.AWS.MacieV2.ListInvitations.html#ListInvitations%27"><span class="hs-identifier hs-type">ListInvitations'</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListInvitations' :: Maybe Text
+</span><a href="Network.AWS.MacieV2.ListInvitations.html#%24sel%3AnextToken%3AListInvitations%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListInvitations' :: Maybe Natural
+</span><a href="Network.AWS.MacieV2.ListInvitations.html#%24sel%3AmaxResults%3AListInvitations%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The nextToken string that specifies which page of results to return in a</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- paginated response.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#listInvitations_nextToken"><span class="hs-identifier hs-type">listInvitations_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#ListInvitations"><span class="hs-identifier hs-type">ListInvitations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="listInvitations_nextToken"><span class="annot"><span class="annottext">listInvitations_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListInvitations -&gt; f ListInvitations
+</span><a href="Network.AWS.MacieV2.ListInvitations.html#listInvitations_nextToken"><span class="hs-identifier hs-var hs-var">listInvitations_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListInvitations -&gt; Maybe Text)
+-&gt; (ListInvitations -&gt; Maybe Text -&gt; ListInvitations)
+-&gt; Lens ListInvitations ListInvitations (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#ListInvitations%27"><span class="hs-identifier hs-type">ListInvitations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679407821"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListInvitations' :: ListInvitations -&gt; Maybe Text
+</span><a href="#local-6989586621679407821"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679407821"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679407820"><span class="annot"><span class="annottext">s :: ListInvitations
+</span><a href="#local-6989586621679407820"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#ListInvitations%27"><span class="hs-identifier hs-type">ListInvitations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679407819"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679407819"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInvitations
+</span><a href="#local-6989586621679407820"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListInvitations' :: Maybe Text
+</span><a href="Network.AWS.MacieV2.ListInvitations.html#%24sel%3AnextToken%3AListInvitations%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679407819"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#ListInvitations"><span class="hs-identifier hs-type">ListInvitations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The maximum number of items to include in each page of a paginated</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- response.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#listInvitations_maxResults"><span class="hs-identifier hs-type">listInvitations_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#ListInvitations"><span class="hs-identifier hs-type">ListInvitations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="listInvitations_maxResults"><span class="annot"><span class="annottext">listInvitations_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListInvitations -&gt; f ListInvitations
+</span><a href="Network.AWS.MacieV2.ListInvitations.html#listInvitations_maxResults"><span class="hs-identifier hs-var hs-var">listInvitations_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListInvitations -&gt; Maybe Natural)
+-&gt; (ListInvitations -&gt; Maybe Natural -&gt; ListInvitations)
+-&gt; Lens
+     ListInvitations ListInvitations (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#ListInvitations%27"><span class="hs-identifier hs-type">ListInvitations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679407818"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListInvitations' :: ListInvitations -&gt; Maybe Natural
+</span><a href="#local-6989586621679407818"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679407818"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679407817"><span class="annot"><span class="annottext">s :: ListInvitations
+</span><a href="#local-6989586621679407817"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#ListInvitations%27"><span class="hs-identifier hs-type">ListInvitations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679407816"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679407816"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInvitations
+</span><a href="#local-6989586621679407817"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListInvitations' :: Maybe Natural
+</span><a href="Network.AWS.MacieV2.ListInvitations.html#%24sel%3AmaxResults%3AListInvitations%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679407816"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#ListInvitations"><span class="hs-identifier hs-type">ListInvitations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#ListInvitations"><span class="hs-identifier hs-type">ListInvitations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679407812"><span class="annot"><span class="annottext">page :: ListInvitations
+-&gt; AWSResponse ListInvitations -&gt; Maybe ListInvitations
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679407810"><span class="annot"><span class="annottext">ListInvitations
+</span><a href="#local-6989586621679407810"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679407809"><span class="annot"><span class="annottext">AWSResponse ListInvitations
+</span><a href="#local-6989586621679407809"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-99"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListInvitations
+ListInvitationsResponse
+</span><a href="#local-6989586621679407809"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">ListInvitationsResponse
+-&gt; Getting (First Text) ListInvitationsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListInvitationsResponse
+-&gt; Const (First Text) ListInvitationsResponse
+Lens' ListInvitationsResponse (Maybe Text)
+</span><a href="Network.AWS.MacieV2.ListInvitations.html#listInvitationsResponse_nextToken"><span class="hs-identifier hs-var">listInvitationsResponse_nextToken</span></a></span><span>
+</span><span id="line-101"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListInvitationsResponse
+ -&gt; Const (First Text) ListInvitationsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListInvitationsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-102"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListInvitations
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [Invitation] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-105"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListInvitations
+ListInvitationsResponse
+</span><a href="#local-6989586621679407809"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">ListInvitationsResponse
+-&gt; Getting
+     (First [Invitation]) ListInvitationsResponse [Invitation]
+-&gt; Maybe [Invitation]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [Invitation]
+ -&gt; Const (First [Invitation]) (Maybe [Invitation]))
+-&gt; ListInvitationsResponse
+-&gt; Const (First [Invitation]) ListInvitationsResponse
+Lens' ListInvitationsResponse (Maybe [Invitation])
+</span><a href="Network.AWS.MacieV2.ListInvitations.html#listInvitationsResponse_invitations"><span class="hs-identifier hs-var">listInvitationsResponse_invitations</span></a></span><span>
+</span><span id="line-107"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [Invitation]
+  -&gt; Const (First [Invitation]) (Maybe [Invitation]))
+ -&gt; ListInvitationsResponse
+ -&gt; Const (First [Invitation]) ListInvitationsResponse)
+-&gt; (([Invitation] -&gt; Const (First [Invitation]) [Invitation])
+    -&gt; Maybe [Invitation]
+    -&gt; Const (First [Invitation]) (Maybe [Invitation]))
+-&gt; Getting
+     (First [Invitation]) ListInvitationsResponse [Invitation]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Invitation] -&gt; Const (First [Invitation]) [Invitation])
+-&gt; Maybe [Invitation]
+-&gt; Const (First [Invitation]) (Maybe [Invitation])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-108"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListInvitations
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">ListInvitations -&gt; Maybe ListInvitations
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListInvitations -&gt; Maybe ListInvitations)
+-&gt; ListInvitations -&gt; Maybe ListInvitations
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">ListInvitations
+</span><a href="#local-6989586621679407810"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">ListInvitations
+-&gt; (ListInvitations -&gt; ListInvitations) -&gt; ListInvitations
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListInvitations -&gt; Identity ListInvitations
+Lens ListInvitations ListInvitations (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.MacieV2.ListInvitations.html#listInvitations_nextToken"><span class="hs-identifier hs-var">listInvitations_nextToken</span></a></span><span>
+</span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListInvitations -&gt; Identity ListInvitations)
+-&gt; Maybe Text -&gt; ListInvitations -&gt; ListInvitations
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListInvitations
+ListInvitationsResponse
+</span><a href="#local-6989586621679407809"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">ListInvitationsResponse
+-&gt; Getting (First Text) ListInvitationsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListInvitationsResponse
+-&gt; Const (First Text) ListInvitationsResponse
+Lens' ListInvitationsResponse (Maybe Text)
+</span><a href="Network.AWS.MacieV2.ListInvitations.html#listInvitationsResponse_nextToken"><span class="hs-identifier hs-var">listInvitationsResponse_nextToken</span></a></span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListInvitationsResponse
+ -&gt; Const (First Text) ListInvitationsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListInvitationsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#ListInvitations"><span class="hs-identifier hs-type">ListInvitations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-120"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#ListInvitations"><span class="hs-identifier hs-type">ListInvitations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#ListInvitationsResponse"><span class="hs-identifier hs-type">ListInvitationsResponse</span></a></span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679407799"><span class="annot"><span class="annottext">request :: ListInvitations -&gt; Request ListInvitations
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListInvitations -&gt; Request ListInvitations
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.MacieV2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679407795"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListInvitations
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListInvitations)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListInvitations))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListInvitations
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListInvitations)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679407792"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679407792"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679407791"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679407791"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679407790"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679407790"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-126"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Invitation] -&gt; Maybe Text -&gt; Int -&gt; ListInvitationsResponse
+</span><a href="Network.AWS.MacieV2.ListInvitations.html#ListInvitationsResponse%27"><span class="hs-identifier hs-var">ListInvitationsResponse'</span></a></span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Invitation]
+ -&gt; Maybe Text -&gt; Int -&gt; ListInvitationsResponse)
+-&gt; Either String (Maybe [Invitation])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListInvitationsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679407790"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Invitation]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;invitations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Invitation]))
+-&gt; Maybe [Invitation] -&gt; Either String (Maybe [Invitation])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Invitation]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListInvitationsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListInvitationsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679407790"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListInvitationsResponse)
+-&gt; Either String Int -&gt; Either String ListInvitationsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679407792"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679407781"><span id="local-6989586621679407783"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#ListInvitations"><span class="hs-identifier hs-type">ListInvitations</span></a></span></span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679407778"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#ListInvitations"><span class="hs-identifier hs-type">ListInvitations</span></a></span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#ListInvitations"><span class="hs-identifier hs-type">ListInvitations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679407774"><span class="annot"><span class="annottext">toHeaders :: ListInvitations -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListInvitations -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-140"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-141"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-142"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-143"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#ListInvitations"><span class="hs-identifier hs-type">ListInvitations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679407768"><span class="annot"><span class="annottext">toPath :: ListInvitations -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListInvitations -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/invitations&quot;</span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#ListInvitations"><span class="hs-identifier hs-type">ListInvitations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679407764"><span class="annot"><span class="annottext">toQuery :: ListInvitations -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#ListInvitations%27"><span class="hs-identifier hs-type">ListInvitations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679407761"><span id="local-6989586621679407762"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:maxResults:ListInvitations' :: ListInvitations -&gt; Maybe Natural
+$sel:nextToken:ListInvitations' :: ListInvitations -&gt; Maybe Text
+</span><a href="#local-6989586621679407761"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679407762"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679407761"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | /See:/ 'newListInvitationsResponse' smart constructor.</span><span>
+</span><span id="line-158"></span><span id="local-6989586621679407758"><span id="local-6989586621679407759"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListInvitationsResponse"><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#ListInvitationsResponse"><span class="hs-identifier hs-var">ListInvitationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListInvitationsResponse%27"><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#ListInvitationsResponse%27"><span class="hs-identifier hs-var">ListInvitationsResponse'</span></a></span></span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects, one for each invitation that was received by the</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- account.</span><span>
+</span><span id="line-161"></span><span>    </span><span id="%24sel%3Ainvitations%3AListInvitationsResponse%27"><span class="annot"><span class="annottext">ListInvitationsResponse -&gt; Maybe [Invitation]
+</span><a href="Network.AWS.MacieV2.ListInvitations.html#%24sel%3Ainvitations%3AListInvitationsResponse%27"><span class="hs-identifier hs-var hs-var">invitations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MacieV2.Types.Invitation.html#Invitation"><span class="hs-identifier hs-type">Invitation</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- | The string to use in a subsequent request to get the next page of</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- results in a paginated response. This value is null if there are no</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- additional pages.</span><span>
+</span><span id="line-165"></span><span>    </span><span id="%24sel%3AnextToken%3AListInvitationsResponse%27"><span class="annot"><span class="annottext">ListInvitationsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.MacieV2.ListInvitations.html#%24sel%3AnextToken%3AListInvitationsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-167"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListInvitationsResponse%27"><span class="annot"><span class="annottext">ListInvitationsResponse -&gt; Int
+</span><a href="Network.AWS.MacieV2.ListInvitations.html#%24sel%3AhttpStatus%3AListInvitationsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679407751"><span id="local-6989586621679407753"><span class="annot"><span class="annottext">ListInvitationsResponse -&gt; ListInvitationsResponse -&gt; Bool
+(ListInvitationsResponse -&gt; ListInvitationsResponse -&gt; Bool)
+-&gt; (ListInvitationsResponse -&gt; ListInvitationsResponse -&gt; Bool)
+-&gt; Eq ListInvitationsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListInvitationsResponse -&gt; ListInvitationsResponse -&gt; Bool
+$c/= :: ListInvitationsResponse -&gt; ListInvitationsResponse -&gt; Bool
+== :: ListInvitationsResponse -&gt; ListInvitationsResponse -&gt; Bool
+$c== :: ListInvitationsResponse -&gt; ListInvitationsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679407743"><span id="local-6989586621679407745"><span id="local-6989586621679407747"><span id="local-6989586621679407749"><span class="annot"><span class="annottext">ReadPrec [ListInvitationsResponse]
+ReadPrec ListInvitationsResponse
+Int -&gt; ReadS ListInvitationsResponse
+ReadS [ListInvitationsResponse]
+(Int -&gt; ReadS ListInvitationsResponse)
+-&gt; ReadS [ListInvitationsResponse]
+-&gt; ReadPrec ListInvitationsResponse
+-&gt; ReadPrec [ListInvitationsResponse]
+-&gt; Read ListInvitationsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListInvitationsResponse]
+$creadListPrec :: ReadPrec [ListInvitationsResponse]
+readPrec :: ReadPrec ListInvitationsResponse
+$creadPrec :: ReadPrec ListInvitationsResponse
+readList :: ReadS [ListInvitationsResponse]
+$creadList :: ReadS [ListInvitationsResponse]
+readsPrec :: Int -&gt; ReadS ListInvitationsResponse
+$creadsPrec :: Int -&gt; ReadS ListInvitationsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679407737"><span id="local-6989586621679407739"><span id="local-6989586621679407741"><span class="annot"><span class="annottext">Int -&gt; ListInvitationsResponse -&gt; ShowS
+[ListInvitationsResponse] -&gt; ShowS
+ListInvitationsResponse -&gt; String
+(Int -&gt; ListInvitationsResponse -&gt; ShowS)
+-&gt; (ListInvitationsResponse -&gt; String)
+-&gt; ([ListInvitationsResponse] -&gt; ShowS)
+-&gt; Show ListInvitationsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListInvitationsResponse] -&gt; ShowS
+$cshowList :: [ListInvitationsResponse] -&gt; ShowS
+show :: ListInvitationsResponse -&gt; String
+$cshow :: ListInvitationsResponse -&gt; String
+showsPrec :: Int -&gt; ListInvitationsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListInvitationsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListInvitationsResponse -&gt; Rep ListInvitationsResponse x)
+-&gt; (forall x.
+    Rep ListInvitationsResponse x -&gt; ListInvitationsResponse)
+-&gt; Generic ListInvitationsResponse
+forall x. Rep ListInvitationsResponse x -&gt; ListInvitationsResponse
+forall x. ListInvitationsResponse -&gt; Rep ListInvitationsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListInvitationsResponse x -&gt; ListInvitationsResponse
+$cfrom :: forall x. ListInvitationsResponse -&gt; Rep ListInvitationsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- Create a value of 'ListInvitationsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- 'invitations', 'listInvitationsResponse_invitations' - An array of objects, one for each invitation that was received by the</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- account.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- 'nextToken', 'listInvitationsResponse_nextToken' - The string to use in a subsequent request to get the next page of</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- results in a paginated response. This value is null if there are no</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- additional pages.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- 'httpStatus', 'listInvitationsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#newListInvitationsResponse"><span class="hs-identifier hs-type">newListInvitationsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-188"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-189"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-190"></span><span>  </span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#ListInvitationsResponse"><span class="hs-identifier hs-type">ListInvitationsResponse</span></a></span><span>
+</span><span id="line-191"></span><span id="newListInvitationsResponse"><span class="annot"><span class="annottext">newListInvitationsResponse :: Int -&gt; ListInvitationsResponse
+</span><a href="Network.AWS.MacieV2.ListInvitations.html#newListInvitationsResponse"><span class="hs-identifier hs-var hs-var">newListInvitationsResponse</span></a></span></span><span> </span><span id="local-6989586621679407734"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679407734"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-192"></span><span>  </span><span class="annot"><span class="annottext">ListInvitationsResponse' :: Maybe [Invitation] -&gt; Maybe Text -&gt; Int -&gt; ListInvitationsResponse
+</span><a href="Network.AWS.MacieV2.ListInvitations.html#ListInvitationsResponse%27"><span class="hs-identifier hs-type">ListInvitationsResponse'</span></a></span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:invitations:ListInvitationsResponse' :: Maybe [Invitation]
+</span><a href="Network.AWS.MacieV2.ListInvitations.html#%24sel%3Ainvitations%3AListInvitationsResponse%27"><span class="hs-identifier hs-var">invitations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-194"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Invitation]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListInvitationsResponse' :: Maybe Text
+</span><a href="Network.AWS.MacieV2.ListInvitations.html#%24sel%3AnextToken%3AListInvitationsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListInvitationsResponse' :: Int
+</span><a href="Network.AWS.MacieV2.ListInvitations.html#%24sel%3AhttpStatus%3AListInvitationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679407734"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- | An array of objects, one for each invitation that was received by the</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- account.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#listInvitationsResponse_invitations"><span class="hs-identifier hs-type">listInvitationsResponse_invitations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#ListInvitationsResponse"><span class="hs-identifier hs-type">ListInvitationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MacieV2.Types.Invitation.html#Invitation"><span class="hs-identifier hs-type">Invitation</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span id="listInvitationsResponse_invitations"><span class="annot"><span class="annottext">listInvitationsResponse_invitations :: (Maybe [Invitation] -&gt; f (Maybe [Invitation]))
+-&gt; ListInvitationsResponse -&gt; f ListInvitationsResponse
+</span><a href="Network.AWS.MacieV2.ListInvitations.html#listInvitationsResponse_invitations"><span class="hs-identifier hs-var hs-var">listInvitationsResponse_invitations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListInvitationsResponse -&gt; Maybe [Invitation])
+-&gt; (ListInvitationsResponse
+    -&gt; Maybe [Invitation] -&gt; ListInvitationsResponse)
+-&gt; Lens' ListInvitationsResponse (Maybe [Invitation])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#ListInvitationsResponse%27"><span class="hs-identifier hs-type">ListInvitationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679407733"><span class="annot"><span class="annottext">Maybe [Invitation]
+invitations :: Maybe [Invitation]
+$sel:invitations:ListInvitationsResponse' :: ListInvitationsResponse -&gt; Maybe [Invitation]
+</span><a href="#local-6989586621679407733"><span class="hs-identifier hs-var hs-var">invitations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Invitation]
+</span><a href="#local-6989586621679407733"><span class="hs-identifier hs-var">invitations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679407732"><span class="annot"><span class="annottext">s :: ListInvitationsResponse
+</span><a href="#local-6989586621679407732"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#ListInvitationsResponse%27"><span class="hs-identifier hs-type">ListInvitationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679407731"><span class="annot"><span class="annottext">Maybe [Invitation]
+</span><a href="#local-6989586621679407731"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInvitationsResponse
+</span><a href="#local-6989586621679407732"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:invitations:ListInvitationsResponse' :: Maybe [Invitation]
+</span><a href="Network.AWS.MacieV2.ListInvitations.html#%24sel%3Ainvitations%3AListInvitationsResponse%27"><span class="hs-identifier hs-var">invitations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Invitation]
+</span><a href="#local-6989586621679407731"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#ListInvitationsResponse"><span class="hs-identifier hs-type">ListInvitationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Invitation] -&gt; f (Maybe [Invitation]))
+ -&gt; ListInvitationsResponse -&gt; f ListInvitationsResponse)
+-&gt; ((Maybe [Invitation] -&gt; f (Maybe [Invitation]))
+    -&gt; Maybe [Invitation] -&gt; f (Maybe [Invitation]))
+-&gt; (Maybe [Invitation] -&gt; f (Maybe [Invitation]))
+-&gt; ListInvitationsResponse
+-&gt; f ListInvitationsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Invitation] [Invitation] [Invitation] [Invitation]
+-&gt; Iso
+     (Maybe [Invitation])
+     (Maybe [Invitation])
+     (Maybe [Invitation])
+     (Maybe [Invitation])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Invitation] [Invitation] [Invitation] [Invitation]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | The string to use in a subsequent request to get the next page of</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- results in a paginated response. This value is null if there are no</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- additional pages.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#listInvitationsResponse_nextToken"><span class="hs-identifier hs-type">listInvitationsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#ListInvitationsResponse"><span class="hs-identifier hs-type">ListInvitationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span id="listInvitationsResponse_nextToken"><span class="annot"><span class="annottext">listInvitationsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListInvitationsResponse -&gt; f ListInvitationsResponse
+</span><a href="Network.AWS.MacieV2.ListInvitations.html#listInvitationsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listInvitationsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListInvitationsResponse -&gt; Maybe Text)
+-&gt; (ListInvitationsResponse
+    -&gt; Maybe Text -&gt; ListInvitationsResponse)
+-&gt; Lens' ListInvitationsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#ListInvitationsResponse%27"><span class="hs-identifier hs-type">ListInvitationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679407728"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListInvitationsResponse' :: ListInvitationsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679407728"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679407728"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679407727"><span class="annot"><span class="annottext">s :: ListInvitationsResponse
+</span><a href="#local-6989586621679407727"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#ListInvitationsResponse%27"><span class="hs-identifier hs-type">ListInvitationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679407726"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679407726"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInvitationsResponse
+</span><a href="#local-6989586621679407727"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListInvitationsResponse' :: Maybe Text
+</span><a href="Network.AWS.MacieV2.ListInvitations.html#%24sel%3AnextToken%3AListInvitationsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679407726"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#ListInvitationsResponse"><span class="hs-identifier hs-type">ListInvitationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#listInvitationsResponse_httpStatus"><span class="hs-identifier hs-type">listInvitationsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#ListInvitationsResponse"><span class="hs-identifier hs-type">ListInvitationsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-212"></span><span id="listInvitationsResponse_httpStatus"><span class="annot"><span class="annottext">listInvitationsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListInvitationsResponse -&gt; f ListInvitationsResponse
+</span><a href="Network.AWS.MacieV2.ListInvitations.html#listInvitationsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listInvitationsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListInvitationsResponse -&gt; Int)
+-&gt; (ListInvitationsResponse -&gt; Int -&gt; ListInvitationsResponse)
+-&gt; Lens ListInvitationsResponse ListInvitationsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#ListInvitationsResponse%27"><span class="hs-identifier hs-type">ListInvitationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679407725"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListInvitationsResponse' :: ListInvitationsResponse -&gt; Int
+</span><a href="#local-6989586621679407725"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679407725"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679407724"><span class="annot"><span class="annottext">s :: ListInvitationsResponse
+</span><a href="#local-6989586621679407724"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#ListInvitationsResponse%27"><span class="hs-identifier hs-type">ListInvitationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679407723"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679407723"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListInvitationsResponse
+</span><a href="#local-6989586621679407724"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListInvitationsResponse' :: Int
+</span><a href="Network.AWS.MacieV2.ListInvitations.html#%24sel%3AhttpStatus%3AListInvitationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679407723"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#ListInvitationsResponse"><span class="hs-identifier hs-type">ListInvitationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679407721"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.ListInvitations.html#ListInvitationsResponse"><span class="hs-identifier hs-type">ListInvitationsResponse</span></a></span></span><span>
+</span><span id="line-215"></span></pre></body></html>

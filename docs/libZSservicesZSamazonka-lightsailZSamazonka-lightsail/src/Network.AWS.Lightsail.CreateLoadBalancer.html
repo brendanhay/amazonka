@@ -65,7 +65,7 @@
 </span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | /See:/ 'newCreateLoadBalancer' smart constructor.</span><span>
-</span><span id="line-68"></span><span id="local-6989586621679657534"><span id="local-6989586621679657535"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateLoadBalancer"><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-var">CreateLoadBalancer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateLoadBalancer%27"><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-var">CreateLoadBalancer'</span></a></span></span><span>
+</span><span id="line-68"></span><span id="local-6989586621679657543"><span id="local-6989586621679657544"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateLoadBalancer"><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-var">CreateLoadBalancer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateLoadBalancer%27"><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-var">CreateLoadBalancer'</span></a></span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The path you provided to perform the load balancer health check. If you</span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-comment">-- didn\'t specify a health check path, Lightsail uses the root path of</span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-comment">-- your website (e.g., @\&quot;\/\&quot;@).</span><span>
@@ -113,7 +113,7 @@
 </span><span id="line-106"></span><span>    </span><span id="%24sel%3AinstancePort%3ACreateLoadBalancer%27"><span class="annot"><span class="annottext">CreateLoadBalancer -&gt; Int
 </span><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#%24sel%3AinstancePort%3ACreateLoadBalancer%27"><span class="hs-identifier hs-var hs-var">instancePort</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-107"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-108"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679657521"><span id="local-6989586621679657523"><span class="annot"><span class="annottext">CreateLoadBalancer -&gt; CreateLoadBalancer -&gt; Bool
+</span><span id="line-108"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679657530"><span id="local-6989586621679657532"><span class="annot"><span class="annottext">CreateLoadBalancer -&gt; CreateLoadBalancer -&gt; Bool
 (CreateLoadBalancer -&gt; CreateLoadBalancer -&gt; Bool)
 -&gt; (CreateLoadBalancer -&gt; CreateLoadBalancer -&gt; Bool)
 -&gt; Eq CreateLoadBalancer
@@ -122,7 +122,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateLoadBalancer -&gt; CreateLoadBalancer -&gt; Bool
 == :: CreateLoadBalancer -&gt; CreateLoadBalancer -&gt; Bool
 $c== :: CreateLoadBalancer -&gt; CreateLoadBalancer -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679657512"><span id="local-6989586621679657514"><span id="local-6989586621679657516"><span id="local-6989586621679657518"><span class="annot"><span class="annottext">ReadPrec [CreateLoadBalancer]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679657521"><span id="local-6989586621679657523"><span id="local-6989586621679657525"><span id="local-6989586621679657527"><span class="annot"><span class="annottext">ReadPrec [CreateLoadBalancer]
 ReadPrec CreateLoadBalancer
 Int -&gt; ReadS CreateLoadBalancer
 ReadS [CreateLoadBalancer]
@@ -142,7 +142,7 @@ readList :: ReadS [CreateLoadBalancer]
 $creadList :: ReadS [CreateLoadBalancer]
 readsPrec :: Int -&gt; ReadS CreateLoadBalancer
 $creadsPrec :: Int -&gt; ReadS CreateLoadBalancer
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679657505"><span id="local-6989586621679657507"><span id="local-6989586621679657509"><span class="annot"><span class="annottext">Int -&gt; CreateLoadBalancer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679657514"><span id="local-6989586621679657516"><span id="local-6989586621679657518"><span class="annot"><span class="annottext">Int -&gt; CreateLoadBalancer -&gt; ShowS
 [CreateLoadBalancer] -&gt; ShowS
 CreateLoadBalancer -&gt; String
 (Int -&gt; CreateLoadBalancer -&gt; ShowS)
@@ -221,10 +221,10 @@ $cfrom :: forall x. CreateLoadBalancer -&gt; Rep CreateLoadBalancer x
 </span><span id="line-160"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span><span>
 </span><span id="line-161"></span><span id="newCreateLoadBalancer"><span class="annot"><span class="annottext">newCreateLoadBalancer :: Text -&gt; Int -&gt; CreateLoadBalancer
 </span><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#newCreateLoadBalancer"><span class="hs-identifier hs-var hs-var">newCreateLoadBalancer</span></a></span></span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679657500"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679657500"><span class="hs-identifier hs-var">pLoadBalancerName_</span></a></span></span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679657499"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679657499"><span class="hs-identifier hs-var">pInstancePort_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679657509"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679657509"><span class="hs-identifier hs-var">pLoadBalancerName_</span></a></span></span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679657508"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679657508"><span class="hs-identifier hs-var">pInstancePort_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">CreateLoadBalancer' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -262,10 +262,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">$sel:loadBalancerName:CreateLoadBalancer' :: Text
 </span><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#%24sel%3AloadBalancerName%3ACreateLoadBalancer%27"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679657500"><span class="hs-identifier hs-var">pLoadBalancerName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679657509"><span class="hs-identifier hs-var">pLoadBalancerName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">$sel:instancePort:CreateLoadBalancer' :: Int
 </span><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#%24sel%3AinstancePort%3ACreateLoadBalancer%27"><span class="hs-identifier hs-var">instancePort</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679657499"><span class="hs-identifier hs-var">pInstancePort_</span></a></span><span>
+</span><a href="#local-6989586621679657508"><span class="hs-identifier hs-var">pInstancePort_</span></a></span><span>
 </span><span id="line-174"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- | The path you provided to perform the load balancer health check. If you</span><span>
@@ -283,16 +283,16 @@ forall a. Maybe a
 -&gt; Lens
      CreateLoadBalancer CreateLoadBalancer (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679657496"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679657505"><span class="annot"><span class="annottext">Maybe Text
 healthCheckPath :: Maybe Text
 $sel:healthCheckPath:CreateLoadBalancer' :: CreateLoadBalancer -&gt; Maybe Text
-</span><a href="#local-6989586621679657496"><span class="hs-identifier hs-var hs-var">healthCheckPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679657496"><span class="hs-identifier hs-var">healthCheckPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679657495"><span class="annot"><span class="annottext">s :: CreateLoadBalancer
-</span><a href="#local-6989586621679657495"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679657494"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679657494"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLoadBalancer
-</span><a href="#local-6989586621679657495"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:healthCheckPath:CreateLoadBalancer' :: Maybe Text
+</span><a href="#local-6989586621679657505"><span class="hs-identifier hs-var hs-var">healthCheckPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679657505"><span class="hs-identifier hs-var">healthCheckPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679657504"><span class="annot"><span class="annottext">s :: CreateLoadBalancer
+</span><a href="#local-6989586621679657504"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679657503"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679657503"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLoadBalancer
+</span><a href="#local-6989586621679657504"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:healthCheckPath:CreateLoadBalancer' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#%24sel%3AhealthCheckPath%3ACreateLoadBalancer%27"><span class="hs-identifier hs-var">healthCheckPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679657494"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679657503"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- | The name of the SSL\/TLS certificate.</span><span>
 </span><span id="line-187"></span><span class="hs-comment">--</span><span>
@@ -306,16 +306,16 @@ $sel:healthCheckPath:CreateLoadBalancer' :: CreateLoadBalancer -&gt; Maybe Text
 -&gt; Lens
      CreateLoadBalancer CreateLoadBalancer (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679657493"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679657502"><span class="annot"><span class="annottext">Maybe Text
 certificateName :: Maybe Text
 $sel:certificateName:CreateLoadBalancer' :: CreateLoadBalancer -&gt; Maybe Text
-</span><a href="#local-6989586621679657493"><span class="hs-identifier hs-var hs-var">certificateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679657493"><span class="hs-identifier hs-var">certificateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679657492"><span class="annot"><span class="annottext">s :: CreateLoadBalancer
-</span><a href="#local-6989586621679657492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679657491"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679657491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLoadBalancer
-</span><a href="#local-6989586621679657492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateName:CreateLoadBalancer' :: Maybe Text
+</span><a href="#local-6989586621679657502"><span class="hs-identifier hs-var hs-var">certificateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679657502"><span class="hs-identifier hs-var">certificateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679657501"><span class="annot"><span class="annottext">s :: CreateLoadBalancer
+</span><a href="#local-6989586621679657501"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679657500"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679657500"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLoadBalancer
+</span><a href="#local-6989586621679657501"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateName:CreateLoadBalancer' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#%24sel%3AcertificateName%3ACreateLoadBalancer%27"><span class="hs-identifier hs-var">certificateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679657491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679657500"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-comment">-- | The domain name with which your certificate is associated (e.g.,</span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- @example.com@).</span><span>
@@ -330,16 +330,16 @@ $sel:certificateName:CreateLoadBalancer' :: CreateLoadBalancer -&gt; Maybe Text
 -&gt; Lens
      CreateLoadBalancer CreateLoadBalancer (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679657490"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679657499"><span class="annot"><span class="annottext">Maybe Text
 certificateDomainName :: Maybe Text
 $sel:certificateDomainName:CreateLoadBalancer' :: CreateLoadBalancer -&gt; Maybe Text
-</span><a href="#local-6989586621679657490"><span class="hs-identifier hs-var hs-var">certificateDomainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679657490"><span class="hs-identifier hs-var">certificateDomainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679657489"><span class="annot"><span class="annottext">s :: CreateLoadBalancer
-</span><a href="#local-6989586621679657489"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679657488"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679657488"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLoadBalancer
-</span><a href="#local-6989586621679657489"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateDomainName:CreateLoadBalancer' :: Maybe Text
+</span><a href="#local-6989586621679657499"><span class="hs-identifier hs-var hs-var">certificateDomainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679657499"><span class="hs-identifier hs-var">certificateDomainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679657498"><span class="annot"><span class="annottext">s :: CreateLoadBalancer
+</span><a href="#local-6989586621679657498"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679657497"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679657497"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLoadBalancer
+</span><a href="#local-6989586621679657498"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateDomainName:CreateLoadBalancer' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#%24sel%3AcertificateDomainName%3ACreateLoadBalancer%27"><span class="hs-identifier hs-var">certificateDomainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679657488"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679657497"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-200"></span><span>
 </span><span id="line-201"></span><span class="hs-comment">-- | The optional alternative domains and subdomains to use with your</span><span>
 </span><span id="line-202"></span><span class="hs-comment">-- SSL\/TLS certificate (e.g., @www.example.com@, @example.com@,</span><span>
@@ -352,16 +352,16 @@ $sel:certificateDomainName:CreateLoadBalancer' :: CreateLoadBalancer -&gt; Maybe
 -&gt; Lens
      CreateLoadBalancer CreateLoadBalancer (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679657487"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679657496"><span class="annot"><span class="annottext">Maybe [Text]
 certificateAlternativeNames :: Maybe [Text]
 $sel:certificateAlternativeNames:CreateLoadBalancer' :: CreateLoadBalancer -&gt; Maybe [Text]
-</span><a href="#local-6989586621679657487"><span class="hs-identifier hs-var hs-var">certificateAlternativeNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679657487"><span class="hs-identifier hs-var">certificateAlternativeNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679657486"><span class="annot"><span class="annottext">s :: CreateLoadBalancer
-</span><a href="#local-6989586621679657486"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679657485"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679657485"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLoadBalancer
-</span><a href="#local-6989586621679657486"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateAlternativeNames:CreateLoadBalancer' :: Maybe [Text]
+</span><a href="#local-6989586621679657496"><span class="hs-identifier hs-var hs-var">certificateAlternativeNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679657496"><span class="hs-identifier hs-var">certificateAlternativeNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679657495"><span class="annot"><span class="annottext">s :: CreateLoadBalancer
+</span><a href="#local-6989586621679657495"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679657494"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679657494"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLoadBalancer
+</span><a href="#local-6989586621679657495"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateAlternativeNames:CreateLoadBalancer' :: Maybe [Text]
 </span><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#%24sel%3AcertificateAlternativeNames%3ACreateLoadBalancer%27"><span class="hs-identifier hs-var">certificateAlternativeNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679657485"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679657494"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; CreateLoadBalancer -&gt; f CreateLoadBalancer)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -396,16 +396,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe IpAddressType)
      (Maybe IpAddressType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679657481"><span class="annot"><span class="annottext">Maybe IpAddressType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679657490"><span class="annot"><span class="annottext">Maybe IpAddressType
 ipAddressType :: Maybe IpAddressType
 $sel:ipAddressType:CreateLoadBalancer' :: CreateLoadBalancer -&gt; Maybe IpAddressType
-</span><a href="#local-6989586621679657481"><span class="hs-identifier hs-var hs-var">ipAddressType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IpAddressType
-</span><a href="#local-6989586621679657481"><span class="hs-identifier hs-var">ipAddressType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679657480"><span class="annot"><span class="annottext">s :: CreateLoadBalancer
-</span><a href="#local-6989586621679657480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679657479"><span class="annot"><span class="annottext">Maybe IpAddressType
-</span><a href="#local-6989586621679657479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLoadBalancer
-</span><a href="#local-6989586621679657480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipAddressType:CreateLoadBalancer' :: Maybe IpAddressType
+</span><a href="#local-6989586621679657490"><span class="hs-identifier hs-var hs-var">ipAddressType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IpAddressType
+</span><a href="#local-6989586621679657490"><span class="hs-identifier hs-var">ipAddressType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679657489"><span class="annot"><span class="annottext">s :: CreateLoadBalancer
+</span><a href="#local-6989586621679657489"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679657488"><span class="annot"><span class="annottext">Maybe IpAddressType
+</span><a href="#local-6989586621679657488"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLoadBalancer
+</span><a href="#local-6989586621679657489"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipAddressType:CreateLoadBalancer' :: Maybe IpAddressType
 </span><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#%24sel%3AipAddressType%3ACreateLoadBalancer%27"><span class="hs-identifier hs-var">ipAddressType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IpAddressType
-</span><a href="#local-6989586621679657479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679657488"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-215"></span><span>
 </span><span id="line-216"></span><span class="hs-comment">-- | The tag keys and optional values to add to the resource during create.</span><span>
 </span><span id="line-217"></span><span class="hs-comment">--</span><span>
@@ -418,16 +418,16 @@ $sel:ipAddressType:CreateLoadBalancer' :: CreateLoadBalancer -&gt; Maybe IpAddre
 -&gt; Lens
      CreateLoadBalancer CreateLoadBalancer (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679657478"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679657487"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:CreateLoadBalancer' :: CreateLoadBalancer -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679657478"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679657478"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679657477"><span class="annot"><span class="annottext">s :: CreateLoadBalancer
-</span><a href="#local-6989586621679657477"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679657476"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679657476"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLoadBalancer
-</span><a href="#local-6989586621679657477"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateLoadBalancer' :: Maybe [Tag]
+</span><a href="#local-6989586621679657487"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679657487"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679657486"><span class="annot"><span class="annottext">s :: CreateLoadBalancer
+</span><a href="#local-6989586621679657486"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679657485"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679657485"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLoadBalancer
+</span><a href="#local-6989586621679657486"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateLoadBalancer' :: Maybe [Tag]
 </span><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#%24sel%3Atags%3ACreateLoadBalancer%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679657476"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621679657485"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; CreateLoadBalancer -&gt; f CreateLoadBalancer)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -451,16 +451,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (CreateLoadBalancer -&gt; Text -&gt; CreateLoadBalancer)
 -&gt; Lens CreateLoadBalancer CreateLoadBalancer Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679657475"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679657484"><span class="annot"><span class="annottext">Text
 loadBalancerName :: Text
 $sel:loadBalancerName:CreateLoadBalancer' :: CreateLoadBalancer -&gt; Text
-</span><a href="#local-6989586621679657475"><span class="hs-identifier hs-var hs-var">loadBalancerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679657475"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679657474"><span class="annot"><span class="annottext">s :: CreateLoadBalancer
-</span><a href="#local-6989586621679657474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679657473"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679657473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLoadBalancer
-</span><a href="#local-6989586621679657474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loadBalancerName:CreateLoadBalancer' :: Text
+</span><a href="#local-6989586621679657484"><span class="hs-identifier hs-var hs-var">loadBalancerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679657484"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679657483"><span class="annot"><span class="annottext">s :: CreateLoadBalancer
+</span><a href="#local-6989586621679657483"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679657482"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679657482"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLoadBalancer
+</span><a href="#local-6989586621679657483"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loadBalancerName:CreateLoadBalancer' :: Text
 </span><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#%24sel%3AloadBalancerName%3ACreateLoadBalancer%27"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679657473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679657482"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-225"></span><span>
 </span><span id="line-226"></span><span class="hs-comment">-- | The instance port where you\'re creating your load balancer.</span><span>
 </span><span id="line-227"></span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#createLoadBalancer_instancePort"><span class="hs-identifier hs-type">createLoadBalancer_instancePort</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -469,27 +469,27 @@ $sel:loadBalancerName:CreateLoadBalancer' :: CreateLoadBalancer -&gt; Text
 -&gt; (CreateLoadBalancer -&gt; Int -&gt; CreateLoadBalancer)
 -&gt; Lens CreateLoadBalancer CreateLoadBalancer Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679657472"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679657481"><span class="annot"><span class="annottext">Int
 instancePort :: Int
 $sel:instancePort:CreateLoadBalancer' :: CreateLoadBalancer -&gt; Int
-</span><a href="#local-6989586621679657472"><span class="hs-identifier hs-var hs-var">instancePort</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679657472"><span class="hs-identifier hs-var">instancePort</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679657471"><span class="annot"><span class="annottext">s :: CreateLoadBalancer
-</span><a href="#local-6989586621679657471"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679657470"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679657470"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLoadBalancer
-</span><a href="#local-6989586621679657471"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instancePort:CreateLoadBalancer' :: Int
+</span><a href="#local-6989586621679657481"><span class="hs-identifier hs-var hs-var">instancePort</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679657481"><span class="hs-identifier hs-var">instancePort</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679657480"><span class="annot"><span class="annottext">s :: CreateLoadBalancer
+</span><a href="#local-6989586621679657480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679657479"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679657479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLoadBalancer
+</span><a href="#local-6989586621679657480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instancePort:CreateLoadBalancer' :: Int
 </span><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#%24sel%3AinstancePort%3ACreateLoadBalancer%27"><span class="hs-identifier hs-var">instancePort</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679657470"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679657479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-229"></span><span>
 </span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-231"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-232"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-233"></span><span>      </span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancerResponse"><span class="hs-identifier hs-type">CreateLoadBalancerResponse</span></a></span><span>
-</span><span id="line-234"></span><span>  </span><span id="local-6989586621679657466"><span class="annot"><span class="annottext">request :: CreateLoadBalancer -&gt; Request CreateLoadBalancer
+</span><span id="line-234"></span><span>  </span><span id="local-6989586621679657475"><span class="annot"><span class="annottext">request :: CreateLoadBalancer -&gt; Request CreateLoadBalancer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateLoadBalancer -&gt; Request CreateLoadBalancer
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-235"></span><span>  </span><span id="local-6989586621679657462"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-235"></span><span>  </span><span id="local-6989586621679657471"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateLoadBalancer
 -&gt; ClientResponse ClientBody
@@ -515,10 +515,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-237"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679657459"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679657459"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679657458"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679657458"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679657457"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679657457"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-237"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679657468"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679657468"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679657467"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679657467"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679657466"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679657466"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-238"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Operation] -&gt; Int -&gt; CreateLoadBalancerResponse
 </span><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancerResponse%27"><span class="hs-identifier hs-var">CreateLoadBalancerResponse'</span></a></span><span>
 </span><span id="line-239"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Operation] -&gt; Int -&gt; CreateLoadBalancerResponse)
@@ -526,7 +526,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CreateLoadBalancerResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679657457"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
+</span><a href="#local-6989586621679657466"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;operations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Operation]))
@@ -543,15 +543,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679657459"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679657468"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-241"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-242"></span><span>
-</span><span id="line-243"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679657448"><span id="local-6989586621679657450"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span></span></span><span>
+</span><span id="line-243"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679657457"><span id="local-6989586621679657459"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span></span></span><span>
 </span><span id="line-244"></span><span>
-</span><span id="line-245"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679657445"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span></span><span>
+</span><span id="line-245"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679657454"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span></span><span>
 </span><span id="line-246"></span><span>
 </span><span id="line-247"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-248"></span><span>  </span><span id="local-6989586621679657441"><span class="annot"><span class="annottext">toHeaders :: CreateLoadBalancer -&gt; ResponseHeaders
+</span><span id="line-248"></span><span>  </span><span id="local-6989586621679657450"><span class="annot"><span class="annottext">toHeaders :: CreateLoadBalancer -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-249"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateLoadBalancer -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -578,9 +578,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-259"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-260"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-261"></span><span>
-</span><span id="line-262"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679657431"><span id="local-6989586621679657433"><span id="local-6989586621679657435"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-263"></span><span>  </span><span id="local-6989586621679657429"><span class="annot"><span class="annottext">toJSON :: CreateLoadBalancer -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679657420"><span id="local-6989586621679657421"><span id="local-6989586621679657422"><span id="local-6989586621679657423"><span id="local-6989586621679657424"><span id="local-6989586621679657425"><span id="local-6989586621679657426"><span id="local-6989586621679657427"><span class="annot"><span class="annottext">Int
+</span><span id="line-262"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679657440"><span id="local-6989586621679657442"><span id="local-6989586621679657444"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-263"></span><span>  </span><span id="local-6989586621679657438"><span class="annot"><span class="annottext">toJSON :: CreateLoadBalancer -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer%27"><span class="hs-identifier hs-type">CreateLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679657429"><span id="local-6989586621679657430"><span id="local-6989586621679657431"><span id="local-6989586621679657432"><span id="local-6989586621679657433"><span id="local-6989586621679657434"><span id="local-6989586621679657435"><span id="local-6989586621679657436"><span class="annot"><span class="annottext">Int
 Maybe [Text]
 Maybe [Tag]
 Maybe Text
@@ -602,7 +602,7 @@ $sel:certificateAlternativeNames:CreateLoadBalancer' :: CreateLoadBalancer -&gt;
 $sel:certificateDomainName:CreateLoadBalancer' :: CreateLoadBalancer -&gt; Maybe Text
 $sel:certificateName:CreateLoadBalancer' :: CreateLoadBalancer -&gt; Maybe Text
 $sel:healthCheckPath:CreateLoadBalancer' :: CreateLoadBalancer -&gt; Maybe Text
-</span><a href="#local-6989586621679657420"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679657429"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-264"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-265"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -615,7 +615,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-267"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679657427"><span class="hs-identifier hs-var">healthCheckPath</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679657436"><span class="hs-identifier hs-var">healthCheckPath</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-268"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;certificateName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -623,7 +623,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-269"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679657426"><span class="hs-identifier hs-var">certificateName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679657435"><span class="hs-identifier hs-var">certificateName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-270"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;certificateDomainName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -631,7 +631,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-271"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679657425"><span class="hs-identifier hs-var">certificateDomainName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679657434"><span class="hs-identifier hs-var">certificateDomainName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-272"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;certificateAlternativeNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -639,21 +639,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-273"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679657424"><span class="hs-identifier hs-var">certificateAlternativeNames</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679657433"><span class="hs-identifier hs-var">certificateAlternativeNames</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-274"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ipAddressType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; IpAddressType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(IpAddressType -&gt; Pair) -&gt; Maybe IpAddressType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe IpAddressType
-</span><a href="#local-6989586621679657423"><span class="hs-identifier hs-var">ipAddressType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679657432"><span class="hs-identifier hs-var">ipAddressType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-275"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679657422"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679657431"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-276"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -661,26 +661,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;loadBalancerName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679657421"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679657430"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-278"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;instancePort&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679657420"><span class="hs-identifier hs-var">instancePort</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679657429"><span class="hs-identifier hs-var">instancePort</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-279"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-280"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-281"></span><span>
 </span><span id="line-282"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-283"></span><span>  </span><span id="local-6989586621679657414"><span class="annot"><span class="annottext">toPath :: CreateLoadBalancer -&gt; ByteString
+</span><span id="line-283"></span><span>  </span><span id="local-6989586621679657423"><span class="annot"><span class="annottext">toPath :: CreateLoadBalancer -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateLoadBalancer -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-284"></span><span>
 </span><span id="line-285"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancer"><span class="hs-identifier hs-type">CreateLoadBalancer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-286"></span><span>  </span><span id="local-6989586621679657410"><span class="annot"><span class="annottext">toQuery :: CreateLoadBalancer -&gt; QueryString
+</span><span id="line-286"></span><span>  </span><span id="local-6989586621679657419"><span class="annot"><span class="annottext">toQuery :: CreateLoadBalancer -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateLoadBalancer -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -688,7 +688,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-287"></span><span>
 </span><span id="line-288"></span><span class="hs-comment">-- | /See:/ 'newCreateLoadBalancerResponse' smart constructor.</span><span>
-</span><span id="line-289"></span><span id="local-6989586621679657407"><span id="local-6989586621679657408"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateLoadBalancerResponse"><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancerResponse"><span class="hs-identifier hs-var">CreateLoadBalancerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateLoadBalancerResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancerResponse%27"><span class="hs-identifier hs-var">CreateLoadBalancerResponse'</span></a></span></span><span>
+</span><span id="line-289"></span><span id="local-6989586621679657416"><span id="local-6989586621679657417"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateLoadBalancerResponse"><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancerResponse"><span class="hs-identifier hs-var">CreateLoadBalancerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateLoadBalancerResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancerResponse%27"><span class="hs-identifier hs-var">CreateLoadBalancerResponse'</span></a></span></span><span>
 </span><span id="line-290"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
 </span><span id="line-291"></span><span>    </span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
 </span><span id="line-292"></span><span>    </span><span class="hs-comment">-- affected by the request.</span><span>
@@ -698,7 +698,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-295"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateLoadBalancerResponse%27"><span class="annot"><span class="annottext">CreateLoadBalancerResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#%24sel%3AhttpStatus%3ACreateLoadBalancerResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-296"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-297"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679657401"><span id="local-6989586621679657403"><span class="annot"><span class="annottext">CreateLoadBalancerResponse -&gt; CreateLoadBalancerResponse -&gt; Bool
+</span><span id="line-297"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679657410"><span id="local-6989586621679657412"><span class="annot"><span class="annottext">CreateLoadBalancerResponse -&gt; CreateLoadBalancerResponse -&gt; Bool
 (CreateLoadBalancerResponse -&gt; CreateLoadBalancerResponse -&gt; Bool)
 -&gt; (CreateLoadBalancerResponse
     -&gt; CreateLoadBalancerResponse -&gt; Bool)
@@ -708,7 +708,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateLoadBalancerResponse -&gt; CreateLoadBalancerResponse -&gt; Bool
 == :: CreateLoadBalancerResponse -&gt; CreateLoadBalancerResponse -&gt; Bool
 $c== :: CreateLoadBalancerResponse -&gt; CreateLoadBalancerResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679657393"><span id="local-6989586621679657395"><span id="local-6989586621679657397"><span id="local-6989586621679657399"><span class="annot"><span class="annottext">ReadPrec [CreateLoadBalancerResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679657402"><span id="local-6989586621679657404"><span id="local-6989586621679657406"><span id="local-6989586621679657408"><span class="annot"><span class="annottext">ReadPrec [CreateLoadBalancerResponse]
 ReadPrec CreateLoadBalancerResponse
 Int -&gt; ReadS CreateLoadBalancerResponse
 ReadS [CreateLoadBalancerResponse]
@@ -728,7 +728,7 @@ readList :: ReadS [CreateLoadBalancerResponse]
 $creadList :: ReadS [CreateLoadBalancerResponse]
 readsPrec :: Int -&gt; ReadS CreateLoadBalancerResponse
 $creadsPrec :: Int -&gt; ReadS CreateLoadBalancerResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679657387"><span id="local-6989586621679657389"><span id="local-6989586621679657391"><span class="annot"><span class="annottext">Int -&gt; CreateLoadBalancerResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679657396"><span id="local-6989586621679657398"><span id="local-6989586621679657400"><span class="annot"><span class="annottext">Int -&gt; CreateLoadBalancerResponse -&gt; ShowS
 [CreateLoadBalancerResponse] -&gt; ShowS
 CreateLoadBalancerResponse -&gt; String
 (Int -&gt; CreateLoadBalancerResponse -&gt; ShowS)
@@ -778,8 +778,8 @@ CreateLoadBalancerResponse -&gt; Rep CreateLoadBalancerResponse x
 </span><span id="line-314"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-315"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancerResponse"><span class="hs-identifier hs-type">CreateLoadBalancerResponse</span></a></span><span>
 </span><span id="line-316"></span><span id="newCreateLoadBalancerResponse"><span class="annot"><span class="annottext">newCreateLoadBalancerResponse :: Int -&gt; CreateLoadBalancerResponse
-</span><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#newCreateLoadBalancerResponse"><span class="hs-identifier hs-var hs-var">newCreateLoadBalancerResponse</span></a></span></span><span> </span><span id="local-6989586621679657384"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679657384"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#newCreateLoadBalancerResponse"><span class="hs-identifier hs-var hs-var">newCreateLoadBalancerResponse</span></a></span></span><span> </span><span id="local-6989586621679657393"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679657393"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-317"></span><span>  </span><span class="annot"><span class="annottext">CreateLoadBalancerResponse' :: Maybe [Operation] -&gt; Int -&gt; CreateLoadBalancerResponse
 </span><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancerResponse%27"><span class="hs-identifier hs-type">CreateLoadBalancerResponse'</span></a></span><span>
 </span><span id="line-318"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:operations:CreateLoadBalancerResponse' :: Maybe [Operation]
@@ -789,7 +789,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-320"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateLoadBalancerResponse' :: Int
 </span><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#%24sel%3AhttpStatus%3ACreateLoadBalancerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679657384"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679657393"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-321"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-322"></span><span>
 </span><span id="line-323"></span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
@@ -807,16 +807,16 @@ forall a. Maybe a
      (Maybe [Operation])
      (Maybe [Operation])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancerResponse%27"><span class="hs-identifier hs-type">CreateLoadBalancerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679657383"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancerResponse%27"><span class="hs-identifier hs-type">CreateLoadBalancerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679657392"><span class="annot"><span class="annottext">Maybe [Operation]
 operations :: Maybe [Operation]
 $sel:operations:CreateLoadBalancerResponse' :: CreateLoadBalancerResponse -&gt; Maybe [Operation]
-</span><a href="#local-6989586621679657383"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679657383"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679657382"><span class="annot"><span class="annottext">s :: CreateLoadBalancerResponse
-</span><a href="#local-6989586621679657382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancerResponse%27"><span class="hs-identifier hs-type">CreateLoadBalancerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679657381"><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679657381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLoadBalancerResponse
-</span><a href="#local-6989586621679657382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:CreateLoadBalancerResponse' :: Maybe [Operation]
+</span><a href="#local-6989586621679657392"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679657392"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679657391"><span class="annot"><span class="annottext">s :: CreateLoadBalancerResponse
+</span><a href="#local-6989586621679657391"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancerResponse%27"><span class="hs-identifier hs-type">CreateLoadBalancerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679657390"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679657390"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLoadBalancerResponse
+</span><a href="#local-6989586621679657391"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:CreateLoadBalancerResponse' :: Maybe [Operation]
 </span><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#%24sel%3Aoperations%3ACreateLoadBalancerResponse%27"><span class="hs-identifier hs-var">operations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679657381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancerResponse"><span class="hs-identifier hs-type">CreateLoadBalancerResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
+</span><a href="#local-6989586621679657390"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancerResponse"><span class="hs-identifier hs-type">CreateLoadBalancerResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
  -&gt; CreateLoadBalancerResponse -&gt; f CreateLoadBalancerResponse)
 -&gt; ((Maybe [Operation] -&gt; f (Maybe [Operation]))
     -&gt; Maybe [Operation] -&gt; f (Maybe [Operation]))
@@ -847,16 +847,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      CreateLoadBalancerResponse CreateLoadBalancerResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancerResponse%27"><span class="hs-identifier hs-type">CreateLoadBalancerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679657380"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancerResponse%27"><span class="hs-identifier hs-type">CreateLoadBalancerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679657389"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateLoadBalancerResponse' :: CreateLoadBalancerResponse -&gt; Int
-</span><a href="#local-6989586621679657380"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679657380"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679657379"><span class="annot"><span class="annottext">s :: CreateLoadBalancerResponse
-</span><a href="#local-6989586621679657379"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancerResponse%27"><span class="hs-identifier hs-type">CreateLoadBalancerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679657378"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679657378"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLoadBalancerResponse
-</span><a href="#local-6989586621679657379"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateLoadBalancerResponse' :: Int
+</span><a href="#local-6989586621679657389"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679657389"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679657388"><span class="annot"><span class="annottext">s :: CreateLoadBalancerResponse
+</span><a href="#local-6989586621679657388"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancerResponse%27"><span class="hs-identifier hs-type">CreateLoadBalancerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679657387"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679657387"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLoadBalancerResponse
+</span><a href="#local-6989586621679657388"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateLoadBalancerResponse' :: Int
 </span><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#%24sel%3AhttpStatus%3ACreateLoadBalancerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679657378"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancerResponse"><span class="hs-identifier hs-type">CreateLoadBalancerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679657387"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancerResponse"><span class="hs-identifier hs-type">CreateLoadBalancerResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-332"></span><span>
-</span><span id="line-333"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679657376"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancerResponse"><span class="hs-identifier hs-type">CreateLoadBalancerResponse</span></a></span></span><span>
+</span><span id="line-333"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679657385"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateLoadBalancer.html#CreateLoadBalancerResponse"><span class="hs-identifier hs-type">CreateLoadBalancerResponse</span></a></span></span><span>
 </span><span id="line-334"></span></pre></body></html>

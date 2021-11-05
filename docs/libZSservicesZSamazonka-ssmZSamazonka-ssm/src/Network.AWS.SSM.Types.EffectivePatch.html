@@ -32,7 +32,7 @@
 </span><span id="line-32"></span><span class="hs-comment">-- explicitly rejected and the date the patch was or will be approved.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newEffectivePatch' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679810454"><span id="local-6989586621679810455"></span></span><span class="hs-keyword">data</span><span> </span><span id="EffectivePatch"><span class="annot"><a href="Network.AWS.SSM.Types.EffectivePatch.html#EffectivePatch"><span class="hs-identifier hs-var">EffectivePatch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EffectivePatch%27"><span class="annot"><a href="Network.AWS.SSM.Types.EffectivePatch.html#EffectivePatch%27"><span class="hs-identifier hs-var">EffectivePatch'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679810463"><span id="local-6989586621679810464"></span></span><span class="hs-keyword">data</span><span> </span><span id="EffectivePatch"><span class="annot"><a href="Network.AWS.SSM.Types.EffectivePatch.html#EffectivePatch"><span class="hs-identifier hs-var">EffectivePatch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EffectivePatch%27"><span class="annot"><a href="Network.AWS.SSM.Types.EffectivePatch.html#EffectivePatch%27"><span class="hs-identifier hs-var">EffectivePatch'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Provides metadata for a patch, including information such as the KB ID,</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- severity, classification and a URL for where more information can be</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- obtained about the patch.</span><span>
@@ -45,7 +45,7 @@
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3ApatchStatus%3AEffectivePatch%27"><span class="annot"><span class="annottext">EffectivePatch -&gt; Maybe PatchStatus
 </span><a href="Network.AWS.SSM.Types.EffectivePatch.html#%24sel%3ApatchStatus%3AEffectivePatch%27"><span class="hs-identifier hs-var hs-var">patchStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.PatchStatus.html#PatchStatus"><span class="hs-identifier hs-type">PatchStatus</span></a></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679810447"><span id="local-6989586621679810449"><span class="annot"><span class="annottext">EffectivePatch -&gt; EffectivePatch -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679810456"><span id="local-6989586621679810458"><span class="annot"><span class="annottext">EffectivePatch -&gt; EffectivePatch -&gt; Bool
 (EffectivePatch -&gt; EffectivePatch -&gt; Bool)
 -&gt; (EffectivePatch -&gt; EffectivePatch -&gt; Bool) -&gt; Eq EffectivePatch
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -53,7 +53,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EffectivePatch -&gt; EffectivePatch -&gt; Bool
 == :: EffectivePatch -&gt; EffectivePatch -&gt; Bool
 $c== :: EffectivePatch -&gt; EffectivePatch -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679810438"><span id="local-6989586621679810440"><span id="local-6989586621679810442"><span id="local-6989586621679810444"><span class="annot"><span class="annottext">ReadPrec [EffectivePatch]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679810447"><span id="local-6989586621679810449"><span id="local-6989586621679810451"><span id="local-6989586621679810453"><span class="annot"><span class="annottext">ReadPrec [EffectivePatch]
 ReadPrec EffectivePatch
 Int -&gt; ReadS EffectivePatch
 ReadS [EffectivePatch]
@@ -73,7 +73,7 @@ readList :: ReadS [EffectivePatch]
 $creadList :: ReadS [EffectivePatch]
 readsPrec :: Int -&gt; ReadS EffectivePatch
 $creadsPrec :: Int -&gt; ReadS EffectivePatch
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679810431"><span id="local-6989586621679810433"><span id="local-6989586621679810435"><span class="annot"><span class="annottext">Int -&gt; EffectivePatch -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679810440"><span id="local-6989586621679810442"><span id="local-6989586621679810444"><span class="annot"><span class="annottext">Int -&gt; EffectivePatch -&gt; ShowS
 [EffectivePatch] -&gt; ShowS
 EffectivePatch -&gt; String
 (Int -&gt; EffectivePatch -&gt; ShowS)
@@ -141,16 +141,16 @@ forall a. Maybe a
 -&gt; (EffectivePatch -&gt; Maybe Patch -&gt; EffectivePatch)
 -&gt; Lens EffectivePatch EffectivePatch (Maybe Patch) (Maybe Patch)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.EffectivePatch.html#EffectivePatch%27"><span class="hs-identifier hs-type">EffectivePatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679810422"><span class="annot"><span class="annottext">Maybe Patch
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.EffectivePatch.html#EffectivePatch%27"><span class="hs-identifier hs-type">EffectivePatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679810431"><span class="annot"><span class="annottext">Maybe Patch
 patch :: Maybe Patch
 $sel:patch:EffectivePatch' :: EffectivePatch -&gt; Maybe Patch
-</span><a href="#local-6989586621679810422"><span class="hs-identifier hs-var hs-var">patch</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Patch
-</span><a href="#local-6989586621679810422"><span class="hs-identifier hs-var">patch</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679810421"><span class="annot"><span class="annottext">s :: EffectivePatch
-</span><a href="#local-6989586621679810421"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.EffectivePatch.html#EffectivePatch%27"><span class="hs-identifier hs-type">EffectivePatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679810420"><span class="annot"><span class="annottext">Maybe Patch
-</span><a href="#local-6989586621679810420"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EffectivePatch
-</span><a href="#local-6989586621679810421"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:patch:EffectivePatch' :: Maybe Patch
+</span><a href="#local-6989586621679810431"><span class="hs-identifier hs-var hs-var">patch</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Patch
+</span><a href="#local-6989586621679810431"><span class="hs-identifier hs-var">patch</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679810430"><span class="annot"><span class="annottext">s :: EffectivePatch
+</span><a href="#local-6989586621679810430"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.EffectivePatch.html#EffectivePatch%27"><span class="hs-identifier hs-type">EffectivePatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679810429"><span class="annot"><span class="annottext">Maybe Patch
+</span><a href="#local-6989586621679810429"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EffectivePatch
+</span><a href="#local-6989586621679810430"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:patch:EffectivePatch' :: Maybe Patch
 </span><a href="Network.AWS.SSM.Types.EffectivePatch.html#%24sel%3Apatch%3AEffectivePatch%27"><span class="hs-identifier hs-var">patch</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Patch
-</span><a href="#local-6989586621679810420"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.EffectivePatch.html#EffectivePatch"><span class="hs-identifier hs-type">EffectivePatch</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679810429"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.EffectivePatch.html#EffectivePatch"><span class="hs-identifier hs-type">EffectivePatch</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | The status of the patch in a patch baseline. This includes information</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- about whether the patch is currently approved, due to be approved by a</span><span>
@@ -167,19 +167,19 @@ $sel:patch:EffectivePatch' :: EffectivePatch -&gt; Maybe Patch
      (Maybe PatchStatus)
      (Maybe PatchStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.EffectivePatch.html#EffectivePatch%27"><span class="hs-identifier hs-type">EffectivePatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679810418"><span class="annot"><span class="annottext">Maybe PatchStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.EffectivePatch.html#EffectivePatch%27"><span class="hs-identifier hs-type">EffectivePatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679810427"><span class="annot"><span class="annottext">Maybe PatchStatus
 patchStatus :: Maybe PatchStatus
 $sel:patchStatus:EffectivePatch' :: EffectivePatch -&gt; Maybe PatchStatus
-</span><a href="#local-6989586621679810418"><span class="hs-identifier hs-var hs-var">patchStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PatchStatus
-</span><a href="#local-6989586621679810418"><span class="hs-identifier hs-var">patchStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679810417"><span class="annot"><span class="annottext">s :: EffectivePatch
-</span><a href="#local-6989586621679810417"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.EffectivePatch.html#EffectivePatch%27"><span class="hs-identifier hs-type">EffectivePatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679810416"><span class="annot"><span class="annottext">Maybe PatchStatus
-</span><a href="#local-6989586621679810416"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EffectivePatch
-</span><a href="#local-6989586621679810417"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:patchStatus:EffectivePatch' :: Maybe PatchStatus
+</span><a href="#local-6989586621679810427"><span class="hs-identifier hs-var hs-var">patchStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PatchStatus
+</span><a href="#local-6989586621679810427"><span class="hs-identifier hs-var">patchStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679810426"><span class="annot"><span class="annottext">s :: EffectivePatch
+</span><a href="#local-6989586621679810426"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.EffectivePatch.html#EffectivePatch%27"><span class="hs-identifier hs-type">EffectivePatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679810425"><span class="annot"><span class="annottext">Maybe PatchStatus
+</span><a href="#local-6989586621679810425"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EffectivePatch
+</span><a href="#local-6989586621679810426"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:patchStatus:EffectivePatch' :: Maybe PatchStatus
 </span><a href="Network.AWS.SSM.Types.EffectivePatch.html#%24sel%3ApatchStatus%3AEffectivePatch%27"><span class="hs-identifier hs-var">patchStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PatchStatus
-</span><a href="#local-6989586621679810416"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.EffectivePatch.html#EffectivePatch"><span class="hs-identifier hs-type">EffectivePatch</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679810425"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.EffectivePatch.html#EffectivePatch"><span class="hs-identifier hs-type">EffectivePatch</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679810413"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.EffectivePatch.html#EffectivePatch"><span class="hs-identifier hs-type">EffectivePatch</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679810411"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EffectivePatch
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679810422"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.EffectivePatch.html#EffectivePatch"><span class="hs-identifier hs-type">EffectivePatch</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679810420"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EffectivePatch
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser EffectivePatch)
@@ -189,8 +189,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EffectivePatch&quot;</span></span><span>
-</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679810408"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679810408"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679810417"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679810417"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe Patch -&gt; Maybe PatchStatus -&gt; EffectivePatch
 </span><a href="Network.AWS.SSM.Types.EffectivePatch.html#EffectivePatch%27"><span class="hs-identifier hs-var">EffectivePatch'</span></a></span><span>
 </span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Patch -&gt; Maybe PatchStatus -&gt; EffectivePatch)
@@ -198,7 +198,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe PatchStatus -&gt; EffectivePatch)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679810408"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Patch)
+</span><a href="#local-6989586621679810417"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Patch)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Patch&quot;</span></span><span class="hs-special">)</span><span>
@@ -206,13 +206,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe PatchStatus) -&gt; Parser EffectivePatch
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679810408"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PatchStatus)
+</span><a href="#local-6989586621679810417"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PatchStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PatchStatus&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679810402"><span id="local-6989586621679810404"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.EffectivePatch.html#EffectivePatch"><span class="hs-identifier hs-type">EffectivePatch</span></a></span></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679810411"><span id="local-6989586621679810413"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.EffectivePatch.html#EffectivePatch"><span class="hs-identifier hs-type">EffectivePatch</span></a></span></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679810399"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.EffectivePatch.html#EffectivePatch"><span class="hs-identifier hs-type">EffectivePatch</span></a></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679810408"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.EffectivePatch.html#EffectivePatch"><span class="hs-identifier hs-type">EffectivePatch</span></a></span></span><span>
 </span><span id="line-98"></span></pre></body></html>

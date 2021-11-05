@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679261021"><span id="local-6989586621679261022"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="JobDefinitionType"><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinitionType.html#JobDefinitionType"><span class="hs-identifier hs-var">JobDefinitionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobDefinitionType%27"><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinitionType.html#JobDefinitionType%27"><span class="hs-identifier hs-var">JobDefinitionType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679261030"><span id="local-6989586621679261031"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="JobDefinitionType"><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinitionType.html#JobDefinitionType"><span class="hs-identifier hs-var">JobDefinitionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobDefinitionType%27"><span class="annot"><a href="Network.AWS.Batch.Types.JobDefinitionType.html#JobDefinitionType%27"><span class="hs-identifier hs-var">JobDefinitionType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromJobDefinitionType"><span class="annot"><span class="annottext">JobDefinitionType -&gt; Text
 </span><a href="Network.AWS.Batch.Types.JobDefinitionType.html#fromJobDefinitionType"><span class="hs-identifier hs-var hs-var">fromJobDefinitionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679261013"><span id="local-6989586621679261015"><span id="local-6989586621679261017"><span class="annot"><span class="annottext">Int -&gt; JobDefinitionType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679261022"><span id="local-6989586621679261024"><span id="local-6989586621679261026"><span class="annot"><span class="annottext">Int -&gt; JobDefinitionType -&gt; ShowS
 [JobDefinitionType] -&gt; ShowS
 JobDefinitionType -&gt; String
 (Int -&gt; JobDefinitionType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: JobDefinitionType -&gt; String
 showsPrec :: Int -&gt; JobDefinitionType -&gt; ShowS
 $cshowsPrec :: Int -&gt; JobDefinitionType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679261004"><span id="local-6989586621679261006"><span id="local-6989586621679261008"><span id="local-6989586621679261010"><span class="annot"><span class="annottext">ReadPrec [JobDefinitionType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679261013"><span id="local-6989586621679261015"><span id="local-6989586621679261017"><span id="local-6989586621679261019"><span class="annot"><span class="annottext">ReadPrec [JobDefinitionType]
 ReadPrec JobDefinitionType
 Int -&gt; ReadS JobDefinitionType
 ReadS [JobDefinitionType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [JobDefinitionType]
 readsPrec :: Int -&gt; ReadS JobDefinitionType
 $creadsPrec :: Int -&gt; ReadS JobDefinitionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679260999"><span id="local-6989586621679261001"><span class="annot"><span class="annottext">JobDefinitionType -&gt; JobDefinitionType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679261008"><span id="local-6989586621679261010"><span class="annot"><span class="annottext">JobDefinitionType -&gt; JobDefinitionType -&gt; Bool
 (JobDefinitionType -&gt; JobDefinitionType -&gt; Bool)
 -&gt; (JobDefinitionType -&gt; JobDefinitionType -&gt; Bool)
 -&gt; Eq JobDefinitionType
@@ -82,7 +82,7 @@ $c/= :: JobDefinitionType -&gt; JobDefinitionType -&gt; Bool
 == :: JobDefinitionType -&gt; JobDefinitionType -&gt; Bool
 $c== :: JobDefinitionType -&gt; JobDefinitionType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679260983"><span id="local-6989586621679260985"><span id="local-6989586621679260987"><span id="local-6989586621679260989"><span id="local-6989586621679260991"><span id="local-6989586621679260993"><span id="local-6989586621679260995"><span class="annot"><span class="annottext">Eq JobDefinitionType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679260992"><span id="local-6989586621679260994"><span id="local-6989586621679260996"><span id="local-6989586621679260998"><span id="local-6989586621679261000"><span id="local-6989586621679261002"><span id="local-6989586621679261004"><span class="annot"><span class="annottext">Eq JobDefinitionType
 Eq JobDefinitionType
 -&gt; (JobDefinitionType -&gt; JobDefinitionType -&gt; Ordering)
 -&gt; (JobDefinitionType -&gt; JobDefinitionType -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. JobDefinitionType -&gt; Rep JobDefinitionType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679260975"><span id="local-6989586621679260977"><span class="annot"><span class="annottext">Int -&gt; JobDefinitionType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679260984"><span id="local-6989586621679260986"><span class="annot"><span class="annottext">Int -&gt; JobDefinitionType -&gt; Int
 JobDefinitionType -&gt; Int
 (Int -&gt; JobDefinitionType -&gt; Int)
 -&gt; (JobDefinitionType -&gt; Int) -&gt; Hashable JobDefinitionType
@@ -143,51 +143,51 @@ $chash :: JobDefinitionType -&gt; Int
 hashWithSalt :: Int -&gt; JobDefinitionType -&gt; Int
 $chashWithSalt :: Int -&gt; JobDefinitionType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679260972"><span class="annot"><span class="annottext">JobDefinitionType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679260981"><span class="annot"><span class="annottext">JobDefinitionType -&gt; ()
 (JobDefinitionType -&gt; ()) -&gt; NFData JobDefinitionType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: JobDefinitionType -&gt; ()
 $crnf :: JobDefinitionType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679260969"><span class="annot"><span class="annottext">Text -&gt; Either String JobDefinitionType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679260978"><span class="annot"><span class="annottext">Text -&gt; Either String JobDefinitionType
 (Text -&gt; Either String JobDefinitionType)
 -&gt; FromText JobDefinitionType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String JobDefinitionType
 $cfromText :: Text -&gt; Either String JobDefinitionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679260966"><span class="annot"><span class="annottext">JobDefinitionType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679260975"><span class="annot"><span class="annottext">JobDefinitionType -&gt; Text
 (JobDefinitionType -&gt; Text) -&gt; ToText JobDefinitionType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: JobDefinitionType -&gt; Text
 $ctoText :: JobDefinitionType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679260963"><span class="annot"><span class="annottext">JobDefinitionType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679260972"><span class="annot"><span class="annottext">JobDefinitionType -&gt; ByteString
 (JobDefinitionType -&gt; ByteString) -&gt; ToByteString JobDefinitionType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: JobDefinitionType -&gt; ByteString
 $ctoBS :: JobDefinitionType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679260960"><span class="annot"><span class="annottext">JobDefinitionType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679260969"><span class="annot"><span class="annottext">JobDefinitionType -&gt; ByteStringBuilder
 (JobDefinitionType -&gt; ByteStringBuilder) -&gt; ToLog JobDefinitionType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: JobDefinitionType -&gt; ByteStringBuilder
 $cbuild :: JobDefinitionType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679260957"><span class="annot"><span class="annottext">HeaderName -&gt; JobDefinitionType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679260966"><span class="annot"><span class="annottext">HeaderName -&gt; JobDefinitionType -&gt; [Header]
 (HeaderName -&gt; JobDefinitionType -&gt; [Header])
 -&gt; ToHeader JobDefinitionType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; JobDefinitionType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; JobDefinitionType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679260954"><span class="annot"><span class="annottext">JobDefinitionType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679260963"><span class="annot"><span class="annottext">JobDefinitionType -&gt; QueryString
 (JobDefinitionType -&gt; QueryString) -&gt; ToQuery JobDefinitionType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: JobDefinitionType -&gt; QueryString
 $ctoQuery :: JobDefinitionType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679260949"><span id="local-6989586621679260951"><span class="annot"><span class="annottext">Value -&gt; Parser [JobDefinitionType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679260958"><span id="local-6989586621679260960"><span class="annot"><span class="annottext">Value -&gt; Parser [JobDefinitionType]
 Value -&gt; Parser JobDefinitionType
 (Value -&gt; Parser JobDefinitionType)
 -&gt; (Value -&gt; Parser [JobDefinitionType])
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [JobDefinitionType]
 parseJSON :: Value -&gt; Parser JobDefinitionType
 $cparseJSON :: Value -&gt; Parser JobDefinitionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679260944"><span id="local-6989586621679260946"><span class="annot"><span class="annottext">FromJSONKeyFunction [JobDefinitionType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679260953"><span id="local-6989586621679260955"><span class="annot"><span class="annottext">FromJSONKeyFunction [JobDefinitionType]
 FromJSONKeyFunction JobDefinitionType
 FromJSONKeyFunction JobDefinitionType
 -&gt; FromJSONKeyFunction [JobDefinitionType]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [JobDefinitionType]
 fromJSONKey :: FromJSONKeyFunction JobDefinitionType
 $cfromJSONKey :: FromJSONKeyFunction JobDefinitionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679260935"><span id="local-6989586621679260937"><span id="local-6989586621679260939"><span id="local-6989586621679260941"><span class="annot"><span class="annottext">[JobDefinitionType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679260944"><span id="local-6989586621679260946"><span id="local-6989586621679260948"><span id="local-6989586621679260950"><span class="annot"><span class="annottext">[JobDefinitionType] -&gt; Encoding
 [JobDefinitionType] -&gt; Value
 JobDefinitionType -&gt; Encoding
 JobDefinitionType -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: JobDefinitionType -&gt; Encoding
 toJSON :: JobDefinitionType -&gt; Value
 $ctoJSON :: JobDefinitionType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679260930"><span id="local-6989586621679260932"><span class="annot"><span class="annottext">ToJSONKeyFunction [JobDefinitionType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679260939"><span id="local-6989586621679260941"><span class="annot"><span class="annottext">ToJSONKeyFunction [JobDefinitionType]
 ToJSONKeyFunction JobDefinitionType
 ToJSONKeyFunction JobDefinitionType
 -&gt; ToJSONKeyFunction [JobDefinitionType]
@@ -247,14 +247,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [JobDefinitionType]
 toJSONKey :: ToJSONKeyFunction JobDefinitionType
 $ctoJSONKey :: ToJSONKeyFunction JobDefinitionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679260927"><span class="annot"><span class="annottext">[Node] -&gt; Either String JobDefinitionType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679260936"><span class="annot"><span class="annottext">[Node] -&gt; Either String JobDefinitionType
 ([Node] -&gt; Either String JobDefinitionType)
 -&gt; FromXML JobDefinitionType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String JobDefinitionType
 $cparseXML :: [Node] -&gt; Either String JobDefinitionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679260924"><span class="annot"><span class="annottext">JobDefinitionType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679260933"><span class="annot"><span class="annottext">JobDefinitionType -&gt; XML
 (JobDefinitionType -&gt; XML) -&gt; ToXML JobDefinitionType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: JobDefinitionType -&gt; XML

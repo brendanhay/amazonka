@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621681090805"><span id="local-6989586621681090806"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CancelSpotInstanceRequestState"><span class="annot"><a href="Network.AWS.EC2.Types.CancelSpotInstanceRequestState.html#CancelSpotInstanceRequestState"><span class="hs-identifier hs-var">CancelSpotInstanceRequestState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelSpotInstanceRequestState%27"><span class="annot"><a href="Network.AWS.EC2.Types.CancelSpotInstanceRequestState.html#CancelSpotInstanceRequestState%27"><span class="hs-identifier hs-var">CancelSpotInstanceRequestState'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621681090814"><span id="local-6989586621681090815"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CancelSpotInstanceRequestState"><span class="annot"><a href="Network.AWS.EC2.Types.CancelSpotInstanceRequestState.html#CancelSpotInstanceRequestState"><span class="hs-identifier hs-var">CancelSpotInstanceRequestState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelSpotInstanceRequestState%27"><span class="annot"><a href="Network.AWS.EC2.Types.CancelSpotInstanceRequestState.html#CancelSpotInstanceRequestState%27"><span class="hs-identifier hs-var">CancelSpotInstanceRequestState'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCancelSpotInstanceRequestState"><span class="annot"><span class="annottext">CancelSpotInstanceRequestState -&gt; Text
 </span><a href="Network.AWS.EC2.Types.CancelSpotInstanceRequestState.html#fromCancelSpotInstanceRequestState"><span class="hs-identifier hs-var hs-var">fromCancelSpotInstanceRequestState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681090797"><span id="local-6989586621681090799"><span id="local-6989586621681090801"><span class="annot"><span class="annottext">Int -&gt; CancelSpotInstanceRequestState -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681090806"><span id="local-6989586621681090808"><span id="local-6989586621681090810"><span class="annot"><span class="annottext">Int -&gt; CancelSpotInstanceRequestState -&gt; ShowS
 [CancelSpotInstanceRequestState] -&gt; ShowS
 CancelSpotInstanceRequestState -&gt; String
 (Int -&gt; CancelSpotInstanceRequestState -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: CancelSpotInstanceRequestState -&gt; String
 showsPrec :: Int -&gt; CancelSpotInstanceRequestState -&gt; ShowS
 $cshowsPrec :: Int -&gt; CancelSpotInstanceRequestState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621681090788"><span id="local-6989586621681090790"><span id="local-6989586621681090792"><span id="local-6989586621681090794"><span class="annot"><span class="annottext">ReadPrec [CancelSpotInstanceRequestState]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681090797"><span id="local-6989586621681090799"><span id="local-6989586621681090801"><span id="local-6989586621681090803"><span class="annot"><span class="annottext">ReadPrec [CancelSpotInstanceRequestState]
 ReadPrec CancelSpotInstanceRequestState
 Int -&gt; ReadS CancelSpotInstanceRequestState
 ReadS [CancelSpotInstanceRequestState]
@@ -76,7 +76,7 @@ $creadList :: ReadS [CancelSpotInstanceRequestState]
 readsPrec :: Int -&gt; ReadS CancelSpotInstanceRequestState
 $creadsPrec :: Int -&gt; ReadS CancelSpotInstanceRequestState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621681090783"><span id="local-6989586621681090785"><span class="annot"><span class="annottext">CancelSpotInstanceRequestState
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621681090792"><span id="local-6989586621681090794"><span class="annot"><span class="annottext">CancelSpotInstanceRequestState
 -&gt; CancelSpotInstanceRequestState -&gt; Bool
 (CancelSpotInstanceRequestState
  -&gt; CancelSpotInstanceRequestState -&gt; Bool)
@@ -93,7 +93,7 @@ $c/= :: CancelSpotInstanceRequestState
 $c== :: CancelSpotInstanceRequestState
 -&gt; CancelSpotInstanceRequestState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621681090767"><span id="local-6989586621681090769"><span id="local-6989586621681090771"><span id="local-6989586621681090773"><span id="local-6989586621681090775"><span id="local-6989586621681090777"><span id="local-6989586621681090779"><span class="annot"><span class="annottext">Eq CancelSpotInstanceRequestState
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621681090776"><span id="local-6989586621681090778"><span id="local-6989586621681090780"><span id="local-6989586621681090782"><span id="local-6989586621681090784"><span id="local-6989586621681090786"><span id="local-6989586621681090788"><span class="annot"><span class="annottext">Eq CancelSpotInstanceRequestState
 Eq CancelSpotInstanceRequestState
 -&gt; (CancelSpotInstanceRequestState
     -&gt; CancelSpotInstanceRequestState -&gt; Ordering)
@@ -182,7 +182,7 @@ CancelSpotInstanceRequestState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681090759"><span id="local-6989586621681090761"><span class="annot"><span class="annottext">Int -&gt; CancelSpotInstanceRequestState -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681090768"><span id="local-6989586621681090770"><span class="annot"><span class="annottext">Int -&gt; CancelSpotInstanceRequestState -&gt; Int
 CancelSpotInstanceRequestState -&gt; Int
 (Int -&gt; CancelSpotInstanceRequestState -&gt; Int)
 -&gt; (CancelSpotInstanceRequestState -&gt; Int)
@@ -193,56 +193,56 @@ $chash :: CancelSpotInstanceRequestState -&gt; Int
 hashWithSalt :: Int -&gt; CancelSpotInstanceRequestState -&gt; Int
 $chashWithSalt :: Int -&gt; CancelSpotInstanceRequestState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681090756"><span class="annot"><span class="annottext">CancelSpotInstanceRequestState -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681090765"><span class="annot"><span class="annottext">CancelSpotInstanceRequestState -&gt; ()
 (CancelSpotInstanceRequestState -&gt; ())
 -&gt; NFData CancelSpotInstanceRequestState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CancelSpotInstanceRequestState -&gt; ()
 $crnf :: CancelSpotInstanceRequestState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681090753"><span class="annot"><span class="annottext">Text -&gt; Either String CancelSpotInstanceRequestState
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681090762"><span class="annot"><span class="annottext">Text -&gt; Either String CancelSpotInstanceRequestState
 (Text -&gt; Either String CancelSpotInstanceRequestState)
 -&gt; FromText CancelSpotInstanceRequestState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CancelSpotInstanceRequestState
 $cfromText :: Text -&gt; Either String CancelSpotInstanceRequestState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681090750"><span class="annot"><span class="annottext">CancelSpotInstanceRequestState -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681090759"><span class="annot"><span class="annottext">CancelSpotInstanceRequestState -&gt; Text
 (CancelSpotInstanceRequestState -&gt; Text)
 -&gt; ToText CancelSpotInstanceRequestState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CancelSpotInstanceRequestState -&gt; Text
 $ctoText :: CancelSpotInstanceRequestState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681090747"><span class="annot"><span class="annottext">CancelSpotInstanceRequestState -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681090756"><span class="annot"><span class="annottext">CancelSpotInstanceRequestState -&gt; ByteString
 (CancelSpotInstanceRequestState -&gt; ByteString)
 -&gt; ToByteString CancelSpotInstanceRequestState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CancelSpotInstanceRequestState -&gt; ByteString
 $ctoBS :: CancelSpotInstanceRequestState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681090744"><span class="annot"><span class="annottext">CancelSpotInstanceRequestState -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681090753"><span class="annot"><span class="annottext">CancelSpotInstanceRequestState -&gt; ByteStringBuilder
 (CancelSpotInstanceRequestState -&gt; ByteStringBuilder)
 -&gt; ToLog CancelSpotInstanceRequestState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CancelSpotInstanceRequestState -&gt; ByteStringBuilder
 $cbuild :: CancelSpotInstanceRequestState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681090741"><span class="annot"><span class="annottext">HeaderName -&gt; CancelSpotInstanceRequestState -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681090750"><span class="annot"><span class="annottext">HeaderName -&gt; CancelSpotInstanceRequestState -&gt; [Header]
 (HeaderName -&gt; CancelSpotInstanceRequestState -&gt; [Header])
 -&gt; ToHeader CancelSpotInstanceRequestState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CancelSpotInstanceRequestState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CancelSpotInstanceRequestState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681090738"><span class="annot"><span class="annottext">CancelSpotInstanceRequestState -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681090747"><span class="annot"><span class="annottext">CancelSpotInstanceRequestState -&gt; QueryString
 (CancelSpotInstanceRequestState -&gt; QueryString)
 -&gt; ToQuery CancelSpotInstanceRequestState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CancelSpotInstanceRequestState -&gt; QueryString
 $ctoQuery :: CancelSpotInstanceRequestState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681090733"><span id="local-6989586621681090735"><span class="annot"><span class="annottext">Value -&gt; Parser [CancelSpotInstanceRequestState]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681090742"><span id="local-6989586621681090744"><span class="annot"><span class="annottext">Value -&gt; Parser [CancelSpotInstanceRequestState]
 Value -&gt; Parser CancelSpotInstanceRequestState
 (Value -&gt; Parser CancelSpotInstanceRequestState)
 -&gt; (Value -&gt; Parser [CancelSpotInstanceRequestState])
@@ -254,7 +254,7 @@ $cparseJSONList :: Value -&gt; Parser [CancelSpotInstanceRequestState]
 parseJSON :: Value -&gt; Parser CancelSpotInstanceRequestState
 $cparseJSON :: Value -&gt; Parser CancelSpotInstanceRequestState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681090728"><span id="local-6989586621681090730"><span class="annot"><span class="annottext">FromJSONKeyFunction [CancelSpotInstanceRequestState]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681090737"><span id="local-6989586621681090739"><span class="annot"><span class="annottext">FromJSONKeyFunction [CancelSpotInstanceRequestState]
 FromJSONKeyFunction CancelSpotInstanceRequestState
 FromJSONKeyFunction CancelSpotInstanceRequestState
 -&gt; FromJSONKeyFunction [CancelSpotInstanceRequestState]
@@ -266,7 +266,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CancelSpotInstanceRequestState]
 fromJSONKey :: FromJSONKeyFunction CancelSpotInstanceRequestState
 $cfromJSONKey :: FromJSONKeyFunction CancelSpotInstanceRequestState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681090719"><span id="local-6989586621681090721"><span id="local-6989586621681090723"><span id="local-6989586621681090725"><span class="annot"><span class="annottext">[CancelSpotInstanceRequestState] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681090728"><span id="local-6989586621681090730"><span id="local-6989586621681090732"><span id="local-6989586621681090734"><span class="annot"><span class="annottext">[CancelSpotInstanceRequestState] -&gt; Encoding
 [CancelSpotInstanceRequestState] -&gt; Value
 CancelSpotInstanceRequestState -&gt; Encoding
 CancelSpotInstanceRequestState -&gt; Value
@@ -290,7 +290,7 @@ $ctoEncoding :: CancelSpotInstanceRequestState -&gt; Encoding
 toJSON :: CancelSpotInstanceRequestState -&gt; Value
 $ctoJSON :: CancelSpotInstanceRequestState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681090714"><span id="local-6989586621681090716"><span class="annot"><span class="annottext">ToJSONKeyFunction [CancelSpotInstanceRequestState]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681090723"><span id="local-6989586621681090725"><span class="annot"><span class="annottext">ToJSONKeyFunction [CancelSpotInstanceRequestState]
 ToJSONKeyFunction CancelSpotInstanceRequestState
 ToJSONKeyFunction CancelSpotInstanceRequestState
 -&gt; ToJSONKeyFunction [CancelSpotInstanceRequestState]
@@ -302,14 +302,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CancelSpotInstanceRequestState]
 toJSONKey :: ToJSONKeyFunction CancelSpotInstanceRequestState
 $ctoJSONKey :: ToJSONKeyFunction CancelSpotInstanceRequestState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621681090711"><span class="annot"><span class="annottext">[Node] -&gt; Either String CancelSpotInstanceRequestState
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681090720"><span class="annot"><span class="annottext">[Node] -&gt; Either String CancelSpotInstanceRequestState
 ([Node] -&gt; Either String CancelSpotInstanceRequestState)
 -&gt; FromXML CancelSpotInstanceRequestState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CancelSpotInstanceRequestState
 $cparseXML :: [Node] -&gt; Either String CancelSpotInstanceRequestState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621681090708"><span class="annot"><span class="annottext">CancelSpotInstanceRequestState -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621681090717"><span class="annot"><span class="annottext">CancelSpotInstanceRequestState -&gt; XML
 (CancelSpotInstanceRequestState -&gt; XML)
 -&gt; ToXML CancelSpotInstanceRequestState
 forall a. (a -&gt; XML) -&gt; ToXML a

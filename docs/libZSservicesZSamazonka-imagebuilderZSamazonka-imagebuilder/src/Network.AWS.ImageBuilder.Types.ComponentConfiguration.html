@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ImageBuilder.Types.ComponentConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ImageBuilder.Types.ComponentConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentParameter.html"><span class="hs-identifier">Network.AWS.ImageBuilder.Types.ComponentParameter</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Configuration details of the component.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newComponentConfiguration' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679312331"><span id="local-6989586621679312332"></span></span><span class="hs-keyword">data</span><span> </span><span id="ComponentConfiguration"><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentConfiguration.html#ComponentConfiguration"><span class="hs-identifier hs-var">ComponentConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ComponentConfiguration%27"><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentConfiguration.html#ComponentConfiguration%27"><span class="hs-identifier hs-var">ComponentConfiguration'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A group of parameter settings that are used to configure the component</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- for a specific recipe.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aparameters%3AComponentConfiguration%27"><span class="annot"><span class="annottext">ComponentConfiguration -&gt; Maybe (NonEmpty ComponentParameter)
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentConfiguration.html#%24sel%3Aparameters%3AComponentConfiguration%27"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentParameter.html#ComponentParameter"><span class="hs-identifier hs-type">ComponentParameter</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the component.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AcomponentArn%3AComponentConfiguration%27"><span class="annot"><span class="annottext">ComponentConfiguration -&gt; Text
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentConfiguration.html#%24sel%3AcomponentArn%3AComponentConfiguration%27"><span class="hs-identifier hs-var hs-var">componentArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312324"><span id="local-6989586621679312326"><span class="annot"><span class="annottext">ComponentConfiguration -&gt; ComponentConfiguration -&gt; Bool
+(ComponentConfiguration -&gt; ComponentConfiguration -&gt; Bool)
+-&gt; (ComponentConfiguration -&gt; ComponentConfiguration -&gt; Bool)
+-&gt; Eq ComponentConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ComponentConfiguration -&gt; ComponentConfiguration -&gt; Bool
+$c/= :: ComponentConfiguration -&gt; ComponentConfiguration -&gt; Bool
+== :: ComponentConfiguration -&gt; ComponentConfiguration -&gt; Bool
+$c== :: ComponentConfiguration -&gt; ComponentConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312315"><span id="local-6989586621679312317"><span id="local-6989586621679312319"><span id="local-6989586621679312321"><span class="annot"><span class="annottext">ReadPrec [ComponentConfiguration]
+ReadPrec ComponentConfiguration
+Int -&gt; ReadS ComponentConfiguration
+ReadS [ComponentConfiguration]
+(Int -&gt; ReadS ComponentConfiguration)
+-&gt; ReadS [ComponentConfiguration]
+-&gt; ReadPrec ComponentConfiguration
+-&gt; ReadPrec [ComponentConfiguration]
+-&gt; Read ComponentConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ComponentConfiguration]
+$creadListPrec :: ReadPrec [ComponentConfiguration]
+readPrec :: ReadPrec ComponentConfiguration
+$creadPrec :: ReadPrec ComponentConfiguration
+readList :: ReadS [ComponentConfiguration]
+$creadList :: ReadS [ComponentConfiguration]
+readsPrec :: Int -&gt; ReadS ComponentConfiguration
+$creadsPrec :: Int -&gt; ReadS ComponentConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312308"><span id="local-6989586621679312310"><span id="local-6989586621679312312"><span class="annot"><span class="annottext">Int -&gt; ComponentConfiguration -&gt; ShowS
+[ComponentConfiguration] -&gt; ShowS
+ComponentConfiguration -&gt; String
+(Int -&gt; ComponentConfiguration -&gt; ShowS)
+-&gt; (ComponentConfiguration -&gt; String)
+-&gt; ([ComponentConfiguration] -&gt; ShowS)
+-&gt; Show ComponentConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ComponentConfiguration] -&gt; ShowS
+$cshowList :: [ComponentConfiguration] -&gt; ShowS
+show :: ComponentConfiguration -&gt; String
+$cshow :: ComponentConfiguration -&gt; String
+showsPrec :: Int -&gt; ComponentConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; ComponentConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ComponentConfiguration -&gt; Rep ComponentConfiguration x)
+-&gt; (forall x.
+    Rep ComponentConfiguration x -&gt; ComponentConfiguration)
+-&gt; Generic ComponentConfiguration
+forall x. Rep ComponentConfiguration x -&gt; ComponentConfiguration
+forall x. ComponentConfiguration -&gt; Rep ComponentConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ComponentConfiguration x -&gt; ComponentConfiguration
+$cfrom :: forall x. ComponentConfiguration -&gt; Rep ComponentConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Create a value of 'ComponentConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'parameters', 'componentConfiguration_parameters' - A group of parameter settings that are used to configure the component</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- for a specific recipe.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'componentArn', 'componentConfiguration_componentArn' - The Amazon Resource Name (ARN) of the component.</span><span>
+</span><span id="line-51"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentConfiguration.html#newComponentConfiguration"><span class="hs-identifier hs-type">newComponentConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-comment">-- | 'componentArn'</span><span>
+</span><span id="line-53"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentConfiguration.html#ComponentConfiguration"><span class="hs-identifier hs-type">ComponentConfiguration</span></a></span><span>
+</span><span id="line-55"></span><span id="newComponentConfiguration"><span class="annot"><span class="annottext">newComponentConfiguration :: Text -&gt; ComponentConfiguration
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentConfiguration.html#newComponentConfiguration"><span class="hs-identifier hs-var hs-var">newComponentConfiguration</span></a></span></span><span> </span><span id="local-6989586621679312302"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312302"><span class="hs-identifier hs-var">pComponentArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">ComponentConfiguration' :: Maybe (NonEmpty ComponentParameter)
+-&gt; Text -&gt; ComponentConfiguration
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentConfiguration.html#ComponentConfiguration%27"><span class="hs-identifier hs-type">ComponentConfiguration'</span></a></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:parameters:ComponentConfiguration' :: Maybe (NonEmpty ComponentParameter)
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentConfiguration.html#%24sel%3Aparameters%3AComponentConfiguration%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>        </span><span class="annot"><span class="annottext">Maybe (NonEmpty ComponentParameter)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:componentArn:ComponentConfiguration' :: Text
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentConfiguration.html#%24sel%3AcomponentArn%3AComponentConfiguration%27"><span class="hs-identifier hs-var">componentArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312302"><span class="hs-identifier hs-var">pComponentArn_</span></a></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | A group of parameter settings that are used to configure the component</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for a specific recipe.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentConfiguration.html#componentConfiguration_parameters"><span class="hs-identifier hs-type">componentConfiguration_parameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentConfiguration.html#ComponentConfiguration"><span class="hs-identifier hs-type">ComponentConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentParameter.html#ComponentParameter"><span class="hs-identifier hs-type">ComponentParameter</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="componentConfiguration_parameters"><span class="annot"><span class="annottext">componentConfiguration_parameters :: (Maybe (NonEmpty ComponentParameter)
+ -&gt; f (Maybe (NonEmpty ComponentParameter)))
+-&gt; ComponentConfiguration -&gt; f ComponentConfiguration
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentConfiguration.html#componentConfiguration_parameters"><span class="hs-identifier hs-var hs-var">componentConfiguration_parameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ComponentConfiguration -&gt; Maybe (NonEmpty ComponentParameter))
+-&gt; (ComponentConfiguration
+    -&gt; Maybe (NonEmpty ComponentParameter) -&gt; ComponentConfiguration)
+-&gt; Lens
+     ComponentConfiguration
+     ComponentConfiguration
+     (Maybe (NonEmpty ComponentParameter))
+     (Maybe (NonEmpty ComponentParameter))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentConfiguration.html#ComponentConfiguration%27"><span class="hs-identifier hs-type">ComponentConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312298"><span class="annot"><span class="annottext">Maybe (NonEmpty ComponentParameter)
+parameters :: Maybe (NonEmpty ComponentParameter)
+$sel:parameters:ComponentConfiguration' :: ComponentConfiguration -&gt; Maybe (NonEmpty ComponentParameter)
+</span><a href="#local-6989586621679312298"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ComponentParameter)
+</span><a href="#local-6989586621679312298"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312297"><span class="annot"><span class="annottext">s :: ComponentConfiguration
+</span><a href="#local-6989586621679312297"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentConfiguration.html#ComponentConfiguration%27"><span class="hs-identifier hs-type">ComponentConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312296"><span class="annot"><span class="annottext">Maybe (NonEmpty ComponentParameter)
+</span><a href="#local-6989586621679312296"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComponentConfiguration
+</span><a href="#local-6989586621679312297"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameters:ComponentConfiguration' :: Maybe (NonEmpty ComponentParameter)
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentConfiguration.html#%24sel%3Aparameters%3AComponentConfiguration%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ComponentParameter)
+</span><a href="#local-6989586621679312296"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentConfiguration.html#ComponentConfiguration"><span class="hs-identifier hs-type">ComponentConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty ComponentParameter)
+  -&gt; f (Maybe (NonEmpty ComponentParameter)))
+ -&gt; ComponentConfiguration -&gt; f ComponentConfiguration)
+-&gt; ((Maybe (NonEmpty ComponentParameter)
+     -&gt; f (Maybe (NonEmpty ComponentParameter)))
+    -&gt; Maybe (NonEmpty ComponentParameter)
+    -&gt; f (Maybe (NonEmpty ComponentParameter)))
+-&gt; (Maybe (NonEmpty ComponentParameter)
+    -&gt; f (Maybe (NonEmpty ComponentParameter)))
+-&gt; ComponentConfiguration
+-&gt; f ComponentConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty ComponentParameter)
+  (NonEmpty ComponentParameter)
+  (NonEmpty ComponentParameter)
+  (NonEmpty ComponentParameter)
+-&gt; Iso
+     (Maybe (NonEmpty ComponentParameter))
+     (Maybe (NonEmpty ComponentParameter))
+     (Maybe (NonEmpty ComponentParameter))
+     (Maybe (NonEmpty ComponentParameter))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty ComponentParameter)
+  (NonEmpty ComponentParameter)
+  (NonEmpty ComponentParameter)
+  (NonEmpty ComponentParameter)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the component.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentConfiguration.html#componentConfiguration_componentArn"><span class="hs-identifier hs-type">componentConfiguration_componentArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentConfiguration.html#ComponentConfiguration"><span class="hs-identifier hs-type">ComponentConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-69"></span><span id="componentConfiguration_componentArn"><span class="annot"><span class="annottext">componentConfiguration_componentArn :: (Text -&gt; f Text)
+-&gt; ComponentConfiguration -&gt; f ComponentConfiguration
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentConfiguration.html#componentConfiguration_componentArn"><span class="hs-identifier hs-var hs-var">componentConfiguration_componentArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ComponentConfiguration -&gt; Text)
+-&gt; (ComponentConfiguration -&gt; Text -&gt; ComponentConfiguration)
+-&gt; Lens ComponentConfiguration ComponentConfiguration Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentConfiguration.html#ComponentConfiguration%27"><span class="hs-identifier hs-type">ComponentConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312291"><span class="annot"><span class="annottext">Text
+componentArn :: Text
+$sel:componentArn:ComponentConfiguration' :: ComponentConfiguration -&gt; Text
+</span><a href="#local-6989586621679312291"><span class="hs-identifier hs-var hs-var">componentArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312291"><span class="hs-identifier hs-var">componentArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312290"><span class="annot"><span class="annottext">s :: ComponentConfiguration
+</span><a href="#local-6989586621679312290"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentConfiguration.html#ComponentConfiguration%27"><span class="hs-identifier hs-type">ComponentConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312289"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312289"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComponentConfiguration
+</span><a href="#local-6989586621679312290"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:componentArn:ComponentConfiguration' :: Text
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentConfiguration.html#%24sel%3AcomponentArn%3AComponentConfiguration%27"><span class="hs-identifier hs-var">componentArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312289"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentConfiguration.html#ComponentConfiguration"><span class="hs-identifier hs-type">ComponentConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312286"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentConfiguration.html#ComponentConfiguration"><span class="hs-identifier hs-type">ComponentConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679312284"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ComponentConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ComponentConfiguration)
+-&gt; Value
+-&gt; Parser ComponentConfiguration
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ComponentConfiguration&quot;</span></span><span>
+</span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679312281"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679312281"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty ComponentParameter)
+-&gt; Text -&gt; ComponentConfiguration
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentConfiguration.html#ComponentConfiguration%27"><span class="hs-identifier hs-var">ComponentConfiguration'</span></a></span><span>
+</span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (NonEmpty ComponentParameter)
+ -&gt; Text -&gt; ComponentConfiguration)
+-&gt; Parser (Maybe (NonEmpty ComponentParameter))
+-&gt; Parser (Text -&gt; ComponentConfiguration)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679312281"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty ComponentParameter))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;parameters&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; ComponentConfiguration)
+-&gt; Parser Text -&gt; Parser ComponentConfiguration
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679312281"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;componentArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312274"><span id="local-6989586621679312276"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentConfiguration.html#ComponentConfiguration"><span class="hs-identifier hs-type">ComponentConfiguration</span></a></span></span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312271"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentConfiguration.html#ComponentConfiguration"><span class="hs-identifier hs-type">ComponentConfiguration</span></a></span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312263"><span id="local-6989586621679312265"><span id="local-6989586621679312267"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentConfiguration.html#ComponentConfiguration"><span class="hs-identifier hs-type">ComponentConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679312261"><span class="annot"><span class="annottext">toJSON :: ComponentConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentConfiguration.html#ComponentConfiguration%27"><span class="hs-identifier hs-type">ComponentConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312258"><span id="local-6989586621679312259"><span class="annot"><span class="annottext">Maybe (NonEmpty ComponentParameter)
+Text
+componentArn :: Text
+parameters :: Maybe (NonEmpty ComponentParameter)
+$sel:componentArn:ComponentConfiguration' :: ComponentConfiguration -&gt; Text
+$sel:parameters:ComponentConfiguration' :: ComponentConfiguration -&gt; Maybe (NonEmpty ComponentParameter)
+</span><a href="#local-6989586621679312258"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-89"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;parameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty ComponentParameter -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty ComponentParameter -&gt; Pair)
+-&gt; Maybe (NonEmpty ComponentParameter) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ComponentParameter)
+</span><a href="#local-6989586621679312259"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;componentArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312258"><span class="hs-identifier hs-var">componentArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span></pre></body></html>

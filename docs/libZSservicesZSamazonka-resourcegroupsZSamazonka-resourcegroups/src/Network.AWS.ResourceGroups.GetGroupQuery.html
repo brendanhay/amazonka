@@ -56,7 +56,7 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newGetGroupQuery' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679179871"><span id="local-6989586621679179872"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetGroupQuery"><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQuery"><span class="hs-identifier hs-var">GetGroupQuery</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetGroupQuery%27"><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQuery%27"><span class="hs-identifier hs-var">GetGroupQuery'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679179880"><span id="local-6989586621679179881"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetGroupQuery"><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQuery"><span class="hs-identifier hs-var">GetGroupQuery</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetGroupQuery%27"><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQuery%27"><span class="hs-identifier hs-var">GetGroupQuery'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name or the ARN of the resource group to query.</span><span>
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3Agroup%27%3AGetGroupQuery%27"><span class="annot"><span class="annottext">GetGroupQuery -&gt; Maybe Text
 </span><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#%24sel%3Agroup%27%3AGetGroupQuery%27"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -64,7 +64,7 @@
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AgroupName%3AGetGroupQuery%27"><span class="annot"><span class="annottext">GetGroupQuery -&gt; Maybe Text
 </span><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#%24sel%3AgroupName%3AGetGroupQuery%27"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179864"><span id="local-6989586621679179866"><span class="annot"><span class="annottext">GetGroupQuery -&gt; GetGroupQuery -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179873"><span id="local-6989586621679179875"><span class="annot"><span class="annottext">GetGroupQuery -&gt; GetGroupQuery -&gt; Bool
 (GetGroupQuery -&gt; GetGroupQuery -&gt; Bool)
 -&gt; (GetGroupQuery -&gt; GetGroupQuery -&gt; Bool) -&gt; Eq GetGroupQuery
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -72,7 +72,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetGroupQuery -&gt; GetGroupQuery -&gt; Bool
 == :: GetGroupQuery -&gt; GetGroupQuery -&gt; Bool
 $c== :: GetGroupQuery -&gt; GetGroupQuery -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179855"><span id="local-6989586621679179857"><span id="local-6989586621679179859"><span id="local-6989586621679179861"><span class="annot"><span class="annottext">ReadPrec [GetGroupQuery]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179864"><span id="local-6989586621679179866"><span id="local-6989586621679179868"><span id="local-6989586621679179870"><span class="annot"><span class="annottext">ReadPrec [GetGroupQuery]
 ReadPrec GetGroupQuery
 Int -&gt; ReadS GetGroupQuery
 ReadS [GetGroupQuery]
@@ -92,7 +92,7 @@ readList :: ReadS [GetGroupQuery]
 $creadList :: ReadS [GetGroupQuery]
 readsPrec :: Int -&gt; ReadS GetGroupQuery
 $creadsPrec :: Int -&gt; ReadS GetGroupQuery
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179848"><span id="local-6989586621679179850"><span id="local-6989586621679179852"><span class="annot"><span class="annottext">Int -&gt; GetGroupQuery -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179857"><span id="local-6989586621679179859"><span id="local-6989586621679179861"><span class="annot"><span class="annottext">Int -&gt; GetGroupQuery -&gt; ShowS
 [GetGroupQuery] -&gt; ShowS
 GetGroupQuery -&gt; String
 (Int -&gt; GetGroupQuery -&gt; ShowS)
@@ -152,16 +152,16 @@ forall a. Maybe a
 -&gt; (GetGroupQuery -&gt; Maybe Text -&gt; GetGroupQuery)
 -&gt; Lens GetGroupQuery GetGroupQuery (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQuery%27"><span class="hs-identifier hs-type">GetGroupQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179841"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQuery%27"><span class="hs-identifier hs-type">GetGroupQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179850"><span class="annot"><span class="annottext">Maybe Text
 group' :: Maybe Text
 $sel:group':GetGroupQuery' :: GetGroupQuery -&gt; Maybe Text
-</span><a href="#local-6989586621679179841"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679179841"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179840"><span class="annot"><span class="annottext">s :: GetGroupQuery
-</span><a href="#local-6989586621679179840"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQuery%27"><span class="hs-identifier hs-type">GetGroupQuery'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179839"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679179839"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupQuery
-</span><a href="#local-6989586621679179840"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:group':GetGroupQuery' :: Maybe Text
+</span><a href="#local-6989586621679179850"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179850"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179849"><span class="annot"><span class="annottext">s :: GetGroupQuery
+</span><a href="#local-6989586621679179849"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQuery%27"><span class="hs-identifier hs-type">GetGroupQuery'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179848"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179848"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupQuery
+</span><a href="#local-6989586621679179849"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:group':GetGroupQuery' :: Maybe Text
 </span><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#%24sel%3Agroup%27%3AGetGroupQuery%27"><span class="hs-identifier hs-var">group'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679179839"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQuery"><span class="hs-identifier hs-type">GetGroupQuery</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679179848"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQuery"><span class="hs-identifier hs-type">GetGroupQuery</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | Don\'t use this parameter. Use @Group@ instead.</span><span>
 </span><span id="line-91"></span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#getGroupQuery_groupName"><span class="hs-identifier hs-type">getGroupQuery_groupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQuery"><span class="hs-identifier hs-type">GetGroupQuery</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -170,27 +170,27 @@ $sel:group':GetGroupQuery' :: GetGroupQuery -&gt; Maybe Text
 -&gt; (GetGroupQuery -&gt; Maybe Text -&gt; GetGroupQuery)
 -&gt; Lens GetGroupQuery GetGroupQuery (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQuery%27"><span class="hs-identifier hs-type">GetGroupQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179838"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQuery%27"><span class="hs-identifier hs-type">GetGroupQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179847"><span class="annot"><span class="annottext">Maybe Text
 groupName :: Maybe Text
 $sel:groupName:GetGroupQuery' :: GetGroupQuery -&gt; Maybe Text
-</span><a href="#local-6989586621679179838"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679179838"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179837"><span class="annot"><span class="annottext">s :: GetGroupQuery
-</span><a href="#local-6989586621679179837"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQuery%27"><span class="hs-identifier hs-type">GetGroupQuery'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179836"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679179836"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupQuery
-</span><a href="#local-6989586621679179837"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:GetGroupQuery' :: Maybe Text
+</span><a href="#local-6989586621679179847"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179847"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179846"><span class="annot"><span class="annottext">s :: GetGroupQuery
+</span><a href="#local-6989586621679179846"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQuery%27"><span class="hs-identifier hs-type">GetGroupQuery'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179845"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179845"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupQuery
+</span><a href="#local-6989586621679179846"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:GetGroupQuery' :: Maybe Text
 </span><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#%24sel%3AgroupName%3AGetGroupQuery%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679179836"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQuery"><span class="hs-identifier hs-type">GetGroupQuery</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679179845"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQuery"><span class="hs-identifier hs-type">GetGroupQuery</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQuery"><span class="hs-identifier hs-type">GetGroupQuery</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-95"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-96"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQuery"><span class="hs-identifier hs-type">GetGroupQuery</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQueryResponse"><span class="hs-identifier hs-type">GetGroupQueryResponse</span></a></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679179832"><span class="annot"><span class="annottext">request :: GetGroupQuery -&gt; Request GetGroupQuery
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679179841"><span class="annot"><span class="annottext">request :: GetGroupQuery -&gt; Request GetGroupQuery
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetGroupQuery -&gt; Request GetGroupQuery
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ResourceGroups.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679179828"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679179837"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetGroupQuery
 -&gt; ClientResponse ClientBody
@@ -214,10 +214,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679179825"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679179825"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679179824"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679179824"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679179823"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679179823"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679179834"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179834"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679179833"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679179833"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679179832"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679179832"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe GroupQuery -&gt; Int -&gt; GetGroupQueryResponse
 </span><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQueryResponse%27"><span class="hs-identifier hs-var">GetGroupQueryResponse'</span></a></span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Maybe GroupQuery -&gt; Int -&gt; GetGroupQueryResponse)
@@ -225,7 +225,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetGroupQueryResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679179823"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe GroupQuery)
+</span><a href="#local-6989586621679179832"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe GroupQuery)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GroupQuery&quot;</span></span><span class="hs-special">)</span><span>
@@ -237,29 +237,29 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679179825"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679179834"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179815"><span id="local-6989586621679179817"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQuery"><span class="hs-identifier hs-type">GetGroupQuery</span></a></span></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179824"><span id="local-6989586621679179826"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQuery"><span class="hs-identifier hs-type">GetGroupQuery</span></a></span></span></span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179812"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQuery"><span class="hs-identifier hs-type">GetGroupQuery</span></a></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179821"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQuery"><span class="hs-identifier hs-type">GetGroupQuery</span></a></span></span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQuery"><span class="hs-identifier hs-type">GetGroupQuery</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679179808"><span class="annot"><span class="annottext">toHeaders :: GetGroupQuery -&gt; ResponseHeaders
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679179817"><span class="annot"><span class="annottext">toHeaders :: GetGroupQuery -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetGroupQuery -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179799"><span id="local-6989586621679179801"><span id="local-6989586621679179803"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQuery"><span class="hs-identifier hs-type">GetGroupQuery</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679179797"><span class="annot"><span class="annottext">toJSON :: GetGroupQuery -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQuery%27"><span class="hs-identifier hs-type">GetGroupQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179794"><span id="local-6989586621679179795"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179808"><span id="local-6989586621679179810"><span id="local-6989586621679179812"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQuery"><span class="hs-identifier hs-type">GetGroupQuery</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679179806"><span class="annot"><span class="annottext">toJSON :: GetGroupQuery -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQuery%27"><span class="hs-identifier hs-type">GetGroupQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179803"><span id="local-6989586621679179804"><span class="annot"><span class="annottext">Maybe Text
 groupName :: Maybe Text
 group' :: Maybe Text
 $sel:groupName:GetGroupQuery' :: GetGroupQuery -&gt; Maybe Text
 $sel:group':GetGroupQuery' :: GetGroupQuery -&gt; Maybe Text
-</span><a href="#local-6989586621679179794"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679179803"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -271,26 +271,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679179795"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679179804"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-119"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679179794"><span class="hs-identifier hs-var">groupName</span></a></span><span>
+</span><a href="#local-6989586621679179803"><span class="hs-identifier hs-var">groupName</span></a></span><span>
 </span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQuery"><span class="hs-identifier hs-type">GetGroupQuery</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679179788"><span class="annot"><span class="annottext">toPath :: GetGroupQuery -&gt; ByteString
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679179797"><span class="annot"><span class="annottext">toPath :: GetGroupQuery -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetGroupQuery -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/get-group-query&quot;</span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQuery"><span class="hs-identifier hs-type">GetGroupQuery</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679179784"><span class="annot"><span class="annottext">toQuery :: GetGroupQuery -&gt; QueryString
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679179793"><span class="annot"><span class="annottext">toQuery :: GetGroupQuery -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetGroupQuery -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -298,7 +298,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | /See:/ 'newGetGroupQueryResponse' smart constructor.</span><span>
-</span><span id="line-130"></span><span id="local-6989586621679179781"><span id="local-6989586621679179782"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetGroupQueryResponse"><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQueryResponse"><span class="hs-identifier hs-var">GetGroupQueryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetGroupQueryResponse%27"><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQueryResponse%27"><span class="hs-identifier hs-var">GetGroupQueryResponse'</span></a></span></span><span>
+</span><span id="line-130"></span><span id="local-6989586621679179790"><span id="local-6989586621679179791"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetGroupQueryResponse"><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQueryResponse"><span class="hs-identifier hs-var">GetGroupQueryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetGroupQueryResponse%27"><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQueryResponse%27"><span class="hs-identifier hs-var">GetGroupQueryResponse'</span></a></span></span><span>
 </span><span id="line-131"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The resource query associated with the specified group. For more</span><span>
 </span><span id="line-132"></span><span>    </span><span class="hs-comment">-- information about resource queries, see</span><span>
 </span><span id="line-133"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag Create a tag-based group in Resource Groups&gt;.</span><span>
@@ -308,7 +308,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-136"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetGroupQueryResponse%27"><span class="annot"><span class="annottext">GetGroupQueryResponse -&gt; Int
 </span><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#%24sel%3AhttpStatus%3AGetGroupQueryResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-137"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-138"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179775"><span id="local-6989586621679179777"><span class="annot"><span class="annottext">GetGroupQueryResponse -&gt; GetGroupQueryResponse -&gt; Bool
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179784"><span id="local-6989586621679179786"><span class="annot"><span class="annottext">GetGroupQueryResponse -&gt; GetGroupQueryResponse -&gt; Bool
 (GetGroupQueryResponse -&gt; GetGroupQueryResponse -&gt; Bool)
 -&gt; (GetGroupQueryResponse -&gt; GetGroupQueryResponse -&gt; Bool)
 -&gt; Eq GetGroupQueryResponse
@@ -317,7 +317,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetGroupQueryResponse -&gt; GetGroupQueryResponse -&gt; Bool
 == :: GetGroupQueryResponse -&gt; GetGroupQueryResponse -&gt; Bool
 $c== :: GetGroupQueryResponse -&gt; GetGroupQueryResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179767"><span id="local-6989586621679179769"><span id="local-6989586621679179771"><span id="local-6989586621679179773"><span class="annot"><span class="annottext">ReadPrec [GetGroupQueryResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179776"><span id="local-6989586621679179778"><span id="local-6989586621679179780"><span id="local-6989586621679179782"><span class="annot"><span class="annottext">ReadPrec [GetGroupQueryResponse]
 ReadPrec GetGroupQueryResponse
 Int -&gt; ReadS GetGroupQueryResponse
 ReadS [GetGroupQueryResponse]
@@ -337,7 +337,7 @@ readList :: ReadS [GetGroupQueryResponse]
 $creadList :: ReadS [GetGroupQueryResponse]
 readsPrec :: Int -&gt; ReadS GetGroupQueryResponse
 $creadsPrec :: Int -&gt; ReadS GetGroupQueryResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179761"><span id="local-6989586621679179763"><span id="local-6989586621679179765"><span class="annot"><span class="annottext">Int -&gt; GetGroupQueryResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179770"><span id="local-6989586621679179772"><span id="local-6989586621679179774"><span class="annot"><span class="annottext">Int -&gt; GetGroupQueryResponse -&gt; ShowS
 [GetGroupQueryResponse] -&gt; ShowS
 GetGroupQueryResponse -&gt; String
 (Int -&gt; GetGroupQueryResponse -&gt; ShowS)
@@ -381,8 +381,8 @@ $cfrom :: forall x. GetGroupQueryResponse -&gt; Rep GetGroupQueryResponse x
 </span><span id="line-155"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-156"></span><span>  </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQueryResponse"><span class="hs-identifier hs-type">GetGroupQueryResponse</span></a></span><span>
 </span><span id="line-157"></span><span id="newGetGroupQueryResponse"><span class="annot"><span class="annottext">newGetGroupQueryResponse :: Int -&gt; GetGroupQueryResponse
-</span><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#newGetGroupQueryResponse"><span class="hs-identifier hs-var hs-var">newGetGroupQueryResponse</span></a></span></span><span> </span><span id="local-6989586621679179758"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679179758"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#newGetGroupQueryResponse"><span class="hs-identifier hs-var hs-var">newGetGroupQueryResponse</span></a></span></span><span> </span><span id="local-6989586621679179767"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179767"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-158"></span><span>  </span><span class="annot"><span class="annottext">GetGroupQueryResponse' :: Maybe GroupQuery -&gt; Int -&gt; GetGroupQueryResponse
 </span><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQueryResponse%27"><span class="hs-identifier hs-type">GetGroupQueryResponse'</span></a></span><span>
 </span><span id="line-159"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:groupQuery:GetGroupQueryResponse' :: Maybe GroupQuery
@@ -392,7 +392,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetGroupQueryResponse' :: Int
 </span><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#%24sel%3AhttpStatus%3AGetGroupQueryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679179758"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679179767"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-162"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- | The resource query associated with the specified group. For more</span><span>
@@ -410,16 +410,16 @@ forall a. Maybe a
      (Maybe GroupQuery)
      (Maybe GroupQuery)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQueryResponse%27"><span class="hs-identifier hs-type">GetGroupQueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179757"><span class="annot"><span class="annottext">Maybe GroupQuery
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQueryResponse%27"><span class="hs-identifier hs-type">GetGroupQueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179766"><span class="annot"><span class="annottext">Maybe GroupQuery
 groupQuery :: Maybe GroupQuery
 $sel:groupQuery:GetGroupQueryResponse' :: GetGroupQueryResponse -&gt; Maybe GroupQuery
-</span><a href="#local-6989586621679179757"><span class="hs-identifier hs-var hs-var">groupQuery</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GroupQuery
-</span><a href="#local-6989586621679179757"><span class="hs-identifier hs-var">groupQuery</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179756"><span class="annot"><span class="annottext">s :: GetGroupQueryResponse
-</span><a href="#local-6989586621679179756"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQueryResponse%27"><span class="hs-identifier hs-type">GetGroupQueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179755"><span class="annot"><span class="annottext">Maybe GroupQuery
-</span><a href="#local-6989586621679179755"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupQueryResponse
-</span><a href="#local-6989586621679179756"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupQuery:GetGroupQueryResponse' :: Maybe GroupQuery
+</span><a href="#local-6989586621679179766"><span class="hs-identifier hs-var hs-var">groupQuery</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GroupQuery
+</span><a href="#local-6989586621679179766"><span class="hs-identifier hs-var">groupQuery</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179765"><span class="annot"><span class="annottext">s :: GetGroupQueryResponse
+</span><a href="#local-6989586621679179765"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQueryResponse%27"><span class="hs-identifier hs-type">GetGroupQueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179764"><span class="annot"><span class="annottext">Maybe GroupQuery
+</span><a href="#local-6989586621679179764"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupQueryResponse
+</span><a href="#local-6989586621679179765"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupQuery:GetGroupQueryResponse' :: Maybe GroupQuery
 </span><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#%24sel%3AgroupQuery%3AGetGroupQueryResponse%27"><span class="hs-identifier hs-var">groupQuery</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GroupQuery
-</span><a href="#local-6989586621679179755"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQueryResponse"><span class="hs-identifier hs-type">GetGroupQueryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679179764"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQueryResponse"><span class="hs-identifier hs-type">GetGroupQueryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-171"></span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#getGroupQueryResponse_httpStatus"><span class="hs-identifier hs-type">getGroupQueryResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQueryResponse"><span class="hs-identifier hs-type">GetGroupQueryResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -428,16 +428,16 @@ $sel:groupQuery:GetGroupQueryResponse' :: GetGroupQueryResponse -&gt; Maybe Grou
 -&gt; (GetGroupQueryResponse -&gt; Int -&gt; GetGroupQueryResponse)
 -&gt; Lens GetGroupQueryResponse GetGroupQueryResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQueryResponse%27"><span class="hs-identifier hs-type">GetGroupQueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179754"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQueryResponse%27"><span class="hs-identifier hs-type">GetGroupQueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179763"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetGroupQueryResponse' :: GetGroupQueryResponse -&gt; Int
-</span><a href="#local-6989586621679179754"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679179754"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179753"><span class="annot"><span class="annottext">s :: GetGroupQueryResponse
-</span><a href="#local-6989586621679179753"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQueryResponse%27"><span class="hs-identifier hs-type">GetGroupQueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179752"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679179752"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupQueryResponse
-</span><a href="#local-6989586621679179753"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetGroupQueryResponse' :: Int
+</span><a href="#local-6989586621679179763"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179763"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179762"><span class="annot"><span class="annottext">s :: GetGroupQueryResponse
+</span><a href="#local-6989586621679179762"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQueryResponse%27"><span class="hs-identifier hs-type">GetGroupQueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179761"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179761"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupQueryResponse
+</span><a href="#local-6989586621679179762"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetGroupQueryResponse' :: Int
 </span><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#%24sel%3AhttpStatus%3AGetGroupQueryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679179752"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQueryResponse"><span class="hs-identifier hs-type">GetGroupQueryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679179761"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQueryResponse"><span class="hs-identifier hs-type">GetGroupQueryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>
-</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179750"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQueryResponse"><span class="hs-identifier hs-type">GetGroupQueryResponse</span></a></span></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179759"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ResourceGroups.GetGroupQuery.html#GetGroupQueryResponse"><span class="hs-identifier hs-type">GetGroupQueryResponse</span></a></span></span><span>
 </span><span id="line-175"></span></pre></body></html>

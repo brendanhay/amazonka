@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- Web Services account, in the current Amazon Web Services Region.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newResourceIdPreference' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679187234"><span id="local-6989586621679187235"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceIdPreference"><span class="annot"><a href="Network.AWS.EFS.Types.ResourceIdPreference.html#ResourceIdPreference"><span class="hs-identifier hs-var">ResourceIdPreference</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceIdPreference%27"><span class="annot"><a href="Network.AWS.EFS.Types.ResourceIdPreference.html#ResourceIdPreference%27"><span class="hs-identifier hs-var">ResourceIdPreference'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679187243"><span id="local-6989586621679187244"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceIdPreference"><span class="annot"><a href="Network.AWS.EFS.Types.ResourceIdPreference.html#ResourceIdPreference"><span class="hs-identifier hs-var">ResourceIdPreference</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceIdPreference%27"><span class="annot"><a href="Network.AWS.EFS.Types.ResourceIdPreference.html#ResourceIdPreference%27"><span class="hs-identifier hs-var">ResourceIdPreference'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Identifies the Amazon EFS resources to which the ID preference setting</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- applies, @FILE_SYSTEM@ and @MOUNT_TARGET@.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Aresources%3AResourceIdPreference%27"><span class="annot"><span class="annottext">ResourceIdPreference -&gt; Maybe [Resource]
@@ -39,7 +39,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AresourceIdType%3AResourceIdPreference%27"><span class="annot"><span class="annottext">ResourceIdPreference -&gt; Maybe ResourceIdType
 </span><a href="Network.AWS.EFS.Types.ResourceIdPreference.html#%24sel%3AresourceIdType%3AResourceIdPreference%27"><span class="hs-identifier hs-var hs-var">resourceIdType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.ResourceIdType.html#ResourceIdType"><span class="hs-identifier hs-type">ResourceIdType</span></a></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679187227"><span id="local-6989586621679187229"><span class="annot"><span class="annottext">ResourceIdPreference -&gt; ResourceIdPreference -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679187236"><span id="local-6989586621679187238"><span class="annot"><span class="annottext">ResourceIdPreference -&gt; ResourceIdPreference -&gt; Bool
 (ResourceIdPreference -&gt; ResourceIdPreference -&gt; Bool)
 -&gt; (ResourceIdPreference -&gt; ResourceIdPreference -&gt; Bool)
 -&gt; Eq ResourceIdPreference
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ResourceIdPreference -&gt; ResourceIdPreference -&gt; Bool
 == :: ResourceIdPreference -&gt; ResourceIdPreference -&gt; Bool
 $c== :: ResourceIdPreference -&gt; ResourceIdPreference -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187218"><span id="local-6989586621679187220"><span id="local-6989586621679187222"><span id="local-6989586621679187224"><span class="annot"><span class="annottext">ReadPrec [ResourceIdPreference]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187227"><span id="local-6989586621679187229"><span id="local-6989586621679187231"><span id="local-6989586621679187233"><span class="annot"><span class="annottext">ReadPrec [ResourceIdPreference]
 ReadPrec ResourceIdPreference
 Int -&gt; ReadS ResourceIdPreference
 ReadS [ResourceIdPreference]
@@ -68,7 +68,7 @@ readList :: ReadS [ResourceIdPreference]
 $creadList :: ReadS [ResourceIdPreference]
 readsPrec :: Int -&gt; ReadS ResourceIdPreference
 $creadsPrec :: Int -&gt; ReadS ResourceIdPreference
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187211"><span id="local-6989586621679187213"><span id="local-6989586621679187215"><span class="annot"><span class="annottext">Int -&gt; ResourceIdPreference -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187220"><span id="local-6989586621679187222"><span id="local-6989586621679187224"><span class="annot"><span class="annottext">Int -&gt; ResourceIdPreference -&gt; ShowS
 [ResourceIdPreference] -&gt; ShowS
 ResourceIdPreference -&gt; String
 (Int -&gt; ResourceIdPreference -&gt; ShowS)
@@ -137,16 +137,16 @@ forall a. Maybe a
      (Maybe [Resource])
      (Maybe [Resource])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.Types.ResourceIdPreference.html#ResourceIdPreference%27"><span class="hs-identifier hs-type">ResourceIdPreference'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187202"><span class="annot"><span class="annottext">Maybe [Resource]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.Types.ResourceIdPreference.html#ResourceIdPreference%27"><span class="hs-identifier hs-type">ResourceIdPreference'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187211"><span class="annot"><span class="annottext">Maybe [Resource]
 resources :: Maybe [Resource]
 $sel:resources:ResourceIdPreference' :: ResourceIdPreference -&gt; Maybe [Resource]
-</span><a href="#local-6989586621679187202"><span class="hs-identifier hs-var hs-var">resources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Resource]
-</span><a href="#local-6989586621679187202"><span class="hs-identifier hs-var">resources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187201"><span class="annot"><span class="annottext">s :: ResourceIdPreference
-</span><a href="#local-6989586621679187201"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.Types.ResourceIdPreference.html#ResourceIdPreference%27"><span class="hs-identifier hs-type">ResourceIdPreference'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187200"><span class="annot"><span class="annottext">Maybe [Resource]
-</span><a href="#local-6989586621679187200"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceIdPreference
-</span><a href="#local-6989586621679187201"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resources:ResourceIdPreference' :: Maybe [Resource]
+</span><a href="#local-6989586621679187211"><span class="hs-identifier hs-var hs-var">resources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Resource]
+</span><a href="#local-6989586621679187211"><span class="hs-identifier hs-var">resources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187210"><span class="annot"><span class="annottext">s :: ResourceIdPreference
+</span><a href="#local-6989586621679187210"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.Types.ResourceIdPreference.html#ResourceIdPreference%27"><span class="hs-identifier hs-type">ResourceIdPreference'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187209"><span class="annot"><span class="annottext">Maybe [Resource]
+</span><a href="#local-6989586621679187209"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceIdPreference
+</span><a href="#local-6989586621679187210"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resources:ResourceIdPreference' :: Maybe [Resource]
 </span><a href="Network.AWS.EFS.Types.ResourceIdPreference.html#%24sel%3Aresources%3AResourceIdPreference%27"><span class="hs-identifier hs-var">resources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Resource]
-</span><a href="#local-6989586621679187200"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.ResourceIdPreference.html#ResourceIdPreference"><span class="hs-identifier hs-type">ResourceIdPreference</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Resource] -&gt; f (Maybe [Resource]))
+</span><a href="#local-6989586621679187209"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.ResourceIdPreference.html#ResourceIdPreference"><span class="hs-identifier hs-type">ResourceIdPreference</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Resource] -&gt; f (Maybe [Resource]))
  -&gt; ResourceIdPreference -&gt; f ResourceIdPreference)
 -&gt; ((Maybe [Resource] -&gt; f (Maybe [Resource]))
     -&gt; Maybe [Resource] -&gt; f (Maybe [Resource]))
@@ -181,19 +181,19 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe ResourceIdType)
      (Maybe ResourceIdType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.Types.ResourceIdPreference.html#ResourceIdPreference%27"><span class="hs-identifier hs-type">ResourceIdPreference'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187195"><span class="annot"><span class="annottext">Maybe ResourceIdType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.Types.ResourceIdPreference.html#ResourceIdPreference%27"><span class="hs-identifier hs-type">ResourceIdPreference'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187204"><span class="annot"><span class="annottext">Maybe ResourceIdType
 resourceIdType :: Maybe ResourceIdType
 $sel:resourceIdType:ResourceIdPreference' :: ResourceIdPreference -&gt; Maybe ResourceIdType
-</span><a href="#local-6989586621679187195"><span class="hs-identifier hs-var hs-var">resourceIdType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceIdType
-</span><a href="#local-6989586621679187195"><span class="hs-identifier hs-var">resourceIdType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187194"><span class="annot"><span class="annottext">s :: ResourceIdPreference
-</span><a href="#local-6989586621679187194"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.Types.ResourceIdPreference.html#ResourceIdPreference%27"><span class="hs-identifier hs-type">ResourceIdPreference'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187193"><span class="annot"><span class="annottext">Maybe ResourceIdType
-</span><a href="#local-6989586621679187193"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceIdPreference
-</span><a href="#local-6989586621679187194"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceIdType:ResourceIdPreference' :: Maybe ResourceIdType
+</span><a href="#local-6989586621679187204"><span class="hs-identifier hs-var hs-var">resourceIdType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceIdType
+</span><a href="#local-6989586621679187204"><span class="hs-identifier hs-var">resourceIdType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187203"><span class="annot"><span class="annottext">s :: ResourceIdPreference
+</span><a href="#local-6989586621679187203"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.Types.ResourceIdPreference.html#ResourceIdPreference%27"><span class="hs-identifier hs-type">ResourceIdPreference'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187202"><span class="annot"><span class="annottext">Maybe ResourceIdType
+</span><a href="#local-6989586621679187202"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceIdPreference
+</span><a href="#local-6989586621679187203"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceIdType:ResourceIdPreference' :: Maybe ResourceIdType
 </span><a href="Network.AWS.EFS.Types.ResourceIdPreference.html#%24sel%3AresourceIdType%3AResourceIdPreference%27"><span class="hs-identifier hs-var">resourceIdType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceIdType
-</span><a href="#local-6989586621679187193"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.ResourceIdPreference.html#ResourceIdPreference"><span class="hs-identifier hs-type">ResourceIdPreference</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679187202"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.ResourceIdPreference.html#ResourceIdPreference"><span class="hs-identifier hs-type">ResourceIdPreference</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187190"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.ResourceIdPreference.html#ResourceIdPreference"><span class="hs-identifier hs-type">ResourceIdPreference</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679187188"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourceIdPreference
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187199"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.ResourceIdPreference.html#ResourceIdPreference"><span class="hs-identifier hs-type">ResourceIdPreference</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679187197"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourceIdPreference
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ResourceIdPreference)
@@ -203,8 +203,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ResourceIdPreference&quot;</span></span><span>
-</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679187185"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679187185"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679187194"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679187194"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Resource] -&gt; Maybe ResourceIdType -&gt; ResourceIdPreference
 </span><a href="Network.AWS.EFS.Types.ResourceIdPreference.html#ResourceIdPreference%27"><span class="hs-identifier hs-var">ResourceIdPreference'</span></a></span><span>
 </span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Resource] -&gt; Maybe ResourceIdType -&gt; ResourceIdPreference)
@@ -212,7 +212,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe ResourceIdType -&gt; ResourceIdPreference)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679187185"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Resource]))
+</span><a href="#local-6989586621679187194"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Resource]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Resources&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Resource]))
@@ -225,13 +225,13 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe ResourceIdType) -&gt; Parser ResourceIdPreference
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679187185"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceIdType)
+</span><a href="#local-6989586621679187194"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceIdType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceIdType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187178"><span id="local-6989586621679187180"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.ResourceIdPreference.html#ResourceIdPreference"><span class="hs-identifier hs-type">ResourceIdPreference</span></a></span></span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187187"><span id="local-6989586621679187189"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.ResourceIdPreference.html#ResourceIdPreference"><span class="hs-identifier hs-type">ResourceIdPreference</span></a></span></span></span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187175"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.ResourceIdPreference.html#ResourceIdPreference"><span class="hs-identifier hs-type">ResourceIdPreference</span></a></span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187184"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.ResourceIdPreference.html#ResourceIdPreference"><span class="hs-identifier hs-type">ResourceIdPreference</span></a></span></span><span>
 </span><span id="line-86"></span></pre></body></html>

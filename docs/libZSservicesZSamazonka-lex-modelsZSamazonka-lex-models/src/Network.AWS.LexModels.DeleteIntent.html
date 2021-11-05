@@ -58,12 +58,12 @@
 </span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newDeleteIntent' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621679326874"><span id="local-6989586621679326875"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteIntent"><span class="annot"><a href="Network.AWS.LexModels.DeleteIntent.html#DeleteIntent"><span class="hs-identifier hs-var">DeleteIntent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteIntent%27"><span class="annot"><a href="Network.AWS.LexModels.DeleteIntent.html#DeleteIntent%27"><span class="hs-identifier hs-var">DeleteIntent'</span></a></span></span><span>
+</span><span id="line-61"></span><span id="local-6989586621679326883"><span id="local-6989586621679326884"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteIntent"><span class="annot"><a href="Network.AWS.LexModels.DeleteIntent.html#DeleteIntent"><span class="hs-identifier hs-var">DeleteIntent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteIntent%27"><span class="annot"><a href="Network.AWS.LexModels.DeleteIntent.html#DeleteIntent%27"><span class="hs-identifier hs-var">DeleteIntent'</span></a></span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the intent. The name is case sensitive.</span><span>
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3Aname%3ADeleteIntent%27"><span class="annot"><span class="annottext">DeleteIntent -&gt; Text
 </span><a href="Network.AWS.LexModels.DeleteIntent.html#%24sel%3Aname%3ADeleteIntent%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326868"><span id="local-6989586621679326870"><span class="annot"><span class="annottext">DeleteIntent -&gt; DeleteIntent -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326877"><span id="local-6989586621679326879"><span class="annot"><span class="annottext">DeleteIntent -&gt; DeleteIntent -&gt; Bool
 (DeleteIntent -&gt; DeleteIntent -&gt; Bool)
 -&gt; (DeleteIntent -&gt; DeleteIntent -&gt; Bool) -&gt; Eq DeleteIntent
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteIntent -&gt; DeleteIntent -&gt; Bool
 == :: DeleteIntent -&gt; DeleteIntent -&gt; Bool
 $c== :: DeleteIntent -&gt; DeleteIntent -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326859"><span id="local-6989586621679326861"><span id="local-6989586621679326863"><span id="local-6989586621679326865"><span class="annot"><span class="annottext">ReadPrec [DeleteIntent]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326868"><span id="local-6989586621679326870"><span id="local-6989586621679326872"><span id="local-6989586621679326874"><span class="annot"><span class="annottext">ReadPrec [DeleteIntent]
 ReadPrec DeleteIntent
 Int -&gt; ReadS DeleteIntent
 ReadS [DeleteIntent]
@@ -91,7 +91,7 @@ readList :: ReadS [DeleteIntent]
 $creadList :: ReadS [DeleteIntent]
 readsPrec :: Int -&gt; ReadS DeleteIntent
 $creadsPrec :: Int -&gt; ReadS DeleteIntent
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326852"><span id="local-6989586621679326854"><span id="local-6989586621679326856"><span class="annot"><span class="annottext">Int -&gt; DeleteIntent -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326861"><span id="local-6989586621679326863"><span id="local-6989586621679326865"><span class="annot"><span class="annottext">Int -&gt; DeleteIntent -&gt; ShowS
 [DeleteIntent] -&gt; ShowS
 DeleteIntent -&gt; String
 (Int -&gt; DeleteIntent -&gt; ShowS)
@@ -131,11 +131,11 @@ $cfrom :: forall x. DeleteIntent -&gt; Rep DeleteIntent x
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.LexModels.DeleteIntent.html#DeleteIntent"><span class="hs-identifier hs-type">DeleteIntent</span></a></span><span>
 </span><span id="line-80"></span><span id="newDeleteIntent"><span class="annot"><span class="annottext">newDeleteIntent :: Text -&gt; DeleteIntent
-</span><a href="Network.AWS.LexModels.DeleteIntent.html#newDeleteIntent"><span class="hs-identifier hs-var hs-var">newDeleteIntent</span></a></span></span><span> </span><span id="local-6989586621679326847"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326847"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteIntent' :: Text -&gt; DeleteIntent
+</span><a href="Network.AWS.LexModels.DeleteIntent.html#newDeleteIntent"><span class="hs-identifier hs-var hs-var">newDeleteIntent</span></a></span></span><span> </span><span id="local-6989586621679326856"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326856"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteIntent' :: Text -&gt; DeleteIntent
 </span><a href="Network.AWS.LexModels.DeleteIntent.html#DeleteIntent%27"><span class="hs-identifier hs-type">DeleteIntent'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteIntent' :: Text
 </span><a href="Network.AWS.LexModels.DeleteIntent.html#%24sel%3Aname%3ADeleteIntent%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326847"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679326856"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | The name of the intent. The name is case sensitive.</span><span>
 </span><span id="line-83"></span><span class="annot"><a href="Network.AWS.LexModels.DeleteIntent.html#deleteIntent_name"><span class="hs-identifier hs-type">deleteIntent_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteIntent.html#DeleteIntent"><span class="hs-identifier hs-type">DeleteIntent</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -144,25 +144,25 @@ $cfrom :: forall x. DeleteIntent -&gt; Rep DeleteIntent x
 -&gt; (DeleteIntent -&gt; Text -&gt; DeleteIntent)
 -&gt; Lens DeleteIntent DeleteIntent Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.DeleteIntent.html#DeleteIntent%27"><span class="hs-identifier hs-type">DeleteIntent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326844"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.DeleteIntent.html#DeleteIntent%27"><span class="hs-identifier hs-type">DeleteIntent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326853"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:DeleteIntent' :: DeleteIntent -&gt; Text
-</span><a href="#local-6989586621679326844"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326844"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326843"><span class="annot"><span class="annottext">s :: DeleteIntent
-</span><a href="#local-6989586621679326843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.DeleteIntent.html#DeleteIntent%27"><span class="hs-identifier hs-type">DeleteIntent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326842"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteIntent
-</span><a href="#local-6989586621679326843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteIntent' :: Text
+</span><a href="#local-6989586621679326853"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326853"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326852"><span class="annot"><span class="annottext">s :: DeleteIntent
+</span><a href="#local-6989586621679326852"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.DeleteIntent.html#DeleteIntent%27"><span class="hs-identifier hs-type">DeleteIntent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326851"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326851"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteIntent
+</span><a href="#local-6989586621679326852"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteIntent' :: Text
 </span><a href="Network.AWS.LexModels.DeleteIntent.html#%24sel%3Aname%3ADeleteIntent%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteIntent.html#DeleteIntent"><span class="hs-identifier hs-type">DeleteIntent</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679326851"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteIntent.html#DeleteIntent"><span class="hs-identifier hs-type">DeleteIntent</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteIntent.html#DeleteIntent"><span class="hs-identifier hs-type">DeleteIntent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-87"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteIntent.html#DeleteIntent"><span class="hs-identifier hs-type">DeleteIntent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteIntent.html#DeleteIntentResponse"><span class="hs-identifier hs-type">DeleteIntentResponse</span></a></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679326838"><span class="annot"><span class="annottext">request :: DeleteIntent -&gt; Request DeleteIntent
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679326847"><span class="annot"><span class="annottext">request :: DeleteIntent -&gt; Request DeleteIntent
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteIntent -&gt; Request DeleteIntent
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.LexModels.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679326834"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679326843"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteIntent
 -&gt; ClientResponse ClientBody
@@ -185,12 +185,12 @@ AWSResponse a
 DeleteIntentResponse
 </span><a href="Network.AWS.LexModels.DeleteIntent.html#DeleteIntentResponse%27"><span class="hs-identifier hs-var">DeleteIntentResponse'</span></a></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326827"><span id="local-6989586621679326829"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteIntent.html#DeleteIntent"><span class="hs-identifier hs-type">DeleteIntent</span></a></span></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326836"><span id="local-6989586621679326838"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteIntent.html#DeleteIntent"><span class="hs-identifier hs-type">DeleteIntent</span></a></span></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326824"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteIntent.html#DeleteIntent"><span class="hs-identifier hs-type">DeleteIntent</span></a></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326833"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteIntent.html#DeleteIntent"><span class="hs-identifier hs-type">DeleteIntent</span></a></span></span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteIntent.html#DeleteIntent"><span class="hs-identifier hs-type">DeleteIntent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679326820"><span class="annot"><span class="annottext">toHeaders :: DeleteIntent -&gt; [Header]
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679326829"><span class="annot"><span class="annottext">toHeaders :: DeleteIntent -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteIntent -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -210,21 +210,21 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteIntent.html#DeleteIntent"><span class="hs-identifier hs-type">DeleteIntent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679326814"><span class="annot"><span class="annottext">toPath :: DeleteIntent -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteIntent.html#DeleteIntent%27"><span class="hs-identifier hs-type">DeleteIntent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326812"><span class="annot"><span class="annottext">Text
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679326823"><span class="annot"><span class="annottext">toPath :: DeleteIntent -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteIntent.html#DeleteIntent%27"><span class="hs-identifier hs-type">DeleteIntent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326821"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:DeleteIntent' :: DeleteIntent -&gt; Text
-</span><a href="#local-6989586621679326812"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679326821"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/intents/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326812"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679326821"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteIntent.html#DeleteIntent"><span class="hs-identifier hs-type">DeleteIntent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679326808"><span class="annot"><span class="annottext">toQuery :: DeleteIntent -&gt; QueryString
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679326817"><span class="annot"><span class="annottext">toQuery :: DeleteIntent -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteIntent -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -232,10 +232,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | /See:/ 'newDeleteIntentResponse' smart constructor.</span><span>
-</span><span id="line-114"></span><span id="local-6989586621679326805"><span id="local-6989586621679326806"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteIntentResponse"><span class="annot"><a href="Network.AWS.LexModels.DeleteIntent.html#DeleteIntentResponse"><span class="hs-identifier hs-var">DeleteIntentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteIntentResponse%27"><span class="annot"><a href="Network.AWS.LexModels.DeleteIntent.html#DeleteIntentResponse%27"><span class="hs-identifier hs-var">DeleteIntentResponse'</span></a></span></span><span>
+</span><span id="line-114"></span><span id="local-6989586621679326814"><span id="local-6989586621679326815"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteIntentResponse"><span class="annot"><a href="Network.AWS.LexModels.DeleteIntent.html#DeleteIntentResponse"><span class="hs-identifier hs-var">DeleteIntentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteIntentResponse%27"><span class="annot"><a href="Network.AWS.LexModels.DeleteIntent.html#DeleteIntentResponse%27"><span class="hs-identifier hs-var">DeleteIntentResponse'</span></a></span></span><span>
 </span><span id="line-115"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-116"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-117"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326801"><span id="local-6989586621679326803"><span class="annot"><span class="annottext">DeleteIntentResponse -&gt; DeleteIntentResponse -&gt; Bool
+</span><span id="line-117"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326810"><span id="local-6989586621679326812"><span class="annot"><span class="annottext">DeleteIntentResponse -&gt; DeleteIntentResponse -&gt; Bool
 (DeleteIntentResponse -&gt; DeleteIntentResponse -&gt; Bool)
 -&gt; (DeleteIntentResponse -&gt; DeleteIntentResponse -&gt; Bool)
 -&gt; Eq DeleteIntentResponse
@@ -244,7 +244,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteIntentResponse -&gt; DeleteIntentResponse -&gt; Bool
 == :: DeleteIntentResponse -&gt; DeleteIntentResponse -&gt; Bool
 $c== :: DeleteIntentResponse -&gt; DeleteIntentResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326793"><span id="local-6989586621679326795"><span id="local-6989586621679326797"><span id="local-6989586621679326799"><span class="annot"><span class="annottext">ReadPrec [DeleteIntentResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326802"><span id="local-6989586621679326804"><span id="local-6989586621679326806"><span id="local-6989586621679326808"><span class="annot"><span class="annottext">ReadPrec [DeleteIntentResponse]
 ReadPrec DeleteIntentResponse
 Int -&gt; ReadS DeleteIntentResponse
 ReadS [DeleteIntentResponse]
@@ -264,7 +264,7 @@ readList :: ReadS [DeleteIntentResponse]
 $creadList :: ReadS [DeleteIntentResponse]
 readsPrec :: Int -&gt; ReadS DeleteIntentResponse
 $creadsPrec :: Int -&gt; ReadS DeleteIntentResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326787"><span id="local-6989586621679326789"><span id="local-6989586621679326791"><span class="annot"><span class="annottext">Int -&gt; DeleteIntentResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326796"><span id="local-6989586621679326798"><span id="local-6989586621679326800"><span class="annot"><span class="annottext">Int -&gt; DeleteIntentResponse -&gt; ShowS
 [DeleteIntentResponse] -&gt; ShowS
 DeleteIntentResponse -&gt; String
 (Int -&gt; DeleteIntentResponse -&gt; ShowS)
@@ -300,5 +300,5 @@ $cfrom :: forall x. DeleteIntentResponse -&gt; Rep DeleteIntentResponse x
 </span><a href="Network.AWS.LexModels.DeleteIntent.html#newDeleteIntentResponse"><span class="hs-identifier hs-var hs-var">newDeleteIntentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteIntentResponse
 </span><a href="Network.AWS.LexModels.DeleteIntent.html#DeleteIntentResponse%27"><span class="hs-identifier hs-var">DeleteIntentResponse'</span></a></span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326783"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteIntent.html#DeleteIntentResponse"><span class="hs-identifier hs-type">DeleteIntentResponse</span></a></span></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326792"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.DeleteIntent.html#DeleteIntentResponse"><span class="hs-identifier hs-type">DeleteIntentResponse</span></a></span></span><span>
 </span><span id="line-128"></span></pre></body></html>

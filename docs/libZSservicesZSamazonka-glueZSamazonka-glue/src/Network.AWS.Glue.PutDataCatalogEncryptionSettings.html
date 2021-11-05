@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newPutDataCatalogEncryptionSettings' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679716159"><span id="local-6989586621679716160"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutDataCatalogEncryptionSettings"><span class="annot"><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#PutDataCatalogEncryptionSettings"><span class="hs-identifier hs-var">PutDataCatalogEncryptionSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutDataCatalogEncryptionSettings%27"><span class="annot"><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#PutDataCatalogEncryptionSettings%27"><span class="hs-identifier hs-var">PutDataCatalogEncryptionSettings'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679716168"><span id="local-6989586621679716169"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutDataCatalogEncryptionSettings"><span class="annot"><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#PutDataCatalogEncryptionSettings"><span class="hs-identifier hs-var">PutDataCatalogEncryptionSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutDataCatalogEncryptionSettings%27"><span class="annot"><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#PutDataCatalogEncryptionSettings%27"><span class="hs-identifier hs-var">PutDataCatalogEncryptionSettings'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the Data Catalog to set the security configuration for. If</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- none is provided, the Amazon Web Services account ID is used by default.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AcatalogId%3APutDataCatalogEncryptionSettings%27"><span class="annot"><span class="annottext">PutDataCatalogEncryptionSettings -&gt; Maybe Text
@@ -58,7 +58,7 @@
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AdataCatalogEncryptionSettings%3APutDataCatalogEncryptionSettings%27"><span class="annot"><span class="annottext">PutDataCatalogEncryptionSettings -&gt; DataCatalogEncryptionSettings
 </span><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#%24sel%3AdataCatalogEncryptionSettings%3APutDataCatalogEncryptionSettings%27"><span class="hs-identifier hs-var hs-var">dataCatalogEncryptionSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DataCatalogEncryptionSettings.html#DataCatalogEncryptionSettings"><span class="hs-identifier hs-type">DataCatalogEncryptionSettings</span></a></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679716152"><span id="local-6989586621679716154"><span class="annot"><span class="annottext">PutDataCatalogEncryptionSettings
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679716161"><span id="local-6989586621679716163"><span class="annot"><span class="annottext">PutDataCatalogEncryptionSettings
 -&gt; PutDataCatalogEncryptionSettings -&gt; Bool
 (PutDataCatalogEncryptionSettings
  -&gt; PutDataCatalogEncryptionSettings -&gt; Bool)
@@ -74,7 +74,7 @@ $c/= :: PutDataCatalogEncryptionSettings
 -&gt; PutDataCatalogEncryptionSettings -&gt; Bool
 $c== :: PutDataCatalogEncryptionSettings
 -&gt; PutDataCatalogEncryptionSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679716143"><span id="local-6989586621679716145"><span id="local-6989586621679716147"><span id="local-6989586621679716149"><span class="annot"><span class="annottext">ReadPrec [PutDataCatalogEncryptionSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679716152"><span id="local-6989586621679716154"><span id="local-6989586621679716156"><span id="local-6989586621679716158"><span class="annot"><span class="annottext">ReadPrec [PutDataCatalogEncryptionSettings]
 ReadPrec PutDataCatalogEncryptionSettings
 Int -&gt; ReadS PutDataCatalogEncryptionSettings
 ReadS [PutDataCatalogEncryptionSettings]
@@ -94,7 +94,7 @@ readList :: ReadS [PutDataCatalogEncryptionSettings]
 $creadList :: ReadS [PutDataCatalogEncryptionSettings]
 readsPrec :: Int -&gt; ReadS PutDataCatalogEncryptionSettings
 $creadsPrec :: Int -&gt; ReadS PutDataCatalogEncryptionSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679716136"><span id="local-6989586621679716138"><span id="local-6989586621679716140"><span class="annot"><span class="annottext">Int -&gt; PutDataCatalogEncryptionSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679716145"><span id="local-6989586621679716147"><span id="local-6989586621679716149"><span class="annot"><span class="annottext">Int -&gt; PutDataCatalogEncryptionSettings -&gt; ShowS
 [PutDataCatalogEncryptionSettings] -&gt; ShowS
 PutDataCatalogEncryptionSettings -&gt; String
 (Int -&gt; PutDataCatalogEncryptionSettings -&gt; ShowS)
@@ -150,8 +150,8 @@ PutDataCatalogEncryptionSettings
 </span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#PutDataCatalogEncryptionSettings"><span class="hs-identifier hs-type">PutDataCatalogEncryptionSettings</span></a></span><span>
 </span><span id="line-77"></span><span id="newPutDataCatalogEncryptionSettings"><span class="annot"><span class="annottext">newPutDataCatalogEncryptionSettings :: DataCatalogEncryptionSettings -&gt; PutDataCatalogEncryptionSettings
 </span><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#newPutDataCatalogEncryptionSettings"><span class="hs-identifier hs-var hs-var">newPutDataCatalogEncryptionSettings</span></a></span></span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679716131"><span class="annot"><span class="annottext">DataCatalogEncryptionSettings
-</span><a href="#local-6989586621679716131"><span class="hs-identifier hs-var">pDataCatalogEncryptionSettings_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679716140"><span class="annot"><span class="annottext">DataCatalogEncryptionSettings
+</span><a href="#local-6989586621679716140"><span class="hs-identifier hs-var">pDataCatalogEncryptionSettings_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">PutDataCatalogEncryptionSettings' :: Maybe Text
 -&gt; DataCatalogEncryptionSettings
 -&gt; PutDataCatalogEncryptionSettings
@@ -164,7 +164,7 @@ forall a. Maybe a
 </span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">$sel:dataCatalogEncryptionSettings:PutDataCatalogEncryptionSettings' :: DataCatalogEncryptionSettings
 </span><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#%24sel%3AdataCatalogEncryptionSettings%3APutDataCatalogEncryptionSettings%27"><span class="hs-identifier hs-var">dataCatalogEncryptionSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">DataCatalogEncryptionSettings
-</span><a href="#local-6989586621679716131"><span class="hs-identifier hs-var">pDataCatalogEncryptionSettings_</span></a></span><span>
+</span><a href="#local-6989586621679716140"><span class="hs-identifier hs-var">pDataCatalogEncryptionSettings_</span></a></span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | The ID of the Data Catalog to set the security configuration for. If</span><span>
@@ -182,16 +182,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#PutDataCatalogEncryptionSettings%27"><span class="hs-identifier hs-type">PutDataCatalogEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679716128"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#PutDataCatalogEncryptionSettings%27"><span class="hs-identifier hs-type">PutDataCatalogEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679716137"><span class="annot"><span class="annottext">Maybe Text
 catalogId :: Maybe Text
 $sel:catalogId:PutDataCatalogEncryptionSettings' :: PutDataCatalogEncryptionSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679716128"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679716128"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679716127"><span class="annot"><span class="annottext">s :: PutDataCatalogEncryptionSettings
-</span><a href="#local-6989586621679716127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#PutDataCatalogEncryptionSettings%27"><span class="hs-identifier hs-type">PutDataCatalogEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679716126"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679716126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutDataCatalogEncryptionSettings
-</span><a href="#local-6989586621679716127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:PutDataCatalogEncryptionSettings' :: Maybe Text
+</span><a href="#local-6989586621679716137"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679716137"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679716136"><span class="annot"><span class="annottext">s :: PutDataCatalogEncryptionSettings
+</span><a href="#local-6989586621679716136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#PutDataCatalogEncryptionSettings%27"><span class="hs-identifier hs-type">PutDataCatalogEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679716135"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679716135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutDataCatalogEncryptionSettings
+</span><a href="#local-6989586621679716136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:PutDataCatalogEncryptionSettings' :: Maybe Text
 </span><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#%24sel%3AcatalogId%3APutDataCatalogEncryptionSettings%27"><span class="hs-identifier hs-var">catalogId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679716126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#PutDataCatalogEncryptionSettings"><span class="hs-identifier hs-type">PutDataCatalogEncryptionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679716135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#PutDataCatalogEncryptionSettings"><span class="hs-identifier hs-type">PutDataCatalogEncryptionSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The security configuration to set.</span><span>
 </span><span id="line-92"></span><span class="annot"><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#putDataCatalogEncryptionSettings_dataCatalogEncryptionSettings"><span class="hs-identifier hs-type">putDataCatalogEncryptionSettings_dataCatalogEncryptionSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#PutDataCatalogEncryptionSettings"><span class="hs-identifier hs-type">PutDataCatalogEncryptionSettings</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DataCatalogEncryptionSettings.html#DataCatalogEncryptionSettings"><span class="hs-identifier hs-type">DataCatalogEncryptionSettings</span></a></span><span>
@@ -208,16 +208,16 @@ $sel:catalogId:PutDataCatalogEncryptionSettings' :: PutDataCatalogEncryptionSett
      DataCatalogEncryptionSettings
      DataCatalogEncryptionSettings
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#PutDataCatalogEncryptionSettings%27"><span class="hs-identifier hs-type">PutDataCatalogEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679716125"><span class="annot"><span class="annottext">DataCatalogEncryptionSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#PutDataCatalogEncryptionSettings%27"><span class="hs-identifier hs-type">PutDataCatalogEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679716134"><span class="annot"><span class="annottext">DataCatalogEncryptionSettings
 dataCatalogEncryptionSettings :: DataCatalogEncryptionSettings
 $sel:dataCatalogEncryptionSettings:PutDataCatalogEncryptionSettings' :: PutDataCatalogEncryptionSettings -&gt; DataCatalogEncryptionSettings
-</span><a href="#local-6989586621679716125"><span class="hs-identifier hs-var hs-var">dataCatalogEncryptionSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataCatalogEncryptionSettings
-</span><a href="#local-6989586621679716125"><span class="hs-identifier hs-var">dataCatalogEncryptionSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679716124"><span class="annot"><span class="annottext">s :: PutDataCatalogEncryptionSettings
-</span><a href="#local-6989586621679716124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#PutDataCatalogEncryptionSettings%27"><span class="hs-identifier hs-type">PutDataCatalogEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679716123"><span class="annot"><span class="annottext">DataCatalogEncryptionSettings
-</span><a href="#local-6989586621679716123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutDataCatalogEncryptionSettings
-</span><a href="#local-6989586621679716124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataCatalogEncryptionSettings:PutDataCatalogEncryptionSettings' :: DataCatalogEncryptionSettings
+</span><a href="#local-6989586621679716134"><span class="hs-identifier hs-var hs-var">dataCatalogEncryptionSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataCatalogEncryptionSettings
+</span><a href="#local-6989586621679716134"><span class="hs-identifier hs-var">dataCatalogEncryptionSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679716133"><span class="annot"><span class="annottext">s :: PutDataCatalogEncryptionSettings
+</span><a href="#local-6989586621679716133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#PutDataCatalogEncryptionSettings%27"><span class="hs-identifier hs-type">PutDataCatalogEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679716132"><span class="annot"><span class="annottext">DataCatalogEncryptionSettings
+</span><a href="#local-6989586621679716132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutDataCatalogEncryptionSettings
+</span><a href="#local-6989586621679716133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataCatalogEncryptionSettings:PutDataCatalogEncryptionSettings' :: DataCatalogEncryptionSettings
 </span><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#%24sel%3AdataCatalogEncryptionSettings%3APutDataCatalogEncryptionSettings%27"><span class="hs-identifier hs-var">dataCatalogEncryptionSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DataCatalogEncryptionSettings
-</span><a href="#local-6989586621679716123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#PutDataCatalogEncryptionSettings"><span class="hs-identifier hs-type">PutDataCatalogEncryptionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679716132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#PutDataCatalogEncryptionSettings"><span class="hs-identifier hs-type">PutDataCatalogEncryptionSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-96"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -226,7 +226,7 @@ $sel:dataCatalogEncryptionSettings:PutDataCatalogEncryptionSettings' :: PutDataC
 </span><span id="line-99"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-100"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#PutDataCatalogEncryptionSettings"><span class="hs-identifier hs-type">PutDataCatalogEncryptionSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#PutDataCatalogEncryptionSettingsResponse"><span class="hs-identifier hs-type">PutDataCatalogEncryptionSettingsResponse</span></a></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679716119"><span class="annot"><span class="annottext">request :: PutDataCatalogEncryptionSettings
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679716128"><span class="annot"><span class="annottext">request :: PutDataCatalogEncryptionSettings
 -&gt; Request PutDataCatalogEncryptionSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; PutDataCatalogEncryptionSettings
@@ -234,7 +234,7 @@ $sel:dataCatalogEncryptionSettings:PutDataCatalogEncryptionSettings' :: PutDataC
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679716115"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679716124"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutDataCatalogEncryptionSettings
 -&gt; ClientResponse ClientBody
@@ -262,10 +262,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679716112"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679716112"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679716111"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679716111"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679716110"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679716110"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679716121"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679716121"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679716120"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679716120"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679716119"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679716119"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; PutDataCatalogEncryptionSettingsResponse
 </span><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#PutDataCatalogEncryptionSettingsResponse%27"><span class="hs-identifier hs-var">PutDataCatalogEncryptionSettingsResponse'</span></a></span><span>
 </span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; PutDataCatalogEncryptionSettingsResponse)
@@ -277,22 +277,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679716112"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679716121"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679716103"><span id="local-6989586621679716105"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679716112"><span id="local-6989586621679716114"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#PutDataCatalogEncryptionSettings"><span class="hs-identifier hs-type">PutDataCatalogEncryptionSettings</span></a></span></span></span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679716100"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679716109"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#PutDataCatalogEncryptionSettings"><span class="hs-identifier hs-type">PutDataCatalogEncryptionSettings</span></a></span></span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-119"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#PutDataCatalogEncryptionSettings"><span class="hs-identifier hs-type">PutDataCatalogEncryptionSettings</span></a></span><span>
 </span><span id="line-121"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679716096"><span class="annot"><span class="annottext">toHeaders :: PutDataCatalogEncryptionSettings -&gt; ResponseHeaders
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679716105"><span class="annot"><span class="annottext">toHeaders :: PutDataCatalogEncryptionSettings -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; PutDataCatalogEncryptionSettings -&gt; ResponseHeaders
@@ -320,15 +320,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-133"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679716086"><span id="local-6989586621679716088"><span id="local-6989586621679716090"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#PutDataCatalogEncryptionSettings"><span class="hs-identifier hs-type">PutDataCatalogEncryptionSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679716084"><span class="annot"><span class="annottext">toJSON :: PutDataCatalogEncryptionSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#PutDataCatalogEncryptionSettings%27"><span class="hs-identifier hs-type">PutDataCatalogEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679716081"><span id="local-6989586621679716082"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679716095"><span id="local-6989586621679716097"><span id="local-6989586621679716099"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#PutDataCatalogEncryptionSettings"><span class="hs-identifier hs-type">PutDataCatalogEncryptionSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679716093"><span class="annot"><span class="annottext">toJSON :: PutDataCatalogEncryptionSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#PutDataCatalogEncryptionSettings%27"><span class="hs-identifier hs-type">PutDataCatalogEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679716090"><span id="local-6989586621679716091"><span class="annot"><span class="annottext">Maybe Text
 DataCatalogEncryptionSettings
 dataCatalogEncryptionSettings :: DataCatalogEncryptionSettings
 catalogId :: Maybe Text
 $sel:dataCatalogEncryptionSettings:PutDataCatalogEncryptionSettings' :: PutDataCatalogEncryptionSettings -&gt; DataCatalogEncryptionSettings
 $sel:catalogId:PutDataCatalogEncryptionSettings' :: PutDataCatalogEncryptionSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679716081"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679716090"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -340,7 +340,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679716082"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679716091"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -349,13 +349,13 @@ forall a. a -&gt; Maybe a
 </span><span id="line-143"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; DataCatalogEncryptionSettings -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">DataCatalogEncryptionSettings
-</span><a href="#local-6989586621679716081"><span class="hs-identifier hs-var">dataCatalogEncryptionSettings</span></a></span><span>
+</span><a href="#local-6989586621679716090"><span class="hs-identifier hs-var">dataCatalogEncryptionSettings</span></a></span><span>
 </span><span id="line-144"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#PutDataCatalogEncryptionSettings"><span class="hs-identifier hs-type">PutDataCatalogEncryptionSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679716075"><span class="annot"><span class="annottext">toPath :: PutDataCatalogEncryptionSettings -&gt; ByteString
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679716084"><span class="annot"><span class="annottext">toPath :: PutDataCatalogEncryptionSettings -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutDataCatalogEncryptionSettings -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
@@ -365,7 +365,7 @@ forall a b. a -&gt; b -&gt; a
 </span><span id="line-152"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-153"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#PutDataCatalogEncryptionSettings"><span class="hs-identifier hs-type">PutDataCatalogEncryptionSettings</span></a></span><span>
 </span><span id="line-154"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679716071"><span class="annot"><span class="annottext">toQuery :: PutDataCatalogEncryptionSettings -&gt; QueryString
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679716080"><span class="annot"><span class="annottext">toQuery :: PutDataCatalogEncryptionSettings -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutDataCatalogEncryptionSettings -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -373,12 +373,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | /See:/ 'newPutDataCatalogEncryptionSettingsResponse' smart constructor.</span><span>
-</span><span id="line-158"></span><span id="local-6989586621679716068"><span id="local-6989586621679716069"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutDataCatalogEncryptionSettingsResponse"><span class="annot"><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#PutDataCatalogEncryptionSettingsResponse"><span class="hs-identifier hs-var">PutDataCatalogEncryptionSettingsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutDataCatalogEncryptionSettingsResponse%27"><span class="annot"><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#PutDataCatalogEncryptionSettingsResponse%27"><span class="hs-identifier hs-var">PutDataCatalogEncryptionSettingsResponse'</span></a></span></span><span>
+</span><span id="line-158"></span><span id="local-6989586621679716077"><span id="local-6989586621679716078"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutDataCatalogEncryptionSettingsResponse"><span class="annot"><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#PutDataCatalogEncryptionSettingsResponse"><span class="hs-identifier hs-var">PutDataCatalogEncryptionSettingsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutDataCatalogEncryptionSettingsResponse%27"><span class="annot"><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#PutDataCatalogEncryptionSettingsResponse%27"><span class="hs-identifier hs-var">PutDataCatalogEncryptionSettingsResponse'</span></a></span></span><span>
 </span><span id="line-159"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-160"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutDataCatalogEncryptionSettingsResponse%27"><span class="annot"><span class="annottext">PutDataCatalogEncryptionSettingsResponse -&gt; Int
 </span><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#%24sel%3AhttpStatus%3APutDataCatalogEncryptionSettingsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-161"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-162"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679716063"><span id="local-6989586621679716065"><span class="annot"><span class="annottext">PutDataCatalogEncryptionSettingsResponse
+</span><span id="line-162"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679716072"><span id="local-6989586621679716074"><span class="annot"><span class="annottext">PutDataCatalogEncryptionSettingsResponse
 -&gt; PutDataCatalogEncryptionSettingsResponse -&gt; Bool
 (PutDataCatalogEncryptionSettingsResponse
  -&gt; PutDataCatalogEncryptionSettingsResponse -&gt; Bool)
@@ -394,7 +394,7 @@ $c/= :: PutDataCatalogEncryptionSettingsResponse
 -&gt; PutDataCatalogEncryptionSettingsResponse -&gt; Bool
 $c== :: PutDataCatalogEncryptionSettingsResponse
 -&gt; PutDataCatalogEncryptionSettingsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679716055"><span id="local-6989586621679716057"><span id="local-6989586621679716059"><span id="local-6989586621679716061"><span class="annot"><span class="annottext">ReadPrec [PutDataCatalogEncryptionSettingsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679716064"><span id="local-6989586621679716066"><span id="local-6989586621679716068"><span id="local-6989586621679716070"><span class="annot"><span class="annottext">ReadPrec [PutDataCatalogEncryptionSettingsResponse]
 ReadPrec PutDataCatalogEncryptionSettingsResponse
 Int -&gt; ReadS PutDataCatalogEncryptionSettingsResponse
 ReadS [PutDataCatalogEncryptionSettingsResponse]
@@ -414,7 +414,7 @@ readList :: ReadS [PutDataCatalogEncryptionSettingsResponse]
 $creadList :: ReadS [PutDataCatalogEncryptionSettingsResponse]
 readsPrec :: Int -&gt; ReadS PutDataCatalogEncryptionSettingsResponse
 $creadsPrec :: Int -&gt; ReadS PutDataCatalogEncryptionSettingsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679716049"><span id="local-6989586621679716051"><span id="local-6989586621679716053"><span class="annot"><span class="annottext">Int -&gt; PutDataCatalogEncryptionSettingsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679716058"><span id="local-6989586621679716060"><span id="local-6989586621679716062"><span class="annot"><span class="annottext">Int -&gt; PutDataCatalogEncryptionSettingsResponse -&gt; ShowS
 [PutDataCatalogEncryptionSettingsResponse] -&gt; ShowS
 PutDataCatalogEncryptionSettingsResponse -&gt; String
 (Int -&gt; PutDataCatalogEncryptionSettingsResponse -&gt; ShowS)
@@ -467,14 +467,14 @@ PutDataCatalogEncryptionSettingsResponse
 </span><span id="line-176"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#PutDataCatalogEncryptionSettingsResponse"><span class="hs-identifier hs-type">PutDataCatalogEncryptionSettingsResponse</span></a></span><span>
 </span><span id="line-177"></span><span id="newPutDataCatalogEncryptionSettingsResponse"><span class="annot"><span class="annottext">newPutDataCatalogEncryptionSettingsResponse :: Int -&gt; PutDataCatalogEncryptionSettingsResponse
 </span><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#newPutDataCatalogEncryptionSettingsResponse"><span class="hs-identifier hs-var hs-var">newPutDataCatalogEncryptionSettingsResponse</span></a></span></span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679716046"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679716046"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679716055"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679716055"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-179"></span><span>    </span><span class="annot"><span class="annottext">PutDataCatalogEncryptionSettingsResponse' :: Int -&gt; PutDataCatalogEncryptionSettingsResponse
 </span><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#PutDataCatalogEncryptionSettingsResponse%27"><span class="hs-identifier hs-type">PutDataCatalogEncryptionSettingsResponse'</span></a></span><span>
 </span><span id="line-180"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:PutDataCatalogEncryptionSettingsResponse' :: Int
 </span><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#%24sel%3AhttpStatus%3APutDataCatalogEncryptionSettingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-181"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679716046"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679716055"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-182"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -491,18 +491,18 @@ PutDataCatalogEncryptionSettingsResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#PutDataCatalogEncryptionSettingsResponse%27"><span class="hs-identifier hs-type">PutDataCatalogEncryptionSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679716045"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#PutDataCatalogEncryptionSettingsResponse%27"><span class="hs-identifier hs-type">PutDataCatalogEncryptionSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679716054"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:PutDataCatalogEncryptionSettingsResponse' :: PutDataCatalogEncryptionSettingsResponse -&gt; Int
-</span><a href="#local-6989586621679716045"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679716045"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679716044"><span class="annot"><span class="annottext">s :: PutDataCatalogEncryptionSettingsResponse
-</span><a href="#local-6989586621679716044"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#PutDataCatalogEncryptionSettingsResponse%27"><span class="hs-identifier hs-type">PutDataCatalogEncryptionSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679716043"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679716043"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutDataCatalogEncryptionSettingsResponse
-</span><a href="#local-6989586621679716044"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutDataCatalogEncryptionSettingsResponse' :: Int
+</span><a href="#local-6989586621679716054"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679716054"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679716053"><span class="annot"><span class="annottext">s :: PutDataCatalogEncryptionSettingsResponse
+</span><a href="#local-6989586621679716053"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#PutDataCatalogEncryptionSettingsResponse%27"><span class="hs-identifier hs-type">PutDataCatalogEncryptionSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679716052"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679716052"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutDataCatalogEncryptionSettingsResponse
+</span><a href="#local-6989586621679716053"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutDataCatalogEncryptionSettingsResponse' :: Int
 </span><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#%24sel%3AhttpStatus%3APutDataCatalogEncryptionSettingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679716043"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#PutDataCatalogEncryptionSettingsResponse"><span class="hs-identifier hs-type">PutDataCatalogEncryptionSettingsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679716052"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#PutDataCatalogEncryptionSettingsResponse"><span class="hs-identifier hs-type">PutDataCatalogEncryptionSettingsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-189"></span><span>  </span><span id="local-6989586621679716041"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679716050"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-190"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.PutDataCatalogEncryptionSettings.html#PutDataCatalogEncryptionSettingsResponse"><span class="hs-identifier hs-type">PutDataCatalogEncryptionSettingsResponse</span></a></span></span><span>
 </span><span id="line-191"></span></pre></body></html>

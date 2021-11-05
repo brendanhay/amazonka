@@ -29,14 +29,14 @@
 </span><span id="line-29"></span><span class="hs-comment">-- encrypted with Amazon Web Services KMS.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newSseKmsEncryptedObjects' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679553814"><span id="local-6989586621679553815"></span></span><span class="hs-keyword">data</span><span> </span><span id="SseKmsEncryptedObjects"><span class="annot"><a href="Network.AWS.S3.Types.SseKmsEncryptedObjects.html#SseKmsEncryptedObjects"><span class="hs-identifier hs-var">SseKmsEncryptedObjects</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SseKmsEncryptedObjects%27"><span class="annot"><a href="Network.AWS.S3.Types.SseKmsEncryptedObjects.html#SseKmsEncryptedObjects%27"><span class="hs-identifier hs-var">SseKmsEncryptedObjects'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679553823"><span id="local-6989586621679553824"></span></span><span class="hs-keyword">data</span><span> </span><span id="SseKmsEncryptedObjects"><span class="annot"><a href="Network.AWS.S3.Types.SseKmsEncryptedObjects.html#SseKmsEncryptedObjects"><span class="hs-identifier hs-var">SseKmsEncryptedObjects</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SseKmsEncryptedObjects%27"><span class="annot"><a href="Network.AWS.S3.Types.SseKmsEncryptedObjects.html#SseKmsEncryptedObjects%27"><span class="hs-identifier hs-var">SseKmsEncryptedObjects'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies whether Amazon S3 replicates objects created with server-side</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- encryption using an Amazon Web Services KMS key stored in Amazon Web</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- Services Key Management Service.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Astatus%3ASseKmsEncryptedObjects%27"><span class="annot"><span class="annottext">SseKmsEncryptedObjects -&gt; SseKmsEncryptedObjectsStatus
 </span><a href="Network.AWS.S3.Types.SseKmsEncryptedObjects.html#%24sel%3Astatus%3ASseKmsEncryptedObjects%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SseKmsEncryptedObjectsStatus.html#SseKmsEncryptedObjectsStatus"><span class="hs-identifier hs-type">SseKmsEncryptedObjectsStatus</span></a></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679553808"><span id="local-6989586621679553810"><span class="annot"><span class="annottext">SseKmsEncryptedObjects -&gt; SseKmsEncryptedObjects -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679553817"><span id="local-6989586621679553819"><span class="annot"><span class="annottext">SseKmsEncryptedObjects -&gt; SseKmsEncryptedObjects -&gt; Bool
 (SseKmsEncryptedObjects -&gt; SseKmsEncryptedObjects -&gt; Bool)
 -&gt; (SseKmsEncryptedObjects -&gt; SseKmsEncryptedObjects -&gt; Bool)
 -&gt; Eq SseKmsEncryptedObjects
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SseKmsEncryptedObjects -&gt; SseKmsEncryptedObjects -&gt; Bool
 == :: SseKmsEncryptedObjects -&gt; SseKmsEncryptedObjects -&gt; Bool
 $c== :: SseKmsEncryptedObjects -&gt; SseKmsEncryptedObjects -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679553799"><span id="local-6989586621679553801"><span id="local-6989586621679553803"><span id="local-6989586621679553805"><span class="annot"><span class="annottext">ReadPrec [SseKmsEncryptedObjects]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679553808"><span id="local-6989586621679553810"><span id="local-6989586621679553812"><span id="local-6989586621679553814"><span class="annot"><span class="annottext">ReadPrec [SseKmsEncryptedObjects]
 ReadPrec SseKmsEncryptedObjects
 Int -&gt; ReadS SseKmsEncryptedObjects
 ReadS [SseKmsEncryptedObjects]
@@ -65,7 +65,7 @@ readList :: ReadS [SseKmsEncryptedObjects]
 $creadList :: ReadS [SseKmsEncryptedObjects]
 readsPrec :: Int -&gt; ReadS SseKmsEncryptedObjects
 $creadsPrec :: Int -&gt; ReadS SseKmsEncryptedObjects
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679553792"><span id="local-6989586621679553794"><span id="local-6989586621679553796"><span class="annot"><span class="annottext">Int -&gt; SseKmsEncryptedObjects -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679553801"><span id="local-6989586621679553803"><span id="local-6989586621679553805"><span class="annot"><span class="annottext">Int -&gt; SseKmsEncryptedObjects -&gt; ShowS
 [SseKmsEncryptedObjects] -&gt; ShowS
 SseKmsEncryptedObjects -&gt; String
 (Int -&gt; SseKmsEncryptedObjects -&gt; ShowS)
@@ -108,12 +108,12 @@ $cfrom :: forall x. SseKmsEncryptedObjects -&gt; Rep SseKmsEncryptedObjects x
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.SseKmsEncryptedObjectsStatus.html#SseKmsEncryptedObjectsStatus"><span class="hs-identifier hs-type">SseKmsEncryptedObjectsStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.SseKmsEncryptedObjects.html#SseKmsEncryptedObjects"><span class="hs-identifier hs-type">SseKmsEncryptedObjects</span></a></span><span>
 </span><span id="line-55"></span><span id="newSseKmsEncryptedObjects"><span class="annot"><span class="annottext">newSseKmsEncryptedObjects :: SseKmsEncryptedObjectsStatus -&gt; SseKmsEncryptedObjects
-</span><a href="Network.AWS.S3.Types.SseKmsEncryptedObjects.html#newSseKmsEncryptedObjects"><span class="hs-identifier hs-var hs-var">newSseKmsEncryptedObjects</span></a></span></span><span> </span><span id="local-6989586621679553786"><span class="annot"><span class="annottext">SseKmsEncryptedObjectsStatus
-</span><a href="#local-6989586621679553786"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.Types.SseKmsEncryptedObjects.html#newSseKmsEncryptedObjects"><span class="hs-identifier hs-var hs-var">newSseKmsEncryptedObjects</span></a></span></span><span> </span><span id="local-6989586621679553795"><span class="annot"><span class="annottext">SseKmsEncryptedObjectsStatus
+</span><a href="#local-6989586621679553795"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">SseKmsEncryptedObjects' :: SseKmsEncryptedObjectsStatus -&gt; SseKmsEncryptedObjects
 </span><a href="Network.AWS.S3.Types.SseKmsEncryptedObjects.html#SseKmsEncryptedObjects%27"><span class="hs-identifier hs-type">SseKmsEncryptedObjects'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:SseKmsEncryptedObjects' :: SseKmsEncryptedObjectsStatus
 </span><a href="Network.AWS.S3.Types.SseKmsEncryptedObjects.html#%24sel%3Astatus%3ASseKmsEncryptedObjects%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SseKmsEncryptedObjectsStatus
-</span><a href="#local-6989586621679553786"><span class="hs-identifier hs-var">pStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679553795"><span class="hs-identifier hs-var">pStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | Specifies whether Amazon S3 replicates objects created with server-side</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- encryption using an Amazon Web Services KMS key stored in Amazon Web</span><span>
@@ -130,21 +130,21 @@ $cfrom :: forall x. SseKmsEncryptedObjects -&gt; Rep SseKmsEncryptedObjects x
      SseKmsEncryptedObjectsStatus
      SseKmsEncryptedObjectsStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.SseKmsEncryptedObjects.html#SseKmsEncryptedObjects%27"><span class="hs-identifier hs-type">SseKmsEncryptedObjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553782"><span class="annot"><span class="annottext">SseKmsEncryptedObjectsStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.SseKmsEncryptedObjects.html#SseKmsEncryptedObjects%27"><span class="hs-identifier hs-type">SseKmsEncryptedObjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553791"><span class="annot"><span class="annottext">SseKmsEncryptedObjectsStatus
 status :: SseKmsEncryptedObjectsStatus
 $sel:status:SseKmsEncryptedObjects' :: SseKmsEncryptedObjects -&gt; SseKmsEncryptedObjectsStatus
-</span><a href="#local-6989586621679553782"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SseKmsEncryptedObjectsStatus
-</span><a href="#local-6989586621679553782"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679553781"><span class="annot"><span class="annottext">s :: SseKmsEncryptedObjects
-</span><a href="#local-6989586621679553781"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.SseKmsEncryptedObjects.html#SseKmsEncryptedObjects%27"><span class="hs-identifier hs-type">SseKmsEncryptedObjects'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679553780"><span class="annot"><span class="annottext">SseKmsEncryptedObjectsStatus
-</span><a href="#local-6989586621679553780"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SseKmsEncryptedObjects
-</span><a href="#local-6989586621679553781"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:SseKmsEncryptedObjects' :: SseKmsEncryptedObjectsStatus
+</span><a href="#local-6989586621679553791"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SseKmsEncryptedObjectsStatus
+</span><a href="#local-6989586621679553791"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679553790"><span class="annot"><span class="annottext">s :: SseKmsEncryptedObjects
+</span><a href="#local-6989586621679553790"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.SseKmsEncryptedObjects.html#SseKmsEncryptedObjects%27"><span class="hs-identifier hs-type">SseKmsEncryptedObjects'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679553789"><span class="annot"><span class="annottext">SseKmsEncryptedObjectsStatus
+</span><a href="#local-6989586621679553789"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SseKmsEncryptedObjects
+</span><a href="#local-6989586621679553790"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:SseKmsEncryptedObjects' :: SseKmsEncryptedObjectsStatus
 </span><a href="Network.AWS.S3.Types.SseKmsEncryptedObjects.html#%24sel%3Astatus%3ASseKmsEncryptedObjects%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SseKmsEncryptedObjectsStatus
-</span><a href="#local-6989586621679553780"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SseKmsEncryptedObjects.html#SseKmsEncryptedObjects"><span class="hs-identifier hs-type">SseKmsEncryptedObjects</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679553789"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SseKmsEncryptedObjects.html#SseKmsEncryptedObjects"><span class="hs-identifier hs-type">SseKmsEncryptedObjects</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SseKmsEncryptedObjects.html#SseKmsEncryptedObjects"><span class="hs-identifier hs-type">SseKmsEncryptedObjects</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679553777"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String SseKmsEncryptedObjects
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679553775"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679553775"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679553786"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String SseKmsEncryptedObjects
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679553784"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679553784"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">SseKmsEncryptedObjectsStatus -&gt; SseKmsEncryptedObjects
 </span><a href="Network.AWS.S3.Types.SseKmsEncryptedObjects.html#SseKmsEncryptedObjects%27"><span class="hs-identifier hs-var">SseKmsEncryptedObjects'</span></a></span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">(SseKmsEncryptedObjectsStatus -&gt; SseKmsEncryptedObjects)
@@ -152,26 +152,26 @@ $sel:status:SseKmsEncryptedObjects' :: SseKmsEncryptedObjects -&gt; SseKmsEncryp
 -&gt; Either String SseKmsEncryptedObjects
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679553775"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String SseKmsEncryptedObjectsStatus
+</span><a href="#local-6989586621679553784"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String SseKmsEncryptedObjectsStatus
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679553769"><span id="local-6989586621679553771"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SseKmsEncryptedObjects.html#SseKmsEncryptedObjects"><span class="hs-identifier hs-type">SseKmsEncryptedObjects</span></a></span></span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679553778"><span id="local-6989586621679553780"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SseKmsEncryptedObjects.html#SseKmsEncryptedObjects"><span class="hs-identifier hs-type">SseKmsEncryptedObjects</span></a></span></span></span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679553766"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SseKmsEncryptedObjects.html#SseKmsEncryptedObjects"><span class="hs-identifier hs-type">SseKmsEncryptedObjects</span></a></span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679553775"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SseKmsEncryptedObjects.html#SseKmsEncryptedObjects"><span class="hs-identifier hs-type">SseKmsEncryptedObjects</span></a></span></span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SseKmsEncryptedObjects.html#SseKmsEncryptedObjects"><span class="hs-identifier hs-type">SseKmsEncryptedObjects</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679553762"><span class="annot"><span class="annottext">toXML :: SseKmsEncryptedObjects -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SseKmsEncryptedObjects.html#SseKmsEncryptedObjects%27"><span class="hs-identifier hs-type">SseKmsEncryptedObjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553760"><span class="annot"><span class="annottext">SseKmsEncryptedObjectsStatus
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679553771"><span class="annot"><span class="annottext">toXML :: SseKmsEncryptedObjects -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SseKmsEncryptedObjects.html#SseKmsEncryptedObjects%27"><span class="hs-identifier hs-type">SseKmsEncryptedObjects'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553769"><span class="annot"><span class="annottext">SseKmsEncryptedObjectsStatus
 status :: SseKmsEncryptedObjectsStatus
 $sel:status:SseKmsEncryptedObjects' :: SseKmsEncryptedObjects -&gt; SseKmsEncryptedObjectsStatus
-</span><a href="#local-6989586621679553760"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679553769"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Status&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; SseKmsEncryptedObjectsStatus -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">SseKmsEncryptedObjectsStatus
-</span><a href="#local-6989586621679553760"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679553769"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-76"></span></pre></body></html>

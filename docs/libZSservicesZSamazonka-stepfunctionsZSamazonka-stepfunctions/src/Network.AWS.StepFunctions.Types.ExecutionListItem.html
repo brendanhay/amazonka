@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Contains details about an execution.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newExecutionListItem' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679223992"><span id="local-6989586621679223993"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExecutionListItem"><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem"><span class="hs-identifier hs-var">ExecutionListItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExecutionListItem%27"><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem%27"><span class="hs-identifier hs-var">ExecutionListItem'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679224001"><span id="local-6989586621679224002"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExecutionListItem"><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem"><span class="hs-identifier hs-var">ExecutionListItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExecutionListItem%27"><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem%27"><span class="hs-identifier hs-var">ExecutionListItem'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the execution already ended, the date the execution stopped.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AstopDate%3AExecutionListItem%27"><span class="annot"><span class="annottext">ExecutionListItem -&gt; Maybe POSIX
 </span><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#%24sel%3AstopDate%3AExecutionListItem%27"><span class="hs-identifier hs-var hs-var">stopDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
@@ -62,7 +62,7 @@
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AstartDate%3AExecutionListItem%27"><span class="annot"><span class="annottext">ExecutionListItem -&gt; POSIX
 </span><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#%24sel%3AstartDate%3AExecutionListItem%27"><span class="hs-identifier hs-var hs-var">startDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679223981"><span id="local-6989586621679223983"><span class="annot"><span class="annottext">ExecutionListItem -&gt; ExecutionListItem -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679223990"><span id="local-6989586621679223992"><span class="annot"><span class="annottext">ExecutionListItem -&gt; ExecutionListItem -&gt; Bool
 (ExecutionListItem -&gt; ExecutionListItem -&gt; Bool)
 -&gt; (ExecutionListItem -&gt; ExecutionListItem -&gt; Bool)
 -&gt; Eq ExecutionListItem
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ExecutionListItem -&gt; ExecutionListItem -&gt; Bool
 == :: ExecutionListItem -&gt; ExecutionListItem -&gt; Bool
 $c== :: ExecutionListItem -&gt; ExecutionListItem -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223972"><span id="local-6989586621679223974"><span id="local-6989586621679223976"><span id="local-6989586621679223978"><span class="annot"><span class="annottext">ReadPrec [ExecutionListItem]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223981"><span id="local-6989586621679223983"><span id="local-6989586621679223985"><span id="local-6989586621679223987"><span class="annot"><span class="annottext">ReadPrec [ExecutionListItem]
 ReadPrec ExecutionListItem
 Int -&gt; ReadS ExecutionListItem
 ReadS [ExecutionListItem]
@@ -91,7 +91,7 @@ readList :: ReadS [ExecutionListItem]
 $creadList :: ReadS [ExecutionListItem]
 readsPrec :: Int -&gt; ReadS ExecutionListItem
 $creadsPrec :: Int -&gt; ReadS ExecutionListItem
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223965"><span id="local-6989586621679223967"><span id="local-6989586621679223969"><span class="annot"><span class="annottext">Int -&gt; ExecutionListItem -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223974"><span id="local-6989586621679223976"><span id="local-6989586621679223978"><span class="annot"><span class="annottext">Int -&gt; ExecutionListItem -&gt; ShowS
 [ExecutionListItem] -&gt; ShowS
 ExecutionListItem -&gt; String
 (Int -&gt; ExecutionListItem -&gt; ShowS)
@@ -166,16 +166,16 @@ $cfrom :: forall x. ExecutionListItem -&gt; Rep ExecutionListItem x
 </span><span id="line-107"></span><span id="newExecutionListItem"><span class="annot"><span class="annottext">newExecutionListItem :: Text
 -&gt; Text -&gt; Text -&gt; ExecutionStatus -&gt; UTCTime -&gt; ExecutionListItem
 </span><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#newExecutionListItem"><span class="hs-identifier hs-var hs-var">newExecutionListItem</span></a></span></span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679223959"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223959"><span class="hs-identifier hs-var">pExecutionArn_</span></a></span></span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679223958"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223958"><span class="hs-identifier hs-var">pStateMachineArn_</span></a></span></span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679223957"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223957"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679223956"><span class="annot"><span class="annottext">ExecutionStatus
-</span><a href="#local-6989586621679223956"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679223955"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679223955"><span class="hs-identifier hs-var">pStartDate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679223968"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223968"><span class="hs-identifier hs-var">pExecutionArn_</span></a></span></span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679223967"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223967"><span class="hs-identifier hs-var">pStateMachineArn_</span></a></span></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679223966"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223966"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679223965"><span class="annot"><span class="annottext">ExecutionStatus
+</span><a href="#local-6989586621679223965"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679223964"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679223964"><span class="hs-identifier hs-var">pStartDate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">ExecutionListItem' :: Maybe POSIX
 -&gt; Text
 -&gt; Text
@@ -190,16 +190,16 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">$sel:executionArn:ExecutionListItem' :: Text
 </span><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#%24sel%3AexecutionArn%3AExecutionListItem%27"><span class="hs-identifier hs-var">executionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223959"><span class="hs-identifier hs-var">pExecutionArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679223968"><span class="hs-identifier hs-var">pExecutionArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">$sel:stateMachineArn:ExecutionListItem' :: Text
 </span><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#%24sel%3AstateMachineArn%3AExecutionListItem%27"><span class="hs-identifier hs-var">stateMachineArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223958"><span class="hs-identifier hs-var">pStateMachineArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679223967"><span class="hs-identifier hs-var">pStateMachineArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:ExecutionListItem' :: Text
 </span><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#%24sel%3Aname%3AExecutionListItem%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223957"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679223966"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">$sel:status:ExecutionListItem' :: ExecutionStatus
 </span><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#%24sel%3Astatus%3AExecutionListItem%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ExecutionStatus
-</span><a href="#local-6989586621679223956"><span class="hs-identifier hs-var">pStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679223965"><span class="hs-identifier hs-var">pStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">$sel:startDate:ExecutionListItem' :: POSIX
 </span><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#%24sel%3AstartDate%3AExecutionListItem%27"><span class="hs-identifier hs-var">startDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
 forall (a :: Format). Iso' (Time a) UTCTime
@@ -208,7 +208,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679223955"><span class="hs-identifier hs-var">pStartDate_</span></a></span><span>
+</span><a href="#local-6989586621679223964"><span class="hs-identifier hs-var">pStartDate_</span></a></span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | If the execution already ended, the date the execution stopped.</span><span>
@@ -220,16 +220,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; Lens
      ExecutionListItem ExecutionListItem (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem%27"><span class="hs-identifier hs-type">ExecutionListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223949"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem%27"><span class="hs-identifier hs-type">ExecutionListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223958"><span class="annot"><span class="annottext">Maybe POSIX
 stopDate :: Maybe POSIX
 $sel:stopDate:ExecutionListItem' :: ExecutionListItem -&gt; Maybe POSIX
-</span><a href="#local-6989586621679223949"><span class="hs-identifier hs-var hs-var">stopDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679223949"><span class="hs-identifier hs-var">stopDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223948"><span class="annot"><span class="annottext">s :: ExecutionListItem
-</span><a href="#local-6989586621679223948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem%27"><span class="hs-identifier hs-type">ExecutionListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223947"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679223947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecutionListItem
-</span><a href="#local-6989586621679223948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stopDate:ExecutionListItem' :: Maybe POSIX
+</span><a href="#local-6989586621679223958"><span class="hs-identifier hs-var hs-var">stopDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679223958"><span class="hs-identifier hs-var">stopDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223957"><span class="annot"><span class="annottext">s :: ExecutionListItem
+</span><a href="#local-6989586621679223957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem%27"><span class="hs-identifier hs-type">ExecutionListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223956"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679223956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecutionListItem
+</span><a href="#local-6989586621679223957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stopDate:ExecutionListItem' :: Maybe POSIX
 </span><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#%24sel%3AstopDate%3AExecutionListItem%27"><span class="hs-identifier hs-var">stopDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679223947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem"><span class="hs-identifier hs-type">ExecutionListItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679223956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem"><span class="hs-identifier hs-type">ExecutionListItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; ExecutionListItem -&gt; f ExecutionListItem)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -253,16 +253,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (ExecutionListItem -&gt; Text -&gt; ExecutionListItem)
 -&gt; Lens ExecutionListItem ExecutionListItem Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem%27"><span class="hs-identifier hs-type">ExecutionListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223943"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem%27"><span class="hs-identifier hs-type">ExecutionListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223952"><span class="annot"><span class="annottext">Text
 executionArn :: Text
 $sel:executionArn:ExecutionListItem' :: ExecutionListItem -&gt; Text
-</span><a href="#local-6989586621679223943"><span class="hs-identifier hs-var hs-var">executionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223943"><span class="hs-identifier hs-var">executionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223942"><span class="annot"><span class="annottext">s :: ExecutionListItem
-</span><a href="#local-6989586621679223942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem%27"><span class="hs-identifier hs-type">ExecutionListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223941"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecutionListItem
-</span><a href="#local-6989586621679223942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionArn:ExecutionListItem' :: Text
+</span><a href="#local-6989586621679223952"><span class="hs-identifier hs-var hs-var">executionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223952"><span class="hs-identifier hs-var">executionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223951"><span class="annot"><span class="annottext">s :: ExecutionListItem
+</span><a href="#local-6989586621679223951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem%27"><span class="hs-identifier hs-type">ExecutionListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223950"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecutionListItem
+</span><a href="#local-6989586621679223951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionArn:ExecutionListItem' :: Text
 </span><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#%24sel%3AexecutionArn%3AExecutionListItem%27"><span class="hs-identifier hs-var">executionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem"><span class="hs-identifier hs-type">ExecutionListItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679223950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem"><span class="hs-identifier hs-type">ExecutionListItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the executed state machine.</span><span>
 </span><span id="line-131"></span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#executionListItem_stateMachineArn"><span class="hs-identifier hs-type">executionListItem_stateMachineArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem"><span class="hs-identifier hs-type">ExecutionListItem</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -271,16 +271,16 @@ $sel:executionArn:ExecutionListItem' :: ExecutionListItem -&gt; Text
 -&gt; (ExecutionListItem -&gt; Text -&gt; ExecutionListItem)
 -&gt; Lens ExecutionListItem ExecutionListItem Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem%27"><span class="hs-identifier hs-type">ExecutionListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223939"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem%27"><span class="hs-identifier hs-type">ExecutionListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223948"><span class="annot"><span class="annottext">Text
 stateMachineArn :: Text
 $sel:stateMachineArn:ExecutionListItem' :: ExecutionListItem -&gt; Text
-</span><a href="#local-6989586621679223939"><span class="hs-identifier hs-var hs-var">stateMachineArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223939"><span class="hs-identifier hs-var">stateMachineArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223938"><span class="annot"><span class="annottext">s :: ExecutionListItem
-</span><a href="#local-6989586621679223938"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem%27"><span class="hs-identifier hs-type">ExecutionListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223937"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223937"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecutionListItem
-</span><a href="#local-6989586621679223938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateMachineArn:ExecutionListItem' :: Text
+</span><a href="#local-6989586621679223948"><span class="hs-identifier hs-var hs-var">stateMachineArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223948"><span class="hs-identifier hs-var">stateMachineArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223947"><span class="annot"><span class="annottext">s :: ExecutionListItem
+</span><a href="#local-6989586621679223947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem%27"><span class="hs-identifier hs-type">ExecutionListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223946"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecutionListItem
+</span><a href="#local-6989586621679223947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateMachineArn:ExecutionListItem' :: Text
 </span><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#%24sel%3AstateMachineArn%3AExecutionListItem%27"><span class="hs-identifier hs-var">stateMachineArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem"><span class="hs-identifier hs-type">ExecutionListItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679223946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem"><span class="hs-identifier hs-type">ExecutionListItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- | The name of the execution.</span><span>
 </span><span id="line-135"></span><span class="hs-comment">--</span><span>
@@ -304,16 +304,16 @@ $sel:stateMachineArn:ExecutionListItem' :: ExecutionListItem -&gt; Text
 -&gt; (ExecutionListItem -&gt; Text -&gt; ExecutionListItem)
 -&gt; Lens ExecutionListItem ExecutionListItem Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem%27"><span class="hs-identifier hs-type">ExecutionListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223935"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem%27"><span class="hs-identifier hs-type">ExecutionListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223944"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:ExecutionListItem' :: ExecutionListItem -&gt; Text
-</span><a href="#local-6989586621679223935"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223935"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223934"><span class="annot"><span class="annottext">s :: ExecutionListItem
-</span><a href="#local-6989586621679223934"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem%27"><span class="hs-identifier hs-type">ExecutionListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223933"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223933"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecutionListItem
-</span><a href="#local-6989586621679223934"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ExecutionListItem' :: Text
+</span><a href="#local-6989586621679223944"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223944"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223943"><span class="annot"><span class="annottext">s :: ExecutionListItem
+</span><a href="#local-6989586621679223943"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem%27"><span class="hs-identifier hs-type">ExecutionListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223942"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223942"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecutionListItem
+</span><a href="#local-6989586621679223943"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ExecutionListItem' :: Text
 </span><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#%24sel%3Aname%3AExecutionListItem%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679223933"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem"><span class="hs-identifier hs-type">ExecutionListItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679223942"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem"><span class="hs-identifier hs-type">ExecutionListItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- | The current status of the execution.</span><span>
 </span><span id="line-154"></span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#executionListItem_status"><span class="hs-identifier hs-type">executionListItem_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem"><span class="hs-identifier hs-type">ExecutionListItem</span></a></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionStatus.html#ExecutionStatus"><span class="hs-identifier hs-type">ExecutionStatus</span></a></span><span>
@@ -324,16 +324,16 @@ $sel:name:ExecutionListItem' :: ExecutionListItem -&gt; Text
 -&gt; Lens
      ExecutionListItem ExecutionListItem ExecutionStatus ExecutionStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem%27"><span class="hs-identifier hs-type">ExecutionListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223931"><span class="annot"><span class="annottext">ExecutionStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem%27"><span class="hs-identifier hs-type">ExecutionListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223940"><span class="annot"><span class="annottext">ExecutionStatus
 status :: ExecutionStatus
 $sel:status:ExecutionListItem' :: ExecutionListItem -&gt; ExecutionStatus
-</span><a href="#local-6989586621679223931"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecutionStatus
-</span><a href="#local-6989586621679223931"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223930"><span class="annot"><span class="annottext">s :: ExecutionListItem
-</span><a href="#local-6989586621679223930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem%27"><span class="hs-identifier hs-type">ExecutionListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223929"><span class="annot"><span class="annottext">ExecutionStatus
-</span><a href="#local-6989586621679223929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecutionListItem
-</span><a href="#local-6989586621679223930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ExecutionListItem' :: ExecutionStatus
+</span><a href="#local-6989586621679223940"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecutionStatus
+</span><a href="#local-6989586621679223940"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223939"><span class="annot"><span class="annottext">s :: ExecutionListItem
+</span><a href="#local-6989586621679223939"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem%27"><span class="hs-identifier hs-type">ExecutionListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223938"><span class="annot"><span class="annottext">ExecutionStatus
+</span><a href="#local-6989586621679223938"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecutionListItem
+</span><a href="#local-6989586621679223939"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ExecutionListItem' :: ExecutionStatus
 </span><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#%24sel%3Astatus%3AExecutionListItem%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ExecutionStatus
-</span><a href="#local-6989586621679223929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem"><span class="hs-identifier hs-type">ExecutionListItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679223938"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem"><span class="hs-identifier hs-type">ExecutionListItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | The date the execution started.</span><span>
 </span><span id="line-158"></span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#executionListItem_startDate"><span class="hs-identifier hs-type">executionListItem_startDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem"><span class="hs-identifier hs-type">ExecutionListItem</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
@@ -342,16 +342,16 @@ $sel:status:ExecutionListItem' :: ExecutionListItem -&gt; ExecutionStatus
 -&gt; (ExecutionListItem -&gt; POSIX -&gt; ExecutionListItem)
 -&gt; Lens ExecutionListItem ExecutionListItem POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem%27"><span class="hs-identifier hs-type">ExecutionListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223927"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem%27"><span class="hs-identifier hs-type">ExecutionListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223936"><span class="annot"><span class="annottext">POSIX
 startDate :: POSIX
 $sel:startDate:ExecutionListItem' :: ExecutionListItem -&gt; POSIX
-</span><a href="#local-6989586621679223927"><span class="hs-identifier hs-var hs-var">startDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679223927"><span class="hs-identifier hs-var">startDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223926"><span class="annot"><span class="annottext">s :: ExecutionListItem
-</span><a href="#local-6989586621679223926"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem%27"><span class="hs-identifier hs-type">ExecutionListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223925"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679223925"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecutionListItem
-</span><a href="#local-6989586621679223926"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startDate:ExecutionListItem' :: POSIX
+</span><a href="#local-6989586621679223936"><span class="hs-identifier hs-var hs-var">startDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679223936"><span class="hs-identifier hs-var">startDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223935"><span class="annot"><span class="annottext">s :: ExecutionListItem
+</span><a href="#local-6989586621679223935"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem%27"><span class="hs-identifier hs-type">ExecutionListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223934"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679223934"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecutionListItem
+</span><a href="#local-6989586621679223935"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startDate:ExecutionListItem' :: POSIX
 </span><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#%24sel%3AstartDate%3AExecutionListItem%27"><span class="hs-identifier hs-var">startDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679223925"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem"><span class="hs-identifier hs-type">ExecutionListItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; ExecutionListItem -&gt; f ExecutionListItem)
+</span><a href="#local-6989586621679223934"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem"><span class="hs-identifier hs-type">ExecutionListItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; ExecutionListItem -&gt; f ExecutionListItem)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; ExecutionListItem
@@ -361,8 +361,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223922"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem"><span class="hs-identifier hs-type">ExecutionListItem</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679223920"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ExecutionListItem
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223931"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem"><span class="hs-identifier hs-type">ExecutionListItem</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679223929"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ExecutionListItem
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ExecutionListItem)
@@ -372,8 +372,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ExecutionListItem&quot;</span></span><span>
-</span><span id="line-165"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679223917"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679223917"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679223926"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679223926"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-166"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
 -&gt; Text
 -&gt; Text
@@ -395,7 +395,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Text -&gt; Text -&gt; ExecutionStatus -&gt; POSIX -&gt; ExecutionListItem)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679223917"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679223926"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;stopDate&quot;</span></span><span class="hs-special">)</span><span>
@@ -407,7 +407,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Text -&gt; Text -&gt; ExecutionStatus -&gt; POSIX -&gt; ExecutionListItem)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679223917"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679223926"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;executionArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -417,7 +417,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (Text -&gt; ExecutionStatus -&gt; POSIX -&gt; ExecutionListItem)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679223917"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679223926"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;stateMachineArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -426,7 +426,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (ExecutionStatus -&gt; POSIX -&gt; ExecutionListItem)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679223917"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679223926"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
@@ -434,7 +434,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser ExecutionStatus -&gt; Parser (POSIX -&gt; ExecutionListItem)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679223917"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ExecutionStatus
+</span><a href="#local-6989586621679223926"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ExecutionStatus
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
@@ -442,13 +442,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser POSIX -&gt; Parser ExecutionListItem
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679223917"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+</span><a href="#local-6989586621679223926"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;startDate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223910"><span id="local-6989586621679223912"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem"><span class="hs-identifier hs-type">ExecutionListItem</span></a></span></span></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223919"><span id="local-6989586621679223921"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem"><span class="hs-identifier hs-type">ExecutionListItem</span></a></span></span></span><span>
 </span><span id="line-176"></span><span>
-</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223907"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem"><span class="hs-identifier hs-type">ExecutionListItem</span></a></span></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679223916"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ExecutionListItem.html#ExecutionListItem"><span class="hs-identifier hs-type">ExecutionListItem</span></a></span></span><span>
 </span><span id="line-178"></span></pre></body></html>

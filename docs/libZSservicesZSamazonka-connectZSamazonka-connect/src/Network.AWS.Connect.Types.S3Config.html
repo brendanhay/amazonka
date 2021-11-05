@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- type.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newS3Config' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679404164"><span id="local-6989586621679404165"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3Config"><span class="annot"><a href="Network.AWS.Connect.Types.S3Config.html#S3Config"><span class="hs-identifier hs-var">S3Config</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3Config%27"><span class="annot"><a href="Network.AWS.Connect.Types.S3Config.html#S3Config%27"><span class="hs-identifier hs-var">S3Config'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679404173"><span id="local-6989586621679404174"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3Config"><span class="annot"><a href="Network.AWS.Connect.Types.S3Config.html#S3Config"><span class="hs-identifier hs-var">S3Config</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3Config%27"><span class="annot"><a href="Network.AWS.Connect.Types.S3Config.html#S3Config%27"><span class="hs-identifier hs-var">S3Config'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon S3 encryption configuration.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AencryptionConfig%3AS3Config%27"><span class="annot"><span class="annottext">S3Config -&gt; Maybe EncryptionConfig
 </span><a href="Network.AWS.Connect.Types.S3Config.html#%24sel%3AencryptionConfig%3AS3Config%27"><span class="hs-identifier hs-var hs-var">encryptionConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.EncryptionConfig.html#EncryptionConfig"><span class="hs-identifier hs-type">EncryptionConfig</span></a></span><span class="hs-special">,</span><span>
@@ -39,7 +39,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AbucketPrefix%3AS3Config%27"><span class="annot"><span class="annottext">S3Config -&gt; Text
 </span><a href="Network.AWS.Connect.Types.S3Config.html#%24sel%3AbucketPrefix%3AS3Config%27"><span class="hs-identifier hs-var hs-var">bucketPrefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679404156"><span id="local-6989586621679404158"><span class="annot"><span class="annottext">S3Config -&gt; S3Config -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679404165"><span id="local-6989586621679404167"><span class="annot"><span class="annottext">S3Config -&gt; S3Config -&gt; Bool
 (S3Config -&gt; S3Config -&gt; Bool)
 -&gt; (S3Config -&gt; S3Config -&gt; Bool) -&gt; Eq S3Config
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: S3Config -&gt; S3Config -&gt; Bool
 == :: S3Config -&gt; S3Config -&gt; Bool
 $c== :: S3Config -&gt; S3Config -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679404147"><span id="local-6989586621679404149"><span id="local-6989586621679404151"><span id="local-6989586621679404153"><span class="annot"><span class="annottext">ReadPrec [S3Config]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679404156"><span id="local-6989586621679404158"><span id="local-6989586621679404160"><span id="local-6989586621679404162"><span class="annot"><span class="annottext">ReadPrec [S3Config]
 ReadPrec S3Config
 Int -&gt; ReadS S3Config
 ReadS [S3Config]
@@ -67,7 +67,7 @@ readList :: ReadS [S3Config]
 $creadList :: ReadS [S3Config]
 readsPrec :: Int -&gt; ReadS S3Config
 $creadsPrec :: Int -&gt; ReadS S3Config
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679404140"><span id="local-6989586621679404142"><span id="local-6989586621679404144"><span class="annot"><span class="annottext">Int -&gt; S3Config -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679404149"><span id="local-6989586621679404151"><span id="local-6989586621679404153"><span class="annot"><span class="annottext">Int -&gt; S3Config -&gt; ShowS
 [S3Config] -&gt; ShowS
 S3Config -&gt; String
 (Int -&gt; S3Config -&gt; ShowS)
@@ -110,9 +110,9 @@ $cfrom :: forall x. S3Config -&gt; Rep S3Config x
 </span><span id="line-58"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.S3Config.html#S3Config"><span class="hs-identifier hs-type">S3Config</span></a></span><span>
 </span><span id="line-60"></span><span id="newS3Config"><span class="annot"><span class="annottext">newS3Config :: Text -&gt; Text -&gt; S3Config
-</span><a href="Network.AWS.Connect.Types.S3Config.html#newS3Config"><span class="hs-identifier hs-var hs-var">newS3Config</span></a></span></span><span> </span><span id="local-6989586621679404134"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679404134"><span class="hs-identifier hs-var">pBucketName_</span></a></span></span><span> </span><span id="local-6989586621679404133"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679404133"><span class="hs-identifier hs-var">pBucketPrefix_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Connect.Types.S3Config.html#newS3Config"><span class="hs-identifier hs-var hs-var">newS3Config</span></a></span></span><span> </span><span id="local-6989586621679404143"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679404143"><span class="hs-identifier hs-var">pBucketName_</span></a></span></span><span> </span><span id="local-6989586621679404142"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679404142"><span class="hs-identifier hs-var">pBucketPrefix_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">S3Config' :: Maybe EncryptionConfig -&gt; Text -&gt; Text -&gt; S3Config
 </span><a href="Network.AWS.Connect.Types.S3Config.html#S3Config%27"><span class="hs-identifier hs-type">S3Config'</span></a></span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:encryptionConfig:S3Config' :: Maybe EncryptionConfig
@@ -121,10 +121,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucketName:S3Config' :: Text
 </span><a href="Network.AWS.Connect.Types.S3Config.html#%24sel%3AbucketName%3AS3Config%27"><span class="hs-identifier hs-var">bucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679404134"><span class="hs-identifier hs-var">pBucketName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679404143"><span class="hs-identifier hs-var">pBucketName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucketPrefix:S3Config' :: Text
 </span><a href="Network.AWS.Connect.Types.S3Config.html#%24sel%3AbucketPrefix%3AS3Config%27"><span class="hs-identifier hs-var">bucketPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679404133"><span class="hs-identifier hs-var">pBucketPrefix_</span></a></span><span>
+</span><a href="#local-6989586621679404142"><span class="hs-identifier hs-var">pBucketPrefix_</span></a></span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | The Amazon S3 encryption configuration.</span><span>
@@ -136,16 +136,16 @@ forall a. Maybe a
 -&gt; Lens
      S3Config S3Config (Maybe EncryptionConfig) (Maybe EncryptionConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.S3Config.html#S3Config%27"><span class="hs-identifier hs-type">S3Config'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404129"><span class="annot"><span class="annottext">Maybe EncryptionConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.S3Config.html#S3Config%27"><span class="hs-identifier hs-type">S3Config'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404138"><span class="annot"><span class="annottext">Maybe EncryptionConfig
 encryptionConfig :: Maybe EncryptionConfig
 $sel:encryptionConfig:S3Config' :: S3Config -&gt; Maybe EncryptionConfig
-</span><a href="#local-6989586621679404129"><span class="hs-identifier hs-var hs-var">encryptionConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionConfig
-</span><a href="#local-6989586621679404129"><span class="hs-identifier hs-var">encryptionConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404128"><span class="annot"><span class="annottext">s :: S3Config
-</span><a href="#local-6989586621679404128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.S3Config.html#S3Config%27"><span class="hs-identifier hs-type">S3Config'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404127"><span class="annot"><span class="annottext">Maybe EncryptionConfig
-</span><a href="#local-6989586621679404127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Config
-</span><a href="#local-6989586621679404128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionConfig:S3Config' :: Maybe EncryptionConfig
+</span><a href="#local-6989586621679404138"><span class="hs-identifier hs-var hs-var">encryptionConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionConfig
+</span><a href="#local-6989586621679404138"><span class="hs-identifier hs-var">encryptionConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404137"><span class="annot"><span class="annottext">s :: S3Config
+</span><a href="#local-6989586621679404137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.S3Config.html#S3Config%27"><span class="hs-identifier hs-type">S3Config'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404136"><span class="annot"><span class="annottext">Maybe EncryptionConfig
+</span><a href="#local-6989586621679404136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Config
+</span><a href="#local-6989586621679404137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionConfig:S3Config' :: Maybe EncryptionConfig
 </span><a href="Network.AWS.Connect.Types.S3Config.html#%24sel%3AencryptionConfig%3AS3Config%27"><span class="hs-identifier hs-var">encryptionConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionConfig
-</span><a href="#local-6989586621679404127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.S3Config.html#S3Config"><span class="hs-identifier hs-type">S3Config</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679404136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.S3Config.html#S3Config"><span class="hs-identifier hs-type">S3Config</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | The S3 bucket name.</span><span>
 </span><span id="line-72"></span><span class="annot"><a href="Network.AWS.Connect.Types.S3Config.html#s3Config_bucketName"><span class="hs-identifier hs-type">s3Config_bucketName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.S3Config.html#S3Config"><span class="hs-identifier hs-type">S3Config</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -154,16 +154,16 @@ $sel:encryptionConfig:S3Config' :: S3Config -&gt; Maybe EncryptionConfig
 -&gt; (S3Config -&gt; Text -&gt; S3Config)
 -&gt; Lens S3Config S3Config Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.S3Config.html#S3Config%27"><span class="hs-identifier hs-type">S3Config'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404125"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.S3Config.html#S3Config%27"><span class="hs-identifier hs-type">S3Config'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404134"><span class="annot"><span class="annottext">Text
 bucketName :: Text
 $sel:bucketName:S3Config' :: S3Config -&gt; Text
-</span><a href="#local-6989586621679404125"><span class="hs-identifier hs-var hs-var">bucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679404125"><span class="hs-identifier hs-var">bucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404124"><span class="annot"><span class="annottext">s :: S3Config
-</span><a href="#local-6989586621679404124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.S3Config.html#S3Config%27"><span class="hs-identifier hs-type">S3Config'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404123"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679404123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Config
-</span><a href="#local-6989586621679404124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketName:S3Config' :: Text
+</span><a href="#local-6989586621679404134"><span class="hs-identifier hs-var hs-var">bucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679404134"><span class="hs-identifier hs-var">bucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404133"><span class="annot"><span class="annottext">s :: S3Config
+</span><a href="#local-6989586621679404133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.S3Config.html#S3Config%27"><span class="hs-identifier hs-type">S3Config'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404132"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679404132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Config
+</span><a href="#local-6989586621679404133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketName:S3Config' :: Text
 </span><a href="Network.AWS.Connect.Types.S3Config.html#%24sel%3AbucketName%3AS3Config%27"><span class="hs-identifier hs-var">bucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679404123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.S3Config.html#S3Config"><span class="hs-identifier hs-type">S3Config</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679404132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.S3Config.html#S3Config"><span class="hs-identifier hs-type">S3Config</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | The S3 bucket prefix.</span><span>
 </span><span id="line-76"></span><span class="annot"><a href="Network.AWS.Connect.Types.S3Config.html#s3Config_bucketPrefix"><span class="hs-identifier hs-type">s3Config_bucketPrefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.S3Config.html#S3Config"><span class="hs-identifier hs-type">S3Config</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -172,27 +172,27 @@ $sel:bucketName:S3Config' :: S3Config -&gt; Text
 -&gt; (S3Config -&gt; Text -&gt; S3Config)
 -&gt; Lens S3Config S3Config Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.S3Config.html#S3Config%27"><span class="hs-identifier hs-type">S3Config'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404121"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.S3Config.html#S3Config%27"><span class="hs-identifier hs-type">S3Config'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404130"><span class="annot"><span class="annottext">Text
 bucketPrefix :: Text
 $sel:bucketPrefix:S3Config' :: S3Config -&gt; Text
-</span><a href="#local-6989586621679404121"><span class="hs-identifier hs-var hs-var">bucketPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679404121"><span class="hs-identifier hs-var">bucketPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404120"><span class="annot"><span class="annottext">s :: S3Config
-</span><a href="#local-6989586621679404120"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.S3Config.html#S3Config%27"><span class="hs-identifier hs-type">S3Config'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404119"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679404119"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Config
-</span><a href="#local-6989586621679404120"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketPrefix:S3Config' :: Text
+</span><a href="#local-6989586621679404130"><span class="hs-identifier hs-var hs-var">bucketPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679404130"><span class="hs-identifier hs-var">bucketPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404129"><span class="annot"><span class="annottext">s :: S3Config
+</span><a href="#local-6989586621679404129"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.S3Config.html#S3Config%27"><span class="hs-identifier hs-type">S3Config'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404128"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679404128"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Config
+</span><a href="#local-6989586621679404129"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketPrefix:S3Config' :: Text
 </span><a href="Network.AWS.Connect.Types.S3Config.html#%24sel%3AbucketPrefix%3AS3Config%27"><span class="hs-identifier hs-var">bucketPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679404119"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.S3Config.html#S3Config"><span class="hs-identifier hs-type">S3Config</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679404128"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.S3Config.html#S3Config"><span class="hs-identifier hs-type">S3Config</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679404116"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.S3Config.html#S3Config"><span class="hs-identifier hs-type">S3Config</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679404114"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser S3Config
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679404125"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.S3Config.html#S3Config"><span class="hs-identifier hs-type">S3Config</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679404123"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser S3Config
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser S3Config) -&gt; Value -&gt; Parser S3Config
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;S3Config&quot;</span></span><span>
-</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679404111"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679404111"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679404120"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679404120"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Maybe EncryptionConfig -&gt; Text -&gt; Text -&gt; S3Config
 </span><a href="Network.AWS.Connect.Types.S3Config.html#S3Config%27"><span class="hs-identifier hs-var">S3Config'</span></a></span><span>
 </span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">(Maybe EncryptionConfig -&gt; Text -&gt; Text -&gt; S3Config)
@@ -200,7 +200,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Text -&gt; Text -&gt; S3Config)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679404111"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EncryptionConfig)
+</span><a href="#local-6989586621679404120"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EncryptionConfig)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EncryptionConfig&quot;</span></span><span class="hs-special">)</span><span>
@@ -208,26 +208,26 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser (Text -&gt; S3Config)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679404111"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679404120"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BucketName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; S3Config) -&gt; Parser Text -&gt; Parser S3Config
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679404111"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679404120"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BucketPrefix&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679404104"><span id="local-6989586621679404106"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.S3Config.html#S3Config"><span class="hs-identifier hs-type">S3Config</span></a></span></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679404113"><span id="local-6989586621679404115"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.S3Config.html#S3Config"><span class="hs-identifier hs-type">S3Config</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679404101"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.S3Config.html#S3Config"><span class="hs-identifier hs-type">S3Config</span></a></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679404110"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.S3Config.html#S3Config"><span class="hs-identifier hs-type">S3Config</span></a></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679404093"><span id="local-6989586621679404095"><span id="local-6989586621679404097"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.S3Config.html#S3Config"><span class="hs-identifier hs-type">S3Config</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679404091"><span class="annot"><span class="annottext">toJSON :: S3Config -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.S3Config.html#S3Config%27"><span class="hs-identifier hs-type">S3Config'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404087"><span id="local-6989586621679404088"><span id="local-6989586621679404089"><span class="annot"><span class="annottext">Maybe EncryptionConfig
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679404102"><span id="local-6989586621679404104"><span id="local-6989586621679404106"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.S3Config.html#S3Config"><span class="hs-identifier hs-type">S3Config</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679404100"><span class="annot"><span class="annottext">toJSON :: S3Config -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.S3Config.html#S3Config%27"><span class="hs-identifier hs-type">S3Config'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404096"><span id="local-6989586621679404097"><span id="local-6989586621679404098"><span class="annot"><span class="annottext">Maybe EncryptionConfig
 Text
 bucketPrefix :: Text
 bucketName :: Text
@@ -235,7 +235,7 @@ encryptionConfig :: Maybe EncryptionConfig
 $sel:bucketPrefix:S3Config' :: S3Config -&gt; Text
 $sel:bucketName:S3Config' :: S3Config -&gt; Text
 $sel:encryptionConfig:S3Config' :: S3Config -&gt; Maybe EncryptionConfig
-</span><a href="#local-6989586621679404087"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679404096"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -248,21 +248,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-99"></span><span>              </span><span class="annot"><span class="annottext">(EncryptionConfig -&gt; Pair) -&gt; Maybe EncryptionConfig -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionConfig
-</span><a href="#local-6989586621679404089"><span class="hs-identifier hs-var">encryptionConfig</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679404098"><span class="hs-identifier hs-var">encryptionConfig</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BucketName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679404088"><span class="hs-identifier hs-var">bucketName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679404097"><span class="hs-identifier hs-var">bucketName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BucketPrefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679404087"><span class="hs-identifier hs-var">bucketPrefix</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679404096"><span class="hs-identifier hs-var">bucketPrefix</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span></pre></body></html>

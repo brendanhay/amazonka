@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621680358003"><span id="local-6989586621680358004"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UserProfileSortKey"><span class="annot"><a href="Network.AWS.SageMaker.Types.UserProfileSortKey.html#UserProfileSortKey"><span class="hs-identifier hs-var">UserProfileSortKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserProfileSortKey%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.UserProfileSortKey.html#UserProfileSortKey%27"><span class="hs-identifier hs-var">UserProfileSortKey'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680358012"><span id="local-6989586621680358013"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UserProfileSortKey"><span class="annot"><a href="Network.AWS.SageMaker.Types.UserProfileSortKey.html#UserProfileSortKey"><span class="hs-identifier hs-var">UserProfileSortKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserProfileSortKey%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.UserProfileSortKey.html#UserProfileSortKey%27"><span class="hs-identifier hs-var">UserProfileSortKey'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromUserProfileSortKey"><span class="annot"><span class="annottext">UserProfileSortKey -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.UserProfileSortKey.html#fromUserProfileSortKey"><span class="hs-identifier hs-var hs-var">fromUserProfileSortKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680357995"><span id="local-6989586621680357997"><span id="local-6989586621680357999"><span class="annot"><span class="annottext">Int -&gt; UserProfileSortKey -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680358004"><span id="local-6989586621680358006"><span id="local-6989586621680358008"><span class="annot"><span class="annottext">Int -&gt; UserProfileSortKey -&gt; ShowS
 [UserProfileSortKey] -&gt; ShowS
 UserProfileSortKey -&gt; String
 (Int -&gt; UserProfileSortKey -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: UserProfileSortKey -&gt; String
 showsPrec :: Int -&gt; UserProfileSortKey -&gt; ShowS
 $cshowsPrec :: Int -&gt; UserProfileSortKey -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621680357986"><span id="local-6989586621680357988"><span id="local-6989586621680357990"><span id="local-6989586621680357992"><span class="annot"><span class="annottext">ReadPrec [UserProfileSortKey]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621680357995"><span id="local-6989586621680357997"><span id="local-6989586621680357999"><span id="local-6989586621680358001"><span class="annot"><span class="annottext">ReadPrec [UserProfileSortKey]
 ReadPrec UserProfileSortKey
 Int -&gt; ReadS UserProfileSortKey
 ReadS [UserProfileSortKey]
@@ -72,7 +72,7 @@ $creadList :: ReadS [UserProfileSortKey]
 readsPrec :: Int -&gt; ReadS UserProfileSortKey
 $creadsPrec :: Int -&gt; ReadS UserProfileSortKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621680357981"><span id="local-6989586621680357983"><span class="annot"><span class="annottext">UserProfileSortKey -&gt; UserProfileSortKey -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680357990"><span id="local-6989586621680357992"><span class="annot"><span class="annottext">UserProfileSortKey -&gt; UserProfileSortKey -&gt; Bool
 (UserProfileSortKey -&gt; UserProfileSortKey -&gt; Bool)
 -&gt; (UserProfileSortKey -&gt; UserProfileSortKey -&gt; Bool)
 -&gt; Eq UserProfileSortKey
@@ -82,7 +82,7 @@ $c/= :: UserProfileSortKey -&gt; UserProfileSortKey -&gt; Bool
 == :: UserProfileSortKey -&gt; UserProfileSortKey -&gt; Bool
 $c== :: UserProfileSortKey -&gt; UserProfileSortKey -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621680357965"><span id="local-6989586621680357967"><span id="local-6989586621680357969"><span id="local-6989586621680357971"><span id="local-6989586621680357973"><span id="local-6989586621680357975"><span id="local-6989586621680357977"><span class="annot"><span class="annottext">Eq UserProfileSortKey
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680357974"><span id="local-6989586621680357976"><span id="local-6989586621680357978"><span id="local-6989586621680357980"><span id="local-6989586621680357982"><span id="local-6989586621680357984"><span id="local-6989586621680357986"><span class="annot"><span class="annottext">Eq UserProfileSortKey
 Eq UserProfileSortKey
 -&gt; (UserProfileSortKey -&gt; UserProfileSortKey -&gt; Ordering)
 -&gt; (UserProfileSortKey -&gt; UserProfileSortKey -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. UserProfileSortKey -&gt; Rep UserProfileSortKey x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680357957"><span id="local-6989586621680357959"><span class="annot"><span class="annottext">Int -&gt; UserProfileSortKey -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680357966"><span id="local-6989586621680357968"><span class="annot"><span class="annottext">Int -&gt; UserProfileSortKey -&gt; Int
 UserProfileSortKey -&gt; Int
 (Int -&gt; UserProfileSortKey -&gt; Int)
 -&gt; (UserProfileSortKey -&gt; Int) -&gt; Hashable UserProfileSortKey
@@ -143,53 +143,53 @@ $chash :: UserProfileSortKey -&gt; Int
 hashWithSalt :: Int -&gt; UserProfileSortKey -&gt; Int
 $chashWithSalt :: Int -&gt; UserProfileSortKey -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621680357954"><span class="annot"><span class="annottext">UserProfileSortKey -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680357963"><span class="annot"><span class="annottext">UserProfileSortKey -&gt; ()
 (UserProfileSortKey -&gt; ()) -&gt; NFData UserProfileSortKey
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: UserProfileSortKey -&gt; ()
 $crnf :: UserProfileSortKey -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680357951"><span class="annot"><span class="annottext">Text -&gt; Either String UserProfileSortKey
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680357960"><span class="annot"><span class="annottext">Text -&gt; Either String UserProfileSortKey
 (Text -&gt; Either String UserProfileSortKey)
 -&gt; FromText UserProfileSortKey
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String UserProfileSortKey
 $cfromText :: Text -&gt; Either String UserProfileSortKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680357948"><span class="annot"><span class="annottext">UserProfileSortKey -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680357957"><span class="annot"><span class="annottext">UserProfileSortKey -&gt; Text
 (UserProfileSortKey -&gt; Text) -&gt; ToText UserProfileSortKey
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: UserProfileSortKey -&gt; Text
 $ctoText :: UserProfileSortKey -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680357945"><span class="annot"><span class="annottext">UserProfileSortKey -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680357954"><span class="annot"><span class="annottext">UserProfileSortKey -&gt; ByteString
 (UserProfileSortKey -&gt; ByteString)
 -&gt; ToByteString UserProfileSortKey
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: UserProfileSortKey -&gt; ByteString
 $ctoBS :: UserProfileSortKey -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680357942"><span class="annot"><span class="annottext">UserProfileSortKey -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680357951"><span class="annot"><span class="annottext">UserProfileSortKey -&gt; ByteStringBuilder
 (UserProfileSortKey -&gt; ByteStringBuilder)
 -&gt; ToLog UserProfileSortKey
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: UserProfileSortKey -&gt; ByteStringBuilder
 $cbuild :: UserProfileSortKey -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680357939"><span class="annot"><span class="annottext">HeaderName -&gt; UserProfileSortKey -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680357948"><span class="annot"><span class="annottext">HeaderName -&gt; UserProfileSortKey -&gt; [Header]
 (HeaderName -&gt; UserProfileSortKey -&gt; [Header])
 -&gt; ToHeader UserProfileSortKey
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; UserProfileSortKey -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; UserProfileSortKey -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680357936"><span class="annot"><span class="annottext">UserProfileSortKey -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680357945"><span class="annot"><span class="annottext">UserProfileSortKey -&gt; QueryString
 (UserProfileSortKey -&gt; QueryString) -&gt; ToQuery UserProfileSortKey
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: UserProfileSortKey -&gt; QueryString
 $ctoQuery :: UserProfileSortKey -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680357931"><span id="local-6989586621680357933"><span class="annot"><span class="annottext">Value -&gt; Parser [UserProfileSortKey]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680357940"><span id="local-6989586621680357942"><span class="annot"><span class="annottext">Value -&gt; Parser [UserProfileSortKey]
 Value -&gt; Parser UserProfileSortKey
 (Value -&gt; Parser UserProfileSortKey)
 -&gt; (Value -&gt; Parser [UserProfileSortKey])
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [UserProfileSortKey]
 parseJSON :: Value -&gt; Parser UserProfileSortKey
 $cparseJSON :: Value -&gt; Parser UserProfileSortKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680357926"><span id="local-6989586621680357928"><span class="annot"><span class="annottext">FromJSONKeyFunction [UserProfileSortKey]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680357935"><span id="local-6989586621680357937"><span class="annot"><span class="annottext">FromJSONKeyFunction [UserProfileSortKey]
 FromJSONKeyFunction UserProfileSortKey
 FromJSONKeyFunction UserProfileSortKey
 -&gt; FromJSONKeyFunction [UserProfileSortKey]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [UserProfileSortKey]
 fromJSONKey :: FromJSONKeyFunction UserProfileSortKey
 $cfromJSONKey :: FromJSONKeyFunction UserProfileSortKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680357917"><span id="local-6989586621680357919"><span id="local-6989586621680357921"><span id="local-6989586621680357923"><span class="annot"><span class="annottext">[UserProfileSortKey] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680357926"><span id="local-6989586621680357928"><span id="local-6989586621680357930"><span id="local-6989586621680357932"><span class="annot"><span class="annottext">[UserProfileSortKey] -&gt; Encoding
 [UserProfileSortKey] -&gt; Value
 UserProfileSortKey -&gt; Encoding
 UserProfileSortKey -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: UserProfileSortKey -&gt; Encoding
 toJSON :: UserProfileSortKey -&gt; Value
 $ctoJSON :: UserProfileSortKey -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680357912"><span id="local-6989586621680357914"><span class="annot"><span class="annottext">ToJSONKeyFunction [UserProfileSortKey]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680357921"><span id="local-6989586621680357923"><span class="annot"><span class="annottext">ToJSONKeyFunction [UserProfileSortKey]
 ToJSONKeyFunction UserProfileSortKey
 ToJSONKeyFunction UserProfileSortKey
 -&gt; ToJSONKeyFunction [UserProfileSortKey]
@@ -249,14 +249,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [UserProfileSortKey]
 toJSONKey :: ToJSONKeyFunction UserProfileSortKey
 $ctoJSONKey :: ToJSONKeyFunction UserProfileSortKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680357909"><span class="annot"><span class="annottext">[Node] -&gt; Either String UserProfileSortKey
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680357918"><span class="annot"><span class="annottext">[Node] -&gt; Either String UserProfileSortKey
 ([Node] -&gt; Either String UserProfileSortKey)
 -&gt; FromXML UserProfileSortKey
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String UserProfileSortKey
 $cparseXML :: [Node] -&gt; Either String UserProfileSortKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680357906"><span class="annot"><span class="annottext">UserProfileSortKey -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680357915"><span class="annot"><span class="annottext">UserProfileSortKey -&gt; XML
 (UserProfileSortKey -&gt; XML) -&gt; ToXML UserProfileSortKey
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: UserProfileSortKey -&gt; XML

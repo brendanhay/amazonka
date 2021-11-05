@@ -48,7 +48,7 @@
 </span><span id="line-48"></span><span class="hs-comment">-- | Describes the actions associated with a rule.</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- /See:/ 'newAction' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679804560"><span id="local-6989586621679804561"></span></span><span class="hs-keyword">data</span><span> </span><span id="Action"><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-var">Action</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Action%27"><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-var">Action'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679804569"><span id="local-6989586621679804570"></span></span><span class="hs-keyword">data</span><span> </span><span id="Action"><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-var">Action</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Action%27"><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-var">Action'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Capture a CloudWatch metric.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AcloudwatchMetric%3AAction%27"><span class="annot"><span class="annottext">Action -&gt; Maybe CloudwatchMetricAction
 </span><a href="Network.AWS.IoT.Types.Action.html#%24sel%3AcloudwatchMetric%3AAction%27"><span class="hs-identifier hs-var hs-var">cloudwatchMetric</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchMetricAction.html#CloudwatchMetricAction"><span class="hs-identifier hs-type">CloudwatchMetricAction</span></a></span><span class="hs-special">,</span><span>
@@ -128,7 +128,7 @@
 </span><span id="line-107"></span><span>    </span><span id="%24sel%3Asqs%3AAction%27"><span class="annot"><span class="annottext">Action -&gt; Maybe SqsAction
 </span><a href="Network.AWS.IoT.Types.Action.html#%24sel%3Asqs%3AAction%27"><span class="hs-identifier hs-var hs-var">sqs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SqsAction.html#SqsAction"><span class="hs-identifier hs-type">SqsAction</span></a></span><span>
 </span><span id="line-108"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-109"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679804533"><span id="local-6989586621679804535"><span class="annot"><span class="annottext">Action -&gt; Action -&gt; Bool
+</span><span id="line-109"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679804542"><span id="local-6989586621679804544"><span class="annot"><span class="annottext">Action -&gt; Action -&gt; Bool
 (Action -&gt; Action -&gt; Bool)
 -&gt; (Action -&gt; Action -&gt; Bool) -&gt; Eq Action
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -136,7 +136,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Action -&gt; Action -&gt; Bool
 == :: Action -&gt; Action -&gt; Bool
 $c== :: Action -&gt; Action -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679804524"><span id="local-6989586621679804526"><span id="local-6989586621679804528"><span id="local-6989586621679804530"><span class="annot"><span class="annottext">ReadPrec [Action]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679804533"><span id="local-6989586621679804535"><span id="local-6989586621679804537"><span id="local-6989586621679804539"><span class="annot"><span class="annottext">ReadPrec [Action]
 ReadPrec Action
 Int -&gt; ReadS Action
 ReadS [Action]
@@ -156,7 +156,7 @@ readList :: ReadS [Action]
 $creadList :: ReadS [Action]
 readsPrec :: Int -&gt; ReadS Action
 $creadsPrec :: Int -&gt; ReadS Action
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679804517"><span id="local-6989586621679804519"><span id="local-6989586621679804521"><span class="annot"><span class="annottext">Int -&gt; Action -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679804526"><span id="local-6989586621679804528"><span id="local-6989586621679804530"><span class="annot"><span class="annottext">Int -&gt; Action -&gt; ShowS
 [Action] -&gt; ShowS
 Action -&gt; String
 (Int -&gt; Action -&gt; ShowS)
@@ -372,16 +372,16 @@ forall a. Maybe a
      (Maybe CloudwatchMetricAction)
      (Maybe CloudwatchMetricAction)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804508"><span class="annot"><span class="annottext">Maybe CloudwatchMetricAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804517"><span class="annot"><span class="annottext">Maybe CloudwatchMetricAction
 cloudwatchMetric :: Maybe CloudwatchMetricAction
 $sel:cloudwatchMetric:Action' :: Action -&gt; Maybe CloudwatchMetricAction
-</span><a href="#local-6989586621679804508"><span class="hs-identifier hs-var hs-var">cloudwatchMetric</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CloudwatchMetricAction
-</span><a href="#local-6989586621679804508"><span class="hs-identifier hs-var">cloudwatchMetric</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804507"><span class="annot"><span class="annottext">s :: Action
-</span><a href="#local-6989586621679804507"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804506"><span class="annot"><span class="annottext">Maybe CloudwatchMetricAction
-</span><a href="#local-6989586621679804506"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
-</span><a href="#local-6989586621679804507"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudwatchMetric:Action' :: Maybe CloudwatchMetricAction
+</span><a href="#local-6989586621679804517"><span class="hs-identifier hs-var hs-var">cloudwatchMetric</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CloudwatchMetricAction
+</span><a href="#local-6989586621679804517"><span class="hs-identifier hs-var">cloudwatchMetric</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804516"><span class="annot"><span class="annottext">s :: Action
+</span><a href="#local-6989586621679804516"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804515"><span class="annot"><span class="annottext">Maybe CloudwatchMetricAction
+</span><a href="#local-6989586621679804515"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679804516"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudwatchMetric:Action' :: Maybe CloudwatchMetricAction
 </span><a href="Network.AWS.IoT.Types.Action.html#%24sel%3AcloudwatchMetric%3AAction%27"><span class="hs-identifier hs-var">cloudwatchMetric</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CloudwatchMetricAction
-</span><a href="#local-6989586621679804506"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679804515"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-205"></span><span>
 </span><span id="line-206"></span><span class="hs-comment">-- | Send data to CloudWatch Logs.</span><span>
 </span><span id="line-207"></span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#action_cloudwatchLogs"><span class="hs-identifier hs-type">action_cloudwatchLogs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchLogsAction.html#CloudwatchLogsAction"><span class="hs-identifier hs-type">CloudwatchLogsAction</span></a></span><span class="hs-special">)</span><span>
@@ -395,16 +395,16 @@ $sel:cloudwatchMetric:Action' :: Action -&gt; Maybe CloudwatchMetricAction
      (Maybe CloudwatchLogsAction)
      (Maybe CloudwatchLogsAction)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804504"><span class="annot"><span class="annottext">Maybe CloudwatchLogsAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804513"><span class="annot"><span class="annottext">Maybe CloudwatchLogsAction
 cloudwatchLogs :: Maybe CloudwatchLogsAction
 $sel:cloudwatchLogs:Action' :: Action -&gt; Maybe CloudwatchLogsAction
-</span><a href="#local-6989586621679804504"><span class="hs-identifier hs-var hs-var">cloudwatchLogs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CloudwatchLogsAction
-</span><a href="#local-6989586621679804504"><span class="hs-identifier hs-var">cloudwatchLogs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804503"><span class="annot"><span class="annottext">s :: Action
-</span><a href="#local-6989586621679804503"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804502"><span class="annot"><span class="annottext">Maybe CloudwatchLogsAction
-</span><a href="#local-6989586621679804502"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
-</span><a href="#local-6989586621679804503"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudwatchLogs:Action' :: Maybe CloudwatchLogsAction
+</span><a href="#local-6989586621679804513"><span class="hs-identifier hs-var hs-var">cloudwatchLogs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CloudwatchLogsAction
+</span><a href="#local-6989586621679804513"><span class="hs-identifier hs-var">cloudwatchLogs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804512"><span class="annot"><span class="annottext">s :: Action
+</span><a href="#local-6989586621679804512"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804511"><span class="annot"><span class="annottext">Maybe CloudwatchLogsAction
+</span><a href="#local-6989586621679804511"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679804512"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudwatchLogs:Action' :: Maybe CloudwatchLogsAction
 </span><a href="Network.AWS.IoT.Types.Action.html#%24sel%3AcloudwatchLogs%3AAction%27"><span class="hs-identifier hs-var">cloudwatchLogs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CloudwatchLogsAction
-</span><a href="#local-6989586621679804502"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679804511"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-209"></span><span>
 </span><span id="line-210"></span><span class="hs-comment">-- | Write to a DynamoDB table. This is a new version of the DynamoDB action.</span><span>
 </span><span id="line-211"></span><span class="hs-comment">-- It allows you to write each attribute in an MQTT message payload into a</span><span>
@@ -417,16 +417,16 @@ $sel:cloudwatchLogs:Action' :: Action -&gt; Maybe CloudwatchLogsAction
 -&gt; Lens
      Action Action (Maybe DynamoDBv2Action) (Maybe DynamoDBv2Action)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804500"><span class="annot"><span class="annottext">Maybe DynamoDBv2Action
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804509"><span class="annot"><span class="annottext">Maybe DynamoDBv2Action
 dynamoDBv2 :: Maybe DynamoDBv2Action
 $sel:dynamoDBv2:Action' :: Action -&gt; Maybe DynamoDBv2Action
-</span><a href="#local-6989586621679804500"><span class="hs-identifier hs-var hs-var">dynamoDBv2</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DynamoDBv2Action
-</span><a href="#local-6989586621679804500"><span class="hs-identifier hs-var">dynamoDBv2</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804499"><span class="annot"><span class="annottext">s :: Action
-</span><a href="#local-6989586621679804499"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804498"><span class="annot"><span class="annottext">Maybe DynamoDBv2Action
-</span><a href="#local-6989586621679804498"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
-</span><a href="#local-6989586621679804499"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dynamoDBv2:Action' :: Maybe DynamoDBv2Action
+</span><a href="#local-6989586621679804509"><span class="hs-identifier hs-var hs-var">dynamoDBv2</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DynamoDBv2Action
+</span><a href="#local-6989586621679804509"><span class="hs-identifier hs-var">dynamoDBv2</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804508"><span class="annot"><span class="annottext">s :: Action
+</span><a href="#local-6989586621679804508"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804507"><span class="annot"><span class="annottext">Maybe DynamoDBv2Action
+</span><a href="#local-6989586621679804507"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679804508"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dynamoDBv2:Action' :: Maybe DynamoDBv2Action
 </span><a href="Network.AWS.IoT.Types.Action.html#%24sel%3AdynamoDBv2%3AAction%27"><span class="hs-identifier hs-var">dynamoDBv2</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DynamoDBv2Action
-</span><a href="#local-6989586621679804498"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679804507"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-215"></span><span>
 </span><span id="line-216"></span><span class="hs-comment">-- | Starts execution of a Step Functions state machine.</span><span>
 </span><span id="line-217"></span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#action_stepFunctions"><span class="hs-identifier hs-type">action_stepFunctions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.StepFunctionsAction.html#StepFunctionsAction"><span class="hs-identifier hs-type">StepFunctionsAction</span></a></span><span class="hs-special">)</span><span>
@@ -440,16 +440,16 @@ $sel:dynamoDBv2:Action' :: Action -&gt; Maybe DynamoDBv2Action
      (Maybe StepFunctionsAction)
      (Maybe StepFunctionsAction)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804496"><span class="annot"><span class="annottext">Maybe StepFunctionsAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804505"><span class="annot"><span class="annottext">Maybe StepFunctionsAction
 stepFunctions :: Maybe StepFunctionsAction
 $sel:stepFunctions:Action' :: Action -&gt; Maybe StepFunctionsAction
-</span><a href="#local-6989586621679804496"><span class="hs-identifier hs-var hs-var">stepFunctions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StepFunctionsAction
-</span><a href="#local-6989586621679804496"><span class="hs-identifier hs-var">stepFunctions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804495"><span class="annot"><span class="annottext">s :: Action
-</span><a href="#local-6989586621679804495"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804494"><span class="annot"><span class="annottext">Maybe StepFunctionsAction
-</span><a href="#local-6989586621679804494"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
-</span><a href="#local-6989586621679804495"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stepFunctions:Action' :: Maybe StepFunctionsAction
+</span><a href="#local-6989586621679804505"><span class="hs-identifier hs-var hs-var">stepFunctions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StepFunctionsAction
+</span><a href="#local-6989586621679804505"><span class="hs-identifier hs-var">stepFunctions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804504"><span class="annot"><span class="annottext">s :: Action
+</span><a href="#local-6989586621679804504"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804503"><span class="annot"><span class="annottext">Maybe StepFunctionsAction
+</span><a href="#local-6989586621679804503"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679804504"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stepFunctions:Action' :: Maybe StepFunctionsAction
 </span><a href="Network.AWS.IoT.Types.Action.html#%24sel%3AstepFunctions%3AAction%27"><span class="hs-identifier hs-var">stepFunctions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StepFunctionsAction
-</span><a href="#local-6989586621679804494"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679804503"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-219"></span><span>
 </span><span id="line-220"></span><span class="hs-comment">-- | Change the state of a CloudWatch alarm.</span><span>
 </span><span id="line-221"></span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#action_cloudwatchAlarm"><span class="hs-identifier hs-type">action_cloudwatchAlarm</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.CloudwatchAlarmAction.html#CloudwatchAlarmAction"><span class="hs-identifier hs-type">CloudwatchAlarmAction</span></a></span><span class="hs-special">)</span><span>
@@ -463,16 +463,16 @@ $sel:stepFunctions:Action' :: Action -&gt; Maybe StepFunctionsAction
      (Maybe CloudwatchAlarmAction)
      (Maybe CloudwatchAlarmAction)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804492"><span class="annot"><span class="annottext">Maybe CloudwatchAlarmAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804501"><span class="annot"><span class="annottext">Maybe CloudwatchAlarmAction
 cloudwatchAlarm :: Maybe CloudwatchAlarmAction
 $sel:cloudwatchAlarm:Action' :: Action -&gt; Maybe CloudwatchAlarmAction
-</span><a href="#local-6989586621679804492"><span class="hs-identifier hs-var hs-var">cloudwatchAlarm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CloudwatchAlarmAction
-</span><a href="#local-6989586621679804492"><span class="hs-identifier hs-var">cloudwatchAlarm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804491"><span class="annot"><span class="annottext">s :: Action
-</span><a href="#local-6989586621679804491"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804490"><span class="annot"><span class="annottext">Maybe CloudwatchAlarmAction
-</span><a href="#local-6989586621679804490"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
-</span><a href="#local-6989586621679804491"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudwatchAlarm:Action' :: Maybe CloudwatchAlarmAction
+</span><a href="#local-6989586621679804501"><span class="hs-identifier hs-var hs-var">cloudwatchAlarm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CloudwatchAlarmAction
+</span><a href="#local-6989586621679804501"><span class="hs-identifier hs-var">cloudwatchAlarm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804500"><span class="annot"><span class="annottext">s :: Action
+</span><a href="#local-6989586621679804500"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804499"><span class="annot"><span class="annottext">Maybe CloudwatchAlarmAction
+</span><a href="#local-6989586621679804499"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679804500"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudwatchAlarm:Action' :: Maybe CloudwatchAlarmAction
 </span><a href="Network.AWS.IoT.Types.Action.html#%24sel%3AcloudwatchAlarm%3AAction%27"><span class="hs-identifier hs-var">cloudwatchAlarm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CloudwatchAlarmAction
-</span><a href="#local-6989586621679804490"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679804499"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-223"></span><span>
 </span><span id="line-224"></span><span class="hs-comment">-- | Publish to an Amazon SNS topic.</span><span>
 </span><span id="line-225"></span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#action_sns"><span class="hs-identifier hs-type">action_sns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SnsAction.html#SnsAction"><span class="hs-identifier hs-type">SnsAction</span></a></span><span class="hs-special">)</span><span>
@@ -481,16 +481,16 @@ $sel:cloudwatchAlarm:Action' :: Action -&gt; Maybe CloudwatchAlarmAction
 -&gt; (Action -&gt; Maybe SnsAction -&gt; Action)
 -&gt; Lens Action Action (Maybe SnsAction) (Maybe SnsAction)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804488"><span class="annot"><span class="annottext">Maybe SnsAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804497"><span class="annot"><span class="annottext">Maybe SnsAction
 sns :: Maybe SnsAction
 $sel:sns:Action' :: Action -&gt; Maybe SnsAction
-</span><a href="#local-6989586621679804488"><span class="hs-identifier hs-var hs-var">sns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SnsAction
-</span><a href="#local-6989586621679804488"><span class="hs-identifier hs-var">sns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804487"><span class="annot"><span class="annottext">s :: Action
-</span><a href="#local-6989586621679804487"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804486"><span class="annot"><span class="annottext">Maybe SnsAction
-</span><a href="#local-6989586621679804486"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
-</span><a href="#local-6989586621679804487"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sns:Action' :: Maybe SnsAction
+</span><a href="#local-6989586621679804497"><span class="hs-identifier hs-var hs-var">sns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SnsAction
+</span><a href="#local-6989586621679804497"><span class="hs-identifier hs-var">sns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804496"><span class="annot"><span class="annottext">s :: Action
+</span><a href="#local-6989586621679804496"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804495"><span class="annot"><span class="annottext">Maybe SnsAction
+</span><a href="#local-6989586621679804495"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679804496"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sns:Action' :: Maybe SnsAction
 </span><a href="Network.AWS.IoT.Types.Action.html#%24sel%3Asns%3AAction%27"><span class="hs-identifier hs-var">sns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SnsAction
-</span><a href="#local-6989586621679804486"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679804495"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-227"></span><span>
 </span><span id="line-228"></span><span class="hs-comment">-- | Write to a DynamoDB table.</span><span>
 </span><span id="line-229"></span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#action_dynamoDB"><span class="hs-identifier hs-type">action_dynamoDB</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.DynamoDBAction.html#DynamoDBAction"><span class="hs-identifier hs-type">DynamoDBAction</span></a></span><span class="hs-special">)</span><span>
@@ -500,16 +500,16 @@ $sel:sns:Action' :: Action -&gt; Maybe SnsAction
 -&gt; (Action -&gt; Maybe DynamoDBAction -&gt; Action)
 -&gt; Lens Action Action (Maybe DynamoDBAction) (Maybe DynamoDBAction)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804484"><span class="annot"><span class="annottext">Maybe DynamoDBAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804493"><span class="annot"><span class="annottext">Maybe DynamoDBAction
 dynamoDB :: Maybe DynamoDBAction
 $sel:dynamoDB:Action' :: Action -&gt; Maybe DynamoDBAction
-</span><a href="#local-6989586621679804484"><span class="hs-identifier hs-var hs-var">dynamoDB</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DynamoDBAction
-</span><a href="#local-6989586621679804484"><span class="hs-identifier hs-var">dynamoDB</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804483"><span class="annot"><span class="annottext">s :: Action
-</span><a href="#local-6989586621679804483"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804482"><span class="annot"><span class="annottext">Maybe DynamoDBAction
-</span><a href="#local-6989586621679804482"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
-</span><a href="#local-6989586621679804483"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dynamoDB:Action' :: Maybe DynamoDBAction
+</span><a href="#local-6989586621679804493"><span class="hs-identifier hs-var hs-var">dynamoDB</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DynamoDBAction
+</span><a href="#local-6989586621679804493"><span class="hs-identifier hs-var">dynamoDB</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804492"><span class="annot"><span class="annottext">s :: Action
+</span><a href="#local-6989586621679804492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804491"><span class="annot"><span class="annottext">Maybe DynamoDBAction
+</span><a href="#local-6989586621679804491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679804492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dynamoDB:Action' :: Maybe DynamoDBAction
 </span><a href="Network.AWS.IoT.Types.Action.html#%24sel%3AdynamoDB%3AAction%27"><span class="hs-identifier hs-var">dynamoDB</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DynamoDBAction
-</span><a href="#local-6989586621679804482"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679804491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-231"></span><span>
 </span><span id="line-232"></span><span class="hs-comment">-- | Write to an Amazon Kinesis Firehose stream.</span><span>
 </span><span id="line-233"></span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#action_firehose"><span class="hs-identifier hs-type">action_firehose</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.FirehoseAction.html#FirehoseAction"><span class="hs-identifier hs-type">FirehoseAction</span></a></span><span class="hs-special">)</span><span>
@@ -519,16 +519,16 @@ $sel:dynamoDB:Action' :: Action -&gt; Maybe DynamoDBAction
 -&gt; (Action -&gt; Maybe FirehoseAction -&gt; Action)
 -&gt; Lens Action Action (Maybe FirehoseAction) (Maybe FirehoseAction)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804480"><span class="annot"><span class="annottext">Maybe FirehoseAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804489"><span class="annot"><span class="annottext">Maybe FirehoseAction
 firehose :: Maybe FirehoseAction
 $sel:firehose:Action' :: Action -&gt; Maybe FirehoseAction
-</span><a href="#local-6989586621679804480"><span class="hs-identifier hs-var hs-var">firehose</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FirehoseAction
-</span><a href="#local-6989586621679804480"><span class="hs-identifier hs-var">firehose</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804479"><span class="annot"><span class="annottext">s :: Action
-</span><a href="#local-6989586621679804479"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804478"><span class="annot"><span class="annottext">Maybe FirehoseAction
-</span><a href="#local-6989586621679804478"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
-</span><a href="#local-6989586621679804479"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:firehose:Action' :: Maybe FirehoseAction
+</span><a href="#local-6989586621679804489"><span class="hs-identifier hs-var hs-var">firehose</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FirehoseAction
+</span><a href="#local-6989586621679804489"><span class="hs-identifier hs-var">firehose</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804488"><span class="annot"><span class="annottext">s :: Action
+</span><a href="#local-6989586621679804488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804487"><span class="annot"><span class="annottext">Maybe FirehoseAction
+</span><a href="#local-6989586621679804487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679804488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:firehose:Action' :: Maybe FirehoseAction
 </span><a href="Network.AWS.IoT.Types.Action.html#%24sel%3Afirehose%3AAction%27"><span class="hs-identifier hs-var">firehose</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FirehoseAction
-</span><a href="#local-6989586621679804478"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679804487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-235"></span><span>
 </span><span id="line-236"></span><span class="hs-comment">-- | The Timestream rule action writes attributes (measures) from an MQTT</span><span>
 </span><span id="line-237"></span><span class="hs-comment">-- message into an Amazon Timestream table. For more information, see the</span><span>
@@ -542,16 +542,16 @@ $sel:firehose:Action' :: Action -&gt; Maybe FirehoseAction
 -&gt; Lens
      Action Action (Maybe TimestreamAction) (Maybe TimestreamAction)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804476"><span class="annot"><span class="annottext">Maybe TimestreamAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804485"><span class="annot"><span class="annottext">Maybe TimestreamAction
 timestream :: Maybe TimestreamAction
 $sel:timestream:Action' :: Action -&gt; Maybe TimestreamAction
-</span><a href="#local-6989586621679804476"><span class="hs-identifier hs-var hs-var">timestream</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimestreamAction
-</span><a href="#local-6989586621679804476"><span class="hs-identifier hs-var">timestream</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804475"><span class="annot"><span class="annottext">s :: Action
-</span><a href="#local-6989586621679804475"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804474"><span class="annot"><span class="annottext">Maybe TimestreamAction
-</span><a href="#local-6989586621679804474"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
-</span><a href="#local-6989586621679804475"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestream:Action' :: Maybe TimestreamAction
+</span><a href="#local-6989586621679804485"><span class="hs-identifier hs-var hs-var">timestream</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimestreamAction
+</span><a href="#local-6989586621679804485"><span class="hs-identifier hs-var">timestream</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804484"><span class="annot"><span class="annottext">s :: Action
+</span><a href="#local-6989586621679804484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804483"><span class="annot"><span class="annottext">Maybe TimestreamAction
+</span><a href="#local-6989586621679804483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679804484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestream:Action' :: Maybe TimestreamAction
 </span><a href="Network.AWS.IoT.Types.Action.html#%24sel%3Atimestream%3AAction%27"><span class="hs-identifier hs-var">timestream</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TimestreamAction
-</span><a href="#local-6989586621679804474"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679804483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-242"></span><span>
 </span><span id="line-243"></span><span class="hs-comment">-- | Sends data from the MQTT message that triggered the rule to IoT SiteWise</span><span>
 </span><span id="line-244"></span><span class="hs-comment">-- asset properties.</span><span>
@@ -563,16 +563,16 @@ $sel:timestream:Action' :: Action -&gt; Maybe TimestreamAction
 -&gt; Lens
      Action Action (Maybe IotSiteWiseAction) (Maybe IotSiteWiseAction)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804472"><span class="annot"><span class="annottext">Maybe IotSiteWiseAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804481"><span class="annot"><span class="annottext">Maybe IotSiteWiseAction
 iotSiteWise :: Maybe IotSiteWiseAction
 $sel:iotSiteWise:Action' :: Action -&gt; Maybe IotSiteWiseAction
-</span><a href="#local-6989586621679804472"><span class="hs-identifier hs-var hs-var">iotSiteWise</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IotSiteWiseAction
-</span><a href="#local-6989586621679804472"><span class="hs-identifier hs-var">iotSiteWise</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804471"><span class="annot"><span class="annottext">s :: Action
-</span><a href="#local-6989586621679804471"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804470"><span class="annot"><span class="annottext">Maybe IotSiteWiseAction
-</span><a href="#local-6989586621679804470"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
-</span><a href="#local-6989586621679804471"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iotSiteWise:Action' :: Maybe IotSiteWiseAction
+</span><a href="#local-6989586621679804481"><span class="hs-identifier hs-var hs-var">iotSiteWise</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IotSiteWiseAction
+</span><a href="#local-6989586621679804481"><span class="hs-identifier hs-var">iotSiteWise</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804480"><span class="annot"><span class="annottext">s :: Action
+</span><a href="#local-6989586621679804480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804479"><span class="annot"><span class="annottext">Maybe IotSiteWiseAction
+</span><a href="#local-6989586621679804479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679804480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iotSiteWise:Action' :: Maybe IotSiteWiseAction
 </span><a href="Network.AWS.IoT.Types.Action.html#%24sel%3AiotSiteWise%3AAction%27"><span class="hs-identifier hs-var">iotSiteWise</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IotSiteWiseAction
-</span><a href="#local-6989586621679804470"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679804479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-247"></span><span>
 </span><span id="line-248"></span><span class="hs-comment">-- | Sends message data to an IoT Analytics channel.</span><span>
 </span><span id="line-249"></span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#action_iotAnalytics"><span class="hs-identifier hs-type">action_iotAnalytics</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.IotAnalyticsAction.html#IotAnalyticsAction"><span class="hs-identifier hs-type">IotAnalyticsAction</span></a></span><span class="hs-special">)</span><span>
@@ -583,16 +583,16 @@ $sel:iotSiteWise:Action' :: Action -&gt; Maybe IotSiteWiseAction
 -&gt; Lens
      Action Action (Maybe IotAnalyticsAction) (Maybe IotAnalyticsAction)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804468"><span class="annot"><span class="annottext">Maybe IotAnalyticsAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804477"><span class="annot"><span class="annottext">Maybe IotAnalyticsAction
 iotAnalytics :: Maybe IotAnalyticsAction
 $sel:iotAnalytics:Action' :: Action -&gt; Maybe IotAnalyticsAction
-</span><a href="#local-6989586621679804468"><span class="hs-identifier hs-var hs-var">iotAnalytics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IotAnalyticsAction
-</span><a href="#local-6989586621679804468"><span class="hs-identifier hs-var">iotAnalytics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804467"><span class="annot"><span class="annottext">s :: Action
-</span><a href="#local-6989586621679804467"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804466"><span class="annot"><span class="annottext">Maybe IotAnalyticsAction
-</span><a href="#local-6989586621679804466"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
-</span><a href="#local-6989586621679804467"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iotAnalytics:Action' :: Maybe IotAnalyticsAction
+</span><a href="#local-6989586621679804477"><span class="hs-identifier hs-var hs-var">iotAnalytics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IotAnalyticsAction
+</span><a href="#local-6989586621679804477"><span class="hs-identifier hs-var">iotAnalytics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804476"><span class="annot"><span class="annottext">s :: Action
+</span><a href="#local-6989586621679804476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804475"><span class="annot"><span class="annottext">Maybe IotAnalyticsAction
+</span><a href="#local-6989586621679804475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679804476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iotAnalytics:Action' :: Maybe IotAnalyticsAction
 </span><a href="Network.AWS.IoT.Types.Action.html#%24sel%3AiotAnalytics%3AAction%27"><span class="hs-identifier hs-var">iotAnalytics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IotAnalyticsAction
-</span><a href="#local-6989586621679804466"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679804475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-251"></span><span>
 </span><span id="line-252"></span><span class="hs-comment">-- | Invoke a Lambda function.</span><span>
 </span><span id="line-253"></span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#action_lambda"><span class="hs-identifier hs-type">action_lambda</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.LambdaAction.html#LambdaAction"><span class="hs-identifier hs-type">LambdaAction</span></a></span><span class="hs-special">)</span><span>
@@ -602,16 +602,16 @@ $sel:iotAnalytics:Action' :: Action -&gt; Maybe IotAnalyticsAction
 -&gt; (Action -&gt; Maybe LambdaAction -&gt; Action)
 -&gt; Lens Action Action (Maybe LambdaAction) (Maybe LambdaAction)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804464"><span class="annot"><span class="annottext">Maybe LambdaAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804473"><span class="annot"><span class="annottext">Maybe LambdaAction
 lambda :: Maybe LambdaAction
 $sel:lambda:Action' :: Action -&gt; Maybe LambdaAction
-</span><a href="#local-6989586621679804464"><span class="hs-identifier hs-var hs-var">lambda</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaAction
-</span><a href="#local-6989586621679804464"><span class="hs-identifier hs-var">lambda</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804463"><span class="annot"><span class="annottext">s :: Action
-</span><a href="#local-6989586621679804463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804462"><span class="annot"><span class="annottext">Maybe LambdaAction
-</span><a href="#local-6989586621679804462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
-</span><a href="#local-6989586621679804463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lambda:Action' :: Maybe LambdaAction
+</span><a href="#local-6989586621679804473"><span class="hs-identifier hs-var hs-var">lambda</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaAction
+</span><a href="#local-6989586621679804473"><span class="hs-identifier hs-var">lambda</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804472"><span class="annot"><span class="annottext">s :: Action
+</span><a href="#local-6989586621679804472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804471"><span class="annot"><span class="annottext">Maybe LambdaAction
+</span><a href="#local-6989586621679804471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679804472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lambda:Action' :: Maybe LambdaAction
 </span><a href="Network.AWS.IoT.Types.Action.html#%24sel%3Alambda%3AAction%27"><span class="hs-identifier hs-var">lambda</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaAction
-</span><a href="#local-6989586621679804462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679804471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-255"></span><span>
 </span><span id="line-256"></span><span class="hs-comment">-- | Write data to an Amazon OpenSearch Service domain.</span><span>
 </span><span id="line-257"></span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#action_openSearch"><span class="hs-identifier hs-type">action_openSearch</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.OpenSearchAction.html#OpenSearchAction"><span class="hs-identifier hs-type">OpenSearchAction</span></a></span><span class="hs-special">)</span><span>
@@ -622,16 +622,16 @@ $sel:lambda:Action' :: Action -&gt; Maybe LambdaAction
 -&gt; Lens
      Action Action (Maybe OpenSearchAction) (Maybe OpenSearchAction)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804460"><span class="annot"><span class="annottext">Maybe OpenSearchAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804469"><span class="annot"><span class="annottext">Maybe OpenSearchAction
 openSearch :: Maybe OpenSearchAction
 $sel:openSearch:Action' :: Action -&gt; Maybe OpenSearchAction
-</span><a href="#local-6989586621679804460"><span class="hs-identifier hs-var hs-var">openSearch</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OpenSearchAction
-</span><a href="#local-6989586621679804460"><span class="hs-identifier hs-var">openSearch</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804459"><span class="annot"><span class="annottext">s :: Action
-</span><a href="#local-6989586621679804459"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804458"><span class="annot"><span class="annottext">Maybe OpenSearchAction
-</span><a href="#local-6989586621679804458"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
-</span><a href="#local-6989586621679804459"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:openSearch:Action' :: Maybe OpenSearchAction
+</span><a href="#local-6989586621679804469"><span class="hs-identifier hs-var hs-var">openSearch</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OpenSearchAction
+</span><a href="#local-6989586621679804469"><span class="hs-identifier hs-var">openSearch</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804468"><span class="annot"><span class="annottext">s :: Action
+</span><a href="#local-6989586621679804468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804467"><span class="annot"><span class="annottext">Maybe OpenSearchAction
+</span><a href="#local-6989586621679804467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679804468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:openSearch:Action' :: Maybe OpenSearchAction
 </span><a href="Network.AWS.IoT.Types.Action.html#%24sel%3AopenSearch%3AAction%27"><span class="hs-identifier hs-var">openSearch</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OpenSearchAction
-</span><a href="#local-6989586621679804458"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679804467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-259"></span><span>
 </span><span id="line-260"></span><span class="hs-comment">-- | Sends an input to an IoT Events detector.</span><span>
 </span><span id="line-261"></span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#action_iotEvents"><span class="hs-identifier hs-type">action_iotEvents</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.IotEventsAction.html#IotEventsAction"><span class="hs-identifier hs-type">IotEventsAction</span></a></span><span class="hs-special">)</span><span>
@@ -642,16 +642,16 @@ $sel:openSearch:Action' :: Action -&gt; Maybe OpenSearchAction
 -&gt; Lens
      Action Action (Maybe IotEventsAction) (Maybe IotEventsAction)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804456"><span class="annot"><span class="annottext">Maybe IotEventsAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804465"><span class="annot"><span class="annottext">Maybe IotEventsAction
 iotEvents :: Maybe IotEventsAction
 $sel:iotEvents:Action' :: Action -&gt; Maybe IotEventsAction
-</span><a href="#local-6989586621679804456"><span class="hs-identifier hs-var hs-var">iotEvents</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IotEventsAction
-</span><a href="#local-6989586621679804456"><span class="hs-identifier hs-var">iotEvents</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804455"><span class="annot"><span class="annottext">s :: Action
-</span><a href="#local-6989586621679804455"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804454"><span class="annot"><span class="annottext">Maybe IotEventsAction
-</span><a href="#local-6989586621679804454"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
-</span><a href="#local-6989586621679804455"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iotEvents:Action' :: Maybe IotEventsAction
+</span><a href="#local-6989586621679804465"><span class="hs-identifier hs-var hs-var">iotEvents</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IotEventsAction
+</span><a href="#local-6989586621679804465"><span class="hs-identifier hs-var">iotEvents</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804464"><span class="annot"><span class="annottext">s :: Action
+</span><a href="#local-6989586621679804464"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804463"><span class="annot"><span class="annottext">Maybe IotEventsAction
+</span><a href="#local-6989586621679804463"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679804464"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iotEvents:Action' :: Maybe IotEventsAction
 </span><a href="Network.AWS.IoT.Types.Action.html#%24sel%3AiotEvents%3AAction%27"><span class="hs-identifier hs-var">iotEvents</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IotEventsAction
-</span><a href="#local-6989586621679804454"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679804463"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-263"></span><span>
 </span><span id="line-264"></span><span class="hs-comment">-- | Send a message to a Salesforce IoT Cloud Input Stream.</span><span>
 </span><span id="line-265"></span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#action_salesforce"><span class="hs-identifier hs-type">action_salesforce</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SalesforceAction.html#SalesforceAction"><span class="hs-identifier hs-type">SalesforceAction</span></a></span><span class="hs-special">)</span><span>
@@ -662,16 +662,16 @@ $sel:iotEvents:Action' :: Action -&gt; Maybe IotEventsAction
 -&gt; Lens
      Action Action (Maybe SalesforceAction) (Maybe SalesforceAction)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804452"><span class="annot"><span class="annottext">Maybe SalesforceAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804461"><span class="annot"><span class="annottext">Maybe SalesforceAction
 salesforce :: Maybe SalesforceAction
 $sel:salesforce:Action' :: Action -&gt; Maybe SalesforceAction
-</span><a href="#local-6989586621679804452"><span class="hs-identifier hs-var hs-var">salesforce</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SalesforceAction
-</span><a href="#local-6989586621679804452"><span class="hs-identifier hs-var">salesforce</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804451"><span class="annot"><span class="annottext">s :: Action
-</span><a href="#local-6989586621679804451"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804450"><span class="annot"><span class="annottext">Maybe SalesforceAction
-</span><a href="#local-6989586621679804450"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
-</span><a href="#local-6989586621679804451"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:salesforce:Action' :: Maybe SalesforceAction
+</span><a href="#local-6989586621679804461"><span class="hs-identifier hs-var hs-var">salesforce</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SalesforceAction
+</span><a href="#local-6989586621679804461"><span class="hs-identifier hs-var">salesforce</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804460"><span class="annot"><span class="annottext">s :: Action
+</span><a href="#local-6989586621679804460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804459"><span class="annot"><span class="annottext">Maybe SalesforceAction
+</span><a href="#local-6989586621679804459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679804460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:salesforce:Action' :: Maybe SalesforceAction
 </span><a href="Network.AWS.IoT.Types.Action.html#%24sel%3Asalesforce%3AAction%27"><span class="hs-identifier hs-var">salesforce</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SalesforceAction
-</span><a href="#local-6989586621679804450"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679804459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-267"></span><span>
 </span><span id="line-268"></span><span class="hs-comment">-- | Write data to an Amazon Kinesis stream.</span><span>
 </span><span id="line-269"></span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#action_kinesis"><span class="hs-identifier hs-type">action_kinesis</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.KinesisAction.html#KinesisAction"><span class="hs-identifier hs-type">KinesisAction</span></a></span><span class="hs-special">)</span><span>
@@ -681,16 +681,16 @@ $sel:salesforce:Action' :: Action -&gt; Maybe SalesforceAction
 -&gt; (Action -&gt; Maybe KinesisAction -&gt; Action)
 -&gt; Lens Action Action (Maybe KinesisAction) (Maybe KinesisAction)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804448"><span class="annot"><span class="annottext">Maybe KinesisAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804457"><span class="annot"><span class="annottext">Maybe KinesisAction
 kinesis :: Maybe KinesisAction
 $sel:kinesis:Action' :: Action -&gt; Maybe KinesisAction
-</span><a href="#local-6989586621679804448"><span class="hs-identifier hs-var hs-var">kinesis</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisAction
-</span><a href="#local-6989586621679804448"><span class="hs-identifier hs-var">kinesis</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804447"><span class="annot"><span class="annottext">s :: Action
-</span><a href="#local-6989586621679804447"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804446"><span class="annot"><span class="annottext">Maybe KinesisAction
-</span><a href="#local-6989586621679804446"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
-</span><a href="#local-6989586621679804447"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kinesis:Action' :: Maybe KinesisAction
+</span><a href="#local-6989586621679804457"><span class="hs-identifier hs-var hs-var">kinesis</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisAction
+</span><a href="#local-6989586621679804457"><span class="hs-identifier hs-var">kinesis</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804456"><span class="annot"><span class="annottext">s :: Action
+</span><a href="#local-6989586621679804456"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804455"><span class="annot"><span class="annottext">Maybe KinesisAction
+</span><a href="#local-6989586621679804455"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679804456"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kinesis:Action' :: Maybe KinesisAction
 </span><a href="Network.AWS.IoT.Types.Action.html#%24sel%3Akinesis%3AAction%27"><span class="hs-identifier hs-var">kinesis</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisAction
-</span><a href="#local-6989586621679804446"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679804455"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-271"></span><span>
 </span><span id="line-272"></span><span class="hs-comment">-- | Write to an Amazon S3 bucket.</span><span>
 </span><span id="line-273"></span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#action_s3"><span class="hs-identifier hs-type">action_s3</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.S3Action.html#S3Action"><span class="hs-identifier hs-type">S3Action</span></a></span><span class="hs-special">)</span><span>
@@ -699,16 +699,16 @@ $sel:kinesis:Action' :: Action -&gt; Maybe KinesisAction
 -&gt; (Action -&gt; Maybe S3Action -&gt; Action)
 -&gt; Lens Action Action (Maybe S3Action) (Maybe S3Action)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804444"><span class="annot"><span class="annottext">Maybe S3Action
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804453"><span class="annot"><span class="annottext">Maybe S3Action
 s3 :: Maybe S3Action
 $sel:s3:Action' :: Action -&gt; Maybe S3Action
-</span><a href="#local-6989586621679804444"><span class="hs-identifier hs-var hs-var">s3</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3Action
-</span><a href="#local-6989586621679804444"><span class="hs-identifier hs-var">s3</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804443"><span class="annot"><span class="annottext">s :: Action
-</span><a href="#local-6989586621679804443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804442"><span class="annot"><span class="annottext">Maybe S3Action
-</span><a href="#local-6989586621679804442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
-</span><a href="#local-6989586621679804443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3:Action' :: Maybe S3Action
+</span><a href="#local-6989586621679804453"><span class="hs-identifier hs-var hs-var">s3</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3Action
+</span><a href="#local-6989586621679804453"><span class="hs-identifier hs-var">s3</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804452"><span class="annot"><span class="annottext">s :: Action
+</span><a href="#local-6989586621679804452"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804451"><span class="annot"><span class="annottext">Maybe S3Action
+</span><a href="#local-6989586621679804451"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679804452"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3:Action' :: Maybe S3Action
 </span><a href="Network.AWS.IoT.Types.Action.html#%24sel%3As3%3AAction%27"><span class="hs-identifier hs-var">s3</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3Action
-</span><a href="#local-6989586621679804442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679804451"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-275"></span><span>
 </span><span id="line-276"></span><span class="hs-comment">-- | Send data to an HTTPS endpoint.</span><span>
 </span><span id="line-277"></span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#action_http"><span class="hs-identifier hs-type">action_http</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.HttpAction.html#HttpAction"><span class="hs-identifier hs-type">HttpAction</span></a></span><span class="hs-special">)</span><span>
@@ -717,16 +717,16 @@ $sel:s3:Action' :: Action -&gt; Maybe S3Action
 -&gt; (Action -&gt; Maybe HttpAction -&gt; Action)
 -&gt; Lens Action Action (Maybe HttpAction) (Maybe HttpAction)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804440"><span class="annot"><span class="annottext">Maybe HttpAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804449"><span class="annot"><span class="annottext">Maybe HttpAction
 http :: Maybe HttpAction
 $sel:http:Action' :: Action -&gt; Maybe HttpAction
-</span><a href="#local-6989586621679804440"><span class="hs-identifier hs-var hs-var">http</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HttpAction
-</span><a href="#local-6989586621679804440"><span class="hs-identifier hs-var">http</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804439"><span class="annot"><span class="annottext">s :: Action
-</span><a href="#local-6989586621679804439"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804438"><span class="annot"><span class="annottext">Maybe HttpAction
-</span><a href="#local-6989586621679804438"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
-</span><a href="#local-6989586621679804439"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:http:Action' :: Maybe HttpAction
+</span><a href="#local-6989586621679804449"><span class="hs-identifier hs-var hs-var">http</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HttpAction
+</span><a href="#local-6989586621679804449"><span class="hs-identifier hs-var">http</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804448"><span class="annot"><span class="annottext">s :: Action
+</span><a href="#local-6989586621679804448"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804447"><span class="annot"><span class="annottext">Maybe HttpAction
+</span><a href="#local-6989586621679804447"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679804448"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:http:Action' :: Maybe HttpAction
 </span><a href="Network.AWS.IoT.Types.Action.html#%24sel%3Ahttp%3AAction%27"><span class="hs-identifier hs-var">http</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HttpAction
-</span><a href="#local-6989586621679804438"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679804447"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-279"></span><span>
 </span><span id="line-280"></span><span class="hs-comment">-- | Write data to an Amazon OpenSearch Service domain.</span><span>
 </span><span id="line-281"></span><span class="hs-comment">--</span><span>
@@ -745,16 +745,16 @@ $sel:http:Action' :: Action -&gt; Maybe HttpAction
      (Maybe ElasticsearchAction)
      (Maybe ElasticsearchAction)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804436"><span class="annot"><span class="annottext">Maybe ElasticsearchAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804445"><span class="annot"><span class="annottext">Maybe ElasticsearchAction
 elasticsearch :: Maybe ElasticsearchAction
 $sel:elasticsearch:Action' :: Action -&gt; Maybe ElasticsearchAction
-</span><a href="#local-6989586621679804436"><span class="hs-identifier hs-var hs-var">elasticsearch</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ElasticsearchAction
-</span><a href="#local-6989586621679804436"><span class="hs-identifier hs-var">elasticsearch</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804435"><span class="annot"><span class="annottext">s :: Action
-</span><a href="#local-6989586621679804435"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804434"><span class="annot"><span class="annottext">Maybe ElasticsearchAction
-</span><a href="#local-6989586621679804434"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
-</span><a href="#local-6989586621679804435"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:elasticsearch:Action' :: Maybe ElasticsearchAction
+</span><a href="#local-6989586621679804445"><span class="hs-identifier hs-var hs-var">elasticsearch</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ElasticsearchAction
+</span><a href="#local-6989586621679804445"><span class="hs-identifier hs-var">elasticsearch</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804444"><span class="annot"><span class="annottext">s :: Action
+</span><a href="#local-6989586621679804444"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804443"><span class="annot"><span class="annottext">Maybe ElasticsearchAction
+</span><a href="#local-6989586621679804443"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679804444"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:elasticsearch:Action' :: Maybe ElasticsearchAction
 </span><a href="Network.AWS.IoT.Types.Action.html#%24sel%3Aelasticsearch%3AAction%27"><span class="hs-identifier hs-var">elasticsearch</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ElasticsearchAction
-</span><a href="#local-6989586621679804434"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679804443"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-288"></span><span>
 </span><span id="line-289"></span><span class="hs-comment">-- | Send messages to an Amazon Managed Streaming for Apache Kafka (Amazon</span><span>
 </span><span id="line-290"></span><span class="hs-comment">-- MSK) or self-managed Apache Kafka cluster.</span><span>
@@ -764,16 +764,16 @@ $sel:elasticsearch:Action' :: Action -&gt; Maybe ElasticsearchAction
 -&gt; (Action -&gt; Maybe KafkaAction -&gt; Action)
 -&gt; Lens Action Action (Maybe KafkaAction) (Maybe KafkaAction)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804432"><span class="annot"><span class="annottext">Maybe KafkaAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804441"><span class="annot"><span class="annottext">Maybe KafkaAction
 kafka :: Maybe KafkaAction
 $sel:kafka:Action' :: Action -&gt; Maybe KafkaAction
-</span><a href="#local-6989586621679804432"><span class="hs-identifier hs-var hs-var">kafka</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KafkaAction
-</span><a href="#local-6989586621679804432"><span class="hs-identifier hs-var">kafka</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804431"><span class="annot"><span class="annottext">s :: Action
-</span><a href="#local-6989586621679804431"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804430"><span class="annot"><span class="annottext">Maybe KafkaAction
-</span><a href="#local-6989586621679804430"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
-</span><a href="#local-6989586621679804431"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kafka:Action' :: Maybe KafkaAction
+</span><a href="#local-6989586621679804441"><span class="hs-identifier hs-var hs-var">kafka</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KafkaAction
+</span><a href="#local-6989586621679804441"><span class="hs-identifier hs-var">kafka</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804440"><span class="annot"><span class="annottext">s :: Action
+</span><a href="#local-6989586621679804440"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804439"><span class="annot"><span class="annottext">Maybe KafkaAction
+</span><a href="#local-6989586621679804439"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679804440"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kafka:Action' :: Maybe KafkaAction
 </span><a href="Network.AWS.IoT.Types.Action.html#%24sel%3Akafka%3AAction%27"><span class="hs-identifier hs-var">kafka</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KafkaAction
-</span><a href="#local-6989586621679804430"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679804439"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-293"></span><span>
 </span><span id="line-294"></span><span class="hs-comment">-- | Publish to another MQTT topic.</span><span>
 </span><span id="line-295"></span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#action_republish"><span class="hs-identifier hs-type">action_republish</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RepublishAction.html#RepublishAction"><span class="hs-identifier hs-type">RepublishAction</span></a></span><span class="hs-special">)</span><span>
@@ -784,16 +784,16 @@ $sel:kafka:Action' :: Action -&gt; Maybe KafkaAction
 -&gt; Lens
      Action Action (Maybe RepublishAction) (Maybe RepublishAction)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804428"><span class="annot"><span class="annottext">Maybe RepublishAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804437"><span class="annot"><span class="annottext">Maybe RepublishAction
 republish :: Maybe RepublishAction
 $sel:republish:Action' :: Action -&gt; Maybe RepublishAction
-</span><a href="#local-6989586621679804428"><span class="hs-identifier hs-var hs-var">republish</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RepublishAction
-</span><a href="#local-6989586621679804428"><span class="hs-identifier hs-var">republish</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804427"><span class="annot"><span class="annottext">s :: Action
-</span><a href="#local-6989586621679804427"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804426"><span class="annot"><span class="annottext">Maybe RepublishAction
-</span><a href="#local-6989586621679804426"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
-</span><a href="#local-6989586621679804427"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:republish:Action' :: Maybe RepublishAction
+</span><a href="#local-6989586621679804437"><span class="hs-identifier hs-var hs-var">republish</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RepublishAction
+</span><a href="#local-6989586621679804437"><span class="hs-identifier hs-var">republish</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804436"><span class="annot"><span class="annottext">s :: Action
+</span><a href="#local-6989586621679804436"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804435"><span class="annot"><span class="annottext">Maybe RepublishAction
+</span><a href="#local-6989586621679804435"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679804436"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:republish:Action' :: Maybe RepublishAction
 </span><a href="Network.AWS.IoT.Types.Action.html#%24sel%3Arepublish%3AAction%27"><span class="hs-identifier hs-var">republish</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RepublishAction
-</span><a href="#local-6989586621679804426"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679804435"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-297"></span><span>
 </span><span id="line-298"></span><span class="hs-comment">-- | Publish to an Amazon SQS queue.</span><span>
 </span><span id="line-299"></span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#action_sqs"><span class="hs-identifier hs-type">action_sqs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SqsAction.html#SqsAction"><span class="hs-identifier hs-type">SqsAction</span></a></span><span class="hs-special">)</span><span>
@@ -802,27 +802,27 @@ $sel:republish:Action' :: Action -&gt; Maybe RepublishAction
 -&gt; (Action -&gt; Maybe SqsAction -&gt; Action)
 -&gt; Lens Action Action (Maybe SqsAction) (Maybe SqsAction)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804424"><span class="annot"><span class="annottext">Maybe SqsAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804433"><span class="annot"><span class="annottext">Maybe SqsAction
 sqs :: Maybe SqsAction
 $sel:sqs:Action' :: Action -&gt; Maybe SqsAction
-</span><a href="#local-6989586621679804424"><span class="hs-identifier hs-var hs-var">sqs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SqsAction
-</span><a href="#local-6989586621679804424"><span class="hs-identifier hs-var">sqs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804423"><span class="annot"><span class="annottext">s :: Action
-</span><a href="#local-6989586621679804423"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804422"><span class="annot"><span class="annottext">Maybe SqsAction
-</span><a href="#local-6989586621679804422"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
-</span><a href="#local-6989586621679804423"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sqs:Action' :: Maybe SqsAction
+</span><a href="#local-6989586621679804433"><span class="hs-identifier hs-var hs-var">sqs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SqsAction
+</span><a href="#local-6989586621679804433"><span class="hs-identifier hs-var">sqs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804432"><span class="annot"><span class="annottext">s :: Action
+</span><a href="#local-6989586621679804432"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804431"><span class="annot"><span class="annottext">Maybe SqsAction
+</span><a href="#local-6989586621679804431"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Action
+</span><a href="#local-6989586621679804432"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sqs:Action' :: Maybe SqsAction
 </span><a href="Network.AWS.IoT.Types.Action.html#%24sel%3Asqs%3AAction%27"><span class="hs-identifier hs-var">sqs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SqsAction
-</span><a href="#local-6989586621679804422"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679804431"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-301"></span><span>
-</span><span id="line-302"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679804419"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-303"></span><span>  </span><span id="local-6989586621679804417"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Action
+</span><span id="line-302"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679804428"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-303"></span><span>  </span><span id="local-6989586621679804426"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Action
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-304"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Action) -&gt; Value -&gt; Parser Action
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-305"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Action&quot;</span></span><span>
-</span><span id="line-306"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679804414"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679804414"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-306"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679804423"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679804423"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-307"></span><span>          </span><span class="annot"><span class="annottext">Maybe CloudwatchMetricAction
 -&gt; Maybe CloudwatchLogsAction
 -&gt; Maybe DynamoDBv2Action
@@ -896,7 +896,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Action)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679804414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CloudwatchMetricAction)
+</span><a href="#local-6989586621679804423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CloudwatchMetricAction)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cloudwatchMetric&quot;</span></span><span class="hs-special">)</span><span>
@@ -948,7 +948,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Action)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679804414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CloudwatchLogsAction)
+</span><a href="#local-6989586621679804423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CloudwatchLogsAction)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cloudwatchLogs&quot;</span></span><span class="hs-special">)</span><span>
@@ -998,7 +998,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Action)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679804414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DynamoDBv2Action)
+</span><a href="#local-6989586621679804423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DynamoDBv2Action)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;dynamoDBv2&quot;</span></span><span class="hs-special">)</span><span>
@@ -1046,7 +1046,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Action)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679804414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StepFunctionsAction)
+</span><a href="#local-6989586621679804423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StepFunctionsAction)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;stepFunctions&quot;</span></span><span class="hs-special">)</span><span>
@@ -1092,7 +1092,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Action)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679804414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CloudwatchAlarmAction)
+</span><a href="#local-6989586621679804423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CloudwatchAlarmAction)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cloudwatchAlarm&quot;</span></span><span class="hs-special">)</span><span>
@@ -1136,7 +1136,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Action)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679804414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SnsAction)
+</span><a href="#local-6989586621679804423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SnsAction)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sns&quot;</span></span><span class="hs-special">)</span><span>
@@ -1178,7 +1178,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Action)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679804414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DynamoDBAction)
+</span><a href="#local-6989586621679804423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DynamoDBAction)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;dynamoDB&quot;</span></span><span class="hs-special">)</span><span>
@@ -1218,7 +1218,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Action)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679804414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FirehoseAction)
+</span><a href="#local-6989586621679804423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FirehoseAction)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;firehose&quot;</span></span><span class="hs-special">)</span><span>
@@ -1256,7 +1256,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Action)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679804414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TimestreamAction)
+</span><a href="#local-6989586621679804423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TimestreamAction)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;timestream&quot;</span></span><span class="hs-special">)</span><span>
@@ -1292,7 +1292,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Action)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679804414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe IotSiteWiseAction)
+</span><a href="#local-6989586621679804423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe IotSiteWiseAction)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;iotSiteWise&quot;</span></span><span class="hs-special">)</span><span>
@@ -1326,7 +1326,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Action)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679804414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe IotAnalyticsAction)
+</span><a href="#local-6989586621679804423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe IotAnalyticsAction)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;iotAnalytics&quot;</span></span><span class="hs-special">)</span><span>
@@ -1358,7 +1358,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Action)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679804414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LambdaAction)
+</span><a href="#local-6989586621679804423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LambdaAction)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;lambda&quot;</span></span><span class="hs-special">)</span><span>
@@ -1388,7 +1388,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Action)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679804414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OpenSearchAction)
+</span><a href="#local-6989586621679804423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OpenSearchAction)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;openSearch&quot;</span></span><span class="hs-special">)</span><span>
@@ -1416,7 +1416,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Action)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679804414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe IotEventsAction)
+</span><a href="#local-6989586621679804423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe IotEventsAction)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;iotEvents&quot;</span></span><span class="hs-special">)</span><span>
@@ -1442,7 +1442,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Action)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679804414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SalesforceAction)
+</span><a href="#local-6989586621679804423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SalesforceAction)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;salesforce&quot;</span></span><span class="hs-special">)</span><span>
@@ -1466,7 +1466,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Action)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679804414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe KinesisAction)
+</span><a href="#local-6989586621679804423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe KinesisAction)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;kinesis&quot;</span></span><span class="hs-special">)</span><span>
@@ -1488,7 +1488,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Action)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679804414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3Action)
+</span><a href="#local-6989586621679804423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3Action)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;s3&quot;</span></span><span class="hs-special">)</span><span>
@@ -1508,7 +1508,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Action)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679804414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HttpAction)
+</span><a href="#local-6989586621679804423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HttpAction)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;http&quot;</span></span><span class="hs-special">)</span><span>
@@ -1524,7 +1524,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe RepublishAction -&gt; Maybe SqsAction -&gt; Action)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679804414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ElasticsearchAction)
+</span><a href="#local-6989586621679804423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ElasticsearchAction)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;elasticsearch&quot;</span></span><span class="hs-special">)</span><span>
@@ -1535,7 +1535,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe RepublishAction -&gt; Maybe SqsAction -&gt; Action)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679804414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe KafkaAction)
+</span><a href="#local-6989586621679804423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe KafkaAction)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;kafka&quot;</span></span><span class="hs-special">)</span><span>
@@ -1544,7 +1544,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe SqsAction -&gt; Action)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679804414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RepublishAction)
+</span><a href="#local-6989586621679804423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RepublishAction)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;republish&quot;</span></span><span class="hs-special">)</span><span>
@@ -1552,19 +1552,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe SqsAction) -&gt; Parser Action
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679804414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SqsAction)
+</span><a href="#local-6989586621679804423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SqsAction)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sqs&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-330"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-331"></span><span>
-</span><span id="line-332"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679804408"><span id="local-6989586621679804410"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span></span></span><span>
+</span><span id="line-332"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679804417"><span id="local-6989586621679804419"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span></span></span><span>
 </span><span id="line-333"></span><span>
-</span><span id="line-334"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679804405"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span></span><span>
+</span><span id="line-334"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679804414"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span></span><span>
 </span><span id="line-335"></span><span>
-</span><span id="line-336"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679804397"><span id="local-6989586621679804399"><span id="local-6989586621679804401"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-337"></span><span>  </span><span id="local-6989586621679804395"><span class="annot"><span class="annottext">toJSON :: Action -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804372"><span id="local-6989586621679804373"><span id="local-6989586621679804374"><span id="local-6989586621679804375"><span id="local-6989586621679804376"><span id="local-6989586621679804377"><span id="local-6989586621679804378"><span id="local-6989586621679804379"><span id="local-6989586621679804380"><span id="local-6989586621679804381"><span id="local-6989586621679804382"><span id="local-6989586621679804383"><span id="local-6989586621679804384"><span id="local-6989586621679804385"><span id="local-6989586621679804386"><span id="local-6989586621679804387"><span id="local-6989586621679804388"><span id="local-6989586621679804389"><span id="local-6989586621679804390"><span id="local-6989586621679804391"><span id="local-6989586621679804392"><span id="local-6989586621679804393"><span class="annot"><span class="annottext">Maybe CloudwatchAlarmAction
+</span><span id="line-336"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679804406"><span id="local-6989586621679804408"><span id="local-6989586621679804410"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-337"></span><span>  </span><span id="local-6989586621679804404"><span class="annot"><span class="annottext">toJSON :: Action -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Action.html#Action%27"><span class="hs-identifier hs-type">Action'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804381"><span id="local-6989586621679804382"><span id="local-6989586621679804383"><span id="local-6989586621679804384"><span id="local-6989586621679804385"><span id="local-6989586621679804386"><span id="local-6989586621679804387"><span id="local-6989586621679804388"><span id="local-6989586621679804389"><span id="local-6989586621679804390"><span id="local-6989586621679804391"><span id="local-6989586621679804392"><span id="local-6989586621679804393"><span id="local-6989586621679804394"><span id="local-6989586621679804395"><span id="local-6989586621679804396"><span id="local-6989586621679804397"><span id="local-6989586621679804398"><span id="local-6989586621679804399"><span id="local-6989586621679804400"><span id="local-6989586621679804401"><span id="local-6989586621679804402"><span class="annot"><span class="annottext">Maybe CloudwatchAlarmAction
 Maybe CloudwatchLogsAction
 Maybe CloudwatchMetricAction
 Maybe DynamoDBAction
@@ -1630,7 +1630,7 @@ $sel:stepFunctions:Action' :: Action -&gt; Maybe StepFunctionsAction
 $sel:dynamoDBv2:Action' :: Action -&gt; Maybe DynamoDBv2Action
 $sel:cloudwatchLogs:Action' :: Action -&gt; Maybe CloudwatchLogsAction
 $sel:cloudwatchMetric:Action' :: Action -&gt; Maybe CloudwatchMetricAction
-</span><a href="#local-6989586621679804372"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679804381"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-338"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-339"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -1644,7 +1644,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe CloudwatchMetricAction -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CloudwatchMetricAction
-</span><a href="#local-6989586621679804393"><span class="hs-identifier hs-var">cloudwatchMetric</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679804402"><span class="hs-identifier hs-var">cloudwatchMetric</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-342"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cloudwatchLogs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CloudwatchLogsAction -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1653,14 +1653,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe CloudwatchLogsAction -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CloudwatchLogsAction
-</span><a href="#local-6989586621679804392"><span class="hs-identifier hs-var">cloudwatchLogs</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679804401"><span class="hs-identifier hs-var">cloudwatchLogs</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-344"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;dynamoDBv2&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DynamoDBv2Action -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(DynamoDBv2Action -&gt; Pair) -&gt; Maybe DynamoDBv2Action -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DynamoDBv2Action
-</span><a href="#local-6989586621679804391"><span class="hs-identifier hs-var">dynamoDBv2</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679804400"><span class="hs-identifier hs-var">dynamoDBv2</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-345"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;stepFunctions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; StepFunctionsAction -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1668,7 +1668,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe StepFunctionsAction -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe StepFunctionsAction
-</span><a href="#local-6989586621679804390"><span class="hs-identifier hs-var">stepFunctions</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679804399"><span class="hs-identifier hs-var">stepFunctions</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-346"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cloudwatchAlarm&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CloudwatchAlarmAction -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1677,35 +1677,35 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe CloudwatchAlarmAction -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CloudwatchAlarmAction
-</span><a href="#local-6989586621679804389"><span class="hs-identifier hs-var">cloudwatchAlarm</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679804398"><span class="hs-identifier hs-var">cloudwatchAlarm</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-348"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SnsAction -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SnsAction -&gt; Pair) -&gt; Maybe SnsAction -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SnsAction
-</span><a href="#local-6989586621679804388"><span class="hs-identifier hs-var">sns</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679804397"><span class="hs-identifier hs-var">sns</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-349"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;dynamoDB&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DynamoDBAction -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(DynamoDBAction -&gt; Pair) -&gt; Maybe DynamoDBAction -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DynamoDBAction
-</span><a href="#local-6989586621679804387"><span class="hs-identifier hs-var">dynamoDB</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679804396"><span class="hs-identifier hs-var">dynamoDB</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-350"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;firehose&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FirehoseAction -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(FirehoseAction -&gt; Pair) -&gt; Maybe FirehoseAction -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FirehoseAction
-</span><a href="#local-6989586621679804386"><span class="hs-identifier hs-var">firehose</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679804395"><span class="hs-identifier hs-var">firehose</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-351"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;timestream&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TimestreamAction -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(TimestreamAction -&gt; Pair) -&gt; Maybe TimestreamAction -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TimestreamAction
-</span><a href="#local-6989586621679804385"><span class="hs-identifier hs-var">timestream</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679804394"><span class="hs-identifier hs-var">timestream</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-352"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;iotSiteWise&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; IotSiteWiseAction -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1713,7 +1713,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe IotSiteWiseAction -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe IotSiteWiseAction
-</span><a href="#local-6989586621679804384"><span class="hs-identifier hs-var">iotSiteWise</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679804393"><span class="hs-identifier hs-var">iotSiteWise</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-353"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;iotAnalytics&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; IotAnalyticsAction -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1721,56 +1721,56 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe IotAnalyticsAction -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe IotAnalyticsAction
-</span><a href="#local-6989586621679804383"><span class="hs-identifier hs-var">iotAnalytics</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679804392"><span class="hs-identifier hs-var">iotAnalytics</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-354"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;lambda&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LambdaAction -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(LambdaAction -&gt; Pair) -&gt; Maybe LambdaAction -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LambdaAction
-</span><a href="#local-6989586621679804382"><span class="hs-identifier hs-var">lambda</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679804391"><span class="hs-identifier hs-var">lambda</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-355"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;openSearch&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OpenSearchAction -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(OpenSearchAction -&gt; Pair) -&gt; Maybe OpenSearchAction -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe OpenSearchAction
-</span><a href="#local-6989586621679804381"><span class="hs-identifier hs-var">openSearch</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679804390"><span class="hs-identifier hs-var">openSearch</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-356"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;iotEvents&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; IotEventsAction -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(IotEventsAction -&gt; Pair) -&gt; Maybe IotEventsAction -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe IotEventsAction
-</span><a href="#local-6989586621679804380"><span class="hs-identifier hs-var">iotEvents</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679804389"><span class="hs-identifier hs-var">iotEvents</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-357"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;salesforce&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SalesforceAction -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SalesforceAction -&gt; Pair) -&gt; Maybe SalesforceAction -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SalesforceAction
-</span><a href="#local-6989586621679804379"><span class="hs-identifier hs-var">salesforce</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679804388"><span class="hs-identifier hs-var">salesforce</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-358"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;kinesis&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; KinesisAction -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(KinesisAction -&gt; Pair) -&gt; Maybe KinesisAction -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe KinesisAction
-</span><a href="#local-6989586621679804378"><span class="hs-identifier hs-var">kinesis</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679804387"><span class="hs-identifier hs-var">kinesis</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-359"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;s3&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; S3Action -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(S3Action -&gt; Pair) -&gt; Maybe S3Action -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe S3Action
-</span><a href="#local-6989586621679804377"><span class="hs-identifier hs-var">s3</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679804386"><span class="hs-identifier hs-var">s3</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-360"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;http&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HttpAction -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HttpAction -&gt; Pair) -&gt; Maybe HttpAction -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HttpAction
-</span><a href="#local-6989586621679804376"><span class="hs-identifier hs-var">http</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679804385"><span class="hs-identifier hs-var">http</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-361"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;elasticsearch&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ElasticsearchAction -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1778,28 +1778,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ElasticsearchAction -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ElasticsearchAction
-</span><a href="#local-6989586621679804375"><span class="hs-identifier hs-var">elasticsearch</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679804384"><span class="hs-identifier hs-var">elasticsearch</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-362"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;kafka&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; KafkaAction -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(KafkaAction -&gt; Pair) -&gt; Maybe KafkaAction -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe KafkaAction
-</span><a href="#local-6989586621679804374"><span class="hs-identifier hs-var">kafka</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679804383"><span class="hs-identifier hs-var">kafka</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-363"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;republish&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RepublishAction -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(RepublishAction -&gt; Pair) -&gt; Maybe RepublishAction -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RepublishAction
-</span><a href="#local-6989586621679804373"><span class="hs-identifier hs-var">republish</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679804382"><span class="hs-identifier hs-var">republish</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-364"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sqs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SqsAction -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SqsAction -&gt; Pair) -&gt; Maybe SqsAction -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SqsAction
-</span><a href="#local-6989586621679804372"><span class="hs-identifier hs-var">sqs</span></a></span><span>
+</span><a href="#local-6989586621679804381"><span class="hs-identifier hs-var">sqs</span></a></span><span>
 </span><span id="line-365"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-366"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-367"></span></pre></body></html>

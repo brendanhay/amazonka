@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newDescribeHandshake' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679248150"><span id="local-6989586621679248151"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeHandshake"><span class="annot"><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshake"><span class="hs-identifier hs-var">DescribeHandshake</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeHandshake%27"><span class="annot"><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshake%27"><span class="hs-identifier hs-var">DescribeHandshake'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679248159"><span id="local-6989586621679248160"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeHandshake"><span class="annot"><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshake"><span class="hs-identifier hs-var">DescribeHandshake</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeHandshake%27"><span class="annot"><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshake%27"><span class="hs-identifier hs-var">DescribeHandshake'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier (ID) of the handshake that you want information</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- about. You can get the ID from the original call to</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- InviteAccountToOrganization, or from a call to ListHandshakesForAccount</span><span>
@@ -67,7 +67,7 @@
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3AhandshakeId%3ADescribeHandshake%27"><span class="annot"><span class="annottext">DescribeHandshake -&gt; Text
 </span><a href="Network.AWS.Organizations.DescribeHandshake.html#%24sel%3AhandshakeId%3ADescribeHandshake%27"><span class="hs-identifier hs-var hs-var">handshakeId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679248144"><span id="local-6989586621679248146"><span class="annot"><span class="annottext">DescribeHandshake -&gt; DescribeHandshake -&gt; Bool
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679248153"><span id="local-6989586621679248155"><span class="annot"><span class="annottext">DescribeHandshake -&gt; DescribeHandshake -&gt; Bool
 (DescribeHandshake -&gt; DescribeHandshake -&gt; Bool)
 -&gt; (DescribeHandshake -&gt; DescribeHandshake -&gt; Bool)
 -&gt; Eq DescribeHandshake
@@ -76,7 +76,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeHandshake -&gt; DescribeHandshake -&gt; Bool
 == :: DescribeHandshake -&gt; DescribeHandshake -&gt; Bool
 $c== :: DescribeHandshake -&gt; DescribeHandshake -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248135"><span id="local-6989586621679248137"><span id="local-6989586621679248139"><span id="local-6989586621679248141"><span class="annot"><span class="annottext">ReadPrec [DescribeHandshake]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248144"><span id="local-6989586621679248146"><span id="local-6989586621679248148"><span id="local-6989586621679248150"><span class="annot"><span class="annottext">ReadPrec [DescribeHandshake]
 ReadPrec DescribeHandshake
 Int -&gt; ReadS DescribeHandshake
 ReadS [DescribeHandshake]
@@ -96,7 +96,7 @@ readList :: ReadS [DescribeHandshake]
 $creadList :: ReadS [DescribeHandshake]
 readsPrec :: Int -&gt; ReadS DescribeHandshake
 $creadsPrec :: Int -&gt; ReadS DescribeHandshake
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248128"><span id="local-6989586621679248130"><span id="local-6989586621679248132"><span class="annot"><span class="annottext">Int -&gt; DescribeHandshake -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248137"><span id="local-6989586621679248139"><span id="local-6989586621679248141"><span class="annot"><span class="annottext">Int -&gt; DescribeHandshake -&gt; ShowS
 [DescribeHandshake] -&gt; ShowS
 DescribeHandshake -&gt; String
 (Int -&gt; DescribeHandshake -&gt; ShowS)
@@ -143,12 +143,12 @@ $cfrom :: forall x. DescribeHandshake -&gt; Rep DescribeHandshake x
 </span><span id="line-89"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshake"><span class="hs-identifier hs-type">DescribeHandshake</span></a></span><span>
 </span><span id="line-91"></span><span id="newDescribeHandshake"><span class="annot"><span class="annottext">newDescribeHandshake :: Text -&gt; DescribeHandshake
-</span><a href="Network.AWS.Organizations.DescribeHandshake.html#newDescribeHandshake"><span class="hs-identifier hs-var hs-var">newDescribeHandshake</span></a></span></span><span> </span><span id="local-6989586621679248123"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248123"><span class="hs-identifier hs-var">pHandshakeId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Organizations.DescribeHandshake.html#newDescribeHandshake"><span class="hs-identifier hs-var hs-var">newDescribeHandshake</span></a></span></span><span> </span><span id="local-6989586621679248132"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679248132"><span class="hs-identifier hs-var">pHandshakeId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>  </span><span class="annot"><span class="annottext">DescribeHandshake' :: Text -&gt; DescribeHandshake
 </span><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshake%27"><span class="hs-identifier hs-type">DescribeHandshake'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:handshakeId:DescribeHandshake' :: Text
 </span><a href="Network.AWS.Organizations.DescribeHandshake.html#%24sel%3AhandshakeId%3ADescribeHandshake%27"><span class="hs-identifier hs-var">handshakeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248123"><span class="hs-identifier hs-var">pHandshakeId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679248132"><span class="hs-identifier hs-var">pHandshakeId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | The unique identifier (ID) of the handshake that you want information</span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- about. You can get the ID from the original call to</span><span>
@@ -164,27 +164,27 @@ $cfrom :: forall x. DescribeHandshake -&gt; Rep DescribeHandshake x
 -&gt; (DescribeHandshake -&gt; Text -&gt; DescribeHandshake)
 -&gt; Lens DescribeHandshake DescribeHandshake Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshake%27"><span class="hs-identifier hs-type">DescribeHandshake'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248120"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshake%27"><span class="hs-identifier hs-type">DescribeHandshake'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248129"><span class="annot"><span class="annottext">Text
 handshakeId :: Text
 $sel:handshakeId:DescribeHandshake' :: DescribeHandshake -&gt; Text
-</span><a href="#local-6989586621679248120"><span class="hs-identifier hs-var hs-var">handshakeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248120"><span class="hs-identifier hs-var">handshakeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248119"><span class="annot"><span class="annottext">s :: DescribeHandshake
-</span><a href="#local-6989586621679248119"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshake%27"><span class="hs-identifier hs-type">DescribeHandshake'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248118"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248118"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeHandshake
-</span><a href="#local-6989586621679248119"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:handshakeId:DescribeHandshake' :: Text
+</span><a href="#local-6989586621679248129"><span class="hs-identifier hs-var hs-var">handshakeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679248129"><span class="hs-identifier hs-var">handshakeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248128"><span class="annot"><span class="annottext">s :: DescribeHandshake
+</span><a href="#local-6989586621679248128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshake%27"><span class="hs-identifier hs-type">DescribeHandshake'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248127"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679248127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeHandshake
+</span><a href="#local-6989586621679248128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:handshakeId:DescribeHandshake' :: Text
 </span><a href="Network.AWS.Organizations.DescribeHandshake.html#%24sel%3AhandshakeId%3ADescribeHandshake%27"><span class="hs-identifier hs-var">handshakeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248118"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshake"><span class="hs-identifier hs-type">DescribeHandshake</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679248127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshake"><span class="hs-identifier hs-type">DescribeHandshake</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshake"><span class="hs-identifier hs-type">DescribeHandshake</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-106"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-107"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshake"><span class="hs-identifier hs-type">DescribeHandshake</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>      </span><span class="annot"><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshakeResponse"><span class="hs-identifier hs-type">DescribeHandshakeResponse</span></a></span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679248114"><span class="annot"><span class="annottext">request :: DescribeHandshake -&gt; Request DescribeHandshake
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679248123"><span class="annot"><span class="annottext">request :: DescribeHandshake -&gt; Request DescribeHandshake
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeHandshake -&gt; Request DescribeHandshake
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Organizations.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679248110"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679248119"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeHandshake
 -&gt; ClientResponse ClientBody
@@ -210,10 +210,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679248107"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679248107"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679248106"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679248106"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679248105"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248105"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679248116"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679248116"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679248115"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679248115"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679248114"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679248114"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">Maybe Handshake -&gt; Int -&gt; DescribeHandshakeResponse
 </span><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshakeResponse%27"><span class="hs-identifier hs-var">DescribeHandshakeResponse'</span></a></span><span>
 </span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Handshake -&gt; Int -&gt; DescribeHandshakeResponse)
@@ -221,7 +221,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DescribeHandshakeResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248105"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Handshake)
+</span><a href="#local-6989586621679248114"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Handshake)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Handshake&quot;</span></span><span class="hs-special">)</span><span>
@@ -233,15 +233,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679248107"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679248116"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248097"><span id="local-6989586621679248099"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshake"><span class="hs-identifier hs-type">DescribeHandshake</span></a></span></span></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248106"><span id="local-6989586621679248108"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshake"><span class="hs-identifier hs-type">DescribeHandshake</span></a></span></span></span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248094"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshake"><span class="hs-identifier hs-type">DescribeHandshake</span></a></span></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248103"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshake"><span class="hs-identifier hs-type">DescribeHandshake</span></a></span></span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshake"><span class="hs-identifier hs-type">DescribeHandshake</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679248090"><span class="annot"><span class="annottext">toHeaders :: DescribeHandshake -&gt; ResponseHeaders
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679248099"><span class="annot"><span class="annottext">toHeaders :: DescribeHandshake -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeHandshake -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -268,12 +268,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-134"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248080"><span id="local-6989586621679248082"><span id="local-6989586621679248084"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshake"><span class="hs-identifier hs-type">DescribeHandshake</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679248078"><span class="annot"><span class="annottext">toJSON :: DescribeHandshake -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshake%27"><span class="hs-identifier hs-type">DescribeHandshake'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248076"><span class="annot"><span class="annottext">Text
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248089"><span id="local-6989586621679248091"><span id="local-6989586621679248093"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshake"><span class="hs-identifier hs-type">DescribeHandshake</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679248087"><span class="annot"><span class="annottext">toJSON :: DescribeHandshake -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshake%27"><span class="hs-identifier hs-type">DescribeHandshake'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248085"><span class="annot"><span class="annottext">Text
 handshakeId :: Text
 $sel:handshakeId:DescribeHandshake' :: DescribeHandshake -&gt; Text
-</span><a href="#local-6989586621679248076"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679248085"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -285,18 +285,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;HandshakeId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248076"><span class="hs-identifier hs-var">handshakeId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679248085"><span class="hs-identifier hs-var">handshakeId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshake"><span class="hs-identifier hs-type">DescribeHandshake</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679248070"><span class="annot"><span class="annottext">toPath :: DescribeHandshake -&gt; ByteString
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679248079"><span class="annot"><span class="annottext">toPath :: DescribeHandshake -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeHandshake -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshake"><span class="hs-identifier hs-type">DescribeHandshake</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679248066"><span class="annot"><span class="annottext">toQuery :: DescribeHandshake -&gt; QueryString
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679248075"><span class="annot"><span class="annottext">toQuery :: DescribeHandshake -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeHandshake -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -304,7 +304,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | /See:/ 'newDescribeHandshakeResponse' smart constructor.</span><span>
-</span><span id="line-151"></span><span id="local-6989586621679248063"><span id="local-6989586621679248064"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeHandshakeResponse"><span class="annot"><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshakeResponse"><span class="hs-identifier hs-var">DescribeHandshakeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeHandshakeResponse%27"><span class="annot"><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshakeResponse%27"><span class="hs-identifier hs-var">DescribeHandshakeResponse'</span></a></span></span><span>
+</span><span id="line-151"></span><span id="local-6989586621679248072"><span id="local-6989586621679248073"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeHandshakeResponse"><span class="annot"><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshakeResponse"><span class="hs-identifier hs-var">DescribeHandshakeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeHandshakeResponse%27"><span class="annot"><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshakeResponse%27"><span class="hs-identifier hs-var">DescribeHandshakeResponse'</span></a></span></span><span>
 </span><span id="line-152"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A structure that contains information about the specified handshake.</span><span>
 </span><span id="line-153"></span><span>    </span><span id="%24sel%3Ahandshake%3ADescribeHandshakeResponse%27"><span class="annot"><span class="annottext">DescribeHandshakeResponse -&gt; Maybe Handshake
 </span><a href="Network.AWS.Organizations.DescribeHandshake.html#%24sel%3Ahandshake%3ADescribeHandshakeResponse%27"><span class="hs-identifier hs-var hs-var">handshake</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.Handshake.html#Handshake"><span class="hs-identifier hs-type">Handshake</span></a></span><span class="hs-special">,</span><span>
@@ -312,7 +312,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-155"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeHandshakeResponse%27"><span class="annot"><span class="annottext">DescribeHandshakeResponse -&gt; Int
 </span><a href="Network.AWS.Organizations.DescribeHandshake.html#%24sel%3AhttpStatus%3ADescribeHandshakeResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-156"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679248057"><span id="local-6989586621679248059"><span class="annot"><span class="annottext">DescribeHandshakeResponse -&gt; DescribeHandshakeResponse -&gt; Bool
+</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679248066"><span id="local-6989586621679248068"><span class="annot"><span class="annottext">DescribeHandshakeResponse -&gt; DescribeHandshakeResponse -&gt; Bool
 (DescribeHandshakeResponse -&gt; DescribeHandshakeResponse -&gt; Bool)
 -&gt; (DescribeHandshakeResponse -&gt; DescribeHandshakeResponse -&gt; Bool)
 -&gt; Eq DescribeHandshakeResponse
@@ -321,7 +321,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeHandshakeResponse -&gt; DescribeHandshakeResponse -&gt; Bool
 == :: DescribeHandshakeResponse -&gt; DescribeHandshakeResponse -&gt; Bool
 $c== :: DescribeHandshakeResponse -&gt; DescribeHandshakeResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248051"><span id="local-6989586621679248053"><span id="local-6989586621679248055"><span class="annot"><span class="annottext">Int -&gt; DescribeHandshakeResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248060"><span id="local-6989586621679248062"><span id="local-6989586621679248064"><span class="annot"><span class="annottext">Int -&gt; DescribeHandshakeResponse -&gt; ShowS
 [DescribeHandshakeResponse] -&gt; ShowS
 DescribeHandshakeResponse -&gt; String
 (Int -&gt; DescribeHandshakeResponse -&gt; ShowS)
@@ -369,8 +369,8 @@ DescribeHandshakeResponse -&gt; Rep DescribeHandshakeResponse x
 </span><span id="line-172"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-173"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshakeResponse"><span class="hs-identifier hs-type">DescribeHandshakeResponse</span></a></span><span>
 </span><span id="line-174"></span><span id="newDescribeHandshakeResponse"><span class="annot"><span class="annottext">newDescribeHandshakeResponse :: Int -&gt; DescribeHandshakeResponse
-</span><a href="Network.AWS.Organizations.DescribeHandshake.html#newDescribeHandshakeResponse"><span class="hs-identifier hs-var hs-var">newDescribeHandshakeResponse</span></a></span></span><span> </span><span id="local-6989586621679248048"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679248048"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Organizations.DescribeHandshake.html#newDescribeHandshakeResponse"><span class="hs-identifier hs-var hs-var">newDescribeHandshakeResponse</span></a></span></span><span> </span><span id="local-6989586621679248057"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679248057"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-175"></span><span>  </span><span class="annot"><span class="annottext">DescribeHandshakeResponse' :: Maybe Handshake -&gt; Int -&gt; DescribeHandshakeResponse
 </span><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshakeResponse%27"><span class="hs-identifier hs-type">DescribeHandshakeResponse'</span></a></span><span>
 </span><span id="line-176"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:handshake:DescribeHandshakeResponse' :: Maybe Handshake
@@ -380,7 +380,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeHandshakeResponse' :: Int
 </span><a href="Network.AWS.Organizations.DescribeHandshake.html#%24sel%3AhttpStatus%3ADescribeHandshakeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679248048"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679248057"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-179"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- | A structure that contains information about the specified handshake.</span><span>
@@ -396,16 +396,16 @@ forall a. Maybe a
      (Maybe Handshake)
      (Maybe Handshake)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshakeResponse%27"><span class="hs-identifier hs-type">DescribeHandshakeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248047"><span class="annot"><span class="annottext">Maybe Handshake
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshakeResponse%27"><span class="hs-identifier hs-type">DescribeHandshakeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248056"><span class="annot"><span class="annottext">Maybe Handshake
 handshake :: Maybe Handshake
 $sel:handshake:DescribeHandshakeResponse' :: DescribeHandshakeResponse -&gt; Maybe Handshake
-</span><a href="#local-6989586621679248047"><span class="hs-identifier hs-var hs-var">handshake</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Handshake
-</span><a href="#local-6989586621679248047"><span class="hs-identifier hs-var">handshake</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248046"><span class="annot"><span class="annottext">s :: DescribeHandshakeResponse
-</span><a href="#local-6989586621679248046"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshakeResponse%27"><span class="hs-identifier hs-type">DescribeHandshakeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248045"><span class="annot"><span class="annottext">Maybe Handshake
-</span><a href="#local-6989586621679248045"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeHandshakeResponse
-</span><a href="#local-6989586621679248046"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:handshake:DescribeHandshakeResponse' :: Maybe Handshake
+</span><a href="#local-6989586621679248056"><span class="hs-identifier hs-var hs-var">handshake</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Handshake
+</span><a href="#local-6989586621679248056"><span class="hs-identifier hs-var">handshake</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248055"><span class="annot"><span class="annottext">s :: DescribeHandshakeResponse
+</span><a href="#local-6989586621679248055"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshakeResponse%27"><span class="hs-identifier hs-type">DescribeHandshakeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248054"><span class="annot"><span class="annottext">Maybe Handshake
+</span><a href="#local-6989586621679248054"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeHandshakeResponse
+</span><a href="#local-6989586621679248055"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:handshake:DescribeHandshakeResponse' :: Maybe Handshake
 </span><a href="Network.AWS.Organizations.DescribeHandshake.html#%24sel%3Ahandshake%3ADescribeHandshakeResponse%27"><span class="hs-identifier hs-var">handshake</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Handshake
-</span><a href="#local-6989586621679248045"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshakeResponse"><span class="hs-identifier hs-type">DescribeHandshakeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679248054"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshakeResponse"><span class="hs-identifier hs-type">DescribeHandshakeResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-186"></span><span class="annot"><a href="Network.AWS.Organizations.DescribeHandshake.html#describeHandshakeResponse_httpStatus"><span class="hs-identifier hs-type">describeHandshakeResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshakeResponse"><span class="hs-identifier hs-type">DescribeHandshakeResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -415,16 +415,16 @@ $sel:handshake:DescribeHandshakeResponse' :: DescribeHandshakeResponse -&gt; May
 -&gt; (DescribeHandshakeResponse -&gt; Int -&gt; DescribeHandshakeResponse)
 -&gt; Lens DescribeHandshakeResponse DescribeHandshakeResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshakeResponse%27"><span class="hs-identifier hs-type">DescribeHandshakeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248044"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshakeResponse%27"><span class="hs-identifier hs-type">DescribeHandshakeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248053"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeHandshakeResponse' :: DescribeHandshakeResponse -&gt; Int
-</span><a href="#local-6989586621679248044"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679248044"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248043"><span class="annot"><span class="annottext">s :: DescribeHandshakeResponse
-</span><a href="#local-6989586621679248043"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshakeResponse%27"><span class="hs-identifier hs-type">DescribeHandshakeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248042"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679248042"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeHandshakeResponse
-</span><a href="#local-6989586621679248043"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeHandshakeResponse' :: Int
+</span><a href="#local-6989586621679248053"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679248053"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248052"><span class="annot"><span class="annottext">s :: DescribeHandshakeResponse
+</span><a href="#local-6989586621679248052"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshakeResponse%27"><span class="hs-identifier hs-type">DescribeHandshakeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248051"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679248051"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeHandshakeResponse
+</span><a href="#local-6989586621679248052"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeHandshakeResponse' :: Int
 </span><a href="Network.AWS.Organizations.DescribeHandshake.html#%24sel%3AhttpStatus%3ADescribeHandshakeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679248042"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshakeResponse"><span class="hs-identifier hs-type">DescribeHandshakeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679248051"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshakeResponse"><span class="hs-identifier hs-type">DescribeHandshakeResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
-</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248040"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshakeResponse"><span class="hs-identifier hs-type">DescribeHandshakeResponse</span></a></span></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248049"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.DescribeHandshake.html#DescribeHandshakeResponse"><span class="hs-identifier hs-type">DescribeHandshakeResponse</span></a></span></span><span>
 </span><span id="line-190"></span></pre></body></html>

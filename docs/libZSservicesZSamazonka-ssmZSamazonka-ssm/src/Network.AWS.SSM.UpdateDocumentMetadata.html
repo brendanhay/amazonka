@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.html"><span class="hs-identifier">Network.AWS.SSM.Types</span></a></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newUpdateDocumentMetadata' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679857376"><span id="local-6989586621679857377"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDocumentMetadata"><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadata"><span class="hs-identifier hs-var">UpdateDocumentMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDocumentMetadata%27"><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadata%27"><span class="hs-identifier hs-var">UpdateDocumentMetadata'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679857385"><span id="local-6989586621679857386"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDocumentMetadata"><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadata"><span class="hs-identifier hs-var">UpdateDocumentMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDocumentMetadata%27"><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadata%27"><span class="hs-identifier hs-var">UpdateDocumentMetadata'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The version of a change template in which to update approval metadata.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AdocumentVersion%3AUpdateDocumentMetadata%27"><span class="annot"><span class="annottext">UpdateDocumentMetadata -&gt; Maybe Text
 </span><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#%24sel%3AdocumentVersion%3AUpdateDocumentMetadata%27"><span class="hs-identifier hs-var hs-var">documentVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -61,7 +61,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AdocumentReviews%3AUpdateDocumentMetadata%27"><span class="annot"><span class="annottext">UpdateDocumentMetadata -&gt; DocumentReviews
 </span><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#%24sel%3AdocumentReviews%3AUpdateDocumentMetadata%27"><span class="hs-identifier hs-var hs-var">documentReviews</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviews.html#DocumentReviews"><span class="hs-identifier hs-type">DocumentReviews</span></a></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679857368"><span id="local-6989586621679857370"><span class="annot"><span class="annottext">UpdateDocumentMetadata -&gt; UpdateDocumentMetadata -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679857377"><span id="local-6989586621679857379"><span class="annot"><span class="annottext">UpdateDocumentMetadata -&gt; UpdateDocumentMetadata -&gt; Bool
 (UpdateDocumentMetadata -&gt; UpdateDocumentMetadata -&gt; Bool)
 -&gt; (UpdateDocumentMetadata -&gt; UpdateDocumentMetadata -&gt; Bool)
 -&gt; Eq UpdateDocumentMetadata
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateDocumentMetadata -&gt; UpdateDocumentMetadata -&gt; Bool
 == :: UpdateDocumentMetadata -&gt; UpdateDocumentMetadata -&gt; Bool
 $c== :: UpdateDocumentMetadata -&gt; UpdateDocumentMetadata -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679857359"><span id="local-6989586621679857361"><span id="local-6989586621679857363"><span id="local-6989586621679857365"><span class="annot"><span class="annottext">ReadPrec [UpdateDocumentMetadata]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679857368"><span id="local-6989586621679857370"><span id="local-6989586621679857372"><span id="local-6989586621679857374"><span class="annot"><span class="annottext">ReadPrec [UpdateDocumentMetadata]
 ReadPrec UpdateDocumentMetadata
 Int -&gt; ReadS UpdateDocumentMetadata
 ReadS [UpdateDocumentMetadata]
@@ -90,7 +90,7 @@ readList :: ReadS [UpdateDocumentMetadata]
 $creadList :: ReadS [UpdateDocumentMetadata]
 readsPrec :: Int -&gt; ReadS UpdateDocumentMetadata
 $creadsPrec :: Int -&gt; ReadS UpdateDocumentMetadata
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679857352"><span id="local-6989586621679857354"><span id="local-6989586621679857356"><span class="annot"><span class="annottext">Int -&gt; UpdateDocumentMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679857361"><span id="local-6989586621679857363"><span id="local-6989586621679857365"><span class="annot"><span class="annottext">Int -&gt; UpdateDocumentMetadata -&gt; ShowS
 [UpdateDocumentMetadata] -&gt; ShowS
 UpdateDocumentMetadata -&gt; String
 (Int -&gt; UpdateDocumentMetadata -&gt; ShowS)
@@ -138,9 +138,9 @@ $cfrom :: forall x. UpdateDocumentMetadata -&gt; Rep UpdateDocumentMetadata x
 </span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviews.html#DocumentReviews"><span class="hs-identifier hs-type">DocumentReviews</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadata"><span class="hs-identifier hs-type">UpdateDocumentMetadata</span></a></span><span>
 </span><span id="line-83"></span><span id="newUpdateDocumentMetadata"><span class="annot"><span class="annottext">newUpdateDocumentMetadata :: Text -&gt; DocumentReviews -&gt; UpdateDocumentMetadata
-</span><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#newUpdateDocumentMetadata"><span class="hs-identifier hs-var hs-var">newUpdateDocumentMetadata</span></a></span></span><span> </span><span id="local-6989586621679857347"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679857347"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679857346"><span class="annot"><span class="annottext">DocumentReviews
-</span><a href="#local-6989586621679857346"><span class="hs-identifier hs-var">pDocumentReviews_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#newUpdateDocumentMetadata"><span class="hs-identifier hs-var hs-var">newUpdateDocumentMetadata</span></a></span></span><span> </span><span id="local-6989586621679857356"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679857356"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679857355"><span class="annot"><span class="annottext">DocumentReviews
+</span><a href="#local-6989586621679857355"><span class="hs-identifier hs-var">pDocumentReviews_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">UpdateDocumentMetadata' :: Maybe Text -&gt; Text -&gt; DocumentReviews -&gt; UpdateDocumentMetadata
 </span><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadata%27"><span class="hs-identifier hs-type">UpdateDocumentMetadata'</span></a></span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:documentVersion:UpdateDocumentMetadata' :: Maybe Text
@@ -150,10 +150,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:UpdateDocumentMetadata' :: Text
 </span><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#%24sel%3Aname%3AUpdateDocumentMetadata%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679857347"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679857356"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:documentReviews:UpdateDocumentMetadata' :: DocumentReviews
 </span><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#%24sel%3AdocumentReviews%3AUpdateDocumentMetadata%27"><span class="hs-identifier hs-var">documentReviews</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DocumentReviews
-</span><a href="#local-6989586621679857346"><span class="hs-identifier hs-var">pDocumentReviews_</span></a></span><span>
+</span><a href="#local-6989586621679857355"><span class="hs-identifier hs-var">pDocumentReviews_</span></a></span><span>
 </span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The version of a change template in which to update approval metadata.</span><span>
@@ -168,16 +168,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadata%27"><span class="hs-identifier hs-type">UpdateDocumentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679857343"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadata%27"><span class="hs-identifier hs-type">UpdateDocumentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679857352"><span class="annot"><span class="annottext">Maybe Text
 documentVersion :: Maybe Text
 $sel:documentVersion:UpdateDocumentMetadata' :: UpdateDocumentMetadata -&gt; Maybe Text
-</span><a href="#local-6989586621679857343"><span class="hs-identifier hs-var hs-var">documentVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679857343"><span class="hs-identifier hs-var">documentVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679857342"><span class="annot"><span class="annottext">s :: UpdateDocumentMetadata
-</span><a href="#local-6989586621679857342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadata%27"><span class="hs-identifier hs-type">UpdateDocumentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679857341"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679857341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDocumentMetadata
-</span><a href="#local-6989586621679857342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentVersion:UpdateDocumentMetadata' :: Maybe Text
+</span><a href="#local-6989586621679857352"><span class="hs-identifier hs-var hs-var">documentVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679857352"><span class="hs-identifier hs-var">documentVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679857351"><span class="annot"><span class="annottext">s :: UpdateDocumentMetadata
+</span><a href="#local-6989586621679857351"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadata%27"><span class="hs-identifier hs-type">UpdateDocumentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679857350"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679857350"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDocumentMetadata
+</span><a href="#local-6989586621679857351"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentVersion:UpdateDocumentMetadata' :: Maybe Text
 </span><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#%24sel%3AdocumentVersion%3AUpdateDocumentMetadata%27"><span class="hs-identifier hs-var">documentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679857341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadata"><span class="hs-identifier hs-type">UpdateDocumentMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679857350"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadata"><span class="hs-identifier hs-type">UpdateDocumentMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | The name of the change template for which a version\'s metadata is to be</span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- updated.</span><span>
@@ -188,16 +188,16 @@ $sel:documentVersion:UpdateDocumentMetadata' :: UpdateDocumentMetadata -&gt; May
 -&gt; (UpdateDocumentMetadata -&gt; Text -&gt; UpdateDocumentMetadata)
 -&gt; Lens UpdateDocumentMetadata UpdateDocumentMetadata Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadata%27"><span class="hs-identifier hs-type">UpdateDocumentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679857340"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadata%27"><span class="hs-identifier hs-type">UpdateDocumentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679857349"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:UpdateDocumentMetadata' :: UpdateDocumentMetadata -&gt; Text
-</span><a href="#local-6989586621679857340"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679857340"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679857339"><span class="annot"><span class="annottext">s :: UpdateDocumentMetadata
-</span><a href="#local-6989586621679857339"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadata%27"><span class="hs-identifier hs-type">UpdateDocumentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679857338"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679857338"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDocumentMetadata
-</span><a href="#local-6989586621679857339"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateDocumentMetadata' :: Text
+</span><a href="#local-6989586621679857349"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679857349"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679857348"><span class="annot"><span class="annottext">s :: UpdateDocumentMetadata
+</span><a href="#local-6989586621679857348"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadata%27"><span class="hs-identifier hs-type">UpdateDocumentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679857347"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679857347"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDocumentMetadata
+</span><a href="#local-6989586621679857348"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateDocumentMetadata' :: Text
 </span><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#%24sel%3Aname%3AUpdateDocumentMetadata%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679857338"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadata"><span class="hs-identifier hs-type">UpdateDocumentMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679857347"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadata"><span class="hs-identifier hs-type">UpdateDocumentMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | The change template review details to update.</span><span>
 </span><span id="line-101"></span><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#updateDocumentMetadata_documentReviews"><span class="hs-identifier hs-type">updateDocumentMetadata_documentReviews</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadata"><span class="hs-identifier hs-type">UpdateDocumentMetadata</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.DocumentReviews.html#DocumentReviews"><span class="hs-identifier hs-type">DocumentReviews</span></a></span><span>
@@ -212,27 +212,27 @@ $sel:name:UpdateDocumentMetadata' :: UpdateDocumentMetadata -&gt; Text
      DocumentReviews
      DocumentReviews
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadata%27"><span class="hs-identifier hs-type">UpdateDocumentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679857337"><span class="annot"><span class="annottext">DocumentReviews
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadata%27"><span class="hs-identifier hs-type">UpdateDocumentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679857346"><span class="annot"><span class="annottext">DocumentReviews
 documentReviews :: DocumentReviews
 $sel:documentReviews:UpdateDocumentMetadata' :: UpdateDocumentMetadata -&gt; DocumentReviews
-</span><a href="#local-6989586621679857337"><span class="hs-identifier hs-var hs-var">documentReviews</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentReviews
-</span><a href="#local-6989586621679857337"><span class="hs-identifier hs-var">documentReviews</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679857336"><span class="annot"><span class="annottext">s :: UpdateDocumentMetadata
-</span><a href="#local-6989586621679857336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadata%27"><span class="hs-identifier hs-type">UpdateDocumentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679857335"><span class="annot"><span class="annottext">DocumentReviews
-</span><a href="#local-6989586621679857335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDocumentMetadata
-</span><a href="#local-6989586621679857336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentReviews:UpdateDocumentMetadata' :: DocumentReviews
+</span><a href="#local-6989586621679857346"><span class="hs-identifier hs-var hs-var">documentReviews</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentReviews
+</span><a href="#local-6989586621679857346"><span class="hs-identifier hs-var">documentReviews</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679857345"><span class="annot"><span class="annottext">s :: UpdateDocumentMetadata
+</span><a href="#local-6989586621679857345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadata%27"><span class="hs-identifier hs-type">UpdateDocumentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679857344"><span class="annot"><span class="annottext">DocumentReviews
+</span><a href="#local-6989586621679857344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDocumentMetadata
+</span><a href="#local-6989586621679857345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentReviews:UpdateDocumentMetadata' :: DocumentReviews
 </span><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#%24sel%3AdocumentReviews%3AUpdateDocumentMetadata%27"><span class="hs-identifier hs-var">documentReviews</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DocumentReviews
-</span><a href="#local-6989586621679857335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadata"><span class="hs-identifier hs-type">UpdateDocumentMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679857344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadata"><span class="hs-identifier hs-type">UpdateDocumentMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadata"><span class="hs-identifier hs-type">UpdateDocumentMetadata</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-105"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-106"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadata"><span class="hs-identifier hs-type">UpdateDocumentMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>      </span><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadataResponse"><span class="hs-identifier hs-type">UpdateDocumentMetadataResponse</span></a></span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679857331"><span class="annot"><span class="annottext">request :: UpdateDocumentMetadata -&gt; Request UpdateDocumentMetadata
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679857340"><span class="annot"><span class="annottext">request :: UpdateDocumentMetadata -&gt; Request UpdateDocumentMetadata
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateDocumentMetadata -&gt; Request UpdateDocumentMetadata
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679857327"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679857336"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateDocumentMetadata
 -&gt; ClientResponse ClientBody
@@ -258,10 +258,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679857324"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679857324"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679857323"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679857323"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679857322"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679857322"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679857333"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679857333"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679857332"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679857332"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679857331"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679857331"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; UpdateDocumentMetadataResponse
 </span><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadataResponse%27"><span class="hs-identifier hs-var">UpdateDocumentMetadataResponse'</span></a></span><span>
 </span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; UpdateDocumentMetadataResponse)
@@ -273,15 +273,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679857324"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679857333"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679857315"><span id="local-6989586621679857317"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadata"><span class="hs-identifier hs-type">UpdateDocumentMetadata</span></a></span></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679857324"><span id="local-6989586621679857326"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadata"><span class="hs-identifier hs-type">UpdateDocumentMetadata</span></a></span></span></span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679857312"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadata"><span class="hs-identifier hs-type">UpdateDocumentMetadata</span></a></span></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679857321"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadata"><span class="hs-identifier hs-type">UpdateDocumentMetadata</span></a></span></span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadata"><span class="hs-identifier hs-type">UpdateDocumentMetadata</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679857308"><span class="annot"><span class="annottext">toHeaders :: UpdateDocumentMetadata -&gt; ResponseHeaders
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679857317"><span class="annot"><span class="annottext">toHeaders :: UpdateDocumentMetadata -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateDocumentMetadata -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -308,9 +308,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-132"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679857298"><span id="local-6989586621679857300"><span id="local-6989586621679857302"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadata"><span class="hs-identifier hs-type">UpdateDocumentMetadata</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679857296"><span class="annot"><span class="annottext">toJSON :: UpdateDocumentMetadata -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadata%27"><span class="hs-identifier hs-type">UpdateDocumentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679857292"><span id="local-6989586621679857293"><span id="local-6989586621679857294"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679857307"><span id="local-6989586621679857309"><span id="local-6989586621679857311"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadata"><span class="hs-identifier hs-type">UpdateDocumentMetadata</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679857305"><span class="annot"><span class="annottext">toJSON :: UpdateDocumentMetadata -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadata%27"><span class="hs-identifier hs-type">UpdateDocumentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679857301"><span id="local-6989586621679857302"><span id="local-6989586621679857303"><span class="annot"><span class="annottext">Maybe Text
 Text
 DocumentReviews
 documentReviews :: DocumentReviews
@@ -319,7 +319,7 @@ documentVersion :: Maybe Text
 $sel:documentReviews:UpdateDocumentMetadata' :: UpdateDocumentMetadata -&gt; DocumentReviews
 $sel:name:UpdateDocumentMetadata' :: UpdateDocumentMetadata -&gt; Text
 $sel:documentVersion:UpdateDocumentMetadata' :: UpdateDocumentMetadata -&gt; Maybe Text
-</span><a href="#local-6989586621679857292"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679857301"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -332,14 +332,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-140"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679857294"><span class="hs-identifier hs-var">documentVersion</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679857303"><span class="hs-identifier hs-var">documentVersion</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679857293"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679857302"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -347,19 +347,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;DocumentReviews&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DocumentReviews -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">DocumentReviews
-</span><a href="#local-6989586621679857292"><span class="hs-identifier hs-var">documentReviews</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679857301"><span class="hs-identifier hs-var">documentReviews</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadata"><span class="hs-identifier hs-type">UpdateDocumentMetadata</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679857286"><span class="annot"><span class="annottext">toPath :: UpdateDocumentMetadata -&gt; ByteString
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679857295"><span class="annot"><span class="annottext">toPath :: UpdateDocumentMetadata -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateDocumentMetadata -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadata"><span class="hs-identifier hs-type">UpdateDocumentMetadata</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679857282"><span class="annot"><span class="annottext">toQuery :: UpdateDocumentMetadata -&gt; QueryString
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679857291"><span class="annot"><span class="annottext">toQuery :: UpdateDocumentMetadata -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateDocumentMetadata -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -367,12 +367,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- | /See:/ 'newUpdateDocumentMetadataResponse' smart constructor.</span><span>
-</span><span id="line-154"></span><span id="local-6989586621679857279"><span id="local-6989586621679857280"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDocumentMetadataResponse"><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadataResponse"><span class="hs-identifier hs-var">UpdateDocumentMetadataResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDocumentMetadataResponse%27"><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadataResponse%27"><span class="hs-identifier hs-var">UpdateDocumentMetadataResponse'</span></a></span></span><span>
+</span><span id="line-154"></span><span id="local-6989586621679857288"><span id="local-6989586621679857289"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDocumentMetadataResponse"><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadataResponse"><span class="hs-identifier hs-var">UpdateDocumentMetadataResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDocumentMetadataResponse%27"><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadataResponse%27"><span class="hs-identifier hs-var">UpdateDocumentMetadataResponse'</span></a></span></span><span>
 </span><span id="line-155"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-156"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateDocumentMetadataResponse%27"><span class="annot"><span class="annottext">UpdateDocumentMetadataResponse -&gt; Int
 </span><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#%24sel%3AhttpStatus%3AUpdateDocumentMetadataResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-157"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-158"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679857274"><span id="local-6989586621679857276"><span class="annot"><span class="annottext">UpdateDocumentMetadataResponse
+</span><span id="line-158"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679857283"><span id="local-6989586621679857285"><span class="annot"><span class="annottext">UpdateDocumentMetadataResponse
 -&gt; UpdateDocumentMetadataResponse -&gt; Bool
 (UpdateDocumentMetadataResponse
  -&gt; UpdateDocumentMetadataResponse -&gt; Bool)
@@ -388,7 +388,7 @@ $c/= :: UpdateDocumentMetadataResponse
 -&gt; UpdateDocumentMetadataResponse -&gt; Bool
 $c== :: UpdateDocumentMetadataResponse
 -&gt; UpdateDocumentMetadataResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679857266"><span id="local-6989586621679857268"><span id="local-6989586621679857270"><span id="local-6989586621679857272"><span class="annot"><span class="annottext">ReadPrec [UpdateDocumentMetadataResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679857275"><span id="local-6989586621679857277"><span id="local-6989586621679857279"><span id="local-6989586621679857281"><span class="annot"><span class="annottext">ReadPrec [UpdateDocumentMetadataResponse]
 ReadPrec UpdateDocumentMetadataResponse
 Int -&gt; ReadS UpdateDocumentMetadataResponse
 ReadS [UpdateDocumentMetadataResponse]
@@ -408,7 +408,7 @@ readList :: ReadS [UpdateDocumentMetadataResponse]
 $creadList :: ReadS [UpdateDocumentMetadataResponse]
 readsPrec :: Int -&gt; ReadS UpdateDocumentMetadataResponse
 $creadsPrec :: Int -&gt; ReadS UpdateDocumentMetadataResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679857260"><span id="local-6989586621679857262"><span id="local-6989586621679857264"><span class="annot"><span class="annottext">Int -&gt; UpdateDocumentMetadataResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679857269"><span id="local-6989586621679857271"><span id="local-6989586621679857273"><span class="annot"><span class="annottext">Int -&gt; UpdateDocumentMetadataResponse -&gt; ShowS
 [UpdateDocumentMetadataResponse] -&gt; ShowS
 UpdateDocumentMetadataResponse -&gt; String
 (Int -&gt; UpdateDocumentMetadataResponse -&gt; ShowS)
@@ -460,14 +460,14 @@ UpdateDocumentMetadataResponse
 </span><span id="line-171"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-172"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadataResponse"><span class="hs-identifier hs-type">UpdateDocumentMetadataResponse</span></a></span><span>
 </span><span id="line-173"></span><span id="newUpdateDocumentMetadataResponse"><span class="annot"><span class="annottext">newUpdateDocumentMetadataResponse :: Int -&gt; UpdateDocumentMetadataResponse
-</span><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#newUpdateDocumentMetadataResponse"><span class="hs-identifier hs-var hs-var">newUpdateDocumentMetadataResponse</span></a></span></span><span> </span><span id="local-6989586621679857257"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679857257"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#newUpdateDocumentMetadataResponse"><span class="hs-identifier hs-var hs-var">newUpdateDocumentMetadataResponse</span></a></span></span><span> </span><span id="local-6989586621679857266"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679857266"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-174"></span><span>  </span><span class="annot"><span class="annottext">UpdateDocumentMetadataResponse' :: Int -&gt; UpdateDocumentMetadataResponse
 </span><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadataResponse%27"><span class="hs-identifier hs-type">UpdateDocumentMetadataResponse'</span></a></span><span>
 </span><span id="line-175"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateDocumentMetadataResponse' :: Int
 </span><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#%24sel%3AhttpStatus%3AUpdateDocumentMetadataResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-176"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679857257"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679857266"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-177"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -484,18 +484,18 @@ UpdateDocumentMetadataResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadataResponse%27"><span class="hs-identifier hs-type">UpdateDocumentMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679857256"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadataResponse%27"><span class="hs-identifier hs-type">UpdateDocumentMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679857265"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateDocumentMetadataResponse' :: UpdateDocumentMetadataResponse -&gt; Int
-</span><a href="#local-6989586621679857256"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679857256"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679857255"><span class="annot"><span class="annottext">s :: UpdateDocumentMetadataResponse
-</span><a href="#local-6989586621679857255"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadataResponse%27"><span class="hs-identifier hs-type">UpdateDocumentMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679857254"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679857254"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDocumentMetadataResponse
-</span><a href="#local-6989586621679857255"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateDocumentMetadataResponse' :: Int
+</span><a href="#local-6989586621679857265"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679857265"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679857264"><span class="annot"><span class="annottext">s :: UpdateDocumentMetadataResponse
+</span><a href="#local-6989586621679857264"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadataResponse%27"><span class="hs-identifier hs-type">UpdateDocumentMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679857263"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679857263"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDocumentMetadataResponse
+</span><a href="#local-6989586621679857264"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateDocumentMetadataResponse' :: Int
 </span><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#%24sel%3AhttpStatus%3AUpdateDocumentMetadataResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679857254"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadataResponse"><span class="hs-identifier hs-type">UpdateDocumentMetadataResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679857263"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadataResponse"><span class="hs-identifier hs-type">UpdateDocumentMetadataResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621679857252"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679857261"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-185"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.UpdateDocumentMetadata.html#UpdateDocumentMetadataResponse"><span class="hs-identifier hs-type">UpdateDocumentMetadataResponse</span></a></span></span><span>
 </span><span id="line-186"></span></pre></body></html>

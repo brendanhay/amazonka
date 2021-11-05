@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679284181"><span id="local-6989586621679284182"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WebhookAuthenticationType"><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookAuthenticationType.html#WebhookAuthenticationType"><span class="hs-identifier hs-var">WebhookAuthenticationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WebhookAuthenticationType%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookAuthenticationType.html#WebhookAuthenticationType%27"><span class="hs-identifier hs-var">WebhookAuthenticationType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679284190"><span id="local-6989586621679284191"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WebhookAuthenticationType"><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookAuthenticationType.html#WebhookAuthenticationType"><span class="hs-identifier hs-var">WebhookAuthenticationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WebhookAuthenticationType%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookAuthenticationType.html#WebhookAuthenticationType%27"><span class="hs-identifier hs-var">WebhookAuthenticationType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromWebhookAuthenticationType"><span class="annot"><span class="annottext">WebhookAuthenticationType -&gt; Text
 </span><a href="Network.AWS.CodePipeline.Types.WebhookAuthenticationType.html#fromWebhookAuthenticationType"><span class="hs-identifier hs-var hs-var">fromWebhookAuthenticationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679284173"><span id="local-6989586621679284175"><span id="local-6989586621679284177"><span class="annot"><span class="annottext">Int -&gt; WebhookAuthenticationType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679284182"><span id="local-6989586621679284184"><span id="local-6989586621679284186"><span class="annot"><span class="annottext">Int -&gt; WebhookAuthenticationType -&gt; ShowS
 [WebhookAuthenticationType] -&gt; ShowS
 WebhookAuthenticationType -&gt; String
 (Int -&gt; WebhookAuthenticationType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: WebhookAuthenticationType -&gt; String
 showsPrec :: Int -&gt; WebhookAuthenticationType -&gt; ShowS
 $cshowsPrec :: Int -&gt; WebhookAuthenticationType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679284164"><span id="local-6989586621679284166"><span id="local-6989586621679284168"><span id="local-6989586621679284170"><span class="annot"><span class="annottext">ReadPrec [WebhookAuthenticationType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679284173"><span id="local-6989586621679284175"><span id="local-6989586621679284177"><span id="local-6989586621679284179"><span class="annot"><span class="annottext">ReadPrec [WebhookAuthenticationType]
 ReadPrec WebhookAuthenticationType
 Int -&gt; ReadS WebhookAuthenticationType
 ReadS [WebhookAuthenticationType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [WebhookAuthenticationType]
 readsPrec :: Int -&gt; ReadS WebhookAuthenticationType
 $creadsPrec :: Int -&gt; ReadS WebhookAuthenticationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679284159"><span id="local-6989586621679284161"><span class="annot"><span class="annottext">WebhookAuthenticationType -&gt; WebhookAuthenticationType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679284168"><span id="local-6989586621679284170"><span class="annot"><span class="annottext">WebhookAuthenticationType -&gt; WebhookAuthenticationType -&gt; Bool
 (WebhookAuthenticationType -&gt; WebhookAuthenticationType -&gt; Bool)
 -&gt; (WebhookAuthenticationType -&gt; WebhookAuthenticationType -&gt; Bool)
 -&gt; Eq WebhookAuthenticationType
@@ -83,7 +83,7 @@ $c/= :: WebhookAuthenticationType -&gt; WebhookAuthenticationType -&gt; Bool
 == :: WebhookAuthenticationType -&gt; WebhookAuthenticationType -&gt; Bool
 $c== :: WebhookAuthenticationType -&gt; WebhookAuthenticationType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679284143"><span id="local-6989586621679284145"><span id="local-6989586621679284147"><span id="local-6989586621679284149"><span id="local-6989586621679284151"><span id="local-6989586621679284153"><span id="local-6989586621679284155"><span class="annot"><span class="annottext">Eq WebhookAuthenticationType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679284152"><span id="local-6989586621679284154"><span id="local-6989586621679284156"><span id="local-6989586621679284158"><span id="local-6989586621679284160"><span id="local-6989586621679284162"><span id="local-6989586621679284164"><span class="annot"><span class="annottext">Eq WebhookAuthenticationType
 Eq WebhookAuthenticationType
 -&gt; (WebhookAuthenticationType
     -&gt; WebhookAuthenticationType -&gt; Ordering)
@@ -148,7 +148,7 @@ WebhookAuthenticationType -&gt; Rep WebhookAuthenticationType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679284135"><span id="local-6989586621679284137"><span class="annot"><span class="annottext">Int -&gt; WebhookAuthenticationType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679284144"><span id="local-6989586621679284146"><span class="annot"><span class="annottext">Int -&gt; WebhookAuthenticationType -&gt; Int
 WebhookAuthenticationType -&gt; Int
 (Int -&gt; WebhookAuthenticationType -&gt; Int)
 -&gt; (WebhookAuthenticationType -&gt; Int)
@@ -159,56 +159,56 @@ $chash :: WebhookAuthenticationType -&gt; Int
 hashWithSalt :: Int -&gt; WebhookAuthenticationType -&gt; Int
 $chashWithSalt :: Int -&gt; WebhookAuthenticationType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679284132"><span class="annot"><span class="annottext">WebhookAuthenticationType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679284141"><span class="annot"><span class="annottext">WebhookAuthenticationType -&gt; ()
 (WebhookAuthenticationType -&gt; ())
 -&gt; NFData WebhookAuthenticationType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: WebhookAuthenticationType -&gt; ()
 $crnf :: WebhookAuthenticationType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679284129"><span class="annot"><span class="annottext">Text -&gt; Either String WebhookAuthenticationType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679284138"><span class="annot"><span class="annottext">Text -&gt; Either String WebhookAuthenticationType
 (Text -&gt; Either String WebhookAuthenticationType)
 -&gt; FromText WebhookAuthenticationType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String WebhookAuthenticationType
 $cfromText :: Text -&gt; Either String WebhookAuthenticationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679284126"><span class="annot"><span class="annottext">WebhookAuthenticationType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679284135"><span class="annot"><span class="annottext">WebhookAuthenticationType -&gt; Text
 (WebhookAuthenticationType -&gt; Text)
 -&gt; ToText WebhookAuthenticationType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: WebhookAuthenticationType -&gt; Text
 $ctoText :: WebhookAuthenticationType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679284123"><span class="annot"><span class="annottext">WebhookAuthenticationType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679284132"><span class="annot"><span class="annottext">WebhookAuthenticationType -&gt; ByteString
 (WebhookAuthenticationType -&gt; ByteString)
 -&gt; ToByteString WebhookAuthenticationType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: WebhookAuthenticationType -&gt; ByteString
 $ctoBS :: WebhookAuthenticationType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679284120"><span class="annot"><span class="annottext">WebhookAuthenticationType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679284129"><span class="annot"><span class="annottext">WebhookAuthenticationType -&gt; ByteStringBuilder
 (WebhookAuthenticationType -&gt; ByteStringBuilder)
 -&gt; ToLog WebhookAuthenticationType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: WebhookAuthenticationType -&gt; ByteStringBuilder
 $cbuild :: WebhookAuthenticationType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679284117"><span class="annot"><span class="annottext">HeaderName -&gt; WebhookAuthenticationType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679284126"><span class="annot"><span class="annottext">HeaderName -&gt; WebhookAuthenticationType -&gt; [Header]
 (HeaderName -&gt; WebhookAuthenticationType -&gt; [Header])
 -&gt; ToHeader WebhookAuthenticationType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; WebhookAuthenticationType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; WebhookAuthenticationType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679284114"><span class="annot"><span class="annottext">WebhookAuthenticationType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679284123"><span class="annot"><span class="annottext">WebhookAuthenticationType -&gt; QueryString
 (WebhookAuthenticationType -&gt; QueryString)
 -&gt; ToQuery WebhookAuthenticationType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: WebhookAuthenticationType -&gt; QueryString
 $ctoQuery :: WebhookAuthenticationType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679284109"><span id="local-6989586621679284111"><span class="annot"><span class="annottext">Value -&gt; Parser [WebhookAuthenticationType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679284118"><span id="local-6989586621679284120"><span class="annot"><span class="annottext">Value -&gt; Parser [WebhookAuthenticationType]
 Value -&gt; Parser WebhookAuthenticationType
 (Value -&gt; Parser WebhookAuthenticationType)
 -&gt; (Value -&gt; Parser [WebhookAuthenticationType])
@@ -220,7 +220,7 @@ $cparseJSONList :: Value -&gt; Parser [WebhookAuthenticationType]
 parseJSON :: Value -&gt; Parser WebhookAuthenticationType
 $cparseJSON :: Value -&gt; Parser WebhookAuthenticationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679284104"><span id="local-6989586621679284106"><span class="annot"><span class="annottext">FromJSONKeyFunction [WebhookAuthenticationType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679284113"><span id="local-6989586621679284115"><span class="annot"><span class="annottext">FromJSONKeyFunction [WebhookAuthenticationType]
 FromJSONKeyFunction WebhookAuthenticationType
 FromJSONKeyFunction WebhookAuthenticationType
 -&gt; FromJSONKeyFunction [WebhookAuthenticationType]
@@ -232,7 +232,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [WebhookAuthenticationType]
 fromJSONKey :: FromJSONKeyFunction WebhookAuthenticationType
 $cfromJSONKey :: FromJSONKeyFunction WebhookAuthenticationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679284095"><span id="local-6989586621679284097"><span id="local-6989586621679284099"><span id="local-6989586621679284101"><span class="annot"><span class="annottext">[WebhookAuthenticationType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679284104"><span id="local-6989586621679284106"><span id="local-6989586621679284108"><span id="local-6989586621679284110"><span class="annot"><span class="annottext">[WebhookAuthenticationType] -&gt; Encoding
 [WebhookAuthenticationType] -&gt; Value
 WebhookAuthenticationType -&gt; Encoding
 WebhookAuthenticationType -&gt; Value
@@ -256,7 +256,7 @@ $ctoEncoding :: WebhookAuthenticationType -&gt; Encoding
 toJSON :: WebhookAuthenticationType -&gt; Value
 $ctoJSON :: WebhookAuthenticationType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679284090"><span id="local-6989586621679284092"><span class="annot"><span class="annottext">ToJSONKeyFunction [WebhookAuthenticationType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679284099"><span id="local-6989586621679284101"><span class="annot"><span class="annottext">ToJSONKeyFunction [WebhookAuthenticationType]
 ToJSONKeyFunction WebhookAuthenticationType
 ToJSONKeyFunction WebhookAuthenticationType
 -&gt; ToJSONKeyFunction [WebhookAuthenticationType]
@@ -268,14 +268,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [WebhookAuthenticationType]
 toJSONKey :: ToJSONKeyFunction WebhookAuthenticationType
 $ctoJSONKey :: ToJSONKeyFunction WebhookAuthenticationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679284087"><span class="annot"><span class="annottext">[Node] -&gt; Either String WebhookAuthenticationType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679284096"><span class="annot"><span class="annottext">[Node] -&gt; Either String WebhookAuthenticationType
 ([Node] -&gt; Either String WebhookAuthenticationType)
 -&gt; FromXML WebhookAuthenticationType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String WebhookAuthenticationType
 $cparseXML :: [Node] -&gt; Either String WebhookAuthenticationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679284084"><span class="annot"><span class="annottext">WebhookAuthenticationType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679284093"><span class="annot"><span class="annottext">WebhookAuthenticationType -&gt; XML
 (WebhookAuthenticationType -&gt; XML)
 -&gt; ToXML WebhookAuthenticationType
 forall a. (a -&gt; XML) -&gt; ToXML a

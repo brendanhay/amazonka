@@ -58,7 +58,7 @@
 </span><span id="line-58"></span><span class="hs-comment">-- | A request to change information about an ApiKey resource.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- /See:/ 'newUpdateApiKey' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621679394051"><span id="local-6989586621679394052"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateApiKey"><span class="annot"><a href="Network.AWS.APIGateway.UpdateApiKey.html#UpdateApiKey"><span class="hs-identifier hs-var">UpdateApiKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateApiKey%27"><span class="annot"><a href="Network.AWS.APIGateway.UpdateApiKey.html#UpdateApiKey%27"><span class="hs-identifier hs-var">UpdateApiKey'</span></a></span></span><span>
+</span><span id="line-61"></span><span id="local-6989586621679394060"><span id="local-6989586621679394061"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateApiKey"><span class="annot"><a href="Network.AWS.APIGateway.UpdateApiKey.html#UpdateApiKey"><span class="hs-identifier hs-var">UpdateApiKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateApiKey%27"><span class="annot"><a href="Network.AWS.APIGateway.UpdateApiKey.html#UpdateApiKey%27"><span class="hs-identifier hs-var">UpdateApiKey'</span></a></span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of update operations to be applied to the specified resource and</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- in the order specified in this list.</span><span>
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3ApatchOperations%3AUpdateApiKey%27"><span class="annot"><span class="annottext">UpdateApiKey -&gt; Maybe [PatchOperation]
@@ -67,7 +67,7 @@
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3AapiKey%3AUpdateApiKey%27"><span class="annot"><span class="annottext">UpdateApiKey -&gt; Text
 </span><a href="Network.AWS.APIGateway.UpdateApiKey.html#%24sel%3AapiKey%3AUpdateApiKey%27"><span class="hs-identifier hs-var hs-var">apiKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394044"><span id="local-6989586621679394046"><span class="annot"><span class="annottext">UpdateApiKey -&gt; UpdateApiKey -&gt; Bool
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394053"><span id="local-6989586621679394055"><span class="annot"><span class="annottext">UpdateApiKey -&gt; UpdateApiKey -&gt; Bool
 (UpdateApiKey -&gt; UpdateApiKey -&gt; Bool)
 -&gt; (UpdateApiKey -&gt; UpdateApiKey -&gt; Bool) -&gt; Eq UpdateApiKey
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateApiKey -&gt; UpdateApiKey -&gt; Bool
 == :: UpdateApiKey -&gt; UpdateApiKey -&gt; Bool
 $c== :: UpdateApiKey -&gt; UpdateApiKey -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394035"><span id="local-6989586621679394037"><span id="local-6989586621679394039"><span id="local-6989586621679394041"><span class="annot"><span class="annottext">ReadPrec [UpdateApiKey]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394044"><span id="local-6989586621679394046"><span id="local-6989586621679394048"><span id="local-6989586621679394050"><span class="annot"><span class="annottext">ReadPrec [UpdateApiKey]
 ReadPrec UpdateApiKey
 Int -&gt; ReadS UpdateApiKey
 ReadS [UpdateApiKey]
@@ -95,7 +95,7 @@ readList :: ReadS [UpdateApiKey]
 $creadList :: ReadS [UpdateApiKey]
 readsPrec :: Int -&gt; ReadS UpdateApiKey
 $creadsPrec :: Int -&gt; ReadS UpdateApiKey
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394028"><span id="local-6989586621679394030"><span id="local-6989586621679394032"><span class="annot"><span class="annottext">Int -&gt; UpdateApiKey -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394037"><span id="local-6989586621679394039"><span id="local-6989586621679394041"><span class="annot"><span class="annottext">Int -&gt; UpdateApiKey -&gt; ShowS
 [UpdateApiKey] -&gt; ShowS
 UpdateApiKey -&gt; String
 (Int -&gt; UpdateApiKey -&gt; ShowS)
@@ -138,8 +138,8 @@ $cfrom :: forall x. UpdateApiKey -&gt; Rep UpdateApiKey x
 </span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateApiKey.html#UpdateApiKey"><span class="hs-identifier hs-type">UpdateApiKey</span></a></span><span>
 </span><span id="line-86"></span><span id="newUpdateApiKey"><span class="annot"><span class="annottext">newUpdateApiKey :: Text -&gt; UpdateApiKey
-</span><a href="Network.AWS.APIGateway.UpdateApiKey.html#newUpdateApiKey"><span class="hs-identifier hs-var hs-var">newUpdateApiKey</span></a></span></span><span> </span><span id="local-6989586621679394023"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394023"><span class="hs-identifier hs-var">pApiKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.APIGateway.UpdateApiKey.html#newUpdateApiKey"><span class="hs-identifier hs-var hs-var">newUpdateApiKey</span></a></span></span><span> </span><span id="local-6989586621679394032"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394032"><span class="hs-identifier hs-var">pApiKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">UpdateApiKey' :: Maybe [PatchOperation] -&gt; Text -&gt; UpdateApiKey
 </span><a href="Network.AWS.APIGateway.UpdateApiKey.html#UpdateApiKey%27"><span class="hs-identifier hs-type">UpdateApiKey'</span></a></span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:patchOperations:UpdateApiKey' :: Maybe [PatchOperation]
@@ -148,7 +148,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:apiKey:UpdateApiKey' :: Text
 </span><a href="Network.AWS.APIGateway.UpdateApiKey.html#%24sel%3AapiKey%3AUpdateApiKey%27"><span class="hs-identifier hs-var">apiKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394023"><span class="hs-identifier hs-var">pApiKey_</span></a></span><span>
+</span><a href="#local-6989586621679394032"><span class="hs-identifier hs-var">pApiKey_</span></a></span><span>
 </span><span id="line-90"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | A list of update operations to be applied to the specified resource and</span><span>
@@ -164,16 +164,16 @@ forall a. Maybe a
      (Maybe [PatchOperation])
      (Maybe [PatchOperation])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateApiKey.html#UpdateApiKey%27"><span class="hs-identifier hs-type">UpdateApiKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394020"><span class="annot"><span class="annottext">Maybe [PatchOperation]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateApiKey.html#UpdateApiKey%27"><span class="hs-identifier hs-type">UpdateApiKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394029"><span class="annot"><span class="annottext">Maybe [PatchOperation]
 patchOperations :: Maybe [PatchOperation]
 $sel:patchOperations:UpdateApiKey' :: UpdateApiKey -&gt; Maybe [PatchOperation]
-</span><a href="#local-6989586621679394020"><span class="hs-identifier hs-var hs-var">patchOperations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PatchOperation]
-</span><a href="#local-6989586621679394020"><span class="hs-identifier hs-var">patchOperations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394019"><span class="annot"><span class="annottext">s :: UpdateApiKey
-</span><a href="#local-6989586621679394019"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateApiKey.html#UpdateApiKey%27"><span class="hs-identifier hs-type">UpdateApiKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394018"><span class="annot"><span class="annottext">Maybe [PatchOperation]
-</span><a href="#local-6989586621679394018"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateApiKey
-</span><a href="#local-6989586621679394019"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:patchOperations:UpdateApiKey' :: Maybe [PatchOperation]
+</span><a href="#local-6989586621679394029"><span class="hs-identifier hs-var hs-var">patchOperations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PatchOperation]
+</span><a href="#local-6989586621679394029"><span class="hs-identifier hs-var">patchOperations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394028"><span class="annot"><span class="annottext">s :: UpdateApiKey
+</span><a href="#local-6989586621679394028"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateApiKey.html#UpdateApiKey%27"><span class="hs-identifier hs-type">UpdateApiKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394027"><span class="annot"><span class="annottext">Maybe [PatchOperation]
+</span><a href="#local-6989586621679394027"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateApiKey
+</span><a href="#local-6989586621679394028"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:patchOperations:UpdateApiKey' :: Maybe [PatchOperation]
 </span><a href="Network.AWS.APIGateway.UpdateApiKey.html#%24sel%3ApatchOperations%3AUpdateApiKey%27"><span class="hs-identifier hs-var">patchOperations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PatchOperation]
-</span><a href="#local-6989586621679394018"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateApiKey.html#UpdateApiKey"><span class="hs-identifier hs-type">UpdateApiKey</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PatchOperation] -&gt; f (Maybe [PatchOperation]))
+</span><a href="#local-6989586621679394027"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateApiKey.html#UpdateApiKey"><span class="hs-identifier hs-type">UpdateApiKey</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PatchOperation] -&gt; f (Maybe [PatchOperation]))
  -&gt; UpdateApiKey -&gt; f UpdateApiKey)
 -&gt; ((Maybe [PatchOperation] -&gt; f (Maybe [PatchOperation]))
     -&gt; Maybe [PatchOperation] -&gt; f (Maybe [PatchOperation]))
@@ -203,25 +203,25 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (UpdateApiKey -&gt; Text -&gt; UpdateApiKey)
 -&gt; Lens UpdateApiKey UpdateApiKey Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateApiKey.html#UpdateApiKey%27"><span class="hs-identifier hs-type">UpdateApiKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394014"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateApiKey.html#UpdateApiKey%27"><span class="hs-identifier hs-type">UpdateApiKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394023"><span class="annot"><span class="annottext">Text
 apiKey :: Text
 $sel:apiKey:UpdateApiKey' :: UpdateApiKey -&gt; Text
-</span><a href="#local-6989586621679394014"><span class="hs-identifier hs-var hs-var">apiKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394014"><span class="hs-identifier hs-var">apiKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394013"><span class="annot"><span class="annottext">s :: UpdateApiKey
-</span><a href="#local-6989586621679394013"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateApiKey.html#UpdateApiKey%27"><span class="hs-identifier hs-type">UpdateApiKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394012"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394012"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateApiKey
-</span><a href="#local-6989586621679394013"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiKey:UpdateApiKey' :: Text
+</span><a href="#local-6989586621679394023"><span class="hs-identifier hs-var hs-var">apiKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394023"><span class="hs-identifier hs-var">apiKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394022"><span class="annot"><span class="annottext">s :: UpdateApiKey
+</span><a href="#local-6989586621679394022"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.UpdateApiKey.html#UpdateApiKey%27"><span class="hs-identifier hs-type">UpdateApiKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394021"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394021"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateApiKey
+</span><a href="#local-6989586621679394022"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiKey:UpdateApiKey' :: Text
 </span><a href="Network.AWS.APIGateway.UpdateApiKey.html#%24sel%3AapiKey%3AUpdateApiKey%27"><span class="hs-identifier hs-var">apiKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394012"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateApiKey.html#UpdateApiKey"><span class="hs-identifier hs-type">UpdateApiKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394021"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateApiKey.html#UpdateApiKey"><span class="hs-identifier hs-type">UpdateApiKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateApiKey.html#UpdateApiKey"><span class="hs-identifier hs-type">UpdateApiKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-102"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateApiKey.html#UpdateApiKey"><span class="hs-identifier hs-type">UpdateApiKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.ApiKey.html#ApiKey"><span class="hs-identifier hs-type">ApiKey</span></a></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679394008"><span class="annot"><span class="annottext">request :: UpdateApiKey -&gt; Request UpdateApiKey
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679394017"><span class="annot"><span class="annottext">request :: UpdateApiKey -&gt; Request UpdateApiKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateApiKey -&gt; Request UpdateApiKey
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.patchJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.APIGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679394004"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679394013"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateApiKey
 -&gt; ClientResponse ClientBody
@@ -245,20 +245,20 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394001"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679394001"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679394000"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679394000"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679393999"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679393999"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String ApiKey
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394010"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394010"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679394009"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679394009"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679394008"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679394008"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String ApiKey
 forall a. FromJSON a =&gt; Object -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679393999"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394008"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393994"><span id="local-6989586621679393996"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateApiKey.html#UpdateApiKey"><span class="hs-identifier hs-type">UpdateApiKey</span></a></span></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394003"><span id="local-6989586621679394005"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateApiKey.html#UpdateApiKey"><span class="hs-identifier hs-type">UpdateApiKey</span></a></span></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393991"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateApiKey.html#UpdateApiKey"><span class="hs-identifier hs-type">UpdateApiKey</span></a></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394000"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateApiKey.html#UpdateApiKey"><span class="hs-identifier hs-type">UpdateApiKey</span></a></span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateApiKey.html#UpdateApiKey"><span class="hs-identifier hs-type">UpdateApiKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679393987"><span class="annot"><span class="annottext">toHeaders :: UpdateApiKey -&gt; ResponseHeaders
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679393996"><span class="annot"><span class="annottext">toHeaders :: UpdateApiKey -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateApiKey -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -275,15 +275,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-118"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393977"><span id="local-6989586621679393979"><span id="local-6989586621679393981"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateApiKey.html#UpdateApiKey"><span class="hs-identifier hs-type">UpdateApiKey</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679393975"><span class="annot"><span class="annottext">toJSON :: UpdateApiKey -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateApiKey.html#UpdateApiKey%27"><span class="hs-identifier hs-type">UpdateApiKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393972"><span id="local-6989586621679393973"><span class="annot"><span class="annottext">Maybe [PatchOperation]
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393986"><span id="local-6989586621679393988"><span id="local-6989586621679393990"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateApiKey.html#UpdateApiKey"><span class="hs-identifier hs-type">UpdateApiKey</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679393984"><span class="annot"><span class="annottext">toJSON :: UpdateApiKey -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateApiKey.html#UpdateApiKey%27"><span class="hs-identifier hs-type">UpdateApiKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393981"><span id="local-6989586621679393982"><span class="annot"><span class="annottext">Maybe [PatchOperation]
 Text
 apiKey :: Text
 patchOperations :: Maybe [PatchOperation]
 $sel:apiKey:UpdateApiKey' :: UpdateApiKey -&gt; Text
 $sel:patchOperations:UpdateApiKey' :: UpdateApiKey -&gt; Maybe [PatchOperation]
-</span><a href="#local-6989586621679393972"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679393981"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -296,29 +296,29 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-126"></span><span>              </span><span class="annot"><span class="annottext">([PatchOperation] -&gt; Pair) -&gt; Maybe [PatchOperation] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PatchOperation]
-</span><a href="#local-6989586621679393973"><span class="hs-identifier hs-var">patchOperations</span></a></span><span>
+</span><a href="#local-6989586621679393982"><span class="hs-identifier hs-var">patchOperations</span></a></span><span>
 </span><span id="line-127"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateApiKey.html#UpdateApiKey"><span class="hs-identifier hs-type">UpdateApiKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679393965"><span class="annot"><span class="annottext">toPath :: UpdateApiKey -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateApiKey.html#UpdateApiKey%27"><span class="hs-identifier hs-type">UpdateApiKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393962"><span id="local-6989586621679393963"><span class="annot"><span class="annottext">Maybe [PatchOperation]
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679393974"><span class="annot"><span class="annottext">toPath :: UpdateApiKey -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateApiKey.html#UpdateApiKey%27"><span class="hs-identifier hs-type">UpdateApiKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393971"><span id="local-6989586621679393972"><span class="annot"><span class="annottext">Maybe [PatchOperation]
 Text
 apiKey :: Text
 patchOperations :: Maybe [PatchOperation]
 $sel:apiKey:UpdateApiKey' :: UpdateApiKey -&gt; Text
 $sel:patchOperations:UpdateApiKey' :: UpdateApiKey -&gt; Maybe [PatchOperation]
-</span><a href="#local-6989586621679393962"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679393971"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/apikeys/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393962"><span class="hs-identifier hs-var">apiKey</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679393971"><span class="hs-identifier hs-var">apiKey</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.UpdateApiKey.html#UpdateApiKey"><span class="hs-identifier hs-type">UpdateApiKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679393958"><span class="annot"><span class="annottext">toQuery :: UpdateApiKey -&gt; QueryString
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679393967"><span class="annot"><span class="annottext">toQuery :: UpdateApiKey -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateApiKey -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString

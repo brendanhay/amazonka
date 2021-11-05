@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679344851"><span id="local-6989586621679344852"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LoggerType"><span class="annot"><a href="Network.AWS.Greengrass.Types.LoggerType.html#LoggerType"><span class="hs-identifier hs-var">LoggerType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LoggerType%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.LoggerType.html#LoggerType%27"><span class="hs-identifier hs-var">LoggerType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679344860"><span id="local-6989586621679344861"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LoggerType"><span class="annot"><a href="Network.AWS.Greengrass.Types.LoggerType.html#LoggerType"><span class="hs-identifier hs-var">LoggerType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LoggerType%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.LoggerType.html#LoggerType%27"><span class="hs-identifier hs-var">LoggerType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLoggerType"><span class="annot"><span class="annottext">LoggerType -&gt; Text
 </span><a href="Network.AWS.Greengrass.Types.LoggerType.html#fromLoggerType"><span class="hs-identifier hs-var hs-var">fromLoggerType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679344843"><span id="local-6989586621679344845"><span id="local-6989586621679344847"><span class="annot"><span class="annottext">Int -&gt; LoggerType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679344852"><span id="local-6989586621679344854"><span id="local-6989586621679344856"><span class="annot"><span class="annottext">Int -&gt; LoggerType -&gt; ShowS
 [LoggerType] -&gt; ShowS
 LoggerType -&gt; String
 (Int -&gt; LoggerType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: LoggerType -&gt; String
 showsPrec :: Int -&gt; LoggerType -&gt; ShowS
 $cshowsPrec :: Int -&gt; LoggerType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679344834"><span id="local-6989586621679344836"><span id="local-6989586621679344838"><span id="local-6989586621679344840"><span class="annot"><span class="annottext">ReadPrec [LoggerType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679344843"><span id="local-6989586621679344845"><span id="local-6989586621679344847"><span id="local-6989586621679344849"><span class="annot"><span class="annottext">ReadPrec [LoggerType]
 ReadPrec LoggerType
 Int -&gt; ReadS LoggerType
 ReadS [LoggerType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [LoggerType]
 readsPrec :: Int -&gt; ReadS LoggerType
 $creadsPrec :: Int -&gt; ReadS LoggerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679344829"><span id="local-6989586621679344831"><span class="annot"><span class="annottext">LoggerType -&gt; LoggerType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679344838"><span id="local-6989586621679344840"><span class="annot"><span class="annottext">LoggerType -&gt; LoggerType -&gt; Bool
 (LoggerType -&gt; LoggerType -&gt; Bool)
 -&gt; (LoggerType -&gt; LoggerType -&gt; Bool) -&gt; Eq LoggerType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: LoggerType -&gt; LoggerType -&gt; Bool
 == :: LoggerType -&gt; LoggerType -&gt; Bool
 $c== :: LoggerType -&gt; LoggerType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679344813"><span id="local-6989586621679344815"><span id="local-6989586621679344817"><span id="local-6989586621679344819"><span id="local-6989586621679344821"><span id="local-6989586621679344823"><span id="local-6989586621679344825"><span class="annot"><span class="annottext">Eq LoggerType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679344822"><span id="local-6989586621679344824"><span id="local-6989586621679344826"><span id="local-6989586621679344828"><span id="local-6989586621679344830"><span id="local-6989586621679344832"><span id="local-6989586621679344834"><span class="annot"><span class="annottext">Eq LoggerType
 Eq LoggerType
 -&gt; (LoggerType -&gt; LoggerType -&gt; Ordering)
 -&gt; (LoggerType -&gt; LoggerType -&gt; Bool)
@@ -131,7 +131,7 @@ $cfrom :: forall x. LoggerType -&gt; Rep LoggerType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679344805"><span id="local-6989586621679344807"><span class="annot"><span class="annottext">Int -&gt; LoggerType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679344814"><span id="local-6989586621679344816"><span class="annot"><span class="annottext">Int -&gt; LoggerType -&gt; Int
 LoggerType -&gt; Int
 (Int -&gt; LoggerType -&gt; Int)
 -&gt; (LoggerType -&gt; Int) -&gt; Hashable LoggerType
@@ -141,49 +141,49 @@ $chash :: LoggerType -&gt; Int
 hashWithSalt :: Int -&gt; LoggerType -&gt; Int
 $chashWithSalt :: Int -&gt; LoggerType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679344802"><span class="annot"><span class="annottext">LoggerType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679344811"><span class="annot"><span class="annottext">LoggerType -&gt; ()
 (LoggerType -&gt; ()) -&gt; NFData LoggerType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: LoggerType -&gt; ()
 $crnf :: LoggerType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679344799"><span class="annot"><span class="annottext">Text -&gt; Either String LoggerType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679344808"><span class="annot"><span class="annottext">Text -&gt; Either String LoggerType
 (Text -&gt; Either String LoggerType) -&gt; FromText LoggerType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String LoggerType
 $cfromText :: Text -&gt; Either String LoggerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679344796"><span class="annot"><span class="annottext">LoggerType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679344805"><span class="annot"><span class="annottext">LoggerType -&gt; Text
 (LoggerType -&gt; Text) -&gt; ToText LoggerType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: LoggerType -&gt; Text
 $ctoText :: LoggerType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679344793"><span class="annot"><span class="annottext">LoggerType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679344802"><span class="annot"><span class="annottext">LoggerType -&gt; ByteString
 (LoggerType -&gt; ByteString) -&gt; ToByteString LoggerType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: LoggerType -&gt; ByteString
 $ctoBS :: LoggerType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679344790"><span class="annot"><span class="annottext">LoggerType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679344799"><span class="annot"><span class="annottext">LoggerType -&gt; ByteStringBuilder
 (LoggerType -&gt; ByteStringBuilder) -&gt; ToLog LoggerType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: LoggerType -&gt; ByteStringBuilder
 $cbuild :: LoggerType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679344787"><span class="annot"><span class="annottext">HeaderName -&gt; LoggerType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679344796"><span class="annot"><span class="annottext">HeaderName -&gt; LoggerType -&gt; [Header]
 (HeaderName -&gt; LoggerType -&gt; [Header]) -&gt; ToHeader LoggerType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; LoggerType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; LoggerType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679344784"><span class="annot"><span class="annottext">LoggerType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679344793"><span class="annot"><span class="annottext">LoggerType -&gt; QueryString
 (LoggerType -&gt; QueryString) -&gt; ToQuery LoggerType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: LoggerType -&gt; QueryString
 $ctoQuery :: LoggerType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679344779"><span id="local-6989586621679344781"><span class="annot"><span class="annottext">Value -&gt; Parser [LoggerType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679344788"><span id="local-6989586621679344790"><span class="annot"><span class="annottext">Value -&gt; Parser [LoggerType]
 Value -&gt; Parser LoggerType
 (Value -&gt; Parser LoggerType)
 -&gt; (Value -&gt; Parser [LoggerType]) -&gt; FromJSON LoggerType
@@ -194,7 +194,7 @@ $cparseJSONList :: Value -&gt; Parser [LoggerType]
 parseJSON :: Value -&gt; Parser LoggerType
 $cparseJSON :: Value -&gt; Parser LoggerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679344774"><span id="local-6989586621679344776"><span class="annot"><span class="annottext">FromJSONKeyFunction [LoggerType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679344783"><span id="local-6989586621679344785"><span class="annot"><span class="annottext">FromJSONKeyFunction [LoggerType]
 FromJSONKeyFunction LoggerType
 FromJSONKeyFunction LoggerType
 -&gt; FromJSONKeyFunction [LoggerType] -&gt; FromJSONKey LoggerType
@@ -205,7 +205,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [LoggerType]
 fromJSONKey :: FromJSONKeyFunction LoggerType
 $cfromJSONKey :: FromJSONKeyFunction LoggerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679344765"><span id="local-6989586621679344767"><span id="local-6989586621679344769"><span id="local-6989586621679344771"><span class="annot"><span class="annottext">[LoggerType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679344774"><span id="local-6989586621679344776"><span id="local-6989586621679344778"><span id="local-6989586621679344780"><span class="annot"><span class="annottext">[LoggerType] -&gt; Encoding
 [LoggerType] -&gt; Value
 LoggerType -&gt; Encoding
 LoggerType -&gt; Value
@@ -229,7 +229,7 @@ $ctoEncoding :: LoggerType -&gt; Encoding
 toJSON :: LoggerType -&gt; Value
 $ctoJSON :: LoggerType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679344760"><span id="local-6989586621679344762"><span class="annot"><span class="annottext">ToJSONKeyFunction [LoggerType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679344769"><span id="local-6989586621679344771"><span class="annot"><span class="annottext">ToJSONKeyFunction [LoggerType]
 ToJSONKeyFunction LoggerType
 ToJSONKeyFunction LoggerType
 -&gt; ToJSONKeyFunction [LoggerType] -&gt; ToJSONKey LoggerType
@@ -240,13 +240,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [LoggerType]
 toJSONKey :: ToJSONKeyFunction LoggerType
 $ctoJSONKey :: ToJSONKeyFunction LoggerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679344757"><span class="annot"><span class="annottext">[Node] -&gt; Either String LoggerType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679344766"><span class="annot"><span class="annottext">[Node] -&gt; Either String LoggerType
 ([Node] -&gt; Either String LoggerType) -&gt; FromXML LoggerType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String LoggerType
 $cparseXML :: [Node] -&gt; Either String LoggerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679344754"><span class="annot"><span class="annottext">LoggerType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679344763"><span class="annot"><span class="annottext">LoggerType -&gt; XML
 (LoggerType -&gt; XML) -&gt; ToXML LoggerType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: LoggerType -&gt; XML

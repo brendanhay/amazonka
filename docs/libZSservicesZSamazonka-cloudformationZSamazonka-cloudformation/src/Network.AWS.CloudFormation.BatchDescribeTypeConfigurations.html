@@ -54,13 +54,13 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newBatchDescribeTypeConfigurations' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679443840"><span id="local-6989586621679443841"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDescribeTypeConfigurations"><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurations"><span class="hs-identifier hs-var">BatchDescribeTypeConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDescribeTypeConfigurations%27"><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurations%27"><span class="hs-identifier hs-var">BatchDescribeTypeConfigurations'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679443849"><span id="local-6989586621679443850"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDescribeTypeConfigurations"><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurations"><span class="hs-identifier hs-var">BatchDescribeTypeConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDescribeTypeConfigurations%27"><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurations%27"><span class="hs-identifier hs-var">BatchDescribeTypeConfigurations'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of identifiers for the desired extension configurations.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AtypeConfigurationIdentifiers%3ABatchDescribeTypeConfigurations%27"><span class="annot"><span class="annottext">BatchDescribeTypeConfigurations
 -&gt; NonEmpty TypeConfigurationIdentifier
 </span><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#%24sel%3AtypeConfigurationIdentifiers%3ABatchDescribeTypeConfigurations%27"><span class="hs-identifier hs-var hs-var">typeConfigurationIdentifiers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.TypeConfigurationIdentifier.html#TypeConfigurationIdentifier"><span class="hs-identifier hs-type">TypeConfigurationIdentifier</span></a></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679443834"><span id="local-6989586621679443836"><span class="annot"><span class="annottext">BatchDescribeTypeConfigurations
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679443843"><span id="local-6989586621679443845"><span class="annot"><span class="annottext">BatchDescribeTypeConfigurations
 -&gt; BatchDescribeTypeConfigurations -&gt; Bool
 (BatchDescribeTypeConfigurations
  -&gt; BatchDescribeTypeConfigurations -&gt; Bool)
@@ -76,7 +76,7 @@ $c/= :: BatchDescribeTypeConfigurations
 -&gt; BatchDescribeTypeConfigurations -&gt; Bool
 $c== :: BatchDescribeTypeConfigurations
 -&gt; BatchDescribeTypeConfigurations -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443825"><span id="local-6989586621679443827"><span id="local-6989586621679443829"><span id="local-6989586621679443831"><span class="annot"><span class="annottext">ReadPrec [BatchDescribeTypeConfigurations]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443834"><span id="local-6989586621679443836"><span id="local-6989586621679443838"><span id="local-6989586621679443840"><span class="annot"><span class="annottext">ReadPrec [BatchDescribeTypeConfigurations]
 ReadPrec BatchDescribeTypeConfigurations
 Int -&gt; ReadS BatchDescribeTypeConfigurations
 ReadS [BatchDescribeTypeConfigurations]
@@ -96,7 +96,7 @@ readList :: ReadS [BatchDescribeTypeConfigurations]
 $creadList :: ReadS [BatchDescribeTypeConfigurations]
 readsPrec :: Int -&gt; ReadS BatchDescribeTypeConfigurations
 $creadsPrec :: Int -&gt; ReadS BatchDescribeTypeConfigurations
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443818"><span id="local-6989586621679443820"><span id="local-6989586621679443822"><span class="annot"><span class="annottext">Int -&gt; BatchDescribeTypeConfigurations -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443827"><span id="local-6989586621679443829"><span id="local-6989586621679443831"><span class="annot"><span class="annottext">Int -&gt; BatchDescribeTypeConfigurations -&gt; ShowS
 [BatchDescribeTypeConfigurations] -&gt; ShowS
 BatchDescribeTypeConfigurations -&gt; String
 (Int -&gt; BatchDescribeTypeConfigurations -&gt; ShowS)
@@ -150,8 +150,8 @@ BatchDescribeTypeConfigurations
 </span><span id="line-76"></span><span id="newBatchDescribeTypeConfigurations"><span class="annot"><span class="annottext">newBatchDescribeTypeConfigurations :: NonEmpty TypeConfigurationIdentifier
 -&gt; BatchDescribeTypeConfigurations
 </span><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#newBatchDescribeTypeConfigurations"><span class="hs-identifier hs-var hs-var">newBatchDescribeTypeConfigurations</span></a></span></span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679443813"><span class="annot"><span class="annottext">NonEmpty TypeConfigurationIdentifier
-</span><a href="#local-6989586621679443813"><span class="hs-identifier hs-var">pTypeConfigurationIdentifiers_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679443822"><span class="annot"><span class="annottext">NonEmpty TypeConfigurationIdentifier
+</span><a href="#local-6989586621679443822"><span class="hs-identifier hs-var">pTypeConfigurationIdentifiers_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">BatchDescribeTypeConfigurations' :: NonEmpty TypeConfigurationIdentifier
 -&gt; BatchDescribeTypeConfigurations
 </span><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurations%27"><span class="hs-identifier hs-type">BatchDescribeTypeConfigurations'</span></a></span><span>
@@ -175,7 +175,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty TypeConfigurationIdentifier
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty TypeConfigurationIdentifier
-</span><a href="#local-6989586621679443813"><span class="hs-identifier hs-var">pTypeConfigurationIdentifiers_</span></a></span><span>
+</span><a href="#local-6989586621679443822"><span class="hs-identifier hs-var">pTypeConfigurationIdentifiers_</span></a></span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | The list of identifiers for the desired extension configurations.</span><span>
@@ -195,17 +195,17 @@ forall t b. AReview t b -&gt; b -&gt; t
      (NonEmpty TypeConfigurationIdentifier)
      (NonEmpty TypeConfigurationIdentifier)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurations%27"><span class="hs-identifier hs-type">BatchDescribeTypeConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443808"><span class="annot"><span class="annottext">NonEmpty TypeConfigurationIdentifier
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurations%27"><span class="hs-identifier hs-type">BatchDescribeTypeConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443817"><span class="annot"><span class="annottext">NonEmpty TypeConfigurationIdentifier
 typeConfigurationIdentifiers :: NonEmpty TypeConfigurationIdentifier
 $sel:typeConfigurationIdentifiers:BatchDescribeTypeConfigurations' :: BatchDescribeTypeConfigurations
 -&gt; NonEmpty TypeConfigurationIdentifier
-</span><a href="#local-6989586621679443808"><span class="hs-identifier hs-var hs-var">typeConfigurationIdentifiers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty TypeConfigurationIdentifier
-</span><a href="#local-6989586621679443808"><span class="hs-identifier hs-var">typeConfigurationIdentifiers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443807"><span class="annot"><span class="annottext">s :: BatchDescribeTypeConfigurations
-</span><a href="#local-6989586621679443807"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurations%27"><span class="hs-identifier hs-type">BatchDescribeTypeConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443806"><span class="annot"><span class="annottext">NonEmpty TypeConfigurationIdentifier
-</span><a href="#local-6989586621679443806"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDescribeTypeConfigurations
-</span><a href="#local-6989586621679443807"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typeConfigurationIdentifiers:BatchDescribeTypeConfigurations' :: NonEmpty TypeConfigurationIdentifier
+</span><a href="#local-6989586621679443817"><span class="hs-identifier hs-var hs-var">typeConfigurationIdentifiers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty TypeConfigurationIdentifier
+</span><a href="#local-6989586621679443817"><span class="hs-identifier hs-var">typeConfigurationIdentifiers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443816"><span class="annot"><span class="annottext">s :: BatchDescribeTypeConfigurations
+</span><a href="#local-6989586621679443816"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurations%27"><span class="hs-identifier hs-type">BatchDescribeTypeConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443815"><span class="annot"><span class="annottext">NonEmpty TypeConfigurationIdentifier
+</span><a href="#local-6989586621679443815"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDescribeTypeConfigurations
+</span><a href="#local-6989586621679443816"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typeConfigurationIdentifiers:BatchDescribeTypeConfigurations' :: NonEmpty TypeConfigurationIdentifier
 </span><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#%24sel%3AtypeConfigurationIdentifiers%3ABatchDescribeTypeConfigurations%27"><span class="hs-identifier hs-var">typeConfigurationIdentifiers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty TypeConfigurationIdentifier
-</span><a href="#local-6989586621679443806"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurations"><span class="hs-identifier hs-type">BatchDescribeTypeConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty TypeConfigurationIdentifier
+</span><a href="#local-6989586621679443815"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurations"><span class="hs-identifier hs-type">BatchDescribeTypeConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty TypeConfigurationIdentifier
   -&gt; f (NonEmpty TypeConfigurationIdentifier))
  -&gt; BatchDescribeTypeConfigurations
  -&gt; f BatchDescribeTypeConfigurations)
@@ -232,7 +232,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-92"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-93"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurations"><span class="hs-identifier hs-type">BatchDescribeTypeConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurationsResponse"><span class="hs-identifier hs-type">BatchDescribeTypeConfigurationsResponse</span></a></span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679443801"><span class="annot"><span class="annottext">request :: BatchDescribeTypeConfigurations
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679443810"><span class="annot"><span class="annottext">request :: BatchDescribeTypeConfigurations
 -&gt; Request BatchDescribeTypeConfigurations
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; BatchDescribeTypeConfigurations
@@ -240,7 +240,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudFormation.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679443797"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679443806"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy BatchDescribeTypeConfigurations
 -&gt; ClientResponse ClientBody
@@ -273,10 +273,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BatchDescribeTypeConfigurationsResult&quot;</span></span><span>
-</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679443794"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679443794"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679443793"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679443793"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679443792"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679443792"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679443803"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679443803"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679443802"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679443802"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679443801"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679443801"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe [TypeConfigurationIdentifier]
 -&gt; Maybe [TypeConfigurationDetails]
 -&gt; Maybe [BatchDescribeTypeConfigurationsError]
@@ -297,7 +297,7 @@ Text
       -&gt; BatchDescribeTypeConfigurationsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679443792"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679443801"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UnprocessedTypeConfigurations&quot;</span></span><span>
@@ -333,7 +333,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
       -&gt; Int -&gt; BatchDescribeTypeConfigurationsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679443792"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679443801"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TypeConfigurations&quot;</span></span><span>
@@ -364,7 +364,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String (Int -&gt; BatchDescribeTypeConfigurationsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679443792"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679443801"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Errors&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -398,22 +398,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679443794"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679443803"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679443781"><span id="local-6989586621679443783"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679443790"><span id="local-6989586621679443792"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurations"><span class="hs-identifier hs-type">BatchDescribeTypeConfigurations</span></a></span></span></span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679443778"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679443787"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-121"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurations"><span class="hs-identifier hs-type">BatchDescribeTypeConfigurations</span></a></span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-124"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurations"><span class="hs-identifier hs-type">BatchDescribeTypeConfigurations</span></a></span><span>
 </span><span id="line-126"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679443774"><span class="annot"><span class="annottext">toHeaders :: BatchDescribeTypeConfigurations -&gt; ResponseHeaders
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679443783"><span class="annot"><span class="annottext">toHeaders :: BatchDescribeTypeConfigurations -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; BatchDescribeTypeConfigurations -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -422,19 +422,19 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurations"><span class="hs-identifier hs-type">BatchDescribeTypeConfigurations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679443769"><span class="annot"><span class="annottext">toPath :: BatchDescribeTypeConfigurations -&gt; ByteString
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679443778"><span class="annot"><span class="annottext">toPath :: BatchDescribeTypeConfigurations -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; BatchDescribeTypeConfigurations -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurations"><span class="hs-identifier hs-type">BatchDescribeTypeConfigurations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679443765"><span class="annot"><span class="annottext">toQuery :: BatchDescribeTypeConfigurations -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurations%27"><span class="hs-identifier hs-type">BatchDescribeTypeConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443763"><span class="annot"><span class="annottext">NonEmpty TypeConfigurationIdentifier
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679443774"><span class="annot"><span class="annottext">toQuery :: BatchDescribeTypeConfigurations -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurations%27"><span class="hs-identifier hs-type">BatchDescribeTypeConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443772"><span class="annot"><span class="annottext">NonEmpty TypeConfigurationIdentifier
 typeConfigurationIdentifiers :: NonEmpty TypeConfigurationIdentifier
 $sel:typeConfigurationIdentifiers:BatchDescribeTypeConfigurations' :: BatchDescribeTypeConfigurations
 -&gt; NonEmpty TypeConfigurationIdentifier
-</span><a href="#local-6989586621679443763"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679443772"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -464,11 +464,11 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;member&quot;</span></span><span>
 </span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">NonEmpty TypeConfigurationIdentifier
-</span><a href="#local-6989586621679443763"><span class="hs-identifier hs-var">typeConfigurationIdentifiers</span></a></span><span>
+</span><a href="#local-6989586621679443772"><span class="hs-identifier hs-var">typeConfigurationIdentifiers</span></a></span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | /See:/ 'newBatchDescribeTypeConfigurationsResponse' smart constructor.</span><span>
-</span><span id="line-148"></span><span id="local-6989586621679443759"><span id="local-6989586621679443760"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDescribeTypeConfigurationsResponse"><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurationsResponse"><span class="hs-identifier hs-var">BatchDescribeTypeConfigurationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDescribeTypeConfigurationsResponse%27"><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurationsResponse%27"><span class="hs-identifier hs-var">BatchDescribeTypeConfigurationsResponse'</span></a></span></span><span>
+</span><span id="line-148"></span><span id="local-6989586621679443768"><span id="local-6989586621679443769"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchDescribeTypeConfigurationsResponse"><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurationsResponse"><span class="hs-identifier hs-var">BatchDescribeTypeConfigurationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchDescribeTypeConfigurationsResponse%27"><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurationsResponse%27"><span class="hs-identifier hs-var">BatchDescribeTypeConfigurationsResponse'</span></a></span></span><span>
 </span><span id="line-149"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of any of the specified extension configurations that</span><span>
 </span><span id="line-150"></span><span>    </span><span class="hs-comment">-- CloudFormation could not process for any reason.</span><span>
 </span><span id="line-151"></span><span>    </span><span id="%24sel%3AunprocessedTypeConfigurations%3ABatchDescribeTypeConfigurationsResponse%27"><span class="annot"><span class="annottext">BatchDescribeTypeConfigurationsResponse
@@ -488,7 +488,7 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-159"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchDescribeTypeConfigurationsResponse%27"><span class="annot"><span class="annottext">BatchDescribeTypeConfigurationsResponse -&gt; Int
 </span><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#%24sel%3AhttpStatus%3ABatchDescribeTypeConfigurationsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-160"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-161"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679443751"><span id="local-6989586621679443753"><span class="annot"><span class="annottext">BatchDescribeTypeConfigurationsResponse
+</span><span id="line-161"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679443760"><span id="local-6989586621679443762"><span class="annot"><span class="annottext">BatchDescribeTypeConfigurationsResponse
 -&gt; BatchDescribeTypeConfigurationsResponse -&gt; Bool
 (BatchDescribeTypeConfigurationsResponse
  -&gt; BatchDescribeTypeConfigurationsResponse -&gt; Bool)
@@ -504,7 +504,7 @@ $c/= :: BatchDescribeTypeConfigurationsResponse
 -&gt; BatchDescribeTypeConfigurationsResponse -&gt; Bool
 $c== :: BatchDescribeTypeConfigurationsResponse
 -&gt; BatchDescribeTypeConfigurationsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443743"><span id="local-6989586621679443745"><span id="local-6989586621679443747"><span id="local-6989586621679443749"><span class="annot"><span class="annottext">ReadPrec [BatchDescribeTypeConfigurationsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443752"><span id="local-6989586621679443754"><span id="local-6989586621679443756"><span id="local-6989586621679443758"><span class="annot"><span class="annottext">ReadPrec [BatchDescribeTypeConfigurationsResponse]
 ReadPrec BatchDescribeTypeConfigurationsResponse
 Int -&gt; ReadS BatchDescribeTypeConfigurationsResponse
 ReadS [BatchDescribeTypeConfigurationsResponse]
@@ -524,7 +524,7 @@ readList :: ReadS [BatchDescribeTypeConfigurationsResponse]
 $creadList :: ReadS [BatchDescribeTypeConfigurationsResponse]
 readsPrec :: Int -&gt; ReadS BatchDescribeTypeConfigurationsResponse
 $creadsPrec :: Int -&gt; ReadS BatchDescribeTypeConfigurationsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443737"><span id="local-6989586621679443739"><span id="local-6989586621679443741"><span class="annot"><span class="annottext">Int -&gt; BatchDescribeTypeConfigurationsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443746"><span id="local-6989586621679443748"><span id="local-6989586621679443750"><span class="annot"><span class="annottext">Int -&gt; BatchDescribeTypeConfigurationsResponse -&gt; ShowS
 [BatchDescribeTypeConfigurationsResponse] -&gt; ShowS
 BatchDescribeTypeConfigurationsResponse -&gt; String
 (Int -&gt; BatchDescribeTypeConfigurationsResponse -&gt; ShowS)
@@ -586,8 +586,8 @@ BatchDescribeTypeConfigurationsResponse
 </span><span id="line-184"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurationsResponse"><span class="hs-identifier hs-type">BatchDescribeTypeConfigurationsResponse</span></a></span><span>
 </span><span id="line-185"></span><span id="newBatchDescribeTypeConfigurationsResponse"><span class="annot"><span class="annottext">newBatchDescribeTypeConfigurationsResponse :: Int -&gt; BatchDescribeTypeConfigurationsResponse
 </span><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#newBatchDescribeTypeConfigurationsResponse"><span class="hs-identifier hs-var hs-var">newBatchDescribeTypeConfigurationsResponse</span></a></span></span><span>
-</span><span id="line-186"></span><span>  </span><span id="local-6989586621679443734"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679443734"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679443743"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679443743"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-187"></span><span>    </span><span class="annot"><span class="annottext">BatchDescribeTypeConfigurationsResponse' :: Maybe [TypeConfigurationIdentifier]
 -&gt; Maybe [TypeConfigurationDetails]
 -&gt; Maybe [BatchDescribeTypeConfigurationsError]
@@ -610,7 +610,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-193"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchDescribeTypeConfigurationsResponse' :: Int
 </span><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#%24sel%3AhttpStatus%3ABatchDescribeTypeConfigurationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679443734"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679443743"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-194"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-comment">-- | A list of any of the specified extension configurations that</span><span>
@@ -631,17 +631,17 @@ forall a. Maybe a
      (Maybe [TypeConfigurationIdentifier])
      (Maybe [TypeConfigurationIdentifier])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurationsResponse%27"><span class="hs-identifier hs-type">BatchDescribeTypeConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443733"><span class="annot"><span class="annottext">Maybe [TypeConfigurationIdentifier]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurationsResponse%27"><span class="hs-identifier hs-type">BatchDescribeTypeConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443742"><span class="annot"><span class="annottext">Maybe [TypeConfigurationIdentifier]
 unprocessedTypeConfigurations :: Maybe [TypeConfigurationIdentifier]
 $sel:unprocessedTypeConfigurations:BatchDescribeTypeConfigurationsResponse' :: BatchDescribeTypeConfigurationsResponse
 -&gt; Maybe [TypeConfigurationIdentifier]
-</span><a href="#local-6989586621679443733"><span class="hs-identifier hs-var hs-var">unprocessedTypeConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TypeConfigurationIdentifier]
-</span><a href="#local-6989586621679443733"><span class="hs-identifier hs-var">unprocessedTypeConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443732"><span class="annot"><span class="annottext">s :: BatchDescribeTypeConfigurationsResponse
-</span><a href="#local-6989586621679443732"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurationsResponse%27"><span class="hs-identifier hs-type">BatchDescribeTypeConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443731"><span class="annot"><span class="annottext">Maybe [TypeConfigurationIdentifier]
-</span><a href="#local-6989586621679443731"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDescribeTypeConfigurationsResponse
-</span><a href="#local-6989586621679443732"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unprocessedTypeConfigurations:BatchDescribeTypeConfigurationsResponse' :: Maybe [TypeConfigurationIdentifier]
+</span><a href="#local-6989586621679443742"><span class="hs-identifier hs-var hs-var">unprocessedTypeConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TypeConfigurationIdentifier]
+</span><a href="#local-6989586621679443742"><span class="hs-identifier hs-var">unprocessedTypeConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443741"><span class="annot"><span class="annottext">s :: BatchDescribeTypeConfigurationsResponse
+</span><a href="#local-6989586621679443741"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurationsResponse%27"><span class="hs-identifier hs-type">BatchDescribeTypeConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443740"><span class="annot"><span class="annottext">Maybe [TypeConfigurationIdentifier]
+</span><a href="#local-6989586621679443740"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDescribeTypeConfigurationsResponse
+</span><a href="#local-6989586621679443741"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unprocessedTypeConfigurations:BatchDescribeTypeConfigurationsResponse' :: Maybe [TypeConfigurationIdentifier]
 </span><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#%24sel%3AunprocessedTypeConfigurations%3ABatchDescribeTypeConfigurationsResponse%27"><span class="hs-identifier hs-var">unprocessedTypeConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TypeConfigurationIdentifier]
-</span><a href="#local-6989586621679443731"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurationsResponse"><span class="hs-identifier hs-type">BatchDescribeTypeConfigurationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TypeConfigurationIdentifier]
+</span><a href="#local-6989586621679443740"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurationsResponse"><span class="hs-identifier hs-type">BatchDescribeTypeConfigurationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TypeConfigurationIdentifier]
   -&gt; f (Maybe [TypeConfigurationIdentifier]))
  -&gt; BatchDescribeTypeConfigurationsResponse
  -&gt; f BatchDescribeTypeConfigurationsResponse)
@@ -693,17 +693,17 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [TypeConfigurationDetails])
      (Maybe [TypeConfigurationDetails])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurationsResponse%27"><span class="hs-identifier hs-type">BatchDescribeTypeConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443729"><span class="annot"><span class="annottext">Maybe [TypeConfigurationDetails]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurationsResponse%27"><span class="hs-identifier hs-type">BatchDescribeTypeConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443738"><span class="annot"><span class="annottext">Maybe [TypeConfigurationDetails]
 typeConfigurations :: Maybe [TypeConfigurationDetails]
 $sel:typeConfigurations:BatchDescribeTypeConfigurationsResponse' :: BatchDescribeTypeConfigurationsResponse
 -&gt; Maybe [TypeConfigurationDetails]
-</span><a href="#local-6989586621679443729"><span class="hs-identifier hs-var hs-var">typeConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TypeConfigurationDetails]
-</span><a href="#local-6989586621679443729"><span class="hs-identifier hs-var">typeConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443728"><span class="annot"><span class="annottext">s :: BatchDescribeTypeConfigurationsResponse
-</span><a href="#local-6989586621679443728"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurationsResponse%27"><span class="hs-identifier hs-type">BatchDescribeTypeConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443727"><span class="annot"><span class="annottext">Maybe [TypeConfigurationDetails]
-</span><a href="#local-6989586621679443727"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDescribeTypeConfigurationsResponse
-</span><a href="#local-6989586621679443728"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typeConfigurations:BatchDescribeTypeConfigurationsResponse' :: Maybe [TypeConfigurationDetails]
+</span><a href="#local-6989586621679443738"><span class="hs-identifier hs-var hs-var">typeConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TypeConfigurationDetails]
+</span><a href="#local-6989586621679443738"><span class="hs-identifier hs-var">typeConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443737"><span class="annot"><span class="annottext">s :: BatchDescribeTypeConfigurationsResponse
+</span><a href="#local-6989586621679443737"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurationsResponse%27"><span class="hs-identifier hs-type">BatchDescribeTypeConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443736"><span class="annot"><span class="annottext">Maybe [TypeConfigurationDetails]
+</span><a href="#local-6989586621679443736"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDescribeTypeConfigurationsResponse
+</span><a href="#local-6989586621679443737"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typeConfigurations:BatchDescribeTypeConfigurationsResponse' :: Maybe [TypeConfigurationDetails]
 </span><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#%24sel%3AtypeConfigurations%3ABatchDescribeTypeConfigurationsResponse%27"><span class="hs-identifier hs-var">typeConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TypeConfigurationDetails]
-</span><a href="#local-6989586621679443727"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurationsResponse"><span class="hs-identifier hs-type">BatchDescribeTypeConfigurationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TypeConfigurationDetails]
+</span><a href="#local-6989586621679443736"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurationsResponse"><span class="hs-identifier hs-type">BatchDescribeTypeConfigurationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TypeConfigurationDetails]
   -&gt; f (Maybe [TypeConfigurationDetails]))
  -&gt; BatchDescribeTypeConfigurationsResponse
  -&gt; f BatchDescribeTypeConfigurationsResponse)
@@ -755,17 +755,17 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [BatchDescribeTypeConfigurationsError])
      (Maybe [BatchDescribeTypeConfigurationsError])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurationsResponse%27"><span class="hs-identifier hs-type">BatchDescribeTypeConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443726"><span class="annot"><span class="annottext">Maybe [BatchDescribeTypeConfigurationsError]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurationsResponse%27"><span class="hs-identifier hs-type">BatchDescribeTypeConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443735"><span class="annot"><span class="annottext">Maybe [BatchDescribeTypeConfigurationsError]
 errors :: Maybe [BatchDescribeTypeConfigurationsError]
 $sel:errors:BatchDescribeTypeConfigurationsResponse' :: BatchDescribeTypeConfigurationsResponse
 -&gt; Maybe [BatchDescribeTypeConfigurationsError]
-</span><a href="#local-6989586621679443726"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BatchDescribeTypeConfigurationsError]
-</span><a href="#local-6989586621679443726"><span class="hs-identifier hs-var">errors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443725"><span class="annot"><span class="annottext">s :: BatchDescribeTypeConfigurationsResponse
-</span><a href="#local-6989586621679443725"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurationsResponse%27"><span class="hs-identifier hs-type">BatchDescribeTypeConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443724"><span class="annot"><span class="annottext">Maybe [BatchDescribeTypeConfigurationsError]
-</span><a href="#local-6989586621679443724"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDescribeTypeConfigurationsResponse
-</span><a href="#local-6989586621679443725"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errors:BatchDescribeTypeConfigurationsResponse' :: Maybe [BatchDescribeTypeConfigurationsError]
+</span><a href="#local-6989586621679443735"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BatchDescribeTypeConfigurationsError]
+</span><a href="#local-6989586621679443735"><span class="hs-identifier hs-var">errors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443734"><span class="annot"><span class="annottext">s :: BatchDescribeTypeConfigurationsResponse
+</span><a href="#local-6989586621679443734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurationsResponse%27"><span class="hs-identifier hs-type">BatchDescribeTypeConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443733"><span class="annot"><span class="annottext">Maybe [BatchDescribeTypeConfigurationsError]
+</span><a href="#local-6989586621679443733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDescribeTypeConfigurationsResponse
+</span><a href="#local-6989586621679443734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errors:BatchDescribeTypeConfigurationsResponse' :: Maybe [BatchDescribeTypeConfigurationsError]
 </span><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#%24sel%3Aerrors%3ABatchDescribeTypeConfigurationsResponse%27"><span class="hs-identifier hs-var">errors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [BatchDescribeTypeConfigurationsError]
-</span><a href="#local-6989586621679443724"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurationsResponse"><span class="hs-identifier hs-type">BatchDescribeTypeConfigurationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BatchDescribeTypeConfigurationsError]
+</span><a href="#local-6989586621679443733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurationsResponse"><span class="hs-identifier hs-type">BatchDescribeTypeConfigurationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BatchDescribeTypeConfigurationsError]
   -&gt; f (Maybe [BatchDescribeTypeConfigurationsError]))
  -&gt; BatchDescribeTypeConfigurationsResponse
  -&gt; f BatchDescribeTypeConfigurationsResponse)
@@ -813,18 +813,18 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurationsResponse%27"><span class="hs-identifier hs-type">BatchDescribeTypeConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443723"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurationsResponse%27"><span class="hs-identifier hs-type">BatchDescribeTypeConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443732"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:BatchDescribeTypeConfigurationsResponse' :: BatchDescribeTypeConfigurationsResponse -&gt; Int
-</span><a href="#local-6989586621679443723"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679443723"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443722"><span class="annot"><span class="annottext">s :: BatchDescribeTypeConfigurationsResponse
-</span><a href="#local-6989586621679443722"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurationsResponse%27"><span class="hs-identifier hs-type">BatchDescribeTypeConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443721"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679443721"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDescribeTypeConfigurationsResponse
-</span><a href="#local-6989586621679443722"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchDescribeTypeConfigurationsResponse' :: Int
+</span><a href="#local-6989586621679443732"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679443732"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443731"><span class="annot"><span class="annottext">s :: BatchDescribeTypeConfigurationsResponse
+</span><a href="#local-6989586621679443731"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurationsResponse%27"><span class="hs-identifier hs-type">BatchDescribeTypeConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443730"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679443730"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchDescribeTypeConfigurationsResponse
+</span><a href="#local-6989586621679443731"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchDescribeTypeConfigurationsResponse' :: Int
 </span><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#%24sel%3AhttpStatus%3ABatchDescribeTypeConfigurationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679443721"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurationsResponse"><span class="hs-identifier hs-type">BatchDescribeTypeConfigurationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679443730"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurationsResponse"><span class="hs-identifier hs-type">BatchDescribeTypeConfigurationsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-214"></span><span>
 </span><span id="line-215"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-216"></span><span>  </span><span id="local-6989586621679443719"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-216"></span><span>  </span><span id="local-6989586621679443728"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-217"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.BatchDescribeTypeConfigurations.html#BatchDescribeTypeConfigurationsResponse"><span class="hs-identifier hs-type">BatchDescribeTypeConfigurationsResponse</span></a></span></span><span>
 </span><span id="line-218"></span></pre></body></html>

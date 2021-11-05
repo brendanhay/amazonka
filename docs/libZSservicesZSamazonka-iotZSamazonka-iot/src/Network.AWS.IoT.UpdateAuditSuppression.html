@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newUpdateAuditSuppression' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679858081"><span id="local-6989586621679858082"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateAuditSuppression"><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression"><span class="hs-identifier hs-var">UpdateAuditSuppression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateAuditSuppression%27"><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression%27"><span class="hs-identifier hs-var">UpdateAuditSuppression'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679858090"><span id="local-6989586621679858091"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateAuditSuppression"><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression"><span class="hs-identifier hs-var">UpdateAuditSuppression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateAuditSuppression%27"><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression%27"><span class="hs-identifier hs-var">UpdateAuditSuppression'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The expiration date (epoch timestamp in seconds) that you want the</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- suppression to adhere to.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AexpirationDate%3AUpdateAuditSuppression%27"><span class="annot"><span class="annottext">UpdateAuditSuppression -&gt; Maybe POSIX
@@ -66,7 +66,7 @@
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AresourceIdentifier%3AUpdateAuditSuppression%27"><span class="annot"><span class="annottext">UpdateAuditSuppression -&gt; ResourceIdentifier
 </span><a href="Network.AWS.IoT.UpdateAuditSuppression.html#%24sel%3AresourceIdentifier%3AUpdateAuditSuppression%27"><span class="hs-identifier hs-var hs-var">resourceIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ResourceIdentifier.html#ResourceIdentifier"><span class="hs-identifier hs-type">ResourceIdentifier</span></a></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679858071"><span id="local-6989586621679858073"><span class="annot"><span class="annottext">UpdateAuditSuppression -&gt; UpdateAuditSuppression -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679858080"><span id="local-6989586621679858082"><span class="annot"><span class="annottext">UpdateAuditSuppression -&gt; UpdateAuditSuppression -&gt; Bool
 (UpdateAuditSuppression -&gt; UpdateAuditSuppression -&gt; Bool)
 -&gt; (UpdateAuditSuppression -&gt; UpdateAuditSuppression -&gt; Bool)
 -&gt; Eq UpdateAuditSuppression
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateAuditSuppression -&gt; UpdateAuditSuppression -&gt; Bool
 == :: UpdateAuditSuppression -&gt; UpdateAuditSuppression -&gt; Bool
 $c== :: UpdateAuditSuppression -&gt; UpdateAuditSuppression -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679858062"><span id="local-6989586621679858064"><span id="local-6989586621679858066"><span id="local-6989586621679858068"><span class="annot"><span class="annottext">ReadPrec [UpdateAuditSuppression]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679858071"><span id="local-6989586621679858073"><span id="local-6989586621679858075"><span id="local-6989586621679858077"><span class="annot"><span class="annottext">ReadPrec [UpdateAuditSuppression]
 ReadPrec UpdateAuditSuppression
 Int -&gt; ReadS UpdateAuditSuppression
 ReadS [UpdateAuditSuppression]
@@ -95,7 +95,7 @@ readList :: ReadS [UpdateAuditSuppression]
 $creadList :: ReadS [UpdateAuditSuppression]
 readsPrec :: Int -&gt; ReadS UpdateAuditSuppression
 $creadsPrec :: Int -&gt; ReadS UpdateAuditSuppression
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679858055"><span id="local-6989586621679858057"><span id="local-6989586621679858059"><span class="annot"><span class="annottext">Int -&gt; UpdateAuditSuppression -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679858064"><span id="local-6989586621679858066"><span id="local-6989586621679858068"><span class="annot"><span class="annottext">Int -&gt; UpdateAuditSuppression -&gt; ShowS
 [UpdateAuditSuppression] -&gt; ShowS
 UpdateAuditSuppression -&gt; String
 (Int -&gt; UpdateAuditSuppression -&gt; ShowS)
@@ -148,10 +148,10 @@ $cfrom :: forall x. UpdateAuditSuppression -&gt; Rep UpdateAuditSuppression x
 </span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression"><span class="hs-identifier hs-type">UpdateAuditSuppression</span></a></span><span>
 </span><span id="line-90"></span><span id="newUpdateAuditSuppression"><span class="annot"><span class="annottext">newUpdateAuditSuppression :: Text -&gt; ResourceIdentifier -&gt; UpdateAuditSuppression
 </span><a href="Network.AWS.IoT.UpdateAuditSuppression.html#newUpdateAuditSuppression"><span class="hs-identifier hs-var hs-var">newUpdateAuditSuppression</span></a></span></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679858050"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679858050"><span class="hs-identifier hs-var">pCheckName_</span></a></span></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679858049"><span class="annot"><span class="annottext">ResourceIdentifier
-</span><a href="#local-6989586621679858049"><span class="hs-identifier hs-var">pResourceIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679858059"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679858059"><span class="hs-identifier hs-var">pCheckName_</span></a></span></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679858058"><span class="annot"><span class="annottext">ResourceIdentifier
+</span><a href="#local-6989586621679858058"><span class="hs-identifier hs-var">pResourceIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">UpdateAuditSuppression' :: Maybe POSIX
 -&gt; Maybe Bool
 -&gt; Maybe Text
@@ -174,10 +174,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">$sel:checkName:UpdateAuditSuppression' :: Text
 </span><a href="Network.AWS.IoT.UpdateAuditSuppression.html#%24sel%3AcheckName%3AUpdateAuditSuppression%27"><span class="hs-identifier hs-var">checkName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679858050"><span class="hs-identifier hs-var">pCheckName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679858059"><span class="hs-identifier hs-var">pCheckName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceIdentifier:UpdateAuditSuppression' :: ResourceIdentifier
 </span><a href="Network.AWS.IoT.UpdateAuditSuppression.html#%24sel%3AresourceIdentifier%3AUpdateAuditSuppression%27"><span class="hs-identifier hs-var">resourceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceIdentifier
-</span><a href="#local-6989586621679858049"><span class="hs-identifier hs-var">pResourceIdentifier_</span></a></span><span>
+</span><a href="#local-6989586621679858058"><span class="hs-identifier hs-var">pResourceIdentifier_</span></a></span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | The expiration date (epoch timestamp in seconds) that you want the</span><span>
@@ -194,16 +194,16 @@ forall a. Maybe a
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression%27"><span class="hs-identifier hs-type">UpdateAuditSuppression'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858046"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression%27"><span class="hs-identifier hs-type">UpdateAuditSuppression'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858055"><span class="annot"><span class="annottext">Maybe POSIX
 expirationDate :: Maybe POSIX
 $sel:expirationDate:UpdateAuditSuppression' :: UpdateAuditSuppression -&gt; Maybe POSIX
-</span><a href="#local-6989586621679858046"><span class="hs-identifier hs-var hs-var">expirationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679858046"><span class="hs-identifier hs-var">expirationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679858045"><span class="annot"><span class="annottext">s :: UpdateAuditSuppression
-</span><a href="#local-6989586621679858045"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression%27"><span class="hs-identifier hs-type">UpdateAuditSuppression'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679858044"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679858044"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAuditSuppression
-</span><a href="#local-6989586621679858045"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expirationDate:UpdateAuditSuppression' :: Maybe POSIX
+</span><a href="#local-6989586621679858055"><span class="hs-identifier hs-var hs-var">expirationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679858055"><span class="hs-identifier hs-var">expirationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679858054"><span class="annot"><span class="annottext">s :: UpdateAuditSuppression
+</span><a href="#local-6989586621679858054"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression%27"><span class="hs-identifier hs-type">UpdateAuditSuppression'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679858053"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679858053"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAuditSuppression
+</span><a href="#local-6989586621679858054"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expirationDate:UpdateAuditSuppression' :: Maybe POSIX
 </span><a href="Network.AWS.IoT.UpdateAuditSuppression.html#%24sel%3AexpirationDate%3AUpdateAuditSuppression%27"><span class="hs-identifier hs-var">expirationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679858044"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression"><span class="hs-identifier hs-type">UpdateAuditSuppression</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679858053"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression"><span class="hs-identifier hs-type">UpdateAuditSuppression</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; UpdateAuditSuppression -&gt; f UpdateAuditSuppression)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -232,16 +232,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression%27"><span class="hs-identifier hs-type">UpdateAuditSuppression'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858040"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression%27"><span class="hs-identifier hs-type">UpdateAuditSuppression'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858049"><span class="annot"><span class="annottext">Maybe Bool
 suppressIndefinitely :: Maybe Bool
 $sel:suppressIndefinitely:UpdateAuditSuppression' :: UpdateAuditSuppression -&gt; Maybe Bool
-</span><a href="#local-6989586621679858040"><span class="hs-identifier hs-var hs-var">suppressIndefinitely</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679858040"><span class="hs-identifier hs-var">suppressIndefinitely</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679858039"><span class="annot"><span class="annottext">s :: UpdateAuditSuppression
-</span><a href="#local-6989586621679858039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression%27"><span class="hs-identifier hs-type">UpdateAuditSuppression'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679858038"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679858038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAuditSuppression
-</span><a href="#local-6989586621679858039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:suppressIndefinitely:UpdateAuditSuppression' :: Maybe Bool
+</span><a href="#local-6989586621679858049"><span class="hs-identifier hs-var hs-var">suppressIndefinitely</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679858049"><span class="hs-identifier hs-var">suppressIndefinitely</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679858048"><span class="annot"><span class="annottext">s :: UpdateAuditSuppression
+</span><a href="#local-6989586621679858048"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression%27"><span class="hs-identifier hs-type">UpdateAuditSuppression'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679858047"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679858047"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAuditSuppression
+</span><a href="#local-6989586621679858048"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:suppressIndefinitely:UpdateAuditSuppression' :: Maybe Bool
 </span><a href="Network.AWS.IoT.UpdateAuditSuppression.html#%24sel%3AsuppressIndefinitely%3AUpdateAuditSuppression%27"><span class="hs-identifier hs-var">suppressIndefinitely</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679858038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression"><span class="hs-identifier hs-type">UpdateAuditSuppression</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679858047"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression"><span class="hs-identifier hs-type">UpdateAuditSuppression</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | The description of the audit suppression.</span><span>
 </span><span id="line-112"></span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#updateAuditSuppression_description"><span class="hs-identifier hs-type">updateAuditSuppression_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression"><span class="hs-identifier hs-type">UpdateAuditSuppression</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -255,16 +255,16 @@ $sel:suppressIndefinitely:UpdateAuditSuppression' :: UpdateAuditSuppression -&gt
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression%27"><span class="hs-identifier hs-type">UpdateAuditSuppression'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858037"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression%27"><span class="hs-identifier hs-type">UpdateAuditSuppression'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858046"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:UpdateAuditSuppression' :: UpdateAuditSuppression -&gt; Maybe Text
-</span><a href="#local-6989586621679858037"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679858037"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679858036"><span class="annot"><span class="annottext">s :: UpdateAuditSuppression
-</span><a href="#local-6989586621679858036"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression%27"><span class="hs-identifier hs-type">UpdateAuditSuppression'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679858035"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679858035"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAuditSuppression
-</span><a href="#local-6989586621679858036"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateAuditSuppression' :: Maybe Text
+</span><a href="#local-6989586621679858046"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679858046"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679858045"><span class="annot"><span class="annottext">s :: UpdateAuditSuppression
+</span><a href="#local-6989586621679858045"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression%27"><span class="hs-identifier hs-type">UpdateAuditSuppression'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679858044"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679858044"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAuditSuppression
+</span><a href="#local-6989586621679858045"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateAuditSuppression' :: Maybe Text
 </span><a href="Network.AWS.IoT.UpdateAuditSuppression.html#%24sel%3Adescription%3AUpdateAuditSuppression%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679858035"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression"><span class="hs-identifier hs-type">UpdateAuditSuppression</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679858044"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression"><span class="hs-identifier hs-type">UpdateAuditSuppression</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-116"></span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#updateAuditSuppression_checkName"><span class="hs-identifier hs-type">updateAuditSuppression_checkName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression"><span class="hs-identifier hs-type">UpdateAuditSuppression</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -274,16 +274,16 @@ $sel:description:UpdateAuditSuppression' :: UpdateAuditSuppression -&gt; Maybe T
 -&gt; (UpdateAuditSuppression -&gt; Text -&gt; UpdateAuditSuppression)
 -&gt; Lens UpdateAuditSuppression UpdateAuditSuppression Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression%27"><span class="hs-identifier hs-type">UpdateAuditSuppression'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858034"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression%27"><span class="hs-identifier hs-type">UpdateAuditSuppression'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858043"><span class="annot"><span class="annottext">Text
 checkName :: Text
 $sel:checkName:UpdateAuditSuppression' :: UpdateAuditSuppression -&gt; Text
-</span><a href="#local-6989586621679858034"><span class="hs-identifier hs-var hs-var">checkName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679858034"><span class="hs-identifier hs-var">checkName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679858033"><span class="annot"><span class="annottext">s :: UpdateAuditSuppression
-</span><a href="#local-6989586621679858033"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression%27"><span class="hs-identifier hs-type">UpdateAuditSuppression'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679858032"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679858032"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAuditSuppression
-</span><a href="#local-6989586621679858033"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:checkName:UpdateAuditSuppression' :: Text
+</span><a href="#local-6989586621679858043"><span class="hs-identifier hs-var hs-var">checkName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679858043"><span class="hs-identifier hs-var">checkName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679858042"><span class="annot"><span class="annottext">s :: UpdateAuditSuppression
+</span><a href="#local-6989586621679858042"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression%27"><span class="hs-identifier hs-type">UpdateAuditSuppression'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679858041"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679858041"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAuditSuppression
+</span><a href="#local-6989586621679858042"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:checkName:UpdateAuditSuppression' :: Text
 </span><a href="Network.AWS.IoT.UpdateAuditSuppression.html#%24sel%3AcheckName%3AUpdateAuditSuppression%27"><span class="hs-identifier hs-var">checkName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679858032"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression"><span class="hs-identifier hs-type">UpdateAuditSuppression</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679858041"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression"><span class="hs-identifier hs-type">UpdateAuditSuppression</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-120"></span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#updateAuditSuppression_resourceIdentifier"><span class="hs-identifier hs-type">updateAuditSuppression_resourceIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression"><span class="hs-identifier hs-type">UpdateAuditSuppression</span></a></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ResourceIdentifier.html#ResourceIdentifier"><span class="hs-identifier hs-type">ResourceIdentifier</span></a></span><span>
@@ -298,27 +298,27 @@ $sel:checkName:UpdateAuditSuppression' :: UpdateAuditSuppression -&gt; Text
      ResourceIdentifier
      ResourceIdentifier
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression%27"><span class="hs-identifier hs-type">UpdateAuditSuppression'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858031"><span class="annot"><span class="annottext">ResourceIdentifier
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression%27"><span class="hs-identifier hs-type">UpdateAuditSuppression'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858040"><span class="annot"><span class="annottext">ResourceIdentifier
 resourceIdentifier :: ResourceIdentifier
 $sel:resourceIdentifier:UpdateAuditSuppression' :: UpdateAuditSuppression -&gt; ResourceIdentifier
-</span><a href="#local-6989586621679858031"><span class="hs-identifier hs-var hs-var">resourceIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceIdentifier
-</span><a href="#local-6989586621679858031"><span class="hs-identifier hs-var">resourceIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679858030"><span class="annot"><span class="annottext">s :: UpdateAuditSuppression
-</span><a href="#local-6989586621679858030"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression%27"><span class="hs-identifier hs-type">UpdateAuditSuppression'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679858029"><span class="annot"><span class="annottext">ResourceIdentifier
-</span><a href="#local-6989586621679858029"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAuditSuppression
-</span><a href="#local-6989586621679858030"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceIdentifier:UpdateAuditSuppression' :: ResourceIdentifier
+</span><a href="#local-6989586621679858040"><span class="hs-identifier hs-var hs-var">resourceIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceIdentifier
+</span><a href="#local-6989586621679858040"><span class="hs-identifier hs-var">resourceIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679858039"><span class="annot"><span class="annottext">s :: UpdateAuditSuppression
+</span><a href="#local-6989586621679858039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression%27"><span class="hs-identifier hs-type">UpdateAuditSuppression'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679858038"><span class="annot"><span class="annottext">ResourceIdentifier
+</span><a href="#local-6989586621679858038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAuditSuppression
+</span><a href="#local-6989586621679858039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceIdentifier:UpdateAuditSuppression' :: ResourceIdentifier
 </span><a href="Network.AWS.IoT.UpdateAuditSuppression.html#%24sel%3AresourceIdentifier%3AUpdateAuditSuppression%27"><span class="hs-identifier hs-var">resourceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceIdentifier
-</span><a href="#local-6989586621679858029"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression"><span class="hs-identifier hs-type">UpdateAuditSuppression</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679858038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression"><span class="hs-identifier hs-type">UpdateAuditSuppression</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression"><span class="hs-identifier hs-type">UpdateAuditSuppression</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-124"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-125"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression"><span class="hs-identifier hs-type">UpdateAuditSuppression</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppressionResponse"><span class="hs-identifier hs-type">UpdateAuditSuppressionResponse</span></a></span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679858025"><span class="annot"><span class="annottext">request :: UpdateAuditSuppression -&gt; Request UpdateAuditSuppression
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679858034"><span class="annot"><span class="annottext">request :: UpdateAuditSuppression -&gt; Request UpdateAuditSuppression
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateAuditSuppression -&gt; Request UpdateAuditSuppression
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.patchJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679858021"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679858030"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateAuditSuppression
 -&gt; ClientResponse ClientBody
@@ -344,10 +344,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679858018"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679858018"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679858017"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679858017"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679858016"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679858016"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679858027"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679858027"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679858026"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679858026"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679858025"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679858025"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; UpdateAuditSuppressionResponse
 </span><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppressionResponse%27"><span class="hs-identifier hs-var">UpdateAuditSuppressionResponse'</span></a></span><span>
 </span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; UpdateAuditSuppressionResponse)
@@ -359,24 +359,24 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679858018"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679858027"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679858009"><span id="local-6989586621679858011"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression"><span class="hs-identifier hs-type">UpdateAuditSuppression</span></a></span></span></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679858018"><span id="local-6989586621679858020"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression"><span class="hs-identifier hs-type">UpdateAuditSuppression</span></a></span></span></span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679858006"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression"><span class="hs-identifier hs-type">UpdateAuditSuppression</span></a></span></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679858015"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression"><span class="hs-identifier hs-type">UpdateAuditSuppression</span></a></span></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression"><span class="hs-identifier hs-type">UpdateAuditSuppression</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679858002"><span class="annot"><span class="annottext">toHeaders :: UpdateAuditSuppression -&gt; ResponseHeaders
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679858011"><span class="annot"><span class="annottext">toHeaders :: UpdateAuditSuppression -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateAuditSuppression -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679857993"><span id="local-6989586621679857995"><span id="local-6989586621679857997"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression"><span class="hs-identifier hs-type">UpdateAuditSuppression</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679857991"><span class="annot"><span class="annottext">toJSON :: UpdateAuditSuppression -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression%27"><span class="hs-identifier hs-type">UpdateAuditSuppression'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679857985"><span id="local-6989586621679857986"><span id="local-6989586621679857987"><span id="local-6989586621679857988"><span id="local-6989586621679857989"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679858002"><span id="local-6989586621679858004"><span id="local-6989586621679858006"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression"><span class="hs-identifier hs-type">UpdateAuditSuppression</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679858000"><span class="annot"><span class="annottext">toJSON :: UpdateAuditSuppression -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression%27"><span class="hs-identifier hs-type">UpdateAuditSuppression'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679857994"><span id="local-6989586621679857995"><span id="local-6989586621679857996"><span id="local-6989586621679857997"><span id="local-6989586621679857998"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Maybe POSIX
 Text
@@ -391,7 +391,7 @@ $sel:checkName:UpdateAuditSuppression' :: UpdateAuditSuppression -&gt; Text
 $sel:description:UpdateAuditSuppression' :: UpdateAuditSuppression -&gt; Maybe Text
 $sel:suppressIndefinitely:UpdateAuditSuppression' :: UpdateAuditSuppression -&gt; Maybe Bool
 $sel:expirationDate:UpdateAuditSuppression' :: UpdateAuditSuppression -&gt; Maybe POSIX
-</span><a href="#local-6989586621679857985"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679857994"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -404,7 +404,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-147"></span><span>              </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679857989"><span class="hs-identifier hs-var">expirationDate</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679857998"><span class="hs-identifier hs-var">expirationDate</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-148"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;suppressIndefinitely&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -412,21 +412,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-149"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679857988"><span class="hs-identifier hs-var">suppressIndefinitely</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679857997"><span class="hs-identifier hs-var">suppressIndefinitely</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-150"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679857987"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679857996"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;checkName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679857986"><span class="hs-identifier hs-var">checkName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679857995"><span class="hs-identifier hs-var">checkName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -434,19 +434,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;resourceIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ResourceIdentifier -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ResourceIdentifier
-</span><a href="#local-6989586621679857985"><span class="hs-identifier hs-var">resourceIdentifier</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679857994"><span class="hs-identifier hs-var">resourceIdentifier</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression"><span class="hs-identifier hs-type">UpdateAuditSuppression</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679857979"><span class="annot"><span class="annottext">toPath :: UpdateAuditSuppression -&gt; ByteString
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679857988"><span class="annot"><span class="annottext">toPath :: UpdateAuditSuppression -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateAuditSuppression -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/audit/suppressions/update&quot;</span></span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppression"><span class="hs-identifier hs-type">UpdateAuditSuppression</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679857975"><span class="annot"><span class="annottext">toQuery :: UpdateAuditSuppression -&gt; QueryString
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679857984"><span class="annot"><span class="annottext">toQuery :: UpdateAuditSuppression -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateAuditSuppression -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -454,12 +454,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- | /See:/ 'newUpdateAuditSuppressionResponse' smart constructor.</span><span>
-</span><span id="line-164"></span><span id="local-6989586621679857972"><span id="local-6989586621679857973"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateAuditSuppressionResponse"><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppressionResponse"><span class="hs-identifier hs-var">UpdateAuditSuppressionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateAuditSuppressionResponse%27"><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppressionResponse%27"><span class="hs-identifier hs-var">UpdateAuditSuppressionResponse'</span></a></span></span><span>
+</span><span id="line-164"></span><span id="local-6989586621679857981"><span id="local-6989586621679857982"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateAuditSuppressionResponse"><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppressionResponse"><span class="hs-identifier hs-var">UpdateAuditSuppressionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateAuditSuppressionResponse%27"><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppressionResponse%27"><span class="hs-identifier hs-var">UpdateAuditSuppressionResponse'</span></a></span></span><span>
 </span><span id="line-165"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-166"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateAuditSuppressionResponse%27"><span class="annot"><span class="annottext">UpdateAuditSuppressionResponse -&gt; Int
 </span><a href="Network.AWS.IoT.UpdateAuditSuppression.html#%24sel%3AhttpStatus%3AUpdateAuditSuppressionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-167"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-168"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679857967"><span id="local-6989586621679857969"><span class="annot"><span class="annottext">UpdateAuditSuppressionResponse
+</span><span id="line-168"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679857976"><span id="local-6989586621679857978"><span class="annot"><span class="annottext">UpdateAuditSuppressionResponse
 -&gt; UpdateAuditSuppressionResponse -&gt; Bool
 (UpdateAuditSuppressionResponse
  -&gt; UpdateAuditSuppressionResponse -&gt; Bool)
@@ -475,7 +475,7 @@ $c/= :: UpdateAuditSuppressionResponse
 -&gt; UpdateAuditSuppressionResponse -&gt; Bool
 $c== :: UpdateAuditSuppressionResponse
 -&gt; UpdateAuditSuppressionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679857959"><span id="local-6989586621679857961"><span id="local-6989586621679857963"><span id="local-6989586621679857965"><span class="annot"><span class="annottext">ReadPrec [UpdateAuditSuppressionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679857968"><span id="local-6989586621679857970"><span id="local-6989586621679857972"><span id="local-6989586621679857974"><span class="annot"><span class="annottext">ReadPrec [UpdateAuditSuppressionResponse]
 ReadPrec UpdateAuditSuppressionResponse
 Int -&gt; ReadS UpdateAuditSuppressionResponse
 ReadS [UpdateAuditSuppressionResponse]
@@ -495,7 +495,7 @@ readList :: ReadS [UpdateAuditSuppressionResponse]
 $creadList :: ReadS [UpdateAuditSuppressionResponse]
 readsPrec :: Int -&gt; ReadS UpdateAuditSuppressionResponse
 $creadsPrec :: Int -&gt; ReadS UpdateAuditSuppressionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679857953"><span id="local-6989586621679857955"><span id="local-6989586621679857957"><span class="annot"><span class="annottext">Int -&gt; UpdateAuditSuppressionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679857962"><span id="local-6989586621679857964"><span id="local-6989586621679857966"><span class="annot"><span class="annottext">Int -&gt; UpdateAuditSuppressionResponse -&gt; ShowS
 [UpdateAuditSuppressionResponse] -&gt; ShowS
 UpdateAuditSuppressionResponse -&gt; String
 (Int -&gt; UpdateAuditSuppressionResponse -&gt; ShowS)
@@ -547,14 +547,14 @@ UpdateAuditSuppressionResponse
 </span><span id="line-181"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-182"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppressionResponse"><span class="hs-identifier hs-type">UpdateAuditSuppressionResponse</span></a></span><span>
 </span><span id="line-183"></span><span id="newUpdateAuditSuppressionResponse"><span class="annot"><span class="annottext">newUpdateAuditSuppressionResponse :: Int -&gt; UpdateAuditSuppressionResponse
-</span><a href="Network.AWS.IoT.UpdateAuditSuppression.html#newUpdateAuditSuppressionResponse"><span class="hs-identifier hs-var hs-var">newUpdateAuditSuppressionResponse</span></a></span></span><span> </span><span id="local-6989586621679857950"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679857950"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.UpdateAuditSuppression.html#newUpdateAuditSuppressionResponse"><span class="hs-identifier hs-var hs-var">newUpdateAuditSuppressionResponse</span></a></span></span><span> </span><span id="local-6989586621679857959"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679857959"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-184"></span><span>  </span><span class="annot"><span class="annottext">UpdateAuditSuppressionResponse' :: Int -&gt; UpdateAuditSuppressionResponse
 </span><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppressionResponse%27"><span class="hs-identifier hs-type">UpdateAuditSuppressionResponse'</span></a></span><span>
 </span><span id="line-185"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateAuditSuppressionResponse' :: Int
 </span><a href="Network.AWS.IoT.UpdateAuditSuppression.html#%24sel%3AhttpStatus%3AUpdateAuditSuppressionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-186"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679857950"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679857959"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-187"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -571,18 +571,18 @@ UpdateAuditSuppressionResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppressionResponse%27"><span class="hs-identifier hs-type">UpdateAuditSuppressionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679857949"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppressionResponse%27"><span class="hs-identifier hs-type">UpdateAuditSuppressionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679857958"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateAuditSuppressionResponse' :: UpdateAuditSuppressionResponse -&gt; Int
-</span><a href="#local-6989586621679857949"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679857949"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679857948"><span class="annot"><span class="annottext">s :: UpdateAuditSuppressionResponse
-</span><a href="#local-6989586621679857948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppressionResponse%27"><span class="hs-identifier hs-type">UpdateAuditSuppressionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679857947"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679857947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAuditSuppressionResponse
-</span><a href="#local-6989586621679857948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateAuditSuppressionResponse' :: Int
+</span><a href="#local-6989586621679857958"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679857958"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679857957"><span class="annot"><span class="annottext">s :: UpdateAuditSuppressionResponse
+</span><a href="#local-6989586621679857957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppressionResponse%27"><span class="hs-identifier hs-type">UpdateAuditSuppressionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679857956"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679857956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateAuditSuppressionResponse
+</span><a href="#local-6989586621679857957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateAuditSuppressionResponse' :: Int
 </span><a href="Network.AWS.IoT.UpdateAuditSuppression.html#%24sel%3AhttpStatus%3AUpdateAuditSuppressionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679857947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppressionResponse"><span class="hs-identifier hs-type">UpdateAuditSuppressionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679857956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppressionResponse"><span class="hs-identifier hs-type">UpdateAuditSuppressionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-194"></span><span>  </span><span id="local-6989586621679857945"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679857954"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-195"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.UpdateAuditSuppression.html#UpdateAuditSuppressionResponse"><span class="hs-identifier hs-type">UpdateAuditSuppressionResponse</span></a></span></span><span>
 </span><span id="line-196"></span></pre></body></html>

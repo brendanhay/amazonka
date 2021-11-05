@@ -59,7 +59,7 @@
 </span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newListJournalS3Exports' smart constructor.</span><span>
-</span><span id="line-62"></span><span id="local-6989586621679185351"><span id="local-6989586621679185352"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListJournalS3Exports"><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3Exports"><span class="hs-identifier hs-var">ListJournalS3Exports</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListJournalS3Exports%27"><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3Exports%27"><span class="hs-identifier hs-var">ListJournalS3Exports'</span></a></span></span><span>
+</span><span id="line-62"></span><span id="local-6989586621679185360"><span id="local-6989586621679185361"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListJournalS3Exports"><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3Exports"><span class="hs-identifier hs-var">ListJournalS3Exports</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListJournalS3Exports%27"><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3Exports%27"><span class="hs-identifier hs-var">ListJournalS3Exports'</span></a></span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A pagination token, indicating that you want to retrieve the next page</span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">-- of results. If you received a value for @NextToken@ in the response from</span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-comment">-- a previous @ListJournalS3Exports@ call, then you should use that value</span><span>
@@ -72,7 +72,7 @@
 </span><span id="line-71"></span><span>    </span><span id="%24sel%3AmaxResults%3AListJournalS3Exports%27"><span class="annot"><span class="annottext">ListJournalS3Exports -&gt; Maybe Natural
 </span><a href="Network.AWS.QLDB.ListJournalS3Exports.html#%24sel%3AmaxResults%3AListJournalS3Exports%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679185344"><span id="local-6989586621679185346"><span class="annot"><span class="annottext">ListJournalS3Exports -&gt; ListJournalS3Exports -&gt; Bool
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679185353"><span id="local-6989586621679185355"><span class="annot"><span class="annottext">ListJournalS3Exports -&gt; ListJournalS3Exports -&gt; Bool
 (ListJournalS3Exports -&gt; ListJournalS3Exports -&gt; Bool)
 -&gt; (ListJournalS3Exports -&gt; ListJournalS3Exports -&gt; Bool)
 -&gt; Eq ListJournalS3Exports
@@ -81,7 +81,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListJournalS3Exports -&gt; ListJournalS3Exports -&gt; Bool
 == :: ListJournalS3Exports -&gt; ListJournalS3Exports -&gt; Bool
 $c== :: ListJournalS3Exports -&gt; ListJournalS3Exports -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185335"><span id="local-6989586621679185337"><span id="local-6989586621679185339"><span id="local-6989586621679185341"><span class="annot"><span class="annottext">ReadPrec [ListJournalS3Exports]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185344"><span id="local-6989586621679185346"><span id="local-6989586621679185348"><span id="local-6989586621679185350"><span class="annot"><span class="annottext">ReadPrec [ListJournalS3Exports]
 ReadPrec ListJournalS3Exports
 Int -&gt; ReadS ListJournalS3Exports
 ReadS [ListJournalS3Exports]
@@ -101,7 +101,7 @@ readList :: ReadS [ListJournalS3Exports]
 $creadList :: ReadS [ListJournalS3Exports]
 readsPrec :: Int -&gt; ReadS ListJournalS3Exports
 $creadsPrec :: Int -&gt; ReadS ListJournalS3Exports
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185328"><span id="local-6989586621679185330"><span id="local-6989586621679185332"><span class="annot"><span class="annottext">Int -&gt; ListJournalS3Exports -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185337"><span id="local-6989586621679185339"><span id="local-6989586621679185341"><span class="annot"><span class="annottext">Int -&gt; ListJournalS3Exports -&gt; ShowS
 [ListJournalS3Exports] -&gt; ShowS
 ListJournalS3Exports -&gt; String
 (Int -&gt; ListJournalS3Exports -&gt; ShowS)
@@ -171,16 +171,16 @@ forall a. Maybe a
 -&gt; Lens
      ListJournalS3Exports ListJournalS3Exports (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3Exports%27"><span class="hs-identifier hs-type">ListJournalS3Exports'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185321"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3Exports%27"><span class="hs-identifier hs-type">ListJournalS3Exports'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185330"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListJournalS3Exports' :: ListJournalS3Exports -&gt; Maybe Text
-</span><a href="#local-6989586621679185321"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679185321"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185320"><span class="annot"><span class="annottext">s :: ListJournalS3Exports
-</span><a href="#local-6989586621679185320"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3Exports%27"><span class="hs-identifier hs-type">ListJournalS3Exports'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185319"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679185319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJournalS3Exports
-</span><a href="#local-6989586621679185320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListJournalS3Exports' :: Maybe Text
+</span><a href="#local-6989586621679185330"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185330"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185329"><span class="annot"><span class="annottext">s :: ListJournalS3Exports
+</span><a href="#local-6989586621679185329"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3Exports%27"><span class="hs-identifier hs-type">ListJournalS3Exports'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185328"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185328"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJournalS3Exports
+</span><a href="#local-6989586621679185329"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListJournalS3Exports' :: Maybe Text
 </span><a href="Network.AWS.QLDB.ListJournalS3Exports.html#%24sel%3AnextToken%3AListJournalS3Exports%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679185319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3Exports"><span class="hs-identifier hs-type">ListJournalS3Exports</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679185328"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3Exports"><span class="hs-identifier hs-type">ListJournalS3Exports</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | The maximum number of results to return in a single</span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- @ListJournalS3Exports@ request. (The actual number of results returned</span><span>
@@ -196,27 +196,27 @@ $sel:nextToken:ListJournalS3Exports' :: ListJournalS3Exports -&gt; Maybe Text
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3Exports%27"><span class="hs-identifier hs-type">ListJournalS3Exports'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185318"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3Exports%27"><span class="hs-identifier hs-type">ListJournalS3Exports'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185327"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListJournalS3Exports' :: ListJournalS3Exports -&gt; Maybe Natural
-</span><a href="#local-6989586621679185318"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679185318"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185317"><span class="annot"><span class="annottext">s :: ListJournalS3Exports
-</span><a href="#local-6989586621679185317"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3Exports%27"><span class="hs-identifier hs-type">ListJournalS3Exports'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185316"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679185316"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJournalS3Exports
-</span><a href="#local-6989586621679185317"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListJournalS3Exports' :: Maybe Natural
+</span><a href="#local-6989586621679185327"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679185327"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185326"><span class="annot"><span class="annottext">s :: ListJournalS3Exports
+</span><a href="#local-6989586621679185326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3Exports%27"><span class="hs-identifier hs-type">ListJournalS3Exports'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185325"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679185325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJournalS3Exports
+</span><a href="#local-6989586621679185326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListJournalS3Exports' :: Maybe Natural
 </span><a href="Network.AWS.QLDB.ListJournalS3Exports.html#%24sel%3AmaxResults%3AListJournalS3Exports%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679185316"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3Exports"><span class="hs-identifier hs-type">ListJournalS3Exports</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679185325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3Exports"><span class="hs-identifier hs-type">ListJournalS3Exports</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3Exports"><span class="hs-identifier hs-type">ListJournalS3Exports</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-113"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-114"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3Exports"><span class="hs-identifier hs-type">ListJournalS3Exports</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>      </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3ExportsResponse"><span class="hs-identifier hs-type">ListJournalS3ExportsResponse</span></a></span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679185312"><span class="annot"><span class="annottext">request :: ListJournalS3Exports -&gt; Request ListJournalS3Exports
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679185321"><span class="annot"><span class="annottext">request :: ListJournalS3Exports -&gt; Request ListJournalS3Exports
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListJournalS3Exports -&gt; Request ListJournalS3Exports
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.QLDB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679185308"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679185317"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListJournalS3Exports
 -&gt; ClientResponse ClientBody
@@ -242,10 +242,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679185305"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185305"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679185304"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679185304"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679185303"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679185303"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679185314"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679185314"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679185313"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679185313"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679185312"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185312"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">Maybe [JournalS3ExportDescription]
 -&gt; Maybe Text -&gt; Int -&gt; ListJournalS3ExportsResponse
 </span><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3ExportsResponse%27"><span class="hs-identifier hs-var">ListJournalS3ExportsResponse'</span></a></span><span>
@@ -256,7 +256,7 @@ MonadResource m =&gt;
      String (Maybe Text -&gt; Int -&gt; ListJournalS3ExportsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679185303"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185312"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either String (Maybe (Maybe [JournalS3ExportDescription]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
@@ -275,7 +275,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; ListJournalS3ExportsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679185303"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679185312"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -287,15 +287,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185305"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679185314"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185294"><span id="local-6989586621679185296"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3Exports"><span class="hs-identifier hs-type">ListJournalS3Exports</span></a></span></span></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185303"><span id="local-6989586621679185305"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3Exports"><span class="hs-identifier hs-type">ListJournalS3Exports</span></a></span></span></span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185291"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3Exports"><span class="hs-identifier hs-type">ListJournalS3Exports</span></a></span></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185300"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3Exports"><span class="hs-identifier hs-type">ListJournalS3Exports</span></a></span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3Exports"><span class="hs-identifier hs-type">ListJournalS3Exports</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679185287"><span class="annot"><span class="annottext">toHeaders :: ListJournalS3Exports -&gt; ResponseHeaders
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679185296"><span class="annot"><span class="annottext">toHeaders :: ListJournalS3Exports -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListJournalS3Exports -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -315,21 +315,21 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3Exports"><span class="hs-identifier hs-type">ListJournalS3Exports</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679185281"><span class="annot"><span class="annottext">toPath :: ListJournalS3Exports -&gt; ByteString
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679185290"><span class="annot"><span class="annottext">toPath :: ListJournalS3Exports -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListJournalS3Exports -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/journal-s3-exports&quot;</span></span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3Exports"><span class="hs-identifier hs-type">ListJournalS3Exports</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679185277"><span class="annot"><span class="annottext">toQuery :: ListJournalS3Exports -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3Exports%27"><span class="hs-identifier hs-type">ListJournalS3Exports'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185274"><span id="local-6989586621679185275"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679185286"><span class="annot"><span class="annottext">toQuery :: ListJournalS3Exports -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3Exports%27"><span class="hs-identifier hs-type">ListJournalS3Exports'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185283"><span id="local-6989586621679185284"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 maxResults :: Maybe Natural
 nextToken :: Maybe Text
 $sel:maxResults:ListJournalS3Exports' :: ListJournalS3Exports -&gt; Maybe Natural
 $sel:nextToken:ListJournalS3Exports' :: ListJournalS3Exports -&gt; Maybe Text
-</span><a href="#local-6989586621679185274"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679185283"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -337,16 +337,16 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;next_token&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679185275"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679185284"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;max_results&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679185274"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679185283"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-151"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- | /See:/ 'newListJournalS3ExportsResponse' smart constructor.</span><span>
-</span><span id="line-154"></span><span id="local-6989586621679185271"><span id="local-6989586621679185272"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListJournalS3ExportsResponse"><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3ExportsResponse"><span class="hs-identifier hs-var">ListJournalS3ExportsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListJournalS3ExportsResponse%27"><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3ExportsResponse%27"><span class="hs-identifier hs-var">ListJournalS3ExportsResponse'</span></a></span></span><span>
+</span><span id="line-154"></span><span id="local-6989586621679185280"><span id="local-6989586621679185281"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListJournalS3ExportsResponse"><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3ExportsResponse"><span class="hs-identifier hs-var">ListJournalS3ExportsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListJournalS3ExportsResponse%27"><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3ExportsResponse%27"><span class="hs-identifier hs-var">ListJournalS3ExportsResponse'</span></a></span></span><span>
 </span><span id="line-155"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The array of journal export job descriptions for all ledgers that are</span><span>
 </span><span id="line-156"></span><span>    </span><span class="hs-comment">-- associated with the current account and Region.</span><span>
 </span><span id="line-157"></span><span>    </span><span id="%24sel%3AjournalS3Exports%3AListJournalS3ExportsResponse%27"><span class="annot"><span class="annottext">ListJournalS3ExportsResponse -&gt; Maybe [JournalS3ExportDescription]
@@ -363,7 +363,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-166"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListJournalS3ExportsResponse%27"><span class="annot"><span class="annottext">ListJournalS3ExportsResponse -&gt; Int
 </span><a href="Network.AWS.QLDB.ListJournalS3Exports.html#%24sel%3AhttpStatus%3AListJournalS3ExportsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-167"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-168"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679185264"><span id="local-6989586621679185266"><span class="annot"><span class="annottext">ListJournalS3ExportsResponse
+</span><span id="line-168"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679185273"><span id="local-6989586621679185275"><span class="annot"><span class="annottext">ListJournalS3ExportsResponse
 -&gt; ListJournalS3ExportsResponse -&gt; Bool
 (ListJournalS3ExportsResponse
  -&gt; ListJournalS3ExportsResponse -&gt; Bool)
@@ -379,7 +379,7 @@ $c/= :: ListJournalS3ExportsResponse
 -&gt; ListJournalS3ExportsResponse -&gt; Bool
 $c== :: ListJournalS3ExportsResponse
 -&gt; ListJournalS3ExportsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185256"><span id="local-6989586621679185258"><span id="local-6989586621679185260"><span id="local-6989586621679185262"><span class="annot"><span class="annottext">ReadPrec [ListJournalS3ExportsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185265"><span id="local-6989586621679185267"><span id="local-6989586621679185269"><span id="local-6989586621679185271"><span class="annot"><span class="annottext">ReadPrec [ListJournalS3ExportsResponse]
 ReadPrec ListJournalS3ExportsResponse
 Int -&gt; ReadS ListJournalS3ExportsResponse
 ReadS [ListJournalS3ExportsResponse]
@@ -399,7 +399,7 @@ readList :: ReadS [ListJournalS3ExportsResponse]
 $creadList :: ReadS [ListJournalS3ExportsResponse]
 readsPrec :: Int -&gt; ReadS ListJournalS3ExportsResponse
 $creadsPrec :: Int -&gt; ReadS ListJournalS3ExportsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185250"><span id="local-6989586621679185252"><span id="local-6989586621679185254"><span class="annot"><span class="annottext">Int -&gt; ListJournalS3ExportsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185259"><span id="local-6989586621679185261"><span id="local-6989586621679185263"><span class="annot"><span class="annottext">Int -&gt; ListJournalS3ExportsResponse -&gt; ShowS
 [ListJournalS3ExportsResponse] -&gt; ShowS
 ListJournalS3ExportsResponse -&gt; String
 (Int -&gt; ListJournalS3ExportsResponse -&gt; ShowS)
@@ -455,8 +455,8 @@ ListJournalS3ExportsResponse -&gt; Rep ListJournalS3ExportsResponse x
 </span><span id="line-191"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-192"></span><span>  </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3ExportsResponse"><span class="hs-identifier hs-type">ListJournalS3ExportsResponse</span></a></span><span>
 </span><span id="line-193"></span><span id="newListJournalS3ExportsResponse"><span class="annot"><span class="annottext">newListJournalS3ExportsResponse :: Int -&gt; ListJournalS3ExportsResponse
-</span><a href="Network.AWS.QLDB.ListJournalS3Exports.html#newListJournalS3ExportsResponse"><span class="hs-identifier hs-var hs-var">newListJournalS3ExportsResponse</span></a></span></span><span> </span><span id="local-6989586621679185247"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185247"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.QLDB.ListJournalS3Exports.html#newListJournalS3ExportsResponse"><span class="hs-identifier hs-var hs-var">newListJournalS3ExportsResponse</span></a></span></span><span> </span><span id="local-6989586621679185256"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679185256"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-194"></span><span>  </span><span class="annot"><span class="annottext">ListJournalS3ExportsResponse' :: Maybe [JournalS3ExportDescription]
 -&gt; Maybe Text -&gt; Int -&gt; ListJournalS3ExportsResponse
 </span><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3ExportsResponse%27"><span class="hs-identifier hs-type">ListJournalS3ExportsResponse'</span></a></span><span>
@@ -471,7 +471,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-198"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListJournalS3ExportsResponse' :: Int
 </span><a href="Network.AWS.QLDB.ListJournalS3Exports.html#%24sel%3AhttpStatus%3AListJournalS3ExportsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185247"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679185256"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-199"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-200"></span><span>
 </span><span id="line-201"></span><span class="hs-comment">-- | The array of journal export job descriptions for all ledgers that are</span><span>
@@ -491,16 +491,16 @@ forall a. Maybe a
      (Maybe [JournalS3ExportDescription])
      (Maybe [JournalS3ExportDescription])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3ExportsResponse%27"><span class="hs-identifier hs-type">ListJournalS3ExportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185246"><span class="annot"><span class="annottext">Maybe [JournalS3ExportDescription]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3ExportsResponse%27"><span class="hs-identifier hs-type">ListJournalS3ExportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185255"><span class="annot"><span class="annottext">Maybe [JournalS3ExportDescription]
 journalS3Exports :: Maybe [JournalS3ExportDescription]
 $sel:journalS3Exports:ListJournalS3ExportsResponse' :: ListJournalS3ExportsResponse -&gt; Maybe [JournalS3ExportDescription]
-</span><a href="#local-6989586621679185246"><span class="hs-identifier hs-var hs-var">journalS3Exports</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [JournalS3ExportDescription]
-</span><a href="#local-6989586621679185246"><span class="hs-identifier hs-var">journalS3Exports</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185245"><span class="annot"><span class="annottext">s :: ListJournalS3ExportsResponse
-</span><a href="#local-6989586621679185245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3ExportsResponse%27"><span class="hs-identifier hs-type">ListJournalS3ExportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185244"><span class="annot"><span class="annottext">Maybe [JournalS3ExportDescription]
-</span><a href="#local-6989586621679185244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJournalS3ExportsResponse
-</span><a href="#local-6989586621679185245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:journalS3Exports:ListJournalS3ExportsResponse' :: Maybe [JournalS3ExportDescription]
+</span><a href="#local-6989586621679185255"><span class="hs-identifier hs-var hs-var">journalS3Exports</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [JournalS3ExportDescription]
+</span><a href="#local-6989586621679185255"><span class="hs-identifier hs-var">journalS3Exports</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185254"><span class="annot"><span class="annottext">s :: ListJournalS3ExportsResponse
+</span><a href="#local-6989586621679185254"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3ExportsResponse%27"><span class="hs-identifier hs-type">ListJournalS3ExportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185253"><span class="annot"><span class="annottext">Maybe [JournalS3ExportDescription]
+</span><a href="#local-6989586621679185253"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJournalS3ExportsResponse
+</span><a href="#local-6989586621679185254"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:journalS3Exports:ListJournalS3ExportsResponse' :: Maybe [JournalS3ExportDescription]
 </span><a href="Network.AWS.QLDB.ListJournalS3Exports.html#%24sel%3AjournalS3Exports%3AListJournalS3ExportsResponse%27"><span class="hs-identifier hs-var">journalS3Exports</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [JournalS3ExportDescription]
-</span><a href="#local-6989586621679185244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3ExportsResponse"><span class="hs-identifier hs-type">ListJournalS3ExportsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [JournalS3ExportDescription]
+</span><a href="#local-6989586621679185253"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3ExportsResponse"><span class="hs-identifier hs-type">ListJournalS3ExportsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [JournalS3ExportDescription]
   -&gt; f (Maybe [JournalS3ExportDescription]))
  -&gt; ListJournalS3ExportsResponse -&gt; f ListJournalS3ExportsResponse)
 -&gt; ((Maybe [JournalS3ExportDescription]
@@ -551,16 +551,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3ExportsResponse%27"><span class="hs-identifier hs-type">ListJournalS3ExportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185240"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3ExportsResponse%27"><span class="hs-identifier hs-type">ListJournalS3ExportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185249"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListJournalS3ExportsResponse' :: ListJournalS3ExportsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679185240"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679185240"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185239"><span class="annot"><span class="annottext">s :: ListJournalS3ExportsResponse
-</span><a href="#local-6989586621679185239"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3ExportsResponse%27"><span class="hs-identifier hs-type">ListJournalS3ExportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185238"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679185238"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJournalS3ExportsResponse
-</span><a href="#local-6989586621679185239"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListJournalS3ExportsResponse' :: Maybe Text
+</span><a href="#local-6989586621679185249"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185249"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185248"><span class="annot"><span class="annottext">s :: ListJournalS3ExportsResponse
+</span><a href="#local-6989586621679185248"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3ExportsResponse%27"><span class="hs-identifier hs-type">ListJournalS3ExportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185247"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679185247"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJournalS3ExportsResponse
+</span><a href="#local-6989586621679185248"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListJournalS3ExportsResponse' :: Maybe Text
 </span><a href="Network.AWS.QLDB.ListJournalS3Exports.html#%24sel%3AnextToken%3AListJournalS3ExportsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679185238"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3ExportsResponse"><span class="hs-identifier hs-type">ListJournalS3ExportsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679185247"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3ExportsResponse"><span class="hs-identifier hs-type">ListJournalS3ExportsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-214"></span><span>
 </span><span id="line-215"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-216"></span><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#listJournalS3ExportsResponse_httpStatus"><span class="hs-identifier hs-type">listJournalS3ExportsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3ExportsResponse"><span class="hs-identifier hs-type">ListJournalS3ExportsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -572,16 +572,16 @@ $sel:nextToken:ListJournalS3ExportsResponse' :: ListJournalS3ExportsResponse -&g
 -&gt; Lens
      ListJournalS3ExportsResponse ListJournalS3ExportsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3ExportsResponse%27"><span class="hs-identifier hs-type">ListJournalS3ExportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185237"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3ExportsResponse%27"><span class="hs-identifier hs-type">ListJournalS3ExportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185246"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListJournalS3ExportsResponse' :: ListJournalS3ExportsResponse -&gt; Int
-</span><a href="#local-6989586621679185237"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185237"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185236"><span class="annot"><span class="annottext">s :: ListJournalS3ExportsResponse
-</span><a href="#local-6989586621679185236"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3ExportsResponse%27"><span class="hs-identifier hs-type">ListJournalS3ExportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185235"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185235"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJournalS3ExportsResponse
-</span><a href="#local-6989586621679185236"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListJournalS3ExportsResponse' :: Int
+</span><a href="#local-6989586621679185246"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679185246"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185245"><span class="annot"><span class="annottext">s :: ListJournalS3ExportsResponse
+</span><a href="#local-6989586621679185245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3ExportsResponse%27"><span class="hs-identifier hs-type">ListJournalS3ExportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185244"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679185244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJournalS3ExportsResponse
+</span><a href="#local-6989586621679185245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListJournalS3ExportsResponse' :: Int
 </span><a href="Network.AWS.QLDB.ListJournalS3Exports.html#%24sel%3AhttpStatus%3AListJournalS3ExportsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185235"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3ExportsResponse"><span class="hs-identifier hs-type">ListJournalS3ExportsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679185244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3ExportsResponse"><span class="hs-identifier hs-type">ListJournalS3ExportsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-218"></span><span>
-</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185233"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3ExportsResponse"><span class="hs-identifier hs-type">ListJournalS3ExportsResponse</span></a></span></span><span>
+</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185242"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.ListJournalS3Exports.html#ListJournalS3ExportsResponse"><span class="hs-identifier hs-type">ListJournalS3ExportsResponse</span></a></span></span><span>
 </span><span id="line-220"></span></pre></body></html>

@@ -32,7 +32,7 @@
 </span><span id="line-32"></span><span class="hs-comment">-- variant weights.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newProductionVariant' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621680334290"><span id="local-6989586621680334291"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProductionVariant"><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant"><span class="hs-identifier hs-var">ProductionVariant</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProductionVariant%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant%27"><span class="hs-identifier hs-var">ProductionVariant'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621680334299"><span id="local-6989586621680334300"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProductionVariant"><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant"><span class="hs-identifier hs-var">ProductionVariant</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProductionVariant%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant%27"><span class="hs-identifier hs-var">ProductionVariant'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The size of the Elastic Inference (EI) instance to use for the</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- production variant. EI instances provide on-demand GPU computing for</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- inference. For more information, see</span><span>
@@ -64,7 +64,7 @@
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AinstanceType%3AProductionVariant%27"><span class="annot"><span class="annottext">ProductionVariant -&gt; ProductionVariantInstanceType
 </span><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#%24sel%3AinstanceType%3AProductionVariant%27"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariantInstanceType.html#ProductionVariantInstanceType"><span class="hs-identifier hs-type">ProductionVariantInstanceType</span></a></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680334278"><span id="local-6989586621680334280"><span class="annot"><span class="annottext">ProductionVariant -&gt; ProductionVariant -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680334287"><span id="local-6989586621680334289"><span class="annot"><span class="annottext">ProductionVariant -&gt; ProductionVariant -&gt; Bool
 (ProductionVariant -&gt; ProductionVariant -&gt; Bool)
 -&gt; (ProductionVariant -&gt; ProductionVariant -&gt; Bool)
 -&gt; Eq ProductionVariant
@@ -73,7 +73,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ProductionVariant -&gt; ProductionVariant -&gt; Bool
 == :: ProductionVariant -&gt; ProductionVariant -&gt; Bool
 $c== :: ProductionVariant -&gt; ProductionVariant -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680334269"><span id="local-6989586621680334271"><span id="local-6989586621680334273"><span id="local-6989586621680334275"><span class="annot"><span class="annottext">ReadPrec [ProductionVariant]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680334278"><span id="local-6989586621680334280"><span id="local-6989586621680334282"><span id="local-6989586621680334284"><span class="annot"><span class="annottext">ReadPrec [ProductionVariant]
 ReadPrec ProductionVariant
 Int -&gt; ReadS ProductionVariant
 ReadS [ProductionVariant]
@@ -93,7 +93,7 @@ readList :: ReadS [ProductionVariant]
 $creadList :: ReadS [ProductionVariant]
 readsPrec :: Int -&gt; ReadS ProductionVariant
 $creadsPrec :: Int -&gt; ReadS ProductionVariant
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680334262"><span id="local-6989586621680334264"><span id="local-6989586621680334266"><span class="annot"><span class="annottext">Int -&gt; ProductionVariant -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680334271"><span id="local-6989586621680334273"><span id="local-6989586621680334275"><span class="annot"><span class="annottext">Int -&gt; ProductionVariant -&gt; ShowS
 [ProductionVariant] -&gt; ShowS
 ProductionVariant -&gt; String
 (Int -&gt; ProductionVariant -&gt; ShowS)
@@ -165,14 +165,14 @@ $cfrom :: forall x. ProductionVariant -&gt; Rep ProductionVariant x
 -&gt; ProductionVariantInstanceType
 -&gt; ProductionVariant
 </span><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#newProductionVariant"><span class="hs-identifier hs-var hs-var">newProductionVariant</span></a></span></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621680334256"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680334256"><span class="hs-identifier hs-var">pVariantName_</span></a></span></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621680334255"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680334255"><span class="hs-identifier hs-var">pModelName_</span></a></span></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621680334254"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621680334254"><span class="hs-identifier hs-var">pInitialInstanceCount_</span></a></span></span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621680334253"><span class="annot"><span class="annottext">ProductionVariantInstanceType
-</span><a href="#local-6989586621680334253"><span class="hs-identifier hs-var">pInstanceType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621680334265"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680334265"><span class="hs-identifier hs-var">pVariantName_</span></a></span></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621680334264"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680334264"><span class="hs-identifier hs-var">pModelName_</span></a></span></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621680334263"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621680334263"><span class="hs-identifier hs-var">pInitialInstanceCount_</span></a></span></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621680334262"><span class="annot"><span class="annottext">ProductionVariantInstanceType
+</span><a href="#local-6989586621680334262"><span class="hs-identifier hs-var">pInstanceType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">ProductionVariant' :: Maybe ProductionVariantAcceleratorType
 -&gt; Maybe ProductionVariantCoreDumpConfig
 -&gt; Maybe Double
@@ -197,16 +197,16 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">$sel:variantName:ProductionVariant' :: Text
 </span><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#%24sel%3AvariantName%3AProductionVariant%27"><span class="hs-identifier hs-var">variantName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680334256"><span class="hs-identifier hs-var">pVariantName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680334265"><span class="hs-identifier hs-var">pVariantName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">$sel:modelName:ProductionVariant' :: Text
 </span><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#%24sel%3AmodelName%3AProductionVariant%27"><span class="hs-identifier hs-var">modelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680334255"><span class="hs-identifier hs-var">pModelName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680334264"><span class="hs-identifier hs-var">pModelName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">$sel:initialInstanceCount:ProductionVariant' :: Natural
 </span><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#%24sel%3AinitialInstanceCount%3AProductionVariant%27"><span class="hs-identifier hs-var">initialInstanceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621680334254"><span class="hs-identifier hs-var">pInitialInstanceCount_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680334263"><span class="hs-identifier hs-var">pInitialInstanceCount_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">$sel:instanceType:ProductionVariant' :: ProductionVariantInstanceType
 </span><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#%24sel%3AinstanceType%3AProductionVariant%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ProductionVariantInstanceType
-</span><a href="#local-6989586621680334253"><span class="hs-identifier hs-var">pInstanceType_</span></a></span><span>
+</span><a href="#local-6989586621680334262"><span class="hs-identifier hs-var">pInstanceType_</span></a></span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | The size of the Elastic Inference (EI) instance to use for the</span><span>
@@ -226,16 +226,16 @@ forall a. Maybe a
      (Maybe ProductionVariantAcceleratorType)
      (Maybe ProductionVariantAcceleratorType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant%27"><span class="hs-identifier hs-type">ProductionVariant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680334249"><span class="annot"><span class="annottext">Maybe ProductionVariantAcceleratorType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant%27"><span class="hs-identifier hs-type">ProductionVariant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680334258"><span class="annot"><span class="annottext">Maybe ProductionVariantAcceleratorType
 acceleratorType :: Maybe ProductionVariantAcceleratorType
 $sel:acceleratorType:ProductionVariant' :: ProductionVariant -&gt; Maybe ProductionVariantAcceleratorType
-</span><a href="#local-6989586621680334249"><span class="hs-identifier hs-var hs-var">acceleratorType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProductionVariantAcceleratorType
-</span><a href="#local-6989586621680334249"><span class="hs-identifier hs-var">acceleratorType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680334248"><span class="annot"><span class="annottext">s :: ProductionVariant
-</span><a href="#local-6989586621680334248"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant%27"><span class="hs-identifier hs-type">ProductionVariant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680334247"><span class="annot"><span class="annottext">Maybe ProductionVariantAcceleratorType
-</span><a href="#local-6989586621680334247"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProductionVariant
-</span><a href="#local-6989586621680334248"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:acceleratorType:ProductionVariant' :: Maybe ProductionVariantAcceleratorType
+</span><a href="#local-6989586621680334258"><span class="hs-identifier hs-var hs-var">acceleratorType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProductionVariantAcceleratorType
+</span><a href="#local-6989586621680334258"><span class="hs-identifier hs-var">acceleratorType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680334257"><span class="annot"><span class="annottext">s :: ProductionVariant
+</span><a href="#local-6989586621680334257"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant%27"><span class="hs-identifier hs-type">ProductionVariant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680334256"><span class="annot"><span class="annottext">Maybe ProductionVariantAcceleratorType
+</span><a href="#local-6989586621680334256"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProductionVariant
+</span><a href="#local-6989586621680334257"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:acceleratorType:ProductionVariant' :: Maybe ProductionVariantAcceleratorType
 </span><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#%24sel%3AacceleratorType%3AProductionVariant%27"><span class="hs-identifier hs-var">acceleratorType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProductionVariantAcceleratorType
-</span><a href="#local-6989586621680334247"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant"><span class="hs-identifier hs-type">ProductionVariant</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680334256"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant"><span class="hs-identifier hs-type">ProductionVariant</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | Specifies configuration for a core dump from the model container when</span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- the process crashes.</span><span>
@@ -252,16 +252,16 @@ $sel:acceleratorType:ProductionVariant' :: ProductionVariant -&gt; Maybe Product
      (Maybe ProductionVariantCoreDumpConfig)
      (Maybe ProductionVariantCoreDumpConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant%27"><span class="hs-identifier hs-type">ProductionVariant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680334245"><span class="annot"><span class="annottext">Maybe ProductionVariantCoreDumpConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant%27"><span class="hs-identifier hs-type">ProductionVariant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680334254"><span class="annot"><span class="annottext">Maybe ProductionVariantCoreDumpConfig
 coreDumpConfig :: Maybe ProductionVariantCoreDumpConfig
 $sel:coreDumpConfig:ProductionVariant' :: ProductionVariant -&gt; Maybe ProductionVariantCoreDumpConfig
-</span><a href="#local-6989586621680334245"><span class="hs-identifier hs-var hs-var">coreDumpConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProductionVariantCoreDumpConfig
-</span><a href="#local-6989586621680334245"><span class="hs-identifier hs-var">coreDumpConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680334244"><span class="annot"><span class="annottext">s :: ProductionVariant
-</span><a href="#local-6989586621680334244"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant%27"><span class="hs-identifier hs-type">ProductionVariant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680334243"><span class="annot"><span class="annottext">Maybe ProductionVariantCoreDumpConfig
-</span><a href="#local-6989586621680334243"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProductionVariant
-</span><a href="#local-6989586621680334244"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:coreDumpConfig:ProductionVariant' :: Maybe ProductionVariantCoreDumpConfig
+</span><a href="#local-6989586621680334254"><span class="hs-identifier hs-var hs-var">coreDumpConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProductionVariantCoreDumpConfig
+</span><a href="#local-6989586621680334254"><span class="hs-identifier hs-var">coreDumpConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680334253"><span class="annot"><span class="annottext">s :: ProductionVariant
+</span><a href="#local-6989586621680334253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant%27"><span class="hs-identifier hs-type">ProductionVariant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680334252"><span class="annot"><span class="annottext">Maybe ProductionVariantCoreDumpConfig
+</span><a href="#local-6989586621680334252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProductionVariant
+</span><a href="#local-6989586621680334253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:coreDumpConfig:ProductionVariant' :: Maybe ProductionVariantCoreDumpConfig
 </span><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#%24sel%3AcoreDumpConfig%3AProductionVariant%27"><span class="hs-identifier hs-var">coreDumpConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProductionVariantCoreDumpConfig
-</span><a href="#local-6989586621680334243"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant"><span class="hs-identifier hs-type">ProductionVariant</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680334252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant"><span class="hs-identifier hs-type">ProductionVariant</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | Determines initial traffic distribution among all of the models that you</span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- specify in the endpoint configuration. The traffic to a production</span><span>
@@ -276,16 +276,16 @@ $sel:coreDumpConfig:ProductionVariant' :: ProductionVariant -&gt; Maybe Producti
 -&gt; Lens
      ProductionVariant ProductionVariant (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant%27"><span class="hs-identifier hs-type">ProductionVariant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680334241"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant%27"><span class="hs-identifier hs-type">ProductionVariant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680334250"><span class="annot"><span class="annottext">Maybe Double
 initialVariantWeight :: Maybe Double
 $sel:initialVariantWeight:ProductionVariant' :: ProductionVariant -&gt; Maybe Double
-</span><a href="#local-6989586621680334241"><span class="hs-identifier hs-var hs-var">initialVariantWeight</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621680334241"><span class="hs-identifier hs-var">initialVariantWeight</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680334240"><span class="annot"><span class="annottext">s :: ProductionVariant
-</span><a href="#local-6989586621680334240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant%27"><span class="hs-identifier hs-type">ProductionVariant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680334239"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621680334239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProductionVariant
-</span><a href="#local-6989586621680334240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:initialVariantWeight:ProductionVariant' :: Maybe Double
+</span><a href="#local-6989586621680334250"><span class="hs-identifier hs-var hs-var">initialVariantWeight</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621680334250"><span class="hs-identifier hs-var">initialVariantWeight</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680334249"><span class="annot"><span class="annottext">s :: ProductionVariant
+</span><a href="#local-6989586621680334249"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant%27"><span class="hs-identifier hs-type">ProductionVariant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680334248"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621680334248"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProductionVariant
+</span><a href="#local-6989586621680334249"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:initialVariantWeight:ProductionVariant' :: Maybe Double
 </span><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#%24sel%3AinitialVariantWeight%3AProductionVariant%27"><span class="hs-identifier hs-var">initialVariantWeight</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621680334239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant"><span class="hs-identifier hs-type">ProductionVariant</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680334248"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant"><span class="hs-identifier hs-type">ProductionVariant</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | The name of the production variant.</span><span>
 </span><span id="line-139"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#productionVariant_variantName"><span class="hs-identifier hs-type">productionVariant_variantName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant"><span class="hs-identifier hs-type">ProductionVariant</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -294,16 +294,16 @@ $sel:initialVariantWeight:ProductionVariant' :: ProductionVariant -&gt; Maybe Do
 -&gt; (ProductionVariant -&gt; Text -&gt; ProductionVariant)
 -&gt; Lens ProductionVariant ProductionVariant Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant%27"><span class="hs-identifier hs-type">ProductionVariant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680334237"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant%27"><span class="hs-identifier hs-type">ProductionVariant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680334246"><span class="annot"><span class="annottext">Text
 variantName :: Text
 $sel:variantName:ProductionVariant' :: ProductionVariant -&gt; Text
-</span><a href="#local-6989586621680334237"><span class="hs-identifier hs-var hs-var">variantName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680334237"><span class="hs-identifier hs-var">variantName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680334236"><span class="annot"><span class="annottext">s :: ProductionVariant
-</span><a href="#local-6989586621680334236"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant%27"><span class="hs-identifier hs-type">ProductionVariant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680334235"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680334235"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProductionVariant
-</span><a href="#local-6989586621680334236"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:variantName:ProductionVariant' :: Text
+</span><a href="#local-6989586621680334246"><span class="hs-identifier hs-var hs-var">variantName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680334246"><span class="hs-identifier hs-var">variantName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680334245"><span class="annot"><span class="annottext">s :: ProductionVariant
+</span><a href="#local-6989586621680334245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant%27"><span class="hs-identifier hs-type">ProductionVariant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680334244"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680334244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProductionVariant
+</span><a href="#local-6989586621680334245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:variantName:ProductionVariant' :: Text
 </span><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#%24sel%3AvariantName%3AProductionVariant%27"><span class="hs-identifier hs-var">variantName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680334235"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant"><span class="hs-identifier hs-type">ProductionVariant</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680334244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant"><span class="hs-identifier hs-type">ProductionVariant</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | The name of the model that you want to host. This is the name that you</span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- specified when creating the model.</span><span>
@@ -313,16 +313,16 @@ $sel:variantName:ProductionVariant' :: ProductionVariant -&gt; Text
 -&gt; (ProductionVariant -&gt; Text -&gt; ProductionVariant)
 -&gt; Lens ProductionVariant ProductionVariant Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant%27"><span class="hs-identifier hs-type">ProductionVariant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680334233"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant%27"><span class="hs-identifier hs-type">ProductionVariant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680334242"><span class="annot"><span class="annottext">Text
 modelName :: Text
 $sel:modelName:ProductionVariant' :: ProductionVariant -&gt; Text
-</span><a href="#local-6989586621680334233"><span class="hs-identifier hs-var hs-var">modelName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680334233"><span class="hs-identifier hs-var">modelName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680334232"><span class="annot"><span class="annottext">s :: ProductionVariant
-</span><a href="#local-6989586621680334232"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant%27"><span class="hs-identifier hs-type">ProductionVariant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680334231"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680334231"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProductionVariant
-</span><a href="#local-6989586621680334232"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelName:ProductionVariant' :: Text
+</span><a href="#local-6989586621680334242"><span class="hs-identifier hs-var hs-var">modelName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680334242"><span class="hs-identifier hs-var">modelName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680334241"><span class="annot"><span class="annottext">s :: ProductionVariant
+</span><a href="#local-6989586621680334241"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant%27"><span class="hs-identifier hs-type">ProductionVariant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680334240"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680334240"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProductionVariant
+</span><a href="#local-6989586621680334241"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelName:ProductionVariant' :: Text
 </span><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#%24sel%3AmodelName%3AProductionVariant%27"><span class="hs-identifier hs-var">modelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680334231"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant"><span class="hs-identifier hs-type">ProductionVariant</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680334240"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant"><span class="hs-identifier hs-type">ProductionVariant</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | Number of instances to launch initially.</span><span>
 </span><span id="line-148"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#productionVariant_initialInstanceCount"><span class="hs-identifier hs-type">productionVariant_initialInstanceCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant"><span class="hs-identifier hs-type">ProductionVariant</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
@@ -331,16 +331,16 @@ $sel:modelName:ProductionVariant' :: ProductionVariant -&gt; Text
 -&gt; (ProductionVariant -&gt; Natural -&gt; ProductionVariant)
 -&gt; Lens ProductionVariant ProductionVariant Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant%27"><span class="hs-identifier hs-type">ProductionVariant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680334229"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant%27"><span class="hs-identifier hs-type">ProductionVariant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680334238"><span class="annot"><span class="annottext">Natural
 initialInstanceCount :: Natural
 $sel:initialInstanceCount:ProductionVariant' :: ProductionVariant -&gt; Natural
-</span><a href="#local-6989586621680334229"><span class="hs-identifier hs-var hs-var">initialInstanceCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621680334229"><span class="hs-identifier hs-var">initialInstanceCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680334228"><span class="annot"><span class="annottext">s :: ProductionVariant
-</span><a href="#local-6989586621680334228"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant%27"><span class="hs-identifier hs-type">ProductionVariant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680334227"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621680334227"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProductionVariant
-</span><a href="#local-6989586621680334228"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:initialInstanceCount:ProductionVariant' :: Natural
+</span><a href="#local-6989586621680334238"><span class="hs-identifier hs-var hs-var">initialInstanceCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621680334238"><span class="hs-identifier hs-var">initialInstanceCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680334237"><span class="annot"><span class="annottext">s :: ProductionVariant
+</span><a href="#local-6989586621680334237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant%27"><span class="hs-identifier hs-type">ProductionVariant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680334236"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621680334236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProductionVariant
+</span><a href="#local-6989586621680334237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:initialInstanceCount:ProductionVariant' :: Natural
 </span><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#%24sel%3AinitialInstanceCount%3AProductionVariant%27"><span class="hs-identifier hs-var">initialInstanceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621680334227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant"><span class="hs-identifier hs-type">ProductionVariant</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680334236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant"><span class="hs-identifier hs-type">ProductionVariant</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- | The ML compute instance type.</span><span>
 </span><span id="line-152"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#productionVariant_instanceType"><span class="hs-identifier hs-type">productionVariant_instanceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant"><span class="hs-identifier hs-type">ProductionVariant</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariantInstanceType.html#ProductionVariantInstanceType"><span class="hs-identifier hs-type">ProductionVariantInstanceType</span></a></span><span>
@@ -355,19 +355,19 @@ $sel:initialInstanceCount:ProductionVariant' :: ProductionVariant -&gt; Natural
      ProductionVariantInstanceType
      ProductionVariantInstanceType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant%27"><span class="hs-identifier hs-type">ProductionVariant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680334225"><span class="annot"><span class="annottext">ProductionVariantInstanceType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant%27"><span class="hs-identifier hs-type">ProductionVariant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680334234"><span class="annot"><span class="annottext">ProductionVariantInstanceType
 instanceType :: ProductionVariantInstanceType
 $sel:instanceType:ProductionVariant' :: ProductionVariant -&gt; ProductionVariantInstanceType
-</span><a href="#local-6989586621680334225"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProductionVariantInstanceType
-</span><a href="#local-6989586621680334225"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680334224"><span class="annot"><span class="annottext">s :: ProductionVariant
-</span><a href="#local-6989586621680334224"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant%27"><span class="hs-identifier hs-type">ProductionVariant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680334223"><span class="annot"><span class="annottext">ProductionVariantInstanceType
-</span><a href="#local-6989586621680334223"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProductionVariant
-</span><a href="#local-6989586621680334224"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceType:ProductionVariant' :: ProductionVariantInstanceType
+</span><a href="#local-6989586621680334234"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProductionVariantInstanceType
+</span><a href="#local-6989586621680334234"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680334233"><span class="annot"><span class="annottext">s :: ProductionVariant
+</span><a href="#local-6989586621680334233"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant%27"><span class="hs-identifier hs-type">ProductionVariant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680334232"><span class="annot"><span class="annottext">ProductionVariantInstanceType
+</span><a href="#local-6989586621680334232"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProductionVariant
+</span><a href="#local-6989586621680334233"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceType:ProductionVariant' :: ProductionVariantInstanceType
 </span><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#%24sel%3AinstanceType%3AProductionVariant%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ProductionVariantInstanceType
-</span><a href="#local-6989586621680334223"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant"><span class="hs-identifier hs-type">ProductionVariant</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680334232"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant"><span class="hs-identifier hs-type">ProductionVariant</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680334220"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant"><span class="hs-identifier hs-type">ProductionVariant</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621680334218"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProductionVariant
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680334229"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant"><span class="hs-identifier hs-type">ProductionVariant</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621680334227"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProductionVariant
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ProductionVariant)
@@ -377,8 +377,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ProductionVariant&quot;</span></span><span>
-</span><span id="line-159"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680334215"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680334215"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680334224"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680334224"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-160"></span><span>          </span><span class="annot"><span class="annottext">Maybe ProductionVariantAcceleratorType
 -&gt; Maybe ProductionVariantCoreDumpConfig
 -&gt; Maybe Double
@@ -407,7 +407,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; ProductionVariant)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680334215"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ProductionVariantAcceleratorType)
+</span><a href="#local-6989586621680334224"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ProductionVariantAcceleratorType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AcceleratorType&quot;</span></span><span class="hs-special">)</span><span>
@@ -429,7 +429,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ProductionVariant)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680334215"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ProductionVariantCoreDumpConfig)
+</span><a href="#local-6989586621680334224"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ProductionVariantCoreDumpConfig)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CoreDumpConfig&quot;</span></span><span class="hs-special">)</span><span>
@@ -449,7 +449,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ProductionVariant)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680334215"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621680334224"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InitialVariantWeight&quot;</span></span><span class="hs-special">)</span><span>
@@ -465,7 +465,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Natural -&gt; ProductionVariantInstanceType -&gt; ProductionVariant)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680334215"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680334224"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VariantName&quot;</span></span><span class="hs-special">)</span><span>
@@ -477,7 +477,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
      (Natural -&gt; ProductionVariantInstanceType -&gt; ProductionVariant)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680334215"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680334224"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ModelName&quot;</span></span><span class="hs-special">)</span><span>
@@ -487,7 +487,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (ProductionVariantInstanceType -&gt; ProductionVariant)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680334215"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621680334224"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InitialInstanceCount&quot;</span></span><span class="hs-special">)</span><span>
@@ -495,19 +495,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser ProductionVariantInstanceType -&gt; Parser ProductionVariant
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680334215"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ProductionVariantInstanceType
+</span><a href="#local-6989586621680334224"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ProductionVariantInstanceType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InstanceType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
-</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680334208"><span id="local-6989586621680334210"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant"><span class="hs-identifier hs-type">ProductionVariant</span></a></span></span></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680334217"><span id="local-6989586621680334219"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant"><span class="hs-identifier hs-type">ProductionVariant</span></a></span></span></span><span>
 </span><span id="line-171"></span><span>
-</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680334205"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant"><span class="hs-identifier hs-type">ProductionVariant</span></a></span></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680334214"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant"><span class="hs-identifier hs-type">ProductionVariant</span></a></span></span><span>
 </span><span id="line-173"></span><span>
-</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680334197"><span id="local-6989586621680334199"><span id="local-6989586621680334201"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant"><span class="hs-identifier hs-type">ProductionVariant</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621680334195"><span class="annot"><span class="annottext">toJSON :: ProductionVariant -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant%27"><span class="hs-identifier hs-type">ProductionVariant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680334187"><span id="local-6989586621680334188"><span id="local-6989586621680334189"><span id="local-6989586621680334190"><span id="local-6989586621680334191"><span id="local-6989586621680334192"><span id="local-6989586621680334193"><span class="annot"><span class="annottext">Natural
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680334206"><span id="local-6989586621680334208"><span id="local-6989586621680334210"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant"><span class="hs-identifier hs-type">ProductionVariant</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621680334204"><span class="annot"><span class="annottext">toJSON :: ProductionVariant -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProductionVariant.html#ProductionVariant%27"><span class="hs-identifier hs-type">ProductionVariant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680334196"><span id="local-6989586621680334197"><span id="local-6989586621680334198"><span id="local-6989586621680334199"><span id="local-6989586621680334200"><span id="local-6989586621680334201"><span id="local-6989586621680334202"><span class="annot"><span class="annottext">Natural
 Maybe Double
 Maybe ProductionVariantAcceleratorType
 Maybe ProductionVariantCoreDumpConfig
@@ -527,7 +527,7 @@ $sel:variantName:ProductionVariant' :: ProductionVariant -&gt; Text
 $sel:initialVariantWeight:ProductionVariant' :: ProductionVariant -&gt; Maybe Double
 $sel:coreDumpConfig:ProductionVariant' :: ProductionVariant -&gt; Maybe ProductionVariantCoreDumpConfig
 $sel:acceleratorType:ProductionVariant' :: ProductionVariant -&gt; Maybe ProductionVariantAcceleratorType
-</span><a href="#local-6989586621680334187"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680334196"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-176"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-177"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -541,7 +541,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ProductionVariantAcceleratorType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ProductionVariantAcceleratorType
-</span><a href="#local-6989586621680334193"><span class="hs-identifier hs-var">acceleratorType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680334202"><span class="hs-identifier hs-var">acceleratorType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-180"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CoreDumpConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ProductionVariantCoreDumpConfig -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -550,7 +550,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ProductionVariantCoreDumpConfig -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ProductionVariantCoreDumpConfig
-</span><a href="#local-6989586621680334192"><span class="hs-identifier hs-var">coreDumpConfig</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680334201"><span class="hs-identifier hs-var">coreDumpConfig</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-182"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InitialVariantWeight&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -558,21 +558,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-183"></span><span>              </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621680334191"><span class="hs-identifier hs-var">initialVariantWeight</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680334200"><span class="hs-identifier hs-var">initialVariantWeight</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VariantName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680334190"><span class="hs-identifier hs-var">variantName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680334199"><span class="hs-identifier hs-var">variantName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ModelName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680334189"><span class="hs-identifier hs-var">modelName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680334198"><span class="hs-identifier hs-var">modelName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -581,7 +581,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-188"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621680334188"><span class="hs-identifier hs-var">initialInstanceCount</span></a></span><span>
+</span><a href="#local-6989586621680334197"><span class="hs-identifier hs-var">initialInstanceCount</span></a></span><span>
 </span><span id="line-189"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -589,7 +589,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;InstanceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ProductionVariantInstanceType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ProductionVariantInstanceType
-</span><a href="#local-6989586621680334187"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680334196"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-191"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-192"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span></pre></body></html>

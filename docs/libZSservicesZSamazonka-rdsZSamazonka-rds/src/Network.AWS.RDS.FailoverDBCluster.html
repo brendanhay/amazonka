@@ -67,7 +67,7 @@
 </span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-68"></span><span class="hs-comment">--</span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- /See:/ 'newFailoverDBCluster' smart constructor.</span><span>
-</span><span id="line-70"></span><span id="local-6989586621679785418"><span id="local-6989586621679785419"></span></span><span class="hs-keyword">data</span><span> </span><span id="FailoverDBCluster"><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBCluster"><span class="hs-identifier hs-var">FailoverDBCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FailoverDBCluster%27"><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBCluster%27"><span class="hs-identifier hs-var">FailoverDBCluster'</span></a></span></span><span>
+</span><span id="line-70"></span><span id="local-6989586621679785427"><span id="local-6989586621679785428"></span></span><span class="hs-keyword">data</span><span> </span><span id="FailoverDBCluster"><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBCluster"><span class="hs-identifier hs-var">FailoverDBCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FailoverDBCluster%27"><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBCluster%27"><span class="hs-identifier hs-var">FailoverDBCluster'</span></a></span></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the instance to promote to the primary instance.</span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-comment">-- You must specify the instance identifier for an Aurora Replica in the DB</span><span>
@@ -83,7 +83,7 @@
 </span><span id="line-82"></span><span>    </span><span id="%24sel%3AdbClusterIdentifier%3AFailoverDBCluster%27"><span class="annot"><span class="annottext">FailoverDBCluster -&gt; Text
 </span><a href="Network.AWS.RDS.FailoverDBCluster.html#%24sel%3AdbClusterIdentifier%3AFailoverDBCluster%27"><span class="hs-identifier hs-var hs-var">dbClusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-83"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679785411"><span id="local-6989586621679785413"><span class="annot"><span class="annottext">FailoverDBCluster -&gt; FailoverDBCluster -&gt; Bool
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679785420"><span id="local-6989586621679785422"><span class="annot"><span class="annottext">FailoverDBCluster -&gt; FailoverDBCluster -&gt; Bool
 (FailoverDBCluster -&gt; FailoverDBCluster -&gt; Bool)
 -&gt; (FailoverDBCluster -&gt; FailoverDBCluster -&gt; Bool)
 -&gt; Eq FailoverDBCluster
@@ -92,7 +92,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: FailoverDBCluster -&gt; FailoverDBCluster -&gt; Bool
 == :: FailoverDBCluster -&gt; FailoverDBCluster -&gt; Bool
 $c== :: FailoverDBCluster -&gt; FailoverDBCluster -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679785402"><span id="local-6989586621679785404"><span id="local-6989586621679785406"><span id="local-6989586621679785408"><span class="annot"><span class="annottext">ReadPrec [FailoverDBCluster]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679785411"><span id="local-6989586621679785413"><span id="local-6989586621679785415"><span id="local-6989586621679785417"><span class="annot"><span class="annottext">ReadPrec [FailoverDBCluster]
 ReadPrec FailoverDBCluster
 Int -&gt; ReadS FailoverDBCluster
 ReadS [FailoverDBCluster]
@@ -112,7 +112,7 @@ readList :: ReadS [FailoverDBCluster]
 $creadList :: ReadS [FailoverDBCluster]
 readsPrec :: Int -&gt; ReadS FailoverDBCluster
 $creadsPrec :: Int -&gt; ReadS FailoverDBCluster
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679785395"><span id="local-6989586621679785397"><span id="local-6989586621679785399"><span class="annot"><span class="annottext">Int -&gt; FailoverDBCluster -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679785404"><span id="local-6989586621679785406"><span id="local-6989586621679785408"><span class="annot"><span class="annottext">Int -&gt; FailoverDBCluster -&gt; ShowS
 [FailoverDBCluster] -&gt; ShowS
 FailoverDBCluster -&gt; String
 (Int -&gt; FailoverDBCluster -&gt; ShowS)
@@ -162,8 +162,8 @@ $cfrom :: forall x. FailoverDBCluster -&gt; Rep FailoverDBCluster x
 </span><span id="line-107"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-108"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBCluster"><span class="hs-identifier hs-type">FailoverDBCluster</span></a></span><span>
 </span><span id="line-109"></span><span id="newFailoverDBCluster"><span class="annot"><span class="annottext">newFailoverDBCluster :: Text -&gt; FailoverDBCluster
-</span><a href="Network.AWS.RDS.FailoverDBCluster.html#newFailoverDBCluster"><span class="hs-identifier hs-var hs-var">newFailoverDBCluster</span></a></span></span><span> </span><span id="local-6989586621679785390"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679785390"><span class="hs-identifier hs-var">pDBClusterIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.RDS.FailoverDBCluster.html#newFailoverDBCluster"><span class="hs-identifier hs-var hs-var">newFailoverDBCluster</span></a></span></span><span> </span><span id="local-6989586621679785399"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679785399"><span class="hs-identifier hs-var">pDBClusterIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>  </span><span class="annot"><span class="annottext">FailoverDBCluster' :: Maybe Text -&gt; Text -&gt; FailoverDBCluster
 </span><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBCluster%27"><span class="hs-identifier hs-type">FailoverDBCluster'</span></a></span><span>
 </span><span id="line-111"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:targetDBInstanceIdentifier:FailoverDBCluster' :: Maybe Text
@@ -173,7 +173,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:dbClusterIdentifier:FailoverDBCluster' :: Text
 </span><a href="Network.AWS.RDS.FailoverDBCluster.html#%24sel%3AdbClusterIdentifier%3AFailoverDBCluster%27"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679785390"><span class="hs-identifier hs-var">pDBClusterIdentifier_</span></a></span><span>
+</span><a href="#local-6989586621679785399"><span class="hs-identifier hs-var">pDBClusterIdentifier_</span></a></span><span>
 </span><span id="line-114"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | The name of the instance to promote to the primary instance.</span><span>
@@ -188,16 +188,16 @@ forall a. Maybe a
 -&gt; Lens
      FailoverDBCluster FailoverDBCluster (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBCluster%27"><span class="hs-identifier hs-type">FailoverDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679785387"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBCluster%27"><span class="hs-identifier hs-type">FailoverDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679785396"><span class="annot"><span class="annottext">Maybe Text
 targetDBInstanceIdentifier :: Maybe Text
 $sel:targetDBInstanceIdentifier:FailoverDBCluster' :: FailoverDBCluster -&gt; Maybe Text
-</span><a href="#local-6989586621679785387"><span class="hs-identifier hs-var hs-var">targetDBInstanceIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679785387"><span class="hs-identifier hs-var">targetDBInstanceIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679785386"><span class="annot"><span class="annottext">s :: FailoverDBCluster
-</span><a href="#local-6989586621679785386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBCluster%27"><span class="hs-identifier hs-type">FailoverDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679785385"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679785385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailoverDBCluster
-</span><a href="#local-6989586621679785386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetDBInstanceIdentifier:FailoverDBCluster' :: Maybe Text
+</span><a href="#local-6989586621679785396"><span class="hs-identifier hs-var hs-var">targetDBInstanceIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679785396"><span class="hs-identifier hs-var">targetDBInstanceIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679785395"><span class="annot"><span class="annottext">s :: FailoverDBCluster
+</span><a href="#local-6989586621679785395"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBCluster%27"><span class="hs-identifier hs-type">FailoverDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679785394"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679785394"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailoverDBCluster
+</span><a href="#local-6989586621679785395"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetDBInstanceIdentifier:FailoverDBCluster' :: Maybe Text
 </span><a href="Network.AWS.RDS.FailoverDBCluster.html#%24sel%3AtargetDBInstanceIdentifier%3AFailoverDBCluster%27"><span class="hs-identifier hs-var">targetDBInstanceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679785385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBCluster"><span class="hs-identifier hs-type">FailoverDBCluster</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679785394"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBCluster"><span class="hs-identifier hs-type">FailoverDBCluster</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | A DB cluster identifier to force a failover for. This parameter isn\'t</span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- case-sensitive.</span><span>
@@ -211,27 +211,27 @@ $sel:targetDBInstanceIdentifier:FailoverDBCluster' :: FailoverDBCluster -&gt; Ma
 -&gt; (FailoverDBCluster -&gt; Text -&gt; FailoverDBCluster)
 -&gt; Lens FailoverDBCluster FailoverDBCluster Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBCluster%27"><span class="hs-identifier hs-type">FailoverDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679785384"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBCluster%27"><span class="hs-identifier hs-type">FailoverDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679785393"><span class="annot"><span class="annottext">Text
 dbClusterIdentifier :: Text
 $sel:dbClusterIdentifier:FailoverDBCluster' :: FailoverDBCluster -&gt; Text
-</span><a href="#local-6989586621679785384"><span class="hs-identifier hs-var hs-var">dbClusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679785384"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679785383"><span class="annot"><span class="annottext">s :: FailoverDBCluster
-</span><a href="#local-6989586621679785383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBCluster%27"><span class="hs-identifier hs-type">FailoverDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679785382"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679785382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailoverDBCluster
-</span><a href="#local-6989586621679785383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbClusterIdentifier:FailoverDBCluster' :: Text
+</span><a href="#local-6989586621679785393"><span class="hs-identifier hs-var hs-var">dbClusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679785393"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679785392"><span class="annot"><span class="annottext">s :: FailoverDBCluster
+</span><a href="#local-6989586621679785392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBCluster%27"><span class="hs-identifier hs-type">FailoverDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679785391"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679785391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailoverDBCluster
+</span><a href="#local-6989586621679785392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbClusterIdentifier:FailoverDBCluster' :: Text
 </span><a href="Network.AWS.RDS.FailoverDBCluster.html#%24sel%3AdbClusterIdentifier%3AFailoverDBCluster%27"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679785382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBCluster"><span class="hs-identifier hs-type">FailoverDBCluster</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679785391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBCluster"><span class="hs-identifier hs-type">FailoverDBCluster</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBCluster"><span class="hs-identifier hs-type">FailoverDBCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-133"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-134"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBCluster"><span class="hs-identifier hs-type">FailoverDBCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>      </span><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBClusterResponse"><span class="hs-identifier hs-type">FailoverDBClusterResponse</span></a></span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679785378"><span class="annot"><span class="annottext">request :: FailoverDBCluster -&gt; Request FailoverDBCluster
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679785387"><span class="annot"><span class="annottext">request :: FailoverDBCluster -&gt; Request FailoverDBCluster
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; FailoverDBCluster -&gt; Request FailoverDBCluster
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679785374"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679785383"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy FailoverDBCluster
 -&gt; ClientResponse ClientBody
@@ -262,10 +262,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FailoverDBClusterResult&quot;</span></span><span>
-</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679785371"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679785371"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679785370"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679785370"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679785369"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679785369"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679785380"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679785380"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679785379"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679785379"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679785378"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679785378"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">Maybe DBCluster -&gt; Int -&gt; FailoverDBClusterResponse
 </span><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBClusterResponse%27"><span class="hs-identifier hs-var">FailoverDBClusterResponse'</span></a></span><span>
 </span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DBCluster -&gt; Int -&gt; FailoverDBClusterResponse)
@@ -273,7 +273,7 @@ Text
 -&gt; Either String (Int -&gt; FailoverDBClusterResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679785369"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DBCluster)
+</span><a href="#local-6989586621679785378"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DBCluster)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DBCluster&quot;</span></span><span class="hs-special">)</span><span>
@@ -285,15 +285,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679785371"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679785380"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679785361"><span id="local-6989586621679785363"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBCluster"><span class="hs-identifier hs-type">FailoverDBCluster</span></a></span></span></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679785370"><span id="local-6989586621679785372"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBCluster"><span class="hs-identifier hs-type">FailoverDBCluster</span></a></span></span></span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679785358"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBCluster"><span class="hs-identifier hs-type">FailoverDBCluster</span></a></span></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679785367"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBCluster"><span class="hs-identifier hs-type">FailoverDBCluster</span></a></span></span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBCluster"><span class="hs-identifier hs-type">FailoverDBCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679785354"><span class="annot"><span class="annottext">toHeaders :: FailoverDBCluster -&gt; ResponseHeaders
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679785363"><span class="annot"><span class="annottext">toHeaders :: FailoverDBCluster -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; FailoverDBCluster -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -301,21 +301,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBCluster"><span class="hs-identifier hs-type">FailoverDBCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679785349"><span class="annot"><span class="annottext">toPath :: FailoverDBCluster -&gt; ByteString
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679785358"><span class="annot"><span class="annottext">toPath :: FailoverDBCluster -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; FailoverDBCluster -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBCluster"><span class="hs-identifier hs-type">FailoverDBCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679785345"><span class="annot"><span class="annottext">toQuery :: FailoverDBCluster -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBCluster%27"><span class="hs-identifier hs-type">FailoverDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679785342"><span id="local-6989586621679785343"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679785354"><span class="annot"><span class="annottext">toQuery :: FailoverDBCluster -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBCluster%27"><span class="hs-identifier hs-type">FailoverDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679785351"><span id="local-6989586621679785352"><span class="annot"><span class="annottext">Maybe Text
 Text
 dbClusterIdentifier :: Text
 targetDBInstanceIdentifier :: Maybe Text
 $sel:dbClusterIdentifier:FailoverDBCluster' :: FailoverDBCluster -&gt; Text
 $sel:targetDBInstanceIdentifier:FailoverDBCluster' :: FailoverDBCluster -&gt; Maybe Text
-</span><a href="#local-6989586621679785342"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679785351"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -336,23 +336,23 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-164"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679785343"><span class="hs-identifier hs-var">targetDBInstanceIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679785352"><span class="hs-identifier hs-var">targetDBInstanceIdentifier</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DBClusterIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679785342"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span>
+</span><a href="#local-6989586621679785351"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span>
 </span><span id="line-166"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | /See:/ 'newFailoverDBClusterResponse' smart constructor.</span><span>
-</span><span id="line-169"></span><span id="local-6989586621679785339"><span id="local-6989586621679785340"></span></span><span class="hs-keyword">data</span><span> </span><span id="FailoverDBClusterResponse"><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBClusterResponse"><span class="hs-identifier hs-var">FailoverDBClusterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FailoverDBClusterResponse%27"><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBClusterResponse%27"><span class="hs-identifier hs-var">FailoverDBClusterResponse'</span></a></span></span><span>
+</span><span id="line-169"></span><span id="local-6989586621679785348"><span id="local-6989586621679785349"></span></span><span class="hs-keyword">data</span><span> </span><span id="FailoverDBClusterResponse"><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBClusterResponse"><span class="hs-identifier hs-var">FailoverDBClusterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FailoverDBClusterResponse%27"><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBClusterResponse%27"><span class="hs-identifier hs-var">FailoverDBClusterResponse'</span></a></span></span><span>
 </span><span id="line-170"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AdbCluster%3AFailoverDBClusterResponse%27"><span class="annot"><span class="annottext">FailoverDBClusterResponse -&gt; Maybe DBCluster
 </span><a href="Network.AWS.RDS.FailoverDBCluster.html#%24sel%3AdbCluster%3AFailoverDBClusterResponse%27"><span class="hs-identifier hs-var hs-var">dbCluster</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBCluster.html#DBCluster"><span class="hs-identifier hs-type">DBCluster</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-171"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-172"></span><span>    </span><span id="%24sel%3AhttpStatus%3AFailoverDBClusterResponse%27"><span class="annot"><span class="annottext">FailoverDBClusterResponse -&gt; Int
 </span><a href="Network.AWS.RDS.FailoverDBCluster.html#%24sel%3AhttpStatus%3AFailoverDBClusterResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-173"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-174"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679785333"><span id="local-6989586621679785335"><span class="annot"><span class="annottext">FailoverDBClusterResponse -&gt; FailoverDBClusterResponse -&gt; Bool
+</span><span id="line-174"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679785342"><span id="local-6989586621679785344"><span class="annot"><span class="annottext">FailoverDBClusterResponse -&gt; FailoverDBClusterResponse -&gt; Bool
 (FailoverDBClusterResponse -&gt; FailoverDBClusterResponse -&gt; Bool)
 -&gt; (FailoverDBClusterResponse -&gt; FailoverDBClusterResponse -&gt; Bool)
 -&gt; Eq FailoverDBClusterResponse
@@ -361,7 +361,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: FailoverDBClusterResponse -&gt; FailoverDBClusterResponse -&gt; Bool
 == :: FailoverDBClusterResponse -&gt; FailoverDBClusterResponse -&gt; Bool
 $c== :: FailoverDBClusterResponse -&gt; FailoverDBClusterResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679785325"><span id="local-6989586621679785327"><span id="local-6989586621679785329"><span id="local-6989586621679785331"><span class="annot"><span class="annottext">ReadPrec [FailoverDBClusterResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679785334"><span id="local-6989586621679785336"><span id="local-6989586621679785338"><span id="local-6989586621679785340"><span class="annot"><span class="annottext">ReadPrec [FailoverDBClusterResponse]
 ReadPrec FailoverDBClusterResponse
 Int -&gt; ReadS FailoverDBClusterResponse
 ReadS [FailoverDBClusterResponse]
@@ -381,7 +381,7 @@ readList :: ReadS [FailoverDBClusterResponse]
 $creadList :: ReadS [FailoverDBClusterResponse]
 readsPrec :: Int -&gt; ReadS FailoverDBClusterResponse
 $creadsPrec :: Int -&gt; ReadS FailoverDBClusterResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679785319"><span id="local-6989586621679785321"><span id="local-6989586621679785323"><span class="annot"><span class="annottext">Int -&gt; FailoverDBClusterResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679785328"><span id="local-6989586621679785330"><span id="local-6989586621679785332"><span class="annot"><span class="annottext">Int -&gt; FailoverDBClusterResponse -&gt; ShowS
 [FailoverDBClusterResponse] -&gt; ShowS
 FailoverDBClusterResponse -&gt; String
 (Int -&gt; FailoverDBClusterResponse -&gt; ShowS)
@@ -429,8 +429,8 @@ FailoverDBClusterResponse -&gt; Rep FailoverDBClusterResponse x
 </span><span id="line-189"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-190"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBClusterResponse"><span class="hs-identifier hs-type">FailoverDBClusterResponse</span></a></span><span>
 </span><span id="line-191"></span><span id="newFailoverDBClusterResponse"><span class="annot"><span class="annottext">newFailoverDBClusterResponse :: Int -&gt; FailoverDBClusterResponse
-</span><a href="Network.AWS.RDS.FailoverDBCluster.html#newFailoverDBClusterResponse"><span class="hs-identifier hs-var hs-var">newFailoverDBClusterResponse</span></a></span></span><span> </span><span id="local-6989586621679785316"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679785316"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.RDS.FailoverDBCluster.html#newFailoverDBClusterResponse"><span class="hs-identifier hs-var hs-var">newFailoverDBClusterResponse</span></a></span></span><span> </span><span id="local-6989586621679785325"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679785325"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-192"></span><span>  </span><span class="annot"><span class="annottext">FailoverDBClusterResponse' :: Maybe DBCluster -&gt; Int -&gt; FailoverDBClusterResponse
 </span><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBClusterResponse%27"><span class="hs-identifier hs-type">FailoverDBClusterResponse'</span></a></span><span>
 </span><span id="line-193"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dbCluster:FailoverDBClusterResponse' :: Maybe DBCluster
@@ -440,7 +440,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:FailoverDBClusterResponse' :: Int
 </span><a href="Network.AWS.RDS.FailoverDBCluster.html#%24sel%3AhttpStatus%3AFailoverDBClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679785316"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679785325"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-196"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -456,16 +456,16 @@ forall a. Maybe a
      (Maybe DBCluster)
      (Maybe DBCluster)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBClusterResponse%27"><span class="hs-identifier hs-type">FailoverDBClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679785315"><span class="annot"><span class="annottext">Maybe DBCluster
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBClusterResponse%27"><span class="hs-identifier hs-type">FailoverDBClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679785324"><span class="annot"><span class="annottext">Maybe DBCluster
 dbCluster :: Maybe DBCluster
 $sel:dbCluster:FailoverDBClusterResponse' :: FailoverDBClusterResponse -&gt; Maybe DBCluster
-</span><a href="#local-6989586621679785315"><span class="hs-identifier hs-var hs-var">dbCluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DBCluster
-</span><a href="#local-6989586621679785315"><span class="hs-identifier hs-var">dbCluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679785314"><span class="annot"><span class="annottext">s :: FailoverDBClusterResponse
-</span><a href="#local-6989586621679785314"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBClusterResponse%27"><span class="hs-identifier hs-type">FailoverDBClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679785313"><span class="annot"><span class="annottext">Maybe DBCluster
-</span><a href="#local-6989586621679785313"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailoverDBClusterResponse
-</span><a href="#local-6989586621679785314"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbCluster:FailoverDBClusterResponse' :: Maybe DBCluster
+</span><a href="#local-6989586621679785324"><span class="hs-identifier hs-var hs-var">dbCluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DBCluster
+</span><a href="#local-6989586621679785324"><span class="hs-identifier hs-var">dbCluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679785323"><span class="annot"><span class="annottext">s :: FailoverDBClusterResponse
+</span><a href="#local-6989586621679785323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBClusterResponse%27"><span class="hs-identifier hs-type">FailoverDBClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679785322"><span class="annot"><span class="annottext">Maybe DBCluster
+</span><a href="#local-6989586621679785322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailoverDBClusterResponse
+</span><a href="#local-6989586621679785323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbCluster:FailoverDBClusterResponse' :: Maybe DBCluster
 </span><a href="Network.AWS.RDS.FailoverDBCluster.html#%24sel%3AdbCluster%3AFailoverDBClusterResponse%27"><span class="hs-identifier hs-var">dbCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DBCluster
-</span><a href="#local-6989586621679785313"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBClusterResponse"><span class="hs-identifier hs-type">FailoverDBClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679785322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBClusterResponse"><span class="hs-identifier hs-type">FailoverDBClusterResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-203"></span><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#failoverDBClusterResponse_httpStatus"><span class="hs-identifier hs-type">failoverDBClusterResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBClusterResponse"><span class="hs-identifier hs-type">FailoverDBClusterResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -475,16 +475,16 @@ $sel:dbCluster:FailoverDBClusterResponse' :: FailoverDBClusterResponse -&gt; May
 -&gt; (FailoverDBClusterResponse -&gt; Int -&gt; FailoverDBClusterResponse)
 -&gt; Lens FailoverDBClusterResponse FailoverDBClusterResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBClusterResponse%27"><span class="hs-identifier hs-type">FailoverDBClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679785312"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBClusterResponse%27"><span class="hs-identifier hs-type">FailoverDBClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679785321"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:FailoverDBClusterResponse' :: FailoverDBClusterResponse -&gt; Int
-</span><a href="#local-6989586621679785312"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679785312"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679785311"><span class="annot"><span class="annottext">s :: FailoverDBClusterResponse
-</span><a href="#local-6989586621679785311"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBClusterResponse%27"><span class="hs-identifier hs-type">FailoverDBClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679785310"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679785310"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailoverDBClusterResponse
-</span><a href="#local-6989586621679785311"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:FailoverDBClusterResponse' :: Int
+</span><a href="#local-6989586621679785321"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679785321"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679785320"><span class="annot"><span class="annottext">s :: FailoverDBClusterResponse
+</span><a href="#local-6989586621679785320"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBClusterResponse%27"><span class="hs-identifier hs-type">FailoverDBClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679785319"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679785319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailoverDBClusterResponse
+</span><a href="#local-6989586621679785320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:FailoverDBClusterResponse' :: Int
 </span><a href="Network.AWS.RDS.FailoverDBCluster.html#%24sel%3AhttpStatus%3AFailoverDBClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679785310"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBClusterResponse"><span class="hs-identifier hs-type">FailoverDBClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679785319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBClusterResponse"><span class="hs-identifier hs-type">FailoverDBClusterResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-205"></span><span>
-</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679785308"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBClusterResponse"><span class="hs-identifier hs-type">FailoverDBClusterResponse</span></a></span></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679785317"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.FailoverDBCluster.html#FailoverDBClusterResponse"><span class="hs-identifier hs-type">FailoverDBClusterResponse</span></a></span></span><span>
 </span><span id="line-207"></span></pre></body></html>

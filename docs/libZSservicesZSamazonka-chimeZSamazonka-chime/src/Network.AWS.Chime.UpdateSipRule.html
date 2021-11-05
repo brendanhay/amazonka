@@ -1,0 +1,561 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Chime.UpdateSipRule</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates the details of the specified SIP rule.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Chime.UpdateSipRule</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#UpdateSipRule"><span class="hs-identifier">UpdateSipRule</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#newUpdateSipRule"><span class="hs-identifier">newUpdateSipRule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#updateSipRule_disabled"><span class="hs-identifier">updateSipRule_disabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#updateSipRule_targetApplications"><span class="hs-identifier">updateSipRule_targetApplications</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#updateSipRule_sipRuleId"><span class="hs-identifier">updateSipRule_sipRuleId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#updateSipRule_name"><span class="hs-identifier">updateSipRule_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#UpdateSipRuleResponse"><span class="hs-identifier">UpdateSipRuleResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#newUpdateSipRuleResponse"><span class="hs-identifier">newUpdateSipRuleResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#updateSipRuleResponse_sipRule"><span class="hs-identifier">updateSipRuleResponse_sipRule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#updateSipRuleResponse_httpStatus"><span class="hs-identifier">updateSipRuleResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.html"><span class="hs-identifier">Network.AWS.Chime.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newUpdateSipRule' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679563476"><span id="local-6989586621679563477"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateSipRule"><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#UpdateSipRule"><span class="hs-identifier hs-var">UpdateSipRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateSipRule%27"><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#UpdateSipRule%27"><span class="hs-identifier hs-var">UpdateSipRule'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The new value specified to indicate whether the rule is disabled.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3Adisabled%3AUpdateSipRule%27"><span class="annot"><span class="annottext">UpdateSipRule -&gt; Maybe Bool
+</span><a href="Network.AWS.Chime.UpdateSipRule.html#%24sel%3Adisabled%3AUpdateSipRule%27"><span class="hs-identifier hs-var hs-var">disabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The new value of the list of target applications.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AtargetApplications%3AUpdateSipRule%27"><span class="annot"><span class="annottext">UpdateSipRule -&gt; Maybe (NonEmpty SipRuleTargetApplication)
+</span><a href="Network.AWS.Chime.UpdateSipRule.html#%24sel%3AtargetApplications%3AUpdateSipRule%27"><span class="hs-identifier hs-var hs-var">targetApplications</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.SipRuleTargetApplication.html#SipRuleTargetApplication"><span class="hs-identifier hs-type">SipRuleTargetApplication</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The SIP rule ID.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AsipRuleId%3AUpdateSipRule%27"><span class="annot"><span class="annottext">UpdateSipRule -&gt; Text
+</span><a href="Network.AWS.Chime.UpdateSipRule.html#%24sel%3AsipRuleId%3AUpdateSipRule%27"><span class="hs-identifier hs-var hs-var">sipRuleId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The new name for the specified SIP rule.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Aname%3AUpdateSipRule%27"><span class="annot"><span class="annottext">UpdateSipRule -&gt; Text
+</span><a href="Network.AWS.Chime.UpdateSipRule.html#%24sel%3Aname%3AUpdateSipRule%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679563467"><span id="local-6989586621679563469"><span class="annot"><span class="annottext">UpdateSipRule -&gt; UpdateSipRule -&gt; Bool
+(UpdateSipRule -&gt; UpdateSipRule -&gt; Bool)
+-&gt; (UpdateSipRule -&gt; UpdateSipRule -&gt; Bool) -&gt; Eq UpdateSipRule
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateSipRule -&gt; UpdateSipRule -&gt; Bool
+$c/= :: UpdateSipRule -&gt; UpdateSipRule -&gt; Bool
+== :: UpdateSipRule -&gt; UpdateSipRule -&gt; Bool
+$c== :: UpdateSipRule -&gt; UpdateSipRule -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679563458"><span id="local-6989586621679563460"><span id="local-6989586621679563462"><span id="local-6989586621679563464"><span class="annot"><span class="annottext">ReadPrec [UpdateSipRule]
+ReadPrec UpdateSipRule
+Int -&gt; ReadS UpdateSipRule
+ReadS [UpdateSipRule]
+(Int -&gt; ReadS UpdateSipRule)
+-&gt; ReadS [UpdateSipRule]
+-&gt; ReadPrec UpdateSipRule
+-&gt; ReadPrec [UpdateSipRule]
+-&gt; Read UpdateSipRule
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateSipRule]
+$creadListPrec :: ReadPrec [UpdateSipRule]
+readPrec :: ReadPrec UpdateSipRule
+$creadPrec :: ReadPrec UpdateSipRule
+readList :: ReadS [UpdateSipRule]
+$creadList :: ReadS [UpdateSipRule]
+readsPrec :: Int -&gt; ReadS UpdateSipRule
+$creadsPrec :: Int -&gt; ReadS UpdateSipRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679563451"><span id="local-6989586621679563453"><span id="local-6989586621679563455"><span class="annot"><span class="annottext">Int -&gt; UpdateSipRule -&gt; ShowS
+[UpdateSipRule] -&gt; ShowS
+UpdateSipRule -&gt; String
+(Int -&gt; UpdateSipRule -&gt; ShowS)
+-&gt; (UpdateSipRule -&gt; String)
+-&gt; ([UpdateSipRule] -&gt; ShowS)
+-&gt; Show UpdateSipRule
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateSipRule] -&gt; ShowS
+$cshowList :: [UpdateSipRule] -&gt; ShowS
+show :: UpdateSipRule -&gt; String
+$cshow :: UpdateSipRule -&gt; String
+showsPrec :: Int -&gt; UpdateSipRule -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateSipRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateSipRule -&gt; Rep UpdateSipRule x)
+-&gt; (forall x. Rep UpdateSipRule x -&gt; UpdateSipRule)
+-&gt; Generic UpdateSipRule
+forall x. Rep UpdateSipRule x -&gt; UpdateSipRule
+forall x. UpdateSipRule -&gt; Rep UpdateSipRule x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateSipRule x -&gt; UpdateSipRule
+$cfrom :: forall x. UpdateSipRule -&gt; Rep UpdateSipRule x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Create a value of 'UpdateSipRule' with all optional fields omitted.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'disabled', 'updateSipRule_disabled' - The new value specified to indicate whether the rule is disabled.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'targetApplications', 'updateSipRule_targetApplications' - The new value of the list of target applications.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'sipRuleId', 'updateSipRule_sipRuleId' - The SIP rule ID.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'name', 'updateSipRule_name' - The new name for the specified SIP rule.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#newUpdateSipRule"><span class="hs-identifier hs-type">newUpdateSipRule</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'sipRuleId'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#UpdateSipRule"><span class="hs-identifier hs-type">UpdateSipRule</span></a></span><span>
+</span><span id="line-86"></span><span id="newUpdateSipRule"><span class="annot"><span class="annottext">newUpdateSipRule :: Text -&gt; Text -&gt; UpdateSipRule
+</span><a href="Network.AWS.Chime.UpdateSipRule.html#newUpdateSipRule"><span class="hs-identifier hs-var hs-var">newUpdateSipRule</span></a></span></span><span> </span><span id="local-6989586621679563446"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679563446"><span class="hs-identifier hs-var">pSipRuleId_</span></a></span></span><span> </span><span id="local-6989586621679563445"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679563445"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">UpdateSipRule' :: Maybe Bool
+-&gt; Maybe (NonEmpty SipRuleTargetApplication)
+-&gt; Text
+-&gt; Text
+-&gt; UpdateSipRule
+</span><a href="Network.AWS.Chime.UpdateSipRule.html#UpdateSipRule%27"><span class="hs-identifier hs-type">UpdateSipRule'</span></a></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:disabled:UpdateSipRule' :: Maybe Bool
+</span><a href="Network.AWS.Chime.UpdateSipRule.html#%24sel%3Adisabled%3AUpdateSipRule%27"><span class="hs-identifier hs-var">disabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetApplications:UpdateSipRule' :: Maybe (NonEmpty SipRuleTargetApplication)
+</span><a href="Network.AWS.Chime.UpdateSipRule.html#%24sel%3AtargetApplications%3AUpdateSipRule%27"><span class="hs-identifier hs-var">targetApplications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty SipRuleTargetApplication)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:sipRuleId:UpdateSipRule' :: Text
+</span><a href="Network.AWS.Chime.UpdateSipRule.html#%24sel%3AsipRuleId%3AUpdateSipRule%27"><span class="hs-identifier hs-var">sipRuleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679563446"><span class="hs-identifier hs-var">pSipRuleId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:UpdateSipRule' :: Text
+</span><a href="Network.AWS.Chime.UpdateSipRule.html#%24sel%3Aname%3AUpdateSipRule%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679563445"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The new value specified to indicate whether the rule is disabled.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#updateSipRule_disabled"><span class="hs-identifier hs-type">updateSipRule_disabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#UpdateSipRule"><span class="hs-identifier hs-type">UpdateSipRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="updateSipRule_disabled"><span class="annot"><span class="annottext">updateSipRule_disabled :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; UpdateSipRule -&gt; f UpdateSipRule
+</span><a href="Network.AWS.Chime.UpdateSipRule.html#updateSipRule_disabled"><span class="hs-identifier hs-var hs-var">updateSipRule_disabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSipRule -&gt; Maybe Bool)
+-&gt; (UpdateSipRule -&gt; Maybe Bool -&gt; UpdateSipRule)
+-&gt; Lens UpdateSipRule UpdateSipRule (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#UpdateSipRule%27"><span class="hs-identifier hs-type">UpdateSipRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679563442"><span class="annot"><span class="annottext">Maybe Bool
+disabled :: Maybe Bool
+$sel:disabled:UpdateSipRule' :: UpdateSipRule -&gt; Maybe Bool
+</span><a href="#local-6989586621679563442"><span class="hs-identifier hs-var hs-var">disabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679563442"><span class="hs-identifier hs-var">disabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679563441"><span class="annot"><span class="annottext">s :: UpdateSipRule
+</span><a href="#local-6989586621679563441"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#UpdateSipRule%27"><span class="hs-identifier hs-type">UpdateSipRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679563440"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679563440"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSipRule
+</span><a href="#local-6989586621679563441"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:disabled:UpdateSipRule' :: Maybe Bool
+</span><a href="Network.AWS.Chime.UpdateSipRule.html#%24sel%3Adisabled%3AUpdateSipRule%27"><span class="hs-identifier hs-var">disabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679563440"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#UpdateSipRule"><span class="hs-identifier hs-type">UpdateSipRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The new value of the list of target applications.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#updateSipRule_targetApplications"><span class="hs-identifier hs-type">updateSipRule_targetApplications</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#UpdateSipRule"><span class="hs-identifier hs-type">UpdateSipRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.SipRuleTargetApplication.html#SipRuleTargetApplication"><span class="hs-identifier hs-type">SipRuleTargetApplication</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="updateSipRule_targetApplications"><span class="annot"><span class="annottext">updateSipRule_targetApplications :: (Maybe (NonEmpty SipRuleTargetApplication)
+ -&gt; f (Maybe (NonEmpty SipRuleTargetApplication)))
+-&gt; UpdateSipRule -&gt; f UpdateSipRule
+</span><a href="Network.AWS.Chime.UpdateSipRule.html#updateSipRule_targetApplications"><span class="hs-identifier hs-var hs-var">updateSipRule_targetApplications</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSipRule -&gt; Maybe (NonEmpty SipRuleTargetApplication))
+-&gt; (UpdateSipRule
+    -&gt; Maybe (NonEmpty SipRuleTargetApplication) -&gt; UpdateSipRule)
+-&gt; Lens
+     UpdateSipRule
+     UpdateSipRule
+     (Maybe (NonEmpty SipRuleTargetApplication))
+     (Maybe (NonEmpty SipRuleTargetApplication))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#UpdateSipRule%27"><span class="hs-identifier hs-type">UpdateSipRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679563439"><span class="annot"><span class="annottext">Maybe (NonEmpty SipRuleTargetApplication)
+targetApplications :: Maybe (NonEmpty SipRuleTargetApplication)
+$sel:targetApplications:UpdateSipRule' :: UpdateSipRule -&gt; Maybe (NonEmpty SipRuleTargetApplication)
+</span><a href="#local-6989586621679563439"><span class="hs-identifier hs-var hs-var">targetApplications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty SipRuleTargetApplication)
+</span><a href="#local-6989586621679563439"><span class="hs-identifier hs-var">targetApplications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679563438"><span class="annot"><span class="annottext">s :: UpdateSipRule
+</span><a href="#local-6989586621679563438"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#UpdateSipRule%27"><span class="hs-identifier hs-type">UpdateSipRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679563437"><span class="annot"><span class="annottext">Maybe (NonEmpty SipRuleTargetApplication)
+</span><a href="#local-6989586621679563437"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSipRule
+</span><a href="#local-6989586621679563438"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetApplications:UpdateSipRule' :: Maybe (NonEmpty SipRuleTargetApplication)
+</span><a href="Network.AWS.Chime.UpdateSipRule.html#%24sel%3AtargetApplications%3AUpdateSipRule%27"><span class="hs-identifier hs-var">targetApplications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty SipRuleTargetApplication)
+</span><a href="#local-6989586621679563437"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#UpdateSipRule"><span class="hs-identifier hs-type">UpdateSipRule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty SipRuleTargetApplication)
+  -&gt; f (Maybe (NonEmpty SipRuleTargetApplication)))
+ -&gt; UpdateSipRule -&gt; f UpdateSipRule)
+-&gt; ((Maybe (NonEmpty SipRuleTargetApplication)
+     -&gt; f (Maybe (NonEmpty SipRuleTargetApplication)))
+    -&gt; Maybe (NonEmpty SipRuleTargetApplication)
+    -&gt; f (Maybe (NonEmpty SipRuleTargetApplication)))
+-&gt; (Maybe (NonEmpty SipRuleTargetApplication)
+    -&gt; f (Maybe (NonEmpty SipRuleTargetApplication)))
+-&gt; UpdateSipRule
+-&gt; f UpdateSipRule
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty SipRuleTargetApplication)
+  (NonEmpty SipRuleTargetApplication)
+  (NonEmpty SipRuleTargetApplication)
+  (NonEmpty SipRuleTargetApplication)
+-&gt; Iso
+     (Maybe (NonEmpty SipRuleTargetApplication))
+     (Maybe (NonEmpty SipRuleTargetApplication))
+     (Maybe (NonEmpty SipRuleTargetApplication))
+     (Maybe (NonEmpty SipRuleTargetApplication))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty SipRuleTargetApplication)
+  (NonEmpty SipRuleTargetApplication)
+  (NonEmpty SipRuleTargetApplication)
+  (NonEmpty SipRuleTargetApplication)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The SIP rule ID.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#updateSipRule_sipRuleId"><span class="hs-identifier hs-type">updateSipRule_sipRuleId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#UpdateSipRule"><span class="hs-identifier hs-type">UpdateSipRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-104"></span><span id="updateSipRule_sipRuleId"><span class="annot"><span class="annottext">updateSipRule_sipRuleId :: (Text -&gt; f Text) -&gt; UpdateSipRule -&gt; f UpdateSipRule
+</span><a href="Network.AWS.Chime.UpdateSipRule.html#updateSipRule_sipRuleId"><span class="hs-identifier hs-var hs-var">updateSipRule_sipRuleId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSipRule -&gt; Text)
+-&gt; (UpdateSipRule -&gt; Text -&gt; UpdateSipRule)
+-&gt; Lens UpdateSipRule UpdateSipRule Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#UpdateSipRule%27"><span class="hs-identifier hs-type">UpdateSipRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679563433"><span class="annot"><span class="annottext">Text
+sipRuleId :: Text
+$sel:sipRuleId:UpdateSipRule' :: UpdateSipRule -&gt; Text
+</span><a href="#local-6989586621679563433"><span class="hs-identifier hs-var hs-var">sipRuleId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679563433"><span class="hs-identifier hs-var">sipRuleId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679563432"><span class="annot"><span class="annottext">s :: UpdateSipRule
+</span><a href="#local-6989586621679563432"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#UpdateSipRule%27"><span class="hs-identifier hs-type">UpdateSipRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679563431"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679563431"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSipRule
+</span><a href="#local-6989586621679563432"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sipRuleId:UpdateSipRule' :: Text
+</span><a href="Network.AWS.Chime.UpdateSipRule.html#%24sel%3AsipRuleId%3AUpdateSipRule%27"><span class="hs-identifier hs-var">sipRuleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679563431"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#UpdateSipRule"><span class="hs-identifier hs-type">UpdateSipRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The new name for the specified SIP rule.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#updateSipRule_name"><span class="hs-identifier hs-type">updateSipRule_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#UpdateSipRule"><span class="hs-identifier hs-type">UpdateSipRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-108"></span><span id="updateSipRule_name"><span class="annot"><span class="annottext">updateSipRule_name :: (Text -&gt; f Text) -&gt; UpdateSipRule -&gt; f UpdateSipRule
+</span><a href="Network.AWS.Chime.UpdateSipRule.html#updateSipRule_name"><span class="hs-identifier hs-var hs-var">updateSipRule_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSipRule -&gt; Text)
+-&gt; (UpdateSipRule -&gt; Text -&gt; UpdateSipRule)
+-&gt; Lens UpdateSipRule UpdateSipRule Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#UpdateSipRule%27"><span class="hs-identifier hs-type">UpdateSipRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679563430"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:UpdateSipRule' :: UpdateSipRule -&gt; Text
+</span><a href="#local-6989586621679563430"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679563430"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679563429"><span class="annot"><span class="annottext">s :: UpdateSipRule
+</span><a href="#local-6989586621679563429"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#UpdateSipRule%27"><span class="hs-identifier hs-type">UpdateSipRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679563428"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679563428"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSipRule
+</span><a href="#local-6989586621679563429"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateSipRule' :: Text
+</span><a href="Network.AWS.Chime.UpdateSipRule.html#%24sel%3Aname%3AUpdateSipRule%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679563428"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#UpdateSipRule"><span class="hs-identifier hs-type">UpdateSipRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#UpdateSipRule"><span class="hs-identifier hs-type">UpdateSipRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-112"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#UpdateSipRule"><span class="hs-identifier hs-type">UpdateSipRule</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#UpdateSipRuleResponse"><span class="hs-identifier hs-type">UpdateSipRuleResponse</span></a></span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679563424"><span class="annot"><span class="annottext">request :: UpdateSipRule -&gt; Request UpdateSipRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateSipRule -&gt; Request UpdateSipRule
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Chime.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679563420"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateSipRule
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateSipRule)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateSipRule))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateSipRule
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateSipRule)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679563417"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679563417"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679563416"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679563416"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679563415"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679563415"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">Maybe SipRule -&gt; Int -&gt; UpdateSipRuleResponse
+</span><a href="Network.AWS.Chime.UpdateSipRule.html#UpdateSipRuleResponse%27"><span class="hs-identifier hs-var">UpdateSipRuleResponse'</span></a></span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">(Maybe SipRule -&gt; Int -&gt; UpdateSipRuleResponse)
+-&gt; Either String (Maybe SipRule)
+-&gt; Either String (Int -&gt; UpdateSipRuleResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679563415"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe SipRule)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SipRule&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateSipRuleResponse)
+-&gt; Either String Int -&gt; Either String UpdateSipRuleResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679563417"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679563407"><span id="local-6989586621679563409"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#UpdateSipRule"><span class="hs-identifier hs-type">UpdateSipRule</span></a></span></span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679563404"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#UpdateSipRule"><span class="hs-identifier hs-type">UpdateSipRule</span></a></span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#UpdateSipRule"><span class="hs-identifier hs-type">UpdateSipRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679563400"><span class="annot"><span class="annottext">toHeaders :: UpdateSipRule -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateSipRule -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679563391"><span id="local-6989586621679563393"><span id="local-6989586621679563395"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#UpdateSipRule"><span class="hs-identifier hs-type">UpdateSipRule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679563389"><span class="annot"><span class="annottext">toJSON :: UpdateSipRule -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#UpdateSipRule%27"><span class="hs-identifier hs-type">UpdateSipRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679563384"><span id="local-6989586621679563385"><span id="local-6989586621679563386"><span id="local-6989586621679563387"><span class="annot"><span class="annottext">Maybe Bool
+Maybe (NonEmpty SipRuleTargetApplication)
+Text
+name :: Text
+sipRuleId :: Text
+targetApplications :: Maybe (NonEmpty SipRuleTargetApplication)
+disabled :: Maybe Bool
+$sel:name:UpdateSipRule' :: UpdateSipRule -&gt; Text
+$sel:sipRuleId:UpdateSipRule' :: UpdateSipRule -&gt; Text
+$sel:targetApplications:UpdateSipRule' :: UpdateSipRule -&gt; Maybe (NonEmpty SipRuleTargetApplication)
+$sel:disabled:UpdateSipRule' :: UpdateSipRule -&gt; Maybe Bool
+</span><a href="#local-6989586621679563384"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-134"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Disabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679563387"><span class="hs-identifier hs-var">disabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TargetApplications&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty SipRuleTargetApplication -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty SipRuleTargetApplication -&gt; Pair)
+-&gt; Maybe (NonEmpty SipRuleTargetApplication) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty SipRuleTargetApplication)
+</span><a href="#local-6989586621679563386"><span class="hs-identifier hs-var">targetApplications</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679563384"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#UpdateSipRule"><span class="hs-identifier hs-type">UpdateSipRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679563378"><span class="annot"><span class="annottext">toPath :: UpdateSipRule -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#UpdateSipRule%27"><span class="hs-identifier hs-type">UpdateSipRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679563373"><span id="local-6989586621679563374"><span id="local-6989586621679563375"><span id="local-6989586621679563376"><span class="annot"><span class="annottext">Maybe Bool
+Maybe (NonEmpty SipRuleTargetApplication)
+Text
+name :: Text
+sipRuleId :: Text
+targetApplications :: Maybe (NonEmpty SipRuleTargetApplication)
+disabled :: Maybe Bool
+$sel:name:UpdateSipRule' :: UpdateSipRule -&gt; Text
+$sel:sipRuleId:UpdateSipRule' :: UpdateSipRule -&gt; Text
+$sel:targetApplications:UpdateSipRule' :: UpdateSipRule -&gt; Maybe (NonEmpty SipRuleTargetApplication)
+$sel:disabled:UpdateSipRule' :: UpdateSipRule -&gt; Maybe Bool
+</span><a href="#local-6989586621679563373"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/sip-rules/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679563374"><span class="hs-identifier hs-var">sipRuleId</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#UpdateSipRule"><span class="hs-identifier hs-type">UpdateSipRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679563369"><span class="annot"><span class="annottext">toQuery :: UpdateSipRule -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateSipRule -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | /See:/ 'newUpdateSipRuleResponse' smart constructor.</span><span>
+</span><span id="line-150"></span><span id="local-6989586621679563366"><span id="local-6989586621679563367"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateSipRuleResponse"><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#UpdateSipRuleResponse"><span class="hs-identifier hs-var">UpdateSipRuleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateSipRuleResponse%27"><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#UpdateSipRuleResponse%27"><span class="hs-identifier hs-var">UpdateSipRuleResponse'</span></a></span></span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Updated SIP rule details.</span><span>
+</span><span id="line-152"></span><span>    </span><span id="%24sel%3AsipRule%3AUpdateSipRuleResponse%27"><span class="annot"><span class="annottext">UpdateSipRuleResponse -&gt; Maybe SipRule
+</span><a href="Network.AWS.Chime.UpdateSipRule.html#%24sel%3AsipRule%3AUpdateSipRuleResponse%27"><span class="hs-identifier hs-var hs-var">sipRule</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.SipRule.html#SipRule"><span class="hs-identifier hs-type">SipRule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-154"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateSipRuleResponse%27"><span class="annot"><span class="annottext">UpdateSipRuleResponse -&gt; Int
+</span><a href="Network.AWS.Chime.UpdateSipRule.html#%24sel%3AhttpStatus%3AUpdateSipRuleResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679563360"><span id="local-6989586621679563362"><span class="annot"><span class="annottext">UpdateSipRuleResponse -&gt; UpdateSipRuleResponse -&gt; Bool
+(UpdateSipRuleResponse -&gt; UpdateSipRuleResponse -&gt; Bool)
+-&gt; (UpdateSipRuleResponse -&gt; UpdateSipRuleResponse -&gt; Bool)
+-&gt; Eq UpdateSipRuleResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateSipRuleResponse -&gt; UpdateSipRuleResponse -&gt; Bool
+$c/= :: UpdateSipRuleResponse -&gt; UpdateSipRuleResponse -&gt; Bool
+== :: UpdateSipRuleResponse -&gt; UpdateSipRuleResponse -&gt; Bool
+$c== :: UpdateSipRuleResponse -&gt; UpdateSipRuleResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679563352"><span id="local-6989586621679563354"><span id="local-6989586621679563356"><span id="local-6989586621679563358"><span class="annot"><span class="annottext">ReadPrec [UpdateSipRuleResponse]
+ReadPrec UpdateSipRuleResponse
+Int -&gt; ReadS UpdateSipRuleResponse
+ReadS [UpdateSipRuleResponse]
+(Int -&gt; ReadS UpdateSipRuleResponse)
+-&gt; ReadS [UpdateSipRuleResponse]
+-&gt; ReadPrec UpdateSipRuleResponse
+-&gt; ReadPrec [UpdateSipRuleResponse]
+-&gt; Read UpdateSipRuleResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateSipRuleResponse]
+$creadListPrec :: ReadPrec [UpdateSipRuleResponse]
+readPrec :: ReadPrec UpdateSipRuleResponse
+$creadPrec :: ReadPrec UpdateSipRuleResponse
+readList :: ReadS [UpdateSipRuleResponse]
+$creadList :: ReadS [UpdateSipRuleResponse]
+readsPrec :: Int -&gt; ReadS UpdateSipRuleResponse
+$creadsPrec :: Int -&gt; ReadS UpdateSipRuleResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679563346"><span id="local-6989586621679563348"><span id="local-6989586621679563350"><span class="annot"><span class="annottext">Int -&gt; UpdateSipRuleResponse -&gt; ShowS
+[UpdateSipRuleResponse] -&gt; ShowS
+UpdateSipRuleResponse -&gt; String
+(Int -&gt; UpdateSipRuleResponse -&gt; ShowS)
+-&gt; (UpdateSipRuleResponse -&gt; String)
+-&gt; ([UpdateSipRuleResponse] -&gt; ShowS)
+-&gt; Show UpdateSipRuleResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateSipRuleResponse] -&gt; ShowS
+$cshowList :: [UpdateSipRuleResponse] -&gt; ShowS
+show :: UpdateSipRuleResponse -&gt; String
+$cshow :: UpdateSipRuleResponse -&gt; String
+showsPrec :: Int -&gt; UpdateSipRuleResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateSipRuleResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateSipRuleResponse -&gt; Rep UpdateSipRuleResponse x)
+-&gt; (forall x. Rep UpdateSipRuleResponse x -&gt; UpdateSipRuleResponse)
+-&gt; Generic UpdateSipRuleResponse
+forall x. Rep UpdateSipRuleResponse x -&gt; UpdateSipRuleResponse
+forall x. UpdateSipRuleResponse -&gt; Rep UpdateSipRuleResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateSipRuleResponse x -&gt; UpdateSipRuleResponse
+$cfrom :: forall x. UpdateSipRuleResponse -&gt; Rep UpdateSipRuleResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- Create a value of 'UpdateSipRuleResponse' with all optional fields omitted.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'sipRule', 'updateSipRuleResponse_sipRule' - Updated SIP rule details.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'httpStatus', 'updateSipRuleResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#newUpdateSipRuleResponse"><span class="hs-identifier hs-type">newUpdateSipRuleResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-170"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-171"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-172"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#UpdateSipRuleResponse"><span class="hs-identifier hs-type">UpdateSipRuleResponse</span></a></span><span>
+</span><span id="line-173"></span><span id="newUpdateSipRuleResponse"><span class="annot"><span class="annottext">newUpdateSipRuleResponse :: Int -&gt; UpdateSipRuleResponse
+</span><a href="Network.AWS.Chime.UpdateSipRule.html#newUpdateSipRuleResponse"><span class="hs-identifier hs-var hs-var">newUpdateSipRuleResponse</span></a></span></span><span> </span><span id="local-6989586621679563343"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679563343"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><span class="annottext">UpdateSipRuleResponse' :: Maybe SipRule -&gt; Int -&gt; UpdateSipRuleResponse
+</span><a href="Network.AWS.Chime.UpdateSipRule.html#UpdateSipRuleResponse%27"><span class="hs-identifier hs-type">UpdateSipRuleResponse'</span></a></span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sipRule:UpdateSipRuleResponse' :: Maybe SipRule
+</span><a href="Network.AWS.Chime.UpdateSipRule.html#%24sel%3AsipRule%3AUpdateSipRuleResponse%27"><span class="hs-identifier hs-var">sipRule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SipRule
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateSipRuleResponse' :: Int
+</span><a href="Network.AWS.Chime.UpdateSipRule.html#%24sel%3AhttpStatus%3AUpdateSipRuleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679563343"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | Updated SIP rule details.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#updateSipRuleResponse_sipRule"><span class="hs-identifier hs-type">updateSipRuleResponse_sipRule</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#UpdateSipRuleResponse"><span class="hs-identifier hs-type">UpdateSipRuleResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.SipRule.html#SipRule"><span class="hs-identifier hs-type">SipRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="updateSipRuleResponse_sipRule"><span class="annot"><span class="annottext">updateSipRuleResponse_sipRule :: (Maybe SipRule -&gt; f (Maybe SipRule))
+-&gt; UpdateSipRuleResponse -&gt; f UpdateSipRuleResponse
+</span><a href="Network.AWS.Chime.UpdateSipRule.html#updateSipRuleResponse_sipRule"><span class="hs-identifier hs-var hs-var">updateSipRuleResponse_sipRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSipRuleResponse -&gt; Maybe SipRule)
+-&gt; (UpdateSipRuleResponse
+    -&gt; Maybe SipRule -&gt; UpdateSipRuleResponse)
+-&gt; Lens
+     UpdateSipRuleResponse
+     UpdateSipRuleResponse
+     (Maybe SipRule)
+     (Maybe SipRule)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#UpdateSipRuleResponse%27"><span class="hs-identifier hs-type">UpdateSipRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679563342"><span class="annot"><span class="annottext">Maybe SipRule
+sipRule :: Maybe SipRule
+$sel:sipRule:UpdateSipRuleResponse' :: UpdateSipRuleResponse -&gt; Maybe SipRule
+</span><a href="#local-6989586621679563342"><span class="hs-identifier hs-var hs-var">sipRule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SipRule
+</span><a href="#local-6989586621679563342"><span class="hs-identifier hs-var">sipRule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679563341"><span class="annot"><span class="annottext">s :: UpdateSipRuleResponse
+</span><a href="#local-6989586621679563341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#UpdateSipRuleResponse%27"><span class="hs-identifier hs-type">UpdateSipRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679563340"><span class="annot"><span class="annottext">Maybe SipRule
+</span><a href="#local-6989586621679563340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSipRuleResponse
+</span><a href="#local-6989586621679563341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sipRule:UpdateSipRuleResponse' :: Maybe SipRule
+</span><a href="Network.AWS.Chime.UpdateSipRule.html#%24sel%3AsipRule%3AUpdateSipRuleResponse%27"><span class="hs-identifier hs-var">sipRule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SipRule
+</span><a href="#local-6989586621679563340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#UpdateSipRuleResponse"><span class="hs-identifier hs-type">UpdateSipRuleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#updateSipRuleResponse_httpStatus"><span class="hs-identifier hs-type">updateSipRuleResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#UpdateSipRuleResponse"><span class="hs-identifier hs-type">UpdateSipRuleResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-185"></span><span id="updateSipRuleResponse_httpStatus"><span class="annot"><span class="annottext">updateSipRuleResponse_httpStatus :: (Int -&gt; f Int) -&gt; UpdateSipRuleResponse -&gt; f UpdateSipRuleResponse
+</span><a href="Network.AWS.Chime.UpdateSipRule.html#updateSipRuleResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateSipRuleResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSipRuleResponse -&gt; Int)
+-&gt; (UpdateSipRuleResponse -&gt; Int -&gt; UpdateSipRuleResponse)
+-&gt; Lens UpdateSipRuleResponse UpdateSipRuleResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#UpdateSipRuleResponse%27"><span class="hs-identifier hs-type">UpdateSipRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679563339"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateSipRuleResponse' :: UpdateSipRuleResponse -&gt; Int
+</span><a href="#local-6989586621679563339"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679563339"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679563338"><span class="annot"><span class="annottext">s :: UpdateSipRuleResponse
+</span><a href="#local-6989586621679563338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#UpdateSipRuleResponse%27"><span class="hs-identifier hs-type">UpdateSipRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679563337"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679563337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSipRuleResponse
+</span><a href="#local-6989586621679563338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateSipRuleResponse' :: Int
+</span><a href="Network.AWS.Chime.UpdateSipRule.html#%24sel%3AhttpStatus%3AUpdateSipRuleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679563337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#UpdateSipRuleResponse"><span class="hs-identifier hs-type">UpdateSipRuleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679563335"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.UpdateSipRule.html#UpdateSipRuleResponse"><span class="hs-identifier hs-type">UpdateSipRuleResponse</span></a></span></span><span>
+</span><span id="line-188"></span></pre></body></html>

@@ -56,7 +56,7 @@
 </span><span id="line-56"></span><span class="hs-comment">-- | The ViewBilling request includes the following elements.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- /See:/ 'newViewBilling' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679217956"><span id="local-6989586621679217957"></span></span><span class="hs-keyword">data</span><span> </span><span id="ViewBilling"><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBilling"><span class="hs-identifier hs-var">ViewBilling</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ViewBilling%27"><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBilling%27"><span class="hs-identifier hs-var">ViewBilling'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679217965"><span id="local-6989586621679217966"></span></span><span class="hs-keyword">data</span><span> </span><span id="ViewBilling"><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBilling"><span class="hs-identifier hs-var">ViewBilling</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ViewBilling%27"><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBilling%27"><span class="hs-identifier hs-var">ViewBilling'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The beginning date and time for the time period for which you want a</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- list of billing records. Specify the date and time in Unix time format</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- and Coordinated Universal time (UTC).</span><span>
@@ -85,7 +85,7 @@
 </span><span id="line-82"></span><span>    </span><span id="%24sel%3AmaxItems%3AViewBilling%27"><span class="annot"><span class="annottext">ViewBilling -&gt; Maybe Int
 </span><a href="Network.AWS.Route53Domains.ViewBilling.html#%24sel%3AmaxItems%3AViewBilling%27"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-83"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679217947"><span id="local-6989586621679217949"><span class="annot"><span class="annottext">ViewBilling -&gt; ViewBilling -&gt; Bool
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679217956"><span id="local-6989586621679217958"><span class="annot"><span class="annottext">ViewBilling -&gt; ViewBilling -&gt; Bool
 (ViewBilling -&gt; ViewBilling -&gt; Bool)
 -&gt; (ViewBilling -&gt; ViewBilling -&gt; Bool) -&gt; Eq ViewBilling
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -93,7 +93,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ViewBilling -&gt; ViewBilling -&gt; Bool
 == :: ViewBilling -&gt; ViewBilling -&gt; Bool
 $c== :: ViewBilling -&gt; ViewBilling -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217938"><span id="local-6989586621679217940"><span id="local-6989586621679217942"><span id="local-6989586621679217944"><span class="annot"><span class="annottext">ReadPrec [ViewBilling]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217947"><span id="local-6989586621679217949"><span id="local-6989586621679217951"><span id="local-6989586621679217953"><span class="annot"><span class="annottext">ReadPrec [ViewBilling]
 ReadPrec ViewBilling
 Int -&gt; ReadS ViewBilling
 ReadS [ViewBilling]
@@ -113,7 +113,7 @@ readList :: ReadS [ViewBilling]
 $creadList :: ReadS [ViewBilling]
 readsPrec :: Int -&gt; ReadS ViewBilling
 $creadsPrec :: Int -&gt; ReadS ViewBilling
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217931"><span id="local-6989586621679217933"><span id="local-6989586621679217935"><span class="annot"><span class="annottext">Int -&gt; ViewBilling -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217940"><span id="local-6989586621679217942"><span id="local-6989586621679217944"><span class="annot"><span class="annottext">Int -&gt; ViewBilling -&gt; ShowS
 [ViewBilling] -&gt; ShowS
 ViewBilling -&gt; String
 (Int -&gt; ViewBilling -&gt; ShowS)
@@ -204,16 +204,16 @@ forall a. Maybe a
 -&gt; (ViewBilling -&gt; Maybe POSIX -&gt; ViewBilling)
 -&gt; Lens ViewBilling ViewBilling (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBilling%27"><span class="hs-identifier hs-type">ViewBilling'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217925"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBilling%27"><span class="hs-identifier hs-type">ViewBilling'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217934"><span class="annot"><span class="annottext">Maybe POSIX
 start :: Maybe POSIX
 $sel:start:ViewBilling' :: ViewBilling -&gt; Maybe POSIX
-</span><a href="#local-6989586621679217925"><span class="hs-identifier hs-var hs-var">start</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679217925"><span class="hs-identifier hs-var">start</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217924"><span class="annot"><span class="annottext">s :: ViewBilling
-</span><a href="#local-6989586621679217924"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBilling%27"><span class="hs-identifier hs-type">ViewBilling'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217923"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679217923"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViewBilling
-</span><a href="#local-6989586621679217924"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:start:ViewBilling' :: Maybe POSIX
+</span><a href="#local-6989586621679217934"><span class="hs-identifier hs-var hs-var">start</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679217934"><span class="hs-identifier hs-var">start</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217933"><span class="annot"><span class="annottext">s :: ViewBilling
+</span><a href="#local-6989586621679217933"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBilling%27"><span class="hs-identifier hs-type">ViewBilling'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217932"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679217932"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViewBilling
+</span><a href="#local-6989586621679217933"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:start:ViewBilling' :: Maybe POSIX
 </span><a href="Network.AWS.Route53Domains.ViewBilling.html#%24sel%3Astart%3AViewBilling%27"><span class="hs-identifier hs-var">start</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679217923"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBilling"><span class="hs-identifier hs-type">ViewBilling</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; ViewBilling -&gt; f ViewBilling)
+</span><a href="#local-6989586621679217932"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBilling"><span class="hs-identifier hs-type">ViewBilling</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; ViewBilling -&gt; f ViewBilling)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -239,16 +239,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (ViewBilling -&gt; Maybe POSIX -&gt; ViewBilling)
 -&gt; Lens ViewBilling ViewBilling (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBilling%27"><span class="hs-identifier hs-type">ViewBilling'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217919"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBilling%27"><span class="hs-identifier hs-type">ViewBilling'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217928"><span class="annot"><span class="annottext">Maybe POSIX
 end :: Maybe POSIX
 $sel:end:ViewBilling' :: ViewBilling -&gt; Maybe POSIX
-</span><a href="#local-6989586621679217919"><span class="hs-identifier hs-var hs-var">end</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679217919"><span class="hs-identifier hs-var">end</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217918"><span class="annot"><span class="annottext">s :: ViewBilling
-</span><a href="#local-6989586621679217918"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBilling%27"><span class="hs-identifier hs-type">ViewBilling'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217917"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679217917"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViewBilling
-</span><a href="#local-6989586621679217918"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:end:ViewBilling' :: Maybe POSIX
+</span><a href="#local-6989586621679217928"><span class="hs-identifier hs-var hs-var">end</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679217928"><span class="hs-identifier hs-var">end</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217927"><span class="annot"><span class="annottext">s :: ViewBilling
+</span><a href="#local-6989586621679217927"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBilling%27"><span class="hs-identifier hs-type">ViewBilling'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217926"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679217926"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViewBilling
+</span><a href="#local-6989586621679217927"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:end:ViewBilling' :: Maybe POSIX
 </span><a href="Network.AWS.Route53Domains.ViewBilling.html#%24sel%3Aend%3AViewBilling%27"><span class="hs-identifier hs-var">end</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679217917"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBilling"><span class="hs-identifier hs-type">ViewBilling</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; ViewBilling -&gt; f ViewBilling)
+</span><a href="#local-6989586621679217926"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBilling"><span class="hs-identifier hs-type">ViewBilling</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; ViewBilling -&gt; f ViewBilling)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -280,16 +280,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (ViewBilling -&gt; Maybe Text -&gt; ViewBilling)
 -&gt; Lens ViewBilling ViewBilling (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBilling%27"><span class="hs-identifier hs-type">ViewBilling'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217916"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBilling%27"><span class="hs-identifier hs-type">ViewBilling'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217925"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:ViewBilling' :: ViewBilling -&gt; Maybe Text
-</span><a href="#local-6989586621679217916"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679217916"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217915"><span class="annot"><span class="annottext">s :: ViewBilling
-</span><a href="#local-6989586621679217915"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBilling%27"><span class="hs-identifier hs-type">ViewBilling'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217914"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679217914"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViewBilling
-</span><a href="#local-6989586621679217915"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ViewBilling' :: Maybe Text
+</span><a href="#local-6989586621679217925"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217925"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217924"><span class="annot"><span class="annottext">s :: ViewBilling
+</span><a href="#local-6989586621679217924"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBilling%27"><span class="hs-identifier hs-type">ViewBilling'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217923"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217923"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViewBilling
+</span><a href="#local-6989586621679217924"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ViewBilling' :: Maybe Text
 </span><a href="Network.AWS.Route53Domains.ViewBilling.html#%24sel%3Amarker%3AViewBilling%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679217914"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBilling"><span class="hs-identifier hs-type">ViewBilling</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679217923"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBilling"><span class="hs-identifier hs-type">ViewBilling</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- | The number of billing records to be returned.</span><span>
 </span><span id="line-152"></span><span class="hs-comment">--</span><span>
@@ -300,28 +300,28 @@ $sel:marker:ViewBilling' :: ViewBilling -&gt; Maybe Text
 -&gt; (ViewBilling -&gt; Maybe Int -&gt; ViewBilling)
 -&gt; Lens ViewBilling ViewBilling (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBilling%27"><span class="hs-identifier hs-type">ViewBilling'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217913"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBilling%27"><span class="hs-identifier hs-type">ViewBilling'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217922"><span class="annot"><span class="annottext">Maybe Int
 maxItems :: Maybe Int
 $sel:maxItems:ViewBilling' :: ViewBilling -&gt; Maybe Int
-</span><a href="#local-6989586621679217913"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679217913"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217912"><span class="annot"><span class="annottext">s :: ViewBilling
-</span><a href="#local-6989586621679217912"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBilling%27"><span class="hs-identifier hs-type">ViewBilling'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217911"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679217911"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViewBilling
-</span><a href="#local-6989586621679217912"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ViewBilling' :: Maybe Int
+</span><a href="#local-6989586621679217922"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679217922"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217921"><span class="annot"><span class="annottext">s :: ViewBilling
+</span><a href="#local-6989586621679217921"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBilling%27"><span class="hs-identifier hs-type">ViewBilling'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217920"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679217920"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViewBilling
+</span><a href="#local-6989586621679217921"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ViewBilling' :: Maybe Int
 </span><a href="Network.AWS.Route53Domains.ViewBilling.html#%24sel%3AmaxItems%3AViewBilling%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679217911"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBilling"><span class="hs-identifier hs-type">ViewBilling</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679217920"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBilling"><span class="hs-identifier hs-type">ViewBilling</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBilling"><span class="hs-identifier hs-type">ViewBilling</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679217907"><span class="annot"><span class="annottext">page :: ViewBilling -&gt; AWSResponse ViewBilling -&gt; Maybe ViewBilling
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679217905"><span class="annot"><span class="annottext">ViewBilling
-</span><a href="#local-6989586621679217905"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679217904"><span class="annot"><span class="annottext">AWSResponse ViewBilling
-</span><a href="#local-6989586621679217904"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679217916"><span class="annot"><span class="annottext">page :: ViewBilling -&gt; AWSResponse ViewBilling -&gt; Maybe ViewBilling
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679217914"><span class="annot"><span class="annottext">ViewBilling
+</span><a href="#local-6989586621679217914"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679217913"><span class="annot"><span class="annottext">AWSResponse ViewBilling
+</span><a href="#local-6989586621679217913"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-159"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-160"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ViewBilling
 ViewBillingResponse
-</span><a href="#local-6989586621679217904"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679217913"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">ViewBillingResponse
 -&gt; Getting (First Text) ViewBillingResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -348,7 +348,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-166"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ViewBilling
 ViewBillingResponse
-</span><a href="#local-6989586621679217904"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679217913"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">ViewBillingResponse
 -&gt; Getting
      (First [BillingRecord]) ViewBillingResponse [BillingRecord]
@@ -389,7 +389,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">ViewBilling
-</span><a href="#local-6989586621679217905"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679217914"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-174"></span><span>          </span><span class="annot"><span class="annottext">ViewBilling -&gt; (ViewBilling -&gt; ViewBilling) -&gt; ViewBilling
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -402,7 +402,7 @@ Lens ViewBilling ViewBilling (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ViewBilling
 ViewBillingResponse
-</span><a href="#local-6989586621679217904"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679217913"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-176"></span><span>          </span><span class="annot"><span class="annottext">ViewBillingResponse
 -&gt; Getting (First Text) ViewBillingResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -423,12 +423,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBilling"><span class="hs-identifier hs-type">ViewBilling</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-180"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBilling"><span class="hs-identifier hs-type">ViewBilling</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBillingResponse"><span class="hs-identifier hs-type">ViewBillingResponse</span></a></span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679217895"><span class="annot"><span class="annottext">request :: ViewBilling -&gt; Request ViewBilling
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679217904"><span class="annot"><span class="annottext">request :: ViewBilling -&gt; Request ViewBilling
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ViewBilling -&gt; Request ViewBilling
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Route53Domains.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-182"></span><span>  </span><span id="local-6989586621679217891"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679217900"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ViewBilling
 -&gt; ClientResponse ClientBody
@@ -452,10 +452,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-184"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679217888"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679217888"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679217887"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679217887"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679217886"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679217886"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-184"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679217897"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679217897"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679217896"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679217896"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679217895"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679217895"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-185"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [BillingRecord] -&gt; Int -&gt; ViewBillingResponse
 </span><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBillingResponse%27"><span class="hs-identifier hs-var">ViewBillingResponse'</span></a></span><span>
 </span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [BillingRecord] -&gt; Int -&gt; ViewBillingResponse)
@@ -464,7 +464,7 @@ MonadResource m =&gt;
      String (Maybe [BillingRecord] -&gt; Int -&gt; ViewBillingResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679217886"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679217895"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextPageMarker&quot;</span></span><span class="hs-special">)</span><span>
@@ -473,7 +473,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ViewBillingResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679217886"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [BillingRecord]))
+</span><a href="#local-6989586621679217895"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [BillingRecord]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BillingRecords&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [BillingRecord]))
@@ -490,15 +490,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679217888"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679217897"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
-</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217877"><span id="local-6989586621679217879"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBilling"><span class="hs-identifier hs-type">ViewBilling</span></a></span></span></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217886"><span id="local-6989586621679217888"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBilling"><span class="hs-identifier hs-type">ViewBilling</span></a></span></span></span><span>
 </span><span id="line-192"></span><span>
-</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217874"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBilling"><span class="hs-identifier hs-type">ViewBilling</span></a></span></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217883"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBilling"><span class="hs-identifier hs-type">ViewBilling</span></a></span></span><span>
 </span><span id="line-194"></span><span>
 </span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBilling"><span class="hs-identifier hs-type">ViewBilling</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-196"></span><span>  </span><span id="local-6989586621679217870"><span class="annot"><span class="annottext">toHeaders :: ViewBilling -&gt; ResponseHeaders
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679217879"><span class="annot"><span class="annottext">toHeaders :: ViewBilling -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-197"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ViewBilling -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -525,9 +525,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-207"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-208"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-209"></span><span>
-</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217860"><span id="local-6989586621679217862"><span id="local-6989586621679217864"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBilling"><span class="hs-identifier hs-type">ViewBilling</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-211"></span><span>  </span><span id="local-6989586621679217858"><span class="annot"><span class="annottext">toJSON :: ViewBilling -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBilling%27"><span class="hs-identifier hs-type">ViewBilling'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217853"><span id="local-6989586621679217854"><span id="local-6989586621679217855"><span id="local-6989586621679217856"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217869"><span id="local-6989586621679217871"><span id="local-6989586621679217873"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBilling"><span class="hs-identifier hs-type">ViewBilling</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621679217867"><span class="annot"><span class="annottext">toJSON :: ViewBilling -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBilling%27"><span class="hs-identifier hs-type">ViewBilling'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217862"><span id="local-6989586621679217863"><span id="local-6989586621679217864"><span id="local-6989586621679217865"><span class="annot"><span class="annottext">Maybe Int
 Maybe Text
 Maybe POSIX
 maxItems :: Maybe Int
@@ -538,7 +538,7 @@ $sel:maxItems:ViewBilling' :: ViewBilling -&gt; Maybe Int
 $sel:marker:ViewBilling' :: ViewBilling -&gt; Maybe Text
 $sel:end:ViewBilling' :: ViewBilling -&gt; Maybe POSIX
 $sel:start:ViewBilling' :: ViewBilling -&gt; Maybe POSIX
-</span><a href="#local-6989586621679217853"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679217862"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-212"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-213"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -550,40 +550,40 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679217856"><span class="hs-identifier hs-var">start</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679217865"><span class="hs-identifier hs-var">start</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-215"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;End&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679217855"><span class="hs-identifier hs-var">end</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679217864"><span class="hs-identifier hs-var">end</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-216"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679217854"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679217863"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-217"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxItems&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679217853"><span class="hs-identifier hs-var">maxItems</span></a></span><span>
+</span><a href="#local-6989586621679217862"><span class="hs-identifier hs-var">maxItems</span></a></span><span>
 </span><span id="line-218"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-219"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-220"></span><span>
 </span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBilling"><span class="hs-identifier hs-type">ViewBilling</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-222"></span><span>  </span><span id="local-6989586621679217847"><span class="annot"><span class="annottext">toPath :: ViewBilling -&gt; ByteString
+</span><span id="line-222"></span><span>  </span><span id="local-6989586621679217856"><span class="annot"><span class="annottext">toPath :: ViewBilling -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ViewBilling -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-223"></span><span>
 </span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBilling"><span class="hs-identifier hs-type">ViewBilling</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-225"></span><span>  </span><span id="local-6989586621679217843"><span class="annot"><span class="annottext">toQuery :: ViewBilling -&gt; QueryString
+</span><span id="line-225"></span><span>  </span><span id="local-6989586621679217852"><span class="annot"><span class="annottext">toQuery :: ViewBilling -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ViewBilling -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -593,7 +593,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-227"></span><span class="hs-comment">-- | The ViewBilling response includes the following elements.</span><span>
 </span><span id="line-228"></span><span class="hs-comment">--</span><span>
 </span><span id="line-229"></span><span class="hs-comment">-- /See:/ 'newViewBillingResponse' smart constructor.</span><span>
-</span><span id="line-230"></span><span id="local-6989586621679217840"><span id="local-6989586621679217841"></span></span><span class="hs-keyword">data</span><span> </span><span id="ViewBillingResponse"><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBillingResponse"><span class="hs-identifier hs-var">ViewBillingResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ViewBillingResponse%27"><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBillingResponse%27"><span class="hs-identifier hs-var">ViewBillingResponse'</span></a></span></span><span>
+</span><span id="line-230"></span><span id="local-6989586621679217849"><span id="local-6989586621679217850"></span></span><span class="hs-keyword">data</span><span> </span><span id="ViewBillingResponse"><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBillingResponse"><span class="hs-identifier hs-var">ViewBillingResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ViewBillingResponse%27"><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBillingResponse%27"><span class="hs-identifier hs-var">ViewBillingResponse'</span></a></span></span><span>
 </span><span id="line-231"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If there are more billing records than you specified for @MaxItems@ in</span><span>
 </span><span id="line-232"></span><span>    </span><span class="hs-comment">-- the request, submit another request and include the value of</span><span>
 </span><span id="line-233"></span><span>    </span><span class="hs-comment">-- @NextPageMarker@ in the value of @Marker@.</span><span>
@@ -606,7 +606,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-238"></span><span>    </span><span id="%24sel%3AhttpStatus%3AViewBillingResponse%27"><span class="annot"><span class="annottext">ViewBillingResponse -&gt; Int
 </span><a href="Network.AWS.Route53Domains.ViewBilling.html#%24sel%3AhttpStatus%3AViewBillingResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-239"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-240"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679217833"><span id="local-6989586621679217835"><span class="annot"><span class="annottext">ViewBillingResponse -&gt; ViewBillingResponse -&gt; Bool
+</span><span id="line-240"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679217842"><span id="local-6989586621679217844"><span class="annot"><span class="annottext">ViewBillingResponse -&gt; ViewBillingResponse -&gt; Bool
 (ViewBillingResponse -&gt; ViewBillingResponse -&gt; Bool)
 -&gt; (ViewBillingResponse -&gt; ViewBillingResponse -&gt; Bool)
 -&gt; Eq ViewBillingResponse
@@ -615,7 +615,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ViewBillingResponse -&gt; ViewBillingResponse -&gt; Bool
 == :: ViewBillingResponse -&gt; ViewBillingResponse -&gt; Bool
 $c== :: ViewBillingResponse -&gt; ViewBillingResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217825"><span id="local-6989586621679217827"><span id="local-6989586621679217829"><span id="local-6989586621679217831"><span class="annot"><span class="annottext">ReadPrec [ViewBillingResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217834"><span id="local-6989586621679217836"><span id="local-6989586621679217838"><span id="local-6989586621679217840"><span class="annot"><span class="annottext">ReadPrec [ViewBillingResponse]
 ReadPrec ViewBillingResponse
 Int -&gt; ReadS ViewBillingResponse
 ReadS [ViewBillingResponse]
@@ -635,7 +635,7 @@ readList :: ReadS [ViewBillingResponse]
 $creadList :: ReadS [ViewBillingResponse]
 readsPrec :: Int -&gt; ReadS ViewBillingResponse
 $creadsPrec :: Int -&gt; ReadS ViewBillingResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217819"><span id="local-6989586621679217821"><span id="local-6989586621679217823"><span class="annot"><span class="annottext">Int -&gt; ViewBillingResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217828"><span id="local-6989586621679217830"><span id="local-6989586621679217832"><span class="annot"><span class="annottext">Int -&gt; ViewBillingResponse -&gt; ShowS
 [ViewBillingResponse] -&gt; ShowS
 ViewBillingResponse -&gt; String
 (Int -&gt; ViewBillingResponse -&gt; ShowS)
@@ -681,8 +681,8 @@ $cfrom :: forall x. ViewBillingResponse -&gt; Rep ViewBillingResponse x
 </span><span id="line-259"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-260"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBillingResponse"><span class="hs-identifier hs-type">ViewBillingResponse</span></a></span><span>
 </span><span id="line-261"></span><span id="newViewBillingResponse"><span class="annot"><span class="annottext">newViewBillingResponse :: Int -&gt; ViewBillingResponse
-</span><a href="Network.AWS.Route53Domains.ViewBilling.html#newViewBillingResponse"><span class="hs-identifier hs-var hs-var">newViewBillingResponse</span></a></span></span><span> </span><span id="local-6989586621679217816"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679217816"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Route53Domains.ViewBilling.html#newViewBillingResponse"><span class="hs-identifier hs-var hs-var">newViewBillingResponse</span></a></span></span><span> </span><span id="local-6989586621679217825"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679217825"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-262"></span><span>  </span><span class="annot"><span class="annottext">ViewBillingResponse' :: Maybe Text -&gt; Maybe [BillingRecord] -&gt; Int -&gt; ViewBillingResponse
 </span><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBillingResponse%27"><span class="hs-identifier hs-type">ViewBillingResponse'</span></a></span><span>
 </span><span id="line-263"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextPageMarker:ViewBillingResponse' :: Maybe Text
@@ -696,7 +696,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-266"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ViewBillingResponse' :: Int
 </span><a href="Network.AWS.Route53Domains.ViewBilling.html#%24sel%3AhttpStatus%3AViewBillingResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679217816"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679217825"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-267"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-268"></span><span>
 </span><span id="line-269"></span><span class="hs-comment">-- | If there are more billing records than you specified for @MaxItems@ in</span><span>
@@ -709,16 +709,16 @@ forall a. Maybe a
 -&gt; (ViewBillingResponse -&gt; Maybe Text -&gt; ViewBillingResponse)
 -&gt; Lens' ViewBillingResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBillingResponse%27"><span class="hs-identifier hs-type">ViewBillingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217815"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBillingResponse%27"><span class="hs-identifier hs-type">ViewBillingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217824"><span class="annot"><span class="annottext">Maybe Text
 nextPageMarker :: Maybe Text
 $sel:nextPageMarker:ViewBillingResponse' :: ViewBillingResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679217815"><span class="hs-identifier hs-var hs-var">nextPageMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679217815"><span class="hs-identifier hs-var">nextPageMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217814"><span class="annot"><span class="annottext">s :: ViewBillingResponse
-</span><a href="#local-6989586621679217814"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBillingResponse%27"><span class="hs-identifier hs-type">ViewBillingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217813"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679217813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViewBillingResponse
-</span><a href="#local-6989586621679217814"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextPageMarker:ViewBillingResponse' :: Maybe Text
+</span><a href="#local-6989586621679217824"><span class="hs-identifier hs-var hs-var">nextPageMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217824"><span class="hs-identifier hs-var">nextPageMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217823"><span class="annot"><span class="annottext">s :: ViewBillingResponse
+</span><a href="#local-6989586621679217823"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBillingResponse%27"><span class="hs-identifier hs-type">ViewBillingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217822"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217822"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViewBillingResponse
+</span><a href="#local-6989586621679217823"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextPageMarker:ViewBillingResponse' :: Maybe Text
 </span><a href="Network.AWS.Route53Domains.ViewBilling.html#%24sel%3AnextPageMarker%3AViewBillingResponse%27"><span class="hs-identifier hs-var">nextPageMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679217813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBillingResponse"><span class="hs-identifier hs-type">ViewBillingResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679217822"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBillingResponse"><span class="hs-identifier hs-type">ViewBillingResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-274"></span><span>
 </span><span id="line-275"></span><span class="hs-comment">-- | A summary of billing records.</span><span>
 </span><span id="line-276"></span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#viewBillingResponse_billingRecords"><span class="hs-identifier hs-type">viewBillingResponse_billingRecords</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBillingResponse"><span class="hs-identifier hs-type">ViewBillingResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Route53Domains.Types.BillingRecord.html#BillingRecord"><span class="hs-identifier hs-type">BillingRecord</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -729,16 +729,16 @@ $sel:nextPageMarker:ViewBillingResponse' :: ViewBillingResponse -&gt; Maybe Text
     -&gt; Maybe [BillingRecord] -&gt; ViewBillingResponse)
 -&gt; Lens' ViewBillingResponse (Maybe [BillingRecord])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBillingResponse%27"><span class="hs-identifier hs-type">ViewBillingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217812"><span class="annot"><span class="annottext">Maybe [BillingRecord]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBillingResponse%27"><span class="hs-identifier hs-type">ViewBillingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217821"><span class="annot"><span class="annottext">Maybe [BillingRecord]
 billingRecords :: Maybe [BillingRecord]
 $sel:billingRecords:ViewBillingResponse' :: ViewBillingResponse -&gt; Maybe [BillingRecord]
-</span><a href="#local-6989586621679217812"><span class="hs-identifier hs-var hs-var">billingRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BillingRecord]
-</span><a href="#local-6989586621679217812"><span class="hs-identifier hs-var">billingRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217811"><span class="annot"><span class="annottext">s :: ViewBillingResponse
-</span><a href="#local-6989586621679217811"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBillingResponse%27"><span class="hs-identifier hs-type">ViewBillingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217810"><span class="annot"><span class="annottext">Maybe [BillingRecord]
-</span><a href="#local-6989586621679217810"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViewBillingResponse
-</span><a href="#local-6989586621679217811"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:billingRecords:ViewBillingResponse' :: Maybe [BillingRecord]
+</span><a href="#local-6989586621679217821"><span class="hs-identifier hs-var hs-var">billingRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BillingRecord]
+</span><a href="#local-6989586621679217821"><span class="hs-identifier hs-var">billingRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217820"><span class="annot"><span class="annottext">s :: ViewBillingResponse
+</span><a href="#local-6989586621679217820"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBillingResponse%27"><span class="hs-identifier hs-type">ViewBillingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217819"><span class="annot"><span class="annottext">Maybe [BillingRecord]
+</span><a href="#local-6989586621679217819"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViewBillingResponse
+</span><a href="#local-6989586621679217820"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:billingRecords:ViewBillingResponse' :: Maybe [BillingRecord]
 </span><a href="Network.AWS.Route53Domains.ViewBilling.html#%24sel%3AbillingRecords%3AViewBillingResponse%27"><span class="hs-identifier hs-var">billingRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [BillingRecord]
-</span><a href="#local-6989586621679217810"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBillingResponse"><span class="hs-identifier hs-type">ViewBillingResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BillingRecord] -&gt; f (Maybe [BillingRecord]))
+</span><a href="#local-6989586621679217819"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBillingResponse"><span class="hs-identifier hs-type">ViewBillingResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BillingRecord] -&gt; f (Maybe [BillingRecord]))
  -&gt; ViewBillingResponse -&gt; f ViewBillingResponse)
 -&gt; ((Maybe [BillingRecord] -&gt; f (Maybe [BillingRecord]))
     -&gt; Maybe [BillingRecord] -&gt; f (Maybe [BillingRecord]))
@@ -768,16 +768,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ViewBillingResponse -&gt; Int -&gt; ViewBillingResponse)
 -&gt; Lens ViewBillingResponse ViewBillingResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBillingResponse%27"><span class="hs-identifier hs-type">ViewBillingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217808"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBillingResponse%27"><span class="hs-identifier hs-type">ViewBillingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217817"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ViewBillingResponse' :: ViewBillingResponse -&gt; Int
-</span><a href="#local-6989586621679217808"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679217808"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217807"><span class="annot"><span class="annottext">s :: ViewBillingResponse
-</span><a href="#local-6989586621679217807"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBillingResponse%27"><span class="hs-identifier hs-type">ViewBillingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217806"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679217806"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViewBillingResponse
-</span><a href="#local-6989586621679217807"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ViewBillingResponse' :: Int
+</span><a href="#local-6989586621679217817"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679217817"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217816"><span class="annot"><span class="annottext">s :: ViewBillingResponse
+</span><a href="#local-6989586621679217816"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBillingResponse%27"><span class="hs-identifier hs-type">ViewBillingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217815"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679217815"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViewBillingResponse
+</span><a href="#local-6989586621679217816"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ViewBillingResponse' :: Int
 </span><a href="Network.AWS.Route53Domains.ViewBilling.html#%24sel%3AhttpStatus%3AViewBillingResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679217806"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBillingResponse"><span class="hs-identifier hs-type">ViewBillingResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679217815"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBillingResponse"><span class="hs-identifier hs-type">ViewBillingResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-282"></span><span>
-</span><span id="line-283"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217804"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBillingResponse"><span class="hs-identifier hs-type">ViewBillingResponse</span></a></span></span><span>
+</span><span id="line-283"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217813"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.ViewBilling.html#ViewBillingResponse"><span class="hs-identifier hs-type">ViewBillingResponse</span></a></span></span><span>
 </span><span id="line-284"></span></pre></body></html>

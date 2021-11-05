@@ -61,7 +61,7 @@
 </span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.html"><span class="hs-identifier">Network.AWS.SageMaker.Types</span></a></span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | /See:/ 'newSearch' smart constructor.</span><span>
-</span><span id="line-64"></span><span id="local-6989586621680370294"><span id="local-6989586621680370295"></span></span><span class="hs-keyword">data</span><span> </span><span id="Search"><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search"><span class="hs-identifier hs-var">Search</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Search%27"><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search%27"><span class="hs-identifier hs-var">Search'</span></a></span></span><span>
+</span><span id="line-64"></span><span id="local-6989586621680370303"><span id="local-6989586621680370304"></span></span><span class="hs-keyword">data</span><span> </span><span id="Search"><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search"><span class="hs-identifier hs-var">Search</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Search%27"><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search%27"><span class="hs-identifier hs-var">Search'</span></a></span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If more than @MaxResults@ resources match the specified</span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-comment">-- @SearchExpression@, the response includes a @NextToken@. The @NextToken@</span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-comment">-- can be passed to the next @SearchRequest@ to continue retrieving</span><span>
@@ -90,7 +90,7 @@
 </span><span id="line-85"></span><span>    </span><span id="%24sel%3Aresource%3ASearch%27"><span class="annot"><span class="annottext">Search -&gt; ResourceType
 </span><a href="Network.AWS.SageMaker.Search.html#%24sel%3Aresource%3ASearch%27"><span class="hs-identifier hs-var hs-var">resource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceType.html#ResourceType"><span class="hs-identifier hs-type">ResourceType</span></a></span><span>
 </span><span id="line-86"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-87"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680370283"><span id="local-6989586621680370285"><span class="annot"><span class="annottext">Search -&gt; Search -&gt; Bool
+</span><span id="line-87"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680370292"><span id="local-6989586621680370294"><span class="annot"><span class="annottext">Search -&gt; Search -&gt; Bool
 (Search -&gt; Search -&gt; Bool)
 -&gt; (Search -&gt; Search -&gt; Bool) -&gt; Eq Search
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -98,7 +98,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Search -&gt; Search -&gt; Bool
 == :: Search -&gt; Search -&gt; Bool
 $c== :: Search -&gt; Search -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680370274"><span id="local-6989586621680370276"><span id="local-6989586621680370278"><span id="local-6989586621680370280"><span class="annot"><span class="annottext">ReadPrec [Search]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680370283"><span id="local-6989586621680370285"><span id="local-6989586621680370287"><span id="local-6989586621680370289"><span class="annot"><span class="annottext">ReadPrec [Search]
 ReadPrec Search
 Int -&gt; ReadS Search
 ReadS [Search]
@@ -118,7 +118,7 @@ readList :: ReadS [Search]
 $creadList :: ReadS [Search]
 readsPrec :: Int -&gt; ReadS Search
 $creadsPrec :: Int -&gt; ReadS Search
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680370267"><span id="local-6989586621680370269"><span id="local-6989586621680370271"><span class="annot"><span class="annottext">Int -&gt; Search -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680370276"><span id="local-6989586621680370278"><span id="local-6989586621680370280"><span class="annot"><span class="annottext">Int -&gt; Search -&gt; ShowS
 [Search] -&gt; ShowS
 Search -&gt; String
 (Int -&gt; Search -&gt; ShowS)
@@ -174,8 +174,8 @@ $cfrom :: forall x. Search -&gt; Rep Search x
 </span><span id="line-119"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceType.html#ResourceType"><span class="hs-identifier hs-type">ResourceType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-120"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search"><span class="hs-identifier hs-type">Search</span></a></span><span>
 </span><span id="line-121"></span><span id="newSearch"><span class="annot"><span class="annottext">newSearch :: ResourceType -&gt; Search
-</span><a href="Network.AWS.SageMaker.Search.html#newSearch"><span class="hs-identifier hs-var hs-var">newSearch</span></a></span></span><span> </span><span id="local-6989586621680370262"><span class="annot"><span class="annottext">ResourceType
-</span><a href="#local-6989586621680370262"><span class="hs-identifier hs-var">pResource_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.Search.html#newSearch"><span class="hs-identifier hs-var hs-var">newSearch</span></a></span></span><span> </span><span id="local-6989586621680370271"><span class="annot"><span class="annottext">ResourceType
+</span><a href="#local-6989586621680370271"><span class="hs-identifier hs-var">pResource_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>  </span><span class="annot"><span class="annottext">Search' :: Maybe Text
 -&gt; Maybe SearchExpression
 -&gt; Maybe SearchSortOrder
@@ -206,7 +206,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">$sel:resource:Search' :: ResourceType
 </span><a href="Network.AWS.SageMaker.Search.html#%24sel%3Aresource%3ASearch%27"><span class="hs-identifier hs-var">resource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceType
-</span><a href="#local-6989586621680370262"><span class="hs-identifier hs-var">pResource_</span></a></span><span>
+</span><a href="#local-6989586621680370271"><span class="hs-identifier hs-var">pResource_</span></a></span><span>
 </span><span id="line-129"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- | If more than @MaxResults@ resources match the specified</span><span>
@@ -219,16 +219,16 @@ forall a. Maybe a
 -&gt; (Search -&gt; Maybe Text -&gt; Search)
 -&gt; Lens Search Search (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search%27"><span class="hs-identifier hs-type">Search'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680370260"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search%27"><span class="hs-identifier hs-type">Search'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680370269"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:Search' :: Search -&gt; Maybe Text
-</span><a href="#local-6989586621680370260"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680370260"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680370259"><span class="annot"><span class="annottext">s :: Search
-</span><a href="#local-6989586621680370259"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search%27"><span class="hs-identifier hs-type">Search'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680370258"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680370258"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Search
-</span><a href="#local-6989586621680370259"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:Search' :: Maybe Text
+</span><a href="#local-6989586621680370269"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680370269"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680370268"><span class="annot"><span class="annottext">s :: Search
+</span><a href="#local-6989586621680370268"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search%27"><span class="hs-identifier hs-type">Search'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680370267"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680370267"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Search
+</span><a href="#local-6989586621680370268"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:Search' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Search.html#%24sel%3AnextToken%3ASearch%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680370258"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search"><span class="hs-identifier hs-type">Search</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680370267"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search"><span class="hs-identifier hs-type">Search</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | A Boolean conditional statement. Resources must satisfy this condition</span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- to be included in search results. You must provide at least one</span><span>
@@ -243,16 +243,16 @@ $sel:nextToken:Search' :: Search -&gt; Maybe Text
 -&gt; Lens
      Search Search (Maybe SearchExpression) (Maybe SearchExpression)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search%27"><span class="hs-identifier hs-type">Search'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680370257"><span class="annot"><span class="annottext">Maybe SearchExpression
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search%27"><span class="hs-identifier hs-type">Search'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680370266"><span class="annot"><span class="annottext">Maybe SearchExpression
 searchExpression :: Maybe SearchExpression
 $sel:searchExpression:Search' :: Search -&gt; Maybe SearchExpression
-</span><a href="#local-6989586621680370257"><span class="hs-identifier hs-var hs-var">searchExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SearchExpression
-</span><a href="#local-6989586621680370257"><span class="hs-identifier hs-var">searchExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680370256"><span class="annot"><span class="annottext">s :: Search
-</span><a href="#local-6989586621680370256"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search%27"><span class="hs-identifier hs-type">Search'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680370255"><span class="annot"><span class="annottext">Maybe SearchExpression
-</span><a href="#local-6989586621680370255"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Search
-</span><a href="#local-6989586621680370256"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:searchExpression:Search' :: Maybe SearchExpression
+</span><a href="#local-6989586621680370266"><span class="hs-identifier hs-var hs-var">searchExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SearchExpression
+</span><a href="#local-6989586621680370266"><span class="hs-identifier hs-var">searchExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680370265"><span class="annot"><span class="annottext">s :: Search
+</span><a href="#local-6989586621680370265"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search%27"><span class="hs-identifier hs-type">Search'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680370264"><span class="annot"><span class="annottext">Maybe SearchExpression
+</span><a href="#local-6989586621680370264"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Search
+</span><a href="#local-6989586621680370265"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:searchExpression:Search' :: Maybe SearchExpression
 </span><a href="Network.AWS.SageMaker.Search.html#%24sel%3AsearchExpression%3ASearch%27"><span class="hs-identifier hs-var">searchExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SearchExpression
-</span><a href="#local-6989586621680370255"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search"><span class="hs-identifier hs-type">Search</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680370264"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search"><span class="hs-identifier hs-type">Search</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | How @SearchResults@ are ordered. Valid values are @Ascending@ or</span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- @Descending@. The default is @Descending@.</span><span>
@@ -264,16 +264,16 @@ $sel:searchExpression:Search' :: Search -&gt; Maybe SearchExpression
 -&gt; Lens
      Search Search (Maybe SearchSortOrder) (Maybe SearchSortOrder)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search%27"><span class="hs-identifier hs-type">Search'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680370254"><span class="annot"><span class="annottext">Maybe SearchSortOrder
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search%27"><span class="hs-identifier hs-type">Search'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680370263"><span class="annot"><span class="annottext">Maybe SearchSortOrder
 sortOrder :: Maybe SearchSortOrder
 $sel:sortOrder:Search' :: Search -&gt; Maybe SearchSortOrder
-</span><a href="#local-6989586621680370254"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SearchSortOrder
-</span><a href="#local-6989586621680370254"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680370253"><span class="annot"><span class="annottext">s :: Search
-</span><a href="#local-6989586621680370253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search%27"><span class="hs-identifier hs-type">Search'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680370252"><span class="annot"><span class="annottext">Maybe SearchSortOrder
-</span><a href="#local-6989586621680370252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Search
-</span><a href="#local-6989586621680370253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortOrder:Search' :: Maybe SearchSortOrder
+</span><a href="#local-6989586621680370263"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SearchSortOrder
+</span><a href="#local-6989586621680370263"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680370262"><span class="annot"><span class="annottext">s :: Search
+</span><a href="#local-6989586621680370262"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search%27"><span class="hs-identifier hs-type">Search'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680370261"><span class="annot"><span class="annottext">Maybe SearchSortOrder
+</span><a href="#local-6989586621680370261"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Search
+</span><a href="#local-6989586621680370262"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortOrder:Search' :: Maybe SearchSortOrder
 </span><a href="Network.AWS.SageMaker.Search.html#%24sel%3AsortOrder%3ASearch%27"><span class="hs-identifier hs-var">sortOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SearchSortOrder
-</span><a href="#local-6989586621680370252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search"><span class="hs-identifier hs-type">Search</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680370261"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search"><span class="hs-identifier hs-type">Search</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- | The maximum number of results to return.</span><span>
 </span><span id="line-152"></span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#search_maxResults"><span class="hs-identifier hs-type">search_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search"><span class="hs-identifier hs-type">Search</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -282,16 +282,16 @@ $sel:sortOrder:Search' :: Search -&gt; Maybe SearchSortOrder
 -&gt; (Search -&gt; Maybe Natural -&gt; Search)
 -&gt; Lens Search Search (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search%27"><span class="hs-identifier hs-type">Search'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680370251"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search%27"><span class="hs-identifier hs-type">Search'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680370260"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:Search' :: Search -&gt; Maybe Natural
-</span><a href="#local-6989586621680370251"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680370251"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680370250"><span class="annot"><span class="annottext">s :: Search
-</span><a href="#local-6989586621680370250"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search%27"><span class="hs-identifier hs-type">Search'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680370249"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680370249"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Search
-</span><a href="#local-6989586621680370250"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:Search' :: Maybe Natural
+</span><a href="#local-6989586621680370260"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680370260"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680370259"><span class="annot"><span class="annottext">s :: Search
+</span><a href="#local-6989586621680370259"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search%27"><span class="hs-identifier hs-type">Search'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680370258"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680370258"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Search
+</span><a href="#local-6989586621680370259"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:Search' :: Maybe Natural
 </span><a href="Network.AWS.SageMaker.Search.html#%24sel%3AmaxResults%3ASearch%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680370249"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search"><span class="hs-identifier hs-type">Search</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680370258"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search"><span class="hs-identifier hs-type">Search</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- | The name of the resource property used to sort the @SearchResults@. The</span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- default is @LastModifiedTime@.</span><span>
@@ -301,16 +301,16 @@ $sel:maxResults:Search' :: Search -&gt; Maybe Natural
 -&gt; (Search -&gt; Maybe Text -&gt; Search)
 -&gt; Lens Search Search (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search%27"><span class="hs-identifier hs-type">Search'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680370248"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search%27"><span class="hs-identifier hs-type">Search'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680370257"><span class="annot"><span class="annottext">Maybe Text
 sortBy :: Maybe Text
 $sel:sortBy:Search' :: Search -&gt; Maybe Text
-</span><a href="#local-6989586621680370248"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680370248"><span class="hs-identifier hs-var">sortBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680370247"><span class="annot"><span class="annottext">s :: Search
-</span><a href="#local-6989586621680370247"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search%27"><span class="hs-identifier hs-type">Search'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680370246"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680370246"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Search
-</span><a href="#local-6989586621680370247"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortBy:Search' :: Maybe Text
+</span><a href="#local-6989586621680370257"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680370257"><span class="hs-identifier hs-var">sortBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680370256"><span class="annot"><span class="annottext">s :: Search
+</span><a href="#local-6989586621680370256"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search%27"><span class="hs-identifier hs-type">Search'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680370255"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680370255"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Search
+</span><a href="#local-6989586621680370256"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortBy:Search' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Search.html#%24sel%3AsortBy%3ASearch%27"><span class="hs-identifier hs-var">sortBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680370246"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search"><span class="hs-identifier hs-type">Search</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680370255"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search"><span class="hs-identifier hs-type">Search</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- | The name of the Amazon SageMaker resource to search for.</span><span>
 </span><span id="line-161"></span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#search_resource"><span class="hs-identifier hs-type">search_resource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search"><span class="hs-identifier hs-type">Search</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceType.html#ResourceType"><span class="hs-identifier hs-type">ResourceType</span></a></span><span>
@@ -319,28 +319,28 @@ $sel:sortBy:Search' :: Search -&gt; Maybe Text
 -&gt; (Search -&gt; ResourceType -&gt; Search)
 -&gt; Lens Search Search ResourceType ResourceType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search%27"><span class="hs-identifier hs-type">Search'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680370245"><span class="annot"><span class="annottext">ResourceType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search%27"><span class="hs-identifier hs-type">Search'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680370254"><span class="annot"><span class="annottext">ResourceType
 resource :: ResourceType
 $sel:resource:Search' :: Search -&gt; ResourceType
-</span><a href="#local-6989586621680370245"><span class="hs-identifier hs-var hs-var">resource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceType
-</span><a href="#local-6989586621680370245"><span class="hs-identifier hs-var">resource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680370244"><span class="annot"><span class="annottext">s :: Search
-</span><a href="#local-6989586621680370244"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search%27"><span class="hs-identifier hs-type">Search'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680370243"><span class="annot"><span class="annottext">ResourceType
-</span><a href="#local-6989586621680370243"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Search
-</span><a href="#local-6989586621680370244"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resource:Search' :: ResourceType
+</span><a href="#local-6989586621680370254"><span class="hs-identifier hs-var hs-var">resource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceType
+</span><a href="#local-6989586621680370254"><span class="hs-identifier hs-var">resource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680370253"><span class="annot"><span class="annottext">s :: Search
+</span><a href="#local-6989586621680370253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search%27"><span class="hs-identifier hs-type">Search'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680370252"><span class="annot"><span class="annottext">ResourceType
+</span><a href="#local-6989586621680370252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Search
+</span><a href="#local-6989586621680370253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resource:Search' :: ResourceType
 </span><a href="Network.AWS.SageMaker.Search.html#%24sel%3Aresource%3ASearch%27"><span class="hs-identifier hs-var">resource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceType
-</span><a href="#local-6989586621680370243"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search"><span class="hs-identifier hs-type">Search</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680370252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search"><span class="hs-identifier hs-type">Search</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search"><span class="hs-identifier hs-type">Search</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621680370239"><span class="annot"><span class="annottext">page :: Search -&gt; AWSResponse Search -&gt; Maybe Search
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621680370237"><span class="annot"><span class="annottext">Search
-</span><a href="#local-6989586621680370237"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621680370236"><span class="annot"><span class="annottext">AWSResponse Search
-</span><a href="#local-6989586621680370236"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621680370248"><span class="annot"><span class="annottext">page :: Search -&gt; AWSResponse Search -&gt; Maybe Search
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621680370246"><span class="annot"><span class="annottext">Search
+</span><a href="#local-6989586621680370246"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621680370245"><span class="annot"><span class="annottext">AWSResponse Search
+</span><a href="#local-6989586621680370245"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-166"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-167"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse Search
 SearchResponse
-</span><a href="#local-6989586621680370236"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621680370245"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">SearchResponse
 -&gt; Getting (First Text) SearchResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -366,7 +366,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-172"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse Search
 SearchResponse
-</span><a href="#local-6989586621680370236"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621680370245"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">SearchResponse
 -&gt; Getting (First [SearchRecord]) SearchResponse [SearchRecord]
 -&gt; Maybe [SearchRecord]
@@ -400,7 +400,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">Search
-</span><a href="#local-6989586621680370237"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621680370246"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-179"></span><span>          </span><span class="annot"><span class="annottext">Search -&gt; (Search -&gt; Search) -&gt; Search
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text)) -&gt; Search -&gt; Identity Search
@@ -412,7 +412,7 @@ Lens Search Search (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse Search
 SearchResponse
-</span><a href="#local-6989586621680370236"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621680370245"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-181"></span><span>          </span><span class="annot"><span class="annottext">SearchResponse
 -&gt; Getting (First Text) SearchResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -432,12 +432,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search"><span class="hs-identifier hs-type">Search</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-184"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search"><span class="hs-identifier hs-type">Search</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#SearchResponse"><span class="hs-identifier hs-type">SearchResponse</span></a></span><span>
-</span><span id="line-185"></span><span>  </span><span id="local-6989586621680370226"><span class="annot"><span class="annottext">request :: Search -&gt; Request Search
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621680370235"><span class="annot"><span class="annottext">request :: Search -&gt; Request Search
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; Search -&gt; Request Search
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-186"></span><span>  </span><span id="local-6989586621680370222"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621680370231"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy Search
 -&gt; ClientResponse ClientBody
@@ -459,10 +459,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-188"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680370219"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680370219"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680370218"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621680370218"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680370217"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680370217"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-188"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680370228"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680370228"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680370227"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680370227"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680370226"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680370226"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-189"></span><span>          </span><span class="annot"><span class="annottext">Maybe [SearchRecord] -&gt; Maybe Text -&gt; Int -&gt; SearchResponse
 </span><a href="Network.AWS.SageMaker.Search.html#SearchResponse%27"><span class="hs-identifier hs-var">SearchResponse'</span></a></span><span>
 </span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [SearchRecord] -&gt; Maybe Text -&gt; Int -&gt; SearchResponse)
@@ -470,7 +470,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; SearchResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680370217"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [SearchRecord]))
+</span><a href="#local-6989586621680370226"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [SearchRecord]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Results&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [SearchRecord]))
@@ -484,7 +484,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; SearchResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680370217"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621680370226"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -496,15 +496,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680370219"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680370228"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>
-</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680370208"><span id="local-6989586621680370210"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search"><span class="hs-identifier hs-type">Search</span></a></span></span></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680370217"><span id="local-6989586621680370219"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search"><span class="hs-identifier hs-type">Search</span></a></span></span></span><span>
 </span><span id="line-196"></span><span>
-</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680370205"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search"><span class="hs-identifier hs-type">Search</span></a></span></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680370214"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search"><span class="hs-identifier hs-type">Search</span></a></span></span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search"><span class="hs-identifier hs-type">Search</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-200"></span><span>  </span><span id="local-6989586621680370201"><span class="annot"><span class="annottext">toHeaders :: Search -&gt; ResponseHeaders
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621680370210"><span class="annot"><span class="annottext">toHeaders :: Search -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-201"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; Search -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -529,9 +529,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-209"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-210"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-211"></span><span>
-</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680370191"><span id="local-6989586621680370193"><span id="local-6989586621680370195"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search"><span class="hs-identifier hs-type">Search</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-213"></span><span>  </span><span id="local-6989586621680370189"><span class="annot"><span class="annottext">toJSON :: Search -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search%27"><span class="hs-identifier hs-type">Search'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680370182"><span id="local-6989586621680370183"><span id="local-6989586621680370184"><span id="local-6989586621680370185"><span id="local-6989586621680370186"><span id="local-6989586621680370187"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680370200"><span id="local-6989586621680370202"><span id="local-6989586621680370204"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search"><span class="hs-identifier hs-type">Search</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621680370198"><span class="annot"><span class="annottext">toJSON :: Search -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search%27"><span class="hs-identifier hs-type">Search'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680370191"><span id="local-6989586621680370192"><span id="local-6989586621680370193"><span id="local-6989586621680370194"><span id="local-6989586621680370195"><span id="local-6989586621680370196"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe SearchExpression
 Maybe SearchSortOrder
@@ -548,7 +548,7 @@ $sel:maxResults:Search' :: Search -&gt; Maybe Natural
 $sel:sortOrder:Search' :: Search -&gt; Maybe SearchSortOrder
 $sel:searchExpression:Search' :: Search -&gt; Maybe SearchExpression
 $sel:nextToken:Search' :: Search -&gt; Maybe Text
-</span><a href="#local-6989586621680370182"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680370191"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-214"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-215"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -560,7 +560,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680370187"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680370196"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-217"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SearchExpression&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SearchExpression -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -568,47 +568,47 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-218"></span><span>              </span><span class="annot"><span class="annottext">(SearchExpression -&gt; Pair) -&gt; Maybe SearchExpression -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SearchExpression
-</span><a href="#local-6989586621680370186"><span class="hs-identifier hs-var">searchExpression</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680370195"><span class="hs-identifier hs-var">searchExpression</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-219"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SortOrder&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SearchSortOrder -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SearchSortOrder -&gt; Pair) -&gt; Maybe SearchSortOrder -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SearchSortOrder
-</span><a href="#local-6989586621680370185"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680370194"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-220"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680370184"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680370193"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-221"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SortBy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680370183"><span class="hs-identifier hs-var">sortBy</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680370192"><span class="hs-identifier hs-var">sortBy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-222"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Resource&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ResourceType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ResourceType
-</span><a href="#local-6989586621680370182"><span class="hs-identifier hs-var">resource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680370191"><span class="hs-identifier hs-var">resource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-223"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-224"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-225"></span><span>
 </span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search"><span class="hs-identifier hs-type">Search</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-227"></span><span>  </span><span id="local-6989586621680370176"><span class="annot"><span class="annottext">toPath :: Search -&gt; ByteString
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621680370185"><span class="annot"><span class="annottext">toPath :: Search -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Search -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-228"></span><span>
 </span><span id="line-229"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#Search"><span class="hs-identifier hs-type">Search</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-230"></span><span>  </span><span id="local-6989586621680370172"><span class="annot"><span class="annottext">toQuery :: Search -&gt; QueryString
+</span><span id="line-230"></span><span>  </span><span id="local-6989586621680370181"><span class="annot"><span class="annottext">toQuery :: Search -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; Search -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -616,7 +616,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-231"></span><span>
 </span><span id="line-232"></span><span class="hs-comment">-- | /See:/ 'newSearchResponse' smart constructor.</span><span>
-</span><span id="line-233"></span><span id="local-6989586621680370169"><span id="local-6989586621680370170"></span></span><span class="hs-keyword">data</span><span> </span><span id="SearchResponse"><span class="annot"><a href="Network.AWS.SageMaker.Search.html#SearchResponse"><span class="hs-identifier hs-var">SearchResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SearchResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.Search.html#SearchResponse%27"><span class="hs-identifier hs-var">SearchResponse'</span></a></span></span><span>
+</span><span id="line-233"></span><span id="local-6989586621680370178"><span id="local-6989586621680370179"></span></span><span class="hs-keyword">data</span><span> </span><span id="SearchResponse"><span class="annot"><a href="Network.AWS.SageMaker.Search.html#SearchResponse"><span class="hs-identifier hs-var">SearchResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SearchResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.Search.html#SearchResponse%27"><span class="hs-identifier hs-var">SearchResponse'</span></a></span></span><span>
 </span><span id="line-234"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of @SearchRecord@ objects.</span><span>
 </span><span id="line-235"></span><span>    </span><span id="%24sel%3Aresults%3ASearchResponse%27"><span class="annot"><span class="annottext">SearchResponse -&gt; Maybe [SearchRecord]
 </span><a href="Network.AWS.SageMaker.Search.html#%24sel%3Aresults%3ASearchResponse%27"><span class="hs-identifier hs-var hs-var">results</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SearchRecord.html#SearchRecord"><span class="hs-identifier hs-type">SearchRecord</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -629,7 +629,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-241"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASearchResponse%27"><span class="annot"><span class="annottext">SearchResponse -&gt; Int
 </span><a href="Network.AWS.SageMaker.Search.html#%24sel%3AhttpStatus%3ASearchResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-242"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-243"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680370162"><span id="local-6989586621680370164"><span class="annot"><span class="annottext">SearchResponse -&gt; SearchResponse -&gt; Bool
+</span><span id="line-243"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680370171"><span id="local-6989586621680370173"><span class="annot"><span class="annottext">SearchResponse -&gt; SearchResponse -&gt; Bool
 (SearchResponse -&gt; SearchResponse -&gt; Bool)
 -&gt; (SearchResponse -&gt; SearchResponse -&gt; Bool) -&gt; Eq SearchResponse
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -637,7 +637,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SearchResponse -&gt; SearchResponse -&gt; Bool
 == :: SearchResponse -&gt; SearchResponse -&gt; Bool
 $c== :: SearchResponse -&gt; SearchResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680370154"><span id="local-6989586621680370156"><span id="local-6989586621680370158"><span id="local-6989586621680370160"><span class="annot"><span class="annottext">ReadPrec [SearchResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680370163"><span id="local-6989586621680370165"><span id="local-6989586621680370167"><span id="local-6989586621680370169"><span class="annot"><span class="annottext">ReadPrec [SearchResponse]
 ReadPrec SearchResponse
 Int -&gt; ReadS SearchResponse
 ReadS [SearchResponse]
@@ -657,7 +657,7 @@ readList :: ReadS [SearchResponse]
 $creadList :: ReadS [SearchResponse]
 readsPrec :: Int -&gt; ReadS SearchResponse
 $creadsPrec :: Int -&gt; ReadS SearchResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680370148"><span id="local-6989586621680370150"><span id="local-6989586621680370152"><span class="annot"><span class="annottext">Int -&gt; SearchResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680370157"><span id="local-6989586621680370159"><span id="local-6989586621680370161"><span class="annot"><span class="annottext">Int -&gt; SearchResponse -&gt; ShowS
 [SearchResponse] -&gt; ShowS
 SearchResponse -&gt; String
 (Int -&gt; SearchResponse -&gt; ShowS)
@@ -703,8 +703,8 @@ $cfrom :: forall x. SearchResponse -&gt; Rep SearchResponse x
 </span><span id="line-262"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-263"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#SearchResponse"><span class="hs-identifier hs-type">SearchResponse</span></a></span><span>
 </span><span id="line-264"></span><span id="newSearchResponse"><span class="annot"><span class="annottext">newSearchResponse :: Int -&gt; SearchResponse
-</span><a href="Network.AWS.SageMaker.Search.html#newSearchResponse"><span class="hs-identifier hs-var hs-var">newSearchResponse</span></a></span></span><span> </span><span id="local-6989586621680370145"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680370145"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.Search.html#newSearchResponse"><span class="hs-identifier hs-var hs-var">newSearchResponse</span></a></span></span><span> </span><span id="local-6989586621680370154"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680370154"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-265"></span><span>  </span><span class="annot"><span class="annottext">SearchResponse' :: Maybe [SearchRecord] -&gt; Maybe Text -&gt; Int -&gt; SearchResponse
 </span><a href="Network.AWS.SageMaker.Search.html#SearchResponse%27"><span class="hs-identifier hs-type">SearchResponse'</span></a></span><span>
 </span><span id="line-266"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:results:SearchResponse' :: Maybe [SearchRecord]
@@ -717,7 +717,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-268"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:SearchResponse' :: Int
 </span><a href="Network.AWS.SageMaker.Search.html#%24sel%3AhttpStatus%3ASearchResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680370145"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621680370154"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-269"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-270"></span><span>
 </span><span id="line-271"></span><span class="hs-comment">-- | A list of @SearchRecord@ objects.</span><span>
@@ -728,16 +728,16 @@ forall a. Maybe a
 -&gt; (SearchResponse -&gt; Maybe [SearchRecord] -&gt; SearchResponse)
 -&gt; Lens' SearchResponse (Maybe [SearchRecord])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#SearchResponse%27"><span class="hs-identifier hs-type">SearchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680370144"><span class="annot"><span class="annottext">Maybe [SearchRecord]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#SearchResponse%27"><span class="hs-identifier hs-type">SearchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680370153"><span class="annot"><span class="annottext">Maybe [SearchRecord]
 results :: Maybe [SearchRecord]
 $sel:results:SearchResponse' :: SearchResponse -&gt; Maybe [SearchRecord]
-</span><a href="#local-6989586621680370144"><span class="hs-identifier hs-var hs-var">results</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SearchRecord]
-</span><a href="#local-6989586621680370144"><span class="hs-identifier hs-var">results</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680370143"><span class="annot"><span class="annottext">s :: SearchResponse
-</span><a href="#local-6989586621680370143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#SearchResponse%27"><span class="hs-identifier hs-type">SearchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680370142"><span class="annot"><span class="annottext">Maybe [SearchRecord]
-</span><a href="#local-6989586621680370142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchResponse
-</span><a href="#local-6989586621680370143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:results:SearchResponse' :: Maybe [SearchRecord]
+</span><a href="#local-6989586621680370153"><span class="hs-identifier hs-var hs-var">results</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SearchRecord]
+</span><a href="#local-6989586621680370153"><span class="hs-identifier hs-var">results</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680370152"><span class="annot"><span class="annottext">s :: SearchResponse
+</span><a href="#local-6989586621680370152"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#SearchResponse%27"><span class="hs-identifier hs-type">SearchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680370151"><span class="annot"><span class="annottext">Maybe [SearchRecord]
+</span><a href="#local-6989586621680370151"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchResponse
+</span><a href="#local-6989586621680370152"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:results:SearchResponse' :: Maybe [SearchRecord]
 </span><a href="Network.AWS.SageMaker.Search.html#%24sel%3Aresults%3ASearchResponse%27"><span class="hs-identifier hs-var">results</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SearchRecord]
-</span><a href="#local-6989586621680370142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#SearchResponse"><span class="hs-identifier hs-type">SearchResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SearchRecord] -&gt; f (Maybe [SearchRecord]))
+</span><a href="#local-6989586621680370151"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#SearchResponse"><span class="hs-identifier hs-type">SearchResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SearchRecord] -&gt; f (Maybe [SearchRecord]))
  -&gt; SearchResponse -&gt; f SearchResponse)
 -&gt; ((Maybe [SearchRecord] -&gt; f (Maybe [SearchRecord]))
     -&gt; Maybe [SearchRecord] -&gt; f (Maybe [SearchRecord]))
@@ -768,16 +768,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (SearchResponse -&gt; Maybe Text -&gt; SearchResponse)
 -&gt; Lens' SearchResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#SearchResponse%27"><span class="hs-identifier hs-type">SearchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680370139"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#SearchResponse%27"><span class="hs-identifier hs-type">SearchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680370148"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:SearchResponse' :: SearchResponse -&gt; Maybe Text
-</span><a href="#local-6989586621680370139"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680370139"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680370138"><span class="annot"><span class="annottext">s :: SearchResponse
-</span><a href="#local-6989586621680370138"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#SearchResponse%27"><span class="hs-identifier hs-type">SearchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680370137"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680370137"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchResponse
-</span><a href="#local-6989586621680370138"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:SearchResponse' :: Maybe Text
+</span><a href="#local-6989586621680370148"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680370148"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680370147"><span class="annot"><span class="annottext">s :: SearchResponse
+</span><a href="#local-6989586621680370147"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#SearchResponse%27"><span class="hs-identifier hs-type">SearchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680370146"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680370146"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchResponse
+</span><a href="#local-6989586621680370147"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:SearchResponse' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Search.html#%24sel%3AnextToken%3ASearchResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680370137"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#SearchResponse"><span class="hs-identifier hs-type">SearchResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680370146"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#SearchResponse"><span class="hs-identifier hs-type">SearchResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-280"></span><span>
 </span><span id="line-281"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-282"></span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#searchResponse_httpStatus"><span class="hs-identifier hs-type">searchResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#SearchResponse"><span class="hs-identifier hs-type">SearchResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -786,16 +786,16 @@ $sel:nextToken:SearchResponse' :: SearchResponse -&gt; Maybe Text
 -&gt; (SearchResponse -&gt; Int -&gt; SearchResponse)
 -&gt; Lens SearchResponse SearchResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#SearchResponse%27"><span class="hs-identifier hs-type">SearchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680370136"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#SearchResponse%27"><span class="hs-identifier hs-type">SearchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680370145"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:SearchResponse' :: SearchResponse -&gt; Int
-</span><a href="#local-6989586621680370136"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680370136"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680370135"><span class="annot"><span class="annottext">s :: SearchResponse
-</span><a href="#local-6989586621680370135"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#SearchResponse%27"><span class="hs-identifier hs-type">SearchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680370134"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680370134"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchResponse
-</span><a href="#local-6989586621680370135"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SearchResponse' :: Int
+</span><a href="#local-6989586621680370145"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680370145"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680370144"><span class="annot"><span class="annottext">s :: SearchResponse
+</span><a href="#local-6989586621680370144"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#SearchResponse%27"><span class="hs-identifier hs-type">SearchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680370143"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680370143"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchResponse
+</span><a href="#local-6989586621680370144"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SearchResponse' :: Int
 </span><a href="Network.AWS.SageMaker.Search.html#%24sel%3AhttpStatus%3ASearchResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680370134"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#SearchResponse"><span class="hs-identifier hs-type">SearchResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680370143"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#SearchResponse"><span class="hs-identifier hs-type">SearchResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-284"></span><span>
-</span><span id="line-285"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680370132"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#SearchResponse"><span class="hs-identifier hs-type">SearchResponse</span></a></span></span><span>
+</span><span id="line-285"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680370141"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Search.html#SearchResponse"><span class="hs-identifier hs-type">SearchResponse</span></a></span></span><span>
 </span><span id="line-286"></span></pre></body></html>

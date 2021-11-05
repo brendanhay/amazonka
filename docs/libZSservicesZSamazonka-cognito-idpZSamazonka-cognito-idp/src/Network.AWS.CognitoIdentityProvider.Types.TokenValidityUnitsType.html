@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- measurements for token validity.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newTokenValidityUnitsType' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679435263"><span id="local-6989586621679435264"></span></span><span class="hs-keyword">data</span><span> </span><span id="TokenValidityUnitsType"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.TokenValidityUnitsType.html#TokenValidityUnitsType"><span class="hs-identifier hs-var">TokenValidityUnitsType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TokenValidityUnitsType%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.TokenValidityUnitsType.html#TokenValidityUnitsType%27"><span class="hs-identifier hs-var">TokenValidityUnitsType'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679435272"><span id="local-6989586621679435273"></span></span><span class="hs-keyword">data</span><span> </span><span id="TokenValidityUnitsType"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.TokenValidityUnitsType.html#TokenValidityUnitsType"><span class="hs-identifier hs-var">TokenValidityUnitsType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TokenValidityUnitsType%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.TokenValidityUnitsType.html#TokenValidityUnitsType%27"><span class="hs-identifier hs-var">TokenValidityUnitsType'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A time unit in &#8220;seconds&#8221;, &#8220;minutes&#8221;, &#8220;hours&#8221; or &#8220;days&#8221; for the value in</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- AccessTokenValidity, defaults to hours.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AaccessToken%3ATokenValidityUnitsType%27"><span class="annot"><span class="annottext">TokenValidityUnitsType -&gt; Maybe TimeUnitsType
@@ -42,7 +42,7 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3AidToken%3ATokenValidityUnitsType%27"><span class="annot"><span class="annottext">TokenValidityUnitsType -&gt; Maybe TimeUnitsType
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.TokenValidityUnitsType.html#%24sel%3AidToken%3ATokenValidityUnitsType%27"><span class="hs-identifier hs-var hs-var">idToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.TimeUnitsType.html#TimeUnitsType"><span class="hs-identifier hs-type">TimeUnitsType</span></a></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679435255"><span id="local-6989586621679435257"><span class="annot"><span class="annottext">TokenValidityUnitsType -&gt; TokenValidityUnitsType -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679435264"><span id="local-6989586621679435266"><span class="annot"><span class="annottext">TokenValidityUnitsType -&gt; TokenValidityUnitsType -&gt; Bool
 (TokenValidityUnitsType -&gt; TokenValidityUnitsType -&gt; Bool)
 -&gt; (TokenValidityUnitsType -&gt; TokenValidityUnitsType -&gt; Bool)
 -&gt; Eq TokenValidityUnitsType
@@ -51,7 +51,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TokenValidityUnitsType -&gt; TokenValidityUnitsType -&gt; Bool
 == :: TokenValidityUnitsType -&gt; TokenValidityUnitsType -&gt; Bool
 $c== :: TokenValidityUnitsType -&gt; TokenValidityUnitsType -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679435246"><span id="local-6989586621679435248"><span id="local-6989586621679435250"><span id="local-6989586621679435252"><span class="annot"><span class="annottext">ReadPrec [TokenValidityUnitsType]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679435255"><span id="local-6989586621679435257"><span id="local-6989586621679435259"><span id="local-6989586621679435261"><span class="annot"><span class="annottext">ReadPrec [TokenValidityUnitsType]
 ReadPrec TokenValidityUnitsType
 Int -&gt; ReadS TokenValidityUnitsType
 ReadS [TokenValidityUnitsType]
@@ -71,7 +71,7 @@ readList :: ReadS [TokenValidityUnitsType]
 $creadList :: ReadS [TokenValidityUnitsType]
 readsPrec :: Int -&gt; ReadS TokenValidityUnitsType
 $creadsPrec :: Int -&gt; ReadS TokenValidityUnitsType
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679435239"><span id="local-6989586621679435241"><span id="local-6989586621679435243"><span class="annot"><span class="annottext">Int -&gt; TokenValidityUnitsType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679435248"><span id="local-6989586621679435250"><span id="local-6989586621679435252"><span class="annot"><span class="annottext">Int -&gt; TokenValidityUnitsType -&gt; ShowS
 [TokenValidityUnitsType] -&gt; ShowS
 TokenValidityUnitsType -&gt; String
 (Int -&gt; TokenValidityUnitsType -&gt; ShowS)
@@ -152,16 +152,16 @@ forall a. Maybe a
      (Maybe TimeUnitsType)
      (Maybe TimeUnitsType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.TokenValidityUnitsType.html#TokenValidityUnitsType%27"><span class="hs-identifier hs-type">TokenValidityUnitsType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435230"><span class="annot"><span class="annottext">Maybe TimeUnitsType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.TokenValidityUnitsType.html#TokenValidityUnitsType%27"><span class="hs-identifier hs-type">TokenValidityUnitsType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435239"><span class="annot"><span class="annottext">Maybe TimeUnitsType
 accessToken :: Maybe TimeUnitsType
 $sel:accessToken:TokenValidityUnitsType' :: TokenValidityUnitsType -&gt; Maybe TimeUnitsType
-</span><a href="#local-6989586621679435230"><span class="hs-identifier hs-var hs-var">accessToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimeUnitsType
-</span><a href="#local-6989586621679435230"><span class="hs-identifier hs-var">accessToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679435229"><span class="annot"><span class="annottext">s :: TokenValidityUnitsType
-</span><a href="#local-6989586621679435229"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.TokenValidityUnitsType.html#TokenValidityUnitsType%27"><span class="hs-identifier hs-type">TokenValidityUnitsType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679435228"><span class="annot"><span class="annottext">Maybe TimeUnitsType
-</span><a href="#local-6989586621679435228"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TokenValidityUnitsType
-</span><a href="#local-6989586621679435229"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessToken:TokenValidityUnitsType' :: Maybe TimeUnitsType
+</span><a href="#local-6989586621679435239"><span class="hs-identifier hs-var hs-var">accessToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimeUnitsType
+</span><a href="#local-6989586621679435239"><span class="hs-identifier hs-var">accessToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679435238"><span class="annot"><span class="annottext">s :: TokenValidityUnitsType
+</span><a href="#local-6989586621679435238"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.TokenValidityUnitsType.html#TokenValidityUnitsType%27"><span class="hs-identifier hs-type">TokenValidityUnitsType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679435237"><span class="annot"><span class="annottext">Maybe TimeUnitsType
+</span><a href="#local-6989586621679435237"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TokenValidityUnitsType
+</span><a href="#local-6989586621679435238"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessToken:TokenValidityUnitsType' :: Maybe TimeUnitsType
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.TokenValidityUnitsType.html#%24sel%3AaccessToken%3ATokenValidityUnitsType%27"><span class="hs-identifier hs-var">accessToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TimeUnitsType
-</span><a href="#local-6989586621679435228"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.TokenValidityUnitsType.html#TokenValidityUnitsType"><span class="hs-identifier hs-type">TokenValidityUnitsType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679435237"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.TokenValidityUnitsType.html#TokenValidityUnitsType"><span class="hs-identifier hs-type">TokenValidityUnitsType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | A time unit in &#8220;seconds&#8221;, &#8220;minutes&#8221;, &#8220;hours&#8221; or &#8220;days&#8221; for the value in</span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- RefreshTokenValidity, defaults to days.</span><span>
@@ -177,16 +177,16 @@ $sel:accessToken:TokenValidityUnitsType' :: TokenValidityUnitsType -&gt; Maybe T
      (Maybe TimeUnitsType)
      (Maybe TimeUnitsType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.TokenValidityUnitsType.html#TokenValidityUnitsType%27"><span class="hs-identifier hs-type">TokenValidityUnitsType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435226"><span class="annot"><span class="annottext">Maybe TimeUnitsType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.TokenValidityUnitsType.html#TokenValidityUnitsType%27"><span class="hs-identifier hs-type">TokenValidityUnitsType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435235"><span class="annot"><span class="annottext">Maybe TimeUnitsType
 refreshToken :: Maybe TimeUnitsType
 $sel:refreshToken:TokenValidityUnitsType' :: TokenValidityUnitsType -&gt; Maybe TimeUnitsType
-</span><a href="#local-6989586621679435226"><span class="hs-identifier hs-var hs-var">refreshToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimeUnitsType
-</span><a href="#local-6989586621679435226"><span class="hs-identifier hs-var">refreshToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679435225"><span class="annot"><span class="annottext">s :: TokenValidityUnitsType
-</span><a href="#local-6989586621679435225"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.TokenValidityUnitsType.html#TokenValidityUnitsType%27"><span class="hs-identifier hs-type">TokenValidityUnitsType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679435224"><span class="annot"><span class="annottext">Maybe TimeUnitsType
-</span><a href="#local-6989586621679435224"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TokenValidityUnitsType
-</span><a href="#local-6989586621679435225"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:refreshToken:TokenValidityUnitsType' :: Maybe TimeUnitsType
+</span><a href="#local-6989586621679435235"><span class="hs-identifier hs-var hs-var">refreshToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimeUnitsType
+</span><a href="#local-6989586621679435235"><span class="hs-identifier hs-var">refreshToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679435234"><span class="annot"><span class="annottext">s :: TokenValidityUnitsType
+</span><a href="#local-6989586621679435234"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.TokenValidityUnitsType.html#TokenValidityUnitsType%27"><span class="hs-identifier hs-type">TokenValidityUnitsType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679435233"><span class="annot"><span class="annottext">Maybe TimeUnitsType
+</span><a href="#local-6989586621679435233"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TokenValidityUnitsType
+</span><a href="#local-6989586621679435234"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:refreshToken:TokenValidityUnitsType' :: Maybe TimeUnitsType
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.TokenValidityUnitsType.html#%24sel%3ArefreshToken%3ATokenValidityUnitsType%27"><span class="hs-identifier hs-var">refreshToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TimeUnitsType
-</span><a href="#local-6989586621679435224"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.TokenValidityUnitsType.html#TokenValidityUnitsType"><span class="hs-identifier hs-type">TokenValidityUnitsType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679435233"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.TokenValidityUnitsType.html#TokenValidityUnitsType"><span class="hs-identifier hs-type">TokenValidityUnitsType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | A time unit in &#8220;seconds&#8221;, &#8220;minutes&#8221;, &#8220;hours&#8221; or &#8220;days&#8221; for the value in</span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- IdTokenValidity, defaults to hours.</span><span>
@@ -202,19 +202,19 @@ $sel:refreshToken:TokenValidityUnitsType' :: TokenValidityUnitsType -&gt; Maybe 
      (Maybe TimeUnitsType)
      (Maybe TimeUnitsType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.TokenValidityUnitsType.html#TokenValidityUnitsType%27"><span class="hs-identifier hs-type">TokenValidityUnitsType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435222"><span class="annot"><span class="annottext">Maybe TimeUnitsType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.TokenValidityUnitsType.html#TokenValidityUnitsType%27"><span class="hs-identifier hs-type">TokenValidityUnitsType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435231"><span class="annot"><span class="annottext">Maybe TimeUnitsType
 idToken :: Maybe TimeUnitsType
 $sel:idToken:TokenValidityUnitsType' :: TokenValidityUnitsType -&gt; Maybe TimeUnitsType
-</span><a href="#local-6989586621679435222"><span class="hs-identifier hs-var hs-var">idToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimeUnitsType
-</span><a href="#local-6989586621679435222"><span class="hs-identifier hs-var">idToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679435221"><span class="annot"><span class="annottext">s :: TokenValidityUnitsType
-</span><a href="#local-6989586621679435221"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.TokenValidityUnitsType.html#TokenValidityUnitsType%27"><span class="hs-identifier hs-type">TokenValidityUnitsType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679435220"><span class="annot"><span class="annottext">Maybe TimeUnitsType
-</span><a href="#local-6989586621679435220"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TokenValidityUnitsType
-</span><a href="#local-6989586621679435221"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:idToken:TokenValidityUnitsType' :: Maybe TimeUnitsType
+</span><a href="#local-6989586621679435231"><span class="hs-identifier hs-var hs-var">idToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimeUnitsType
+</span><a href="#local-6989586621679435231"><span class="hs-identifier hs-var">idToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679435230"><span class="annot"><span class="annottext">s :: TokenValidityUnitsType
+</span><a href="#local-6989586621679435230"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.TokenValidityUnitsType.html#TokenValidityUnitsType%27"><span class="hs-identifier hs-type">TokenValidityUnitsType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679435229"><span class="annot"><span class="annottext">Maybe TimeUnitsType
+</span><a href="#local-6989586621679435229"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TokenValidityUnitsType
+</span><a href="#local-6989586621679435230"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:idToken:TokenValidityUnitsType' :: Maybe TimeUnitsType
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.TokenValidityUnitsType.html#%24sel%3AidToken%3ATokenValidityUnitsType%27"><span class="hs-identifier hs-var">idToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TimeUnitsType
-</span><a href="#local-6989586621679435220"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.TokenValidityUnitsType.html#TokenValidityUnitsType"><span class="hs-identifier hs-type">TokenValidityUnitsType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679435229"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.TokenValidityUnitsType.html#TokenValidityUnitsType"><span class="hs-identifier hs-type">TokenValidityUnitsType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679435217"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.TokenValidityUnitsType.html#TokenValidityUnitsType"><span class="hs-identifier hs-type">TokenValidityUnitsType</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679435215"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TokenValidityUnitsType
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679435226"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.TokenValidityUnitsType.html#TokenValidityUnitsType"><span class="hs-identifier hs-type">TokenValidityUnitsType</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679435224"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TokenValidityUnitsType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TokenValidityUnitsType)
@@ -224,8 +224,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TokenValidityUnitsType&quot;</span></span><span>
-</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679435212"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679435212"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679435221"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679435221"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe TimeUnitsType
 -&gt; Maybe TimeUnitsType
 -&gt; Maybe TimeUnitsType
@@ -241,7 +241,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe TimeUnitsType -&gt; TokenValidityUnitsType)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679435212"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TimeUnitsType)
+</span><a href="#local-6989586621679435221"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TimeUnitsType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AccessToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -252,7 +252,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe TimeUnitsType -&gt; TokenValidityUnitsType)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679435212"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TimeUnitsType)
+</span><a href="#local-6989586621679435221"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TimeUnitsType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RefreshToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -260,26 +260,26 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe TimeUnitsType) -&gt; Parser TokenValidityUnitsType
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679435212"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TimeUnitsType)
+</span><a href="#local-6989586621679435221"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TimeUnitsType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IdToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679435206"><span id="local-6989586621679435208"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.TokenValidityUnitsType.html#TokenValidityUnitsType"><span class="hs-identifier hs-type">TokenValidityUnitsType</span></a></span></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679435215"><span id="local-6989586621679435217"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.TokenValidityUnitsType.html#TokenValidityUnitsType"><span class="hs-identifier hs-type">TokenValidityUnitsType</span></a></span></span></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679435203"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.TokenValidityUnitsType.html#TokenValidityUnitsType"><span class="hs-identifier hs-type">TokenValidityUnitsType</span></a></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679435212"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.TokenValidityUnitsType.html#TokenValidityUnitsType"><span class="hs-identifier hs-type">TokenValidityUnitsType</span></a></span></span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679435195"><span id="local-6989586621679435197"><span id="local-6989586621679435199"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.TokenValidityUnitsType.html#TokenValidityUnitsType"><span class="hs-identifier hs-type">TokenValidityUnitsType</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679435193"><span class="annot"><span class="annottext">toJSON :: TokenValidityUnitsType -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.TokenValidityUnitsType.html#TokenValidityUnitsType%27"><span class="hs-identifier hs-type">TokenValidityUnitsType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435189"><span id="local-6989586621679435190"><span id="local-6989586621679435191"><span class="annot"><span class="annottext">Maybe TimeUnitsType
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679435204"><span id="local-6989586621679435206"><span id="local-6989586621679435208"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.TokenValidityUnitsType.html#TokenValidityUnitsType"><span class="hs-identifier hs-type">TokenValidityUnitsType</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679435202"><span class="annot"><span class="annottext">toJSON :: TokenValidityUnitsType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.TokenValidityUnitsType.html#TokenValidityUnitsType%27"><span class="hs-identifier hs-type">TokenValidityUnitsType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435198"><span id="local-6989586621679435199"><span id="local-6989586621679435200"><span class="annot"><span class="annottext">Maybe TimeUnitsType
 idToken :: Maybe TimeUnitsType
 refreshToken :: Maybe TimeUnitsType
 accessToken :: Maybe TimeUnitsType
 $sel:idToken:TokenValidityUnitsType' :: TokenValidityUnitsType -&gt; Maybe TimeUnitsType
 $sel:refreshToken:TokenValidityUnitsType' :: TokenValidityUnitsType -&gt; Maybe TimeUnitsType
 $sel:accessToken:TokenValidityUnitsType' :: TokenValidityUnitsType -&gt; Maybe TimeUnitsType
-</span><a href="#local-6989586621679435189"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679435198"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -291,21 +291,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(TimeUnitsType -&gt; Pair) -&gt; Maybe TimeUnitsType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TimeUnitsType
-</span><a href="#local-6989586621679435191"><span class="hs-identifier hs-var">accessToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679435200"><span class="hs-identifier hs-var">accessToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RefreshToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TimeUnitsType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(TimeUnitsType -&gt; Pair) -&gt; Maybe TimeUnitsType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TimeUnitsType
-</span><a href="#local-6989586621679435190"><span class="hs-identifier hs-var">refreshToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679435199"><span class="hs-identifier hs-var">refreshToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-106"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IdToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TimeUnitsType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(TimeUnitsType -&gt; Pair) -&gt; Maybe TimeUnitsType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TimeUnitsType
-</span><a href="#local-6989586621679435189"><span class="hs-identifier hs-var">idToken</span></a></span><span>
+</span><a href="#local-6989586621679435198"><span class="hs-identifier hs-var">idToken</span></a></span><span>
 </span><span id="line-107"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span></pre></body></html>

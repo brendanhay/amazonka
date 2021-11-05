@@ -49,12 +49,12 @@
 </span><span id="line-49"></span><span class="hs-comment">-- following data, in JSON format.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- /See:/ 'newDeleteDeliveryChannel' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679431461"><span id="local-6989586621679431462"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDeliveryChannel"><span class="annot"><a href="Network.AWS.Config.DeleteDeliveryChannel.html#DeleteDeliveryChannel"><span class="hs-identifier hs-var">DeleteDeliveryChannel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDeliveryChannel%27"><span class="annot"><a href="Network.AWS.Config.DeleteDeliveryChannel.html#DeleteDeliveryChannel%27"><span class="hs-identifier hs-var">DeleteDeliveryChannel'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679431470"><span id="local-6989586621679431471"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDeliveryChannel"><span class="annot"><a href="Network.AWS.Config.DeleteDeliveryChannel.html#DeleteDeliveryChannel"><span class="hs-identifier hs-var">DeleteDeliveryChannel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDeliveryChannel%27"><span class="annot"><a href="Network.AWS.Config.DeleteDeliveryChannel.html#DeleteDeliveryChannel%27"><span class="hs-identifier hs-var">DeleteDeliveryChannel'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the delivery channel to delete.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AdeliveryChannelName%3ADeleteDeliveryChannel%27"><span class="annot"><span class="annottext">DeleteDeliveryChannel -&gt; Text
 </span><a href="Network.AWS.Config.DeleteDeliveryChannel.html#%24sel%3AdeliveryChannelName%3ADeleteDeliveryChannel%27"><span class="hs-identifier hs-var hs-var">deliveryChannelName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679431455"><span id="local-6989586621679431457"><span class="annot"><span class="annottext">DeleteDeliveryChannel -&gt; DeleteDeliveryChannel -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679431464"><span id="local-6989586621679431466"><span class="annot"><span class="annottext">DeleteDeliveryChannel -&gt; DeleteDeliveryChannel -&gt; Bool
 (DeleteDeliveryChannel -&gt; DeleteDeliveryChannel -&gt; Bool)
 -&gt; (DeleteDeliveryChannel -&gt; DeleteDeliveryChannel -&gt; Bool)
 -&gt; Eq DeleteDeliveryChannel
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteDeliveryChannel -&gt; DeleteDeliveryChannel -&gt; Bool
 == :: DeleteDeliveryChannel -&gt; DeleteDeliveryChannel -&gt; Bool
 $c== :: DeleteDeliveryChannel -&gt; DeleteDeliveryChannel -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679431446"><span id="local-6989586621679431448"><span id="local-6989586621679431450"><span id="local-6989586621679431452"><span class="annot"><span class="annottext">ReadPrec [DeleteDeliveryChannel]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679431455"><span id="local-6989586621679431457"><span id="local-6989586621679431459"><span id="local-6989586621679431461"><span class="annot"><span class="annottext">ReadPrec [DeleteDeliveryChannel]
 ReadPrec DeleteDeliveryChannel
 Int -&gt; ReadS DeleteDeliveryChannel
 ReadS [DeleteDeliveryChannel]
@@ -83,7 +83,7 @@ readList :: ReadS [DeleteDeliveryChannel]
 $creadList :: ReadS [DeleteDeliveryChannel]
 readsPrec :: Int -&gt; ReadS DeleteDeliveryChannel
 $creadsPrec :: Int -&gt; ReadS DeleteDeliveryChannel
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679431439"><span id="local-6989586621679431441"><span id="local-6989586621679431443"><span class="annot"><span class="annottext">Int -&gt; DeleteDeliveryChannel -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679431448"><span id="local-6989586621679431450"><span id="local-6989586621679431452"><span class="annot"><span class="annottext">Int -&gt; DeleteDeliveryChannel -&gt; ShowS
 [DeleteDeliveryChannel] -&gt; ShowS
 DeleteDeliveryChannel -&gt; String
 (Int -&gt; DeleteDeliveryChannel -&gt; ShowS)
@@ -123,14 +123,14 @@ $cfrom :: forall x. DeleteDeliveryChannel -&gt; Rep DeleteDeliveryChannel x
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.DeleteDeliveryChannel.html#DeleteDeliveryChannel"><span class="hs-identifier hs-type">DeleteDeliveryChannel</span></a></span><span>
 </span><span id="line-71"></span><span id="newDeleteDeliveryChannel"><span class="annot"><span class="annottext">newDeleteDeliveryChannel :: Text -&gt; DeleteDeliveryChannel
-</span><a href="Network.AWS.Config.DeleteDeliveryChannel.html#newDeleteDeliveryChannel"><span class="hs-identifier hs-var hs-var">newDeleteDeliveryChannel</span></a></span></span><span> </span><span id="local-6989586621679431434"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679431434"><span class="hs-identifier hs-var">pDeliveryChannelName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Config.DeleteDeliveryChannel.html#newDeleteDeliveryChannel"><span class="hs-identifier hs-var hs-var">newDeleteDeliveryChannel</span></a></span></span><span> </span><span id="local-6989586621679431443"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679431443"><span class="hs-identifier hs-var">pDeliveryChannelName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">DeleteDeliveryChannel' :: Text -&gt; DeleteDeliveryChannel
 </span><a href="Network.AWS.Config.DeleteDeliveryChannel.html#DeleteDeliveryChannel%27"><span class="hs-identifier hs-type">DeleteDeliveryChannel'</span></a></span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deliveryChannelName:DeleteDeliveryChannel' :: Text
 </span><a href="Network.AWS.Config.DeleteDeliveryChannel.html#%24sel%3AdeliveryChannelName%3ADeleteDeliveryChannel%27"><span class="hs-identifier hs-var">deliveryChannelName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679431434"><span class="hs-identifier hs-var">pDeliveryChannelName_</span></a></span><span>
+</span><a href="#local-6989586621679431443"><span class="hs-identifier hs-var">pDeliveryChannelName_</span></a></span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | The name of the delivery channel to delete.</span><span>
@@ -141,27 +141,27 @@ $cfrom :: forall x. DeleteDeliveryChannel -&gt; Rep DeleteDeliveryChannel x
 -&gt; (DeleteDeliveryChannel -&gt; Text -&gt; DeleteDeliveryChannel)
 -&gt; Lens DeleteDeliveryChannel DeleteDeliveryChannel Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DeleteDeliveryChannel.html#DeleteDeliveryChannel%27"><span class="hs-identifier hs-type">DeleteDeliveryChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431431"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DeleteDeliveryChannel.html#DeleteDeliveryChannel%27"><span class="hs-identifier hs-type">DeleteDeliveryChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431440"><span class="annot"><span class="annottext">Text
 deliveryChannelName :: Text
 $sel:deliveryChannelName:DeleteDeliveryChannel' :: DeleteDeliveryChannel -&gt; Text
-</span><a href="#local-6989586621679431431"><span class="hs-identifier hs-var hs-var">deliveryChannelName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679431431"><span class="hs-identifier hs-var">deliveryChannelName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431430"><span class="annot"><span class="annottext">s :: DeleteDeliveryChannel
-</span><a href="#local-6989586621679431430"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DeleteDeliveryChannel.html#DeleteDeliveryChannel%27"><span class="hs-identifier hs-type">DeleteDeliveryChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431429"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679431429"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDeliveryChannel
-</span><a href="#local-6989586621679431430"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deliveryChannelName:DeleteDeliveryChannel' :: Text
+</span><a href="#local-6989586621679431440"><span class="hs-identifier hs-var hs-var">deliveryChannelName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679431440"><span class="hs-identifier hs-var">deliveryChannelName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431439"><span class="annot"><span class="annottext">s :: DeleteDeliveryChannel
+</span><a href="#local-6989586621679431439"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DeleteDeliveryChannel.html#DeleteDeliveryChannel%27"><span class="hs-identifier hs-type">DeleteDeliveryChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431438"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679431438"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDeliveryChannel
+</span><a href="#local-6989586621679431439"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deliveryChannelName:DeleteDeliveryChannel' :: Text
 </span><a href="Network.AWS.Config.DeleteDeliveryChannel.html#%24sel%3AdeliveryChannelName%3ADeleteDeliveryChannel%27"><span class="hs-identifier hs-var">deliveryChannelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679431429"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DeleteDeliveryChannel.html#DeleteDeliveryChannel"><span class="hs-identifier hs-type">DeleteDeliveryChannel</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679431438"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DeleteDeliveryChannel.html#DeleteDeliveryChannel"><span class="hs-identifier hs-type">DeleteDeliveryChannel</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DeleteDeliveryChannel.html#DeleteDeliveryChannel"><span class="hs-identifier hs-type">DeleteDeliveryChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-82"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-83"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DeleteDeliveryChannel.html#DeleteDeliveryChannel"><span class="hs-identifier hs-type">DeleteDeliveryChannel</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><a href="Network.AWS.Config.DeleteDeliveryChannel.html#DeleteDeliveryChannelResponse"><span class="hs-identifier hs-type">DeleteDeliveryChannelResponse</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679431425"><span class="annot"><span class="annottext">request :: DeleteDeliveryChannel -&gt; Request DeleteDeliveryChannel
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679431434"><span class="annot"><span class="annottext">request :: DeleteDeliveryChannel -&gt; Request DeleteDeliveryChannel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteDeliveryChannel -&gt; Request DeleteDeliveryChannel
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Config.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679431421"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679431430"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteDeliveryChannel
 -&gt; ClientResponse ClientBody
@@ -187,12 +187,12 @@ AWSResponse a
 DeleteDeliveryChannelResponse
 </span><a href="Network.AWS.Config.DeleteDeliveryChannel.html#DeleteDeliveryChannelResponse%27"><span class="hs-identifier hs-var">DeleteDeliveryChannelResponse'</span></a></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679431414"><span id="local-6989586621679431416"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DeleteDeliveryChannel.html#DeleteDeliveryChannel"><span class="hs-identifier hs-type">DeleteDeliveryChannel</span></a></span></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679431423"><span id="local-6989586621679431425"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DeleteDeliveryChannel.html#DeleteDeliveryChannel"><span class="hs-identifier hs-type">DeleteDeliveryChannel</span></a></span></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679431411"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DeleteDeliveryChannel.html#DeleteDeliveryChannel"><span class="hs-identifier hs-type">DeleteDeliveryChannel</span></a></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679431420"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DeleteDeliveryChannel.html#DeleteDeliveryChannel"><span class="hs-identifier hs-type">DeleteDeliveryChannel</span></a></span></span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DeleteDeliveryChannel.html#DeleteDeliveryChannel"><span class="hs-identifier hs-type">DeleteDeliveryChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679431407"><span class="annot"><span class="annottext">toHeaders :: DeleteDeliveryChannel -&gt; [Header]
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679431416"><span class="annot"><span class="annottext">toHeaders :: DeleteDeliveryChannel -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteDeliveryChannel -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -219,12 +219,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-105"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679431397"><span id="local-6989586621679431399"><span id="local-6989586621679431401"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DeleteDeliveryChannel.html#DeleteDeliveryChannel"><span class="hs-identifier hs-type">DeleteDeliveryChannel</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679431395"><span class="annot"><span class="annottext">toJSON :: DeleteDeliveryChannel -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DeleteDeliveryChannel.html#DeleteDeliveryChannel%27"><span class="hs-identifier hs-type">DeleteDeliveryChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431393"><span class="annot"><span class="annottext">Text
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679431406"><span id="local-6989586621679431408"><span id="local-6989586621679431410"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DeleteDeliveryChannel.html#DeleteDeliveryChannel"><span class="hs-identifier hs-type">DeleteDeliveryChannel</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679431404"><span class="annot"><span class="annottext">toJSON :: DeleteDeliveryChannel -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DeleteDeliveryChannel.html#DeleteDeliveryChannel%27"><span class="hs-identifier hs-type">DeleteDeliveryChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431402"><span class="annot"><span class="annottext">Text
 deliveryChannelName :: Text
 $sel:deliveryChannelName:DeleteDeliveryChannel' :: DeleteDeliveryChannel -&gt; Text
-</span><a href="#local-6989586621679431393"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679431402"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -237,19 +237,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;DeliveryChannelName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679431393"><span class="hs-identifier hs-var">deliveryChannelName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679431402"><span class="hs-identifier hs-var">deliveryChannelName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DeleteDeliveryChannel.html#DeleteDeliveryChannel"><span class="hs-identifier hs-type">DeleteDeliveryChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679431387"><span class="annot"><span class="annottext">toPath :: DeleteDeliveryChannel -&gt; ByteString
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679431396"><span class="annot"><span class="annottext">toPath :: DeleteDeliveryChannel -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteDeliveryChannel -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DeleteDeliveryChannel.html#DeleteDeliveryChannel"><span class="hs-identifier hs-type">DeleteDeliveryChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679431383"><span class="annot"><span class="annottext">toQuery :: DeleteDeliveryChannel -&gt; QueryString
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679431392"><span class="annot"><span class="annottext">toQuery :: DeleteDeliveryChannel -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteDeliveryChannel -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -257,10 +257,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | /See:/ 'newDeleteDeliveryChannelResponse' smart constructor.</span><span>
-</span><span id="line-124"></span><span id="local-6989586621679431380"><span id="local-6989586621679431381"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDeliveryChannelResponse"><span class="annot"><a href="Network.AWS.Config.DeleteDeliveryChannel.html#DeleteDeliveryChannelResponse"><span class="hs-identifier hs-var">DeleteDeliveryChannelResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDeliveryChannelResponse%27"><span class="annot"><a href="Network.AWS.Config.DeleteDeliveryChannel.html#DeleteDeliveryChannelResponse%27"><span class="hs-identifier hs-var">DeleteDeliveryChannelResponse'</span></a></span></span><span>
+</span><span id="line-124"></span><span id="local-6989586621679431389"><span id="local-6989586621679431390"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDeliveryChannelResponse"><span class="annot"><a href="Network.AWS.Config.DeleteDeliveryChannel.html#DeleteDeliveryChannelResponse"><span class="hs-identifier hs-var">DeleteDeliveryChannelResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDeliveryChannelResponse%27"><span class="annot"><a href="Network.AWS.Config.DeleteDeliveryChannel.html#DeleteDeliveryChannelResponse%27"><span class="hs-identifier hs-var">DeleteDeliveryChannelResponse'</span></a></span></span><span>
 </span><span id="line-125"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-126"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-127"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679431376"><span id="local-6989586621679431378"><span class="annot"><span class="annottext">DeleteDeliveryChannelResponse
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679431385"><span id="local-6989586621679431387"><span class="annot"><span class="annottext">DeleteDeliveryChannelResponse
 -&gt; DeleteDeliveryChannelResponse -&gt; Bool
 (DeleteDeliveryChannelResponse
  -&gt; DeleteDeliveryChannelResponse -&gt; Bool)
@@ -276,7 +276,7 @@ $c/= :: DeleteDeliveryChannelResponse
 -&gt; DeleteDeliveryChannelResponse -&gt; Bool
 $c== :: DeleteDeliveryChannelResponse
 -&gt; DeleteDeliveryChannelResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679431368"><span id="local-6989586621679431370"><span id="local-6989586621679431372"><span id="local-6989586621679431374"><span class="annot"><span class="annottext">ReadPrec [DeleteDeliveryChannelResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679431377"><span id="local-6989586621679431379"><span id="local-6989586621679431381"><span id="local-6989586621679431383"><span class="annot"><span class="annottext">ReadPrec [DeleteDeliveryChannelResponse]
 ReadPrec DeleteDeliveryChannelResponse
 Int -&gt; ReadS DeleteDeliveryChannelResponse
 ReadS [DeleteDeliveryChannelResponse]
@@ -296,7 +296,7 @@ readList :: ReadS [DeleteDeliveryChannelResponse]
 $creadList :: ReadS [DeleteDeliveryChannelResponse]
 readsPrec :: Int -&gt; ReadS DeleteDeliveryChannelResponse
 $creadsPrec :: Int -&gt; ReadS DeleteDeliveryChannelResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679431362"><span id="local-6989586621679431364"><span id="local-6989586621679431366"><span class="annot"><span class="annottext">Int -&gt; DeleteDeliveryChannelResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679431371"><span id="local-6989586621679431373"><span id="local-6989586621679431375"><span class="annot"><span class="annottext">Int -&gt; DeleteDeliveryChannelResponse -&gt; ShowS
 [DeleteDeliveryChannelResponse] -&gt; ShowS
 DeleteDeliveryChannelResponse -&gt; String
 (Int -&gt; DeleteDeliveryChannelResponse -&gt; ShowS)
@@ -345,5 +345,5 @@ DeleteDeliveryChannelResponse
 </span><span id="line-136"></span><span>  </span><span class="annot"><span class="annottext">DeleteDeliveryChannelResponse
 </span><a href="Network.AWS.Config.DeleteDeliveryChannel.html#DeleteDeliveryChannelResponse%27"><span class="hs-identifier hs-var">DeleteDeliveryChannelResponse'</span></a></span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679431358"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DeleteDeliveryChannel.html#DeleteDeliveryChannelResponse"><span class="hs-identifier hs-type">DeleteDeliveryChannelResponse</span></a></span></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679431367"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DeleteDeliveryChannel.html#DeleteDeliveryChannelResponse"><span class="hs-identifier hs-type">DeleteDeliveryChannelResponse</span></a></span></span><span>
 </span><span id="line-139"></span></pre></body></html>

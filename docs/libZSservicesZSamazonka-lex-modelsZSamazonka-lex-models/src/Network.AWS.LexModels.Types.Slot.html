@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- | Identifies the version of a specific slot.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newSlot' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679315636"><span id="local-6989586621679315637"></span></span><span class="hs-keyword">data</span><span> </span><span id="Slot"><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot"><span class="hs-identifier hs-var">Slot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Slot%27"><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-var">Slot'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679315645"><span id="local-6989586621679315646"></span></span><span class="hs-keyword">data</span><span> </span><span id="Slot"><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot"><span class="hs-identifier hs-var">Slot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Slot%27"><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-var">Slot'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of the slot, either a custom slot type that you defined or one</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- of the built-in slot types.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AslotType%3ASlot%27"><span class="annot"><span class="annottext">Slot -&gt; Maybe Text
@@ -85,14 +85,14 @@
 </span><span id="line-75"></span><span>    </span><span id="%24sel%3AslotConstraint%3ASlot%27"><span class="annot"><span class="annottext">Slot -&gt; SlotConstraint
 </span><a href="Network.AWS.LexModels.Types.Slot.html#%24sel%3AslotConstraint%3ASlot%27"><span class="hs-identifier hs-var hs-var">slotConstraint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.SlotConstraint.html#SlotConstraint"><span class="hs-identifier hs-type">SlotConstraint</span></a></span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679315620"><span id="local-6989586621679315622"><span class="annot"><span class="annottext">Slot -&gt; Slot -&gt; Bool
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679315629"><span id="local-6989586621679315631"><span class="annot"><span class="annottext">Slot -&gt; Slot -&gt; Bool
 (Slot -&gt; Slot -&gt; Bool) -&gt; (Slot -&gt; Slot -&gt; Bool) -&gt; Eq Slot
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Slot -&gt; Slot -&gt; Bool
 $c/= :: Slot -&gt; Slot -&gt; Bool
 == :: Slot -&gt; Slot -&gt; Bool
 $c== :: Slot -&gt; Slot -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315611"><span id="local-6989586621679315613"><span id="local-6989586621679315615"><span id="local-6989586621679315617"><span class="annot"><span class="annottext">ReadPrec [Slot]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315620"><span id="local-6989586621679315622"><span id="local-6989586621679315624"><span id="local-6989586621679315626"><span class="annot"><span class="annottext">ReadPrec [Slot]
 ReadPrec Slot
 Int -&gt; ReadS Slot
 ReadS [Slot]
@@ -109,7 +109,7 @@ readList :: ReadS [Slot]
 $creadList :: ReadS [Slot]
 readsPrec :: Int -&gt; ReadS Slot
 $creadsPrec :: Int -&gt; ReadS Slot
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315604"><span id="local-6989586621679315606"><span id="local-6989586621679315608"><span class="annot"><span class="annottext">Int -&gt; Slot -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315613"><span id="local-6989586621679315615"><span id="local-6989586621679315617"><span class="annot"><span class="annottext">Int -&gt; Slot -&gt; ShowS
 [Slot] -&gt; ShowS
 Slot -&gt; String
 (Int -&gt; Slot -&gt; ShowS)
@@ -188,9 +188,9 @@ $cfrom :: forall x. Slot -&gt; Rep Slot x
 </span><span id="line-132"></span><span>  </span><span class="annot"><a href="Network.AWS.LexModels.Types.SlotConstraint.html#SlotConstraint"><span class="hs-identifier hs-type">SlotConstraint</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-133"></span><span>  </span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot"><span class="hs-identifier hs-type">Slot</span></a></span><span>
 </span><span id="line-134"></span><span id="newSlot"><span class="annot"><span class="annottext">newSlot :: Text -&gt; SlotConstraint -&gt; Slot
-</span><a href="Network.AWS.LexModels.Types.Slot.html#newSlot"><span class="hs-identifier hs-var hs-var">newSlot</span></a></span></span><span> </span><span id="local-6989586621679315598"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679315598"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679315597"><span class="annot"><span class="annottext">SlotConstraint
-</span><a href="#local-6989586621679315597"><span class="hs-identifier hs-var">pSlotConstraint_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.LexModels.Types.Slot.html#newSlot"><span class="hs-identifier hs-var hs-var">newSlot</span></a></span></span><span> </span><span id="local-6989586621679315607"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679315607"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679315606"><span class="annot"><span class="annottext">SlotConstraint
+</span><a href="#local-6989586621679315606"><span class="hs-identifier hs-var">pSlotConstraint_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>  </span><span class="annot"><span class="annottext">Slot' :: Maybe Text
 -&gt; Maybe Prompt
 -&gt; Maybe Text
@@ -242,10 +242,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Slot' :: Text
 </span><a href="Network.AWS.LexModels.Types.Slot.html#%24sel%3Aname%3ASlot%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679315598"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679315607"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">$sel:slotConstraint:Slot' :: SlotConstraint
 </span><a href="Network.AWS.LexModels.Types.Slot.html#%24sel%3AslotConstraint%3ASlot%27"><span class="hs-identifier hs-var">slotConstraint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SlotConstraint
-</span><a href="#local-6989586621679315597"><span class="hs-identifier hs-var">pSlotConstraint_</span></a></span><span>
+</span><a href="#local-6989586621679315606"><span class="hs-identifier hs-var">pSlotConstraint_</span></a></span><span>
 </span><span id="line-147"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- | The type of the slot, either a custom slot type that you defined or one</span><span>
@@ -256,16 +256,16 @@ forall a. Maybe a
 -&gt; (Slot -&gt; Maybe Text -&gt; Slot)
 -&gt; Lens Slot Slot (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-type">Slot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315593"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-type">Slot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315602"><span class="annot"><span class="annottext">Maybe Text
 slotType :: Maybe Text
 $sel:slotType:Slot' :: Slot -&gt; Maybe Text
-</span><a href="#local-6989586621679315593"><span class="hs-identifier hs-var hs-var">slotType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679315593"><span class="hs-identifier hs-var">slotType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315592"><span class="annot"><span class="annottext">s :: Slot
-</span><a href="#local-6989586621679315592"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-type">Slot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315591"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679315591"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Slot
-</span><a href="#local-6989586621679315592"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:slotType:Slot' :: Maybe Text
+</span><a href="#local-6989586621679315602"><span class="hs-identifier hs-var hs-var">slotType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679315602"><span class="hs-identifier hs-var">slotType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315601"><span class="annot"><span class="annottext">s :: Slot
+</span><a href="#local-6989586621679315601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-type">Slot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315600"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679315600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Slot
+</span><a href="#local-6989586621679315601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:slotType:Slot' :: Maybe Text
 </span><a href="Network.AWS.LexModels.Types.Slot.html#%24sel%3AslotType%3ASlot%27"><span class="hs-identifier hs-var">slotType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679315591"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot"><span class="hs-identifier hs-type">Slot</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679315600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot"><span class="hs-identifier hs-type">Slot</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- | The prompt that Amazon Lex uses to elicit the slot value from the user.</span><span>
 </span><span id="line-155"></span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#slot_valueElicitationPrompt"><span class="hs-identifier hs-type">slot_valueElicitationPrompt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot"><span class="hs-identifier hs-type">Slot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Prompt.html#Prompt"><span class="hs-identifier hs-type">Prompt</span></a></span><span class="hs-special">)</span><span>
@@ -274,16 +274,16 @@ $sel:slotType:Slot' :: Slot -&gt; Maybe Text
 -&gt; (Slot -&gt; Maybe Prompt -&gt; Slot)
 -&gt; Lens Slot Slot (Maybe Prompt) (Maybe Prompt)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-type">Slot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315589"><span class="annot"><span class="annottext">Maybe Prompt
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-type">Slot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315598"><span class="annot"><span class="annottext">Maybe Prompt
 valueElicitationPrompt :: Maybe Prompt
 $sel:valueElicitationPrompt:Slot' :: Slot -&gt; Maybe Prompt
-</span><a href="#local-6989586621679315589"><span class="hs-identifier hs-var hs-var">valueElicitationPrompt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Prompt
-</span><a href="#local-6989586621679315589"><span class="hs-identifier hs-var">valueElicitationPrompt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315588"><span class="annot"><span class="annottext">s :: Slot
-</span><a href="#local-6989586621679315588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-type">Slot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315587"><span class="annot"><span class="annottext">Maybe Prompt
-</span><a href="#local-6989586621679315587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Slot
-</span><a href="#local-6989586621679315588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:valueElicitationPrompt:Slot' :: Maybe Prompt
+</span><a href="#local-6989586621679315598"><span class="hs-identifier hs-var hs-var">valueElicitationPrompt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Prompt
+</span><a href="#local-6989586621679315598"><span class="hs-identifier hs-var">valueElicitationPrompt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315597"><span class="annot"><span class="annottext">s :: Slot
+</span><a href="#local-6989586621679315597"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-type">Slot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315596"><span class="annot"><span class="annottext">Maybe Prompt
+</span><a href="#local-6989586621679315596"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Slot
+</span><a href="#local-6989586621679315597"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:valueElicitationPrompt:Slot' :: Maybe Prompt
 </span><a href="Network.AWS.LexModels.Types.Slot.html#%24sel%3AvalueElicitationPrompt%3ASlot%27"><span class="hs-identifier hs-var">valueElicitationPrompt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Prompt
-</span><a href="#local-6989586621679315587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot"><span class="hs-identifier hs-type">Slot</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679315596"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot"><span class="hs-identifier hs-type">Slot</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- | A set of possible responses for the slot type used by text-based</span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- clients. A user chooses an option from the response card, instead of</span><span>
@@ -294,16 +294,16 @@ $sel:valueElicitationPrompt:Slot' :: Slot -&gt; Maybe Prompt
 -&gt; (Slot -&gt; Maybe Text -&gt; Slot)
 -&gt; Lens Slot Slot (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-type">Slot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315585"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-type">Slot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315594"><span class="annot"><span class="annottext">Maybe Text
 responseCard :: Maybe Text
 $sel:responseCard:Slot' :: Slot -&gt; Maybe Text
-</span><a href="#local-6989586621679315585"><span class="hs-identifier hs-var hs-var">responseCard</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679315585"><span class="hs-identifier hs-var">responseCard</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315584"><span class="annot"><span class="annottext">s :: Slot
-</span><a href="#local-6989586621679315584"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-type">Slot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315583"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679315583"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Slot
-</span><a href="#local-6989586621679315584"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responseCard:Slot' :: Maybe Text
+</span><a href="#local-6989586621679315594"><span class="hs-identifier hs-var hs-var">responseCard</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679315594"><span class="hs-identifier hs-var">responseCard</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315593"><span class="annot"><span class="annottext">s :: Slot
+</span><a href="#local-6989586621679315593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-type">Slot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315592"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679315592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Slot
+</span><a href="#local-6989586621679315593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responseCard:Slot' :: Maybe Text
 </span><a href="Network.AWS.LexModels.Types.Slot.html#%24sel%3AresponseCard%3ASlot%27"><span class="hs-identifier hs-var">responseCard</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679315583"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot"><span class="hs-identifier hs-type">Slot</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679315592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot"><span class="hs-identifier hs-type">Slot</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- | Directs Amazon Lex the order in which to elicit this slot value from the</span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- user. For example, if the intent has two slots with priorities 1 and 2,</span><span>
@@ -317,16 +317,16 @@ $sel:responseCard:Slot' :: Slot -&gt; Maybe Text
 -&gt; (Slot -&gt; Maybe Natural -&gt; Slot)
 -&gt; Lens Slot Slot (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-type">Slot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315581"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-type">Slot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315590"><span class="annot"><span class="annottext">Maybe Natural
 priority :: Maybe Natural
 $sel:priority:Slot' :: Slot -&gt; Maybe Natural
-</span><a href="#local-6989586621679315581"><span class="hs-identifier hs-var hs-var">priority</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679315581"><span class="hs-identifier hs-var">priority</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315580"><span class="annot"><span class="annottext">s :: Slot
-</span><a href="#local-6989586621679315580"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-type">Slot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315579"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679315579"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Slot
-</span><a href="#local-6989586621679315580"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:priority:Slot' :: Maybe Natural
+</span><a href="#local-6989586621679315590"><span class="hs-identifier hs-var hs-var">priority</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679315590"><span class="hs-identifier hs-var">priority</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315589"><span class="annot"><span class="annottext">s :: Slot
+</span><a href="#local-6989586621679315589"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-type">Slot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315588"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679315588"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Slot
+</span><a href="#local-6989586621679315589"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:priority:Slot' :: Maybe Natural
 </span><a href="Network.AWS.LexModels.Types.Slot.html#%24sel%3Apriority%3ASlot%27"><span class="hs-identifier hs-var">priority</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679315579"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot"><span class="hs-identifier hs-type">Slot</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679315588"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot"><span class="hs-identifier hs-type">Slot</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- | Determines whether a slot is obfuscated in conversation logs and stored</span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- utterances. When you obfuscate a slot, the value is replaced by the slot</span><span>
@@ -343,16 +343,16 @@ $sel:priority:Slot' :: Slot -&gt; Maybe Natural
 -&gt; Lens
      Slot Slot (Maybe ObfuscationSetting) (Maybe ObfuscationSetting)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-type">Slot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315577"><span class="annot"><span class="annottext">Maybe ObfuscationSetting
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-type">Slot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315586"><span class="annot"><span class="annottext">Maybe ObfuscationSetting
 obfuscationSetting :: Maybe ObfuscationSetting
 $sel:obfuscationSetting:Slot' :: Slot -&gt; Maybe ObfuscationSetting
-</span><a href="#local-6989586621679315577"><span class="hs-identifier hs-var hs-var">obfuscationSetting</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ObfuscationSetting
-</span><a href="#local-6989586621679315577"><span class="hs-identifier hs-var">obfuscationSetting</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315576"><span class="annot"><span class="annottext">s :: Slot
-</span><a href="#local-6989586621679315576"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-type">Slot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315575"><span class="annot"><span class="annottext">Maybe ObfuscationSetting
-</span><a href="#local-6989586621679315575"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Slot
-</span><a href="#local-6989586621679315576"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:obfuscationSetting:Slot' :: Maybe ObfuscationSetting
+</span><a href="#local-6989586621679315586"><span class="hs-identifier hs-var hs-var">obfuscationSetting</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ObfuscationSetting
+</span><a href="#local-6989586621679315586"><span class="hs-identifier hs-var">obfuscationSetting</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315585"><span class="annot"><span class="annottext">s :: Slot
+</span><a href="#local-6989586621679315585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-type">Slot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315584"><span class="annot"><span class="annottext">Maybe ObfuscationSetting
+</span><a href="#local-6989586621679315584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Slot
+</span><a href="#local-6989586621679315585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:obfuscationSetting:Slot' :: Maybe ObfuscationSetting
 </span><a href="Network.AWS.LexModels.Types.Slot.html#%24sel%3AobfuscationSetting%3ASlot%27"><span class="hs-identifier hs-var">obfuscationSetting</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ObfuscationSetting
-</span><a href="#local-6989586621679315575"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot"><span class="hs-identifier hs-type">Slot</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679315584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot"><span class="hs-identifier hs-type">Slot</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- | A list of default values for the slot. Default values are used when</span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- Amazon Lex hasn\'t determined a value for a slot. You can specify</span><span>
@@ -366,16 +366,16 @@ $sel:obfuscationSetting:Slot' :: Slot -&gt; Maybe ObfuscationSetting
 -&gt; Lens
      Slot Slot (Maybe SlotDefaultValueSpec) (Maybe SlotDefaultValueSpec)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-type">Slot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315573"><span class="annot"><span class="annottext">Maybe SlotDefaultValueSpec
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-type">Slot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315582"><span class="annot"><span class="annottext">Maybe SlotDefaultValueSpec
 defaultValueSpec :: Maybe SlotDefaultValueSpec
 $sel:defaultValueSpec:Slot' :: Slot -&gt; Maybe SlotDefaultValueSpec
-</span><a href="#local-6989586621679315573"><span class="hs-identifier hs-var hs-var">defaultValueSpec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SlotDefaultValueSpec
-</span><a href="#local-6989586621679315573"><span class="hs-identifier hs-var">defaultValueSpec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315572"><span class="annot"><span class="annottext">s :: Slot
-</span><a href="#local-6989586621679315572"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-type">Slot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315571"><span class="annot"><span class="annottext">Maybe SlotDefaultValueSpec
-</span><a href="#local-6989586621679315571"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Slot
-</span><a href="#local-6989586621679315572"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultValueSpec:Slot' :: Maybe SlotDefaultValueSpec
+</span><a href="#local-6989586621679315582"><span class="hs-identifier hs-var hs-var">defaultValueSpec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SlotDefaultValueSpec
+</span><a href="#local-6989586621679315582"><span class="hs-identifier hs-var">defaultValueSpec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315581"><span class="annot"><span class="annottext">s :: Slot
+</span><a href="#local-6989586621679315581"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-type">Slot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315580"><span class="annot"><span class="annottext">Maybe SlotDefaultValueSpec
+</span><a href="#local-6989586621679315580"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Slot
+</span><a href="#local-6989586621679315581"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultValueSpec:Slot' :: Maybe SlotDefaultValueSpec
 </span><a href="Network.AWS.LexModels.Types.Slot.html#%24sel%3AdefaultValueSpec%3ASlot%27"><span class="hs-identifier hs-var">defaultValueSpec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SlotDefaultValueSpec
-</span><a href="#local-6989586621679315571"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot"><span class="hs-identifier hs-type">Slot</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679315580"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot"><span class="hs-identifier hs-type">Slot</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-comment">-- | The version of the slot type.</span><span>
 </span><span id="line-191"></span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#slot_slotTypeVersion"><span class="hs-identifier hs-type">slot_slotTypeVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot"><span class="hs-identifier hs-type">Slot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -384,16 +384,16 @@ $sel:defaultValueSpec:Slot' :: Slot -&gt; Maybe SlotDefaultValueSpec
 -&gt; (Slot -&gt; Maybe Text -&gt; Slot)
 -&gt; Lens Slot Slot (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-type">Slot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315569"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-type">Slot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315578"><span class="annot"><span class="annottext">Maybe Text
 slotTypeVersion :: Maybe Text
 $sel:slotTypeVersion:Slot' :: Slot -&gt; Maybe Text
-</span><a href="#local-6989586621679315569"><span class="hs-identifier hs-var hs-var">slotTypeVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679315569"><span class="hs-identifier hs-var">slotTypeVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315568"><span class="annot"><span class="annottext">s :: Slot
-</span><a href="#local-6989586621679315568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-type">Slot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315567"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679315567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Slot
-</span><a href="#local-6989586621679315568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:slotTypeVersion:Slot' :: Maybe Text
+</span><a href="#local-6989586621679315578"><span class="hs-identifier hs-var hs-var">slotTypeVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679315578"><span class="hs-identifier hs-var">slotTypeVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315577"><span class="annot"><span class="annottext">s :: Slot
+</span><a href="#local-6989586621679315577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-type">Slot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315576"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679315576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Slot
+</span><a href="#local-6989586621679315577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:slotTypeVersion:Slot' :: Maybe Text
 </span><a href="Network.AWS.LexModels.Types.Slot.html#%24sel%3AslotTypeVersion%3ASlot%27"><span class="hs-identifier hs-var">slotTypeVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679315567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot"><span class="hs-identifier hs-type">Slot</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679315576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot"><span class="hs-identifier hs-type">Slot</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- | If you know a specific pattern with which users might respond to an</span><span>
 </span><span id="line-195"></span><span class="hs-comment">-- Amazon Lex request for a slot value, you can provide those utterances to</span><span>
@@ -405,16 +405,16 @@ $sel:slotTypeVersion:Slot' :: Slot -&gt; Maybe Text
 -&gt; (Slot -&gt; Maybe [Text] -&gt; Slot)
 -&gt; Lens Slot Slot (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-type">Slot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315565"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-type">Slot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315574"><span class="annot"><span class="annottext">Maybe [Text]
 sampleUtterances :: Maybe [Text]
 $sel:sampleUtterances:Slot' :: Slot -&gt; Maybe [Text]
-</span><a href="#local-6989586621679315565"><span class="hs-identifier hs-var hs-var">sampleUtterances</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679315565"><span class="hs-identifier hs-var">sampleUtterances</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315564"><span class="annot"><span class="annottext">s :: Slot
-</span><a href="#local-6989586621679315564"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-type">Slot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315563"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679315563"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Slot
-</span><a href="#local-6989586621679315564"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sampleUtterances:Slot' :: Maybe [Text]
+</span><a href="#local-6989586621679315574"><span class="hs-identifier hs-var hs-var">sampleUtterances</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679315574"><span class="hs-identifier hs-var">sampleUtterances</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315573"><span class="annot"><span class="annottext">s :: Slot
+</span><a href="#local-6989586621679315573"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-type">Slot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315572"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679315572"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Slot
+</span><a href="#local-6989586621679315573"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sampleUtterances:Slot' :: Maybe [Text]
 </span><a href="Network.AWS.LexModels.Types.Slot.html#%24sel%3AsampleUtterances%3ASlot%27"><span class="hs-identifier hs-var">sampleUtterances</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679315563"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot"><span class="hs-identifier hs-type">Slot</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Slot -&gt; f Slot)
+</span><a href="#local-6989586621679315572"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot"><span class="hs-identifier hs-type">Slot</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Slot -&gt; f Slot)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -437,16 +437,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (Slot -&gt; Maybe Text -&gt; Slot)
 -&gt; Lens Slot Slot (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-type">Slot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315558"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-type">Slot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315567"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:Slot' :: Slot -&gt; Maybe Text
-</span><a href="#local-6989586621679315558"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679315558"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315557"><span class="annot"><span class="annottext">s :: Slot
-</span><a href="#local-6989586621679315557"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-type">Slot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315556"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679315556"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Slot
-</span><a href="#local-6989586621679315557"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:Slot' :: Maybe Text
+</span><a href="#local-6989586621679315567"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679315567"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315566"><span class="annot"><span class="annottext">s :: Slot
+</span><a href="#local-6989586621679315566"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-type">Slot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315565"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679315565"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Slot
+</span><a href="#local-6989586621679315566"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:Slot' :: Maybe Text
 </span><a href="Network.AWS.LexModels.Types.Slot.html#%24sel%3Adescription%3ASlot%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679315556"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot"><span class="hs-identifier hs-type">Slot</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679315565"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot"><span class="hs-identifier hs-type">Slot</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-204"></span><span>
 </span><span id="line-205"></span><span class="hs-comment">-- | The name of the slot.</span><span>
 </span><span id="line-206"></span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#slot_name"><span class="hs-identifier hs-type">slot_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot"><span class="hs-identifier hs-type">Slot</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -454,16 +454,16 @@ $sel:description:Slot' :: Slot -&gt; Maybe Text
 </span><a href="Network.AWS.LexModels.Types.Slot.html#slot_name"><span class="hs-identifier hs-var hs-var">slot_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Slot -&gt; Text)
 -&gt; (Slot -&gt; Text -&gt; Slot) -&gt; Lens Slot Slot Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-type">Slot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315554"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-type">Slot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315563"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:Slot' :: Slot -&gt; Text
-</span><a href="#local-6989586621679315554"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679315554"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315553"><span class="annot"><span class="annottext">s :: Slot
-</span><a href="#local-6989586621679315553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-type">Slot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315552"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679315552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Slot
-</span><a href="#local-6989586621679315553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Slot' :: Text
+</span><a href="#local-6989586621679315563"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679315563"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315562"><span class="annot"><span class="annottext">s :: Slot
+</span><a href="#local-6989586621679315562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-type">Slot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315561"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679315561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Slot
+</span><a href="#local-6989586621679315562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Slot' :: Text
 </span><a href="Network.AWS.LexModels.Types.Slot.html#%24sel%3Aname%3ASlot%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679315552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot"><span class="hs-identifier hs-type">Slot</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679315561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot"><span class="hs-identifier hs-type">Slot</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-208"></span><span>
 </span><span id="line-209"></span><span class="hs-comment">-- | Specifies whether the slot is required or optional.</span><span>
 </span><span id="line-210"></span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#slot_slotConstraint"><span class="hs-identifier hs-type">slot_slotConstraint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot"><span class="hs-identifier hs-type">Slot</span></a></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.SlotConstraint.html#SlotConstraint"><span class="hs-identifier hs-type">SlotConstraint</span></a></span><span>
@@ -472,27 +472,27 @@ $sel:name:Slot' :: Slot -&gt; Text
 -&gt; (Slot -&gt; SlotConstraint -&gt; Slot)
 -&gt; Lens Slot Slot SlotConstraint SlotConstraint
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-type">Slot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315550"><span class="annot"><span class="annottext">SlotConstraint
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-type">Slot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315559"><span class="annot"><span class="annottext">SlotConstraint
 slotConstraint :: SlotConstraint
 $sel:slotConstraint:Slot' :: Slot -&gt; SlotConstraint
-</span><a href="#local-6989586621679315550"><span class="hs-identifier hs-var hs-var">slotConstraint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SlotConstraint
-</span><a href="#local-6989586621679315550"><span class="hs-identifier hs-var">slotConstraint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315549"><span class="annot"><span class="annottext">s :: Slot
-</span><a href="#local-6989586621679315549"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-type">Slot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315548"><span class="annot"><span class="annottext">SlotConstraint
-</span><a href="#local-6989586621679315548"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Slot
-</span><a href="#local-6989586621679315549"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:slotConstraint:Slot' :: SlotConstraint
+</span><a href="#local-6989586621679315559"><span class="hs-identifier hs-var hs-var">slotConstraint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SlotConstraint
+</span><a href="#local-6989586621679315559"><span class="hs-identifier hs-var">slotConstraint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315558"><span class="annot"><span class="annottext">s :: Slot
+</span><a href="#local-6989586621679315558"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-type">Slot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315557"><span class="annot"><span class="annottext">SlotConstraint
+</span><a href="#local-6989586621679315557"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Slot
+</span><a href="#local-6989586621679315558"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:slotConstraint:Slot' :: SlotConstraint
 </span><a href="Network.AWS.LexModels.Types.Slot.html#%24sel%3AslotConstraint%3ASlot%27"><span class="hs-identifier hs-var">slotConstraint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SlotConstraint
-</span><a href="#local-6989586621679315548"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot"><span class="hs-identifier hs-type">Slot</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679315557"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot"><span class="hs-identifier hs-type">Slot</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-212"></span><span>
-</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315545"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot"><span class="hs-identifier hs-type">Slot</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-214"></span><span>  </span><span id="local-6989586621679315543"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Slot
+</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315554"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot"><span class="hs-identifier hs-type">Slot</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679315552"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Slot
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-215"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Slot) -&gt; Value -&gt; Parser Slot
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-216"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Slot&quot;</span></span><span>
-</span><span id="line-217"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679315540"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679315540"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-217"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679315549"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679315549"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-218"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Prompt
 -&gt; Maybe Text
@@ -533,7 +533,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Slot)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679315540"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679315549"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;slotType&quot;</span></span><span class="hs-special">)</span><span>
@@ -563,7 +563,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Slot)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679315540"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Prompt)
+</span><a href="#local-6989586621679315549"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Prompt)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;valueElicitationPrompt&quot;</span></span><span class="hs-special">)</span><span>
@@ -591,7 +591,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Slot)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679315540"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679315549"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;responseCard&quot;</span></span><span class="hs-special">)</span><span>
@@ -617,7 +617,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Slot)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679315540"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679315549"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;priority&quot;</span></span><span class="hs-special">)</span><span>
@@ -641,7 +641,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Slot)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679315540"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ObfuscationSetting)
+</span><a href="#local-6989586621679315549"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ObfuscationSetting)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;obfuscationSetting&quot;</span></span><span class="hs-special">)</span><span>
@@ -659,7 +659,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe [Text] -&gt; Maybe Text -&gt; Text -&gt; SlotConstraint -&gt; Slot)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679315540"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SlotDefaultValueSpec)
+</span><a href="#local-6989586621679315549"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SlotDefaultValueSpec)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;defaultValueSpec&quot;</span></span><span class="hs-special">)</span><span>
@@ -671,7 +671,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe [Text] -&gt; Maybe Text -&gt; Text -&gt; SlotConstraint -&gt; Slot)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679315540"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679315549"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;slotTypeVersion&quot;</span></span><span class="hs-special">)</span><span>
@@ -681,7 +681,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Text -&gt; SlotConstraint -&gt; Slot)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679315540"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679315549"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sampleUtterances&quot;</span></span><span>
@@ -696,7 +696,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; SlotConstraint -&gt; Slot)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679315540"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679315549"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
@@ -704,7 +704,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser (SlotConstraint -&gt; Slot)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679315540"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679315549"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
@@ -712,19 +712,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser SlotConstraint -&gt; Parser Slot
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679315540"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser SlotConstraint
+</span><a href="#local-6989586621679315549"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser SlotConstraint
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;slotConstraint&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-232"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-233"></span><span>
-</span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315532"><span id="local-6989586621679315534"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot"><span class="hs-identifier hs-type">Slot</span></a></span></span></span><span>
+</span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315541"><span id="local-6989586621679315543"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot"><span class="hs-identifier hs-type">Slot</span></a></span></span></span><span>
 </span><span id="line-235"></span><span>
-</span><span id="line-236"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315529"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot"><span class="hs-identifier hs-type">Slot</span></a></span></span><span>
+</span><span id="line-236"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315538"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot"><span class="hs-identifier hs-type">Slot</span></a></span></span><span>
 </span><span id="line-237"></span><span>
-</span><span id="line-238"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315521"><span id="local-6989586621679315523"><span id="local-6989586621679315525"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot"><span class="hs-identifier hs-type">Slot</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-239"></span><span>  </span><span id="local-6989586621679315519"><span class="annot"><span class="annottext">toJSON :: Slot -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-type">Slot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315507"><span id="local-6989586621679315508"><span id="local-6989586621679315509"><span id="local-6989586621679315510"><span id="local-6989586621679315511"><span id="local-6989586621679315512"><span id="local-6989586621679315513"><span id="local-6989586621679315514"><span id="local-6989586621679315515"><span id="local-6989586621679315516"><span id="local-6989586621679315517"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-238"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315530"><span id="local-6989586621679315532"><span id="local-6989586621679315534"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot"><span class="hs-identifier hs-type">Slot</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-239"></span><span>  </span><span id="local-6989586621679315528"><span class="annot"><span class="annottext">toJSON :: Slot -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Slot.html#Slot%27"><span class="hs-identifier hs-type">Slot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315516"><span id="local-6989586621679315517"><span id="local-6989586621679315518"><span id="local-6989586621679315519"><span id="local-6989586621679315520"><span id="local-6989586621679315521"><span id="local-6989586621679315522"><span id="local-6989586621679315523"><span id="local-6989586621679315524"><span id="local-6989586621679315525"><span id="local-6989586621679315526"><span class="annot"><span class="annottext">Maybe Natural
 Maybe [Text]
 Maybe Text
 Maybe ObfuscationSetting
@@ -754,7 +754,7 @@ $sel:priority:Slot' :: Slot -&gt; Maybe Natural
 $sel:responseCard:Slot' :: Slot -&gt; Maybe Text
 $sel:valueElicitationPrompt:Slot' :: Slot -&gt; Maybe Prompt
 $sel:slotType:Slot' :: Slot -&gt; Maybe Text
-</span><a href="#local-6989586621679315507"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679315516"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-240"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-241"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -766,7 +766,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679315517"><span class="hs-identifier hs-var">slotType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679315526"><span class="hs-identifier hs-var">slotType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-243"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;valueElicitationPrompt&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Prompt -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -774,21 +774,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-244"></span><span>              </span><span class="annot"><span class="annottext">(Prompt -&gt; Pair) -&gt; Maybe Prompt -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Prompt
-</span><a href="#local-6989586621679315516"><span class="hs-identifier hs-var">valueElicitationPrompt</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679315525"><span class="hs-identifier hs-var">valueElicitationPrompt</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-245"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;responseCard&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679315515"><span class="hs-identifier hs-var">responseCard</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679315524"><span class="hs-identifier hs-var">responseCard</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-246"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;priority&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679315514"><span class="hs-identifier hs-var">priority</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679315523"><span class="hs-identifier hs-var">priority</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-247"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;obfuscationSetting&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ObfuscationSetting -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -797,7 +797,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ObfuscationSetting -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ObfuscationSetting
-</span><a href="#local-6989586621679315513"><span class="hs-identifier hs-var">obfuscationSetting</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679315522"><span class="hs-identifier hs-var">obfuscationSetting</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-249"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;defaultValueSpec&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SlotDefaultValueSpec -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -806,7 +806,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe SlotDefaultValueSpec -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SlotDefaultValueSpec
-</span><a href="#local-6989586621679315512"><span class="hs-identifier hs-var">defaultValueSpec</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679315521"><span class="hs-identifier hs-var">defaultValueSpec</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-251"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;slotTypeVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -814,7 +814,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-252"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679315511"><span class="hs-identifier hs-var">slotTypeVersion</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679315520"><span class="hs-identifier hs-var">slotTypeVersion</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-253"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sampleUtterances&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -822,21 +822,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-254"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679315510"><span class="hs-identifier hs-var">sampleUtterances</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679315519"><span class="hs-identifier hs-var">sampleUtterances</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-255"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679315509"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679315518"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-256"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679315508"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679315517"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-257"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -844,7 +844,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;slotConstraint&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SlotConstraint -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">SlotConstraint
-</span><a href="#local-6989586621679315507"><span class="hs-identifier hs-var">slotConstraint</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679315516"><span class="hs-identifier hs-var">slotConstraint</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-259"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-260"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-261"></span></pre></body></html>

@@ -1,0 +1,441 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.DevOpsGuru.DescribeAnomaly</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns details about an anomaly that you specify using its ID.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DevOpsGuru.DescribeAnomaly</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#DescribeAnomaly"><span class="hs-identifier">DescribeAnomaly</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#newDescribeAnomaly"><span class="hs-identifier">newDescribeAnomaly</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#describeAnomaly_id"><span class="hs-identifier">describeAnomaly_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#DescribeAnomalyResponse"><span class="hs-identifier">DescribeAnomalyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#newDescribeAnomalyResponse"><span class="hs-identifier">newDescribeAnomalyResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#describeAnomalyResponse_reactiveAnomaly"><span class="hs-identifier">describeAnomalyResponse_reactiveAnomaly</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#describeAnomalyResponse_proactiveAnomaly"><span class="hs-identifier">describeAnomalyResponse_proactiveAnomaly</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#describeAnomalyResponse_httpStatus"><span class="hs-identifier">describeAnomalyResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.html"><span class="hs-identifier">Network.AWS.DevOpsGuru.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDescribeAnomaly' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679243769"><span id="local-6989586621679243770"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAnomaly"><span class="annot"><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#DescribeAnomaly"><span class="hs-identifier hs-var">DescribeAnomaly</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAnomaly%27"><span class="annot"><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#DescribeAnomaly%27"><span class="hs-identifier hs-var">DescribeAnomaly'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the anomaly.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Aid%3ADescribeAnomaly%27"><span class="annot"><span class="annottext">DescribeAnomaly -&gt; Text
+</span><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#%24sel%3Aid%3ADescribeAnomaly%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679243763"><span id="local-6989586621679243765"><span class="annot"><span class="annottext">DescribeAnomaly -&gt; DescribeAnomaly -&gt; Bool
+(DescribeAnomaly -&gt; DescribeAnomaly -&gt; Bool)
+-&gt; (DescribeAnomaly -&gt; DescribeAnomaly -&gt; Bool)
+-&gt; Eq DescribeAnomaly
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeAnomaly -&gt; DescribeAnomaly -&gt; Bool
+$c/= :: DescribeAnomaly -&gt; DescribeAnomaly -&gt; Bool
+== :: DescribeAnomaly -&gt; DescribeAnomaly -&gt; Bool
+$c== :: DescribeAnomaly -&gt; DescribeAnomaly -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243754"><span id="local-6989586621679243756"><span id="local-6989586621679243758"><span id="local-6989586621679243760"><span class="annot"><span class="annottext">ReadPrec [DescribeAnomaly]
+ReadPrec DescribeAnomaly
+Int -&gt; ReadS DescribeAnomaly
+ReadS [DescribeAnomaly]
+(Int -&gt; ReadS DescribeAnomaly)
+-&gt; ReadS [DescribeAnomaly]
+-&gt; ReadPrec DescribeAnomaly
+-&gt; ReadPrec [DescribeAnomaly]
+-&gt; Read DescribeAnomaly
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeAnomaly]
+$creadListPrec :: ReadPrec [DescribeAnomaly]
+readPrec :: ReadPrec DescribeAnomaly
+$creadPrec :: ReadPrec DescribeAnomaly
+readList :: ReadS [DescribeAnomaly]
+$creadList :: ReadS [DescribeAnomaly]
+readsPrec :: Int -&gt; ReadS DescribeAnomaly
+$creadsPrec :: Int -&gt; ReadS DescribeAnomaly
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243747"><span id="local-6989586621679243749"><span id="local-6989586621679243751"><span class="annot"><span class="annottext">Int -&gt; DescribeAnomaly -&gt; ShowS
+[DescribeAnomaly] -&gt; ShowS
+DescribeAnomaly -&gt; String
+(Int -&gt; DescribeAnomaly -&gt; ShowS)
+-&gt; (DescribeAnomaly -&gt; String)
+-&gt; ([DescribeAnomaly] -&gt; ShowS)
+-&gt; Show DescribeAnomaly
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeAnomaly] -&gt; ShowS
+$cshowList :: [DescribeAnomaly] -&gt; ShowS
+show :: DescribeAnomaly -&gt; String
+$cshow :: DescribeAnomaly -&gt; String
+showsPrec :: Int -&gt; DescribeAnomaly -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeAnomaly -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeAnomaly -&gt; Rep DescribeAnomaly x)
+-&gt; (forall x. Rep DescribeAnomaly x -&gt; DescribeAnomaly)
+-&gt; Generic DescribeAnomaly
+forall x. Rep DescribeAnomaly x -&gt; DescribeAnomaly
+forall x. DescribeAnomaly -&gt; Rep DescribeAnomaly x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeAnomaly x -&gt; DescribeAnomaly
+$cfrom :: forall x. DescribeAnomaly -&gt; Rep DescribeAnomaly x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'DescribeAnomaly' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'id', 'describeAnomaly_id' - The ID of the anomaly.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#newDescribeAnomaly"><span class="hs-identifier hs-type">newDescribeAnomaly</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#DescribeAnomaly"><span class="hs-identifier hs-type">DescribeAnomaly</span></a></span><span>
+</span><span id="line-70"></span><span id="newDescribeAnomaly"><span class="annot"><span class="annottext">newDescribeAnomaly :: Text -&gt; DescribeAnomaly
+</span><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#newDescribeAnomaly"><span class="hs-identifier hs-var hs-var">newDescribeAnomaly</span></a></span></span><span> </span><span id="local-6989586621679243742"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679243742"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DescribeAnomaly' :: Text -&gt; DescribeAnomaly
+</span><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#DescribeAnomaly%27"><span class="hs-identifier hs-type">DescribeAnomaly'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DescribeAnomaly' :: Text
+</span><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#%24sel%3Aid%3ADescribeAnomaly%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679243742"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | The ID of the anomaly.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#describeAnomaly_id"><span class="hs-identifier hs-type">describeAnomaly_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#DescribeAnomaly"><span class="hs-identifier hs-type">DescribeAnomaly</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-74"></span><span id="describeAnomaly_id"><span class="annot"><span class="annottext">describeAnomaly_id :: (Text -&gt; f Text) -&gt; DescribeAnomaly -&gt; f DescribeAnomaly
+</span><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#describeAnomaly_id"><span class="hs-identifier hs-var hs-var">describeAnomaly_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAnomaly -&gt; Text)
+-&gt; (DescribeAnomaly -&gt; Text -&gt; DescribeAnomaly)
+-&gt; Lens DescribeAnomaly DescribeAnomaly Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#DescribeAnomaly%27"><span class="hs-identifier hs-type">DescribeAnomaly'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243739"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:DescribeAnomaly' :: DescribeAnomaly -&gt; Text
+</span><a href="#local-6989586621679243739"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679243739"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243738"><span class="annot"><span class="annottext">s :: DescribeAnomaly
+</span><a href="#local-6989586621679243738"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#DescribeAnomaly%27"><span class="hs-identifier hs-type">DescribeAnomaly'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243737"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679243737"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAnomaly
+</span><a href="#local-6989586621679243738"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DescribeAnomaly' :: Text
+</span><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#%24sel%3Aid%3ADescribeAnomaly%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679243737"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#DescribeAnomaly"><span class="hs-identifier hs-type">DescribeAnomaly</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#DescribeAnomaly"><span class="hs-identifier hs-type">DescribeAnomaly</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-78"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#DescribeAnomaly"><span class="hs-identifier hs-type">DescribeAnomaly</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#DescribeAnomalyResponse"><span class="hs-identifier hs-type">DescribeAnomalyResponse</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679243733"><span class="annot"><span class="annottext">request :: DescribeAnomaly -&gt; Request DescribeAnomaly
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeAnomaly -&gt; Request DescribeAnomaly
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.DevOpsGuru.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679243729"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeAnomaly
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeAnomaly)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeAnomaly))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeAnomaly
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeAnomaly)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679243726"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679243726"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679243725"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679243725"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679243724"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243724"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Maybe ReactiveAnomaly
+-&gt; Maybe ProactiveAnomaly -&gt; Int -&gt; DescribeAnomalyResponse
+</span><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#DescribeAnomalyResponse%27"><span class="hs-identifier hs-var">DescribeAnomalyResponse'</span></a></span><span>
+</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ReactiveAnomaly
+ -&gt; Maybe ProactiveAnomaly -&gt; Int -&gt; DescribeAnomalyResponse)
+-&gt; Either String (Maybe ReactiveAnomaly)
+-&gt; Either
+     String (Maybe ProactiveAnomaly -&gt; Int -&gt; DescribeAnomalyResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243724"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ReactiveAnomaly)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReactiveAnomaly&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe ProactiveAnomaly -&gt; Int -&gt; DescribeAnomalyResponse)
+-&gt; Either String (Maybe ProactiveAnomaly)
+-&gt; Either String (Int -&gt; DescribeAnomalyResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243724"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ProactiveAnomaly)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProactiveAnomaly&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeAnomalyResponse)
+-&gt; Either String Int -&gt; Either String DescribeAnomalyResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679243726"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243716"><span id="local-6989586621679243718"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#DescribeAnomaly"><span class="hs-identifier hs-type">DescribeAnomaly</span></a></span></span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243713"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#DescribeAnomaly"><span class="hs-identifier hs-type">DescribeAnomaly</span></a></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#DescribeAnomaly"><span class="hs-identifier hs-type">DescribeAnomaly</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679243709"><span class="annot"><span class="annottext">toHeaders :: DescribeAnomaly -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeAnomaly -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-98"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-99"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-100"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-101"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#DescribeAnomaly"><span class="hs-identifier hs-type">DescribeAnomaly</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679243703"><span class="annot"><span class="annottext">toPath :: DescribeAnomaly -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#DescribeAnomaly%27"><span class="hs-identifier hs-type">DescribeAnomaly'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243701"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:DescribeAnomaly' :: DescribeAnomaly -&gt; Text
+</span><a href="#local-6989586621679243701"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/anomalies/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679243701"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#DescribeAnomaly"><span class="hs-identifier hs-type">DescribeAnomaly</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679243697"><span class="annot"><span class="annottext">toQuery :: DescribeAnomaly -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeAnomaly -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | /See:/ 'newDescribeAnomalyResponse' smart constructor.</span><span>
+</span><span id="line-113"></span><span id="local-6989586621679243694"><span id="local-6989586621679243695"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAnomalyResponse"><span class="annot"><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#DescribeAnomalyResponse"><span class="hs-identifier hs-var">DescribeAnomalyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAnomalyResponse%27"><span class="annot"><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#DescribeAnomalyResponse%27"><span class="hs-identifier hs-var">DescribeAnomalyResponse'</span></a></span></span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A @ProactiveAnomaly@ object that represents the requested anomaly.</span><span>
+</span><span id="line-115"></span><span>    </span><span id="%24sel%3AreactiveAnomaly%3ADescribeAnomalyResponse%27"><span class="annot"><span class="annottext">DescribeAnomalyResponse -&gt; Maybe ReactiveAnomaly
+</span><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#%24sel%3AreactiveAnomaly%3ADescribeAnomalyResponse%27"><span class="hs-identifier hs-var hs-var">reactiveAnomaly</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ReactiveAnomaly.html#ReactiveAnomaly"><span class="hs-identifier hs-type">ReactiveAnomaly</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- | A @ReactiveAnomaly@ object that represents the requested anomaly.</span><span>
+</span><span id="line-117"></span><span>    </span><span id="%24sel%3AproactiveAnomaly%3ADescribeAnomalyResponse%27"><span class="annot"><span class="annottext">DescribeAnomalyResponse -&gt; Maybe ProactiveAnomaly
+</span><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#%24sel%3AproactiveAnomaly%3ADescribeAnomalyResponse%27"><span class="hs-identifier hs-var hs-var">proactiveAnomaly</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveAnomaly.html#ProactiveAnomaly"><span class="hs-identifier hs-type">ProactiveAnomaly</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-119"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeAnomalyResponse%27"><span class="annot"><span class="annottext">DescribeAnomalyResponse -&gt; Int
+</span><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#%24sel%3AhttpStatus%3ADescribeAnomalyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679243687"><span id="local-6989586621679243689"><span class="annot"><span class="annottext">DescribeAnomalyResponse -&gt; DescribeAnomalyResponse -&gt; Bool
+(DescribeAnomalyResponse -&gt; DescribeAnomalyResponse -&gt; Bool)
+-&gt; (DescribeAnomalyResponse -&gt; DescribeAnomalyResponse -&gt; Bool)
+-&gt; Eq DescribeAnomalyResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeAnomalyResponse -&gt; DescribeAnomalyResponse -&gt; Bool
+$c/= :: DescribeAnomalyResponse -&gt; DescribeAnomalyResponse -&gt; Bool
+== :: DescribeAnomalyResponse -&gt; DescribeAnomalyResponse -&gt; Bool
+$c== :: DescribeAnomalyResponse -&gt; DescribeAnomalyResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243679"><span id="local-6989586621679243681"><span id="local-6989586621679243683"><span id="local-6989586621679243685"><span class="annot"><span class="annottext">ReadPrec [DescribeAnomalyResponse]
+ReadPrec DescribeAnomalyResponse
+Int -&gt; ReadS DescribeAnomalyResponse
+ReadS [DescribeAnomalyResponse]
+(Int -&gt; ReadS DescribeAnomalyResponse)
+-&gt; ReadS [DescribeAnomalyResponse]
+-&gt; ReadPrec DescribeAnomalyResponse
+-&gt; ReadPrec [DescribeAnomalyResponse]
+-&gt; Read DescribeAnomalyResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeAnomalyResponse]
+$creadListPrec :: ReadPrec [DescribeAnomalyResponse]
+readPrec :: ReadPrec DescribeAnomalyResponse
+$creadPrec :: ReadPrec DescribeAnomalyResponse
+readList :: ReadS [DescribeAnomalyResponse]
+$creadList :: ReadS [DescribeAnomalyResponse]
+readsPrec :: Int -&gt; ReadS DescribeAnomalyResponse
+$creadsPrec :: Int -&gt; ReadS DescribeAnomalyResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243673"><span id="local-6989586621679243675"><span id="local-6989586621679243677"><span class="annot"><span class="annottext">Int -&gt; DescribeAnomalyResponse -&gt; ShowS
+[DescribeAnomalyResponse] -&gt; ShowS
+DescribeAnomalyResponse -&gt; String
+(Int -&gt; DescribeAnomalyResponse -&gt; ShowS)
+-&gt; (DescribeAnomalyResponse -&gt; String)
+-&gt; ([DescribeAnomalyResponse] -&gt; ShowS)
+-&gt; Show DescribeAnomalyResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeAnomalyResponse] -&gt; ShowS
+$cshowList :: [DescribeAnomalyResponse] -&gt; ShowS
+show :: DescribeAnomalyResponse -&gt; String
+$cshow :: DescribeAnomalyResponse -&gt; String
+showsPrec :: Int -&gt; DescribeAnomalyResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeAnomalyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeAnomalyResponse -&gt; Rep DescribeAnomalyResponse x)
+-&gt; (forall x.
+    Rep DescribeAnomalyResponse x -&gt; DescribeAnomalyResponse)
+-&gt; Generic DescribeAnomalyResponse
+forall x. Rep DescribeAnomalyResponse x -&gt; DescribeAnomalyResponse
+forall x. DescribeAnomalyResponse -&gt; Rep DescribeAnomalyResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeAnomalyResponse x -&gt; DescribeAnomalyResponse
+$cfrom :: forall x. DescribeAnomalyResponse -&gt; Rep DescribeAnomalyResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- Create a value of 'DescribeAnomalyResponse' with all optional fields omitted.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'reactiveAnomaly', 'describeAnomalyResponse_reactiveAnomaly' - A @ProactiveAnomaly@ object that represents the requested anomaly.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- 'proactiveAnomaly', 'describeAnomalyResponse_proactiveAnomaly' - A @ReactiveAnomaly@ object that represents the requested anomaly.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'httpStatus', 'describeAnomalyResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#newDescribeAnomalyResponse"><span class="hs-identifier hs-type">newDescribeAnomalyResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-139"></span><span>  </span><span class="annot"><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#DescribeAnomalyResponse"><span class="hs-identifier hs-type">DescribeAnomalyResponse</span></a></span><span>
+</span><span id="line-140"></span><span id="newDescribeAnomalyResponse"><span class="annot"><span class="annottext">newDescribeAnomalyResponse :: Int -&gt; DescribeAnomalyResponse
+</span><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#newDescribeAnomalyResponse"><span class="hs-identifier hs-var hs-var">newDescribeAnomalyResponse</span></a></span></span><span> </span><span id="local-6989586621679243670"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679243670"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>  </span><span class="annot"><span class="annottext">DescribeAnomalyResponse' :: Maybe ReactiveAnomaly
+-&gt; Maybe ProactiveAnomaly -&gt; Int -&gt; DescribeAnomalyResponse
+</span><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#DescribeAnomalyResponse%27"><span class="hs-identifier hs-type">DescribeAnomalyResponse'</span></a></span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:reactiveAnomaly:DescribeAnomalyResponse' :: Maybe ReactiveAnomaly
+</span><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#%24sel%3AreactiveAnomaly%3ADescribeAnomalyResponse%27"><span class="hs-identifier hs-var">reactiveAnomaly</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">Maybe ReactiveAnomaly
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:proactiveAnomaly:DescribeAnomalyResponse' :: Maybe ProactiveAnomaly
+</span><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#%24sel%3AproactiveAnomaly%3ADescribeAnomalyResponse%27"><span class="hs-identifier hs-var">proactiveAnomaly</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProactiveAnomaly
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAnomalyResponse' :: Int
+</span><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#%24sel%3AhttpStatus%3ADescribeAnomalyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679243670"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | A @ProactiveAnomaly@ object that represents the requested anomaly.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#describeAnomalyResponse_reactiveAnomaly"><span class="hs-identifier hs-type">describeAnomalyResponse_reactiveAnomaly</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#DescribeAnomalyResponse"><span class="hs-identifier hs-type">DescribeAnomalyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ReactiveAnomaly.html#ReactiveAnomaly"><span class="hs-identifier hs-type">ReactiveAnomaly</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="describeAnomalyResponse_reactiveAnomaly"><span class="annot"><span class="annottext">describeAnomalyResponse_reactiveAnomaly :: (Maybe ReactiveAnomaly -&gt; f (Maybe ReactiveAnomaly))
+-&gt; DescribeAnomalyResponse -&gt; f DescribeAnomalyResponse
+</span><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#describeAnomalyResponse_reactiveAnomaly"><span class="hs-identifier hs-var hs-var">describeAnomalyResponse_reactiveAnomaly</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAnomalyResponse -&gt; Maybe ReactiveAnomaly)
+-&gt; (DescribeAnomalyResponse
+    -&gt; Maybe ReactiveAnomaly -&gt; DescribeAnomalyResponse)
+-&gt; Lens
+     DescribeAnomalyResponse
+     DescribeAnomalyResponse
+     (Maybe ReactiveAnomaly)
+     (Maybe ReactiveAnomaly)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#DescribeAnomalyResponse%27"><span class="hs-identifier hs-type">DescribeAnomalyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243669"><span class="annot"><span class="annottext">Maybe ReactiveAnomaly
+reactiveAnomaly :: Maybe ReactiveAnomaly
+$sel:reactiveAnomaly:DescribeAnomalyResponse' :: DescribeAnomalyResponse -&gt; Maybe ReactiveAnomaly
+</span><a href="#local-6989586621679243669"><span class="hs-identifier hs-var hs-var">reactiveAnomaly</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReactiveAnomaly
+</span><a href="#local-6989586621679243669"><span class="hs-identifier hs-var">reactiveAnomaly</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243668"><span class="annot"><span class="annottext">s :: DescribeAnomalyResponse
+</span><a href="#local-6989586621679243668"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#DescribeAnomalyResponse%27"><span class="hs-identifier hs-type">DescribeAnomalyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243667"><span class="annot"><span class="annottext">Maybe ReactiveAnomaly
+</span><a href="#local-6989586621679243667"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAnomalyResponse
+</span><a href="#local-6989586621679243668"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reactiveAnomaly:DescribeAnomalyResponse' :: Maybe ReactiveAnomaly
+</span><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#%24sel%3AreactiveAnomaly%3ADescribeAnomalyResponse%27"><span class="hs-identifier hs-var">reactiveAnomaly</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReactiveAnomaly
+</span><a href="#local-6989586621679243667"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#DescribeAnomalyResponse"><span class="hs-identifier hs-type">DescribeAnomalyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | A @ReactiveAnomaly@ object that represents the requested anomaly.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#describeAnomalyResponse_proactiveAnomaly"><span class="hs-identifier hs-type">describeAnomalyResponse_proactiveAnomaly</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#DescribeAnomalyResponse"><span class="hs-identifier hs-type">DescribeAnomalyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveAnomaly.html#ProactiveAnomaly"><span class="hs-identifier hs-type">ProactiveAnomaly</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="describeAnomalyResponse_proactiveAnomaly"><span class="annot"><span class="annottext">describeAnomalyResponse_proactiveAnomaly :: (Maybe ProactiveAnomaly -&gt; f (Maybe ProactiveAnomaly))
+-&gt; DescribeAnomalyResponse -&gt; f DescribeAnomalyResponse
+</span><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#describeAnomalyResponse_proactiveAnomaly"><span class="hs-identifier hs-var hs-var">describeAnomalyResponse_proactiveAnomaly</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAnomalyResponse -&gt; Maybe ProactiveAnomaly)
+-&gt; (DescribeAnomalyResponse
+    -&gt; Maybe ProactiveAnomaly -&gt; DescribeAnomalyResponse)
+-&gt; Lens
+     DescribeAnomalyResponse
+     DescribeAnomalyResponse
+     (Maybe ProactiveAnomaly)
+     (Maybe ProactiveAnomaly)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#DescribeAnomalyResponse%27"><span class="hs-identifier hs-type">DescribeAnomalyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243666"><span class="annot"><span class="annottext">Maybe ProactiveAnomaly
+proactiveAnomaly :: Maybe ProactiveAnomaly
+$sel:proactiveAnomaly:DescribeAnomalyResponse' :: DescribeAnomalyResponse -&gt; Maybe ProactiveAnomaly
+</span><a href="#local-6989586621679243666"><span class="hs-identifier hs-var hs-var">proactiveAnomaly</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProactiveAnomaly
+</span><a href="#local-6989586621679243666"><span class="hs-identifier hs-var">proactiveAnomaly</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243665"><span class="annot"><span class="annottext">s :: DescribeAnomalyResponse
+</span><a href="#local-6989586621679243665"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#DescribeAnomalyResponse%27"><span class="hs-identifier hs-type">DescribeAnomalyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243664"><span class="annot"><span class="annottext">Maybe ProactiveAnomaly
+</span><a href="#local-6989586621679243664"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAnomalyResponse
+</span><a href="#local-6989586621679243665"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:proactiveAnomaly:DescribeAnomalyResponse' :: Maybe ProactiveAnomaly
+</span><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#%24sel%3AproactiveAnomaly%3ADescribeAnomalyResponse%27"><span class="hs-identifier hs-var">proactiveAnomaly</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProactiveAnomaly
+</span><a href="#local-6989586621679243664"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#DescribeAnomalyResponse"><span class="hs-identifier hs-type">DescribeAnomalyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#describeAnomalyResponse_httpStatus"><span class="hs-identifier hs-type">describeAnomalyResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#DescribeAnomalyResponse"><span class="hs-identifier hs-type">DescribeAnomalyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-158"></span><span id="describeAnomalyResponse_httpStatus"><span class="annot"><span class="annottext">describeAnomalyResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeAnomalyResponse -&gt; f DescribeAnomalyResponse
+</span><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#describeAnomalyResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeAnomalyResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAnomalyResponse -&gt; Int)
+-&gt; (DescribeAnomalyResponse -&gt; Int -&gt; DescribeAnomalyResponse)
+-&gt; Lens DescribeAnomalyResponse DescribeAnomalyResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#DescribeAnomalyResponse%27"><span class="hs-identifier hs-type">DescribeAnomalyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243663"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeAnomalyResponse' :: DescribeAnomalyResponse -&gt; Int
+</span><a href="#local-6989586621679243663"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679243663"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243662"><span class="annot"><span class="annottext">s :: DescribeAnomalyResponse
+</span><a href="#local-6989586621679243662"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#DescribeAnomalyResponse%27"><span class="hs-identifier hs-type">DescribeAnomalyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243661"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679243661"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAnomalyResponse
+</span><a href="#local-6989586621679243662"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAnomalyResponse' :: Int
+</span><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#%24sel%3AhttpStatus%3ADescribeAnomalyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679243661"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#DescribeAnomalyResponse"><span class="hs-identifier hs-type">DescribeAnomalyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243659"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.DescribeAnomaly.html#DescribeAnomalyResponse"><span class="hs-identifier hs-type">DescribeAnomalyResponse</span></a></span></span><span>
+</span><span id="line-161"></span></pre></body></html>

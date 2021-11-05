@@ -47,12 +47,12 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newDeleteContainerPolicy' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679168202"><span id="local-6989586621679168203"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteContainerPolicy"><span class="annot"><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#DeleteContainerPolicy"><span class="hs-identifier hs-var">DeleteContainerPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteContainerPolicy%27"><span class="annot"><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#DeleteContainerPolicy%27"><span class="hs-identifier hs-var">DeleteContainerPolicy'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679168211"><span id="local-6989586621679168212"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteContainerPolicy"><span class="annot"><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#DeleteContainerPolicy"><span class="hs-identifier hs-var">DeleteContainerPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteContainerPolicy%27"><span class="annot"><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#DeleteContainerPolicy%27"><span class="hs-identifier hs-var">DeleteContainerPolicy'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the container that holds the policy.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AcontainerName%3ADeleteContainerPolicy%27"><span class="annot"><span class="annottext">DeleteContainerPolicy -&gt; Text
 </span><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#%24sel%3AcontainerName%3ADeleteContainerPolicy%27"><span class="hs-identifier hs-var hs-var">containerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679168196"><span id="local-6989586621679168198"><span class="annot"><span class="annottext">DeleteContainerPolicy -&gt; DeleteContainerPolicy -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679168205"><span id="local-6989586621679168207"><span class="annot"><span class="annottext">DeleteContainerPolicy -&gt; DeleteContainerPolicy -&gt; Bool
 (DeleteContainerPolicy -&gt; DeleteContainerPolicy -&gt; Bool)
 -&gt; (DeleteContainerPolicy -&gt; DeleteContainerPolicy -&gt; Bool)
 -&gt; Eq DeleteContainerPolicy
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteContainerPolicy -&gt; DeleteContainerPolicy -&gt; Bool
 == :: DeleteContainerPolicy -&gt; DeleteContainerPolicy -&gt; Bool
 $c== :: DeleteContainerPolicy -&gt; DeleteContainerPolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679168187"><span id="local-6989586621679168189"><span id="local-6989586621679168191"><span id="local-6989586621679168193"><span class="annot"><span class="annottext">ReadPrec [DeleteContainerPolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679168196"><span id="local-6989586621679168198"><span id="local-6989586621679168200"><span id="local-6989586621679168202"><span class="annot"><span class="annottext">ReadPrec [DeleteContainerPolicy]
 ReadPrec DeleteContainerPolicy
 Int -&gt; ReadS DeleteContainerPolicy
 ReadS [DeleteContainerPolicy]
@@ -81,7 +81,7 @@ readList :: ReadS [DeleteContainerPolicy]
 $creadList :: ReadS [DeleteContainerPolicy]
 readsPrec :: Int -&gt; ReadS DeleteContainerPolicy
 $creadsPrec :: Int -&gt; ReadS DeleteContainerPolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679168180"><span id="local-6989586621679168182"><span id="local-6989586621679168184"><span class="annot"><span class="annottext">Int -&gt; DeleteContainerPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679168189"><span id="local-6989586621679168191"><span id="local-6989586621679168193"><span class="annot"><span class="annottext">Int -&gt; DeleteContainerPolicy -&gt; ShowS
 [DeleteContainerPolicy] -&gt; ShowS
 DeleteContainerPolicy -&gt; String
 (Int -&gt; DeleteContainerPolicy -&gt; ShowS)
@@ -121,14 +121,14 @@ $cfrom :: forall x. DeleteContainerPolicy -&gt; Rep DeleteContainerPolicy x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#DeleteContainerPolicy"><span class="hs-identifier hs-type">DeleteContainerPolicy</span></a></span><span>
 </span><span id="line-69"></span><span id="newDeleteContainerPolicy"><span class="annot"><span class="annottext">newDeleteContainerPolicy :: Text -&gt; DeleteContainerPolicy
-</span><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#newDeleteContainerPolicy"><span class="hs-identifier hs-var hs-var">newDeleteContainerPolicy</span></a></span></span><span> </span><span id="local-6989586621679168175"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679168175"><span class="hs-identifier hs-var">pContainerName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#newDeleteContainerPolicy"><span class="hs-identifier hs-var hs-var">newDeleteContainerPolicy</span></a></span></span><span> </span><span id="local-6989586621679168184"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679168184"><span class="hs-identifier hs-var">pContainerName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">DeleteContainerPolicy' :: Text -&gt; DeleteContainerPolicy
 </span><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#DeleteContainerPolicy%27"><span class="hs-identifier hs-type">DeleteContainerPolicy'</span></a></span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:containerName:DeleteContainerPolicy' :: Text
 </span><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#%24sel%3AcontainerName%3ADeleteContainerPolicy%27"><span class="hs-identifier hs-var">containerName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679168175"><span class="hs-identifier hs-var">pContainerName_</span></a></span><span>
+</span><a href="#local-6989586621679168184"><span class="hs-identifier hs-var">pContainerName_</span></a></span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | The name of the container that holds the policy.</span><span>
@@ -139,27 +139,27 @@ $cfrom :: forall x. DeleteContainerPolicy -&gt; Rep DeleteContainerPolicy x
 -&gt; (DeleteContainerPolicy -&gt; Text -&gt; DeleteContainerPolicy)
 -&gt; Lens DeleteContainerPolicy DeleteContainerPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#DeleteContainerPolicy%27"><span class="hs-identifier hs-type">DeleteContainerPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679168172"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#DeleteContainerPolicy%27"><span class="hs-identifier hs-type">DeleteContainerPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679168181"><span class="annot"><span class="annottext">Text
 containerName :: Text
 $sel:containerName:DeleteContainerPolicy' :: DeleteContainerPolicy -&gt; Text
-</span><a href="#local-6989586621679168172"><span class="hs-identifier hs-var hs-var">containerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679168172"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679168171"><span class="annot"><span class="annottext">s :: DeleteContainerPolicy
-</span><a href="#local-6989586621679168171"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#DeleteContainerPolicy%27"><span class="hs-identifier hs-type">DeleteContainerPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679168170"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679168170"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteContainerPolicy
-</span><a href="#local-6989586621679168171"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerName:DeleteContainerPolicy' :: Text
+</span><a href="#local-6989586621679168181"><span class="hs-identifier hs-var hs-var">containerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679168181"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679168180"><span class="annot"><span class="annottext">s :: DeleteContainerPolicy
+</span><a href="#local-6989586621679168180"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#DeleteContainerPolicy%27"><span class="hs-identifier hs-type">DeleteContainerPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679168179"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679168179"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteContainerPolicy
+</span><a href="#local-6989586621679168180"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerName:DeleteContainerPolicy' :: Text
 </span><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#%24sel%3AcontainerName%3ADeleteContainerPolicy%27"><span class="hs-identifier hs-var">containerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679168170"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#DeleteContainerPolicy"><span class="hs-identifier hs-type">DeleteContainerPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679168179"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#DeleteContainerPolicy"><span class="hs-identifier hs-type">DeleteContainerPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#DeleteContainerPolicy"><span class="hs-identifier hs-type">DeleteContainerPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-80"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-81"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#DeleteContainerPolicy"><span class="hs-identifier hs-type">DeleteContainerPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#DeleteContainerPolicyResponse"><span class="hs-identifier hs-type">DeleteContainerPolicyResponse</span></a></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679168166"><span class="annot"><span class="annottext">request :: DeleteContainerPolicy -&gt; Request DeleteContainerPolicy
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679168175"><span class="annot"><span class="annottext">request :: DeleteContainerPolicy -&gt; Request DeleteContainerPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteContainerPolicy -&gt; Request DeleteContainerPolicy
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MediaStore.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679168162"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679168171"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteContainerPolicy
 -&gt; ClientResponse ClientBody
@@ -185,10 +185,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679168159"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679168159"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679168158"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679168158"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679168157"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679168157"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679168168"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679168168"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679168167"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679168167"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679168166"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679168166"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteContainerPolicyResponse
 </span><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#DeleteContainerPolicyResponse%27"><span class="hs-identifier hs-var">DeleteContainerPolicyResponse'</span></a></span><span>
 </span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteContainerPolicyResponse)
@@ -199,15 +199,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679168159"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679168168"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679168150"><span id="local-6989586621679168152"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#DeleteContainerPolicy"><span class="hs-identifier hs-type">DeleteContainerPolicy</span></a></span></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679168159"><span id="local-6989586621679168161"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#DeleteContainerPolicy"><span class="hs-identifier hs-type">DeleteContainerPolicy</span></a></span></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679168147"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#DeleteContainerPolicy"><span class="hs-identifier hs-type">DeleteContainerPolicy</span></a></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679168156"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#DeleteContainerPolicy"><span class="hs-identifier hs-type">DeleteContainerPolicy</span></a></span></span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#DeleteContainerPolicy"><span class="hs-identifier hs-type">DeleteContainerPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679168143"><span class="annot"><span class="annottext">toHeaders :: DeleteContainerPolicy -&gt; ResponseHeaders
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679168152"><span class="annot"><span class="annottext">toHeaders :: DeleteContainerPolicy -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteContainerPolicy -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -234,12 +234,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-107"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679168133"><span id="local-6989586621679168135"><span id="local-6989586621679168137"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#DeleteContainerPolicy"><span class="hs-identifier hs-type">DeleteContainerPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679168131"><span class="annot"><span class="annottext">toJSON :: DeleteContainerPolicy -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#DeleteContainerPolicy%27"><span class="hs-identifier hs-type">DeleteContainerPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679168129"><span class="annot"><span class="annottext">Text
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679168142"><span id="local-6989586621679168144"><span id="local-6989586621679168146"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#DeleteContainerPolicy"><span class="hs-identifier hs-type">DeleteContainerPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679168140"><span class="annot"><span class="annottext">toJSON :: DeleteContainerPolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#DeleteContainerPolicy%27"><span class="hs-identifier hs-type">DeleteContainerPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679168138"><span class="annot"><span class="annottext">Text
 containerName :: Text
 $sel:containerName:DeleteContainerPolicy' :: DeleteContainerPolicy -&gt; Text
-</span><a href="#local-6989586621679168129"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679168138"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -252,19 +252,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ContainerName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679168129"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679168138"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#DeleteContainerPolicy"><span class="hs-identifier hs-type">DeleteContainerPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679168123"><span class="annot"><span class="annottext">toPath :: DeleteContainerPolicy -&gt; ByteString
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679168132"><span class="annot"><span class="annottext">toPath :: DeleteContainerPolicy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteContainerPolicy -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#DeleteContainerPolicy"><span class="hs-identifier hs-type">DeleteContainerPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679168119"><span class="annot"><span class="annottext">toQuery :: DeleteContainerPolicy -&gt; QueryString
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679168128"><span class="annot"><span class="annottext">toQuery :: DeleteContainerPolicy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteContainerPolicy -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -272,12 +272,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | /See:/ 'newDeleteContainerPolicyResponse' smart constructor.</span><span>
-</span><span id="line-126"></span><span id="local-6989586621679168116"><span id="local-6989586621679168117"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteContainerPolicyResponse"><span class="annot"><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#DeleteContainerPolicyResponse"><span class="hs-identifier hs-var">DeleteContainerPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteContainerPolicyResponse%27"><span class="annot"><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#DeleteContainerPolicyResponse%27"><span class="hs-identifier hs-var">DeleteContainerPolicyResponse'</span></a></span></span><span>
+</span><span id="line-126"></span><span id="local-6989586621679168125"><span id="local-6989586621679168126"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteContainerPolicyResponse"><span class="annot"><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#DeleteContainerPolicyResponse"><span class="hs-identifier hs-var">DeleteContainerPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteContainerPolicyResponse%27"><span class="annot"><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#DeleteContainerPolicyResponse%27"><span class="hs-identifier hs-var">DeleteContainerPolicyResponse'</span></a></span></span><span>
 </span><span id="line-127"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-128"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteContainerPolicyResponse%27"><span class="annot"><span class="annottext">DeleteContainerPolicyResponse -&gt; Int
 </span><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#%24sel%3AhttpStatus%3ADeleteContainerPolicyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-129"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-130"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679168111"><span id="local-6989586621679168113"><span class="annot"><span class="annottext">DeleteContainerPolicyResponse
+</span><span id="line-130"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679168120"><span id="local-6989586621679168122"><span class="annot"><span class="annottext">DeleteContainerPolicyResponse
 -&gt; DeleteContainerPolicyResponse -&gt; Bool
 (DeleteContainerPolicyResponse
  -&gt; DeleteContainerPolicyResponse -&gt; Bool)
@@ -293,7 +293,7 @@ $c/= :: DeleteContainerPolicyResponse
 -&gt; DeleteContainerPolicyResponse -&gt; Bool
 $c== :: DeleteContainerPolicyResponse
 -&gt; DeleteContainerPolicyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679168103"><span id="local-6989586621679168105"><span id="local-6989586621679168107"><span id="local-6989586621679168109"><span class="annot"><span class="annottext">ReadPrec [DeleteContainerPolicyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679168112"><span id="local-6989586621679168114"><span id="local-6989586621679168116"><span id="local-6989586621679168118"><span class="annot"><span class="annottext">ReadPrec [DeleteContainerPolicyResponse]
 ReadPrec DeleteContainerPolicyResponse
 Int -&gt; ReadS DeleteContainerPolicyResponse
 ReadS [DeleteContainerPolicyResponse]
@@ -313,7 +313,7 @@ readList :: ReadS [DeleteContainerPolicyResponse]
 $creadList :: ReadS [DeleteContainerPolicyResponse]
 readsPrec :: Int -&gt; ReadS DeleteContainerPolicyResponse
 $creadsPrec :: Int -&gt; ReadS DeleteContainerPolicyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679168097"><span id="local-6989586621679168099"><span id="local-6989586621679168101"><span class="annot"><span class="annottext">Int -&gt; DeleteContainerPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679168106"><span id="local-6989586621679168108"><span id="local-6989586621679168110"><span class="annot"><span class="annottext">Int -&gt; DeleteContainerPolicyResponse -&gt; ShowS
 [DeleteContainerPolicyResponse] -&gt; ShowS
 DeleteContainerPolicyResponse -&gt; String
 (Int -&gt; DeleteContainerPolicyResponse -&gt; ShowS)
@@ -365,14 +365,14 @@ DeleteContainerPolicyResponse
 </span><span id="line-143"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-144"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#DeleteContainerPolicyResponse"><span class="hs-identifier hs-type">DeleteContainerPolicyResponse</span></a></span><span>
 </span><span id="line-145"></span><span id="newDeleteContainerPolicyResponse"><span class="annot"><span class="annottext">newDeleteContainerPolicyResponse :: Int -&gt; DeleteContainerPolicyResponse
-</span><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#newDeleteContainerPolicyResponse"><span class="hs-identifier hs-var hs-var">newDeleteContainerPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679168094"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679168094"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#newDeleteContainerPolicyResponse"><span class="hs-identifier hs-var hs-var">newDeleteContainerPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679168103"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679168103"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>  </span><span class="annot"><span class="annottext">DeleteContainerPolicyResponse' :: Int -&gt; DeleteContainerPolicyResponse
 </span><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#DeleteContainerPolicyResponse%27"><span class="hs-identifier hs-type">DeleteContainerPolicyResponse'</span></a></span><span>
 </span><span id="line-147"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteContainerPolicyResponse' :: Int
 </span><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#%24sel%3AhttpStatus%3ADeleteContainerPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679168094"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679168103"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-149"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -385,16 +385,16 @@ DeleteContainerPolicyResponse
 -&gt; Lens
      DeleteContainerPolicyResponse DeleteContainerPolicyResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#DeleteContainerPolicyResponse%27"><span class="hs-identifier hs-type">DeleteContainerPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679168093"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#DeleteContainerPolicyResponse%27"><span class="hs-identifier hs-type">DeleteContainerPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679168102"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteContainerPolicyResponse' :: DeleteContainerPolicyResponse -&gt; Int
-</span><a href="#local-6989586621679168093"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679168093"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679168092"><span class="annot"><span class="annottext">s :: DeleteContainerPolicyResponse
-</span><a href="#local-6989586621679168092"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#DeleteContainerPolicyResponse%27"><span class="hs-identifier hs-type">DeleteContainerPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679168091"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679168091"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteContainerPolicyResponse
-</span><a href="#local-6989586621679168092"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteContainerPolicyResponse' :: Int
+</span><a href="#local-6989586621679168102"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679168102"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679168101"><span class="annot"><span class="annottext">s :: DeleteContainerPolicyResponse
+</span><a href="#local-6989586621679168101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#DeleteContainerPolicyResponse%27"><span class="hs-identifier hs-type">DeleteContainerPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679168100"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679168100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteContainerPolicyResponse
+</span><a href="#local-6989586621679168101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteContainerPolicyResponse' :: Int
 </span><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#%24sel%3AhttpStatus%3ADeleteContainerPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679168091"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#DeleteContainerPolicyResponse"><span class="hs-identifier hs-type">DeleteContainerPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679168100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#DeleteContainerPolicyResponse"><span class="hs-identifier hs-type">DeleteContainerPolicyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679168089"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#DeleteContainerPolicyResponse"><span class="hs-identifier hs-type">DeleteContainerPolicyResponse</span></a></span></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679168098"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.DeleteContainerPolicy.html#DeleteContainerPolicyResponse"><span class="hs-identifier hs-type">DeleteContainerPolicyResponse</span></a></span></span><span>
 </span><span id="line-156"></span></pre></body></html>

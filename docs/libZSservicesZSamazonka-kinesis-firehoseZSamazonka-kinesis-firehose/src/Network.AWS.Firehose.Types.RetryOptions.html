@@ -27,13 +27,13 @@
 </span><span id="line-27"></span><span class="hs-comment">-- data to an Amazon S3 prefix.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newRetryOptions' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679275762"><span id="local-6989586621679275763"></span></span><span class="hs-keyword">data</span><span> </span><span id="RetryOptions"><span class="annot"><a href="Network.AWS.Firehose.Types.RetryOptions.html#RetryOptions"><span class="hs-identifier hs-var">RetryOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RetryOptions%27"><span class="annot"><a href="Network.AWS.Firehose.Types.RetryOptions.html#RetryOptions%27"><span class="hs-identifier hs-var">RetryOptions'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679275771"><span id="local-6989586621679275772"></span></span><span class="hs-keyword">data</span><span> </span><span id="RetryOptions"><span class="annot"><a href="Network.AWS.Firehose.Types.RetryOptions.html#RetryOptions"><span class="hs-identifier hs-var">RetryOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RetryOptions%27"><span class="annot"><a href="Network.AWS.Firehose.Types.RetryOptions.html#RetryOptions%27"><span class="hs-identifier hs-var">RetryOptions'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The period of time during which Kinesis Data Firehose retries to deliver</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- data to the specified Amazon S3 prefix.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AdurationInSeconds%3ARetryOptions%27"><span class="annot"><span class="annottext">RetryOptions -&gt; Maybe Natural
 </span><a href="Network.AWS.Firehose.Types.RetryOptions.html#%24sel%3AdurationInSeconds%3ARetryOptions%27"><span class="hs-identifier hs-var hs-var">durationInSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275756"><span id="local-6989586621679275758"><span class="annot"><span class="annottext">RetryOptions -&gt; RetryOptions -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275765"><span id="local-6989586621679275767"><span class="annot"><span class="annottext">RetryOptions -&gt; RetryOptions -&gt; Bool
 (RetryOptions -&gt; RetryOptions -&gt; Bool)
 -&gt; (RetryOptions -&gt; RetryOptions -&gt; Bool) -&gt; Eq RetryOptions
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RetryOptions -&gt; RetryOptions -&gt; Bool
 == :: RetryOptions -&gt; RetryOptions -&gt; Bool
 $c== :: RetryOptions -&gt; RetryOptions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275747"><span id="local-6989586621679275749"><span id="local-6989586621679275751"><span id="local-6989586621679275753"><span class="annot"><span class="annottext">ReadPrec [RetryOptions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275756"><span id="local-6989586621679275758"><span id="local-6989586621679275760"><span id="local-6989586621679275762"><span class="annot"><span class="annottext">ReadPrec [RetryOptions]
 ReadPrec RetryOptions
 Int -&gt; ReadS RetryOptions
 ReadS [RetryOptions]
@@ -61,7 +61,7 @@ readList :: ReadS [RetryOptions]
 $creadList :: ReadS [RetryOptions]
 readsPrec :: Int -&gt; ReadS RetryOptions
 $creadsPrec :: Int -&gt; ReadS RetryOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275740"><span id="local-6989586621679275742"><span id="local-6989586621679275744"><span class="annot"><span class="annottext">Int -&gt; RetryOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275749"><span id="local-6989586621679275751"><span id="local-6989586621679275753"><span class="annot"><span class="annottext">Int -&gt; RetryOptions -&gt; ShowS
 [RetryOptions] -&gt; ShowS
 RetryOptions -&gt; String
 (Int -&gt; RetryOptions -&gt; ShowS)
@@ -116,19 +116,19 @@ forall a. Maybe a
 -&gt; (RetryOptions -&gt; Maybe Natural -&gt; RetryOptions)
 -&gt; Lens RetryOptions RetryOptions (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.RetryOptions.html#RetryOptions%27"><span class="hs-identifier hs-type">RetryOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275731"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.RetryOptions.html#RetryOptions%27"><span class="hs-identifier hs-type">RetryOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275740"><span class="annot"><span class="annottext">Maybe Natural
 durationInSeconds :: Maybe Natural
 $sel:durationInSeconds:RetryOptions' :: RetryOptions -&gt; Maybe Natural
-</span><a href="#local-6989586621679275731"><span class="hs-identifier hs-var hs-var">durationInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679275731"><span class="hs-identifier hs-var">durationInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275730"><span class="annot"><span class="annottext">s :: RetryOptions
-</span><a href="#local-6989586621679275730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.RetryOptions.html#RetryOptions%27"><span class="hs-identifier hs-type">RetryOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275729"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679275729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RetryOptions
-</span><a href="#local-6989586621679275730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:durationInSeconds:RetryOptions' :: Maybe Natural
+</span><a href="#local-6989586621679275740"><span class="hs-identifier hs-var hs-var">durationInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679275740"><span class="hs-identifier hs-var">durationInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275739"><span class="annot"><span class="annottext">s :: RetryOptions
+</span><a href="#local-6989586621679275739"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.RetryOptions.html#RetryOptions%27"><span class="hs-identifier hs-type">RetryOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275738"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679275738"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RetryOptions
+</span><a href="#local-6989586621679275739"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:durationInSeconds:RetryOptions' :: Maybe Natural
 </span><a href="Network.AWS.Firehose.Types.RetryOptions.html#%24sel%3AdurationInSeconds%3ARetryOptions%27"><span class="hs-identifier hs-var">durationInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679275729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.RetryOptions.html#RetryOptions"><span class="hs-identifier hs-type">RetryOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679275738"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.RetryOptions.html#RetryOptions"><span class="hs-identifier hs-type">RetryOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275726"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.RetryOptions.html#RetryOptions"><span class="hs-identifier hs-type">RetryOptions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-58"></span><span>  </span><span id="local-6989586621679275724"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RetryOptions
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275735"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.RetryOptions.html#RetryOptions"><span class="hs-identifier hs-type">RetryOptions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621679275733"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RetryOptions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser RetryOptions) -&gt; Value -&gt; Parser RetryOptions
@@ -136,30 +136,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;RetryOptions&quot;</span></span><span>
-</span><span id="line-61"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679275721"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679275721"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-61"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679275730"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679275730"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-62"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural -&gt; RetryOptions
 </span><a href="Network.AWS.Firehose.Types.RetryOptions.html#RetryOptions%27"><span class="hs-identifier hs-var">RetryOptions'</span></a></span><span>
 </span><span id="line-63"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural -&gt; RetryOptions)
 -&gt; Parser (Maybe Natural) -&gt; Parser RetryOptions
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679275721"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679275730"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DurationInSeconds&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275715"><span id="local-6989586621679275717"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.RetryOptions.html#RetryOptions"><span class="hs-identifier hs-type">RetryOptions</span></a></span></span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275724"><span id="local-6989586621679275726"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.RetryOptions.html#RetryOptions"><span class="hs-identifier hs-type">RetryOptions</span></a></span></span></span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275712"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.RetryOptions.html#RetryOptions"><span class="hs-identifier hs-type">RetryOptions</span></a></span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275721"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.RetryOptions.html#RetryOptions"><span class="hs-identifier hs-type">RetryOptions</span></a></span></span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275704"><span id="local-6989586621679275706"><span id="local-6989586621679275708"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.RetryOptions.html#RetryOptions"><span class="hs-identifier hs-type">RetryOptions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679275702"><span class="annot"><span class="annottext">toJSON :: RetryOptions -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.RetryOptions.html#RetryOptions%27"><span class="hs-identifier hs-type">RetryOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275700"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275713"><span id="local-6989586621679275715"><span id="local-6989586621679275717"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.RetryOptions.html#RetryOptions"><span class="hs-identifier hs-type">RetryOptions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679275711"><span class="annot"><span class="annottext">toJSON :: RetryOptions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.RetryOptions.html#RetryOptions%27"><span class="hs-identifier hs-type">RetryOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275709"><span class="annot"><span class="annottext">Maybe Natural
 durationInSeconds :: Maybe Natural
 $sel:durationInSeconds:RetryOptions' :: RetryOptions -&gt; Maybe Natural
-</span><a href="#local-6989586621679275700"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679275709"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -172,7 +172,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-75"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679275700"><span class="hs-identifier hs-var">durationInSeconds</span></a></span><span>
+</span><a href="#local-6989586621679275709"><span class="hs-identifier hs-var">durationInSeconds</span></a></span><span>
 </span><span id="line-76"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span></pre></body></html>

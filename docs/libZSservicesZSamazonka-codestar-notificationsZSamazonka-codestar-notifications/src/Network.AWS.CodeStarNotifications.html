@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-3"></span><span>
+</span><span id="line-4"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-5"></span><span class="hs-comment">-- Module      : Network.AWS.CodeStarNotifications</span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-7"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-8"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-11"></span><span class="hs-comment">--</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- Derived from API version @2019-10-15@ of the AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-13"></span><span class="hs-comment">--</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- This AWS CodeStar Notifications API Reference provides descriptions and</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- usage examples of the operations and data types for the AWS CodeStar</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Notifications API. You can use the AWS CodeStar Notifications API to</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- work with the following objects:</span><span>
+</span><span id="line-18"></span><span class="hs-comment">--</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Notification rules, by calling the following:</span><span>
+</span><span id="line-20"></span><span class="hs-comment">--</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- -   CreateNotificationRule, which creates a notification rule for a</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--     resource in your account.</span><span>
+</span><span id="line-23"></span><span class="hs-comment">--</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- -   DeleteNotificationRule, which deletes a notification rule.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- -   DescribeNotificationRule, which provides information about a</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--     notification rule.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- -   ListNotificationRules, which lists the notification rules associated</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--     with your account.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- -   UpdateNotificationRule, which changes the name, events, or targets</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--     associated with a notification rule.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- -   Subscribe, which subscribes a target to a notification rule.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- -   Unsubscribe, which removes a target from a notification rule.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Targets, by calling the following:</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- -   DeleteTarget, which removes a notification rule target (SNS topic)</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--     from a notification rule.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- -   ListTargets, which lists the targets associated with a notification</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--     rule.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Events, by calling the following:</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- -   ListEventTypes, which lists the event types you can include in a</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--     notification rule.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Tags, by calling the following:</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- -   ListTagsForResource, which lists the tags already associated with a</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--     notification rule in your account.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- -   TagResource, which associates a tag you provide with a notification</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--     rule in your account.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- -   UntagResource, which removes a tag from a notification rule in your</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--     account.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- For information about how to use AWS CodeStar Notifications, see link in</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- the CodeStarNotifications User Guide.</span><span>
+</span><span id="line-65"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodeStarNotifications</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Service Configuration</span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.html#defaultService"><span class="hs-identifier">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Errors</span></span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><span class="hs-comment">-- $errors</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ValidationException</span></span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.html#_ValidationException"><span class="hs-identifier">_ValidationException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** AccessDeniedException</span></span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.html#_AccessDeniedException"><span class="hs-identifier">_AccessDeniedException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ResourceAlreadyExistsException</span></span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.html#_ResourceAlreadyExistsException"><span class="hs-identifier">_ResourceAlreadyExistsException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ConfigurationException</span></span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.html#_ConfigurationException"><span class="hs-identifier">_ConfigurationException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ConcurrentModificationException</span></span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.html#_ConcurrentModificationException"><span class="hs-identifier">_ConcurrentModificationException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** InvalidNextTokenException</span></span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.html#_InvalidNextTokenException"><span class="hs-identifier">_InvalidNextTokenException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ResourceNotFoundException</span></span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.html#_ResourceNotFoundException"><span class="hs-identifier">_ResourceNotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** LimitExceededException</span></span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.html#_LimitExceededException"><span class="hs-identifier">_LimitExceededException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Waiters</span></span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><span class="hs-comment">-- $waiters</span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Operations</span></span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="hs-comment">-- $operations</span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** CreateNotificationRule</span></span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule"><span class="hs-identifier">CreateNotificationRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRule%27"><span class="hs-identifier">CreateNotificationRule'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#newCreateNotificationRule"><span class="hs-identifier">newCreateNotificationRule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRuleResponse"><span class="hs-identifier">CreateNotificationRuleResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#CreateNotificationRuleResponse%27"><span class="hs-identifier">CreateNotificationRuleResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html#newCreateNotificationRuleResponse"><span class="hs-identifier">newCreateNotificationRuleResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** UpdateNotificationRule</span></span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.UpdateNotificationRule.html#UpdateNotificationRule"><span class="hs-identifier">UpdateNotificationRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.UpdateNotificationRule.html#UpdateNotificationRule%27"><span class="hs-identifier">UpdateNotificationRule'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.UpdateNotificationRule.html#newUpdateNotificationRule"><span class="hs-identifier">newUpdateNotificationRule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.UpdateNotificationRule.html#UpdateNotificationRuleResponse"><span class="hs-identifier">UpdateNotificationRuleResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.UpdateNotificationRule.html#UpdateNotificationRuleResponse%27"><span class="hs-identifier">UpdateNotificationRuleResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.UpdateNotificationRule.html#newUpdateNotificationRuleResponse"><span class="hs-identifier">newUpdateNotificationRuleResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** DeleteNotificationRule</span></span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.DeleteNotificationRule.html#DeleteNotificationRule"><span class="hs-identifier">DeleteNotificationRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.DeleteNotificationRule.html#DeleteNotificationRule%27"><span class="hs-identifier">DeleteNotificationRule'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.DeleteNotificationRule.html#newDeleteNotificationRule"><span class="hs-identifier">newDeleteNotificationRule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.DeleteNotificationRule.html#DeleteNotificationRuleResponse"><span class="hs-identifier">DeleteNotificationRuleResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.DeleteNotificationRule.html#DeleteNotificationRuleResponse%27"><span class="hs-identifier">DeleteNotificationRuleResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.DeleteNotificationRule.html#newDeleteNotificationRuleResponse"><span class="hs-identifier">newDeleteNotificationRuleResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ListTagsForResource</span></span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier">ListTagsForResource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.ListTagsForResource.html#ListTagsForResource%27"><span class="hs-identifier">ListTagsForResource'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.ListTagsForResource.html#newListTagsForResource"><span class="hs-identifier">newListTagsForResource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.ListTagsForResource.html#ListTagsForResourceResponse"><span class="hs-identifier">ListTagsForResourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.ListTagsForResource.html#ListTagsForResourceResponse%27"><span class="hs-identifier">ListTagsForResourceResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.ListTagsForResource.html#newListTagsForResourceResponse"><span class="hs-identifier">newListTagsForResourceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ListEventTypes (Paginated)</span></span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.ListEventTypes.html#ListEventTypes"><span class="hs-identifier">ListEventTypes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.ListEventTypes.html#ListEventTypes%27"><span class="hs-identifier">ListEventTypes'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.ListEventTypes.html#newListEventTypes"><span class="hs-identifier">newListEventTypes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.ListEventTypes.html#ListEventTypesResponse"><span class="hs-identifier">ListEventTypesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.ListEventTypes.html#ListEventTypesResponse%27"><span class="hs-identifier">ListEventTypesResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.ListEventTypes.html#newListEventTypesResponse"><span class="hs-identifier">newListEventTypesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** DeleteTarget</span></span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.DeleteTarget.html#DeleteTarget"><span class="hs-identifier">DeleteTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.DeleteTarget.html#DeleteTarget%27"><span class="hs-identifier">DeleteTarget'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.DeleteTarget.html#newDeleteTarget"><span class="hs-identifier">newDeleteTarget</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.DeleteTarget.html#DeleteTargetResponse"><span class="hs-identifier">DeleteTargetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.DeleteTarget.html#DeleteTargetResponse%27"><span class="hs-identifier">DeleteTargetResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.DeleteTarget.html#newDeleteTargetResponse"><span class="hs-identifier">newDeleteTargetResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ListNotificationRules (Paginated)</span></span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.ListNotificationRules.html#ListNotificationRules"><span class="hs-identifier">ListNotificationRules</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.ListNotificationRules.html#ListNotificationRules%27"><span class="hs-identifier">ListNotificationRules'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.ListNotificationRules.html#newListNotificationRules"><span class="hs-identifier">newListNotificationRules</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.ListNotificationRules.html#ListNotificationRulesResponse"><span class="hs-identifier">ListNotificationRulesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.ListNotificationRules.html#ListNotificationRulesResponse%27"><span class="hs-identifier">ListNotificationRulesResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.ListNotificationRules.html#newListNotificationRulesResponse"><span class="hs-identifier">newListNotificationRulesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ListTargets (Paginated)</span></span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.ListTargets.html#ListTargets"><span class="hs-identifier">ListTargets</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.ListTargets.html#ListTargets%27"><span class="hs-identifier">ListTargets'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.ListTargets.html#newListTargets"><span class="hs-identifier">newListTargets</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.ListTargets.html#ListTargetsResponse"><span class="hs-identifier">ListTargetsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.ListTargets.html#ListTargetsResponse%27"><span class="hs-identifier">ListTargetsResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.ListTargets.html#newListTargetsResponse"><span class="hs-identifier">newListTargetsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** TagResource</span></span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.TagResource.html#TagResource"><span class="hs-identifier">TagResource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.TagResource.html#TagResource%27"><span class="hs-identifier">TagResource'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.TagResource.html#newTagResource"><span class="hs-identifier">newTagResource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.TagResource.html#TagResourceResponse"><span class="hs-identifier">TagResourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.TagResource.html#TagResourceResponse%27"><span class="hs-identifier">TagResourceResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.TagResource.html#newTagResourceResponse"><span class="hs-identifier">newTagResourceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** Subscribe</span></span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Subscribe.html#Subscribe"><span class="hs-identifier">Subscribe</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Subscribe.html#Subscribe%27"><span class="hs-identifier">Subscribe'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Subscribe.html#newSubscribe"><span class="hs-identifier">newSubscribe</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Subscribe.html#SubscribeResponse"><span class="hs-identifier">SubscribeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Subscribe.html#SubscribeResponse%27"><span class="hs-identifier">SubscribeResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Subscribe.html#newSubscribeResponse"><span class="hs-identifier">newSubscribeResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** UntagResource</span></span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.UntagResource.html#UntagResource"><span class="hs-identifier">UntagResource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.UntagResource.html#UntagResource%27"><span class="hs-identifier">UntagResource'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.UntagResource.html#newUntagResource"><span class="hs-identifier">newUntagResource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.UntagResource.html#UntagResourceResponse"><span class="hs-identifier">UntagResourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.UntagResource.html#UntagResourceResponse%27"><span class="hs-identifier">UntagResourceResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.UntagResource.html#newUntagResourceResponse"><span class="hs-identifier">newUntagResourceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** Unsubscribe</span></span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Unsubscribe.html#Unsubscribe"><span class="hs-identifier">Unsubscribe</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Unsubscribe.html#Unsubscribe%27"><span class="hs-identifier">Unsubscribe'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Unsubscribe.html#newUnsubscribe"><span class="hs-identifier">newUnsubscribe</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Unsubscribe.html#UnsubscribeResponse"><span class="hs-identifier">UnsubscribeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Unsubscribe.html#UnsubscribeResponse%27"><span class="hs-identifier">UnsubscribeResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Unsubscribe.html#newUnsubscribeResponse"><span class="hs-identifier">newUnsubscribeResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** DescribeNotificationRule</span></span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.DescribeNotificationRule.html#DescribeNotificationRule"><span class="hs-identifier">DescribeNotificationRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.DescribeNotificationRule.html#DescribeNotificationRule%27"><span class="hs-identifier">DescribeNotificationRule'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.DescribeNotificationRule.html#newDescribeNotificationRule"><span class="hs-identifier">newDescribeNotificationRule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.DescribeNotificationRule.html#DescribeNotificationRuleResponse"><span class="hs-identifier">DescribeNotificationRuleResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.DescribeNotificationRule.html#DescribeNotificationRuleResponse%27"><span class="hs-identifier">DescribeNotificationRuleResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.DescribeNotificationRule.html#newDescribeNotificationRuleResponse"><span class="hs-identifier">newDescribeNotificationRuleResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Types</span></span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** DetailType</span></span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.DetailType.html#DetailType"><span class="hs-identifier">DetailType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ListEventTypesFilterName</span></span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.ListEventTypesFilterName.html#ListEventTypesFilterName"><span class="hs-identifier">ListEventTypesFilterName</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ListNotificationRulesFilterName</span></span><span>
+</span><span id="line-189"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.ListNotificationRulesFilterName.html#ListNotificationRulesFilterName"><span class="hs-identifier">ListNotificationRulesFilterName</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ListTargetsFilterName</span></span><span>
+</span><span id="line-192"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.ListTargetsFilterName.html#ListTargetsFilterName"><span class="hs-identifier">ListTargetsFilterName</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** NotificationRuleStatus</span></span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.NotificationRuleStatus.html#NotificationRuleStatus"><span class="hs-identifier">NotificationRuleStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** TargetStatus</span></span><span>
+</span><span id="line-198"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.TargetStatus.html#TargetStatus"><span class="hs-identifier">TargetStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** EventTypeSummary</span></span><span>
+</span><span id="line-201"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.EventTypeSummary.html#EventTypeSummary"><span class="hs-identifier">EventTypeSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.EventTypeSummary.html#EventTypeSummary%27"><span class="hs-identifier">EventTypeSummary'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.EventTypeSummary.html#newEventTypeSummary"><span class="hs-identifier">newEventTypeSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ListEventTypesFilter</span></span><span>
+</span><span id="line-205"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.ListEventTypesFilter.html#ListEventTypesFilter"><span class="hs-identifier">ListEventTypesFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.ListEventTypesFilter.html#ListEventTypesFilter%27"><span class="hs-identifier">ListEventTypesFilter'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.ListEventTypesFilter.html#newListEventTypesFilter"><span class="hs-identifier">newListEventTypesFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ListNotificationRulesFilter</span></span><span>
+</span><span id="line-209"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.ListNotificationRulesFilter.html#ListNotificationRulesFilter"><span class="hs-identifier">ListNotificationRulesFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.ListNotificationRulesFilter.html#ListNotificationRulesFilter%27"><span class="hs-identifier">ListNotificationRulesFilter'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.ListNotificationRulesFilter.html#newListNotificationRulesFilter"><span class="hs-identifier">newListNotificationRulesFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ListTargetsFilter</span></span><span>
+</span><span id="line-213"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.ListTargetsFilter.html#ListTargetsFilter"><span class="hs-identifier">ListTargetsFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.ListTargetsFilter.html#ListTargetsFilter%27"><span class="hs-identifier">ListTargetsFilter'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.ListTargetsFilter.html#newListTargetsFilter"><span class="hs-identifier">newListTargetsFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** NotificationRuleSummary</span></span><span>
+</span><span id="line-217"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.NotificationRuleSummary.html#NotificationRuleSummary"><span class="hs-identifier">NotificationRuleSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.NotificationRuleSummary.html#NotificationRuleSummary%27"><span class="hs-identifier">NotificationRuleSummary'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.NotificationRuleSummary.html#newNotificationRuleSummary"><span class="hs-identifier">newNotificationRuleSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** Target</span></span><span>
+</span><span id="line-221"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.Target.html#Target"><span class="hs-identifier">Target</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.Target.html#Target%27"><span class="hs-identifier">Target'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.Target.html#newTarget"><span class="hs-identifier">newTarget</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** TargetSummary</span></span><span>
+</span><span id="line-225"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.TargetSummary.html#TargetSummary"><span class="hs-identifier">TargetSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.TargetSummary.html#TargetSummary%27"><span class="hs-identifier">TargetSummary'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.TargetSummary.html#newTargetSummary"><span class="hs-identifier">newTargetSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.CreateNotificationRule.html"><span class="hs-identifier">Network.AWS.CodeStarNotifications.CreateNotificationRule</span></a></span><span>
+</span><span id="line-231"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.DeleteNotificationRule.html"><span class="hs-identifier">Network.AWS.CodeStarNotifications.DeleteNotificationRule</span></a></span><span>
+</span><span id="line-232"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.DeleteTarget.html"><span class="hs-identifier">Network.AWS.CodeStarNotifications.DeleteTarget</span></a></span><span>
+</span><span id="line-233"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.DescribeNotificationRule.html"><span class="hs-identifier">Network.AWS.CodeStarNotifications.DescribeNotificationRule</span></a></span><span>
+</span><span id="line-234"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Lens.html"><span class="hs-identifier">Network.AWS.CodeStarNotifications.Lens</span></a></span><span>
+</span><span id="line-235"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.ListEventTypes.html"><span class="hs-identifier">Network.AWS.CodeStarNotifications.ListEventTypes</span></a></span><span>
+</span><span id="line-236"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.ListNotificationRules.html"><span class="hs-identifier">Network.AWS.CodeStarNotifications.ListNotificationRules</span></a></span><span>
+</span><span id="line-237"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.ListTagsForResource.html"><span class="hs-identifier">Network.AWS.CodeStarNotifications.ListTagsForResource</span></a></span><span>
+</span><span id="line-238"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.ListTargets.html"><span class="hs-identifier">Network.AWS.CodeStarNotifications.ListTargets</span></a></span><span>
+</span><span id="line-239"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Subscribe.html"><span class="hs-identifier">Network.AWS.CodeStarNotifications.Subscribe</span></a></span><span>
+</span><span id="line-240"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.TagResource.html"><span class="hs-identifier">Network.AWS.CodeStarNotifications.TagResource</span></a></span><span>
+</span><span id="line-241"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Types.html"><span class="hs-identifier">Network.AWS.CodeStarNotifications.Types</span></a></span><span>
+</span><span id="line-242"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Unsubscribe.html"><span class="hs-identifier">Network.AWS.CodeStarNotifications.Unsubscribe</span></a></span><span>
+</span><span id="line-243"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.UntagResource.html"><span class="hs-identifier">Network.AWS.CodeStarNotifications.UntagResource</span></a></span><span>
+</span><span id="line-244"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.UpdateNotificationRule.html"><span class="hs-identifier">Network.AWS.CodeStarNotifications.UpdateNotificationRule</span></a></span><span>
+</span><span id="line-245"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeStarNotifications.Waiters.html"><span class="hs-identifier">Network.AWS.CodeStarNotifications.Waiters</span></a></span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- $errors</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- Error matchers are designed for use with the functions provided by</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- &lt;http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens&gt;.</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- This allows catching (and rethrowing) service specific errors returned</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- by 'CodeStarNotifications'.</span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- $operations</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- Some AWS operations return results that are incomplete and require subsequent</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- requests in order to obtain the entire result set. The process of sending</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- subsequent requests to continue where a previous request left off is called</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- 1000 objects at a time, and you must send subsequent requests with the</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- appropriate Marker in order to retrieve the next page of results.</span><span>
+</span><span id="line-260"></span><span class="hs-comment">--</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- Operations that have an 'AWSPager' instance can transparently perform subsequent</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- requests, correctly setting Markers and other request facets to iterate through</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- the entire result set of a truncated API operation. Operations which support</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- this have an additional note in the documentation.</span><span>
+</span><span id="line-265"></span><span class="hs-comment">--</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- Many operations have the ability to filter results on the server side. See the</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- individual operation parameters for details.</span><span>
+</span><span id="line-268"></span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- $waiters</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- Waiters poll by repeatedly sending a request until some remote success condition</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- configured by the 'Wait' specification is fulfilled. The 'Wait' specification</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- determines how many attempts should be made, in addition to delay and retry strategies.</span><span>
+</span><span id="line-273"></span></pre></body></html>

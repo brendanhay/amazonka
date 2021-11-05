@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.RDSData.Types.DecimalReturnType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.RDSData.Types.DecimalReturnType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.RDSData.Types.DecimalReturnType.html#DecimalReturnType"><span class="hs-identifier">DecimalReturnType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.RDSData.Types.DecimalReturnType.html#DecimalReturnType_DOUBLE_OR_LONG"><span class="hs-identifier">DecimalReturnType_DOUBLE_OR_LONG</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.RDSData.Types.DecimalReturnType.html#DecimalReturnType_STRING"><span class="hs-identifier">DecimalReturnType_STRING</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679155886"><span id="local-6989586621679155887"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DecimalReturnType"><span class="annot"><a href="Network.AWS.RDSData.Types.DecimalReturnType.html#DecimalReturnType"><span class="hs-identifier hs-var">DecimalReturnType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DecimalReturnType%27"><span class="annot"><a href="Network.AWS.RDSData.Types.DecimalReturnType.html#DecimalReturnType%27"><span class="hs-identifier hs-var">DecimalReturnType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDecimalReturnType"><span class="annot"><span class="annottext">DecimalReturnType -&gt; Text
+</span><a href="Network.AWS.RDSData.Types.DecimalReturnType.html#fromDecimalReturnType"><span class="hs-identifier hs-var hs-var">fromDecimalReturnType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679155878"><span id="local-6989586621679155880"><span id="local-6989586621679155882"><span class="annot"><span class="annottext">Int -&gt; DecimalReturnType -&gt; ShowS
+[DecimalReturnType] -&gt; ShowS
+DecimalReturnType -&gt; String
+(Int -&gt; DecimalReturnType -&gt; ShowS)
+-&gt; (DecimalReturnType -&gt; String)
+-&gt; ([DecimalReturnType] -&gt; ShowS)
+-&gt; Show DecimalReturnType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DecimalReturnType] -&gt; ShowS
+$cshowList :: [DecimalReturnType] -&gt; ShowS
+show :: DecimalReturnType -&gt; String
+$cshow :: DecimalReturnType -&gt; String
+showsPrec :: Int -&gt; DecimalReturnType -&gt; ShowS
+$cshowsPrec :: Int -&gt; DecimalReturnType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679155869"><span id="local-6989586621679155871"><span id="local-6989586621679155873"><span id="local-6989586621679155875"><span class="annot"><span class="annottext">ReadPrec [DecimalReturnType]
+ReadPrec DecimalReturnType
+Int -&gt; ReadS DecimalReturnType
+ReadS [DecimalReturnType]
+(Int -&gt; ReadS DecimalReturnType)
+-&gt; ReadS [DecimalReturnType]
+-&gt; ReadPrec DecimalReturnType
+-&gt; ReadPrec [DecimalReturnType]
+-&gt; Read DecimalReturnType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DecimalReturnType]
+$creadListPrec :: ReadPrec [DecimalReturnType]
+readPrec :: ReadPrec DecimalReturnType
+$creadPrec :: ReadPrec DecimalReturnType
+readList :: ReadS [DecimalReturnType]
+$creadList :: ReadS [DecimalReturnType]
+readsPrec :: Int -&gt; ReadS DecimalReturnType
+$creadsPrec :: Int -&gt; ReadS DecimalReturnType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679155864"><span id="local-6989586621679155866"><span class="annot"><span class="annottext">DecimalReturnType -&gt; DecimalReturnType -&gt; Bool
+(DecimalReturnType -&gt; DecimalReturnType -&gt; Bool)
+-&gt; (DecimalReturnType -&gt; DecimalReturnType -&gt; Bool)
+-&gt; Eq DecimalReturnType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DecimalReturnType -&gt; DecimalReturnType -&gt; Bool
+$c/= :: DecimalReturnType -&gt; DecimalReturnType -&gt; Bool
+== :: DecimalReturnType -&gt; DecimalReturnType -&gt; Bool
+$c== :: DecimalReturnType -&gt; DecimalReturnType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679155848"><span id="local-6989586621679155850"><span id="local-6989586621679155852"><span id="local-6989586621679155854"><span id="local-6989586621679155856"><span id="local-6989586621679155858"><span id="local-6989586621679155860"><span class="annot"><span class="annottext">Eq DecimalReturnType
+Eq DecimalReturnType
+-&gt; (DecimalReturnType -&gt; DecimalReturnType -&gt; Ordering)
+-&gt; (DecimalReturnType -&gt; DecimalReturnType -&gt; Bool)
+-&gt; (DecimalReturnType -&gt; DecimalReturnType -&gt; Bool)
+-&gt; (DecimalReturnType -&gt; DecimalReturnType -&gt; Bool)
+-&gt; (DecimalReturnType -&gt; DecimalReturnType -&gt; Bool)
+-&gt; (DecimalReturnType -&gt; DecimalReturnType -&gt; DecimalReturnType)
+-&gt; (DecimalReturnType -&gt; DecimalReturnType -&gt; DecimalReturnType)
+-&gt; Ord DecimalReturnType
+DecimalReturnType -&gt; DecimalReturnType -&gt; Bool
+DecimalReturnType -&gt; DecimalReturnType -&gt; Ordering
+DecimalReturnType -&gt; DecimalReturnType -&gt; DecimalReturnType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DecimalReturnType -&gt; DecimalReturnType -&gt; DecimalReturnType
+$cmin :: DecimalReturnType -&gt; DecimalReturnType -&gt; DecimalReturnType
+max :: DecimalReturnType -&gt; DecimalReturnType -&gt; DecimalReturnType
+$cmax :: DecimalReturnType -&gt; DecimalReturnType -&gt; DecimalReturnType
+&gt;= :: DecimalReturnType -&gt; DecimalReturnType -&gt; Bool
+$c&gt;= :: DecimalReturnType -&gt; DecimalReturnType -&gt; Bool
+&gt; :: DecimalReturnType -&gt; DecimalReturnType -&gt; Bool
+$c&gt; :: DecimalReturnType -&gt; DecimalReturnType -&gt; Bool
+&lt;= :: DecimalReturnType -&gt; DecimalReturnType -&gt; Bool
+$c&lt;= :: DecimalReturnType -&gt; DecimalReturnType -&gt; Bool
+&lt; :: DecimalReturnType -&gt; DecimalReturnType -&gt; Bool
+$c&lt; :: DecimalReturnType -&gt; DecimalReturnType -&gt; Bool
+compare :: DecimalReturnType -&gt; DecimalReturnType -&gt; Ordering
+$ccompare :: DecimalReturnType -&gt; DecimalReturnType -&gt; Ordering
+$cp1Ord :: Eq DecimalReturnType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. DecimalReturnType -&gt; Rep DecimalReturnType x)
+-&gt; (forall x. Rep DecimalReturnType x -&gt; DecimalReturnType)
+-&gt; Generic DecimalReturnType
+forall x. Rep DecimalReturnType x -&gt; DecimalReturnType
+forall x. DecimalReturnType -&gt; Rep DecimalReturnType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DecimalReturnType x -&gt; DecimalReturnType
+$cfrom :: forall x. DecimalReturnType -&gt; Rep DecimalReturnType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679155840"><span id="local-6989586621679155842"><span class="annot"><span class="annottext">Int -&gt; DecimalReturnType -&gt; Int
+DecimalReturnType -&gt; Int
+(Int -&gt; DecimalReturnType -&gt; Int)
+-&gt; (DecimalReturnType -&gt; Int) -&gt; Hashable DecimalReturnType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DecimalReturnType -&gt; Int
+$chash :: DecimalReturnType -&gt; Int
+hashWithSalt :: Int -&gt; DecimalReturnType -&gt; Int
+$chashWithSalt :: Int -&gt; DecimalReturnType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679155837"><span class="annot"><span class="annottext">DecimalReturnType -&gt; ()
+(DecimalReturnType -&gt; ()) -&gt; NFData DecimalReturnType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DecimalReturnType -&gt; ()
+$crnf :: DecimalReturnType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679155834"><span class="annot"><span class="annottext">Text -&gt; Either String DecimalReturnType
+(Text -&gt; Either String DecimalReturnType)
+-&gt; FromText DecimalReturnType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DecimalReturnType
+$cfromText :: Text -&gt; Either String DecimalReturnType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679155831"><span class="annot"><span class="annottext">DecimalReturnType -&gt; Text
+(DecimalReturnType -&gt; Text) -&gt; ToText DecimalReturnType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DecimalReturnType -&gt; Text
+$ctoText :: DecimalReturnType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679155828"><span class="annot"><span class="annottext">DecimalReturnType -&gt; ByteString
+(DecimalReturnType -&gt; ByteString) -&gt; ToByteString DecimalReturnType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DecimalReturnType -&gt; ByteString
+$ctoBS :: DecimalReturnType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679155825"><span class="annot"><span class="annottext">DecimalReturnType -&gt; ByteStringBuilder
+(DecimalReturnType -&gt; ByteStringBuilder) -&gt; ToLog DecimalReturnType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DecimalReturnType -&gt; ByteStringBuilder
+$cbuild :: DecimalReturnType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679155822"><span class="annot"><span class="annottext">HeaderName -&gt; DecimalReturnType -&gt; [Header]
+(HeaderName -&gt; DecimalReturnType -&gt; [Header])
+-&gt; ToHeader DecimalReturnType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DecimalReturnType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DecimalReturnType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679155819"><span class="annot"><span class="annottext">DecimalReturnType -&gt; QueryString
+(DecimalReturnType -&gt; QueryString) -&gt; ToQuery DecimalReturnType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DecimalReturnType -&gt; QueryString
+$ctoQuery :: DecimalReturnType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679155814"><span id="local-6989586621679155816"><span class="annot"><span class="annottext">Value -&gt; Parser [DecimalReturnType]
+Value -&gt; Parser DecimalReturnType
+(Value -&gt; Parser DecimalReturnType)
+-&gt; (Value -&gt; Parser [DecimalReturnType])
+-&gt; FromJSON DecimalReturnType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DecimalReturnType]
+$cparseJSONList :: Value -&gt; Parser [DecimalReturnType]
+parseJSON :: Value -&gt; Parser DecimalReturnType
+$cparseJSON :: Value -&gt; Parser DecimalReturnType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679155809"><span id="local-6989586621679155811"><span class="annot"><span class="annottext">FromJSONKeyFunction [DecimalReturnType]
+FromJSONKeyFunction DecimalReturnType
+FromJSONKeyFunction DecimalReturnType
+-&gt; FromJSONKeyFunction [DecimalReturnType]
+-&gt; FromJSONKey DecimalReturnType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DecimalReturnType]
+$cfromJSONKeyList :: FromJSONKeyFunction [DecimalReturnType]
+fromJSONKey :: FromJSONKeyFunction DecimalReturnType
+$cfromJSONKey :: FromJSONKeyFunction DecimalReturnType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679155800"><span id="local-6989586621679155802"><span id="local-6989586621679155804"><span id="local-6989586621679155806"><span class="annot"><span class="annottext">[DecimalReturnType] -&gt; Encoding
+[DecimalReturnType] -&gt; Value
+DecimalReturnType -&gt; Encoding
+DecimalReturnType -&gt; Value
+(DecimalReturnType -&gt; Value)
+-&gt; (DecimalReturnType -&gt; Encoding)
+-&gt; ([DecimalReturnType] -&gt; Value)
+-&gt; ([DecimalReturnType] -&gt; Encoding)
+-&gt; ToJSON DecimalReturnType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DecimalReturnType] -&gt; Encoding
+$ctoEncodingList :: [DecimalReturnType] -&gt; Encoding
+toJSONList :: [DecimalReturnType] -&gt; Value
+$ctoJSONList :: [DecimalReturnType] -&gt; Value
+toEncoding :: DecimalReturnType -&gt; Encoding
+$ctoEncoding :: DecimalReturnType -&gt; Encoding
+toJSON :: DecimalReturnType -&gt; Value
+$ctoJSON :: DecimalReturnType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679155795"><span id="local-6989586621679155797"><span class="annot"><span class="annottext">ToJSONKeyFunction [DecimalReturnType]
+ToJSONKeyFunction DecimalReturnType
+ToJSONKeyFunction DecimalReturnType
+-&gt; ToJSONKeyFunction [DecimalReturnType]
+-&gt; ToJSONKey DecimalReturnType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DecimalReturnType]
+$ctoJSONKeyList :: ToJSONKeyFunction [DecimalReturnType]
+toJSONKey :: ToJSONKeyFunction DecimalReturnType
+$ctoJSONKey :: ToJSONKeyFunction DecimalReturnType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679155792"><span class="annot"><span class="annottext">[Node] -&gt; Either String DecimalReturnType
+([Node] -&gt; Either String DecimalReturnType)
+-&gt; FromXML DecimalReturnType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DecimalReturnType
+$cparseXML :: [Node] -&gt; Either String DecimalReturnType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679155789"><span class="annot"><span class="annottext">DecimalReturnType -&gt; XML
+(DecimalReturnType -&gt; XML) -&gt; ToXML DecimalReturnType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DecimalReturnType -&gt; XML
+$ctoXML :: DecimalReturnType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RDSData.Types.DecimalReturnType.html#DecimalReturnType_DOUBLE_OR_LONG"><span class="hs-identifier hs-type">DecimalReturnType_DOUBLE_OR_LONG</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDSData.Types.DecimalReturnType.html#DecimalReturnType"><span class="hs-identifier hs-type">DecimalReturnType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDecimalReturnType_DOUBLE_OR_LONG"><span id="%24mDecimalReturnType_DOUBLE_OR_LONG"><span id="DecimalReturnType_DOUBLE_OR_LONG"><span class="annot"><span class="annottext">$bDecimalReturnType_DOUBLE_OR_LONG :: DecimalReturnType
+$mDecimalReturnType_DOUBLE_OR_LONG :: forall r. DecimalReturnType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RDSData.Types.DecimalReturnType.html#%24bDecimalReturnType_DOUBLE_OR_LONG"><span class="hs-identifier hs-var hs-var hs-var">DecimalReturnType_DOUBLE_OR_LONG</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RDSData.Types.DecimalReturnType.html#DecimalReturnType%27"><span class="hs-identifier hs-type">DecimalReturnType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DOUBLE_OR_LONG&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.RDSData.Types.DecimalReturnType.html#DecimalReturnType_STRING"><span class="hs-identifier hs-type">DecimalReturnType_STRING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDSData.Types.DecimalReturnType.html#DecimalReturnType"><span class="hs-identifier hs-type">DecimalReturnType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDecimalReturnType_STRING"><span id="%24mDecimalReturnType_STRING"><span id="DecimalReturnType_STRING"><span class="annot"><span class="annottext">$bDecimalReturnType_STRING :: DecimalReturnType
+$mDecimalReturnType_STRING :: forall r. DecimalReturnType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.RDSData.Types.DecimalReturnType.html#%24bDecimalReturnType_STRING"><span class="hs-identifier hs-var hs-var hs-var">DecimalReturnType_STRING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.RDSData.Types.DecimalReturnType.html#DecimalReturnType%27"><span class="hs-identifier hs-type">DecimalReturnType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STRING&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.RDSData.Types.DecimalReturnType.html#DecimalReturnType_DOUBLE_OR_LONG"><span class="hs-pragma hs-type">DecimalReturnType_DOUBLE_OR_LONG</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.RDSData.Types.DecimalReturnType.html#DecimalReturnType_STRING"><span class="hs-pragma hs-type">DecimalReturnType_STRING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.RDSData.Types.DecimalReturnType.html#DecimalReturnType%27"><span class="hs-pragma hs-type">DecimalReturnType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

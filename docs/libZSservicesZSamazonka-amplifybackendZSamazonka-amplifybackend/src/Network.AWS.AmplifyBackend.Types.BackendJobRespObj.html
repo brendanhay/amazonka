@@ -1,0 +1,483 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AmplifyBackend.Types.BackendJobRespObj</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AmplifyBackend.Types.BackendJobRespObj</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | The response object for this operation.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newBackendJobRespObj' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679229875"><span id="local-6989586621679229876"></span></span><span class="hs-keyword">data</span><span> </span><span id="BackendJobRespObj"><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#BackendJobRespObj"><span class="hs-identifier hs-var">BackendJobRespObj</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BackendJobRespObj%27"><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#BackendJobRespObj%27"><span class="hs-identifier hs-var">BackendJobRespObj'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current status of the request.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3Astatus%3ABackendJobRespObj%27"><span class="annot"><span class="annottext">BackendJobRespObj -&gt; Maybe Text
+</span><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#%24sel%3Astatus%3ABackendJobRespObj%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The ID for the job.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AjobId%3ABackendJobRespObj%27"><span class="annot"><span class="annottext">BackendJobRespObj -&gt; Maybe Text
+</span><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#%24sel%3AjobId%3ABackendJobRespObj%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The name of the operation.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aoperation%3ABackendJobRespObj%27"><span class="annot"><span class="annottext">BackendJobRespObj -&gt; Maybe Text
+</span><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#%24sel%3Aoperation%3ABackendJobRespObj%27"><span class="hs-identifier hs-var hs-var">operation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | If the request fails, this error is returned.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aerror%3ABackendJobRespObj%27"><span class="annot"><span class="annottext">BackendJobRespObj -&gt; Maybe Text
+</span><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#%24sel%3Aerror%3ABackendJobRespObj%27"><span class="hs-identifier hs-var hs-var">error</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The time when the job was last updated.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AupdateTime%3ABackendJobRespObj%27"><span class="annot"><span class="annottext">BackendJobRespObj -&gt; Maybe Text
+</span><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#%24sel%3AupdateTime%3ABackendJobRespObj%27"><span class="hs-identifier hs-var hs-var">updateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The time when the job was created.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AcreateTime%3ABackendJobRespObj%27"><span class="annot"><span class="annottext">BackendJobRespObj -&gt; Maybe Text
+</span><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#%24sel%3AcreateTime%3ABackendJobRespObj%27"><span class="hs-identifier hs-var hs-var">createTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The app ID.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AappId%3ABackendJobRespObj%27"><span class="annot"><span class="annottext">BackendJobRespObj -&gt; Text
+</span><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#%24sel%3AappId%3ABackendJobRespObj%27"><span class="hs-identifier hs-var hs-var">appId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The name of the backend environment.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AbackendEnvironmentName%3ABackendJobRespObj%27"><span class="annot"><span class="annottext">BackendJobRespObj -&gt; Text
+</span><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#%24sel%3AbackendEnvironmentName%3ABackendJobRespObj%27"><span class="hs-identifier hs-var hs-var">backendEnvironmentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229862"><span id="local-6989586621679229864"><span class="annot"><span class="annottext">BackendJobRespObj -&gt; BackendJobRespObj -&gt; Bool
+(BackendJobRespObj -&gt; BackendJobRespObj -&gt; Bool)
+-&gt; (BackendJobRespObj -&gt; BackendJobRespObj -&gt; Bool)
+-&gt; Eq BackendJobRespObj
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BackendJobRespObj -&gt; BackendJobRespObj -&gt; Bool
+$c/= :: BackendJobRespObj -&gt; BackendJobRespObj -&gt; Bool
+== :: BackendJobRespObj -&gt; BackendJobRespObj -&gt; Bool
+$c== :: BackendJobRespObj -&gt; BackendJobRespObj -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229853"><span id="local-6989586621679229855"><span id="local-6989586621679229857"><span id="local-6989586621679229859"><span class="annot"><span class="annottext">ReadPrec [BackendJobRespObj]
+ReadPrec BackendJobRespObj
+Int -&gt; ReadS BackendJobRespObj
+ReadS [BackendJobRespObj]
+(Int -&gt; ReadS BackendJobRespObj)
+-&gt; ReadS [BackendJobRespObj]
+-&gt; ReadPrec BackendJobRespObj
+-&gt; ReadPrec [BackendJobRespObj]
+-&gt; Read BackendJobRespObj
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BackendJobRespObj]
+$creadListPrec :: ReadPrec [BackendJobRespObj]
+readPrec :: ReadPrec BackendJobRespObj
+$creadPrec :: ReadPrec BackendJobRespObj
+readList :: ReadS [BackendJobRespObj]
+$creadList :: ReadS [BackendJobRespObj]
+readsPrec :: Int -&gt; ReadS BackendJobRespObj
+$creadsPrec :: Int -&gt; ReadS BackendJobRespObj
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229846"><span id="local-6989586621679229848"><span id="local-6989586621679229850"><span class="annot"><span class="annottext">Int -&gt; BackendJobRespObj -&gt; ShowS
+[BackendJobRespObj] -&gt; ShowS
+BackendJobRespObj -&gt; String
+(Int -&gt; BackendJobRespObj -&gt; ShowS)
+-&gt; (BackendJobRespObj -&gt; String)
+-&gt; ([BackendJobRespObj] -&gt; ShowS)
+-&gt; Show BackendJobRespObj
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BackendJobRespObj] -&gt; ShowS
+$cshowList :: [BackendJobRespObj] -&gt; ShowS
+show :: BackendJobRespObj -&gt; String
+$cshow :: BackendJobRespObj -&gt; String
+showsPrec :: Int -&gt; BackendJobRespObj -&gt; ShowS
+$cshowsPrec :: Int -&gt; BackendJobRespObj -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. BackendJobRespObj -&gt; Rep BackendJobRespObj x)
+-&gt; (forall x. Rep BackendJobRespObj x -&gt; BackendJobRespObj)
+-&gt; Generic BackendJobRespObj
+forall x. Rep BackendJobRespObj x -&gt; BackendJobRespObj
+forall x. BackendJobRespObj -&gt; Rep BackendJobRespObj x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BackendJobRespObj x -&gt; BackendJobRespObj
+$cfrom :: forall x. BackendJobRespObj -&gt; Rep BackendJobRespObj x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Create a value of 'BackendJobRespObj' with all optional fields omitted.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'status', 'backendJobRespObj_status' - The current status of the request.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'jobId', 'backendJobRespObj_jobId' - The ID for the job.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'operation', 'backendJobRespObj_operation' - The name of the operation.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'error', 'backendJobRespObj_error' - If the request fails, this error is returned.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'updateTime', 'backendJobRespObj_updateTime' - The time when the job was last updated.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'createTime', 'backendJobRespObj_createTime' - The time when the job was created.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'appId', 'backendJobRespObj_appId' - The app ID.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'backendEnvironmentName', 'backendJobRespObj_backendEnvironmentName' - The name of the backend environment.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#newBackendJobRespObj"><span class="hs-identifier hs-type">newBackendJobRespObj</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'appId'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-comment">-- | 'backendEnvironmentName'</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#BackendJobRespObj"><span class="hs-identifier hs-type">BackendJobRespObj</span></a></span><span>
+</span><span id="line-78"></span><span id="newBackendJobRespObj"><span class="annot"><span class="annottext">newBackendJobRespObj :: Text -&gt; Text -&gt; BackendJobRespObj
+</span><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#newBackendJobRespObj"><span class="hs-identifier hs-var hs-var">newBackendJobRespObj</span></a></span></span><span> </span><span id="local-6989586621679229840"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229840"><span class="hs-identifier hs-var">pAppId_</span></a></span></span><span> </span><span id="local-6989586621679229839"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229839"><span class="hs-identifier hs-var">pBackendEnvironmentName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">BackendJobRespObj' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; BackendJobRespObj
+</span><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#BackendJobRespObj%27"><span class="hs-identifier hs-type">BackendJobRespObj'</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:BackendJobRespObj' :: Maybe Text
+</span><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#%24sel%3Astatus%3ABackendJobRespObj%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobId:BackendJobRespObj' :: Maybe Text
+</span><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#%24sel%3AjobId%3ABackendJobRespObj%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:operation:BackendJobRespObj' :: Maybe Text
+</span><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#%24sel%3Aoperation%3ABackendJobRespObj%27"><span class="hs-identifier hs-var">operation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:error:BackendJobRespObj' :: Maybe Text
+</span><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#%24sel%3Aerror%3ABackendJobRespObj%27"><span class="hs-identifier hs-var">error</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:updateTime:BackendJobRespObj' :: Maybe Text
+</span><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#%24sel%3AupdateTime%3ABackendJobRespObj%27"><span class="hs-identifier hs-var">updateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:createTime:BackendJobRespObj' :: Maybe Text
+</span><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#%24sel%3AcreateTime%3ABackendJobRespObj%27"><span class="hs-identifier hs-var">createTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:appId:BackendJobRespObj' :: Text
+</span><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#%24sel%3AappId%3ABackendJobRespObj%27"><span class="hs-identifier hs-var">appId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229840"><span class="hs-identifier hs-var">pAppId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:backendEnvironmentName:BackendJobRespObj' :: Text
+</span><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#%24sel%3AbackendEnvironmentName%3ABackendJobRespObj%27"><span class="hs-identifier hs-var">backendEnvironmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229839"><span class="hs-identifier hs-var">pBackendEnvironmentName_</span></a></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The current status of the request.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#backendJobRespObj_status"><span class="hs-identifier hs-type">backendJobRespObj_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#BackendJobRespObj"><span class="hs-identifier hs-type">BackendJobRespObj</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="backendJobRespObj_status"><span class="annot"><span class="annottext">backendJobRespObj_status :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BackendJobRespObj -&gt; f BackendJobRespObj
+</span><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#backendJobRespObj_status"><span class="hs-identifier hs-var hs-var">backendJobRespObj_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BackendJobRespObj -&gt; Maybe Text)
+-&gt; (BackendJobRespObj -&gt; Maybe Text -&gt; BackendJobRespObj)
+-&gt; Lens
+     BackendJobRespObj BackendJobRespObj (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#BackendJobRespObj%27"><span class="hs-identifier hs-type">BackendJobRespObj'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229835"><span class="annot"><span class="annottext">Maybe Text
+status :: Maybe Text
+$sel:status:BackendJobRespObj' :: BackendJobRespObj -&gt; Maybe Text
+</span><a href="#local-6989586621679229835"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229835"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229834"><span class="annot"><span class="annottext">s :: BackendJobRespObj
+</span><a href="#local-6989586621679229834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#BackendJobRespObj%27"><span class="hs-identifier hs-type">BackendJobRespObj'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229833"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BackendJobRespObj
+</span><a href="#local-6989586621679229834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:BackendJobRespObj' :: Maybe Text
+</span><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#%24sel%3Astatus%3ABackendJobRespObj%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#BackendJobRespObj"><span class="hs-identifier hs-type">BackendJobRespObj</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The ID for the job.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#backendJobRespObj_jobId"><span class="hs-identifier hs-type">backendJobRespObj_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#BackendJobRespObj"><span class="hs-identifier hs-type">BackendJobRespObj</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="backendJobRespObj_jobId"><span class="annot"><span class="annottext">backendJobRespObj_jobId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BackendJobRespObj -&gt; f BackendJobRespObj
+</span><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#backendJobRespObj_jobId"><span class="hs-identifier hs-var hs-var">backendJobRespObj_jobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BackendJobRespObj -&gt; Maybe Text)
+-&gt; (BackendJobRespObj -&gt; Maybe Text -&gt; BackendJobRespObj)
+-&gt; Lens
+     BackendJobRespObj BackendJobRespObj (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#BackendJobRespObj%27"><span class="hs-identifier hs-type">BackendJobRespObj'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229831"><span class="annot"><span class="annottext">Maybe Text
+jobId :: Maybe Text
+$sel:jobId:BackendJobRespObj' :: BackendJobRespObj -&gt; Maybe Text
+</span><a href="#local-6989586621679229831"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229831"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229830"><span class="annot"><span class="annottext">s :: BackendJobRespObj
+</span><a href="#local-6989586621679229830"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#BackendJobRespObj%27"><span class="hs-identifier hs-type">BackendJobRespObj'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229829"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229829"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BackendJobRespObj
+</span><a href="#local-6989586621679229830"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:BackendJobRespObj' :: Maybe Text
+</span><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#%24sel%3AjobId%3ABackendJobRespObj%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229829"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#BackendJobRespObj"><span class="hs-identifier hs-type">BackendJobRespObj</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The name of the operation.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#backendJobRespObj_operation"><span class="hs-identifier hs-type">backendJobRespObj_operation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#BackendJobRespObj"><span class="hs-identifier hs-type">BackendJobRespObj</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="backendJobRespObj_operation"><span class="annot"><span class="annottext">backendJobRespObj_operation :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BackendJobRespObj -&gt; f BackendJobRespObj
+</span><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#backendJobRespObj_operation"><span class="hs-identifier hs-var hs-var">backendJobRespObj_operation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BackendJobRespObj -&gt; Maybe Text)
+-&gt; (BackendJobRespObj -&gt; Maybe Text -&gt; BackendJobRespObj)
+-&gt; Lens
+     BackendJobRespObj BackendJobRespObj (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#BackendJobRespObj%27"><span class="hs-identifier hs-type">BackendJobRespObj'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229827"><span class="annot"><span class="annottext">Maybe Text
+operation :: Maybe Text
+$sel:operation:BackendJobRespObj' :: BackendJobRespObj -&gt; Maybe Text
+</span><a href="#local-6989586621679229827"><span class="hs-identifier hs-var hs-var">operation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229827"><span class="hs-identifier hs-var">operation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229826"><span class="annot"><span class="annottext">s :: BackendJobRespObj
+</span><a href="#local-6989586621679229826"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#BackendJobRespObj%27"><span class="hs-identifier hs-type">BackendJobRespObj'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229825"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229825"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BackendJobRespObj
+</span><a href="#local-6989586621679229826"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operation:BackendJobRespObj' :: Maybe Text
+</span><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#%24sel%3Aoperation%3ABackendJobRespObj%27"><span class="hs-identifier hs-var">operation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229825"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#BackendJobRespObj"><span class="hs-identifier hs-type">BackendJobRespObj</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | If the request fails, this error is returned.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#backendJobRespObj_error"><span class="hs-identifier hs-type">backendJobRespObj_error</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#BackendJobRespObj"><span class="hs-identifier hs-type">BackendJobRespObj</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="backendJobRespObj_error"><span class="annot"><span class="annottext">backendJobRespObj_error :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BackendJobRespObj -&gt; f BackendJobRespObj
+</span><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#backendJobRespObj_error"><span class="hs-identifier hs-var hs-var">backendJobRespObj_error</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BackendJobRespObj -&gt; Maybe Text)
+-&gt; (BackendJobRespObj -&gt; Maybe Text -&gt; BackendJobRespObj)
+-&gt; Lens
+     BackendJobRespObj BackendJobRespObj (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#BackendJobRespObj%27"><span class="hs-identifier hs-type">BackendJobRespObj'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229823"><span class="annot"><span class="annottext">Maybe Text
+error :: Maybe Text
+$sel:error:BackendJobRespObj' :: BackendJobRespObj -&gt; Maybe Text
+</span><a href="#local-6989586621679229823"><span class="hs-identifier hs-var hs-var">error</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229823"><span class="hs-identifier hs-var">error</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229822"><span class="annot"><span class="annottext">s :: BackendJobRespObj
+</span><a href="#local-6989586621679229822"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#BackendJobRespObj%27"><span class="hs-identifier hs-type">BackendJobRespObj'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229821"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229821"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BackendJobRespObj
+</span><a href="#local-6989586621679229822"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:error:BackendJobRespObj' :: Maybe Text
+</span><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#%24sel%3Aerror%3ABackendJobRespObj%27"><span class="hs-identifier hs-var">error</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229821"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#BackendJobRespObj"><span class="hs-identifier hs-type">BackendJobRespObj</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The time when the job was last updated.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#backendJobRespObj_updateTime"><span class="hs-identifier hs-type">backendJobRespObj_updateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#BackendJobRespObj"><span class="hs-identifier hs-type">BackendJobRespObj</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="backendJobRespObj_updateTime"><span class="annot"><span class="annottext">backendJobRespObj_updateTime :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BackendJobRespObj -&gt; f BackendJobRespObj
+</span><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#backendJobRespObj_updateTime"><span class="hs-identifier hs-var hs-var">backendJobRespObj_updateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BackendJobRespObj -&gt; Maybe Text)
+-&gt; (BackendJobRespObj -&gt; Maybe Text -&gt; BackendJobRespObj)
+-&gt; Lens
+     BackendJobRespObj BackendJobRespObj (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#BackendJobRespObj%27"><span class="hs-identifier hs-type">BackendJobRespObj'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229819"><span class="annot"><span class="annottext">Maybe Text
+updateTime :: Maybe Text
+$sel:updateTime:BackendJobRespObj' :: BackendJobRespObj -&gt; Maybe Text
+</span><a href="#local-6989586621679229819"><span class="hs-identifier hs-var hs-var">updateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229819"><span class="hs-identifier hs-var">updateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229818"><span class="annot"><span class="annottext">s :: BackendJobRespObj
+</span><a href="#local-6989586621679229818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#BackendJobRespObj%27"><span class="hs-identifier hs-type">BackendJobRespObj'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229817"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BackendJobRespObj
+</span><a href="#local-6989586621679229818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updateTime:BackendJobRespObj' :: Maybe Text
+</span><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#%24sel%3AupdateTime%3ABackendJobRespObj%27"><span class="hs-identifier hs-var">updateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#BackendJobRespObj"><span class="hs-identifier hs-type">BackendJobRespObj</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The time when the job was created.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#backendJobRespObj_createTime"><span class="hs-identifier hs-type">backendJobRespObj_createTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#BackendJobRespObj"><span class="hs-identifier hs-type">BackendJobRespObj</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="backendJobRespObj_createTime"><span class="annot"><span class="annottext">backendJobRespObj_createTime :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BackendJobRespObj -&gt; f BackendJobRespObj
+</span><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#backendJobRespObj_createTime"><span class="hs-identifier hs-var hs-var">backendJobRespObj_createTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BackendJobRespObj -&gt; Maybe Text)
+-&gt; (BackendJobRespObj -&gt; Maybe Text -&gt; BackendJobRespObj)
+-&gt; Lens
+     BackendJobRespObj BackendJobRespObj (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#BackendJobRespObj%27"><span class="hs-identifier hs-type">BackendJobRespObj'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229815"><span class="annot"><span class="annottext">Maybe Text
+createTime :: Maybe Text
+$sel:createTime:BackendJobRespObj' :: BackendJobRespObj -&gt; Maybe Text
+</span><a href="#local-6989586621679229815"><span class="hs-identifier hs-var hs-var">createTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229815"><span class="hs-identifier hs-var">createTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229814"><span class="annot"><span class="annottext">s :: BackendJobRespObj
+</span><a href="#local-6989586621679229814"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#BackendJobRespObj%27"><span class="hs-identifier hs-type">BackendJobRespObj'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229813"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BackendJobRespObj
+</span><a href="#local-6989586621679229814"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createTime:BackendJobRespObj' :: Maybe Text
+</span><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#%24sel%3AcreateTime%3ABackendJobRespObj%27"><span class="hs-identifier hs-var">createTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#BackendJobRespObj"><span class="hs-identifier hs-type">BackendJobRespObj</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The app ID.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#backendJobRespObj_appId"><span class="hs-identifier hs-type">backendJobRespObj_appId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#BackendJobRespObj"><span class="hs-identifier hs-type">BackendJobRespObj</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-116"></span><span id="backendJobRespObj_appId"><span class="annot"><span class="annottext">backendJobRespObj_appId :: (Text -&gt; f Text) -&gt; BackendJobRespObj -&gt; f BackendJobRespObj
+</span><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#backendJobRespObj_appId"><span class="hs-identifier hs-var hs-var">backendJobRespObj_appId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BackendJobRespObj -&gt; Text)
+-&gt; (BackendJobRespObj -&gt; Text -&gt; BackendJobRespObj)
+-&gt; Lens BackendJobRespObj BackendJobRespObj Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#BackendJobRespObj%27"><span class="hs-identifier hs-type">BackendJobRespObj'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229811"><span class="annot"><span class="annottext">Text
+appId :: Text
+$sel:appId:BackendJobRespObj' :: BackendJobRespObj -&gt; Text
+</span><a href="#local-6989586621679229811"><span class="hs-identifier hs-var hs-var">appId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229811"><span class="hs-identifier hs-var">appId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229810"><span class="annot"><span class="annottext">s :: BackendJobRespObj
+</span><a href="#local-6989586621679229810"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#BackendJobRespObj%27"><span class="hs-identifier hs-type">BackendJobRespObj'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229809"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229809"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BackendJobRespObj
+</span><a href="#local-6989586621679229810"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appId:BackendJobRespObj' :: Text
+</span><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#%24sel%3AappId%3ABackendJobRespObj%27"><span class="hs-identifier hs-var">appId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229809"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#BackendJobRespObj"><span class="hs-identifier hs-type">BackendJobRespObj</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The name of the backend environment.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#backendJobRespObj_backendEnvironmentName"><span class="hs-identifier hs-type">backendJobRespObj_backendEnvironmentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#BackendJobRespObj"><span class="hs-identifier hs-type">BackendJobRespObj</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-120"></span><span id="backendJobRespObj_backendEnvironmentName"><span class="annot"><span class="annottext">backendJobRespObj_backendEnvironmentName :: (Text -&gt; f Text) -&gt; BackendJobRespObj -&gt; f BackendJobRespObj
+</span><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#backendJobRespObj_backendEnvironmentName"><span class="hs-identifier hs-var hs-var">backendJobRespObj_backendEnvironmentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BackendJobRespObj -&gt; Text)
+-&gt; (BackendJobRespObj -&gt; Text -&gt; BackendJobRespObj)
+-&gt; Lens BackendJobRespObj BackendJobRespObj Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#BackendJobRespObj%27"><span class="hs-identifier hs-type">BackendJobRespObj'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229807"><span class="annot"><span class="annottext">Text
+backendEnvironmentName :: Text
+$sel:backendEnvironmentName:BackendJobRespObj' :: BackendJobRespObj -&gt; Text
+</span><a href="#local-6989586621679229807"><span class="hs-identifier hs-var hs-var">backendEnvironmentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229807"><span class="hs-identifier hs-var">backendEnvironmentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229806"><span class="annot"><span class="annottext">s :: BackendJobRespObj
+</span><a href="#local-6989586621679229806"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#BackendJobRespObj%27"><span class="hs-identifier hs-type">BackendJobRespObj'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229805"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229805"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BackendJobRespObj
+</span><a href="#local-6989586621679229806"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backendEnvironmentName:BackendJobRespObj' :: Text
+</span><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#%24sel%3AbackendEnvironmentName%3ABackendJobRespObj%27"><span class="hs-identifier hs-var">backendEnvironmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229805"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#BackendJobRespObj"><span class="hs-identifier hs-type">BackendJobRespObj</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229802"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#BackendJobRespObj"><span class="hs-identifier hs-type">BackendJobRespObj</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679229800"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BackendJobRespObj
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser BackendJobRespObj)
+-&gt; Value
+-&gt; Parser BackendJobRespObj
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;BackendJobRespObj&quot;</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679229797"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229797"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; BackendJobRespObj
+</span><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#BackendJobRespObj%27"><span class="hs-identifier hs-var">BackendJobRespObj'</span></a></span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; BackendJobRespObj)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; BackendJobRespObj)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229797"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; BackendJobRespObj)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; BackendJobRespObj)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229797"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;jobId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; BackendJobRespObj)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; BackendJobRespObj)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229797"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;operation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; BackendJobRespObj)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; BackendJobRespObj)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229797"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;error&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; BackendJobRespObj)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Text -&gt; Text -&gt; BackendJobRespObj)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229797"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;updateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Text -&gt; Text -&gt; BackendJobRespObj)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Text -&gt; Text -&gt; BackendJobRespObj)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229797"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; BackendJobRespObj)
+-&gt; Parser Text -&gt; Parser (Text -&gt; BackendJobRespObj)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229797"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;appId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; BackendJobRespObj)
+-&gt; Parser Text -&gt; Parser BackendJobRespObj
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229797"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;backendEnvironmentName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229790"><span id="local-6989586621679229792"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#BackendJobRespObj"><span class="hs-identifier hs-type">BackendJobRespObj</span></a></span></span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229787"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.BackendJobRespObj.html#BackendJobRespObj"><span class="hs-identifier hs-type">BackendJobRespObj</span></a></span></span><span>
+</span><span id="line-141"></span></pre></body></html>

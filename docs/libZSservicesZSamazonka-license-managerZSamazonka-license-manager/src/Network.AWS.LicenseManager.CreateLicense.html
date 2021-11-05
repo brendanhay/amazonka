@@ -1,0 +1,978 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.LicenseManager.CreateLicense</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a license.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.LicenseManager.CreateLicense</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense"><span class="hs-identifier">CreateLicense</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#newCreateLicense"><span class="hs-identifier">newCreateLicense</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#createLicense_licenseMetadata"><span class="hs-identifier">createLicense_licenseMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#createLicense_licenseName"><span class="hs-identifier">createLicense_licenseName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#createLicense_productName"><span class="hs-identifier">createLicense_productName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#createLicense_productSKU"><span class="hs-identifier">createLicense_productSKU</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#createLicense_issuer"><span class="hs-identifier">createLicense_issuer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#createLicense_homeRegion"><span class="hs-identifier">createLicense_homeRegion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#createLicense_validity"><span class="hs-identifier">createLicense_validity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#createLicense_entitlements"><span class="hs-identifier">createLicense_entitlements</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#createLicense_beneficiary"><span class="hs-identifier">createLicense_beneficiary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#createLicense_consumptionConfiguration"><span class="hs-identifier">createLicense_consumptionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#createLicense_clientToken"><span class="hs-identifier">createLicense_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicenseResponse"><span class="hs-identifier">CreateLicenseResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#newCreateLicenseResponse"><span class="hs-identifier">newCreateLicenseResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#createLicenseResponse_status"><span class="hs-identifier">createLicenseResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#createLicenseResponse_version"><span class="hs-identifier">createLicenseResponse_version</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#createLicenseResponse_licenseArn"><span class="hs-identifier">createLicenseResponse_licenseArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#createLicenseResponse_httpStatus"><span class="hs-identifier">createLicenseResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.html"><span class="hs-identifier">Network.AWS.LicenseManager.Types</span></a></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newCreateLicense' smart constructor.</span><span>
+</span><span id="line-62"></span><span id="local-6989586621679313251"><span id="local-6989586621679313252"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateLicense"><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense"><span class="hs-identifier hs-var">CreateLicense</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateLicense%27"><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense%27"><span class="hs-identifier hs-var">CreateLicense'</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the license.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AlicenseMetadata%3ACreateLicense%27"><span class="annot"><span class="annottext">CreateLicense -&gt; Maybe [Metadata]
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#%24sel%3AlicenseMetadata%3ACreateLicense%27"><span class="hs-identifier hs-var hs-var">licenseMetadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.LicenseManager.Types.Metadata.html#Metadata"><span class="hs-identifier hs-type">Metadata</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | License name.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AlicenseName%3ACreateLicense%27"><span class="annot"><span class="annottext">CreateLicense -&gt; Text
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#%24sel%3AlicenseName%3ACreateLicense%27"><span class="hs-identifier hs-var hs-var">licenseName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | Product name.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AproductName%3ACreateLicense%27"><span class="annot"><span class="annottext">CreateLicense -&gt; Text
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#%24sel%3AproductName%3ACreateLicense%27"><span class="hs-identifier hs-var hs-var">productName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | Product SKU.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AproductSKU%3ACreateLicense%27"><span class="annot"><span class="annottext">CreateLicense -&gt; Text
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#%24sel%3AproductSKU%3ACreateLicense%27"><span class="hs-identifier hs-var hs-var">productSKU</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | License issuer.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3Aissuer%3ACreateLicense%27"><span class="annot"><span class="annottext">CreateLicense -&gt; Issuer
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#%24sel%3Aissuer%3ACreateLicense%27"><span class="hs-identifier hs-var hs-var">issuer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.Issuer.html#Issuer"><span class="hs-identifier hs-type">Issuer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | Home Region for the license.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AhomeRegion%3ACreateLicense%27"><span class="annot"><span class="annottext">CreateLicense -&gt; Text
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#%24sel%3AhomeRegion%3ACreateLicense%27"><span class="hs-identifier hs-var hs-var">homeRegion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | Date and time range during which the license is valid, in ISO8601-UTC</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- format.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3Avalidity%3ACreateLicense%27"><span class="annot"><span class="annottext">CreateLicense -&gt; DatetimeRange
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#%24sel%3Avalidity%3ACreateLicense%27"><span class="hs-identifier hs-var hs-var">validity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.DatetimeRange.html#DatetimeRange"><span class="hs-identifier hs-type">DatetimeRange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | License entitlements.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3Aentitlements%3ACreateLicense%27"><span class="annot"><span class="annottext">CreateLicense -&gt; [Entitlement]
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#%24sel%3Aentitlements%3ACreateLicense%27"><span class="hs-identifier hs-var hs-var">entitlements</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.LicenseManager.Types.Entitlement.html#Entitlement"><span class="hs-identifier hs-type">Entitlement</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | License beneficiary.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3Abeneficiary%3ACreateLicense%27"><span class="annot"><span class="annottext">CreateLicense -&gt; Text
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#%24sel%3Abeneficiary%3ACreateLicense%27"><span class="hs-identifier hs-var hs-var">beneficiary</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | Configuration for consumption of the license. Choose a provisional</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- configuration for workloads running with continuous connectivity. Choose</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- a borrow configuration for workloads with offline usage.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3AconsumptionConfiguration%3ACreateLicense%27"><span class="annot"><span class="annottext">CreateLicense -&gt; ConsumptionConfiguration
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#%24sel%3AconsumptionConfiguration%3ACreateLicense%27"><span class="hs-identifier hs-var hs-var">consumptionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.ConsumptionConfiguration.html#ConsumptionConfiguration"><span class="hs-identifier hs-type">ConsumptionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3AclientToken%3ACreateLicense%27"><span class="annot"><span class="annottext">CreateLicense -&gt; Text
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#%24sel%3AclientToken%3ACreateLicense%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313235"><span id="local-6989586621679313237"><span class="annot"><span class="annottext">CreateLicense -&gt; CreateLicense -&gt; Bool
+(CreateLicense -&gt; CreateLicense -&gt; Bool)
+-&gt; (CreateLicense -&gt; CreateLicense -&gt; Bool) -&gt; Eq CreateLicense
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateLicense -&gt; CreateLicense -&gt; Bool
+$c/= :: CreateLicense -&gt; CreateLicense -&gt; Bool
+== :: CreateLicense -&gt; CreateLicense -&gt; Bool
+$c== :: CreateLicense -&gt; CreateLicense -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313226"><span id="local-6989586621679313228"><span id="local-6989586621679313230"><span id="local-6989586621679313232"><span class="annot"><span class="annottext">ReadPrec [CreateLicense]
+ReadPrec CreateLicense
+Int -&gt; ReadS CreateLicense
+ReadS [CreateLicense]
+(Int -&gt; ReadS CreateLicense)
+-&gt; ReadS [CreateLicense]
+-&gt; ReadPrec CreateLicense
+-&gt; ReadPrec [CreateLicense]
+-&gt; Read CreateLicense
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateLicense]
+$creadListPrec :: ReadPrec [CreateLicense]
+readPrec :: ReadPrec CreateLicense
+$creadPrec :: ReadPrec CreateLicense
+readList :: ReadS [CreateLicense]
+$creadList :: ReadS [CreateLicense]
+readsPrec :: Int -&gt; ReadS CreateLicense
+$creadsPrec :: Int -&gt; ReadS CreateLicense
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313219"><span id="local-6989586621679313221"><span id="local-6989586621679313223"><span class="annot"><span class="annottext">Int -&gt; CreateLicense -&gt; ShowS
+[CreateLicense] -&gt; ShowS
+CreateLicense -&gt; String
+(Int -&gt; CreateLicense -&gt; ShowS)
+-&gt; (CreateLicense -&gt; String)
+-&gt; ([CreateLicense] -&gt; ShowS)
+-&gt; Show CreateLicense
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateLicense] -&gt; ShowS
+$cshowList :: [CreateLicense] -&gt; ShowS
+show :: CreateLicense -&gt; String
+$cshow :: CreateLicense -&gt; String
+showsPrec :: Int -&gt; CreateLicense -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateLicense -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateLicense -&gt; Rep CreateLicense x)
+-&gt; (forall x. Rep CreateLicense x -&gt; CreateLicense)
+-&gt; Generic CreateLicense
+forall x. Rep CreateLicense x -&gt; CreateLicense
+forall x. CreateLicense -&gt; Rep CreateLicense x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateLicense x -&gt; CreateLicense
+$cfrom :: forall x. CreateLicense -&gt; Rep CreateLicense x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- Create a value of 'CreateLicense' with all optional fields omitted.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'licenseMetadata', 'createLicense_licenseMetadata' - Information about the license.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'licenseName', 'createLicense_licenseName' - License name.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'productName', 'createLicense_productName' - Product name.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'productSKU', 'createLicense_productSKU' - Product SKU.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'issuer', 'createLicense_issuer' - License issuer.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'homeRegion', 'createLicense_homeRegion' - Home Region for the license.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'validity', 'createLicense_validity' - Date and time range during which the license is valid, in ISO8601-UTC</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- format.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'entitlements', 'createLicense_entitlements' - License entitlements.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'beneficiary', 'createLicense_beneficiary' - License beneficiary.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'consumptionConfiguration', 'createLicense_consumptionConfiguration' - Configuration for consumption of the license. Choose a provisional</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- configuration for workloads running with continuous connectivity. Choose</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- a borrow configuration for workloads with offline usage.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'clientToken', 'createLicense_clientToken' - Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#newCreateLicense"><span class="hs-identifier hs-type">newCreateLicense</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-comment">-- | 'licenseName'</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-comment">-- | 'productName'</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-comment">-- | 'productSKU'</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-comment">-- | 'issuer'</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.Issuer.html#Issuer"><span class="hs-identifier hs-type">Issuer</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-comment">-- | 'homeRegion'</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-comment">-- | 'validity'</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.DatetimeRange.html#DatetimeRange"><span class="hs-identifier hs-type">DatetimeRange</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-comment">-- | 'beneficiary'</span><span>
+</span><span id="line-139"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-comment">-- | 'consumptionConfiguration'</span><span>
+</span><span id="line-141"></span><span>  </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.ConsumptionConfiguration.html#ConsumptionConfiguration"><span class="hs-identifier hs-type">ConsumptionConfiguration</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-comment">-- | 'clientToken'</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense"><span class="hs-identifier hs-type">CreateLicense</span></a></span><span>
+</span><span id="line-145"></span><span id="newCreateLicense"><span class="annot"><span class="annottext">newCreateLicense :: Text
+-&gt; Text
+-&gt; Text
+-&gt; Issuer
+-&gt; Text
+-&gt; DatetimeRange
+-&gt; Text
+-&gt; ConsumptionConfiguration
+-&gt; Text
+-&gt; CreateLicense
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#newCreateLicense"><span class="hs-identifier hs-var hs-var">newCreateLicense</span></a></span></span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679313214"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313214"><span class="hs-identifier hs-var">pLicenseName_</span></a></span></span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679313213"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313213"><span class="hs-identifier hs-var">pProductName_</span></a></span></span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679313212"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313212"><span class="hs-identifier hs-var">pProductSKU_</span></a></span></span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679313211"><span class="annot"><span class="annottext">Issuer
+</span><a href="#local-6989586621679313211"><span class="hs-identifier hs-var">pIssuer_</span></a></span></span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679313210"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313210"><span class="hs-identifier hs-var">pHomeRegion_</span></a></span></span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679313209"><span class="annot"><span class="annottext">DatetimeRange
+</span><a href="#local-6989586621679313209"><span class="hs-identifier hs-var">pValidity_</span></a></span></span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679313208"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313208"><span class="hs-identifier hs-var">pBeneficiary_</span></a></span></span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679313207"><span class="annot"><span class="annottext">ConsumptionConfiguration
+</span><a href="#local-6989586621679313207"><span class="hs-identifier hs-var">pConsumptionConfiguration_</span></a></span></span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679313206"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313206"><span class="hs-identifier hs-var">pClientToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">CreateLicense' :: Maybe [Metadata]
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Issuer
+-&gt; Text
+-&gt; DatetimeRange
+-&gt; [Entitlement]
+-&gt; Text
+-&gt; ConsumptionConfiguration
+-&gt; Text
+-&gt; CreateLicense
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense%27"><span class="hs-identifier hs-type">CreateLicense'</span></a></span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:licenseMetadata:CreateLicense' :: Maybe [Metadata]
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#%24sel%3AlicenseMetadata%3ACreateLicense%27"><span class="hs-identifier hs-var">licenseMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Metadata]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">$sel:licenseName:CreateLicense' :: Text
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#%24sel%3AlicenseName%3ACreateLicense%27"><span class="hs-identifier hs-var">licenseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313214"><span class="hs-identifier hs-var">pLicenseName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">$sel:productName:CreateLicense' :: Text
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#%24sel%3AproductName%3ACreateLicense%27"><span class="hs-identifier hs-var">productName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313213"><span class="hs-identifier hs-var">pProductName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">$sel:productSKU:CreateLicense' :: Text
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#%24sel%3AproductSKU%3ACreateLicense%27"><span class="hs-identifier hs-var">productSKU</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313212"><span class="hs-identifier hs-var">pProductSKU_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">$sel:issuer:CreateLicense' :: Issuer
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#%24sel%3Aissuer%3ACreateLicense%27"><span class="hs-identifier hs-var">issuer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Issuer
+</span><a href="#local-6989586621679313211"><span class="hs-identifier hs-var">pIssuer_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">$sel:homeRegion:CreateLicense' :: Text
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#%24sel%3AhomeRegion%3ACreateLicense%27"><span class="hs-identifier hs-var">homeRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313210"><span class="hs-identifier hs-var">pHomeRegion_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">$sel:validity:CreateLicense' :: DatetimeRange
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#%24sel%3Avalidity%3ACreateLicense%27"><span class="hs-identifier hs-var">validity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DatetimeRange
+</span><a href="#local-6989586621679313209"><span class="hs-identifier hs-var">pValidity_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">$sel:entitlements:CreateLicense' :: [Entitlement]
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#%24sel%3Aentitlements%3ACreateLicense%27"><span class="hs-identifier hs-var">entitlements</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Entitlement]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">$sel:beneficiary:CreateLicense' :: Text
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#%24sel%3Abeneficiary%3ACreateLicense%27"><span class="hs-identifier hs-var">beneficiary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313208"><span class="hs-identifier hs-var">pBeneficiary_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">$sel:consumptionConfiguration:CreateLicense' :: ConsumptionConfiguration
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#%24sel%3AconsumptionConfiguration%3ACreateLicense%27"><span class="hs-identifier hs-var">consumptionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>          </span><span class="annot"><span class="annottext">ConsumptionConfiguration
+</span><a href="#local-6989586621679313207"><span class="hs-identifier hs-var">pConsumptionConfiguration_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">$sel:clientToken:CreateLicense' :: Text
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#%24sel%3AclientToken%3ACreateLicense%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313206"><span class="hs-identifier hs-var">pClientToken_</span></a></span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | Information about the license.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#createLicense_licenseMetadata"><span class="hs-identifier hs-type">createLicense_licenseMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense"><span class="hs-identifier hs-type">CreateLicense</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.LicenseManager.Types.Metadata.html#Metadata"><span class="hs-identifier hs-type">Metadata</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="createLicense_licenseMetadata"><span class="annot"><span class="annottext">createLicense_licenseMetadata :: (Maybe [Metadata] -&gt; f (Maybe [Metadata]))
+-&gt; CreateLicense -&gt; f CreateLicense
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#createLicense_licenseMetadata"><span class="hs-identifier hs-var hs-var">createLicense_licenseMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLicense -&gt; Maybe [Metadata])
+-&gt; (CreateLicense -&gt; Maybe [Metadata] -&gt; CreateLicense)
+-&gt; Lens
+     CreateLicense CreateLicense (Maybe [Metadata]) (Maybe [Metadata])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense%27"><span class="hs-identifier hs-type">CreateLicense'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313203"><span class="annot"><span class="annottext">Maybe [Metadata]
+licenseMetadata :: Maybe [Metadata]
+$sel:licenseMetadata:CreateLicense' :: CreateLicense -&gt; Maybe [Metadata]
+</span><a href="#local-6989586621679313203"><span class="hs-identifier hs-var hs-var">licenseMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Metadata]
+</span><a href="#local-6989586621679313203"><span class="hs-identifier hs-var">licenseMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313202"><span class="annot"><span class="annottext">s :: CreateLicense
+</span><a href="#local-6989586621679313202"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense%27"><span class="hs-identifier hs-type">CreateLicense'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313201"><span class="annot"><span class="annottext">Maybe [Metadata]
+</span><a href="#local-6989586621679313201"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLicense
+</span><a href="#local-6989586621679313202"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:licenseMetadata:CreateLicense' :: Maybe [Metadata]
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#%24sel%3AlicenseMetadata%3ACreateLicense%27"><span class="hs-identifier hs-var">licenseMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Metadata]
+</span><a href="#local-6989586621679313201"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense"><span class="hs-identifier hs-type">CreateLicense</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Metadata] -&gt; f (Maybe [Metadata]))
+ -&gt; CreateLicense -&gt; f CreateLicense)
+-&gt; ((Maybe [Metadata] -&gt; f (Maybe [Metadata]))
+    -&gt; Maybe [Metadata] -&gt; f (Maybe [Metadata]))
+-&gt; (Maybe [Metadata] -&gt; f (Maybe [Metadata]))
+-&gt; CreateLicense
+-&gt; f CreateLicense
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Metadata] [Metadata] [Metadata] [Metadata]
+-&gt; Iso
+     (Maybe [Metadata])
+     (Maybe [Metadata])
+     (Maybe [Metadata])
+     (Maybe [Metadata])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Metadata] [Metadata] [Metadata] [Metadata]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | License name.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#createLicense_licenseName"><span class="hs-identifier hs-type">createLicense_licenseName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense"><span class="hs-identifier hs-type">CreateLicense</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-176"></span><span id="createLicense_licenseName"><span class="annot"><span class="annottext">createLicense_licenseName :: (Text -&gt; f Text) -&gt; CreateLicense -&gt; f CreateLicense
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#createLicense_licenseName"><span class="hs-identifier hs-var hs-var">createLicense_licenseName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLicense -&gt; Text)
+-&gt; (CreateLicense -&gt; Text -&gt; CreateLicense)
+-&gt; Lens CreateLicense CreateLicense Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense%27"><span class="hs-identifier hs-type">CreateLicense'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313197"><span class="annot"><span class="annottext">Text
+licenseName :: Text
+$sel:licenseName:CreateLicense' :: CreateLicense -&gt; Text
+</span><a href="#local-6989586621679313197"><span class="hs-identifier hs-var hs-var">licenseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313197"><span class="hs-identifier hs-var">licenseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313196"><span class="annot"><span class="annottext">s :: CreateLicense
+</span><a href="#local-6989586621679313196"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense%27"><span class="hs-identifier hs-type">CreateLicense'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313195"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313195"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLicense
+</span><a href="#local-6989586621679313196"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:licenseName:CreateLicense' :: Text
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#%24sel%3AlicenseName%3ACreateLicense%27"><span class="hs-identifier hs-var">licenseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313195"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense"><span class="hs-identifier hs-type">CreateLicense</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | Product name.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#createLicense_productName"><span class="hs-identifier hs-type">createLicense_productName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense"><span class="hs-identifier hs-type">CreateLicense</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-180"></span><span id="createLicense_productName"><span class="annot"><span class="annottext">createLicense_productName :: (Text -&gt; f Text) -&gt; CreateLicense -&gt; f CreateLicense
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#createLicense_productName"><span class="hs-identifier hs-var hs-var">createLicense_productName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLicense -&gt; Text)
+-&gt; (CreateLicense -&gt; Text -&gt; CreateLicense)
+-&gt; Lens CreateLicense CreateLicense Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense%27"><span class="hs-identifier hs-type">CreateLicense'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313194"><span class="annot"><span class="annottext">Text
+productName :: Text
+$sel:productName:CreateLicense' :: CreateLicense -&gt; Text
+</span><a href="#local-6989586621679313194"><span class="hs-identifier hs-var hs-var">productName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313194"><span class="hs-identifier hs-var">productName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313193"><span class="annot"><span class="annottext">s :: CreateLicense
+</span><a href="#local-6989586621679313193"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense%27"><span class="hs-identifier hs-type">CreateLicense'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313192"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313192"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLicense
+</span><a href="#local-6989586621679313193"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:productName:CreateLicense' :: Text
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#%24sel%3AproductName%3ACreateLicense%27"><span class="hs-identifier hs-var">productName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313192"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense"><span class="hs-identifier hs-type">CreateLicense</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | Product SKU.</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#createLicense_productSKU"><span class="hs-identifier hs-type">createLicense_productSKU</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense"><span class="hs-identifier hs-type">CreateLicense</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-184"></span><span id="createLicense_productSKU"><span class="annot"><span class="annottext">createLicense_productSKU :: (Text -&gt; f Text) -&gt; CreateLicense -&gt; f CreateLicense
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#createLicense_productSKU"><span class="hs-identifier hs-var hs-var">createLicense_productSKU</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLicense -&gt; Text)
+-&gt; (CreateLicense -&gt; Text -&gt; CreateLicense)
+-&gt; Lens CreateLicense CreateLicense Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense%27"><span class="hs-identifier hs-type">CreateLicense'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313191"><span class="annot"><span class="annottext">Text
+productSKU :: Text
+$sel:productSKU:CreateLicense' :: CreateLicense -&gt; Text
+</span><a href="#local-6989586621679313191"><span class="hs-identifier hs-var hs-var">productSKU</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313191"><span class="hs-identifier hs-var">productSKU</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313190"><span class="annot"><span class="annottext">s :: CreateLicense
+</span><a href="#local-6989586621679313190"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense%27"><span class="hs-identifier hs-type">CreateLicense'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313189"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313189"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLicense
+</span><a href="#local-6989586621679313190"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:productSKU:CreateLicense' :: Text
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#%24sel%3AproductSKU%3ACreateLicense%27"><span class="hs-identifier hs-var">productSKU</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313189"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense"><span class="hs-identifier hs-type">CreateLicense</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | License issuer.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#createLicense_issuer"><span class="hs-identifier hs-type">createLicense_issuer</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense"><span class="hs-identifier hs-type">CreateLicense</span></a></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.Issuer.html#Issuer"><span class="hs-identifier hs-type">Issuer</span></a></span><span>
+</span><span id="line-188"></span><span id="createLicense_issuer"><span class="annot"><span class="annottext">createLicense_issuer :: (Issuer -&gt; f Issuer) -&gt; CreateLicense -&gt; f CreateLicense
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#createLicense_issuer"><span class="hs-identifier hs-var hs-var">createLicense_issuer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLicense -&gt; Issuer)
+-&gt; (CreateLicense -&gt; Issuer -&gt; CreateLicense)
+-&gt; Lens CreateLicense CreateLicense Issuer Issuer
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense%27"><span class="hs-identifier hs-type">CreateLicense'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313188"><span class="annot"><span class="annottext">Issuer
+issuer :: Issuer
+$sel:issuer:CreateLicense' :: CreateLicense -&gt; Issuer
+</span><a href="#local-6989586621679313188"><span class="hs-identifier hs-var hs-var">issuer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Issuer
+</span><a href="#local-6989586621679313188"><span class="hs-identifier hs-var">issuer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313187"><span class="annot"><span class="annottext">s :: CreateLicense
+</span><a href="#local-6989586621679313187"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense%27"><span class="hs-identifier hs-type">CreateLicense'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313186"><span class="annot"><span class="annottext">Issuer
+</span><a href="#local-6989586621679313186"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLicense
+</span><a href="#local-6989586621679313187"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:issuer:CreateLicense' :: Issuer
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#%24sel%3Aissuer%3ACreateLicense%27"><span class="hs-identifier hs-var">issuer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Issuer
+</span><a href="#local-6989586621679313186"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense"><span class="hs-identifier hs-type">CreateLicense</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | Home Region for the license.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#createLicense_homeRegion"><span class="hs-identifier hs-type">createLicense_homeRegion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense"><span class="hs-identifier hs-type">CreateLicense</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-192"></span><span id="createLicense_homeRegion"><span class="annot"><span class="annottext">createLicense_homeRegion :: (Text -&gt; f Text) -&gt; CreateLicense -&gt; f CreateLicense
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#createLicense_homeRegion"><span class="hs-identifier hs-var hs-var">createLicense_homeRegion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLicense -&gt; Text)
+-&gt; (CreateLicense -&gt; Text -&gt; CreateLicense)
+-&gt; Lens CreateLicense CreateLicense Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense%27"><span class="hs-identifier hs-type">CreateLicense'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313185"><span class="annot"><span class="annottext">Text
+homeRegion :: Text
+$sel:homeRegion:CreateLicense' :: CreateLicense -&gt; Text
+</span><a href="#local-6989586621679313185"><span class="hs-identifier hs-var hs-var">homeRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313185"><span class="hs-identifier hs-var">homeRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313184"><span class="annot"><span class="annottext">s :: CreateLicense
+</span><a href="#local-6989586621679313184"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense%27"><span class="hs-identifier hs-type">CreateLicense'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313183"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313183"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLicense
+</span><a href="#local-6989586621679313184"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:homeRegion:CreateLicense' :: Text
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#%24sel%3AhomeRegion%3ACreateLicense%27"><span class="hs-identifier hs-var">homeRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313183"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense"><span class="hs-identifier hs-type">CreateLicense</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | Date and time range during which the license is valid, in ISO8601-UTC</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- format.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#createLicense_validity"><span class="hs-identifier hs-type">createLicense_validity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense"><span class="hs-identifier hs-type">CreateLicense</span></a></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.DatetimeRange.html#DatetimeRange"><span class="hs-identifier hs-type">DatetimeRange</span></a></span><span>
+</span><span id="line-197"></span><span id="createLicense_validity"><span class="annot"><span class="annottext">createLicense_validity :: (DatetimeRange -&gt; f DatetimeRange)
+-&gt; CreateLicense -&gt; f CreateLicense
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#createLicense_validity"><span class="hs-identifier hs-var hs-var">createLicense_validity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLicense -&gt; DatetimeRange)
+-&gt; (CreateLicense -&gt; DatetimeRange -&gt; CreateLicense)
+-&gt; Lens CreateLicense CreateLicense DatetimeRange DatetimeRange
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense%27"><span class="hs-identifier hs-type">CreateLicense'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313182"><span class="annot"><span class="annottext">DatetimeRange
+validity :: DatetimeRange
+$sel:validity:CreateLicense' :: CreateLicense -&gt; DatetimeRange
+</span><a href="#local-6989586621679313182"><span class="hs-identifier hs-var hs-var">validity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatetimeRange
+</span><a href="#local-6989586621679313182"><span class="hs-identifier hs-var">validity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313181"><span class="annot"><span class="annottext">s :: CreateLicense
+</span><a href="#local-6989586621679313181"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense%27"><span class="hs-identifier hs-type">CreateLicense'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313180"><span class="annot"><span class="annottext">DatetimeRange
+</span><a href="#local-6989586621679313180"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLicense
+</span><a href="#local-6989586621679313181"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:validity:CreateLicense' :: DatetimeRange
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#%24sel%3Avalidity%3ACreateLicense%27"><span class="hs-identifier hs-var">validity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DatetimeRange
+</span><a href="#local-6989586621679313180"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense"><span class="hs-identifier hs-type">CreateLicense</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- | License entitlements.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#createLicense_entitlements"><span class="hs-identifier hs-type">createLicense_entitlements</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense"><span class="hs-identifier hs-type">CreateLicense</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.LicenseManager.Types.Entitlement.html#Entitlement"><span class="hs-identifier hs-type">Entitlement</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-201"></span><span id="createLicense_entitlements"><span class="annot"><span class="annottext">createLicense_entitlements :: ([Entitlement] -&gt; f [Entitlement])
+-&gt; CreateLicense -&gt; f CreateLicense
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#createLicense_entitlements"><span class="hs-identifier hs-var hs-var">createLicense_entitlements</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLicense -&gt; [Entitlement])
+-&gt; (CreateLicense -&gt; [Entitlement] -&gt; CreateLicense)
+-&gt; Lens CreateLicense CreateLicense [Entitlement] [Entitlement]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense%27"><span class="hs-identifier hs-type">CreateLicense'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313179"><span class="annot"><span class="annottext">[Entitlement]
+entitlements :: [Entitlement]
+$sel:entitlements:CreateLicense' :: CreateLicense -&gt; [Entitlement]
+</span><a href="#local-6989586621679313179"><span class="hs-identifier hs-var hs-var">entitlements</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Entitlement]
+</span><a href="#local-6989586621679313179"><span class="hs-identifier hs-var">entitlements</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313178"><span class="annot"><span class="annottext">s :: CreateLicense
+</span><a href="#local-6989586621679313178"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense%27"><span class="hs-identifier hs-type">CreateLicense'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313177"><span class="annot"><span class="annottext">[Entitlement]
+</span><a href="#local-6989586621679313177"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLicense
+</span><a href="#local-6989586621679313178"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entitlements:CreateLicense' :: [Entitlement]
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#%24sel%3Aentitlements%3ACreateLicense%27"><span class="hs-identifier hs-var">entitlements</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Entitlement]
+</span><a href="#local-6989586621679313177"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense"><span class="hs-identifier hs-type">CreateLicense</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Entitlement] -&gt; f [Entitlement])
+ -&gt; CreateLicense -&gt; f CreateLicense)
+-&gt; (([Entitlement] -&gt; f [Entitlement])
+    -&gt; [Entitlement] -&gt; f [Entitlement])
+-&gt; ([Entitlement] -&gt; f [Entitlement])
+-&gt; CreateLicense
+-&gt; f CreateLicense
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Entitlement] -&gt; f [Entitlement])
+-&gt; [Entitlement] -&gt; f [Entitlement]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | License beneficiary.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#createLicense_beneficiary"><span class="hs-identifier hs-type">createLicense_beneficiary</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense"><span class="hs-identifier hs-type">CreateLicense</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-205"></span><span id="createLicense_beneficiary"><span class="annot"><span class="annottext">createLicense_beneficiary :: (Text -&gt; f Text) -&gt; CreateLicense -&gt; f CreateLicense
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#createLicense_beneficiary"><span class="hs-identifier hs-var hs-var">createLicense_beneficiary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLicense -&gt; Text)
+-&gt; (CreateLicense -&gt; Text -&gt; CreateLicense)
+-&gt; Lens CreateLicense CreateLicense Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense%27"><span class="hs-identifier hs-type">CreateLicense'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313176"><span class="annot"><span class="annottext">Text
+beneficiary :: Text
+$sel:beneficiary:CreateLicense' :: CreateLicense -&gt; Text
+</span><a href="#local-6989586621679313176"><span class="hs-identifier hs-var hs-var">beneficiary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313176"><span class="hs-identifier hs-var">beneficiary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313175"><span class="annot"><span class="annottext">s :: CreateLicense
+</span><a href="#local-6989586621679313175"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense%27"><span class="hs-identifier hs-type">CreateLicense'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313174"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313174"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLicense
+</span><a href="#local-6989586621679313175"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:beneficiary:CreateLicense' :: Text
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#%24sel%3Abeneficiary%3ACreateLicense%27"><span class="hs-identifier hs-var">beneficiary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313174"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense"><span class="hs-identifier hs-type">CreateLicense</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | Configuration for consumption of the license. Choose a provisional</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- configuration for workloads running with continuous connectivity. Choose</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- a borrow configuration for workloads with offline usage.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#createLicense_consumptionConfiguration"><span class="hs-identifier hs-type">createLicense_consumptionConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense"><span class="hs-identifier hs-type">CreateLicense</span></a></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.ConsumptionConfiguration.html#ConsumptionConfiguration"><span class="hs-identifier hs-type">ConsumptionConfiguration</span></a></span><span>
+</span><span id="line-211"></span><span id="createLicense_consumptionConfiguration"><span class="annot"><span class="annottext">createLicense_consumptionConfiguration :: (ConsumptionConfiguration -&gt; f ConsumptionConfiguration)
+-&gt; CreateLicense -&gt; f CreateLicense
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#createLicense_consumptionConfiguration"><span class="hs-identifier hs-var hs-var">createLicense_consumptionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLicense -&gt; ConsumptionConfiguration)
+-&gt; (CreateLicense -&gt; ConsumptionConfiguration -&gt; CreateLicense)
+-&gt; Lens
+     CreateLicense
+     CreateLicense
+     ConsumptionConfiguration
+     ConsumptionConfiguration
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense%27"><span class="hs-identifier hs-type">CreateLicense'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313173"><span class="annot"><span class="annottext">ConsumptionConfiguration
+consumptionConfiguration :: ConsumptionConfiguration
+$sel:consumptionConfiguration:CreateLicense' :: CreateLicense -&gt; ConsumptionConfiguration
+</span><a href="#local-6989586621679313173"><span class="hs-identifier hs-var hs-var">consumptionConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConsumptionConfiguration
+</span><a href="#local-6989586621679313173"><span class="hs-identifier hs-var">consumptionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313172"><span class="annot"><span class="annottext">s :: CreateLicense
+</span><a href="#local-6989586621679313172"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense%27"><span class="hs-identifier hs-type">CreateLicense'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313171"><span class="annot"><span class="annottext">ConsumptionConfiguration
+</span><a href="#local-6989586621679313171"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLicense
+</span><a href="#local-6989586621679313172"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumptionConfiguration:CreateLicense' :: ConsumptionConfiguration
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#%24sel%3AconsumptionConfiguration%3ACreateLicense%27"><span class="hs-identifier hs-var">consumptionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ConsumptionConfiguration
+</span><a href="#local-6989586621679313171"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense"><span class="hs-identifier hs-type">CreateLicense</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#createLicense_clientToken"><span class="hs-identifier hs-type">createLicense_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense"><span class="hs-identifier hs-type">CreateLicense</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-216"></span><span id="createLicense_clientToken"><span class="annot"><span class="annottext">createLicense_clientToken :: (Text -&gt; f Text) -&gt; CreateLicense -&gt; f CreateLicense
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#createLicense_clientToken"><span class="hs-identifier hs-var hs-var">createLicense_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLicense -&gt; Text)
+-&gt; (CreateLicense -&gt; Text -&gt; CreateLicense)
+-&gt; Lens CreateLicense CreateLicense Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense%27"><span class="hs-identifier hs-type">CreateLicense'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313170"><span class="annot"><span class="annottext">Text
+clientToken :: Text
+$sel:clientToken:CreateLicense' :: CreateLicense -&gt; Text
+</span><a href="#local-6989586621679313170"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313170"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313169"><span class="annot"><span class="annottext">s :: CreateLicense
+</span><a href="#local-6989586621679313169"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense%27"><span class="hs-identifier hs-type">CreateLicense'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313168"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313168"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLicense
+</span><a href="#local-6989586621679313169"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:CreateLicense' :: Text
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#%24sel%3AclientToken%3ACreateLicense%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313168"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense"><span class="hs-identifier hs-type">CreateLicense</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense"><span class="hs-identifier hs-type">CreateLicense</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-219"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-220"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense"><span class="hs-identifier hs-type">CreateLicense</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-221"></span><span>      </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicenseResponse"><span class="hs-identifier hs-type">CreateLicenseResponse</span></a></span><span>
+</span><span id="line-222"></span><span>  </span><span id="local-6989586621679313164"><span class="annot"><span class="annottext">request :: CreateLicense -&gt; Request CreateLicense
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateLicense -&gt; Request CreateLicense
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.LicenseManager.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-223"></span><span>  </span><span id="local-6989586621679313160"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateLicense
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateLicense)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-224"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateLicense))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateLicense
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateLicense)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-225"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679313157"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313157"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679313156"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679313156"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679313155"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679313155"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-226"></span><span>          </span><span class="annot"><span class="annottext">Maybe LicenseStatus
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateLicenseResponse
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicenseResponse%27"><span class="hs-identifier hs-var">CreateLicenseResponse'</span></a></span><span>
+</span><span id="line-227"></span><span>            </span><span class="annot"><span class="annottext">(Maybe LicenseStatus
+ -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateLicenseResponse)
+-&gt; Either String (Maybe LicenseStatus)
+-&gt; Either
+     String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateLicenseResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679313155"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe LicenseStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateLicenseResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; CreateLicenseResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679313155"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Version&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; CreateLicenseResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CreateLicenseResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679313155"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LicenseArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateLicenseResponse)
+-&gt; Either String Int -&gt; Either String CreateLicenseResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313157"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313147"><span id="local-6989586621679313149"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense"><span class="hs-identifier hs-type">CreateLicense</span></a></span></span></span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313144"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense"><span class="hs-identifier hs-type">CreateLicense</span></a></span></span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense"><span class="hs-identifier hs-type">CreateLicense</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-238"></span><span>  </span><span id="local-6989586621679313140"><span class="annot"><span class="annottext">toHeaders :: CreateLicense -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-239"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateLicense -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-240"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-241"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-242"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSLicenseManager.CreateLicense&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-243"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-244"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-246"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-247"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-248"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-250"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313130"><span id="local-6989586621679313132"><span id="local-6989586621679313134"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense"><span class="hs-identifier hs-type">CreateLicense</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-253"></span><span>  </span><span id="local-6989586621679313128"><span class="annot"><span class="annottext">toJSON :: CreateLicense -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense%27"><span class="hs-identifier hs-type">CreateLicense'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313116"><span id="local-6989586621679313117"><span id="local-6989586621679313118"><span id="local-6989586621679313119"><span id="local-6989586621679313120"><span id="local-6989586621679313121"><span id="local-6989586621679313122"><span id="local-6989586621679313123"><span id="local-6989586621679313124"><span id="local-6989586621679313125"><span id="local-6989586621679313126"><span class="annot"><span class="annottext">[Entitlement]
+Maybe [Metadata]
+Text
+DatetimeRange
+Issuer
+ConsumptionConfiguration
+clientToken :: Text
+consumptionConfiguration :: ConsumptionConfiguration
+beneficiary :: Text
+entitlements :: [Entitlement]
+validity :: DatetimeRange
+homeRegion :: Text
+issuer :: Issuer
+productSKU :: Text
+productName :: Text
+licenseName :: Text
+licenseMetadata :: Maybe [Metadata]
+$sel:clientToken:CreateLicense' :: CreateLicense -&gt; Text
+$sel:consumptionConfiguration:CreateLicense' :: CreateLicense -&gt; ConsumptionConfiguration
+$sel:beneficiary:CreateLicense' :: CreateLicense -&gt; Text
+$sel:entitlements:CreateLicense' :: CreateLicense -&gt; [Entitlement]
+$sel:validity:CreateLicense' :: CreateLicense -&gt; DatetimeRange
+$sel:homeRegion:CreateLicense' :: CreateLicense -&gt; Text
+$sel:issuer:CreateLicense' :: CreateLicense -&gt; Issuer
+$sel:productSKU:CreateLicense' :: CreateLicense -&gt; Text
+$sel:productName:CreateLicense' :: CreateLicense -&gt; Text
+$sel:licenseName:CreateLicense' :: CreateLicense -&gt; Text
+$sel:licenseMetadata:CreateLicense' :: CreateLicense -&gt; Maybe [Metadata]
+</span><a href="#local-6989586621679313116"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-254"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-255"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-256"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LicenseMetadata&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Metadata] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span>              </span><span class="annot"><span class="annottext">([Metadata] -&gt; Pair) -&gt; Maybe [Metadata] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Metadata]
+</span><a href="#local-6989586621679313126"><span class="hs-identifier hs-var">licenseMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LicenseName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313125"><span class="hs-identifier hs-var">licenseName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-259"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProductName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313124"><span class="hs-identifier hs-var">productName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProductSKU&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313123"><span class="hs-identifier hs-var">productSKU</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-261"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Issuer&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Issuer -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Issuer
+</span><a href="#local-6989586621679313122"><span class="hs-identifier hs-var">issuer</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HomeRegion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313121"><span class="hs-identifier hs-var">homeRegion</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Validity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DatetimeRange -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">DatetimeRange
+</span><a href="#local-6989586621679313120"><span class="hs-identifier hs-var">validity</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-264"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Entitlements&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Entitlement] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Entitlement]
+</span><a href="#local-6989586621679313119"><span class="hs-identifier hs-var">entitlements</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Beneficiary&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313118"><span class="hs-identifier hs-var">beneficiary</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-267"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConsumptionConfiguration&quot;</span></span><span>
+</span><span id="line-268"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; ConsumptionConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ConsumptionConfiguration
+</span><a href="#local-6989586621679313117"><span class="hs-identifier hs-var">consumptionConfiguration</span></a></span><span>
+</span><span id="line-269"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-270"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313116"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-272"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span>
+</span><span id="line-274"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense"><span class="hs-identifier hs-type">CreateLicense</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-275"></span><span>  </span><span id="local-6989586621679313110"><span class="annot"><span class="annottext">toPath :: CreateLicense -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateLicense -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-276"></span><span>
+</span><span id="line-277"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicense"><span class="hs-identifier hs-type">CreateLicense</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-278"></span><span>  </span><span id="local-6989586621679313106"><span class="annot"><span class="annottext">toQuery :: CreateLicense -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateLicense -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-279"></span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- | /See:/ 'newCreateLicenseResponse' smart constructor.</span><span>
+</span><span id="line-281"></span><span id="local-6989586621679313103"><span id="local-6989586621679313104"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateLicenseResponse"><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicenseResponse"><span class="hs-identifier hs-var">CreateLicenseResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateLicenseResponse%27"><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicenseResponse%27"><span class="hs-identifier hs-var">CreateLicenseResponse'</span></a></span></span><span>
+</span><span id="line-282"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | License status.</span><span>
+</span><span id="line-283"></span><span>    </span><span id="%24sel%3Astatus%3ACreateLicenseResponse%27"><span class="annot"><span class="annottext">CreateLicenseResponse -&gt; Maybe LicenseStatus
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#%24sel%3Astatus%3ACreateLicenseResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.LicenseStatus.html#LicenseStatus"><span class="hs-identifier hs-type">LicenseStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-284"></span><span>    </span><span class="hs-comment">-- | License version.</span><span>
+</span><span id="line-285"></span><span>    </span><span id="%24sel%3Aversion%3ACreateLicenseResponse%27"><span class="annot"><span class="annottext">CreateLicenseResponse -&gt; Maybe Text
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#%24sel%3Aversion%3ACreateLicenseResponse%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-286"></span><span>    </span><span class="hs-comment">-- | Amazon Resource Name (ARN) of the license.</span><span>
+</span><span id="line-287"></span><span>    </span><span id="%24sel%3AlicenseArn%3ACreateLicenseResponse%27"><span class="annot"><span class="annottext">CreateLicenseResponse -&gt; Maybe Text
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#%24sel%3AlicenseArn%3ACreateLicenseResponse%27"><span class="hs-identifier hs-var hs-var">licenseArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-288"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-289"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateLicenseResponse%27"><span class="annot"><span class="annottext">CreateLicenseResponse -&gt; Int
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#%24sel%3AhttpStatus%3ACreateLicenseResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-290"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-291"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313095"><span id="local-6989586621679313097"><span class="annot"><span class="annottext">CreateLicenseResponse -&gt; CreateLicenseResponse -&gt; Bool
+(CreateLicenseResponse -&gt; CreateLicenseResponse -&gt; Bool)
+-&gt; (CreateLicenseResponse -&gt; CreateLicenseResponse -&gt; Bool)
+-&gt; Eq CreateLicenseResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateLicenseResponse -&gt; CreateLicenseResponse -&gt; Bool
+$c/= :: CreateLicenseResponse -&gt; CreateLicenseResponse -&gt; Bool
+== :: CreateLicenseResponse -&gt; CreateLicenseResponse -&gt; Bool
+$c== :: CreateLicenseResponse -&gt; CreateLicenseResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313087"><span id="local-6989586621679313089"><span id="local-6989586621679313091"><span id="local-6989586621679313093"><span class="annot"><span class="annottext">ReadPrec [CreateLicenseResponse]
+ReadPrec CreateLicenseResponse
+Int -&gt; ReadS CreateLicenseResponse
+ReadS [CreateLicenseResponse]
+(Int -&gt; ReadS CreateLicenseResponse)
+-&gt; ReadS [CreateLicenseResponse]
+-&gt; ReadPrec CreateLicenseResponse
+-&gt; ReadPrec [CreateLicenseResponse]
+-&gt; Read CreateLicenseResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateLicenseResponse]
+$creadListPrec :: ReadPrec [CreateLicenseResponse]
+readPrec :: ReadPrec CreateLicenseResponse
+$creadPrec :: ReadPrec CreateLicenseResponse
+readList :: ReadS [CreateLicenseResponse]
+$creadList :: ReadS [CreateLicenseResponse]
+readsPrec :: Int -&gt; ReadS CreateLicenseResponse
+$creadsPrec :: Int -&gt; ReadS CreateLicenseResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313081"><span id="local-6989586621679313083"><span id="local-6989586621679313085"><span class="annot"><span class="annottext">Int -&gt; CreateLicenseResponse -&gt; ShowS
+[CreateLicenseResponse] -&gt; ShowS
+CreateLicenseResponse -&gt; String
+(Int -&gt; CreateLicenseResponse -&gt; ShowS)
+-&gt; (CreateLicenseResponse -&gt; String)
+-&gt; ([CreateLicenseResponse] -&gt; ShowS)
+-&gt; Show CreateLicenseResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateLicenseResponse] -&gt; ShowS
+$cshowList :: [CreateLicenseResponse] -&gt; ShowS
+show :: CreateLicenseResponse -&gt; String
+$cshow :: CreateLicenseResponse -&gt; String
+showsPrec :: Int -&gt; CreateLicenseResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateLicenseResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateLicenseResponse -&gt; Rep CreateLicenseResponse x)
+-&gt; (forall x. Rep CreateLicenseResponse x -&gt; CreateLicenseResponse)
+-&gt; Generic CreateLicenseResponse
+forall x. Rep CreateLicenseResponse x -&gt; CreateLicenseResponse
+forall x. CreateLicenseResponse -&gt; Rep CreateLicenseResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateLicenseResponse x -&gt; CreateLicenseResponse
+$cfrom :: forall x. CreateLicenseResponse -&gt; Rep CreateLicenseResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- Create a value of 'CreateLicenseResponse' with all optional fields omitted.</span><span>
+</span><span id="line-295"></span><span class="hs-comment">--</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-297"></span><span class="hs-comment">--</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-300"></span><span class="hs-comment">--</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- 'status', 'createLicenseResponse_status' - License status.</span><span>
+</span><span id="line-302"></span><span class="hs-comment">--</span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- 'version', 'createLicenseResponse_version' - License version.</span><span>
+</span><span id="line-304"></span><span class="hs-comment">--</span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- 'licenseArn', 'createLicenseResponse_licenseArn' - Amazon Resource Name (ARN) of the license.</span><span>
+</span><span id="line-306"></span><span class="hs-comment">--</span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- 'httpStatus', 'createLicenseResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-308"></span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#newCreateLicenseResponse"><span class="hs-identifier hs-type">newCreateLicenseResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-309"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-310"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-311"></span><span>  </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicenseResponse"><span class="hs-identifier hs-type">CreateLicenseResponse</span></a></span><span>
+</span><span id="line-312"></span><span id="newCreateLicenseResponse"><span class="annot"><span class="annottext">newCreateLicenseResponse :: Int -&gt; CreateLicenseResponse
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#newCreateLicenseResponse"><span class="hs-identifier hs-var hs-var">newCreateLicenseResponse</span></a></span></span><span> </span><span id="local-6989586621679313078"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313078"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-313"></span><span>  </span><span class="annot"><span class="annottext">CreateLicenseResponse' :: Maybe LicenseStatus
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CreateLicenseResponse
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicenseResponse%27"><span class="hs-identifier hs-type">CreateLicenseResponse'</span></a></span><span>
+</span><span id="line-314"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:CreateLicenseResponse' :: Maybe LicenseStatus
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#%24sel%3Astatus%3ACreateLicenseResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LicenseStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-315"></span><span>      </span><span class="annot"><span class="annottext">$sel:version:CreateLicenseResponse' :: Maybe Text
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#%24sel%3Aversion%3ACreateLicenseResponse%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-316"></span><span>      </span><span class="annot"><span class="annottext">$sel:licenseArn:CreateLicenseResponse' :: Maybe Text
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#%24sel%3AlicenseArn%3ACreateLicenseResponse%27"><span class="hs-identifier hs-var">licenseArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-317"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateLicenseResponse' :: Int
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#%24sel%3AhttpStatus%3ACreateLicenseResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313078"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-318"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-319"></span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- | License status.</span><span>
+</span><span id="line-321"></span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#createLicenseResponse_status"><span class="hs-identifier hs-type">createLicenseResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicenseResponse"><span class="hs-identifier hs-type">CreateLicenseResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.LicenseStatus.html#LicenseStatus"><span class="hs-identifier hs-type">LicenseStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-322"></span><span id="createLicenseResponse_status"><span class="annot"><span class="annottext">createLicenseResponse_status :: (Maybe LicenseStatus -&gt; f (Maybe LicenseStatus))
+-&gt; CreateLicenseResponse -&gt; f CreateLicenseResponse
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#createLicenseResponse_status"><span class="hs-identifier hs-var hs-var">createLicenseResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLicenseResponse -&gt; Maybe LicenseStatus)
+-&gt; (CreateLicenseResponse
+    -&gt; Maybe LicenseStatus -&gt; CreateLicenseResponse)
+-&gt; Lens
+     CreateLicenseResponse
+     CreateLicenseResponse
+     (Maybe LicenseStatus)
+     (Maybe LicenseStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicenseResponse%27"><span class="hs-identifier hs-type">CreateLicenseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313077"><span class="annot"><span class="annottext">Maybe LicenseStatus
+status :: Maybe LicenseStatus
+$sel:status:CreateLicenseResponse' :: CreateLicenseResponse -&gt; Maybe LicenseStatus
+</span><a href="#local-6989586621679313077"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LicenseStatus
+</span><a href="#local-6989586621679313077"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313076"><span class="annot"><span class="annottext">s :: CreateLicenseResponse
+</span><a href="#local-6989586621679313076"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicenseResponse%27"><span class="hs-identifier hs-type">CreateLicenseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313075"><span class="annot"><span class="annottext">Maybe LicenseStatus
+</span><a href="#local-6989586621679313075"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLicenseResponse
+</span><a href="#local-6989586621679313076"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:CreateLicenseResponse' :: Maybe LicenseStatus
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#%24sel%3Astatus%3ACreateLicenseResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LicenseStatus
+</span><a href="#local-6989586621679313075"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicenseResponse"><span class="hs-identifier hs-type">CreateLicenseResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-323"></span><span>
+</span><span id="line-324"></span><span class="hs-comment">-- | License version.</span><span>
+</span><span id="line-325"></span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#createLicenseResponse_version"><span class="hs-identifier hs-type">createLicenseResponse_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicenseResponse"><span class="hs-identifier hs-type">CreateLicenseResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-326"></span><span id="createLicenseResponse_version"><span class="annot"><span class="annottext">createLicenseResponse_version :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateLicenseResponse -&gt; f CreateLicenseResponse
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#createLicenseResponse_version"><span class="hs-identifier hs-var hs-var">createLicenseResponse_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLicenseResponse -&gt; Maybe Text)
+-&gt; (CreateLicenseResponse -&gt; Maybe Text -&gt; CreateLicenseResponse)
+-&gt; Lens
+     CreateLicenseResponse
+     CreateLicenseResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicenseResponse%27"><span class="hs-identifier hs-type">CreateLicenseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313074"><span class="annot"><span class="annottext">Maybe Text
+version :: Maybe Text
+$sel:version:CreateLicenseResponse' :: CreateLicenseResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679313074"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313074"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313073"><span class="annot"><span class="annottext">s :: CreateLicenseResponse
+</span><a href="#local-6989586621679313073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicenseResponse%27"><span class="hs-identifier hs-type">CreateLicenseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313072"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLicenseResponse
+</span><a href="#local-6989586621679313073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:CreateLicenseResponse' :: Maybe Text
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#%24sel%3Aversion%3ACreateLicenseResponse%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicenseResponse"><span class="hs-identifier hs-type">CreateLicenseResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-327"></span><span>
+</span><span id="line-328"></span><span class="hs-comment">-- | Amazon Resource Name (ARN) of the license.</span><span>
+</span><span id="line-329"></span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#createLicenseResponse_licenseArn"><span class="hs-identifier hs-type">createLicenseResponse_licenseArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicenseResponse"><span class="hs-identifier hs-type">CreateLicenseResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-330"></span><span id="createLicenseResponse_licenseArn"><span class="annot"><span class="annottext">createLicenseResponse_licenseArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateLicenseResponse -&gt; f CreateLicenseResponse
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#createLicenseResponse_licenseArn"><span class="hs-identifier hs-var hs-var">createLicenseResponse_licenseArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLicenseResponse -&gt; Maybe Text)
+-&gt; (CreateLicenseResponse -&gt; Maybe Text -&gt; CreateLicenseResponse)
+-&gt; Lens
+     CreateLicenseResponse
+     CreateLicenseResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicenseResponse%27"><span class="hs-identifier hs-type">CreateLicenseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313071"><span class="annot"><span class="annottext">Maybe Text
+licenseArn :: Maybe Text
+$sel:licenseArn:CreateLicenseResponse' :: CreateLicenseResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679313071"><span class="hs-identifier hs-var hs-var">licenseArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313071"><span class="hs-identifier hs-var">licenseArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313070"><span class="annot"><span class="annottext">s :: CreateLicenseResponse
+</span><a href="#local-6989586621679313070"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicenseResponse%27"><span class="hs-identifier hs-type">CreateLicenseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313069"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313069"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLicenseResponse
+</span><a href="#local-6989586621679313070"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:licenseArn:CreateLicenseResponse' :: Maybe Text
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#%24sel%3AlicenseArn%3ACreateLicenseResponse%27"><span class="hs-identifier hs-var">licenseArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313069"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicenseResponse"><span class="hs-identifier hs-type">CreateLicenseResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-331"></span><span>
+</span><span id="line-332"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-333"></span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#createLicenseResponse_httpStatus"><span class="hs-identifier hs-type">createLicenseResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicenseResponse"><span class="hs-identifier hs-type">CreateLicenseResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-334"></span><span id="createLicenseResponse_httpStatus"><span class="annot"><span class="annottext">createLicenseResponse_httpStatus :: (Int -&gt; f Int) -&gt; CreateLicenseResponse -&gt; f CreateLicenseResponse
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#createLicenseResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createLicenseResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLicenseResponse -&gt; Int)
+-&gt; (CreateLicenseResponse -&gt; Int -&gt; CreateLicenseResponse)
+-&gt; Lens CreateLicenseResponse CreateLicenseResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicenseResponse%27"><span class="hs-identifier hs-type">CreateLicenseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313068"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateLicenseResponse' :: CreateLicenseResponse -&gt; Int
+</span><a href="#local-6989586621679313068"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313068"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313067"><span class="annot"><span class="annottext">s :: CreateLicenseResponse
+</span><a href="#local-6989586621679313067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicenseResponse%27"><span class="hs-identifier hs-type">CreateLicenseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313066"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLicenseResponse
+</span><a href="#local-6989586621679313067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateLicenseResponse' :: Int
+</span><a href="Network.AWS.LicenseManager.CreateLicense.html#%24sel%3AhttpStatus%3ACreateLicenseResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicenseResponse"><span class="hs-identifier hs-type">CreateLicenseResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-335"></span><span>
+</span><span id="line-336"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313064"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.CreateLicense.html#CreateLicenseResponse"><span class="hs-identifier hs-type">CreateLicenseResponse</span></a></span></span><span>
+</span><span id="line-337"></span></pre></body></html>

@@ -62,14 +62,14 @@
 </span><span id="line-62"></span><span class="hs-comment">-- | Represents the input for a request operation.</span><span>
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- /See:/ 'newDeleteMatchmakingRuleSet' smart constructor.</span><span>
-</span><span id="line-65"></span><span id="local-6989586621679457895"><span id="local-6989586621679457896"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteMatchmakingRuleSet"><span class="annot"><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#DeleteMatchmakingRuleSet"><span class="hs-identifier hs-var">DeleteMatchmakingRuleSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteMatchmakingRuleSet%27"><span class="annot"><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#DeleteMatchmakingRuleSet%27"><span class="hs-identifier hs-var">DeleteMatchmakingRuleSet'</span></a></span></span><span>
+</span><span id="line-65"></span><span id="local-6989586621679457904"><span id="local-6989586621679457905"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteMatchmakingRuleSet"><span class="annot"><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#DeleteMatchmakingRuleSet"><span class="hs-identifier hs-var">DeleteMatchmakingRuleSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteMatchmakingRuleSet%27"><span class="annot"><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#DeleteMatchmakingRuleSet%27"><span class="hs-identifier hs-var">DeleteMatchmakingRuleSet'</span></a></span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique identifier for the matchmaking rule set to be deleted. (Note:</span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-comment">-- The rule set name is different from the optional \&quot;name\&quot; field in the</span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-comment">-- rule set body.) You can use either the rule set name or ARN value.</span><span>
 </span><span id="line-69"></span><span>    </span><span id="%24sel%3Aname%3ADeleteMatchmakingRuleSet%27"><span class="annot"><span class="annottext">DeleteMatchmakingRuleSet -&gt; Text
 </span><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#%24sel%3Aname%3ADeleteMatchmakingRuleSet%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679457889"><span id="local-6989586621679457891"><span class="annot"><span class="annottext">DeleteMatchmakingRuleSet -&gt; DeleteMatchmakingRuleSet -&gt; Bool
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679457898"><span id="local-6989586621679457900"><span class="annot"><span class="annottext">DeleteMatchmakingRuleSet -&gt; DeleteMatchmakingRuleSet -&gt; Bool
 (DeleteMatchmakingRuleSet -&gt; DeleteMatchmakingRuleSet -&gt; Bool)
 -&gt; (DeleteMatchmakingRuleSet -&gt; DeleteMatchmakingRuleSet -&gt; Bool)
 -&gt; Eq DeleteMatchmakingRuleSet
@@ -78,7 +78,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteMatchmakingRuleSet -&gt; DeleteMatchmakingRuleSet -&gt; Bool
 == :: DeleteMatchmakingRuleSet -&gt; DeleteMatchmakingRuleSet -&gt; Bool
 $c== :: DeleteMatchmakingRuleSet -&gt; DeleteMatchmakingRuleSet -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679457880"><span id="local-6989586621679457882"><span id="local-6989586621679457884"><span id="local-6989586621679457886"><span class="annot"><span class="annottext">ReadPrec [DeleteMatchmakingRuleSet]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679457889"><span id="local-6989586621679457891"><span id="local-6989586621679457893"><span id="local-6989586621679457895"><span class="annot"><span class="annottext">ReadPrec [DeleteMatchmakingRuleSet]
 ReadPrec DeleteMatchmakingRuleSet
 Int -&gt; ReadS DeleteMatchmakingRuleSet
 ReadS [DeleteMatchmakingRuleSet]
@@ -98,7 +98,7 @@ readList :: ReadS [DeleteMatchmakingRuleSet]
 $creadList :: ReadS [DeleteMatchmakingRuleSet]
 readsPrec :: Int -&gt; ReadS DeleteMatchmakingRuleSet
 $creadsPrec :: Int -&gt; ReadS DeleteMatchmakingRuleSet
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679457873"><span id="local-6989586621679457875"><span id="local-6989586621679457877"><span class="annot"><span class="annottext">Int -&gt; DeleteMatchmakingRuleSet -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679457882"><span id="local-6989586621679457884"><span id="local-6989586621679457886"><span class="annot"><span class="annottext">Int -&gt; DeleteMatchmakingRuleSet -&gt; ShowS
 [DeleteMatchmakingRuleSet] -&gt; ShowS
 DeleteMatchmakingRuleSet -&gt; String
 (Int -&gt; DeleteMatchmakingRuleSet -&gt; ShowS)
@@ -146,12 +146,12 @@ DeleteMatchmakingRuleSet -&gt; Rep DeleteMatchmakingRuleSet x
 </span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#DeleteMatchmakingRuleSet"><span class="hs-identifier hs-type">DeleteMatchmakingRuleSet</span></a></span><span>
 </span><span id="line-88"></span><span id="newDeleteMatchmakingRuleSet"><span class="annot"><span class="annottext">newDeleteMatchmakingRuleSet :: Text -&gt; DeleteMatchmakingRuleSet
-</span><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#newDeleteMatchmakingRuleSet"><span class="hs-identifier hs-var hs-var">newDeleteMatchmakingRuleSet</span></a></span></span><span> </span><span id="local-6989586621679457868"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679457868"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#newDeleteMatchmakingRuleSet"><span class="hs-identifier hs-var hs-var">newDeleteMatchmakingRuleSet</span></a></span></span><span> </span><span id="local-6989586621679457877"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679457877"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">DeleteMatchmakingRuleSet' :: Text -&gt; DeleteMatchmakingRuleSet
 </span><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#DeleteMatchmakingRuleSet%27"><span class="hs-identifier hs-type">DeleteMatchmakingRuleSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteMatchmakingRuleSet' :: Text
 </span><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#%24sel%3Aname%3ADeleteMatchmakingRuleSet%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679457868"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679457877"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | A unique identifier for the matchmaking rule set to be deleted. (Note:</span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- The rule set name is different from the optional \&quot;name\&quot; field in the</span><span>
@@ -163,28 +163,28 @@ DeleteMatchmakingRuleSet -&gt; Rep DeleteMatchmakingRuleSet x
 -&gt; (DeleteMatchmakingRuleSet -&gt; Text -&gt; DeleteMatchmakingRuleSet)
 -&gt; Lens DeleteMatchmakingRuleSet DeleteMatchmakingRuleSet Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#DeleteMatchmakingRuleSet%27"><span class="hs-identifier hs-type">DeleteMatchmakingRuleSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679457865"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#DeleteMatchmakingRuleSet%27"><span class="hs-identifier hs-type">DeleteMatchmakingRuleSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679457874"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:DeleteMatchmakingRuleSet' :: DeleteMatchmakingRuleSet -&gt; Text
-</span><a href="#local-6989586621679457865"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679457865"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679457864"><span class="annot"><span class="annottext">s :: DeleteMatchmakingRuleSet
-</span><a href="#local-6989586621679457864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#DeleteMatchmakingRuleSet%27"><span class="hs-identifier hs-type">DeleteMatchmakingRuleSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679457863"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679457863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMatchmakingRuleSet
-</span><a href="#local-6989586621679457864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteMatchmakingRuleSet' :: Text
+</span><a href="#local-6989586621679457874"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679457874"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679457873"><span class="annot"><span class="annottext">s :: DeleteMatchmakingRuleSet
+</span><a href="#local-6989586621679457873"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#DeleteMatchmakingRuleSet%27"><span class="hs-identifier hs-type">DeleteMatchmakingRuleSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679457872"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679457872"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMatchmakingRuleSet
+</span><a href="#local-6989586621679457873"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteMatchmakingRuleSet' :: Text
 </span><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#%24sel%3Aname%3ADeleteMatchmakingRuleSet%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679457863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#DeleteMatchmakingRuleSet"><span class="hs-identifier hs-type">DeleteMatchmakingRuleSet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679457872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#DeleteMatchmakingRuleSet"><span class="hs-identifier hs-type">DeleteMatchmakingRuleSet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#DeleteMatchmakingRuleSet"><span class="hs-identifier hs-type">DeleteMatchmakingRuleSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-98"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-99"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#DeleteMatchmakingRuleSet"><span class="hs-identifier hs-type">DeleteMatchmakingRuleSet</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#DeleteMatchmakingRuleSetResponse"><span class="hs-identifier hs-type">DeleteMatchmakingRuleSetResponse</span></a></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679457859"><span class="annot"><span class="annottext">request :: DeleteMatchmakingRuleSet -&gt; Request DeleteMatchmakingRuleSet
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679457868"><span class="annot"><span class="annottext">request :: DeleteMatchmakingRuleSet -&gt; Request DeleteMatchmakingRuleSet
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DeleteMatchmakingRuleSet -&gt; Request DeleteMatchmakingRuleSet
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.GameLift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679457855"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679457864"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteMatchmakingRuleSet
 -&gt; ClientResponse ClientBody
@@ -210,10 +210,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679457852"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679457852"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679457851"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679457851"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679457850"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679457850"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679457861"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679457861"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679457860"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679457860"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679457859"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679457859"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteMatchmakingRuleSetResponse
 </span><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#DeleteMatchmakingRuleSetResponse%27"><span class="hs-identifier hs-var">DeleteMatchmakingRuleSetResponse'</span></a></span><span>
 </span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteMatchmakingRuleSetResponse)
@@ -225,15 +225,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679457852"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679457861"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679457843"><span id="local-6989586621679457845"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#DeleteMatchmakingRuleSet"><span class="hs-identifier hs-type">DeleteMatchmakingRuleSet</span></a></span></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679457852"><span id="local-6989586621679457854"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#DeleteMatchmakingRuleSet"><span class="hs-identifier hs-type">DeleteMatchmakingRuleSet</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679457840"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#DeleteMatchmakingRuleSet"><span class="hs-identifier hs-type">DeleteMatchmakingRuleSet</span></a></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679457849"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#DeleteMatchmakingRuleSet"><span class="hs-identifier hs-type">DeleteMatchmakingRuleSet</span></a></span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#DeleteMatchmakingRuleSet"><span class="hs-identifier hs-type">DeleteMatchmakingRuleSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679457836"><span class="annot"><span class="annottext">toHeaders :: DeleteMatchmakingRuleSet -&gt; ResponseHeaders
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679457845"><span class="annot"><span class="annottext">toHeaders :: DeleteMatchmakingRuleSet -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteMatchmakingRuleSet -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -260,12 +260,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679457826"><span id="local-6989586621679457828"><span id="local-6989586621679457830"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#DeleteMatchmakingRuleSet"><span class="hs-identifier hs-type">DeleteMatchmakingRuleSet</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679457824"><span class="annot"><span class="annottext">toJSON :: DeleteMatchmakingRuleSet -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#DeleteMatchmakingRuleSet%27"><span class="hs-identifier hs-type">DeleteMatchmakingRuleSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679457822"><span class="annot"><span class="annottext">Text
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679457835"><span id="local-6989586621679457837"><span id="local-6989586621679457839"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#DeleteMatchmakingRuleSet"><span class="hs-identifier hs-type">DeleteMatchmakingRuleSet</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679457833"><span class="annot"><span class="annottext">toJSON :: DeleteMatchmakingRuleSet -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#DeleteMatchmakingRuleSet%27"><span class="hs-identifier hs-type">DeleteMatchmakingRuleSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679457831"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:DeleteMatchmakingRuleSet' :: DeleteMatchmakingRuleSet -&gt; Text
-</span><a href="#local-6989586621679457822"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679457831"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -277,18 +277,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679457822"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679457831"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#DeleteMatchmakingRuleSet"><span class="hs-identifier hs-type">DeleteMatchmakingRuleSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679457816"><span class="annot"><span class="annottext">toPath :: DeleteMatchmakingRuleSet -&gt; ByteString
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679457825"><span class="annot"><span class="annottext">toPath :: DeleteMatchmakingRuleSet -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteMatchmakingRuleSet -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#DeleteMatchmakingRuleSet"><span class="hs-identifier hs-type">DeleteMatchmakingRuleSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679457812"><span class="annot"><span class="annottext">toQuery :: DeleteMatchmakingRuleSet -&gt; QueryString
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679457821"><span class="annot"><span class="annottext">toQuery :: DeleteMatchmakingRuleSet -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteMatchmakingRuleSet -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -298,12 +298,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-141"></span><span class="hs-comment">-- | Represents the returned data in response to a request operation.</span><span>
 </span><span id="line-142"></span><span class="hs-comment">--</span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- /See:/ 'newDeleteMatchmakingRuleSetResponse' smart constructor.</span><span>
-</span><span id="line-144"></span><span id="local-6989586621679457809"><span id="local-6989586621679457810"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteMatchmakingRuleSetResponse"><span class="annot"><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#DeleteMatchmakingRuleSetResponse"><span class="hs-identifier hs-var">DeleteMatchmakingRuleSetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteMatchmakingRuleSetResponse%27"><span class="annot"><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#DeleteMatchmakingRuleSetResponse%27"><span class="hs-identifier hs-var">DeleteMatchmakingRuleSetResponse'</span></a></span></span><span>
+</span><span id="line-144"></span><span id="local-6989586621679457818"><span id="local-6989586621679457819"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteMatchmakingRuleSetResponse"><span class="annot"><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#DeleteMatchmakingRuleSetResponse"><span class="hs-identifier hs-var">DeleteMatchmakingRuleSetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteMatchmakingRuleSetResponse%27"><span class="annot"><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#DeleteMatchmakingRuleSetResponse%27"><span class="hs-identifier hs-var">DeleteMatchmakingRuleSetResponse'</span></a></span></span><span>
 </span><span id="line-145"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-146"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteMatchmakingRuleSetResponse%27"><span class="annot"><span class="annottext">DeleteMatchmakingRuleSetResponse -&gt; Int
 </span><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#%24sel%3AhttpStatus%3ADeleteMatchmakingRuleSetResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-147"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-148"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679457804"><span id="local-6989586621679457806"><span class="annot"><span class="annottext">DeleteMatchmakingRuleSetResponse
+</span><span id="line-148"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679457813"><span id="local-6989586621679457815"><span class="annot"><span class="annottext">DeleteMatchmakingRuleSetResponse
 -&gt; DeleteMatchmakingRuleSetResponse -&gt; Bool
 (DeleteMatchmakingRuleSetResponse
  -&gt; DeleteMatchmakingRuleSetResponse -&gt; Bool)
@@ -319,7 +319,7 @@ $c/= :: DeleteMatchmakingRuleSetResponse
 -&gt; DeleteMatchmakingRuleSetResponse -&gt; Bool
 $c== :: DeleteMatchmakingRuleSetResponse
 -&gt; DeleteMatchmakingRuleSetResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679457796"><span id="local-6989586621679457798"><span id="local-6989586621679457800"><span id="local-6989586621679457802"><span class="annot"><span class="annottext">ReadPrec [DeleteMatchmakingRuleSetResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679457805"><span id="local-6989586621679457807"><span id="local-6989586621679457809"><span id="local-6989586621679457811"><span class="annot"><span class="annottext">ReadPrec [DeleteMatchmakingRuleSetResponse]
 ReadPrec DeleteMatchmakingRuleSetResponse
 Int -&gt; ReadS DeleteMatchmakingRuleSetResponse
 ReadS [DeleteMatchmakingRuleSetResponse]
@@ -339,7 +339,7 @@ readList :: ReadS [DeleteMatchmakingRuleSetResponse]
 $creadList :: ReadS [DeleteMatchmakingRuleSetResponse]
 readsPrec :: Int -&gt; ReadS DeleteMatchmakingRuleSetResponse
 $creadsPrec :: Int -&gt; ReadS DeleteMatchmakingRuleSetResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679457790"><span id="local-6989586621679457792"><span id="local-6989586621679457794"><span class="annot"><span class="annottext">Int -&gt; DeleteMatchmakingRuleSetResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679457799"><span id="local-6989586621679457801"><span id="local-6989586621679457803"><span class="annot"><span class="annottext">Int -&gt; DeleteMatchmakingRuleSetResponse -&gt; ShowS
 [DeleteMatchmakingRuleSetResponse] -&gt; ShowS
 DeleteMatchmakingRuleSetResponse -&gt; String
 (Int -&gt; DeleteMatchmakingRuleSetResponse -&gt; ShowS)
@@ -391,14 +391,14 @@ DeleteMatchmakingRuleSetResponse
 </span><span id="line-161"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-162"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#DeleteMatchmakingRuleSetResponse"><span class="hs-identifier hs-type">DeleteMatchmakingRuleSetResponse</span></a></span><span>
 </span><span id="line-163"></span><span id="newDeleteMatchmakingRuleSetResponse"><span class="annot"><span class="annottext">newDeleteMatchmakingRuleSetResponse :: Int -&gt; DeleteMatchmakingRuleSetResponse
-</span><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#newDeleteMatchmakingRuleSetResponse"><span class="hs-identifier hs-var hs-var">newDeleteMatchmakingRuleSetResponse</span></a></span></span><span> </span><span id="local-6989586621679457787"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679457787"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#newDeleteMatchmakingRuleSetResponse"><span class="hs-identifier hs-var hs-var">newDeleteMatchmakingRuleSetResponse</span></a></span></span><span> </span><span id="local-6989586621679457796"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679457796"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-164"></span><span>  </span><span class="annot"><span class="annottext">DeleteMatchmakingRuleSetResponse' :: Int -&gt; DeleteMatchmakingRuleSetResponse
 </span><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#DeleteMatchmakingRuleSetResponse%27"><span class="hs-identifier hs-type">DeleteMatchmakingRuleSetResponse'</span></a></span><span>
 </span><span id="line-165"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteMatchmakingRuleSetResponse' :: Int
 </span><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#%24sel%3AhttpStatus%3ADeleteMatchmakingRuleSetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679457787"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679457796"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-167"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -415,18 +415,18 @@ DeleteMatchmakingRuleSetResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#DeleteMatchmakingRuleSetResponse%27"><span class="hs-identifier hs-type">DeleteMatchmakingRuleSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679457786"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#DeleteMatchmakingRuleSetResponse%27"><span class="hs-identifier hs-type">DeleteMatchmakingRuleSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679457795"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteMatchmakingRuleSetResponse' :: DeleteMatchmakingRuleSetResponse -&gt; Int
-</span><a href="#local-6989586621679457786"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679457786"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679457785"><span class="annot"><span class="annottext">s :: DeleteMatchmakingRuleSetResponse
-</span><a href="#local-6989586621679457785"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#DeleteMatchmakingRuleSetResponse%27"><span class="hs-identifier hs-type">DeleteMatchmakingRuleSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679457784"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679457784"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMatchmakingRuleSetResponse
-</span><a href="#local-6989586621679457785"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteMatchmakingRuleSetResponse' :: Int
+</span><a href="#local-6989586621679457795"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679457795"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679457794"><span class="annot"><span class="annottext">s :: DeleteMatchmakingRuleSetResponse
+</span><a href="#local-6989586621679457794"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#DeleteMatchmakingRuleSetResponse%27"><span class="hs-identifier hs-type">DeleteMatchmakingRuleSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679457793"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679457793"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMatchmakingRuleSetResponse
+</span><a href="#local-6989586621679457794"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteMatchmakingRuleSetResponse' :: Int
 </span><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#%24sel%3AhttpStatus%3ADeleteMatchmakingRuleSetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679457784"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#DeleteMatchmakingRuleSetResponse"><span class="hs-identifier hs-type">DeleteMatchmakingRuleSetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679457793"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#DeleteMatchmakingRuleSetResponse"><span class="hs-identifier hs-type">DeleteMatchmakingRuleSetResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-174"></span><span>  </span><span id="local-6989586621679457782"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679457791"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-175"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.DeleteMatchmakingRuleSet.html#DeleteMatchmakingRuleSetResponse"><span class="hs-identifier hs-type">DeleteMatchmakingRuleSetResponse</span></a></span></span><span>
 </span><span id="line-176"></span></pre></body></html>

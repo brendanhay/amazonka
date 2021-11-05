@@ -60,13 +60,13 @@
 </span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span id="local-6989586621679259438"><span id="local-6989586621679259439"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ActivityType"><span class="annot"><a href="Network.AWS.WorkDocs.Types.ActivityType.html#ActivityType"><span class="hs-identifier hs-var">ActivityType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActivityType%27"><span class="annot"><a href="Network.AWS.WorkDocs.Types.ActivityType.html#ActivityType%27"><span class="hs-identifier hs-var">ActivityType'</span></a></span></span><span>
+</span><span id="line-63"></span><span id="local-6989586621679259447"><span id="local-6989586621679259448"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ActivityType"><span class="annot"><a href="Network.AWS.WorkDocs.Types.ActivityType.html#ActivityType"><span class="hs-identifier hs-var">ActivityType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActivityType%27"><span class="annot"><a href="Network.AWS.WorkDocs.Types.ActivityType.html#ActivityType%27"><span class="hs-identifier hs-var">ActivityType'</span></a></span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromActivityType"><span class="annot"><span class="annottext">ActivityType -&gt; Text
 </span><a href="Network.AWS.WorkDocs.Types.ActivityType.html#fromActivityType"><span class="hs-identifier hs-var hs-var">fromActivityType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-65"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679259430"><span id="local-6989586621679259432"><span id="local-6989586621679259434"><span class="annot"><span class="annottext">Int -&gt; ActivityType -&gt; ShowS
+</span><span id="line-68"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679259439"><span id="local-6989586621679259441"><span id="local-6989586621679259443"><span class="annot"><span class="annottext">Int -&gt; ActivityType -&gt; ShowS
 [ActivityType] -&gt; ShowS
 ActivityType -&gt; String
 (Int -&gt; ActivityType -&gt; ShowS)
@@ -82,7 +82,7 @@ $cshow :: ActivityType -&gt; String
 showsPrec :: Int -&gt; ActivityType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ActivityType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679259421"><span id="local-6989586621679259423"><span id="local-6989586621679259425"><span id="local-6989586621679259427"><span class="annot"><span class="annottext">ReadPrec [ActivityType]
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679259430"><span id="local-6989586621679259432"><span id="local-6989586621679259434"><span id="local-6989586621679259436"><span class="annot"><span class="annottext">ReadPrec [ActivityType]
 ReadPrec ActivityType
 Int -&gt; ReadS ActivityType
 ReadS [ActivityType]
@@ -103,7 +103,7 @@ $creadList :: ReadS [ActivityType]
 readsPrec :: Int -&gt; ReadS ActivityType
 $creadsPrec :: Int -&gt; ReadS ActivityType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679259416"><span id="local-6989586621679259418"><span class="annot"><span class="annottext">ActivityType -&gt; ActivityType -&gt; Bool
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679259425"><span id="local-6989586621679259427"><span class="annot"><span class="annottext">ActivityType -&gt; ActivityType -&gt; Bool
 (ActivityType -&gt; ActivityType -&gt; Bool)
 -&gt; (ActivityType -&gt; ActivityType -&gt; Bool) -&gt; Eq ActivityType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -112,7 +112,7 @@ $c/= :: ActivityType -&gt; ActivityType -&gt; Bool
 == :: ActivityType -&gt; ActivityType -&gt; Bool
 $c== :: ActivityType -&gt; ActivityType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span id="local-6989586621679259400"><span id="local-6989586621679259402"><span id="local-6989586621679259404"><span id="local-6989586621679259406"><span id="local-6989586621679259408"><span id="local-6989586621679259410"><span id="local-6989586621679259412"><span class="annot"><span class="annottext">Eq ActivityType
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679259409"><span id="local-6989586621679259411"><span id="local-6989586621679259413"><span id="local-6989586621679259415"><span id="local-6989586621679259417"><span id="local-6989586621679259419"><span id="local-6989586621679259421"><span class="annot"><span class="annottext">Eq ActivityType
 Eq ActivityType
 -&gt; (ActivityType -&gt; ActivityType -&gt; Ordering)
 -&gt; (ActivityType -&gt; ActivityType -&gt; Bool)
@@ -163,7 +163,7 @@ $cfrom :: forall x. ActivityType -&gt; Rep ActivityType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679259392"><span id="local-6989586621679259394"><span class="annot"><span class="annottext">Int -&gt; ActivityType -&gt; Int
+</span><span id="line-75"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679259401"><span id="local-6989586621679259403"><span class="annot"><span class="annottext">Int -&gt; ActivityType -&gt; Int
 ActivityType -&gt; Int
 (Int -&gt; ActivityType -&gt; Int)
 -&gt; (ActivityType -&gt; Int) -&gt; Hashable ActivityType
@@ -173,49 +173,49 @@ $chash :: ActivityType -&gt; Int
 hashWithSalt :: Int -&gt; ActivityType -&gt; Int
 $chashWithSalt :: Int -&gt; ActivityType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span id="local-6989586621679259389"><span class="annot"><span class="annottext">ActivityType -&gt; ()
+</span><span id="line-76"></span><span>      </span><span id="local-6989586621679259398"><span class="annot"><span class="annottext">ActivityType -&gt; ()
 (ActivityType -&gt; ()) -&gt; NFData ActivityType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ActivityType -&gt; ()
 $crnf :: ActivityType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span id="local-6989586621679259386"><span class="annot"><span class="annottext">Text -&gt; Either String ActivityType
+</span><span id="line-77"></span><span>      </span><span id="local-6989586621679259395"><span class="annot"><span class="annottext">Text -&gt; Either String ActivityType
 (Text -&gt; Either String ActivityType) -&gt; FromText ActivityType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ActivityType
 $cfromText :: Text -&gt; Either String ActivityType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>      </span><span id="local-6989586621679259383"><span class="annot"><span class="annottext">ActivityType -&gt; Text
+</span><span id="line-78"></span><span>      </span><span id="local-6989586621679259392"><span class="annot"><span class="annottext">ActivityType -&gt; Text
 (ActivityType -&gt; Text) -&gt; ToText ActivityType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ActivityType -&gt; Text
 $ctoText :: ActivityType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>      </span><span id="local-6989586621679259380"><span class="annot"><span class="annottext">ActivityType -&gt; ByteString
+</span><span id="line-79"></span><span>      </span><span id="local-6989586621679259389"><span class="annot"><span class="annottext">ActivityType -&gt; ByteString
 (ActivityType -&gt; ByteString) -&gt; ToByteString ActivityType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ActivityType -&gt; ByteString
 $ctoBS :: ActivityType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span id="local-6989586621679259377"><span class="annot"><span class="annottext">ActivityType -&gt; ByteStringBuilder
+</span><span id="line-80"></span><span>      </span><span id="local-6989586621679259386"><span class="annot"><span class="annottext">ActivityType -&gt; ByteStringBuilder
 (ActivityType -&gt; ByteStringBuilder) -&gt; ToLog ActivityType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ActivityType -&gt; ByteStringBuilder
 $cbuild :: ActivityType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>      </span><span id="local-6989586621679259374"><span class="annot"><span class="annottext">HeaderName -&gt; ActivityType -&gt; [Header]
+</span><span id="line-81"></span><span>      </span><span id="local-6989586621679259383"><span class="annot"><span class="annottext">HeaderName -&gt; ActivityType -&gt; [Header]
 (HeaderName -&gt; ActivityType -&gt; [Header]) -&gt; ToHeader ActivityType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ActivityType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ActivityType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>      </span><span id="local-6989586621679259371"><span class="annot"><span class="annottext">ActivityType -&gt; QueryString
+</span><span id="line-82"></span><span>      </span><span id="local-6989586621679259380"><span class="annot"><span class="annottext">ActivityType -&gt; QueryString
 (ActivityType -&gt; QueryString) -&gt; ToQuery ActivityType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ActivityType -&gt; QueryString
 $ctoQuery :: ActivityType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>      </span><span id="local-6989586621679259366"><span id="local-6989586621679259368"><span class="annot"><span class="annottext">Value -&gt; Parser [ActivityType]
+</span><span id="line-83"></span><span>      </span><span id="local-6989586621679259375"><span id="local-6989586621679259377"><span class="annot"><span class="annottext">Value -&gt; Parser [ActivityType]
 Value -&gt; Parser ActivityType
 (Value -&gt; Parser ActivityType)
 -&gt; (Value -&gt; Parser [ActivityType]) -&gt; FromJSON ActivityType
@@ -226,7 +226,7 @@ $cparseJSONList :: Value -&gt; Parser [ActivityType]
 parseJSON :: Value -&gt; Parser ActivityType
 $cparseJSON :: Value -&gt; Parser ActivityType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>      </span><span id="local-6989586621679259361"><span id="local-6989586621679259363"><span class="annot"><span class="annottext">FromJSONKeyFunction [ActivityType]
+</span><span id="line-84"></span><span>      </span><span id="local-6989586621679259370"><span id="local-6989586621679259372"><span class="annot"><span class="annottext">FromJSONKeyFunction [ActivityType]
 FromJSONKeyFunction ActivityType
 FromJSONKeyFunction ActivityType
 -&gt; FromJSONKeyFunction [ActivityType] -&gt; FromJSONKey ActivityType
@@ -237,7 +237,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ActivityType]
 fromJSONKey :: FromJSONKeyFunction ActivityType
 $cfromJSONKey :: FromJSONKeyFunction ActivityType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>      </span><span id="local-6989586621679259352"><span id="local-6989586621679259354"><span id="local-6989586621679259356"><span id="local-6989586621679259358"><span class="annot"><span class="annottext">[ActivityType] -&gt; Encoding
+</span><span id="line-85"></span><span>      </span><span id="local-6989586621679259361"><span id="local-6989586621679259363"><span id="local-6989586621679259365"><span id="local-6989586621679259367"><span class="annot"><span class="annottext">[ActivityType] -&gt; Encoding
 [ActivityType] -&gt; Value
 ActivityType -&gt; Encoding
 ActivityType -&gt; Value
@@ -261,7 +261,7 @@ $ctoEncoding :: ActivityType -&gt; Encoding
 toJSON :: ActivityType -&gt; Value
 $ctoJSON :: ActivityType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-86"></span><span>      </span><span id="local-6989586621679259347"><span id="local-6989586621679259349"><span class="annot"><span class="annottext">ToJSONKeyFunction [ActivityType]
+</span><span id="line-86"></span><span>      </span><span id="local-6989586621679259356"><span id="local-6989586621679259358"><span class="annot"><span class="annottext">ToJSONKeyFunction [ActivityType]
 ToJSONKeyFunction ActivityType
 ToJSONKeyFunction ActivityType
 -&gt; ToJSONKeyFunction [ActivityType] -&gt; ToJSONKey ActivityType
@@ -272,13 +272,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ActivityType]
 toJSONKey :: ToJSONKeyFunction ActivityType
 $ctoJSONKey :: ToJSONKeyFunction ActivityType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-87"></span><span>      </span><span id="local-6989586621679259344"><span class="annot"><span class="annottext">[Node] -&gt; Either String ActivityType
+</span><span id="line-87"></span><span>      </span><span id="local-6989586621679259353"><span class="annot"><span class="annottext">[Node] -&gt; Either String ActivityType
 ([Node] -&gt; Either String ActivityType) -&gt; FromXML ActivityType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ActivityType
 $cparseXML :: [Node] -&gt; Either String ActivityType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-88"></span><span>      </span><span id="local-6989586621679259341"><span class="annot"><span class="annottext">ActivityType -&gt; XML
+</span><span id="line-88"></span><span>      </span><span id="local-6989586621679259350"><span class="annot"><span class="annottext">ActivityType -&gt; XML
 (ActivityType -&gt; XML) -&gt; ToXML ActivityType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ActivityType -&gt; XML

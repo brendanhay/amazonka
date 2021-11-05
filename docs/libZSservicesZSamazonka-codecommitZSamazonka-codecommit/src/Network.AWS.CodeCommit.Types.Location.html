@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- comparison between two commits or a pull request.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newLocation' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679353318"><span id="local-6989586621679353319"></span></span><span class="hs-keyword">data</span><span> </span><span id="Location"><span class="annot"><a href="Network.AWS.CodeCommit.Types.Location.html#Location"><span class="hs-identifier hs-var">Location</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Location%27"><span class="annot"><a href="Network.AWS.CodeCommit.Types.Location.html#Location%27"><span class="hs-identifier hs-var">Location'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679353327"><span id="local-6989586621679353328"></span></span><span class="hs-keyword">data</span><span> </span><span id="Location"><span class="annot"><a href="Network.AWS.CodeCommit.Types.Location.html#Location"><span class="hs-identifier hs-var">Location</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Location%27"><span class="annot"><a href="Network.AWS.CodeCommit.Types.Location.html#Location%27"><span class="hs-identifier hs-var">Location'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | In a comparison of commits or a pull request, whether the change is in</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- the before or after of that comparison.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3ArelativeFileVersion%3ALocation%27"><span class="annot"><span class="annottext">Location -&gt; Maybe RelativeFileVersionEnum
@@ -41,7 +41,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AfilePosition%3ALocation%27"><span class="annot"><span class="annottext">Location -&gt; Maybe Integer
 </span><a href="Network.AWS.CodeCommit.Types.Location.html#%24sel%3AfilePosition%3ALocation%27"><span class="hs-identifier hs-var hs-var">filePosition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679353310"><span id="local-6989586621679353312"><span class="annot"><span class="annottext">Location -&gt; Location -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679353319"><span id="local-6989586621679353321"><span class="annot"><span class="annottext">Location -&gt; Location -&gt; Bool
 (Location -&gt; Location -&gt; Bool)
 -&gt; (Location -&gt; Location -&gt; Bool) -&gt; Eq Location
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Location -&gt; Location -&gt; Bool
 == :: Location -&gt; Location -&gt; Bool
 $c== :: Location -&gt; Location -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679353301"><span id="local-6989586621679353303"><span id="local-6989586621679353305"><span id="local-6989586621679353307"><span class="annot"><span class="annottext">ReadPrec [Location]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679353310"><span id="local-6989586621679353312"><span id="local-6989586621679353314"><span id="local-6989586621679353316"><span class="annot"><span class="annottext">ReadPrec [Location]
 ReadPrec Location
 Int -&gt; ReadS Location
 ReadS [Location]
@@ -69,7 +69,7 @@ readList :: ReadS [Location]
 $creadList :: ReadS [Location]
 readsPrec :: Int -&gt; ReadS Location
 $creadsPrec :: Int -&gt; ReadS Location
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679353294"><span id="local-6989586621679353296"><span id="local-6989586621679353298"><span class="annot"><span class="annottext">Int -&gt; Location -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679353303"><span id="local-6989586621679353305"><span id="local-6989586621679353307"><span class="annot"><span class="annottext">Int -&gt; Location -&gt; ShowS
 [Location] -&gt; ShowS
 Location -&gt; String
 (Int -&gt; Location -&gt; ShowS)
@@ -142,16 +142,16 @@ forall a. Maybe a
      (Maybe RelativeFileVersionEnum)
      (Maybe RelativeFileVersionEnum)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Location.html#Location%27"><span class="hs-identifier hs-type">Location'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353285"><span class="annot"><span class="annottext">Maybe RelativeFileVersionEnum
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Location.html#Location%27"><span class="hs-identifier hs-type">Location'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353294"><span class="annot"><span class="annottext">Maybe RelativeFileVersionEnum
 relativeFileVersion :: Maybe RelativeFileVersionEnum
 $sel:relativeFileVersion:Location' :: Location -&gt; Maybe RelativeFileVersionEnum
-</span><a href="#local-6989586621679353285"><span class="hs-identifier hs-var hs-var">relativeFileVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RelativeFileVersionEnum
-</span><a href="#local-6989586621679353285"><span class="hs-identifier hs-var">relativeFileVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353284"><span class="annot"><span class="annottext">s :: Location
-</span><a href="#local-6989586621679353284"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Location.html#Location%27"><span class="hs-identifier hs-type">Location'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353283"><span class="annot"><span class="annottext">Maybe RelativeFileVersionEnum
-</span><a href="#local-6989586621679353283"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Location
-</span><a href="#local-6989586621679353284"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:relativeFileVersion:Location' :: Maybe RelativeFileVersionEnum
+</span><a href="#local-6989586621679353294"><span class="hs-identifier hs-var hs-var">relativeFileVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RelativeFileVersionEnum
+</span><a href="#local-6989586621679353294"><span class="hs-identifier hs-var">relativeFileVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353293"><span class="annot"><span class="annottext">s :: Location
+</span><a href="#local-6989586621679353293"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Location.html#Location%27"><span class="hs-identifier hs-type">Location'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353292"><span class="annot"><span class="annottext">Maybe RelativeFileVersionEnum
+</span><a href="#local-6989586621679353292"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Location
+</span><a href="#local-6989586621679353293"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:relativeFileVersion:Location' :: Maybe RelativeFileVersionEnum
 </span><a href="Network.AWS.CodeCommit.Types.Location.html#%24sel%3ArelativeFileVersion%3ALocation%27"><span class="hs-identifier hs-var">relativeFileVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RelativeFileVersionEnum
-</span><a href="#local-6989586621679353283"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Location.html#Location"><span class="hs-identifier hs-type">Location</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679353292"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Location.html#Location"><span class="hs-identifier hs-type">Location</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | The name of the file being compared, including its extension and</span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- subdirectory, if any.</span><span>
@@ -161,16 +161,16 @@ $sel:relativeFileVersion:Location' :: Location -&gt; Maybe RelativeFileVersionEn
 -&gt; (Location -&gt; Maybe Text -&gt; Location)
 -&gt; Lens Location Location (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Location.html#Location%27"><span class="hs-identifier hs-type">Location'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353281"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Location.html#Location%27"><span class="hs-identifier hs-type">Location'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353290"><span class="annot"><span class="annottext">Maybe Text
 filePath :: Maybe Text
 $sel:filePath:Location' :: Location -&gt; Maybe Text
-</span><a href="#local-6989586621679353281"><span class="hs-identifier hs-var hs-var">filePath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679353281"><span class="hs-identifier hs-var">filePath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353280"><span class="annot"><span class="annottext">s :: Location
-</span><a href="#local-6989586621679353280"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Location.html#Location%27"><span class="hs-identifier hs-type">Location'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353279"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679353279"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Location
-</span><a href="#local-6989586621679353280"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filePath:Location' :: Maybe Text
+</span><a href="#local-6989586621679353290"><span class="hs-identifier hs-var hs-var">filePath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679353290"><span class="hs-identifier hs-var">filePath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353289"><span class="annot"><span class="annottext">s :: Location
+</span><a href="#local-6989586621679353289"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Location.html#Location%27"><span class="hs-identifier hs-type">Location'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353288"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679353288"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Location
+</span><a href="#local-6989586621679353289"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filePath:Location' :: Maybe Text
 </span><a href="Network.AWS.CodeCommit.Types.Location.html#%24sel%3AfilePath%3ALocation%27"><span class="hs-identifier hs-var">filePath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679353279"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Location.html#Location"><span class="hs-identifier hs-type">Location</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679353288"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Location.html#Location"><span class="hs-identifier hs-type">Location</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | The position of a change in a compared file, in line number format.</span><span>
 </span><span id="line-78"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Location.html#location_filePosition"><span class="hs-identifier hs-type">location_filePosition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Location.html#Location"><span class="hs-identifier hs-type">Location</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
@@ -179,27 +179,27 @@ $sel:filePath:Location' :: Location -&gt; Maybe Text
 -&gt; (Location -&gt; Maybe Integer -&gt; Location)
 -&gt; Lens Location Location (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Location.html#Location%27"><span class="hs-identifier hs-type">Location'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353277"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Location.html#Location%27"><span class="hs-identifier hs-type">Location'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353286"><span class="annot"><span class="annottext">Maybe Integer
 filePosition :: Maybe Integer
 $sel:filePosition:Location' :: Location -&gt; Maybe Integer
-</span><a href="#local-6989586621679353277"><span class="hs-identifier hs-var hs-var">filePosition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679353277"><span class="hs-identifier hs-var">filePosition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353276"><span class="annot"><span class="annottext">s :: Location
-</span><a href="#local-6989586621679353276"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Location.html#Location%27"><span class="hs-identifier hs-type">Location'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353275"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679353275"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Location
-</span><a href="#local-6989586621679353276"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filePosition:Location' :: Maybe Integer
+</span><a href="#local-6989586621679353286"><span class="hs-identifier hs-var hs-var">filePosition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679353286"><span class="hs-identifier hs-var">filePosition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679353285"><span class="annot"><span class="annottext">s :: Location
+</span><a href="#local-6989586621679353285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Location.html#Location%27"><span class="hs-identifier hs-type">Location'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679353284"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679353284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Location
+</span><a href="#local-6989586621679353285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filePosition:Location' :: Maybe Integer
 </span><a href="Network.AWS.CodeCommit.Types.Location.html#%24sel%3AfilePosition%3ALocation%27"><span class="hs-identifier hs-var">filePosition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679353275"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Location.html#Location"><span class="hs-identifier hs-type">Location</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679353284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Location.html#Location"><span class="hs-identifier hs-type">Location</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679353272"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Location.html#Location"><span class="hs-identifier hs-type">Location</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679353270"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Location
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679353281"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Location.html#Location"><span class="hs-identifier hs-type">Location</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679353279"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Location
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Location) -&gt; Value -&gt; Parser Location
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Location&quot;</span></span><span>
-</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679353267"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679353267"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679353276"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679353276"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Maybe RelativeFileVersionEnum
 -&gt; Maybe Text -&gt; Maybe Integer -&gt; Location
 </span><a href="Network.AWS.CodeCommit.Types.Location.html#Location%27"><span class="hs-identifier hs-var">Location'</span></a></span><span>
@@ -209,7 +209,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe Integer -&gt; Location)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679353267"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RelativeFileVersionEnum)
+</span><a href="#local-6989586621679353276"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RelativeFileVersionEnum)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;relativeFileVersion&quot;</span></span><span class="hs-special">)</span><span>
@@ -217,7 +217,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Integer -&gt; Location)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679353267"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679353276"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;filePath&quot;</span></span><span class="hs-special">)</span><span>
@@ -225,19 +225,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Integer) -&gt; Parser Location
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679353267"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679353276"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;filePosition&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679353261"><span id="local-6989586621679353263"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Location.html#Location"><span class="hs-identifier hs-type">Location</span></a></span></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679353270"><span id="local-6989586621679353272"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Location.html#Location"><span class="hs-identifier hs-type">Location</span></a></span></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679353258"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Location.html#Location"><span class="hs-identifier hs-type">Location</span></a></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679353267"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Location.html#Location"><span class="hs-identifier hs-type">Location</span></a></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679353250"><span id="local-6989586621679353252"><span id="local-6989586621679353254"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Location.html#Location"><span class="hs-identifier hs-type">Location</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679353248"><span class="annot"><span class="annottext">toJSON :: Location -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Location.html#Location%27"><span class="hs-identifier hs-type">Location'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353244"><span id="local-6989586621679353245"><span id="local-6989586621679353246"><span class="annot"><span class="annottext">Maybe Integer
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679353259"><span id="local-6989586621679353261"><span id="local-6989586621679353263"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Location.html#Location"><span class="hs-identifier hs-type">Location</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679353257"><span class="annot"><span class="annottext">toJSON :: Location -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Location.html#Location%27"><span class="hs-identifier hs-type">Location'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679353253"><span id="local-6989586621679353254"><span id="local-6989586621679353255"><span class="annot"><span class="annottext">Maybe Integer
 Maybe Text
 Maybe RelativeFileVersionEnum
 filePosition :: Maybe Integer
@@ -246,7 +246,7 @@ relativeFileVersion :: Maybe RelativeFileVersionEnum
 $sel:filePosition:Location' :: Location -&gt; Maybe Integer
 $sel:filePath:Location' :: Location -&gt; Maybe Text
 $sel:relativeFileVersion:Location' :: Location -&gt; Maybe RelativeFileVersionEnum
-</span><a href="#local-6989586621679353244"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679353253"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -260,21 +260,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe RelativeFileVersionEnum -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RelativeFileVersionEnum
-</span><a href="#local-6989586621679353246"><span class="hs-identifier hs-var">relativeFileVersion</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679353255"><span class="hs-identifier hs-var">relativeFileVersion</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;filePath&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679353245"><span class="hs-identifier hs-var">filePath</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679353254"><span class="hs-identifier hs-var">filePath</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-103"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;filePosition&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Integer -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Integer -&gt; Pair) -&gt; Maybe Integer -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679353244"><span class="hs-identifier hs-var">filePosition</span></a></span><span>
+</span><a href="#local-6989586621679353253"><span class="hs-identifier hs-var">filePosition</span></a></span><span>
 </span><span id="line-104"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span></pre></body></html>

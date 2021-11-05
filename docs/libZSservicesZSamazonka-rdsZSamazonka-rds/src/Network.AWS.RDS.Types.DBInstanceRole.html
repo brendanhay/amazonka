@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- role that is associated with a DB instance.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDBInstanceRole' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679758659"><span id="local-6989586621679758660"></span></span><span class="hs-keyword">data</span><span> </span><span id="DBInstanceRole"><span class="annot"><a href="Network.AWS.RDS.Types.DBInstanceRole.html#DBInstanceRole"><span class="hs-identifier hs-var">DBInstanceRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DBInstanceRole%27"><span class="annot"><a href="Network.AWS.RDS.Types.DBInstanceRole.html#DBInstanceRole%27"><span class="hs-identifier hs-var">DBInstanceRole'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679758668"><span id="local-6989586621679758669"></span></span><span class="hs-keyword">data</span><span> </span><span id="DBInstanceRole"><span class="annot"><a href="Network.AWS.RDS.Types.DBInstanceRole.html#DBInstanceRole"><span class="hs-identifier hs-var">DBInstanceRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DBInstanceRole%27"><span class="annot"><a href="Network.AWS.RDS.Types.DBInstanceRole.html#DBInstanceRole%27"><span class="hs-identifier hs-var">DBInstanceRole'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Describes the state of association between the IAM role and the DB</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- instance. The Status property returns one of the following values:</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -53,7 +53,7 @@
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3AroleArn%3ADBInstanceRole%27"><span class="annot"><span class="annottext">DBInstanceRole -&gt; Maybe Text
 </span><a href="Network.AWS.RDS.Types.DBInstanceRole.html#%24sel%3AroleArn%3ADBInstanceRole%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679758651"><span id="local-6989586621679758653"><span class="annot"><span class="annottext">DBInstanceRole -&gt; DBInstanceRole -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679758660"><span id="local-6989586621679758662"><span class="annot"><span class="annottext">DBInstanceRole -&gt; DBInstanceRole -&gt; Bool
 (DBInstanceRole -&gt; DBInstanceRole -&gt; Bool)
 -&gt; (DBInstanceRole -&gt; DBInstanceRole -&gt; Bool) -&gt; Eq DBInstanceRole
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DBInstanceRole -&gt; DBInstanceRole -&gt; Bool
 == :: DBInstanceRole -&gt; DBInstanceRole -&gt; Bool
 $c== :: DBInstanceRole -&gt; DBInstanceRole -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679758642"><span id="local-6989586621679758644"><span id="local-6989586621679758646"><span id="local-6989586621679758648"><span class="annot"><span class="annottext">ReadPrec [DBInstanceRole]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679758651"><span id="local-6989586621679758653"><span id="local-6989586621679758655"><span id="local-6989586621679758657"><span class="annot"><span class="annottext">ReadPrec [DBInstanceRole]
 ReadPrec DBInstanceRole
 Int -&gt; ReadS DBInstanceRole
 ReadS [DBInstanceRole]
@@ -81,7 +81,7 @@ readList :: ReadS [DBInstanceRole]
 $creadList :: ReadS [DBInstanceRole]
 readsPrec :: Int -&gt; ReadS DBInstanceRole
 $creadsPrec :: Int -&gt; ReadS DBInstanceRole
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679758635"><span id="local-6989586621679758637"><span id="local-6989586621679758639"><span class="annot"><span class="annottext">Int -&gt; DBInstanceRole -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679758644"><span id="local-6989586621679758646"><span id="local-6989586621679758648"><span class="annot"><span class="annottext">Int -&gt; DBInstanceRole -&gt; ShowS
 [DBInstanceRole] -&gt; ShowS
 DBInstanceRole -&gt; String
 (Int -&gt; DBInstanceRole -&gt; ShowS)
@@ -175,16 +175,16 @@ forall a. Maybe a
 -&gt; (DBInstanceRole -&gt; Maybe Text -&gt; DBInstanceRole)
 -&gt; Lens DBInstanceRole DBInstanceRole (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.DBInstanceRole.html#DBInstanceRole%27"><span class="hs-identifier hs-type">DBInstanceRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679758626"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.DBInstanceRole.html#DBInstanceRole%27"><span class="hs-identifier hs-type">DBInstanceRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679758635"><span class="annot"><span class="annottext">Maybe Text
 status :: Maybe Text
 $sel:status:DBInstanceRole' :: DBInstanceRole -&gt; Maybe Text
-</span><a href="#local-6989586621679758626"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679758626"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679758625"><span class="annot"><span class="annottext">s :: DBInstanceRole
-</span><a href="#local-6989586621679758625"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.DBInstanceRole.html#DBInstanceRole%27"><span class="hs-identifier hs-type">DBInstanceRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679758624"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679758624"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBInstanceRole
-</span><a href="#local-6989586621679758625"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DBInstanceRole' :: Maybe Text
+</span><a href="#local-6989586621679758635"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679758635"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679758634"><span class="annot"><span class="annottext">s :: DBInstanceRole
+</span><a href="#local-6989586621679758634"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.DBInstanceRole.html#DBInstanceRole%27"><span class="hs-identifier hs-type">DBInstanceRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679758633"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679758633"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBInstanceRole
+</span><a href="#local-6989586621679758634"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DBInstanceRole' :: Maybe Text
 </span><a href="Network.AWS.RDS.Types.DBInstanceRole.html#%24sel%3Astatus%3ADBInstanceRole%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679758624"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBInstanceRole.html#DBInstanceRole"><span class="hs-identifier hs-type">DBInstanceRole</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679758633"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBInstanceRole.html#DBInstanceRole"><span class="hs-identifier hs-type">DBInstanceRole</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | The name of the feature associated with the Amazon Web Services Identity</span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- and Access Management (IAM) role. For the list of supported feature</span><span>
@@ -196,16 +196,16 @@ $sel:status:DBInstanceRole' :: DBInstanceRole -&gt; Maybe Text
 -&gt; (DBInstanceRole -&gt; Maybe Text -&gt; DBInstanceRole)
 -&gt; Lens DBInstanceRole DBInstanceRole (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.DBInstanceRole.html#DBInstanceRole%27"><span class="hs-identifier hs-type">DBInstanceRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679758622"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.DBInstanceRole.html#DBInstanceRole%27"><span class="hs-identifier hs-type">DBInstanceRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679758631"><span class="annot"><span class="annottext">Maybe Text
 featureName :: Maybe Text
 $sel:featureName:DBInstanceRole' :: DBInstanceRole -&gt; Maybe Text
-</span><a href="#local-6989586621679758622"><span class="hs-identifier hs-var hs-var">featureName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679758622"><span class="hs-identifier hs-var">featureName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679758621"><span class="annot"><span class="annottext">s :: DBInstanceRole
-</span><a href="#local-6989586621679758621"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.DBInstanceRole.html#DBInstanceRole%27"><span class="hs-identifier hs-type">DBInstanceRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679758620"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679758620"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBInstanceRole
-</span><a href="#local-6989586621679758621"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:featureName:DBInstanceRole' :: Maybe Text
+</span><a href="#local-6989586621679758631"><span class="hs-identifier hs-var hs-var">featureName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679758631"><span class="hs-identifier hs-var">featureName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679758630"><span class="annot"><span class="annottext">s :: DBInstanceRole
+</span><a href="#local-6989586621679758630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.DBInstanceRole.html#DBInstanceRole%27"><span class="hs-identifier hs-type">DBInstanceRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679758629"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679758629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBInstanceRole
+</span><a href="#local-6989586621679758630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:featureName:DBInstanceRole' :: Maybe Text
 </span><a href="Network.AWS.RDS.Types.DBInstanceRole.html#%24sel%3AfeatureName%3ADBInstanceRole%27"><span class="hs-identifier hs-var">featureName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679758620"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBInstanceRole.html#DBInstanceRole"><span class="hs-identifier hs-type">DBInstanceRole</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679758629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBInstanceRole.html#DBInstanceRole"><span class="hs-identifier hs-type">DBInstanceRole</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM role that is associated with</span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- the DB instance.</span><span>
@@ -216,21 +216,21 @@ $sel:featureName:DBInstanceRole' :: DBInstanceRole -&gt; Maybe Text
 -&gt; (DBInstanceRole -&gt; Maybe Text -&gt; DBInstanceRole)
 -&gt; Lens DBInstanceRole DBInstanceRole (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.DBInstanceRole.html#DBInstanceRole%27"><span class="hs-identifier hs-type">DBInstanceRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679758618"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.DBInstanceRole.html#DBInstanceRole%27"><span class="hs-identifier hs-type">DBInstanceRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679758627"><span class="annot"><span class="annottext">Maybe Text
 roleArn :: Maybe Text
 $sel:roleArn:DBInstanceRole' :: DBInstanceRole -&gt; Maybe Text
-</span><a href="#local-6989586621679758618"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679758618"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679758617"><span class="annot"><span class="annottext">s :: DBInstanceRole
-</span><a href="#local-6989586621679758617"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.DBInstanceRole.html#DBInstanceRole%27"><span class="hs-identifier hs-type">DBInstanceRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679758616"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679758616"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBInstanceRole
-</span><a href="#local-6989586621679758617"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:DBInstanceRole' :: Maybe Text
+</span><a href="#local-6989586621679758627"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679758627"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679758626"><span class="annot"><span class="annottext">s :: DBInstanceRole
+</span><a href="#local-6989586621679758626"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.DBInstanceRole.html#DBInstanceRole%27"><span class="hs-identifier hs-type">DBInstanceRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679758625"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679758625"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBInstanceRole
+</span><a href="#local-6989586621679758626"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:DBInstanceRole' :: Maybe Text
 </span><a href="Network.AWS.RDS.Types.DBInstanceRole.html#%24sel%3AroleArn%3ADBInstanceRole%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679758616"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBInstanceRole.html#DBInstanceRole"><span class="hs-identifier hs-type">DBInstanceRole</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679758625"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBInstanceRole.html#DBInstanceRole"><span class="hs-identifier hs-type">DBInstanceRole</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBInstanceRole.html#DBInstanceRole"><span class="hs-identifier hs-type">DBInstanceRole</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679758613"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DBInstanceRole
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679758611"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679758611"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679758622"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DBInstanceRole
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679758620"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679758620"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; DBInstanceRole
 </span><a href="Network.AWS.RDS.Types.DBInstanceRole.html#DBInstanceRole%27"><span class="hs-identifier hs-var">DBInstanceRole'</span></a></span><span>
 </span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; DBInstanceRole)
@@ -238,7 +238,7 @@ $sel:roleArn:DBInstanceRole' :: DBInstanceRole -&gt; Maybe Text
 -&gt; Either String (Maybe Text -&gt; Maybe Text -&gt; DBInstanceRole)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679758611"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679758620"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
@@ -247,7 +247,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text -&gt; DBInstanceRole)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679758611"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679758620"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FeatureName&quot;</span></span><span class="hs-special">)</span><span>
@@ -255,12 +255,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text) -&gt; Either String DBInstanceRole
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679758611"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679758620"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RoleArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679758605"><span id="local-6989586621679758607"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBInstanceRole.html#DBInstanceRole"><span class="hs-identifier hs-type">DBInstanceRole</span></a></span></span></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679758614"><span id="local-6989586621679758616"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBInstanceRole.html#DBInstanceRole"><span class="hs-identifier hs-type">DBInstanceRole</span></a></span></span></span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679758602"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBInstanceRole.html#DBInstanceRole"><span class="hs-identifier hs-type">DBInstanceRole</span></a></span></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679758611"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBInstanceRole.html#DBInstanceRole"><span class="hs-identifier hs-type">DBInstanceRole</span></a></span></span><span>
 </span><span id="line-129"></span></pre></body></html>

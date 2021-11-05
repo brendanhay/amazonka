@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newPutLifecyclePolicy' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679165440"><span id="local-6989586621679165441"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutLifecyclePolicy"><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicy"><span class="hs-identifier hs-var">PutLifecyclePolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutLifecyclePolicy%27"><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicy%27"><span class="hs-identifier hs-var">PutLifecyclePolicy'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679165449"><span id="local-6989586621679165450"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutLifecyclePolicy"><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicy"><span class="hs-identifier hs-var">PutLifecyclePolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutLifecyclePolicy%27"><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicy%27"><span class="hs-identifier hs-var">PutLifecyclePolicy'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the container that you want to assign the object lifecycle</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- policy to.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AcontainerName%3APutLifecyclePolicy%27"><span class="annot"><span class="annottext">PutLifecyclePolicy -&gt; Text
@@ -62,7 +62,7 @@
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AlifecyclePolicy%3APutLifecyclePolicy%27"><span class="annot"><span class="annottext">PutLifecyclePolicy -&gt; Text
 </span><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#%24sel%3AlifecyclePolicy%3APutLifecyclePolicy%27"><span class="hs-identifier hs-var hs-var">lifecyclePolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679165433"><span id="local-6989586621679165435"><span class="annot"><span class="annottext">PutLifecyclePolicy -&gt; PutLifecyclePolicy -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679165442"><span id="local-6989586621679165444"><span class="annot"><span class="annottext">PutLifecyclePolicy -&gt; PutLifecyclePolicy -&gt; Bool
 (PutLifecyclePolicy -&gt; PutLifecyclePolicy -&gt; Bool)
 -&gt; (PutLifecyclePolicy -&gt; PutLifecyclePolicy -&gt; Bool)
 -&gt; Eq PutLifecyclePolicy
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutLifecyclePolicy -&gt; PutLifecyclePolicy -&gt; Bool
 == :: PutLifecyclePolicy -&gt; PutLifecyclePolicy -&gt; Bool
 $c== :: PutLifecyclePolicy -&gt; PutLifecyclePolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679165424"><span id="local-6989586621679165426"><span id="local-6989586621679165428"><span id="local-6989586621679165430"><span class="annot"><span class="annottext">ReadPrec [PutLifecyclePolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679165433"><span id="local-6989586621679165435"><span id="local-6989586621679165437"><span id="local-6989586621679165439"><span class="annot"><span class="annottext">ReadPrec [PutLifecyclePolicy]
 ReadPrec PutLifecyclePolicy
 Int -&gt; ReadS PutLifecyclePolicy
 ReadS [PutLifecyclePolicy]
@@ -91,7 +91,7 @@ readList :: ReadS [PutLifecyclePolicy]
 $creadList :: ReadS [PutLifecyclePolicy]
 readsPrec :: Int -&gt; ReadS PutLifecyclePolicy
 $creadsPrec :: Int -&gt; ReadS PutLifecyclePolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679165417"><span id="local-6989586621679165419"><span id="local-6989586621679165421"><span class="annot"><span class="annottext">Int -&gt; PutLifecyclePolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679165426"><span id="local-6989586621679165428"><span id="local-6989586621679165430"><span class="annot"><span class="annottext">Int -&gt; PutLifecyclePolicy -&gt; ShowS
 [PutLifecyclePolicy] -&gt; ShowS
 PutLifecyclePolicy -&gt; String
 (Int -&gt; PutLifecyclePolicy -&gt; ShowS)
@@ -137,19 +137,19 @@ $cfrom :: forall x. PutLifecyclePolicy -&gt; Rep PutLifecyclePolicy x
 </span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicy"><span class="hs-identifier hs-type">PutLifecyclePolicy</span></a></span><span>
 </span><span id="line-83"></span><span id="newPutLifecyclePolicy"><span class="annot"><span class="annottext">newPutLifecyclePolicy :: Text -&gt; Text -&gt; PutLifecyclePolicy
 </span><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#newPutLifecyclePolicy"><span class="hs-identifier hs-var hs-var">newPutLifecyclePolicy</span></a></span></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679165412"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679165412"><span class="hs-identifier hs-var">pContainerName_</span></a></span></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679165411"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679165411"><span class="hs-identifier hs-var">pLifecyclePolicy_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679165421"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679165421"><span class="hs-identifier hs-var">pContainerName_</span></a></span></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679165420"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679165420"><span class="hs-identifier hs-var">pLifecyclePolicy_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">PutLifecyclePolicy' :: Text -&gt; Text -&gt; PutLifecyclePolicy
 </span><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicy%27"><span class="hs-identifier hs-type">PutLifecyclePolicy'</span></a></span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:containerName:PutLifecyclePolicy' :: Text
 </span><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#%24sel%3AcontainerName%3APutLifecyclePolicy%27"><span class="hs-identifier hs-var">containerName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679165412"><span class="hs-identifier hs-var">pContainerName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679165421"><span class="hs-identifier hs-var">pContainerName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">$sel:lifecyclePolicy:PutLifecyclePolicy' :: Text
 </span><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#%24sel%3AlifecyclePolicy%3APutLifecyclePolicy%27"><span class="hs-identifier hs-var">lifecyclePolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679165411"><span class="hs-identifier hs-var">pLifecyclePolicy_</span></a></span><span>
+</span><a href="#local-6989586621679165420"><span class="hs-identifier hs-var">pLifecyclePolicy_</span></a></span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | The name of the container that you want to assign the object lifecycle</span><span>
@@ -160,16 +160,16 @@ $cfrom :: forall x. PutLifecyclePolicy -&gt; Rep PutLifecyclePolicy x
 -&gt; (PutLifecyclePolicy -&gt; Text -&gt; PutLifecyclePolicy)
 -&gt; Lens PutLifecyclePolicy PutLifecyclePolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicy%27"><span class="hs-identifier hs-type">PutLifecyclePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165408"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicy%27"><span class="hs-identifier hs-type">PutLifecyclePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165417"><span class="annot"><span class="annottext">Text
 containerName :: Text
 $sel:containerName:PutLifecyclePolicy' :: PutLifecyclePolicy -&gt; Text
-</span><a href="#local-6989586621679165408"><span class="hs-identifier hs-var hs-var">containerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679165408"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679165407"><span class="annot"><span class="annottext">s :: PutLifecyclePolicy
-</span><a href="#local-6989586621679165407"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicy%27"><span class="hs-identifier hs-type">PutLifecyclePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679165406"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679165406"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutLifecyclePolicy
-</span><a href="#local-6989586621679165407"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerName:PutLifecyclePolicy' :: Text
+</span><a href="#local-6989586621679165417"><span class="hs-identifier hs-var hs-var">containerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679165417"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679165416"><span class="annot"><span class="annottext">s :: PutLifecyclePolicy
+</span><a href="#local-6989586621679165416"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicy%27"><span class="hs-identifier hs-type">PutLifecyclePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679165415"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679165415"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutLifecyclePolicy
+</span><a href="#local-6989586621679165416"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerName:PutLifecyclePolicy' :: Text
 </span><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#%24sel%3AcontainerName%3APutLifecyclePolicy%27"><span class="hs-identifier hs-var">containerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679165406"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicy"><span class="hs-identifier hs-type">PutLifecyclePolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679165415"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicy"><span class="hs-identifier hs-type">PutLifecyclePolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | The object lifecycle policy to apply to the container.</span><span>
 </span><span id="line-98"></span><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#putLifecyclePolicy_lifecyclePolicy"><span class="hs-identifier hs-type">putLifecyclePolicy_lifecyclePolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicy"><span class="hs-identifier hs-type">PutLifecyclePolicy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -178,27 +178,27 @@ $sel:containerName:PutLifecyclePolicy' :: PutLifecyclePolicy -&gt; Text
 -&gt; (PutLifecyclePolicy -&gt; Text -&gt; PutLifecyclePolicy)
 -&gt; Lens PutLifecyclePolicy PutLifecyclePolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicy%27"><span class="hs-identifier hs-type">PutLifecyclePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165405"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicy%27"><span class="hs-identifier hs-type">PutLifecyclePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165414"><span class="annot"><span class="annottext">Text
 lifecyclePolicy :: Text
 $sel:lifecyclePolicy:PutLifecyclePolicy' :: PutLifecyclePolicy -&gt; Text
-</span><a href="#local-6989586621679165405"><span class="hs-identifier hs-var hs-var">lifecyclePolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679165405"><span class="hs-identifier hs-var">lifecyclePolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679165404"><span class="annot"><span class="annottext">s :: PutLifecyclePolicy
-</span><a href="#local-6989586621679165404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicy%27"><span class="hs-identifier hs-type">PutLifecyclePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679165403"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679165403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutLifecyclePolicy
-</span><a href="#local-6989586621679165404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lifecyclePolicy:PutLifecyclePolicy' :: Text
+</span><a href="#local-6989586621679165414"><span class="hs-identifier hs-var hs-var">lifecyclePolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679165414"><span class="hs-identifier hs-var">lifecyclePolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679165413"><span class="annot"><span class="annottext">s :: PutLifecyclePolicy
+</span><a href="#local-6989586621679165413"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicy%27"><span class="hs-identifier hs-type">PutLifecyclePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679165412"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679165412"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutLifecyclePolicy
+</span><a href="#local-6989586621679165413"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lifecyclePolicy:PutLifecyclePolicy' :: Text
 </span><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#%24sel%3AlifecyclePolicy%3APutLifecyclePolicy%27"><span class="hs-identifier hs-var">lifecyclePolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679165403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicy"><span class="hs-identifier hs-type">PutLifecyclePolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679165412"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicy"><span class="hs-identifier hs-type">PutLifecyclePolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicy"><span class="hs-identifier hs-type">PutLifecyclePolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-102"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-103"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicy"><span class="hs-identifier hs-type">PutLifecyclePolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>      </span><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicyResponse"><span class="hs-identifier hs-type">PutLifecyclePolicyResponse</span></a></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679165399"><span class="annot"><span class="annottext">request :: PutLifecyclePolicy -&gt; Request PutLifecyclePolicy
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679165408"><span class="annot"><span class="annottext">request :: PutLifecyclePolicy -&gt; Request PutLifecyclePolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutLifecyclePolicy -&gt; Request PutLifecyclePolicy
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MediaStore.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679165395"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679165404"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutLifecyclePolicy
 -&gt; ClientResponse ClientBody
@@ -224,10 +224,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679165392"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679165392"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679165391"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679165391"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679165390"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679165390"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679165401"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679165401"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679165400"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679165400"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679165399"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679165399"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; PutLifecyclePolicyResponse
 </span><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicyResponse%27"><span class="hs-identifier hs-var">PutLifecyclePolicyResponse'</span></a></span><span>
 </span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; PutLifecyclePolicyResponse)
@@ -238,15 +238,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679165392"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679165401"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679165383"><span id="local-6989586621679165385"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicy"><span class="hs-identifier hs-type">PutLifecyclePolicy</span></a></span></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679165392"><span id="local-6989586621679165394"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicy"><span class="hs-identifier hs-type">PutLifecyclePolicy</span></a></span></span></span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679165380"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicy"><span class="hs-identifier hs-type">PutLifecyclePolicy</span></a></span></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679165389"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicy"><span class="hs-identifier hs-type">PutLifecyclePolicy</span></a></span></span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicy"><span class="hs-identifier hs-type">PutLifecyclePolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679165376"><span class="annot"><span class="annottext">toHeaders :: PutLifecyclePolicy -&gt; ResponseHeaders
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679165385"><span class="annot"><span class="annottext">toHeaders :: PutLifecyclePolicy -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutLifecyclePolicy -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -273,14 +273,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-129"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679165366"><span id="local-6989586621679165368"><span id="local-6989586621679165370"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicy"><span class="hs-identifier hs-type">PutLifecyclePolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679165364"><span class="annot"><span class="annottext">toJSON :: PutLifecyclePolicy -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicy%27"><span class="hs-identifier hs-type">PutLifecyclePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165361"><span id="local-6989586621679165362"><span class="annot"><span class="annottext">Text
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679165375"><span id="local-6989586621679165377"><span id="local-6989586621679165379"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicy"><span class="hs-identifier hs-type">PutLifecyclePolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679165373"><span class="annot"><span class="annottext">toJSON :: PutLifecyclePolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicy%27"><span class="hs-identifier hs-type">PutLifecyclePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165370"><span id="local-6989586621679165371"><span class="annot"><span class="annottext">Text
 lifecyclePolicy :: Text
 containerName :: Text
 $sel:lifecyclePolicy:PutLifecyclePolicy' :: PutLifecyclePolicy -&gt; Text
 $sel:containerName:PutLifecyclePolicy' :: PutLifecyclePolicy -&gt; Text
-</span><a href="#local-6989586621679165361"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679165370"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -293,7 +293,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ContainerName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679165362"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679165371"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -301,19 +301,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;LifecyclePolicy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679165361"><span class="hs-identifier hs-var">lifecyclePolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679165370"><span class="hs-identifier hs-var">lifecyclePolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicy"><span class="hs-identifier hs-type">PutLifecyclePolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679165355"><span class="annot"><span class="annottext">toPath :: PutLifecyclePolicy -&gt; ByteString
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679165364"><span class="annot"><span class="annottext">toPath :: PutLifecyclePolicy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutLifecyclePolicy -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicy"><span class="hs-identifier hs-type">PutLifecyclePolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679165351"><span class="annot"><span class="annottext">toQuery :: PutLifecyclePolicy -&gt; QueryString
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679165360"><span class="annot"><span class="annottext">toQuery :: PutLifecyclePolicy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutLifecyclePolicy -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -321,12 +321,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- | /See:/ 'newPutLifecyclePolicyResponse' smart constructor.</span><span>
-</span><span id="line-150"></span><span id="local-6989586621679165348"><span id="local-6989586621679165349"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutLifecyclePolicyResponse"><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicyResponse"><span class="hs-identifier hs-var">PutLifecyclePolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutLifecyclePolicyResponse%27"><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicyResponse%27"><span class="hs-identifier hs-var">PutLifecyclePolicyResponse'</span></a></span></span><span>
+</span><span id="line-150"></span><span id="local-6989586621679165357"><span id="local-6989586621679165358"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutLifecyclePolicyResponse"><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicyResponse"><span class="hs-identifier hs-var">PutLifecyclePolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutLifecyclePolicyResponse%27"><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicyResponse%27"><span class="hs-identifier hs-var">PutLifecyclePolicyResponse'</span></a></span></span><span>
 </span><span id="line-151"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-152"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutLifecyclePolicyResponse%27"><span class="annot"><span class="annottext">PutLifecyclePolicyResponse -&gt; Int
 </span><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#%24sel%3AhttpStatus%3APutLifecyclePolicyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-153"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679165343"><span id="local-6989586621679165345"><span class="annot"><span class="annottext">PutLifecyclePolicyResponse -&gt; PutLifecyclePolicyResponse -&gt; Bool
+</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679165352"><span id="local-6989586621679165354"><span class="annot"><span class="annottext">PutLifecyclePolicyResponse -&gt; PutLifecyclePolicyResponse -&gt; Bool
 (PutLifecyclePolicyResponse -&gt; PutLifecyclePolicyResponse -&gt; Bool)
 -&gt; (PutLifecyclePolicyResponse
     -&gt; PutLifecyclePolicyResponse -&gt; Bool)
@@ -336,7 +336,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutLifecyclePolicyResponse -&gt; PutLifecyclePolicyResponse -&gt; Bool
 == :: PutLifecyclePolicyResponse -&gt; PutLifecyclePolicyResponse -&gt; Bool
 $c== :: PutLifecyclePolicyResponse -&gt; PutLifecyclePolicyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679165335"><span id="local-6989586621679165337"><span id="local-6989586621679165339"><span id="local-6989586621679165341"><span class="annot"><span class="annottext">ReadPrec [PutLifecyclePolicyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679165344"><span id="local-6989586621679165346"><span id="local-6989586621679165348"><span id="local-6989586621679165350"><span class="annot"><span class="annottext">ReadPrec [PutLifecyclePolicyResponse]
 ReadPrec PutLifecyclePolicyResponse
 Int -&gt; ReadS PutLifecyclePolicyResponse
 ReadS [PutLifecyclePolicyResponse]
@@ -356,7 +356,7 @@ readList :: ReadS [PutLifecyclePolicyResponse]
 $creadList :: ReadS [PutLifecyclePolicyResponse]
 readsPrec :: Int -&gt; ReadS PutLifecyclePolicyResponse
 $creadsPrec :: Int -&gt; ReadS PutLifecyclePolicyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679165329"><span id="local-6989586621679165331"><span id="local-6989586621679165333"><span class="annot"><span class="annottext">Int -&gt; PutLifecyclePolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679165338"><span id="local-6989586621679165340"><span id="local-6989586621679165342"><span class="annot"><span class="annottext">Int -&gt; PutLifecyclePolicyResponse -&gt; ShowS
 [PutLifecyclePolicyResponse] -&gt; ShowS
 PutLifecyclePolicyResponse -&gt; String
 (Int -&gt; PutLifecyclePolicyResponse -&gt; ShowS)
@@ -402,14 +402,14 @@ PutLifecyclePolicyResponse -&gt; Rep PutLifecyclePolicyResponse x
 </span><span id="line-167"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-168"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicyResponse"><span class="hs-identifier hs-type">PutLifecyclePolicyResponse</span></a></span><span>
 </span><span id="line-169"></span><span id="newPutLifecyclePolicyResponse"><span class="annot"><span class="annottext">newPutLifecyclePolicyResponse :: Int -&gt; PutLifecyclePolicyResponse
-</span><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#newPutLifecyclePolicyResponse"><span class="hs-identifier hs-var hs-var">newPutLifecyclePolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679165326"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679165326"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#newPutLifecyclePolicyResponse"><span class="hs-identifier hs-var hs-var">newPutLifecyclePolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679165335"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679165335"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>  </span><span class="annot"><span class="annottext">PutLifecyclePolicyResponse' :: Int -&gt; PutLifecyclePolicyResponse
 </span><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicyResponse%27"><span class="hs-identifier hs-type">PutLifecyclePolicyResponse'</span></a></span><span>
 </span><span id="line-171"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:PutLifecyclePolicyResponse' :: Int
 </span><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#%24sel%3AhttpStatus%3APutLifecyclePolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679165326"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679165335"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-173"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -422,16 +422,16 @@ PutLifecyclePolicyResponse -&gt; Rep PutLifecyclePolicyResponse x
 -&gt; Lens
      PutLifecyclePolicyResponse PutLifecyclePolicyResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicyResponse%27"><span class="hs-identifier hs-type">PutLifecyclePolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165325"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicyResponse%27"><span class="hs-identifier hs-type">PutLifecyclePolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165334"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:PutLifecyclePolicyResponse' :: PutLifecyclePolicyResponse -&gt; Int
-</span><a href="#local-6989586621679165325"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679165325"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679165324"><span class="annot"><span class="annottext">s :: PutLifecyclePolicyResponse
-</span><a href="#local-6989586621679165324"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicyResponse%27"><span class="hs-identifier hs-type">PutLifecyclePolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679165323"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679165323"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutLifecyclePolicyResponse
-</span><a href="#local-6989586621679165324"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutLifecyclePolicyResponse' :: Int
+</span><a href="#local-6989586621679165334"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679165334"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679165333"><span class="annot"><span class="annottext">s :: PutLifecyclePolicyResponse
+</span><a href="#local-6989586621679165333"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicyResponse%27"><span class="hs-identifier hs-type">PutLifecyclePolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679165332"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679165332"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutLifecyclePolicyResponse
+</span><a href="#local-6989586621679165333"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutLifecyclePolicyResponse' :: Int
 </span><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#%24sel%3AhttpStatus%3APutLifecyclePolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679165323"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicyResponse"><span class="hs-identifier hs-type">PutLifecyclePolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679165332"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicyResponse"><span class="hs-identifier hs-type">PutLifecyclePolicyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
-</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679165321"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicyResponse"><span class="hs-identifier hs-type">PutLifecyclePolicyResponse</span></a></span></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679165330"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutLifecyclePolicy.html#PutLifecyclePolicyResponse"><span class="hs-identifier hs-type">PutLifecyclePolicyResponse</span></a></span></span><span>
 </span><span id="line-180"></span></pre></body></html>

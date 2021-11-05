@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- /is/ a custom origin.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newCustomOriginConfig' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679402540"><span id="local-6989586621679402541"></span></span><span class="hs-keyword">data</span><span> </span><span id="CustomOriginConfig"><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig"><span class="hs-identifier hs-var">CustomOriginConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CustomOriginConfig%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig%27"><span class="hs-identifier hs-var">CustomOriginConfig'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679402549"><span id="local-6989586621679402550"></span></span><span class="hs-keyword">data</span><span> </span><span id="CustomOriginConfig"><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig"><span class="hs-identifier hs-var">CustomOriginConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CustomOriginConfig%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig%27"><span class="hs-identifier hs-var">CustomOriginConfig'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies how long, in seconds, CloudFront persists its connection to</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- the origin. The minimum timeout is 1 second, the maximum is 60 seconds,</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- and the default (if you don&#8217;t specify otherwise) is 5 seconds.</span><span>
@@ -81,7 +81,7 @@
 </span><span id="line-76"></span><span>    </span><span id="%24sel%3AoriginProtocolPolicy%3ACustomOriginConfig%27"><span class="annot"><span class="annottext">CustomOriginConfig -&gt; OriginProtocolPolicy
 </span><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#%24sel%3AoriginProtocolPolicy%3ACustomOriginConfig%27"><span class="hs-identifier hs-var hs-var">originProtocolPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.OriginProtocolPolicy.html#OriginProtocolPolicy"><span class="hs-identifier hs-type">OriginProtocolPolicy</span></a></span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679402529"><span id="local-6989586621679402531"><span class="annot"><span class="annottext">CustomOriginConfig -&gt; CustomOriginConfig -&gt; Bool
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679402538"><span id="local-6989586621679402540"><span class="annot"><span class="annottext">CustomOriginConfig -&gt; CustomOriginConfig -&gt; Bool
 (CustomOriginConfig -&gt; CustomOriginConfig -&gt; Bool)
 -&gt; (CustomOriginConfig -&gt; CustomOriginConfig -&gt; Bool)
 -&gt; Eq CustomOriginConfig
@@ -90,7 +90,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CustomOriginConfig -&gt; CustomOriginConfig -&gt; Bool
 == :: CustomOriginConfig -&gt; CustomOriginConfig -&gt; Bool
 $c== :: CustomOriginConfig -&gt; CustomOriginConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679402520"><span id="local-6989586621679402522"><span id="local-6989586621679402524"><span id="local-6989586621679402526"><span class="annot"><span class="annottext">ReadPrec [CustomOriginConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679402529"><span id="local-6989586621679402531"><span id="local-6989586621679402533"><span id="local-6989586621679402535"><span class="annot"><span class="annottext">ReadPrec [CustomOriginConfig]
 ReadPrec CustomOriginConfig
 Int -&gt; ReadS CustomOriginConfig
 ReadS [CustomOriginConfig]
@@ -110,7 +110,7 @@ readList :: ReadS [CustomOriginConfig]
 $creadList :: ReadS [CustomOriginConfig]
 readsPrec :: Int -&gt; ReadS CustomOriginConfig
 $creadsPrec :: Int -&gt; ReadS CustomOriginConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679402513"><span id="local-6989586621679402515"><span id="local-6989586621679402517"><span class="annot"><span class="annottext">Int -&gt; CustomOriginConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679402522"><span id="local-6989586621679402524"><span id="local-6989586621679402526"><span class="annot"><span class="annottext">Int -&gt; CustomOriginConfig -&gt; ShowS
 [CustomOriginConfig] -&gt; ShowS
 CustomOriginConfig -&gt; String
 (Int -&gt; CustomOriginConfig -&gt; ShowS)
@@ -195,12 +195,12 @@ $cfrom :: forall x. CustomOriginConfig -&gt; Rep CustomOriginConfig x
 </span><span id="line-136"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig"><span class="hs-identifier hs-type">CustomOriginConfig</span></a></span><span>
 </span><span id="line-137"></span><span id="newCustomOriginConfig"><span class="annot"><span class="annottext">newCustomOriginConfig :: Int -&gt; Int -&gt; OriginProtocolPolicy -&gt; CustomOriginConfig
 </span><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#newCustomOriginConfig"><span class="hs-identifier hs-var hs-var">newCustomOriginConfig</span></a></span></span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679402507"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679402507"><span class="hs-identifier hs-var">pHTTPPort_</span></a></span></span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679402506"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679402506"><span class="hs-identifier hs-var">pHTTPSPort_</span></a></span></span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679402505"><span class="annot"><span class="annottext">OriginProtocolPolicy
-</span><a href="#local-6989586621679402505"><span class="hs-identifier hs-var">pOriginProtocolPolicy_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679402516"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679402516"><span class="hs-identifier hs-var">pHTTPPort_</span></a></span></span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679402515"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679402515"><span class="hs-identifier hs-var">pHTTPSPort_</span></a></span></span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679402514"><span class="annot"><span class="annottext">OriginProtocolPolicy
+</span><a href="#local-6989586621679402514"><span class="hs-identifier hs-var">pOriginProtocolPolicy_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">CustomOriginConfig' :: Maybe Int
 -&gt; Maybe Int
 -&gt; Maybe OriginSslProtocols
@@ -224,13 +224,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">$sel:hTTPPort:CustomOriginConfig' :: Int
 </span><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#%24sel%3AhTTPPort%3ACustomOriginConfig%27"><span class="hs-identifier hs-var">hTTPPort</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679402507"><span class="hs-identifier hs-var">pHTTPPort_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679402516"><span class="hs-identifier hs-var">pHTTPPort_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">$sel:hTTPSPort:CustomOriginConfig' :: Int
 </span><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#%24sel%3AhTTPSPort%3ACustomOriginConfig%27"><span class="hs-identifier hs-var">hTTPSPort</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679402506"><span class="hs-identifier hs-var">pHTTPSPort_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679402515"><span class="hs-identifier hs-var">pHTTPSPort_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">$sel:originProtocolPolicy:CustomOriginConfig' :: OriginProtocolPolicy
 </span><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#%24sel%3AoriginProtocolPolicy%3ACustomOriginConfig%27"><span class="hs-identifier hs-var">originProtocolPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OriginProtocolPolicy
-</span><a href="#local-6989586621679402505"><span class="hs-identifier hs-var">pOriginProtocolPolicy_</span></a></span><span>
+</span><a href="#local-6989586621679402514"><span class="hs-identifier hs-var">pOriginProtocolPolicy_</span></a></span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- | Specifies how long, in seconds, CloudFront persists its connection to</span><span>
@@ -248,16 +248,16 @@ forall a. Maybe a
 -&gt; Lens
      CustomOriginConfig CustomOriginConfig (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig%27"><span class="hs-identifier hs-type">CustomOriginConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402501"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig%27"><span class="hs-identifier hs-type">CustomOriginConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402510"><span class="annot"><span class="annottext">Maybe Int
 originKeepaliveTimeout :: Maybe Int
 $sel:originKeepaliveTimeout:CustomOriginConfig' :: CustomOriginConfig -&gt; Maybe Int
-</span><a href="#local-6989586621679402501"><span class="hs-identifier hs-var hs-var">originKeepaliveTimeout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679402501"><span class="hs-identifier hs-var">originKeepaliveTimeout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402500"><span class="annot"><span class="annottext">s :: CustomOriginConfig
-</span><a href="#local-6989586621679402500"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig%27"><span class="hs-identifier hs-type">CustomOriginConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402499"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679402499"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomOriginConfig
-</span><a href="#local-6989586621679402500"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:originKeepaliveTimeout:CustomOriginConfig' :: Maybe Int
+</span><a href="#local-6989586621679402510"><span class="hs-identifier hs-var hs-var">originKeepaliveTimeout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679402510"><span class="hs-identifier hs-var">originKeepaliveTimeout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402509"><span class="annot"><span class="annottext">s :: CustomOriginConfig
+</span><a href="#local-6989586621679402509"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig%27"><span class="hs-identifier hs-type">CustomOriginConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402508"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679402508"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomOriginConfig
+</span><a href="#local-6989586621679402509"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:originKeepaliveTimeout:CustomOriginConfig' :: Maybe Int
 </span><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#%24sel%3AoriginKeepaliveTimeout%3ACustomOriginConfig%27"><span class="hs-identifier hs-var">originKeepaliveTimeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679402499"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig"><span class="hs-identifier hs-type">CustomOriginConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679402508"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig"><span class="hs-identifier hs-type">CustomOriginConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- | Specifies how long, in seconds, CloudFront waits for a response from the</span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- origin. This is also known as the /origin response timeout/. The minimum</span><span>
@@ -275,16 +275,16 @@ $sel:originKeepaliveTimeout:CustomOriginConfig' :: CustomOriginConfig -&gt; Mayb
 -&gt; Lens
      CustomOriginConfig CustomOriginConfig (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig%27"><span class="hs-identifier hs-type">CustomOriginConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402497"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig%27"><span class="hs-identifier hs-type">CustomOriginConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402506"><span class="annot"><span class="annottext">Maybe Int
 originReadTimeout :: Maybe Int
 $sel:originReadTimeout:CustomOriginConfig' :: CustomOriginConfig -&gt; Maybe Int
-</span><a href="#local-6989586621679402497"><span class="hs-identifier hs-var hs-var">originReadTimeout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679402497"><span class="hs-identifier hs-var">originReadTimeout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402496"><span class="annot"><span class="annottext">s :: CustomOriginConfig
-</span><a href="#local-6989586621679402496"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig%27"><span class="hs-identifier hs-type">CustomOriginConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402495"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679402495"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomOriginConfig
-</span><a href="#local-6989586621679402496"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:originReadTimeout:CustomOriginConfig' :: Maybe Int
+</span><a href="#local-6989586621679402506"><span class="hs-identifier hs-var hs-var">originReadTimeout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679402506"><span class="hs-identifier hs-var">originReadTimeout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402505"><span class="annot"><span class="annottext">s :: CustomOriginConfig
+</span><a href="#local-6989586621679402505"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig%27"><span class="hs-identifier hs-type">CustomOriginConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402504"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679402504"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomOriginConfig
+</span><a href="#local-6989586621679402505"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:originReadTimeout:CustomOriginConfig' :: Maybe Int
 </span><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#%24sel%3AoriginReadTimeout%3ACustomOriginConfig%27"><span class="hs-identifier hs-var">originReadTimeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679402495"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig"><span class="hs-identifier hs-type">CustomOriginConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679402504"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig"><span class="hs-identifier hs-type">CustomOriginConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | Specifies the minimum SSL\/TLS protocol that CloudFront uses when</span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- connecting to your origin over HTTPS. Valid values include @SSLv3@,</span><span>
@@ -305,16 +305,16 @@ $sel:originReadTimeout:CustomOriginConfig' :: CustomOriginConfig -&gt; Maybe Int
      (Maybe OriginSslProtocols)
      (Maybe OriginSslProtocols)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig%27"><span class="hs-identifier hs-type">CustomOriginConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402493"><span class="annot"><span class="annottext">Maybe OriginSslProtocols
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig%27"><span class="hs-identifier hs-type">CustomOriginConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402502"><span class="annot"><span class="annottext">Maybe OriginSslProtocols
 originSslProtocols :: Maybe OriginSslProtocols
 $sel:originSslProtocols:CustomOriginConfig' :: CustomOriginConfig -&gt; Maybe OriginSslProtocols
-</span><a href="#local-6989586621679402493"><span class="hs-identifier hs-var hs-var">originSslProtocols</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OriginSslProtocols
-</span><a href="#local-6989586621679402493"><span class="hs-identifier hs-var">originSslProtocols</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402492"><span class="annot"><span class="annottext">s :: CustomOriginConfig
-</span><a href="#local-6989586621679402492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig%27"><span class="hs-identifier hs-type">CustomOriginConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402491"><span class="annot"><span class="annottext">Maybe OriginSslProtocols
-</span><a href="#local-6989586621679402491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomOriginConfig
-</span><a href="#local-6989586621679402492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:originSslProtocols:CustomOriginConfig' :: Maybe OriginSslProtocols
+</span><a href="#local-6989586621679402502"><span class="hs-identifier hs-var hs-var">originSslProtocols</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OriginSslProtocols
+</span><a href="#local-6989586621679402502"><span class="hs-identifier hs-var">originSslProtocols</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402501"><span class="annot"><span class="annottext">s :: CustomOriginConfig
+</span><a href="#local-6989586621679402501"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig%27"><span class="hs-identifier hs-type">CustomOriginConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402500"><span class="annot"><span class="annottext">Maybe OriginSslProtocols
+</span><a href="#local-6989586621679402500"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomOriginConfig
+</span><a href="#local-6989586621679402501"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:originSslProtocols:CustomOriginConfig' :: Maybe OriginSslProtocols
 </span><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#%24sel%3AoriginSslProtocols%3ACustomOriginConfig%27"><span class="hs-identifier hs-var">originSslProtocols</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OriginSslProtocols
-</span><a href="#local-6989586621679402491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig"><span class="hs-identifier hs-type">CustomOriginConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679402500"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig"><span class="hs-identifier hs-type">CustomOriginConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- | The HTTP port that CloudFront uses to connect to the origin. Specify the</span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- HTTP port that the origin listens on.</span><span>
@@ -324,16 +324,16 @@ $sel:originSslProtocols:CustomOriginConfig' :: CustomOriginConfig -&gt; Maybe Or
 -&gt; (CustomOriginConfig -&gt; Int -&gt; CustomOriginConfig)
 -&gt; Lens CustomOriginConfig CustomOriginConfig Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig%27"><span class="hs-identifier hs-type">CustomOriginConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402489"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig%27"><span class="hs-identifier hs-type">CustomOriginConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402498"><span class="annot"><span class="annottext">Int
 hTTPPort :: Int
 $sel:hTTPPort:CustomOriginConfig' :: CustomOriginConfig -&gt; Int
-</span><a href="#local-6989586621679402489"><span class="hs-identifier hs-var hs-var">hTTPPort</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679402489"><span class="hs-identifier hs-var">hTTPPort</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402488"><span class="annot"><span class="annottext">s :: CustomOriginConfig
-</span><a href="#local-6989586621679402488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig%27"><span class="hs-identifier hs-type">CustomOriginConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402487"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679402487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomOriginConfig
-</span><a href="#local-6989586621679402488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hTTPPort:CustomOriginConfig' :: Int
+</span><a href="#local-6989586621679402498"><span class="hs-identifier hs-var hs-var">hTTPPort</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679402498"><span class="hs-identifier hs-var">hTTPPort</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402497"><span class="annot"><span class="annottext">s :: CustomOriginConfig
+</span><a href="#local-6989586621679402497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig%27"><span class="hs-identifier hs-type">CustomOriginConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402496"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679402496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomOriginConfig
+</span><a href="#local-6989586621679402497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hTTPPort:CustomOriginConfig' :: Int
 </span><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#%24sel%3AhTTPPort%3ACustomOriginConfig%27"><span class="hs-identifier hs-var">hTTPPort</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679402487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig"><span class="hs-identifier hs-type">CustomOriginConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679402496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig"><span class="hs-identifier hs-type">CustomOriginConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-comment">-- | The HTTPS port that CloudFront uses to connect to the origin. Specify</span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- the HTTPS port that the origin listens on.</span><span>
@@ -343,16 +343,16 @@ $sel:hTTPPort:CustomOriginConfig' :: CustomOriginConfig -&gt; Int
 -&gt; (CustomOriginConfig -&gt; Int -&gt; CustomOriginConfig)
 -&gt; Lens CustomOriginConfig CustomOriginConfig Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig%27"><span class="hs-identifier hs-type">CustomOriginConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402485"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig%27"><span class="hs-identifier hs-type">CustomOriginConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402494"><span class="annot"><span class="annottext">Int
 hTTPSPort :: Int
 $sel:hTTPSPort:CustomOriginConfig' :: CustomOriginConfig -&gt; Int
-</span><a href="#local-6989586621679402485"><span class="hs-identifier hs-var hs-var">hTTPSPort</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679402485"><span class="hs-identifier hs-var">hTTPSPort</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402484"><span class="annot"><span class="annottext">s :: CustomOriginConfig
-</span><a href="#local-6989586621679402484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig%27"><span class="hs-identifier hs-type">CustomOriginConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402483"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679402483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomOriginConfig
-</span><a href="#local-6989586621679402484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hTTPSPort:CustomOriginConfig' :: Int
+</span><a href="#local-6989586621679402494"><span class="hs-identifier hs-var hs-var">hTTPSPort</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679402494"><span class="hs-identifier hs-var">hTTPSPort</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402493"><span class="annot"><span class="annottext">s :: CustomOriginConfig
+</span><a href="#local-6989586621679402493"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig%27"><span class="hs-identifier hs-type">CustomOriginConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402492"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679402492"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomOriginConfig
+</span><a href="#local-6989586621679402493"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hTTPSPort:CustomOriginConfig' :: Int
 </span><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#%24sel%3AhTTPSPort%3ACustomOriginConfig%27"><span class="hs-identifier hs-var">hTTPSPort</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679402483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig"><span class="hs-identifier hs-type">CustomOriginConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679402492"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig"><span class="hs-identifier hs-type">CustomOriginConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- | Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect</span><span>
 </span><span id="line-193"></span><span class="hs-comment">-- to the origin. Valid values are:</span><span>
@@ -376,21 +376,21 @@ $sel:hTTPSPort:CustomOriginConfig' :: CustomOriginConfig -&gt; Int
      OriginProtocolPolicy
      OriginProtocolPolicy
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig%27"><span class="hs-identifier hs-type">CustomOriginConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402481"><span class="annot"><span class="annottext">OriginProtocolPolicy
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig%27"><span class="hs-identifier hs-type">CustomOriginConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402490"><span class="annot"><span class="annottext">OriginProtocolPolicy
 originProtocolPolicy :: OriginProtocolPolicy
 $sel:originProtocolPolicy:CustomOriginConfig' :: CustomOriginConfig -&gt; OriginProtocolPolicy
-</span><a href="#local-6989586621679402481"><span class="hs-identifier hs-var hs-var">originProtocolPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OriginProtocolPolicy
-</span><a href="#local-6989586621679402481"><span class="hs-identifier hs-var">originProtocolPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402480"><span class="annot"><span class="annottext">s :: CustomOriginConfig
-</span><a href="#local-6989586621679402480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig%27"><span class="hs-identifier hs-type">CustomOriginConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402479"><span class="annot"><span class="annottext">OriginProtocolPolicy
-</span><a href="#local-6989586621679402479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomOriginConfig
-</span><a href="#local-6989586621679402480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:originProtocolPolicy:CustomOriginConfig' :: OriginProtocolPolicy
+</span><a href="#local-6989586621679402490"><span class="hs-identifier hs-var hs-var">originProtocolPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OriginProtocolPolicy
+</span><a href="#local-6989586621679402490"><span class="hs-identifier hs-var">originProtocolPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402489"><span class="annot"><span class="annottext">s :: CustomOriginConfig
+</span><a href="#local-6989586621679402489"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig%27"><span class="hs-identifier hs-type">CustomOriginConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402488"><span class="annot"><span class="annottext">OriginProtocolPolicy
+</span><a href="#local-6989586621679402488"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomOriginConfig
+</span><a href="#local-6989586621679402489"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:originProtocolPolicy:CustomOriginConfig' :: OriginProtocolPolicy
 </span><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#%24sel%3AoriginProtocolPolicy%3ACustomOriginConfig%27"><span class="hs-identifier hs-var">originProtocolPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OriginProtocolPolicy
-</span><a href="#local-6989586621679402479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig"><span class="hs-identifier hs-type">CustomOriginConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679402488"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig"><span class="hs-identifier hs-type">CustomOriginConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-204"></span><span>
 </span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig"><span class="hs-identifier hs-type">CustomOriginConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-206"></span><span>  </span><span id="local-6989586621679402476"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CustomOriginConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679402474"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679402474"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-206"></span><span>  </span><span id="local-6989586621679402485"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CustomOriginConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679402483"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679402483"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-207"></span><span>    </span><span class="annot"><span class="annottext">Maybe Int
 -&gt; Maybe Int
 -&gt; Maybe OriginSslProtocols
@@ -417,7 +417,7 @@ $sel:originProtocolPolicy:CustomOriginConfig' :: CustomOriginConfig -&gt; Origin
       -&gt; CustomOriginConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679402474"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679402483"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OriginKeepaliveTimeout&quot;</span></span><span class="hs-special">)</span><span>
@@ -436,7 +436,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Int -&gt; Int -&gt; OriginProtocolPolicy -&gt; CustomOriginConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679402474"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679402483"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OriginReadTimeout&quot;</span></span><span class="hs-special">)</span><span>
@@ -449,7 +449,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      String (Int -&gt; Int -&gt; OriginProtocolPolicy -&gt; CustomOriginConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679402474"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe OriginSslProtocols)
+</span><a href="#local-6989586621679402483"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe OriginSslProtocols)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OriginSslProtocols&quot;</span></span><span class="hs-special">)</span><span>
@@ -460,7 +460,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      String (Int -&gt; OriginProtocolPolicy -&gt; CustomOriginConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679402474"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
+</span><a href="#local-6989586621679402483"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HTTPPort&quot;</span></span><span class="hs-special">)</span><span>
@@ -469,7 +469,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String (OriginProtocolPolicy -&gt; CustomOriginConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679402474"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
+</span><a href="#local-6989586621679402483"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HTTPSPort&quot;</span></span><span class="hs-special">)</span><span>
@@ -478,18 +478,18 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String CustomOriginConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679402474"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String OriginProtocolPolicy
+</span><a href="#local-6989586621679402483"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String OriginProtocolPolicy
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OriginProtocolPolicy&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-214"></span><span>
-</span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402467"><span id="local-6989586621679402469"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig"><span class="hs-identifier hs-type">CustomOriginConfig</span></a></span></span></span><span>
+</span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402476"><span id="local-6989586621679402478"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig"><span class="hs-identifier hs-type">CustomOriginConfig</span></a></span></span></span><span>
 </span><span id="line-216"></span><span>
-</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402464"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig"><span class="hs-identifier hs-type">CustomOriginConfig</span></a></span></span><span>
+</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402473"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig"><span class="hs-identifier hs-type">CustomOriginConfig</span></a></span></span><span>
 </span><span id="line-218"></span><span>
 </span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig"><span class="hs-identifier hs-type">CustomOriginConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-220"></span><span>  </span><span id="local-6989586621679402460"><span class="annot"><span class="annottext">toXML :: CustomOriginConfig -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig%27"><span class="hs-identifier hs-type">CustomOriginConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402453"><span id="local-6989586621679402454"><span id="local-6989586621679402455"><span id="local-6989586621679402456"><span id="local-6989586621679402457"><span id="local-6989586621679402458"><span class="annot"><span class="annottext">Int
+</span><span id="line-220"></span><span>  </span><span id="local-6989586621679402469"><span class="annot"><span class="annottext">toXML :: CustomOriginConfig -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CustomOriginConfig.html#CustomOriginConfig%27"><span class="hs-identifier hs-type">CustomOriginConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402462"><span id="local-6989586621679402463"><span id="local-6989586621679402464"><span id="local-6989586621679402465"><span id="local-6989586621679402466"><span id="local-6989586621679402467"><span class="annot"><span class="annottext">Int
 Maybe Int
 Maybe OriginSslProtocols
 OriginProtocolPolicy
@@ -505,7 +505,7 @@ $sel:hTTPPort:CustomOriginConfig' :: CustomOriginConfig -&gt; Int
 $sel:originSslProtocols:CustomOriginConfig' :: CustomOriginConfig -&gt; Maybe OriginSslProtocols
 $sel:originReadTimeout:CustomOriginConfig' :: CustomOriginConfig -&gt; Maybe Int
 $sel:originKeepaliveTimeout:CustomOriginConfig' :: CustomOriginConfig -&gt; Maybe Int
-</span><a href="#local-6989586621679402453"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679402462"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-221"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -514,31 +514,31 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-223"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; Maybe Int -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679402458"><span class="hs-identifier hs-var">originKeepaliveTimeout</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679402467"><span class="hs-identifier hs-var">originKeepaliveTimeout</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-224"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;OriginReadTimeout&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Int -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679402457"><span class="hs-identifier hs-var">originReadTimeout</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679402466"><span class="hs-identifier hs-var">originReadTimeout</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-225"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;OriginSslProtocols&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe OriginSslProtocols -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe OriginSslProtocols
-</span><a href="#local-6989586621679402456"><span class="hs-identifier hs-var">originSslProtocols</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679402465"><span class="hs-identifier hs-var">originSslProtocols</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-226"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;HTTPPort&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Int -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679402455"><span class="hs-identifier hs-var">hTTPPort</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679402464"><span class="hs-identifier hs-var">hTTPPort</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-227"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;HTTPSPort&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Int -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679402454"><span class="hs-identifier hs-var">hTTPSPort</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679402463"><span class="hs-identifier hs-var">hTTPSPort</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-228"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;OriginProtocolPolicy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; OriginProtocolPolicy -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">OriginProtocolPolicy
-</span><a href="#local-6989586621679402453"><span class="hs-identifier hs-var">originProtocolPolicy</span></a></span><span>
+</span><a href="#local-6989586621679402462"><span class="hs-identifier hs-var">originProtocolPolicy</span></a></span><span>
 </span><span id="line-229"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-230"></span></pre></body></html>

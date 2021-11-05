@@ -46,7 +46,7 @@
 </span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-47"></span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newDetachTypedLink' smart constructor.</span><span>
-</span><span id="line-49"></span><span id="local-6989586621679344850"><span id="local-6989586621679344851"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetachTypedLink"><span class="annot"><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#DetachTypedLink"><span class="hs-identifier hs-var">DetachTypedLink</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetachTypedLink%27"><span class="annot"><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#DetachTypedLink%27"><span class="hs-identifier hs-var">DetachTypedLink'</span></a></span></span><span>
+</span><span id="line-49"></span><span id="local-6989586621679344859"><span id="local-6989586621679344860"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetachTypedLink"><span class="annot"><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#DetachTypedLink"><span class="hs-identifier hs-var">DetachTypedLink</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetachTypedLink%27"><span class="annot"><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#DetachTypedLink%27"><span class="hs-identifier hs-var">DetachTypedLink'</span></a></span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the directory where you want to detach</span><span>
 </span><span id="line-51"></span><span>    </span><span class="hs-comment">-- the typed link.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AdirectoryArn%3ADetachTypedLink%27"><span class="annot"><span class="annottext">DetachTypedLink -&gt; Text
@@ -55,7 +55,7 @@
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AtypedLinkSpecifier%3ADetachTypedLink%27"><span class="annot"><span class="annottext">DetachTypedLink -&gt; TypedLinkSpecifier
 </span><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#%24sel%3AtypedLinkSpecifier%3ADetachTypedLink%27"><span class="hs-identifier hs-var hs-var">typedLinkSpecifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#TypedLinkSpecifier"><span class="hs-identifier hs-type">TypedLinkSpecifier</span></a></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679344843"><span id="local-6989586621679344845"><span class="annot"><span class="annottext">DetachTypedLink -&gt; DetachTypedLink -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679344852"><span id="local-6989586621679344854"><span class="annot"><span class="annottext">DetachTypedLink -&gt; DetachTypedLink -&gt; Bool
 (DetachTypedLink -&gt; DetachTypedLink -&gt; Bool)
 -&gt; (DetachTypedLink -&gt; DetachTypedLink -&gt; Bool)
 -&gt; Eq DetachTypedLink
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DetachTypedLink -&gt; DetachTypedLink -&gt; Bool
 == :: DetachTypedLink -&gt; DetachTypedLink -&gt; Bool
 $c== :: DetachTypedLink -&gt; DetachTypedLink -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344834"><span id="local-6989586621679344836"><span id="local-6989586621679344838"><span id="local-6989586621679344840"><span class="annot"><span class="annottext">ReadPrec [DetachTypedLink]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344843"><span id="local-6989586621679344845"><span id="local-6989586621679344847"><span id="local-6989586621679344849"><span class="annot"><span class="annottext">ReadPrec [DetachTypedLink]
 ReadPrec DetachTypedLink
 Int -&gt; ReadS DetachTypedLink
 ReadS [DetachTypedLink]
@@ -84,7 +84,7 @@ readList :: ReadS [DetachTypedLink]
 $creadList :: ReadS [DetachTypedLink]
 readsPrec :: Int -&gt; ReadS DetachTypedLink
 $creadsPrec :: Int -&gt; ReadS DetachTypedLink
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344827"><span id="local-6989586621679344829"><span id="local-6989586621679344831"><span class="annot"><span class="annottext">Int -&gt; DetachTypedLink -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344836"><span id="local-6989586621679344838"><span id="local-6989586621679344840"><span class="annot"><span class="annottext">Int -&gt; DetachTypedLink -&gt; ShowS
 [DetachTypedLink] -&gt; ShowS
 DetachTypedLink -&gt; String
 (Int -&gt; DetachTypedLink -&gt; ShowS)
@@ -130,18 +130,18 @@ $cfrom :: forall x. DetachTypedLink -&gt; Rep DetachTypedLink x
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#DetachTypedLink"><span class="hs-identifier hs-type">DetachTypedLink</span></a></span><span>
 </span><span id="line-76"></span><span id="newDetachTypedLink"><span class="annot"><span class="annottext">newDetachTypedLink :: Text -&gt; TypedLinkSpecifier -&gt; DetachTypedLink
 </span><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#newDetachTypedLink"><span class="hs-identifier hs-var hs-var">newDetachTypedLink</span></a></span></span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679344822"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679344822"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span></span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679344821"><span class="annot"><span class="annottext">TypedLinkSpecifier
-</span><a href="#local-6989586621679344821"><span class="hs-identifier hs-var">pTypedLinkSpecifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679344831"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679344831"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679344830"><span class="annot"><span class="annottext">TypedLinkSpecifier
+</span><a href="#local-6989586621679344830"><span class="hs-identifier hs-var">pTypedLinkSpecifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">DetachTypedLink' :: Text -&gt; TypedLinkSpecifier -&gt; DetachTypedLink
 </span><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#DetachTypedLink%27"><span class="hs-identifier hs-type">DetachTypedLink'</span></a></span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:directoryArn:DetachTypedLink' :: Text
 </span><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#%24sel%3AdirectoryArn%3ADetachTypedLink%27"><span class="hs-identifier hs-var">directoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679344822"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679344831"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">$sel:typedLinkSpecifier:DetachTypedLink' :: TypedLinkSpecifier
 </span><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#%24sel%3AtypedLinkSpecifier%3ADetachTypedLink%27"><span class="hs-identifier hs-var">typedLinkSpecifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TypedLinkSpecifier
-</span><a href="#local-6989586621679344821"><span class="hs-identifier hs-var">pTypedLinkSpecifier_</span></a></span><span>
+</span><a href="#local-6989586621679344830"><span class="hs-identifier hs-var">pTypedLinkSpecifier_</span></a></span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the directory where you want to detach</span><span>
@@ -152,16 +152,16 @@ $cfrom :: forall x. DetachTypedLink -&gt; Rep DetachTypedLink x
 -&gt; (DetachTypedLink -&gt; Text -&gt; DetachTypedLink)
 -&gt; Lens DetachTypedLink DetachTypedLink Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#DetachTypedLink%27"><span class="hs-identifier hs-type">DetachTypedLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344818"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#DetachTypedLink%27"><span class="hs-identifier hs-type">DetachTypedLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344827"><span class="annot"><span class="annottext">Text
 directoryArn :: Text
 $sel:directoryArn:DetachTypedLink' :: DetachTypedLink -&gt; Text
-</span><a href="#local-6989586621679344818"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679344818"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344817"><span class="annot"><span class="annottext">s :: DetachTypedLink
-</span><a href="#local-6989586621679344817"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#DetachTypedLink%27"><span class="hs-identifier hs-type">DetachTypedLink'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344816"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679344816"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachTypedLink
-</span><a href="#local-6989586621679344817"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryArn:DetachTypedLink' :: Text
+</span><a href="#local-6989586621679344827"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679344827"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344826"><span class="annot"><span class="annottext">s :: DetachTypedLink
+</span><a href="#local-6989586621679344826"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#DetachTypedLink%27"><span class="hs-identifier hs-type">DetachTypedLink'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344825"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679344825"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachTypedLink
+</span><a href="#local-6989586621679344826"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryArn:DetachTypedLink' :: Text
 </span><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#%24sel%3AdirectoryArn%3ADetachTypedLink%27"><span class="hs-identifier hs-var">directoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679344816"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#DetachTypedLink"><span class="hs-identifier hs-type">DetachTypedLink</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679344825"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#DetachTypedLink"><span class="hs-identifier hs-type">DetachTypedLink</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | Used to accept a typed link specifier as input.</span><span>
 </span><span id="line-90"></span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#detachTypedLink_typedLinkSpecifier"><span class="hs-identifier hs-type">detachTypedLink_typedLinkSpecifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#DetachTypedLink"><span class="hs-identifier hs-type">DetachTypedLink</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedLinkSpecifier.html#TypedLinkSpecifier"><span class="hs-identifier hs-type">TypedLinkSpecifier</span></a></span><span>
@@ -175,27 +175,27 @@ $sel:directoryArn:DetachTypedLink' :: DetachTypedLink -&gt; Text
      TypedLinkSpecifier
      TypedLinkSpecifier
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#DetachTypedLink%27"><span class="hs-identifier hs-type">DetachTypedLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344815"><span class="annot"><span class="annottext">TypedLinkSpecifier
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#DetachTypedLink%27"><span class="hs-identifier hs-type">DetachTypedLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344824"><span class="annot"><span class="annottext">TypedLinkSpecifier
 typedLinkSpecifier :: TypedLinkSpecifier
 $sel:typedLinkSpecifier:DetachTypedLink' :: DetachTypedLink -&gt; TypedLinkSpecifier
-</span><a href="#local-6989586621679344815"><span class="hs-identifier hs-var hs-var">typedLinkSpecifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypedLinkSpecifier
-</span><a href="#local-6989586621679344815"><span class="hs-identifier hs-var">typedLinkSpecifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344814"><span class="annot"><span class="annottext">s :: DetachTypedLink
-</span><a href="#local-6989586621679344814"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#DetachTypedLink%27"><span class="hs-identifier hs-type">DetachTypedLink'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344813"><span class="annot"><span class="annottext">TypedLinkSpecifier
-</span><a href="#local-6989586621679344813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachTypedLink
-</span><a href="#local-6989586621679344814"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typedLinkSpecifier:DetachTypedLink' :: TypedLinkSpecifier
+</span><a href="#local-6989586621679344824"><span class="hs-identifier hs-var hs-var">typedLinkSpecifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypedLinkSpecifier
+</span><a href="#local-6989586621679344824"><span class="hs-identifier hs-var">typedLinkSpecifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344823"><span class="annot"><span class="annottext">s :: DetachTypedLink
+</span><a href="#local-6989586621679344823"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#DetachTypedLink%27"><span class="hs-identifier hs-type">DetachTypedLink'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344822"><span class="annot"><span class="annottext">TypedLinkSpecifier
+</span><a href="#local-6989586621679344822"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachTypedLink
+</span><a href="#local-6989586621679344823"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typedLinkSpecifier:DetachTypedLink' :: TypedLinkSpecifier
 </span><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#%24sel%3AtypedLinkSpecifier%3ADetachTypedLink%27"><span class="hs-identifier hs-var">typedLinkSpecifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TypedLinkSpecifier
-</span><a href="#local-6989586621679344813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#DetachTypedLink"><span class="hs-identifier hs-type">DetachTypedLink</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679344822"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#DetachTypedLink"><span class="hs-identifier hs-type">DetachTypedLink</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#DetachTypedLink"><span class="hs-identifier hs-type">DetachTypedLink</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-94"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-95"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#DetachTypedLink"><span class="hs-identifier hs-type">DetachTypedLink</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#DetachTypedLinkResponse"><span class="hs-identifier hs-type">DetachTypedLinkResponse</span></a></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679344809"><span class="annot"><span class="annottext">request :: DetachTypedLink -&gt; Request DetachTypedLink
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679344818"><span class="annot"><span class="annottext">request :: DetachTypedLink -&gt; Request DetachTypedLink
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DetachTypedLink -&gt; Request DetachTypedLink
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudDirectory.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679344805"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679344814"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DetachTypedLink
 -&gt; ClientResponse ClientBody
@@ -219,19 +219,19 @@ AWSResponse a
 DetachTypedLinkResponse
 </span><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#DetachTypedLinkResponse%27"><span class="hs-identifier hs-var">DetachTypedLinkResponse'</span></a></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344798"><span id="local-6989586621679344800"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#DetachTypedLink"><span class="hs-identifier hs-type">DetachTypedLink</span></a></span></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344807"><span id="local-6989586621679344809"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#DetachTypedLink"><span class="hs-identifier hs-type">DetachTypedLink</span></a></span></span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344795"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#DetachTypedLink"><span class="hs-identifier hs-type">DetachTypedLink</span></a></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344804"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#DetachTypedLink"><span class="hs-identifier hs-type">DetachTypedLink</span></a></span></span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#DetachTypedLink"><span class="hs-identifier hs-type">DetachTypedLink</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679344791"><span class="annot"><span class="annottext">toHeaders :: DetachTypedLink -&gt; [Header]
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#DetachTypedLink%27"><span class="hs-identifier hs-type">DetachTypedLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344788"><span id="local-6989586621679344789"><span class="annot"><span class="annottext">Text
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679344800"><span class="annot"><span class="annottext">toHeaders :: DetachTypedLink -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#DetachTypedLink%27"><span class="hs-identifier hs-type">DetachTypedLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344797"><span id="local-6989586621679344798"><span class="annot"><span class="annottext">Text
 TypedLinkSpecifier
 typedLinkSpecifier :: TypedLinkSpecifier
 directoryArn :: Text
 $sel:typedLinkSpecifier:DetachTypedLink' :: DetachTypedLink -&gt; TypedLinkSpecifier
 $sel:directoryArn:DetachTypedLink' :: DetachTypedLink -&gt; Text
-</span><a href="#local-6989586621679344788"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679344797"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -239,17 +239,17 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;x-amz-data-partition&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Text -&gt; [Header]
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679344789"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679344798"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344780"><span id="local-6989586621679344782"><span id="local-6989586621679344784"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#DetachTypedLink"><span class="hs-identifier hs-type">DetachTypedLink</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679344778"><span class="annot"><span class="annottext">toJSON :: DetachTypedLink -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#DetachTypedLink%27"><span class="hs-identifier hs-type">DetachTypedLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344775"><span id="local-6989586621679344776"><span class="annot"><span class="annottext">Text
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344789"><span id="local-6989586621679344791"><span id="local-6989586621679344793"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#DetachTypedLink"><span class="hs-identifier hs-type">DetachTypedLink</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679344787"><span class="annot"><span class="annottext">toJSON :: DetachTypedLink -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#DetachTypedLink%27"><span class="hs-identifier hs-type">DetachTypedLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344784"><span id="local-6989586621679344785"><span class="annot"><span class="annottext">Text
 TypedLinkSpecifier
 typedLinkSpecifier :: TypedLinkSpecifier
 directoryArn :: Text
 $sel:typedLinkSpecifier:DetachTypedLink' :: DetachTypedLink -&gt; TypedLinkSpecifier
 $sel:directoryArn:DetachTypedLink' :: DetachTypedLink -&gt; Text
-</span><a href="#local-6989586621679344775"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679344784"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -262,12 +262,12 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;TypedLinkSpecifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TypedLinkSpecifier -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">TypedLinkSpecifier
-</span><a href="#local-6989586621679344775"><span class="hs-identifier hs-var">typedLinkSpecifier</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679344784"><span class="hs-identifier hs-var">typedLinkSpecifier</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#DetachTypedLink"><span class="hs-identifier hs-type">DetachTypedLink</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679344769"><span class="annot"><span class="annottext">toPath :: DetachTypedLink -&gt; ByteString
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679344778"><span class="annot"><span class="annottext">toPath :: DetachTypedLink -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; DetachTypedLink -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
@@ -276,7 +276,7 @@ forall a b. a -&gt; b -&gt; a
 </span><span class="hs-string">&quot;/amazonclouddirectory/2017-01-11/typedlink/detach&quot;</span></span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#DetachTypedLink"><span class="hs-identifier hs-type">DetachTypedLink</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679344764"><span class="annot"><span class="annottext">toQuery :: DetachTypedLink -&gt; QueryString
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679344773"><span class="annot"><span class="annottext">toQuery :: DetachTypedLink -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DetachTypedLink -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -284,10 +284,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | /See:/ 'newDetachTypedLinkResponse' smart constructor.</span><span>
-</span><span id="line-128"></span><span id="local-6989586621679344761"><span id="local-6989586621679344762"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetachTypedLinkResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#DetachTypedLinkResponse"><span class="hs-identifier hs-var">DetachTypedLinkResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetachTypedLinkResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#DetachTypedLinkResponse%27"><span class="hs-identifier hs-var">DetachTypedLinkResponse'</span></a></span></span><span>
+</span><span id="line-128"></span><span id="local-6989586621679344770"><span id="local-6989586621679344771"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetachTypedLinkResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#DetachTypedLinkResponse"><span class="hs-identifier hs-var">DetachTypedLinkResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetachTypedLinkResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#DetachTypedLinkResponse%27"><span class="hs-identifier hs-var">DetachTypedLinkResponse'</span></a></span></span><span>
 </span><span id="line-129"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-130"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-131"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679344757"><span id="local-6989586621679344759"><span class="annot"><span class="annottext">DetachTypedLinkResponse -&gt; DetachTypedLinkResponse -&gt; Bool
+</span><span id="line-131"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679344766"><span id="local-6989586621679344768"><span class="annot"><span class="annottext">DetachTypedLinkResponse -&gt; DetachTypedLinkResponse -&gt; Bool
 (DetachTypedLinkResponse -&gt; DetachTypedLinkResponse -&gt; Bool)
 -&gt; (DetachTypedLinkResponse -&gt; DetachTypedLinkResponse -&gt; Bool)
 -&gt; Eq DetachTypedLinkResponse
@@ -296,7 +296,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DetachTypedLinkResponse -&gt; DetachTypedLinkResponse -&gt; Bool
 == :: DetachTypedLinkResponse -&gt; DetachTypedLinkResponse -&gt; Bool
 $c== :: DetachTypedLinkResponse -&gt; DetachTypedLinkResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344749"><span id="local-6989586621679344751"><span id="local-6989586621679344753"><span id="local-6989586621679344755"><span class="annot"><span class="annottext">ReadPrec [DetachTypedLinkResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344758"><span id="local-6989586621679344760"><span id="local-6989586621679344762"><span id="local-6989586621679344764"><span class="annot"><span class="annottext">ReadPrec [DetachTypedLinkResponse]
 ReadPrec DetachTypedLinkResponse
 Int -&gt; ReadS DetachTypedLinkResponse
 ReadS [DetachTypedLinkResponse]
@@ -316,7 +316,7 @@ readList :: ReadS [DetachTypedLinkResponse]
 $creadList :: ReadS [DetachTypedLinkResponse]
 readsPrec :: Int -&gt; ReadS DetachTypedLinkResponse
 $creadsPrec :: Int -&gt; ReadS DetachTypedLinkResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344743"><span id="local-6989586621679344745"><span id="local-6989586621679344747"><span class="annot"><span class="annottext">Int -&gt; DetachTypedLinkResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344752"><span id="local-6989586621679344754"><span id="local-6989586621679344756"><span class="annot"><span class="annottext">Int -&gt; DetachTypedLinkResponse -&gt; ShowS
 [DetachTypedLinkResponse] -&gt; ShowS
 DetachTypedLinkResponse -&gt; String
 (Int -&gt; DetachTypedLinkResponse -&gt; ShowS)
@@ -354,5 +354,5 @@ $cfrom :: forall x. DetachTypedLinkResponse -&gt; Rep DetachTypedLinkResponse x
 </span><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#newDetachTypedLinkResponse"><span class="hs-identifier hs-var hs-var">newDetachTypedLinkResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DetachTypedLinkResponse
 </span><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#DetachTypedLinkResponse%27"><span class="hs-identifier hs-var">DetachTypedLinkResponse'</span></a></span><span>
 </span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344739"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#DetachTypedLinkResponse"><span class="hs-identifier hs-type">DetachTypedLinkResponse</span></a></span></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344748"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachTypedLink.html#DetachTypedLinkResponse"><span class="hs-identifier hs-type">DetachTypedLinkResponse</span></a></span></span><span>
 </span><span id="line-142"></span></pre></body></html>

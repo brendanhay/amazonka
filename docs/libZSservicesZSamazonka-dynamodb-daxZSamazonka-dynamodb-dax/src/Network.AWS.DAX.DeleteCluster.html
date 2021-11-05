@@ -50,12 +50,12 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newDeleteCluster' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679200198"><span id="local-6989586621679200199"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCluster"><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-var">DeleteCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCluster%27"><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#DeleteCluster%27"><span class="hs-identifier hs-var">DeleteCluster'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679200207"><span id="local-6989586621679200208"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCluster"><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-var">DeleteCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCluster%27"><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#DeleteCluster%27"><span class="hs-identifier hs-var">DeleteCluster'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the cluster to be deleted.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AclusterName%3ADeleteCluster%27"><span class="annot"><span class="annottext">DeleteCluster -&gt; Text
 </span><a href="Network.AWS.DAX.DeleteCluster.html#%24sel%3AclusterName%3ADeleteCluster%27"><span class="hs-identifier hs-var hs-var">clusterName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200192"><span id="local-6989586621679200194"><span class="annot"><span class="annottext">DeleteCluster -&gt; DeleteCluster -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200201"><span id="local-6989586621679200203"><span class="annot"><span class="annottext">DeleteCluster -&gt; DeleteCluster -&gt; Bool
 (DeleteCluster -&gt; DeleteCluster -&gt; Bool)
 -&gt; (DeleteCluster -&gt; DeleteCluster -&gt; Bool) -&gt; Eq DeleteCluster
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteCluster -&gt; DeleteCluster -&gt; Bool
 == :: DeleteCluster -&gt; DeleteCluster -&gt; Bool
 $c== :: DeleteCluster -&gt; DeleteCluster -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200183"><span id="local-6989586621679200185"><span id="local-6989586621679200187"><span id="local-6989586621679200189"><span class="annot"><span class="annottext">ReadPrec [DeleteCluster]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200192"><span id="local-6989586621679200194"><span id="local-6989586621679200196"><span id="local-6989586621679200198"><span class="annot"><span class="annottext">ReadPrec [DeleteCluster]
 ReadPrec DeleteCluster
 Int -&gt; ReadS DeleteCluster
 ReadS [DeleteCluster]
@@ -83,7 +83,7 @@ readList :: ReadS [DeleteCluster]
 $creadList :: ReadS [DeleteCluster]
 readsPrec :: Int -&gt; ReadS DeleteCluster
 $creadsPrec :: Int -&gt; ReadS DeleteCluster
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200176"><span id="local-6989586621679200178"><span id="local-6989586621679200180"><span class="annot"><span class="annottext">Int -&gt; DeleteCluster -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200185"><span id="local-6989586621679200187"><span id="local-6989586621679200189"><span class="annot"><span class="annottext">Int -&gt; DeleteCluster -&gt; ShowS
 [DeleteCluster] -&gt; ShowS
 DeleteCluster -&gt; String
 (Int -&gt; DeleteCluster -&gt; ShowS)
@@ -123,12 +123,12 @@ $cfrom :: forall x. DeleteCluster -&gt; Rep DeleteCluster x
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-type">DeleteCluster</span></a></span><span>
 </span><span id="line-72"></span><span id="newDeleteCluster"><span class="annot"><span class="annottext">newDeleteCluster :: Text -&gt; DeleteCluster
-</span><a href="Network.AWS.DAX.DeleteCluster.html#newDeleteCluster"><span class="hs-identifier hs-var hs-var">newDeleteCluster</span></a></span></span><span> </span><span id="local-6989586621679200171"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200171"><span class="hs-identifier hs-var">pClusterName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DAX.DeleteCluster.html#newDeleteCluster"><span class="hs-identifier hs-var hs-var">newDeleteCluster</span></a></span></span><span> </span><span id="local-6989586621679200180"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200180"><span class="hs-identifier hs-var">pClusterName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">DeleteCluster' :: Text -&gt; DeleteCluster
 </span><a href="Network.AWS.DAX.DeleteCluster.html#DeleteCluster%27"><span class="hs-identifier hs-type">DeleteCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterName:DeleteCluster' :: Text
 </span><a href="Network.AWS.DAX.DeleteCluster.html#%24sel%3AclusterName%3ADeleteCluster%27"><span class="hs-identifier hs-var">clusterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200171"><span class="hs-identifier hs-var">pClusterName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679200180"><span class="hs-identifier hs-var">pClusterName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | The name of the cluster to be deleted.</span><span>
 </span><span id="line-76"></span><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#deleteCluster_clusterName"><span class="hs-identifier hs-type">deleteCluster_clusterName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-type">DeleteCluster</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -137,27 +137,27 @@ $cfrom :: forall x. DeleteCluster -&gt; Rep DeleteCluster x
 -&gt; (DeleteCluster -&gt; Text -&gt; DeleteCluster)
 -&gt; Lens DeleteCluster DeleteCluster Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#DeleteCluster%27"><span class="hs-identifier hs-type">DeleteCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200168"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#DeleteCluster%27"><span class="hs-identifier hs-type">DeleteCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200177"><span class="annot"><span class="annottext">Text
 clusterName :: Text
 $sel:clusterName:DeleteCluster' :: DeleteCluster -&gt; Text
-</span><a href="#local-6989586621679200168"><span class="hs-identifier hs-var hs-var">clusterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200168"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200167"><span class="annot"><span class="annottext">s :: DeleteCluster
-</span><a href="#local-6989586621679200167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#DeleteCluster%27"><span class="hs-identifier hs-type">DeleteCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200166"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCluster
-</span><a href="#local-6989586621679200167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterName:DeleteCluster' :: Text
+</span><a href="#local-6989586621679200177"><span class="hs-identifier hs-var hs-var">clusterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200177"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200176"><span class="annot"><span class="annottext">s :: DeleteCluster
+</span><a href="#local-6989586621679200176"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#DeleteCluster%27"><span class="hs-identifier hs-type">DeleteCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200175"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200175"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCluster
+</span><a href="#local-6989586621679200176"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterName:DeleteCluster' :: Text
 </span><a href="Network.AWS.DAX.DeleteCluster.html#%24sel%3AclusterName%3ADeleteCluster%27"><span class="hs-identifier hs-var">clusterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-type">DeleteCluster</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679200175"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-type">DeleteCluster</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-type">DeleteCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-80"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-81"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-type">DeleteCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#DeleteClusterResponse"><span class="hs-identifier hs-type">DeleteClusterResponse</span></a></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679200162"><span class="annot"><span class="annottext">request :: DeleteCluster -&gt; Request DeleteCluster
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679200171"><span class="annot"><span class="annottext">request :: DeleteCluster -&gt; Request DeleteCluster
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteCluster -&gt; Request DeleteCluster
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DAX.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679200158"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679200167"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteCluster
 -&gt; ClientResponse ClientBody
@@ -181,10 +181,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679200155"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200155"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679200154"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679200154"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679200153"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679200153"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679200164"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200164"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679200163"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679200163"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679200162"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200162"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe Cluster -&gt; Int -&gt; DeleteClusterResponse
 </span><a href="Network.AWS.DAX.DeleteCluster.html#DeleteClusterResponse%27"><span class="hs-identifier hs-var">DeleteClusterResponse'</span></a></span><span>
 </span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Cluster -&gt; Int -&gt; DeleteClusterResponse)
@@ -192,7 +192,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DeleteClusterResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679200153"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Cluster)
+</span><a href="#local-6989586621679200162"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Cluster)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Cluster&quot;</span></span><span class="hs-special">)</span><span>
@@ -204,15 +204,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200155"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679200164"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200145"><span id="local-6989586621679200147"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-type">DeleteCluster</span></a></span></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200154"><span id="local-6989586621679200156"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-type">DeleteCluster</span></a></span></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200142"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-type">DeleteCluster</span></a></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200151"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-type">DeleteCluster</span></a></span></span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-type">DeleteCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679200138"><span class="annot"><span class="annottext">toHeaders :: DeleteCluster -&gt; ResponseHeaders
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679200147"><span class="annot"><span class="annottext">toHeaders :: DeleteCluster -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteCluster -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -237,12 +237,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-106"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200128"><span id="local-6989586621679200130"><span id="local-6989586621679200132"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-type">DeleteCluster</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679200126"><span class="annot"><span class="annottext">toJSON :: DeleteCluster -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#DeleteCluster%27"><span class="hs-identifier hs-type">DeleteCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200124"><span class="annot"><span class="annottext">Text
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200137"><span id="local-6989586621679200139"><span id="local-6989586621679200141"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-type">DeleteCluster</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679200135"><span class="annot"><span class="annottext">toJSON :: DeleteCluster -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#DeleteCluster%27"><span class="hs-identifier hs-type">DeleteCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200133"><span class="annot"><span class="annottext">Text
 clusterName :: Text
 $sel:clusterName:DeleteCluster' :: DeleteCluster -&gt; Text
-</span><a href="#local-6989586621679200124"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679200133"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -254,18 +254,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ClusterName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200124"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679200133"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-type">DeleteCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679200118"><span class="annot"><span class="annottext">toPath :: DeleteCluster -&gt; ByteString
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679200127"><span class="annot"><span class="annottext">toPath :: DeleteCluster -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteCluster -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-type">DeleteCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679200114"><span class="annot"><span class="annottext">toQuery :: DeleteCluster -&gt; QueryString
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679200123"><span class="annot"><span class="annottext">toQuery :: DeleteCluster -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteCluster -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -273,7 +273,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | /See:/ 'newDeleteClusterResponse' smart constructor.</span><span>
-</span><span id="line-123"></span><span id="local-6989586621679200111"><span id="local-6989586621679200112"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteClusterResponse"><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#DeleteClusterResponse"><span class="hs-identifier hs-var">DeleteClusterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteClusterResponse%27"><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#DeleteClusterResponse%27"><span class="hs-identifier hs-var">DeleteClusterResponse'</span></a></span></span><span>
+</span><span id="line-123"></span><span id="local-6989586621679200120"><span id="local-6989586621679200121"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteClusterResponse"><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#DeleteClusterResponse"><span class="hs-identifier hs-var">DeleteClusterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteClusterResponse%27"><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#DeleteClusterResponse%27"><span class="hs-identifier hs-var">DeleteClusterResponse'</span></a></span></span><span>
 </span><span id="line-124"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A description of the DAX cluster that is being deleted.</span><span>
 </span><span id="line-125"></span><span>    </span><span id="%24sel%3Acluster%3ADeleteClusterResponse%27"><span class="annot"><span class="annottext">DeleteClusterResponse -&gt; Maybe Cluster
 </span><a href="Network.AWS.DAX.DeleteCluster.html#%24sel%3Acluster%3ADeleteClusterResponse%27"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">,</span><span>
@@ -281,7 +281,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-127"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteClusterResponse%27"><span class="annot"><span class="annottext">DeleteClusterResponse -&gt; Int
 </span><a href="Network.AWS.DAX.DeleteCluster.html#%24sel%3AhttpStatus%3ADeleteClusterResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-128"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-129"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200105"><span id="local-6989586621679200107"><span class="annot"><span class="annottext">DeleteClusterResponse -&gt; DeleteClusterResponse -&gt; Bool
+</span><span id="line-129"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200114"><span id="local-6989586621679200116"><span class="annot"><span class="annottext">DeleteClusterResponse -&gt; DeleteClusterResponse -&gt; Bool
 (DeleteClusterResponse -&gt; DeleteClusterResponse -&gt; Bool)
 -&gt; (DeleteClusterResponse -&gt; DeleteClusterResponse -&gt; Bool)
 -&gt; Eq DeleteClusterResponse
@@ -290,7 +290,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteClusterResponse -&gt; DeleteClusterResponse -&gt; Bool
 == :: DeleteClusterResponse -&gt; DeleteClusterResponse -&gt; Bool
 $c== :: DeleteClusterResponse -&gt; DeleteClusterResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200097"><span id="local-6989586621679200099"><span id="local-6989586621679200101"><span id="local-6989586621679200103"><span class="annot"><span class="annottext">ReadPrec [DeleteClusterResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200106"><span id="local-6989586621679200108"><span id="local-6989586621679200110"><span id="local-6989586621679200112"><span class="annot"><span class="annottext">ReadPrec [DeleteClusterResponse]
 ReadPrec DeleteClusterResponse
 Int -&gt; ReadS DeleteClusterResponse
 ReadS [DeleteClusterResponse]
@@ -310,7 +310,7 @@ readList :: ReadS [DeleteClusterResponse]
 $creadList :: ReadS [DeleteClusterResponse]
 readsPrec :: Int -&gt; ReadS DeleteClusterResponse
 $creadsPrec :: Int -&gt; ReadS DeleteClusterResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200091"><span id="local-6989586621679200093"><span id="local-6989586621679200095"><span class="annot"><span class="annottext">Int -&gt; DeleteClusterResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200100"><span id="local-6989586621679200102"><span id="local-6989586621679200104"><span class="annot"><span class="annottext">Int -&gt; DeleteClusterResponse -&gt; ShowS
 [DeleteClusterResponse] -&gt; ShowS
 DeleteClusterResponse -&gt; String
 (Int -&gt; DeleteClusterResponse -&gt; ShowS)
@@ -352,8 +352,8 @@ $cfrom :: forall x. DeleteClusterResponse -&gt; Rep DeleteClusterResponse x
 </span><span id="line-144"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-145"></span><span>  </span><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#DeleteClusterResponse"><span class="hs-identifier hs-type">DeleteClusterResponse</span></a></span><span>
 </span><span id="line-146"></span><span id="newDeleteClusterResponse"><span class="annot"><span class="annottext">newDeleteClusterResponse :: Int -&gt; DeleteClusterResponse
-</span><a href="Network.AWS.DAX.DeleteCluster.html#newDeleteClusterResponse"><span class="hs-identifier hs-var hs-var">newDeleteClusterResponse</span></a></span></span><span> </span><span id="local-6989586621679200088"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200088"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DAX.DeleteCluster.html#newDeleteClusterResponse"><span class="hs-identifier hs-var hs-var">newDeleteClusterResponse</span></a></span></span><span> </span><span id="local-6989586621679200097"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200097"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-147"></span><span>  </span><span class="annot"><span class="annottext">DeleteClusterResponse' :: Maybe Cluster -&gt; Int -&gt; DeleteClusterResponse
 </span><a href="Network.AWS.DAX.DeleteCluster.html#DeleteClusterResponse%27"><span class="hs-identifier hs-type">DeleteClusterResponse'</span></a></span><span>
 </span><span id="line-148"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cluster:DeleteClusterResponse' :: Maybe Cluster
@@ -362,7 +362,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteClusterResponse' :: Int
 </span><a href="Network.AWS.DAX.DeleteCluster.html#%24sel%3AhttpStatus%3ADeleteClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200088"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679200097"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-150"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | A description of the DAX cluster that is being deleted.</span><span>
@@ -378,16 +378,16 @@ forall a. Maybe a
      (Maybe Cluster)
      (Maybe Cluster)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#DeleteClusterResponse%27"><span class="hs-identifier hs-type">DeleteClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200087"><span class="annot"><span class="annottext">Maybe Cluster
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#DeleteClusterResponse%27"><span class="hs-identifier hs-type">DeleteClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200096"><span class="annot"><span class="annottext">Maybe Cluster
 cluster :: Maybe Cluster
 $sel:cluster:DeleteClusterResponse' :: DeleteClusterResponse -&gt; Maybe Cluster
-</span><a href="#local-6989586621679200087"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
-</span><a href="#local-6989586621679200087"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200086"><span class="annot"><span class="annottext">s :: DeleteClusterResponse
-</span><a href="#local-6989586621679200086"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#DeleteClusterResponse%27"><span class="hs-identifier hs-type">DeleteClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200085"><span class="annot"><span class="annottext">Maybe Cluster
-</span><a href="#local-6989586621679200085"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteClusterResponse
-</span><a href="#local-6989586621679200086"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:DeleteClusterResponse' :: Maybe Cluster
+</span><a href="#local-6989586621679200096"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
+</span><a href="#local-6989586621679200096"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200095"><span class="annot"><span class="annottext">s :: DeleteClusterResponse
+</span><a href="#local-6989586621679200095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#DeleteClusterResponse%27"><span class="hs-identifier hs-type">DeleteClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200094"><span class="annot"><span class="annottext">Maybe Cluster
+</span><a href="#local-6989586621679200094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteClusterResponse
+</span><a href="#local-6989586621679200095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:DeleteClusterResponse' :: Maybe Cluster
 </span><a href="Network.AWS.DAX.DeleteCluster.html#%24sel%3Acluster%3ADeleteClusterResponse%27"><span class="hs-identifier hs-var">cluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
-</span><a href="#local-6989586621679200085"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#DeleteClusterResponse"><span class="hs-identifier hs-type">DeleteClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679200094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#DeleteClusterResponse"><span class="hs-identifier hs-type">DeleteClusterResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-157"></span><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#deleteClusterResponse_httpStatus"><span class="hs-identifier hs-type">deleteClusterResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#DeleteClusterResponse"><span class="hs-identifier hs-type">DeleteClusterResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -396,16 +396,16 @@ $sel:cluster:DeleteClusterResponse' :: DeleteClusterResponse -&gt; Maybe Cluster
 -&gt; (DeleteClusterResponse -&gt; Int -&gt; DeleteClusterResponse)
 -&gt; Lens DeleteClusterResponse DeleteClusterResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#DeleteClusterResponse%27"><span class="hs-identifier hs-type">DeleteClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200084"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#DeleteClusterResponse%27"><span class="hs-identifier hs-type">DeleteClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200093"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteClusterResponse' :: DeleteClusterResponse -&gt; Int
-</span><a href="#local-6989586621679200084"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200084"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200083"><span class="annot"><span class="annottext">s :: DeleteClusterResponse
-</span><a href="#local-6989586621679200083"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#DeleteClusterResponse%27"><span class="hs-identifier hs-type">DeleteClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200082"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200082"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteClusterResponse
-</span><a href="#local-6989586621679200083"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteClusterResponse' :: Int
+</span><a href="#local-6989586621679200093"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200093"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200092"><span class="annot"><span class="annottext">s :: DeleteClusterResponse
+</span><a href="#local-6989586621679200092"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#DeleteClusterResponse%27"><span class="hs-identifier hs-type">DeleteClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200091"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200091"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteClusterResponse
+</span><a href="#local-6989586621679200092"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteClusterResponse' :: Int
 </span><a href="Network.AWS.DAX.DeleteCluster.html#%24sel%3AhttpStatus%3ADeleteClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200082"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#DeleteClusterResponse"><span class="hs-identifier hs-type">DeleteClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679200091"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#DeleteClusterResponse"><span class="hs-identifier hs-type">DeleteClusterResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200080"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#DeleteClusterResponse"><span class="hs-identifier hs-type">DeleteClusterResponse</span></a></span></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200089"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.DeleteCluster.html#DeleteClusterResponse"><span class="hs-identifier hs-type">DeleteClusterResponse</span></a></span></span><span>
 </span><span id="line-161"></span></pre></body></html>

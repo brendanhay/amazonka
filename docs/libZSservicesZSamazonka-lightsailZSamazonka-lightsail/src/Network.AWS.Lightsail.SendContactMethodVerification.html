@@ -62,12 +62,12 @@
 </span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | /See:/ 'newSendContactMethodVerification' smart constructor.</span><span>
-</span><span id="line-65"></span><span id="local-6989586621679631788"><span id="local-6989586621679631789"></span></span><span class="hs-keyword">data</span><span> </span><span id="SendContactMethodVerification"><span class="annot"><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#SendContactMethodVerification"><span class="hs-identifier hs-var">SendContactMethodVerification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SendContactMethodVerification%27"><span class="annot"><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#SendContactMethodVerification%27"><span class="hs-identifier hs-var">SendContactMethodVerification'</span></a></span></span><span>
+</span><span id="line-65"></span><span id="local-6989586621679631797"><span id="local-6989586621679631798"></span></span><span class="hs-keyword">data</span><span> </span><span id="SendContactMethodVerification"><span class="annot"><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#SendContactMethodVerification"><span class="hs-identifier hs-var">SendContactMethodVerification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SendContactMethodVerification%27"><span class="annot"><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#SendContactMethodVerification%27"><span class="hs-identifier hs-var">SendContactMethodVerification'</span></a></span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The protocol to verify, such as @Email@ or @SMS@ (text messaging).</span><span>
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3Aprotocol%3ASendContactMethodVerification%27"><span class="annot"><span class="annottext">SendContactMethodVerification -&gt; ContactMethodVerificationProtocol
 </span><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#%24sel%3Aprotocol%3ASendContactMethodVerification%27"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethodVerificationProtocol.html#ContactMethodVerificationProtocol"><span class="hs-identifier hs-type">ContactMethodVerificationProtocol</span></a></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679631782"><span id="local-6989586621679631784"><span class="annot"><span class="annottext">SendContactMethodVerification
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679631791"><span id="local-6989586621679631793"><span class="annot"><span class="annottext">SendContactMethodVerification
 -&gt; SendContactMethodVerification -&gt; Bool
 (SendContactMethodVerification
  -&gt; SendContactMethodVerification -&gt; Bool)
@@ -83,7 +83,7 @@ $c/= :: SendContactMethodVerification
 -&gt; SendContactMethodVerification -&gt; Bool
 $c== :: SendContactMethodVerification
 -&gt; SendContactMethodVerification -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679631773"><span id="local-6989586621679631775"><span id="local-6989586621679631777"><span id="local-6989586621679631779"><span class="annot"><span class="annottext">ReadPrec [SendContactMethodVerification]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679631782"><span id="local-6989586621679631784"><span id="local-6989586621679631786"><span id="local-6989586621679631788"><span class="annot"><span class="annottext">ReadPrec [SendContactMethodVerification]
 ReadPrec SendContactMethodVerification
 Int -&gt; ReadS SendContactMethodVerification
 ReadS [SendContactMethodVerification]
@@ -103,7 +103,7 @@ readList :: ReadS [SendContactMethodVerification]
 $creadList :: ReadS [SendContactMethodVerification]
 readsPrec :: Int -&gt; ReadS SendContactMethodVerification
 $creadsPrec :: Int -&gt; ReadS SendContactMethodVerification
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679631766"><span id="local-6989586621679631768"><span id="local-6989586621679631770"><span class="annot"><span class="annottext">Int -&gt; SendContactMethodVerification -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679631775"><span id="local-6989586621679631777"><span id="local-6989586621679631779"><span class="annot"><span class="annottext">Int -&gt; SendContactMethodVerification -&gt; ShowS
 [SendContactMethodVerification] -&gt; ShowS
 SendContactMethodVerification -&gt; String
 (Int -&gt; SendContactMethodVerification -&gt; ShowS)
@@ -155,14 +155,14 @@ SendContactMethodVerification
 </span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContactMethodVerificationProtocol.html#ContactMethodVerificationProtocol"><span class="hs-identifier hs-type">ContactMethodVerificationProtocol</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#SendContactMethodVerification"><span class="hs-identifier hs-type">SendContactMethodVerification</span></a></span><span>
 </span><span id="line-84"></span><span id="newSendContactMethodVerification"><span class="annot"><span class="annottext">newSendContactMethodVerification :: ContactMethodVerificationProtocol -&gt; SendContactMethodVerification
-</span><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#newSendContactMethodVerification"><span class="hs-identifier hs-var hs-var">newSendContactMethodVerification</span></a></span></span><span> </span><span id="local-6989586621679631761"><span class="annot"><span class="annottext">ContactMethodVerificationProtocol
-</span><a href="#local-6989586621679631761"><span class="hs-identifier hs-var">pProtocol_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#newSendContactMethodVerification"><span class="hs-identifier hs-var hs-var">newSendContactMethodVerification</span></a></span></span><span> </span><span id="local-6989586621679631770"><span class="annot"><span class="annottext">ContactMethodVerificationProtocol
+</span><a href="#local-6989586621679631770"><span class="hs-identifier hs-var">pProtocol_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">SendContactMethodVerification' :: ContactMethodVerificationProtocol -&gt; SendContactMethodVerification
 </span><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#SendContactMethodVerification%27"><span class="hs-identifier hs-type">SendContactMethodVerification'</span></a></span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:protocol:SendContactMethodVerification' :: ContactMethodVerificationProtocol
 </span><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#%24sel%3Aprotocol%3ASendContactMethodVerification%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">ContactMethodVerificationProtocol
-</span><a href="#local-6989586621679631761"><span class="hs-identifier hs-var">pProtocol_</span></a></span><span>
+</span><a href="#local-6989586621679631770"><span class="hs-identifier hs-var">pProtocol_</span></a></span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | The protocol to verify, such as @Email@ or @SMS@ (text messaging).</span><span>
@@ -181,16 +181,16 @@ SendContactMethodVerification
      ContactMethodVerificationProtocol
      ContactMethodVerificationProtocol
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#SendContactMethodVerification%27"><span class="hs-identifier hs-type">SendContactMethodVerification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679631758"><span class="annot"><span class="annottext">ContactMethodVerificationProtocol
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#SendContactMethodVerification%27"><span class="hs-identifier hs-type">SendContactMethodVerification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679631767"><span class="annot"><span class="annottext">ContactMethodVerificationProtocol
 protocol :: ContactMethodVerificationProtocol
 $sel:protocol:SendContactMethodVerification' :: SendContactMethodVerification -&gt; ContactMethodVerificationProtocol
-</span><a href="#local-6989586621679631758"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactMethodVerificationProtocol
-</span><a href="#local-6989586621679631758"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679631757"><span class="annot"><span class="annottext">s :: SendContactMethodVerification
-</span><a href="#local-6989586621679631757"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#SendContactMethodVerification%27"><span class="hs-identifier hs-type">SendContactMethodVerification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679631756"><span class="annot"><span class="annottext">ContactMethodVerificationProtocol
-</span><a href="#local-6989586621679631756"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendContactMethodVerification
-</span><a href="#local-6989586621679631757"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocol:SendContactMethodVerification' :: ContactMethodVerificationProtocol
+</span><a href="#local-6989586621679631767"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactMethodVerificationProtocol
+</span><a href="#local-6989586621679631767"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679631766"><span class="annot"><span class="annottext">s :: SendContactMethodVerification
+</span><a href="#local-6989586621679631766"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#SendContactMethodVerification%27"><span class="hs-identifier hs-type">SendContactMethodVerification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679631765"><span class="annot"><span class="annottext">ContactMethodVerificationProtocol
+</span><a href="#local-6989586621679631765"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendContactMethodVerification
+</span><a href="#local-6989586621679631766"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocol:SendContactMethodVerification' :: ContactMethodVerificationProtocol
 </span><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#%24sel%3Aprotocol%3ASendContactMethodVerification%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ContactMethodVerificationProtocol
-</span><a href="#local-6989586621679631756"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#SendContactMethodVerification"><span class="hs-identifier hs-type">SendContactMethodVerification</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679631765"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#SendContactMethodVerification"><span class="hs-identifier hs-type">SendContactMethodVerification</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-95"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -199,7 +199,7 @@ $sel:protocol:SendContactMethodVerification' :: SendContactMethodVerification -&
 </span><span id="line-98"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-99"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#SendContactMethodVerification"><span class="hs-identifier hs-type">SendContactMethodVerification</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#SendContactMethodVerificationResponse"><span class="hs-identifier hs-type">SendContactMethodVerificationResponse</span></a></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679631752"><span class="annot"><span class="annottext">request :: SendContactMethodVerification
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679631761"><span class="annot"><span class="annottext">request :: SendContactMethodVerification
 -&gt; Request SendContactMethodVerification
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; SendContactMethodVerification
@@ -207,7 +207,7 @@ $sel:protocol:SendContactMethodVerification' :: SendContactMethodVerification -&
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679631748"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679631757"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy SendContactMethodVerification
 -&gt; ClientResponse ClientBody
@@ -233,10 +233,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679631745"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679631745"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679631744"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679631744"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679631743"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679631743"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679631754"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679631754"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679631753"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679631753"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679631752"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679631752"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Operation] -&gt; Int -&gt; SendContactMethodVerificationResponse
 </span><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#SendContactMethodVerificationResponse%27"><span class="hs-identifier hs-var">SendContactMethodVerificationResponse'</span></a></span><span>
 </span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Operation] -&gt; Int -&gt; SendContactMethodVerificationResponse)
@@ -244,7 +244,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; SendContactMethodVerificationResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679631743"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
+</span><a href="#local-6989586621679631752"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;operations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Operation]))
@@ -262,17 +262,17 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679631745"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679631754"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679631734"><span id="local-6989586621679631736"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679631743"><span id="local-6989586621679631745"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#SendContactMethodVerification"><span class="hs-identifier hs-type">SendContactMethodVerification</span></a></span></span></span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679631731"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#SendContactMethodVerification"><span class="hs-identifier hs-type">SendContactMethodVerification</span></a></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679631740"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#SendContactMethodVerification"><span class="hs-identifier hs-type">SendContactMethodVerification</span></a></span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#SendContactMethodVerification"><span class="hs-identifier hs-type">SendContactMethodVerification</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679631727"><span class="annot"><span class="annottext">toHeaders :: SendContactMethodVerification -&gt; ResponseHeaders
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679631736"><span class="annot"><span class="annottext">toHeaders :: SendContactMethodVerification -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; SendContactMethodVerification -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -299,12 +299,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-128"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679631717"><span id="local-6989586621679631719"><span id="local-6989586621679631721"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#SendContactMethodVerification"><span class="hs-identifier hs-type">SendContactMethodVerification</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679631715"><span class="annot"><span class="annottext">toJSON :: SendContactMethodVerification -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#SendContactMethodVerification%27"><span class="hs-identifier hs-type">SendContactMethodVerification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679631713"><span class="annot"><span class="annottext">ContactMethodVerificationProtocol
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679631726"><span id="local-6989586621679631728"><span id="local-6989586621679631730"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#SendContactMethodVerification"><span class="hs-identifier hs-type">SendContactMethodVerification</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679631724"><span class="annot"><span class="annottext">toJSON :: SendContactMethodVerification -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#SendContactMethodVerification%27"><span class="hs-identifier hs-type">SendContactMethodVerification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679631722"><span class="annot"><span class="annottext">ContactMethodVerificationProtocol
 protocol :: ContactMethodVerificationProtocol
 $sel:protocol:SendContactMethodVerification' :: SendContactMethodVerification -&gt; ContactMethodVerificationProtocol
-</span><a href="#local-6989586621679631713"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679631722"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -316,18 +316,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;protocol&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ContactMethodVerificationProtocol -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ContactMethodVerificationProtocol
-</span><a href="#local-6989586621679631713"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679631722"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#SendContactMethodVerification"><span class="hs-identifier hs-type">SendContactMethodVerification</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679631707"><span class="annot"><span class="annottext">toPath :: SendContactMethodVerification -&gt; ByteString
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679631716"><span class="annot"><span class="annottext">toPath :: SendContactMethodVerification -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SendContactMethodVerification -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#SendContactMethodVerification"><span class="hs-identifier hs-type">SendContactMethodVerification</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679631703"><span class="annot"><span class="annottext">toQuery :: SendContactMethodVerification -&gt; QueryString
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679631712"><span class="annot"><span class="annottext">toQuery :: SendContactMethodVerification -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; SendContactMethodVerification -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -335,7 +335,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- | /See:/ 'newSendContactMethodVerificationResponse' smart constructor.</span><span>
-</span><span id="line-145"></span><span id="local-6989586621679631700"><span id="local-6989586621679631701"></span></span><span class="hs-keyword">data</span><span> </span><span id="SendContactMethodVerificationResponse"><span class="annot"><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#SendContactMethodVerificationResponse"><span class="hs-identifier hs-var">SendContactMethodVerificationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SendContactMethodVerificationResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#SendContactMethodVerificationResponse%27"><span class="hs-identifier hs-var">SendContactMethodVerificationResponse'</span></a></span></span><span>
+</span><span id="line-145"></span><span id="local-6989586621679631709"><span id="local-6989586621679631710"></span></span><span class="hs-keyword">data</span><span> </span><span id="SendContactMethodVerificationResponse"><span class="annot"><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#SendContactMethodVerificationResponse"><span class="hs-identifier hs-var">SendContactMethodVerificationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SendContactMethodVerificationResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#SendContactMethodVerificationResponse%27"><span class="hs-identifier hs-var">SendContactMethodVerificationResponse'</span></a></span></span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
 </span><span id="line-147"></span><span>    </span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
 </span><span id="line-148"></span><span>    </span><span class="hs-comment">-- affected by the request.</span><span>
@@ -345,7 +345,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-151"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASendContactMethodVerificationResponse%27"><span class="annot"><span class="annottext">SendContactMethodVerificationResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#%24sel%3AhttpStatus%3ASendContactMethodVerificationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-152"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-153"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679631694"><span id="local-6989586621679631696"><span class="annot"><span class="annottext">SendContactMethodVerificationResponse
+</span><span id="line-153"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679631703"><span id="local-6989586621679631705"><span class="annot"><span class="annottext">SendContactMethodVerificationResponse
 -&gt; SendContactMethodVerificationResponse -&gt; Bool
 (SendContactMethodVerificationResponse
  -&gt; SendContactMethodVerificationResponse -&gt; Bool)
@@ -361,7 +361,7 @@ $c/= :: SendContactMethodVerificationResponse
 -&gt; SendContactMethodVerificationResponse -&gt; Bool
 $c== :: SendContactMethodVerificationResponse
 -&gt; SendContactMethodVerificationResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679631686"><span id="local-6989586621679631688"><span id="local-6989586621679631690"><span id="local-6989586621679631692"><span class="annot"><span class="annottext">ReadPrec [SendContactMethodVerificationResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679631695"><span id="local-6989586621679631697"><span id="local-6989586621679631699"><span id="local-6989586621679631701"><span class="annot"><span class="annottext">ReadPrec [SendContactMethodVerificationResponse]
 ReadPrec SendContactMethodVerificationResponse
 Int -&gt; ReadS SendContactMethodVerificationResponse
 ReadS [SendContactMethodVerificationResponse]
@@ -381,7 +381,7 @@ readList :: ReadS [SendContactMethodVerificationResponse]
 $creadList :: ReadS [SendContactMethodVerificationResponse]
 readsPrec :: Int -&gt; ReadS SendContactMethodVerificationResponse
 $creadsPrec :: Int -&gt; ReadS SendContactMethodVerificationResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679631680"><span id="local-6989586621679631682"><span id="local-6989586621679631684"><span class="annot"><span class="annottext">Int -&gt; SendContactMethodVerificationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679631689"><span id="local-6989586621679631691"><span id="local-6989586621679631693"><span class="annot"><span class="annottext">Int -&gt; SendContactMethodVerificationResponse -&gt; ShowS
 [SendContactMethodVerificationResponse] -&gt; ShowS
 SendContactMethodVerificationResponse -&gt; String
 (Int -&gt; SendContactMethodVerificationResponse -&gt; ShowS)
@@ -437,8 +437,8 @@ SendContactMethodVerificationResponse
 </span><span id="line-170"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-171"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#SendContactMethodVerificationResponse"><span class="hs-identifier hs-type">SendContactMethodVerificationResponse</span></a></span><span>
 </span><span id="line-172"></span><span id="newSendContactMethodVerificationResponse"><span class="annot"><span class="annottext">newSendContactMethodVerificationResponse :: Int -&gt; SendContactMethodVerificationResponse
-</span><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#newSendContactMethodVerificationResponse"><span class="hs-identifier hs-var hs-var">newSendContactMethodVerificationResponse</span></a></span></span><span> </span><span id="local-6989586621679631677"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679631677"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#newSendContactMethodVerificationResponse"><span class="hs-identifier hs-var hs-var">newSendContactMethodVerificationResponse</span></a></span></span><span> </span><span id="local-6989586621679631686"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679631686"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-173"></span><span>  </span><span class="annot"><span class="annottext">SendContactMethodVerificationResponse' :: Maybe [Operation] -&gt; Int -&gt; SendContactMethodVerificationResponse
 </span><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#SendContactMethodVerificationResponse%27"><span class="hs-identifier hs-type">SendContactMethodVerificationResponse'</span></a></span><span>
 </span><span id="line-174"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:operations:SendContactMethodVerificationResponse' :: Maybe [Operation]
@@ -448,7 +448,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:SendContactMethodVerificationResponse' :: Int
 </span><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#%24sel%3AhttpStatus%3ASendContactMethodVerificationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679631677"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679631686"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-177"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
@@ -467,16 +467,16 @@ forall a. Maybe a
      (Maybe [Operation])
      (Maybe [Operation])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#SendContactMethodVerificationResponse%27"><span class="hs-identifier hs-type">SendContactMethodVerificationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679631676"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#SendContactMethodVerificationResponse%27"><span class="hs-identifier hs-type">SendContactMethodVerificationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679631685"><span class="annot"><span class="annottext">Maybe [Operation]
 operations :: Maybe [Operation]
 $sel:operations:SendContactMethodVerificationResponse' :: SendContactMethodVerificationResponse -&gt; Maybe [Operation]
-</span><a href="#local-6989586621679631676"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679631676"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679631675"><span class="annot"><span class="annottext">s :: SendContactMethodVerificationResponse
-</span><a href="#local-6989586621679631675"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#SendContactMethodVerificationResponse%27"><span class="hs-identifier hs-type">SendContactMethodVerificationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679631674"><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679631674"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendContactMethodVerificationResponse
-</span><a href="#local-6989586621679631675"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:SendContactMethodVerificationResponse' :: Maybe [Operation]
+</span><a href="#local-6989586621679631685"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679631685"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679631684"><span class="annot"><span class="annottext">s :: SendContactMethodVerificationResponse
+</span><a href="#local-6989586621679631684"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#SendContactMethodVerificationResponse%27"><span class="hs-identifier hs-type">SendContactMethodVerificationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679631683"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679631683"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendContactMethodVerificationResponse
+</span><a href="#local-6989586621679631684"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:SendContactMethodVerificationResponse' :: Maybe [Operation]
 </span><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#%24sel%3Aoperations%3ASendContactMethodVerificationResponse%27"><span class="hs-identifier hs-var">operations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679631674"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#SendContactMethodVerificationResponse"><span class="hs-identifier hs-type">SendContactMethodVerificationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
+</span><a href="#local-6989586621679631683"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#SendContactMethodVerificationResponse"><span class="hs-identifier hs-type">SendContactMethodVerificationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
  -&gt; SendContactMethodVerificationResponse
  -&gt; f SendContactMethodVerificationResponse)
 -&gt; ((Maybe [Operation] -&gt; f (Maybe [Operation]))
@@ -512,18 +512,18 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#SendContactMethodVerificationResponse%27"><span class="hs-identifier hs-type">SendContactMethodVerificationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679631670"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#SendContactMethodVerificationResponse%27"><span class="hs-identifier hs-type">SendContactMethodVerificationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679631679"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:SendContactMethodVerificationResponse' :: SendContactMethodVerificationResponse -&gt; Int
-</span><a href="#local-6989586621679631670"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679631670"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679631669"><span class="annot"><span class="annottext">s :: SendContactMethodVerificationResponse
-</span><a href="#local-6989586621679631669"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#SendContactMethodVerificationResponse%27"><span class="hs-identifier hs-type">SendContactMethodVerificationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679631668"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679631668"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendContactMethodVerificationResponse
-</span><a href="#local-6989586621679631669"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SendContactMethodVerificationResponse' :: Int
+</span><a href="#local-6989586621679631679"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679631679"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679631678"><span class="annot"><span class="annottext">s :: SendContactMethodVerificationResponse
+</span><a href="#local-6989586621679631678"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#SendContactMethodVerificationResponse%27"><span class="hs-identifier hs-type">SendContactMethodVerificationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679631677"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679631677"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendContactMethodVerificationResponse
+</span><a href="#local-6989586621679631678"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SendContactMethodVerificationResponse' :: Int
 </span><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#%24sel%3AhttpStatus%3ASendContactMethodVerificationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679631668"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#SendContactMethodVerificationResponse"><span class="hs-identifier hs-type">SendContactMethodVerificationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679631677"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#SendContactMethodVerificationResponse"><span class="hs-identifier hs-type">SendContactMethodVerificationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-190"></span><span>  </span><span id="local-6989586621679631666"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679631675"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-191"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.SendContactMethodVerification.html#SendContactMethodVerificationResponse"><span class="hs-identifier hs-type">SendContactMethodVerificationResponse</span></a></span></span><span>
 </span><span id="line-192"></span></pre></body></html>

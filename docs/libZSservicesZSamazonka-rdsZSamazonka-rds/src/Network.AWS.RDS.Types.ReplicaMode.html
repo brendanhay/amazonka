@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679764999"><span id="local-6989586621679765000"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReplicaMode"><span class="annot"><a href="Network.AWS.RDS.Types.ReplicaMode.html#ReplicaMode"><span class="hs-identifier hs-var">ReplicaMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplicaMode%27"><span class="annot"><a href="Network.AWS.RDS.Types.ReplicaMode.html#ReplicaMode%27"><span class="hs-identifier hs-var">ReplicaMode'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679765008"><span id="local-6989586621679765009"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReplicaMode"><span class="annot"><a href="Network.AWS.RDS.Types.ReplicaMode.html#ReplicaMode"><span class="hs-identifier hs-var">ReplicaMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplicaMode%27"><span class="annot"><a href="Network.AWS.RDS.Types.ReplicaMode.html#ReplicaMode%27"><span class="hs-identifier hs-var">ReplicaMode'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromReplicaMode"><span class="annot"><span class="annottext">ReplicaMode -&gt; Text
 </span><a href="Network.AWS.RDS.Types.ReplicaMode.html#fromReplicaMode"><span class="hs-identifier hs-var hs-var">fromReplicaMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679764991"><span id="local-6989586621679764993"><span id="local-6989586621679764995"><span class="annot"><span class="annottext">Int -&gt; ReplicaMode -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679765000"><span id="local-6989586621679765002"><span id="local-6989586621679765004"><span class="annot"><span class="annottext">Int -&gt; ReplicaMode -&gt; ShowS
 [ReplicaMode] -&gt; ShowS
 ReplicaMode -&gt; String
 (Int -&gt; ReplicaMode -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ReplicaMode -&gt; String
 showsPrec :: Int -&gt; ReplicaMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; ReplicaMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679764982"><span id="local-6989586621679764984"><span id="local-6989586621679764986"><span id="local-6989586621679764988"><span class="annot"><span class="annottext">ReadPrec [ReplicaMode]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679764991"><span id="local-6989586621679764993"><span id="local-6989586621679764995"><span id="local-6989586621679764997"><span class="annot"><span class="annottext">ReadPrec [ReplicaMode]
 ReadPrec ReplicaMode
 Int -&gt; ReadS ReplicaMode
 ReadS [ReplicaMode]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ReplicaMode]
 readsPrec :: Int -&gt; ReadS ReplicaMode
 $creadsPrec :: Int -&gt; ReadS ReplicaMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679764977"><span id="local-6989586621679764979"><span class="annot"><span class="annottext">ReplicaMode -&gt; ReplicaMode -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679764986"><span id="local-6989586621679764988"><span class="annot"><span class="annottext">ReplicaMode -&gt; ReplicaMode -&gt; Bool
 (ReplicaMode -&gt; ReplicaMode -&gt; Bool)
 -&gt; (ReplicaMode -&gt; ReplicaMode -&gt; Bool) -&gt; Eq ReplicaMode
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: ReplicaMode -&gt; ReplicaMode -&gt; Bool
 == :: ReplicaMode -&gt; ReplicaMode -&gt; Bool
 $c== :: ReplicaMode -&gt; ReplicaMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679764961"><span id="local-6989586621679764963"><span id="local-6989586621679764965"><span id="local-6989586621679764967"><span id="local-6989586621679764969"><span id="local-6989586621679764971"><span id="local-6989586621679764973"><span class="annot"><span class="annottext">Eq ReplicaMode
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679764970"><span id="local-6989586621679764972"><span id="local-6989586621679764974"><span id="local-6989586621679764976"><span id="local-6989586621679764978"><span id="local-6989586621679764980"><span id="local-6989586621679764982"><span class="annot"><span class="annottext">Eq ReplicaMode
 Eq ReplicaMode
 -&gt; (ReplicaMode -&gt; ReplicaMode -&gt; Ordering)
 -&gt; (ReplicaMode -&gt; ReplicaMode -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. ReplicaMode -&gt; Rep ReplicaMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679764953"><span id="local-6989586621679764955"><span class="annot"><span class="annottext">Int -&gt; ReplicaMode -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679764962"><span id="local-6989586621679764964"><span class="annot"><span class="annottext">Int -&gt; ReplicaMode -&gt; Int
 ReplicaMode -&gt; Int
 (Int -&gt; ReplicaMode -&gt; Int)
 -&gt; (ReplicaMode -&gt; Int) -&gt; Hashable ReplicaMode
@@ -142,49 +142,49 @@ $chash :: ReplicaMode -&gt; Int
 hashWithSalt :: Int -&gt; ReplicaMode -&gt; Int
 $chashWithSalt :: Int -&gt; ReplicaMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679764950"><span class="annot"><span class="annottext">ReplicaMode -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679764959"><span class="annot"><span class="annottext">ReplicaMode -&gt; ()
 (ReplicaMode -&gt; ()) -&gt; NFData ReplicaMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ReplicaMode -&gt; ()
 $crnf :: ReplicaMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679764947"><span class="annot"><span class="annottext">Text -&gt; Either String ReplicaMode
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679764956"><span class="annot"><span class="annottext">Text -&gt; Either String ReplicaMode
 (Text -&gt; Either String ReplicaMode) -&gt; FromText ReplicaMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ReplicaMode
 $cfromText :: Text -&gt; Either String ReplicaMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679764944"><span class="annot"><span class="annottext">ReplicaMode -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679764953"><span class="annot"><span class="annottext">ReplicaMode -&gt; Text
 (ReplicaMode -&gt; Text) -&gt; ToText ReplicaMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ReplicaMode -&gt; Text
 $ctoText :: ReplicaMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679764941"><span class="annot"><span class="annottext">ReplicaMode -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679764950"><span class="annot"><span class="annottext">ReplicaMode -&gt; ByteString
 (ReplicaMode -&gt; ByteString) -&gt; ToByteString ReplicaMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ReplicaMode -&gt; ByteString
 $ctoBS :: ReplicaMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679764938"><span class="annot"><span class="annottext">ReplicaMode -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679764947"><span class="annot"><span class="annottext">ReplicaMode -&gt; ByteStringBuilder
 (ReplicaMode -&gt; ByteStringBuilder) -&gt; ToLog ReplicaMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ReplicaMode -&gt; ByteStringBuilder
 $cbuild :: ReplicaMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679764935"><span class="annot"><span class="annottext">HeaderName -&gt; ReplicaMode -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679764944"><span class="annot"><span class="annottext">HeaderName -&gt; ReplicaMode -&gt; [Header]
 (HeaderName -&gt; ReplicaMode -&gt; [Header]) -&gt; ToHeader ReplicaMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ReplicaMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ReplicaMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679764932"><span class="annot"><span class="annottext">ReplicaMode -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679764941"><span class="annot"><span class="annottext">ReplicaMode -&gt; QueryString
 (ReplicaMode -&gt; QueryString) -&gt; ToQuery ReplicaMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ReplicaMode -&gt; QueryString
 $ctoQuery :: ReplicaMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679764927"><span id="local-6989586621679764929"><span class="annot"><span class="annottext">Value -&gt; Parser [ReplicaMode]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679764936"><span id="local-6989586621679764938"><span class="annot"><span class="annottext">Value -&gt; Parser [ReplicaMode]
 Value -&gt; Parser ReplicaMode
 (Value -&gt; Parser ReplicaMode)
 -&gt; (Value -&gt; Parser [ReplicaMode]) -&gt; FromJSON ReplicaMode
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [ReplicaMode]
 parseJSON :: Value -&gt; Parser ReplicaMode
 $cparseJSON :: Value -&gt; Parser ReplicaMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679764922"><span id="local-6989586621679764924"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReplicaMode]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679764931"><span id="local-6989586621679764933"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReplicaMode]
 FromJSONKeyFunction ReplicaMode
 FromJSONKeyFunction ReplicaMode
 -&gt; FromJSONKeyFunction [ReplicaMode] -&gt; FromJSONKey ReplicaMode
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ReplicaMode]
 fromJSONKey :: FromJSONKeyFunction ReplicaMode
 $cfromJSONKey :: FromJSONKeyFunction ReplicaMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679764913"><span id="local-6989586621679764915"><span id="local-6989586621679764917"><span id="local-6989586621679764919"><span class="annot"><span class="annottext">[ReplicaMode] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679764922"><span id="local-6989586621679764924"><span id="local-6989586621679764926"><span id="local-6989586621679764928"><span class="annot"><span class="annottext">[ReplicaMode] -&gt; Encoding
 [ReplicaMode] -&gt; Value
 ReplicaMode -&gt; Encoding
 ReplicaMode -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: ReplicaMode -&gt; Encoding
 toJSON :: ReplicaMode -&gt; Value
 $ctoJSON :: ReplicaMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679764908"><span id="local-6989586621679764910"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReplicaMode]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679764917"><span id="local-6989586621679764919"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReplicaMode]
 ToJSONKeyFunction ReplicaMode
 ToJSONKeyFunction ReplicaMode
 -&gt; ToJSONKeyFunction [ReplicaMode] -&gt; ToJSONKey ReplicaMode
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ReplicaMode]
 toJSONKey :: ToJSONKeyFunction ReplicaMode
 $ctoJSONKey :: ToJSONKeyFunction ReplicaMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679764905"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReplicaMode
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679764914"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReplicaMode
 ([Node] -&gt; Either String ReplicaMode) -&gt; FromXML ReplicaMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ReplicaMode
 $cparseXML :: [Node] -&gt; Either String ReplicaMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679764902"><span class="annot"><span class="annottext">ReplicaMode -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679764911"><span class="annot"><span class="annottext">ReplicaMode -&gt; XML
 (ReplicaMode -&gt; XML) -&gt; ToXML ReplicaMode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ReplicaMode -&gt; XML

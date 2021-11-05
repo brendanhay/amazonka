@@ -1,0 +1,395 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AppMesh.Types.VirtualNodeConnectionPool</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AppMesh.Types.VirtualNodeConnectionPool</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualNodeGrpcConnectionPool.html"><span class="hs-identifier">Network.AWS.AppMesh.Types.VirtualNodeGrpcConnectionPool</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualNodeHttp2ConnectionPool.html"><span class="hs-identifier">Network.AWS.AppMesh.Types.VirtualNodeHttp2ConnectionPool</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualNodeHttpConnectionPool.html"><span class="hs-identifier">Network.AWS.AppMesh.Types.VirtualNodeHttpConnectionPool</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualNodeTcpConnectionPool.html"><span class="hs-identifier">Network.AWS.AppMesh.Types.VirtualNodeTcpConnectionPool</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | An object that represents the type of virtual node connection pool.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- Only one protocol is used at a time and should be the same protocol as</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- the one chosen under port mapping.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- If not present the default value for @maxPendingRequests@ is</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- @2147483647@.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- /See:/ 'newVirtualNodeConnectionPool' smart constructor.</span><span>
+</span><span id="line-39"></span><span id="local-6989586621679339868"><span id="local-6989586621679339869"></span></span><span class="hs-keyword">data</span><span> </span><span id="VirtualNodeConnectionPool"><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#VirtualNodeConnectionPool"><span class="hs-identifier hs-var">VirtualNodeConnectionPool</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VirtualNodeConnectionPool%27"><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#VirtualNodeConnectionPool%27"><span class="hs-identifier hs-var">VirtualNodeConnectionPool'</span></a></span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object that represents a type of connection pool.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Ahttp2%3AVirtualNodeConnectionPool%27"><span class="annot"><span class="annottext">VirtualNodeConnectionPool -&gt; Maybe VirtualNodeHttp2ConnectionPool
+</span><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#%24sel%3Ahttp2%3AVirtualNodeConnectionPool%27"><span class="hs-identifier hs-var hs-var">http2</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualNodeHttp2ConnectionPool.html#VirtualNodeHttp2ConnectionPool"><span class="hs-identifier hs-type">VirtualNodeHttp2ConnectionPool</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | An object that represents a type of connection pool.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Agrpc%3AVirtualNodeConnectionPool%27"><span class="annot"><span class="annottext">VirtualNodeConnectionPool -&gt; Maybe VirtualNodeGrpcConnectionPool
+</span><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#%24sel%3Agrpc%3AVirtualNodeConnectionPool%27"><span class="hs-identifier hs-var hs-var">grpc</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualNodeGrpcConnectionPool.html#VirtualNodeGrpcConnectionPool"><span class="hs-identifier hs-type">VirtualNodeGrpcConnectionPool</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | An object that represents a type of connection pool.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Atcp%3AVirtualNodeConnectionPool%27"><span class="annot"><span class="annottext">VirtualNodeConnectionPool -&gt; Maybe VirtualNodeTcpConnectionPool
+</span><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#%24sel%3Atcp%3AVirtualNodeConnectionPool%27"><span class="hs-identifier hs-var hs-var">tcp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualNodeTcpConnectionPool.html#VirtualNodeTcpConnectionPool"><span class="hs-identifier hs-type">VirtualNodeTcpConnectionPool</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | An object that represents a type of connection pool.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Ahttp%3AVirtualNodeConnectionPool%27"><span class="annot"><span class="annottext">VirtualNodeConnectionPool -&gt; Maybe VirtualNodeHttpConnectionPool
+</span><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#%24sel%3Ahttp%3AVirtualNodeConnectionPool%27"><span class="hs-identifier hs-var hs-var">http</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualNodeHttpConnectionPool.html#VirtualNodeHttpConnectionPool"><span class="hs-identifier hs-type">VirtualNodeHttpConnectionPool</span></a></span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679339859"><span id="local-6989586621679339861"><span class="annot"><span class="annottext">VirtualNodeConnectionPool -&gt; VirtualNodeConnectionPool -&gt; Bool
+(VirtualNodeConnectionPool -&gt; VirtualNodeConnectionPool -&gt; Bool)
+-&gt; (VirtualNodeConnectionPool -&gt; VirtualNodeConnectionPool -&gt; Bool)
+-&gt; Eq VirtualNodeConnectionPool
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: VirtualNodeConnectionPool -&gt; VirtualNodeConnectionPool -&gt; Bool
+$c/= :: VirtualNodeConnectionPool -&gt; VirtualNodeConnectionPool -&gt; Bool
+== :: VirtualNodeConnectionPool -&gt; VirtualNodeConnectionPool -&gt; Bool
+$c== :: VirtualNodeConnectionPool -&gt; VirtualNodeConnectionPool -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679339850"><span id="local-6989586621679339852"><span id="local-6989586621679339854"><span id="local-6989586621679339856"><span class="annot"><span class="annottext">ReadPrec [VirtualNodeConnectionPool]
+ReadPrec VirtualNodeConnectionPool
+Int -&gt; ReadS VirtualNodeConnectionPool
+ReadS [VirtualNodeConnectionPool]
+(Int -&gt; ReadS VirtualNodeConnectionPool)
+-&gt; ReadS [VirtualNodeConnectionPool]
+-&gt; ReadPrec VirtualNodeConnectionPool
+-&gt; ReadPrec [VirtualNodeConnectionPool]
+-&gt; Read VirtualNodeConnectionPool
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [VirtualNodeConnectionPool]
+$creadListPrec :: ReadPrec [VirtualNodeConnectionPool]
+readPrec :: ReadPrec VirtualNodeConnectionPool
+$creadPrec :: ReadPrec VirtualNodeConnectionPool
+readList :: ReadS [VirtualNodeConnectionPool]
+$creadList :: ReadS [VirtualNodeConnectionPool]
+readsPrec :: Int -&gt; ReadS VirtualNodeConnectionPool
+$creadsPrec :: Int -&gt; ReadS VirtualNodeConnectionPool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679339843"><span id="local-6989586621679339845"><span id="local-6989586621679339847"><span class="annot"><span class="annottext">Int -&gt; VirtualNodeConnectionPool -&gt; ShowS
+[VirtualNodeConnectionPool] -&gt; ShowS
+VirtualNodeConnectionPool -&gt; String
+(Int -&gt; VirtualNodeConnectionPool -&gt; ShowS)
+-&gt; (VirtualNodeConnectionPool -&gt; String)
+-&gt; ([VirtualNodeConnectionPool] -&gt; ShowS)
+-&gt; Show VirtualNodeConnectionPool
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [VirtualNodeConnectionPool] -&gt; ShowS
+$cshowList :: [VirtualNodeConnectionPool] -&gt; ShowS
+show :: VirtualNodeConnectionPool -&gt; String
+$cshow :: VirtualNodeConnectionPool -&gt; String
+showsPrec :: Int -&gt; VirtualNodeConnectionPool -&gt; ShowS
+$cshowsPrec :: Int -&gt; VirtualNodeConnectionPool -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ VirtualNodeConnectionPool -&gt; Rep VirtualNodeConnectionPool x)
+-&gt; (forall x.
+    Rep VirtualNodeConnectionPool x -&gt; VirtualNodeConnectionPool)
+-&gt; Generic VirtualNodeConnectionPool
+forall x.
+Rep VirtualNodeConnectionPool x -&gt; VirtualNodeConnectionPool
+forall x.
+VirtualNodeConnectionPool -&gt; Rep VirtualNodeConnectionPool x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep VirtualNodeConnectionPool x -&gt; VirtualNodeConnectionPool
+$cfrom :: forall x.
+VirtualNodeConnectionPool -&gt; Rep VirtualNodeConnectionPool x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Create a value of 'VirtualNodeConnectionPool' with all optional fields omitted.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'http2', 'virtualNodeConnectionPool_http2' - An object that represents a type of connection pool.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'grpc', 'virtualNodeConnectionPool_grpc' - An object that represents a type of connection pool.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'tcp', 'virtualNodeConnectionPool_tcp' - An object that represents a type of connection pool.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'http', 'virtualNodeConnectionPool_http' - An object that represents a type of connection pool.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#newVirtualNodeConnectionPool"><span class="hs-identifier hs-type">newVirtualNodeConnectionPool</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#VirtualNodeConnectionPool"><span class="hs-identifier hs-type">VirtualNodeConnectionPool</span></a></span><span>
+</span><span id="line-68"></span><span id="newVirtualNodeConnectionPool"><span class="annot"><span class="annottext">newVirtualNodeConnectionPool :: VirtualNodeConnectionPool
+</span><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#newVirtualNodeConnectionPool"><span class="hs-identifier hs-var hs-var">newVirtualNodeConnectionPool</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">VirtualNodeConnectionPool' :: Maybe VirtualNodeHttp2ConnectionPool
+-&gt; Maybe VirtualNodeGrpcConnectionPool
+-&gt; Maybe VirtualNodeTcpConnectionPool
+-&gt; Maybe VirtualNodeHttpConnectionPool
+-&gt; VirtualNodeConnectionPool
+</span><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#VirtualNodeConnectionPool%27"><span class="hs-identifier hs-type">VirtualNodeConnectionPool'</span></a></span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:http2:VirtualNodeConnectionPool' :: Maybe VirtualNodeHttp2ConnectionPool
+</span><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#%24sel%3Ahttp2%3AVirtualNodeConnectionPool%27"><span class="hs-identifier hs-var">http2</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VirtualNodeHttp2ConnectionPool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:grpc:VirtualNodeConnectionPool' :: Maybe VirtualNodeGrpcConnectionPool
+</span><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#%24sel%3Agrpc%3AVirtualNodeConnectionPool%27"><span class="hs-identifier hs-var">grpc</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VirtualNodeGrpcConnectionPool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:tcp:VirtualNodeConnectionPool' :: Maybe VirtualNodeTcpConnectionPool
+</span><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#%24sel%3Atcp%3AVirtualNodeConnectionPool%27"><span class="hs-identifier hs-var">tcp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VirtualNodeTcpConnectionPool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:http:VirtualNodeConnectionPool' :: Maybe VirtualNodeHttpConnectionPool
+</span><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#%24sel%3Ahttp%3AVirtualNodeConnectionPool%27"><span class="hs-identifier hs-var">http</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VirtualNodeHttpConnectionPool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | An object that represents a type of connection pool.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#virtualNodeConnectionPool_http2"><span class="hs-identifier hs-type">virtualNodeConnectionPool_http2</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#VirtualNodeConnectionPool"><span class="hs-identifier hs-type">VirtualNodeConnectionPool</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualNodeHttp2ConnectionPool.html#VirtualNodeHttp2ConnectionPool"><span class="hs-identifier hs-type">VirtualNodeHttp2ConnectionPool</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="virtualNodeConnectionPool_http2"><span class="annot"><span class="annottext">virtualNodeConnectionPool_http2 :: (Maybe VirtualNodeHttp2ConnectionPool
+ -&gt; f (Maybe VirtualNodeHttp2ConnectionPool))
+-&gt; VirtualNodeConnectionPool -&gt; f VirtualNodeConnectionPool
+</span><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#virtualNodeConnectionPool_http2"><span class="hs-identifier hs-var hs-var">virtualNodeConnectionPool_http2</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VirtualNodeConnectionPool -&gt; Maybe VirtualNodeHttp2ConnectionPool)
+-&gt; (VirtualNodeConnectionPool
+    -&gt; Maybe VirtualNodeHttp2ConnectionPool
+    -&gt; VirtualNodeConnectionPool)
+-&gt; Lens
+     VirtualNodeConnectionPool
+     VirtualNodeConnectionPool
+     (Maybe VirtualNodeHttp2ConnectionPool)
+     (Maybe VirtualNodeHttp2ConnectionPool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#VirtualNodeConnectionPool%27"><span class="hs-identifier hs-type">VirtualNodeConnectionPool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339834"><span class="annot"><span class="annottext">Maybe VirtualNodeHttp2ConnectionPool
+http2 :: Maybe VirtualNodeHttp2ConnectionPool
+$sel:http2:VirtualNodeConnectionPool' :: VirtualNodeConnectionPool -&gt; Maybe VirtualNodeHttp2ConnectionPool
+</span><a href="#local-6989586621679339834"><span class="hs-identifier hs-var hs-var">http2</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VirtualNodeHttp2ConnectionPool
+</span><a href="#local-6989586621679339834"><span class="hs-identifier hs-var">http2</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339833"><span class="annot"><span class="annottext">s :: VirtualNodeConnectionPool
+</span><a href="#local-6989586621679339833"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#VirtualNodeConnectionPool%27"><span class="hs-identifier hs-type">VirtualNodeConnectionPool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339832"><span class="annot"><span class="annottext">Maybe VirtualNodeHttp2ConnectionPool
+</span><a href="#local-6989586621679339832"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualNodeConnectionPool
+</span><a href="#local-6989586621679339833"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:http2:VirtualNodeConnectionPool' :: Maybe VirtualNodeHttp2ConnectionPool
+</span><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#%24sel%3Ahttp2%3AVirtualNodeConnectionPool%27"><span class="hs-identifier hs-var">http2</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VirtualNodeHttp2ConnectionPool
+</span><a href="#local-6989586621679339832"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#VirtualNodeConnectionPool"><span class="hs-identifier hs-type">VirtualNodeConnectionPool</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | An object that represents a type of connection pool.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#virtualNodeConnectionPool_grpc"><span class="hs-identifier hs-type">virtualNodeConnectionPool_grpc</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#VirtualNodeConnectionPool"><span class="hs-identifier hs-type">VirtualNodeConnectionPool</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualNodeGrpcConnectionPool.html#VirtualNodeGrpcConnectionPool"><span class="hs-identifier hs-type">VirtualNodeGrpcConnectionPool</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="virtualNodeConnectionPool_grpc"><span class="annot"><span class="annottext">virtualNodeConnectionPool_grpc :: (Maybe VirtualNodeGrpcConnectionPool
+ -&gt; f (Maybe VirtualNodeGrpcConnectionPool))
+-&gt; VirtualNodeConnectionPool -&gt; f VirtualNodeConnectionPool
+</span><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#virtualNodeConnectionPool_grpc"><span class="hs-identifier hs-var hs-var">virtualNodeConnectionPool_grpc</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VirtualNodeConnectionPool -&gt; Maybe VirtualNodeGrpcConnectionPool)
+-&gt; (VirtualNodeConnectionPool
+    -&gt; Maybe VirtualNodeGrpcConnectionPool
+    -&gt; VirtualNodeConnectionPool)
+-&gt; Lens
+     VirtualNodeConnectionPool
+     VirtualNodeConnectionPool
+     (Maybe VirtualNodeGrpcConnectionPool)
+     (Maybe VirtualNodeGrpcConnectionPool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#VirtualNodeConnectionPool%27"><span class="hs-identifier hs-type">VirtualNodeConnectionPool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339830"><span class="annot"><span class="annottext">Maybe VirtualNodeGrpcConnectionPool
+grpc :: Maybe VirtualNodeGrpcConnectionPool
+$sel:grpc:VirtualNodeConnectionPool' :: VirtualNodeConnectionPool -&gt; Maybe VirtualNodeGrpcConnectionPool
+</span><a href="#local-6989586621679339830"><span class="hs-identifier hs-var hs-var">grpc</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VirtualNodeGrpcConnectionPool
+</span><a href="#local-6989586621679339830"><span class="hs-identifier hs-var">grpc</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339829"><span class="annot"><span class="annottext">s :: VirtualNodeConnectionPool
+</span><a href="#local-6989586621679339829"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#VirtualNodeConnectionPool%27"><span class="hs-identifier hs-type">VirtualNodeConnectionPool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339828"><span class="annot"><span class="annottext">Maybe VirtualNodeGrpcConnectionPool
+</span><a href="#local-6989586621679339828"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualNodeConnectionPool
+</span><a href="#local-6989586621679339829"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grpc:VirtualNodeConnectionPool' :: Maybe VirtualNodeGrpcConnectionPool
+</span><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#%24sel%3Agrpc%3AVirtualNodeConnectionPool%27"><span class="hs-identifier hs-var">grpc</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VirtualNodeGrpcConnectionPool
+</span><a href="#local-6989586621679339828"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#VirtualNodeConnectionPool"><span class="hs-identifier hs-type">VirtualNodeConnectionPool</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | An object that represents a type of connection pool.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#virtualNodeConnectionPool_tcp"><span class="hs-identifier hs-type">virtualNodeConnectionPool_tcp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#VirtualNodeConnectionPool"><span class="hs-identifier hs-type">VirtualNodeConnectionPool</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualNodeTcpConnectionPool.html#VirtualNodeTcpConnectionPool"><span class="hs-identifier hs-type">VirtualNodeTcpConnectionPool</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="virtualNodeConnectionPool_tcp"><span class="annot"><span class="annottext">virtualNodeConnectionPool_tcp :: (Maybe VirtualNodeTcpConnectionPool
+ -&gt; f (Maybe VirtualNodeTcpConnectionPool))
+-&gt; VirtualNodeConnectionPool -&gt; f VirtualNodeConnectionPool
+</span><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#virtualNodeConnectionPool_tcp"><span class="hs-identifier hs-var hs-var">virtualNodeConnectionPool_tcp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VirtualNodeConnectionPool -&gt; Maybe VirtualNodeTcpConnectionPool)
+-&gt; (VirtualNodeConnectionPool
+    -&gt; Maybe VirtualNodeTcpConnectionPool -&gt; VirtualNodeConnectionPool)
+-&gt; Lens
+     VirtualNodeConnectionPool
+     VirtualNodeConnectionPool
+     (Maybe VirtualNodeTcpConnectionPool)
+     (Maybe VirtualNodeTcpConnectionPool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#VirtualNodeConnectionPool%27"><span class="hs-identifier hs-type">VirtualNodeConnectionPool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339826"><span class="annot"><span class="annottext">Maybe VirtualNodeTcpConnectionPool
+tcp :: Maybe VirtualNodeTcpConnectionPool
+$sel:tcp:VirtualNodeConnectionPool' :: VirtualNodeConnectionPool -&gt; Maybe VirtualNodeTcpConnectionPool
+</span><a href="#local-6989586621679339826"><span class="hs-identifier hs-var hs-var">tcp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VirtualNodeTcpConnectionPool
+</span><a href="#local-6989586621679339826"><span class="hs-identifier hs-var">tcp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339825"><span class="annot"><span class="annottext">s :: VirtualNodeConnectionPool
+</span><a href="#local-6989586621679339825"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#VirtualNodeConnectionPool%27"><span class="hs-identifier hs-type">VirtualNodeConnectionPool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339824"><span class="annot"><span class="annottext">Maybe VirtualNodeTcpConnectionPool
+</span><a href="#local-6989586621679339824"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualNodeConnectionPool
+</span><a href="#local-6989586621679339825"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tcp:VirtualNodeConnectionPool' :: Maybe VirtualNodeTcpConnectionPool
+</span><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#%24sel%3Atcp%3AVirtualNodeConnectionPool%27"><span class="hs-identifier hs-var">tcp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VirtualNodeTcpConnectionPool
+</span><a href="#local-6989586621679339824"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#VirtualNodeConnectionPool"><span class="hs-identifier hs-type">VirtualNodeConnectionPool</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | An object that represents a type of connection pool.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#virtualNodeConnectionPool_http"><span class="hs-identifier hs-type">virtualNodeConnectionPool_http</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#VirtualNodeConnectionPool"><span class="hs-identifier hs-type">VirtualNodeConnectionPool</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualNodeHttpConnectionPool.html#VirtualNodeHttpConnectionPool"><span class="hs-identifier hs-type">VirtualNodeHttpConnectionPool</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="virtualNodeConnectionPool_http"><span class="annot"><span class="annottext">virtualNodeConnectionPool_http :: (Maybe VirtualNodeHttpConnectionPool
+ -&gt; f (Maybe VirtualNodeHttpConnectionPool))
+-&gt; VirtualNodeConnectionPool -&gt; f VirtualNodeConnectionPool
+</span><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#virtualNodeConnectionPool_http"><span class="hs-identifier hs-var hs-var">virtualNodeConnectionPool_http</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VirtualNodeConnectionPool -&gt; Maybe VirtualNodeHttpConnectionPool)
+-&gt; (VirtualNodeConnectionPool
+    -&gt; Maybe VirtualNodeHttpConnectionPool
+    -&gt; VirtualNodeConnectionPool)
+-&gt; Lens
+     VirtualNodeConnectionPool
+     VirtualNodeConnectionPool
+     (Maybe VirtualNodeHttpConnectionPool)
+     (Maybe VirtualNodeHttpConnectionPool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#VirtualNodeConnectionPool%27"><span class="hs-identifier hs-type">VirtualNodeConnectionPool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339822"><span class="annot"><span class="annottext">Maybe VirtualNodeHttpConnectionPool
+http :: Maybe VirtualNodeHttpConnectionPool
+$sel:http:VirtualNodeConnectionPool' :: VirtualNodeConnectionPool -&gt; Maybe VirtualNodeHttpConnectionPool
+</span><a href="#local-6989586621679339822"><span class="hs-identifier hs-var hs-var">http</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VirtualNodeHttpConnectionPool
+</span><a href="#local-6989586621679339822"><span class="hs-identifier hs-var">http</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339821"><span class="annot"><span class="annottext">s :: VirtualNodeConnectionPool
+</span><a href="#local-6989586621679339821"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#VirtualNodeConnectionPool%27"><span class="hs-identifier hs-type">VirtualNodeConnectionPool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339820"><span class="annot"><span class="annottext">Maybe VirtualNodeHttpConnectionPool
+</span><a href="#local-6989586621679339820"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VirtualNodeConnectionPool
+</span><a href="#local-6989586621679339821"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:http:VirtualNodeConnectionPool' :: Maybe VirtualNodeHttpConnectionPool
+</span><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#%24sel%3Ahttp%3AVirtualNodeConnectionPool%27"><span class="hs-identifier hs-var">http</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VirtualNodeHttpConnectionPool
+</span><a href="#local-6989586621679339820"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#VirtualNodeConnectionPool"><span class="hs-identifier hs-type">VirtualNodeConnectionPool</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679339817"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#VirtualNodeConnectionPool"><span class="hs-identifier hs-type">VirtualNodeConnectionPool</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679339815"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VirtualNodeConnectionPool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser VirtualNodeConnectionPool)
+-&gt; Value
+-&gt; Parser VirtualNodeConnectionPool
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;VirtualNodeConnectionPool&quot;</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679339812"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679339812"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe VirtualNodeHttp2ConnectionPool
+-&gt; Maybe VirtualNodeGrpcConnectionPool
+-&gt; Maybe VirtualNodeTcpConnectionPool
+-&gt; Maybe VirtualNodeHttpConnectionPool
+-&gt; VirtualNodeConnectionPool
+</span><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#VirtualNodeConnectionPool%27"><span class="hs-identifier hs-var">VirtualNodeConnectionPool'</span></a></span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Maybe VirtualNodeHttp2ConnectionPool
+ -&gt; Maybe VirtualNodeGrpcConnectionPool
+ -&gt; Maybe VirtualNodeTcpConnectionPool
+ -&gt; Maybe VirtualNodeHttpConnectionPool
+ -&gt; VirtualNodeConnectionPool)
+-&gt; Parser (Maybe VirtualNodeHttp2ConnectionPool)
+-&gt; Parser
+     (Maybe VirtualNodeGrpcConnectionPool
+      -&gt; Maybe VirtualNodeTcpConnectionPool
+      -&gt; Maybe VirtualNodeHttpConnectionPool
+      -&gt; VirtualNodeConnectionPool)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679339812"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VirtualNodeHttp2ConnectionPool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;http2&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe VirtualNodeGrpcConnectionPool
+   -&gt; Maybe VirtualNodeTcpConnectionPool
+   -&gt; Maybe VirtualNodeHttpConnectionPool
+   -&gt; VirtualNodeConnectionPool)
+-&gt; Parser (Maybe VirtualNodeGrpcConnectionPool)
+-&gt; Parser
+     (Maybe VirtualNodeTcpConnectionPool
+      -&gt; Maybe VirtualNodeHttpConnectionPool
+      -&gt; VirtualNodeConnectionPool)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679339812"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VirtualNodeGrpcConnectionPool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;grpc&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe VirtualNodeTcpConnectionPool
+   -&gt; Maybe VirtualNodeHttpConnectionPool
+   -&gt; VirtualNodeConnectionPool)
+-&gt; Parser (Maybe VirtualNodeTcpConnectionPool)
+-&gt; Parser
+     (Maybe VirtualNodeHttpConnectionPool -&gt; VirtualNodeConnectionPool)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679339812"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VirtualNodeTcpConnectionPool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tcp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe VirtualNodeHttpConnectionPool -&gt; VirtualNodeConnectionPool)
+-&gt; Parser (Maybe VirtualNodeHttpConnectionPool)
+-&gt; Parser VirtualNodeConnectionPool
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679339812"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VirtualNodeHttpConnectionPool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;http&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679339806"><span id="local-6989586621679339808"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#VirtualNodeConnectionPool"><span class="hs-identifier hs-type">VirtualNodeConnectionPool</span></a></span></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679339803"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#VirtualNodeConnectionPool"><span class="hs-identifier hs-type">VirtualNodeConnectionPool</span></a></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679339795"><span id="local-6989586621679339797"><span id="local-6989586621679339799"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#VirtualNodeConnectionPool"><span class="hs-identifier hs-type">VirtualNodeConnectionPool</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679339793"><span class="annot"><span class="annottext">toJSON :: VirtualNodeConnectionPool -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualNodeConnectionPool.html#VirtualNodeConnectionPool%27"><span class="hs-identifier hs-type">VirtualNodeConnectionPool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339788"><span id="local-6989586621679339789"><span id="local-6989586621679339790"><span id="local-6989586621679339791"><span class="annot"><span class="annottext">Maybe VirtualNodeGrpcConnectionPool
+Maybe VirtualNodeHttp2ConnectionPool
+Maybe VirtualNodeHttpConnectionPool
+Maybe VirtualNodeTcpConnectionPool
+http :: Maybe VirtualNodeHttpConnectionPool
+tcp :: Maybe VirtualNodeTcpConnectionPool
+grpc :: Maybe VirtualNodeGrpcConnectionPool
+http2 :: Maybe VirtualNodeHttp2ConnectionPool
+$sel:http:VirtualNodeConnectionPool' :: VirtualNodeConnectionPool -&gt; Maybe VirtualNodeHttpConnectionPool
+$sel:tcp:VirtualNodeConnectionPool' :: VirtualNodeConnectionPool -&gt; Maybe VirtualNodeTcpConnectionPool
+$sel:grpc:VirtualNodeConnectionPool' :: VirtualNodeConnectionPool -&gt; Maybe VirtualNodeGrpcConnectionPool
+$sel:http2:VirtualNodeConnectionPool' :: VirtualNodeConnectionPool -&gt; Maybe VirtualNodeHttp2ConnectionPool
+</span><a href="#local-6989586621679339788"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-112"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;http2&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VirtualNodeHttp2ConnectionPool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(VirtualNodeHttp2ConnectionPool -&gt; Pair)
+-&gt; Maybe VirtualNodeHttp2ConnectionPool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VirtualNodeHttp2ConnectionPool
+</span><a href="#local-6989586621679339791"><span class="hs-identifier hs-var">http2</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;grpc&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VirtualNodeGrpcConnectionPool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(VirtualNodeGrpcConnectionPool -&gt; Pair)
+-&gt; Maybe VirtualNodeGrpcConnectionPool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VirtualNodeGrpcConnectionPool
+</span><a href="#local-6989586621679339790"><span class="hs-identifier hs-var">grpc</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tcp&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VirtualNodeTcpConnectionPool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(VirtualNodeTcpConnectionPool -&gt; Pair)
+-&gt; Maybe VirtualNodeTcpConnectionPool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VirtualNodeTcpConnectionPool
+</span><a href="#local-6989586621679339789"><span class="hs-identifier hs-var">tcp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;http&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VirtualNodeHttpConnectionPool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(VirtualNodeHttpConnectionPool -&gt; Pair)
+-&gt; Maybe VirtualNodeHttpConnectionPool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VirtualNodeHttpConnectionPool
+</span><a href="#local-6989586621679339788"><span class="hs-identifier hs-var">http</span></a></span><span>
+</span><span id="line-116"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span></pre></body></html>

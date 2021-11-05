@@ -56,12 +56,12 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newDeleteCustomMetric' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679845906"><span id="local-6989586621679845907"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCustomMetric"><span class="annot"><a href="Network.AWS.IoT.DeleteCustomMetric.html#DeleteCustomMetric"><span class="hs-identifier hs-var">DeleteCustomMetric</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCustomMetric%27"><span class="annot"><a href="Network.AWS.IoT.DeleteCustomMetric.html#DeleteCustomMetric%27"><span class="hs-identifier hs-var">DeleteCustomMetric'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679845915"><span id="local-6989586621679845916"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCustomMetric"><span class="annot"><a href="Network.AWS.IoT.DeleteCustomMetric.html#DeleteCustomMetric"><span class="hs-identifier hs-var">DeleteCustomMetric</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCustomMetric%27"><span class="annot"><a href="Network.AWS.IoT.DeleteCustomMetric.html#DeleteCustomMetric%27"><span class="hs-identifier hs-var">DeleteCustomMetric'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the custom metric.</span><span>
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AmetricName%3ADeleteCustomMetric%27"><span class="annot"><span class="annottext">DeleteCustomMetric -&gt; Text
 </span><a href="Network.AWS.IoT.DeleteCustomMetric.html#%24sel%3AmetricName%3ADeleteCustomMetric%27"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679845900"><span id="local-6989586621679845902"><span class="annot"><span class="annottext">DeleteCustomMetric -&gt; DeleteCustomMetric -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679845909"><span id="local-6989586621679845911"><span class="annot"><span class="annottext">DeleteCustomMetric -&gt; DeleteCustomMetric -&gt; Bool
 (DeleteCustomMetric -&gt; DeleteCustomMetric -&gt; Bool)
 -&gt; (DeleteCustomMetric -&gt; DeleteCustomMetric -&gt; Bool)
 -&gt; Eq DeleteCustomMetric
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteCustomMetric -&gt; DeleteCustomMetric -&gt; Bool
 == :: DeleteCustomMetric -&gt; DeleteCustomMetric -&gt; Bool
 $c== :: DeleteCustomMetric -&gt; DeleteCustomMetric -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679845891"><span id="local-6989586621679845893"><span id="local-6989586621679845895"><span id="local-6989586621679845897"><span class="annot"><span class="annottext">ReadPrec [DeleteCustomMetric]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679845900"><span id="local-6989586621679845902"><span id="local-6989586621679845904"><span id="local-6989586621679845906"><span class="annot"><span class="annottext">ReadPrec [DeleteCustomMetric]
 ReadPrec DeleteCustomMetric
 Int -&gt; ReadS DeleteCustomMetric
 ReadS [DeleteCustomMetric]
@@ -90,7 +90,7 @@ readList :: ReadS [DeleteCustomMetric]
 $creadList :: ReadS [DeleteCustomMetric]
 readsPrec :: Int -&gt; ReadS DeleteCustomMetric
 $creadsPrec :: Int -&gt; ReadS DeleteCustomMetric
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679845884"><span id="local-6989586621679845886"><span id="local-6989586621679845888"><span class="annot"><span class="annottext">Int -&gt; DeleteCustomMetric -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679845893"><span id="local-6989586621679845895"><span id="local-6989586621679845897"><span class="annot"><span class="annottext">Int -&gt; DeleteCustomMetric -&gt; ShowS
 [DeleteCustomMetric] -&gt; ShowS
 DeleteCustomMetric -&gt; String
 (Int -&gt; DeleteCustomMetric -&gt; ShowS)
@@ -130,12 +130,12 @@ $cfrom :: forall x. DeleteCustomMetric -&gt; Rep DeleteCustomMetric x
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.DeleteCustomMetric.html#DeleteCustomMetric"><span class="hs-identifier hs-type">DeleteCustomMetric</span></a></span><span>
 </span><span id="line-78"></span><span id="newDeleteCustomMetric"><span class="annot"><span class="annottext">newDeleteCustomMetric :: Text -&gt; DeleteCustomMetric
-</span><a href="Network.AWS.IoT.DeleteCustomMetric.html#newDeleteCustomMetric"><span class="hs-identifier hs-var hs-var">newDeleteCustomMetric</span></a></span></span><span> </span><span id="local-6989586621679845879"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679845879"><span class="hs-identifier hs-var">pMetricName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.DeleteCustomMetric.html#newDeleteCustomMetric"><span class="hs-identifier hs-var hs-var">newDeleteCustomMetric</span></a></span></span><span> </span><span id="local-6989586621679845888"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679845888"><span class="hs-identifier hs-var">pMetricName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">DeleteCustomMetric' :: Text -&gt; DeleteCustomMetric
 </span><a href="Network.AWS.IoT.DeleteCustomMetric.html#DeleteCustomMetric%27"><span class="hs-identifier hs-type">DeleteCustomMetric'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricName:DeleteCustomMetric' :: Text
 </span><a href="Network.AWS.IoT.DeleteCustomMetric.html#%24sel%3AmetricName%3ADeleteCustomMetric%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679845879"><span class="hs-identifier hs-var">pMetricName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679845888"><span class="hs-identifier hs-var">pMetricName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | The name of the custom metric.</span><span>
 </span><span id="line-82"></span><span class="annot"><a href="Network.AWS.IoT.DeleteCustomMetric.html#deleteCustomMetric_metricName"><span class="hs-identifier hs-type">deleteCustomMetric_metricName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteCustomMetric.html#DeleteCustomMetric"><span class="hs-identifier hs-type">DeleteCustomMetric</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -144,27 +144,27 @@ $cfrom :: forall x. DeleteCustomMetric -&gt; Rep DeleteCustomMetric x
 -&gt; (DeleteCustomMetric -&gt; Text -&gt; DeleteCustomMetric)
 -&gt; Lens DeleteCustomMetric DeleteCustomMetric Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DeleteCustomMetric.html#DeleteCustomMetric%27"><span class="hs-identifier hs-type">DeleteCustomMetric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679845876"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DeleteCustomMetric.html#DeleteCustomMetric%27"><span class="hs-identifier hs-type">DeleteCustomMetric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679845885"><span class="annot"><span class="annottext">Text
 metricName :: Text
 $sel:metricName:DeleteCustomMetric' :: DeleteCustomMetric -&gt; Text
-</span><a href="#local-6989586621679845876"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679845876"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679845875"><span class="annot"><span class="annottext">s :: DeleteCustomMetric
-</span><a href="#local-6989586621679845875"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DeleteCustomMetric.html#DeleteCustomMetric%27"><span class="hs-identifier hs-type">DeleteCustomMetric'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679845874"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679845874"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCustomMetric
-</span><a href="#local-6989586621679845875"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricName:DeleteCustomMetric' :: Text
+</span><a href="#local-6989586621679845885"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679845885"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679845884"><span class="annot"><span class="annottext">s :: DeleteCustomMetric
+</span><a href="#local-6989586621679845884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DeleteCustomMetric.html#DeleteCustomMetric%27"><span class="hs-identifier hs-type">DeleteCustomMetric'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679845883"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679845883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCustomMetric
+</span><a href="#local-6989586621679845884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricName:DeleteCustomMetric' :: Text
 </span><a href="Network.AWS.IoT.DeleteCustomMetric.html#%24sel%3AmetricName%3ADeleteCustomMetric%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679845874"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteCustomMetric.html#DeleteCustomMetric"><span class="hs-identifier hs-type">DeleteCustomMetric</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679845883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteCustomMetric.html#DeleteCustomMetric"><span class="hs-identifier hs-type">DeleteCustomMetric</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteCustomMetric.html#DeleteCustomMetric"><span class="hs-identifier hs-type">DeleteCustomMetric</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-86"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-87"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteCustomMetric.html#DeleteCustomMetric"><span class="hs-identifier hs-type">DeleteCustomMetric</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.DeleteCustomMetric.html#DeleteCustomMetricResponse"><span class="hs-identifier hs-type">DeleteCustomMetricResponse</span></a></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679845870"><span class="annot"><span class="annottext">request :: DeleteCustomMetric -&gt; Request DeleteCustomMetric
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679845879"><span class="annot"><span class="annottext">request :: DeleteCustomMetric -&gt; Request DeleteCustomMetric
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteCustomMetric -&gt; Request DeleteCustomMetric
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679845866"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679845875"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteCustomMetric
 -&gt; ClientResponse ClientBody
@@ -190,10 +190,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679845863"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679845863"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679845862"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679845862"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679845861"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679845861"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679845872"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679845872"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679845871"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679845871"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679845870"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679845870"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteCustomMetricResponse
 </span><a href="Network.AWS.IoT.DeleteCustomMetric.html#DeleteCustomMetricResponse%27"><span class="hs-identifier hs-var">DeleteCustomMetricResponse'</span></a></span><span>
 </span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteCustomMetricResponse)
@@ -204,15 +204,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679845863"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679845872"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679845854"><span id="local-6989586621679845856"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteCustomMetric.html#DeleteCustomMetric"><span class="hs-identifier hs-type">DeleteCustomMetric</span></a></span></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679845863"><span id="local-6989586621679845865"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteCustomMetric.html#DeleteCustomMetric"><span class="hs-identifier hs-type">DeleteCustomMetric</span></a></span></span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679845851"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteCustomMetric.html#DeleteCustomMetric"><span class="hs-identifier hs-type">DeleteCustomMetric</span></a></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679845860"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteCustomMetric.html#DeleteCustomMetric"><span class="hs-identifier hs-type">DeleteCustomMetric</span></a></span></span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteCustomMetric.html#DeleteCustomMetric"><span class="hs-identifier hs-type">DeleteCustomMetric</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679845847"><span class="annot"><span class="annottext">toHeaders :: DeleteCustomMetric -&gt; ResponseHeaders
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679845856"><span class="annot"><span class="annottext">toHeaders :: DeleteCustomMetric -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteCustomMetric -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -220,11 +220,11 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteCustomMetric.html#DeleteCustomMetric"><span class="hs-identifier hs-type">DeleteCustomMetric</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679845842"><span class="annot"><span class="annottext">toPath :: DeleteCustomMetric -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteCustomMetric.html#DeleteCustomMetric%27"><span class="hs-identifier hs-type">DeleteCustomMetric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679845840"><span class="annot"><span class="annottext">Text
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679845851"><span class="annot"><span class="annottext">toPath :: DeleteCustomMetric -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteCustomMetric.html#DeleteCustomMetric%27"><span class="hs-identifier hs-type">DeleteCustomMetric'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679845849"><span class="annot"><span class="annottext">Text
 metricName :: Text
 $sel:metricName:DeleteCustomMetric' :: DeleteCustomMetric -&gt; Text
-</span><a href="#local-6989586621679845840"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679845849"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -232,10 +232,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/custom-metric/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679845840"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679845849"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteCustomMetric.html#DeleteCustomMetric"><span class="hs-identifier hs-type">DeleteCustomMetric</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679845836"><span class="annot"><span class="annottext">toQuery :: DeleteCustomMetric -&gt; QueryString
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679845845"><span class="annot"><span class="annottext">toQuery :: DeleteCustomMetric -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteCustomMetric -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -243,12 +243,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- | /See:/ 'newDeleteCustomMetricResponse' smart constructor.</span><span>
-</span><span id="line-113"></span><span id="local-6989586621679845833"><span id="local-6989586621679845834"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCustomMetricResponse"><span class="annot"><a href="Network.AWS.IoT.DeleteCustomMetric.html#DeleteCustomMetricResponse"><span class="hs-identifier hs-var">DeleteCustomMetricResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCustomMetricResponse%27"><span class="annot"><a href="Network.AWS.IoT.DeleteCustomMetric.html#DeleteCustomMetricResponse%27"><span class="hs-identifier hs-var">DeleteCustomMetricResponse'</span></a></span></span><span>
+</span><span id="line-113"></span><span id="local-6989586621679845842"><span id="local-6989586621679845843"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCustomMetricResponse"><span class="annot"><a href="Network.AWS.IoT.DeleteCustomMetric.html#DeleteCustomMetricResponse"><span class="hs-identifier hs-var">DeleteCustomMetricResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCustomMetricResponse%27"><span class="annot"><a href="Network.AWS.IoT.DeleteCustomMetric.html#DeleteCustomMetricResponse%27"><span class="hs-identifier hs-var">DeleteCustomMetricResponse'</span></a></span></span><span>
 </span><span id="line-114"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-115"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteCustomMetricResponse%27"><span class="annot"><span class="annottext">DeleteCustomMetricResponse -&gt; Int
 </span><a href="Network.AWS.IoT.DeleteCustomMetric.html#%24sel%3AhttpStatus%3ADeleteCustomMetricResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-116"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-117"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679845828"><span id="local-6989586621679845830"><span class="annot"><span class="annottext">DeleteCustomMetricResponse -&gt; DeleteCustomMetricResponse -&gt; Bool
+</span><span id="line-117"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679845837"><span id="local-6989586621679845839"><span class="annot"><span class="annottext">DeleteCustomMetricResponse -&gt; DeleteCustomMetricResponse -&gt; Bool
 (DeleteCustomMetricResponse -&gt; DeleteCustomMetricResponse -&gt; Bool)
 -&gt; (DeleteCustomMetricResponse
     -&gt; DeleteCustomMetricResponse -&gt; Bool)
@@ -258,7 +258,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteCustomMetricResponse -&gt; DeleteCustomMetricResponse -&gt; Bool
 == :: DeleteCustomMetricResponse -&gt; DeleteCustomMetricResponse -&gt; Bool
 $c== :: DeleteCustomMetricResponse -&gt; DeleteCustomMetricResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679845820"><span id="local-6989586621679845822"><span id="local-6989586621679845824"><span id="local-6989586621679845826"><span class="annot"><span class="annottext">ReadPrec [DeleteCustomMetricResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679845829"><span id="local-6989586621679845831"><span id="local-6989586621679845833"><span id="local-6989586621679845835"><span class="annot"><span class="annottext">ReadPrec [DeleteCustomMetricResponse]
 ReadPrec DeleteCustomMetricResponse
 Int -&gt; ReadS DeleteCustomMetricResponse
 ReadS [DeleteCustomMetricResponse]
@@ -278,7 +278,7 @@ readList :: ReadS [DeleteCustomMetricResponse]
 $creadList :: ReadS [DeleteCustomMetricResponse]
 readsPrec :: Int -&gt; ReadS DeleteCustomMetricResponse
 $creadsPrec :: Int -&gt; ReadS DeleteCustomMetricResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679845814"><span id="local-6989586621679845816"><span id="local-6989586621679845818"><span class="annot"><span class="annottext">Int -&gt; DeleteCustomMetricResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679845823"><span id="local-6989586621679845825"><span id="local-6989586621679845827"><span class="annot"><span class="annottext">Int -&gt; DeleteCustomMetricResponse -&gt; ShowS
 [DeleteCustomMetricResponse] -&gt; ShowS
 DeleteCustomMetricResponse -&gt; String
 (Int -&gt; DeleteCustomMetricResponse -&gt; ShowS)
@@ -324,14 +324,14 @@ DeleteCustomMetricResponse -&gt; Rep DeleteCustomMetricResponse x
 </span><span id="line-130"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-131"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.DeleteCustomMetric.html#DeleteCustomMetricResponse"><span class="hs-identifier hs-type">DeleteCustomMetricResponse</span></a></span><span>
 </span><span id="line-132"></span><span id="newDeleteCustomMetricResponse"><span class="annot"><span class="annottext">newDeleteCustomMetricResponse :: Int -&gt; DeleteCustomMetricResponse
-</span><a href="Network.AWS.IoT.DeleteCustomMetric.html#newDeleteCustomMetricResponse"><span class="hs-identifier hs-var hs-var">newDeleteCustomMetricResponse</span></a></span></span><span> </span><span id="local-6989586621679845811"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679845811"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.DeleteCustomMetric.html#newDeleteCustomMetricResponse"><span class="hs-identifier hs-var hs-var">newDeleteCustomMetricResponse</span></a></span></span><span> </span><span id="local-6989586621679845820"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679845820"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-133"></span><span>  </span><span class="annot"><span class="annottext">DeleteCustomMetricResponse' :: Int -&gt; DeleteCustomMetricResponse
 </span><a href="Network.AWS.IoT.DeleteCustomMetric.html#DeleteCustomMetricResponse%27"><span class="hs-identifier hs-type">DeleteCustomMetricResponse'</span></a></span><span>
 </span><span id="line-134"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteCustomMetricResponse' :: Int
 </span><a href="Network.AWS.IoT.DeleteCustomMetric.html#%24sel%3AhttpStatus%3ADeleteCustomMetricResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679845811"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679845820"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-136"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -344,16 +344,16 @@ DeleteCustomMetricResponse -&gt; Rep DeleteCustomMetricResponse x
 -&gt; Lens
      DeleteCustomMetricResponse DeleteCustomMetricResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DeleteCustomMetric.html#DeleteCustomMetricResponse%27"><span class="hs-identifier hs-type">DeleteCustomMetricResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679845810"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DeleteCustomMetric.html#DeleteCustomMetricResponse%27"><span class="hs-identifier hs-type">DeleteCustomMetricResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679845819"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteCustomMetricResponse' :: DeleteCustomMetricResponse -&gt; Int
-</span><a href="#local-6989586621679845810"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679845810"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679845809"><span class="annot"><span class="annottext">s :: DeleteCustomMetricResponse
-</span><a href="#local-6989586621679845809"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DeleteCustomMetric.html#DeleteCustomMetricResponse%27"><span class="hs-identifier hs-type">DeleteCustomMetricResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679845808"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679845808"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCustomMetricResponse
-</span><a href="#local-6989586621679845809"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteCustomMetricResponse' :: Int
+</span><a href="#local-6989586621679845819"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679845819"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679845818"><span class="annot"><span class="annottext">s :: DeleteCustomMetricResponse
+</span><a href="#local-6989586621679845818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DeleteCustomMetric.html#DeleteCustomMetricResponse%27"><span class="hs-identifier hs-type">DeleteCustomMetricResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679845817"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679845817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCustomMetricResponse
+</span><a href="#local-6989586621679845818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteCustomMetricResponse' :: Int
 </span><a href="Network.AWS.IoT.DeleteCustomMetric.html#%24sel%3AhttpStatus%3ADeleteCustomMetricResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679845808"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteCustomMetric.html#DeleteCustomMetricResponse"><span class="hs-identifier hs-type">DeleteCustomMetricResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679845817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteCustomMetric.html#DeleteCustomMetricResponse"><span class="hs-identifier hs-type">DeleteCustomMetricResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679845806"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteCustomMetric.html#DeleteCustomMetricResponse"><span class="hs-identifier hs-type">DeleteCustomMetricResponse</span></a></span></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679845815"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteCustomMetric.html#DeleteCustomMetricResponse"><span class="hs-identifier hs-type">DeleteCustomMetricResponse</span></a></span></span><span>
 </span><span id="line-143"></span></pre></body></html>

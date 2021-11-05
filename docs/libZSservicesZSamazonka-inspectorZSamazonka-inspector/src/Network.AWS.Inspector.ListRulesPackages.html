@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newListRulesPackages' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679252993"><span id="local-6989586621679252994"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListRulesPackages"><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackages"><span class="hs-identifier hs-var">ListRulesPackages</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListRulesPackages%27"><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackages%27"><span class="hs-identifier hs-var">ListRulesPackages'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679253002"><span id="local-6989586621679253003"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListRulesPackages"><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackages"><span class="hs-identifier hs-var">ListRulesPackages</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListRulesPackages%27"><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackages%27"><span class="hs-identifier hs-var">ListRulesPackages'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | You can use this parameter when paginating results. Set the value of</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- this parameter to null on your first call to the __ListRulesPackages__</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- action. Subsequent calls to the action fill __nextToken__ in the request</span><span>
@@ -64,7 +64,7 @@
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AmaxResults%3AListRulesPackages%27"><span class="annot"><span class="annottext">ListRulesPackages -&gt; Maybe Int
 </span><a href="Network.AWS.Inspector.ListRulesPackages.html#%24sel%3AmaxResults%3AListRulesPackages%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679252986"><span id="local-6989586621679252988"><span class="annot"><span class="annottext">ListRulesPackages -&gt; ListRulesPackages -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679252995"><span id="local-6989586621679252997"><span class="annot"><span class="annottext">ListRulesPackages -&gt; ListRulesPackages -&gt; Bool
 (ListRulesPackages -&gt; ListRulesPackages -&gt; Bool)
 -&gt; (ListRulesPackages -&gt; ListRulesPackages -&gt; Bool)
 -&gt; Eq ListRulesPackages
@@ -73,7 +73,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListRulesPackages -&gt; ListRulesPackages -&gt; Bool
 == :: ListRulesPackages -&gt; ListRulesPackages -&gt; Bool
 $c== :: ListRulesPackages -&gt; ListRulesPackages -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252977"><span id="local-6989586621679252979"><span id="local-6989586621679252981"><span id="local-6989586621679252983"><span class="annot"><span class="annottext">ReadPrec [ListRulesPackages]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252986"><span id="local-6989586621679252988"><span id="local-6989586621679252990"><span id="local-6989586621679252992"><span class="annot"><span class="annottext">ReadPrec [ListRulesPackages]
 ReadPrec ListRulesPackages
 Int -&gt; ReadS ListRulesPackages
 ReadS [ListRulesPackages]
@@ -93,7 +93,7 @@ readList :: ReadS [ListRulesPackages]
 $creadList :: ReadS [ListRulesPackages]
 readsPrec :: Int -&gt; ReadS ListRulesPackages
 $creadsPrec :: Int -&gt; ReadS ListRulesPackages
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252970"><span id="local-6989586621679252972"><span id="local-6989586621679252974"><span class="annot"><span class="annottext">Int -&gt; ListRulesPackages -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252979"><span id="local-6989586621679252981"><span id="local-6989586621679252983"><span class="annot"><span class="annottext">Int -&gt; ListRulesPackages -&gt; ShowS
 [ListRulesPackages] -&gt; ShowS
 ListRulesPackages -&gt; String
 (Int -&gt; ListRulesPackages -&gt; ShowS)
@@ -164,16 +164,16 @@ forall a. Maybe a
 -&gt; Lens
      ListRulesPackages ListRulesPackages (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackages%27"><span class="hs-identifier hs-type">ListRulesPackages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252964"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackages%27"><span class="hs-identifier hs-type">ListRulesPackages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252973"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListRulesPackages' :: ListRulesPackages -&gt; Maybe Text
-</span><a href="#local-6989586621679252964"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679252964"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252963"><span class="annot"><span class="annottext">s :: ListRulesPackages
-</span><a href="#local-6989586621679252963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackages%27"><span class="hs-identifier hs-type">ListRulesPackages'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252962"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679252962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRulesPackages
-</span><a href="#local-6989586621679252963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListRulesPackages' :: Maybe Text
+</span><a href="#local-6989586621679252973"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252973"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252972"><span class="annot"><span class="annottext">s :: ListRulesPackages
+</span><a href="#local-6989586621679252972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackages%27"><span class="hs-identifier hs-type">ListRulesPackages'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252971"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRulesPackages
+</span><a href="#local-6989586621679252972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListRulesPackages' :: Maybe Text
 </span><a href="Network.AWS.Inspector.ListRulesPackages.html#%24sel%3AnextToken%3AListRulesPackages%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679252962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackages"><span class="hs-identifier hs-type">ListRulesPackages</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679252971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackages"><span class="hs-identifier hs-type">ListRulesPackages</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | You can use this parameter to indicate the maximum number of items you</span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- want in the response. The default value is 10. The maximum value is 500.</span><span>
@@ -184,29 +184,29 @@ $sel:nextToken:ListRulesPackages' :: ListRulesPackages -&gt; Maybe Text
 -&gt; (ListRulesPackages -&gt; Maybe Int -&gt; ListRulesPackages)
 -&gt; Lens ListRulesPackages ListRulesPackages (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackages%27"><span class="hs-identifier hs-type">ListRulesPackages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252961"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackages%27"><span class="hs-identifier hs-type">ListRulesPackages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252970"><span class="annot"><span class="annottext">Maybe Int
 maxResults :: Maybe Int
 $sel:maxResults:ListRulesPackages' :: ListRulesPackages -&gt; Maybe Int
-</span><a href="#local-6989586621679252961"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679252961"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252960"><span class="annot"><span class="annottext">s :: ListRulesPackages
-</span><a href="#local-6989586621679252960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackages%27"><span class="hs-identifier hs-type">ListRulesPackages'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252959"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679252959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRulesPackages
-</span><a href="#local-6989586621679252960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListRulesPackages' :: Maybe Int
+</span><a href="#local-6989586621679252970"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679252970"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252969"><span class="annot"><span class="annottext">s :: ListRulesPackages
+</span><a href="#local-6989586621679252969"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackages%27"><span class="hs-identifier hs-type">ListRulesPackages'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252968"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679252968"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRulesPackages
+</span><a href="#local-6989586621679252969"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListRulesPackages' :: Maybe Int
 </span><a href="Network.AWS.Inspector.ListRulesPackages.html#%24sel%3AmaxResults%3AListRulesPackages%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679252959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackages"><span class="hs-identifier hs-type">ListRulesPackages</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679252968"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackages"><span class="hs-identifier hs-type">ListRulesPackages</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackages"><span class="hs-identifier hs-type">ListRulesPackages</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679252955"><span class="annot"><span class="annottext">page :: ListRulesPackages
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679252964"><span class="annot"><span class="annottext">page :: ListRulesPackages
 -&gt; AWSResponse ListRulesPackages -&gt; Maybe ListRulesPackages
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679252953"><span class="annot"><span class="annottext">ListRulesPackages
-</span><a href="#local-6989586621679252953"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679252952"><span class="annot"><span class="annottext">AWSResponse ListRulesPackages
-</span><a href="#local-6989586621679252952"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679252962"><span class="annot"><span class="annottext">ListRulesPackages
+</span><a href="#local-6989586621679252962"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679252961"><span class="annot"><span class="annottext">AWSResponse ListRulesPackages
+</span><a href="#local-6989586621679252961"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-106"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-107"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListRulesPackages
 ListRulesPackagesResponse
-</span><a href="#local-6989586621679252952"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679252961"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">ListRulesPackagesResponse
 -&gt; Getting (First Text) ListRulesPackagesResponse Text
 -&gt; Maybe Text
@@ -236,7 +236,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-113"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListRulesPackages
 ListRulesPackagesResponse
-</span><a href="#local-6989586621679252952"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679252961"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">ListRulesPackagesResponse
 -&gt; Getting [Text] ListRulesPackagesResponse [Text] -&gt; [Text]
 forall s a. s -&gt; Getting a s a -&gt; a
@@ -256,7 +256,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">ListRulesPackages
-</span><a href="#local-6989586621679252953"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679252962"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">ListRulesPackages
 -&gt; (ListRulesPackages -&gt; ListRulesPackages) -&gt; ListRulesPackages
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -270,7 +270,7 @@ Lens ListRulesPackages ListRulesPackages (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListRulesPackages
 ListRulesPackagesResponse
-</span><a href="#local-6989586621679252952"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679252961"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">ListRulesPackagesResponse
 -&gt; Getting (First Text) ListRulesPackagesResponse Text
 -&gt; Maybe Text
@@ -296,12 +296,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-126"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-127"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackages"><span class="hs-identifier hs-type">ListRulesPackages</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>      </span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackagesResponse"><span class="hs-identifier hs-type">ListRulesPackagesResponse</span></a></span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679252941"><span class="annot"><span class="annottext">request :: ListRulesPackages -&gt; Request ListRulesPackages
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679252950"><span class="annot"><span class="annottext">request :: ListRulesPackages -&gt; Request ListRulesPackages
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListRulesPackages -&gt; Request ListRulesPackages
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Inspector.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679252937"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679252946"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListRulesPackages
 -&gt; ClientResponse ClientBody
@@ -327,10 +327,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679252934"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679252934"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679252933"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679252933"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679252932"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679252932"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679252943"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679252943"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679252942"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679252942"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679252941"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252941"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; [Text] -&gt; ListRulesPackagesResponse
 </span><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackagesResponse%27"><span class="hs-identifier hs-var">ListRulesPackagesResponse'</span></a></span><span>
 </span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; [Text] -&gt; ListRulesPackagesResponse)
@@ -338,7 +338,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; [Text] -&gt; ListRulesPackagesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679252932"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679252941"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -351,12 +351,12 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679252934"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679252943"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Either String ([Text] -&gt; ListRulesPackagesResponse)
 -&gt; Either String [Text] -&gt; Either String ListRulesPackagesResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679252932"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [Text])
+</span><a href="#local-6989586621679252941"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [Text])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;rulesPackageArns&quot;</span></span><span>
@@ -368,12 +368,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-138"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252923"><span id="local-6989586621679252925"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackages"><span class="hs-identifier hs-type">ListRulesPackages</span></a></span></span></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252932"><span id="local-6989586621679252934"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackages"><span class="hs-identifier hs-type">ListRulesPackages</span></a></span></span></span><span>
 </span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252920"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackages"><span class="hs-identifier hs-type">ListRulesPackages</span></a></span></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252929"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackages"><span class="hs-identifier hs-type">ListRulesPackages</span></a></span></span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackages"><span class="hs-identifier hs-type">ListRulesPackages</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679252916"><span class="annot"><span class="annottext">toHeaders :: ListRulesPackages -&gt; ResponseHeaders
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679252925"><span class="annot"><span class="annottext">toHeaders :: ListRulesPackages -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListRulesPackages -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -400,15 +400,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-157"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252906"><span id="local-6989586621679252908"><span id="local-6989586621679252910"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackages"><span class="hs-identifier hs-type">ListRulesPackages</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679252904"><span class="annot"><span class="annottext">toJSON :: ListRulesPackages -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackages%27"><span class="hs-identifier hs-type">ListRulesPackages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252901"><span id="local-6989586621679252902"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252915"><span id="local-6989586621679252917"><span id="local-6989586621679252919"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackages"><span class="hs-identifier hs-type">ListRulesPackages</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679252913"><span class="annot"><span class="annottext">toJSON :: ListRulesPackages -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackages%27"><span class="hs-identifier hs-type">ListRulesPackages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252910"><span id="local-6989586621679252911"><span class="annot"><span class="annottext">Maybe Int
 Maybe Text
 maxResults :: Maybe Int
 nextToken :: Maybe Text
 $sel:maxResults:ListRulesPackages' :: ListRulesPackages -&gt; Maybe Int
 $sel:nextToken:ListRulesPackages' :: ListRulesPackages -&gt; Maybe Text
-</span><a href="#local-6989586621679252901"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679252910"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-163"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -420,26 +420,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679252902"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679252911"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-165"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679252901"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679252910"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-166"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-167"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackages"><span class="hs-identifier hs-type">ListRulesPackages</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679252895"><span class="annot"><span class="annottext">toPath :: ListRulesPackages -&gt; ByteString
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679252904"><span class="annot"><span class="annottext">toPath :: ListRulesPackages -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListRulesPackages -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackages"><span class="hs-identifier hs-type">ListRulesPackages</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679252891"><span class="annot"><span class="annottext">toQuery :: ListRulesPackages -&gt; QueryString
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679252900"><span class="annot"><span class="annottext">toQuery :: ListRulesPackages -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListRulesPackages -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -447,7 +447,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- | /See:/ 'newListRulesPackagesResponse' smart constructor.</span><span>
-</span><span id="line-176"></span><span id="local-6989586621679252888"><span id="local-6989586621679252889"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListRulesPackagesResponse"><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackagesResponse"><span class="hs-identifier hs-var">ListRulesPackagesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListRulesPackagesResponse%27"><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackagesResponse%27"><span class="hs-identifier hs-var">ListRulesPackagesResponse'</span></a></span></span><span>
+</span><span id="line-176"></span><span id="local-6989586621679252897"><span id="local-6989586621679252898"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListRulesPackagesResponse"><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackagesResponse"><span class="hs-identifier hs-var">ListRulesPackagesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListRulesPackagesResponse%27"><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackagesResponse%27"><span class="hs-identifier hs-var">ListRulesPackagesResponse'</span></a></span></span><span>
 </span><span id="line-177"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When a response is generated, if there is more data to be listed, this</span><span>
 </span><span id="line-178"></span><span>    </span><span class="hs-comment">-- parameter is present in the response and contains the value to use for</span><span>
 </span><span id="line-179"></span><span>    </span><span class="hs-comment">-- the __nextToken__ parameter in a subsequent pagination request. If there</span><span>
@@ -462,7 +462,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-186"></span><span>    </span><span id="%24sel%3ArulesPackageArns%3AListRulesPackagesResponse%27"><span class="annot"><span class="annottext">ListRulesPackagesResponse -&gt; [Text]
 </span><a href="Network.AWS.Inspector.ListRulesPackages.html#%24sel%3ArulesPackageArns%3AListRulesPackagesResponse%27"><span class="hs-identifier hs-var hs-var">rulesPackageArns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-187"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-188"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679252881"><span id="local-6989586621679252883"><span class="annot"><span class="annottext">ListRulesPackagesResponse -&gt; ListRulesPackagesResponse -&gt; Bool
+</span><span id="line-188"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679252890"><span id="local-6989586621679252892"><span class="annot"><span class="annottext">ListRulesPackagesResponse -&gt; ListRulesPackagesResponse -&gt; Bool
 (ListRulesPackagesResponse -&gt; ListRulesPackagesResponse -&gt; Bool)
 -&gt; (ListRulesPackagesResponse -&gt; ListRulesPackagesResponse -&gt; Bool)
 -&gt; Eq ListRulesPackagesResponse
@@ -471,7 +471,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListRulesPackagesResponse -&gt; ListRulesPackagesResponse -&gt; Bool
 == :: ListRulesPackagesResponse -&gt; ListRulesPackagesResponse -&gt; Bool
 $c== :: ListRulesPackagesResponse -&gt; ListRulesPackagesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252873"><span id="local-6989586621679252875"><span id="local-6989586621679252877"><span id="local-6989586621679252879"><span class="annot"><span class="annottext">ReadPrec [ListRulesPackagesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252882"><span id="local-6989586621679252884"><span id="local-6989586621679252886"><span id="local-6989586621679252888"><span class="annot"><span class="annottext">ReadPrec [ListRulesPackagesResponse]
 ReadPrec ListRulesPackagesResponse
 Int -&gt; ReadS ListRulesPackagesResponse
 ReadS [ListRulesPackagesResponse]
@@ -491,7 +491,7 @@ readList :: ReadS [ListRulesPackagesResponse]
 $creadList :: ReadS [ListRulesPackagesResponse]
 readsPrec :: Int -&gt; ReadS ListRulesPackagesResponse
 $creadsPrec :: Int -&gt; ReadS ListRulesPackagesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252867"><span id="local-6989586621679252869"><span id="local-6989586621679252871"><span class="annot"><span class="annottext">Int -&gt; ListRulesPackagesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252876"><span id="local-6989586621679252878"><span id="local-6989586621679252880"><span class="annot"><span class="annottext">Int -&gt; ListRulesPackagesResponse -&gt; ShowS
 [ListRulesPackagesResponse] -&gt; ShowS
 ListRulesPackagesResponse -&gt; String
 (Int -&gt; ListRulesPackagesResponse -&gt; ShowS)
@@ -545,8 +545,8 @@ ListRulesPackagesResponse -&gt; Rep ListRulesPackagesResponse x
 </span><span id="line-209"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-210"></span><span>  </span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackagesResponse"><span class="hs-identifier hs-type">ListRulesPackagesResponse</span></a></span><span>
 </span><span id="line-211"></span><span id="newListRulesPackagesResponse"><span class="annot"><span class="annottext">newListRulesPackagesResponse :: Int -&gt; ListRulesPackagesResponse
-</span><a href="Network.AWS.Inspector.ListRulesPackages.html#newListRulesPackagesResponse"><span class="hs-identifier hs-var hs-var">newListRulesPackagesResponse</span></a></span></span><span> </span><span id="local-6989586621679252864"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679252864"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Inspector.ListRulesPackages.html#newListRulesPackagesResponse"><span class="hs-identifier hs-var hs-var">newListRulesPackagesResponse</span></a></span></span><span> </span><span id="local-6989586621679252873"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679252873"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-212"></span><span>  </span><span class="annot"><span class="annottext">ListRulesPackagesResponse' :: Maybe Text -&gt; Int -&gt; [Text] -&gt; ListRulesPackagesResponse
 </span><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackagesResponse%27"><span class="hs-identifier hs-type">ListRulesPackagesResponse'</span></a></span><span>
 </span><span id="line-213"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListRulesPackagesResponse' :: Maybe Text
@@ -556,7 +556,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-215"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListRulesPackagesResponse' :: Int
 </span><a href="Network.AWS.Inspector.ListRulesPackages.html#%24sel%3AhttpStatus%3AListRulesPackagesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679252864"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679252873"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-216"></span><span>      </span><span class="annot"><span class="annottext">$sel:rulesPackageArns:ListRulesPackagesResponse' :: [Text]
 </span><a href="Network.AWS.Inspector.ListRulesPackages.html#%24sel%3ArulesPackageArns%3AListRulesPackagesResponse%27"><span class="hs-identifier hs-var">rulesPackageArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
@@ -575,16 +575,16 @@ forall a. Monoid a =&gt; a
     -&gt; Maybe Text -&gt; ListRulesPackagesResponse)
 -&gt; Lens' ListRulesPackagesResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackagesResponse%27"><span class="hs-identifier hs-type">ListRulesPackagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252863"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackagesResponse%27"><span class="hs-identifier hs-type">ListRulesPackagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252872"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListRulesPackagesResponse' :: ListRulesPackagesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679252863"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679252863"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252862"><span class="annot"><span class="annottext">s :: ListRulesPackagesResponse
-</span><a href="#local-6989586621679252862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackagesResponse%27"><span class="hs-identifier hs-type">ListRulesPackagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252861"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679252861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRulesPackagesResponse
-</span><a href="#local-6989586621679252862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListRulesPackagesResponse' :: Maybe Text
+</span><a href="#local-6989586621679252872"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252872"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252871"><span class="annot"><span class="annottext">s :: ListRulesPackagesResponse
+</span><a href="#local-6989586621679252871"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackagesResponse%27"><span class="hs-identifier hs-type">ListRulesPackagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252870"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679252870"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRulesPackagesResponse
+</span><a href="#local-6989586621679252871"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListRulesPackagesResponse' :: Maybe Text
 </span><a href="Network.AWS.Inspector.ListRulesPackages.html#%24sel%3AnextToken%3AListRulesPackagesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679252861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackagesResponse"><span class="hs-identifier hs-type">ListRulesPackagesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679252870"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackagesResponse"><span class="hs-identifier hs-type">ListRulesPackagesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-225"></span><span>
 </span><span id="line-226"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-227"></span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#listRulesPackagesResponse_httpStatus"><span class="hs-identifier hs-type">listRulesPackagesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackagesResponse"><span class="hs-identifier hs-type">ListRulesPackagesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -594,16 +594,16 @@ $sel:nextToken:ListRulesPackagesResponse' :: ListRulesPackagesResponse -&gt; May
 -&gt; (ListRulesPackagesResponse -&gt; Int -&gt; ListRulesPackagesResponse)
 -&gt; Lens ListRulesPackagesResponse ListRulesPackagesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackagesResponse%27"><span class="hs-identifier hs-type">ListRulesPackagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252860"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackagesResponse%27"><span class="hs-identifier hs-type">ListRulesPackagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252869"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListRulesPackagesResponse' :: ListRulesPackagesResponse -&gt; Int
-</span><a href="#local-6989586621679252860"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679252860"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252859"><span class="annot"><span class="annottext">s :: ListRulesPackagesResponse
-</span><a href="#local-6989586621679252859"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackagesResponse%27"><span class="hs-identifier hs-type">ListRulesPackagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252858"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679252858"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRulesPackagesResponse
-</span><a href="#local-6989586621679252859"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListRulesPackagesResponse' :: Int
+</span><a href="#local-6989586621679252869"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679252869"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252868"><span class="annot"><span class="annottext">s :: ListRulesPackagesResponse
+</span><a href="#local-6989586621679252868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackagesResponse%27"><span class="hs-identifier hs-type">ListRulesPackagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252867"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679252867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRulesPackagesResponse
+</span><a href="#local-6989586621679252868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListRulesPackagesResponse' :: Int
 </span><a href="Network.AWS.Inspector.ListRulesPackages.html#%24sel%3AhttpStatus%3AListRulesPackagesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679252858"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackagesResponse"><span class="hs-identifier hs-type">ListRulesPackagesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679252867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackagesResponse"><span class="hs-identifier hs-type">ListRulesPackagesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-229"></span><span>
 </span><span id="line-230"></span><span class="hs-comment">-- | The list of ARNs that specifies the rules packages returned by the</span><span>
 </span><span id="line-231"></span><span class="hs-comment">-- action.</span><span>
@@ -615,16 +615,16 @@ $sel:httpStatus:ListRulesPackagesResponse' :: ListRulesPackagesResponse -&gt; In
     -&gt; [Text] -&gt; ListRulesPackagesResponse)
 -&gt; Lens' ListRulesPackagesResponse [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackagesResponse%27"><span class="hs-identifier hs-type">ListRulesPackagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252857"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackagesResponse%27"><span class="hs-identifier hs-type">ListRulesPackagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252866"><span class="annot"><span class="annottext">[Text]
 rulesPackageArns :: [Text]
 $sel:rulesPackageArns:ListRulesPackagesResponse' :: ListRulesPackagesResponse -&gt; [Text]
-</span><a href="#local-6989586621679252857"><span class="hs-identifier hs-var hs-var">rulesPackageArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679252857"><span class="hs-identifier hs-var">rulesPackageArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252856"><span class="annot"><span class="annottext">s :: ListRulesPackagesResponse
-</span><a href="#local-6989586621679252856"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackagesResponse%27"><span class="hs-identifier hs-type">ListRulesPackagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252855"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679252855"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRulesPackagesResponse
-</span><a href="#local-6989586621679252856"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rulesPackageArns:ListRulesPackagesResponse' :: [Text]
+</span><a href="#local-6989586621679252866"><span class="hs-identifier hs-var hs-var">rulesPackageArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679252866"><span class="hs-identifier hs-var">rulesPackageArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252865"><span class="annot"><span class="annottext">s :: ListRulesPackagesResponse
+</span><a href="#local-6989586621679252865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackagesResponse%27"><span class="hs-identifier hs-type">ListRulesPackagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252864"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679252864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRulesPackagesResponse
+</span><a href="#local-6989586621679252865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rulesPackageArns:ListRulesPackagesResponse' :: [Text]
 </span><a href="Network.AWS.Inspector.ListRulesPackages.html#%24sel%3ArulesPackageArns%3AListRulesPackagesResponse%27"><span class="hs-identifier hs-var">rulesPackageArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679252855"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackagesResponse"><span class="hs-identifier hs-type">ListRulesPackagesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679252864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackagesResponse"><span class="hs-identifier hs-type">ListRulesPackagesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; ListRulesPackagesResponse -&gt; f ListRulesPackagesResponse)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
@@ -635,5 +635,5 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-234"></span><span>
-</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252852"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackagesResponse"><span class="hs-identifier hs-type">ListRulesPackagesResponse</span></a></span></span><span>
+</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252861"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.ListRulesPackages.html#ListRulesPackagesResponse"><span class="hs-identifier hs-type">ListRulesPackagesResponse</span></a></span></span><span>
 </span><span id="line-236"></span></pre></body></html>

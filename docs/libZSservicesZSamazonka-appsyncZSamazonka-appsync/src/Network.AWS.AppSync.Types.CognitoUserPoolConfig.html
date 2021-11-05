@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Describes an Amazon Cognito user pool configuration.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newCognitoUserPoolConfig' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679248448"><span id="local-6989586621679248449"></span></span><span class="hs-keyword">data</span><span> </span><span id="CognitoUserPoolConfig"><span class="annot"><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#CognitoUserPoolConfig"><span class="hs-identifier hs-var">CognitoUserPoolConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CognitoUserPoolConfig%27"><span class="annot"><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#CognitoUserPoolConfig%27"><span class="hs-identifier hs-var">CognitoUserPoolConfig'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679248457"><span id="local-6989586621679248458"></span></span><span class="hs-keyword">data</span><span> </span><span id="CognitoUserPoolConfig"><span class="annot"><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#CognitoUserPoolConfig"><span class="hs-identifier hs-var">CognitoUserPoolConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CognitoUserPoolConfig%27"><span class="annot"><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#CognitoUserPoolConfig%27"><span class="hs-identifier hs-var">CognitoUserPoolConfig'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A regular expression for validating the incoming Amazon Cognito user</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- pool app client ID.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AappIdClientRegex%3ACognitoUserPoolConfig%27"><span class="annot"><span class="annottext">CognitoUserPoolConfig -&gt; Maybe Text
@@ -38,7 +38,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AawsRegion%3ACognitoUserPoolConfig%27"><span class="annot"><span class="annottext">CognitoUserPoolConfig -&gt; Text
 </span><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#%24sel%3AawsRegion%3ACognitoUserPoolConfig%27"><span class="hs-identifier hs-var hs-var">awsRegion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679248440"><span id="local-6989586621679248442"><span class="annot"><span class="annottext">CognitoUserPoolConfig -&gt; CognitoUserPoolConfig -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679248449"><span id="local-6989586621679248451"><span class="annot"><span class="annottext">CognitoUserPoolConfig -&gt; CognitoUserPoolConfig -&gt; Bool
 (CognitoUserPoolConfig -&gt; CognitoUserPoolConfig -&gt; Bool)
 -&gt; (CognitoUserPoolConfig -&gt; CognitoUserPoolConfig -&gt; Bool)
 -&gt; Eq CognitoUserPoolConfig
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CognitoUserPoolConfig -&gt; CognitoUserPoolConfig -&gt; Bool
 == :: CognitoUserPoolConfig -&gt; CognitoUserPoolConfig -&gt; Bool
 $c== :: CognitoUserPoolConfig -&gt; CognitoUserPoolConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248431"><span id="local-6989586621679248433"><span id="local-6989586621679248435"><span id="local-6989586621679248437"><span class="annot"><span class="annottext">ReadPrec [CognitoUserPoolConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248440"><span id="local-6989586621679248442"><span id="local-6989586621679248444"><span id="local-6989586621679248446"><span class="annot"><span class="annottext">ReadPrec [CognitoUserPoolConfig]
 ReadPrec CognitoUserPoolConfig
 Int -&gt; ReadS CognitoUserPoolConfig
 ReadS [CognitoUserPoolConfig]
@@ -67,7 +67,7 @@ readList :: ReadS [CognitoUserPoolConfig]
 $creadList :: ReadS [CognitoUserPoolConfig]
 readsPrec :: Int -&gt; ReadS CognitoUserPoolConfig
 $creadsPrec :: Int -&gt; ReadS CognitoUserPoolConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248424"><span id="local-6989586621679248426"><span id="local-6989586621679248428"><span class="annot"><span class="annottext">Int -&gt; CognitoUserPoolConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248433"><span id="local-6989586621679248435"><span id="local-6989586621679248437"><span class="annot"><span class="annottext">Int -&gt; CognitoUserPoolConfig -&gt; ShowS
 [CognitoUserPoolConfig] -&gt; ShowS
 CognitoUserPoolConfig -&gt; String
 (Int -&gt; CognitoUserPoolConfig -&gt; ShowS)
@@ -114,9 +114,9 @@ $cfrom :: forall x. CognitoUserPoolConfig -&gt; Rep CognitoUserPoolConfig x
 </span><span id="line-58"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#CognitoUserPoolConfig"><span class="hs-identifier hs-type">CognitoUserPoolConfig</span></a></span><span>
 </span><span id="line-60"></span><span id="newCognitoUserPoolConfig"><span class="annot"><span class="annottext">newCognitoUserPoolConfig :: Text -&gt; Text -&gt; CognitoUserPoolConfig
-</span><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#newCognitoUserPoolConfig"><span class="hs-identifier hs-var hs-var">newCognitoUserPoolConfig</span></a></span></span><span> </span><span id="local-6989586621679248418"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248418"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span></span><span> </span><span id="local-6989586621679248417"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248417"><span class="hs-identifier hs-var">pAwsRegion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#newCognitoUserPoolConfig"><span class="hs-identifier hs-var hs-var">newCognitoUserPoolConfig</span></a></span></span><span> </span><span id="local-6989586621679248427"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679248427"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span></span><span> </span><span id="local-6989586621679248426"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679248426"><span class="hs-identifier hs-var">pAwsRegion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">CognitoUserPoolConfig' :: Maybe Text -&gt; Text -&gt; Text -&gt; CognitoUserPoolConfig
 </span><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#CognitoUserPoolConfig%27"><span class="hs-identifier hs-type">CognitoUserPoolConfig'</span></a></span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:appIdClientRegex:CognitoUserPoolConfig' :: Maybe Text
@@ -126,10 +126,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:userPoolId:CognitoUserPoolConfig' :: Text
 </span><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#%24sel%3AuserPoolId%3ACognitoUserPoolConfig%27"><span class="hs-identifier hs-var">userPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248418"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679248427"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:awsRegion:CognitoUserPoolConfig' :: Text
 </span><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#%24sel%3AawsRegion%3ACognitoUserPoolConfig%27"><span class="hs-identifier hs-var">awsRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248417"><span class="hs-identifier hs-var">pAwsRegion_</span></a></span><span>
+</span><a href="#local-6989586621679248426"><span class="hs-identifier hs-var">pAwsRegion_</span></a></span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | A regular expression for validating the incoming Amazon Cognito user</span><span>
@@ -145,16 +145,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#CognitoUserPoolConfig%27"><span class="hs-identifier hs-type">CognitoUserPoolConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248413"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#CognitoUserPoolConfig%27"><span class="hs-identifier hs-type">CognitoUserPoolConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248422"><span class="annot"><span class="annottext">Maybe Text
 appIdClientRegex :: Maybe Text
 $sel:appIdClientRegex:CognitoUserPoolConfig' :: CognitoUserPoolConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679248413"><span class="hs-identifier hs-var hs-var">appIdClientRegex</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248413"><span class="hs-identifier hs-var">appIdClientRegex</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248412"><span class="annot"><span class="annottext">s :: CognitoUserPoolConfig
-</span><a href="#local-6989586621679248412"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#CognitoUserPoolConfig%27"><span class="hs-identifier hs-type">CognitoUserPoolConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248411"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248411"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CognitoUserPoolConfig
-</span><a href="#local-6989586621679248412"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appIdClientRegex:CognitoUserPoolConfig' :: Maybe Text
+</span><a href="#local-6989586621679248422"><span class="hs-identifier hs-var hs-var">appIdClientRegex</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679248422"><span class="hs-identifier hs-var">appIdClientRegex</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248421"><span class="annot"><span class="annottext">s :: CognitoUserPoolConfig
+</span><a href="#local-6989586621679248421"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#CognitoUserPoolConfig%27"><span class="hs-identifier hs-type">CognitoUserPoolConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248420"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679248420"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CognitoUserPoolConfig
+</span><a href="#local-6989586621679248421"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appIdClientRegex:CognitoUserPoolConfig' :: Maybe Text
 </span><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#%24sel%3AappIdClientRegex%3ACognitoUserPoolConfig%27"><span class="hs-identifier hs-var">appIdClientRegex</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248411"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#CognitoUserPoolConfig"><span class="hs-identifier hs-type">CognitoUserPoolConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679248420"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#CognitoUserPoolConfig"><span class="hs-identifier hs-type">CognitoUserPoolConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | The user pool ID.</span><span>
 </span><span id="line-74"></span><span class="annot"><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#cognitoUserPoolConfig_userPoolId"><span class="hs-identifier hs-type">cognitoUserPoolConfig_userPoolId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#CognitoUserPoolConfig"><span class="hs-identifier hs-type">CognitoUserPoolConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -164,16 +164,16 @@ $sel:appIdClientRegex:CognitoUserPoolConfig' :: CognitoUserPoolConfig -&gt; Mayb
 -&gt; (CognitoUserPoolConfig -&gt; Text -&gt; CognitoUserPoolConfig)
 -&gt; Lens CognitoUserPoolConfig CognitoUserPoolConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#CognitoUserPoolConfig%27"><span class="hs-identifier hs-type">CognitoUserPoolConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248409"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#CognitoUserPoolConfig%27"><span class="hs-identifier hs-type">CognitoUserPoolConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248418"><span class="annot"><span class="annottext">Text
 userPoolId :: Text
 $sel:userPoolId:CognitoUserPoolConfig' :: CognitoUserPoolConfig -&gt; Text
-</span><a href="#local-6989586621679248409"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248409"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248408"><span class="annot"><span class="annottext">s :: CognitoUserPoolConfig
-</span><a href="#local-6989586621679248408"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#CognitoUserPoolConfig%27"><span class="hs-identifier hs-type">CognitoUserPoolConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248407"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248407"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CognitoUserPoolConfig
-</span><a href="#local-6989586621679248408"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userPoolId:CognitoUserPoolConfig' :: Text
+</span><a href="#local-6989586621679248418"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679248418"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248417"><span class="annot"><span class="annottext">s :: CognitoUserPoolConfig
+</span><a href="#local-6989586621679248417"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#CognitoUserPoolConfig%27"><span class="hs-identifier hs-type">CognitoUserPoolConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248416"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679248416"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CognitoUserPoolConfig
+</span><a href="#local-6989586621679248417"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userPoolId:CognitoUserPoolConfig' :: Text
 </span><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#%24sel%3AuserPoolId%3ACognitoUserPoolConfig%27"><span class="hs-identifier hs-var">userPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248407"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#CognitoUserPoolConfig"><span class="hs-identifier hs-type">CognitoUserPoolConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679248416"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#CognitoUserPoolConfig"><span class="hs-identifier hs-type">CognitoUserPoolConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | The Amazon Web Services Region in which the user pool was created.</span><span>
 </span><span id="line-78"></span><span class="annot"><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#cognitoUserPoolConfig_awsRegion"><span class="hs-identifier hs-type">cognitoUserPoolConfig_awsRegion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#CognitoUserPoolConfig"><span class="hs-identifier hs-type">CognitoUserPoolConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -183,19 +183,19 @@ $sel:userPoolId:CognitoUserPoolConfig' :: CognitoUserPoolConfig -&gt; Text
 -&gt; (CognitoUserPoolConfig -&gt; Text -&gt; CognitoUserPoolConfig)
 -&gt; Lens CognitoUserPoolConfig CognitoUserPoolConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#CognitoUserPoolConfig%27"><span class="hs-identifier hs-type">CognitoUserPoolConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248405"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#CognitoUserPoolConfig%27"><span class="hs-identifier hs-type">CognitoUserPoolConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248414"><span class="annot"><span class="annottext">Text
 awsRegion :: Text
 $sel:awsRegion:CognitoUserPoolConfig' :: CognitoUserPoolConfig -&gt; Text
-</span><a href="#local-6989586621679248405"><span class="hs-identifier hs-var hs-var">awsRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248405"><span class="hs-identifier hs-var">awsRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248404"><span class="annot"><span class="annottext">s :: CognitoUserPoolConfig
-</span><a href="#local-6989586621679248404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#CognitoUserPoolConfig%27"><span class="hs-identifier hs-type">CognitoUserPoolConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248403"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CognitoUserPoolConfig
-</span><a href="#local-6989586621679248404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsRegion:CognitoUserPoolConfig' :: Text
+</span><a href="#local-6989586621679248414"><span class="hs-identifier hs-var hs-var">awsRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679248414"><span class="hs-identifier hs-var">awsRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248413"><span class="annot"><span class="annottext">s :: CognitoUserPoolConfig
+</span><a href="#local-6989586621679248413"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#CognitoUserPoolConfig%27"><span class="hs-identifier hs-type">CognitoUserPoolConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248412"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679248412"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CognitoUserPoolConfig
+</span><a href="#local-6989586621679248413"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsRegion:CognitoUserPoolConfig' :: Text
 </span><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#%24sel%3AawsRegion%3ACognitoUserPoolConfig%27"><span class="hs-identifier hs-var">awsRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#CognitoUserPoolConfig"><span class="hs-identifier hs-type">CognitoUserPoolConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679248412"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#CognitoUserPoolConfig"><span class="hs-identifier hs-type">CognitoUserPoolConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248400"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#CognitoUserPoolConfig"><span class="hs-identifier hs-type">CognitoUserPoolConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679248398"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CognitoUserPoolConfig
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248409"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#CognitoUserPoolConfig"><span class="hs-identifier hs-type">CognitoUserPoolConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679248407"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CognitoUserPoolConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CognitoUserPoolConfig)
@@ -205,8 +205,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CognitoUserPoolConfig&quot;</span></span><span>
-</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679248395"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248395"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679248404"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679248404"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Text -&gt; Text -&gt; CognitoUserPoolConfig
 </span><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#CognitoUserPoolConfig%27"><span class="hs-identifier hs-var">CognitoUserPoolConfig'</span></a></span><span>
 </span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Text -&gt; Text -&gt; CognitoUserPoolConfig)
@@ -214,7 +214,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Text -&gt; Text -&gt; CognitoUserPoolConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248395"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679248404"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;appIdClientRegex&quot;</span></span><span class="hs-special">)</span><span>
@@ -222,7 +222,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser (Text -&gt; CognitoUserPoolConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248395"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679248404"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;userPoolId&quot;</span></span><span class="hs-special">)</span><span>
@@ -230,19 +230,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser CognitoUserPoolConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248395"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679248404"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;awsRegion&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248388"><span id="local-6989586621679248390"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#CognitoUserPoolConfig"><span class="hs-identifier hs-type">CognitoUserPoolConfig</span></a></span></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248397"><span id="local-6989586621679248399"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#CognitoUserPoolConfig"><span class="hs-identifier hs-type">CognitoUserPoolConfig</span></a></span></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248385"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#CognitoUserPoolConfig"><span class="hs-identifier hs-type">CognitoUserPoolConfig</span></a></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248394"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#CognitoUserPoolConfig"><span class="hs-identifier hs-type">CognitoUserPoolConfig</span></a></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248377"><span id="local-6989586621679248379"><span id="local-6989586621679248381"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#CognitoUserPoolConfig"><span class="hs-identifier hs-type">CognitoUserPoolConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679248375"><span class="annot"><span class="annottext">toJSON :: CognitoUserPoolConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#CognitoUserPoolConfig%27"><span class="hs-identifier hs-type">CognitoUserPoolConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248371"><span id="local-6989586621679248372"><span id="local-6989586621679248373"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248386"><span id="local-6989586621679248388"><span id="local-6989586621679248390"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#CognitoUserPoolConfig"><span class="hs-identifier hs-type">CognitoUserPoolConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679248384"><span class="annot"><span class="annottext">toJSON :: CognitoUserPoolConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.CognitoUserPoolConfig.html#CognitoUserPoolConfig%27"><span class="hs-identifier hs-type">CognitoUserPoolConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248380"><span id="local-6989586621679248381"><span id="local-6989586621679248382"><span class="annot"><span class="annottext">Maybe Text
 Text
 awsRegion :: Text
 userPoolId :: Text
@@ -250,7 +250,7 @@ appIdClientRegex :: Maybe Text
 $sel:awsRegion:CognitoUserPoolConfig' :: CognitoUserPoolConfig -&gt; Text
 $sel:userPoolId:CognitoUserPoolConfig' :: CognitoUserPoolConfig -&gt; Text
 $sel:appIdClientRegex:CognitoUserPoolConfig' :: CognitoUserPoolConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679248371"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679248380"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -263,21 +263,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-101"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248373"><span class="hs-identifier hs-var">appIdClientRegex</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679248382"><span class="hs-identifier hs-var">appIdClientRegex</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;userPoolId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248372"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679248381"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;awsRegion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248371"><span class="hs-identifier hs-var">awsRegion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679248380"><span class="hs-identifier hs-var">awsRegion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span></pre></body></html>

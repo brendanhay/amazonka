@@ -1,0 +1,920 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.LookoutMetrics.CreateMetricSet</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a dataset.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.LookoutMetrics.CreateMetricSet</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet"><span class="hs-identifier">CreateMetricSet</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#newCreateMetricSet"><span class="hs-identifier">newCreateMetricSet</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#createMetricSet_dimensionList"><span class="hs-identifier">createMetricSet_dimensionList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#createMetricSet_offset"><span class="hs-identifier">createMetricSet_offset</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#createMetricSet_timestampColumn"><span class="hs-identifier">createMetricSet_timestampColumn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#createMetricSet_metricSetFrequency"><span class="hs-identifier">createMetricSet_metricSetFrequency</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#createMetricSet_metricSetDescription"><span class="hs-identifier">createMetricSet_metricSetDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#createMetricSet_timezone"><span class="hs-identifier">createMetricSet_timezone</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#createMetricSet_tags"><span class="hs-identifier">createMetricSet_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#createMetricSet_anomalyDetectorArn"><span class="hs-identifier">createMetricSet_anomalyDetectorArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#createMetricSet_metricSetName"><span class="hs-identifier">createMetricSet_metricSetName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#createMetricSet_metricList"><span class="hs-identifier">createMetricSet_metricList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#createMetricSet_metricSource"><span class="hs-identifier">createMetricSet_metricSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSetResponse"><span class="hs-identifier">CreateMetricSetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#newCreateMetricSetResponse"><span class="hs-identifier">newCreateMetricSetResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#createMetricSetResponse_metricSetArn"><span class="hs-identifier">createMetricSetResponse_metricSetArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#createMetricSetResponse_httpStatus"><span class="hs-identifier">createMetricSetResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types</span></a></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newCreateMetricSet' smart constructor.</span><span>
+</span><span id="line-60"></span><span id="local-6989586621679230980"><span id="local-6989586621679230981"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateMetricSet"><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet"><span class="hs-identifier hs-var">CreateMetricSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateMetricSet%27"><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet%27"><span class="hs-identifier hs-var">CreateMetricSet'</span></a></span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of the fields you want to treat as dimensions.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AdimensionList%3ACreateMetricSet%27"><span class="annot"><span class="annottext">CreateMetricSet -&gt; Maybe (NonEmpty Text)
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#%24sel%3AdimensionList%3ACreateMetricSet%27"><span class="hs-identifier hs-var hs-var">dimensionList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | After an interval ends, the amount of seconds that the detector waits</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- before importing data. Offset is only supported for S3 and Redshift</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- datasources.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3Aoffset%3ACreateMetricSet%27"><span class="annot"><span class="annottext">CreateMetricSet -&gt; Maybe Natural
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#%24sel%3Aoffset%3ACreateMetricSet%27"><span class="hs-identifier hs-var hs-var">offset</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | Contains information about the column used for tracking time in your</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- source data.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AtimestampColumn%3ACreateMetricSet%27"><span class="annot"><span class="annottext">CreateMetricSet -&gt; Maybe TimestampColumn
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#%24sel%3AtimestampColumn%3ACreateMetricSet%27"><span class="hs-identifier hs-var hs-var">timestampColumn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.TimestampColumn.html#TimestampColumn"><span class="hs-identifier hs-type">TimestampColumn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The frequency with which the source data will be analyzed for anomalies.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AmetricSetFrequency%3ACreateMetricSet%27"><span class="annot"><span class="annottext">CreateMetricSet -&gt; Maybe Frequency
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#%24sel%3AmetricSetFrequency%3ACreateMetricSet%27"><span class="hs-identifier hs-var hs-var">metricSetFrequency</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.Frequency.html#Frequency"><span class="hs-identifier hs-type">Frequency</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | A description of the dataset you are creating.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AmetricSetDescription%3ACreateMetricSet%27"><span class="annot"><span class="annottext">CreateMetricSet -&gt; Maybe Text
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#%24sel%3AmetricSetDescription%3ACreateMetricSet%27"><span class="hs-identifier hs-var hs-var">metricSetDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The time zone in which your source data was recorded.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3Atimezone%3ACreateMetricSet%27"><span class="annot"><span class="annottext">CreateMetricSet -&gt; Maybe Text
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#%24sel%3Atimezone%3ACreateMetricSet%27"><span class="hs-identifier hs-var hs-var">timezone</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | A list of</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html tags&gt;</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- to apply to the dataset.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3Atags%3ACreateMetricSet%27"><span class="annot"><span class="annottext">CreateMetricSet -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#%24sel%3Atags%3ACreateMetricSet%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The ARN of the anomaly detector that will use the dataset.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AanomalyDetectorArn%3ACreateMetricSet%27"><span class="annot"><span class="annottext">CreateMetricSet -&gt; Text
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#%24sel%3AanomalyDetectorArn%3ACreateMetricSet%27"><span class="hs-identifier hs-var hs-var">anomalyDetectorArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | The name of the dataset.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3AmetricSetName%3ACreateMetricSet%27"><span class="annot"><span class="annottext">CreateMetricSet -&gt; Text
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#%24sel%3AmetricSetName%3ACreateMetricSet%27"><span class="hs-identifier hs-var hs-var">metricSetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | A list of metrics that the dataset will contain.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3AmetricList%3ACreateMetricSet%27"><span class="annot"><span class="annottext">CreateMetricSet -&gt; NonEmpty Metric
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#%24sel%3AmetricList%3ACreateMetricSet%27"><span class="hs-identifier hs-var hs-var">metricList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.Metric.html#Metric"><span class="hs-identifier hs-type">Metric</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | Contains information about how the source data should be interpreted.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3AmetricSource%3ACreateMetricSet%27"><span class="annot"><span class="annottext">CreateMetricSet -&gt; MetricSource
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#%24sel%3AmetricSource%3ACreateMetricSet%27"><span class="hs-identifier hs-var hs-var">metricSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.MetricSource.html#MetricSource"><span class="hs-identifier hs-type">MetricSource</span></a></span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679230964"><span id="local-6989586621679230966"><span class="annot"><span class="annottext">CreateMetricSet -&gt; CreateMetricSet -&gt; Bool
+(CreateMetricSet -&gt; CreateMetricSet -&gt; Bool)
+-&gt; (CreateMetricSet -&gt; CreateMetricSet -&gt; Bool)
+-&gt; Eq CreateMetricSet
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateMetricSet -&gt; CreateMetricSet -&gt; Bool
+$c/= :: CreateMetricSet -&gt; CreateMetricSet -&gt; Bool
+== :: CreateMetricSet -&gt; CreateMetricSet -&gt; Bool
+$c== :: CreateMetricSet -&gt; CreateMetricSet -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679230955"><span id="local-6989586621679230957"><span id="local-6989586621679230959"><span id="local-6989586621679230961"><span class="annot"><span class="annottext">ReadPrec [CreateMetricSet]
+ReadPrec CreateMetricSet
+Int -&gt; ReadS CreateMetricSet
+ReadS [CreateMetricSet]
+(Int -&gt; ReadS CreateMetricSet)
+-&gt; ReadS [CreateMetricSet]
+-&gt; ReadPrec CreateMetricSet
+-&gt; ReadPrec [CreateMetricSet]
+-&gt; Read CreateMetricSet
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateMetricSet]
+$creadListPrec :: ReadPrec [CreateMetricSet]
+readPrec :: ReadPrec CreateMetricSet
+$creadPrec :: ReadPrec CreateMetricSet
+readList :: ReadS [CreateMetricSet]
+$creadList :: ReadS [CreateMetricSet]
+readsPrec :: Int -&gt; ReadS CreateMetricSet
+$creadsPrec :: Int -&gt; ReadS CreateMetricSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679230948"><span id="local-6989586621679230950"><span id="local-6989586621679230952"><span class="annot"><span class="annottext">Int -&gt; CreateMetricSet -&gt; ShowS
+[CreateMetricSet] -&gt; ShowS
+CreateMetricSet -&gt; String
+(Int -&gt; CreateMetricSet -&gt; ShowS)
+-&gt; (CreateMetricSet -&gt; String)
+-&gt; ([CreateMetricSet] -&gt; ShowS)
+-&gt; Show CreateMetricSet
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateMetricSet] -&gt; ShowS
+$cshowList :: [CreateMetricSet] -&gt; ShowS
+show :: CreateMetricSet -&gt; String
+$cshow :: CreateMetricSet -&gt; String
+showsPrec :: Int -&gt; CreateMetricSet -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateMetricSet -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateMetricSet -&gt; Rep CreateMetricSet x)
+-&gt; (forall x. Rep CreateMetricSet x -&gt; CreateMetricSet)
+-&gt; Generic CreateMetricSet
+forall x. Rep CreateMetricSet x -&gt; CreateMetricSet
+forall x. CreateMetricSet -&gt; Rep CreateMetricSet x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateMetricSet x -&gt; CreateMetricSet
+$cfrom :: forall x. CreateMetricSet -&gt; Rep CreateMetricSet x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- Create a value of 'CreateMetricSet' with all optional fields omitted.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'dimensionList', 'createMetricSet_dimensionList' - A list of the fields you want to treat as dimensions.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'offset', 'createMetricSet_offset' - After an interval ends, the amount of seconds that the detector waits</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- before importing data. Offset is only supported for S3 and Redshift</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- datasources.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'timestampColumn', 'createMetricSet_timestampColumn' - Contains information about the column used for tracking time in your</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- source data.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'metricSetFrequency', 'createMetricSet_metricSetFrequency' - The frequency with which the source data will be analyzed for anomalies.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'metricSetDescription', 'createMetricSet_metricSetDescription' - A description of the dataset you are creating.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'timezone', 'createMetricSet_timezone' - The time zone in which your source data was recorded.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'tags', 'createMetricSet_tags' - A list of</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html tags&gt;</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- to apply to the dataset.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'anomalyDetectorArn', 'createMetricSet_anomalyDetectorArn' - The ARN of the anomaly detector that will use the dataset.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'metricSetName', 'createMetricSet_metricSetName' - The name of the dataset.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'metricList', 'createMetricSet_metricList' - A list of metrics that the dataset will contain.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'metricSource', 'createMetricSet_metricSource' - Contains information about how the source data should be interpreted.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#newCreateMetricSet"><span class="hs-identifier hs-type">newCreateMetricSet</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-comment">-- | 'anomalyDetectorArn'</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-comment">-- | 'metricSetName'</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-comment">-- | 'metricList'</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.Metric.html#Metric"><span class="hs-identifier hs-type">Metric</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-comment">-- | 'metricSource'</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.MetricSource.html#MetricSource"><span class="hs-identifier hs-type">MetricSource</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet"><span class="hs-identifier hs-type">CreateMetricSet</span></a></span><span>
+</span><span id="line-135"></span><span id="newCreateMetricSet"><span class="annot"><span class="annottext">newCreateMetricSet :: Text -&gt; Text -&gt; NonEmpty Metric -&gt; MetricSource -&gt; CreateMetricSet
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#newCreateMetricSet"><span class="hs-identifier hs-var hs-var">newCreateMetricSet</span></a></span></span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679230943"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679230943"><span class="hs-identifier hs-var">pAnomalyDetectorArn_</span></a></span></span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679230942"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679230942"><span class="hs-identifier hs-var">pMetricSetName_</span></a></span></span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679230941"><span class="annot"><span class="annottext">NonEmpty Metric
+</span><a href="#local-6989586621679230941"><span class="hs-identifier hs-var">pMetricList_</span></a></span></span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679230940"><span class="annot"><span class="annottext">MetricSource
+</span><a href="#local-6989586621679230940"><span class="hs-identifier hs-var">pMetricSource_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">CreateMetricSet' :: Maybe (NonEmpty Text)
+-&gt; Maybe Natural
+-&gt; Maybe TimestampColumn
+-&gt; Maybe Frequency
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Text
+-&gt; Text
+-&gt; NonEmpty Metric
+-&gt; MetricSource
+-&gt; CreateMetricSet
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet%27"><span class="hs-identifier hs-type">CreateMetricSet'</span></a></span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dimensionList:CreateMetricSet' :: Maybe (NonEmpty Text)
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#%24sel%3AdimensionList%3ACreateMetricSet%27"><span class="hs-identifier hs-var">dimensionList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">$sel:offset:CreateMetricSet' :: Maybe Natural
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#%24sel%3Aoffset%3ACreateMetricSet%27"><span class="hs-identifier hs-var">offset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">$sel:timestampColumn:CreateMetricSet' :: Maybe TimestampColumn
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#%24sel%3AtimestampColumn%3ACreateMetricSet%27"><span class="hs-identifier hs-var">timestampColumn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TimestampColumn
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">$sel:metricSetFrequency:CreateMetricSet' :: Maybe Frequency
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#%24sel%3AmetricSetFrequency%3ACreateMetricSet%27"><span class="hs-identifier hs-var">metricSetFrequency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Frequency
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">$sel:metricSetDescription:CreateMetricSet' :: Maybe Text
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#%24sel%3AmetricSetDescription%3ACreateMetricSet%27"><span class="hs-identifier hs-var">metricSetDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">$sel:timezone:CreateMetricSet' :: Maybe Text
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#%24sel%3Atimezone%3ACreateMetricSet%27"><span class="hs-identifier hs-var">timezone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateMetricSet' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#%24sel%3Atags%3ACreateMetricSet%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">$sel:anomalyDetectorArn:CreateMetricSet' :: Text
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#%24sel%3AanomalyDetectorArn%3ACreateMetricSet%27"><span class="hs-identifier hs-var">anomalyDetectorArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679230943"><span class="hs-identifier hs-var">pAnomalyDetectorArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">$sel:metricSetName:CreateMetricSet' :: Text
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#%24sel%3AmetricSetName%3ACreateMetricSet%27"><span class="hs-identifier hs-var">metricSetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679230942"><span class="hs-identifier hs-var">pMetricSetName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">$sel:metricList:CreateMetricSet' :: NonEmpty Metric
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#%24sel%3AmetricList%3ACreateMetricSet%27"><span class="hs-identifier hs-var">metricList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Metric) (Identity (NonEmpty Metric))
+-&gt; Tagged (NonEmpty Metric) (Identity (NonEmpty Metric))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Metric) (Identity (NonEmpty Metric))
+ -&gt; Tagged (NonEmpty Metric) (Identity (NonEmpty Metric)))
+-&gt; NonEmpty Metric -&gt; NonEmpty Metric
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Metric
+</span><a href="#local-6989586621679230941"><span class="hs-identifier hs-var">pMetricList_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>        </span><span class="annot"><span class="annottext">$sel:metricSource:CreateMetricSet' :: MetricSource
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#%24sel%3AmetricSource%3ACreateMetricSet%27"><span class="hs-identifier hs-var">metricSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MetricSource
+</span><a href="#local-6989586621679230940"><span class="hs-identifier hs-var">pMetricSource_</span></a></span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | A list of the fields you want to treat as dimensions.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#createMetricSet_dimensionList"><span class="hs-identifier hs-type">createMetricSet_dimensionList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet"><span class="hs-identifier hs-type">CreateMetricSet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span id="createMetricSet_dimensionList"><span class="annot"><span class="annottext">createMetricSet_dimensionList :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; CreateMetricSet -&gt; f CreateMetricSet
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#createMetricSet_dimensionList"><span class="hs-identifier hs-var hs-var">createMetricSet_dimensionList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateMetricSet -&gt; Maybe (NonEmpty Text))
+-&gt; (CreateMetricSet -&gt; Maybe (NonEmpty Text) -&gt; CreateMetricSet)
+-&gt; Lens
+     CreateMetricSet
+     CreateMetricSet
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet%27"><span class="hs-identifier hs-type">CreateMetricSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230935"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+dimensionList :: Maybe (NonEmpty Text)
+$sel:dimensionList:CreateMetricSet' :: CreateMetricSet -&gt; Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679230935"><span class="hs-identifier hs-var hs-var">dimensionList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679230935"><span class="hs-identifier hs-var">dimensionList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230934"><span class="annot"><span class="annottext">s :: CreateMetricSet
+</span><a href="#local-6989586621679230934"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet%27"><span class="hs-identifier hs-type">CreateMetricSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230933"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679230933"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateMetricSet
+</span><a href="#local-6989586621679230934"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dimensionList:CreateMetricSet' :: Maybe (NonEmpty Text)
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#%24sel%3AdimensionList%3ACreateMetricSet%27"><span class="hs-identifier hs-var">dimensionList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679230933"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet"><span class="hs-identifier hs-type">CreateMetricSet</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+ -&gt; CreateMetricSet -&gt; f CreateMetricSet)
+-&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+    -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; CreateMetricSet
+-&gt; f CreateMetricSet
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+-&gt; Iso
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | After an interval ends, the amount of seconds that the detector waits</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- before importing data. Offset is only supported for S3 and Redshift</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- datasources.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#createMetricSet_offset"><span class="hs-identifier hs-type">createMetricSet_offset</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet"><span class="hs-identifier hs-type">CreateMetricSet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="createMetricSet_offset"><span class="annot"><span class="annottext">createMetricSet_offset :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; CreateMetricSet -&gt; f CreateMetricSet
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#createMetricSet_offset"><span class="hs-identifier hs-var hs-var">createMetricSet_offset</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateMetricSet -&gt; Maybe Natural)
+-&gt; (CreateMetricSet -&gt; Maybe Natural -&gt; CreateMetricSet)
+-&gt; Lens
+     CreateMetricSet CreateMetricSet (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet%27"><span class="hs-identifier hs-type">CreateMetricSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230930"><span class="annot"><span class="annottext">Maybe Natural
+offset :: Maybe Natural
+$sel:offset:CreateMetricSet' :: CreateMetricSet -&gt; Maybe Natural
+</span><a href="#local-6989586621679230930"><span class="hs-identifier hs-var hs-var">offset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679230930"><span class="hs-identifier hs-var">offset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230929"><span class="annot"><span class="annottext">s :: CreateMetricSet
+</span><a href="#local-6989586621679230929"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet%27"><span class="hs-identifier hs-type">CreateMetricSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230928"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679230928"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateMetricSet
+</span><a href="#local-6989586621679230929"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:offset:CreateMetricSet' :: Maybe Natural
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#%24sel%3Aoffset%3ACreateMetricSet%27"><span class="hs-identifier hs-var">offset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679230928"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet"><span class="hs-identifier hs-type">CreateMetricSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | Contains information about the column used for tracking time in your</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- source data.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#createMetricSet_timestampColumn"><span class="hs-identifier hs-type">createMetricSet_timestampColumn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet"><span class="hs-identifier hs-type">CreateMetricSet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.TimestampColumn.html#TimestampColumn"><span class="hs-identifier hs-type">TimestampColumn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span id="createMetricSet_timestampColumn"><span class="annot"><span class="annottext">createMetricSet_timestampColumn :: (Maybe TimestampColumn -&gt; f (Maybe TimestampColumn))
+-&gt; CreateMetricSet -&gt; f CreateMetricSet
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#createMetricSet_timestampColumn"><span class="hs-identifier hs-var hs-var">createMetricSet_timestampColumn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateMetricSet -&gt; Maybe TimestampColumn)
+-&gt; (CreateMetricSet -&gt; Maybe TimestampColumn -&gt; CreateMetricSet)
+-&gt; Lens
+     CreateMetricSet
+     CreateMetricSet
+     (Maybe TimestampColumn)
+     (Maybe TimestampColumn)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet%27"><span class="hs-identifier hs-type">CreateMetricSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230927"><span class="annot"><span class="annottext">Maybe TimestampColumn
+timestampColumn :: Maybe TimestampColumn
+$sel:timestampColumn:CreateMetricSet' :: CreateMetricSet -&gt; Maybe TimestampColumn
+</span><a href="#local-6989586621679230927"><span class="hs-identifier hs-var hs-var">timestampColumn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimestampColumn
+</span><a href="#local-6989586621679230927"><span class="hs-identifier hs-var">timestampColumn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230926"><span class="annot"><span class="annottext">s :: CreateMetricSet
+</span><a href="#local-6989586621679230926"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet%27"><span class="hs-identifier hs-type">CreateMetricSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230925"><span class="annot"><span class="annottext">Maybe TimestampColumn
+</span><a href="#local-6989586621679230925"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateMetricSet
+</span><a href="#local-6989586621679230926"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestampColumn:CreateMetricSet' :: Maybe TimestampColumn
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#%24sel%3AtimestampColumn%3ACreateMetricSet%27"><span class="hs-identifier hs-var">timestampColumn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TimestampColumn
+</span><a href="#local-6989586621679230925"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet"><span class="hs-identifier hs-type">CreateMetricSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The frequency with which the source data will be analyzed for anomalies.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#createMetricSet_metricSetFrequency"><span class="hs-identifier hs-type">createMetricSet_metricSetFrequency</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet"><span class="hs-identifier hs-type">CreateMetricSet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.Frequency.html#Frequency"><span class="hs-identifier hs-type">Frequency</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="createMetricSet_metricSetFrequency"><span class="annot"><span class="annottext">createMetricSet_metricSetFrequency :: (Maybe Frequency -&gt; f (Maybe Frequency))
+-&gt; CreateMetricSet -&gt; f CreateMetricSet
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#createMetricSet_metricSetFrequency"><span class="hs-identifier hs-var hs-var">createMetricSet_metricSetFrequency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateMetricSet -&gt; Maybe Frequency)
+-&gt; (CreateMetricSet -&gt; Maybe Frequency -&gt; CreateMetricSet)
+-&gt; Lens
+     CreateMetricSet CreateMetricSet (Maybe Frequency) (Maybe Frequency)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet%27"><span class="hs-identifier hs-type">CreateMetricSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230924"><span class="annot"><span class="annottext">Maybe Frequency
+metricSetFrequency :: Maybe Frequency
+$sel:metricSetFrequency:CreateMetricSet' :: CreateMetricSet -&gt; Maybe Frequency
+</span><a href="#local-6989586621679230924"><span class="hs-identifier hs-var hs-var">metricSetFrequency</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Frequency
+</span><a href="#local-6989586621679230924"><span class="hs-identifier hs-var">metricSetFrequency</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230923"><span class="annot"><span class="annottext">s :: CreateMetricSet
+</span><a href="#local-6989586621679230923"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet%27"><span class="hs-identifier hs-type">CreateMetricSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230922"><span class="annot"><span class="annottext">Maybe Frequency
+</span><a href="#local-6989586621679230922"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateMetricSet
+</span><a href="#local-6989586621679230923"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricSetFrequency:CreateMetricSet' :: Maybe Frequency
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#%24sel%3AmetricSetFrequency%3ACreateMetricSet%27"><span class="hs-identifier hs-var">metricSetFrequency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Frequency
+</span><a href="#local-6989586621679230922"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet"><span class="hs-identifier hs-type">CreateMetricSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | A description of the dataset you are creating.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#createMetricSet_metricSetDescription"><span class="hs-identifier hs-type">createMetricSet_metricSetDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet"><span class="hs-identifier hs-type">CreateMetricSet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="createMetricSet_metricSetDescription"><span class="annot"><span class="annottext">createMetricSet_metricSetDescription :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateMetricSet -&gt; f CreateMetricSet
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#createMetricSet_metricSetDescription"><span class="hs-identifier hs-var hs-var">createMetricSet_metricSetDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateMetricSet -&gt; Maybe Text)
+-&gt; (CreateMetricSet -&gt; Maybe Text -&gt; CreateMetricSet)
+-&gt; Lens CreateMetricSet CreateMetricSet (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet%27"><span class="hs-identifier hs-type">CreateMetricSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230921"><span class="annot"><span class="annottext">Maybe Text
+metricSetDescription :: Maybe Text
+$sel:metricSetDescription:CreateMetricSet' :: CreateMetricSet -&gt; Maybe Text
+</span><a href="#local-6989586621679230921"><span class="hs-identifier hs-var hs-var">metricSetDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230921"><span class="hs-identifier hs-var">metricSetDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230920"><span class="annot"><span class="annottext">s :: CreateMetricSet
+</span><a href="#local-6989586621679230920"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet%27"><span class="hs-identifier hs-type">CreateMetricSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230919"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230919"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateMetricSet
+</span><a href="#local-6989586621679230920"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricSetDescription:CreateMetricSet' :: Maybe Text
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#%24sel%3AmetricSetDescription%3ACreateMetricSet%27"><span class="hs-identifier hs-var">metricSetDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230919"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet"><span class="hs-identifier hs-type">CreateMetricSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | The time zone in which your source data was recorded.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#createMetricSet_timezone"><span class="hs-identifier hs-type">createMetricSet_timezone</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet"><span class="hs-identifier hs-type">CreateMetricSet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="createMetricSet_timezone"><span class="annot"><span class="annottext">createMetricSet_timezone :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateMetricSet -&gt; f CreateMetricSet
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#createMetricSet_timezone"><span class="hs-identifier hs-var hs-var">createMetricSet_timezone</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateMetricSet -&gt; Maybe Text)
+-&gt; (CreateMetricSet -&gt; Maybe Text -&gt; CreateMetricSet)
+-&gt; Lens CreateMetricSet CreateMetricSet (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet%27"><span class="hs-identifier hs-type">CreateMetricSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230918"><span class="annot"><span class="annottext">Maybe Text
+timezone :: Maybe Text
+$sel:timezone:CreateMetricSet' :: CreateMetricSet -&gt; Maybe Text
+</span><a href="#local-6989586621679230918"><span class="hs-identifier hs-var hs-var">timezone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230918"><span class="hs-identifier hs-var">timezone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230917"><span class="annot"><span class="annottext">s :: CreateMetricSet
+</span><a href="#local-6989586621679230917"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet%27"><span class="hs-identifier hs-type">CreateMetricSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230916"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230916"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateMetricSet
+</span><a href="#local-6989586621679230917"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timezone:CreateMetricSet' :: Maybe Text
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#%24sel%3Atimezone%3ACreateMetricSet%27"><span class="hs-identifier hs-var">timezone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230916"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet"><span class="hs-identifier hs-type">CreateMetricSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | A list of</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html tags&gt;</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- to apply to the dataset.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#createMetricSet_tags"><span class="hs-identifier hs-type">createMetricSet_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet"><span class="hs-identifier hs-type">CreateMetricSet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span id="createMetricSet_tags"><span class="annot"><span class="annottext">createMetricSet_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateMetricSet -&gt; f CreateMetricSet
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#createMetricSet_tags"><span class="hs-identifier hs-var hs-var">createMetricSet_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateMetricSet -&gt; Maybe (HashMap Text Text))
+-&gt; (CreateMetricSet
+    -&gt; Maybe (HashMap Text Text) -&gt; CreateMetricSet)
+-&gt; Lens
+     CreateMetricSet
+     CreateMetricSet
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet%27"><span class="hs-identifier hs-type">CreateMetricSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230915"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:CreateMetricSet' :: CreateMetricSet -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679230915"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679230915"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230914"><span class="annot"><span class="annottext">s :: CreateMetricSet
+</span><a href="#local-6989586621679230914"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet%27"><span class="hs-identifier hs-type">CreateMetricSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230913"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679230913"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateMetricSet
+</span><a href="#local-6989586621679230914"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateMetricSet' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#%24sel%3Atags%3ACreateMetricSet%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679230913"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet"><span class="hs-identifier hs-type">CreateMetricSet</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CreateMetricSet -&gt; f CreateMetricSet)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateMetricSet
+-&gt; f CreateMetricSet
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | The ARN of the anomaly detector that will use the dataset.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#createMetricSet_anomalyDetectorArn"><span class="hs-identifier hs-type">createMetricSet_anomalyDetectorArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet"><span class="hs-identifier hs-type">CreateMetricSet</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-189"></span><span id="createMetricSet_anomalyDetectorArn"><span class="annot"><span class="annottext">createMetricSet_anomalyDetectorArn :: (Text -&gt; f Text) -&gt; CreateMetricSet -&gt; f CreateMetricSet
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#createMetricSet_anomalyDetectorArn"><span class="hs-identifier hs-var hs-var">createMetricSet_anomalyDetectorArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateMetricSet -&gt; Text)
+-&gt; (CreateMetricSet -&gt; Text -&gt; CreateMetricSet)
+-&gt; Lens CreateMetricSet CreateMetricSet Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet%27"><span class="hs-identifier hs-type">CreateMetricSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230912"><span class="annot"><span class="annottext">Text
+anomalyDetectorArn :: Text
+$sel:anomalyDetectorArn:CreateMetricSet' :: CreateMetricSet -&gt; Text
+</span><a href="#local-6989586621679230912"><span class="hs-identifier hs-var hs-var">anomalyDetectorArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679230912"><span class="hs-identifier hs-var">anomalyDetectorArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230911"><span class="annot"><span class="annottext">s :: CreateMetricSet
+</span><a href="#local-6989586621679230911"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet%27"><span class="hs-identifier hs-type">CreateMetricSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230910"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679230910"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateMetricSet
+</span><a href="#local-6989586621679230911"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:anomalyDetectorArn:CreateMetricSet' :: Text
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#%24sel%3AanomalyDetectorArn%3ACreateMetricSet%27"><span class="hs-identifier hs-var">anomalyDetectorArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679230910"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet"><span class="hs-identifier hs-type">CreateMetricSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- | The name of the dataset.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#createMetricSet_metricSetName"><span class="hs-identifier hs-type">createMetricSet_metricSetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet"><span class="hs-identifier hs-type">CreateMetricSet</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-193"></span><span id="createMetricSet_metricSetName"><span class="annot"><span class="annottext">createMetricSet_metricSetName :: (Text -&gt; f Text) -&gt; CreateMetricSet -&gt; f CreateMetricSet
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#createMetricSet_metricSetName"><span class="hs-identifier hs-var hs-var">createMetricSet_metricSetName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateMetricSet -&gt; Text)
+-&gt; (CreateMetricSet -&gt; Text -&gt; CreateMetricSet)
+-&gt; Lens CreateMetricSet CreateMetricSet Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet%27"><span class="hs-identifier hs-type">CreateMetricSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230909"><span class="annot"><span class="annottext">Text
+metricSetName :: Text
+$sel:metricSetName:CreateMetricSet' :: CreateMetricSet -&gt; Text
+</span><a href="#local-6989586621679230909"><span class="hs-identifier hs-var hs-var">metricSetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679230909"><span class="hs-identifier hs-var">metricSetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230908"><span class="annot"><span class="annottext">s :: CreateMetricSet
+</span><a href="#local-6989586621679230908"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet%27"><span class="hs-identifier hs-type">CreateMetricSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230907"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679230907"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateMetricSet
+</span><a href="#local-6989586621679230908"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricSetName:CreateMetricSet' :: Text
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#%24sel%3AmetricSetName%3ACreateMetricSet%27"><span class="hs-identifier hs-var">metricSetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679230907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet"><span class="hs-identifier hs-type">CreateMetricSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | A list of metrics that the dataset will contain.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#createMetricSet_metricList"><span class="hs-identifier hs-type">createMetricSet_metricList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet"><span class="hs-identifier hs-type">CreateMetricSet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.Metric.html#Metric"><span class="hs-identifier hs-type">Metric</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span id="createMetricSet_metricList"><span class="annot"><span class="annottext">createMetricSet_metricList :: (NonEmpty Metric -&gt; f (NonEmpty Metric))
+-&gt; CreateMetricSet -&gt; f CreateMetricSet
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#createMetricSet_metricList"><span class="hs-identifier hs-var hs-var">createMetricSet_metricList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateMetricSet -&gt; NonEmpty Metric)
+-&gt; (CreateMetricSet -&gt; NonEmpty Metric -&gt; CreateMetricSet)
+-&gt; Lens
+     CreateMetricSet CreateMetricSet (NonEmpty Metric) (NonEmpty Metric)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet%27"><span class="hs-identifier hs-type">CreateMetricSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230906"><span class="annot"><span class="annottext">NonEmpty Metric
+metricList :: NonEmpty Metric
+$sel:metricList:CreateMetricSet' :: CreateMetricSet -&gt; NonEmpty Metric
+</span><a href="#local-6989586621679230906"><span class="hs-identifier hs-var hs-var">metricList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Metric
+</span><a href="#local-6989586621679230906"><span class="hs-identifier hs-var">metricList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230905"><span class="annot"><span class="annottext">s :: CreateMetricSet
+</span><a href="#local-6989586621679230905"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet%27"><span class="hs-identifier hs-type">CreateMetricSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230904"><span class="annot"><span class="annottext">NonEmpty Metric
+</span><a href="#local-6989586621679230904"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateMetricSet
+</span><a href="#local-6989586621679230905"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricList:CreateMetricSet' :: NonEmpty Metric
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#%24sel%3AmetricList%3ACreateMetricSet%27"><span class="hs-identifier hs-var">metricList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Metric
+</span><a href="#local-6989586621679230904"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet"><span class="hs-identifier hs-type">CreateMetricSet</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Metric -&gt; f (NonEmpty Metric))
+ -&gt; CreateMetricSet -&gt; f CreateMetricSet)
+-&gt; ((NonEmpty Metric -&gt; f (NonEmpty Metric))
+    -&gt; NonEmpty Metric -&gt; f (NonEmpty Metric))
+-&gt; (NonEmpty Metric -&gt; f (NonEmpty Metric))
+-&gt; CreateMetricSet
+-&gt; f CreateMetricSet
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Metric -&gt; f (NonEmpty Metric))
+-&gt; NonEmpty Metric -&gt; f (NonEmpty Metric)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- | Contains information about how the source data should be interpreted.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#createMetricSet_metricSource"><span class="hs-identifier hs-type">createMetricSet_metricSource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet"><span class="hs-identifier hs-type">CreateMetricSet</span></a></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.MetricSource.html#MetricSource"><span class="hs-identifier hs-type">MetricSource</span></a></span><span>
+</span><span id="line-201"></span><span id="createMetricSet_metricSource"><span class="annot"><span class="annottext">createMetricSet_metricSource :: (MetricSource -&gt; f MetricSource)
+-&gt; CreateMetricSet -&gt; f CreateMetricSet
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#createMetricSet_metricSource"><span class="hs-identifier hs-var hs-var">createMetricSet_metricSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateMetricSet -&gt; MetricSource)
+-&gt; (CreateMetricSet -&gt; MetricSource -&gt; CreateMetricSet)
+-&gt; Lens CreateMetricSet CreateMetricSet MetricSource MetricSource
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet%27"><span class="hs-identifier hs-type">CreateMetricSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230903"><span class="annot"><span class="annottext">MetricSource
+metricSource :: MetricSource
+$sel:metricSource:CreateMetricSet' :: CreateMetricSet -&gt; MetricSource
+</span><a href="#local-6989586621679230903"><span class="hs-identifier hs-var hs-var">metricSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricSource
+</span><a href="#local-6989586621679230903"><span class="hs-identifier hs-var">metricSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230902"><span class="annot"><span class="annottext">s :: CreateMetricSet
+</span><a href="#local-6989586621679230902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet%27"><span class="hs-identifier hs-type">CreateMetricSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230901"><span class="annot"><span class="annottext">MetricSource
+</span><a href="#local-6989586621679230901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateMetricSet
+</span><a href="#local-6989586621679230902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricSource:CreateMetricSet' :: MetricSource
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#%24sel%3AmetricSource%3ACreateMetricSet%27"><span class="hs-identifier hs-var">metricSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MetricSource
+</span><a href="#local-6989586621679230901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet"><span class="hs-identifier hs-type">CreateMetricSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet"><span class="hs-identifier hs-type">CreateMetricSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-204"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-205"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet"><span class="hs-identifier hs-type">CreateMetricSet</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-206"></span><span>      </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSetResponse"><span class="hs-identifier hs-type">CreateMetricSetResponse</span></a></span><span>
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679230897"><span class="annot"><span class="annottext">request :: CreateMetricSet -&gt; Request CreateMetricSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateMetricSet -&gt; Request CreateMetricSet
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.LookoutMetrics.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679230893"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateMetricSet
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateMetricSet)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-209"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateMetricSet))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateMetricSet
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateMetricSet)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-210"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679230890"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679230890"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679230889"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679230889"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679230888"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679230888"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-211"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreateMetricSetResponse
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSetResponse%27"><span class="hs-identifier hs-var">CreateMetricSetResponse'</span></a></span><span>
+</span><span id="line-212"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreateMetricSetResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CreateMetricSetResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679230888"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MetricSetArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateMetricSetResponse)
+-&gt; Either String Int -&gt; Either String CreateMetricSetResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679230890"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679230880"><span id="local-6989586621679230882"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet"><span class="hs-identifier hs-type">CreateMetricSet</span></a></span></span></span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679230877"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet"><span class="hs-identifier hs-type">CreateMetricSet</span></a></span></span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet"><span class="hs-identifier hs-type">CreateMetricSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-221"></span><span>  </span><span id="local-6989586621679230873"><span class="annot"><span class="annottext">toHeaders :: CreateMetricSet -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-222"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateMetricSet -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-223"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-224"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-225"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-226"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-227"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-229"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679230863"><span id="local-6989586621679230865"><span id="local-6989586621679230867"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet"><span class="hs-identifier hs-type">CreateMetricSet</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-232"></span><span>  </span><span id="local-6989586621679230861"><span class="annot"><span class="annottext">toJSON :: CreateMetricSet -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet%27"><span class="hs-identifier hs-type">CreateMetricSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230849"><span id="local-6989586621679230850"><span id="local-6989586621679230851"><span id="local-6989586621679230852"><span id="local-6989586621679230853"><span id="local-6989586621679230854"><span id="local-6989586621679230855"><span id="local-6989586621679230856"><span id="local-6989586621679230857"><span id="local-6989586621679230858"><span id="local-6989586621679230859"><span class="annot"><span class="annottext">Maybe Natural
+Maybe (NonEmpty Text)
+Maybe Text
+Maybe (HashMap Text Text)
+Maybe Frequency
+Maybe TimestampColumn
+NonEmpty Metric
+Text
+MetricSource
+metricSource :: MetricSource
+metricList :: NonEmpty Metric
+metricSetName :: Text
+anomalyDetectorArn :: Text
+tags :: Maybe (HashMap Text Text)
+timezone :: Maybe Text
+metricSetDescription :: Maybe Text
+metricSetFrequency :: Maybe Frequency
+timestampColumn :: Maybe TimestampColumn
+offset :: Maybe Natural
+dimensionList :: Maybe (NonEmpty Text)
+$sel:metricSource:CreateMetricSet' :: CreateMetricSet -&gt; MetricSource
+$sel:metricList:CreateMetricSet' :: CreateMetricSet -&gt; NonEmpty Metric
+$sel:metricSetName:CreateMetricSet' :: CreateMetricSet -&gt; Text
+$sel:anomalyDetectorArn:CreateMetricSet' :: CreateMetricSet -&gt; Text
+$sel:tags:CreateMetricSet' :: CreateMetricSet -&gt; Maybe (HashMap Text Text)
+$sel:timezone:CreateMetricSet' :: CreateMetricSet -&gt; Maybe Text
+$sel:metricSetDescription:CreateMetricSet' :: CreateMetricSet -&gt; Maybe Text
+$sel:metricSetFrequency:CreateMetricSet' :: CreateMetricSet -&gt; Maybe Frequency
+$sel:timestampColumn:CreateMetricSet' :: CreateMetricSet -&gt; Maybe TimestampColumn
+$sel:offset:CreateMetricSet' :: CreateMetricSet -&gt; Maybe Natural
+$sel:dimensionList:CreateMetricSet' :: CreateMetricSet -&gt; Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679230849"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-233"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-234"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-235"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DimensionList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679230859"><span class="hs-identifier hs-var">dimensionList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Offset&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679230858"><span class="hs-identifier hs-var">offset</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TimestampColumn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TimestampColumn -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>              </span><span class="annot"><span class="annottext">(TimestampColumn -&gt; Pair) -&gt; Maybe TimestampColumn -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TimestampColumn
+</span><a href="#local-6989586621679230857"><span class="hs-identifier hs-var">timestampColumn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MetricSetFrequency&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Frequency -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>              </span><span class="annot"><span class="annottext">(Frequency -&gt; Pair) -&gt; Maybe Frequency -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Frequency
+</span><a href="#local-6989586621679230856"><span class="hs-identifier hs-var">metricSetFrequency</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MetricSetDescription&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230855"><span class="hs-identifier hs-var">metricSetDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Timezone&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230854"><span class="hs-identifier hs-var">timezone</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679230853"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-246"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AnomalyDetectorArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679230852"><span class="hs-identifier hs-var">anomalyDetectorArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MetricSetName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679230851"><span class="hs-identifier hs-var">metricSetName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MetricList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Metric -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Metric
+</span><a href="#local-6989586621679230850"><span class="hs-identifier hs-var">metricList</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MetricSource&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MetricSource -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">MetricSource
+</span><a href="#local-6989586621679230849"><span class="hs-identifier hs-var">metricSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-251"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet"><span class="hs-identifier hs-type">CreateMetricSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-254"></span><span>  </span><span id="local-6989586621679230843"><span class="annot"><span class="annottext">toPath :: CreateMetricSet -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateMetricSet -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/CreateMetricSet&quot;</span></span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSet"><span class="hs-identifier hs-type">CreateMetricSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-257"></span><span>  </span><span id="local-6989586621679230839"><span class="annot"><span class="annottext">toQuery :: CreateMetricSet -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateMetricSet -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- | /See:/ 'newCreateMetricSetResponse' smart constructor.</span><span>
+</span><span id="line-260"></span><span id="local-6989586621679230836"><span id="local-6989586621679230837"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateMetricSetResponse"><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSetResponse"><span class="hs-identifier hs-var">CreateMetricSetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateMetricSetResponse%27"><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSetResponse%27"><span class="hs-identifier hs-var">CreateMetricSetResponse'</span></a></span></span><span>
+</span><span id="line-261"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the dataset.</span><span>
+</span><span id="line-262"></span><span>    </span><span id="%24sel%3AmetricSetArn%3ACreateMetricSetResponse%27"><span class="annot"><span class="annottext">CreateMetricSetResponse -&gt; Maybe Text
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#%24sel%3AmetricSetArn%3ACreateMetricSetResponse%27"><span class="hs-identifier hs-var hs-var">metricSetArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-264"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateMetricSetResponse%27"><span class="annot"><span class="annottext">CreateMetricSetResponse -&gt; Int
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#%24sel%3AhttpStatus%3ACreateMetricSetResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-265"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-266"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679230830"><span id="local-6989586621679230832"><span class="annot"><span class="annottext">CreateMetricSetResponse -&gt; CreateMetricSetResponse -&gt; Bool
+(CreateMetricSetResponse -&gt; CreateMetricSetResponse -&gt; Bool)
+-&gt; (CreateMetricSetResponse -&gt; CreateMetricSetResponse -&gt; Bool)
+-&gt; Eq CreateMetricSetResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateMetricSetResponse -&gt; CreateMetricSetResponse -&gt; Bool
+$c/= :: CreateMetricSetResponse -&gt; CreateMetricSetResponse -&gt; Bool
+== :: CreateMetricSetResponse -&gt; CreateMetricSetResponse -&gt; Bool
+$c== :: CreateMetricSetResponse -&gt; CreateMetricSetResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679230822"><span id="local-6989586621679230824"><span id="local-6989586621679230826"><span id="local-6989586621679230828"><span class="annot"><span class="annottext">ReadPrec [CreateMetricSetResponse]
+ReadPrec CreateMetricSetResponse
+Int -&gt; ReadS CreateMetricSetResponse
+ReadS [CreateMetricSetResponse]
+(Int -&gt; ReadS CreateMetricSetResponse)
+-&gt; ReadS [CreateMetricSetResponse]
+-&gt; ReadPrec CreateMetricSetResponse
+-&gt; ReadPrec [CreateMetricSetResponse]
+-&gt; Read CreateMetricSetResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateMetricSetResponse]
+$creadListPrec :: ReadPrec [CreateMetricSetResponse]
+readPrec :: ReadPrec CreateMetricSetResponse
+$creadPrec :: ReadPrec CreateMetricSetResponse
+readList :: ReadS [CreateMetricSetResponse]
+$creadList :: ReadS [CreateMetricSetResponse]
+readsPrec :: Int -&gt; ReadS CreateMetricSetResponse
+$creadsPrec :: Int -&gt; ReadS CreateMetricSetResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679230816"><span id="local-6989586621679230818"><span id="local-6989586621679230820"><span class="annot"><span class="annottext">Int -&gt; CreateMetricSetResponse -&gt; ShowS
+[CreateMetricSetResponse] -&gt; ShowS
+CreateMetricSetResponse -&gt; String
+(Int -&gt; CreateMetricSetResponse -&gt; ShowS)
+-&gt; (CreateMetricSetResponse -&gt; String)
+-&gt; ([CreateMetricSetResponse] -&gt; ShowS)
+-&gt; Show CreateMetricSetResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateMetricSetResponse] -&gt; ShowS
+$cshowList :: [CreateMetricSetResponse] -&gt; ShowS
+show :: CreateMetricSetResponse -&gt; String
+$cshow :: CreateMetricSetResponse -&gt; String
+showsPrec :: Int -&gt; CreateMetricSetResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateMetricSetResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateMetricSetResponse -&gt; Rep CreateMetricSetResponse x)
+-&gt; (forall x.
+    Rep CreateMetricSetResponse x -&gt; CreateMetricSetResponse)
+-&gt; Generic CreateMetricSetResponse
+forall x. Rep CreateMetricSetResponse x -&gt; CreateMetricSetResponse
+forall x. CreateMetricSetResponse -&gt; Rep CreateMetricSetResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateMetricSetResponse x -&gt; CreateMetricSetResponse
+$cfrom :: forall x. CreateMetricSetResponse -&gt; Rep CreateMetricSetResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- Create a value of 'CreateMetricSetResponse' with all optional fields omitted.</span><span>
+</span><span id="line-270"></span><span class="hs-comment">--</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-272"></span><span class="hs-comment">--</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-275"></span><span class="hs-comment">--</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- 'metricSetArn', 'createMetricSetResponse_metricSetArn' - The ARN of the dataset.</span><span>
+</span><span id="line-277"></span><span class="hs-comment">--</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- 'httpStatus', 'createMetricSetResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-279"></span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#newCreateMetricSetResponse"><span class="hs-identifier hs-type">newCreateMetricSetResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-280"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-281"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-282"></span><span>  </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSetResponse"><span class="hs-identifier hs-type">CreateMetricSetResponse</span></a></span><span>
+</span><span id="line-283"></span><span id="newCreateMetricSetResponse"><span class="annot"><span class="annottext">newCreateMetricSetResponse :: Int -&gt; CreateMetricSetResponse
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#newCreateMetricSetResponse"><span class="hs-identifier hs-var hs-var">newCreateMetricSetResponse</span></a></span></span><span> </span><span id="local-6989586621679230813"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679230813"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-284"></span><span>  </span><span class="annot"><span class="annottext">CreateMetricSetResponse' :: Maybe Text -&gt; Int -&gt; CreateMetricSetResponse
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSetResponse%27"><span class="hs-identifier hs-type">CreateMetricSetResponse'</span></a></span><span>
+</span><span id="line-285"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:metricSetArn:CreateMetricSetResponse' :: Maybe Text
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#%24sel%3AmetricSetArn%3ACreateMetricSetResponse%27"><span class="hs-identifier hs-var">metricSetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-286"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-287"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateMetricSetResponse' :: Int
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#%24sel%3AhttpStatus%3ACreateMetricSetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679230813"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-288"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-289"></span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- | The ARN of the dataset.</span><span>
+</span><span id="line-291"></span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#createMetricSetResponse_metricSetArn"><span class="hs-identifier hs-type">createMetricSetResponse_metricSetArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSetResponse"><span class="hs-identifier hs-type">CreateMetricSetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span id="createMetricSetResponse_metricSetArn"><span class="annot"><span class="annottext">createMetricSetResponse_metricSetArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateMetricSetResponse -&gt; f CreateMetricSetResponse
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#createMetricSetResponse_metricSetArn"><span class="hs-identifier hs-var hs-var">createMetricSetResponse_metricSetArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateMetricSetResponse -&gt; Maybe Text)
+-&gt; (CreateMetricSetResponse
+    -&gt; Maybe Text -&gt; CreateMetricSetResponse)
+-&gt; Lens
+     CreateMetricSetResponse
+     CreateMetricSetResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSetResponse%27"><span class="hs-identifier hs-type">CreateMetricSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230812"><span class="annot"><span class="annottext">Maybe Text
+metricSetArn :: Maybe Text
+$sel:metricSetArn:CreateMetricSetResponse' :: CreateMetricSetResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679230812"><span class="hs-identifier hs-var hs-var">metricSetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230812"><span class="hs-identifier hs-var">metricSetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230811"><span class="annot"><span class="annottext">s :: CreateMetricSetResponse
+</span><a href="#local-6989586621679230811"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSetResponse%27"><span class="hs-identifier hs-type">CreateMetricSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230810"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230810"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateMetricSetResponse
+</span><a href="#local-6989586621679230811"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricSetArn:CreateMetricSetResponse' :: Maybe Text
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#%24sel%3AmetricSetArn%3ACreateMetricSetResponse%27"><span class="hs-identifier hs-var">metricSetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230810"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSetResponse"><span class="hs-identifier hs-type">CreateMetricSetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-293"></span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-295"></span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#createMetricSetResponse_httpStatus"><span class="hs-identifier hs-type">createMetricSetResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSetResponse"><span class="hs-identifier hs-type">CreateMetricSetResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-296"></span><span id="createMetricSetResponse_httpStatus"><span class="annot"><span class="annottext">createMetricSetResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateMetricSetResponse -&gt; f CreateMetricSetResponse
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#createMetricSetResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createMetricSetResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateMetricSetResponse -&gt; Int)
+-&gt; (CreateMetricSetResponse -&gt; Int -&gt; CreateMetricSetResponse)
+-&gt; Lens CreateMetricSetResponse CreateMetricSetResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSetResponse%27"><span class="hs-identifier hs-type">CreateMetricSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230809"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateMetricSetResponse' :: CreateMetricSetResponse -&gt; Int
+</span><a href="#local-6989586621679230809"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679230809"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230808"><span class="annot"><span class="annottext">s :: CreateMetricSetResponse
+</span><a href="#local-6989586621679230808"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSetResponse%27"><span class="hs-identifier hs-type">CreateMetricSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230807"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679230807"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateMetricSetResponse
+</span><a href="#local-6989586621679230808"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateMetricSetResponse' :: Int
+</span><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#%24sel%3AhttpStatus%3ACreateMetricSetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679230807"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSetResponse"><span class="hs-identifier hs-type">CreateMetricSetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-297"></span><span>
+</span><span id="line-298"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679230805"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.CreateMetricSet.html#CreateMetricSetResponse"><span class="hs-identifier hs-type">CreateMetricSetResponse</span></a></span></span><span>
+</span><span id="line-299"></span></pre></body></html>

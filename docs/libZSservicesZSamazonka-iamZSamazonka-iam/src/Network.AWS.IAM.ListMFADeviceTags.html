@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newListMFADeviceTags' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679444092"><span id="local-6989586621679444093"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListMFADeviceTags"><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTags"><span class="hs-identifier hs-var">ListMFADeviceTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListMFADeviceTags%27"><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTags%27"><span class="hs-identifier hs-var">ListMFADeviceTags'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679444101"><span id="local-6989586621679444102"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListMFADeviceTags"><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTags"><span class="hs-identifier hs-var">ListMFADeviceTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListMFADeviceTags%27"><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTags%27"><span class="hs-identifier hs-var">ListMFADeviceTags'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Use this parameter only when paginating results and only after you</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- receive a response indicating that the results are truncated. Set it to</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- the value of the @Marker@ element in the response that you received to</span><span>
@@ -84,7 +84,7 @@
 </span><span id="line-82"></span><span>    </span><span id="%24sel%3AserialNumber%3AListMFADeviceTags%27"><span class="annot"><span class="annottext">ListMFADeviceTags -&gt; Text
 </span><a href="Network.AWS.IAM.ListMFADeviceTags.html#%24sel%3AserialNumber%3AListMFADeviceTags%27"><span class="hs-identifier hs-var hs-var">serialNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-83"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679444084"><span id="local-6989586621679444086"><span class="annot"><span class="annottext">ListMFADeviceTags -&gt; ListMFADeviceTags -&gt; Bool
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679444093"><span id="local-6989586621679444095"><span class="annot"><span class="annottext">ListMFADeviceTags -&gt; ListMFADeviceTags -&gt; Bool
 (ListMFADeviceTags -&gt; ListMFADeviceTags -&gt; Bool)
 -&gt; (ListMFADeviceTags -&gt; ListMFADeviceTags -&gt; Bool)
 -&gt; Eq ListMFADeviceTags
@@ -93,7 +93,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListMFADeviceTags -&gt; ListMFADeviceTags -&gt; Bool
 == :: ListMFADeviceTags -&gt; ListMFADeviceTags -&gt; Bool
 $c== :: ListMFADeviceTags -&gt; ListMFADeviceTags -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679444075"><span id="local-6989586621679444077"><span id="local-6989586621679444079"><span id="local-6989586621679444081"><span class="annot"><span class="annottext">ReadPrec [ListMFADeviceTags]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679444084"><span id="local-6989586621679444086"><span id="local-6989586621679444088"><span id="local-6989586621679444090"><span class="annot"><span class="annottext">ReadPrec [ListMFADeviceTags]
 ReadPrec ListMFADeviceTags
 Int -&gt; ReadS ListMFADeviceTags
 ReadS [ListMFADeviceTags]
@@ -113,7 +113,7 @@ readList :: ReadS [ListMFADeviceTags]
 $creadList :: ReadS [ListMFADeviceTags]
 readsPrec :: Int -&gt; ReadS ListMFADeviceTags
 $creadsPrec :: Int -&gt; ReadS ListMFADeviceTags
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679444068"><span id="local-6989586621679444070"><span id="local-6989586621679444072"><span class="annot"><span class="annottext">Int -&gt; ListMFADeviceTags -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679444077"><span id="local-6989586621679444079"><span id="local-6989586621679444081"><span class="annot"><span class="annottext">Int -&gt; ListMFADeviceTags -&gt; ShowS
 [ListMFADeviceTags] -&gt; ShowS
 ListMFADeviceTags -&gt; String
 (Int -&gt; ListMFADeviceTags -&gt; ShowS)
@@ -175,8 +175,8 @@ $cfrom :: forall x. ListMFADeviceTags -&gt; Rep ListMFADeviceTags x
 </span><span id="line-119"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-120"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTags"><span class="hs-identifier hs-type">ListMFADeviceTags</span></a></span><span>
 </span><span id="line-121"></span><span id="newListMFADeviceTags"><span class="annot"><span class="annottext">newListMFADeviceTags :: Text -&gt; ListMFADeviceTags
-</span><a href="Network.AWS.IAM.ListMFADeviceTags.html#newListMFADeviceTags"><span class="hs-identifier hs-var hs-var">newListMFADeviceTags</span></a></span></span><span> </span><span id="local-6989586621679444063"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679444063"><span class="hs-identifier hs-var">pSerialNumber_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IAM.ListMFADeviceTags.html#newListMFADeviceTags"><span class="hs-identifier hs-var hs-var">newListMFADeviceTags</span></a></span></span><span> </span><span id="local-6989586621679444072"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679444072"><span class="hs-identifier hs-var">pSerialNumber_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>  </span><span class="annot"><span class="annottext">ListMFADeviceTags' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListMFADeviceTags
 </span><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTags%27"><span class="hs-identifier hs-type">ListMFADeviceTags'</span></a></span><span>
 </span><span id="line-123"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:marker:ListMFADeviceTags' :: Maybe Text
@@ -189,7 +189,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:serialNumber:ListMFADeviceTags' :: Text
 </span><a href="Network.AWS.IAM.ListMFADeviceTags.html#%24sel%3AserialNumber%3AListMFADeviceTags%27"><span class="hs-identifier hs-var">serialNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679444063"><span class="hs-identifier hs-var">pSerialNumber_</span></a></span><span>
+</span><a href="#local-6989586621679444072"><span class="hs-identifier hs-var">pSerialNumber_</span></a></span><span>
 </span><span id="line-126"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | Use this parameter only when paginating results and only after you</span><span>
@@ -204,16 +204,16 @@ forall a. Maybe a
 -&gt; Lens
      ListMFADeviceTags ListMFADeviceTags (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTags%27"><span class="hs-identifier hs-type">ListMFADeviceTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444060"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTags%27"><span class="hs-identifier hs-type">ListMFADeviceTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444069"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:ListMFADeviceTags' :: ListMFADeviceTags -&gt; Maybe Text
-</span><a href="#local-6989586621679444060"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679444060"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444059"><span class="annot"><span class="annottext">s :: ListMFADeviceTags
-</span><a href="#local-6989586621679444059"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTags%27"><span class="hs-identifier hs-type">ListMFADeviceTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444058"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679444058"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMFADeviceTags
-</span><a href="#local-6989586621679444059"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListMFADeviceTags' :: Maybe Text
+</span><a href="#local-6989586621679444069"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679444069"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444068"><span class="annot"><span class="annottext">s :: ListMFADeviceTags
+</span><a href="#local-6989586621679444068"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTags%27"><span class="hs-identifier hs-type">ListMFADeviceTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444067"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679444067"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMFADeviceTags
+</span><a href="#local-6989586621679444068"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListMFADeviceTags' :: Maybe Text
 </span><a href="Network.AWS.IAM.ListMFADeviceTags.html#%24sel%3Amarker%3AListMFADeviceTags%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679444058"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTags"><span class="hs-identifier hs-type">ListMFADeviceTags</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679444067"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTags"><span class="hs-identifier hs-type">ListMFADeviceTags</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | Use this only when paginating results to indicate the maximum number of</span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- items you want in the response. If additional items exist beyond the</span><span>
@@ -232,16 +232,16 @@ $sel:marker:ListMFADeviceTags' :: ListMFADeviceTags -&gt; Maybe Text
 -&gt; Lens
      ListMFADeviceTags ListMFADeviceTags (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTags%27"><span class="hs-identifier hs-type">ListMFADeviceTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444057"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTags%27"><span class="hs-identifier hs-type">ListMFADeviceTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444066"><span class="annot"><span class="annottext">Maybe Natural
 maxItems :: Maybe Natural
 $sel:maxItems:ListMFADeviceTags' :: ListMFADeviceTags -&gt; Maybe Natural
-</span><a href="#local-6989586621679444057"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679444057"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444056"><span class="annot"><span class="annottext">s :: ListMFADeviceTags
-</span><a href="#local-6989586621679444056"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTags%27"><span class="hs-identifier hs-type">ListMFADeviceTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444055"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679444055"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMFADeviceTags
-</span><a href="#local-6989586621679444056"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListMFADeviceTags' :: Maybe Natural
+</span><a href="#local-6989586621679444066"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679444066"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444065"><span class="annot"><span class="annottext">s :: ListMFADeviceTags
+</span><a href="#local-6989586621679444065"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTags%27"><span class="hs-identifier hs-type">ListMFADeviceTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444064"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679444064"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMFADeviceTags
+</span><a href="#local-6989586621679444065"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListMFADeviceTags' :: Maybe Natural
 </span><a href="Network.AWS.IAM.ListMFADeviceTags.html#%24sel%3AmaxItems%3AListMFADeviceTags%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679444055"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTags"><span class="hs-identifier hs-type">ListMFADeviceTags</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679444064"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTags"><span class="hs-identifier hs-type">ListMFADeviceTags</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | The unique identifier for the IAM virtual MFA device whose tags you want</span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- to see. For virtual MFA devices, the serial number is the same as the</span><span>
@@ -257,27 +257,27 @@ $sel:maxItems:ListMFADeviceTags' :: ListMFADeviceTags -&gt; Maybe Natural
 -&gt; (ListMFADeviceTags -&gt; Text -&gt; ListMFADeviceTags)
 -&gt; Lens ListMFADeviceTags ListMFADeviceTags Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTags%27"><span class="hs-identifier hs-type">ListMFADeviceTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444054"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTags%27"><span class="hs-identifier hs-type">ListMFADeviceTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444063"><span class="annot"><span class="annottext">Text
 serialNumber :: Text
 $sel:serialNumber:ListMFADeviceTags' :: ListMFADeviceTags -&gt; Text
-</span><a href="#local-6989586621679444054"><span class="hs-identifier hs-var hs-var">serialNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679444054"><span class="hs-identifier hs-var">serialNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444053"><span class="annot"><span class="annottext">s :: ListMFADeviceTags
-</span><a href="#local-6989586621679444053"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTags%27"><span class="hs-identifier hs-type">ListMFADeviceTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444052"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679444052"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMFADeviceTags
-</span><a href="#local-6989586621679444053"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serialNumber:ListMFADeviceTags' :: Text
+</span><a href="#local-6989586621679444063"><span class="hs-identifier hs-var hs-var">serialNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679444063"><span class="hs-identifier hs-var">serialNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679444062"><span class="annot"><span class="annottext">s :: ListMFADeviceTags
+</span><a href="#local-6989586621679444062"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTags%27"><span class="hs-identifier hs-type">ListMFADeviceTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679444061"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679444061"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMFADeviceTags
+</span><a href="#local-6989586621679444062"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serialNumber:ListMFADeviceTags' :: Text
 </span><a href="Network.AWS.IAM.ListMFADeviceTags.html#%24sel%3AserialNumber%3AListMFADeviceTags%27"><span class="hs-identifier hs-var">serialNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679444052"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTags"><span class="hs-identifier hs-type">ListMFADeviceTags</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679444061"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTags"><span class="hs-identifier hs-type">ListMFADeviceTags</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTags"><span class="hs-identifier hs-type">ListMFADeviceTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-159"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-160"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTags"><span class="hs-identifier hs-type">ListMFADeviceTags</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-161"></span><span>      </span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTagsResponse"><span class="hs-identifier hs-type">ListMFADeviceTagsResponse</span></a></span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679444048"><span class="annot"><span class="annottext">request :: ListMFADeviceTags -&gt; Request ListMFADeviceTags
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679444057"><span class="annot"><span class="annottext">request :: ListMFADeviceTags -&gt; Request ListMFADeviceTags
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListMFADeviceTags -&gt; Request ListMFADeviceTags
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679444044"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679444053"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListMFADeviceTags
 -&gt; ClientResponse ClientBody
@@ -308,10 +308,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ListMFADeviceTagsResult&quot;</span></span><span>
-</span><span id="line-166"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679444041"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679444041"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679444040"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679444040"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679444039"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679444039"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679444050"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679444050"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679444049"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679444049"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679444048"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679444048"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-167"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Bool -&gt; Int -&gt; [Tag] -&gt; ListMFADeviceTagsResponse
 </span><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTagsResponse%27"><span class="hs-identifier hs-var">ListMFADeviceTagsResponse'</span></a></span><span>
@@ -322,7 +322,7 @@ Text
      String (Maybe Bool -&gt; Int -&gt; [Tag] -&gt; ListMFADeviceTagsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679444039"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679444048"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
@@ -332,7 +332,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; [Tag] -&gt; ListMFADeviceTagsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679444039"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679444048"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IsTruncated&quot;</span></span><span class="hs-special">)</span><span>
@@ -345,12 +345,12 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679444041"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679444050"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Either String ([Tag] -&gt; ListMFADeviceTagsResponse)
 -&gt; Either String [Tag] -&gt; Either String ListMFADeviceTagsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679444039"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679444048"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -368,12 +368,12 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span id="line-173"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679444029"><span id="local-6989586621679444031"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTags"><span class="hs-identifier hs-type">ListMFADeviceTags</span></a></span></span></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679444038"><span id="local-6989586621679444040"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTags"><span class="hs-identifier hs-type">ListMFADeviceTags</span></a></span></span></span><span>
 </span><span id="line-177"></span><span>
-</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679444026"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTags"><span class="hs-identifier hs-type">ListMFADeviceTags</span></a></span></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679444035"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTags"><span class="hs-identifier hs-type">ListMFADeviceTags</span></a></span></span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTags"><span class="hs-identifier hs-type">ListMFADeviceTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679444022"><span class="annot"><span class="annottext">toHeaders :: ListMFADeviceTags -&gt; ResponseHeaders
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679444031"><span class="annot"><span class="annottext">toHeaders :: ListMFADeviceTags -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListMFADeviceTags -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -381,15 +381,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTags"><span class="hs-identifier hs-type">ListMFADeviceTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621679444017"><span class="annot"><span class="annottext">toPath :: ListMFADeviceTags -&gt; ByteString
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679444026"><span class="annot"><span class="annottext">toPath :: ListMFADeviceTags -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListMFADeviceTags -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTags"><span class="hs-identifier hs-type">ListMFADeviceTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-187"></span><span>  </span><span id="local-6989586621679444013"><span class="annot"><span class="annottext">toQuery :: ListMFADeviceTags -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTags%27"><span class="hs-identifier hs-type">ListMFADeviceTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444009"><span id="local-6989586621679444010"><span id="local-6989586621679444011"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679444022"><span class="annot"><span class="annottext">toQuery :: ListMFADeviceTags -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTags%27"><span class="hs-identifier hs-type">ListMFADeviceTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679444018"><span id="local-6989586621679444019"><span id="local-6989586621679444020"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 serialNumber :: Text
@@ -398,7 +398,7 @@ marker :: Maybe Text
 $sel:serialNumber:ListMFADeviceTags' :: ListMFADeviceTags -&gt; Text
 $sel:maxItems:ListMFADeviceTags' :: ListMFADeviceTags -&gt; Maybe Natural
 $sel:marker:ListMFADeviceTags' :: ListMFADeviceTags -&gt; Maybe Text
-</span><a href="#local-6989586621679444009"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679444018"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-188"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -418,21 +418,21 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679444011"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679444020"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-194"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;MaxItems&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679444010"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679444019"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-195"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;SerialNumber&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679444009"><span class="hs-identifier hs-var">serialNumber</span></a></span><span>
+</span><a href="#local-6989586621679444018"><span class="hs-identifier hs-var">serialNumber</span></a></span><span>
 </span><span id="line-196"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- | /See:/ 'newListMFADeviceTagsResponse' smart constructor.</span><span>
-</span><span id="line-199"></span><span id="local-6989586621679444006"><span id="local-6989586621679444007"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListMFADeviceTagsResponse"><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTagsResponse"><span class="hs-identifier hs-var">ListMFADeviceTagsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListMFADeviceTagsResponse%27"><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTagsResponse%27"><span class="hs-identifier hs-var">ListMFADeviceTagsResponse'</span></a></span></span><span>
+</span><span id="line-199"></span><span id="local-6989586621679444015"><span id="local-6989586621679444016"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListMFADeviceTagsResponse"><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTagsResponse"><span class="hs-identifier hs-var">ListMFADeviceTagsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListMFADeviceTagsResponse%27"><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTagsResponse%27"><span class="hs-identifier hs-var">ListMFADeviceTagsResponse'</span></a></span></span><span>
 </span><span id="line-200"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When @IsTruncated@ is @true@, this element is present and contains the</span><span>
 </span><span id="line-201"></span><span>    </span><span class="hs-comment">-- value to use for the @Marker@ parameter in a subsequent pagination</span><span>
 </span><span id="line-202"></span><span>    </span><span class="hs-comment">-- request.</span><span>
@@ -456,7 +456,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-217"></span><span>    </span><span id="%24sel%3Atags%3AListMFADeviceTagsResponse%27"><span class="annot"><span class="annottext">ListMFADeviceTagsResponse -&gt; [Tag]
 </span><a href="Network.AWS.IAM.ListMFADeviceTags.html#%24sel%3Atags%3AListMFADeviceTagsResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IAM.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-218"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-219"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679443998"><span id="local-6989586621679444000"><span class="annot"><span class="annottext">ListMFADeviceTagsResponse -&gt; ListMFADeviceTagsResponse -&gt; Bool
+</span><span id="line-219"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679444007"><span id="local-6989586621679444009"><span class="annot"><span class="annottext">ListMFADeviceTagsResponse -&gt; ListMFADeviceTagsResponse -&gt; Bool
 (ListMFADeviceTagsResponse -&gt; ListMFADeviceTagsResponse -&gt; Bool)
 -&gt; (ListMFADeviceTagsResponse -&gt; ListMFADeviceTagsResponse -&gt; Bool)
 -&gt; Eq ListMFADeviceTagsResponse
@@ -465,7 +465,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListMFADeviceTagsResponse -&gt; ListMFADeviceTagsResponse -&gt; Bool
 == :: ListMFADeviceTagsResponse -&gt; ListMFADeviceTagsResponse -&gt; Bool
 $c== :: ListMFADeviceTagsResponse -&gt; ListMFADeviceTagsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443990"><span id="local-6989586621679443992"><span id="local-6989586621679443994"><span id="local-6989586621679443996"><span class="annot"><span class="annottext">ReadPrec [ListMFADeviceTagsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443999"><span id="local-6989586621679444001"><span id="local-6989586621679444003"><span id="local-6989586621679444005"><span class="annot"><span class="annottext">ReadPrec [ListMFADeviceTagsResponse]
 ReadPrec ListMFADeviceTagsResponse
 Int -&gt; ReadS ListMFADeviceTagsResponse
 ReadS [ListMFADeviceTagsResponse]
@@ -485,7 +485,7 @@ readList :: ReadS [ListMFADeviceTagsResponse]
 $creadList :: ReadS [ListMFADeviceTagsResponse]
 readsPrec :: Int -&gt; ReadS ListMFADeviceTagsResponse
 $creadsPrec :: Int -&gt; ReadS ListMFADeviceTagsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443984"><span id="local-6989586621679443986"><span id="local-6989586621679443988"><span class="annot"><span class="annottext">Int -&gt; ListMFADeviceTagsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443993"><span id="local-6989586621679443995"><span id="local-6989586621679443997"><span class="annot"><span class="annottext">Int -&gt; ListMFADeviceTagsResponse -&gt; ShowS
 [ListMFADeviceTagsResponse] -&gt; ShowS
 ListMFADeviceTagsResponse -&gt; String
 (Int -&gt; ListMFADeviceTagsResponse -&gt; ShowS)
@@ -547,8 +547,8 @@ ListMFADeviceTagsResponse -&gt; Rep ListMFADeviceTagsResponse x
 </span><span id="line-248"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-249"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTagsResponse"><span class="hs-identifier hs-type">ListMFADeviceTagsResponse</span></a></span><span>
 </span><span id="line-250"></span><span id="newListMFADeviceTagsResponse"><span class="annot"><span class="annottext">newListMFADeviceTagsResponse :: Int -&gt; ListMFADeviceTagsResponse
-</span><a href="Network.AWS.IAM.ListMFADeviceTags.html#newListMFADeviceTagsResponse"><span class="hs-identifier hs-var hs-var">newListMFADeviceTagsResponse</span></a></span></span><span> </span><span id="local-6989586621679443981"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679443981"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IAM.ListMFADeviceTags.html#newListMFADeviceTagsResponse"><span class="hs-identifier hs-var hs-var">newListMFADeviceTagsResponse</span></a></span></span><span> </span><span id="local-6989586621679443990"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679443990"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-251"></span><span>  </span><span class="annot"><span class="annottext">ListMFADeviceTagsResponse' :: Maybe Text
 -&gt; Maybe Bool -&gt; Int -&gt; [Tag] -&gt; ListMFADeviceTagsResponse
 </span><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTagsResponse%27"><span class="hs-identifier hs-type">ListMFADeviceTagsResponse'</span></a></span><span>
@@ -563,7 +563,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-255"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListMFADeviceTagsResponse' :: Int
 </span><a href="Network.AWS.IAM.ListMFADeviceTags.html#%24sel%3AhttpStatus%3AListMFADeviceTagsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679443981"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679443990"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-256"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:ListMFADeviceTagsResponse' :: [Tag]
 </span><a href="Network.AWS.IAM.ListMFADeviceTags.html#%24sel%3Atags%3AListMFADeviceTagsResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Tag]
 forall a. Monoid a =&gt; a
@@ -585,16 +585,16 @@ forall a. Monoid a =&gt; a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTagsResponse%27"><span class="hs-identifier hs-type">ListMFADeviceTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443980"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTagsResponse%27"><span class="hs-identifier hs-type">ListMFADeviceTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443989"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:ListMFADeviceTagsResponse' :: ListMFADeviceTagsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679443980"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679443980"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443979"><span class="annot"><span class="annottext">s :: ListMFADeviceTagsResponse
-</span><a href="#local-6989586621679443979"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTagsResponse%27"><span class="hs-identifier hs-type">ListMFADeviceTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443978"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679443978"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMFADeviceTagsResponse
-</span><a href="#local-6989586621679443979"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListMFADeviceTagsResponse' :: Maybe Text
+</span><a href="#local-6989586621679443989"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679443989"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443988"><span class="annot"><span class="annottext">s :: ListMFADeviceTagsResponse
+</span><a href="#local-6989586621679443988"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTagsResponse%27"><span class="hs-identifier hs-type">ListMFADeviceTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443987"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679443987"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMFADeviceTagsResponse
+</span><a href="#local-6989586621679443988"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListMFADeviceTagsResponse' :: Maybe Text
 </span><a href="Network.AWS.IAM.ListMFADeviceTags.html#%24sel%3Amarker%3AListMFADeviceTagsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679443978"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTagsResponse"><span class="hs-identifier hs-type">ListMFADeviceTagsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679443987"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTagsResponse"><span class="hs-identifier hs-type">ListMFADeviceTagsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-264"></span><span>
 </span><span id="line-265"></span><span class="hs-comment">-- | A flag that indicates whether there are more items to return. If your</span><span>
 </span><span id="line-266"></span><span class="hs-comment">-- results were truncated, you can make a subsequent pagination request</span><span>
@@ -615,16 +615,16 @@ $sel:marker:ListMFADeviceTagsResponse' :: ListMFADeviceTagsResponse -&gt; Maybe 
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTagsResponse%27"><span class="hs-identifier hs-type">ListMFADeviceTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443977"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTagsResponse%27"><span class="hs-identifier hs-type">ListMFADeviceTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443986"><span class="annot"><span class="annottext">Maybe Bool
 isTruncated :: Maybe Bool
 $sel:isTruncated:ListMFADeviceTagsResponse' :: ListMFADeviceTagsResponse -&gt; Maybe Bool
-</span><a href="#local-6989586621679443977"><span class="hs-identifier hs-var hs-var">isTruncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679443977"><span class="hs-identifier hs-var">isTruncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443976"><span class="annot"><span class="annottext">s :: ListMFADeviceTagsResponse
-</span><a href="#local-6989586621679443976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTagsResponse%27"><span class="hs-identifier hs-type">ListMFADeviceTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443975"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679443975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMFADeviceTagsResponse
-</span><a href="#local-6989586621679443976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isTruncated:ListMFADeviceTagsResponse' :: Maybe Bool
+</span><a href="#local-6989586621679443986"><span class="hs-identifier hs-var hs-var">isTruncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679443986"><span class="hs-identifier hs-var">isTruncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443985"><span class="annot"><span class="annottext">s :: ListMFADeviceTagsResponse
+</span><a href="#local-6989586621679443985"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTagsResponse%27"><span class="hs-identifier hs-type">ListMFADeviceTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443984"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679443984"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMFADeviceTagsResponse
+</span><a href="#local-6989586621679443985"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isTruncated:ListMFADeviceTagsResponse' :: Maybe Bool
 </span><a href="Network.AWS.IAM.ListMFADeviceTags.html#%24sel%3AisTruncated%3AListMFADeviceTagsResponse%27"><span class="hs-identifier hs-var">isTruncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679443975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTagsResponse"><span class="hs-identifier hs-type">ListMFADeviceTagsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679443984"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTagsResponse"><span class="hs-identifier hs-type">ListMFADeviceTagsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-274"></span><span>
 </span><span id="line-275"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-276"></span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#listMFADeviceTagsResponse_httpStatus"><span class="hs-identifier hs-type">listMFADeviceTagsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTagsResponse"><span class="hs-identifier hs-type">ListMFADeviceTagsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -634,16 +634,16 @@ $sel:isTruncated:ListMFADeviceTagsResponse' :: ListMFADeviceTagsResponse -&gt; M
 -&gt; (ListMFADeviceTagsResponse -&gt; Int -&gt; ListMFADeviceTagsResponse)
 -&gt; Lens ListMFADeviceTagsResponse ListMFADeviceTagsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTagsResponse%27"><span class="hs-identifier hs-type">ListMFADeviceTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443974"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTagsResponse%27"><span class="hs-identifier hs-type">ListMFADeviceTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443983"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListMFADeviceTagsResponse' :: ListMFADeviceTagsResponse -&gt; Int
-</span><a href="#local-6989586621679443974"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679443974"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443973"><span class="annot"><span class="annottext">s :: ListMFADeviceTagsResponse
-</span><a href="#local-6989586621679443973"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTagsResponse%27"><span class="hs-identifier hs-type">ListMFADeviceTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443972"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679443972"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMFADeviceTagsResponse
-</span><a href="#local-6989586621679443973"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListMFADeviceTagsResponse' :: Int
+</span><a href="#local-6989586621679443983"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679443983"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443982"><span class="annot"><span class="annottext">s :: ListMFADeviceTagsResponse
+</span><a href="#local-6989586621679443982"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTagsResponse%27"><span class="hs-identifier hs-type">ListMFADeviceTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443981"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679443981"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMFADeviceTagsResponse
+</span><a href="#local-6989586621679443982"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListMFADeviceTagsResponse' :: Int
 </span><a href="Network.AWS.IAM.ListMFADeviceTags.html#%24sel%3AhttpStatus%3AListMFADeviceTagsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679443972"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTagsResponse"><span class="hs-identifier hs-type">ListMFADeviceTagsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679443981"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTagsResponse"><span class="hs-identifier hs-type">ListMFADeviceTagsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-278"></span><span>
 </span><span id="line-279"></span><span class="hs-comment">-- | The list of tags that are currently attached to the virtual MFA device.</span><span>
 </span><span id="line-280"></span><span class="hs-comment">-- Each tag consists of a key name and an associated value. If no tags are</span><span>
@@ -657,16 +657,16 @@ $sel:httpStatus:ListMFADeviceTagsResponse' :: ListMFADeviceTagsResponse -&gt; In
 -&gt; Lens
      ListMFADeviceTagsResponse ListMFADeviceTagsResponse [Tag] [Tag]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTagsResponse%27"><span class="hs-identifier hs-type">ListMFADeviceTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443971"><span class="annot"><span class="annottext">[Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTagsResponse%27"><span class="hs-identifier hs-type">ListMFADeviceTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443980"><span class="annot"><span class="annottext">[Tag]
 tags :: [Tag]
 $sel:tags:ListMFADeviceTagsResponse' :: ListMFADeviceTagsResponse -&gt; [Tag]
-</span><a href="#local-6989586621679443971"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679443971"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443970"><span class="annot"><span class="annottext">s :: ListMFADeviceTagsResponse
-</span><a href="#local-6989586621679443970"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTagsResponse%27"><span class="hs-identifier hs-type">ListMFADeviceTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443969"><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679443969"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMFADeviceTagsResponse
-</span><a href="#local-6989586621679443970"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ListMFADeviceTagsResponse' :: [Tag]
+</span><a href="#local-6989586621679443980"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679443980"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443979"><span class="annot"><span class="annottext">s :: ListMFADeviceTagsResponse
+</span><a href="#local-6989586621679443979"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTagsResponse%27"><span class="hs-identifier hs-type">ListMFADeviceTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443978"><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679443978"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListMFADeviceTagsResponse
+</span><a href="#local-6989586621679443979"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ListMFADeviceTagsResponse' :: [Tag]
 </span><a href="Network.AWS.IAM.ListMFADeviceTags.html#%24sel%3Atags%3AListMFADeviceTagsResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679443969"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTagsResponse"><span class="hs-identifier hs-type">ListMFADeviceTagsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Tag] -&gt; f [Tag])
+</span><a href="#local-6989586621679443978"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTagsResponse"><span class="hs-identifier hs-type">ListMFADeviceTagsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Tag] -&gt; f [Tag])
  -&gt; ListMFADeviceTagsResponse -&gt; f ListMFADeviceTagsResponse)
 -&gt; (([Tag] -&gt; f [Tag]) -&gt; [Tag] -&gt; f [Tag])
 -&gt; ([Tag] -&gt; f [Tag])
@@ -677,5 +677,5 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-284"></span><span>
-</span><span id="line-285"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679443965"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTagsResponse"><span class="hs-identifier hs-type">ListMFADeviceTagsResponse</span></a></span></span><span>
+</span><span id="line-285"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679443974"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.ListMFADeviceTags.html#ListMFADeviceTagsResponse"><span class="hs-identifier hs-type">ListMFADeviceTagsResponse</span></a></span></span><span>
 </span><span id="line-286"></span></pre></body></html>

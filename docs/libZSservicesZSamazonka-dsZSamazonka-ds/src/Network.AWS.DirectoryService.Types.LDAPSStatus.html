@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679297163"><span id="local-6989586621679297164"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LDAPSStatus"><span class="annot"><a href="Network.AWS.DirectoryService.Types.LDAPSStatus.html#LDAPSStatus"><span class="hs-identifier hs-var">LDAPSStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LDAPSStatus%27"><span class="annot"><a href="Network.AWS.DirectoryService.Types.LDAPSStatus.html#LDAPSStatus%27"><span class="hs-identifier hs-var">LDAPSStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679297172"><span id="local-6989586621679297173"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LDAPSStatus"><span class="annot"><a href="Network.AWS.DirectoryService.Types.LDAPSStatus.html#LDAPSStatus"><span class="hs-identifier hs-var">LDAPSStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LDAPSStatus%27"><span class="annot"><a href="Network.AWS.DirectoryService.Types.LDAPSStatus.html#LDAPSStatus%27"><span class="hs-identifier hs-var">LDAPSStatus'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLDAPSStatus"><span class="annot"><span class="annottext">LDAPSStatus -&gt; Text
 </span><a href="Network.AWS.DirectoryService.Types.LDAPSStatus.html#fromLDAPSStatus"><span class="hs-identifier hs-var hs-var">fromLDAPSStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679297155"><span id="local-6989586621679297157"><span id="local-6989586621679297159"><span class="annot"><span class="annottext">Int -&gt; LDAPSStatus -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679297164"><span id="local-6989586621679297166"><span id="local-6989586621679297168"><span class="annot"><span class="annottext">Int -&gt; LDAPSStatus -&gt; ShowS
 [LDAPSStatus] -&gt; ShowS
 LDAPSStatus -&gt; String
 (Int -&gt; LDAPSStatus -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: LDAPSStatus -&gt; String
 showsPrec :: Int -&gt; LDAPSStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; LDAPSStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679297146"><span id="local-6989586621679297148"><span id="local-6989586621679297150"><span id="local-6989586621679297152"><span class="annot"><span class="annottext">ReadPrec [LDAPSStatus]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679297155"><span id="local-6989586621679297157"><span id="local-6989586621679297159"><span id="local-6989586621679297161"><span class="annot"><span class="annottext">ReadPrec [LDAPSStatus]
 ReadPrec LDAPSStatus
 Int -&gt; ReadS LDAPSStatus
 ReadS [LDAPSStatus]
@@ -74,7 +74,7 @@ $creadList :: ReadS [LDAPSStatus]
 readsPrec :: Int -&gt; ReadS LDAPSStatus
 $creadsPrec :: Int -&gt; ReadS LDAPSStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679297141"><span id="local-6989586621679297143"><span class="annot"><span class="annottext">LDAPSStatus -&gt; LDAPSStatus -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679297150"><span id="local-6989586621679297152"><span class="annot"><span class="annottext">LDAPSStatus -&gt; LDAPSStatus -&gt; Bool
 (LDAPSStatus -&gt; LDAPSStatus -&gt; Bool)
 -&gt; (LDAPSStatus -&gt; LDAPSStatus -&gt; Bool) -&gt; Eq LDAPSStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -83,7 +83,7 @@ $c/= :: LDAPSStatus -&gt; LDAPSStatus -&gt; Bool
 == :: LDAPSStatus -&gt; LDAPSStatus -&gt; Bool
 $c== :: LDAPSStatus -&gt; LDAPSStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679297125"><span id="local-6989586621679297127"><span id="local-6989586621679297129"><span id="local-6989586621679297131"><span id="local-6989586621679297133"><span id="local-6989586621679297135"><span id="local-6989586621679297137"><span class="annot"><span class="annottext">Eq LDAPSStatus
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679297134"><span id="local-6989586621679297136"><span id="local-6989586621679297138"><span id="local-6989586621679297140"><span id="local-6989586621679297142"><span id="local-6989586621679297144"><span id="local-6989586621679297146"><span class="annot"><span class="annottext">Eq LDAPSStatus
 Eq LDAPSStatus
 -&gt; (LDAPSStatus -&gt; LDAPSStatus -&gt; Ordering)
 -&gt; (LDAPSStatus -&gt; LDAPSStatus -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. LDAPSStatus -&gt; Rep LDAPSStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679297117"><span id="local-6989586621679297119"><span class="annot"><span class="annottext">Int -&gt; LDAPSStatus -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679297126"><span id="local-6989586621679297128"><span class="annot"><span class="annottext">Int -&gt; LDAPSStatus -&gt; Int
 LDAPSStatus -&gt; Int
 (Int -&gt; LDAPSStatus -&gt; Int)
 -&gt; (LDAPSStatus -&gt; Int) -&gt; Hashable LDAPSStatus
@@ -144,49 +144,49 @@ $chash :: LDAPSStatus -&gt; Int
 hashWithSalt :: Int -&gt; LDAPSStatus -&gt; Int
 $chashWithSalt :: Int -&gt; LDAPSStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679297114"><span class="annot"><span class="annottext">LDAPSStatus -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679297123"><span class="annot"><span class="annottext">LDAPSStatus -&gt; ()
 (LDAPSStatus -&gt; ()) -&gt; NFData LDAPSStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: LDAPSStatus -&gt; ()
 $crnf :: LDAPSStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679297111"><span class="annot"><span class="annottext">Text -&gt; Either String LDAPSStatus
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679297120"><span class="annot"><span class="annottext">Text -&gt; Either String LDAPSStatus
 (Text -&gt; Either String LDAPSStatus) -&gt; FromText LDAPSStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String LDAPSStatus
 $cfromText :: Text -&gt; Either String LDAPSStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679297108"><span class="annot"><span class="annottext">LDAPSStatus -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679297117"><span class="annot"><span class="annottext">LDAPSStatus -&gt; Text
 (LDAPSStatus -&gt; Text) -&gt; ToText LDAPSStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: LDAPSStatus -&gt; Text
 $ctoText :: LDAPSStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679297105"><span class="annot"><span class="annottext">LDAPSStatus -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679297114"><span class="annot"><span class="annottext">LDAPSStatus -&gt; ByteString
 (LDAPSStatus -&gt; ByteString) -&gt; ToByteString LDAPSStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: LDAPSStatus -&gt; ByteString
 $ctoBS :: LDAPSStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679297102"><span class="annot"><span class="annottext">LDAPSStatus -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679297111"><span class="annot"><span class="annottext">LDAPSStatus -&gt; ByteStringBuilder
 (LDAPSStatus -&gt; ByteStringBuilder) -&gt; ToLog LDAPSStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: LDAPSStatus -&gt; ByteStringBuilder
 $cbuild :: LDAPSStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679297099"><span class="annot"><span class="annottext">HeaderName -&gt; LDAPSStatus -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679297108"><span class="annot"><span class="annottext">HeaderName -&gt; LDAPSStatus -&gt; [Header]
 (HeaderName -&gt; LDAPSStatus -&gt; [Header]) -&gt; ToHeader LDAPSStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; LDAPSStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; LDAPSStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679297096"><span class="annot"><span class="annottext">LDAPSStatus -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679297105"><span class="annot"><span class="annottext">LDAPSStatus -&gt; QueryString
 (LDAPSStatus -&gt; QueryString) -&gt; ToQuery LDAPSStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: LDAPSStatus -&gt; QueryString
 $ctoQuery :: LDAPSStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679297091"><span id="local-6989586621679297093"><span class="annot"><span class="annottext">Value -&gt; Parser [LDAPSStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679297100"><span id="local-6989586621679297102"><span class="annot"><span class="annottext">Value -&gt; Parser [LDAPSStatus]
 Value -&gt; Parser LDAPSStatus
 (Value -&gt; Parser LDAPSStatus)
 -&gt; (Value -&gt; Parser [LDAPSStatus]) -&gt; FromJSON LDAPSStatus
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [LDAPSStatus]
 parseJSON :: Value -&gt; Parser LDAPSStatus
 $cparseJSON :: Value -&gt; Parser LDAPSStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679297086"><span id="local-6989586621679297088"><span class="annot"><span class="annottext">FromJSONKeyFunction [LDAPSStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679297095"><span id="local-6989586621679297097"><span class="annot"><span class="annottext">FromJSONKeyFunction [LDAPSStatus]
 FromJSONKeyFunction LDAPSStatus
 FromJSONKeyFunction LDAPSStatus
 -&gt; FromJSONKeyFunction [LDAPSStatus] -&gt; FromJSONKey LDAPSStatus
@@ -208,7 +208,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [LDAPSStatus]
 fromJSONKey :: FromJSONKeyFunction LDAPSStatus
 $cfromJSONKey :: FromJSONKeyFunction LDAPSStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679297077"><span id="local-6989586621679297079"><span id="local-6989586621679297081"><span id="local-6989586621679297083"><span class="annot"><span class="annottext">[LDAPSStatus] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679297086"><span id="local-6989586621679297088"><span id="local-6989586621679297090"><span id="local-6989586621679297092"><span class="annot"><span class="annottext">[LDAPSStatus] -&gt; Encoding
 [LDAPSStatus] -&gt; Value
 LDAPSStatus -&gt; Encoding
 LDAPSStatus -&gt; Value
@@ -232,7 +232,7 @@ $ctoEncoding :: LDAPSStatus -&gt; Encoding
 toJSON :: LDAPSStatus -&gt; Value
 $ctoJSON :: LDAPSStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679297072"><span id="local-6989586621679297074"><span class="annot"><span class="annottext">ToJSONKeyFunction [LDAPSStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679297081"><span id="local-6989586621679297083"><span class="annot"><span class="annottext">ToJSONKeyFunction [LDAPSStatus]
 ToJSONKeyFunction LDAPSStatus
 ToJSONKeyFunction LDAPSStatus
 -&gt; ToJSONKeyFunction [LDAPSStatus] -&gt; ToJSONKey LDAPSStatus
@@ -243,13 +243,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [LDAPSStatus]
 toJSONKey :: ToJSONKeyFunction LDAPSStatus
 $ctoJSONKey :: ToJSONKeyFunction LDAPSStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679297069"><span class="annot"><span class="annottext">[Node] -&gt; Either String LDAPSStatus
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679297078"><span class="annot"><span class="annottext">[Node] -&gt; Either String LDAPSStatus
 ([Node] -&gt; Either String LDAPSStatus) -&gt; FromXML LDAPSStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String LDAPSStatus
 $cparseXML :: [Node] -&gt; Either String LDAPSStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679297066"><span class="annot"><span class="annottext">LDAPSStatus -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679297075"><span class="annot"><span class="annottext">LDAPSStatus -&gt; XML
 (LDAPSStatus -&gt; XML) -&gt; ToXML LDAPSStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: LDAPSStatus -&gt; XML

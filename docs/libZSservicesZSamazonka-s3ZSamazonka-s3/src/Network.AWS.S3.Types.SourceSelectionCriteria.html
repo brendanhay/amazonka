@@ -34,7 +34,7 @@
 </span><span id="line-34"></span><span class="hs-comment">-- Key Management Service (SSE-KMS).</span><span>
 </span><span id="line-35"></span><span class="hs-comment">--</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- /See:/ 'newSourceSelectionCriteria' smart constructor.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621679553914"><span id="local-6989586621679553915"></span></span><span class="hs-keyword">data</span><span> </span><span id="SourceSelectionCriteria"><span class="annot"><a href="Network.AWS.S3.Types.SourceSelectionCriteria.html#SourceSelectionCriteria"><span class="hs-identifier hs-var">SourceSelectionCriteria</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SourceSelectionCriteria%27"><span class="annot"><a href="Network.AWS.S3.Types.SourceSelectionCriteria.html#SourceSelectionCriteria%27"><span class="hs-identifier hs-var">SourceSelectionCriteria'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679553923"><span id="local-6989586621679553924"></span></span><span class="hs-keyword">data</span><span> </span><span id="SourceSelectionCriteria"><span class="annot"><a href="Network.AWS.S3.Types.SourceSelectionCriteria.html#SourceSelectionCriteria"><span class="hs-identifier hs-var">SourceSelectionCriteria</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SourceSelectionCriteria%27"><span class="annot"><a href="Network.AWS.S3.Types.SourceSelectionCriteria.html#SourceSelectionCriteria%27"><span class="hs-identifier hs-var">SourceSelectionCriteria'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A filter that you can specify for selections for modifications on</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- replicas. Amazon S3 doesn\'t replicate replica modifications by default.</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- In the latest version of replication configuration (when @Filter@ is</span><span>
@@ -53,7 +53,7 @@
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AsseKmsEncryptedObjects%3ASourceSelectionCriteria%27"><span class="annot"><span class="annottext">SourceSelectionCriteria -&gt; Maybe SseKmsEncryptedObjects
 </span><a href="Network.AWS.S3.Types.SourceSelectionCriteria.html#%24sel%3AsseKmsEncryptedObjects%3ASourceSelectionCriteria%27"><span class="hs-identifier hs-var hs-var">sseKmsEncryptedObjects</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SseKmsEncryptedObjects.html#SseKmsEncryptedObjects"><span class="hs-identifier hs-type">SseKmsEncryptedObjects</span></a></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679553907"><span id="local-6989586621679553909"><span class="annot"><span class="annottext">SourceSelectionCriteria -&gt; SourceSelectionCriteria -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679553916"><span id="local-6989586621679553918"><span class="annot"><span class="annottext">SourceSelectionCriteria -&gt; SourceSelectionCriteria -&gt; Bool
 (SourceSelectionCriteria -&gt; SourceSelectionCriteria -&gt; Bool)
 -&gt; (SourceSelectionCriteria -&gt; SourceSelectionCriteria -&gt; Bool)
 -&gt; Eq SourceSelectionCriteria
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SourceSelectionCriteria -&gt; SourceSelectionCriteria -&gt; Bool
 == :: SourceSelectionCriteria -&gt; SourceSelectionCriteria -&gt; Bool
 $c== :: SourceSelectionCriteria -&gt; SourceSelectionCriteria -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679553898"><span id="local-6989586621679553900"><span id="local-6989586621679553902"><span id="local-6989586621679553904"><span class="annot"><span class="annottext">ReadPrec [SourceSelectionCriteria]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679553907"><span id="local-6989586621679553909"><span id="local-6989586621679553911"><span id="local-6989586621679553913"><span class="annot"><span class="annottext">ReadPrec [SourceSelectionCriteria]
 ReadPrec SourceSelectionCriteria
 Int -&gt; ReadS SourceSelectionCriteria
 ReadS [SourceSelectionCriteria]
@@ -82,7 +82,7 @@ readList :: ReadS [SourceSelectionCriteria]
 $creadList :: ReadS [SourceSelectionCriteria]
 readsPrec :: Int -&gt; ReadS SourceSelectionCriteria
 $creadsPrec :: Int -&gt; ReadS SourceSelectionCriteria
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679553891"><span id="local-6989586621679553893"><span id="local-6989586621679553895"><span class="annot"><span class="annottext">Int -&gt; SourceSelectionCriteria -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679553900"><span id="local-6989586621679553902"><span id="local-6989586621679553904"><span class="annot"><span class="annottext">Int -&gt; SourceSelectionCriteria -&gt; ShowS
 [SourceSelectionCriteria] -&gt; ShowS
 SourceSelectionCriteria -&gt; String
 (Int -&gt; SourceSelectionCriteria -&gt; ShowS)
@@ -171,16 +171,16 @@ forall a. Maybe a
      (Maybe ReplicaModifications)
      (Maybe ReplicaModifications)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.SourceSelectionCriteria.html#SourceSelectionCriteria%27"><span class="hs-identifier hs-type">SourceSelectionCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553882"><span class="annot"><span class="annottext">Maybe ReplicaModifications
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.SourceSelectionCriteria.html#SourceSelectionCriteria%27"><span class="hs-identifier hs-type">SourceSelectionCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553891"><span class="annot"><span class="annottext">Maybe ReplicaModifications
 replicaModifications :: Maybe ReplicaModifications
 $sel:replicaModifications:SourceSelectionCriteria' :: SourceSelectionCriteria -&gt; Maybe ReplicaModifications
-</span><a href="#local-6989586621679553882"><span class="hs-identifier hs-var hs-var">replicaModifications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicaModifications
-</span><a href="#local-6989586621679553882"><span class="hs-identifier hs-var">replicaModifications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679553881"><span class="annot"><span class="annottext">s :: SourceSelectionCriteria
-</span><a href="#local-6989586621679553881"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.SourceSelectionCriteria.html#SourceSelectionCriteria%27"><span class="hs-identifier hs-type">SourceSelectionCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679553880"><span class="annot"><span class="annottext">Maybe ReplicaModifications
-</span><a href="#local-6989586621679553880"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceSelectionCriteria
-</span><a href="#local-6989586621679553881"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicaModifications:SourceSelectionCriteria' :: Maybe ReplicaModifications
+</span><a href="#local-6989586621679553891"><span class="hs-identifier hs-var hs-var">replicaModifications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicaModifications
+</span><a href="#local-6989586621679553891"><span class="hs-identifier hs-var">replicaModifications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679553890"><span class="annot"><span class="annottext">s :: SourceSelectionCriteria
+</span><a href="#local-6989586621679553890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.SourceSelectionCriteria.html#SourceSelectionCriteria%27"><span class="hs-identifier hs-type">SourceSelectionCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679553889"><span class="annot"><span class="annottext">Maybe ReplicaModifications
+</span><a href="#local-6989586621679553889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceSelectionCriteria
+</span><a href="#local-6989586621679553890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicaModifications:SourceSelectionCriteria' :: Maybe ReplicaModifications
 </span><a href="Network.AWS.S3.Types.SourceSelectionCriteria.html#%24sel%3AreplicaModifications%3ASourceSelectionCriteria%27"><span class="hs-identifier hs-var">replicaModifications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicaModifications
-</span><a href="#local-6989586621679553880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SourceSelectionCriteria.html#SourceSelectionCriteria"><span class="hs-identifier hs-type">SourceSelectionCriteria</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679553889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SourceSelectionCriteria.html#SourceSelectionCriteria"><span class="hs-identifier hs-type">SourceSelectionCriteria</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | A container for filter information for the selection of Amazon S3</span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- objects encrypted with Amazon Web Services KMS. If you include</span><span>
@@ -198,21 +198,21 @@ $sel:replicaModifications:SourceSelectionCriteria' :: SourceSelectionCriteria -&
      (Maybe SseKmsEncryptedObjects)
      (Maybe SseKmsEncryptedObjects)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.SourceSelectionCriteria.html#SourceSelectionCriteria%27"><span class="hs-identifier hs-type">SourceSelectionCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553878"><span class="annot"><span class="annottext">Maybe SseKmsEncryptedObjects
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.SourceSelectionCriteria.html#SourceSelectionCriteria%27"><span class="hs-identifier hs-type">SourceSelectionCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553887"><span class="annot"><span class="annottext">Maybe SseKmsEncryptedObjects
 sseKmsEncryptedObjects :: Maybe SseKmsEncryptedObjects
 $sel:sseKmsEncryptedObjects:SourceSelectionCriteria' :: SourceSelectionCriteria -&gt; Maybe SseKmsEncryptedObjects
-</span><a href="#local-6989586621679553878"><span class="hs-identifier hs-var hs-var">sseKmsEncryptedObjects</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SseKmsEncryptedObjects
-</span><a href="#local-6989586621679553878"><span class="hs-identifier hs-var">sseKmsEncryptedObjects</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679553877"><span class="annot"><span class="annottext">s :: SourceSelectionCriteria
-</span><a href="#local-6989586621679553877"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.SourceSelectionCriteria.html#SourceSelectionCriteria%27"><span class="hs-identifier hs-type">SourceSelectionCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679553876"><span class="annot"><span class="annottext">Maybe SseKmsEncryptedObjects
-</span><a href="#local-6989586621679553876"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceSelectionCriteria
-</span><a href="#local-6989586621679553877"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sseKmsEncryptedObjects:SourceSelectionCriteria' :: Maybe SseKmsEncryptedObjects
+</span><a href="#local-6989586621679553887"><span class="hs-identifier hs-var hs-var">sseKmsEncryptedObjects</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SseKmsEncryptedObjects
+</span><a href="#local-6989586621679553887"><span class="hs-identifier hs-var">sseKmsEncryptedObjects</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679553886"><span class="annot"><span class="annottext">s :: SourceSelectionCriteria
+</span><a href="#local-6989586621679553886"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.SourceSelectionCriteria.html#SourceSelectionCriteria%27"><span class="hs-identifier hs-type">SourceSelectionCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679553885"><span class="annot"><span class="annottext">Maybe SseKmsEncryptedObjects
+</span><a href="#local-6989586621679553885"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceSelectionCriteria
+</span><a href="#local-6989586621679553886"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sseKmsEncryptedObjects:SourceSelectionCriteria' :: Maybe SseKmsEncryptedObjects
 </span><a href="Network.AWS.S3.Types.SourceSelectionCriteria.html#%24sel%3AsseKmsEncryptedObjects%3ASourceSelectionCriteria%27"><span class="hs-identifier hs-var">sseKmsEncryptedObjects</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SseKmsEncryptedObjects
-</span><a href="#local-6989586621679553876"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SourceSelectionCriteria.html#SourceSelectionCriteria"><span class="hs-identifier hs-type">SourceSelectionCriteria</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679553885"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SourceSelectionCriteria.html#SourceSelectionCriteria"><span class="hs-identifier hs-type">SourceSelectionCriteria</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SourceSelectionCriteria.html#SourceSelectionCriteria"><span class="hs-identifier hs-type">SourceSelectionCriteria</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679553873"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String SourceSelectionCriteria
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679553871"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679553871"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679553882"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String SourceSelectionCriteria
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679553880"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679553880"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">Maybe ReplicaModifications
 -&gt; Maybe SseKmsEncryptedObjects -&gt; SourceSelectionCriteria
 </span><a href="Network.AWS.S3.Types.SourceSelectionCriteria.html#SourceSelectionCriteria%27"><span class="hs-identifier hs-var">SourceSelectionCriteria'</span></a></span><span>
@@ -223,7 +223,7 @@ $sel:sseKmsEncryptedObjects:SourceSelectionCriteria' :: SourceSelectionCriteria 
      String (Maybe SseKmsEncryptedObjects -&gt; SourceSelectionCriteria)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679553871"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ReplicaModifications)
+</span><a href="#local-6989586621679553880"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ReplicaModifications)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReplicaModifications&quot;</span></span><span class="hs-special">)</span><span>
@@ -233,24 +233,24 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String SourceSelectionCriteria
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679553871"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe SseKmsEncryptedObjects)
+</span><a href="#local-6989586621679553880"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe SseKmsEncryptedObjects)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SseKmsEncryptedObjects&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679553865"><span id="local-6989586621679553867"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SourceSelectionCriteria.html#SourceSelectionCriteria"><span class="hs-identifier hs-type">SourceSelectionCriteria</span></a></span></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679553874"><span id="local-6989586621679553876"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SourceSelectionCriteria.html#SourceSelectionCriteria"><span class="hs-identifier hs-type">SourceSelectionCriteria</span></a></span></span></span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679553862"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SourceSelectionCriteria.html#SourceSelectionCriteria"><span class="hs-identifier hs-type">SourceSelectionCriteria</span></a></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679553871"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SourceSelectionCriteria.html#SourceSelectionCriteria"><span class="hs-identifier hs-type">SourceSelectionCriteria</span></a></span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SourceSelectionCriteria.html#SourceSelectionCriteria"><span class="hs-identifier hs-type">SourceSelectionCriteria</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679553858"><span class="annot"><span class="annottext">toXML :: SourceSelectionCriteria -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SourceSelectionCriteria.html#SourceSelectionCriteria%27"><span class="hs-identifier hs-type">SourceSelectionCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553855"><span id="local-6989586621679553856"><span class="annot"><span class="annottext">Maybe ReplicaModifications
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679553867"><span class="annot"><span class="annottext">toXML :: SourceSelectionCriteria -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SourceSelectionCriteria.html#SourceSelectionCriteria%27"><span class="hs-identifier hs-type">SourceSelectionCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553864"><span id="local-6989586621679553865"><span class="annot"><span class="annottext">Maybe ReplicaModifications
 Maybe SseKmsEncryptedObjects
 sseKmsEncryptedObjects :: Maybe SseKmsEncryptedObjects
 replicaModifications :: Maybe ReplicaModifications
 $sel:sseKmsEncryptedObjects:SourceSelectionCriteria' :: SourceSelectionCriteria -&gt; Maybe SseKmsEncryptedObjects
 $sel:replicaModifications:SourceSelectionCriteria' :: SourceSelectionCriteria -&gt; Maybe ReplicaModifications
-</span><a href="#local-6989586621679553855"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679553864"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -258,12 +258,12 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;ReplicaModifications&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe ReplicaModifications -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe ReplicaModifications
-</span><a href="#local-6989586621679553856"><span class="hs-identifier hs-var">replicaModifications</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679553865"><span class="hs-identifier hs-var">replicaModifications</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;SseKmsEncryptedObjects&quot;</span></span><span>
 </span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; Maybe SseKmsEncryptedObjects -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe SseKmsEncryptedObjects
-</span><a href="#local-6989586621679553855"><span class="hs-identifier hs-var">sseKmsEncryptedObjects</span></a></span><span>
+</span><a href="#local-6989586621679553864"><span class="hs-identifier hs-var">sseKmsEncryptedObjects</span></a></span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-123"></span></pre></body></html>

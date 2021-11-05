@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- need to provide two separate @WriteRequest@ objects.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newWriteRequest' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679384431"><span id="local-6989586621679384432"></span></span><span class="hs-keyword">data</span><span> </span><span id="WriteRequest"><span class="annot"><a href="Network.AWS.DynamoDB.Types.WriteRequest.html#WriteRequest"><span class="hs-identifier hs-var">WriteRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WriteRequest%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.WriteRequest.html#WriteRequest%27"><span class="hs-identifier hs-var">WriteRequest'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679384440"><span id="local-6989586621679384441"></span></span><span class="hs-keyword">data</span><span> </span><span id="WriteRequest"><span class="annot"><a href="Network.AWS.DynamoDB.Types.WriteRequest.html#WriteRequest"><span class="hs-identifier hs-var">WriteRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WriteRequest%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.WriteRequest.html#WriteRequest%27"><span class="hs-identifier hs-var">WriteRequest'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A request to perform a @DeleteItem@ operation.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AdeleteRequest%3AWriteRequest%27"><span class="annot"><span class="annottext">WriteRequest -&gt; Maybe DeleteRequest
 </span><a href="Network.AWS.DynamoDB.Types.WriteRequest.html#%24sel%3AdeleteRequest%3AWriteRequest%27"><span class="hs-identifier hs-var hs-var">deleteRequest</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.DeleteRequest.html#DeleteRequest"><span class="hs-identifier hs-type">DeleteRequest</span></a></span><span class="hs-special">,</span><span>
@@ -39,7 +39,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AputRequest%3AWriteRequest%27"><span class="annot"><span class="annottext">WriteRequest -&gt; Maybe PutRequest
 </span><a href="Network.AWS.DynamoDB.Types.WriteRequest.html#%24sel%3AputRequest%3AWriteRequest%27"><span class="hs-identifier hs-var hs-var">putRequest</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PutRequest.html#PutRequest"><span class="hs-identifier hs-type">PutRequest</span></a></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679384424"><span id="local-6989586621679384426"><span class="annot"><span class="annottext">WriteRequest -&gt; WriteRequest -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679384433"><span id="local-6989586621679384435"><span class="annot"><span class="annottext">WriteRequest -&gt; WriteRequest -&gt; Bool
 (WriteRequest -&gt; WriteRequest -&gt; Bool)
 -&gt; (WriteRequest -&gt; WriteRequest -&gt; Bool) -&gt; Eq WriteRequest
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: WriteRequest -&gt; WriteRequest -&gt; Bool
 == :: WriteRequest -&gt; WriteRequest -&gt; Bool
 $c== :: WriteRequest -&gt; WriteRequest -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384415"><span id="local-6989586621679384417"><span id="local-6989586621679384419"><span id="local-6989586621679384421"><span class="annot"><span class="annottext">ReadPrec [WriteRequest]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384424"><span id="local-6989586621679384426"><span id="local-6989586621679384428"><span id="local-6989586621679384430"><span class="annot"><span class="annottext">ReadPrec [WriteRequest]
 ReadPrec WriteRequest
 Int -&gt; ReadS WriteRequest
 ReadS [WriteRequest]
@@ -67,7 +67,7 @@ readList :: ReadS [WriteRequest]
 $creadList :: ReadS [WriteRequest]
 readsPrec :: Int -&gt; ReadS WriteRequest
 $creadsPrec :: Int -&gt; ReadS WriteRequest
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384408"><span id="local-6989586621679384410"><span id="local-6989586621679384412"><span class="annot"><span class="annottext">Int -&gt; WriteRequest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384417"><span id="local-6989586621679384419"><span id="local-6989586621679384421"><span class="annot"><span class="annottext">Int -&gt; WriteRequest -&gt; ShowS
 [WriteRequest] -&gt; ShowS
 WriteRequest -&gt; String
 (Int -&gt; WriteRequest -&gt; ShowS)
@@ -132,16 +132,16 @@ forall a. Maybe a
      (Maybe DeleteRequest)
      (Maybe DeleteRequest)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.WriteRequest.html#WriteRequest%27"><span class="hs-identifier hs-type">WriteRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384399"><span class="annot"><span class="annottext">Maybe DeleteRequest
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.WriteRequest.html#WriteRequest%27"><span class="hs-identifier hs-type">WriteRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384408"><span class="annot"><span class="annottext">Maybe DeleteRequest
 deleteRequest :: Maybe DeleteRequest
 $sel:deleteRequest:WriteRequest' :: WriteRequest -&gt; Maybe DeleteRequest
-</span><a href="#local-6989586621679384399"><span class="hs-identifier hs-var hs-var">deleteRequest</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeleteRequest
-</span><a href="#local-6989586621679384399"><span class="hs-identifier hs-var">deleteRequest</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384398"><span class="annot"><span class="annottext">s :: WriteRequest
-</span><a href="#local-6989586621679384398"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.WriteRequest.html#WriteRequest%27"><span class="hs-identifier hs-type">WriteRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384397"><span class="annot"><span class="annottext">Maybe DeleteRequest
-</span><a href="#local-6989586621679384397"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WriteRequest
-</span><a href="#local-6989586621679384398"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deleteRequest:WriteRequest' :: Maybe DeleteRequest
+</span><a href="#local-6989586621679384408"><span class="hs-identifier hs-var hs-var">deleteRequest</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeleteRequest
+</span><a href="#local-6989586621679384408"><span class="hs-identifier hs-var">deleteRequest</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384407"><span class="annot"><span class="annottext">s :: WriteRequest
+</span><a href="#local-6989586621679384407"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.WriteRequest.html#WriteRequest%27"><span class="hs-identifier hs-type">WriteRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384406"><span class="annot"><span class="annottext">Maybe DeleteRequest
+</span><a href="#local-6989586621679384406"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WriteRequest
+</span><a href="#local-6989586621679384407"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deleteRequest:WriteRequest' :: Maybe DeleteRequest
 </span><a href="Network.AWS.DynamoDB.Types.WriteRequest.html#%24sel%3AdeleteRequest%3AWriteRequest%27"><span class="hs-identifier hs-var">deleteRequest</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeleteRequest
-</span><a href="#local-6989586621679384397"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.WriteRequest.html#WriteRequest"><span class="hs-identifier hs-type">WriteRequest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679384406"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.WriteRequest.html#WriteRequest"><span class="hs-identifier hs-type">WriteRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | A request to perform a @PutItem@ operation.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.WriteRequest.html#writeRequest_putRequest"><span class="hs-identifier hs-type">writeRequest_putRequest</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.WriteRequest.html#WriteRequest"><span class="hs-identifier hs-type">WriteRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.PutRequest.html#PutRequest"><span class="hs-identifier hs-type">PutRequest</span></a></span><span class="hs-special">)</span><span>
@@ -152,19 +152,19 @@ $sel:deleteRequest:WriteRequest' :: WriteRequest -&gt; Maybe DeleteRequest
 -&gt; Lens
      WriteRequest WriteRequest (Maybe PutRequest) (Maybe PutRequest)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.WriteRequest.html#WriteRequest%27"><span class="hs-identifier hs-type">WriteRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384395"><span class="annot"><span class="annottext">Maybe PutRequest
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.WriteRequest.html#WriteRequest%27"><span class="hs-identifier hs-type">WriteRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384404"><span class="annot"><span class="annottext">Maybe PutRequest
 putRequest :: Maybe PutRequest
 $sel:putRequest:WriteRequest' :: WriteRequest -&gt; Maybe PutRequest
-</span><a href="#local-6989586621679384395"><span class="hs-identifier hs-var hs-var">putRequest</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PutRequest
-</span><a href="#local-6989586621679384395"><span class="hs-identifier hs-var">putRequest</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384394"><span class="annot"><span class="annottext">s :: WriteRequest
-</span><a href="#local-6989586621679384394"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.WriteRequest.html#WriteRequest%27"><span class="hs-identifier hs-type">WriteRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384393"><span class="annot"><span class="annottext">Maybe PutRequest
-</span><a href="#local-6989586621679384393"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WriteRequest
-</span><a href="#local-6989586621679384394"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:putRequest:WriteRequest' :: Maybe PutRequest
+</span><a href="#local-6989586621679384404"><span class="hs-identifier hs-var hs-var">putRequest</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PutRequest
+</span><a href="#local-6989586621679384404"><span class="hs-identifier hs-var">putRequest</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384403"><span class="annot"><span class="annottext">s :: WriteRequest
+</span><a href="#local-6989586621679384403"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.WriteRequest.html#WriteRequest%27"><span class="hs-identifier hs-type">WriteRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384402"><span class="annot"><span class="annottext">Maybe PutRequest
+</span><a href="#local-6989586621679384402"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WriteRequest
+</span><a href="#local-6989586621679384403"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:putRequest:WriteRequest' :: Maybe PutRequest
 </span><a href="Network.AWS.DynamoDB.Types.WriteRequest.html#%24sel%3AputRequest%3AWriteRequest%27"><span class="hs-identifier hs-var">putRequest</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PutRequest
-</span><a href="#local-6989586621679384393"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.WriteRequest.html#WriteRequest"><span class="hs-identifier hs-type">WriteRequest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679384402"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.WriteRequest.html#WriteRequest"><span class="hs-identifier hs-type">WriteRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384390"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.WriteRequest.html#WriteRequest"><span class="hs-identifier hs-type">WriteRequest</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679384388"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WriteRequest
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384399"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.WriteRequest.html#WriteRequest"><span class="hs-identifier hs-type">WriteRequest</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679384397"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WriteRequest
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser WriteRequest) -&gt; Value -&gt; Parser WriteRequest
@@ -172,8 +172,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;WriteRequest&quot;</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679384385"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679384385"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679384394"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679384394"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe DeleteRequest -&gt; Maybe PutRequest -&gt; WriteRequest
 </span><a href="Network.AWS.DynamoDB.Types.WriteRequest.html#WriteRequest%27"><span class="hs-identifier hs-var">WriteRequest'</span></a></span><span>
 </span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DeleteRequest -&gt; Maybe PutRequest -&gt; WriteRequest)
@@ -181,7 +181,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe PutRequest -&gt; WriteRequest)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679384385"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeleteRequest)
+</span><a href="#local-6989586621679384394"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeleteRequest)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeleteRequest&quot;</span></span><span class="hs-special">)</span><span>
@@ -189,25 +189,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe PutRequest) -&gt; Parser WriteRequest
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679384385"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PutRequest)
+</span><a href="#local-6989586621679384394"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PutRequest)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PutRequest&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384379"><span id="local-6989586621679384381"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.WriteRequest.html#WriteRequest"><span class="hs-identifier hs-type">WriteRequest</span></a></span></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384388"><span id="local-6989586621679384390"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.WriteRequest.html#WriteRequest"><span class="hs-identifier hs-type">WriteRequest</span></a></span></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384376"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.WriteRequest.html#WriteRequest"><span class="hs-identifier hs-type">WriteRequest</span></a></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384385"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.WriteRequest.html#WriteRequest"><span class="hs-identifier hs-type">WriteRequest</span></a></span></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384368"><span id="local-6989586621679384370"><span id="local-6989586621679384372"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.WriteRequest.html#WriteRequest"><span class="hs-identifier hs-type">WriteRequest</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679384366"><span class="annot"><span class="annottext">toJSON :: WriteRequest -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.WriteRequest.html#WriteRequest%27"><span class="hs-identifier hs-type">WriteRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384363"><span id="local-6989586621679384364"><span class="annot"><span class="annottext">Maybe DeleteRequest
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384377"><span id="local-6989586621679384379"><span id="local-6989586621679384381"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.WriteRequest.html#WriteRequest"><span class="hs-identifier hs-type">WriteRequest</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679384375"><span class="annot"><span class="annottext">toJSON :: WriteRequest -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.WriteRequest.html#WriteRequest%27"><span class="hs-identifier hs-type">WriteRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384372"><span id="local-6989586621679384373"><span class="annot"><span class="annottext">Maybe DeleteRequest
 Maybe PutRequest
 putRequest :: Maybe PutRequest
 deleteRequest :: Maybe DeleteRequest
 $sel:putRequest:WriteRequest' :: WriteRequest -&gt; Maybe PutRequest
 $sel:deleteRequest:WriteRequest' :: WriteRequest -&gt; Maybe DeleteRequest
-</span><a href="#local-6989586621679384363"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679384372"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -219,14 +219,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(DeleteRequest -&gt; Pair) -&gt; Maybe DeleteRequest -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DeleteRequest
-</span><a href="#local-6989586621679384364"><span class="hs-identifier hs-var">deleteRequest</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679384373"><span class="hs-identifier hs-var">deleteRequest</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PutRequest&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PutRequest -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(PutRequest -&gt; Pair) -&gt; Maybe PutRequest -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe PutRequest
-</span><a href="#local-6989586621679384363"><span class="hs-identifier hs-var">putRequest</span></a></span><span>
+</span><a href="#local-6989586621679384372"><span class="hs-identifier hs-var">putRequest</span></a></span><span>
 </span><span id="line-89"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span></pre></body></html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Transfer.Types.ExecutionErrorType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Transfer.Types.ExecutionErrorType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Transfer.Types.ExecutionErrorType.html#ExecutionErrorType"><span class="hs-identifier">ExecutionErrorType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Transfer.Types.ExecutionErrorType.html#ExecutionErrorType_PERMISSION_DENIED"><span class="hs-identifier">ExecutionErrorType_PERMISSION_DENIED</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679237307"><span id="local-6989586621679237308"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ExecutionErrorType"><span class="annot"><a href="Network.AWS.Transfer.Types.ExecutionErrorType.html#ExecutionErrorType"><span class="hs-identifier hs-var">ExecutionErrorType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExecutionErrorType%27"><span class="annot"><a href="Network.AWS.Transfer.Types.ExecutionErrorType.html#ExecutionErrorType%27"><span class="hs-identifier hs-var">ExecutionErrorType'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromExecutionErrorType"><span class="annot"><span class="annottext">ExecutionErrorType -&gt; Text
+</span><a href="Network.AWS.Transfer.Types.ExecutionErrorType.html#fromExecutionErrorType"><span class="hs-identifier hs-var hs-var">fromExecutionErrorType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679237299"><span id="local-6989586621679237301"><span id="local-6989586621679237303"><span class="annot"><span class="annottext">Int -&gt; ExecutionErrorType -&gt; ShowS
+[ExecutionErrorType] -&gt; ShowS
+ExecutionErrorType -&gt; String
+(Int -&gt; ExecutionErrorType -&gt; ShowS)
+-&gt; (ExecutionErrorType -&gt; String)
+-&gt; ([ExecutionErrorType] -&gt; ShowS)
+-&gt; Show ExecutionErrorType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ExecutionErrorType] -&gt; ShowS
+$cshowList :: [ExecutionErrorType] -&gt; ShowS
+show :: ExecutionErrorType -&gt; String
+$cshow :: ExecutionErrorType -&gt; String
+showsPrec :: Int -&gt; ExecutionErrorType -&gt; ShowS
+$cshowsPrec :: Int -&gt; ExecutionErrorType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679237290"><span id="local-6989586621679237292"><span id="local-6989586621679237294"><span id="local-6989586621679237296"><span class="annot"><span class="annottext">ReadPrec [ExecutionErrorType]
+ReadPrec ExecutionErrorType
+Int -&gt; ReadS ExecutionErrorType
+ReadS [ExecutionErrorType]
+(Int -&gt; ReadS ExecutionErrorType)
+-&gt; ReadS [ExecutionErrorType]
+-&gt; ReadPrec ExecutionErrorType
+-&gt; ReadPrec [ExecutionErrorType]
+-&gt; Read ExecutionErrorType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ExecutionErrorType]
+$creadListPrec :: ReadPrec [ExecutionErrorType]
+readPrec :: ReadPrec ExecutionErrorType
+$creadPrec :: ReadPrec ExecutionErrorType
+readList :: ReadS [ExecutionErrorType]
+$creadList :: ReadS [ExecutionErrorType]
+readsPrec :: Int -&gt; ReadS ExecutionErrorType
+$creadsPrec :: Int -&gt; ReadS ExecutionErrorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679237285"><span id="local-6989586621679237287"><span class="annot"><span class="annottext">ExecutionErrorType -&gt; ExecutionErrorType -&gt; Bool
+(ExecutionErrorType -&gt; ExecutionErrorType -&gt; Bool)
+-&gt; (ExecutionErrorType -&gt; ExecutionErrorType -&gt; Bool)
+-&gt; Eq ExecutionErrorType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ExecutionErrorType -&gt; ExecutionErrorType -&gt; Bool
+$c/= :: ExecutionErrorType -&gt; ExecutionErrorType -&gt; Bool
+== :: ExecutionErrorType -&gt; ExecutionErrorType -&gt; Bool
+$c== :: ExecutionErrorType -&gt; ExecutionErrorType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679237269"><span id="local-6989586621679237271"><span id="local-6989586621679237273"><span id="local-6989586621679237275"><span id="local-6989586621679237277"><span id="local-6989586621679237279"><span id="local-6989586621679237281"><span class="annot"><span class="annottext">Eq ExecutionErrorType
+Eq ExecutionErrorType
+-&gt; (ExecutionErrorType -&gt; ExecutionErrorType -&gt; Ordering)
+-&gt; (ExecutionErrorType -&gt; ExecutionErrorType -&gt; Bool)
+-&gt; (ExecutionErrorType -&gt; ExecutionErrorType -&gt; Bool)
+-&gt; (ExecutionErrorType -&gt; ExecutionErrorType -&gt; Bool)
+-&gt; (ExecutionErrorType -&gt; ExecutionErrorType -&gt; Bool)
+-&gt; (ExecutionErrorType -&gt; ExecutionErrorType -&gt; ExecutionErrorType)
+-&gt; (ExecutionErrorType -&gt; ExecutionErrorType -&gt; ExecutionErrorType)
+-&gt; Ord ExecutionErrorType
+ExecutionErrorType -&gt; ExecutionErrorType -&gt; Bool
+ExecutionErrorType -&gt; ExecutionErrorType -&gt; Ordering
+ExecutionErrorType -&gt; ExecutionErrorType -&gt; ExecutionErrorType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ExecutionErrorType -&gt; ExecutionErrorType -&gt; ExecutionErrorType
+$cmin :: ExecutionErrorType -&gt; ExecutionErrorType -&gt; ExecutionErrorType
+max :: ExecutionErrorType -&gt; ExecutionErrorType -&gt; ExecutionErrorType
+$cmax :: ExecutionErrorType -&gt; ExecutionErrorType -&gt; ExecutionErrorType
+&gt;= :: ExecutionErrorType -&gt; ExecutionErrorType -&gt; Bool
+$c&gt;= :: ExecutionErrorType -&gt; ExecutionErrorType -&gt; Bool
+&gt; :: ExecutionErrorType -&gt; ExecutionErrorType -&gt; Bool
+$c&gt; :: ExecutionErrorType -&gt; ExecutionErrorType -&gt; Bool
+&lt;= :: ExecutionErrorType -&gt; ExecutionErrorType -&gt; Bool
+$c&lt;= :: ExecutionErrorType -&gt; ExecutionErrorType -&gt; Bool
+&lt; :: ExecutionErrorType -&gt; ExecutionErrorType -&gt; Bool
+$c&lt; :: ExecutionErrorType -&gt; ExecutionErrorType -&gt; Bool
+compare :: ExecutionErrorType -&gt; ExecutionErrorType -&gt; Ordering
+$ccompare :: ExecutionErrorType -&gt; ExecutionErrorType -&gt; Ordering
+$cp1Ord :: Eq ExecutionErrorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ExecutionErrorType -&gt; Rep ExecutionErrorType x)
+-&gt; (forall x. Rep ExecutionErrorType x -&gt; ExecutionErrorType)
+-&gt; Generic ExecutionErrorType
+forall x. Rep ExecutionErrorType x -&gt; ExecutionErrorType
+forall x. ExecutionErrorType -&gt; Rep ExecutionErrorType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ExecutionErrorType x -&gt; ExecutionErrorType
+$cfrom :: forall x. ExecutionErrorType -&gt; Rep ExecutionErrorType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679237261"><span id="local-6989586621679237263"><span class="annot"><span class="annottext">Int -&gt; ExecutionErrorType -&gt; Int
+ExecutionErrorType -&gt; Int
+(Int -&gt; ExecutionErrorType -&gt; Int)
+-&gt; (ExecutionErrorType -&gt; Int) -&gt; Hashable ExecutionErrorType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ExecutionErrorType -&gt; Int
+$chash :: ExecutionErrorType -&gt; Int
+hashWithSalt :: Int -&gt; ExecutionErrorType -&gt; Int
+$chashWithSalt :: Int -&gt; ExecutionErrorType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679237258"><span class="annot"><span class="annottext">ExecutionErrorType -&gt; ()
+(ExecutionErrorType -&gt; ()) -&gt; NFData ExecutionErrorType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ExecutionErrorType -&gt; ()
+$crnf :: ExecutionErrorType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679237255"><span class="annot"><span class="annottext">Text -&gt; Either String ExecutionErrorType
+(Text -&gt; Either String ExecutionErrorType)
+-&gt; FromText ExecutionErrorType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ExecutionErrorType
+$cfromText :: Text -&gt; Either String ExecutionErrorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679237252"><span class="annot"><span class="annottext">ExecutionErrorType -&gt; Text
+(ExecutionErrorType -&gt; Text) -&gt; ToText ExecutionErrorType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ExecutionErrorType -&gt; Text
+$ctoText :: ExecutionErrorType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679237249"><span class="annot"><span class="annottext">ExecutionErrorType -&gt; ByteString
+(ExecutionErrorType -&gt; ByteString)
+-&gt; ToByteString ExecutionErrorType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ExecutionErrorType -&gt; ByteString
+$ctoBS :: ExecutionErrorType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679237246"><span class="annot"><span class="annottext">ExecutionErrorType -&gt; ByteStringBuilder
+(ExecutionErrorType -&gt; ByteStringBuilder)
+-&gt; ToLog ExecutionErrorType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ExecutionErrorType -&gt; ByteStringBuilder
+$cbuild :: ExecutionErrorType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679237243"><span class="annot"><span class="annottext">HeaderName -&gt; ExecutionErrorType -&gt; [Header]
+(HeaderName -&gt; ExecutionErrorType -&gt; [Header])
+-&gt; ToHeader ExecutionErrorType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ExecutionErrorType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ExecutionErrorType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679237240"><span class="annot"><span class="annottext">ExecutionErrorType -&gt; QueryString
+(ExecutionErrorType -&gt; QueryString) -&gt; ToQuery ExecutionErrorType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ExecutionErrorType -&gt; QueryString
+$ctoQuery :: ExecutionErrorType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679237235"><span id="local-6989586621679237237"><span class="annot"><span class="annottext">Value -&gt; Parser [ExecutionErrorType]
+Value -&gt; Parser ExecutionErrorType
+(Value -&gt; Parser ExecutionErrorType)
+-&gt; (Value -&gt; Parser [ExecutionErrorType])
+-&gt; FromJSON ExecutionErrorType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ExecutionErrorType]
+$cparseJSONList :: Value -&gt; Parser [ExecutionErrorType]
+parseJSON :: Value -&gt; Parser ExecutionErrorType
+$cparseJSON :: Value -&gt; Parser ExecutionErrorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679237230"><span id="local-6989586621679237232"><span class="annot"><span class="annottext">FromJSONKeyFunction [ExecutionErrorType]
+FromJSONKeyFunction ExecutionErrorType
+FromJSONKeyFunction ExecutionErrorType
+-&gt; FromJSONKeyFunction [ExecutionErrorType]
+-&gt; FromJSONKey ExecutionErrorType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ExecutionErrorType]
+$cfromJSONKeyList :: FromJSONKeyFunction [ExecutionErrorType]
+fromJSONKey :: FromJSONKeyFunction ExecutionErrorType
+$cfromJSONKey :: FromJSONKeyFunction ExecutionErrorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679237221"><span id="local-6989586621679237223"><span id="local-6989586621679237225"><span id="local-6989586621679237227"><span class="annot"><span class="annottext">[ExecutionErrorType] -&gt; Encoding
+[ExecutionErrorType] -&gt; Value
+ExecutionErrorType -&gt; Encoding
+ExecutionErrorType -&gt; Value
+(ExecutionErrorType -&gt; Value)
+-&gt; (ExecutionErrorType -&gt; Encoding)
+-&gt; ([ExecutionErrorType] -&gt; Value)
+-&gt; ([ExecutionErrorType] -&gt; Encoding)
+-&gt; ToJSON ExecutionErrorType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ExecutionErrorType] -&gt; Encoding
+$ctoEncodingList :: [ExecutionErrorType] -&gt; Encoding
+toJSONList :: [ExecutionErrorType] -&gt; Value
+$ctoJSONList :: [ExecutionErrorType] -&gt; Value
+toEncoding :: ExecutionErrorType -&gt; Encoding
+$ctoEncoding :: ExecutionErrorType -&gt; Encoding
+toJSON :: ExecutionErrorType -&gt; Value
+$ctoJSON :: ExecutionErrorType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679237216"><span id="local-6989586621679237218"><span class="annot"><span class="annottext">ToJSONKeyFunction [ExecutionErrorType]
+ToJSONKeyFunction ExecutionErrorType
+ToJSONKeyFunction ExecutionErrorType
+-&gt; ToJSONKeyFunction [ExecutionErrorType]
+-&gt; ToJSONKey ExecutionErrorType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ExecutionErrorType]
+$ctoJSONKeyList :: ToJSONKeyFunction [ExecutionErrorType]
+toJSONKey :: ToJSONKeyFunction ExecutionErrorType
+$ctoJSONKey :: ToJSONKeyFunction ExecutionErrorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679237213"><span class="annot"><span class="annottext">[Node] -&gt; Either String ExecutionErrorType
+([Node] -&gt; Either String ExecutionErrorType)
+-&gt; FromXML ExecutionErrorType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ExecutionErrorType
+$cparseXML :: [Node] -&gt; Either String ExecutionErrorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679237210"><span class="annot"><span class="annottext">ExecutionErrorType -&gt; XML
+(ExecutionErrorType -&gt; XML) -&gt; ToXML ExecutionErrorType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ExecutionErrorType -&gt; XML
+$ctoXML :: ExecutionErrorType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Transfer.Types.ExecutionErrorType.html#ExecutionErrorType_PERMISSION_DENIED"><span class="hs-identifier hs-type">ExecutionErrorType_PERMISSION_DENIED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transfer.Types.ExecutionErrorType.html#ExecutionErrorType"><span class="hs-identifier hs-type">ExecutionErrorType</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bExecutionErrorType_PERMISSION_DENIED"><span id="%24mExecutionErrorType_PERMISSION_DENIED"><span id="ExecutionErrorType_PERMISSION_DENIED"><span class="annot"><span class="annottext">$bExecutionErrorType_PERMISSION_DENIED :: ExecutionErrorType
+$mExecutionErrorType_PERMISSION_DENIED :: forall r. ExecutionErrorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Transfer.Types.ExecutionErrorType.html#%24bExecutionErrorType_PERMISSION_DENIED"><span class="hs-identifier hs-var hs-var hs-var">ExecutionErrorType_PERMISSION_DENIED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Transfer.Types.ExecutionErrorType.html#ExecutionErrorType%27"><span class="hs-identifier hs-type">ExecutionErrorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PERMISSION_DENIED&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.Transfer.Types.ExecutionErrorType.html#ExecutionErrorType_PERMISSION_DENIED"><span class="hs-pragma hs-type">ExecutionErrorType_PERMISSION_DENIED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.Transfer.Types.ExecutionErrorType.html#ExecutionErrorType%27"><span class="hs-pragma hs-type">ExecutionErrorType'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

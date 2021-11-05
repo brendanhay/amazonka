@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- Simple Storage Service (Amazon S3).</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newS3DestinationConfiguration' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679258689"><span id="local-6989586621679258690"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3DestinationConfiguration"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#S3DestinationConfiguration"><span class="hs-identifier hs-var">S3DestinationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3DestinationConfiguration%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#S3DestinationConfiguration%27"><span class="hs-identifier hs-var">S3DestinationConfiguration'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679258698"><span id="local-6989586621679258699"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3DestinationConfiguration"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#S3DestinationConfiguration"><span class="hs-identifier hs-var">S3DestinationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3DestinationConfiguration%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#S3DestinationConfiguration%27"><span class="hs-identifier hs-var">S3DestinationConfiguration'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Configuration information for coordination with Glue, a fully managed</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- extract, transform and load (ETL) service.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AglueConfiguration%3AS3DestinationConfiguration%27"><span class="annot"><span class="annottext">S3DestinationConfiguration -&gt; Maybe GlueConfiguration
@@ -64,7 +64,7 @@
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AroleArn%3AS3DestinationConfiguration%27"><span class="annot"><span class="annottext">S3DestinationConfiguration -&gt; Text
 </span><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#%24sel%3AroleArn%3AS3DestinationConfiguration%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679258680"><span id="local-6989586621679258682"><span class="annot"><span class="annottext">S3DestinationConfiguration -&gt; S3DestinationConfiguration -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679258689"><span id="local-6989586621679258691"><span class="annot"><span class="annottext">S3DestinationConfiguration -&gt; S3DestinationConfiguration -&gt; Bool
 (S3DestinationConfiguration -&gt; S3DestinationConfiguration -&gt; Bool)
 -&gt; (S3DestinationConfiguration
     -&gt; S3DestinationConfiguration -&gt; Bool)
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: S3DestinationConfiguration -&gt; S3DestinationConfiguration -&gt; Bool
 == :: S3DestinationConfiguration -&gt; S3DestinationConfiguration -&gt; Bool
 $c== :: S3DestinationConfiguration -&gt; S3DestinationConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258671"><span id="local-6989586621679258673"><span id="local-6989586621679258675"><span id="local-6989586621679258677"><span class="annot"><span class="annottext">ReadPrec [S3DestinationConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258680"><span id="local-6989586621679258682"><span id="local-6989586621679258684"><span id="local-6989586621679258686"><span class="annot"><span class="annottext">ReadPrec [S3DestinationConfiguration]
 ReadPrec S3DestinationConfiguration
 Int -&gt; ReadS S3DestinationConfiguration
 ReadS [S3DestinationConfiguration]
@@ -94,7 +94,7 @@ readList :: ReadS [S3DestinationConfiguration]
 $creadList :: ReadS [S3DestinationConfiguration]
 readsPrec :: Int -&gt; ReadS S3DestinationConfiguration
 $creadsPrec :: Int -&gt; ReadS S3DestinationConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258664"><span id="local-6989586621679258666"><span id="local-6989586621679258668"><span class="annot"><span class="annottext">Int -&gt; S3DestinationConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258673"><span id="local-6989586621679258675"><span id="local-6989586621679258677"><span class="annot"><span class="annottext">Int -&gt; S3DestinationConfiguration -&gt; ShowS
 [S3DestinationConfiguration] -&gt; ShowS
 S3DestinationConfiguration -&gt; String
 (Int -&gt; S3DestinationConfiguration -&gt; ShowS)
@@ -173,12 +173,12 @@ S3DestinationConfiguration -&gt; Rep S3DestinationConfiguration x
 </span><span id="line-109"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#S3DestinationConfiguration"><span class="hs-identifier hs-type">S3DestinationConfiguration</span></a></span><span>
 </span><span id="line-110"></span><span id="newS3DestinationConfiguration"><span class="annot"><span class="annottext">newS3DestinationConfiguration :: Text -&gt; Text -&gt; Text -&gt; S3DestinationConfiguration
 </span><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#newS3DestinationConfiguration"><span class="hs-identifier hs-var hs-var">newS3DestinationConfiguration</span></a></span></span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679258658"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679258658"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679258657"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679258657"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679258656"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679258656"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679258667"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258667"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679258666"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258666"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679258665"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258665"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">S3DestinationConfiguration' :: Maybe GlueConfiguration
 -&gt; Text -&gt; Text -&gt; Text -&gt; S3DestinationConfiguration
 </span><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#S3DestinationConfiguration%27"><span class="hs-identifier hs-type">S3DestinationConfiguration'</span></a></span><span>
@@ -189,13 +189,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">$sel:bucket:S3DestinationConfiguration' :: Text
 </span><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#%24sel%3Abucket%3AS3DestinationConfiguration%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679258658"><span class="hs-identifier hs-var">pBucket_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679258667"><span class="hs-identifier hs-var">pBucket_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">$sel:key:S3DestinationConfiguration' :: Text
 </span><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#%24sel%3Akey%3AS3DestinationConfiguration%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679258657"><span class="hs-identifier hs-var">pKey_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679258666"><span class="hs-identifier hs-var">pKey_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">$sel:roleArn:S3DestinationConfiguration' :: Text
 </span><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#%24sel%3AroleArn%3AS3DestinationConfiguration%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679258656"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span>
+</span><a href="#local-6989586621679258665"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | Configuration information for coordination with Glue, a fully managed</span><span>
@@ -212,16 +212,16 @@ forall a. Maybe a
      (Maybe GlueConfiguration)
      (Maybe GlueConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#S3DestinationConfiguration%27"><span class="hs-identifier hs-type">S3DestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258652"><span class="annot"><span class="annottext">Maybe GlueConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#S3DestinationConfiguration%27"><span class="hs-identifier hs-type">S3DestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258661"><span class="annot"><span class="annottext">Maybe GlueConfiguration
 glueConfiguration :: Maybe GlueConfiguration
 $sel:glueConfiguration:S3DestinationConfiguration' :: S3DestinationConfiguration -&gt; Maybe GlueConfiguration
-</span><a href="#local-6989586621679258652"><span class="hs-identifier hs-var hs-var">glueConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GlueConfiguration
-</span><a href="#local-6989586621679258652"><span class="hs-identifier hs-var">glueConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258651"><span class="annot"><span class="annottext">s :: S3DestinationConfiguration
-</span><a href="#local-6989586621679258651"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#S3DestinationConfiguration%27"><span class="hs-identifier hs-type">S3DestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258650"><span class="annot"><span class="annottext">Maybe GlueConfiguration
-</span><a href="#local-6989586621679258650"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3DestinationConfiguration
-</span><a href="#local-6989586621679258651"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:glueConfiguration:S3DestinationConfiguration' :: Maybe GlueConfiguration
+</span><a href="#local-6989586621679258661"><span class="hs-identifier hs-var hs-var">glueConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GlueConfiguration
+</span><a href="#local-6989586621679258661"><span class="hs-identifier hs-var">glueConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258660"><span class="annot"><span class="annottext">s :: S3DestinationConfiguration
+</span><a href="#local-6989586621679258660"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#S3DestinationConfiguration%27"><span class="hs-identifier hs-type">S3DestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258659"><span class="annot"><span class="annottext">Maybe GlueConfiguration
+</span><a href="#local-6989586621679258659"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3DestinationConfiguration
+</span><a href="#local-6989586621679258660"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:glueConfiguration:S3DestinationConfiguration' :: Maybe GlueConfiguration
 </span><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#%24sel%3AglueConfiguration%3AS3DestinationConfiguration%27"><span class="hs-identifier hs-var">glueConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GlueConfiguration
-</span><a href="#local-6989586621679258650"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#S3DestinationConfiguration"><span class="hs-identifier hs-type">S3DestinationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679258659"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#S3DestinationConfiguration"><span class="hs-identifier hs-type">S3DestinationConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | The name of the S3 bucket to which dataset contents are delivered.</span><span>
 </span><span id="line-128"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#s3DestinationConfiguration_bucket"><span class="hs-identifier hs-type">s3DestinationConfiguration_bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#S3DestinationConfiguration"><span class="hs-identifier hs-type">S3DestinationConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -233,16 +233,16 @@ $sel:glueConfiguration:S3DestinationConfiguration' :: S3DestinationConfiguration
 -&gt; Lens
      S3DestinationConfiguration S3DestinationConfiguration Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#S3DestinationConfiguration%27"><span class="hs-identifier hs-type">S3DestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258648"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#S3DestinationConfiguration%27"><span class="hs-identifier hs-type">S3DestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258657"><span class="annot"><span class="annottext">Text
 bucket :: Text
 $sel:bucket:S3DestinationConfiguration' :: S3DestinationConfiguration -&gt; Text
-</span><a href="#local-6989586621679258648"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679258648"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258647"><span class="annot"><span class="annottext">s :: S3DestinationConfiguration
-</span><a href="#local-6989586621679258647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#S3DestinationConfiguration%27"><span class="hs-identifier hs-type">S3DestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258646"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679258646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3DestinationConfiguration
-</span><a href="#local-6989586621679258647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:S3DestinationConfiguration' :: Text
+</span><a href="#local-6989586621679258657"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258657"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258656"><span class="annot"><span class="annottext">s :: S3DestinationConfiguration
+</span><a href="#local-6989586621679258656"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#S3DestinationConfiguration%27"><span class="hs-identifier hs-type">S3DestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258655"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258655"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3DestinationConfiguration
+</span><a href="#local-6989586621679258656"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:S3DestinationConfiguration' :: Text
 </span><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#%24sel%3Abucket%3AS3DestinationConfiguration%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679258646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#S3DestinationConfiguration"><span class="hs-identifier hs-type">S3DestinationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679258655"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#S3DestinationConfiguration"><span class="hs-identifier hs-type">S3DestinationConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- | The key of the dataset contents object in an S3 bucket. Each object has</span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- a key that is a unique identifier. Each object has exactly one key.</span><span>
@@ -274,16 +274,16 @@ $sel:bucket:S3DestinationConfiguration' :: S3DestinationConfiguration -&gt; Text
 -&gt; Lens
      S3DestinationConfiguration S3DestinationConfiguration Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#S3DestinationConfiguration%27"><span class="hs-identifier hs-type">S3DestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258644"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#S3DestinationConfiguration%27"><span class="hs-identifier hs-type">S3DestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258653"><span class="annot"><span class="annottext">Text
 key :: Text
 $sel:key:S3DestinationConfiguration' :: S3DestinationConfiguration -&gt; Text
-</span><a href="#local-6989586621679258644"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679258644"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258643"><span class="annot"><span class="annottext">s :: S3DestinationConfiguration
-</span><a href="#local-6989586621679258643"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#S3DestinationConfiguration%27"><span class="hs-identifier hs-type">S3DestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258642"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679258642"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3DestinationConfiguration
-</span><a href="#local-6989586621679258643"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:S3DestinationConfiguration' :: Text
+</span><a href="#local-6989586621679258653"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258653"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258652"><span class="annot"><span class="annottext">s :: S3DestinationConfiguration
+</span><a href="#local-6989586621679258652"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#S3DestinationConfiguration%27"><span class="hs-identifier hs-type">S3DestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258651"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258651"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3DestinationConfiguration
+</span><a href="#local-6989586621679258652"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:S3DestinationConfiguration' :: Text
 </span><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#%24sel%3Akey%3AS3DestinationConfiguration%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679258642"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#S3DestinationConfiguration"><span class="hs-identifier hs-type">S3DestinationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679258651"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#S3DestinationConfiguration"><span class="hs-identifier hs-type">S3DestinationConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- | The ARN of the role that grants IoT Analytics permission to interact</span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- with your Amazon S3 and Glue resources.</span><span>
@@ -296,19 +296,19 @@ $sel:key:S3DestinationConfiguration' :: S3DestinationConfiguration -&gt; Text
 -&gt; Lens
      S3DestinationConfiguration S3DestinationConfiguration Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#S3DestinationConfiguration%27"><span class="hs-identifier hs-type">S3DestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258640"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#S3DestinationConfiguration%27"><span class="hs-identifier hs-type">S3DestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258649"><span class="annot"><span class="annottext">Text
 roleArn :: Text
 $sel:roleArn:S3DestinationConfiguration' :: S3DestinationConfiguration -&gt; Text
-</span><a href="#local-6989586621679258640"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679258640"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258639"><span class="annot"><span class="annottext">s :: S3DestinationConfiguration
-</span><a href="#local-6989586621679258639"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#S3DestinationConfiguration%27"><span class="hs-identifier hs-type">S3DestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258638"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679258638"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3DestinationConfiguration
-</span><a href="#local-6989586621679258639"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:S3DestinationConfiguration' :: Text
+</span><a href="#local-6989586621679258649"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258649"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258648"><span class="annot"><span class="annottext">s :: S3DestinationConfiguration
+</span><a href="#local-6989586621679258648"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#S3DestinationConfiguration%27"><span class="hs-identifier hs-type">S3DestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258647"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258647"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3DestinationConfiguration
+</span><a href="#local-6989586621679258648"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:S3DestinationConfiguration' :: Text
 </span><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#%24sel%3AroleArn%3AS3DestinationConfiguration%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679258638"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#S3DestinationConfiguration"><span class="hs-identifier hs-type">S3DestinationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679258647"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#S3DestinationConfiguration"><span class="hs-identifier hs-type">S3DestinationConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258635"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#S3DestinationConfiguration"><span class="hs-identifier hs-type">S3DestinationConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679258633"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser S3DestinationConfiguration
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258644"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#S3DestinationConfiguration"><span class="hs-identifier hs-type">S3DestinationConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679258642"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser S3DestinationConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser S3DestinationConfiguration)
@@ -318,8 +318,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;S3DestinationConfiguration&quot;</span></span><span>
-</span><span id="line-164"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679258630"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679258630"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679258639"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679258639"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-165"></span><span>          </span><span class="annot"><span class="annottext">Maybe GlueConfiguration
 -&gt; Text -&gt; Text -&gt; Text -&gt; S3DestinationConfiguration
 </span><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#S3DestinationConfiguration%27"><span class="hs-identifier hs-var">S3DestinationConfiguration'</span></a></span><span>
@@ -329,7 +329,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Text -&gt; Text -&gt; Text -&gt; S3DestinationConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679258630"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe GlueConfiguration)
+</span><a href="#local-6989586621679258639"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe GlueConfiguration)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;glueConfiguration&quot;</span></span><span class="hs-special">)</span><span>
@@ -338,7 +338,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Text -&gt; Text -&gt; S3DestinationConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679258630"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679258639"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;bucket&quot;</span></span><span class="hs-special">)</span><span>
@@ -346,7 +346,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (Text -&gt; S3DestinationConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679258630"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679258639"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;key&quot;</span></span><span class="hs-special">)</span><span>
@@ -354,19 +354,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser S3DestinationConfiguration
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679258630"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679258639"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;roleArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
-</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258623"><span id="local-6989586621679258625"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#S3DestinationConfiguration"><span class="hs-identifier hs-type">S3DestinationConfiguration</span></a></span></span></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258632"><span id="local-6989586621679258634"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#S3DestinationConfiguration"><span class="hs-identifier hs-type">S3DestinationConfiguration</span></a></span></span></span><span>
 </span><span id="line-173"></span><span>
-</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258620"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#S3DestinationConfiguration"><span class="hs-identifier hs-type">S3DestinationConfiguration</span></a></span></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258629"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#S3DestinationConfiguration"><span class="hs-identifier hs-type">S3DestinationConfiguration</span></a></span></span><span>
 </span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258612"><span id="local-6989586621679258614"><span id="local-6989586621679258616"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#S3DestinationConfiguration"><span class="hs-identifier hs-type">S3DestinationConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-177"></span><span>  </span><span id="local-6989586621679258610"><span class="annot"><span class="annottext">toJSON :: S3DestinationConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#S3DestinationConfiguration%27"><span class="hs-identifier hs-type">S3DestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258605"><span id="local-6989586621679258606"><span id="local-6989586621679258607"><span id="local-6989586621679258608"><span class="annot"><span class="annottext">Maybe GlueConfiguration
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258621"><span id="local-6989586621679258623"><span id="local-6989586621679258625"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#S3DestinationConfiguration"><span class="hs-identifier hs-type">S3DestinationConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679258619"><span class="annot"><span class="annottext">toJSON :: S3DestinationConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#S3DestinationConfiguration%27"><span class="hs-identifier hs-type">S3DestinationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258614"><span id="local-6989586621679258615"><span id="local-6989586621679258616"><span id="local-6989586621679258617"><span class="annot"><span class="annottext">Maybe GlueConfiguration
 Text
 roleArn :: Text
 key :: Text
@@ -376,7 +376,7 @@ $sel:roleArn:S3DestinationConfiguration' :: S3DestinationConfiguration -&gt; Tex
 $sel:key:S3DestinationConfiguration' :: S3DestinationConfiguration -&gt; Text
 $sel:bucket:S3DestinationConfiguration' :: S3DestinationConfiguration -&gt; Text
 $sel:glueConfiguration:S3DestinationConfiguration' :: S3DestinationConfiguration -&gt; Maybe GlueConfiguration
-</span><a href="#local-6989586621679258605"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679258614"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-179"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -390,28 +390,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe GlueConfiguration -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe GlueConfiguration
-</span><a href="#local-6989586621679258608"><span class="hs-identifier hs-var">glueConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679258617"><span class="hs-identifier hs-var">glueConfiguration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;bucket&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679258607"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679258616"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679258606"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679258615"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;roleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679258605"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679258614"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-186"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span></pre></body></html>

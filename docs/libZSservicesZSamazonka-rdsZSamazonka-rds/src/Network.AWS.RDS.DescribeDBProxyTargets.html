@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newDescribeDBProxyTargets' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679791439"><span id="local-6989586621679791440"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDBProxyTargets"><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets"><span class="hs-identifier hs-var">DescribeDBProxyTargets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDBProxyTargets%27"><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets%27"><span class="hs-identifier hs-var">DescribeDBProxyTargets'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679791448"><span id="local-6989586621679791449"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDBProxyTargets"><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets"><span class="hs-identifier hs-var">DescribeDBProxyTargets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDBProxyTargets%27"><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets%27"><span class="hs-identifier hs-var">DescribeDBProxyTargets'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | This parameter is not currently supported.</span><span>
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3Afilters%3ADescribeDBProxyTargets%27"><span class="annot"><span class="annottext">DescribeDBProxyTargets -&gt; Maybe [Filter]
 </span><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#%24sel%3Afilters%3ADescribeDBProxyTargets%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -81,7 +81,7 @@
 </span><span id="line-77"></span><span>    </span><span id="%24sel%3AdbProxyName%3ADescribeDBProxyTargets%27"><span class="annot"><span class="annottext">DescribeDBProxyTargets -&gt; Text
 </span><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#%24sel%3AdbProxyName%3ADescribeDBProxyTargets%27"><span class="hs-identifier hs-var hs-var">dbProxyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679791429"><span id="local-6989586621679791431"><span class="annot"><span class="annottext">DescribeDBProxyTargets -&gt; DescribeDBProxyTargets -&gt; Bool
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679791438"><span id="local-6989586621679791440"><span class="annot"><span class="annottext">DescribeDBProxyTargets -&gt; DescribeDBProxyTargets -&gt; Bool
 (DescribeDBProxyTargets -&gt; DescribeDBProxyTargets -&gt; Bool)
 -&gt; (DescribeDBProxyTargets -&gt; DescribeDBProxyTargets -&gt; Bool)
 -&gt; Eq DescribeDBProxyTargets
@@ -90,7 +90,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeDBProxyTargets -&gt; DescribeDBProxyTargets -&gt; Bool
 == :: DescribeDBProxyTargets -&gt; DescribeDBProxyTargets -&gt; Bool
 $c== :: DescribeDBProxyTargets -&gt; DescribeDBProxyTargets -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679791420"><span id="local-6989586621679791422"><span id="local-6989586621679791424"><span id="local-6989586621679791426"><span class="annot"><span class="annottext">ReadPrec [DescribeDBProxyTargets]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679791429"><span id="local-6989586621679791431"><span id="local-6989586621679791433"><span id="local-6989586621679791435"><span class="annot"><span class="annottext">ReadPrec [DescribeDBProxyTargets]
 ReadPrec DescribeDBProxyTargets
 Int -&gt; ReadS DescribeDBProxyTargets
 ReadS [DescribeDBProxyTargets]
@@ -110,7 +110,7 @@ readList :: ReadS [DescribeDBProxyTargets]
 $creadList :: ReadS [DescribeDBProxyTargets]
 readsPrec :: Int -&gt; ReadS DescribeDBProxyTargets
 $creadsPrec :: Int -&gt; ReadS DescribeDBProxyTargets
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679791413"><span id="local-6989586621679791415"><span id="local-6989586621679791417"><span class="annot"><span class="annottext">Int -&gt; DescribeDBProxyTargets -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679791422"><span id="local-6989586621679791424"><span id="local-6989586621679791426"><span class="annot"><span class="annottext">Int -&gt; DescribeDBProxyTargets -&gt; ShowS
 [DescribeDBProxyTargets] -&gt; ShowS
 DescribeDBProxyTargets -&gt; String
 (Int -&gt; DescribeDBProxyTargets -&gt; ShowS)
@@ -168,8 +168,8 @@ $cfrom :: forall x. DescribeDBProxyTargets -&gt; Rep DescribeDBProxyTargets x
 </span><span id="line-109"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-110"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets"><span class="hs-identifier hs-type">DescribeDBProxyTargets</span></a></span><span>
 </span><span id="line-111"></span><span id="newDescribeDBProxyTargets"><span class="annot"><span class="annottext">newDescribeDBProxyTargets :: Text -&gt; DescribeDBProxyTargets
-</span><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#newDescribeDBProxyTargets"><span class="hs-identifier hs-var hs-var">newDescribeDBProxyTargets</span></a></span></span><span> </span><span id="local-6989586621679791408"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679791408"><span class="hs-identifier hs-var">pDBProxyName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#newDescribeDBProxyTargets"><span class="hs-identifier hs-var hs-var">newDescribeDBProxyTargets</span></a></span></span><span> </span><span id="local-6989586621679791417"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679791417"><span class="hs-identifier hs-var">pDBProxyName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>  </span><span class="annot"><span class="annottext">DescribeDBProxyTargets' :: Maybe [Filter]
 -&gt; Maybe Text
 -&gt; Maybe Natural
@@ -195,7 +195,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:dbProxyName:DescribeDBProxyTargets' :: Text
 </span><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#%24sel%3AdbProxyName%3ADescribeDBProxyTargets%27"><span class="hs-identifier hs-var">dbProxyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679791408"><span class="hs-identifier hs-var">pDBProxyName_</span></a></span><span>
+</span><a href="#local-6989586621679791417"><span class="hs-identifier hs-var">pDBProxyName_</span></a></span><span>
 </span><span id="line-118"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | This parameter is not currently supported.</span><span>
@@ -211,16 +211,16 @@ forall a. Maybe a
      (Maybe [Filter])
      (Maybe [Filter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets%27"><span class="hs-identifier hs-type">DescribeDBProxyTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791406"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets%27"><span class="hs-identifier hs-type">DescribeDBProxyTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791415"><span class="annot"><span class="annottext">Maybe [Filter]
 filters :: Maybe [Filter]
 $sel:filters:DescribeDBProxyTargets' :: DescribeDBProxyTargets -&gt; Maybe [Filter]
-</span><a href="#local-6989586621679791406"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621679791406"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791405"><span class="annot"><span class="annottext">s :: DescribeDBProxyTargets
-</span><a href="#local-6989586621679791405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets%27"><span class="hs-identifier hs-type">DescribeDBProxyTargets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791404"><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621679791404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBProxyTargets
-</span><a href="#local-6989586621679791405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeDBProxyTargets' :: Maybe [Filter]
+</span><a href="#local-6989586621679791415"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679791415"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791414"><span class="annot"><span class="annottext">s :: DescribeDBProxyTargets
+</span><a href="#local-6989586621679791414"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets%27"><span class="hs-identifier hs-type">DescribeDBProxyTargets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791413"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679791413"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBProxyTargets
+</span><a href="#local-6989586621679791414"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeDBProxyTargets' :: Maybe [Filter]
 </span><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#%24sel%3Afilters%3ADescribeDBProxyTargets%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621679791404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets"><span class="hs-identifier hs-type">DescribeDBProxyTargets</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
+</span><a href="#local-6989586621679791413"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets"><span class="hs-identifier hs-type">DescribeDBProxyTargets</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
  -&gt; DescribeDBProxyTargets -&gt; f DescribeDBProxyTargets)
 -&gt; ((Maybe [Filter] -&gt; f (Maybe [Filter]))
     -&gt; Maybe [Filter] -&gt; f (Maybe [Filter]))
@@ -252,16 +252,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets%27"><span class="hs-identifier hs-type">DescribeDBProxyTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791400"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets%27"><span class="hs-identifier hs-type">DescribeDBProxyTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791409"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:DescribeDBProxyTargets' :: DescribeDBProxyTargets -&gt; Maybe Text
-</span><a href="#local-6989586621679791400"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679791400"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791399"><span class="annot"><span class="annottext">s :: DescribeDBProxyTargets
-</span><a href="#local-6989586621679791399"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets%27"><span class="hs-identifier hs-type">DescribeDBProxyTargets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791398"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679791398"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBProxyTargets
-</span><a href="#local-6989586621679791399"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeDBProxyTargets' :: Maybe Text
+</span><a href="#local-6989586621679791409"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791409"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791408"><span class="annot"><span class="annottext">s :: DescribeDBProxyTargets
+</span><a href="#local-6989586621679791408"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets%27"><span class="hs-identifier hs-type">DescribeDBProxyTargets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791407"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791407"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBProxyTargets
+</span><a href="#local-6989586621679791408"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeDBProxyTargets' :: Maybe Text
 </span><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#%24sel%3Amarker%3ADescribeDBProxyTargets%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679791398"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets"><span class="hs-identifier hs-type">DescribeDBProxyTargets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679791407"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets"><span class="hs-identifier hs-type">DescribeDBProxyTargets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | The maximum number of records to include in the response. If more</span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- records exist than the specified @MaxRecords@ value, a pagination token</span><span>
@@ -283,16 +283,16 @@ $sel:marker:DescribeDBProxyTargets' :: DescribeDBProxyTargets -&gt; Maybe Text
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets%27"><span class="hs-identifier hs-type">DescribeDBProxyTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791397"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets%27"><span class="hs-identifier hs-type">DescribeDBProxyTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791406"><span class="annot"><span class="annottext">Maybe Natural
 maxRecords :: Maybe Natural
 $sel:maxRecords:DescribeDBProxyTargets' :: DescribeDBProxyTargets -&gt; Maybe Natural
-</span><a href="#local-6989586621679791397"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679791397"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791396"><span class="annot"><span class="annottext">s :: DescribeDBProxyTargets
-</span><a href="#local-6989586621679791396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets%27"><span class="hs-identifier hs-type">DescribeDBProxyTargets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791395"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679791395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBProxyTargets
-</span><a href="#local-6989586621679791396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeDBProxyTargets' :: Maybe Natural
+</span><a href="#local-6989586621679791406"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679791406"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791405"><span class="annot"><span class="annottext">s :: DescribeDBProxyTargets
+</span><a href="#local-6989586621679791405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets%27"><span class="hs-identifier hs-type">DescribeDBProxyTargets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791404"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679791404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBProxyTargets
+</span><a href="#local-6989586621679791405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeDBProxyTargets' :: Maybe Natural
 </span><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#%24sel%3AmaxRecords%3ADescribeDBProxyTargets%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679791395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets"><span class="hs-identifier hs-type">DescribeDBProxyTargets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679791404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets"><span class="hs-identifier hs-type">DescribeDBProxyTargets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- | The identifier of the @DBProxyTargetGroup@ to describe.</span><span>
 </span><span id="line-142"></span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#describeDBProxyTargets_targetGroupName"><span class="hs-identifier hs-type">describeDBProxyTargets_targetGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets"><span class="hs-identifier hs-type">DescribeDBProxyTargets</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -306,16 +306,16 @@ $sel:maxRecords:DescribeDBProxyTargets' :: DescribeDBProxyTargets -&gt; Maybe Na
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets%27"><span class="hs-identifier hs-type">DescribeDBProxyTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791394"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets%27"><span class="hs-identifier hs-type">DescribeDBProxyTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791403"><span class="annot"><span class="annottext">Maybe Text
 targetGroupName :: Maybe Text
 $sel:targetGroupName:DescribeDBProxyTargets' :: DescribeDBProxyTargets -&gt; Maybe Text
-</span><a href="#local-6989586621679791394"><span class="hs-identifier hs-var hs-var">targetGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679791394"><span class="hs-identifier hs-var">targetGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791393"><span class="annot"><span class="annottext">s :: DescribeDBProxyTargets
-</span><a href="#local-6989586621679791393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets%27"><span class="hs-identifier hs-type">DescribeDBProxyTargets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791392"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679791392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBProxyTargets
-</span><a href="#local-6989586621679791393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetGroupName:DescribeDBProxyTargets' :: Maybe Text
+</span><a href="#local-6989586621679791403"><span class="hs-identifier hs-var hs-var">targetGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791403"><span class="hs-identifier hs-var">targetGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791402"><span class="annot"><span class="annottext">s :: DescribeDBProxyTargets
+</span><a href="#local-6989586621679791402"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets%27"><span class="hs-identifier hs-type">DescribeDBProxyTargets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791401"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791401"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBProxyTargets
+</span><a href="#local-6989586621679791402"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetGroupName:DescribeDBProxyTargets' :: Maybe Text
 </span><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#%24sel%3AtargetGroupName%3ADescribeDBProxyTargets%27"><span class="hs-identifier hs-var">targetGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679791392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets"><span class="hs-identifier hs-type">DescribeDBProxyTargets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679791401"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets"><span class="hs-identifier hs-type">DescribeDBProxyTargets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- | The identifier of the @DBProxyTarget@ to describe.</span><span>
 </span><span id="line-146"></span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#describeDBProxyTargets_dbProxyName"><span class="hs-identifier hs-type">describeDBProxyTargets_dbProxyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets"><span class="hs-identifier hs-type">DescribeDBProxyTargets</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -325,30 +325,30 @@ $sel:targetGroupName:DescribeDBProxyTargets' :: DescribeDBProxyTargets -&gt; May
 -&gt; (DescribeDBProxyTargets -&gt; Text -&gt; DescribeDBProxyTargets)
 -&gt; Lens DescribeDBProxyTargets DescribeDBProxyTargets Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets%27"><span class="hs-identifier hs-type">DescribeDBProxyTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791391"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets%27"><span class="hs-identifier hs-type">DescribeDBProxyTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791400"><span class="annot"><span class="annottext">Text
 dbProxyName :: Text
 $sel:dbProxyName:DescribeDBProxyTargets' :: DescribeDBProxyTargets -&gt; Text
-</span><a href="#local-6989586621679791391"><span class="hs-identifier hs-var hs-var">dbProxyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679791391"><span class="hs-identifier hs-var">dbProxyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791390"><span class="annot"><span class="annottext">s :: DescribeDBProxyTargets
-</span><a href="#local-6989586621679791390"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets%27"><span class="hs-identifier hs-type">DescribeDBProxyTargets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791389"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679791389"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBProxyTargets
-</span><a href="#local-6989586621679791390"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbProxyName:DescribeDBProxyTargets' :: Text
+</span><a href="#local-6989586621679791400"><span class="hs-identifier hs-var hs-var">dbProxyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679791400"><span class="hs-identifier hs-var">dbProxyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791399"><span class="annot"><span class="annottext">s :: DescribeDBProxyTargets
+</span><a href="#local-6989586621679791399"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets%27"><span class="hs-identifier hs-type">DescribeDBProxyTargets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791398"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679791398"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBProxyTargets
+</span><a href="#local-6989586621679791399"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbProxyName:DescribeDBProxyTargets' :: Text
 </span><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#%24sel%3AdbProxyName%3ADescribeDBProxyTargets%27"><span class="hs-identifier hs-var">dbProxyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679791389"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets"><span class="hs-identifier hs-type">DescribeDBProxyTargets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679791398"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets"><span class="hs-identifier hs-type">DescribeDBProxyTargets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets"><span class="hs-identifier hs-type">DescribeDBProxyTargets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679791385"><span class="annot"><span class="annottext">page :: DescribeDBProxyTargets
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679791394"><span class="annot"><span class="annottext">page :: DescribeDBProxyTargets
 -&gt; AWSResponse DescribeDBProxyTargets
 -&gt; Maybe DescribeDBProxyTargets
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679791383"><span class="annot"><span class="annottext">DescribeDBProxyTargets
-</span><a href="#local-6989586621679791383"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679791382"><span class="annot"><span class="annottext">AWSResponse DescribeDBProxyTargets
-</span><a href="#local-6989586621679791382"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679791392"><span class="annot"><span class="annottext">DescribeDBProxyTargets
+</span><a href="#local-6989586621679791392"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679791391"><span class="annot"><span class="annottext">AWSResponse DescribeDBProxyTargets
+</span><a href="#local-6989586621679791391"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-151"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-152"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeDBProxyTargets
 DescribeDBProxyTargetsResponse
-</span><a href="#local-6989586621679791382"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679791391"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">DescribeDBProxyTargetsResponse
 -&gt; Getting (First Text) DescribeDBProxyTargetsResponse Text
 -&gt; Maybe Text
@@ -378,7 +378,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-158"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeDBProxyTargets
 DescribeDBProxyTargetsResponse
-</span><a href="#local-6989586621679791382"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679791391"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">DescribeDBProxyTargetsResponse
 -&gt; Getting
      (First [DBProxyTarget])
@@ -423,7 +423,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">DescribeDBProxyTargets
-</span><a href="#local-6989586621679791383"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679791392"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-166"></span><span>          </span><span class="annot"><span class="annottext">DescribeDBProxyTargets
 -&gt; (DescribeDBProxyTargets -&gt; DescribeDBProxyTargets)
 -&gt; DescribeDBProxyTargets
@@ -442,7 +442,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeDBProxyTargets
 DescribeDBProxyTargetsResponse
-</span><a href="#local-6989586621679791382"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679791391"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-168"></span><span>          </span><span class="annot"><span class="annottext">DescribeDBProxyTargetsResponse
 -&gt; Getting (First Text) DescribeDBProxyTargetsResponse Text
 -&gt; Maybe Text
@@ -468,12 +468,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-172"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-173"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets"><span class="hs-identifier hs-type">DescribeDBProxyTargets</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-174"></span><span>      </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargetsResponse"><span class="hs-identifier hs-type">DescribeDBProxyTargetsResponse</span></a></span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621679791373"><span class="annot"><span class="annottext">request :: DescribeDBProxyTargets -&gt; Request DescribeDBProxyTargets
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679791382"><span class="annot"><span class="annottext">request :: DescribeDBProxyTargets -&gt; Request DescribeDBProxyTargets
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeDBProxyTargets -&gt; Request DescribeDBProxyTargets
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679791369"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679791378"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeDBProxyTargets
 -&gt; ClientResponse ClientBody
@@ -504,10 +504,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DescribeDBProxyTargetsResult&quot;</span></span><span>
-</span><span id="line-179"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679791366"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679791366"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679791365"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679791365"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679791364"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679791364"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679791375"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679791375"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679791374"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679791374"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679791373"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679791373"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-180"></span><span>          </span><span class="annot"><span class="annottext">Maybe [DBProxyTarget]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeDBProxyTargetsResponse
 </span><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargetsResponse%27"><span class="hs-identifier hs-var">DescribeDBProxyTargetsResponse'</span></a></span><span>
@@ -518,7 +518,7 @@ Text
      String (Maybe Text -&gt; Int -&gt; DescribeDBProxyTargetsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679791364"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679791373"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Targets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -545,7 +545,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String (Int -&gt; DescribeDBProxyTargetsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679791364"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679791373"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
@@ -558,15 +558,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679791366"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679791375"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>
-</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679791353"><span id="local-6989586621679791355"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets"><span class="hs-identifier hs-type">DescribeDBProxyTargets</span></a></span></span></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679791362"><span id="local-6989586621679791364"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets"><span class="hs-identifier hs-type">DescribeDBProxyTargets</span></a></span></span></span><span>
 </span><span id="line-189"></span><span>
-</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679791350"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets"><span class="hs-identifier hs-type">DescribeDBProxyTargets</span></a></span></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679791359"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets"><span class="hs-identifier hs-type">DescribeDBProxyTargets</span></a></span></span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets"><span class="hs-identifier hs-type">DescribeDBProxyTargets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-193"></span><span>  </span><span id="local-6989586621679791346"><span class="annot"><span class="annottext">toHeaders :: DescribeDBProxyTargets -&gt; ResponseHeaders
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679791355"><span class="annot"><span class="annottext">toHeaders :: DescribeDBProxyTargets -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeDBProxyTargets -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -574,15 +574,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-194"></span><span>
 </span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets"><span class="hs-identifier hs-type">DescribeDBProxyTargets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-196"></span><span>  </span><span id="local-6989586621679791341"><span class="annot"><span class="annottext">toPath :: DescribeDBProxyTargets -&gt; ByteString
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679791350"><span class="annot"><span class="annottext">toPath :: DescribeDBProxyTargets -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeDBProxyTargets -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets"><span class="hs-identifier hs-type">DescribeDBProxyTargets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-199"></span><span>  </span><span id="local-6989586621679791337"><span class="annot"><span class="annottext">toQuery :: DescribeDBProxyTargets -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets%27"><span class="hs-identifier hs-type">DescribeDBProxyTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791331"><span id="local-6989586621679791332"><span id="local-6989586621679791333"><span id="local-6989586621679791334"><span id="local-6989586621679791335"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679791346"><span class="annot"><span class="annottext">toQuery :: DescribeDBProxyTargets -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargets%27"><span class="hs-identifier hs-type">DescribeDBProxyTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791340"><span id="local-6989586621679791341"><span id="local-6989586621679791342"><span id="local-6989586621679791343"><span id="local-6989586621679791344"><span class="annot"><span class="annottext">Maybe Natural
 Maybe [Filter]
 Maybe Text
 Text
@@ -596,7 +596,7 @@ $sel:targetGroupName:DescribeDBProxyTargets' :: DescribeDBProxyTargets -&gt; May
 $sel:maxRecords:DescribeDBProxyTargets' :: DescribeDBProxyTargets -&gt; Maybe Natural
 $sel:marker:DescribeDBProxyTargets' :: DescribeDBProxyTargets -&gt; Maybe Text
 $sel:filters:DescribeDBProxyTargets' :: DescribeDBProxyTargets -&gt; Maybe [Filter]
-</span><a href="#local-6989586621679791331"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679791340"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-200"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -627,31 +627,31 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Filter] -&gt; QueryString) -&gt; Maybe [Filter] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621679791335"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679791344"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-208"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679791334"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679791343"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-209"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;MaxRecords&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679791333"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679791342"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-210"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;TargetGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679791332"><span class="hs-identifier hs-var">targetGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679791341"><span class="hs-identifier hs-var">targetGroupName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-211"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DBProxyName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679791331"><span class="hs-identifier hs-var">dbProxyName</span></a></span><span>
+</span><a href="#local-6989586621679791340"><span class="hs-identifier hs-var">dbProxyName</span></a></span><span>
 </span><span id="line-212"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-213"></span><span>
 </span><span id="line-214"></span><span class="hs-comment">-- | /See:/ 'newDescribeDBProxyTargetsResponse' smart constructor.</span><span>
-</span><span id="line-215"></span><span id="local-6989586621679791327"><span id="local-6989586621679791328"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDBProxyTargetsResponse"><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargetsResponse"><span class="hs-identifier hs-var">DescribeDBProxyTargetsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDBProxyTargetsResponse%27"><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargetsResponse%27"><span class="hs-identifier hs-var">DescribeDBProxyTargetsResponse'</span></a></span></span><span>
+</span><span id="line-215"></span><span id="local-6989586621679791336"><span id="local-6989586621679791337"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDBProxyTargetsResponse"><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargetsResponse"><span class="hs-identifier hs-var">DescribeDBProxyTargetsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDBProxyTargetsResponse%27"><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargetsResponse%27"><span class="hs-identifier hs-var">DescribeDBProxyTargetsResponse'</span></a></span></span><span>
 </span><span id="line-216"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An arbitrary number of @DBProxyTarget@ objects, containing details of</span><span>
 </span><span id="line-217"></span><span>    </span><span class="hs-comment">-- the corresponding targets.</span><span>
 </span><span id="line-218"></span><span>    </span><span id="%24sel%3Atargets%3ADescribeDBProxyTargetsResponse%27"><span class="annot"><span class="annottext">DescribeDBProxyTargetsResponse -&gt; Maybe [DBProxyTarget]
@@ -665,7 +665,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-224"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeDBProxyTargetsResponse%27"><span class="annot"><span class="annottext">DescribeDBProxyTargetsResponse -&gt; Int
 </span><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#%24sel%3AhttpStatus%3ADescribeDBProxyTargetsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-225"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-226"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679791320"><span id="local-6989586621679791322"><span class="annot"><span class="annottext">DescribeDBProxyTargetsResponse
+</span><span id="line-226"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679791329"><span id="local-6989586621679791331"><span class="annot"><span class="annottext">DescribeDBProxyTargetsResponse
 -&gt; DescribeDBProxyTargetsResponse -&gt; Bool
 (DescribeDBProxyTargetsResponse
  -&gt; DescribeDBProxyTargetsResponse -&gt; Bool)
@@ -681,7 +681,7 @@ $c/= :: DescribeDBProxyTargetsResponse
 -&gt; DescribeDBProxyTargetsResponse -&gt; Bool
 $c== :: DescribeDBProxyTargetsResponse
 -&gt; DescribeDBProxyTargetsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679791312"><span id="local-6989586621679791314"><span id="local-6989586621679791316"><span id="local-6989586621679791318"><span class="annot"><span class="annottext">ReadPrec [DescribeDBProxyTargetsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679791321"><span id="local-6989586621679791323"><span id="local-6989586621679791325"><span id="local-6989586621679791327"><span class="annot"><span class="annottext">ReadPrec [DescribeDBProxyTargetsResponse]
 ReadPrec DescribeDBProxyTargetsResponse
 Int -&gt; ReadS DescribeDBProxyTargetsResponse
 ReadS [DescribeDBProxyTargetsResponse]
@@ -701,7 +701,7 @@ readList :: ReadS [DescribeDBProxyTargetsResponse]
 $creadList :: ReadS [DescribeDBProxyTargetsResponse]
 readsPrec :: Int -&gt; ReadS DescribeDBProxyTargetsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeDBProxyTargetsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679791306"><span id="local-6989586621679791308"><span id="local-6989586621679791310"><span class="annot"><span class="annottext">Int -&gt; DescribeDBProxyTargetsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679791315"><span id="local-6989586621679791317"><span id="local-6989586621679791319"><span class="annot"><span class="annottext">Int -&gt; DescribeDBProxyTargetsResponse -&gt; ShowS
 [DescribeDBProxyTargetsResponse] -&gt; ShowS
 DescribeDBProxyTargetsResponse -&gt; String
 (Int -&gt; DescribeDBProxyTargetsResponse -&gt; ShowS)
@@ -760,8 +760,8 @@ DescribeDBProxyTargetsResponse
 </span><span id="line-246"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-247"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargetsResponse"><span class="hs-identifier hs-type">DescribeDBProxyTargetsResponse</span></a></span><span>
 </span><span id="line-248"></span><span id="newDescribeDBProxyTargetsResponse"><span class="annot"><span class="annottext">newDescribeDBProxyTargetsResponse :: Int -&gt; DescribeDBProxyTargetsResponse
-</span><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#newDescribeDBProxyTargetsResponse"><span class="hs-identifier hs-var hs-var">newDescribeDBProxyTargetsResponse</span></a></span></span><span> </span><span id="local-6989586621679791303"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679791303"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#newDescribeDBProxyTargetsResponse"><span class="hs-identifier hs-var hs-var">newDescribeDBProxyTargetsResponse</span></a></span></span><span> </span><span id="local-6989586621679791312"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679791312"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-249"></span><span>  </span><span class="annot"><span class="annottext">DescribeDBProxyTargetsResponse' :: Maybe [DBProxyTarget]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeDBProxyTargetsResponse
 </span><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargetsResponse%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetsResponse'</span></a></span><span>
@@ -776,7 +776,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-253"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeDBProxyTargetsResponse' :: Int
 </span><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#%24sel%3AhttpStatus%3ADescribeDBProxyTargetsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679791303"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679791312"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-254"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-255"></span><span>
 </span><span id="line-256"></span><span class="hs-comment">-- | An arbitrary number of @DBProxyTarget@ objects, containing details of</span><span>
@@ -790,16 +790,16 @@ forall a. Maybe a
     -&gt; Maybe [DBProxyTarget] -&gt; DescribeDBProxyTargetsResponse)
 -&gt; Lens' DescribeDBProxyTargetsResponse (Maybe [DBProxyTarget])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargetsResponse%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791302"><span class="annot"><span class="annottext">Maybe [DBProxyTarget]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargetsResponse%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791311"><span class="annot"><span class="annottext">Maybe [DBProxyTarget]
 targets :: Maybe [DBProxyTarget]
 $sel:targets:DescribeDBProxyTargetsResponse' :: DescribeDBProxyTargetsResponse -&gt; Maybe [DBProxyTarget]
-</span><a href="#local-6989586621679791302"><span class="hs-identifier hs-var hs-var">targets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DBProxyTarget]
-</span><a href="#local-6989586621679791302"><span class="hs-identifier hs-var">targets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791301"><span class="annot"><span class="annottext">s :: DescribeDBProxyTargetsResponse
-</span><a href="#local-6989586621679791301"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargetsResponse%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791300"><span class="annot"><span class="annottext">Maybe [DBProxyTarget]
-</span><a href="#local-6989586621679791300"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBProxyTargetsResponse
-</span><a href="#local-6989586621679791301"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targets:DescribeDBProxyTargetsResponse' :: Maybe [DBProxyTarget]
+</span><a href="#local-6989586621679791311"><span class="hs-identifier hs-var hs-var">targets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DBProxyTarget]
+</span><a href="#local-6989586621679791311"><span class="hs-identifier hs-var">targets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791310"><span class="annot"><span class="annottext">s :: DescribeDBProxyTargetsResponse
+</span><a href="#local-6989586621679791310"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargetsResponse%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791309"><span class="annot"><span class="annottext">Maybe [DBProxyTarget]
+</span><a href="#local-6989586621679791309"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBProxyTargetsResponse
+</span><a href="#local-6989586621679791310"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targets:DescribeDBProxyTargetsResponse' :: Maybe [DBProxyTarget]
 </span><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#%24sel%3Atargets%3ADescribeDBProxyTargetsResponse%27"><span class="hs-identifier hs-var">targets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DBProxyTarget]
-</span><a href="#local-6989586621679791300"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargetsResponse"><span class="hs-identifier hs-type">DescribeDBProxyTargetsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DBProxyTarget] -&gt; f (Maybe [DBProxyTarget]))
+</span><a href="#local-6989586621679791309"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargetsResponse"><span class="hs-identifier hs-type">DescribeDBProxyTargetsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DBProxyTarget] -&gt; f (Maybe [DBProxyTarget]))
  -&gt; DescribeDBProxyTargetsResponse
  -&gt; f DescribeDBProxyTargetsResponse)
 -&gt; ((Maybe [DBProxyTarget] -&gt; f (Maybe [DBProxyTarget]))
@@ -835,16 +835,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
     -&gt; Maybe Text -&gt; DescribeDBProxyTargetsResponse)
 -&gt; Lens' DescribeDBProxyTargetsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargetsResponse%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791299"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargetsResponse%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791308"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:DescribeDBProxyTargetsResponse' :: DescribeDBProxyTargetsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679791299"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679791299"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791298"><span class="annot"><span class="annottext">s :: DescribeDBProxyTargetsResponse
-</span><a href="#local-6989586621679791298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargetsResponse%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791297"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679791297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBProxyTargetsResponse
-</span><a href="#local-6989586621679791298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeDBProxyTargetsResponse' :: Maybe Text
+</span><a href="#local-6989586621679791308"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791308"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791307"><span class="annot"><span class="annottext">s :: DescribeDBProxyTargetsResponse
+</span><a href="#local-6989586621679791307"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargetsResponse%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791306"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679791306"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBProxyTargetsResponse
+</span><a href="#local-6989586621679791307"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeDBProxyTargetsResponse' :: Maybe Text
 </span><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#%24sel%3Amarker%3ADescribeDBProxyTargetsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679791297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargetsResponse"><span class="hs-identifier hs-type">DescribeDBProxyTargetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679791306"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargetsResponse"><span class="hs-identifier hs-type">DescribeDBProxyTargetsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-266"></span><span>
 </span><span id="line-267"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-268"></span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#describeDBProxyTargetsResponse_httpStatus"><span class="hs-identifier hs-type">describeDBProxyTargetsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargetsResponse"><span class="hs-identifier hs-type">DescribeDBProxyTargetsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -860,18 +860,18 @@ $sel:marker:DescribeDBProxyTargetsResponse' :: DescribeDBProxyTargetsResponse -&
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargetsResponse%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791296"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargetsResponse%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679791305"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeDBProxyTargetsResponse' :: DescribeDBProxyTargetsResponse -&gt; Int
-</span><a href="#local-6989586621679791296"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679791296"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791295"><span class="annot"><span class="annottext">s :: DescribeDBProxyTargetsResponse
-</span><a href="#local-6989586621679791295"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargetsResponse%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791294"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679791294"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBProxyTargetsResponse
-</span><a href="#local-6989586621679791295"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeDBProxyTargetsResponse' :: Int
+</span><a href="#local-6989586621679791305"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679791305"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679791304"><span class="annot"><span class="annottext">s :: DescribeDBProxyTargetsResponse
+</span><a href="#local-6989586621679791304"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargetsResponse%27"><span class="hs-identifier hs-type">DescribeDBProxyTargetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679791303"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679791303"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBProxyTargetsResponse
+</span><a href="#local-6989586621679791304"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeDBProxyTargetsResponse' :: Int
 </span><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#%24sel%3AhttpStatus%3ADescribeDBProxyTargetsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679791294"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargetsResponse"><span class="hs-identifier hs-type">DescribeDBProxyTargetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679791303"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargetsResponse"><span class="hs-identifier hs-type">DescribeDBProxyTargetsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-270"></span><span>
 </span><span id="line-271"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-272"></span><span>  </span><span id="local-6989586621679791292"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-272"></span><span>  </span><span id="local-6989586621679791301"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-273"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DescribeDBProxyTargets.html#DescribeDBProxyTargetsResponse"><span class="hs-identifier hs-type">DescribeDBProxyTargetsResponse</span></a></span></span><span>
 </span><span id="line-274"></span></pre></body></html>

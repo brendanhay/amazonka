@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-comment">-- to provide recommendations for.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newEC2Specification' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679332711"><span id="local-6989586621679332712"></span></span><span class="hs-keyword">data</span><span> </span><span id="EC2Specification"><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2Specification.html#EC2Specification"><span class="hs-identifier hs-var">EC2Specification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EC2Specification%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2Specification.html#EC2Specification%27"><span class="hs-identifier hs-var">EC2Specification'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679332720"><span id="local-6989586621679332721"></span></span><span class="hs-keyword">data</span><span> </span><span id="EC2Specification"><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2Specification.html#EC2Specification"><span class="hs-identifier hs-var">EC2Specification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EC2Specification%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2Specification.html#EC2Specification%27"><span class="hs-identifier hs-var">EC2Specification'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates whether you want a recommendation for standard or convertible</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- reservations.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AofferingClass%3AEC2Specification%27"><span class="annot"><span class="annottext">EC2Specification -&gt; Maybe OfferingClass
 </span><a href="Network.AWS.CostExplorer.Types.EC2Specification.html#%24sel%3AofferingClass%3AEC2Specification%27"><span class="hs-identifier hs-var hs-var">offeringClass</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.OfferingClass.html#OfferingClass"><span class="hs-identifier hs-type">OfferingClass</span></a></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679332705"><span id="local-6989586621679332707"><span class="annot"><span class="annottext">EC2Specification -&gt; EC2Specification -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679332714"><span id="local-6989586621679332716"><span class="annot"><span class="annottext">EC2Specification -&gt; EC2Specification -&gt; Bool
 (EC2Specification -&gt; EC2Specification -&gt; Bool)
 -&gt; (EC2Specification -&gt; EC2Specification -&gt; Bool)
 -&gt; Eq EC2Specification
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EC2Specification -&gt; EC2Specification -&gt; Bool
 == :: EC2Specification -&gt; EC2Specification -&gt; Bool
 $c== :: EC2Specification -&gt; EC2Specification -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679332696"><span id="local-6989586621679332698"><span id="local-6989586621679332700"><span id="local-6989586621679332702"><span class="annot"><span class="annottext">ReadPrec [EC2Specification]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679332705"><span id="local-6989586621679332707"><span id="local-6989586621679332709"><span id="local-6989586621679332711"><span class="annot"><span class="annottext">ReadPrec [EC2Specification]
 ReadPrec EC2Specification
 Int -&gt; ReadS EC2Specification
 ReadS [EC2Specification]
@@ -63,7 +63,7 @@ readList :: ReadS [EC2Specification]
 $creadList :: ReadS [EC2Specification]
 readsPrec :: Int -&gt; ReadS EC2Specification
 $creadsPrec :: Int -&gt; ReadS EC2Specification
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679332689"><span id="local-6989586621679332691"><span id="local-6989586621679332693"><span class="annot"><span class="annottext">Int -&gt; EC2Specification -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679332698"><span id="local-6989586621679332700"><span id="local-6989586621679332702"><span class="annot"><span class="annottext">Int -&gt; EC2Specification -&gt; ShowS
 [EC2Specification] -&gt; ShowS
 EC2Specification -&gt; String
 (Int -&gt; EC2Specification -&gt; ShowS)
@@ -122,19 +122,19 @@ forall a. Maybe a
      (Maybe OfferingClass)
      (Maybe OfferingClass)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2Specification.html#EC2Specification%27"><span class="hs-identifier hs-type">EC2Specification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332680"><span class="annot"><span class="annottext">Maybe OfferingClass
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2Specification.html#EC2Specification%27"><span class="hs-identifier hs-type">EC2Specification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332689"><span class="annot"><span class="annottext">Maybe OfferingClass
 offeringClass :: Maybe OfferingClass
 $sel:offeringClass:EC2Specification' :: EC2Specification -&gt; Maybe OfferingClass
-</span><a href="#local-6989586621679332680"><span class="hs-identifier hs-var hs-var">offeringClass</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OfferingClass
-</span><a href="#local-6989586621679332680"><span class="hs-identifier hs-var">offeringClass</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332679"><span class="annot"><span class="annottext">s :: EC2Specification
-</span><a href="#local-6989586621679332679"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2Specification.html#EC2Specification%27"><span class="hs-identifier hs-type">EC2Specification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332678"><span class="annot"><span class="annottext">Maybe OfferingClass
-</span><a href="#local-6989586621679332678"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EC2Specification
-</span><a href="#local-6989586621679332679"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:offeringClass:EC2Specification' :: Maybe OfferingClass
+</span><a href="#local-6989586621679332689"><span class="hs-identifier hs-var hs-var">offeringClass</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OfferingClass
+</span><a href="#local-6989586621679332689"><span class="hs-identifier hs-var">offeringClass</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332688"><span class="annot"><span class="annottext">s :: EC2Specification
+</span><a href="#local-6989586621679332688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2Specification.html#EC2Specification%27"><span class="hs-identifier hs-type">EC2Specification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332687"><span class="annot"><span class="annottext">Maybe OfferingClass
+</span><a href="#local-6989586621679332687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EC2Specification
+</span><a href="#local-6989586621679332688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:offeringClass:EC2Specification' :: Maybe OfferingClass
 </span><a href="Network.AWS.CostExplorer.Types.EC2Specification.html#%24sel%3AofferingClass%3AEC2Specification%27"><span class="hs-identifier hs-var">offeringClass</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OfferingClass
-</span><a href="#local-6989586621679332678"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2Specification.html#EC2Specification"><span class="hs-identifier hs-type">EC2Specification</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679332687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2Specification.html#EC2Specification"><span class="hs-identifier hs-type">EC2Specification</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332675"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2Specification.html#EC2Specification"><span class="hs-identifier hs-type">EC2Specification</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-59"></span><span>  </span><span id="local-6989586621679332673"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EC2Specification
+</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332684"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2Specification.html#EC2Specification"><span class="hs-identifier hs-type">EC2Specification</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-59"></span><span>  </span><span id="local-6989586621679332682"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EC2Specification
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-60"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser EC2Specification)
@@ -144,30 +144,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EC2Specification&quot;</span></span><span>
-</span><span id="line-62"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679332670"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679332670"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-62"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679332679"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679332679"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-63"></span><span>          </span><span class="annot"><span class="annottext">Maybe OfferingClass -&gt; EC2Specification
 </span><a href="Network.AWS.CostExplorer.Types.EC2Specification.html#EC2Specification%27"><span class="hs-identifier hs-var">EC2Specification'</span></a></span><span>
 </span><span id="line-64"></span><span>            </span><span class="annot"><span class="annottext">(Maybe OfferingClass -&gt; EC2Specification)
 -&gt; Parser (Maybe OfferingClass) -&gt; Parser EC2Specification
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679332670"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OfferingClass)
+</span><a href="#local-6989586621679332679"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OfferingClass)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OfferingClass&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332664"><span id="local-6989586621679332666"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2Specification.html#EC2Specification"><span class="hs-identifier hs-type">EC2Specification</span></a></span></span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332673"><span id="local-6989586621679332675"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2Specification.html#EC2Specification"><span class="hs-identifier hs-type">EC2Specification</span></a></span></span></span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332661"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2Specification.html#EC2Specification"><span class="hs-identifier hs-type">EC2Specification</span></a></span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332670"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2Specification.html#EC2Specification"><span class="hs-identifier hs-type">EC2Specification</span></a></span></span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332653"><span id="local-6989586621679332655"><span id="local-6989586621679332657"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2Specification.html#EC2Specification"><span class="hs-identifier hs-type">EC2Specification</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679332651"><span class="annot"><span class="annottext">toJSON :: EC2Specification -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2Specification.html#EC2Specification%27"><span class="hs-identifier hs-type">EC2Specification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332649"><span class="annot"><span class="annottext">Maybe OfferingClass
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332662"><span id="local-6989586621679332664"><span id="local-6989586621679332666"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2Specification.html#EC2Specification"><span class="hs-identifier hs-type">EC2Specification</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679332660"><span class="annot"><span class="annottext">toJSON :: EC2Specification -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2Specification.html#EC2Specification%27"><span class="hs-identifier hs-type">EC2Specification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332658"><span class="annot"><span class="annottext">Maybe OfferingClass
 offeringClass :: Maybe OfferingClass
 $sel:offeringClass:EC2Specification' :: EC2Specification -&gt; Maybe OfferingClass
-</span><a href="#local-6989586621679332649"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679332658"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -180,7 +180,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-76"></span><span>              </span><span class="annot"><span class="annottext">(OfferingClass -&gt; Pair) -&gt; Maybe OfferingClass -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe OfferingClass
-</span><a href="#local-6989586621679332649"><span class="hs-identifier hs-var">offeringClass</span></a></span><span>
+</span><a href="#local-6989586621679332658"><span class="hs-identifier hs-var">offeringClass</span></a></span><span>
 </span><span id="line-77"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span></pre></body></html>

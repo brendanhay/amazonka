@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679243170"><span id="local-6989586621679243171"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HITReviewStatus"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.HITReviewStatus.html#HITReviewStatus"><span class="hs-identifier hs-var">HITReviewStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HITReviewStatus%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.HITReviewStatus.html#HITReviewStatus%27"><span class="hs-identifier hs-var">HITReviewStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679243179"><span id="local-6989586621679243180"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HITReviewStatus"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.HITReviewStatus.html#HITReviewStatus"><span class="hs-identifier hs-var">HITReviewStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HITReviewStatus%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.HITReviewStatus.html#HITReviewStatus%27"><span class="hs-identifier hs-var">HITReviewStatus'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHITReviewStatus"><span class="annot"><span class="annottext">HITReviewStatus -&gt; Text
 </span><a href="Network.AWS.MechanicalTurk.Types.HITReviewStatus.html#fromHITReviewStatus"><span class="hs-identifier hs-var hs-var">fromHITReviewStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679243162"><span id="local-6989586621679243164"><span id="local-6989586621679243166"><span class="annot"><span class="annottext">Int -&gt; HITReviewStatus -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679243171"><span id="local-6989586621679243173"><span id="local-6989586621679243175"><span class="annot"><span class="annottext">Int -&gt; HITReviewStatus -&gt; ShowS
 [HITReviewStatus] -&gt; ShowS
 HITReviewStatus -&gt; String
 (Int -&gt; HITReviewStatus -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: HITReviewStatus -&gt; String
 showsPrec :: Int -&gt; HITReviewStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; HITReviewStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679243153"><span id="local-6989586621679243155"><span id="local-6989586621679243157"><span id="local-6989586621679243159"><span class="annot"><span class="annottext">ReadPrec [HITReviewStatus]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679243162"><span id="local-6989586621679243164"><span id="local-6989586621679243166"><span id="local-6989586621679243168"><span class="annot"><span class="annottext">ReadPrec [HITReviewStatus]
 ReadPrec HITReviewStatus
 Int -&gt; ReadS HITReviewStatus
 ReadS [HITReviewStatus]
@@ -74,7 +74,7 @@ $creadList :: ReadS [HITReviewStatus]
 readsPrec :: Int -&gt; ReadS HITReviewStatus
 $creadsPrec :: Int -&gt; ReadS HITReviewStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679243148"><span id="local-6989586621679243150"><span class="annot"><span class="annottext">HITReviewStatus -&gt; HITReviewStatus -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679243157"><span id="local-6989586621679243159"><span class="annot"><span class="annottext">HITReviewStatus -&gt; HITReviewStatus -&gt; Bool
 (HITReviewStatus -&gt; HITReviewStatus -&gt; Bool)
 -&gt; (HITReviewStatus -&gt; HITReviewStatus -&gt; Bool)
 -&gt; Eq HITReviewStatus
@@ -84,7 +84,7 @@ $c/= :: HITReviewStatus -&gt; HITReviewStatus -&gt; Bool
 == :: HITReviewStatus -&gt; HITReviewStatus -&gt; Bool
 $c== :: HITReviewStatus -&gt; HITReviewStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679243132"><span id="local-6989586621679243134"><span id="local-6989586621679243136"><span id="local-6989586621679243138"><span id="local-6989586621679243140"><span id="local-6989586621679243142"><span id="local-6989586621679243144"><span class="annot"><span class="annottext">Eq HITReviewStatus
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679243141"><span id="local-6989586621679243143"><span id="local-6989586621679243145"><span id="local-6989586621679243147"><span id="local-6989586621679243149"><span id="local-6989586621679243151"><span id="local-6989586621679243153"><span class="annot"><span class="annottext">Eq HITReviewStatus
 Eq HITReviewStatus
 -&gt; (HITReviewStatus -&gt; HITReviewStatus -&gt; Ordering)
 -&gt; (HITReviewStatus -&gt; HITReviewStatus -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. HITReviewStatus -&gt; Rep HITReviewStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679243124"><span id="local-6989586621679243126"><span class="annot"><span class="annottext">Int -&gt; HITReviewStatus -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679243133"><span id="local-6989586621679243135"><span class="annot"><span class="annottext">Int -&gt; HITReviewStatus -&gt; Int
 HITReviewStatus -&gt; Int
 (Int -&gt; HITReviewStatus -&gt; Int)
 -&gt; (HITReviewStatus -&gt; Int) -&gt; Hashable HITReviewStatus
@@ -145,50 +145,50 @@ $chash :: HITReviewStatus -&gt; Int
 hashWithSalt :: Int -&gt; HITReviewStatus -&gt; Int
 $chashWithSalt :: Int -&gt; HITReviewStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679243121"><span class="annot"><span class="annottext">HITReviewStatus -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679243130"><span class="annot"><span class="annottext">HITReviewStatus -&gt; ()
 (HITReviewStatus -&gt; ()) -&gt; NFData HITReviewStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: HITReviewStatus -&gt; ()
 $crnf :: HITReviewStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679243118"><span class="annot"><span class="annottext">Text -&gt; Either String HITReviewStatus
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679243127"><span class="annot"><span class="annottext">Text -&gt; Either String HITReviewStatus
 (Text -&gt; Either String HITReviewStatus) -&gt; FromText HITReviewStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String HITReviewStatus
 $cfromText :: Text -&gt; Either String HITReviewStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679243115"><span class="annot"><span class="annottext">HITReviewStatus -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679243124"><span class="annot"><span class="annottext">HITReviewStatus -&gt; Text
 (HITReviewStatus -&gt; Text) -&gt; ToText HITReviewStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: HITReviewStatus -&gt; Text
 $ctoText :: HITReviewStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679243112"><span class="annot"><span class="annottext">HITReviewStatus -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679243121"><span class="annot"><span class="annottext">HITReviewStatus -&gt; ByteString
 (HITReviewStatus -&gt; ByteString) -&gt; ToByteString HITReviewStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: HITReviewStatus -&gt; ByteString
 $ctoBS :: HITReviewStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679243109"><span class="annot"><span class="annottext">HITReviewStatus -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679243118"><span class="annot"><span class="annottext">HITReviewStatus -&gt; ByteStringBuilder
 (HITReviewStatus -&gt; ByteStringBuilder) -&gt; ToLog HITReviewStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: HITReviewStatus -&gt; ByteStringBuilder
 $cbuild :: HITReviewStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679243106"><span class="annot"><span class="annottext">HeaderName -&gt; HITReviewStatus -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679243115"><span class="annot"><span class="annottext">HeaderName -&gt; HITReviewStatus -&gt; [Header]
 (HeaderName -&gt; HITReviewStatus -&gt; [Header])
 -&gt; ToHeader HITReviewStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; HITReviewStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; HITReviewStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679243103"><span class="annot"><span class="annottext">HITReviewStatus -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679243112"><span class="annot"><span class="annottext">HITReviewStatus -&gt; QueryString
 (HITReviewStatus -&gt; QueryString) -&gt; ToQuery HITReviewStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: HITReviewStatus -&gt; QueryString
 $ctoQuery :: HITReviewStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679243098"><span id="local-6989586621679243100"><span class="annot"><span class="annottext">Value -&gt; Parser [HITReviewStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679243107"><span id="local-6989586621679243109"><span class="annot"><span class="annottext">Value -&gt; Parser [HITReviewStatus]
 Value -&gt; Parser HITReviewStatus
 (Value -&gt; Parser HITReviewStatus)
 -&gt; (Value -&gt; Parser [HITReviewStatus]) -&gt; FromJSON HITReviewStatus
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [HITReviewStatus]
 parseJSON :: Value -&gt; Parser HITReviewStatus
 $cparseJSON :: Value -&gt; Parser HITReviewStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679243093"><span id="local-6989586621679243095"><span class="annot"><span class="annottext">FromJSONKeyFunction [HITReviewStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679243102"><span id="local-6989586621679243104"><span class="annot"><span class="annottext">FromJSONKeyFunction [HITReviewStatus]
 FromJSONKeyFunction HITReviewStatus
 FromJSONKeyFunction HITReviewStatus
 -&gt; FromJSONKeyFunction [HITReviewStatus]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [HITReviewStatus]
 fromJSONKey :: FromJSONKeyFunction HITReviewStatus
 $cfromJSONKey :: FromJSONKeyFunction HITReviewStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679243084"><span id="local-6989586621679243086"><span id="local-6989586621679243088"><span id="local-6989586621679243090"><span class="annot"><span class="annottext">[HITReviewStatus] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679243093"><span id="local-6989586621679243095"><span id="local-6989586621679243097"><span id="local-6989586621679243099"><span class="annot"><span class="annottext">[HITReviewStatus] -&gt; Encoding
 [HITReviewStatus] -&gt; Value
 HITReviewStatus -&gt; Encoding
 HITReviewStatus -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: HITReviewStatus -&gt; Encoding
 toJSON :: HITReviewStatus -&gt; Value
 $ctoJSON :: HITReviewStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679243079"><span id="local-6989586621679243081"><span class="annot"><span class="annottext">ToJSONKeyFunction [HITReviewStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679243088"><span id="local-6989586621679243090"><span class="annot"><span class="annottext">ToJSONKeyFunction [HITReviewStatus]
 ToJSONKeyFunction HITReviewStatus
 ToJSONKeyFunction HITReviewStatus
 -&gt; ToJSONKeyFunction [HITReviewStatus] -&gt; ToJSONKey HITReviewStatus
@@ -246,14 +246,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [HITReviewStatus]
 toJSONKey :: ToJSONKeyFunction HITReviewStatus
 $ctoJSONKey :: ToJSONKeyFunction HITReviewStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679243076"><span class="annot"><span class="annottext">[Node] -&gt; Either String HITReviewStatus
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679243085"><span class="annot"><span class="annottext">[Node] -&gt; Either String HITReviewStatus
 ([Node] -&gt; Either String HITReviewStatus)
 -&gt; FromXML HITReviewStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String HITReviewStatus
 $cparseXML :: [Node] -&gt; Either String HITReviewStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679243073"><span class="annot"><span class="annottext">HITReviewStatus -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679243082"><span class="annot"><span class="annottext">HITReviewStatus -&gt; XML
 (HITReviewStatus -&gt; XML) -&gt; ToXML HITReviewStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: HITReviewStatus -&gt; XML

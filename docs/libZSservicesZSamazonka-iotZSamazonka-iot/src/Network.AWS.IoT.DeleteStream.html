@@ -50,12 +50,12 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newDeleteStream' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679842818"><span id="local-6989586621679842819"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteStream"><span class="annot"><a href="Network.AWS.IoT.DeleteStream.html#DeleteStream"><span class="hs-identifier hs-var">DeleteStream</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteStream%27"><span class="annot"><a href="Network.AWS.IoT.DeleteStream.html#DeleteStream%27"><span class="hs-identifier hs-var">DeleteStream'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679842827"><span id="local-6989586621679842828"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteStream"><span class="annot"><a href="Network.AWS.IoT.DeleteStream.html#DeleteStream"><span class="hs-identifier hs-var">DeleteStream</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteStream%27"><span class="annot"><a href="Network.AWS.IoT.DeleteStream.html#DeleteStream%27"><span class="hs-identifier hs-var">DeleteStream'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The stream ID.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AstreamId%3ADeleteStream%27"><span class="annot"><span class="annottext">DeleteStream -&gt; Text
 </span><a href="Network.AWS.IoT.DeleteStream.html#%24sel%3AstreamId%3ADeleteStream%27"><span class="hs-identifier hs-var hs-var">streamId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679842812"><span id="local-6989586621679842814"><span class="annot"><span class="annottext">DeleteStream -&gt; DeleteStream -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679842821"><span id="local-6989586621679842823"><span class="annot"><span class="annottext">DeleteStream -&gt; DeleteStream -&gt; Bool
 (DeleteStream -&gt; DeleteStream -&gt; Bool)
 -&gt; (DeleteStream -&gt; DeleteStream -&gt; Bool) -&gt; Eq DeleteStream
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteStream -&gt; DeleteStream -&gt; Bool
 == :: DeleteStream -&gt; DeleteStream -&gt; Bool
 $c== :: DeleteStream -&gt; DeleteStream -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679842803"><span id="local-6989586621679842805"><span id="local-6989586621679842807"><span id="local-6989586621679842809"><span class="annot"><span class="annottext">ReadPrec [DeleteStream]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679842812"><span id="local-6989586621679842814"><span id="local-6989586621679842816"><span id="local-6989586621679842818"><span class="annot"><span class="annottext">ReadPrec [DeleteStream]
 ReadPrec DeleteStream
 Int -&gt; ReadS DeleteStream
 ReadS [DeleteStream]
@@ -83,7 +83,7 @@ readList :: ReadS [DeleteStream]
 $creadList :: ReadS [DeleteStream]
 readsPrec :: Int -&gt; ReadS DeleteStream
 $creadsPrec :: Int -&gt; ReadS DeleteStream
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679842796"><span id="local-6989586621679842798"><span id="local-6989586621679842800"><span class="annot"><span class="annottext">Int -&gt; DeleteStream -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679842805"><span id="local-6989586621679842807"><span id="local-6989586621679842809"><span class="annot"><span class="annottext">Int -&gt; DeleteStream -&gt; ShowS
 [DeleteStream] -&gt; ShowS
 DeleteStream -&gt; String
 (Int -&gt; DeleteStream -&gt; ShowS)
@@ -123,12 +123,12 @@ $cfrom :: forall x. DeleteStream -&gt; Rep DeleteStream x
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.DeleteStream.html#DeleteStream"><span class="hs-identifier hs-type">DeleteStream</span></a></span><span>
 </span><span id="line-72"></span><span id="newDeleteStream"><span class="annot"><span class="annottext">newDeleteStream :: Text -&gt; DeleteStream
-</span><a href="Network.AWS.IoT.DeleteStream.html#newDeleteStream"><span class="hs-identifier hs-var hs-var">newDeleteStream</span></a></span></span><span> </span><span id="local-6989586621679842791"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679842791"><span class="hs-identifier hs-var">pStreamId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.DeleteStream.html#newDeleteStream"><span class="hs-identifier hs-var hs-var">newDeleteStream</span></a></span></span><span> </span><span id="local-6989586621679842800"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679842800"><span class="hs-identifier hs-var">pStreamId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">DeleteStream' :: Text -&gt; DeleteStream
 </span><a href="Network.AWS.IoT.DeleteStream.html#DeleteStream%27"><span class="hs-identifier hs-type">DeleteStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamId:DeleteStream' :: Text
 </span><a href="Network.AWS.IoT.DeleteStream.html#%24sel%3AstreamId%3ADeleteStream%27"><span class="hs-identifier hs-var">streamId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679842791"><span class="hs-identifier hs-var">pStreamId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679842800"><span class="hs-identifier hs-var">pStreamId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | The stream ID.</span><span>
 </span><span id="line-76"></span><span class="annot"><a href="Network.AWS.IoT.DeleteStream.html#deleteStream_streamId"><span class="hs-identifier hs-type">deleteStream_streamId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteStream.html#DeleteStream"><span class="hs-identifier hs-type">DeleteStream</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -137,25 +137,25 @@ $cfrom :: forall x. DeleteStream -&gt; Rep DeleteStream x
 -&gt; (DeleteStream -&gt; Text -&gt; DeleteStream)
 -&gt; Lens DeleteStream DeleteStream Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DeleteStream.html#DeleteStream%27"><span class="hs-identifier hs-type">DeleteStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679842788"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DeleteStream.html#DeleteStream%27"><span class="hs-identifier hs-type">DeleteStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679842797"><span class="annot"><span class="annottext">Text
 streamId :: Text
 $sel:streamId:DeleteStream' :: DeleteStream -&gt; Text
-</span><a href="#local-6989586621679842788"><span class="hs-identifier hs-var hs-var">streamId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679842788"><span class="hs-identifier hs-var">streamId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679842787"><span class="annot"><span class="annottext">s :: DeleteStream
-</span><a href="#local-6989586621679842787"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DeleteStream.html#DeleteStream%27"><span class="hs-identifier hs-type">DeleteStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679842786"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679842786"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteStream
-</span><a href="#local-6989586621679842787"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamId:DeleteStream' :: Text
+</span><a href="#local-6989586621679842797"><span class="hs-identifier hs-var hs-var">streamId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679842797"><span class="hs-identifier hs-var">streamId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679842796"><span class="annot"><span class="annottext">s :: DeleteStream
+</span><a href="#local-6989586621679842796"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DeleteStream.html#DeleteStream%27"><span class="hs-identifier hs-type">DeleteStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679842795"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679842795"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteStream
+</span><a href="#local-6989586621679842796"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamId:DeleteStream' :: Text
 </span><a href="Network.AWS.IoT.DeleteStream.html#%24sel%3AstreamId%3ADeleteStream%27"><span class="hs-identifier hs-var">streamId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679842786"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteStream.html#DeleteStream"><span class="hs-identifier hs-type">DeleteStream</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679842795"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteStream.html#DeleteStream"><span class="hs-identifier hs-type">DeleteStream</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteStream.html#DeleteStream"><span class="hs-identifier hs-type">DeleteStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-80"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteStream.html#DeleteStream"><span class="hs-identifier hs-type">DeleteStream</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteStream.html#DeleteStreamResponse"><span class="hs-identifier hs-type">DeleteStreamResponse</span></a></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679842782"><span class="annot"><span class="annottext">request :: DeleteStream -&gt; Request DeleteStream
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679842791"><span class="annot"><span class="annottext">request :: DeleteStream -&gt; Request DeleteStream
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteStream -&gt; Request DeleteStream
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679842778"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679842787"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteStream
 -&gt; ClientResponse ClientBody
@@ -179,10 +179,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679842775"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679842775"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679842774"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679842774"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679842773"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679842773"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679842784"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679842784"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679842783"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679842783"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679842782"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679842782"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteStreamResponse
 </span><a href="Network.AWS.IoT.DeleteStream.html#DeleteStreamResponse%27"><span class="hs-identifier hs-var">DeleteStreamResponse'</span></a></span><span>
 </span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteStreamResponse)
@@ -193,15 +193,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679842775"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679842784"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679842766"><span id="local-6989586621679842768"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteStream.html#DeleteStream"><span class="hs-identifier hs-type">DeleteStream</span></a></span></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679842775"><span id="local-6989586621679842777"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteStream.html#DeleteStream"><span class="hs-identifier hs-type">DeleteStream</span></a></span></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679842763"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteStream.html#DeleteStream"><span class="hs-identifier hs-type">DeleteStream</span></a></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679842772"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteStream.html#DeleteStream"><span class="hs-identifier hs-type">DeleteStream</span></a></span></span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteStream.html#DeleteStream"><span class="hs-identifier hs-type">DeleteStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679842759"><span class="annot"><span class="annottext">toHeaders :: DeleteStream -&gt; ResponseHeaders
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679842768"><span class="annot"><span class="annottext">toHeaders :: DeleteStream -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteStream -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -209,21 +209,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteStream.html#DeleteStream"><span class="hs-identifier hs-type">DeleteStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679842754"><span class="annot"><span class="annottext">toPath :: DeleteStream -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteStream.html#DeleteStream%27"><span class="hs-identifier hs-type">DeleteStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679842752"><span class="annot"><span class="annottext">Text
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679842763"><span class="annot"><span class="annottext">toPath :: DeleteStream -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteStream.html#DeleteStream%27"><span class="hs-identifier hs-type">DeleteStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679842761"><span class="annot"><span class="annottext">Text
 streamId :: Text
 $sel:streamId:DeleteStream' :: DeleteStream -&gt; Text
-</span><a href="#local-6989586621679842752"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679842761"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/streams/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679842752"><span class="hs-identifier hs-var">streamId</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679842761"><span class="hs-identifier hs-var">streamId</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteStream.html#DeleteStream"><span class="hs-identifier hs-type">DeleteStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679842748"><span class="annot"><span class="annottext">toQuery :: DeleteStream -&gt; QueryString
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679842757"><span class="annot"><span class="annottext">toQuery :: DeleteStream -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteStream -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -231,12 +231,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | /See:/ 'newDeleteStreamResponse' smart constructor.</span><span>
-</span><span id="line-104"></span><span id="local-6989586621679842745"><span id="local-6989586621679842746"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteStreamResponse"><span class="annot"><a href="Network.AWS.IoT.DeleteStream.html#DeleteStreamResponse"><span class="hs-identifier hs-var">DeleteStreamResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteStreamResponse%27"><span class="annot"><a href="Network.AWS.IoT.DeleteStream.html#DeleteStreamResponse%27"><span class="hs-identifier hs-var">DeleteStreamResponse'</span></a></span></span><span>
+</span><span id="line-104"></span><span id="local-6989586621679842754"><span id="local-6989586621679842755"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteStreamResponse"><span class="annot"><a href="Network.AWS.IoT.DeleteStream.html#DeleteStreamResponse"><span class="hs-identifier hs-var">DeleteStreamResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteStreamResponse%27"><span class="annot"><a href="Network.AWS.IoT.DeleteStream.html#DeleteStreamResponse%27"><span class="hs-identifier hs-var">DeleteStreamResponse'</span></a></span></span><span>
 </span><span id="line-105"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-106"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteStreamResponse%27"><span class="annot"><span class="annottext">DeleteStreamResponse -&gt; Int
 </span><a href="Network.AWS.IoT.DeleteStream.html#%24sel%3AhttpStatus%3ADeleteStreamResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-107"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-108"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679842740"><span id="local-6989586621679842742"><span class="annot"><span class="annottext">DeleteStreamResponse -&gt; DeleteStreamResponse -&gt; Bool
+</span><span id="line-108"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679842749"><span id="local-6989586621679842751"><span class="annot"><span class="annottext">DeleteStreamResponse -&gt; DeleteStreamResponse -&gt; Bool
 (DeleteStreamResponse -&gt; DeleteStreamResponse -&gt; Bool)
 -&gt; (DeleteStreamResponse -&gt; DeleteStreamResponse -&gt; Bool)
 -&gt; Eq DeleteStreamResponse
@@ -245,7 +245,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteStreamResponse -&gt; DeleteStreamResponse -&gt; Bool
 == :: DeleteStreamResponse -&gt; DeleteStreamResponse -&gt; Bool
 $c== :: DeleteStreamResponse -&gt; DeleteStreamResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679842732"><span id="local-6989586621679842734"><span id="local-6989586621679842736"><span id="local-6989586621679842738"><span class="annot"><span class="annottext">ReadPrec [DeleteStreamResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679842741"><span id="local-6989586621679842743"><span id="local-6989586621679842745"><span id="local-6989586621679842747"><span class="annot"><span class="annottext">ReadPrec [DeleteStreamResponse]
 ReadPrec DeleteStreamResponse
 Int -&gt; ReadS DeleteStreamResponse
 ReadS [DeleteStreamResponse]
@@ -265,7 +265,7 @@ readList :: ReadS [DeleteStreamResponse]
 $creadList :: ReadS [DeleteStreamResponse]
 readsPrec :: Int -&gt; ReadS DeleteStreamResponse
 $creadsPrec :: Int -&gt; ReadS DeleteStreamResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679842726"><span id="local-6989586621679842728"><span id="local-6989586621679842730"><span class="annot"><span class="annottext">Int -&gt; DeleteStreamResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679842735"><span id="local-6989586621679842737"><span id="local-6989586621679842739"><span class="annot"><span class="annottext">Int -&gt; DeleteStreamResponse -&gt; ShowS
 [DeleteStreamResponse] -&gt; ShowS
 DeleteStreamResponse -&gt; String
 (Int -&gt; DeleteStreamResponse -&gt; ShowS)
@@ -305,12 +305,12 @@ $cfrom :: forall x. DeleteStreamResponse -&gt; Rep DeleteStreamResponse x
 </span><span id="line-121"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-122"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.DeleteStream.html#DeleteStreamResponse"><span class="hs-identifier hs-type">DeleteStreamResponse</span></a></span><span>
 </span><span id="line-123"></span><span id="newDeleteStreamResponse"><span class="annot"><span class="annottext">newDeleteStreamResponse :: Int -&gt; DeleteStreamResponse
-</span><a href="Network.AWS.IoT.DeleteStream.html#newDeleteStreamResponse"><span class="hs-identifier hs-var hs-var">newDeleteStreamResponse</span></a></span></span><span> </span><span id="local-6989586621679842723"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679842723"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.DeleteStream.html#newDeleteStreamResponse"><span class="hs-identifier hs-var hs-var">newDeleteStreamResponse</span></a></span></span><span> </span><span id="local-6989586621679842732"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679842732"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>  </span><span class="annot"><span class="annottext">DeleteStreamResponse' :: Int -&gt; DeleteStreamResponse
 </span><a href="Network.AWS.IoT.DeleteStream.html#DeleteStreamResponse%27"><span class="hs-identifier hs-type">DeleteStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteStreamResponse' :: Int
 </span><a href="Network.AWS.IoT.DeleteStream.html#%24sel%3AhttpStatus%3ADeleteStreamResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679842723"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679842732"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-127"></span><span class="annot"><a href="Network.AWS.IoT.DeleteStream.html#deleteStreamResponse_httpStatus"><span class="hs-identifier hs-type">deleteStreamResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteStream.html#DeleteStreamResponse"><span class="hs-identifier hs-type">DeleteStreamResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -319,16 +319,16 @@ $cfrom :: forall x. DeleteStreamResponse -&gt; Rep DeleteStreamResponse x
 -&gt; (DeleteStreamResponse -&gt; Int -&gt; DeleteStreamResponse)
 -&gt; Lens DeleteStreamResponse DeleteStreamResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DeleteStream.html#DeleteStreamResponse%27"><span class="hs-identifier hs-type">DeleteStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679842722"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DeleteStream.html#DeleteStreamResponse%27"><span class="hs-identifier hs-type">DeleteStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679842731"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteStreamResponse' :: DeleteStreamResponse -&gt; Int
-</span><a href="#local-6989586621679842722"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679842722"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679842721"><span class="annot"><span class="annottext">s :: DeleteStreamResponse
-</span><a href="#local-6989586621679842721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DeleteStream.html#DeleteStreamResponse%27"><span class="hs-identifier hs-type">DeleteStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679842720"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679842720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteStreamResponse
-</span><a href="#local-6989586621679842721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteStreamResponse' :: Int
+</span><a href="#local-6989586621679842731"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679842731"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679842730"><span class="annot"><span class="annottext">s :: DeleteStreamResponse
+</span><a href="#local-6989586621679842730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DeleteStream.html#DeleteStreamResponse%27"><span class="hs-identifier hs-type">DeleteStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679842729"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679842729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteStreamResponse
+</span><a href="#local-6989586621679842730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteStreamResponse' :: Int
 </span><a href="Network.AWS.IoT.DeleteStream.html#%24sel%3AhttpStatus%3ADeleteStreamResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679842720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteStream.html#DeleteStreamResponse"><span class="hs-identifier hs-type">DeleteStreamResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679842729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteStream.html#DeleteStreamResponse"><span class="hs-identifier hs-type">DeleteStreamResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679842718"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteStream.html#DeleteStreamResponse"><span class="hs-identifier hs-type">DeleteStreamResponse</span></a></span></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679842727"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteStream.html#DeleteStreamResponse"><span class="hs-identifier hs-type">DeleteStreamResponse</span></a></span></span><span>
 </span><span id="line-131"></span></pre></body></html>

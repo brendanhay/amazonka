@@ -59,7 +59,7 @@
 </span><span id="line-59"></span><span class="hs-comment">-- | Contains the parameters for DeregisterInstancesFromLoadBalancer.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- /See:/ 'newDeregisterInstancesFromLoadBalancer' smart constructor.</span><span>
-</span><span id="line-62"></span><span id="local-6989586621679202121"><span id="local-6989586621679202122"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeregisterInstancesFromLoadBalancer"><span class="annot"><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancer"><span class="hs-identifier hs-var">DeregisterInstancesFromLoadBalancer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeregisterInstancesFromLoadBalancer%27"><span class="annot"><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancer%27"><span class="hs-identifier hs-var">DeregisterInstancesFromLoadBalancer'</span></a></span></span><span>
+</span><span id="line-62"></span><span id="local-6989586621679202130"><span id="local-6989586621679202131"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeregisterInstancesFromLoadBalancer"><span class="annot"><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancer"><span class="hs-identifier hs-var">DeregisterInstancesFromLoadBalancer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeregisterInstancesFromLoadBalancer%27"><span class="annot"><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancer%27"><span class="hs-identifier hs-var">DeregisterInstancesFromLoadBalancer'</span></a></span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the load balancer.</span><span>
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AloadBalancerName%3ADeregisterInstancesFromLoadBalancer%27"><span class="annot"><span class="annottext">DeregisterInstancesFromLoadBalancer -&gt; Text
 </span><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#%24sel%3AloadBalancerName%3ADeregisterInstancesFromLoadBalancer%27"><span class="hs-identifier hs-var hs-var">loadBalancerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -67,7 +67,7 @@
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3Ainstances%3ADeregisterInstancesFromLoadBalancer%27"><span class="annot"><span class="annottext">DeregisterInstancesFromLoadBalancer -&gt; [Instance]
 </span><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#%24sel%3Ainstances%3ADeregisterInstancesFromLoadBalancer%27"><span class="hs-identifier hs-var hs-var">instances</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ELB.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679202114"><span id="local-6989586621679202116"><span class="annot"><span class="annottext">DeregisterInstancesFromLoadBalancer
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679202123"><span id="local-6989586621679202125"><span class="annot"><span class="annottext">DeregisterInstancesFromLoadBalancer
 -&gt; DeregisterInstancesFromLoadBalancer -&gt; Bool
 (DeregisterInstancesFromLoadBalancer
  -&gt; DeregisterInstancesFromLoadBalancer -&gt; Bool)
@@ -83,7 +83,7 @@ $c/= :: DeregisterInstancesFromLoadBalancer
 -&gt; DeregisterInstancesFromLoadBalancer -&gt; Bool
 $c== :: DeregisterInstancesFromLoadBalancer
 -&gt; DeregisterInstancesFromLoadBalancer -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202105"><span id="local-6989586621679202107"><span id="local-6989586621679202109"><span id="local-6989586621679202111"><span class="annot"><span class="annottext">ReadPrec [DeregisterInstancesFromLoadBalancer]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202114"><span id="local-6989586621679202116"><span id="local-6989586621679202118"><span id="local-6989586621679202120"><span class="annot"><span class="annottext">ReadPrec [DeregisterInstancesFromLoadBalancer]
 ReadPrec DeregisterInstancesFromLoadBalancer
 Int -&gt; ReadS DeregisterInstancesFromLoadBalancer
 ReadS [DeregisterInstancesFromLoadBalancer]
@@ -103,7 +103,7 @@ readList :: ReadS [DeregisterInstancesFromLoadBalancer]
 $creadList :: ReadS [DeregisterInstancesFromLoadBalancer]
 readsPrec :: Int -&gt; ReadS DeregisterInstancesFromLoadBalancer
 $creadsPrec :: Int -&gt; ReadS DeregisterInstancesFromLoadBalancer
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202098"><span id="local-6989586621679202100"><span id="local-6989586621679202102"><span class="annot"><span class="annottext">Int -&gt; DeregisterInstancesFromLoadBalancer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202107"><span id="local-6989586621679202109"><span id="local-6989586621679202111"><span class="annot"><span class="annottext">Int -&gt; DeregisterInstancesFromLoadBalancer -&gt; ShowS
 [DeregisterInstancesFromLoadBalancer] -&gt; ShowS
 DeregisterInstancesFromLoadBalancer -&gt; String
 (Int -&gt; DeregisterInstancesFromLoadBalancer -&gt; ShowS)
@@ -158,14 +158,14 @@ DeregisterInstancesFromLoadBalancer
 </span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancer"><span class="hs-identifier hs-type">DeregisterInstancesFromLoadBalancer</span></a></span><span>
 </span><span id="line-85"></span><span id="newDeregisterInstancesFromLoadBalancer"><span class="annot"><span class="annottext">newDeregisterInstancesFromLoadBalancer :: Text -&gt; DeregisterInstancesFromLoadBalancer
 </span><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#newDeregisterInstancesFromLoadBalancer"><span class="hs-identifier hs-var hs-var">newDeregisterInstancesFromLoadBalancer</span></a></span></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679202093"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679202093"><span class="hs-identifier hs-var">pLoadBalancerName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679202102"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202102"><span class="hs-identifier hs-var">pLoadBalancerName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">DeregisterInstancesFromLoadBalancer' :: Text -&gt; [Instance] -&gt; DeregisterInstancesFromLoadBalancer
 </span><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancer%27"><span class="hs-identifier hs-type">DeregisterInstancesFromLoadBalancer'</span></a></span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:loadBalancerName:DeregisterInstancesFromLoadBalancer' :: Text
 </span><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#%24sel%3AloadBalancerName%3ADeregisterInstancesFromLoadBalancer%27"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679202093"><span class="hs-identifier hs-var">pLoadBalancerName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679202102"><span class="hs-identifier hs-var">pLoadBalancerName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">$sel:instances:DeregisterInstancesFromLoadBalancer' :: [Instance]
 </span><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#%24sel%3Ainstances%3ADeregisterInstancesFromLoadBalancer%27"><span class="hs-identifier hs-var">instances</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Instance]
 forall a. Monoid a =&gt; a
@@ -186,16 +186,16 @@ forall a. Monoid a =&gt; a
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancer%27"><span class="hs-identifier hs-type">DeregisterInstancesFromLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202090"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancer%27"><span class="hs-identifier hs-type">DeregisterInstancesFromLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202099"><span class="annot"><span class="annottext">Text
 loadBalancerName :: Text
 $sel:loadBalancerName:DeregisterInstancesFromLoadBalancer' :: DeregisterInstancesFromLoadBalancer -&gt; Text
-</span><a href="#local-6989586621679202090"><span class="hs-identifier hs-var hs-var">loadBalancerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679202090"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202089"><span class="annot"><span class="annottext">s :: DeregisterInstancesFromLoadBalancer
-</span><a href="#local-6989586621679202089"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancer%27"><span class="hs-identifier hs-type">DeregisterInstancesFromLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202088"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679202088"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterInstancesFromLoadBalancer
-</span><a href="#local-6989586621679202089"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loadBalancerName:DeregisterInstancesFromLoadBalancer' :: Text
+</span><a href="#local-6989586621679202099"><span class="hs-identifier hs-var hs-var">loadBalancerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202099"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202098"><span class="annot"><span class="annottext">s :: DeregisterInstancesFromLoadBalancer
+</span><a href="#local-6989586621679202098"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancer%27"><span class="hs-identifier hs-type">DeregisterInstancesFromLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202097"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679202097"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterInstancesFromLoadBalancer
+</span><a href="#local-6989586621679202098"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loadBalancerName:DeregisterInstancesFromLoadBalancer' :: Text
 </span><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#%24sel%3AloadBalancerName%3ADeregisterInstancesFromLoadBalancer%27"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679202088"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancer"><span class="hs-identifier hs-type">DeregisterInstancesFromLoadBalancer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679202097"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancer"><span class="hs-identifier hs-type">DeregisterInstancesFromLoadBalancer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | The IDs of the instances.</span><span>
 </span><span id="line-98"></span><span class="annot"><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#deregisterInstancesFromLoadBalancer_instances"><span class="hs-identifier hs-type">deregisterInstancesFromLoadBalancer_instances</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancer"><span class="hs-identifier hs-type">DeregisterInstancesFromLoadBalancer</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ELB.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">]</span><span>
@@ -211,16 +211,16 @@ $sel:loadBalancerName:DeregisterInstancesFromLoadBalancer' :: DeregisterInstance
      [Instance]
      [Instance]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancer%27"><span class="hs-identifier hs-type">DeregisterInstancesFromLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202087"><span class="annot"><span class="annottext">[Instance]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancer%27"><span class="hs-identifier hs-type">DeregisterInstancesFromLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202096"><span class="annot"><span class="annottext">[Instance]
 instances :: [Instance]
 $sel:instances:DeregisterInstancesFromLoadBalancer' :: DeregisterInstancesFromLoadBalancer -&gt; [Instance]
-</span><a href="#local-6989586621679202087"><span class="hs-identifier hs-var hs-var">instances</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Instance]
-</span><a href="#local-6989586621679202087"><span class="hs-identifier hs-var">instances</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202086"><span class="annot"><span class="annottext">s :: DeregisterInstancesFromLoadBalancer
-</span><a href="#local-6989586621679202086"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancer%27"><span class="hs-identifier hs-type">DeregisterInstancesFromLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202085"><span class="annot"><span class="annottext">[Instance]
-</span><a href="#local-6989586621679202085"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterInstancesFromLoadBalancer
-</span><a href="#local-6989586621679202086"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instances:DeregisterInstancesFromLoadBalancer' :: [Instance]
+</span><a href="#local-6989586621679202096"><span class="hs-identifier hs-var hs-var">instances</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Instance]
+</span><a href="#local-6989586621679202096"><span class="hs-identifier hs-var">instances</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202095"><span class="annot"><span class="annottext">s :: DeregisterInstancesFromLoadBalancer
+</span><a href="#local-6989586621679202095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancer%27"><span class="hs-identifier hs-type">DeregisterInstancesFromLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202094"><span class="annot"><span class="annottext">[Instance]
+</span><a href="#local-6989586621679202094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterInstancesFromLoadBalancer
+</span><a href="#local-6989586621679202095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instances:DeregisterInstancesFromLoadBalancer' :: [Instance]
 </span><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#%24sel%3Ainstances%3ADeregisterInstancesFromLoadBalancer%27"><span class="hs-identifier hs-var">instances</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Instance]
-</span><a href="#local-6989586621679202085"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancer"><span class="hs-identifier hs-type">DeregisterInstancesFromLoadBalancer</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Instance] -&gt; f [Instance])
+</span><a href="#local-6989586621679202094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancer"><span class="hs-identifier hs-type">DeregisterInstancesFromLoadBalancer</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Instance] -&gt; f [Instance])
  -&gt; DeregisterInstancesFromLoadBalancer
  -&gt; f DeregisterInstancesFromLoadBalancer)
 -&gt; (([Instance] -&gt; f [Instance]) -&gt; [Instance] -&gt; f [Instance])
@@ -239,7 +239,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-105"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-106"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancer"><span class="hs-identifier hs-type">DeregisterInstancesFromLoadBalancer</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>      </span><span class="annot"><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancerResponse"><span class="hs-identifier hs-type">DeregisterInstancesFromLoadBalancerResponse</span></a></span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679202079"><span class="annot"><span class="annottext">request :: DeregisterInstancesFromLoadBalancer
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679202088"><span class="annot"><span class="annottext">request :: DeregisterInstancesFromLoadBalancer
 -&gt; Request DeregisterInstancesFromLoadBalancer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DeregisterInstancesFromLoadBalancer
@@ -247,7 +247,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ELB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679202075"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679202084"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeregisterInstancesFromLoadBalancer
 -&gt; ClientResponse ClientBody
@@ -280,10 +280,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeregisterInstancesFromLoadBalancerResult&quot;</span></span><span>
-</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679202072"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679202072"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679202071"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679202071"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679202070"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679202070"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679202081"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202081"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679202080"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679202080"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679202079"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679202079"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Instance]
 -&gt; Int -&gt; DeregisterInstancesFromLoadBalancerResponse
 </span><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancerResponse%27"><span class="hs-identifier hs-var">DeregisterInstancesFromLoadBalancerResponse'</span></a></span><span>
@@ -294,7 +294,7 @@ Text
      String (Int -&gt; DeregisterInstancesFromLoadBalancerResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679202070"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679202079"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Instances&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -325,22 +325,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679202072"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679202081"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679202059"><span id="local-6989586621679202061"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679202068"><span id="local-6989586621679202070"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancer"><span class="hs-identifier hs-type">DeregisterInstancesFromLoadBalancer</span></a></span></span></span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679202056"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679202065"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-126"></span><span>    </span><span class="annot"><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancer"><span class="hs-identifier hs-type">DeregisterInstancesFromLoadBalancer</span></a></span></span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-129"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-130"></span><span>    </span><span class="annot"><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancer"><span class="hs-identifier hs-type">DeregisterInstancesFromLoadBalancer</span></a></span><span>
 </span><span id="line-131"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679202052"><span class="annot"><span class="annottext">toHeaders :: DeregisterInstancesFromLoadBalancer -&gt; ResponseHeaders
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679202061"><span class="annot"><span class="annottext">toHeaders :: DeregisterInstancesFromLoadBalancer -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; DeregisterInstancesFromLoadBalancer -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -352,7 +352,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-135"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
 </span><span id="line-136"></span><span>    </span><span class="annot"><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancer"><span class="hs-identifier hs-type">DeregisterInstancesFromLoadBalancer</span></a></span><span>
 </span><span id="line-137"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679202047"><span class="annot"><span class="annottext">toPath :: DeregisterInstancesFromLoadBalancer -&gt; ByteString
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679202056"><span class="annot"><span class="annottext">toPath :: DeregisterInstancesFromLoadBalancer -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeregisterInstancesFromLoadBalancer -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
@@ -362,14 +362,14 @@ forall a b. a -&gt; b -&gt; a
 </span><span id="line-141"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-142"></span><span>    </span><span class="annot"><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancer"><span class="hs-identifier hs-type">DeregisterInstancesFromLoadBalancer</span></a></span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679202043"><span class="annot"><span class="annottext">toQuery :: DeregisterInstancesFromLoadBalancer -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancer%27"><span class="hs-identifier hs-type">DeregisterInstancesFromLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202040"><span id="local-6989586621679202041"><span class="annot"><span class="annottext">[Instance]
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679202052"><span class="annot"><span class="annottext">toQuery :: DeregisterInstancesFromLoadBalancer -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancer%27"><span class="hs-identifier hs-type">DeregisterInstancesFromLoadBalancer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202049"><span id="local-6989586621679202050"><span class="annot"><span class="annottext">[Instance]
 Text
 instances :: [Instance]
 loadBalancerName :: Text
 $sel:instances:DeregisterInstancesFromLoadBalancer' :: DeregisterInstancesFromLoadBalancer -&gt; [Instance]
 $sel:loadBalancerName:DeregisterInstancesFromLoadBalancer' :: DeregisterInstancesFromLoadBalancer -&gt; Text
-</span><a href="#local-6989586621679202040"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679202049"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -391,7 +391,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;LoadBalancerName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679202041"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679202050"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Instances&quot;</span></span><span>
 </span><span id="line-154"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -402,13 +402,13 @@ forall a.
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Instance]
-</span><a href="#local-6989586621679202040"><span class="hs-identifier hs-var">instances</span></a></span><span>
+</span><a href="#local-6989586621679202049"><span class="hs-identifier hs-var">instances</span></a></span><span>
 </span><span id="line-155"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | Contains the output of DeregisterInstancesFromLoadBalancer.</span><span>
 </span><span id="line-158"></span><span class="hs-comment">--</span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- /See:/ 'newDeregisterInstancesFromLoadBalancerResponse' smart constructor.</span><span>
-</span><span id="line-160"></span><span id="local-6989586621679202036"><span id="local-6989586621679202037"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeregisterInstancesFromLoadBalancerResponse"><span class="annot"><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancerResponse"><span class="hs-identifier hs-var">DeregisterInstancesFromLoadBalancerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeregisterInstancesFromLoadBalancerResponse%27"><span class="annot"><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancerResponse%27"><span class="hs-identifier hs-var">DeregisterInstancesFromLoadBalancerResponse'</span></a></span></span><span>
+</span><span id="line-160"></span><span id="local-6989586621679202045"><span id="local-6989586621679202046"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeregisterInstancesFromLoadBalancerResponse"><span class="annot"><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancerResponse"><span class="hs-identifier hs-var">DeregisterInstancesFromLoadBalancerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeregisterInstancesFromLoadBalancerResponse%27"><span class="annot"><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancerResponse%27"><span class="hs-identifier hs-var">DeregisterInstancesFromLoadBalancerResponse'</span></a></span></span><span>
 </span><span id="line-161"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The remaining instances registered with the load balancer.</span><span>
 </span><span id="line-162"></span><span>    </span><span id="%24sel%3Ainstances%3ADeregisterInstancesFromLoadBalancerResponse%27"><span class="annot"><span class="annottext">DeregisterInstancesFromLoadBalancerResponse -&gt; Maybe [Instance]
 </span><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#%24sel%3Ainstances%3ADeregisterInstancesFromLoadBalancerResponse%27"><span class="hs-identifier hs-var hs-var">instances</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ELB.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -416,7 +416,7 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-164"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeregisterInstancesFromLoadBalancerResponse%27"><span class="annot"><span class="annottext">DeregisterInstancesFromLoadBalancerResponse -&gt; Int
 </span><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#%24sel%3AhttpStatus%3ADeregisterInstancesFromLoadBalancerResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-165"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-166"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679202030"><span id="local-6989586621679202032"><span class="annot"><span class="annottext">DeregisterInstancesFromLoadBalancerResponse
+</span><span id="line-166"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679202039"><span id="local-6989586621679202041"><span class="annot"><span class="annottext">DeregisterInstancesFromLoadBalancerResponse
 -&gt; DeregisterInstancesFromLoadBalancerResponse -&gt; Bool
 (DeregisterInstancesFromLoadBalancerResponse
  -&gt; DeregisterInstancesFromLoadBalancerResponse -&gt; Bool)
@@ -432,7 +432,7 @@ $c/= :: DeregisterInstancesFromLoadBalancerResponse
 -&gt; DeregisterInstancesFromLoadBalancerResponse -&gt; Bool
 $c== :: DeregisterInstancesFromLoadBalancerResponse
 -&gt; DeregisterInstancesFromLoadBalancerResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202022"><span id="local-6989586621679202024"><span id="local-6989586621679202026"><span id="local-6989586621679202028"><span class="annot"><span class="annottext">ReadPrec [DeregisterInstancesFromLoadBalancerResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202031"><span id="local-6989586621679202033"><span id="local-6989586621679202035"><span id="local-6989586621679202037"><span class="annot"><span class="annottext">ReadPrec [DeregisterInstancesFromLoadBalancerResponse]
 ReadPrec DeregisterInstancesFromLoadBalancerResponse
 Int -&gt; ReadS DeregisterInstancesFromLoadBalancerResponse
 ReadS [DeregisterInstancesFromLoadBalancerResponse]
@@ -452,7 +452,7 @@ readList :: ReadS [DeregisterInstancesFromLoadBalancerResponse]
 $creadList :: ReadS [DeregisterInstancesFromLoadBalancerResponse]
 readsPrec :: Int -&gt; ReadS DeregisterInstancesFromLoadBalancerResponse
 $creadsPrec :: Int -&gt; ReadS DeregisterInstancesFromLoadBalancerResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202016"><span id="local-6989586621679202018"><span id="local-6989586621679202020"><span class="annot"><span class="annottext">Int -&gt; DeregisterInstancesFromLoadBalancerResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202025"><span id="local-6989586621679202027"><span id="local-6989586621679202029"><span class="annot"><span class="annottext">Int -&gt; DeregisterInstancesFromLoadBalancerResponse -&gt; ShowS
 [DeregisterInstancesFromLoadBalancerResponse] -&gt; ShowS
 DeregisterInstancesFromLoadBalancerResponse -&gt; String
 (Int -&gt; DeregisterInstancesFromLoadBalancerResponse -&gt; ShowS)
@@ -507,8 +507,8 @@ DeregisterInstancesFromLoadBalancerResponse
 </span><span id="line-182"></span><span>  </span><span class="annot"><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancerResponse"><span class="hs-identifier hs-type">DeregisterInstancesFromLoadBalancerResponse</span></a></span><span>
 </span><span id="line-183"></span><span id="newDeregisterInstancesFromLoadBalancerResponse"><span class="annot"><span class="annottext">newDeregisterInstancesFromLoadBalancerResponse :: Int -&gt; DeregisterInstancesFromLoadBalancerResponse
 </span><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#newDeregisterInstancesFromLoadBalancerResponse"><span class="hs-identifier hs-var hs-var">newDeregisterInstancesFromLoadBalancerResponse</span></a></span></span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621679202013"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679202013"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679202022"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202022"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-185"></span><span>    </span><span class="annot"><span class="annottext">DeregisterInstancesFromLoadBalancerResponse' :: Maybe [Instance]
 -&gt; Int -&gt; DeregisterInstancesFromLoadBalancerResponse
 </span><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancerResponse%27"><span class="hs-identifier hs-type">DeregisterInstancesFromLoadBalancerResponse'</span></a></span><span>
@@ -519,7 +519,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-188"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DeregisterInstancesFromLoadBalancerResponse' :: Int
 </span><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#%24sel%3AhttpStatus%3ADeregisterInstancesFromLoadBalancerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679202013"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679202022"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-189"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | The remaining instances registered with the load balancer.</span><span>
@@ -536,16 +536,16 @@ forall a. Maybe a
      (Maybe [Instance])
      (Maybe [Instance])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancerResponse%27"><span class="hs-identifier hs-type">DeregisterInstancesFromLoadBalancerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202012"><span class="annot"><span class="annottext">Maybe [Instance]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancerResponse%27"><span class="hs-identifier hs-type">DeregisterInstancesFromLoadBalancerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202021"><span class="annot"><span class="annottext">Maybe [Instance]
 instances :: Maybe [Instance]
 $sel:instances:DeregisterInstancesFromLoadBalancerResponse' :: DeregisterInstancesFromLoadBalancerResponse -&gt; Maybe [Instance]
-</span><a href="#local-6989586621679202012"><span class="hs-identifier hs-var hs-var">instances</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Instance]
-</span><a href="#local-6989586621679202012"><span class="hs-identifier hs-var">instances</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202011"><span class="annot"><span class="annottext">s :: DeregisterInstancesFromLoadBalancerResponse
-</span><a href="#local-6989586621679202011"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancerResponse%27"><span class="hs-identifier hs-type">DeregisterInstancesFromLoadBalancerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202010"><span class="annot"><span class="annottext">Maybe [Instance]
-</span><a href="#local-6989586621679202010"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterInstancesFromLoadBalancerResponse
-</span><a href="#local-6989586621679202011"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instances:DeregisterInstancesFromLoadBalancerResponse' :: Maybe [Instance]
+</span><a href="#local-6989586621679202021"><span class="hs-identifier hs-var hs-var">instances</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Instance]
+</span><a href="#local-6989586621679202021"><span class="hs-identifier hs-var">instances</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202020"><span class="annot"><span class="annottext">s :: DeregisterInstancesFromLoadBalancerResponse
+</span><a href="#local-6989586621679202020"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancerResponse%27"><span class="hs-identifier hs-type">DeregisterInstancesFromLoadBalancerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202019"><span class="annot"><span class="annottext">Maybe [Instance]
+</span><a href="#local-6989586621679202019"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterInstancesFromLoadBalancerResponse
+</span><a href="#local-6989586621679202020"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instances:DeregisterInstancesFromLoadBalancerResponse' :: Maybe [Instance]
 </span><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#%24sel%3Ainstances%3ADeregisterInstancesFromLoadBalancerResponse%27"><span class="hs-identifier hs-var">instances</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Instance]
-</span><a href="#local-6989586621679202010"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancerResponse"><span class="hs-identifier hs-type">DeregisterInstancesFromLoadBalancerResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Instance] -&gt; f (Maybe [Instance]))
+</span><a href="#local-6989586621679202019"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancerResponse"><span class="hs-identifier hs-type">DeregisterInstancesFromLoadBalancerResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Instance] -&gt; f (Maybe [Instance]))
  -&gt; DeregisterInstancesFromLoadBalancerResponse
  -&gt; f DeregisterInstancesFromLoadBalancerResponse)
 -&gt; ((Maybe [Instance] -&gt; f (Maybe [Instance]))
@@ -581,18 +581,18 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancerResponse%27"><span class="hs-identifier hs-type">DeregisterInstancesFromLoadBalancerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202008"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancerResponse%27"><span class="hs-identifier hs-type">DeregisterInstancesFromLoadBalancerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202017"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeregisterInstancesFromLoadBalancerResponse' :: DeregisterInstancesFromLoadBalancerResponse -&gt; Int
-</span><a href="#local-6989586621679202008"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679202008"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202007"><span class="annot"><span class="annottext">s :: DeregisterInstancesFromLoadBalancerResponse
-</span><a href="#local-6989586621679202007"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancerResponse%27"><span class="hs-identifier hs-type">DeregisterInstancesFromLoadBalancerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202006"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679202006"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterInstancesFromLoadBalancerResponse
-</span><a href="#local-6989586621679202007"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeregisterInstancesFromLoadBalancerResponse' :: Int
+</span><a href="#local-6989586621679202017"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202017"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202016"><span class="annot"><span class="annottext">s :: DeregisterInstancesFromLoadBalancerResponse
+</span><a href="#local-6989586621679202016"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancerResponse%27"><span class="hs-identifier hs-type">DeregisterInstancesFromLoadBalancerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202015"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679202015"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterInstancesFromLoadBalancerResponse
+</span><a href="#local-6989586621679202016"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeregisterInstancesFromLoadBalancerResponse' :: Int
 </span><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#%24sel%3AhttpStatus%3ADeregisterInstancesFromLoadBalancerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679202006"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancerResponse"><span class="hs-identifier hs-type">DeregisterInstancesFromLoadBalancerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679202015"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancerResponse"><span class="hs-identifier hs-type">DeregisterInstancesFromLoadBalancerResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-200"></span><span>  </span><span id="local-6989586621679202004"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679202013"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-201"></span><span>    </span><span class="annot"><a href="Network.AWS.ELB.DeregisterInstancesFromLoadBalancer.html#DeregisterInstancesFromLoadBalancerResponse"><span class="hs-identifier hs-type">DeregisterInstancesFromLoadBalancerResponse</span></a></span></span><span>
 </span><span id="line-202"></span></pre></body></html>

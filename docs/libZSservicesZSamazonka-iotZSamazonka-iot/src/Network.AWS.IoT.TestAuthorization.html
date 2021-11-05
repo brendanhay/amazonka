@@ -58,7 +58,7 @@
 </span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newTestAuthorization' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621679811405"><span id="local-6989586621679811406"></span></span><span class="hs-keyword">data</span><span> </span><span id="TestAuthorization"><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization"><span class="hs-identifier hs-var">TestAuthorization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TestAuthorization%27"><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization%27"><span class="hs-identifier hs-var">TestAuthorization'</span></a></span></span><span>
+</span><span id="line-61"></span><span id="local-6989586621679811414"><span id="local-6989586621679811415"></span></span><span class="hs-keyword">data</span><span> </span><span id="TestAuthorization"><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization"><span class="hs-identifier hs-var">TestAuthorization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TestAuthorization%27"><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization%27"><span class="hs-identifier hs-var">TestAuthorization'</span></a></span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The MQTT client ID.</span><span>
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AclientId%3ATestAuthorization%27"><span class="annot"><span class="annottext">TestAuthorization -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.TestAuthorization.html#%24sel%3AclientId%3ATestAuthorization%27"><span class="hs-identifier hs-var hs-var">clientId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -84,7 +84,7 @@
 </span><span id="line-79"></span><span>    </span><span id="%24sel%3AauthInfos%3ATestAuthorization%27"><span class="annot"><span class="annottext">TestAuthorization -&gt; NonEmpty AuthInfo
 </span><a href="Network.AWS.IoT.TestAuthorization.html#%24sel%3AauthInfos%3ATestAuthorization%27"><span class="hs-identifier hs-var hs-var">authInfos</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthInfo.html#AuthInfo"><span class="hs-identifier hs-type">AuthInfo</span></a></span><span>
 </span><span id="line-80"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679811394"><span id="local-6989586621679811396"><span class="annot"><span class="annottext">TestAuthorization -&gt; TestAuthorization -&gt; Bool
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679811403"><span id="local-6989586621679811405"><span class="annot"><span class="annottext">TestAuthorization -&gt; TestAuthorization -&gt; Bool
 (TestAuthorization -&gt; TestAuthorization -&gt; Bool)
 -&gt; (TestAuthorization -&gt; TestAuthorization -&gt; Bool)
 -&gt; Eq TestAuthorization
@@ -93,7 +93,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TestAuthorization -&gt; TestAuthorization -&gt; Bool
 == :: TestAuthorization -&gt; TestAuthorization -&gt; Bool
 $c== :: TestAuthorization -&gt; TestAuthorization -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679811385"><span id="local-6989586621679811387"><span id="local-6989586621679811389"><span id="local-6989586621679811391"><span class="annot"><span class="annottext">ReadPrec [TestAuthorization]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679811394"><span id="local-6989586621679811396"><span id="local-6989586621679811398"><span id="local-6989586621679811400"><span class="annot"><span class="annottext">ReadPrec [TestAuthorization]
 ReadPrec TestAuthorization
 Int -&gt; ReadS TestAuthorization
 ReadS [TestAuthorization]
@@ -113,7 +113,7 @@ readList :: ReadS [TestAuthorization]
 $creadList :: ReadS [TestAuthorization]
 readsPrec :: Int -&gt; ReadS TestAuthorization
 $creadsPrec :: Int -&gt; ReadS TestAuthorization
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679811378"><span id="local-6989586621679811380"><span id="local-6989586621679811382"><span class="annot"><span class="annottext">Int -&gt; TestAuthorization -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679811387"><span id="local-6989586621679811389"><span id="local-6989586621679811391"><span class="annot"><span class="annottext">Int -&gt; TestAuthorization -&gt; ShowS
 [TestAuthorization] -&gt; ShowS
 TestAuthorization -&gt; String
 (Int -&gt; TestAuthorization -&gt; ShowS)
@@ -169,8 +169,8 @@ $cfrom :: forall x. TestAuthorization -&gt; Rep TestAuthorization x
 </span><span id="line-110"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthInfo.html#AuthInfo"><span class="hs-identifier hs-type">AuthInfo</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-111"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization"><span class="hs-identifier hs-type">TestAuthorization</span></a></span><span>
 </span><span id="line-112"></span><span id="newTestAuthorization"><span class="annot"><span class="annottext">newTestAuthorization :: NonEmpty AuthInfo -&gt; TestAuthorization
-</span><a href="Network.AWS.IoT.TestAuthorization.html#newTestAuthorization"><span class="hs-identifier hs-var hs-var">newTestAuthorization</span></a></span></span><span> </span><span id="local-6989586621679811373"><span class="annot"><span class="annottext">NonEmpty AuthInfo
-</span><a href="#local-6989586621679811373"><span class="hs-identifier hs-var">pAuthInfos_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.TestAuthorization.html#newTestAuthorization"><span class="hs-identifier hs-var hs-var">newTestAuthorization</span></a></span></span><span> </span><span id="local-6989586621679811382"><span class="annot"><span class="annottext">NonEmpty AuthInfo
+</span><a href="#local-6989586621679811382"><span class="hs-identifier hs-var">pAuthInfos_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>  </span><span class="annot"><span class="annottext">TestAuthorization' :: Maybe Text
 -&gt; Maybe [Text]
 -&gt; Maybe Text
@@ -208,7 +208,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty AuthInfo -&gt; NonEmpty AuthInfo
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty AuthInfo
-</span><a href="#local-6989586621679811373"><span class="hs-identifier hs-var">pAuthInfos_</span></a></span><span>
+</span><a href="#local-6989586621679811382"><span class="hs-identifier hs-var">pAuthInfos_</span></a></span><span>
 </span><span id="line-120"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | The MQTT client ID.</span><span>
@@ -220,16 +220,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; Lens
      TestAuthorization TestAuthorization (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization%27"><span class="hs-identifier hs-type">TestAuthorization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679811368"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization%27"><span class="hs-identifier hs-type">TestAuthorization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679811377"><span class="annot"><span class="annottext">Maybe Text
 clientId :: Maybe Text
 $sel:clientId:TestAuthorization' :: TestAuthorization -&gt; Maybe Text
-</span><a href="#local-6989586621679811368"><span class="hs-identifier hs-var hs-var">clientId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679811368"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679811367"><span class="annot"><span class="annottext">s :: TestAuthorization
-</span><a href="#local-6989586621679811367"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization%27"><span class="hs-identifier hs-type">TestAuthorization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679811366"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679811366"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestAuthorization
-</span><a href="#local-6989586621679811367"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientId:TestAuthorization' :: Maybe Text
+</span><a href="#local-6989586621679811377"><span class="hs-identifier hs-var hs-var">clientId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679811377"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679811376"><span class="annot"><span class="annottext">s :: TestAuthorization
+</span><a href="#local-6989586621679811376"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization%27"><span class="hs-identifier hs-type">TestAuthorization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679811375"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679811375"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestAuthorization
+</span><a href="#local-6989586621679811376"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientId:TestAuthorization' :: Maybe Text
 </span><a href="Network.AWS.IoT.TestAuthorization.html#%24sel%3AclientId%3ATestAuthorization%27"><span class="hs-identifier hs-var">clientId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679811366"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization"><span class="hs-identifier hs-type">TestAuthorization</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679811375"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization"><span class="hs-identifier hs-type">TestAuthorization</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | When testing custom authorization, the policies specified here are</span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- treated as if they are attached to the principal being authorized.</span><span>
@@ -241,16 +241,16 @@ $sel:clientId:TestAuthorization' :: TestAuthorization -&gt; Maybe Text
 -&gt; Lens
      TestAuthorization TestAuthorization (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization%27"><span class="hs-identifier hs-type">TestAuthorization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679811365"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization%27"><span class="hs-identifier hs-type">TestAuthorization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679811374"><span class="annot"><span class="annottext">Maybe [Text]
 policyNamesToAdd :: Maybe [Text]
 $sel:policyNamesToAdd:TestAuthorization' :: TestAuthorization -&gt; Maybe [Text]
-</span><a href="#local-6989586621679811365"><span class="hs-identifier hs-var hs-var">policyNamesToAdd</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679811365"><span class="hs-identifier hs-var">policyNamesToAdd</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679811364"><span class="annot"><span class="annottext">s :: TestAuthorization
-</span><a href="#local-6989586621679811364"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization%27"><span class="hs-identifier hs-type">TestAuthorization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679811363"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679811363"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestAuthorization
-</span><a href="#local-6989586621679811364"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyNamesToAdd:TestAuthorization' :: Maybe [Text]
+</span><a href="#local-6989586621679811374"><span class="hs-identifier hs-var hs-var">policyNamesToAdd</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679811374"><span class="hs-identifier hs-var">policyNamesToAdd</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679811373"><span class="annot"><span class="annottext">s :: TestAuthorization
+</span><a href="#local-6989586621679811373"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization%27"><span class="hs-identifier hs-type">TestAuthorization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679811372"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679811372"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestAuthorization
+</span><a href="#local-6989586621679811373"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyNamesToAdd:TestAuthorization' :: Maybe [Text]
 </span><a href="Network.AWS.IoT.TestAuthorization.html#%24sel%3ApolicyNamesToAdd%3ATestAuthorization%27"><span class="hs-identifier hs-var">policyNamesToAdd</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679811363"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization"><span class="hs-identifier hs-type">TestAuthorization</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679811372"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization"><span class="hs-identifier hs-type">TestAuthorization</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; TestAuthorization -&gt; f TestAuthorization)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -279,16 +279,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      TestAuthorization TestAuthorization (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization%27"><span class="hs-identifier hs-type">TestAuthorization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679811360"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization%27"><span class="hs-identifier hs-type">TestAuthorization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679811369"><span class="annot"><span class="annottext">Maybe Text
 principal :: Maybe Text
 $sel:principal:TestAuthorization' :: TestAuthorization -&gt; Maybe Text
-</span><a href="#local-6989586621679811360"><span class="hs-identifier hs-var hs-var">principal</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679811360"><span class="hs-identifier hs-var">principal</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679811359"><span class="annot"><span class="annottext">s :: TestAuthorization
-</span><a href="#local-6989586621679811359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization%27"><span class="hs-identifier hs-type">TestAuthorization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679811358"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679811358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestAuthorization
-</span><a href="#local-6989586621679811359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principal:TestAuthorization' :: Maybe Text
+</span><a href="#local-6989586621679811369"><span class="hs-identifier hs-var hs-var">principal</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679811369"><span class="hs-identifier hs-var">principal</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679811368"><span class="annot"><span class="annottext">s :: TestAuthorization
+</span><a href="#local-6989586621679811368"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization%27"><span class="hs-identifier hs-type">TestAuthorization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679811367"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679811367"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestAuthorization
+</span><a href="#local-6989586621679811368"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principal:TestAuthorization' :: Maybe Text
 </span><a href="Network.AWS.IoT.TestAuthorization.html#%24sel%3Aprincipal%3ATestAuthorization%27"><span class="hs-identifier hs-var">principal</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679811358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization"><span class="hs-identifier hs-type">TestAuthorization</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679811367"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization"><span class="hs-identifier hs-type">TestAuthorization</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | The Cognito identity pool ID.</span><span>
 </span><span id="line-139"></span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#testAuthorization_cognitoIdentityPoolId"><span class="hs-identifier hs-type">testAuthorization_cognitoIdentityPoolId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization"><span class="hs-identifier hs-type">TestAuthorization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -299,16 +299,16 @@ $sel:principal:TestAuthorization' :: TestAuthorization -&gt; Maybe Text
 -&gt; Lens
      TestAuthorization TestAuthorization (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization%27"><span class="hs-identifier hs-type">TestAuthorization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679811357"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization%27"><span class="hs-identifier hs-type">TestAuthorization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679811366"><span class="annot"><span class="annottext">Maybe Text
 cognitoIdentityPoolId :: Maybe Text
 $sel:cognitoIdentityPoolId:TestAuthorization' :: TestAuthorization -&gt; Maybe Text
-</span><a href="#local-6989586621679811357"><span class="hs-identifier hs-var hs-var">cognitoIdentityPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679811357"><span class="hs-identifier hs-var">cognitoIdentityPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679811356"><span class="annot"><span class="annottext">s :: TestAuthorization
-</span><a href="#local-6989586621679811356"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization%27"><span class="hs-identifier hs-type">TestAuthorization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679811355"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679811355"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestAuthorization
-</span><a href="#local-6989586621679811356"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cognitoIdentityPoolId:TestAuthorization' :: Maybe Text
+</span><a href="#local-6989586621679811366"><span class="hs-identifier hs-var hs-var">cognitoIdentityPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679811366"><span class="hs-identifier hs-var">cognitoIdentityPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679811365"><span class="annot"><span class="annottext">s :: TestAuthorization
+</span><a href="#local-6989586621679811365"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization%27"><span class="hs-identifier hs-type">TestAuthorization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679811364"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679811364"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestAuthorization
+</span><a href="#local-6989586621679811365"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cognitoIdentityPoolId:TestAuthorization' :: Maybe Text
 </span><a href="Network.AWS.IoT.TestAuthorization.html#%24sel%3AcognitoIdentityPoolId%3ATestAuthorization%27"><span class="hs-identifier hs-var">cognitoIdentityPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679811355"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization"><span class="hs-identifier hs-type">TestAuthorization</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679811364"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization"><span class="hs-identifier hs-type">TestAuthorization</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | When testing custom authorization, the policies specified here are</span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- treated as if they are not attached to the principal being authorized.</span><span>
@@ -320,16 +320,16 @@ $sel:cognitoIdentityPoolId:TestAuthorization' :: TestAuthorization -&gt; Maybe T
 -&gt; Lens
      TestAuthorization TestAuthorization (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization%27"><span class="hs-identifier hs-type">TestAuthorization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679811354"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization%27"><span class="hs-identifier hs-type">TestAuthorization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679811363"><span class="annot"><span class="annottext">Maybe [Text]
 policyNamesToSkip :: Maybe [Text]
 $sel:policyNamesToSkip:TestAuthorization' :: TestAuthorization -&gt; Maybe [Text]
-</span><a href="#local-6989586621679811354"><span class="hs-identifier hs-var hs-var">policyNamesToSkip</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679811354"><span class="hs-identifier hs-var">policyNamesToSkip</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679811353"><span class="annot"><span class="annottext">s :: TestAuthorization
-</span><a href="#local-6989586621679811353"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization%27"><span class="hs-identifier hs-type">TestAuthorization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679811352"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679811352"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestAuthorization
-</span><a href="#local-6989586621679811353"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyNamesToSkip:TestAuthorization' :: Maybe [Text]
+</span><a href="#local-6989586621679811363"><span class="hs-identifier hs-var hs-var">policyNamesToSkip</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679811363"><span class="hs-identifier hs-var">policyNamesToSkip</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679811362"><span class="annot"><span class="annottext">s :: TestAuthorization
+</span><a href="#local-6989586621679811362"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization%27"><span class="hs-identifier hs-type">TestAuthorization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679811361"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679811361"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestAuthorization
+</span><a href="#local-6989586621679811362"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyNamesToSkip:TestAuthorization' :: Maybe [Text]
 </span><a href="Network.AWS.IoT.TestAuthorization.html#%24sel%3ApolicyNamesToSkip%3ATestAuthorization%27"><span class="hs-identifier hs-var">policyNamesToSkip</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679811352"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization"><span class="hs-identifier hs-type">TestAuthorization</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679811361"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization"><span class="hs-identifier hs-type">TestAuthorization</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; TestAuthorization -&gt; f TestAuthorization)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -359,16 +359,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (NonEmpty AuthInfo)
      (NonEmpty AuthInfo)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization%27"><span class="hs-identifier hs-type">TestAuthorization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679811351"><span class="annot"><span class="annottext">NonEmpty AuthInfo
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization%27"><span class="hs-identifier hs-type">TestAuthorization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679811360"><span class="annot"><span class="annottext">NonEmpty AuthInfo
 authInfos :: NonEmpty AuthInfo
 $sel:authInfos:TestAuthorization' :: TestAuthorization -&gt; NonEmpty AuthInfo
-</span><a href="#local-6989586621679811351"><span class="hs-identifier hs-var hs-var">authInfos</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty AuthInfo
-</span><a href="#local-6989586621679811351"><span class="hs-identifier hs-var">authInfos</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679811350"><span class="annot"><span class="annottext">s :: TestAuthorization
-</span><a href="#local-6989586621679811350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization%27"><span class="hs-identifier hs-type">TestAuthorization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679811349"><span class="annot"><span class="annottext">NonEmpty AuthInfo
-</span><a href="#local-6989586621679811349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestAuthorization
-</span><a href="#local-6989586621679811350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authInfos:TestAuthorization' :: NonEmpty AuthInfo
+</span><a href="#local-6989586621679811360"><span class="hs-identifier hs-var hs-var">authInfos</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty AuthInfo
+</span><a href="#local-6989586621679811360"><span class="hs-identifier hs-var">authInfos</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679811359"><span class="annot"><span class="annottext">s :: TestAuthorization
+</span><a href="#local-6989586621679811359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization%27"><span class="hs-identifier hs-type">TestAuthorization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679811358"><span class="annot"><span class="annottext">NonEmpty AuthInfo
+</span><a href="#local-6989586621679811358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestAuthorization
+</span><a href="#local-6989586621679811359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authInfos:TestAuthorization' :: NonEmpty AuthInfo
 </span><a href="Network.AWS.IoT.TestAuthorization.html#%24sel%3AauthInfos%3ATestAuthorization%27"><span class="hs-identifier hs-var">authInfos</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty AuthInfo
-</span><a href="#local-6989586621679811349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization"><span class="hs-identifier hs-type">TestAuthorization</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty AuthInfo -&gt; f (NonEmpty AuthInfo))
+</span><a href="#local-6989586621679811358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization"><span class="hs-identifier hs-type">TestAuthorization</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty AuthInfo -&gt; f (NonEmpty AuthInfo))
  -&gt; TestAuthorization -&gt; f TestAuthorization)
 -&gt; ((NonEmpty AuthInfo -&gt; f (NonEmpty AuthInfo))
     -&gt; NonEmpty AuthInfo -&gt; f (NonEmpty AuthInfo))
@@ -385,12 +385,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-153"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-154"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization"><span class="hs-identifier hs-type">TestAuthorization</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorizationResponse"><span class="hs-identifier hs-type">TestAuthorizationResponse</span></a></span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679811345"><span class="annot"><span class="annottext">request :: TestAuthorization -&gt; Request TestAuthorization
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679811354"><span class="annot"><span class="annottext">request :: TestAuthorization -&gt; Request TestAuthorization
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; TestAuthorization -&gt; Request TestAuthorization
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679811341"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679811350"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy TestAuthorization
 -&gt; ClientResponse ClientBody
@@ -416,10 +416,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-159"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679811338"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679811338"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679811337"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679811337"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679811336"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679811336"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679811347"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679811347"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679811346"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679811346"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679811345"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679811345"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-160"></span><span>          </span><span class="annot"><span class="annottext">Maybe [AuthResult] -&gt; Int -&gt; TestAuthorizationResponse
 </span><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorizationResponse%27"><span class="hs-identifier hs-var">TestAuthorizationResponse'</span></a></span><span>
 </span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [AuthResult] -&gt; Int -&gt; TestAuthorizationResponse)
@@ -427,7 +427,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; TestAuthorizationResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679811336"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [AuthResult]))
+</span><a href="#local-6989586621679811345"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [AuthResult]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;authResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [AuthResult]))
@@ -444,24 +444,24 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679811338"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679811347"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679811327"><span id="local-6989586621679811329"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization"><span class="hs-identifier hs-type">TestAuthorization</span></a></span></span></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679811336"><span id="local-6989586621679811338"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization"><span class="hs-identifier hs-type">TestAuthorization</span></a></span></span></span><span>
 </span><span id="line-166"></span><span>
-</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679811324"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization"><span class="hs-identifier hs-type">TestAuthorization</span></a></span></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679811333"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization"><span class="hs-identifier hs-type">TestAuthorization</span></a></span></span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization"><span class="hs-identifier hs-type">TestAuthorization</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679811320"><span class="annot"><span class="annottext">toHeaders :: TestAuthorization -&gt; ResponseHeaders
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679811329"><span class="annot"><span class="annottext">toHeaders :: TestAuthorization -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; TestAuthorization -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-171"></span><span>
-</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679811311"><span id="local-6989586621679811313"><span id="local-6989586621679811315"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization"><span class="hs-identifier hs-type">TestAuthorization</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679811309"><span class="annot"><span class="annottext">toJSON :: TestAuthorization -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization%27"><span class="hs-identifier hs-type">TestAuthorization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679811302"><span id="local-6989586621679811303"><span id="local-6989586621679811304"><span id="local-6989586621679811305"><span id="local-6989586621679811306"><span id="local-6989586621679811307"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679811320"><span id="local-6989586621679811322"><span id="local-6989586621679811324"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization"><span class="hs-identifier hs-type">TestAuthorization</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679811318"><span class="annot"><span class="annottext">toJSON :: TestAuthorization -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization%27"><span class="hs-identifier hs-type">TestAuthorization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679811311"><span id="local-6989586621679811312"><span id="local-6989586621679811313"><span id="local-6989586621679811314"><span id="local-6989586621679811315"><span id="local-6989586621679811316"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe Text
 NonEmpty AuthInfo
 authInfos :: NonEmpty AuthInfo
@@ -476,7 +476,7 @@ $sel:cognitoIdentityPoolId:TestAuthorization' :: TestAuthorization -&gt; Maybe T
 $sel:principal:TestAuthorization' :: TestAuthorization -&gt; Maybe Text
 $sel:policyNamesToAdd:TestAuthorization' :: TestAuthorization -&gt; Maybe [Text]
 $sel:clientId:TestAuthorization' :: TestAuthorization -&gt; Maybe Text
-</span><a href="#local-6989586621679811302"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679811311"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-175"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -489,14 +489,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-177"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679811306"><span class="hs-identifier hs-var">policyNamesToAdd</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679811315"><span class="hs-identifier hs-var">policyNamesToAdd</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-178"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;principal&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679811305"><span class="hs-identifier hs-var">principal</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679811314"><span class="hs-identifier hs-var">principal</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-179"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cognitoIdentityPoolId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -504,7 +504,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-180"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679811304"><span class="hs-identifier hs-var">cognitoIdentityPoolId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679811313"><span class="hs-identifier hs-var">cognitoIdentityPoolId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-181"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;policyNamesToSkip&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -512,27 +512,27 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-182"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679811303"><span class="hs-identifier hs-var">policyNamesToSkip</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679811312"><span class="hs-identifier hs-var">policyNamesToSkip</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;authInfos&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty AuthInfo -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty AuthInfo
-</span><a href="#local-6989586621679811302"><span class="hs-identifier hs-var">authInfos</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679811311"><span class="hs-identifier hs-var">authInfos</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-185"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization"><span class="hs-identifier hs-type">TestAuthorization</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-188"></span><span>  </span><span id="local-6989586621679811296"><span class="annot"><span class="annottext">toPath :: TestAuthorization -&gt; ByteString
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679811305"><span class="annot"><span class="annottext">toPath :: TestAuthorization -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; TestAuthorization -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/test-authorization&quot;</span></span><span>
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization"><span class="hs-identifier hs-type">TestAuthorization</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-191"></span><span>  </span><span id="local-6989586621679811292"><span class="annot"><span class="annottext">toQuery :: TestAuthorization -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization%27"><span class="hs-identifier hs-type">TestAuthorization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679811285"><span id="local-6989586621679811286"><span id="local-6989586621679811287"><span id="local-6989586621679811288"><span id="local-6989586621679811289"><span id="local-6989586621679811290"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679811301"><span class="annot"><span class="annottext">toQuery :: TestAuthorization -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorization%27"><span class="hs-identifier hs-type">TestAuthorization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679811294"><span id="local-6989586621679811295"><span id="local-6989586621679811296"><span id="local-6989586621679811297"><span id="local-6989586621679811298"><span id="local-6989586621679811299"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe Text
 NonEmpty AuthInfo
 authInfos :: NonEmpty AuthInfo
@@ -547,17 +547,17 @@ $sel:cognitoIdentityPoolId:TestAuthorization' :: TestAuthorization -&gt; Maybe T
 $sel:principal:TestAuthorization' :: TestAuthorization -&gt; Maybe Text
 $sel:policyNamesToAdd:TestAuthorization' :: TestAuthorization -&gt; Maybe [Text]
 $sel:clientId:TestAuthorization' :: TestAuthorization -&gt; Maybe Text
-</span><a href="#local-6989586621679811285"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679811294"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-192"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;clientId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679811290"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679811299"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-193"></span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- | /See:/ 'newTestAuthorizationResponse' smart constructor.</span><span>
-</span><span id="line-195"></span><span id="local-6989586621679811282"><span id="local-6989586621679811283"></span></span><span class="hs-keyword">data</span><span> </span><span id="TestAuthorizationResponse"><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorizationResponse"><span class="hs-identifier hs-var">TestAuthorizationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TestAuthorizationResponse%27"><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorizationResponse%27"><span class="hs-identifier hs-var">TestAuthorizationResponse'</span></a></span></span><span>
+</span><span id="line-195"></span><span id="local-6989586621679811291"><span id="local-6989586621679811292"></span></span><span class="hs-keyword">data</span><span> </span><span id="TestAuthorizationResponse"><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorizationResponse"><span class="hs-identifier hs-var">TestAuthorizationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TestAuthorizationResponse%27"><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorizationResponse%27"><span class="hs-identifier hs-var">TestAuthorizationResponse'</span></a></span></span><span>
 </span><span id="line-196"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The authentication results.</span><span>
 </span><span id="line-197"></span><span>    </span><span id="%24sel%3AauthResults%3ATestAuthorizationResponse%27"><span class="annot"><span class="annottext">TestAuthorizationResponse -&gt; Maybe [AuthResult]
 </span><a href="Network.AWS.IoT.TestAuthorization.html#%24sel%3AauthResults%3ATestAuthorizationResponse%27"><span class="hs-identifier hs-var hs-var">authResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthResult.html#AuthResult"><span class="hs-identifier hs-type">AuthResult</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -565,7 +565,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-199"></span><span>    </span><span id="%24sel%3AhttpStatus%3ATestAuthorizationResponse%27"><span class="annot"><span class="annottext">TestAuthorizationResponse -&gt; Int
 </span><a href="Network.AWS.IoT.TestAuthorization.html#%24sel%3AhttpStatus%3ATestAuthorizationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-200"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-201"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679811276"><span id="local-6989586621679811278"><span class="annot"><span class="annottext">TestAuthorizationResponse -&gt; TestAuthorizationResponse -&gt; Bool
+</span><span id="line-201"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679811285"><span id="local-6989586621679811287"><span class="annot"><span class="annottext">TestAuthorizationResponse -&gt; TestAuthorizationResponse -&gt; Bool
 (TestAuthorizationResponse -&gt; TestAuthorizationResponse -&gt; Bool)
 -&gt; (TestAuthorizationResponse -&gt; TestAuthorizationResponse -&gt; Bool)
 -&gt; Eq TestAuthorizationResponse
@@ -574,7 +574,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TestAuthorizationResponse -&gt; TestAuthorizationResponse -&gt; Bool
 == :: TestAuthorizationResponse -&gt; TestAuthorizationResponse -&gt; Bool
 $c== :: TestAuthorizationResponse -&gt; TestAuthorizationResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679811268"><span id="local-6989586621679811270"><span id="local-6989586621679811272"><span id="local-6989586621679811274"><span class="annot"><span class="annottext">ReadPrec [TestAuthorizationResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679811277"><span id="local-6989586621679811279"><span id="local-6989586621679811281"><span id="local-6989586621679811283"><span class="annot"><span class="annottext">ReadPrec [TestAuthorizationResponse]
 ReadPrec TestAuthorizationResponse
 Int -&gt; ReadS TestAuthorizationResponse
 ReadS [TestAuthorizationResponse]
@@ -594,7 +594,7 @@ readList :: ReadS [TestAuthorizationResponse]
 $creadList :: ReadS [TestAuthorizationResponse]
 readsPrec :: Int -&gt; ReadS TestAuthorizationResponse
 $creadsPrec :: Int -&gt; ReadS TestAuthorizationResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679811262"><span id="local-6989586621679811264"><span id="local-6989586621679811266"><span class="annot"><span class="annottext">Int -&gt; TestAuthorizationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679811271"><span id="local-6989586621679811273"><span id="local-6989586621679811275"><span class="annot"><span class="annottext">Int -&gt; TestAuthorizationResponse -&gt; ShowS
 [TestAuthorizationResponse] -&gt; ShowS
 TestAuthorizationResponse -&gt; String
 (Int -&gt; TestAuthorizationResponse -&gt; ShowS)
@@ -642,8 +642,8 @@ TestAuthorizationResponse -&gt; Rep TestAuthorizationResponse x
 </span><span id="line-216"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-217"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorizationResponse"><span class="hs-identifier hs-type">TestAuthorizationResponse</span></a></span><span>
 </span><span id="line-218"></span><span id="newTestAuthorizationResponse"><span class="annot"><span class="annottext">newTestAuthorizationResponse :: Int -&gt; TestAuthorizationResponse
-</span><a href="Network.AWS.IoT.TestAuthorization.html#newTestAuthorizationResponse"><span class="hs-identifier hs-var hs-var">newTestAuthorizationResponse</span></a></span></span><span> </span><span id="local-6989586621679811259"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679811259"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.TestAuthorization.html#newTestAuthorizationResponse"><span class="hs-identifier hs-var hs-var">newTestAuthorizationResponse</span></a></span></span><span> </span><span id="local-6989586621679811268"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679811268"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-219"></span><span>  </span><span class="annot"><span class="annottext">TestAuthorizationResponse' :: Maybe [AuthResult] -&gt; Int -&gt; TestAuthorizationResponse
 </span><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorizationResponse%27"><span class="hs-identifier hs-type">TestAuthorizationResponse'</span></a></span><span>
 </span><span id="line-220"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:authResults:TestAuthorizationResponse' :: Maybe [AuthResult]
@@ -653,7 +653,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-222"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:TestAuthorizationResponse' :: Int
 </span><a href="Network.AWS.IoT.TestAuthorization.html#%24sel%3AhttpStatus%3ATestAuthorizationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679811259"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679811268"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-223"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-224"></span><span>
 </span><span id="line-225"></span><span class="hs-comment">-- | The authentication results.</span><span>
@@ -669,16 +669,16 @@ forall a. Maybe a
      (Maybe [AuthResult])
      (Maybe [AuthResult])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorizationResponse%27"><span class="hs-identifier hs-type">TestAuthorizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679811258"><span class="annot"><span class="annottext">Maybe [AuthResult]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorizationResponse%27"><span class="hs-identifier hs-type">TestAuthorizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679811267"><span class="annot"><span class="annottext">Maybe [AuthResult]
 authResults :: Maybe [AuthResult]
 $sel:authResults:TestAuthorizationResponse' :: TestAuthorizationResponse -&gt; Maybe [AuthResult]
-</span><a href="#local-6989586621679811258"><span class="hs-identifier hs-var hs-var">authResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AuthResult]
-</span><a href="#local-6989586621679811258"><span class="hs-identifier hs-var">authResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679811257"><span class="annot"><span class="annottext">s :: TestAuthorizationResponse
-</span><a href="#local-6989586621679811257"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorizationResponse%27"><span class="hs-identifier hs-type">TestAuthorizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679811256"><span class="annot"><span class="annottext">Maybe [AuthResult]
-</span><a href="#local-6989586621679811256"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestAuthorizationResponse
-</span><a href="#local-6989586621679811257"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authResults:TestAuthorizationResponse' :: Maybe [AuthResult]
+</span><a href="#local-6989586621679811267"><span class="hs-identifier hs-var hs-var">authResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AuthResult]
+</span><a href="#local-6989586621679811267"><span class="hs-identifier hs-var">authResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679811266"><span class="annot"><span class="annottext">s :: TestAuthorizationResponse
+</span><a href="#local-6989586621679811266"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorizationResponse%27"><span class="hs-identifier hs-type">TestAuthorizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679811265"><span class="annot"><span class="annottext">Maybe [AuthResult]
+</span><a href="#local-6989586621679811265"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestAuthorizationResponse
+</span><a href="#local-6989586621679811266"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authResults:TestAuthorizationResponse' :: Maybe [AuthResult]
 </span><a href="Network.AWS.IoT.TestAuthorization.html#%24sel%3AauthResults%3ATestAuthorizationResponse%27"><span class="hs-identifier hs-var">authResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AuthResult]
-</span><a href="#local-6989586621679811256"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorizationResponse"><span class="hs-identifier hs-type">TestAuthorizationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AuthResult] -&gt; f (Maybe [AuthResult]))
+</span><a href="#local-6989586621679811265"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorizationResponse"><span class="hs-identifier hs-type">TestAuthorizationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AuthResult] -&gt; f (Maybe [AuthResult]))
  -&gt; TestAuthorizationResponse -&gt; f TestAuthorizationResponse)
 -&gt; ((Maybe [AuthResult] -&gt; f (Maybe [AuthResult]))
     -&gt; Maybe [AuthResult] -&gt; f (Maybe [AuthResult]))
@@ -707,16 +707,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (TestAuthorizationResponse -&gt; Int -&gt; TestAuthorizationResponse)
 -&gt; Lens TestAuthorizationResponse TestAuthorizationResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorizationResponse%27"><span class="hs-identifier hs-type">TestAuthorizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679811255"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorizationResponse%27"><span class="hs-identifier hs-type">TestAuthorizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679811264"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:TestAuthorizationResponse' :: TestAuthorizationResponse -&gt; Int
-</span><a href="#local-6989586621679811255"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679811255"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679811254"><span class="annot"><span class="annottext">s :: TestAuthorizationResponse
-</span><a href="#local-6989586621679811254"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorizationResponse%27"><span class="hs-identifier hs-type">TestAuthorizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679811253"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679811253"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestAuthorizationResponse
-</span><a href="#local-6989586621679811254"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:TestAuthorizationResponse' :: Int
+</span><a href="#local-6989586621679811264"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679811264"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679811263"><span class="annot"><span class="annottext">s :: TestAuthorizationResponse
+</span><a href="#local-6989586621679811263"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorizationResponse%27"><span class="hs-identifier hs-type">TestAuthorizationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679811262"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679811262"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestAuthorizationResponse
+</span><a href="#local-6989586621679811263"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:TestAuthorizationResponse' :: Int
 </span><a href="Network.AWS.IoT.TestAuthorization.html#%24sel%3AhttpStatus%3ATestAuthorizationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679811253"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorizationResponse"><span class="hs-identifier hs-type">TestAuthorizationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679811262"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorizationResponse"><span class="hs-identifier hs-type">TestAuthorizationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-232"></span><span>
-</span><span id="line-233"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679811251"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorizationResponse"><span class="hs-identifier hs-type">TestAuthorizationResponse</span></a></span></span><span>
+</span><span id="line-233"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679811260"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.TestAuthorization.html#TestAuthorizationResponse"><span class="hs-identifier hs-type">TestAuthorizationResponse</span></a></span></span><span>
 </span><span id="line-234"></span></pre></body></html>

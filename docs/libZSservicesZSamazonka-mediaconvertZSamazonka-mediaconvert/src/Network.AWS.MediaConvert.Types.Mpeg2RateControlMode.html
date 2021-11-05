@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | Use Rate control mode (Mpeg2RateControlMode) to specify whether the</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- bitrate is variable (vbr) or constant (cbr).</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679994125"><span id="local-6989586621679994126"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Mpeg2RateControlMode"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2RateControlMode.html#Mpeg2RateControlMode"><span class="hs-identifier hs-var">Mpeg2RateControlMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Mpeg2RateControlMode%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2RateControlMode.html#Mpeg2RateControlMode%27"><span class="hs-identifier hs-var">Mpeg2RateControlMode'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679994134"><span id="local-6989586621679994135"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Mpeg2RateControlMode"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2RateControlMode.html#Mpeg2RateControlMode"><span class="hs-identifier hs-var">Mpeg2RateControlMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Mpeg2RateControlMode%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2RateControlMode.html#Mpeg2RateControlMode%27"><span class="hs-identifier hs-var">Mpeg2RateControlMode'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMpeg2RateControlMode"><span class="annot"><span class="annottext">Mpeg2RateControlMode -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.Mpeg2RateControlMode.html#fromMpeg2RateControlMode"><span class="hs-identifier hs-var hs-var">fromMpeg2RateControlMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679994117"><span id="local-6989586621679994119"><span id="local-6989586621679994121"><span class="annot"><span class="annottext">Int -&gt; Mpeg2RateControlMode -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679994126"><span id="local-6989586621679994128"><span id="local-6989586621679994130"><span class="annot"><span class="annottext">Int -&gt; Mpeg2RateControlMode -&gt; ShowS
 [Mpeg2RateControlMode] -&gt; ShowS
 Mpeg2RateControlMode -&gt; String
 (Int -&gt; Mpeg2RateControlMode -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: Mpeg2RateControlMode -&gt; String
 showsPrec :: Int -&gt; Mpeg2RateControlMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; Mpeg2RateControlMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679994108"><span id="local-6989586621679994110"><span id="local-6989586621679994112"><span id="local-6989586621679994114"><span class="annot"><span class="annottext">ReadPrec [Mpeg2RateControlMode]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679994117"><span id="local-6989586621679994119"><span id="local-6989586621679994121"><span id="local-6989586621679994123"><span class="annot"><span class="annottext">ReadPrec [Mpeg2RateControlMode]
 ReadPrec Mpeg2RateControlMode
 Int -&gt; ReadS Mpeg2RateControlMode
 ReadS [Mpeg2RateControlMode]
@@ -74,7 +74,7 @@ $creadList :: ReadS [Mpeg2RateControlMode]
 readsPrec :: Int -&gt; ReadS Mpeg2RateControlMode
 $creadsPrec :: Int -&gt; ReadS Mpeg2RateControlMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679994103"><span id="local-6989586621679994105"><span class="annot"><span class="annottext">Mpeg2RateControlMode -&gt; Mpeg2RateControlMode -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679994112"><span id="local-6989586621679994114"><span class="annot"><span class="annottext">Mpeg2RateControlMode -&gt; Mpeg2RateControlMode -&gt; Bool
 (Mpeg2RateControlMode -&gt; Mpeg2RateControlMode -&gt; Bool)
 -&gt; (Mpeg2RateControlMode -&gt; Mpeg2RateControlMode -&gt; Bool)
 -&gt; Eq Mpeg2RateControlMode
@@ -84,7 +84,7 @@ $c/= :: Mpeg2RateControlMode -&gt; Mpeg2RateControlMode -&gt; Bool
 == :: Mpeg2RateControlMode -&gt; Mpeg2RateControlMode -&gt; Bool
 $c== :: Mpeg2RateControlMode -&gt; Mpeg2RateControlMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679994087"><span id="local-6989586621679994089"><span id="local-6989586621679994091"><span id="local-6989586621679994093"><span id="local-6989586621679994095"><span id="local-6989586621679994097"><span id="local-6989586621679994099"><span class="annot"><span class="annottext">Eq Mpeg2RateControlMode
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679994096"><span id="local-6989586621679994098"><span id="local-6989586621679994100"><span id="local-6989586621679994102"><span id="local-6989586621679994104"><span id="local-6989586621679994106"><span id="local-6989586621679994108"><span class="annot"><span class="annottext">Eq Mpeg2RateControlMode
 Eq Mpeg2RateControlMode
 -&gt; (Mpeg2RateControlMode -&gt; Mpeg2RateControlMode -&gt; Ordering)
 -&gt; (Mpeg2RateControlMode -&gt; Mpeg2RateControlMode -&gt; Bool)
@@ -142,7 +142,7 @@ $cfrom :: forall x. Mpeg2RateControlMode -&gt; Rep Mpeg2RateControlMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679994079"><span id="local-6989586621679994081"><span class="annot"><span class="annottext">Int -&gt; Mpeg2RateControlMode -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679994088"><span id="local-6989586621679994090"><span class="annot"><span class="annottext">Int -&gt; Mpeg2RateControlMode -&gt; Int
 Mpeg2RateControlMode -&gt; Int
 (Int -&gt; Mpeg2RateControlMode -&gt; Int)
 -&gt; (Mpeg2RateControlMode -&gt; Int) -&gt; Hashable Mpeg2RateControlMode
@@ -152,54 +152,54 @@ $chash :: Mpeg2RateControlMode -&gt; Int
 hashWithSalt :: Int -&gt; Mpeg2RateControlMode -&gt; Int
 $chashWithSalt :: Int -&gt; Mpeg2RateControlMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679994076"><span class="annot"><span class="annottext">Mpeg2RateControlMode -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679994085"><span class="annot"><span class="annottext">Mpeg2RateControlMode -&gt; ()
 (Mpeg2RateControlMode -&gt; ()) -&gt; NFData Mpeg2RateControlMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Mpeg2RateControlMode -&gt; ()
 $crnf :: Mpeg2RateControlMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679994073"><span class="annot"><span class="annottext">Text -&gt; Either String Mpeg2RateControlMode
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679994082"><span class="annot"><span class="annottext">Text -&gt; Either String Mpeg2RateControlMode
 (Text -&gt; Either String Mpeg2RateControlMode)
 -&gt; FromText Mpeg2RateControlMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Mpeg2RateControlMode
 $cfromText :: Text -&gt; Either String Mpeg2RateControlMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679994070"><span class="annot"><span class="annottext">Mpeg2RateControlMode -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679994079"><span class="annot"><span class="annottext">Mpeg2RateControlMode -&gt; Text
 (Mpeg2RateControlMode -&gt; Text) -&gt; ToText Mpeg2RateControlMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Mpeg2RateControlMode -&gt; Text
 $ctoText :: Mpeg2RateControlMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679994067"><span class="annot"><span class="annottext">Mpeg2RateControlMode -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679994076"><span class="annot"><span class="annottext">Mpeg2RateControlMode -&gt; ByteString
 (Mpeg2RateControlMode -&gt; ByteString)
 -&gt; ToByteString Mpeg2RateControlMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Mpeg2RateControlMode -&gt; ByteString
 $ctoBS :: Mpeg2RateControlMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679994064"><span class="annot"><span class="annottext">Mpeg2RateControlMode -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679994073"><span class="annot"><span class="annottext">Mpeg2RateControlMode -&gt; ByteStringBuilder
 (Mpeg2RateControlMode -&gt; ByteStringBuilder)
 -&gt; ToLog Mpeg2RateControlMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Mpeg2RateControlMode -&gt; ByteStringBuilder
 $cbuild :: Mpeg2RateControlMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679994061"><span class="annot"><span class="annottext">HeaderName -&gt; Mpeg2RateControlMode -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679994070"><span class="annot"><span class="annottext">HeaderName -&gt; Mpeg2RateControlMode -&gt; [Header]
 (HeaderName -&gt; Mpeg2RateControlMode -&gt; [Header])
 -&gt; ToHeader Mpeg2RateControlMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Mpeg2RateControlMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Mpeg2RateControlMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679994058"><span class="annot"><span class="annottext">Mpeg2RateControlMode -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679994067"><span class="annot"><span class="annottext">Mpeg2RateControlMode -&gt; QueryString
 (Mpeg2RateControlMode -&gt; QueryString)
 -&gt; ToQuery Mpeg2RateControlMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Mpeg2RateControlMode -&gt; QueryString
 $ctoQuery :: Mpeg2RateControlMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679994053"><span id="local-6989586621679994055"><span class="annot"><span class="annottext">Value -&gt; Parser [Mpeg2RateControlMode]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679994062"><span id="local-6989586621679994064"><span class="annot"><span class="annottext">Value -&gt; Parser [Mpeg2RateControlMode]
 Value -&gt; Parser Mpeg2RateControlMode
 (Value -&gt; Parser Mpeg2RateControlMode)
 -&gt; (Value -&gt; Parser [Mpeg2RateControlMode])
@@ -211,7 +211,7 @@ $cparseJSONList :: Value -&gt; Parser [Mpeg2RateControlMode]
 parseJSON :: Value -&gt; Parser Mpeg2RateControlMode
 $cparseJSON :: Value -&gt; Parser Mpeg2RateControlMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679994048"><span id="local-6989586621679994050"><span class="annot"><span class="annottext">FromJSONKeyFunction [Mpeg2RateControlMode]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679994057"><span id="local-6989586621679994059"><span class="annot"><span class="annottext">FromJSONKeyFunction [Mpeg2RateControlMode]
 FromJSONKeyFunction Mpeg2RateControlMode
 FromJSONKeyFunction Mpeg2RateControlMode
 -&gt; FromJSONKeyFunction [Mpeg2RateControlMode]
@@ -223,7 +223,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Mpeg2RateControlMode]
 fromJSONKey :: FromJSONKeyFunction Mpeg2RateControlMode
 $cfromJSONKey :: FromJSONKeyFunction Mpeg2RateControlMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679994039"><span id="local-6989586621679994041"><span id="local-6989586621679994043"><span id="local-6989586621679994045"><span class="annot"><span class="annottext">[Mpeg2RateControlMode] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679994048"><span id="local-6989586621679994050"><span id="local-6989586621679994052"><span id="local-6989586621679994054"><span class="annot"><span class="annottext">[Mpeg2RateControlMode] -&gt; Encoding
 [Mpeg2RateControlMode] -&gt; Value
 Mpeg2RateControlMode -&gt; Encoding
 Mpeg2RateControlMode -&gt; Value
@@ -247,7 +247,7 @@ $ctoEncoding :: Mpeg2RateControlMode -&gt; Encoding
 toJSON :: Mpeg2RateControlMode -&gt; Value
 $ctoJSON :: Mpeg2RateControlMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679994034"><span id="local-6989586621679994036"><span class="annot"><span class="annottext">ToJSONKeyFunction [Mpeg2RateControlMode]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679994043"><span id="local-6989586621679994045"><span class="annot"><span class="annottext">ToJSONKeyFunction [Mpeg2RateControlMode]
 ToJSONKeyFunction Mpeg2RateControlMode
 ToJSONKeyFunction Mpeg2RateControlMode
 -&gt; ToJSONKeyFunction [Mpeg2RateControlMode]
@@ -259,14 +259,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Mpeg2RateControlMode]
 toJSONKey :: ToJSONKeyFunction Mpeg2RateControlMode
 $ctoJSONKey :: ToJSONKeyFunction Mpeg2RateControlMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679994031"><span class="annot"><span class="annottext">[Node] -&gt; Either String Mpeg2RateControlMode
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679994040"><span class="annot"><span class="annottext">[Node] -&gt; Either String Mpeg2RateControlMode
 ([Node] -&gt; Either String Mpeg2RateControlMode)
 -&gt; FromXML Mpeg2RateControlMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Mpeg2RateControlMode
 $cparseXML :: [Node] -&gt; Either String Mpeg2RateControlMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679994028"><span class="annot"><span class="annottext">Mpeg2RateControlMode -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679994037"><span class="annot"><span class="annottext">Mpeg2RateControlMode -&gt; XML
 (Mpeg2RateControlMode -&gt; XML) -&gt; ToXML Mpeg2RateControlMode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Mpeg2RateControlMode -&gt; XML

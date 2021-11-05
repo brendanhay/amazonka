@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newListRealtimeLogConfigs' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679409795"><span id="local-6989586621679409796"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListRealtimeLogConfigs"><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigs"><span class="hs-identifier hs-var">ListRealtimeLogConfigs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListRealtimeLogConfigs%27"><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigs%27"><span class="hs-identifier hs-var">ListRealtimeLogConfigs'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679409804"><span id="local-6989586621679409805"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListRealtimeLogConfigs"><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigs"><span class="hs-identifier hs-var">ListRealtimeLogConfigs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListRealtimeLogConfigs%27"><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigs%27"><span class="hs-identifier hs-var">ListRealtimeLogConfigs'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Use this field when paginating results to indicate where to begin in</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- your list of real-time log configurations. The response includes</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- real-time log configurations in the list that occur after the marker. To</span><span>
@@ -68,7 +68,7 @@
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3AmaxItems%3AListRealtimeLogConfigs%27"><span class="annot"><span class="annottext">ListRealtimeLogConfigs -&gt; Maybe Text
 </span><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#%24sel%3AmaxItems%3AListRealtimeLogConfigs%27"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679409788"><span id="local-6989586621679409790"><span class="annot"><span class="annottext">ListRealtimeLogConfigs -&gt; ListRealtimeLogConfigs -&gt; Bool
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679409797"><span id="local-6989586621679409799"><span class="annot"><span class="annottext">ListRealtimeLogConfigs -&gt; ListRealtimeLogConfigs -&gt; Bool
 (ListRealtimeLogConfigs -&gt; ListRealtimeLogConfigs -&gt; Bool)
 -&gt; (ListRealtimeLogConfigs -&gt; ListRealtimeLogConfigs -&gt; Bool)
 -&gt; Eq ListRealtimeLogConfigs
@@ -77,7 +77,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListRealtimeLogConfigs -&gt; ListRealtimeLogConfigs -&gt; Bool
 == :: ListRealtimeLogConfigs -&gt; ListRealtimeLogConfigs -&gt; Bool
 $c== :: ListRealtimeLogConfigs -&gt; ListRealtimeLogConfigs -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679409779"><span id="local-6989586621679409781"><span id="local-6989586621679409783"><span id="local-6989586621679409785"><span class="annot"><span class="annottext">ReadPrec [ListRealtimeLogConfigs]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679409788"><span id="local-6989586621679409790"><span id="local-6989586621679409792"><span id="local-6989586621679409794"><span class="annot"><span class="annottext">ReadPrec [ListRealtimeLogConfigs]
 ReadPrec ListRealtimeLogConfigs
 Int -&gt; ReadS ListRealtimeLogConfigs
 ReadS [ListRealtimeLogConfigs]
@@ -97,7 +97,7 @@ readList :: ReadS [ListRealtimeLogConfigs]
 $creadList :: ReadS [ListRealtimeLogConfigs]
 readsPrec :: Int -&gt; ReadS ListRealtimeLogConfigs
 $creadsPrec :: Int -&gt; ReadS ListRealtimeLogConfigs
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679409772"><span id="local-6989586621679409774"><span id="local-6989586621679409776"><span class="annot"><span class="annottext">Int -&gt; ListRealtimeLogConfigs -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679409781"><span id="local-6989586621679409783"><span id="local-6989586621679409785"><span class="annot"><span class="annottext">Int -&gt; ListRealtimeLogConfigs -&gt; ShowS
 [ListRealtimeLogConfigs] -&gt; ShowS
 ListRealtimeLogConfigs -&gt; String
 (Int -&gt; ListRealtimeLogConfigs -&gt; ShowS)
@@ -172,16 +172,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigs%27"><span class="hs-identifier hs-type">ListRealtimeLogConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409765"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigs%27"><span class="hs-identifier hs-type">ListRealtimeLogConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409774"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:ListRealtimeLogConfigs' :: ListRealtimeLogConfigs -&gt; Maybe Text
-</span><a href="#local-6989586621679409765"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679409765"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409764"><span class="annot"><span class="annottext">s :: ListRealtimeLogConfigs
-</span><a href="#local-6989586621679409764"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigs%27"><span class="hs-identifier hs-type">ListRealtimeLogConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409763"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679409763"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRealtimeLogConfigs
-</span><a href="#local-6989586621679409764"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListRealtimeLogConfigs' :: Maybe Text
+</span><a href="#local-6989586621679409774"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679409774"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409773"><span class="annot"><span class="annottext">s :: ListRealtimeLogConfigs
+</span><a href="#local-6989586621679409773"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigs%27"><span class="hs-identifier hs-type">ListRealtimeLogConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409772"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679409772"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRealtimeLogConfigs
+</span><a href="#local-6989586621679409773"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListRealtimeLogConfigs' :: Maybe Text
 </span><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#%24sel%3Amarker%3AListRealtimeLogConfigs%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679409763"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigs"><span class="hs-identifier hs-type">ListRealtimeLogConfigs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679409772"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigs"><span class="hs-identifier hs-type">ListRealtimeLogConfigs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | The maximum number of real-time log configurations that you want in the</span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- response.</span><span>
@@ -196,27 +196,27 @@ $sel:marker:ListRealtimeLogConfigs' :: ListRealtimeLogConfigs -&gt; Maybe Text
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigs%27"><span class="hs-identifier hs-type">ListRealtimeLogConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409762"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigs%27"><span class="hs-identifier hs-type">ListRealtimeLogConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409771"><span class="annot"><span class="annottext">Maybe Text
 maxItems :: Maybe Text
 $sel:maxItems:ListRealtimeLogConfigs' :: ListRealtimeLogConfigs -&gt; Maybe Text
-</span><a href="#local-6989586621679409762"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679409762"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409761"><span class="annot"><span class="annottext">s :: ListRealtimeLogConfigs
-</span><a href="#local-6989586621679409761"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigs%27"><span class="hs-identifier hs-type">ListRealtimeLogConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409760"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679409760"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRealtimeLogConfigs
-</span><a href="#local-6989586621679409761"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListRealtimeLogConfigs' :: Maybe Text
+</span><a href="#local-6989586621679409771"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679409771"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409770"><span class="annot"><span class="annottext">s :: ListRealtimeLogConfigs
+</span><a href="#local-6989586621679409770"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigs%27"><span class="hs-identifier hs-type">ListRealtimeLogConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409769"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679409769"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRealtimeLogConfigs
+</span><a href="#local-6989586621679409770"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListRealtimeLogConfigs' :: Maybe Text
 </span><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#%24sel%3AmaxItems%3AListRealtimeLogConfigs%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679409760"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigs"><span class="hs-identifier hs-type">ListRealtimeLogConfigs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679409769"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigs"><span class="hs-identifier hs-type">ListRealtimeLogConfigs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigs"><span class="hs-identifier hs-type">ListRealtimeLogConfigs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-109"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-110"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigs"><span class="hs-identifier hs-type">ListRealtimeLogConfigs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigsResponse"><span class="hs-identifier hs-type">ListRealtimeLogConfigsResponse</span></a></span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679409756"><span class="annot"><span class="annottext">request :: ListRealtimeLogConfigs -&gt; Request ListRealtimeLogConfigs
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679409765"><span class="annot"><span class="annottext">request :: ListRealtimeLogConfigs -&gt; Request ListRealtimeLogConfigs
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListRealtimeLogConfigs -&gt; Request ListRealtimeLogConfigs
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudFront.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679409752"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679409761"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListRealtimeLogConfigs
 -&gt; ClientResponse ClientBody
@@ -242,10 +242,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679409749"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679409749"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679409748"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679409748"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679409747"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679409747"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679409758"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679409758"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679409757"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679409757"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679409756"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679409756"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-116"></span><span>          </span><span class="annot"><span class="annottext">Maybe RealtimeLogConfigs -&gt; Int -&gt; ListRealtimeLogConfigsResponse
 </span><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigsResponse%27"><span class="hs-identifier hs-var">ListRealtimeLogConfigsResponse'</span></a></span><span>
 </span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">(Maybe RealtimeLogConfigs -&gt; Int -&gt; ListRealtimeLogConfigsResponse)
@@ -255,7 +255,7 @@ forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node] -&gt; Either String (Maybe RealtimeLogConfigs)
 forall a. FromXML a =&gt; [Node] -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679409747"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679409756"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListRealtimeLogConfigsResponse)
 -&gt; Either String Int
 -&gt; Either String ListRealtimeLogConfigsResponse
@@ -265,15 +265,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679409749"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679409758"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679409739"><span id="local-6989586621679409741"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigs"><span class="hs-identifier hs-type">ListRealtimeLogConfigs</span></a></span></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679409748"><span id="local-6989586621679409750"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigs"><span class="hs-identifier hs-type">ListRealtimeLogConfigs</span></a></span></span></span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679409736"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigs"><span class="hs-identifier hs-type">ListRealtimeLogConfigs</span></a></span></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679409745"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigs"><span class="hs-identifier hs-type">ListRealtimeLogConfigs</span></a></span></span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigs"><span class="hs-identifier hs-type">ListRealtimeLogConfigs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679409732"><span class="annot"><span class="annottext">toHeaders :: ListRealtimeLogConfigs -&gt; ResponseHeaders
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679409741"><span class="annot"><span class="annottext">toHeaders :: ListRealtimeLogConfigs -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListRealtimeLogConfigs -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -281,7 +281,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigs"><span class="hs-identifier hs-type">ListRealtimeLogConfigs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679409727"><span class="annot"><span class="annottext">toPath :: ListRealtimeLogConfigs -&gt; ByteString
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679409736"><span class="annot"><span class="annottext">toPath :: ListRealtimeLogConfigs -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; ListRealtimeLogConfigs -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
@@ -289,13 +289,13 @@ forall a b. a -&gt; b -&gt; a
 </span><span class="hs-string">&quot;/2020-05-31/realtime-log-config&quot;</span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigs"><span class="hs-identifier hs-type">ListRealtimeLogConfigs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679409723"><span class="annot"><span class="annottext">toQuery :: ListRealtimeLogConfigs -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigs%27"><span class="hs-identifier hs-type">ListRealtimeLogConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409720"><span id="local-6989586621679409721"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679409732"><span class="annot"><span class="annottext">toQuery :: ListRealtimeLogConfigs -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigs%27"><span class="hs-identifier hs-type">ListRealtimeLogConfigs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409729"><span id="local-6989586621679409730"><span class="annot"><span class="annottext">Maybe Text
 maxItems :: Maybe Text
 marker :: Maybe Text
 $sel:maxItems:ListRealtimeLogConfigs' :: ListRealtimeLogConfigs -&gt; Maybe Text
 $sel:marker:ListRealtimeLogConfigs' :: ListRealtimeLogConfigs -&gt; Maybe Text
-</span><a href="#local-6989586621679409720"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679409729"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -303,16 +303,16 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679409721"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679409730"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;MaxItems&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679409720"><span class="hs-identifier hs-var">maxItems</span></a></span><span>
+</span><a href="#local-6989586621679409729"><span class="hs-identifier hs-var">maxItems</span></a></span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | /See:/ 'newListRealtimeLogConfigsResponse' smart constructor.</span><span>
-</span><span id="line-140"></span><span id="local-6989586621679409717"><span id="local-6989586621679409718"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListRealtimeLogConfigsResponse"><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigsResponse"><span class="hs-identifier hs-var">ListRealtimeLogConfigsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListRealtimeLogConfigsResponse%27"><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigsResponse%27"><span class="hs-identifier hs-var">ListRealtimeLogConfigsResponse'</span></a></span></span><span>
+</span><span id="line-140"></span><span id="local-6989586621679409726"><span id="local-6989586621679409727"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListRealtimeLogConfigsResponse"><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigsResponse"><span class="hs-identifier hs-var">ListRealtimeLogConfigsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListRealtimeLogConfigsResponse%27"><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigsResponse%27"><span class="hs-identifier hs-var">ListRealtimeLogConfigsResponse'</span></a></span></span><span>
 </span><span id="line-141"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of real-time log configurations.</span><span>
 </span><span id="line-142"></span><span>    </span><span id="%24sel%3ArealtimeLogConfigs%3AListRealtimeLogConfigsResponse%27"><span class="annot"><span class="annottext">ListRealtimeLogConfigsResponse -&gt; Maybe RealtimeLogConfigs
 </span><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#%24sel%3ArealtimeLogConfigs%3AListRealtimeLogConfigsResponse%27"><span class="hs-identifier hs-var hs-var">realtimeLogConfigs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.RealtimeLogConfigs.html#RealtimeLogConfigs"><span class="hs-identifier hs-type">RealtimeLogConfigs</span></a></span><span class="hs-special">,</span><span>
@@ -320,7 +320,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-144"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListRealtimeLogConfigsResponse%27"><span class="annot"><span class="annottext">ListRealtimeLogConfigsResponse -&gt; Int
 </span><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#%24sel%3AhttpStatus%3AListRealtimeLogConfigsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-145"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679409711"><span id="local-6989586621679409713"><span class="annot"><span class="annottext">ListRealtimeLogConfigsResponse
+</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679409720"><span id="local-6989586621679409722"><span class="annot"><span class="annottext">ListRealtimeLogConfigsResponse
 -&gt; ListRealtimeLogConfigsResponse -&gt; Bool
 (ListRealtimeLogConfigsResponse
  -&gt; ListRealtimeLogConfigsResponse -&gt; Bool)
@@ -336,7 +336,7 @@ $c/= :: ListRealtimeLogConfigsResponse
 -&gt; ListRealtimeLogConfigsResponse -&gt; Bool
 $c== :: ListRealtimeLogConfigsResponse
 -&gt; ListRealtimeLogConfigsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679409703"><span id="local-6989586621679409705"><span id="local-6989586621679409707"><span id="local-6989586621679409709"><span class="annot"><span class="annottext">ReadPrec [ListRealtimeLogConfigsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679409712"><span id="local-6989586621679409714"><span id="local-6989586621679409716"><span id="local-6989586621679409718"><span class="annot"><span class="annottext">ReadPrec [ListRealtimeLogConfigsResponse]
 ReadPrec ListRealtimeLogConfigsResponse
 Int -&gt; ReadS ListRealtimeLogConfigsResponse
 ReadS [ListRealtimeLogConfigsResponse]
@@ -356,7 +356,7 @@ readList :: ReadS [ListRealtimeLogConfigsResponse]
 $creadList :: ReadS [ListRealtimeLogConfigsResponse]
 readsPrec :: Int -&gt; ReadS ListRealtimeLogConfigsResponse
 $creadsPrec :: Int -&gt; ReadS ListRealtimeLogConfigsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679409697"><span id="local-6989586621679409699"><span id="local-6989586621679409701"><span class="annot"><span class="annottext">Int -&gt; ListRealtimeLogConfigsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679409706"><span id="local-6989586621679409708"><span id="local-6989586621679409710"><span class="annot"><span class="annottext">Int -&gt; ListRealtimeLogConfigsResponse -&gt; ShowS
 [ListRealtimeLogConfigsResponse] -&gt; ShowS
 ListRealtimeLogConfigsResponse -&gt; String
 (Int -&gt; ListRealtimeLogConfigsResponse -&gt; ShowS)
@@ -410,8 +410,8 @@ ListRealtimeLogConfigsResponse
 </span><span id="line-161"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-162"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigsResponse"><span class="hs-identifier hs-type">ListRealtimeLogConfigsResponse</span></a></span><span>
 </span><span id="line-163"></span><span id="newListRealtimeLogConfigsResponse"><span class="annot"><span class="annottext">newListRealtimeLogConfigsResponse :: Int -&gt; ListRealtimeLogConfigsResponse
-</span><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#newListRealtimeLogConfigsResponse"><span class="hs-identifier hs-var hs-var">newListRealtimeLogConfigsResponse</span></a></span></span><span> </span><span id="local-6989586621679409694"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679409694"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#newListRealtimeLogConfigsResponse"><span class="hs-identifier hs-var hs-var">newListRealtimeLogConfigsResponse</span></a></span></span><span> </span><span id="local-6989586621679409703"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679409703"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-164"></span><span>  </span><span class="annot"><span class="annottext">ListRealtimeLogConfigsResponse' :: Maybe RealtimeLogConfigs -&gt; Int -&gt; ListRealtimeLogConfigsResponse
 </span><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigsResponse%27"><span class="hs-identifier hs-type">ListRealtimeLogConfigsResponse'</span></a></span><span>
 </span><span id="line-165"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:realtimeLogConfigs:ListRealtimeLogConfigsResponse' :: Maybe RealtimeLogConfigs
@@ -421,7 +421,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListRealtimeLogConfigsResponse' :: Int
 </span><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#%24sel%3AhttpStatus%3AListRealtimeLogConfigsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679409694"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679409703"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-168"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-comment">-- | A list of real-time log configurations.</span><span>
@@ -438,16 +438,16 @@ forall a. Maybe a
      (Maybe RealtimeLogConfigs)
      (Maybe RealtimeLogConfigs)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigsResponse%27"><span class="hs-identifier hs-type">ListRealtimeLogConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409693"><span class="annot"><span class="annottext">Maybe RealtimeLogConfigs
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigsResponse%27"><span class="hs-identifier hs-type">ListRealtimeLogConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409702"><span class="annot"><span class="annottext">Maybe RealtimeLogConfigs
 realtimeLogConfigs :: Maybe RealtimeLogConfigs
 $sel:realtimeLogConfigs:ListRealtimeLogConfigsResponse' :: ListRealtimeLogConfigsResponse -&gt; Maybe RealtimeLogConfigs
-</span><a href="#local-6989586621679409693"><span class="hs-identifier hs-var hs-var">realtimeLogConfigs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RealtimeLogConfigs
-</span><a href="#local-6989586621679409693"><span class="hs-identifier hs-var">realtimeLogConfigs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409692"><span class="annot"><span class="annottext">s :: ListRealtimeLogConfigsResponse
-</span><a href="#local-6989586621679409692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigsResponse%27"><span class="hs-identifier hs-type">ListRealtimeLogConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409691"><span class="annot"><span class="annottext">Maybe RealtimeLogConfigs
-</span><a href="#local-6989586621679409691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRealtimeLogConfigsResponse
-</span><a href="#local-6989586621679409692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:realtimeLogConfigs:ListRealtimeLogConfigsResponse' :: Maybe RealtimeLogConfigs
+</span><a href="#local-6989586621679409702"><span class="hs-identifier hs-var hs-var">realtimeLogConfigs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RealtimeLogConfigs
+</span><a href="#local-6989586621679409702"><span class="hs-identifier hs-var">realtimeLogConfigs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409701"><span class="annot"><span class="annottext">s :: ListRealtimeLogConfigsResponse
+</span><a href="#local-6989586621679409701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigsResponse%27"><span class="hs-identifier hs-type">ListRealtimeLogConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409700"><span class="annot"><span class="annottext">Maybe RealtimeLogConfigs
+</span><a href="#local-6989586621679409700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRealtimeLogConfigsResponse
+</span><a href="#local-6989586621679409701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:realtimeLogConfigs:ListRealtimeLogConfigsResponse' :: Maybe RealtimeLogConfigs
 </span><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#%24sel%3ArealtimeLogConfigs%3AListRealtimeLogConfigsResponse%27"><span class="hs-identifier hs-var">realtimeLogConfigs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RealtimeLogConfigs
-</span><a href="#local-6989586621679409691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigsResponse"><span class="hs-identifier hs-type">ListRealtimeLogConfigsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679409700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigsResponse"><span class="hs-identifier hs-type">ListRealtimeLogConfigsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-175"></span><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#listRealtimeLogConfigsResponse_httpStatus"><span class="hs-identifier hs-type">listRealtimeLogConfigsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigsResponse"><span class="hs-identifier hs-type">ListRealtimeLogConfigsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -463,18 +463,18 @@ $sel:realtimeLogConfigs:ListRealtimeLogConfigsResponse' :: ListRealtimeLogConfig
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigsResponse%27"><span class="hs-identifier hs-type">ListRealtimeLogConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409690"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigsResponse%27"><span class="hs-identifier hs-type">ListRealtimeLogConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409699"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListRealtimeLogConfigsResponse' :: ListRealtimeLogConfigsResponse -&gt; Int
-</span><a href="#local-6989586621679409690"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679409690"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409689"><span class="annot"><span class="annottext">s :: ListRealtimeLogConfigsResponse
-</span><a href="#local-6989586621679409689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigsResponse%27"><span class="hs-identifier hs-type">ListRealtimeLogConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409688"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679409688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRealtimeLogConfigsResponse
-</span><a href="#local-6989586621679409689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListRealtimeLogConfigsResponse' :: Int
+</span><a href="#local-6989586621679409699"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679409699"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409698"><span class="annot"><span class="annottext">s :: ListRealtimeLogConfigsResponse
+</span><a href="#local-6989586621679409698"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigsResponse%27"><span class="hs-identifier hs-type">ListRealtimeLogConfigsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409697"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679409697"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRealtimeLogConfigsResponse
+</span><a href="#local-6989586621679409698"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListRealtimeLogConfigsResponse' :: Int
 </span><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#%24sel%3AhttpStatus%3AListRealtimeLogConfigsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679409688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigsResponse"><span class="hs-identifier hs-type">ListRealtimeLogConfigsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679409697"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigsResponse"><span class="hs-identifier hs-type">ListRealtimeLogConfigsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679409686"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679409695"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-180"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.ListRealtimeLogConfigs.html#ListRealtimeLogConfigsResponse"><span class="hs-identifier hs-type">ListRealtimeLogConfigsResponse</span></a></span></span><span>
 </span><span id="line-181"></span></pre></body></html>

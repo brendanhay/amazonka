@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ComputeOptimizer.Types.EnrollmentFilterName</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ComputeOptimizer.Types.EnrollmentFilterName</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.EnrollmentFilterName.html#EnrollmentFilterName"><span class="hs-identifier">EnrollmentFilterName</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.EnrollmentFilterName.html#EnrollmentFilterName_Status"><span class="hs-identifier">EnrollmentFilterName_Status</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679236331"><span id="local-6989586621679236332"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EnrollmentFilterName"><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.EnrollmentFilterName.html#EnrollmentFilterName"><span class="hs-identifier hs-var">EnrollmentFilterName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnrollmentFilterName%27"><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.EnrollmentFilterName.html#EnrollmentFilterName%27"><span class="hs-identifier hs-var">EnrollmentFilterName'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEnrollmentFilterName"><span class="annot"><span class="annottext">EnrollmentFilterName -&gt; Text
+</span><a href="Network.AWS.ComputeOptimizer.Types.EnrollmentFilterName.html#fromEnrollmentFilterName"><span class="hs-identifier hs-var hs-var">fromEnrollmentFilterName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679236323"><span id="local-6989586621679236325"><span id="local-6989586621679236327"><span class="annot"><span class="annottext">Int -&gt; EnrollmentFilterName -&gt; ShowS
+[EnrollmentFilterName] -&gt; ShowS
+EnrollmentFilterName -&gt; String
+(Int -&gt; EnrollmentFilterName -&gt; ShowS)
+-&gt; (EnrollmentFilterName -&gt; String)
+-&gt; ([EnrollmentFilterName] -&gt; ShowS)
+-&gt; Show EnrollmentFilterName
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EnrollmentFilterName] -&gt; ShowS
+$cshowList :: [EnrollmentFilterName] -&gt; ShowS
+show :: EnrollmentFilterName -&gt; String
+$cshow :: EnrollmentFilterName -&gt; String
+showsPrec :: Int -&gt; EnrollmentFilterName -&gt; ShowS
+$cshowsPrec :: Int -&gt; EnrollmentFilterName -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679236314"><span id="local-6989586621679236316"><span id="local-6989586621679236318"><span id="local-6989586621679236320"><span class="annot"><span class="annottext">ReadPrec [EnrollmentFilterName]
+ReadPrec EnrollmentFilterName
+Int -&gt; ReadS EnrollmentFilterName
+ReadS [EnrollmentFilterName]
+(Int -&gt; ReadS EnrollmentFilterName)
+-&gt; ReadS [EnrollmentFilterName]
+-&gt; ReadPrec EnrollmentFilterName
+-&gt; ReadPrec [EnrollmentFilterName]
+-&gt; Read EnrollmentFilterName
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EnrollmentFilterName]
+$creadListPrec :: ReadPrec [EnrollmentFilterName]
+readPrec :: ReadPrec EnrollmentFilterName
+$creadPrec :: ReadPrec EnrollmentFilterName
+readList :: ReadS [EnrollmentFilterName]
+$creadList :: ReadS [EnrollmentFilterName]
+readsPrec :: Int -&gt; ReadS EnrollmentFilterName
+$creadsPrec :: Int -&gt; ReadS EnrollmentFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679236309"><span id="local-6989586621679236311"><span class="annot"><span class="annottext">EnrollmentFilterName -&gt; EnrollmentFilterName -&gt; Bool
+(EnrollmentFilterName -&gt; EnrollmentFilterName -&gt; Bool)
+-&gt; (EnrollmentFilterName -&gt; EnrollmentFilterName -&gt; Bool)
+-&gt; Eq EnrollmentFilterName
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EnrollmentFilterName -&gt; EnrollmentFilterName -&gt; Bool
+$c/= :: EnrollmentFilterName -&gt; EnrollmentFilterName -&gt; Bool
+== :: EnrollmentFilterName -&gt; EnrollmentFilterName -&gt; Bool
+$c== :: EnrollmentFilterName -&gt; EnrollmentFilterName -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679236293"><span id="local-6989586621679236295"><span id="local-6989586621679236297"><span id="local-6989586621679236299"><span id="local-6989586621679236301"><span id="local-6989586621679236303"><span id="local-6989586621679236305"><span class="annot"><span class="annottext">Eq EnrollmentFilterName
+Eq EnrollmentFilterName
+-&gt; (EnrollmentFilterName -&gt; EnrollmentFilterName -&gt; Ordering)
+-&gt; (EnrollmentFilterName -&gt; EnrollmentFilterName -&gt; Bool)
+-&gt; (EnrollmentFilterName -&gt; EnrollmentFilterName -&gt; Bool)
+-&gt; (EnrollmentFilterName -&gt; EnrollmentFilterName -&gt; Bool)
+-&gt; (EnrollmentFilterName -&gt; EnrollmentFilterName -&gt; Bool)
+-&gt; (EnrollmentFilterName
+    -&gt; EnrollmentFilterName -&gt; EnrollmentFilterName)
+-&gt; (EnrollmentFilterName
+    -&gt; EnrollmentFilterName -&gt; EnrollmentFilterName)
+-&gt; Ord EnrollmentFilterName
+EnrollmentFilterName -&gt; EnrollmentFilterName -&gt; Bool
+EnrollmentFilterName -&gt; EnrollmentFilterName -&gt; Ordering
+EnrollmentFilterName
+-&gt; EnrollmentFilterName -&gt; EnrollmentFilterName
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: EnrollmentFilterName
+-&gt; EnrollmentFilterName -&gt; EnrollmentFilterName
+$cmin :: EnrollmentFilterName
+-&gt; EnrollmentFilterName -&gt; EnrollmentFilterName
+max :: EnrollmentFilterName
+-&gt; EnrollmentFilterName -&gt; EnrollmentFilterName
+$cmax :: EnrollmentFilterName
+-&gt; EnrollmentFilterName -&gt; EnrollmentFilterName
+&gt;= :: EnrollmentFilterName -&gt; EnrollmentFilterName -&gt; Bool
+$c&gt;= :: EnrollmentFilterName -&gt; EnrollmentFilterName -&gt; Bool
+&gt; :: EnrollmentFilterName -&gt; EnrollmentFilterName -&gt; Bool
+$c&gt; :: EnrollmentFilterName -&gt; EnrollmentFilterName -&gt; Bool
+&lt;= :: EnrollmentFilterName -&gt; EnrollmentFilterName -&gt; Bool
+$c&lt;= :: EnrollmentFilterName -&gt; EnrollmentFilterName -&gt; Bool
+&lt; :: EnrollmentFilterName -&gt; EnrollmentFilterName -&gt; Bool
+$c&lt; :: EnrollmentFilterName -&gt; EnrollmentFilterName -&gt; Bool
+compare :: EnrollmentFilterName -&gt; EnrollmentFilterName -&gt; Ordering
+$ccompare :: EnrollmentFilterName -&gt; EnrollmentFilterName -&gt; Ordering
+$cp1Ord :: Eq EnrollmentFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x. EnrollmentFilterName -&gt; Rep EnrollmentFilterName x)
+-&gt; (forall x. Rep EnrollmentFilterName x -&gt; EnrollmentFilterName)
+-&gt; Generic EnrollmentFilterName
+forall x. Rep EnrollmentFilterName x -&gt; EnrollmentFilterName
+forall x. EnrollmentFilterName -&gt; Rep EnrollmentFilterName x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep EnrollmentFilterName x -&gt; EnrollmentFilterName
+$cfrom :: forall x. EnrollmentFilterName -&gt; Rep EnrollmentFilterName x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679236285"><span id="local-6989586621679236287"><span class="annot"><span class="annottext">Int -&gt; EnrollmentFilterName -&gt; Int
+EnrollmentFilterName -&gt; Int
+(Int -&gt; EnrollmentFilterName -&gt; Int)
+-&gt; (EnrollmentFilterName -&gt; Int) -&gt; Hashable EnrollmentFilterName
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: EnrollmentFilterName -&gt; Int
+$chash :: EnrollmentFilterName -&gt; Int
+hashWithSalt :: Int -&gt; EnrollmentFilterName -&gt; Int
+$chashWithSalt :: Int -&gt; EnrollmentFilterName -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679236282"><span class="annot"><span class="annottext">EnrollmentFilterName -&gt; ()
+(EnrollmentFilterName -&gt; ()) -&gt; NFData EnrollmentFilterName
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: EnrollmentFilterName -&gt; ()
+$crnf :: EnrollmentFilterName -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679236279"><span class="annot"><span class="annottext">Text -&gt; Either String EnrollmentFilterName
+(Text -&gt; Either String EnrollmentFilterName)
+-&gt; FromText EnrollmentFilterName
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String EnrollmentFilterName
+$cfromText :: Text -&gt; Either String EnrollmentFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679236276"><span class="annot"><span class="annottext">EnrollmentFilterName -&gt; Text
+(EnrollmentFilterName -&gt; Text) -&gt; ToText EnrollmentFilterName
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: EnrollmentFilterName -&gt; Text
+$ctoText :: EnrollmentFilterName -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679236273"><span class="annot"><span class="annottext">EnrollmentFilterName -&gt; ByteString
+(EnrollmentFilterName -&gt; ByteString)
+-&gt; ToByteString EnrollmentFilterName
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: EnrollmentFilterName -&gt; ByteString
+$ctoBS :: EnrollmentFilterName -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679236270"><span class="annot"><span class="annottext">EnrollmentFilterName -&gt; ByteStringBuilder
+(EnrollmentFilterName -&gt; ByteStringBuilder)
+-&gt; ToLog EnrollmentFilterName
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: EnrollmentFilterName -&gt; ByteStringBuilder
+$cbuild :: EnrollmentFilterName -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679236267"><span class="annot"><span class="annottext">HeaderName -&gt; EnrollmentFilterName -&gt; [Header]
+(HeaderName -&gt; EnrollmentFilterName -&gt; [Header])
+-&gt; ToHeader EnrollmentFilterName
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; EnrollmentFilterName -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; EnrollmentFilterName -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679236264"><span class="annot"><span class="annottext">EnrollmentFilterName -&gt; QueryString
+(EnrollmentFilterName -&gt; QueryString)
+-&gt; ToQuery EnrollmentFilterName
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: EnrollmentFilterName -&gt; QueryString
+$ctoQuery :: EnrollmentFilterName -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679236259"><span id="local-6989586621679236261"><span class="annot"><span class="annottext">Value -&gt; Parser [EnrollmentFilterName]
+Value -&gt; Parser EnrollmentFilterName
+(Value -&gt; Parser EnrollmentFilterName)
+-&gt; (Value -&gt; Parser [EnrollmentFilterName])
+-&gt; FromJSON EnrollmentFilterName
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [EnrollmentFilterName]
+$cparseJSONList :: Value -&gt; Parser [EnrollmentFilterName]
+parseJSON :: Value -&gt; Parser EnrollmentFilterName
+$cparseJSON :: Value -&gt; Parser EnrollmentFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679236254"><span id="local-6989586621679236256"><span class="annot"><span class="annottext">FromJSONKeyFunction [EnrollmentFilterName]
+FromJSONKeyFunction EnrollmentFilterName
+FromJSONKeyFunction EnrollmentFilterName
+-&gt; FromJSONKeyFunction [EnrollmentFilterName]
+-&gt; FromJSONKey EnrollmentFilterName
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [EnrollmentFilterName]
+$cfromJSONKeyList :: FromJSONKeyFunction [EnrollmentFilterName]
+fromJSONKey :: FromJSONKeyFunction EnrollmentFilterName
+$cfromJSONKey :: FromJSONKeyFunction EnrollmentFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679236245"><span id="local-6989586621679236247"><span id="local-6989586621679236249"><span id="local-6989586621679236251"><span class="annot"><span class="annottext">[EnrollmentFilterName] -&gt; Encoding
+[EnrollmentFilterName] -&gt; Value
+EnrollmentFilterName -&gt; Encoding
+EnrollmentFilterName -&gt; Value
+(EnrollmentFilterName -&gt; Value)
+-&gt; (EnrollmentFilterName -&gt; Encoding)
+-&gt; ([EnrollmentFilterName] -&gt; Value)
+-&gt; ([EnrollmentFilterName] -&gt; Encoding)
+-&gt; ToJSON EnrollmentFilterName
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [EnrollmentFilterName] -&gt; Encoding
+$ctoEncodingList :: [EnrollmentFilterName] -&gt; Encoding
+toJSONList :: [EnrollmentFilterName] -&gt; Value
+$ctoJSONList :: [EnrollmentFilterName] -&gt; Value
+toEncoding :: EnrollmentFilterName -&gt; Encoding
+$ctoEncoding :: EnrollmentFilterName -&gt; Encoding
+toJSON :: EnrollmentFilterName -&gt; Value
+$ctoJSON :: EnrollmentFilterName -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679236240"><span id="local-6989586621679236242"><span class="annot"><span class="annottext">ToJSONKeyFunction [EnrollmentFilterName]
+ToJSONKeyFunction EnrollmentFilterName
+ToJSONKeyFunction EnrollmentFilterName
+-&gt; ToJSONKeyFunction [EnrollmentFilterName]
+-&gt; ToJSONKey EnrollmentFilterName
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [EnrollmentFilterName]
+$ctoJSONKeyList :: ToJSONKeyFunction [EnrollmentFilterName]
+toJSONKey :: ToJSONKeyFunction EnrollmentFilterName
+$ctoJSONKey :: ToJSONKeyFunction EnrollmentFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679236237"><span class="annot"><span class="annottext">[Node] -&gt; Either String EnrollmentFilterName
+([Node] -&gt; Either String EnrollmentFilterName)
+-&gt; FromXML EnrollmentFilterName
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String EnrollmentFilterName
+$cparseXML :: [Node] -&gt; Either String EnrollmentFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679236234"><span class="annot"><span class="annottext">EnrollmentFilterName -&gt; XML
+(EnrollmentFilterName -&gt; XML) -&gt; ToXML EnrollmentFilterName
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: EnrollmentFilterName -&gt; XML
+$ctoXML :: EnrollmentFilterName -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.EnrollmentFilterName.html#EnrollmentFilterName_Status"><span class="hs-identifier hs-type">EnrollmentFilterName_Status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.EnrollmentFilterName.html#EnrollmentFilterName"><span class="hs-identifier hs-type">EnrollmentFilterName</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEnrollmentFilterName_Status"><span id="%24mEnrollmentFilterName_Status"><span id="EnrollmentFilterName_Status"><span class="annot"><span class="annottext">$bEnrollmentFilterName_Status :: EnrollmentFilterName
+$mEnrollmentFilterName_Status :: forall r. EnrollmentFilterName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.EnrollmentFilterName.html#%24bEnrollmentFilterName_Status"><span class="hs-identifier hs-var hs-var hs-var">EnrollmentFilterName_Status</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.EnrollmentFilterName.html#EnrollmentFilterName%27"><span class="hs-identifier hs-type">EnrollmentFilterName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Status&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.EnrollmentFilterName.html#EnrollmentFilterName_Status"><span class="hs-pragma hs-type">EnrollmentFilterName_Status</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.EnrollmentFilterName.html#EnrollmentFilterName%27"><span class="hs-pragma hs-type">EnrollmentFilterName'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

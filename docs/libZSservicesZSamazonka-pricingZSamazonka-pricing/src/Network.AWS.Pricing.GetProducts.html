@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newGetProducts' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679143955"><span id="local-6989586621679143956"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetProducts"><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts"><span class="hs-identifier hs-var">GetProducts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetProducts%27"><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts%27"><span class="hs-identifier hs-var">GetProducts'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679143964"><span id="local-6989586621679143965"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetProducts"><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts"><span class="hs-identifier hs-var">GetProducts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetProducts%27"><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts%27"><span class="hs-identifier hs-var">GetProducts'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of filters that limit the returned products. only products that</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- match all filters are returned.</span><span>
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3Afilters%3AGetProducts%27"><span class="annot"><span class="annottext">GetProducts -&gt; Maybe [Filter]
@@ -76,7 +76,7 @@
 </span><span id="line-72"></span><span>    </span><span id="%24sel%3AmaxResults%3AGetProducts%27"><span class="annot"><span class="annottext">GetProducts -&gt; Maybe Natural
 </span><a href="Network.AWS.Pricing.GetProducts.html#%24sel%3AmaxResults%3AGetProducts%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679143945"><span id="local-6989586621679143947"><span class="annot"><span class="annottext">GetProducts -&gt; GetProducts -&gt; Bool
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679143954"><span id="local-6989586621679143956"><span class="annot"><span class="annottext">GetProducts -&gt; GetProducts -&gt; Bool
 (GetProducts -&gt; GetProducts -&gt; Bool)
 -&gt; (GetProducts -&gt; GetProducts -&gt; Bool) -&gt; Eq GetProducts
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -84,7 +84,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetProducts -&gt; GetProducts -&gt; Bool
 == :: GetProducts -&gt; GetProducts -&gt; Bool
 $c== :: GetProducts -&gt; GetProducts -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679143936"><span id="local-6989586621679143938"><span id="local-6989586621679143940"><span id="local-6989586621679143942"><span class="annot"><span class="annottext">ReadPrec [GetProducts]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679143945"><span id="local-6989586621679143947"><span id="local-6989586621679143949"><span id="local-6989586621679143951"><span class="annot"><span class="annottext">ReadPrec [GetProducts]
 ReadPrec GetProducts
 Int -&gt; ReadS GetProducts
 ReadS [GetProducts]
@@ -104,7 +104,7 @@ readList :: ReadS [GetProducts]
 $creadList :: ReadS [GetProducts]
 readsPrec :: Int -&gt; ReadS GetProducts
 $creadsPrec :: Int -&gt; ReadS GetProducts
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679143929"><span id="local-6989586621679143931"><span id="local-6989586621679143933"><span class="annot"><span class="annottext">Int -&gt; GetProducts -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679143938"><span id="local-6989586621679143940"><span id="local-6989586621679143942"><span class="annot"><span class="annottext">Int -&gt; GetProducts -&gt; ShowS
 [GetProducts] -&gt; ShowS
 GetProducts -&gt; String
 (Int -&gt; GetProducts -&gt; ShowS)
@@ -193,16 +193,16 @@ forall a. Maybe a
 -&gt; (GetProducts -&gt; Maybe [Filter] -&gt; GetProducts)
 -&gt; Lens GetProducts GetProducts (Maybe [Filter]) (Maybe [Filter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts%27"><span class="hs-identifier hs-type">GetProducts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679143923"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts%27"><span class="hs-identifier hs-type">GetProducts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679143932"><span class="annot"><span class="annottext">Maybe [Filter]
 filters :: Maybe [Filter]
 $sel:filters:GetProducts' :: GetProducts -&gt; Maybe [Filter]
-</span><a href="#local-6989586621679143923"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621679143923"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679143922"><span class="annot"><span class="annottext">s :: GetProducts
-</span><a href="#local-6989586621679143922"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts%27"><span class="hs-identifier hs-type">GetProducts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679143921"><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621679143921"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetProducts
-</span><a href="#local-6989586621679143922"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:GetProducts' :: Maybe [Filter]
+</span><a href="#local-6989586621679143932"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679143932"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679143931"><span class="annot"><span class="annottext">s :: GetProducts
+</span><a href="#local-6989586621679143931"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts%27"><span class="hs-identifier hs-type">GetProducts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679143930"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679143930"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetProducts
+</span><a href="#local-6989586621679143931"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:GetProducts' :: Maybe [Filter]
 </span><a href="Network.AWS.Pricing.GetProducts.html#%24sel%3Afilters%3AGetProducts%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621679143921"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts"><span class="hs-identifier hs-type">GetProducts</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
+</span><a href="#local-6989586621679143930"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts"><span class="hs-identifier hs-type">GetProducts</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
  -&gt; GetProducts -&gt; f GetProducts)
 -&gt; ((Maybe [Filter] -&gt; f (Maybe [Filter]))
     -&gt; Maybe [Filter] -&gt; f (Maybe [Filter]))
@@ -229,16 +229,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (GetProducts -&gt; Maybe Text -&gt; GetProducts)
 -&gt; Lens GetProducts GetProducts (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts%27"><span class="hs-identifier hs-type">GetProducts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679143917"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts%27"><span class="hs-identifier hs-type">GetProducts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679143926"><span class="annot"><span class="annottext">Maybe Text
 formatVersion :: Maybe Text
 $sel:formatVersion:GetProducts' :: GetProducts -&gt; Maybe Text
-</span><a href="#local-6989586621679143917"><span class="hs-identifier hs-var hs-var">formatVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679143917"><span class="hs-identifier hs-var">formatVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679143916"><span class="annot"><span class="annottext">s :: GetProducts
-</span><a href="#local-6989586621679143916"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts%27"><span class="hs-identifier hs-type">GetProducts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679143915"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679143915"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetProducts
-</span><a href="#local-6989586621679143916"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:formatVersion:GetProducts' :: Maybe Text
+</span><a href="#local-6989586621679143926"><span class="hs-identifier hs-var hs-var">formatVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679143926"><span class="hs-identifier hs-var">formatVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679143925"><span class="annot"><span class="annottext">s :: GetProducts
+</span><a href="#local-6989586621679143925"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts%27"><span class="hs-identifier hs-type">GetProducts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679143924"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679143924"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetProducts
+</span><a href="#local-6989586621679143925"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:formatVersion:GetProducts' :: Maybe Text
 </span><a href="Network.AWS.Pricing.GetProducts.html#%24sel%3AformatVersion%3AGetProducts%27"><span class="hs-identifier hs-var">formatVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679143915"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts"><span class="hs-identifier hs-type">GetProducts</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679143924"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts"><span class="hs-identifier hs-type">GetProducts</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | The pagination token that indicates the next set of results that you</span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- want to retrieve.</span><span>
@@ -248,16 +248,16 @@ $sel:formatVersion:GetProducts' :: GetProducts -&gt; Maybe Text
 -&gt; (GetProducts -&gt; Maybe Text -&gt; GetProducts)
 -&gt; Lens GetProducts GetProducts (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts%27"><span class="hs-identifier hs-type">GetProducts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679143914"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts%27"><span class="hs-identifier hs-type">GetProducts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679143923"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:GetProducts' :: GetProducts -&gt; Maybe Text
-</span><a href="#local-6989586621679143914"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679143914"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679143913"><span class="annot"><span class="annottext">s :: GetProducts
-</span><a href="#local-6989586621679143913"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts%27"><span class="hs-identifier hs-type">GetProducts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679143912"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679143912"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetProducts
-</span><a href="#local-6989586621679143913"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetProducts' :: Maybe Text
+</span><a href="#local-6989586621679143923"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679143923"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679143922"><span class="annot"><span class="annottext">s :: GetProducts
+</span><a href="#local-6989586621679143922"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts%27"><span class="hs-identifier hs-type">GetProducts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679143921"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679143921"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetProducts
+</span><a href="#local-6989586621679143922"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetProducts' :: Maybe Text
 </span><a href="Network.AWS.Pricing.GetProducts.html#%24sel%3AnextToken%3AGetProducts%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679143912"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts"><span class="hs-identifier hs-type">GetProducts</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679143921"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts"><span class="hs-identifier hs-type">GetProducts</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- | The code for the service whose products you want to retrieve.</span><span>
 </span><span id="line-125"></span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#getProducts_serviceCode"><span class="hs-identifier hs-type">getProducts_serviceCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts"><span class="hs-identifier hs-type">GetProducts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -266,16 +266,16 @@ $sel:nextToken:GetProducts' :: GetProducts -&gt; Maybe Text
 -&gt; (GetProducts -&gt; Maybe Text -&gt; GetProducts)
 -&gt; Lens GetProducts GetProducts (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts%27"><span class="hs-identifier hs-type">GetProducts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679143911"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts%27"><span class="hs-identifier hs-type">GetProducts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679143920"><span class="annot"><span class="annottext">Maybe Text
 serviceCode :: Maybe Text
 $sel:serviceCode:GetProducts' :: GetProducts -&gt; Maybe Text
-</span><a href="#local-6989586621679143911"><span class="hs-identifier hs-var hs-var">serviceCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679143911"><span class="hs-identifier hs-var">serviceCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679143910"><span class="annot"><span class="annottext">s :: GetProducts
-</span><a href="#local-6989586621679143910"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts%27"><span class="hs-identifier hs-type">GetProducts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679143909"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679143909"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetProducts
-</span><a href="#local-6989586621679143910"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceCode:GetProducts' :: Maybe Text
+</span><a href="#local-6989586621679143920"><span class="hs-identifier hs-var hs-var">serviceCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679143920"><span class="hs-identifier hs-var">serviceCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679143919"><span class="annot"><span class="annottext">s :: GetProducts
+</span><a href="#local-6989586621679143919"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts%27"><span class="hs-identifier hs-type">GetProducts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679143918"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679143918"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetProducts
+</span><a href="#local-6989586621679143919"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceCode:GetProducts' :: Maybe Text
 </span><a href="Network.AWS.Pricing.GetProducts.html#%24sel%3AserviceCode%3AGetProducts%27"><span class="hs-identifier hs-var">serviceCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679143909"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts"><span class="hs-identifier hs-type">GetProducts</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679143918"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts"><span class="hs-identifier hs-type">GetProducts</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | The maximum number of results to return in the response.</span><span>
 </span><span id="line-129"></span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#getProducts_maxResults"><span class="hs-identifier hs-type">getProducts_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts"><span class="hs-identifier hs-type">GetProducts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -285,28 +285,28 @@ $sel:serviceCode:GetProducts' :: GetProducts -&gt; Maybe Text
 -&gt; (GetProducts -&gt; Maybe Natural -&gt; GetProducts)
 -&gt; Lens GetProducts GetProducts (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts%27"><span class="hs-identifier hs-type">GetProducts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679143908"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts%27"><span class="hs-identifier hs-type">GetProducts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679143917"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:GetProducts' :: GetProducts -&gt; Maybe Natural
-</span><a href="#local-6989586621679143908"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679143908"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679143907"><span class="annot"><span class="annottext">s :: GetProducts
-</span><a href="#local-6989586621679143907"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts%27"><span class="hs-identifier hs-type">GetProducts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679143906"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679143906"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetProducts
-</span><a href="#local-6989586621679143907"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetProducts' :: Maybe Natural
+</span><a href="#local-6989586621679143917"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679143917"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679143916"><span class="annot"><span class="annottext">s :: GetProducts
+</span><a href="#local-6989586621679143916"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts%27"><span class="hs-identifier hs-type">GetProducts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679143915"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679143915"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetProducts
+</span><a href="#local-6989586621679143916"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetProducts' :: Maybe Natural
 </span><a href="Network.AWS.Pricing.GetProducts.html#%24sel%3AmaxResults%3AGetProducts%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679143906"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts"><span class="hs-identifier hs-type">GetProducts</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679143915"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts"><span class="hs-identifier hs-type">GetProducts</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts"><span class="hs-identifier hs-type">GetProducts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679143902"><span class="annot"><span class="annottext">page :: GetProducts -&gt; AWSResponse GetProducts -&gt; Maybe GetProducts
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679143900"><span class="annot"><span class="annottext">GetProducts
-</span><a href="#local-6989586621679143900"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679143899"><span class="annot"><span class="annottext">AWSResponse GetProducts
-</span><a href="#local-6989586621679143899"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679143911"><span class="annot"><span class="annottext">page :: GetProducts -&gt; AWSResponse GetProducts -&gt; Maybe GetProducts
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679143909"><span class="annot"><span class="annottext">GetProducts
+</span><a href="#local-6989586621679143909"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679143908"><span class="annot"><span class="annottext">AWSResponse GetProducts
+</span><a href="#local-6989586621679143908"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-134"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-135"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetProducts
 GetProductsResponse
-</span><a href="#local-6989586621679143899"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679143908"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">GetProductsResponse
 -&gt; Getting (First Text) GetProductsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -332,7 +332,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-140"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetProducts
 GetProductsResponse
-</span><a href="#local-6989586621679143899"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679143908"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">GetProductsResponse
 -&gt; Getting (First [Text]) GetProductsResponse [Text]
 -&gt; Maybe [Text]
@@ -363,7 +363,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">GetProducts
-</span><a href="#local-6989586621679143900"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679143909"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">GetProducts -&gt; (GetProducts -&gt; GetProducts) -&gt; GetProducts
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -376,7 +376,7 @@ Lens GetProducts GetProducts (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse GetProducts
 GetProductsResponse
-</span><a href="#local-6989586621679143899"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679143908"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-149"></span><span>          </span><span class="annot"><span class="annottext">GetProductsResponse
 -&gt; Getting (First Text) GetProductsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -396,12 +396,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts"><span class="hs-identifier hs-type">GetProducts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-152"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts"><span class="hs-identifier hs-type">GetProducts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProductsResponse"><span class="hs-identifier hs-type">GetProductsResponse</span></a></span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679143890"><span class="annot"><span class="annottext">request :: GetProducts -&gt; Request GetProducts
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679143899"><span class="annot"><span class="annottext">request :: GetProducts -&gt; Request GetProducts
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetProducts -&gt; Request GetProducts
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Pricing.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679143886"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679143895"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetProducts
 -&gt; ClientResponse ClientBody
@@ -425,10 +425,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-156"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679143883"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679143883"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679143882"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679143882"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679143881"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679143881"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679143892"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679143892"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679143891"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679143891"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679143890"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679143890"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-157"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; GetProductsResponse
 </span><a href="Network.AWS.Pricing.GetProducts.html#GetProductsResponse%27"><span class="hs-identifier hs-var">GetProductsResponse'</span></a></span><span>
@@ -439,7 +439,7 @@ MonadResource m =&gt;
      String (Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; GetProductsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679143881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679143890"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FormatVersion&quot;</span></span><span class="hs-special">)</span><span>
@@ -449,7 +449,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe [Text] -&gt; Int -&gt; GetProductsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679143881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679143890"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -458,7 +458,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; GetProductsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679143881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679143890"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PriceList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
@@ -475,15 +475,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679143883"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679143892"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679143872"><span id="local-6989586621679143874"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts"><span class="hs-identifier hs-type">GetProducts</span></a></span></span></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679143881"><span id="local-6989586621679143883"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts"><span class="hs-identifier hs-type">GetProducts</span></a></span></span></span><span>
 </span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679143869"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts"><span class="hs-identifier hs-type">GetProducts</span></a></span></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679143878"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts"><span class="hs-identifier hs-type">GetProducts</span></a></span></span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts"><span class="hs-identifier hs-type">GetProducts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621679143865"><span class="annot"><span class="annottext">toHeaders :: GetProducts -&gt; ResponseHeaders
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679143874"><span class="annot"><span class="annottext">toHeaders :: GetProducts -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetProducts -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -510,9 +510,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-180"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-181"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>
-</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679143855"><span id="local-6989586621679143857"><span id="local-6989586621679143859"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts"><span class="hs-identifier hs-type">GetProducts</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621679143853"><span class="annot"><span class="annottext">toJSON :: GetProducts -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts%27"><span class="hs-identifier hs-type">GetProducts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679143847"><span id="local-6989586621679143848"><span id="local-6989586621679143849"><span id="local-6989586621679143850"><span id="local-6989586621679143851"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679143864"><span id="local-6989586621679143866"><span id="local-6989586621679143868"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts"><span class="hs-identifier hs-type">GetProducts</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679143862"><span class="annot"><span class="annottext">toJSON :: GetProducts -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts%27"><span class="hs-identifier hs-type">GetProducts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679143856"><span id="local-6989586621679143857"><span id="local-6989586621679143858"><span id="local-6989586621679143859"><span id="local-6989586621679143860"><span class="annot"><span class="annottext">Maybe Natural
 Maybe [Filter]
 Maybe Text
 maxResults :: Maybe Natural
@@ -525,7 +525,7 @@ $sel:serviceCode:GetProducts' :: GetProducts -&gt; Maybe Text
 $sel:nextToken:GetProducts' :: GetProducts -&gt; Maybe Text
 $sel:formatVersion:GetProducts' :: GetProducts -&gt; Maybe Text
 $sel:filters:GetProducts' :: GetProducts -&gt; Maybe [Filter]
-</span><a href="#local-6989586621679143847"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679143856"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-185"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-186"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -537,47 +537,47 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Filter] -&gt; Pair) -&gt; Maybe [Filter] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621679143851"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679143860"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-188"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FormatVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679143850"><span class="hs-identifier hs-var">formatVersion</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679143859"><span class="hs-identifier hs-var">formatVersion</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-189"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679143849"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679143858"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-190"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ServiceCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679143848"><span class="hs-identifier hs-var">serviceCode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679143857"><span class="hs-identifier hs-var">serviceCode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-191"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679143847"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679143856"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-192"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-193"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>
 </span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts"><span class="hs-identifier hs-type">GetProducts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-196"></span><span>  </span><span id="local-6989586621679143841"><span class="annot"><span class="annottext">toPath :: GetProducts -&gt; ByteString
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679143850"><span class="annot"><span class="annottext">toPath :: GetProducts -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetProducts -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProducts"><span class="hs-identifier hs-type">GetProducts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-199"></span><span>  </span><span id="local-6989586621679143837"><span class="annot"><span class="annottext">toQuery :: GetProducts -&gt; QueryString
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679143846"><span class="annot"><span class="annottext">toQuery :: GetProducts -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetProducts -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -585,7 +585,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-200"></span><span>
 </span><span id="line-201"></span><span class="hs-comment">-- | /See:/ 'newGetProductsResponse' smart constructor.</span><span>
-</span><span id="line-202"></span><span id="local-6989586621679143834"><span id="local-6989586621679143835"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetProductsResponse"><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProductsResponse"><span class="hs-identifier hs-var">GetProductsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetProductsResponse%27"><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProductsResponse%27"><span class="hs-identifier hs-var">GetProductsResponse'</span></a></span></span><span>
+</span><span id="line-202"></span><span id="local-6989586621679143843"><span id="local-6989586621679143844"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetProductsResponse"><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProductsResponse"><span class="hs-identifier hs-var">GetProductsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetProductsResponse%27"><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProductsResponse%27"><span class="hs-identifier hs-var">GetProductsResponse'</span></a></span></span><span>
 </span><span id="line-203"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The format version of the response. For example, aws_v1.</span><span>
 </span><span id="line-204"></span><span>    </span><span id="%24sel%3AformatVersion%3AGetProductsResponse%27"><span class="annot"><span class="annottext">GetProductsResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Pricing.GetProducts.html#%24sel%3AformatVersion%3AGetProductsResponse%27"><span class="hs-identifier hs-var hs-var">formatVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -600,7 +600,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-211"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetProductsResponse%27"><span class="annot"><span class="annottext">GetProductsResponse -&gt; Int
 </span><a href="Network.AWS.Pricing.GetProducts.html#%24sel%3AhttpStatus%3AGetProductsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-212"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-213"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679143826"><span id="local-6989586621679143828"><span class="annot"><span class="annottext">GetProductsResponse -&gt; GetProductsResponse -&gt; Bool
+</span><span id="line-213"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679143835"><span id="local-6989586621679143837"><span class="annot"><span class="annottext">GetProductsResponse -&gt; GetProductsResponse -&gt; Bool
 (GetProductsResponse -&gt; GetProductsResponse -&gt; Bool)
 -&gt; (GetProductsResponse -&gt; GetProductsResponse -&gt; Bool)
 -&gt; Eq GetProductsResponse
@@ -609,7 +609,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetProductsResponse -&gt; GetProductsResponse -&gt; Bool
 == :: GetProductsResponse -&gt; GetProductsResponse -&gt; Bool
 $c== :: GetProductsResponse -&gt; GetProductsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679143818"><span id="local-6989586621679143820"><span id="local-6989586621679143822"><span id="local-6989586621679143824"><span class="annot"><span class="annottext">ReadPrec [GetProductsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679143827"><span id="local-6989586621679143829"><span id="local-6989586621679143831"><span id="local-6989586621679143833"><span class="annot"><span class="annottext">ReadPrec [GetProductsResponse]
 ReadPrec GetProductsResponse
 Int -&gt; ReadS GetProductsResponse
 ReadS [GetProductsResponse]
@@ -629,7 +629,7 @@ readList :: ReadS [GetProductsResponse]
 $creadList :: ReadS [GetProductsResponse]
 readsPrec :: Int -&gt; ReadS GetProductsResponse
 $creadsPrec :: Int -&gt; ReadS GetProductsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679143812"><span id="local-6989586621679143814"><span id="local-6989586621679143816"><span class="annot"><span class="annottext">Int -&gt; GetProductsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679143821"><span id="local-6989586621679143823"><span id="local-6989586621679143825"><span class="annot"><span class="annottext">Int -&gt; GetProductsResponse -&gt; ShowS
 [GetProductsResponse] -&gt; ShowS
 GetProductsResponse -&gt; String
 (Int -&gt; GetProductsResponse -&gt; ShowS)
@@ -676,8 +676,8 @@ $cfrom :: forall x. GetProductsResponse -&gt; Rep GetProductsResponse x
 </span><span id="line-233"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-234"></span><span>  </span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProductsResponse"><span class="hs-identifier hs-type">GetProductsResponse</span></a></span><span>
 </span><span id="line-235"></span><span id="newGetProductsResponse"><span class="annot"><span class="annottext">newGetProductsResponse :: Int -&gt; GetProductsResponse
-</span><a href="Network.AWS.Pricing.GetProducts.html#newGetProductsResponse"><span class="hs-identifier hs-var hs-var">newGetProductsResponse</span></a></span></span><span> </span><span id="local-6989586621679143809"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679143809"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Pricing.GetProducts.html#newGetProductsResponse"><span class="hs-identifier hs-var hs-var">newGetProductsResponse</span></a></span></span><span> </span><span id="local-6989586621679143818"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679143818"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-236"></span><span>  </span><span class="annot"><span class="annottext">GetProductsResponse' :: Maybe Text
 -&gt; Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; GetProductsResponse
 </span><a href="Network.AWS.Pricing.GetProducts.html#GetProductsResponse%27"><span class="hs-identifier hs-type">GetProductsResponse'</span></a></span><span>
@@ -696,7 +696,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-241"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetProductsResponse' :: Int
 </span><a href="Network.AWS.Pricing.GetProducts.html#%24sel%3AhttpStatus%3AGetProductsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679143809"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679143818"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-242"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-243"></span><span>
 </span><span id="line-244"></span><span class="hs-comment">-- | The format version of the response. For example, aws_v1.</span><span>
@@ -707,16 +707,16 @@ forall a. Maybe a
 -&gt; (GetProductsResponse -&gt; Maybe Text -&gt; GetProductsResponse)
 -&gt; Lens' GetProductsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProductsResponse%27"><span class="hs-identifier hs-type">GetProductsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679143808"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProductsResponse%27"><span class="hs-identifier hs-type">GetProductsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679143817"><span class="annot"><span class="annottext">Maybe Text
 formatVersion :: Maybe Text
 $sel:formatVersion:GetProductsResponse' :: GetProductsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679143808"><span class="hs-identifier hs-var hs-var">formatVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679143808"><span class="hs-identifier hs-var">formatVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679143807"><span class="annot"><span class="annottext">s :: GetProductsResponse
-</span><a href="#local-6989586621679143807"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProductsResponse%27"><span class="hs-identifier hs-type">GetProductsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679143806"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679143806"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetProductsResponse
-</span><a href="#local-6989586621679143807"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:formatVersion:GetProductsResponse' :: Maybe Text
+</span><a href="#local-6989586621679143817"><span class="hs-identifier hs-var hs-var">formatVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679143817"><span class="hs-identifier hs-var">formatVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679143816"><span class="annot"><span class="annottext">s :: GetProductsResponse
+</span><a href="#local-6989586621679143816"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProductsResponse%27"><span class="hs-identifier hs-type">GetProductsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679143815"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679143815"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetProductsResponse
+</span><a href="#local-6989586621679143816"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:formatVersion:GetProductsResponse' :: Maybe Text
 </span><a href="Network.AWS.Pricing.GetProducts.html#%24sel%3AformatVersion%3AGetProductsResponse%27"><span class="hs-identifier hs-var">formatVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679143806"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProductsResponse"><span class="hs-identifier hs-type">GetProductsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679143815"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProductsResponse"><span class="hs-identifier hs-type">GetProductsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-247"></span><span>
 </span><span id="line-248"></span><span class="hs-comment">-- | The pagination token that indicates the next set of results to retrieve.</span><span>
 </span><span id="line-249"></span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#getProductsResponse_nextToken"><span class="hs-identifier hs-type">getProductsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProductsResponse"><span class="hs-identifier hs-type">GetProductsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -726,16 +726,16 @@ $sel:formatVersion:GetProductsResponse' :: GetProductsResponse -&gt; Maybe Text
 -&gt; (GetProductsResponse -&gt; Maybe Text -&gt; GetProductsResponse)
 -&gt; Lens' GetProductsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProductsResponse%27"><span class="hs-identifier hs-type">GetProductsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679143805"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProductsResponse%27"><span class="hs-identifier hs-type">GetProductsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679143814"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:GetProductsResponse' :: GetProductsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679143805"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679143805"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679143804"><span class="annot"><span class="annottext">s :: GetProductsResponse
-</span><a href="#local-6989586621679143804"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProductsResponse%27"><span class="hs-identifier hs-type">GetProductsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679143803"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679143803"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetProductsResponse
-</span><a href="#local-6989586621679143804"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetProductsResponse' :: Maybe Text
+</span><a href="#local-6989586621679143814"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679143814"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679143813"><span class="annot"><span class="annottext">s :: GetProductsResponse
+</span><a href="#local-6989586621679143813"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProductsResponse%27"><span class="hs-identifier hs-type">GetProductsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679143812"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679143812"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetProductsResponse
+</span><a href="#local-6989586621679143813"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetProductsResponse' :: Maybe Text
 </span><a href="Network.AWS.Pricing.GetProducts.html#%24sel%3AnextToken%3AGetProductsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679143803"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProductsResponse"><span class="hs-identifier hs-type">GetProductsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679143812"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProductsResponse"><span class="hs-identifier hs-type">GetProductsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-251"></span><span>
 </span><span id="line-252"></span><span class="hs-comment">-- | The list of products that match your filters. The list contains both the</span><span>
 </span><span id="line-253"></span><span class="hs-comment">-- product metadata and the price information.</span><span>
@@ -746,16 +746,16 @@ $sel:nextToken:GetProductsResponse' :: GetProductsResponse -&gt; Maybe Text
 -&gt; (GetProductsResponse -&gt; Maybe [Text] -&gt; GetProductsResponse)
 -&gt; Lens' GetProductsResponse (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProductsResponse%27"><span class="hs-identifier hs-type">GetProductsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679143802"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProductsResponse%27"><span class="hs-identifier hs-type">GetProductsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679143811"><span class="annot"><span class="annottext">Maybe [Text]
 priceList :: Maybe [Text]
 $sel:priceList:GetProductsResponse' :: GetProductsResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621679143802"><span class="hs-identifier hs-var hs-var">priceList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679143802"><span class="hs-identifier hs-var">priceList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679143801"><span class="annot"><span class="annottext">s :: GetProductsResponse
-</span><a href="#local-6989586621679143801"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProductsResponse%27"><span class="hs-identifier hs-type">GetProductsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679143800"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679143800"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetProductsResponse
-</span><a href="#local-6989586621679143801"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:priceList:GetProductsResponse' :: Maybe [Text]
+</span><a href="#local-6989586621679143811"><span class="hs-identifier hs-var hs-var">priceList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679143811"><span class="hs-identifier hs-var">priceList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679143810"><span class="annot"><span class="annottext">s :: GetProductsResponse
+</span><a href="#local-6989586621679143810"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProductsResponse%27"><span class="hs-identifier hs-type">GetProductsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679143809"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679143809"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetProductsResponse
+</span><a href="#local-6989586621679143810"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:priceList:GetProductsResponse' :: Maybe [Text]
 </span><a href="Network.AWS.Pricing.GetProducts.html#%24sel%3ApriceList%3AGetProductsResponse%27"><span class="hs-identifier hs-var">priceList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679143800"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProductsResponse"><span class="hs-identifier hs-type">GetProductsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679143809"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProductsResponse"><span class="hs-identifier hs-type">GetProductsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; GetProductsResponse -&gt; f GetProductsResponse)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -779,16 +779,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (GetProductsResponse -&gt; Int -&gt; GetProductsResponse)
 -&gt; Lens GetProductsResponse GetProductsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProductsResponse%27"><span class="hs-identifier hs-type">GetProductsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679143799"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProductsResponse%27"><span class="hs-identifier hs-type">GetProductsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679143808"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetProductsResponse' :: GetProductsResponse -&gt; Int
-</span><a href="#local-6989586621679143799"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679143799"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679143798"><span class="annot"><span class="annottext">s :: GetProductsResponse
-</span><a href="#local-6989586621679143798"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProductsResponse%27"><span class="hs-identifier hs-type">GetProductsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679143797"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679143797"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetProductsResponse
-</span><a href="#local-6989586621679143798"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetProductsResponse' :: Int
+</span><a href="#local-6989586621679143808"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679143808"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679143807"><span class="annot"><span class="annottext">s :: GetProductsResponse
+</span><a href="#local-6989586621679143807"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProductsResponse%27"><span class="hs-identifier hs-type">GetProductsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679143806"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679143806"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetProductsResponse
+</span><a href="#local-6989586621679143807"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetProductsResponse' :: Int
 </span><a href="Network.AWS.Pricing.GetProducts.html#%24sel%3AhttpStatus%3AGetProductsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679143797"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProductsResponse"><span class="hs-identifier hs-type">GetProductsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679143806"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProductsResponse"><span class="hs-identifier hs-type">GetProductsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-260"></span><span>
-</span><span id="line-261"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679143795"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProductsResponse"><span class="hs-identifier hs-type">GetProductsResponse</span></a></span></span><span>
+</span><span id="line-261"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679143804"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pricing.GetProducts.html#GetProductsResponse"><span class="hs-identifier hs-type">GetProductsResponse</span></a></span></span><span>
 </span><span id="line-262"></span></pre></body></html>

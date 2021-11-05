@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.OpenSearch.Types.AutoTuneOptionsStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.OpenSearch.Types.AutoTuneOptionsStatus</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.AutoTuneOptions.html"><span class="hs-identifier">Network.AWS.OpenSearch.Types.AutoTuneOptions</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.AutoTuneStatus.html"><span class="hs-identifier">Network.AWS.OpenSearch.Types.AutoTuneStatus</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | The Auto-Tune status for the domain.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newAutoTuneOptionsStatus' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679307431"><span id="local-6989586621679307432"></span></span><span class="hs-keyword">data</span><span> </span><span id="AutoTuneOptionsStatus"><span class="annot"><a href="Network.AWS.OpenSearch.Types.AutoTuneOptionsStatus.html#AutoTuneOptionsStatus"><span class="hs-identifier hs-var">AutoTuneOptionsStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoTuneOptionsStatus%27"><span class="annot"><a href="Network.AWS.OpenSearch.Types.AutoTuneOptionsStatus.html#AutoTuneOptionsStatus%27"><span class="hs-identifier hs-var">AutoTuneOptionsStatus'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the Auto-Tune options for the domain.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Astatus%3AAutoTuneOptionsStatus%27"><span class="annot"><span class="annottext">AutoTuneOptionsStatus -&gt; Maybe AutoTuneStatus
+</span><a href="Network.AWS.OpenSearch.Types.AutoTuneOptionsStatus.html#%24sel%3Astatus%3AAutoTuneOptionsStatus%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.AutoTuneStatus.html#AutoTuneStatus"><span class="hs-identifier hs-type">AutoTuneStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Specifies Auto-Tune options for the domain.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aoptions%3AAutoTuneOptionsStatus%27"><span class="annot"><span class="annottext">AutoTuneOptionsStatus -&gt; Maybe AutoTuneOptions
+</span><a href="Network.AWS.OpenSearch.Types.AutoTuneOptionsStatus.html#%24sel%3Aoptions%3AAutoTuneOptionsStatus%27"><span class="hs-identifier hs-var hs-var">options</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.AutoTuneOptions.html#AutoTuneOptions"><span class="hs-identifier hs-type">AutoTuneOptions</span></a></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679307424"><span id="local-6989586621679307426"><span class="annot"><span class="annottext">AutoTuneOptionsStatus -&gt; AutoTuneOptionsStatus -&gt; Bool
+(AutoTuneOptionsStatus -&gt; AutoTuneOptionsStatus -&gt; Bool)
+-&gt; (AutoTuneOptionsStatus -&gt; AutoTuneOptionsStatus -&gt; Bool)
+-&gt; Eq AutoTuneOptionsStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AutoTuneOptionsStatus -&gt; AutoTuneOptionsStatus -&gt; Bool
+$c/= :: AutoTuneOptionsStatus -&gt; AutoTuneOptionsStatus -&gt; Bool
+== :: AutoTuneOptionsStatus -&gt; AutoTuneOptionsStatus -&gt; Bool
+$c== :: AutoTuneOptionsStatus -&gt; AutoTuneOptionsStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307415"><span id="local-6989586621679307417"><span id="local-6989586621679307419"><span id="local-6989586621679307421"><span class="annot"><span class="annottext">ReadPrec [AutoTuneOptionsStatus]
+ReadPrec AutoTuneOptionsStatus
+Int -&gt; ReadS AutoTuneOptionsStatus
+ReadS [AutoTuneOptionsStatus]
+(Int -&gt; ReadS AutoTuneOptionsStatus)
+-&gt; ReadS [AutoTuneOptionsStatus]
+-&gt; ReadPrec AutoTuneOptionsStatus
+-&gt; ReadPrec [AutoTuneOptionsStatus]
+-&gt; Read AutoTuneOptionsStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AutoTuneOptionsStatus]
+$creadListPrec :: ReadPrec [AutoTuneOptionsStatus]
+readPrec :: ReadPrec AutoTuneOptionsStatus
+$creadPrec :: ReadPrec AutoTuneOptionsStatus
+readList :: ReadS [AutoTuneOptionsStatus]
+$creadList :: ReadS [AutoTuneOptionsStatus]
+readsPrec :: Int -&gt; ReadS AutoTuneOptionsStatus
+$creadsPrec :: Int -&gt; ReadS AutoTuneOptionsStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307408"><span id="local-6989586621679307410"><span id="local-6989586621679307412"><span class="annot"><span class="annottext">Int -&gt; AutoTuneOptionsStatus -&gt; ShowS
+[AutoTuneOptionsStatus] -&gt; ShowS
+AutoTuneOptionsStatus -&gt; String
+(Int -&gt; AutoTuneOptionsStatus -&gt; ShowS)
+-&gt; (AutoTuneOptionsStatus -&gt; String)
+-&gt; ([AutoTuneOptionsStatus] -&gt; ShowS)
+-&gt; Show AutoTuneOptionsStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AutoTuneOptionsStatus] -&gt; ShowS
+$cshowList :: [AutoTuneOptionsStatus] -&gt; ShowS
+show :: AutoTuneOptionsStatus -&gt; String
+$cshow :: AutoTuneOptionsStatus -&gt; String
+showsPrec :: Int -&gt; AutoTuneOptionsStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; AutoTuneOptionsStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AutoTuneOptionsStatus -&gt; Rep AutoTuneOptionsStatus x)
+-&gt; (forall x. Rep AutoTuneOptionsStatus x -&gt; AutoTuneOptionsStatus)
+-&gt; Generic AutoTuneOptionsStatus
+forall x. Rep AutoTuneOptionsStatus x -&gt; AutoTuneOptionsStatus
+forall x. AutoTuneOptionsStatus -&gt; Rep AutoTuneOptionsStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AutoTuneOptionsStatus x -&gt; AutoTuneOptionsStatus
+$cfrom :: forall x. AutoTuneOptionsStatus -&gt; Rep AutoTuneOptionsStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Create a value of 'AutoTuneOptionsStatus' with all optional fields omitted.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'status', 'autoTuneOptionsStatus_status' - The status of the Auto-Tune options for the domain.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'options', 'autoTuneOptionsStatus_options' - Specifies Auto-Tune options for the domain.</span><span>
+</span><span id="line-50"></span><span class="annot"><a href="Network.AWS.OpenSearch.Types.AutoTuneOptionsStatus.html#newAutoTuneOptionsStatus"><span class="hs-identifier hs-type">newAutoTuneOptionsStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.AutoTuneOptionsStatus.html#AutoTuneOptionsStatus"><span class="hs-identifier hs-type">AutoTuneOptionsStatus</span></a></span><span>
+</span><span id="line-52"></span><span id="newAutoTuneOptionsStatus"><span class="annot"><span class="annottext">newAutoTuneOptionsStatus :: AutoTuneOptionsStatus
+</span><a href="Network.AWS.OpenSearch.Types.AutoTuneOptionsStatus.html#newAutoTuneOptionsStatus"><span class="hs-identifier hs-var hs-var">newAutoTuneOptionsStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">AutoTuneOptionsStatus' :: Maybe AutoTuneStatus
+-&gt; Maybe AutoTuneOptions -&gt; AutoTuneOptionsStatus
+</span><a href="Network.AWS.OpenSearch.Types.AutoTuneOptionsStatus.html#AutoTuneOptionsStatus%27"><span class="hs-identifier hs-type">AutoTuneOptionsStatus'</span></a></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:AutoTuneOptionsStatus' :: Maybe AutoTuneStatus
+</span><a href="Network.AWS.OpenSearch.Types.AutoTuneOptionsStatus.html#%24sel%3Astatus%3AAutoTuneOptionsStatus%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AutoTuneStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:options:AutoTuneOptionsStatus' :: Maybe AutoTuneOptions
+</span><a href="Network.AWS.OpenSearch.Types.AutoTuneOptionsStatus.html#%24sel%3Aoptions%3AAutoTuneOptionsStatus%27"><span class="hs-identifier hs-var">options</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AutoTuneOptions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | The status of the Auto-Tune options for the domain.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.OpenSearch.Types.AutoTuneOptionsStatus.html#autoTuneOptionsStatus_status"><span class="hs-identifier hs-type">autoTuneOptionsStatus_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.AutoTuneOptionsStatus.html#AutoTuneOptionsStatus"><span class="hs-identifier hs-type">AutoTuneOptionsStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.AutoTuneStatus.html#AutoTuneStatus"><span class="hs-identifier hs-type">AutoTuneStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span id="autoTuneOptionsStatus_status"><span class="annot"><span class="annottext">autoTuneOptionsStatus_status :: (Maybe AutoTuneStatus -&gt; f (Maybe AutoTuneStatus))
+-&gt; AutoTuneOptionsStatus -&gt; f AutoTuneOptionsStatus
+</span><a href="Network.AWS.OpenSearch.Types.AutoTuneOptionsStatus.html#autoTuneOptionsStatus_status"><span class="hs-identifier hs-var hs-var">autoTuneOptionsStatus_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AutoTuneOptionsStatus -&gt; Maybe AutoTuneStatus)
+-&gt; (AutoTuneOptionsStatus
+    -&gt; Maybe AutoTuneStatus -&gt; AutoTuneOptionsStatus)
+-&gt; Lens
+     AutoTuneOptionsStatus
+     AutoTuneOptionsStatus
+     (Maybe AutoTuneStatus)
+     (Maybe AutoTuneStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpenSearch.Types.AutoTuneOptionsStatus.html#AutoTuneOptionsStatus%27"><span class="hs-identifier hs-type">AutoTuneOptionsStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307399"><span class="annot"><span class="annottext">Maybe AutoTuneStatus
+status :: Maybe AutoTuneStatus
+$sel:status:AutoTuneOptionsStatus' :: AutoTuneOptionsStatus -&gt; Maybe AutoTuneStatus
+</span><a href="#local-6989586621679307399"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AutoTuneStatus
+</span><a href="#local-6989586621679307399"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307398"><span class="annot"><span class="annottext">s :: AutoTuneOptionsStatus
+</span><a href="#local-6989586621679307398"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpenSearch.Types.AutoTuneOptionsStatus.html#AutoTuneOptionsStatus%27"><span class="hs-identifier hs-type">AutoTuneOptionsStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307397"><span class="annot"><span class="annottext">Maybe AutoTuneStatus
+</span><a href="#local-6989586621679307397"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoTuneOptionsStatus
+</span><a href="#local-6989586621679307398"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:AutoTuneOptionsStatus' :: Maybe AutoTuneStatus
+</span><a href="Network.AWS.OpenSearch.Types.AutoTuneOptionsStatus.html#%24sel%3Astatus%3AAutoTuneOptionsStatus%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AutoTuneStatus
+</span><a href="#local-6989586621679307397"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.AutoTuneOptionsStatus.html#AutoTuneOptionsStatus"><span class="hs-identifier hs-type">AutoTuneOptionsStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | Specifies Auto-Tune options for the domain.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.OpenSearch.Types.AutoTuneOptionsStatus.html#autoTuneOptionsStatus_options"><span class="hs-identifier hs-type">autoTuneOptionsStatus_options</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.AutoTuneOptionsStatus.html#AutoTuneOptionsStatus"><span class="hs-identifier hs-type">AutoTuneOptionsStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.AutoTuneOptions.html#AutoTuneOptions"><span class="hs-identifier hs-type">AutoTuneOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="autoTuneOptionsStatus_options"><span class="annot"><span class="annottext">autoTuneOptionsStatus_options :: (Maybe AutoTuneOptions -&gt; f (Maybe AutoTuneOptions))
+-&gt; AutoTuneOptionsStatus -&gt; f AutoTuneOptionsStatus
+</span><a href="Network.AWS.OpenSearch.Types.AutoTuneOptionsStatus.html#autoTuneOptionsStatus_options"><span class="hs-identifier hs-var hs-var">autoTuneOptionsStatus_options</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AutoTuneOptionsStatus -&gt; Maybe AutoTuneOptions)
+-&gt; (AutoTuneOptionsStatus
+    -&gt; Maybe AutoTuneOptions -&gt; AutoTuneOptionsStatus)
+-&gt; Lens
+     AutoTuneOptionsStatus
+     AutoTuneOptionsStatus
+     (Maybe AutoTuneOptions)
+     (Maybe AutoTuneOptions)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpenSearch.Types.AutoTuneOptionsStatus.html#AutoTuneOptionsStatus%27"><span class="hs-identifier hs-type">AutoTuneOptionsStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307395"><span class="annot"><span class="annottext">Maybe AutoTuneOptions
+options :: Maybe AutoTuneOptions
+$sel:options:AutoTuneOptionsStatus' :: AutoTuneOptionsStatus -&gt; Maybe AutoTuneOptions
+</span><a href="#local-6989586621679307395"><span class="hs-identifier hs-var hs-var">options</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AutoTuneOptions
+</span><a href="#local-6989586621679307395"><span class="hs-identifier hs-var">options</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307394"><span class="annot"><span class="annottext">s :: AutoTuneOptionsStatus
+</span><a href="#local-6989586621679307394"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpenSearch.Types.AutoTuneOptionsStatus.html#AutoTuneOptionsStatus%27"><span class="hs-identifier hs-type">AutoTuneOptionsStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307393"><span class="annot"><span class="annottext">Maybe AutoTuneOptions
+</span><a href="#local-6989586621679307393"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoTuneOptionsStatus
+</span><a href="#local-6989586621679307394"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:options:AutoTuneOptionsStatus' :: Maybe AutoTuneOptions
+</span><a href="Network.AWS.OpenSearch.Types.AutoTuneOptionsStatus.html#%24sel%3Aoptions%3AAutoTuneOptionsStatus%27"><span class="hs-identifier hs-var">options</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AutoTuneOptions
+</span><a href="#local-6989586621679307393"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.AutoTuneOptionsStatus.html#AutoTuneOptionsStatus"><span class="hs-identifier hs-type">AutoTuneOptionsStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307390"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.AutoTuneOptionsStatus.html#AutoTuneOptionsStatus"><span class="hs-identifier hs-type">AutoTuneOptionsStatus</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679307388"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AutoTuneOptionsStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AutoTuneOptionsStatus)
+-&gt; Value
+-&gt; Parser AutoTuneOptionsStatus
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AutoTuneOptionsStatus&quot;</span></span><span>
+</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679307385"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679307385"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Maybe AutoTuneStatus
+-&gt; Maybe AutoTuneOptions -&gt; AutoTuneOptionsStatus
+</span><a href="Network.AWS.OpenSearch.Types.AutoTuneOptionsStatus.html#AutoTuneOptionsStatus%27"><span class="hs-identifier hs-var">AutoTuneOptionsStatus'</span></a></span><span>
+</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AutoTuneStatus
+ -&gt; Maybe AutoTuneOptions -&gt; AutoTuneOptionsStatus)
+-&gt; Parser (Maybe AutoTuneStatus)
+-&gt; Parser (Maybe AutoTuneOptions -&gt; AutoTuneOptionsStatus)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679307385"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AutoTuneStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe AutoTuneOptions -&gt; AutoTuneOptionsStatus)
+-&gt; Parser (Maybe AutoTuneOptions) -&gt; Parser AutoTuneOptionsStatus
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679307385"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AutoTuneOptions)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Options&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307379"><span id="local-6989586621679307381"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.AutoTuneOptionsStatus.html#AutoTuneOptionsStatus"><span class="hs-identifier hs-type">AutoTuneOptionsStatus</span></a></span></span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307376"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.AutoTuneOptionsStatus.html#AutoTuneOptionsStatus"><span class="hs-identifier hs-type">AutoTuneOptionsStatus</span></a></span></span><span>
+</span><span id="line-79"></span></pre></body></html>

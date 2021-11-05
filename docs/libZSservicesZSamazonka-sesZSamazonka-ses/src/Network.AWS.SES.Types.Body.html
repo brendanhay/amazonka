@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- variety of email clients.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newBody' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679271146"><span id="local-6989586621679271147"></span></span><span class="hs-keyword">data</span><span> </span><span id="Body"><span class="annot"><a href="Network.AWS.SES.Types.Body.html#Body"><span class="hs-identifier hs-var">Body</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Body%27"><span class="annot"><a href="Network.AWS.SES.Types.Body.html#Body%27"><span class="hs-identifier hs-var">Body'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679271155"><span id="local-6989586621679271156"></span></span><span class="hs-keyword">data</span><span> </span><span id="Body"><span class="annot"><a href="Network.AWS.SES.Types.Body.html#Body"><span class="hs-identifier hs-var">Body</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Body%27"><span class="annot"><a href="Network.AWS.SES.Types.Body.html#Body%27"><span class="hs-identifier hs-var">Body'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The content of the message, in text format. Use this for text-based</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- email clients, or clients on high-latency networks (such as mobile</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- devices).</span><span>
@@ -41,14 +41,14 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3Ahtml%3ABody%27"><span class="annot"><span class="annottext">Body -&gt; Maybe Content
 </span><a href="Network.AWS.SES.Types.Body.html#%24sel%3Ahtml%3ABody%27"><span class="hs-identifier hs-var hs-var">html</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.Content.html#Content"><span class="hs-identifier hs-type">Content</span></a></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679271139"><span id="local-6989586621679271141"><span class="annot"><span class="annottext">Body -&gt; Body -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679271148"><span id="local-6989586621679271150"><span class="annot"><span class="annottext">Body -&gt; Body -&gt; Bool
 (Body -&gt; Body -&gt; Bool) -&gt; (Body -&gt; Body -&gt; Bool) -&gt; Eq Body
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Body -&gt; Body -&gt; Bool
 $c/= :: Body -&gt; Body -&gt; Bool
 == :: Body -&gt; Body -&gt; Bool
 $c== :: Body -&gt; Body -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271130"><span id="local-6989586621679271132"><span id="local-6989586621679271134"><span id="local-6989586621679271136"><span class="annot"><span class="annottext">ReadPrec [Body]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271139"><span id="local-6989586621679271141"><span id="local-6989586621679271143"><span id="local-6989586621679271145"><span class="annot"><span class="annottext">ReadPrec [Body]
 ReadPrec Body
 Int -&gt; ReadS Body
 ReadS [Body]
@@ -65,7 +65,7 @@ readList :: ReadS [Body]
 $creadList :: ReadS [Body]
 readsPrec :: Int -&gt; ReadS Body
 $creadsPrec :: Int -&gt; ReadS Body
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271123"><span id="local-6989586621679271125"><span id="local-6989586621679271127"><span class="annot"><span class="annottext">Int -&gt; Body -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271132"><span id="local-6989586621679271134"><span id="local-6989586621679271136"><span class="annot"><span class="annottext">Int -&gt; Body -&gt; ShowS
 [Body] -&gt; ShowS
 Body -&gt; String
 (Int -&gt; Body -&gt; ShowS)
@@ -128,16 +128,16 @@ forall a. Maybe a
 -&gt; (Body -&gt; Maybe Content -&gt; Body)
 -&gt; Lens Body Body (Maybe Content) (Maybe Content)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.Body.html#Body%27"><span class="hs-identifier hs-type">Body'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271114"><span class="annot"><span class="annottext">Maybe Content
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.Body.html#Body%27"><span class="hs-identifier hs-type">Body'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271123"><span class="annot"><span class="annottext">Maybe Content
 text :: Maybe Content
 $sel:text:Body' :: Body -&gt; Maybe Content
-</span><a href="#local-6989586621679271114"><span class="hs-identifier hs-var hs-var">text</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Content
-</span><a href="#local-6989586621679271114"><span class="hs-identifier hs-var">text</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271113"><span class="annot"><span class="annottext">s :: Body
-</span><a href="#local-6989586621679271113"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.Body.html#Body%27"><span class="hs-identifier hs-type">Body'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271112"><span class="annot"><span class="annottext">Maybe Content
-</span><a href="#local-6989586621679271112"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Body
-</span><a href="#local-6989586621679271113"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:text:Body' :: Maybe Content
+</span><a href="#local-6989586621679271123"><span class="hs-identifier hs-var hs-var">text</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Content
+</span><a href="#local-6989586621679271123"><span class="hs-identifier hs-var">text</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271122"><span class="annot"><span class="annottext">s :: Body
+</span><a href="#local-6989586621679271122"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.Body.html#Body%27"><span class="hs-identifier hs-type">Body'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271121"><span class="annot"><span class="annottext">Maybe Content
+</span><a href="#local-6989586621679271121"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Body
+</span><a href="#local-6989586621679271122"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:text:Body' :: Maybe Content
 </span><a href="Network.AWS.SES.Types.Body.html#%24sel%3Atext%3ABody%27"><span class="hs-identifier hs-var">text</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Content
-</span><a href="#local-6989586621679271112"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.Body.html#Body"><span class="hs-identifier hs-type">Body</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679271121"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.Body.html#Body"><span class="hs-identifier hs-type">Body</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | The content of the message, in HTML format. Use this for email clients</span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- that can process HTML. You can include clickable links, formatted text,</span><span>
@@ -148,29 +148,29 @@ $sel:text:Body' :: Body -&gt; Maybe Content
 -&gt; (Body -&gt; Maybe Content -&gt; Body)
 -&gt; Lens Body Body (Maybe Content) (Maybe Content)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.Body.html#Body%27"><span class="hs-identifier hs-type">Body'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271110"><span class="annot"><span class="annottext">Maybe Content
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.Body.html#Body%27"><span class="hs-identifier hs-type">Body'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271119"><span class="annot"><span class="annottext">Maybe Content
 html :: Maybe Content
 $sel:html:Body' :: Body -&gt; Maybe Content
-</span><a href="#local-6989586621679271110"><span class="hs-identifier hs-var hs-var">html</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Content
-</span><a href="#local-6989586621679271110"><span class="hs-identifier hs-var">html</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271109"><span class="annot"><span class="annottext">s :: Body
-</span><a href="#local-6989586621679271109"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.Body.html#Body%27"><span class="hs-identifier hs-type">Body'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271108"><span class="annot"><span class="annottext">Maybe Content
-</span><a href="#local-6989586621679271108"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Body
-</span><a href="#local-6989586621679271109"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:html:Body' :: Maybe Content
+</span><a href="#local-6989586621679271119"><span class="hs-identifier hs-var hs-var">html</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Content
+</span><a href="#local-6989586621679271119"><span class="hs-identifier hs-var">html</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271118"><span class="annot"><span class="annottext">s :: Body
+</span><a href="#local-6989586621679271118"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.Body.html#Body%27"><span class="hs-identifier hs-type">Body'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271117"><span class="annot"><span class="annottext">Maybe Content
+</span><a href="#local-6989586621679271117"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Body
+</span><a href="#local-6989586621679271118"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:html:Body' :: Maybe Content
 </span><a href="Network.AWS.SES.Types.Body.html#%24sel%3Ahtml%3ABody%27"><span class="hs-identifier hs-var">html</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Content
-</span><a href="#local-6989586621679271108"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.Body.html#Body"><span class="hs-identifier hs-type">Body</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679271117"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.Body.html#Body"><span class="hs-identifier hs-type">Body</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271104"><span id="local-6989586621679271106"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.Body.html#Body"><span class="hs-identifier hs-type">Body</span></a></span></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271113"><span id="local-6989586621679271115"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.Body.html#Body"><span class="hs-identifier hs-type">Body</span></a></span></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271101"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.Body.html#Body"><span class="hs-identifier hs-type">Body</span></a></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271110"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.Body.html#Body"><span class="hs-identifier hs-type">Body</span></a></span></span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.Body.html#Body"><span class="hs-identifier hs-type">Body</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679271097"><span class="annot"><span class="annottext">toQuery :: Body -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.Body.html#Body%27"><span class="hs-identifier hs-type">Body'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271094"><span id="local-6989586621679271095"><span class="annot"><span class="annottext">Maybe Content
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679271106"><span class="annot"><span class="annottext">toQuery :: Body -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.Body.html#Body%27"><span class="hs-identifier hs-type">Body'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271103"><span id="local-6989586621679271104"><span class="annot"><span class="annottext">Maybe Content
 html :: Maybe Content
 text :: Maybe Content
 $sel:html:Body' :: Body -&gt; Maybe Content
 $sel:text:Body' :: Body -&gt; Maybe Content
-</span><a href="#local-6989586621679271094"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679271103"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -178,9 +178,9 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Text&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Content -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Content
-</span><a href="#local-6989586621679271095"><span class="hs-identifier hs-var">text</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679271104"><span class="hs-identifier hs-var">text</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Html&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Content -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Content
-</span><a href="#local-6989586621679271094"><span class="hs-identifier hs-var">html</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679271103"><span class="hs-identifier hs-var">html</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-87"></span></pre></body></html>

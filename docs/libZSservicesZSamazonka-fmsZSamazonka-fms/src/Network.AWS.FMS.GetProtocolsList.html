@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newGetProtocolsList' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679255896"><span id="local-6989586621679255897"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetProtocolsList"><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsList"><span class="hs-identifier hs-var">GetProtocolsList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetProtocolsList%27"><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsList%27"><span class="hs-identifier hs-var">GetProtocolsList'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679255905"><span id="local-6989586621679255906"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetProtocolsList"><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsList"><span class="hs-identifier hs-var">GetProtocolsList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetProtocolsList%27"><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsList%27"><span class="hs-identifier hs-var">GetProtocolsList'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies whether the list to retrieve is a default list owned by</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- Firewall Manager.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AdefaultList%3AGetProtocolsList%27"><span class="annot"><span class="annottext">GetProtocolsList -&gt; Maybe Bool
@@ -59,7 +59,7 @@
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AlistId%3AGetProtocolsList%27"><span class="annot"><span class="annottext">GetProtocolsList -&gt; Text
 </span><a href="Network.AWS.FMS.GetProtocolsList.html#%24sel%3AlistId%3AGetProtocolsList%27"><span class="hs-identifier hs-var hs-var">listId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679255889"><span id="local-6989586621679255891"><span class="annot"><span class="annottext">GetProtocolsList -&gt; GetProtocolsList -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679255898"><span id="local-6989586621679255900"><span class="annot"><span class="annottext">GetProtocolsList -&gt; GetProtocolsList -&gt; Bool
 (GetProtocolsList -&gt; GetProtocolsList -&gt; Bool)
 -&gt; (GetProtocolsList -&gt; GetProtocolsList -&gt; Bool)
 -&gt; Eq GetProtocolsList
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetProtocolsList -&gt; GetProtocolsList -&gt; Bool
 == :: GetProtocolsList -&gt; GetProtocolsList -&gt; Bool
 $c== :: GetProtocolsList -&gt; GetProtocolsList -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255880"><span id="local-6989586621679255882"><span id="local-6989586621679255884"><span id="local-6989586621679255886"><span class="annot"><span class="annottext">ReadPrec [GetProtocolsList]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255889"><span id="local-6989586621679255891"><span id="local-6989586621679255893"><span id="local-6989586621679255895"><span class="annot"><span class="annottext">ReadPrec [GetProtocolsList]
 ReadPrec GetProtocolsList
 Int -&gt; ReadS GetProtocolsList
 ReadS [GetProtocolsList]
@@ -88,7 +88,7 @@ readList :: ReadS [GetProtocolsList]
 $creadList :: ReadS [GetProtocolsList]
 readsPrec :: Int -&gt; ReadS GetProtocolsList
 $creadsPrec :: Int -&gt; ReadS GetProtocolsList
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255873"><span id="local-6989586621679255875"><span id="local-6989586621679255877"><span class="annot"><span class="annottext">Int -&gt; GetProtocolsList -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255882"><span id="local-6989586621679255884"><span id="local-6989586621679255886"><span class="annot"><span class="annottext">Int -&gt; GetProtocolsList -&gt; ShowS
 [GetProtocolsList] -&gt; ShowS
 GetProtocolsList -&gt; String
 (Int -&gt; GetProtocolsList -&gt; ShowS)
@@ -132,8 +132,8 @@ $cfrom :: forall x. GetProtocolsList -&gt; Rep GetProtocolsList x
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsList"><span class="hs-identifier hs-type">GetProtocolsList</span></a></span><span>
 </span><span id="line-79"></span><span id="newGetProtocolsList"><span class="annot"><span class="annottext">newGetProtocolsList :: Text -&gt; GetProtocolsList
-</span><a href="Network.AWS.FMS.GetProtocolsList.html#newGetProtocolsList"><span class="hs-identifier hs-var hs-var">newGetProtocolsList</span></a></span></span><span> </span><span id="local-6989586621679255868"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679255868"><span class="hs-identifier hs-var">pListId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.FMS.GetProtocolsList.html#newGetProtocolsList"><span class="hs-identifier hs-var hs-var">newGetProtocolsList</span></a></span></span><span> </span><span id="local-6989586621679255877"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679255877"><span class="hs-identifier hs-var">pListId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">GetProtocolsList' :: Maybe Bool -&gt; Text -&gt; GetProtocolsList
 </span><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsList%27"><span class="hs-identifier hs-type">GetProtocolsList'</span></a></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:defaultList:GetProtocolsList' :: Maybe Bool
@@ -142,7 +142,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:listId:GetProtocolsList' :: Text
 </span><a href="Network.AWS.FMS.GetProtocolsList.html#%24sel%3AlistId%3AGetProtocolsList%27"><span class="hs-identifier hs-var">listId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679255868"><span class="hs-identifier hs-var">pListId_</span></a></span><span>
+</span><a href="#local-6989586621679255877"><span class="hs-identifier hs-var">pListId_</span></a></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | Specifies whether the list to retrieve is a default list owned by</span><span>
@@ -154,16 +154,16 @@ forall a. Maybe a
 -&gt; (GetProtocolsList -&gt; Maybe Bool -&gt; GetProtocolsList)
 -&gt; Lens GetProtocolsList GetProtocolsList (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsList%27"><span class="hs-identifier hs-type">GetProtocolsList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255865"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsList%27"><span class="hs-identifier hs-type">GetProtocolsList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255874"><span class="annot"><span class="annottext">Maybe Bool
 defaultList :: Maybe Bool
 $sel:defaultList:GetProtocolsList' :: GetProtocolsList -&gt; Maybe Bool
-</span><a href="#local-6989586621679255865"><span class="hs-identifier hs-var hs-var">defaultList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679255865"><span class="hs-identifier hs-var">defaultList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255864"><span class="annot"><span class="annottext">s :: GetProtocolsList
-</span><a href="#local-6989586621679255864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsList%27"><span class="hs-identifier hs-type">GetProtocolsList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255863"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679255863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetProtocolsList
-</span><a href="#local-6989586621679255864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultList:GetProtocolsList' :: Maybe Bool
+</span><a href="#local-6989586621679255874"><span class="hs-identifier hs-var hs-var">defaultList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679255874"><span class="hs-identifier hs-var">defaultList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255873"><span class="annot"><span class="annottext">s :: GetProtocolsList
+</span><a href="#local-6989586621679255873"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsList%27"><span class="hs-identifier hs-type">GetProtocolsList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255872"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679255872"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetProtocolsList
+</span><a href="#local-6989586621679255873"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultList:GetProtocolsList' :: Maybe Bool
 </span><a href="Network.AWS.FMS.GetProtocolsList.html#%24sel%3AdefaultList%3AGetProtocolsList%27"><span class="hs-identifier hs-var">defaultList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679255863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsList"><span class="hs-identifier hs-type">GetProtocolsList</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679255872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsList"><span class="hs-identifier hs-type">GetProtocolsList</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | The ID of the Firewall Manager protocols list that you want the details</span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- for.</span><span>
@@ -173,27 +173,27 @@ $sel:defaultList:GetProtocolsList' :: GetProtocolsList -&gt; Maybe Bool
 -&gt; (GetProtocolsList -&gt; Text -&gt; GetProtocolsList)
 -&gt; Lens GetProtocolsList GetProtocolsList Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsList%27"><span class="hs-identifier hs-type">GetProtocolsList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255862"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsList%27"><span class="hs-identifier hs-type">GetProtocolsList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255871"><span class="annot"><span class="annottext">Text
 listId :: Text
 $sel:listId:GetProtocolsList' :: GetProtocolsList -&gt; Text
-</span><a href="#local-6989586621679255862"><span class="hs-identifier hs-var hs-var">listId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679255862"><span class="hs-identifier hs-var">listId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255861"><span class="annot"><span class="annottext">s :: GetProtocolsList
-</span><a href="#local-6989586621679255861"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsList%27"><span class="hs-identifier hs-type">GetProtocolsList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255860"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679255860"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetProtocolsList
-</span><a href="#local-6989586621679255861"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:listId:GetProtocolsList' :: Text
+</span><a href="#local-6989586621679255871"><span class="hs-identifier hs-var hs-var">listId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679255871"><span class="hs-identifier hs-var">listId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255870"><span class="annot"><span class="annottext">s :: GetProtocolsList
+</span><a href="#local-6989586621679255870"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsList%27"><span class="hs-identifier hs-type">GetProtocolsList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255869"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679255869"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetProtocolsList
+</span><a href="#local-6989586621679255870"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:listId:GetProtocolsList' :: Text
 </span><a href="Network.AWS.FMS.GetProtocolsList.html#%24sel%3AlistId%3AGetProtocolsList%27"><span class="hs-identifier hs-var">listId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679255860"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsList"><span class="hs-identifier hs-type">GetProtocolsList</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679255869"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsList"><span class="hs-identifier hs-type">GetProtocolsList</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsList"><span class="hs-identifier hs-type">GetProtocolsList</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-96"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-97"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsList"><span class="hs-identifier hs-type">GetProtocolsList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsListResponse"><span class="hs-identifier hs-type">GetProtocolsListResponse</span></a></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679255856"><span class="annot"><span class="annottext">request :: GetProtocolsList -&gt; Request GetProtocolsList
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679255865"><span class="annot"><span class="annottext">request :: GetProtocolsList -&gt; Request GetProtocolsList
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetProtocolsList -&gt; Request GetProtocolsList
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.FMS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679255852"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679255861"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetProtocolsList
 -&gt; ClientResponse ClientBody
@@ -217,10 +217,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679255849"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679255849"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679255848"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679255848"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679255847"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679255847"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679255858"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679255858"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679255857"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679255857"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679255856"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679255856"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe ProtocolsListData
 -&gt; Maybe Text -&gt; Int -&gt; GetProtocolsListResponse
 </span><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsListResponse%27"><span class="hs-identifier hs-var">GetProtocolsListResponse'</span></a></span><span>
@@ -230,7 +230,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; GetProtocolsListResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679255847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ProtocolsListData)
+</span><a href="#local-6989586621679255856"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ProtocolsListData)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ProtocolsList&quot;</span></span><span class="hs-special">)</span><span>
@@ -239,7 +239,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; GetProtocolsListResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679255847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679255856"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ProtocolsListArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -251,15 +251,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679255849"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679255858"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255839"><span id="local-6989586621679255841"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsList"><span class="hs-identifier hs-type">GetProtocolsList</span></a></span></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255848"><span id="local-6989586621679255850"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsList"><span class="hs-identifier hs-type">GetProtocolsList</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255836"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsList"><span class="hs-identifier hs-type">GetProtocolsList</span></a></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255845"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsList"><span class="hs-identifier hs-type">GetProtocolsList</span></a></span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsList"><span class="hs-identifier hs-type">GetProtocolsList</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679255832"><span class="annot"><span class="annottext">toHeaders :: GetProtocolsList -&gt; ResponseHeaders
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679255841"><span class="annot"><span class="annottext">toHeaders :: GetProtocolsList -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetProtocolsList -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -286,15 +286,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255822"><span id="local-6989586621679255824"><span id="local-6989586621679255826"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsList"><span class="hs-identifier hs-type">GetProtocolsList</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679255820"><span class="annot"><span class="annottext">toJSON :: GetProtocolsList -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsList%27"><span class="hs-identifier hs-type">GetProtocolsList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255817"><span id="local-6989586621679255818"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255831"><span id="local-6989586621679255833"><span id="local-6989586621679255835"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsList"><span class="hs-identifier hs-type">GetProtocolsList</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679255829"><span class="annot"><span class="annottext">toJSON :: GetProtocolsList -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsList%27"><span class="hs-identifier hs-type">GetProtocolsList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255826"><span id="local-6989586621679255827"><span class="annot"><span class="annottext">Maybe Bool
 Text
 listId :: Text
 defaultList :: Maybe Bool
 $sel:listId:GetProtocolsList' :: GetProtocolsList -&gt; Text
 $sel:defaultList:GetProtocolsList' :: GetProtocolsList -&gt; Maybe Bool
-</span><a href="#local-6989586621679255817"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679255826"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -306,26 +306,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679255818"><span class="hs-identifier hs-var">defaultList</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679255827"><span class="hs-identifier hs-var">defaultList</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ListId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679255817"><span class="hs-identifier hs-var">listId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679255826"><span class="hs-identifier hs-var">listId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsList"><span class="hs-identifier hs-type">GetProtocolsList</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679255811"><span class="annot"><span class="annottext">toPath :: GetProtocolsList -&gt; ByteString
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679255820"><span class="annot"><span class="annottext">toPath :: GetProtocolsList -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetProtocolsList -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsList"><span class="hs-identifier hs-type">GetProtocolsList</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679255807"><span class="annot"><span class="annottext">toQuery :: GetProtocolsList -&gt; QueryString
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679255816"><span class="annot"><span class="annottext">toQuery :: GetProtocolsList -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetProtocolsList -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -333,7 +333,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | /See:/ 'newGetProtocolsListResponse' smart constructor.</span><span>
-</span><span id="line-144"></span><span id="local-6989586621679255804"><span id="local-6989586621679255805"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetProtocolsListResponse"><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsListResponse"><span class="hs-identifier hs-var">GetProtocolsListResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetProtocolsListResponse%27"><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsListResponse%27"><span class="hs-identifier hs-var">GetProtocolsListResponse'</span></a></span></span><span>
+</span><span id="line-144"></span><span id="local-6989586621679255813"><span id="local-6989586621679255814"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetProtocolsListResponse"><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsListResponse"><span class="hs-identifier hs-var">GetProtocolsListResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetProtocolsListResponse%27"><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsListResponse%27"><span class="hs-identifier hs-var">GetProtocolsListResponse'</span></a></span></span><span>
 </span><span id="line-145"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the specified Firewall Manager protocols list.</span><span>
 </span><span id="line-146"></span><span>    </span><span id="%24sel%3AprotocolsList%3AGetProtocolsListResponse%27"><span class="annot"><span class="annottext">GetProtocolsListResponse -&gt; Maybe ProtocolsListData
 </span><a href="Network.AWS.FMS.GetProtocolsList.html#%24sel%3AprotocolsList%3AGetProtocolsListResponse%27"><span class="hs-identifier hs-var hs-var">protocolsList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ProtocolsListData.html#ProtocolsListData"><span class="hs-identifier hs-type">ProtocolsListData</span></a></span><span class="hs-special">,</span><span>
@@ -344,7 +344,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-150"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetProtocolsListResponse%27"><span class="annot"><span class="annottext">GetProtocolsListResponse -&gt; Int
 </span><a href="Network.AWS.FMS.GetProtocolsList.html#%24sel%3AhttpStatus%3AGetProtocolsListResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-151"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-152"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679255797"><span id="local-6989586621679255799"><span class="annot"><span class="annottext">GetProtocolsListResponse -&gt; GetProtocolsListResponse -&gt; Bool
+</span><span id="line-152"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679255806"><span id="local-6989586621679255808"><span class="annot"><span class="annottext">GetProtocolsListResponse -&gt; GetProtocolsListResponse -&gt; Bool
 (GetProtocolsListResponse -&gt; GetProtocolsListResponse -&gt; Bool)
 -&gt; (GetProtocolsListResponse -&gt; GetProtocolsListResponse -&gt; Bool)
 -&gt; Eq GetProtocolsListResponse
@@ -353,7 +353,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetProtocolsListResponse -&gt; GetProtocolsListResponse -&gt; Bool
 == :: GetProtocolsListResponse -&gt; GetProtocolsListResponse -&gt; Bool
 $c== :: GetProtocolsListResponse -&gt; GetProtocolsListResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255789"><span id="local-6989586621679255791"><span id="local-6989586621679255793"><span id="local-6989586621679255795"><span class="annot"><span class="annottext">ReadPrec [GetProtocolsListResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255798"><span id="local-6989586621679255800"><span id="local-6989586621679255802"><span id="local-6989586621679255804"><span class="annot"><span class="annottext">ReadPrec [GetProtocolsListResponse]
 ReadPrec GetProtocolsListResponse
 Int -&gt; ReadS GetProtocolsListResponse
 ReadS [GetProtocolsListResponse]
@@ -373,7 +373,7 @@ readList :: ReadS [GetProtocolsListResponse]
 $creadList :: ReadS [GetProtocolsListResponse]
 readsPrec :: Int -&gt; ReadS GetProtocolsListResponse
 $creadsPrec :: Int -&gt; ReadS GetProtocolsListResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255783"><span id="local-6989586621679255785"><span id="local-6989586621679255787"><span class="annot"><span class="annottext">Int -&gt; GetProtocolsListResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255792"><span id="local-6989586621679255794"><span id="local-6989586621679255796"><span class="annot"><span class="annottext">Int -&gt; GetProtocolsListResponse -&gt; ShowS
 [GetProtocolsListResponse] -&gt; ShowS
 GetProtocolsListResponse -&gt; String
 (Int -&gt; GetProtocolsListResponse -&gt; ShowS)
@@ -423,8 +423,8 @@ GetProtocolsListResponse -&gt; Rep GetProtocolsListResponse x
 </span><span id="line-169"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-170"></span><span>  </span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsListResponse"><span class="hs-identifier hs-type">GetProtocolsListResponse</span></a></span><span>
 </span><span id="line-171"></span><span id="newGetProtocolsListResponse"><span class="annot"><span class="annottext">newGetProtocolsListResponse :: Int -&gt; GetProtocolsListResponse
-</span><a href="Network.AWS.FMS.GetProtocolsList.html#newGetProtocolsListResponse"><span class="hs-identifier hs-var hs-var">newGetProtocolsListResponse</span></a></span></span><span> </span><span id="local-6989586621679255780"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679255780"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.FMS.GetProtocolsList.html#newGetProtocolsListResponse"><span class="hs-identifier hs-var hs-var">newGetProtocolsListResponse</span></a></span></span><span> </span><span id="local-6989586621679255789"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679255789"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-172"></span><span>  </span><span class="annot"><span class="annottext">GetProtocolsListResponse' :: Maybe ProtocolsListData
 -&gt; Maybe Text -&gt; Int -&gt; GetProtocolsListResponse
 </span><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsListResponse%27"><span class="hs-identifier hs-type">GetProtocolsListResponse'</span></a></span><span>
@@ -439,7 +439,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetProtocolsListResponse' :: Int
 </span><a href="Network.AWS.FMS.GetProtocolsList.html#%24sel%3AhttpStatus%3AGetProtocolsListResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679255780"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679255789"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-177"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- | Information about the specified Firewall Manager protocols list.</span><span>
@@ -455,16 +455,16 @@ forall a. Maybe a
      (Maybe ProtocolsListData)
      (Maybe ProtocolsListData)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsListResponse%27"><span class="hs-identifier hs-type">GetProtocolsListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255779"><span class="annot"><span class="annottext">Maybe ProtocolsListData
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsListResponse%27"><span class="hs-identifier hs-type">GetProtocolsListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255788"><span class="annot"><span class="annottext">Maybe ProtocolsListData
 protocolsList :: Maybe ProtocolsListData
 $sel:protocolsList:GetProtocolsListResponse' :: GetProtocolsListResponse -&gt; Maybe ProtocolsListData
-</span><a href="#local-6989586621679255779"><span class="hs-identifier hs-var hs-var">protocolsList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProtocolsListData
-</span><a href="#local-6989586621679255779"><span class="hs-identifier hs-var">protocolsList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255778"><span class="annot"><span class="annottext">s :: GetProtocolsListResponse
-</span><a href="#local-6989586621679255778"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsListResponse%27"><span class="hs-identifier hs-type">GetProtocolsListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255777"><span class="annot"><span class="annottext">Maybe ProtocolsListData
-</span><a href="#local-6989586621679255777"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetProtocolsListResponse
-</span><a href="#local-6989586621679255778"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocolsList:GetProtocolsListResponse' :: Maybe ProtocolsListData
+</span><a href="#local-6989586621679255788"><span class="hs-identifier hs-var hs-var">protocolsList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProtocolsListData
+</span><a href="#local-6989586621679255788"><span class="hs-identifier hs-var">protocolsList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255787"><span class="annot"><span class="annottext">s :: GetProtocolsListResponse
+</span><a href="#local-6989586621679255787"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsListResponse%27"><span class="hs-identifier hs-type">GetProtocolsListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255786"><span class="annot"><span class="annottext">Maybe ProtocolsListData
+</span><a href="#local-6989586621679255786"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetProtocolsListResponse
+</span><a href="#local-6989586621679255787"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocolsList:GetProtocolsListResponse' :: Maybe ProtocolsListData
 </span><a href="Network.AWS.FMS.GetProtocolsList.html#%24sel%3AprotocolsList%3AGetProtocolsListResponse%27"><span class="hs-identifier hs-var">protocolsList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProtocolsListData
-</span><a href="#local-6989586621679255777"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsListResponse"><span class="hs-identifier hs-type">GetProtocolsListResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679255786"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsListResponse"><span class="hs-identifier hs-type">GetProtocolsListResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the specified protocols list.</span><span>
 </span><span id="line-184"></span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#getProtocolsListResponse_protocolsListArn"><span class="hs-identifier hs-type">getProtocolsListResponse_protocolsListArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsListResponse"><span class="hs-identifier hs-type">GetProtocolsListResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -479,16 +479,16 @@ $sel:protocolsList:GetProtocolsListResponse' :: GetProtocolsListResponse -&gt; M
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsListResponse%27"><span class="hs-identifier hs-type">GetProtocolsListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255776"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsListResponse%27"><span class="hs-identifier hs-type">GetProtocolsListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255785"><span class="annot"><span class="annottext">Maybe Text
 protocolsListArn :: Maybe Text
 $sel:protocolsListArn:GetProtocolsListResponse' :: GetProtocolsListResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679255776"><span class="hs-identifier hs-var hs-var">protocolsListArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255776"><span class="hs-identifier hs-var">protocolsListArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255775"><span class="annot"><span class="annottext">s :: GetProtocolsListResponse
-</span><a href="#local-6989586621679255775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsListResponse%27"><span class="hs-identifier hs-type">GetProtocolsListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255774"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetProtocolsListResponse
-</span><a href="#local-6989586621679255775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocolsListArn:GetProtocolsListResponse' :: Maybe Text
+</span><a href="#local-6989586621679255785"><span class="hs-identifier hs-var hs-var">protocolsListArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679255785"><span class="hs-identifier hs-var">protocolsListArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255784"><span class="annot"><span class="annottext">s :: GetProtocolsListResponse
+</span><a href="#local-6989586621679255784"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsListResponse%27"><span class="hs-identifier hs-type">GetProtocolsListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255783"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679255783"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetProtocolsListResponse
+</span><a href="#local-6989586621679255784"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocolsListArn:GetProtocolsListResponse' :: Maybe Text
 </span><a href="Network.AWS.FMS.GetProtocolsList.html#%24sel%3AprotocolsListArn%3AGetProtocolsListResponse%27"><span class="hs-identifier hs-var">protocolsListArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsListResponse"><span class="hs-identifier hs-type">GetProtocolsListResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679255783"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsListResponse"><span class="hs-identifier hs-type">GetProtocolsListResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-188"></span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#getProtocolsListResponse_httpStatus"><span class="hs-identifier hs-type">getProtocolsListResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsListResponse"><span class="hs-identifier hs-type">GetProtocolsListResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -498,16 +498,16 @@ $sel:protocolsListArn:GetProtocolsListResponse' :: GetProtocolsListResponse -&gt
 -&gt; (GetProtocolsListResponse -&gt; Int -&gt; GetProtocolsListResponse)
 -&gt; Lens GetProtocolsListResponse GetProtocolsListResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsListResponse%27"><span class="hs-identifier hs-type">GetProtocolsListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255773"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsListResponse%27"><span class="hs-identifier hs-type">GetProtocolsListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255782"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetProtocolsListResponse' :: GetProtocolsListResponse -&gt; Int
-</span><a href="#local-6989586621679255773"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679255773"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255772"><span class="annot"><span class="annottext">s :: GetProtocolsListResponse
-</span><a href="#local-6989586621679255772"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsListResponse%27"><span class="hs-identifier hs-type">GetProtocolsListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255771"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679255771"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetProtocolsListResponse
-</span><a href="#local-6989586621679255772"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetProtocolsListResponse' :: Int
+</span><a href="#local-6989586621679255782"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679255782"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255781"><span class="annot"><span class="annottext">s :: GetProtocolsListResponse
+</span><a href="#local-6989586621679255781"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsListResponse%27"><span class="hs-identifier hs-type">GetProtocolsListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255780"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679255780"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetProtocolsListResponse
+</span><a href="#local-6989586621679255781"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetProtocolsListResponse' :: Int
 </span><a href="Network.AWS.FMS.GetProtocolsList.html#%24sel%3AhttpStatus%3AGetProtocolsListResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679255771"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsListResponse"><span class="hs-identifier hs-type">GetProtocolsListResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679255780"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsListResponse"><span class="hs-identifier hs-type">GetProtocolsListResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
-</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255769"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsListResponse"><span class="hs-identifier hs-type">GetProtocolsListResponse</span></a></span></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255778"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetProtocolsList.html#GetProtocolsListResponse"><span class="hs-identifier hs-type">GetProtocolsListResponse</span></a></span></span><span>
 </span><span id="line-192"></span></pre></body></html>

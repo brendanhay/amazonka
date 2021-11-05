@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.BatteryLevel.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.BatteryLevel</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.DeviceState.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.DeviceState</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Event.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.Event</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | MetaData for Sidewalk device.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newSidewalkDeviceMetadata' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679277738"><span id="local-6989586621679277739"></span></span><span class="hs-keyword">data</span><span> </span><span id="SidewalkDeviceMetadata"><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#SidewalkDeviceMetadata"><span class="hs-identifier hs-var">SidewalkDeviceMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SidewalkDeviceMetadata%27"><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#SidewalkDeviceMetadata%27"><span class="hs-identifier hs-var">SidewalkDeviceMetadata'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Sidewalk device status notification.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Aevent%3ASidewalkDeviceMetadata%27"><span class="annot"><span class="annottext">SidewalkDeviceMetadata -&gt; Maybe Event
+</span><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#%24sel%3Aevent%3ASidewalkDeviceMetadata%27"><span class="hs-identifier hs-var hs-var">event</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Device state defines the device status of sidewalk device.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AdeviceState%3ASidewalkDeviceMetadata%27"><span class="annot"><span class="annottext">SidewalkDeviceMetadata -&gt; Maybe DeviceState
+</span><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#%24sel%3AdeviceState%3ASidewalkDeviceMetadata%27"><span class="hs-identifier hs-var hs-var">deviceState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.DeviceState.html#DeviceState"><span class="hs-identifier hs-type">DeviceState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Sidewalk device battery level.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AbatteryLevel%3ASidewalkDeviceMetadata%27"><span class="annot"><span class="annottext">SidewalkDeviceMetadata -&gt; Maybe BatteryLevel
+</span><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#%24sel%3AbatteryLevel%3ASidewalkDeviceMetadata%27"><span class="hs-identifier hs-var hs-var">batteryLevel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.BatteryLevel.html#BatteryLevel"><span class="hs-identifier hs-type">BatteryLevel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The RSSI value.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Arssi%3ASidewalkDeviceMetadata%27"><span class="annot"><span class="annottext">SidewalkDeviceMetadata -&gt; Maybe Int
+</span><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#%24sel%3Arssi%3ASidewalkDeviceMetadata%27"><span class="hs-identifier hs-var hs-var">rssi</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679277729"><span id="local-6989586621679277731"><span class="annot"><span class="annottext">SidewalkDeviceMetadata -&gt; SidewalkDeviceMetadata -&gt; Bool
+(SidewalkDeviceMetadata -&gt; SidewalkDeviceMetadata -&gt; Bool)
+-&gt; (SidewalkDeviceMetadata -&gt; SidewalkDeviceMetadata -&gt; Bool)
+-&gt; Eq SidewalkDeviceMetadata
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SidewalkDeviceMetadata -&gt; SidewalkDeviceMetadata -&gt; Bool
+$c/= :: SidewalkDeviceMetadata -&gt; SidewalkDeviceMetadata -&gt; Bool
+== :: SidewalkDeviceMetadata -&gt; SidewalkDeviceMetadata -&gt; Bool
+$c== :: SidewalkDeviceMetadata -&gt; SidewalkDeviceMetadata -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679277720"><span id="local-6989586621679277722"><span id="local-6989586621679277724"><span id="local-6989586621679277726"><span class="annot"><span class="annottext">ReadPrec [SidewalkDeviceMetadata]
+ReadPrec SidewalkDeviceMetadata
+Int -&gt; ReadS SidewalkDeviceMetadata
+ReadS [SidewalkDeviceMetadata]
+(Int -&gt; ReadS SidewalkDeviceMetadata)
+-&gt; ReadS [SidewalkDeviceMetadata]
+-&gt; ReadPrec SidewalkDeviceMetadata
+-&gt; ReadPrec [SidewalkDeviceMetadata]
+-&gt; Read SidewalkDeviceMetadata
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SidewalkDeviceMetadata]
+$creadListPrec :: ReadPrec [SidewalkDeviceMetadata]
+readPrec :: ReadPrec SidewalkDeviceMetadata
+$creadPrec :: ReadPrec SidewalkDeviceMetadata
+readList :: ReadS [SidewalkDeviceMetadata]
+$creadList :: ReadS [SidewalkDeviceMetadata]
+readsPrec :: Int -&gt; ReadS SidewalkDeviceMetadata
+$creadsPrec :: Int -&gt; ReadS SidewalkDeviceMetadata
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679277713"><span id="local-6989586621679277715"><span id="local-6989586621679277717"><span class="annot"><span class="annottext">Int -&gt; SidewalkDeviceMetadata -&gt; ShowS
+[SidewalkDeviceMetadata] -&gt; ShowS
+SidewalkDeviceMetadata -&gt; String
+(Int -&gt; SidewalkDeviceMetadata -&gt; ShowS)
+-&gt; (SidewalkDeviceMetadata -&gt; String)
+-&gt; ([SidewalkDeviceMetadata] -&gt; ShowS)
+-&gt; Show SidewalkDeviceMetadata
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SidewalkDeviceMetadata] -&gt; ShowS
+$cshowList :: [SidewalkDeviceMetadata] -&gt; ShowS
+show :: SidewalkDeviceMetadata -&gt; String
+$cshow :: SidewalkDeviceMetadata -&gt; String
+showsPrec :: Int -&gt; SidewalkDeviceMetadata -&gt; ShowS
+$cshowsPrec :: Int -&gt; SidewalkDeviceMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SidewalkDeviceMetadata -&gt; Rep SidewalkDeviceMetadata x)
+-&gt; (forall x.
+    Rep SidewalkDeviceMetadata x -&gt; SidewalkDeviceMetadata)
+-&gt; Generic SidewalkDeviceMetadata
+forall x. Rep SidewalkDeviceMetadata x -&gt; SidewalkDeviceMetadata
+forall x. SidewalkDeviceMetadata -&gt; Rep SidewalkDeviceMetadata x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SidewalkDeviceMetadata x -&gt; SidewalkDeviceMetadata
+$cfrom :: forall x. SidewalkDeviceMetadata -&gt; Rep SidewalkDeviceMetadata x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Create a value of 'SidewalkDeviceMetadata' with all optional fields omitted.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'event', 'sidewalkDeviceMetadata_event' - Sidewalk device status notification.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'deviceState', 'sidewalkDeviceMetadata_deviceState' - Device state defines the device status of sidewalk device.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'batteryLevel', 'sidewalkDeviceMetadata_batteryLevel' - Sidewalk device battery level.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'rssi', 'sidewalkDeviceMetadata_rssi' - The RSSI value.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#newSidewalkDeviceMetadata"><span class="hs-identifier hs-type">newSidewalkDeviceMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#SidewalkDeviceMetadata"><span class="hs-identifier hs-type">SidewalkDeviceMetadata</span></a></span><span>
+</span><span id="line-61"></span><span id="newSidewalkDeviceMetadata"><span class="annot"><span class="annottext">newSidewalkDeviceMetadata :: SidewalkDeviceMetadata
+</span><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#newSidewalkDeviceMetadata"><span class="hs-identifier hs-var hs-var">newSidewalkDeviceMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">SidewalkDeviceMetadata' :: Maybe Event
+-&gt; Maybe DeviceState
+-&gt; Maybe BatteryLevel
+-&gt; Maybe Int
+-&gt; SidewalkDeviceMetadata
+</span><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#SidewalkDeviceMetadata%27"><span class="hs-identifier hs-type">SidewalkDeviceMetadata'</span></a></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:event:SidewalkDeviceMetadata' :: Maybe Event
+</span><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#%24sel%3Aevent%3ASidewalkDeviceMetadata%27"><span class="hs-identifier hs-var">event</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Event
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceState:SidewalkDeviceMetadata' :: Maybe DeviceState
+</span><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#%24sel%3AdeviceState%3ASidewalkDeviceMetadata%27"><span class="hs-identifier hs-var">deviceState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:batteryLevel:SidewalkDeviceMetadata' :: Maybe BatteryLevel
+</span><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#%24sel%3AbatteryLevel%3ASidewalkDeviceMetadata%27"><span class="hs-identifier hs-var">batteryLevel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BatteryLevel
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:rssi:SidewalkDeviceMetadata' :: Maybe Int
+</span><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#%24sel%3Arssi%3ASidewalkDeviceMetadata%27"><span class="hs-identifier hs-var">rssi</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | Sidewalk device status notification.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#sidewalkDeviceMetadata_event"><span class="hs-identifier hs-type">sidewalkDeviceMetadata_event</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#SidewalkDeviceMetadata"><span class="hs-identifier hs-type">SidewalkDeviceMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span id="sidewalkDeviceMetadata_event"><span class="annot"><span class="annottext">sidewalkDeviceMetadata_event :: (Maybe Event -&gt; f (Maybe Event))
+-&gt; SidewalkDeviceMetadata -&gt; f SidewalkDeviceMetadata
+</span><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#sidewalkDeviceMetadata_event"><span class="hs-identifier hs-var hs-var">sidewalkDeviceMetadata_event</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SidewalkDeviceMetadata -&gt; Maybe Event)
+-&gt; (SidewalkDeviceMetadata
+    -&gt; Maybe Event -&gt; SidewalkDeviceMetadata)
+-&gt; Lens
+     SidewalkDeviceMetadata
+     SidewalkDeviceMetadata
+     (Maybe Event)
+     (Maybe Event)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#SidewalkDeviceMetadata%27"><span class="hs-identifier hs-type">SidewalkDeviceMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277704"><span class="annot"><span class="annottext">Maybe Event
+event :: Maybe Event
+$sel:event:SidewalkDeviceMetadata' :: SidewalkDeviceMetadata -&gt; Maybe Event
+</span><a href="#local-6989586621679277704"><span class="hs-identifier hs-var hs-var">event</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Event
+</span><a href="#local-6989586621679277704"><span class="hs-identifier hs-var">event</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277703"><span class="annot"><span class="annottext">s :: SidewalkDeviceMetadata
+</span><a href="#local-6989586621679277703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#SidewalkDeviceMetadata%27"><span class="hs-identifier hs-type">SidewalkDeviceMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277702"><span class="annot"><span class="annottext">Maybe Event
+</span><a href="#local-6989586621679277702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SidewalkDeviceMetadata
+</span><a href="#local-6989586621679277703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:event:SidewalkDeviceMetadata' :: Maybe Event
+</span><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#%24sel%3Aevent%3ASidewalkDeviceMetadata%27"><span class="hs-identifier hs-var">event</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Event
+</span><a href="#local-6989586621679277702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#SidewalkDeviceMetadata"><span class="hs-identifier hs-type">SidewalkDeviceMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | Device state defines the device status of sidewalk device.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#sidewalkDeviceMetadata_deviceState"><span class="hs-identifier hs-type">sidewalkDeviceMetadata_deviceState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#SidewalkDeviceMetadata"><span class="hs-identifier hs-type">SidewalkDeviceMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.DeviceState.html#DeviceState"><span class="hs-identifier hs-type">DeviceState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="sidewalkDeviceMetadata_deviceState"><span class="annot"><span class="annottext">sidewalkDeviceMetadata_deviceState :: (Maybe DeviceState -&gt; f (Maybe DeviceState))
+-&gt; SidewalkDeviceMetadata -&gt; f SidewalkDeviceMetadata
+</span><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#sidewalkDeviceMetadata_deviceState"><span class="hs-identifier hs-var hs-var">sidewalkDeviceMetadata_deviceState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SidewalkDeviceMetadata -&gt; Maybe DeviceState)
+-&gt; (SidewalkDeviceMetadata
+    -&gt; Maybe DeviceState -&gt; SidewalkDeviceMetadata)
+-&gt; Lens
+     SidewalkDeviceMetadata
+     SidewalkDeviceMetadata
+     (Maybe DeviceState)
+     (Maybe DeviceState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#SidewalkDeviceMetadata%27"><span class="hs-identifier hs-type">SidewalkDeviceMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277700"><span class="annot"><span class="annottext">Maybe DeviceState
+deviceState :: Maybe DeviceState
+$sel:deviceState:SidewalkDeviceMetadata' :: SidewalkDeviceMetadata -&gt; Maybe DeviceState
+</span><a href="#local-6989586621679277700"><span class="hs-identifier hs-var hs-var">deviceState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceState
+</span><a href="#local-6989586621679277700"><span class="hs-identifier hs-var">deviceState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277699"><span class="annot"><span class="annottext">s :: SidewalkDeviceMetadata
+</span><a href="#local-6989586621679277699"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#SidewalkDeviceMetadata%27"><span class="hs-identifier hs-type">SidewalkDeviceMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277698"><span class="annot"><span class="annottext">Maybe DeviceState
+</span><a href="#local-6989586621679277698"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SidewalkDeviceMetadata
+</span><a href="#local-6989586621679277699"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceState:SidewalkDeviceMetadata' :: Maybe DeviceState
+</span><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#%24sel%3AdeviceState%3ASidewalkDeviceMetadata%27"><span class="hs-identifier hs-var">deviceState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeviceState
+</span><a href="#local-6989586621679277698"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#SidewalkDeviceMetadata"><span class="hs-identifier hs-type">SidewalkDeviceMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | Sidewalk device battery level.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#sidewalkDeviceMetadata_batteryLevel"><span class="hs-identifier hs-type">sidewalkDeviceMetadata_batteryLevel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#SidewalkDeviceMetadata"><span class="hs-identifier hs-type">SidewalkDeviceMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.BatteryLevel.html#BatteryLevel"><span class="hs-identifier hs-type">BatteryLevel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="sidewalkDeviceMetadata_batteryLevel"><span class="annot"><span class="annottext">sidewalkDeviceMetadata_batteryLevel :: (Maybe BatteryLevel -&gt; f (Maybe BatteryLevel))
+-&gt; SidewalkDeviceMetadata -&gt; f SidewalkDeviceMetadata
+</span><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#sidewalkDeviceMetadata_batteryLevel"><span class="hs-identifier hs-var hs-var">sidewalkDeviceMetadata_batteryLevel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SidewalkDeviceMetadata -&gt; Maybe BatteryLevel)
+-&gt; (SidewalkDeviceMetadata
+    -&gt; Maybe BatteryLevel -&gt; SidewalkDeviceMetadata)
+-&gt; Lens
+     SidewalkDeviceMetadata
+     SidewalkDeviceMetadata
+     (Maybe BatteryLevel)
+     (Maybe BatteryLevel)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#SidewalkDeviceMetadata%27"><span class="hs-identifier hs-type">SidewalkDeviceMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277696"><span class="annot"><span class="annottext">Maybe BatteryLevel
+batteryLevel :: Maybe BatteryLevel
+$sel:batteryLevel:SidewalkDeviceMetadata' :: SidewalkDeviceMetadata -&gt; Maybe BatteryLevel
+</span><a href="#local-6989586621679277696"><span class="hs-identifier hs-var hs-var">batteryLevel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BatteryLevel
+</span><a href="#local-6989586621679277696"><span class="hs-identifier hs-var">batteryLevel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277695"><span class="annot"><span class="annottext">s :: SidewalkDeviceMetadata
+</span><a href="#local-6989586621679277695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#SidewalkDeviceMetadata%27"><span class="hs-identifier hs-type">SidewalkDeviceMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277694"><span class="annot"><span class="annottext">Maybe BatteryLevel
+</span><a href="#local-6989586621679277694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SidewalkDeviceMetadata
+</span><a href="#local-6989586621679277695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:batteryLevel:SidewalkDeviceMetadata' :: Maybe BatteryLevel
+</span><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#%24sel%3AbatteryLevel%3ASidewalkDeviceMetadata%27"><span class="hs-identifier hs-var">batteryLevel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BatteryLevel
+</span><a href="#local-6989586621679277694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#SidewalkDeviceMetadata"><span class="hs-identifier hs-type">SidewalkDeviceMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The RSSI value.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#sidewalkDeviceMetadata_rssi"><span class="hs-identifier hs-type">sidewalkDeviceMetadata_rssi</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#SidewalkDeviceMetadata"><span class="hs-identifier hs-type">SidewalkDeviceMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="sidewalkDeviceMetadata_rssi"><span class="annot"><span class="annottext">sidewalkDeviceMetadata_rssi :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; SidewalkDeviceMetadata -&gt; f SidewalkDeviceMetadata
+</span><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#sidewalkDeviceMetadata_rssi"><span class="hs-identifier hs-var hs-var">sidewalkDeviceMetadata_rssi</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SidewalkDeviceMetadata -&gt; Maybe Int)
+-&gt; (SidewalkDeviceMetadata -&gt; Maybe Int -&gt; SidewalkDeviceMetadata)
+-&gt; Lens
+     SidewalkDeviceMetadata
+     SidewalkDeviceMetadata
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#SidewalkDeviceMetadata%27"><span class="hs-identifier hs-type">SidewalkDeviceMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277692"><span class="annot"><span class="annottext">Maybe Int
+rssi :: Maybe Int
+$sel:rssi:SidewalkDeviceMetadata' :: SidewalkDeviceMetadata -&gt; Maybe Int
+</span><a href="#local-6989586621679277692"><span class="hs-identifier hs-var hs-var">rssi</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679277692"><span class="hs-identifier hs-var">rssi</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277691"><span class="annot"><span class="annottext">s :: SidewalkDeviceMetadata
+</span><a href="#local-6989586621679277691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#SidewalkDeviceMetadata%27"><span class="hs-identifier hs-type">SidewalkDeviceMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277690"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679277690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SidewalkDeviceMetadata
+</span><a href="#local-6989586621679277691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rssi:SidewalkDeviceMetadata' :: Maybe Int
+</span><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#%24sel%3Arssi%3ASidewalkDeviceMetadata%27"><span class="hs-identifier hs-var">rssi</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679277690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#SidewalkDeviceMetadata"><span class="hs-identifier hs-type">SidewalkDeviceMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277687"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#SidewalkDeviceMetadata"><span class="hs-identifier hs-type">SidewalkDeviceMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679277685"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SidewalkDeviceMetadata
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser SidewalkDeviceMetadata)
+-&gt; Value
+-&gt; Parser SidewalkDeviceMetadata
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;SidewalkDeviceMetadata&quot;</span></span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679277682"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679277682"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe Event
+-&gt; Maybe DeviceState
+-&gt; Maybe BatteryLevel
+-&gt; Maybe Int
+-&gt; SidewalkDeviceMetadata
+</span><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#SidewalkDeviceMetadata%27"><span class="hs-identifier hs-var">SidewalkDeviceMetadata'</span></a></span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Event
+ -&gt; Maybe DeviceState
+ -&gt; Maybe BatteryLevel
+ -&gt; Maybe Int
+ -&gt; SidewalkDeviceMetadata)
+-&gt; Parser (Maybe Event)
+-&gt; Parser
+     (Maybe DeviceState
+      -&gt; Maybe BatteryLevel -&gt; Maybe Int -&gt; SidewalkDeviceMetadata)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679277682"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Event)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Event&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DeviceState
+   -&gt; Maybe BatteryLevel -&gt; Maybe Int -&gt; SidewalkDeviceMetadata)
+-&gt; Parser (Maybe DeviceState)
+-&gt; Parser
+     (Maybe BatteryLevel -&gt; Maybe Int -&gt; SidewalkDeviceMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679277682"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeviceState)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeviceState&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe BatteryLevel -&gt; Maybe Int -&gt; SidewalkDeviceMetadata)
+-&gt; Parser (Maybe BatteryLevel)
+-&gt; Parser (Maybe Int -&gt; SidewalkDeviceMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679277682"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BatteryLevel)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BatteryLevel&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; SidewalkDeviceMetadata)
+-&gt; Parser (Maybe Int) -&gt; Parser SidewalkDeviceMetadata
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679277682"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Rssi&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277676"><span id="local-6989586621679277678"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#SidewalkDeviceMetadata"><span class="hs-identifier hs-type">SidewalkDeviceMetadata</span></a></span></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277673"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.SidewalkDeviceMetadata.html#SidewalkDeviceMetadata"><span class="hs-identifier hs-type">SidewalkDeviceMetadata</span></a></span></span><span>
+</span><span id="line-100"></span></pre></body></html>

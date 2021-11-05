@@ -48,7 +48,7 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newStartMigration' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679410619"><span id="local-6989586621679410620"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartMigration"><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigration"><span class="hs-identifier hs-var">StartMigration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartMigration%27"><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigration%27"><span class="hs-identifier hs-var">StartMigration'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679410628"><span id="local-6989586621679410629"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartMigration"><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigration"><span class="hs-identifier hs-var">StartMigration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartMigration%27"><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigration%27"><span class="hs-identifier hs-var">StartMigration'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the replication group to which data should be migrated.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AreplicationGroupId%3AStartMigration%27"><span class="annot"><span class="annottext">StartMigration -&gt; Text
 </span><a href="Network.AWS.ElastiCache.StartMigration.html#%24sel%3AreplicationGroupId%3AStartMigration%27"><span class="hs-identifier hs-var hs-var">replicationGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -57,7 +57,7 @@
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AcustomerNodeEndpointList%3AStartMigration%27"><span class="annot"><span class="annottext">StartMigration -&gt; [CustomerNodeEndpoint]
 </span><a href="Network.AWS.ElastiCache.StartMigration.html#%24sel%3AcustomerNodeEndpointList%3AStartMigration%27"><span class="hs-identifier hs-var hs-var">customerNodeEndpointList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CustomerNodeEndpoint.html#CustomerNodeEndpoint"><span class="hs-identifier hs-type">CustomerNodeEndpoint</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679410612"><span id="local-6989586621679410614"><span class="annot"><span class="annottext">StartMigration -&gt; StartMigration -&gt; Bool
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679410621"><span id="local-6989586621679410623"><span class="annot"><span class="annottext">StartMigration -&gt; StartMigration -&gt; Bool
 (StartMigration -&gt; StartMigration -&gt; Bool)
 -&gt; (StartMigration -&gt; StartMigration -&gt; Bool) -&gt; Eq StartMigration
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StartMigration -&gt; StartMigration -&gt; Bool
 == :: StartMigration -&gt; StartMigration -&gt; Bool
 $c== :: StartMigration -&gt; StartMigration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679410603"><span id="local-6989586621679410605"><span id="local-6989586621679410607"><span id="local-6989586621679410609"><span class="annot"><span class="annottext">ReadPrec [StartMigration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679410612"><span id="local-6989586621679410614"><span id="local-6989586621679410616"><span id="local-6989586621679410618"><span class="annot"><span class="annottext">ReadPrec [StartMigration]
 ReadPrec StartMigration
 Int -&gt; ReadS StartMigration
 ReadS [StartMigration]
@@ -85,7 +85,7 @@ readList :: ReadS [StartMigration]
 $creadList :: ReadS [StartMigration]
 readsPrec :: Int -&gt; ReadS StartMigration
 $creadsPrec :: Int -&gt; ReadS StartMigration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679410596"><span id="local-6989586621679410598"><span id="local-6989586621679410600"><span class="annot"><span class="annottext">Int -&gt; StartMigration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679410605"><span id="local-6989586621679410607"><span id="local-6989586621679410609"><span class="annot"><span class="annottext">Int -&gt; StartMigration -&gt; ShowS
 [StartMigration] -&gt; ShowS
 StartMigration -&gt; String
 (Int -&gt; StartMigration -&gt; ShowS)
@@ -128,14 +128,14 @@ $cfrom :: forall x. StartMigration -&gt; Rep StartMigration x
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigration"><span class="hs-identifier hs-type">StartMigration</span></a></span><span>
 </span><span id="line-76"></span><span id="newStartMigration"><span class="annot"><span class="annottext">newStartMigration :: Text -&gt; StartMigration
-</span><a href="Network.AWS.ElastiCache.StartMigration.html#newStartMigration"><span class="hs-identifier hs-var hs-var">newStartMigration</span></a></span></span><span> </span><span id="local-6989586621679410591"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679410591"><span class="hs-identifier hs-var">pReplicationGroupId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ElastiCache.StartMigration.html#newStartMigration"><span class="hs-identifier hs-var hs-var">newStartMigration</span></a></span></span><span> </span><span id="local-6989586621679410600"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679410600"><span class="hs-identifier hs-var">pReplicationGroupId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">StartMigration' :: Text -&gt; [CustomerNodeEndpoint] -&gt; StartMigration
 </span><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigration%27"><span class="hs-identifier hs-type">StartMigration'</span></a></span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:replicationGroupId:StartMigration' :: Text
 </span><a href="Network.AWS.ElastiCache.StartMigration.html#%24sel%3AreplicationGroupId%3AStartMigration%27"><span class="hs-identifier hs-var">replicationGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679410591"><span class="hs-identifier hs-var">pReplicationGroupId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679410600"><span class="hs-identifier hs-var">pReplicationGroupId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:customerNodeEndpointList:StartMigration' :: [CustomerNodeEndpoint]
 </span><a href="Network.AWS.ElastiCache.StartMigration.html#%24sel%3AcustomerNodeEndpointList%3AStartMigration%27"><span class="hs-identifier hs-var">customerNodeEndpointList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[CustomerNodeEndpoint]
 forall a. Monoid a =&gt; a
@@ -149,16 +149,16 @@ forall a. Monoid a =&gt; a
 -&gt; (StartMigration -&gt; Text -&gt; StartMigration)
 -&gt; Lens StartMigration StartMigration Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigration%27"><span class="hs-identifier hs-type">StartMigration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410588"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigration%27"><span class="hs-identifier hs-type">StartMigration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410597"><span class="annot"><span class="annottext">Text
 replicationGroupId :: Text
 $sel:replicationGroupId:StartMigration' :: StartMigration -&gt; Text
-</span><a href="#local-6989586621679410588"><span class="hs-identifier hs-var hs-var">replicationGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679410588"><span class="hs-identifier hs-var">replicationGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679410587"><span class="annot"><span class="annottext">s :: StartMigration
-</span><a href="#local-6989586621679410587"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigration%27"><span class="hs-identifier hs-type">StartMigration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679410586"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679410586"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartMigration
-</span><a href="#local-6989586621679410587"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationGroupId:StartMigration' :: Text
+</span><a href="#local-6989586621679410597"><span class="hs-identifier hs-var hs-var">replicationGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679410597"><span class="hs-identifier hs-var">replicationGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679410596"><span class="annot"><span class="annottext">s :: StartMigration
+</span><a href="#local-6989586621679410596"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigration%27"><span class="hs-identifier hs-type">StartMigration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679410595"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679410595"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartMigration
+</span><a href="#local-6989586621679410596"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationGroupId:StartMigration' :: Text
 </span><a href="Network.AWS.ElastiCache.StartMigration.html#%24sel%3AreplicationGroupId%3AStartMigration%27"><span class="hs-identifier hs-var">replicationGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679410586"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigration"><span class="hs-identifier hs-type">StartMigration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679410595"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigration"><span class="hs-identifier hs-type">StartMigration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | List of endpoints from which data should be migrated. For Redis (cluster</span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- mode disabled), list should have only one element.</span><span>
@@ -173,16 +173,16 @@ $sel:replicationGroupId:StartMigration' :: StartMigration -&gt; Text
      [CustomerNodeEndpoint]
      [CustomerNodeEndpoint]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigration%27"><span class="hs-identifier hs-type">StartMigration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410585"><span class="annot"><span class="annottext">[CustomerNodeEndpoint]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigration%27"><span class="hs-identifier hs-type">StartMigration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410594"><span class="annot"><span class="annottext">[CustomerNodeEndpoint]
 customerNodeEndpointList :: [CustomerNodeEndpoint]
 $sel:customerNodeEndpointList:StartMigration' :: StartMigration -&gt; [CustomerNodeEndpoint]
-</span><a href="#local-6989586621679410585"><span class="hs-identifier hs-var hs-var">customerNodeEndpointList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[CustomerNodeEndpoint]
-</span><a href="#local-6989586621679410585"><span class="hs-identifier hs-var">customerNodeEndpointList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679410584"><span class="annot"><span class="annottext">s :: StartMigration
-</span><a href="#local-6989586621679410584"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigration%27"><span class="hs-identifier hs-type">StartMigration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679410583"><span class="annot"><span class="annottext">[CustomerNodeEndpoint]
-</span><a href="#local-6989586621679410583"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartMigration
-</span><a href="#local-6989586621679410584"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customerNodeEndpointList:StartMigration' :: [CustomerNodeEndpoint]
+</span><a href="#local-6989586621679410594"><span class="hs-identifier hs-var hs-var">customerNodeEndpointList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[CustomerNodeEndpoint]
+</span><a href="#local-6989586621679410594"><span class="hs-identifier hs-var">customerNodeEndpointList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679410593"><span class="annot"><span class="annottext">s :: StartMigration
+</span><a href="#local-6989586621679410593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigration%27"><span class="hs-identifier hs-type">StartMigration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679410592"><span class="annot"><span class="annottext">[CustomerNodeEndpoint]
+</span><a href="#local-6989586621679410592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartMigration
+</span><a href="#local-6989586621679410593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customerNodeEndpointList:StartMigration' :: [CustomerNodeEndpoint]
 </span><a href="Network.AWS.ElastiCache.StartMigration.html#%24sel%3AcustomerNodeEndpointList%3AStartMigration%27"><span class="hs-identifier hs-var">customerNodeEndpointList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[CustomerNodeEndpoint]
-</span><a href="#local-6989586621679410583"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigration"><span class="hs-identifier hs-type">StartMigration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([CustomerNodeEndpoint] -&gt; f [CustomerNodeEndpoint])
+</span><a href="#local-6989586621679410592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigration"><span class="hs-identifier hs-type">StartMigration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([CustomerNodeEndpoint] -&gt; f [CustomerNodeEndpoint])
  -&gt; StartMigration -&gt; f StartMigration)
 -&gt; (([CustomerNodeEndpoint] -&gt; f [CustomerNodeEndpoint])
     -&gt; [CustomerNodeEndpoint] -&gt; f [CustomerNodeEndpoint])
@@ -199,12 +199,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-93"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-94"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigration"><span class="hs-identifier hs-type">StartMigration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigrationResponse"><span class="hs-identifier hs-type">StartMigrationResponse</span></a></span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679410577"><span class="annot"><span class="annottext">request :: StartMigration -&gt; Request StartMigration
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679410586"><span class="annot"><span class="annottext">request :: StartMigration -&gt; Request StartMigration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StartMigration -&gt; Request StartMigration
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ElastiCache.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679410573"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679410582"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StartMigration
 -&gt; ClientResponse ClientBody
@@ -233,10 +233,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StartMigrationResult&quot;</span></span><span>
-</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679410570"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679410570"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679410569"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679410569"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679410568"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679410568"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679410579"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679410579"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679410578"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679410578"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679410577"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679410577"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe ReplicationGroup -&gt; Int -&gt; StartMigrationResponse
 </span><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigrationResponse%27"><span class="hs-identifier hs-var">StartMigrationResponse'</span></a></span><span>
 </span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ReplicationGroup -&gt; Int -&gt; StartMigrationResponse)
@@ -244,7 +244,7 @@ Text
 -&gt; Either String (Int -&gt; StartMigrationResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679410568"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ReplicationGroup)
+</span><a href="#local-6989586621679410577"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ReplicationGroup)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReplicationGroup&quot;</span></span><span class="hs-special">)</span><span>
@@ -256,15 +256,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679410570"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679410579"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679410560"><span id="local-6989586621679410562"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigration"><span class="hs-identifier hs-type">StartMigration</span></a></span></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679410569"><span id="local-6989586621679410571"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigration"><span class="hs-identifier hs-type">StartMigration</span></a></span></span></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679410557"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigration"><span class="hs-identifier hs-type">StartMigration</span></a></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679410566"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigration"><span class="hs-identifier hs-type">StartMigration</span></a></span></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigration"><span class="hs-identifier hs-type">StartMigration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679410553"><span class="annot"><span class="annottext">toHeaders :: StartMigration -&gt; ResponseHeaders
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679410562"><span class="annot"><span class="annottext">toHeaders :: StartMigration -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StartMigration -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -272,21 +272,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigration"><span class="hs-identifier hs-type">StartMigration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679410548"><span class="annot"><span class="annottext">toPath :: StartMigration -&gt; ByteString
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679410557"><span class="annot"><span class="annottext">toPath :: StartMigration -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StartMigration -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigration"><span class="hs-identifier hs-type">StartMigration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679410544"><span class="annot"><span class="annottext">toQuery :: StartMigration -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigration%27"><span class="hs-identifier hs-type">StartMigration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410541"><span id="local-6989586621679410542"><span class="annot"><span class="annottext">[CustomerNodeEndpoint]
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679410553"><span class="annot"><span class="annottext">toQuery :: StartMigration -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigration%27"><span class="hs-identifier hs-type">StartMigration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410550"><span id="local-6989586621679410551"><span class="annot"><span class="annottext">[CustomerNodeEndpoint]
 Text
 customerNodeEndpointList :: [CustomerNodeEndpoint]
 replicationGroupId :: Text
 $sel:customerNodeEndpointList:StartMigration' :: StartMigration -&gt; [CustomerNodeEndpoint]
 $sel:replicationGroupId:StartMigration' :: StartMigration -&gt; Text
-</span><a href="#local-6989586621679410541"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679410550"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -306,7 +306,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;ReplicationGroupId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679410542"><span class="hs-identifier hs-var">replicationGroupId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679410551"><span class="hs-identifier hs-var">replicationGroupId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;CustomerNodeEndpointList&quot;</span></span><span>
 </span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -317,18 +317,18 @@ forall a.
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[CustomerNodeEndpoint]
-</span><a href="#local-6989586621679410541"><span class="hs-identifier hs-var">customerNodeEndpointList</span></a></span><span>
+</span><a href="#local-6989586621679410550"><span class="hs-identifier hs-var">customerNodeEndpointList</span></a></span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | /See:/ 'newStartMigrationResponse' smart constructor.</span><span>
-</span><span id="line-129"></span><span id="local-6989586621679410537"><span id="local-6989586621679410538"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartMigrationResponse"><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigrationResponse"><span class="hs-identifier hs-var">StartMigrationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartMigrationResponse%27"><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigrationResponse%27"><span class="hs-identifier hs-var">StartMigrationResponse'</span></a></span></span><span>
+</span><span id="line-129"></span><span id="local-6989586621679410546"><span id="local-6989586621679410547"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartMigrationResponse"><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigrationResponse"><span class="hs-identifier hs-var">StartMigrationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartMigrationResponse%27"><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigrationResponse%27"><span class="hs-identifier hs-var">StartMigrationResponse'</span></a></span></span><span>
 </span><span id="line-130"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AreplicationGroup%3AStartMigrationResponse%27"><span class="annot"><span class="annottext">StartMigrationResponse -&gt; Maybe ReplicationGroup
 </span><a href="Network.AWS.ElastiCache.StartMigration.html#%24sel%3AreplicationGroup%3AStartMigrationResponse%27"><span class="hs-identifier hs-var hs-var">replicationGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.ReplicationGroup.html#ReplicationGroup"><span class="hs-identifier hs-type">ReplicationGroup</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-131"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-132"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStartMigrationResponse%27"><span class="annot"><span class="annottext">StartMigrationResponse -&gt; Int
 </span><a href="Network.AWS.ElastiCache.StartMigration.html#%24sel%3AhttpStatus%3AStartMigrationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-133"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679410531"><span id="local-6989586621679410533"><span class="annot"><span class="annottext">StartMigrationResponse -&gt; StartMigrationResponse -&gt; Bool
+</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679410540"><span id="local-6989586621679410542"><span class="annot"><span class="annottext">StartMigrationResponse -&gt; StartMigrationResponse -&gt; Bool
 (StartMigrationResponse -&gt; StartMigrationResponse -&gt; Bool)
 -&gt; (StartMigrationResponse -&gt; StartMigrationResponse -&gt; Bool)
 -&gt; Eq StartMigrationResponse
@@ -337,7 +337,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StartMigrationResponse -&gt; StartMigrationResponse -&gt; Bool
 == :: StartMigrationResponse -&gt; StartMigrationResponse -&gt; Bool
 $c== :: StartMigrationResponse -&gt; StartMigrationResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679410523"><span id="local-6989586621679410525"><span id="local-6989586621679410527"><span id="local-6989586621679410529"><span class="annot"><span class="annottext">ReadPrec [StartMigrationResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679410532"><span id="local-6989586621679410534"><span id="local-6989586621679410536"><span id="local-6989586621679410538"><span class="annot"><span class="annottext">ReadPrec [StartMigrationResponse]
 ReadPrec StartMigrationResponse
 Int -&gt; ReadS StartMigrationResponse
 ReadS [StartMigrationResponse]
@@ -357,7 +357,7 @@ readList :: ReadS [StartMigrationResponse]
 $creadList :: ReadS [StartMigrationResponse]
 readsPrec :: Int -&gt; ReadS StartMigrationResponse
 $creadsPrec :: Int -&gt; ReadS StartMigrationResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679410517"><span id="local-6989586621679410519"><span id="local-6989586621679410521"><span class="annot"><span class="annottext">Int -&gt; StartMigrationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679410526"><span id="local-6989586621679410528"><span id="local-6989586621679410530"><span class="annot"><span class="annottext">Int -&gt; StartMigrationResponse -&gt; ShowS
 [StartMigrationResponse] -&gt; ShowS
 StartMigrationResponse -&gt; String
 (Int -&gt; StartMigrationResponse -&gt; ShowS)
@@ -400,8 +400,8 @@ $cfrom :: forall x. StartMigrationResponse -&gt; Rep StartMigrationResponse x
 </span><span id="line-149"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-150"></span><span>  </span><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigrationResponse"><span class="hs-identifier hs-type">StartMigrationResponse</span></a></span><span>
 </span><span id="line-151"></span><span id="newStartMigrationResponse"><span class="annot"><span class="annottext">newStartMigrationResponse :: Int -&gt; StartMigrationResponse
-</span><a href="Network.AWS.ElastiCache.StartMigration.html#newStartMigrationResponse"><span class="hs-identifier hs-var hs-var">newStartMigrationResponse</span></a></span></span><span> </span><span id="local-6989586621679410514"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679410514"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ElastiCache.StartMigration.html#newStartMigrationResponse"><span class="hs-identifier hs-var hs-var">newStartMigrationResponse</span></a></span></span><span> </span><span id="local-6989586621679410523"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679410523"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>  </span><span class="annot"><span class="annottext">StartMigrationResponse' :: Maybe ReplicationGroup -&gt; Int -&gt; StartMigrationResponse
 </span><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigrationResponse%27"><span class="hs-identifier hs-type">StartMigrationResponse'</span></a></span><span>
 </span><span id="line-153"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:replicationGroup:StartMigrationResponse' :: Maybe ReplicationGroup
@@ -411,7 +411,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StartMigrationResponse' :: Int
 </span><a href="Network.AWS.ElastiCache.StartMigration.html#%24sel%3AhttpStatus%3AStartMigrationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679410514"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679410523"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-156"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -427,16 +427,16 @@ forall a. Maybe a
      (Maybe ReplicationGroup)
      (Maybe ReplicationGroup)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigrationResponse%27"><span class="hs-identifier hs-type">StartMigrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410513"><span class="annot"><span class="annottext">Maybe ReplicationGroup
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigrationResponse%27"><span class="hs-identifier hs-type">StartMigrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410522"><span class="annot"><span class="annottext">Maybe ReplicationGroup
 replicationGroup :: Maybe ReplicationGroup
 $sel:replicationGroup:StartMigrationResponse' :: StartMigrationResponse -&gt; Maybe ReplicationGroup
-</span><a href="#local-6989586621679410513"><span class="hs-identifier hs-var hs-var">replicationGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationGroup
-</span><a href="#local-6989586621679410513"><span class="hs-identifier hs-var">replicationGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679410512"><span class="annot"><span class="annottext">s :: StartMigrationResponse
-</span><a href="#local-6989586621679410512"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigrationResponse%27"><span class="hs-identifier hs-type">StartMigrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679410511"><span class="annot"><span class="annottext">Maybe ReplicationGroup
-</span><a href="#local-6989586621679410511"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartMigrationResponse
-</span><a href="#local-6989586621679410512"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationGroup:StartMigrationResponse' :: Maybe ReplicationGroup
+</span><a href="#local-6989586621679410522"><span class="hs-identifier hs-var hs-var">replicationGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationGroup
+</span><a href="#local-6989586621679410522"><span class="hs-identifier hs-var">replicationGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679410521"><span class="annot"><span class="annottext">s :: StartMigrationResponse
+</span><a href="#local-6989586621679410521"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigrationResponse%27"><span class="hs-identifier hs-type">StartMigrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679410520"><span class="annot"><span class="annottext">Maybe ReplicationGroup
+</span><a href="#local-6989586621679410520"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartMigrationResponse
+</span><a href="#local-6989586621679410521"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationGroup:StartMigrationResponse' :: Maybe ReplicationGroup
 </span><a href="Network.AWS.ElastiCache.StartMigration.html#%24sel%3AreplicationGroup%3AStartMigrationResponse%27"><span class="hs-identifier hs-var">replicationGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationGroup
-</span><a href="#local-6989586621679410511"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigrationResponse"><span class="hs-identifier hs-type">StartMigrationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679410520"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigrationResponse"><span class="hs-identifier hs-type">StartMigrationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-163"></span><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#startMigrationResponse_httpStatus"><span class="hs-identifier hs-type">startMigrationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigrationResponse"><span class="hs-identifier hs-type">StartMigrationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -446,16 +446,16 @@ $sel:replicationGroup:StartMigrationResponse' :: StartMigrationResponse -&gt; Ma
 -&gt; (StartMigrationResponse -&gt; Int -&gt; StartMigrationResponse)
 -&gt; Lens StartMigrationResponse StartMigrationResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigrationResponse%27"><span class="hs-identifier hs-type">StartMigrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410510"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigrationResponse%27"><span class="hs-identifier hs-type">StartMigrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410519"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:StartMigrationResponse' :: StartMigrationResponse -&gt; Int
-</span><a href="#local-6989586621679410510"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679410510"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679410509"><span class="annot"><span class="annottext">s :: StartMigrationResponse
-</span><a href="#local-6989586621679410509"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigrationResponse%27"><span class="hs-identifier hs-type">StartMigrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679410508"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679410508"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartMigrationResponse
-</span><a href="#local-6989586621679410509"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartMigrationResponse' :: Int
+</span><a href="#local-6989586621679410519"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679410519"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679410518"><span class="annot"><span class="annottext">s :: StartMigrationResponse
+</span><a href="#local-6989586621679410518"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigrationResponse%27"><span class="hs-identifier hs-type">StartMigrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679410517"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679410517"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartMigrationResponse
+</span><a href="#local-6989586621679410518"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartMigrationResponse' :: Int
 </span><a href="Network.AWS.ElastiCache.StartMigration.html#%24sel%3AhttpStatus%3AStartMigrationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679410508"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigrationResponse"><span class="hs-identifier hs-type">StartMigrationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679410517"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigrationResponse"><span class="hs-identifier hs-type">StartMigrationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679410506"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigrationResponse"><span class="hs-identifier hs-type">StartMigrationResponse</span></a></span></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679410515"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.StartMigration.html#StartMigrationResponse"><span class="hs-identifier hs-type">StartMigrationResponse</span></a></span></span><span>
 </span><span id="line-167"></span></pre></body></html>

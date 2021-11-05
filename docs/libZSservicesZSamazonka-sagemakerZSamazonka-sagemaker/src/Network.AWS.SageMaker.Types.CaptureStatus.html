@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621680297074"><span id="local-6989586621680297075"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CaptureStatus"><span class="annot"><a href="Network.AWS.SageMaker.Types.CaptureStatus.html#CaptureStatus"><span class="hs-identifier hs-var">CaptureStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CaptureStatus%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.CaptureStatus.html#CaptureStatus%27"><span class="hs-identifier hs-var">CaptureStatus'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680297083"><span id="local-6989586621680297084"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CaptureStatus"><span class="annot"><a href="Network.AWS.SageMaker.Types.CaptureStatus.html#CaptureStatus"><span class="hs-identifier hs-var">CaptureStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CaptureStatus%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.CaptureStatus.html#CaptureStatus%27"><span class="hs-identifier hs-var">CaptureStatus'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCaptureStatus"><span class="annot"><span class="annottext">CaptureStatus -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.CaptureStatus.html#fromCaptureStatus"><span class="hs-identifier hs-var hs-var">fromCaptureStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680297066"><span id="local-6989586621680297068"><span id="local-6989586621680297070"><span class="annot"><span class="annottext">Int -&gt; CaptureStatus -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680297075"><span id="local-6989586621680297077"><span id="local-6989586621680297079"><span class="annot"><span class="annottext">Int -&gt; CaptureStatus -&gt; ShowS
 [CaptureStatus] -&gt; ShowS
 CaptureStatus -&gt; String
 (Int -&gt; CaptureStatus -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: CaptureStatus -&gt; String
 showsPrec :: Int -&gt; CaptureStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; CaptureStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621680297057"><span id="local-6989586621680297059"><span id="local-6989586621680297061"><span id="local-6989586621680297063"><span class="annot"><span class="annottext">ReadPrec [CaptureStatus]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621680297066"><span id="local-6989586621680297068"><span id="local-6989586621680297070"><span id="local-6989586621680297072"><span class="annot"><span class="annottext">ReadPrec [CaptureStatus]
 ReadPrec CaptureStatus
 Int -&gt; ReadS CaptureStatus
 ReadS [CaptureStatus]
@@ -72,7 +72,7 @@ $creadList :: ReadS [CaptureStatus]
 readsPrec :: Int -&gt; ReadS CaptureStatus
 $creadsPrec :: Int -&gt; ReadS CaptureStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621680297052"><span id="local-6989586621680297054"><span class="annot"><span class="annottext">CaptureStatus -&gt; CaptureStatus -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680297061"><span id="local-6989586621680297063"><span class="annot"><span class="annottext">CaptureStatus -&gt; CaptureStatus -&gt; Bool
 (CaptureStatus -&gt; CaptureStatus -&gt; Bool)
 -&gt; (CaptureStatus -&gt; CaptureStatus -&gt; Bool) -&gt; Eq CaptureStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: CaptureStatus -&gt; CaptureStatus -&gt; Bool
 == :: CaptureStatus -&gt; CaptureStatus -&gt; Bool
 $c== :: CaptureStatus -&gt; CaptureStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621680297036"><span id="local-6989586621680297038"><span id="local-6989586621680297040"><span id="local-6989586621680297042"><span id="local-6989586621680297044"><span id="local-6989586621680297046"><span id="local-6989586621680297048"><span class="annot"><span class="annottext">Eq CaptureStatus
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680297045"><span id="local-6989586621680297047"><span id="local-6989586621680297049"><span id="local-6989586621680297051"><span id="local-6989586621680297053"><span id="local-6989586621680297055"><span id="local-6989586621680297057"><span class="annot"><span class="annottext">Eq CaptureStatus
 Eq CaptureStatus
 -&gt; (CaptureStatus -&gt; CaptureStatus -&gt; Ordering)
 -&gt; (CaptureStatus -&gt; CaptureStatus -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. CaptureStatus -&gt; Rep CaptureStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680297028"><span id="local-6989586621680297030"><span class="annot"><span class="annottext">Int -&gt; CaptureStatus -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680297037"><span id="local-6989586621680297039"><span class="annot"><span class="annottext">Int -&gt; CaptureStatus -&gt; Int
 CaptureStatus -&gt; Int
 (Int -&gt; CaptureStatus -&gt; Int)
 -&gt; (CaptureStatus -&gt; Int) -&gt; Hashable CaptureStatus
@@ -142,49 +142,49 @@ $chash :: CaptureStatus -&gt; Int
 hashWithSalt :: Int -&gt; CaptureStatus -&gt; Int
 $chashWithSalt :: Int -&gt; CaptureStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621680297025"><span class="annot"><span class="annottext">CaptureStatus -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680297034"><span class="annot"><span class="annottext">CaptureStatus -&gt; ()
 (CaptureStatus -&gt; ()) -&gt; NFData CaptureStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CaptureStatus -&gt; ()
 $crnf :: CaptureStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680297022"><span class="annot"><span class="annottext">Text -&gt; Either String CaptureStatus
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680297031"><span class="annot"><span class="annottext">Text -&gt; Either String CaptureStatus
 (Text -&gt; Either String CaptureStatus) -&gt; FromText CaptureStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CaptureStatus
 $cfromText :: Text -&gt; Either String CaptureStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680297019"><span class="annot"><span class="annottext">CaptureStatus -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680297028"><span class="annot"><span class="annottext">CaptureStatus -&gt; Text
 (CaptureStatus -&gt; Text) -&gt; ToText CaptureStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CaptureStatus -&gt; Text
 $ctoText :: CaptureStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680297016"><span class="annot"><span class="annottext">CaptureStatus -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680297025"><span class="annot"><span class="annottext">CaptureStatus -&gt; ByteString
 (CaptureStatus -&gt; ByteString) -&gt; ToByteString CaptureStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CaptureStatus -&gt; ByteString
 $ctoBS :: CaptureStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680297013"><span class="annot"><span class="annottext">CaptureStatus -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680297022"><span class="annot"><span class="annottext">CaptureStatus -&gt; ByteStringBuilder
 (CaptureStatus -&gt; ByteStringBuilder) -&gt; ToLog CaptureStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CaptureStatus -&gt; ByteStringBuilder
 $cbuild :: CaptureStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680297010"><span class="annot"><span class="annottext">HeaderName -&gt; CaptureStatus -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680297019"><span class="annot"><span class="annottext">HeaderName -&gt; CaptureStatus -&gt; [Header]
 (HeaderName -&gt; CaptureStatus -&gt; [Header]) -&gt; ToHeader CaptureStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CaptureStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CaptureStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680297007"><span class="annot"><span class="annottext">CaptureStatus -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680297016"><span class="annot"><span class="annottext">CaptureStatus -&gt; QueryString
 (CaptureStatus -&gt; QueryString) -&gt; ToQuery CaptureStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CaptureStatus -&gt; QueryString
 $ctoQuery :: CaptureStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680297002"><span id="local-6989586621680297004"><span class="annot"><span class="annottext">Value -&gt; Parser [CaptureStatus]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680297011"><span id="local-6989586621680297013"><span class="annot"><span class="annottext">Value -&gt; Parser [CaptureStatus]
 Value -&gt; Parser CaptureStatus
 (Value -&gt; Parser CaptureStatus)
 -&gt; (Value -&gt; Parser [CaptureStatus]) -&gt; FromJSON CaptureStatus
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [CaptureStatus]
 parseJSON :: Value -&gt; Parser CaptureStatus
 $cparseJSON :: Value -&gt; Parser CaptureStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680296997"><span id="local-6989586621680296999"><span class="annot"><span class="annottext">FromJSONKeyFunction [CaptureStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680297006"><span id="local-6989586621680297008"><span class="annot"><span class="annottext">FromJSONKeyFunction [CaptureStatus]
 FromJSONKeyFunction CaptureStatus
 FromJSONKeyFunction CaptureStatus
 -&gt; FromJSONKeyFunction [CaptureStatus] -&gt; FromJSONKey CaptureStatus
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CaptureStatus]
 fromJSONKey :: FromJSONKeyFunction CaptureStatus
 $cfromJSONKey :: FromJSONKeyFunction CaptureStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680296988"><span id="local-6989586621680296990"><span id="local-6989586621680296992"><span id="local-6989586621680296994"><span class="annot"><span class="annottext">[CaptureStatus] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680296997"><span id="local-6989586621680296999"><span id="local-6989586621680297001"><span id="local-6989586621680297003"><span class="annot"><span class="annottext">[CaptureStatus] -&gt; Encoding
 [CaptureStatus] -&gt; Value
 CaptureStatus -&gt; Encoding
 CaptureStatus -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: CaptureStatus -&gt; Encoding
 toJSON :: CaptureStatus -&gt; Value
 $ctoJSON :: CaptureStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680296983"><span id="local-6989586621680296985"><span class="annot"><span class="annottext">ToJSONKeyFunction [CaptureStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680296992"><span id="local-6989586621680296994"><span class="annot"><span class="annottext">ToJSONKeyFunction [CaptureStatus]
 ToJSONKeyFunction CaptureStatus
 ToJSONKeyFunction CaptureStatus
 -&gt; ToJSONKeyFunction [CaptureStatus] -&gt; ToJSONKey CaptureStatus
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CaptureStatus]
 toJSONKey :: ToJSONKeyFunction CaptureStatus
 $ctoJSONKey :: ToJSONKeyFunction CaptureStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680296980"><span class="annot"><span class="annottext">[Node] -&gt; Either String CaptureStatus
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680296989"><span class="annot"><span class="annottext">[Node] -&gt; Either String CaptureStatus
 ([Node] -&gt; Either String CaptureStatus) -&gt; FromXML CaptureStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CaptureStatus
 $cparseXML :: [Node] -&gt; Either String CaptureStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680296977"><span class="annot"><span class="annottext">CaptureStatus -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680296986"><span class="annot"><span class="annottext">CaptureStatus -&gt; XML
 (CaptureStatus -&gt; XML) -&gt; ToXML CaptureStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CaptureStatus -&gt; XML

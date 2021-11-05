@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The root cause information for a response time warning.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newResponseTimeRootCause' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679253338"><span id="local-6989586621679253339"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResponseTimeRootCause"><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCause.html#ResponseTimeRootCause"><span class="hs-identifier hs-var">ResponseTimeRootCause</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResponseTimeRootCause%27"><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCause.html#ResponseTimeRootCause%27"><span class="hs-identifier hs-var">ResponseTimeRootCause'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679253347"><span id="local-6989586621679253348"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResponseTimeRootCause"><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCause.html#ResponseTimeRootCause"><span class="hs-identifier hs-var">ResponseTimeRootCause</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResponseTimeRootCause%27"><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCause.html#ResponseTimeRootCause%27"><span class="hs-identifier hs-var">ResponseTimeRootCause'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A flag that denotes that the root cause impacts the trace client.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AclientImpacting%3AResponseTimeRootCause%27"><span class="annot"><span class="annottext">ResponseTimeRootCause -&gt; Maybe Bool
 </span><a href="Network.AWS.XRay.Types.ResponseTimeRootCause.html#%24sel%3AclientImpacting%3AResponseTimeRootCause%27"><span class="hs-identifier hs-var hs-var">clientImpacting</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Aservices%3AResponseTimeRootCause%27"><span class="annot"><span class="annottext">ResponseTimeRootCause -&gt; Maybe [ResponseTimeRootCauseService]
 </span><a href="Network.AWS.XRay.Types.ResponseTimeRootCause.html#%24sel%3Aservices%3AResponseTimeRootCause%27"><span class="hs-identifier hs-var hs-var">services</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCauseService.html#ResponseTimeRootCauseService"><span class="hs-identifier hs-type">ResponseTimeRootCauseService</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679253331"><span id="local-6989586621679253333"><span class="annot"><span class="annottext">ResponseTimeRootCause -&gt; ResponseTimeRootCause -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679253340"><span id="local-6989586621679253342"><span class="annot"><span class="annottext">ResponseTimeRootCause -&gt; ResponseTimeRootCause -&gt; Bool
 (ResponseTimeRootCause -&gt; ResponseTimeRootCause -&gt; Bool)
 -&gt; (ResponseTimeRootCause -&gt; ResponseTimeRootCause -&gt; Bool)
 -&gt; Eq ResponseTimeRootCause
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ResponseTimeRootCause -&gt; ResponseTimeRootCause -&gt; Bool
 == :: ResponseTimeRootCause -&gt; ResponseTimeRootCause -&gt; Bool
 $c== :: ResponseTimeRootCause -&gt; ResponseTimeRootCause -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253322"><span id="local-6989586621679253324"><span id="local-6989586621679253326"><span id="local-6989586621679253328"><span class="annot"><span class="annottext">ReadPrec [ResponseTimeRootCause]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253331"><span id="local-6989586621679253333"><span id="local-6989586621679253335"><span id="local-6989586621679253337"><span class="annot"><span class="annottext">ReadPrec [ResponseTimeRootCause]
 ReadPrec ResponseTimeRootCause
 Int -&gt; ReadS ResponseTimeRootCause
 ReadS [ResponseTimeRootCause]
@@ -65,7 +65,7 @@ readList :: ReadS [ResponseTimeRootCause]
 $creadList :: ReadS [ResponseTimeRootCause]
 readsPrec :: Int -&gt; ReadS ResponseTimeRootCause
 $creadsPrec :: Int -&gt; ReadS ResponseTimeRootCause
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253315"><span id="local-6989586621679253317"><span id="local-6989586621679253319"><span class="annot"><span class="annottext">Int -&gt; ResponseTimeRootCause -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253324"><span id="local-6989586621679253326"><span id="local-6989586621679253328"><span class="annot"><span class="annottext">Int -&gt; ResponseTimeRootCause -&gt; ShowS
 [ResponseTimeRootCause] -&gt; ShowS
 ResponseTimeRootCause -&gt; String
 (Int -&gt; ResponseTimeRootCause -&gt; ShowS)
@@ -133,16 +133,16 @@ forall a. Maybe a
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCause.html#ResponseTimeRootCause%27"><span class="hs-identifier hs-type">ResponseTimeRootCause'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253306"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCause.html#ResponseTimeRootCause%27"><span class="hs-identifier hs-type">ResponseTimeRootCause'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253315"><span class="annot"><span class="annottext">Maybe Bool
 clientImpacting :: Maybe Bool
 $sel:clientImpacting:ResponseTimeRootCause' :: ResponseTimeRootCause -&gt; Maybe Bool
-</span><a href="#local-6989586621679253306"><span class="hs-identifier hs-var hs-var">clientImpacting</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679253306"><span class="hs-identifier hs-var">clientImpacting</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253305"><span class="annot"><span class="annottext">s :: ResponseTimeRootCause
-</span><a href="#local-6989586621679253305"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCause.html#ResponseTimeRootCause%27"><span class="hs-identifier hs-type">ResponseTimeRootCause'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253304"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679253304"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResponseTimeRootCause
-</span><a href="#local-6989586621679253305"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientImpacting:ResponseTimeRootCause' :: Maybe Bool
+</span><a href="#local-6989586621679253315"><span class="hs-identifier hs-var hs-var">clientImpacting</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679253315"><span class="hs-identifier hs-var">clientImpacting</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253314"><span class="annot"><span class="annottext">s :: ResponseTimeRootCause
+</span><a href="#local-6989586621679253314"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCause.html#ResponseTimeRootCause%27"><span class="hs-identifier hs-type">ResponseTimeRootCause'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253313"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679253313"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResponseTimeRootCause
+</span><a href="#local-6989586621679253314"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientImpacting:ResponseTimeRootCause' :: Maybe Bool
 </span><a href="Network.AWS.XRay.Types.ResponseTimeRootCause.html#%24sel%3AclientImpacting%3AResponseTimeRootCause%27"><span class="hs-identifier hs-var">clientImpacting</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679253304"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCause.html#ResponseTimeRootCause"><span class="hs-identifier hs-type">ResponseTimeRootCause</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679253313"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCause.html#ResponseTimeRootCause"><span class="hs-identifier hs-type">ResponseTimeRootCause</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | A list of corresponding services. A service identifies a segment and</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- contains a name, account ID, type, and inferred flag.</span><span>
@@ -159,16 +159,16 @@ $sel:clientImpacting:ResponseTimeRootCause' :: ResponseTimeRootCause -&gt; Maybe
      (Maybe [ResponseTimeRootCauseService])
      (Maybe [ResponseTimeRootCauseService])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCause.html#ResponseTimeRootCause%27"><span class="hs-identifier hs-type">ResponseTimeRootCause'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253302"><span class="annot"><span class="annottext">Maybe [ResponseTimeRootCauseService]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCause.html#ResponseTimeRootCause%27"><span class="hs-identifier hs-type">ResponseTimeRootCause'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253311"><span class="annot"><span class="annottext">Maybe [ResponseTimeRootCauseService]
 services :: Maybe [ResponseTimeRootCauseService]
 $sel:services:ResponseTimeRootCause' :: ResponseTimeRootCause -&gt; Maybe [ResponseTimeRootCauseService]
-</span><a href="#local-6989586621679253302"><span class="hs-identifier hs-var hs-var">services</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ResponseTimeRootCauseService]
-</span><a href="#local-6989586621679253302"><span class="hs-identifier hs-var">services</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253301"><span class="annot"><span class="annottext">s :: ResponseTimeRootCause
-</span><a href="#local-6989586621679253301"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCause.html#ResponseTimeRootCause%27"><span class="hs-identifier hs-type">ResponseTimeRootCause'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253300"><span class="annot"><span class="annottext">Maybe [ResponseTimeRootCauseService]
-</span><a href="#local-6989586621679253300"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResponseTimeRootCause
-</span><a href="#local-6989586621679253301"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:services:ResponseTimeRootCause' :: Maybe [ResponseTimeRootCauseService]
+</span><a href="#local-6989586621679253311"><span class="hs-identifier hs-var hs-var">services</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ResponseTimeRootCauseService]
+</span><a href="#local-6989586621679253311"><span class="hs-identifier hs-var">services</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253310"><span class="annot"><span class="annottext">s :: ResponseTimeRootCause
+</span><a href="#local-6989586621679253310"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCause.html#ResponseTimeRootCause%27"><span class="hs-identifier hs-type">ResponseTimeRootCause'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253309"><span class="annot"><span class="annottext">Maybe [ResponseTimeRootCauseService]
+</span><a href="#local-6989586621679253309"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResponseTimeRootCause
+</span><a href="#local-6989586621679253310"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:services:ResponseTimeRootCause' :: Maybe [ResponseTimeRootCauseService]
 </span><a href="Network.AWS.XRay.Types.ResponseTimeRootCause.html#%24sel%3Aservices%3AResponseTimeRootCause%27"><span class="hs-identifier hs-var">services</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ResponseTimeRootCauseService]
-</span><a href="#local-6989586621679253300"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCause.html#ResponseTimeRootCause"><span class="hs-identifier hs-type">ResponseTimeRootCause</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ResponseTimeRootCauseService]
+</span><a href="#local-6989586621679253309"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCause.html#ResponseTimeRootCause"><span class="hs-identifier hs-type">ResponseTimeRootCause</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ResponseTimeRootCauseService]
   -&gt; f (Maybe [ResponseTimeRootCauseService]))
  -&gt; ResponseTimeRootCause -&gt; f ResponseTimeRootCause)
 -&gt; ((Maybe [ResponseTimeRootCauseService]
@@ -201,8 +201,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253294"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCause.html#ResponseTimeRootCause"><span class="hs-identifier hs-type">ResponseTimeRootCause</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679253292"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResponseTimeRootCause
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253303"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCause.html#ResponseTimeRootCause"><span class="hs-identifier hs-type">ResponseTimeRootCause</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679253301"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResponseTimeRootCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ResponseTimeRootCause)
@@ -212,8 +212,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ResponseTimeRootCause&quot;</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679253289"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679253289"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679253298"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679253298"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
 -&gt; Maybe [ResponseTimeRootCauseService] -&gt; ResponseTimeRootCause
 </span><a href="Network.AWS.XRay.Types.ResponseTimeRootCause.html#ResponseTimeRootCause%27"><span class="hs-identifier hs-var">ResponseTimeRootCause'</span></a></span><span>
@@ -224,7 +224,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe [ResponseTimeRootCauseService] -&gt; ResponseTimeRootCause)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679253289"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679253298"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ClientImpacting&quot;</span></span><span class="hs-special">)</span><span>
@@ -234,7 +234,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser ResponseTimeRootCause
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679253289"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679253298"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (Maybe [ResponseTimeRootCauseService]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -247,7 +247,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253282"><span id="local-6989586621679253284"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCause.html#ResponseTimeRootCause"><span class="hs-identifier hs-type">ResponseTimeRootCause</span></a></span></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253291"><span id="local-6989586621679253293"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCause.html#ResponseTimeRootCause"><span class="hs-identifier hs-type">ResponseTimeRootCause</span></a></span></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253279"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCause.html#ResponseTimeRootCause"><span class="hs-identifier hs-type">ResponseTimeRootCause</span></a></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253288"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ResponseTimeRootCause.html#ResponseTimeRootCause"><span class="hs-identifier hs-type">ResponseTimeRootCause</span></a></span></span><span>
 </span><span id="line-82"></span></pre></body></html>

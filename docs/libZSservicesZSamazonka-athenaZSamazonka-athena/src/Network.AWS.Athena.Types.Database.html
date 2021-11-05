@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Contains metadata information for a database in a data catalog.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newDatabase' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679216525"><span id="local-6989586621679216526"></span></span><span class="hs-keyword">data</span><span> </span><span id="Database"><span class="annot"><a href="Network.AWS.Athena.Types.Database.html#Database"><span class="hs-identifier hs-var">Database</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Database%27"><span class="annot"><a href="Network.AWS.Athena.Types.Database.html#Database%27"><span class="hs-identifier hs-var">Database'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679216534"><span id="local-6989586621679216535"></span></span><span class="hs-keyword">data</span><span> </span><span id="Database"><span class="annot"><a href="Network.AWS.Athena.Types.Database.html#Database"><span class="hs-identifier hs-var">Database</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Database%27"><span class="annot"><a href="Network.AWS.Athena.Types.Database.html#Database%27"><span class="hs-identifier hs-var">Database'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A set of custom key\/value pairs.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Aparameters%3ADatabase%27"><span class="annot"><span class="annottext">Database -&gt; Maybe (HashMap Text Text)
 </span><a href="Network.AWS.Athena.Types.Database.html#%24sel%3Aparameters%3ADatabase%27"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Aname%3ADatabase%27"><span class="annot"><span class="annottext">Database -&gt; Text
 </span><a href="Network.AWS.Athena.Types.Database.html#%24sel%3Aname%3ADatabase%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679216517"><span id="local-6989586621679216519"><span class="annot"><span class="annottext">Database -&gt; Database -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679216526"><span id="local-6989586621679216528"><span class="annot"><span class="annottext">Database -&gt; Database -&gt; Bool
 (Database -&gt; Database -&gt; Bool)
 -&gt; (Database -&gt; Database -&gt; Bool) -&gt; Eq Database
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Database -&gt; Database -&gt; Bool
 == :: Database -&gt; Database -&gt; Bool
 $c== :: Database -&gt; Database -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216508"><span id="local-6989586621679216510"><span id="local-6989586621679216512"><span id="local-6989586621679216514"><span class="annot"><span class="annottext">ReadPrec [Database]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216517"><span id="local-6989586621679216519"><span id="local-6989586621679216521"><span id="local-6989586621679216523"><span class="annot"><span class="annottext">ReadPrec [Database]
 ReadPrec Database
 Int -&gt; ReadS Database
 ReadS [Database]
@@ -65,7 +65,7 @@ readList :: ReadS [Database]
 $creadList :: ReadS [Database]
 readsPrec :: Int -&gt; ReadS Database
 $creadsPrec :: Int -&gt; ReadS Database
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216501"><span id="local-6989586621679216503"><span id="local-6989586621679216505"><span class="annot"><span class="annottext">Int -&gt; Database -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216510"><span id="local-6989586621679216512"><span id="local-6989586621679216514"><span class="annot"><span class="annottext">Int -&gt; Database -&gt; ShowS
 [Database] -&gt; ShowS
 Database -&gt; String
 (Int -&gt; Database -&gt; ShowS)
@@ -106,8 +106,8 @@ $cfrom :: forall x. Database -&gt; Rep Database x
 </span><span id="line-54"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><a href="Network.AWS.Athena.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span><span>
 </span><span id="line-56"></span><span id="newDatabase"><span class="annot"><span class="annottext">newDatabase :: Text -&gt; Database
-</span><a href="Network.AWS.Athena.Types.Database.html#newDatabase"><span class="hs-identifier hs-var hs-var">newDatabase</span></a></span></span><span> </span><span id="local-6989586621679216495"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216495"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Athena.Types.Database.html#newDatabase"><span class="hs-identifier hs-var hs-var">newDatabase</span></a></span></span><span> </span><span id="local-6989586621679216504"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679216504"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">Database' :: Maybe (HashMap Text Text) -&gt; Maybe Text -&gt; Text -&gt; Database
 </span><a href="Network.AWS.Athena.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:parameters:Database' :: Maybe (HashMap Text Text)
@@ -120,7 +120,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Database' :: Text
 </span><a href="Network.AWS.Athena.Types.Database.html#%24sel%3Aname%3ADatabase%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216495"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><a href="#local-6989586621679216504"><span class="hs-identifier hs-var">pName_</span></a></span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | A set of custom key\/value pairs.</span><span>
@@ -135,16 +135,16 @@ forall a. Maybe a
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216491"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216500"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 parameters :: Maybe (HashMap Text Text)
 $sel:parameters:Database' :: Database -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679216491"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679216491"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216490"><span class="annot"><span class="annottext">s :: Database
-</span><a href="#local-6989586621679216490"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216489"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679216489"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Database
-</span><a href="#local-6989586621679216490"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameters:Database' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679216500"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679216500"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216499"><span class="annot"><span class="annottext">s :: Database
+</span><a href="#local-6989586621679216499"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216498"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679216498"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Database
+</span><a href="#local-6989586621679216499"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameters:Database' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.Athena.Types.Database.html#%24sel%3Aparameters%3ADatabase%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679216489"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679216498"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; Database -&gt; f Database)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -180,16 +180,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (Database -&gt; Maybe Text -&gt; Database)
 -&gt; Lens Database Database (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216484"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216493"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:Database' :: Database -&gt; Maybe Text
-</span><a href="#local-6989586621679216484"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679216484"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216483"><span class="annot"><span class="annottext">s :: Database
-</span><a href="#local-6989586621679216483"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216482"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679216482"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Database
-</span><a href="#local-6989586621679216483"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:Database' :: Maybe Text
+</span><a href="#local-6989586621679216493"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679216493"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216492"><span class="annot"><span class="annottext">s :: Database
+</span><a href="#local-6989586621679216492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216491"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679216491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Database
+</span><a href="#local-6989586621679216492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:Database' :: Maybe Text
 </span><a href="Network.AWS.Athena.Types.Database.html#%24sel%3Adescription%3ADatabase%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679216482"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679216491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | The name of the database.</span><span>
 </span><span id="line-72"></span><span class="annot"><a href="Network.AWS.Athena.Types.Database.html#database_name"><span class="hs-identifier hs-type">database_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -198,27 +198,27 @@ $sel:description:Database' :: Database -&gt; Maybe Text
 -&gt; (Database -&gt; Text -&gt; Database)
 -&gt; Lens Database Database Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216480"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216489"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:Database' :: Database -&gt; Text
-</span><a href="#local-6989586621679216480"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216480"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216479"><span class="annot"><span class="annottext">s :: Database
-</span><a href="#local-6989586621679216479"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216478"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216478"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Database
-</span><a href="#local-6989586621679216479"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Database' :: Text
+</span><a href="#local-6989586621679216489"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679216489"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216488"><span class="annot"><span class="annottext">s :: Database
+</span><a href="#local-6989586621679216488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216487"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679216487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Database
+</span><a href="#local-6989586621679216488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Database' :: Text
 </span><a href="Network.AWS.Athena.Types.Database.html#%24sel%3Aname%3ADatabase%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216478"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679216487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216475"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679216473"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Database
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216484"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679216482"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Database
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Database) -&gt; Value -&gt; Parser Database
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Database&quot;</span></span><span>
-</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679216470"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679216470"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679216479"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679216479"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text) -&gt; Maybe Text -&gt; Text -&gt; Database
 </span><a href="Network.AWS.Athena.Types.Database.html#Database%27"><span class="hs-identifier hs-var">Database'</span></a></span><span>
 </span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (HashMap Text Text) -&gt; Maybe Text -&gt; Text -&gt; Database)
@@ -226,7 +226,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Text -&gt; Database)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679216470"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679216479"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Parameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
@@ -239,20 +239,20 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; Database)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679216470"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679216479"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Database) -&gt; Parser Text -&gt; Parser Database
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679216470"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679216479"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216462"><span id="local-6989586621679216464"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216471"><span id="local-6989586621679216473"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216459"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216468"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span></span><span>
 </span><span id="line-89"></span></pre></body></html>

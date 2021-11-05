@@ -48,13 +48,13 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDeleteCommentContent' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679369368"><span id="local-6989586621679369369"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCommentContent"><span class="annot"><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContent"><span class="hs-identifier hs-var">DeleteCommentContent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCommentContent%27"><span class="annot"><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContent%27"><span class="hs-identifier hs-var">DeleteCommentContent'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679369377"><span id="local-6989586621679369378"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCommentContent"><span class="annot"><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContent"><span class="hs-identifier hs-var">DeleteCommentContent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCommentContent%27"><span class="annot"><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContent%27"><span class="hs-identifier hs-var">DeleteCommentContent'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique, system-generated ID of the comment. To get this ID, use</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- GetCommentsForComparedCommit or GetCommentsForPullRequest.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AcommentId%3ADeleteCommentContent%27"><span class="annot"><span class="annottext">DeleteCommentContent -&gt; Text
 </span><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#%24sel%3AcommentId%3ADeleteCommentContent%27"><span class="hs-identifier hs-var hs-var">commentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679369362"><span id="local-6989586621679369364"><span class="annot"><span class="annottext">DeleteCommentContent -&gt; DeleteCommentContent -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679369371"><span id="local-6989586621679369373"><span class="annot"><span class="annottext">DeleteCommentContent -&gt; DeleteCommentContent -&gt; Bool
 (DeleteCommentContent -&gt; DeleteCommentContent -&gt; Bool)
 -&gt; (DeleteCommentContent -&gt; DeleteCommentContent -&gt; Bool)
 -&gt; Eq DeleteCommentContent
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteCommentContent -&gt; DeleteCommentContent -&gt; Bool
 == :: DeleteCommentContent -&gt; DeleteCommentContent -&gt; Bool
 $c== :: DeleteCommentContent -&gt; DeleteCommentContent -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369353"><span id="local-6989586621679369355"><span id="local-6989586621679369357"><span id="local-6989586621679369359"><span class="annot"><span class="annottext">ReadPrec [DeleteCommentContent]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369362"><span id="local-6989586621679369364"><span id="local-6989586621679369366"><span id="local-6989586621679369368"><span class="annot"><span class="annottext">ReadPrec [DeleteCommentContent]
 ReadPrec DeleteCommentContent
 Int -&gt; ReadS DeleteCommentContent
 ReadS [DeleteCommentContent]
@@ -83,7 +83,7 @@ readList :: ReadS [DeleteCommentContent]
 $creadList :: ReadS [DeleteCommentContent]
 readsPrec :: Int -&gt; ReadS DeleteCommentContent
 $creadsPrec :: Int -&gt; ReadS DeleteCommentContent
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369346"><span id="local-6989586621679369348"><span id="local-6989586621679369350"><span class="annot"><span class="annottext">Int -&gt; DeleteCommentContent -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369355"><span id="local-6989586621679369357"><span id="local-6989586621679369359"><span class="annot"><span class="annottext">Int -&gt; DeleteCommentContent -&gt; ShowS
 [DeleteCommentContent] -&gt; ShowS
 DeleteCommentContent -&gt; String
 (Int -&gt; DeleteCommentContent -&gt; ShowS)
@@ -124,12 +124,12 @@ $cfrom :: forall x. DeleteCommentContent -&gt; Rep DeleteCommentContent x
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContent"><span class="hs-identifier hs-type">DeleteCommentContent</span></a></span><span>
 </span><span id="line-72"></span><span id="newDeleteCommentContent"><span class="annot"><span class="annottext">newDeleteCommentContent :: Text -&gt; DeleteCommentContent
-</span><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#newDeleteCommentContent"><span class="hs-identifier hs-var hs-var">newDeleteCommentContent</span></a></span></span><span> </span><span id="local-6989586621679369341"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679369341"><span class="hs-identifier hs-var">pCommentId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#newDeleteCommentContent"><span class="hs-identifier hs-var hs-var">newDeleteCommentContent</span></a></span></span><span> </span><span id="local-6989586621679369350"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679369350"><span class="hs-identifier hs-var">pCommentId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">DeleteCommentContent' :: Text -&gt; DeleteCommentContent
 </span><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContent%27"><span class="hs-identifier hs-type">DeleteCommentContent'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commentId:DeleteCommentContent' :: Text
 </span><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#%24sel%3AcommentId%3ADeleteCommentContent%27"><span class="hs-identifier hs-var">commentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679369341"><span class="hs-identifier hs-var">pCommentId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679369350"><span class="hs-identifier hs-var">pCommentId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | The unique, system-generated ID of the comment. To get this ID, use</span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- GetCommentsForComparedCommit or GetCommentsForPullRequest.</span><span>
@@ -139,27 +139,27 @@ $cfrom :: forall x. DeleteCommentContent -&gt; Rep DeleteCommentContent x
 -&gt; (DeleteCommentContent -&gt; Text -&gt; DeleteCommentContent)
 -&gt; Lens DeleteCommentContent DeleteCommentContent Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContent%27"><span class="hs-identifier hs-type">DeleteCommentContent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369338"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContent%27"><span class="hs-identifier hs-type">DeleteCommentContent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369347"><span class="annot"><span class="annottext">Text
 commentId :: Text
 $sel:commentId:DeleteCommentContent' :: DeleteCommentContent -&gt; Text
-</span><a href="#local-6989586621679369338"><span class="hs-identifier hs-var hs-var">commentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679369338"><span class="hs-identifier hs-var">commentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369337"><span class="annot"><span class="annottext">s :: DeleteCommentContent
-</span><a href="#local-6989586621679369337"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContent%27"><span class="hs-identifier hs-type">DeleteCommentContent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369336"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679369336"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCommentContent
-</span><a href="#local-6989586621679369337"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commentId:DeleteCommentContent' :: Text
+</span><a href="#local-6989586621679369347"><span class="hs-identifier hs-var hs-var">commentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679369347"><span class="hs-identifier hs-var">commentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369346"><span class="annot"><span class="annottext">s :: DeleteCommentContent
+</span><a href="#local-6989586621679369346"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContent%27"><span class="hs-identifier hs-type">DeleteCommentContent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369345"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679369345"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCommentContent
+</span><a href="#local-6989586621679369346"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commentId:DeleteCommentContent' :: Text
 </span><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#%24sel%3AcommentId%3ADeleteCommentContent%27"><span class="hs-identifier hs-var">commentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679369336"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContent"><span class="hs-identifier hs-type">DeleteCommentContent</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679369345"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContent"><span class="hs-identifier hs-type">DeleteCommentContent</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContent"><span class="hs-identifier hs-type">DeleteCommentContent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-82"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContent"><span class="hs-identifier hs-type">DeleteCommentContent</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContentResponse"><span class="hs-identifier hs-type">DeleteCommentContentResponse</span></a></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679369332"><span class="annot"><span class="annottext">request :: DeleteCommentContent -&gt; Request DeleteCommentContent
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679369341"><span class="annot"><span class="annottext">request :: DeleteCommentContent -&gt; Request DeleteCommentContent
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteCommentContent -&gt; Request DeleteCommentContent
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeCommit.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679369328"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679369337"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteCommentContent
 -&gt; ClientResponse ClientBody
@@ -185,10 +185,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679369325"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679369325"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679369324"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679369324"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679369323"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679369323"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679369334"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679369334"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679369333"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679369333"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679369332"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369332"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe Comment -&gt; Int -&gt; DeleteCommentContentResponse
 </span><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContentResponse%27"><span class="hs-identifier hs-var">DeleteCommentContentResponse'</span></a></span><span>
 </span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Comment -&gt; Int -&gt; DeleteCommentContentResponse)
@@ -196,7 +196,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DeleteCommentContentResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679369323"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Comment)
+</span><a href="#local-6989586621679369332"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Comment)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;comment&quot;</span></span><span class="hs-special">)</span><span>
@@ -208,15 +208,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679369325"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679369334"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369315"><span id="local-6989586621679369317"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContent"><span class="hs-identifier hs-type">DeleteCommentContent</span></a></span></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369324"><span id="local-6989586621679369326"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContent"><span class="hs-identifier hs-type">DeleteCommentContent</span></a></span></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369312"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContent"><span class="hs-identifier hs-type">DeleteCommentContent</span></a></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369321"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContent"><span class="hs-identifier hs-type">DeleteCommentContent</span></a></span></span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContent"><span class="hs-identifier hs-type">DeleteCommentContent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679369308"><span class="annot"><span class="annottext">toHeaders :: DeleteCommentContent -&gt; ResponseHeaders
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679369317"><span class="annot"><span class="annottext">toHeaders :: DeleteCommentContent -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteCommentContent -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -243,12 +243,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-109"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369298"><span id="local-6989586621679369300"><span id="local-6989586621679369302"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContent"><span class="hs-identifier hs-type">DeleteCommentContent</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679369296"><span class="annot"><span class="annottext">toJSON :: DeleteCommentContent -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContent%27"><span class="hs-identifier hs-type">DeleteCommentContent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369294"><span class="annot"><span class="annottext">Text
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369307"><span id="local-6989586621679369309"><span id="local-6989586621679369311"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContent"><span class="hs-identifier hs-type">DeleteCommentContent</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679369305"><span class="annot"><span class="annottext">toJSON :: DeleteCommentContent -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContent%27"><span class="hs-identifier hs-type">DeleteCommentContent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369303"><span class="annot"><span class="annottext">Text
 commentId :: Text
 $sel:commentId:DeleteCommentContent' :: DeleteCommentContent -&gt; Text
-</span><a href="#local-6989586621679369294"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679369303"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -260,18 +260,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;commentId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679369294"><span class="hs-identifier hs-var">commentId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679369303"><span class="hs-identifier hs-var">commentId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContent"><span class="hs-identifier hs-type">DeleteCommentContent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679369288"><span class="annot"><span class="annottext">toPath :: DeleteCommentContent -&gt; ByteString
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679369297"><span class="annot"><span class="annottext">toPath :: DeleteCommentContent -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteCommentContent -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContent"><span class="hs-identifier hs-type">DeleteCommentContent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679369284"><span class="annot"><span class="annottext">toQuery :: DeleteCommentContent -&gt; QueryString
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679369293"><span class="annot"><span class="annottext">toQuery :: DeleteCommentContent -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteCommentContent -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -279,7 +279,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | /See:/ 'newDeleteCommentContentResponse' smart constructor.</span><span>
-</span><span id="line-126"></span><span id="local-6989586621679369281"><span id="local-6989586621679369282"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCommentContentResponse"><span class="annot"><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContentResponse"><span class="hs-identifier hs-var">DeleteCommentContentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCommentContentResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContentResponse%27"><span class="hs-identifier hs-var">DeleteCommentContentResponse'</span></a></span></span><span>
+</span><span id="line-126"></span><span id="local-6989586621679369290"><span id="local-6989586621679369291"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCommentContentResponse"><span class="annot"><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContentResponse"><span class="hs-identifier hs-var">DeleteCommentContentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCommentContentResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContentResponse%27"><span class="hs-identifier hs-var">DeleteCommentContentResponse'</span></a></span></span><span>
 </span><span id="line-127"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the comment you just deleted.</span><span>
 </span><span id="line-128"></span><span>    </span><span id="%24sel%3Acomment%3ADeleteCommentContentResponse%27"><span class="annot"><span class="annottext">DeleteCommentContentResponse -&gt; Maybe Comment
 </span><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#%24sel%3Acomment%3ADeleteCommentContentResponse%27"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Comment.html#Comment"><span class="hs-identifier hs-type">Comment</span></a></span><span class="hs-special">,</span><span>
@@ -287,7 +287,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-130"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteCommentContentResponse%27"><span class="annot"><span class="annottext">DeleteCommentContentResponse -&gt; Int
 </span><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#%24sel%3AhttpStatus%3ADeleteCommentContentResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-131"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-132"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679369275"><span id="local-6989586621679369277"><span class="annot"><span class="annottext">DeleteCommentContentResponse
+</span><span id="line-132"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679369284"><span id="local-6989586621679369286"><span class="annot"><span class="annottext">DeleteCommentContentResponse
 -&gt; DeleteCommentContentResponse -&gt; Bool
 (DeleteCommentContentResponse
  -&gt; DeleteCommentContentResponse -&gt; Bool)
@@ -303,7 +303,7 @@ $c/= :: DeleteCommentContentResponse
 -&gt; DeleteCommentContentResponse -&gt; Bool
 $c== :: DeleteCommentContentResponse
 -&gt; DeleteCommentContentResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369267"><span id="local-6989586621679369269"><span id="local-6989586621679369271"><span id="local-6989586621679369273"><span class="annot"><span class="annottext">ReadPrec [DeleteCommentContentResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369276"><span id="local-6989586621679369278"><span id="local-6989586621679369280"><span id="local-6989586621679369282"><span class="annot"><span class="annottext">ReadPrec [DeleteCommentContentResponse]
 ReadPrec DeleteCommentContentResponse
 Int -&gt; ReadS DeleteCommentContentResponse
 ReadS [DeleteCommentContentResponse]
@@ -323,7 +323,7 @@ readList :: ReadS [DeleteCommentContentResponse]
 $creadList :: ReadS [DeleteCommentContentResponse]
 readsPrec :: Int -&gt; ReadS DeleteCommentContentResponse
 $creadsPrec :: Int -&gt; ReadS DeleteCommentContentResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369261"><span id="local-6989586621679369263"><span id="local-6989586621679369265"><span class="annot"><span class="annottext">Int -&gt; DeleteCommentContentResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369270"><span id="local-6989586621679369272"><span id="local-6989586621679369274"><span class="annot"><span class="annottext">Int -&gt; DeleteCommentContentResponse -&gt; ShowS
 [DeleteCommentContentResponse] -&gt; ShowS
 DeleteCommentContentResponse -&gt; String
 (Int -&gt; DeleteCommentContentResponse -&gt; ShowS)
@@ -371,8 +371,8 @@ DeleteCommentContentResponse -&gt; Rep DeleteCommentContentResponse x
 </span><span id="line-147"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-148"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContentResponse"><span class="hs-identifier hs-type">DeleteCommentContentResponse</span></a></span><span>
 </span><span id="line-149"></span><span id="newDeleteCommentContentResponse"><span class="annot"><span class="annottext">newDeleteCommentContentResponse :: Int -&gt; DeleteCommentContentResponse
-</span><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#newDeleteCommentContentResponse"><span class="hs-identifier hs-var hs-var">newDeleteCommentContentResponse</span></a></span></span><span> </span><span id="local-6989586621679369258"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679369258"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#newDeleteCommentContentResponse"><span class="hs-identifier hs-var hs-var">newDeleteCommentContentResponse</span></a></span></span><span> </span><span id="local-6989586621679369267"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679369267"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-150"></span><span>  </span><span class="annot"><span class="annottext">DeleteCommentContentResponse' :: Maybe Comment -&gt; Int -&gt; DeleteCommentContentResponse
 </span><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContentResponse%27"><span class="hs-identifier hs-type">DeleteCommentContentResponse'</span></a></span><span>
 </span><span id="line-151"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:comment:DeleteCommentContentResponse' :: Maybe Comment
@@ -382,7 +382,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteCommentContentResponse' :: Int
 </span><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#%24sel%3AhttpStatus%3ADeleteCommentContentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679369258"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679369267"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-154"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | Information about the comment you just deleted.</span><span>
@@ -398,16 +398,16 @@ forall a. Maybe a
      (Maybe Comment)
      (Maybe Comment)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContentResponse%27"><span class="hs-identifier hs-type">DeleteCommentContentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369257"><span class="annot"><span class="annottext">Maybe Comment
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContentResponse%27"><span class="hs-identifier hs-type">DeleteCommentContentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369266"><span class="annot"><span class="annottext">Maybe Comment
 comment :: Maybe Comment
 $sel:comment:DeleteCommentContentResponse' :: DeleteCommentContentResponse -&gt; Maybe Comment
-</span><a href="#local-6989586621679369257"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Comment
-</span><a href="#local-6989586621679369257"><span class="hs-identifier hs-var">comment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369256"><span class="annot"><span class="annottext">s :: DeleteCommentContentResponse
-</span><a href="#local-6989586621679369256"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContentResponse%27"><span class="hs-identifier hs-type">DeleteCommentContentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369255"><span class="annot"><span class="annottext">Maybe Comment
-</span><a href="#local-6989586621679369255"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCommentContentResponse
-</span><a href="#local-6989586621679369256"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comment:DeleteCommentContentResponse' :: Maybe Comment
+</span><a href="#local-6989586621679369266"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Comment
+</span><a href="#local-6989586621679369266"><span class="hs-identifier hs-var">comment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369265"><span class="annot"><span class="annottext">s :: DeleteCommentContentResponse
+</span><a href="#local-6989586621679369265"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContentResponse%27"><span class="hs-identifier hs-type">DeleteCommentContentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369264"><span class="annot"><span class="annottext">Maybe Comment
+</span><a href="#local-6989586621679369264"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCommentContentResponse
+</span><a href="#local-6989586621679369265"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comment:DeleteCommentContentResponse' :: Maybe Comment
 </span><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#%24sel%3Acomment%3ADeleteCommentContentResponse%27"><span class="hs-identifier hs-var">comment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Comment
-</span><a href="#local-6989586621679369255"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContentResponse"><span class="hs-identifier hs-type">DeleteCommentContentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679369264"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContentResponse"><span class="hs-identifier hs-type">DeleteCommentContentResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-161"></span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#deleteCommentContentResponse_httpStatus"><span class="hs-identifier hs-type">deleteCommentContentResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContentResponse"><span class="hs-identifier hs-type">DeleteCommentContentResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -419,16 +419,16 @@ $sel:comment:DeleteCommentContentResponse' :: DeleteCommentContentResponse -&gt;
 -&gt; Lens
      DeleteCommentContentResponse DeleteCommentContentResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContentResponse%27"><span class="hs-identifier hs-type">DeleteCommentContentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369254"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContentResponse%27"><span class="hs-identifier hs-type">DeleteCommentContentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369263"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteCommentContentResponse' :: DeleteCommentContentResponse -&gt; Int
-</span><a href="#local-6989586621679369254"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679369254"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369253"><span class="annot"><span class="annottext">s :: DeleteCommentContentResponse
-</span><a href="#local-6989586621679369253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContentResponse%27"><span class="hs-identifier hs-type">DeleteCommentContentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369252"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679369252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCommentContentResponse
-</span><a href="#local-6989586621679369253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteCommentContentResponse' :: Int
+</span><a href="#local-6989586621679369263"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679369263"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369262"><span class="annot"><span class="annottext">s :: DeleteCommentContentResponse
+</span><a href="#local-6989586621679369262"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContentResponse%27"><span class="hs-identifier hs-type">DeleteCommentContentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369261"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679369261"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCommentContentResponse
+</span><a href="#local-6989586621679369262"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteCommentContentResponse' :: Int
 </span><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#%24sel%3AhttpStatus%3ADeleteCommentContentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679369252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContentResponse"><span class="hs-identifier hs-type">DeleteCommentContentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679369261"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContentResponse"><span class="hs-identifier hs-type">DeleteCommentContentResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369250"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContentResponse"><span class="hs-identifier hs-type">DeleteCommentContentResponse</span></a></span></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369259"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteCommentContent.html#DeleteCommentContentResponse"><span class="hs-identifier hs-type">DeleteCommentContentResponse</span></a></span></span><span>
 </span><span id="line-165"></span></pre></body></html>

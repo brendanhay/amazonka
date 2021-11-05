@@ -1,0 +1,450 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CloudControl.GetResourceRequestStatus</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns the current status of a resource operation request. For more</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-manage-requests.html#resource-operations-manage-requests-track Tracking the progress of resource operation requests&gt;</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- in the /Amazon Web Services Cloud Control API User Guide/.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudControl.GetResourceRequestStatus</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#GetResourceRequestStatus"><span class="hs-identifier">GetResourceRequestStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#newGetResourceRequestStatus"><span class="hs-identifier">newGetResourceRequestStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#getResourceRequestStatus_requestToken"><span class="hs-identifier">getResourceRequestStatus_requestToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#GetResourceRequestStatusResponse"><span class="hs-identifier">GetResourceRequestStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#newGetResourceRequestStatusResponse"><span class="hs-identifier">newGetResourceRequestStatusResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#getResourceRequestStatusResponse_progressEvent"><span class="hs-identifier">getResourceRequestStatusResponse_progressEvent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#getResourceRequestStatusResponse_httpStatus"><span class="hs-identifier">getResourceRequestStatusResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.Types.html"><span class="hs-identifier">Network.AWS.CloudControl.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newGetResourceRequestStatus' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679156139"><span id="local-6989586621679156140"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetResourceRequestStatus"><span class="annot"><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#GetResourceRequestStatus"><span class="hs-identifier hs-var">GetResourceRequestStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetResourceRequestStatus%27"><span class="annot"><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#GetResourceRequestStatus%27"><span class="hs-identifier hs-var">GetResourceRequestStatus'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique token used to track the progress of the resource operation</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- Request tokens are included in the @ProgressEvent@ type returned by a</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- resource operation request.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3ArequestToken%3AGetResourceRequestStatus%27"><span class="annot"><span class="annottext">GetResourceRequestStatus -&gt; Text
+</span><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#%24sel%3ArequestToken%3AGetResourceRequestStatus%27"><span class="hs-identifier hs-var hs-var">requestToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679156133"><span id="local-6989586621679156135"><span class="annot"><span class="annottext">GetResourceRequestStatus -&gt; GetResourceRequestStatus -&gt; Bool
+(GetResourceRequestStatus -&gt; GetResourceRequestStatus -&gt; Bool)
+-&gt; (GetResourceRequestStatus -&gt; GetResourceRequestStatus -&gt; Bool)
+-&gt; Eq GetResourceRequestStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetResourceRequestStatus -&gt; GetResourceRequestStatus -&gt; Bool
+$c/= :: GetResourceRequestStatus -&gt; GetResourceRequestStatus -&gt; Bool
+== :: GetResourceRequestStatus -&gt; GetResourceRequestStatus -&gt; Bool
+$c== :: GetResourceRequestStatus -&gt; GetResourceRequestStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679156124"><span id="local-6989586621679156126"><span id="local-6989586621679156128"><span id="local-6989586621679156130"><span class="annot"><span class="annottext">ReadPrec [GetResourceRequestStatus]
+ReadPrec GetResourceRequestStatus
+Int -&gt; ReadS GetResourceRequestStatus
+ReadS [GetResourceRequestStatus]
+(Int -&gt; ReadS GetResourceRequestStatus)
+-&gt; ReadS [GetResourceRequestStatus]
+-&gt; ReadPrec GetResourceRequestStatus
+-&gt; ReadPrec [GetResourceRequestStatus]
+-&gt; Read GetResourceRequestStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetResourceRequestStatus]
+$creadListPrec :: ReadPrec [GetResourceRequestStatus]
+readPrec :: ReadPrec GetResourceRequestStatus
+$creadPrec :: ReadPrec GetResourceRequestStatus
+readList :: ReadS [GetResourceRequestStatus]
+$creadList :: ReadS [GetResourceRequestStatus]
+readsPrec :: Int -&gt; ReadS GetResourceRequestStatus
+$creadsPrec :: Int -&gt; ReadS GetResourceRequestStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679156117"><span id="local-6989586621679156119"><span id="local-6989586621679156121"><span class="annot"><span class="annottext">Int -&gt; GetResourceRequestStatus -&gt; ShowS
+[GetResourceRequestStatus] -&gt; ShowS
+GetResourceRequestStatus -&gt; String
+(Int -&gt; GetResourceRequestStatus -&gt; ShowS)
+-&gt; (GetResourceRequestStatus -&gt; String)
+-&gt; ([GetResourceRequestStatus] -&gt; ShowS)
+-&gt; Show GetResourceRequestStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetResourceRequestStatus] -&gt; ShowS
+$cshowList :: [GetResourceRequestStatus] -&gt; ShowS
+show :: GetResourceRequestStatus -&gt; String
+$cshow :: GetResourceRequestStatus -&gt; String
+showsPrec :: Int -&gt; GetResourceRequestStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetResourceRequestStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetResourceRequestStatus -&gt; Rep GetResourceRequestStatus x)
+-&gt; (forall x.
+    Rep GetResourceRequestStatus x -&gt; GetResourceRequestStatus)
+-&gt; Generic GetResourceRequestStatus
+forall x.
+Rep GetResourceRequestStatus x -&gt; GetResourceRequestStatus
+forall x.
+GetResourceRequestStatus -&gt; Rep GetResourceRequestStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetResourceRequestStatus x -&gt; GetResourceRequestStatus
+$cfrom :: forall x.
+GetResourceRequestStatus -&gt; Rep GetResourceRequestStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'GetResourceRequestStatus' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'requestToken', 'getResourceRequestStatus_requestToken' - A unique token used to track the progress of the resource operation</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Request tokens are included in the @ProgressEvent@ type returned by a</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- resource operation request.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#newGetResourceRequestStatus"><span class="hs-identifier hs-type">newGetResourceRequestStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-comment">-- | 'requestToken'</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#GetResourceRequestStatus"><span class="hs-identifier hs-type">GetResourceRequestStatus</span></a></span><span>
+</span><span id="line-80"></span><span id="newGetResourceRequestStatus"><span class="annot"><span class="annottext">newGetResourceRequestStatus :: Text -&gt; GetResourceRequestStatus
+</span><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#newGetResourceRequestStatus"><span class="hs-identifier hs-var hs-var">newGetResourceRequestStatus</span></a></span></span><span> </span><span id="local-6989586621679156112"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156112"><span class="hs-identifier hs-var">pRequestToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">GetResourceRequestStatus' :: Text -&gt; GetResourceRequestStatus
+</span><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#GetResourceRequestStatus%27"><span class="hs-identifier hs-type">GetResourceRequestStatus'</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requestToken:GetResourceRequestStatus' :: Text
+</span><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#%24sel%3ArequestToken%3AGetResourceRequestStatus%27"><span class="hs-identifier hs-var">requestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156112"><span class="hs-identifier hs-var">pRequestToken_</span></a></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | A unique token used to track the progress of the resource operation</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- Request tokens are included in the @ProgressEvent@ type returned by a</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- resource operation request.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#getResourceRequestStatus_requestToken"><span class="hs-identifier hs-type">getResourceRequestStatus_requestToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#GetResourceRequestStatus"><span class="hs-identifier hs-type">GetResourceRequestStatus</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-92"></span><span id="getResourceRequestStatus_requestToken"><span class="annot"><span class="annottext">getResourceRequestStatus_requestToken :: (Text -&gt; f Text)
+-&gt; GetResourceRequestStatus -&gt; f GetResourceRequestStatus
+</span><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#getResourceRequestStatus_requestToken"><span class="hs-identifier hs-var hs-var">getResourceRequestStatus_requestToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResourceRequestStatus -&gt; Text)
+-&gt; (GetResourceRequestStatus -&gt; Text -&gt; GetResourceRequestStatus)
+-&gt; Lens GetResourceRequestStatus GetResourceRequestStatus Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#GetResourceRequestStatus%27"><span class="hs-identifier hs-type">GetResourceRequestStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156109"><span class="annot"><span class="annottext">Text
+requestToken :: Text
+$sel:requestToken:GetResourceRequestStatus' :: GetResourceRequestStatus -&gt; Text
+</span><a href="#local-6989586621679156109"><span class="hs-identifier hs-var hs-var">requestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156109"><span class="hs-identifier hs-var">requestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679156108"><span class="annot"><span class="annottext">s :: GetResourceRequestStatus
+</span><a href="#local-6989586621679156108"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#GetResourceRequestStatus%27"><span class="hs-identifier hs-type">GetResourceRequestStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679156107"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156107"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResourceRequestStatus
+</span><a href="#local-6989586621679156108"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestToken:GetResourceRequestStatus' :: Text
+</span><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#%24sel%3ArequestToken%3AGetResourceRequestStatus%27"><span class="hs-identifier hs-var">requestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156107"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#GetResourceRequestStatus"><span class="hs-identifier hs-type">GetResourceRequestStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#GetResourceRequestStatus"><span class="hs-identifier hs-type">GetResourceRequestStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-96"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#GetResourceRequestStatus"><span class="hs-identifier hs-type">GetResourceRequestStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#GetResourceRequestStatusResponse"><span class="hs-identifier hs-type">GetResourceRequestStatusResponse</span></a></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679156103"><span class="annot"><span class="annottext">request :: GetResourceRequestStatus -&gt; Request GetResourceRequestStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GetResourceRequestStatus -&gt; Request GetResourceRequestStatus
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CloudControl.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679156099"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetResourceRequestStatus
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetResourceRequestStatus)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetResourceRequestStatus))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetResourceRequestStatus
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetResourceRequestStatus)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679156096"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679156096"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679156095"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679156095"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679156094"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679156094"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe ProgressEvent -&gt; Int -&gt; GetResourceRequestStatusResponse
+</span><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#GetResourceRequestStatusResponse%27"><span class="hs-identifier hs-var">GetResourceRequestStatusResponse'</span></a></span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ProgressEvent -&gt; Int -&gt; GetResourceRequestStatusResponse)
+-&gt; Either String (Maybe ProgressEvent)
+-&gt; Either String (Int -&gt; GetResourceRequestStatusResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679156094"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ProgressEvent)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProgressEvent&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetResourceRequestStatusResponse)
+-&gt; Either String Int
+-&gt; Either String GetResourceRequestStatusResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679156096"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679156086"><span id="local-6989586621679156088"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#GetResourceRequestStatus"><span class="hs-identifier hs-type">GetResourceRequestStatus</span></a></span></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679156083"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#GetResourceRequestStatus"><span class="hs-identifier hs-type">GetResourceRequestStatus</span></a></span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#GetResourceRequestStatus"><span class="hs-identifier hs-type">GetResourceRequestStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679156079"><span class="annot"><span class="annottext">toHeaders :: GetResourceRequestStatus -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetResourceRequestStatus -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-115"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-116"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CloudApiService.GetResourceRequestStatus&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-117"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-118"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-120"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-121"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-122"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679156069"><span id="local-6989586621679156071"><span id="local-6989586621679156073"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#GetResourceRequestStatus"><span class="hs-identifier hs-type">GetResourceRequestStatus</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679156067"><span class="annot"><span class="annottext">toJSON :: GetResourceRequestStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#GetResourceRequestStatus%27"><span class="hs-identifier hs-type">GetResourceRequestStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156065"><span class="annot"><span class="annottext">Text
+requestToken :: Text
+$sel:requestToken:GetResourceRequestStatus' :: GetResourceRequestStatus -&gt; Text
+</span><a href="#local-6989586621679156065"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-130"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequestToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156065"><span class="hs-identifier hs-var">requestToken</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#GetResourceRequestStatus"><span class="hs-identifier hs-type">GetResourceRequestStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679156059"><span class="annot"><span class="annottext">toPath :: GetResourceRequestStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetResourceRequestStatus -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#GetResourceRequestStatus"><span class="hs-identifier hs-type">GetResourceRequestStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679156055"><span class="annot"><span class="annottext">toQuery :: GetResourceRequestStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetResourceRequestStatus -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | /See:/ 'newGetResourceRequestStatusResponse' smart constructor.</span><span>
+</span><span id="line-140"></span><span id="local-6989586621679156052"><span id="local-6989586621679156053"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetResourceRequestStatusResponse"><span class="annot"><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#GetResourceRequestStatusResponse"><span class="hs-identifier hs-var">GetResourceRequestStatusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetResourceRequestStatusResponse%27"><span class="annot"><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#GetResourceRequestStatusResponse%27"><span class="hs-identifier hs-var">GetResourceRequestStatusResponse'</span></a></span></span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Represents the current status of the resource operation request.</span><span>
+</span><span id="line-142"></span><span>    </span><span id="%24sel%3AprogressEvent%3AGetResourceRequestStatusResponse%27"><span class="annot"><span class="annottext">GetResourceRequestStatusResponse -&gt; Maybe ProgressEvent
+</span><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#%24sel%3AprogressEvent%3AGetResourceRequestStatusResponse%27"><span class="hs-identifier hs-var hs-var">progressEvent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent"><span class="hs-identifier hs-type">ProgressEvent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-144"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetResourceRequestStatusResponse%27"><span class="annot"><span class="annottext">GetResourceRequestStatusResponse -&gt; Int
+</span><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#%24sel%3AhttpStatus%3AGetResourceRequestStatusResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679156046"><span id="local-6989586621679156048"><span class="annot"><span class="annottext">GetResourceRequestStatusResponse
+-&gt; GetResourceRequestStatusResponse -&gt; Bool
+(GetResourceRequestStatusResponse
+ -&gt; GetResourceRequestStatusResponse -&gt; Bool)
+-&gt; (GetResourceRequestStatusResponse
+    -&gt; GetResourceRequestStatusResponse -&gt; Bool)
+-&gt; Eq GetResourceRequestStatusResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetResourceRequestStatusResponse
+-&gt; GetResourceRequestStatusResponse -&gt; Bool
+$c/= :: GetResourceRequestStatusResponse
+-&gt; GetResourceRequestStatusResponse -&gt; Bool
+== :: GetResourceRequestStatusResponse
+-&gt; GetResourceRequestStatusResponse -&gt; Bool
+$c== :: GetResourceRequestStatusResponse
+-&gt; GetResourceRequestStatusResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679156040"><span id="local-6989586621679156042"><span id="local-6989586621679156044"><span class="annot"><span class="annottext">Int -&gt; GetResourceRequestStatusResponse -&gt; ShowS
+[GetResourceRequestStatusResponse] -&gt; ShowS
+GetResourceRequestStatusResponse -&gt; String
+(Int -&gt; GetResourceRequestStatusResponse -&gt; ShowS)
+-&gt; (GetResourceRequestStatusResponse -&gt; String)
+-&gt; ([GetResourceRequestStatusResponse] -&gt; ShowS)
+-&gt; Show GetResourceRequestStatusResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetResourceRequestStatusResponse] -&gt; ShowS
+$cshowList :: [GetResourceRequestStatusResponse] -&gt; ShowS
+show :: GetResourceRequestStatusResponse -&gt; String
+$cshow :: GetResourceRequestStatusResponse -&gt; String
+showsPrec :: Int -&gt; GetResourceRequestStatusResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetResourceRequestStatusResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetResourceRequestStatusResponse
+ -&gt; Rep GetResourceRequestStatusResponse x)
+-&gt; (forall x.
+    Rep GetResourceRequestStatusResponse x
+    -&gt; GetResourceRequestStatusResponse)
+-&gt; Generic GetResourceRequestStatusResponse
+forall x.
+Rep GetResourceRequestStatusResponse x
+-&gt; GetResourceRequestStatusResponse
+forall x.
+GetResourceRequestStatusResponse
+-&gt; Rep GetResourceRequestStatusResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetResourceRequestStatusResponse x
+-&gt; GetResourceRequestStatusResponse
+$cfrom :: forall x.
+GetResourceRequestStatusResponse
+-&gt; Rep GetResourceRequestStatusResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Create a value of 'GetResourceRequestStatusResponse' with all optional fields omitted.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'progressEvent', 'getResourceRequestStatusResponse_progressEvent' - Represents the current status of the resource operation request.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- 'httpStatus', 'getResourceRequestStatusResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#newGetResourceRequestStatusResponse"><span class="hs-identifier hs-type">newGetResourceRequestStatusResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#GetResourceRequestStatusResponse"><span class="hs-identifier hs-type">GetResourceRequestStatusResponse</span></a></span><span>
+</span><span id="line-163"></span><span id="newGetResourceRequestStatusResponse"><span class="annot"><span class="annottext">newGetResourceRequestStatusResponse :: Int -&gt; GetResourceRequestStatusResponse
+</span><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#newGetResourceRequestStatusResponse"><span class="hs-identifier hs-var hs-var">newGetResourceRequestStatusResponse</span></a></span></span><span> </span><span id="local-6989586621679156037"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679156037"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><span class="annottext">GetResourceRequestStatusResponse' :: Maybe ProgressEvent -&gt; Int -&gt; GetResourceRequestStatusResponse
+</span><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#GetResourceRequestStatusResponse%27"><span class="hs-identifier hs-type">GetResourceRequestStatusResponse'</span></a></span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:progressEvent:GetResourceRequestStatusResponse' :: Maybe ProgressEvent
+</span><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#%24sel%3AprogressEvent%3AGetResourceRequestStatusResponse%27"><span class="hs-identifier hs-var">progressEvent</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">Maybe ProgressEvent
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetResourceRequestStatusResponse' :: Int
+</span><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#%24sel%3AhttpStatus%3AGetResourceRequestStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679156037"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | Represents the current status of the resource operation request.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#getResourceRequestStatusResponse_progressEvent"><span class="hs-identifier hs-type">getResourceRequestStatusResponse_progressEvent</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#GetResourceRequestStatusResponse"><span class="hs-identifier hs-type">GetResourceRequestStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.Types.ProgressEvent.html#ProgressEvent"><span class="hs-identifier hs-type">ProgressEvent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="getResourceRequestStatusResponse_progressEvent"><span class="annot"><span class="annottext">getResourceRequestStatusResponse_progressEvent :: (Maybe ProgressEvent -&gt; f (Maybe ProgressEvent))
+-&gt; GetResourceRequestStatusResponse
+-&gt; f GetResourceRequestStatusResponse
+</span><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#getResourceRequestStatusResponse_progressEvent"><span class="hs-identifier hs-var hs-var">getResourceRequestStatusResponse_progressEvent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResourceRequestStatusResponse -&gt; Maybe ProgressEvent)
+-&gt; (GetResourceRequestStatusResponse
+    -&gt; Maybe ProgressEvent -&gt; GetResourceRequestStatusResponse)
+-&gt; Lens
+     GetResourceRequestStatusResponse
+     GetResourceRequestStatusResponse
+     (Maybe ProgressEvent)
+     (Maybe ProgressEvent)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#GetResourceRequestStatusResponse%27"><span class="hs-identifier hs-type">GetResourceRequestStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156036"><span class="annot"><span class="annottext">Maybe ProgressEvent
+progressEvent :: Maybe ProgressEvent
+$sel:progressEvent:GetResourceRequestStatusResponse' :: GetResourceRequestStatusResponse -&gt; Maybe ProgressEvent
+</span><a href="#local-6989586621679156036"><span class="hs-identifier hs-var hs-var">progressEvent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProgressEvent
+</span><a href="#local-6989586621679156036"><span class="hs-identifier hs-var">progressEvent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679156035"><span class="annot"><span class="annottext">s :: GetResourceRequestStatusResponse
+</span><a href="#local-6989586621679156035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#GetResourceRequestStatusResponse%27"><span class="hs-identifier hs-type">GetResourceRequestStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679156034"><span class="annot"><span class="annottext">Maybe ProgressEvent
+</span><a href="#local-6989586621679156034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResourceRequestStatusResponse
+</span><a href="#local-6989586621679156035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:progressEvent:GetResourceRequestStatusResponse' :: Maybe ProgressEvent
+</span><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#%24sel%3AprogressEvent%3AGetResourceRequestStatusResponse%27"><span class="hs-identifier hs-var">progressEvent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProgressEvent
+</span><a href="#local-6989586621679156034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#GetResourceRequestStatusResponse"><span class="hs-identifier hs-type">GetResourceRequestStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#getResourceRequestStatusResponse_httpStatus"><span class="hs-identifier hs-type">getResourceRequestStatusResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#GetResourceRequestStatusResponse"><span class="hs-identifier hs-type">GetResourceRequestStatusResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-176"></span><span id="getResourceRequestStatusResponse_httpStatus"><span class="annot"><span class="annottext">getResourceRequestStatusResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetResourceRequestStatusResponse
+-&gt; f GetResourceRequestStatusResponse
+</span><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#getResourceRequestStatusResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getResourceRequestStatusResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResourceRequestStatusResponse -&gt; Int)
+-&gt; (GetResourceRequestStatusResponse
+    -&gt; Int -&gt; GetResourceRequestStatusResponse)
+-&gt; Lens
+     GetResourceRequestStatusResponse
+     GetResourceRequestStatusResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#GetResourceRequestStatusResponse%27"><span class="hs-identifier hs-type">GetResourceRequestStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156033"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetResourceRequestStatusResponse' :: GetResourceRequestStatusResponse -&gt; Int
+</span><a href="#local-6989586621679156033"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679156033"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679156032"><span class="annot"><span class="annottext">s :: GetResourceRequestStatusResponse
+</span><a href="#local-6989586621679156032"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#GetResourceRequestStatusResponse%27"><span class="hs-identifier hs-type">GetResourceRequestStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679156031"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679156031"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResourceRequestStatusResponse
+</span><a href="#local-6989586621679156032"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetResourceRequestStatusResponse' :: Int
+</span><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#%24sel%3AhttpStatus%3AGetResourceRequestStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679156031"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#GetResourceRequestStatusResponse"><span class="hs-identifier hs-type">GetResourceRequestStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679156029"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudControl.GetResourceRequestStatus.html#GetResourceRequestStatusResponse"><span class="hs-identifier hs-type">GetResourceRequestStatusResponse</span></a></span></span><span>
+</span><span id="line-181"></span></pre></body></html>
